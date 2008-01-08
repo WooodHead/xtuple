@@ -47,7 +47,7 @@
   <para>When viewing row layouts for the basic Balance Sheet, you are
   presented with the following columns:</para>
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x18dcf50">
+    <listitem>
       <para>Group/Account Name: Lists the Account Groups and Account Types
       used in the report. The two main groups are ASSETS and LIABILITIES AND
       OWNERS EQUITY. All Accounts having Type=Asset are included in the ASSETS
@@ -55,13 +55,13 @@
       having Type=Liability, Type=Equity, and also Net Income are
       included.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18dcf74">
+    <listitem>
       <para>Sub./Summ.: Indicates whether group information will be presented
       as a subtotal or summary line when the report is run. In the basic
       Balance Sheet, all Account Groups are subtotaled--except for the Net
       Income group, which is summarized.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18dcf98">
+    <listitem>
       <para>Oper.: Specifies whether a group will be added to ("+") or
       subtracted from ("-") the group total. In the basic Income Statement,
       LIABILITIES AND OWNERS EQUITY are subtracted from the ASSETS
@@ -103,37 +103,37 @@
   different time bucket available for viewing Balance Sheet
   information:</para>
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x18dd094">
+    <listitem>
       <para>Current: Displays data for the current month (i.e., Accounting
       Period). The month used as the basis for the reporting is specified when
       the report is run. Uses the "FinancialReportMonth" report
       definition.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18dd0b8">
+    <listitem>
       <para>Current, Budget: Displays data for the current month, compared to
       Budget information for the current month. The month used as the basis
       for the reporting is specified when the report is run. Uses the
       "FinancialReportMonthBudget" report definition.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18dd0dc">
+    <listitem>
       <para>Current, Prior Month: Displays data for the current month,
       compared to the prior month end. The month used as the basis for the
       reporting is specified when the report is run. Uses the
       "FinancialReportMonthPriorMonth" report definition.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18dd100">
+    <listitem>
       <para>Current, Prior Quarter: Displays data for the current month,
       compared to the prior Quarter end. The month used as the basis for the
       reporting is specified when the report is run. Uses the
       "FinancialReportMonthPriorQuarter" report definition.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18dd124">
+    <listitem>
       <para>Current, Prior Year: Displays data for the current month, compared
       to the Prior Fiscal Year end. The month used as the basis for the
       reporting is specified when the report is run. Uses the
       "FinancialReportMonthPriorYear" report definition.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18dd148">
+    <listitem>
       <para>Current, Year Ago: Displays data for the current month, compared
       to the same month in the prior Fiscal Year. The month used as the basis
       for the reporting is specified when the report is run. Uses the

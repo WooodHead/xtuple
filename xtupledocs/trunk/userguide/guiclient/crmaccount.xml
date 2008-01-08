@@ -26,13 +26,13 @@
   <variablelist>
     <varlistentry>
       <term>Account Number</term>
-      <listitem id="listitemN0x180ac00N0x18496cc">
+      <listitem>
         <para>The Account Number uniquely identifies the CRM Account.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Account Name</term>
-      <listitem id="listitemN0x180ac00N0x1849714">
+      <listitem>
         <para>Enter the name of the Account you do business with (e.g.,
         Customer Name or Vendor Name). This field should not to be confused
         with the Contact name of an individual at the company.</para>
@@ -40,21 +40,21 @@
     </varlistentry>
     <varlistentry>
       <term>Active</term>
-      <listitem id="listitemN0x180ac00N0x184975c">
+      <listitem>
         <para>Select if you are actively doing business with this Account. Not
         selecting makes the Account inactive.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Parent Account</term>
-      <listitem id="listitemN0x180ac00N0x18497a4">
+      <listitem>
         <para>Enter the Account Number of the CRM Account (if any) which
         serves as the parent for the Account.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Type</term>
-      <listitem id="listitemN0x180ac00N0x18497ec">
+      <listitem>
         <para>Specify one of the following Account Types:</para>
         <variablelist>
           <varlistentry>
@@ -74,7 +74,7 @@
     </varlistentry>
     <varlistentry>
       <term>Relationships</term>
-      <listitem id="listitemN0x180ac00N0x1851a24">
+      <listitem>
         <para>Indicate how the Account relates to your business by selecting
         from the available options. You may select multiple relationships from
         the list:</para>
@@ -148,7 +148,7 @@
   <variablelist>
     <varlistentry>
       <term>Primary Contact</term>
-      <listitem id="listitemN0x180ac00N0x1851ab4">
+      <listitem>
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
         <variablelist>
@@ -199,7 +199,7 @@
     </varlistentry>
     <varlistentry>
       <term>Secondary Contact</term>
-      <listitem id="listitemN0x180ac00N0x1851afc">
+      <listitem>
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
         <variablelist>
@@ -254,21 +254,21 @@
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-      <listitem id="listitemN0x180ac00N0x1851b68">
+      <listitem>
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1851bb0">
+      <listitem>
         <para>Creates the Account and adds it to the list of CRM
         Accounts.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CUSTOMER</term>
-      <listitem id="listitemN0x180ac00N0x1851bf8">
+      <listitem>
         <para>Select to open the Customer master for the Account--if
         applicable. The button will be disabled if the Account does not have a
         Customer relationship defined.</para>
@@ -276,7 +276,7 @@
     </varlistentry>
     <varlistentry>
       <term>PROSPECT</term>
-      <listitem id="listitemN0x180ac00N0x1851c40">
+      <listitem>
         <para>Select to open the Prospect master for the Account--if
         applicable. The button will be disabled if the Account does not have a
         Prospect relationship defined.</para>
@@ -284,7 +284,7 @@
     </varlistentry>
     <varlistentry>
       <term>VENDOR</term>
-      <listitem id="listitemN0x180ac00N0x1851c88">
+      <listitem>
         <para>Select to open the Vendor master for the Account--if applicable.
         The button will be disabled if the Account does not have a Vendor
         relationship defined.</para>
@@ -292,7 +292,7 @@
     </varlistentry>
     <varlistentry>
       <term>TAX AUTHORITY</term>
-      <listitem id="listitemN0x180ac00N0x1851cd0">
+      <listitem>
         <para>Select to open the Customer master for the Account--if
         applicable. The button will be disabled if the Account does not have a
         Customer relationship defined.</para>
@@ -300,7 +300,7 @@
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x1851d18">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the CRM Account. Any Notes entered on this screen are
         for internal purposes only.</para>
@@ -323,7 +323,7 @@
   <variablelist>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x1851df0">
+      <listitem>
         <para>Display lists Comments related to the CRM Account, using the
         specified parameters.</para>
       </listitem>
@@ -334,13 +334,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x1851e5c">
+      <listitem>
         <para>Opens the screen for creating a new CRM Account Comment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x1851ea4">
+      <listitem>
         <para>Opens a read-only view of the CRM Account Comment.</para>
       </listitem>
     </varlistentry>
@@ -358,7 +358,7 @@
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
-      <listitem id="listitemN0x180ac00N0x1851f7c">
+      <listitem>
         <para>Specify one of the following Comment Types from the drop-down
         list: ChangeLog or General. Comment Types are used to categorize
         Comments. Once you have specified a Comment Type, you may type your
@@ -372,14 +372,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1851fe8">
+      <listitem>
         <para>Closes the screen without creating the CRM Account Comment,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1852030">
+      <listitem>
         <para>Creates the Comment and adds it to the list of CRM Account
         Comments.</para>
       </listitem>
@@ -409,7 +409,7 @@
   <variablelist>
     <varlistentry>
       <term>Characteristics</term>
-      <listitem id="listitemN0x180ac00N0x1852198">
+      <listitem>
         <para>Displays the Characteristics related to the CRM Account.</para>
       </listitem>
     </varlistentry>
@@ -419,14 +419,14 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x1852204">
+      <listitem>
         <para>Opens screen for creating a new CRM Account
         Characteristic.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x185224c">
+      <listitem>
         <para>Enables you to edit highlighted CRM Account Characteristics. The
         edit screen is the same as that for creating a new CRM Account
         Characteristic--except that when editing, the fields will contain CRM
@@ -436,7 +436,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x1852294">
+      <listitem>
         <para>Highlight a CRM Account Characteristic and then select this
         button to remove the CRM Account Characteristic from the list.</para>
       </listitem>
@@ -459,7 +459,7 @@
   <variablelist>
     <varlistentry>
       <term>Characteristic</term>
-      <listitem id="listitemN0x180ac00N0x185236c">
+      <listitem>
         <para>Select a Characteristic from the list of Characteristics
         designated as being available for use as CRM Account
         Characteristics.</para>
@@ -467,7 +467,7 @@
     </varlistentry>
     <varlistentry>
       <term>Value</term>
-      <listitem id="listitemN0x180ac00N0x18523b4">
+      <listitem>
         <para>Enter a value to associate with the CRM Account
         Characteristic.</para>
       </listitem>
@@ -478,14 +478,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1852420">
+      <listitem>
         <para>Closes the screen without creating the CRM Account
         Characteristic, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1852468">
+      <listitem>
         <para>Creates the CRM Account Characteristic and adds it to the list
         of CRM Account Characteristics.</para>
       </listitem>
@@ -506,7 +506,7 @@
   <variablelist>
     <varlistentry>
       <term>Contacts</term>
-      <listitem id="listitemN0x180ac00N0x1852540">
+      <listitem>
         <para>Displays all Contacts associated with the CRM Account.</para>
       </listitem>
     </varlistentry>
@@ -595,28 +595,28 @@
   <variablelist>
     <varlistentry>
       <term>Show To-Do List</term>
-      <listitem id="listitemN0x180ac00N0x185a168">
+      <listitem>
         <para>Select to include To-Dos in the display. If not selected, To-Dos
         will not be included.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Show Incidents</term>
-      <listitem id="listitemN0x180ac00N0x185a1b0">
+      <listitem>
         <para>Select to include Incidents in the display. If not selected,
         Incidents will not be included.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Active Only</term>
-      <listitem id="listitemN0x180ac00N0x185a1f8">
+      <listitem>
         <para>Select to include only active To-Dos in the display. If not
         selected, inactive To-Dos will not be included.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Completed</term>
-      <listitem id="listitemN0x180ac00N0x185a240">
+      <listitem>
         <para>Select to include completed Incidents in the display. An
         Incident is considered completed when its status is "Closed." If this
         option is not selected, then completed Incidents will not be
@@ -625,7 +625,7 @@
     </varlistentry>
     <varlistentry>
       <term>To-Do List</term>
-      <listitem id="listitemN0x180ac00N0x185a288">
+      <listitem>
         <para>Displays To-Dos associated with the Account.</para>
       </listitem>
     </varlistentry>
@@ -635,19 +635,19 @@
   <variablelist>
     <varlistentry>
       <term>NEW TO-DO ITEM</term>
-      <listitem id="listitemN0x180ac00N0x185a2f4">
+      <listitem>
         <para>Opens screen for creating a new To-Do List item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW INCIDENT</term>
-      <listitem id="listitemN0x180ac00N0x185a33c">
+      <listitem>
         <para>Open screen for creating a new Incident.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x185a384">
+      <listitem>
         <para>Enables you to edit highlighted To-Do List items or Incidents.
         The edit screen is the same as that for creating a new To-Do List item
         or Incident--except that when editing, the fields will contain To-Do
@@ -657,14 +657,14 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x185a3cc">
+      <listitem>
         <para>Highlight a To-Do List item or Incident and then select this
         button to reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x185a414">
+      <listitem>
         <para>Highlight a To-Do List item or Incident and then select this
         button to remove the association between the To-Do List item/Incident
         and the CRM Account.</para>

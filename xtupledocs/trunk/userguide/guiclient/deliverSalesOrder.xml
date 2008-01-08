@@ -20,7 +20,7 @@
   <variablelist>
     <varlistentry>
       <term>Sales Order #</term>
-      <listitem id="listitemN0x180ac00N0x18d5da8">
+      <listitem>
         <para>Enter the Sales Order Number of the Sales Order you want to
         schedule for email delivery.</para>
       </listitem>
@@ -34,13 +34,13 @@
   <variablelist>
     <varlistentry>
       <term>Report Name</term>
-      <listitem id="listitemN0x180ac00N0x18d5e38">
+      <listitem>
         <para>Specify the Order Form you want to email to the Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>From</term>
-      <listitem id="listitemN0x180ac00N0x18d5e80">
+      <listitem>
         <para>The default address appearing in the "From" field will
         automatically be pre-populated with the email address of the user who
         is currently logged in to the application. User email addresses are
@@ -50,7 +50,7 @@
     </varlistentry>
     <varlistentry>
       <term>Send To</term>
-      <listitem id="listitemN0x180ac00N0x18d5ec8">
+      <listitem>
         <para>If the Customer associated with the selected Sales Order has
         been set up to receive email, then the default email address for that
         Customer will be automatically pre-populated here. Because this is an
@@ -59,7 +59,7 @@
     </varlistentry>
     <varlistentry>
       <term>Subject</term>
-      <listitem id="listitemN0x180ac00N0x18d5f10">
+      <listitem>
         <para>If EDI is set up for the Customer, then the default subject line
         found on the Customer master will be automatically pre-populated here.
         Because this is an editable field, you may modify the subject
@@ -68,7 +68,7 @@
     </varlistentry>
     <varlistentry>
       <term>Filename</term>
-      <listitem id="listitemN0x180ac00N0x18d5f58">
+      <listitem>
         <para>If EDI is set up for the Customer, then the default filename
         found on the Customer master will be automatically pre-populated here.
         Because this is an editable field, you may modify the filename line.
@@ -80,7 +80,7 @@
     </varlistentry>
     <varlistentry>
       <term>Email Body</term>
-      <listitem id="listitemN0x180ac00N0x18d5fa0">
+      <listitem>
         <para>If EDI is set up for the Customer, then the default email body
         found on the Customer master will be automatically pre-populated here.
         This is a scrolling text field with word-wrapping. You may edit the
@@ -93,14 +93,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18d600c">
+      <listitem>
         <para>Closes the screen without scheduling a Sales Order for email
         delivery, returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SUBMIT</term>
-      <listitem id="listitemN0x180ac00N0x18d6054">
+      <listitem>
         <para>Select to submit requested action to the Batch Manager for
         processing. For additional information, see <xref linkend="Anchor61009"/>.</para>
       </listitem>

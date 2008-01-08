@@ -23,21 +23,21 @@
   <variablelist>
     <varlistentry>
       <term>Order #</term>
-      <listitem id="listitemN0x180ac00N0x1930d44">
+      <listitem>
         <para>Displays the Credit Memo number for the current Credit
         Memo.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Line #</term>
-      <listitem id="listitemN0x180ac00N0x1930d8c">
+      <listitem>
         <para>Displays the line number assigned to the Credit Memo
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x1930dd4">
+      <listitem>
         <para>Enter the Item Number of the Item you want to add to the Credit
         Memo. If the Credit Memo is being applied to an Invoice, only those
         Line Items which appeared on the Invoice will be available for
@@ -60,25 +60,25 @@
   <variablelist>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x1930e64">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty. Shipped</term>
-      <listitem id="listitemN0x180ac00N0x1930eac">
+      <listitem>
         <para>Displays the quantity of the Item shipped to date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty. Returned</term>
-      <listitem id="listitemN0x180ac00N0x1930ef4">
+      <listitem>
         <para>Enter the quantity of the Item returned for credit.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty. To Credit</term>
-      <listitem id="listitemN0x180ac00N0x1930f3c">
+      <listitem>
         <para>Enter the quantity of the Item you plan to give the Customer
         credit for. The quantity entered here may equal the quantity returned.
         However, you have the flexibility to credit the Customer for a
@@ -93,7 +93,7 @@
           <primary>credit memos</primary>
           <secondary>pricing of</secondary>
         </indexterm>Net Unit Price</term>
-      <listitem id="listitemN0x180ac00N0x1930fcc">
+      <listitem>
         <para>Specify the Net Unit Price to assign the quantity being
         credited. If the Credit Memo is being applied to a specific Invoice,
         then the system will automatically enter the Item's Net Unit Price as
@@ -112,7 +112,7 @@
   <variablelist>
     <varlistentry>
       <term>Extended Price</term>
-      <listitem id="listitemN0x180ac00N0x193105c">
+      <listitem>
         <para>Displays the Extended Price. The Extended Price for a Credit
         Memo Item is based on the quantity credited multiplied by the
         Price.</para>
@@ -120,7 +120,7 @@
     </varlistentry>
     <varlistentry>
       <term>Tax Type</term>
-      <listitem id="listitemN0x180ac00N0x19310a4">
+      <listitem>
         <para>Specify the Tax Type for the Credit Memo Item. By default, the
         Item's Tax Type corresponding to the Credit Memo's Tax Authority will
         be presented here. The link between Tax Types and Tax Authorities is
@@ -131,7 +131,7 @@
     </varlistentry>
     <varlistentry>
       <term>Tax Code</term>
-      <listitem id="listitemN0x180ac00N0x19310ec">
+      <listitem>
         <para>Specify the Tax Code to be applied to the Credit Memo Item. By
         default, the Tax Code specified in the Tax Selection matrix will be
         displayed here. For a Tax Code to be used, the matrix must have an
@@ -149,7 +149,7 @@
   <variablelist>
     <varlistentry>
       <term>Tax</term>
-      <listitem id="listitemN0x180ac00N0x193117c">
+      <listitem>
         <para>Displays the amount of Tax to be charged for the Credit Memo
         Line Item quantity. Sales Tax is calculated at the Credit Memo Line
         Item level. To get a detailed view of the Tax calculation, click on
@@ -158,7 +158,7 @@
     </varlistentry>
     <varlistentry>
       <term>Reason Code</term>
-      <listitem id="listitemN0x180ac00N0x19311c4">
+      <listitem>
         <para>Specify the reason why an adjustment is being made to a
         Customer's account.</para>
       </listitem>
@@ -172,31 +172,31 @@
   <variablelist>
     <varlistentry>
       <term>Pricing UOM</term>
-      <listitem id="listitemN0x180ac00N0x1931254">
+      <listitem>
         <para>Displays the Item's Price UOM.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ratio</term>
-      <listitem id="listitemN0x180ac00N0x193129c">
+      <listitem>
         <para>Displays the Item's Price/Inventory UOM ratio.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Unit Cost</term>
-      <listitem id="listitemN0x180ac00N0x19312e4">
+      <listitem>
         <para>Displays the Standard Cost per unit.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>List Price</term>
-      <listitem id="listitemN0x180ac00N0x193132c">
+      <listitem>
         <para>Displays the Item's List Price per unit displays.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Sale Price</term>
-      <listitem id="listitemN0x180ac00N0x1931374">
+      <listitem>
         <para>Displays the sold Price for the Item at the time of sale.</para>
       </listitem>
     </varlistentry>
@@ -206,7 +206,7 @@
           <primary>credit memos</primary>
           <secondary>discount pricing for</secondary>
         </indexterm>Discount % from List</term>
-      <listitem id="listitemN0x180ac00N0x1931404">
+      <listitem>
         <para>The default Customer discount (if any) will display here.
         Default Customer discount percentages are defined in the Customer
         master.</para>
@@ -214,7 +214,7 @@
     </varlistentry>
     <varlistentry>
       <term>Discount % from Sale</term>
-      <listitem id="listitemN0x180ac00N0x193144c">
+      <listitem>
         <para>Specify a percentage to reduce the credited amount by. The
         discount will be deducted from the sale Price, thereby reducing the
         amount of the credit by the specified percentage.</para>
@@ -222,7 +222,7 @@
     </varlistentry>
     <varlistentry>
       <term>Receiving Whse</term>
-      <listitem id="listitemN0x180ac00N0x1931494">
+      <listitem>
         <para>Specify the Warehouse returned Inventory will be received into.
         Items designated as Multiple Location Control Items may be received
         into multiple Warehouses. If this is the case, be sure to specify the
@@ -233,7 +233,7 @@
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x19314dc">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Credit Memo Item.</para>
       </listitem>
@@ -244,14 +244,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1931548">
+      <listitem>
         <para>Closes the screen without creating a new Credit Memo Item,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1931590">
+      <listitem>
         <para>Creates the new Credit Memo Item and adds it to the list of
         Credit Memo Line Items.</para>
       </listitem>

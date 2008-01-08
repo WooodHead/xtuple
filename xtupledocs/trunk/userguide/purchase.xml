@@ -6,19 +6,19 @@
   <para>In this chapter, we describe the Purchase module. This module is
   responsible for the following key functions:</para>
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x1819e48">
+    <listitem>
       <para>Purchase Orders</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x1819e6c">
+    <listitem>
       <para>Vouchers</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x1819e90">
+    <listitem>
       <para>Item Sourcing</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x1819eb4">
+    <listitem>
       <para>Vendor Information</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x1819ed8">
+    <listitem>
       <para>Receipts/Returns</para>
     </listitem>
   </itemizedlist>
@@ -44,27 +44,27 @@
     formalize purchase transactions with Vendors. Purchase Orders and/or
     Purchase Order Line Items can have the following statuses:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem id="listitemN0x180ac00N0x185c824">
+      <listitem>
         <para>Unposted ("U"): This is the initial state a Purchase Order
         receives when it is first created. As long as a Purchase Order is
         unposted, it may continue to have additional Line Items added to it.
         The List Unposted Purchase Orders screen will display all unposted
         Purchase Orders.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x185c848">
+      <listitem>
         <para>Open ("O"): The status of a Purchase Order after it has been
         posted. Line Items may no longer be added to a posted Purchase
         Order.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x185c86c">
+      <listitem>
         <para>Received: The status of an open Purchase Order Line Item when
         the full quantity has been received.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x185c890">
+      <listitem>
         <para>Partial: The status of an open Purchase Order Line Item when
         only part of the full quantity has been received.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x185c8b4">
+      <listitem>
         <para>Closed ("C"): The final state of a Purchase Order after it has
         been closed.</para>
       </listitem>

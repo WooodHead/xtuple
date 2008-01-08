@@ -28,7 +28,7 @@
   <variablelist>
     <varlistentry>
       <term>Order #</term>
-      <listitem id="listitemN0x180ac00N0x18b4800">
+      <listitem>
         <para>Next available Transfer Order Number will automatically display,
         unless your system requires you to enter Transfer Order Numbers
         manually. Default values and input parameters for Transfer Order
@@ -37,7 +37,7 @@
     </varlistentry>
     <varlistentry>
       <term>Order Status</term>
-      <listitem id="listitemN0x180ac00N0x18b4848">
+      <listitem>
         <para>Displays the current status of the Transfer Order. Transfer
         Orders may be either Open = "O" or Closed = "C" depending on the
         status of the associated Line Items.</para>
@@ -45,13 +45,13 @@
     </varlistentry>
     <varlistentry>
       <term>Order Date</term>
-      <listitem id="listitemN0x180ac00N0x18b4890">
+      <listitem>
         <para>Displays current day's date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Scheduled Date</term>
-      <listitem id="listitemN0x180ac00N0x18b48d8">
+      <listitem>
         <para>Displays the Order's earliest scheduled date. The scheduled date
         corresponds to the earliest scheduled date for an included Transfer
         Order Item. Because Transfer Orders may contain multiple Transfer
@@ -69,7 +69,7 @@
           <primary>transfer orders</primary>
           <secondary>pack dates for</secondary>
         </indexterm>Pack Date</term>
-      <listitem id="listitemN0x180ac00N0x18b49b0">
+      <listitem>
         <para>The pack date is the same date as the ship date. Because the
         field can be edited, you have the ability to change the pack date and
         make it different from the ship date.</para>
@@ -77,7 +77,7 @@
     </varlistentry>
     <varlistentry>
       <term>Agent</term>
-      <listitem id="listitemN0x180ac00N0x18b49f8">
+      <listitem>
         <para>Specify the Agent associated with the Transfer Order. By
         default, the name of the logged-in user will be entered as Purchasing
         Agent-assuming that user is designated as a Purchasing Agent. If the
@@ -87,7 +87,7 @@
     </varlistentry>
     <varlistentry>
       <term>Project #</term>
-      <listitem id="listitemN0x180ac00N0x18b4a40">
+      <listitem>
         <para>Select a Project Number to associate with the Transfer Order.
         Projects may be used to link Transfer Orders with Work Orders, Sales
         Orders, Purchase Orders, etc.</para>
@@ -98,7 +98,7 @@
           <primary>tax authorities</primary>
           <secondary>for transfer orders</secondary>
         </indexterm>Tax Authority</term>
-      <listitem id="listitemN0x180ac00N0x18b4ad0">
+      <listitem>
         <para>Specify the Tax Authority associated with the Transfer Order.
         The Tax Authority associated with the Destination Warehouse will be
         entered here by default.</para>
@@ -106,7 +106,7 @@
     </varlistentry>
     <varlistentry>
       <term>From Warehouse</term>
-      <listitem id="listitemN0x180ac00N0x18b4b18">
+      <listitem>
         <para>Select a Source Warehouse from the available options. If the
         following Contact and Address information is defined on the Warehouse
         master, then it will be entered automatically; otherwise you may enter
@@ -178,7 +178,7 @@
     </varlistentry>
     <varlistentry>
       <term>To Warehouse</term>
-      <listitem id="listitemN0x180ac00N0x18b4b60">
+      <listitem>
         <para>Select a Destination Warehouse from the available options. If
         the following Contact and Address information is defined on the
         Warehouse master, then it will be entered automatically; otherwise you
@@ -251,7 +251,7 @@
     </varlistentry>
     <varlistentry>
       <term>Ship Complete</term>
-      <listitem id="listitemN0x180ac00N0x18b4ba8">
+      <listitem>
         <para>Select to require that all Transfer Order Line Item quantities
         be issued to Shipping before the Order is shipped. This feature is
         designed to prevent partial shipments. If selected, users will be
@@ -262,7 +262,7 @@
     </varlistentry>
     <varlistentry>
       <term>Ship Via</term>
-      <listitem id="listitemN0x180ac00N0x18b4bf0">
+      <listitem>
         <para>Specify the Ship Via associated with the Transfer Order. You may
         enter a free-form Ship Via simply by typing the name of the Ship Via
         into the field.</para>
@@ -270,7 +270,7 @@
     </varlistentry>
     <varlistentry>
       <term>Shipping Form</term>
-      <listitem id="listitemN0x180ac00N0x18b4c38">
+      <listitem>
         <para>Specify the Shipping Form associated with the Transfer
         Order.</para>
       </listitem>
@@ -280,14 +280,14 @@
   <variablelist>
     <varlistentry>
       <term>SAVE AND ADD TO PACKING LIST BATCH</term>
-      <listitem id="listitemN0x180ac00N0x18b4ca4">
+      <listitem>
         <para>Creates the Transfer Order, saves it, and adds it to the list of
         Orders available for printing on the Packing List Batch.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18b4cec">
+      <listitem>
         <para>Creates the Transfer Order and saves the Transfer Order
         information. The SAVE button must be selected in order to save the
         Transfer Order record. It is not enough to save Transfer Order Line
@@ -296,7 +296,7 @@
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18b4d34">
+      <listitem>
         <para>Closes the screen without creating a new Transfer Order,
         returning you to the application desktop.</para>
       </listitem>
@@ -322,7 +322,7 @@
   <variablelist>
     <varlistentry>
       <term>Line Items</term>
-      <listitem id="listitemN0x180ac00N0x18b4e54">
+      <listitem>
         <para>Display lists Line Items for this Transfer Order.</para>
       </listitem>
     </varlistentry>
@@ -337,7 +337,7 @@
   <variablelist>
     <varlistentry>
       <term>Show Canceled Line Items</term>
-      <listitem id="listitemN0x180ac00N0x18b4ee4">
+      <listitem>
         <para>Select to include in the Line Items display Transfer Order Line
         Items which have been specifically canceled. Displaying canceled Line
         Items can provide useful Order history information.</para>
@@ -345,7 +345,7 @@
     </varlistentry>
     <varlistentry>
       <term>Require sufficient Inventory</term>
-      <listitem id="listitemN0x180ac00N0x18b4f2c">
+      <listitem>
         <para>Select to ensure you have enough Quantity on Hand of a Line Item
         prior to issuing Stock to Shipping. If selected, this option will
         prevent you from issuing Line Item quantity to Shipping if doing so
@@ -356,7 +356,7 @@
     </varlistentry>
     <varlistentry>
       <term>Freight Weight</term>
-      <listitem id="listitemN0x180ac00N0x18b4f74">
+      <listitem>
         <para>Displays the combined weight of all Transfer Order Line Items.
         Freight weight represents the sum of an Item's product weight and
         packaging weight, both of which are defined on the Item master. The
@@ -373,7 +373,7 @@
           <primary>transfer orders</primary>
           <secondary>freight charges on</secondary>
         </indexterm>Line Item Freight Subtotal</term>
-      <listitem id="listitemN0x180ac00N0x18b504c">
+      <listitem>
         <para>Displays the subtotal for all Line Item Freight. Freight charges
         may be added when entering or editing a Transfer Order Line
         Item.</para>
@@ -381,7 +381,7 @@
     </varlistentry>
     <varlistentry>
       <term>Tax</term>
-      <listitem id="listitemN0x180ac00N0x18b5094">
+      <listitem>
         <para>Displays the total amount of Tax to be charged on the Transfer
         Order. Sales Tax is calculated at the Transfer Order Line Item level.
         The Tax amount displayed here represents the total for all Line Item
@@ -391,7 +391,7 @@
     </varlistentry>
     <varlistentry>
       <term>Total</term>
-      <listitem id="listitemN0x180ac00N0x18b50dc">
+      <listitem>
         <para>Displays the total amount of the Transfer Order.</para>
       </listitem>
     </varlistentry>
@@ -406,7 +406,7 @@
   <variablelist>
     <varlistentry>
       <term>CLEAR</term>
-      <listitem id="listitemN0x180ac00N0x18b516c">
+      <listitem>
         <para>Select to clear the contents of the current Transfer Order and
         open a fresh, new Transfer Order for Order entry. The Order Number of
         the Order being cleared will display next to the CLEAR button.</para>
@@ -420,20 +420,20 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18b51fc">
+      <listitem>
         <para>Saves the Transfer Order information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18b5244">
+      <listitem>
         <para>Closes the screen without creating a new Transfer Order,
         returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18b528c">
+      <listitem>
         <para>Opens screen for creating a new Transfer Order Line Item. Mac
         users may use COMMAND + N to enter a new Line Item.</para>
       </listitem>
@@ -470,7 +470,7 @@
           <primary>shipping</primary>
           <secondary>issuing stock to</secondary>
         </indexterm>ISSUE STOCK</term>
-      <listitem id="listitemN0x180ac00N0x18b53f4">
+      <listitem>
         <para>Highlight a Transfer Order Line Item and then select this button
         to issue quantity to Shipping.</para>
       </listitem>
@@ -484,7 +484,7 @@
   <variablelist>
     <varlistentry>
       <term>ISSUE LINE BAL.</term>
-      <listitem id="listitemN0x180ac00N0x18b5484">
+      <listitem>
         <para>Highlight a Transfer Order Line Item and then select this button
         to issue the balance of the Line Item quantity to Shipping.</para>
       </listitem>
@@ -538,7 +538,7 @@
   <variablelist>
     <varlistentry>
       <term>Order Notes</term>
-      <listitem id="listitemN0x180ac00N0x18c9490">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         general Notes related to the Transfer Order. These Notes are for
         internal use only.</para>
@@ -550,13 +550,13 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18c94fc">
+      <listitem>
         <para>Saves the Order Note.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18c9544">
+      <listitem>
         <para>Closes the screen without creating an Order Note, returning you
         to the application desktop.</para>
       </listitem>
@@ -578,7 +578,7 @@
   <variablelist>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x18c961c">
+      <listitem>
         <para>Display lists Comments for the specified Order.</para>
       </listitem>
     </varlistentry>
@@ -588,13 +588,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18c9688">
+      <listitem>
         <para>Opens screen for creating a new Comment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x18c96d0">
+      <listitem>
         <para>Highlight a Comment and then select this button to reach a
         read-only view of the Comment.</para>
       </listitem>
@@ -613,7 +613,7 @@
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
-      <listitem id="listitemN0x180ac00N0x18c97a8">
+      <listitem>
         <para>Specify one of the following Comment Types from the drop-down
         list: ChangeLog or General. Comment Types are used to categorize
         Comments. Once you have specified a Comment Type, you may type your
@@ -627,14 +627,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18c9814">
+      <listitem>
         <para>Closes the screen without creating a new Comment, returning you
         to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18c985c">
+      <listitem>
         <para>Creates the Comment and adds it to the list of Order
         Comments.</para>
       </listitem>
@@ -660,7 +660,7 @@
   <variablelist>
     <varlistentry>
       <term>Shipping Notes</term>
-      <listitem id="listitemN0x180ac00N0x18c9934">
+      <listitem>
         <para>While the content for Shipping Notes may originate from the
         Transit Warehouse master, you can edit the Notes to fit the
         requirements of an Order. This is a scrolling text field with
@@ -673,13 +673,13 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18c99a0">
+      <listitem>
         <para>Saves the Shipping Note.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18c99e8">
+      <listitem>
         <para>Closes the screen without creating a Shipping Note, returning
         you to the application desktop.</para>
       </listitem>
@@ -710,32 +710,32 @@
   <variablelist>
     <varlistentry>
       <term>Item</term>
-      <listitem id="listitemN0x180ac00N0x18c9ae4">
+      <listitem>
         <para>Enter an Inventory Item Number. This field is used for entering
         Items stored in Inventory.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty.</term>
-      <listitem id="listitemN0x180ac00N0x18c9b2c">
+      <listitem>
         <para>Enter the quantity you want to transfer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Standard Cost</term>
-      <listitem id="listitemN0x180ac00N0x18c9b74">
+      <listitem>
         <para>Displays the Standard Cost per unit.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Freight</term>
-      <listitem id="listitemN0x180ac00N0x18c9bbc">
+      <listitem>
         <para>Enter the Freight amount, if any.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Due Date</term>
-      <listitem id="listitemN0x180ac00N0x18c9c04">
+      <listitem>
         <para>Enter the due date.</para>
       </listitem>
     </varlistentry>
@@ -745,14 +745,14 @@
   <variablelist>
     <varlistentry>
       <term>SAVE QUICK ENTRIES</term>
-      <listitem id="listitemN0x180ac00N0x18c9c70">
+      <listitem>
         <para>Select to save all the Line Items entered using the Quick Entry
         interface.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE QUICK ENTRY</term>
-      <listitem id="listitemN0x180ac00N0x18c9cb8">
+      <listitem>
         <para>Highlight a Line Item and then select this button to remove the
         Item from the list.</para>
       </listitem>

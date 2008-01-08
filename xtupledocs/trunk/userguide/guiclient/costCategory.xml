@@ -27,19 +27,19 @@
   <variablelist>
     <varlistentry>
       <term>Category</term>
-      <listitem id="listitemN0x180ac00N0x184503c">
+      <listitem>
         <para>Enter the Cost Category name.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Description</term>
-      <listitem id="listitemN0x180ac00N0x1845084">
+      <listitem>
         <para>Enter a brief description of the Cost Category.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Inventory Asset</term>
-      <listitem id="listitemN0x180ac00N0x18450cc">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to distribute Inventory
         assets to. This is an Asset Account. It will be debited when Inventory
         is received and credited whenever Inventory Items are removed from
@@ -48,7 +48,7 @@
     </varlistentry>
     <varlistentry>
       <term>WIP Asset</term>
-      <listitem id="listitemN0x180ac00N0x1845114">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to distribute
         work-in-process (WIP) assets to. This is an Asset Account. It will be
         credited and/or debited with labor, material, and <indexterm
@@ -62,7 +62,7 @@
     </varlistentry>
     <varlistentry>
       <term>Inventory Cost Variance</term>
-      <listitem id="listitemN0x180ac00N0x18451a4">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to distribute Inventory
         Cost variances to. This is an Asset Account. It is used in several
         scenarios: 1) If there is a difference between new Actual Cost and old
@@ -77,7 +77,7 @@
     </varlistentry>
     <varlistentry>
       <term>Transform Clearing</term>
-      <listitem id="listitemN0x180ac00N0x18451ec">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to distribute Transform
         transactions to. This is an Asset Account. It will be credited when a
         source Item quantity is transformed, and debited for an equal amount
@@ -86,7 +86,7 @@
     </varlistentry>
     <varlistentry>
       <term>Purchase Price Variance</term>
-      <listitem id="listitemN0x180ac00N0x184da24">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to distribute purchase
         Price variances to. This is an Asset Account. It will be credited or
         debited with the value of any variance that may arise when a Voucher
@@ -96,7 +96,7 @@
     </varlistentry>
     <varlistentry>
       <term>Inventory Adjustment</term>
-      <listitem id="listitemN0x180ac00N0x184da6c">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to distribute Inventory
         adjustments to. This is an Expense Account. It will be credited or
         debited with the value of any variance that may arise when a
@@ -107,7 +107,7 @@
     </varlistentry>
     <varlistentry>
       <term>Inventory Scrap</term>
-      <listitem id="listitemN0x180ac00N0x184dab4">
+      <listitem>
         <para>Identify a G/L Account to distribute Inventory Scrap to. This is
         an Expense Account. It will be credited when a Scrap transaction is
         posted against an Item.</para>
@@ -115,7 +115,7 @@
     </varlistentry>
     <varlistentry>
       <term>Manufacturing Scrap</term>
-      <listitem id="listitemN0x180ac00N0x184dafc">
+      <listitem>
         <para>Identify a G/L Account to distribute Manufacturing Scrap to.
         This is an Expense Account. It will be credited when Work Order
         Material Requirements are scrapped from a Work Order.</para>
@@ -123,7 +123,7 @@
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Labor and Overhead Costs</term>
-      <listitem id="listitemN0x180ac00N0x184db20">
+      <listitem>
         <para>Overhead Costs: Identify a General Ledger (G/L) Account to
         distribute labor and overhead Costs to. This is a Liability Account.
         It will be debited and/or credited with labor and overhead Costs when
@@ -133,7 +133,7 @@
     </varlistentry>
     <varlistentry>
       <term>P/O Liability Clearing</term>
-      <listitem id="listitemN0x180ac00N0x184db68">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to distribute Purchase
         Order liability clearing to. This is a Liability Account. It will be
         credited when a Purchase Order Receipt is posted and debited when a
@@ -142,7 +142,7 @@
     </varlistentry>
     <varlistentry>
       <term>Shipping Asset</term>
-      <listitem id="listitemN0x180ac00N0x184dbb0">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to distribute shipping
         assets to. This is an Asset Account. It will be debited with the
         Standard Cost of a Sales Order Item when the Item is issued to
@@ -151,7 +151,7 @@
     </varlistentry>
     <varlistentry>
       <term>Line Freight Expense</term>
-      <listitem id="listitemN0x180ac00N0x184dbf8">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to distribute Purchase
         Order or Transfer Order Line Item freight expenses to. This is an
         Expense Account. It will be debited when Purchase Order or Transfer
@@ -176,14 +176,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x184dc64">
+      <listitem>
         <para>Closes the screen without creating a Cost Category, returning
         you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x184dcac">
+      <listitem>
         <para>Creates the Cost Category and adds it to the master list of Cost
         Categories.</para>
       </listitem>

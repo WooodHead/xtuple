@@ -1,111 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518753" role="openmfg">
   <title>Time-Phased Production by Planner Code</title>
-
   <para>To view time-phased production by Planner Code, select the
   "Time-Phased Production by Planner Code" option. The following screen will
   appear:</para>
-
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic519988" fileref="images/dspTimePhasedProductionByPlannerCode.png"/>
+          <imagedata fileref="images/dspTimePhasedProductionByPlannerCode.png"
+                     id="dspTimePhasedProductionByPlannerCode.imagedata" />
         </imageobject>
-
-        <caption id="Caption519991">Time-Phased Production by Planner
-        Code</caption>
+        <caption id="dspTimePhasedProductionByPlannerCode.caption">Time-Phased
+        Production by Planner Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
-
+    </screenshot></para>
   <para>When displaying time-phased production by Planner Code, you are
   presented with the following options:</para>
-
   <variablelist>
     <varlistentry>
       <term>All Warehouses</term>
-
       <listitem>
         <para>Select to display time-phased production by Planner Code for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Selected</term>
-
       <listitem>
         <para>Specify Warehouse whose time-phased production by Planner Code
         you want to display.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>All Planner Codes</term>
-
       <listitem>
         <para>Select to display time-phased production for all Planner
         Codes.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Selected</term>
-
       <listitem>
         <para>Specify Planner Code whose time-phased production you want to
         display.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Pattern</term>
-
       <listitem>
         <para>Enter a Planner Code pattern to select a range of Planner Codes.
-        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Inventory Units</term>
-
       <listitem>
         <para>Select to display Inventory Units of Measure.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Capacity Units</term>
-
       <listitem>
         <para>Select to display Capacity Units of Measure.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Alt. Capacity Units</term>
-
       <listitem>
         <para>Capacity Units: Select to display Alternate Capacity Units of
         Measure.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Calendar</term>
-
       <listitem>
         <para>Select the Calendar you want to use for the report. Associated
         Calendar periods will be displayed.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Name/Selected Periods</term>
-
       <listitem>
         <para>Select as many periods as you want to display. Selected periods
         correspond to Calendar specified in the "Calendar" field. Select
@@ -122,72 +99,60 @@
         selected. The entire group is now selected.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Show Inactive Item Sites</term>
-
       <listitem>
         <para>Select to include inactive Item Sites in the display.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Production</term>
-
       <listitem>
         <para>Display lists time-phased production by Planner Code, using the
         specified parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>To the far right of the screen, the following buttons are
   available:</para>
-
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-
       <listitem>
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>QUERY</term>
-
       <listitem>
         <para>Select to generate the display, using the specified parameters.
         Start date and end date must be entered for calculation to proceed.
         Results will be displayed in the "Production" display.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>PRINT</term>
-
       <listitem>
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry role="openmfg">
       <term>SUBMIT</term>
-
       <listitem>
         <para>Select to submit report to the Batch Manager. For additional
-        information, see <xref linkend="Anchor61009"/>.</para>
+        information, see <xref linkend="Anchor61009" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>Right-clicking on a Planner Code in the Production list enables you to
   select from the following menu options:</para>
-
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewTransaction)"/>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewTransaction)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

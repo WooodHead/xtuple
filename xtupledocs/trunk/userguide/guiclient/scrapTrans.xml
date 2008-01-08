@@ -24,33 +24,33 @@
   <variablelist>
     <varlistentry>
       <term>Transaction Date</term>
-      <listitem id="listitemN0x180ac00N0x1897f34">
+      <listitem>
         <para>Displays the current day's date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x1897f7c">
+      <listitem>
         <para>Enter the Item Number of the Item you want to enter a Scrap
         transaction for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x1897fc4">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Warehouse</term>
-      <listitem id="listitemN0x180ac00N0x189800c">
+      <listitem>
         <para>Specify Warehouse where the Item Site for the Scrap transaction
         is located.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Scrap Qty.</term>
-      <listitem id="listitemN0x180ac00N0x1898054">
+      <listitem>
         <para>Enter the quantity of Inventory UOM identified as Scrap. The
         number entered will appear as a deduction in the "After" column.
         Non-netable Quantity on Hand is not included in these values.</para>
@@ -58,7 +58,7 @@
     </varlistentry>
     <varlistentry>
       <term>Document #</term>
-      <listitem id="listitemN0x180ac00N0x189809c">
+      <listitem>
         <para>Creates a user-defined reference for the Scrap transaction. The
         Document reference will be posted with the General Ledger (G/L)
         transaction record when the Scrap transaction is generated. This field
@@ -67,7 +67,7 @@
     </varlistentry>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x18980e4">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Scrap transaction.</para>
       </listitem>
@@ -78,14 +78,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1898150">
+      <listitem>
         <para>Closes the screen without posting an Inventory Scrap
         transaction, returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>POST</term>
-      <listitem id="listitemN0x180ac00N0x1898198">
+      <listitem>
         <para>Posts the Scrap transaction. Generates an Inventory Scrap
         transaction and decrements Quantity on Hand. Additional steps will be
         necessary if the specified Item is stored in multiple Locations. For

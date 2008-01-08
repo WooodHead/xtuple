@@ -25,14 +25,14 @@
   <variablelist>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x18996f4">
+      <listitem>
         <para>Enter the Item Number of the manufactured Item you want to
         create a Work Order for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x189973c">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
@@ -41,28 +41,28 @@
           <primary>item sources</primary>
           <secondary>vendors identified as</secondary>
         </indexterm>Vendor</term>
-      <listitem id="listitemN0x180ac00N0x18997cc">
+      <listitem>
         <para>Enter the Vendor Number of the Vendor who is the source for the
         specified Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Vendor Item Number</term>
-      <listitem id="listitemN0x180ac00N0x1899814">
+      <listitem>
         <para>Enter the Item Number the Vendor uses to identify the
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Vendor UOM</term>
-      <listitem id="listitemN0x180ac00N0x189985c">
+      <listitem>
         <para>Enter the Unit of Measure the Vendor uses for the specified
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Inventory/Vendor UOM Ratio</term>
-      <listitem id="listitemN0x180ac00N0x18998a4">
+      <listitem>
         <para>/Vendor UOM Ratio: Specify the ratio between Inventory and
         Vendor Units of Measure (UOM). For example, if you store an Item in
         single units, but a Vendor sells you the Item in cases of 12, then you
@@ -80,7 +80,7 @@
     </varlistentry>
     <varlistentry>
       <term>Minimum Order</term>
-      <listitem id="listitemN0x180ac00N0x18998ec">
+      <listitem>
         <para>Indicate the minimum Order allowed for the specified Item. A
         warning message will be shown if a Purchase Order Line Item falls
         below the minimum Order value entered here.</para>
@@ -88,7 +88,7 @@
     </varlistentry>
     <varlistentry>
       <term>Order Multiple</term>
-      <listitem id="listitemN0x180ac00N0x1899934">
+      <listitem>
         <para>Value entered indicates the quantity multiple that Orders for
         this Item must use. A warning message will be shown if a Purchase
         Order Line Item does not conform to the Order multiple entered
@@ -109,7 +109,7 @@
           <primary>ranking</primary>
           <secondary>of vendors</secondary>
         </indexterm>Vendor Ranking</term>
-      <listitem id="listitemN0x180ac00N0x1899a9c">
+      <listitem>
         <para>Specify the Vendor's rank using the arrow buttons, or manually
         enter a value up to a maximum of 9. The ranking of a Vendor is used to
         identify the relative merits of Item Sources when releasing Purchase
@@ -124,7 +124,7 @@
           <primary>item sources</primary>
           <secondary>lead times for</secondary>
         </indexterm>Lead Time</term>
-      <listitem id="listitemN0x180ac00N0x1899b2c">
+      <listitem>
         <para>Specify the lead time for the Vendor Item using the arrow
         buttons, or manually enter a value up to a maximum of 99. Specifies
         the Lead Time the Vendor requires to supply the specified Item,
@@ -133,7 +133,7 @@
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x1899b74">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Item Source.</para>
       </listitem>
@@ -144,14 +144,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1899be0">
+      <listitem>
         <para>Closes the screen without creating an Item Source, returning you
         to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1899c28">
+      <listitem>
         <para>Saves the Item Source and adds it to the master list of Item
         Sources.</para>
       </listitem>
@@ -180,7 +180,7 @@
   <variablelist>
     <varlistentry>
       <term>Prices</term>
-      <listitem id="listitemN0x180ac00N0x1899d90">
+      <listitem>
         <para>Display lists Item Source Prices for the specified Item
         Source.</para>
       </listitem>
@@ -191,14 +191,14 @@
   <variablelist>
     <varlistentry>
       <term>ADD</term>
-      <listitem id="listitemN0x180ac00N0x1899dfc">
+      <listitem>
         <para>Opens screen for creating a new Item Source Price, as shown
         below.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x1899e44">
+      <listitem>
         <para>Enables you to edit highlighted Item Source Price. The edit
         screen is the same as that for creating a new Item Source
         Price--except that when editing, the fields will contain Item Source
@@ -208,7 +208,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x1899e8c">
+      <listitem>
         <para>Highlight an Item Source Price and then select this button to
         remove the Item Source Price from the list.</para>
       </listitem>
@@ -231,7 +231,7 @@
   <variablelist>
     <varlistentry>
       <term>Vendor Description</term>
-      <listitem id="listitemN0x180ac00N0x189a180">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Vendor.</para>
       </listitem>
@@ -242,14 +242,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x189a1ec">
+      <listitem>
         <para>Closes the screen without creating an Item Source, returning you
         to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18a2424">
+      <listitem>
         <para>Saves the Vendor description and associates it with the Item
         Source.</para>
       </listitem>

@@ -23,19 +23,19 @@
   <variablelist>
     <varlistentry>
       <term>Category</term>
-      <listitem id="listitemN0x180ac00N0x184e174">
+      <listitem>
         <para>Enter the Expense Category name.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Description</term>
-      <listitem id="listitemN0x180ac00N0x184e1bc">
+      <listitem>
         <para>Enter a brief description of the Expense Category.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Active</term>
-      <listitem id="listitemN0x180ac00N0x184e204">
+      <listitem>
         <para>Select to show the Expense Category as active. Not selecting
         means the Expense Category will be considered inactive. To re-activate
         an Expense Category, simply select this option.</para>
@@ -43,7 +43,7 @@
     </varlistentry>
     <varlistentry>
       <term>Expense</term>
-      <listitem id="listitemN0x180ac00N0x184e24c">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to distribute Purchasing
         Expenses to. This is an Expense Account. It will be debited when
         transactions using Expense Categories are posted.</para>
@@ -51,7 +51,7 @@
     </varlistentry>
     <varlistentry>
       <term>Purchase Price Variance</term>
-      <listitem id="listitemN0x180ac00N0x184e294">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to distribute purchase
         Price variances to. This is an Asset Account. It will be credited or
         debited with the value of any variance that may arise when a Voucher
@@ -60,7 +60,7 @@
     </varlistentry>
     <varlistentry>
       <term>P/O Liability Clearing</term>
-      <listitem id="listitemN0x180ac00N0x184e2dc">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to distribute Purchase
         Order liability clearing to. This is a Liability Account. It will be
         credited when non-Inventory Items are received, and debited when a
@@ -73,14 +73,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x184e348">
+      <listitem>
         <para>Closes the screen without creating an Expense Category,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x184e390">
+      <listitem>
         <para>Creates the Expense Category and adds it to the master list of
         Expense Categories.</para>
       </listitem>

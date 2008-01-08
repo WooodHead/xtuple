@@ -1,79 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section575574">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>trial balances</primary>
       <secondary>forward-updating of</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>accounts</primary>
       <secondary>forward-updating of</secondary>
     </indexterm>Forward Update Accounts</title>
-  <para>The Forward Update utility forward-updates Account
-  balances from the first Accounting Period when an Account is used all the
-  way forward to the current Period. Balances cannot be forward-updated into
-  future Accounting Periods. This utility offers a convenient method for
-  performing forward updates in batch mode, if required. Account balances may
-  also be forward-updated using the right-click menu found on the Trial
-  Balances display. To forward-update multiple Accounts at one time, select
-  the "Forward Update Accounts" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>The Forward Update utility forward-updates Account balances from the
+  first Accounting Period when an Account is used all the way forward to the
+  current Period. Balances cannot be forward-updated into future Accounting
+  Periods. This utility offers a convenient method for performing forward
+  updates in batch mode, if required. Account balances may also be
+  forward-updated using the right-click menu found on the Trial Balances
+  display. To forward-update multiple Accounts at one time, select the
+  "Forward Update Accounts" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic575592" fileref="images/forwardUpdateAccounts.png"/>
+          <imagedata fileref="images/forwardUpdateAccounts.png"
+                     id="forwardUpdateAccounts.imagedata" />
         </imageobject>
         <caption id="Caption575595">Forward Update Utility</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>When forward-updating Revenue and Expense Accounts,
-    keep in mind that the system will automatically reset the beginning
-    balances for these Account Types to $0 at the start of a new Fiscal
-    Year.</para>
+    <para>When forward-updating Revenue and Expense Accounts, keep in mind
+    that the system will automatically reset the beginning balances for these
+    Account Types to $0 at the start of a new Fiscal Year.</para>
   </note>
-  <para>When forward-updating multiple Accounts, you are
-  presented with the following options:</para>
+  <para>When forward-updating multiple Accounts, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Accounts</term>
-      <listitem id="listitemN0x180ac00N0x1924690">
+      <listitem>
         <para>Select to forward-update all G/L Accounts.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Selected Account</term>
-      <listitem id="listitemN0x180ac00N0x19246d8">
+      <listitem>
         <para>Specify the G/L Account whose Trial Balance you want to
         display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Account Type</term>
-      <listitem id="listitemN0x180ac00N0x1924720">
+      <listitem>
         <para>Specify the Account Type whose Accounts you want to
         forward-update.</para>
-        <para>The following selections are available: Asset,
-        Liability, Expense, Revenue, and Equity.</para>
+        <para>The following selections are available: Asset, Liability,
+        Expense, Revenue, and Equity.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-      <listitem id="listitemN0x180ac00N0x192478c">
+      <listitem>
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UPDATE</term>
-      <listitem id="listitemN0x180ac00N0x19247d4">
+      <listitem>
         <para>Select to forward-update Accounts, using the specified
         parameters.</para>
       </listitem>

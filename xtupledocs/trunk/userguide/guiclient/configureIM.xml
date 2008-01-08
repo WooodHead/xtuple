@@ -24,7 +24,7 @@
           <primary>event fences</primary>
           <secondary>default for item sites</secondary>
         </indexterm>Defaults</term>
-      <listitem id="listitemN0x180ac00N0x189a2d0">
+      <listitem>
         <para>Specify a default Event Fence:</para>
         <variablelist>
           <varlistentry>
@@ -41,21 +41,21 @@
     </varlistentry>
     <varlistentry>
       <term>Post Item Site Changes to the Change Log</term>
-      <listitem id="listitemN0x180ac00N0x189a318">
+      <listitem>
         <para>Select to post to the Change Log any changes made to Item Site
         masters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Post Warehouse Changes to the Change Log</term>
-      <listitem id="listitemN0x180ac00N0x189a360">
+      <listitem>
         <para>Select to post to the Change Log any changes made to Warehouse
         masters.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Enable Multiple Warehouses</term>
-      <listitem id="listitemN0x180ac00N0x189a384">
+      <listitem>
         <para>Select to allow more than one Warehouse to be entered in the
         system. If multiple Warehouses are not enabled, your system will be
         single Warehouse only. Users will be prevented from creating more than
@@ -65,7 +65,7 @@
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Transfer Order # Generation</term>
-      <listitem id="listitemN0x180ac00N0x189a3a8">
+      <listitem>
         <para>If multiple Warehouses are enabled, select one of the available
         Transfer Order Number generation methods:</para>
         <variablelist>
@@ -100,7 +100,7 @@
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Next #</term>
-      <listitem id="listitemN0x180ac00N0x189a3cc">
+      <listitem>
         <para>The next sequentially available Transfer Order Number will
         display here. You may change the number--creating a new basis for the
         next Transfer Order Number--by typing the new number into this field.
@@ -110,7 +110,7 @@
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Default Transit Warehouse</term>
-      <listitem id="listitemN0x180ac00N0x189a3f0">
+      <listitem>
         <para>If multiple Warehouses are enabled, specify the default Transit
         Warehouse. The specified Warehouse will be pre-selected by default
         whenever Transfer Orders are entered.</para>
@@ -118,7 +118,7 @@
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Enable Lot/Serial Control</term>
-      <listitem id="listitemN0x180ac00N0x189a414">
+      <listitem>
         <para>Select to enable Lot/Serial tracking capability in the system.
         If not selected, users will be prevented from creating Item Sites
         having either the Lot or Serial control method. Without the ability to
@@ -135,7 +135,7 @@
           <primary>count slips</primary>
           <secondary>count tag discrepancies and</secondary>
         </indexterm>When Count Tag Qty. exceeds Slip Qty</term>
-      <listitem id="listitemN0x180ac00N0x189a4ec">
+      <listitem>
         <para>Select one of the following options for handling discrepancies
         in count quantities:</para>
         <variablelist>
@@ -171,7 +171,7 @@
           <primary>count slips</primary>
           <secondary>auditing of</secondary>
         </indexterm>Count Slip # Auditing</term>
-      <listitem id="listitemN0x180ac00N0x189a5c4">
+      <listitem>
         <para>Select one of the following Count Slip number auditing
         methods:</para>
         <variablelist>
@@ -232,13 +232,13 @@
   <variablelist>
     <varlistentry>
       <term>Shipment # Generation</term>
-      <listitem id="listitemN0x180ac00N0x18b2460">
+      <listitem>
         <para>By default, Shipment Numbers are generated automatically.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Next #</term>
-      <listitem id="listitemN0x180ac00N0x18b24a8">
+      <listitem>
         <para>Enter the next Shipment Number to be used. The system assigns
         Shipment Numbers to Sales Order Line Item quantities when stock is
         issued to Shipping. All stock at Shipping for an individual Sales
@@ -248,7 +248,7 @@
     </varlistentry>
     <varlistentry>
       <term>Disallow P/O Receipt of Qty greater than ordered</term>
-      <listitem id="listitemN0x180ac00N0x18b24f0">
+      <listitem>
         <para>Select to ensure the maximum receiving quantity does not exceed
         the quantity ordered. If selected, the system will prevent users from
         receiving more Purchase Order Line Item quantity than the quantity
@@ -258,7 +258,7 @@
     </varlistentry>
     <varlistentry>
       <term>Warn if P/O Receipt Qty differs from receivable Qty</term>
-      <listitem id="listitemN0x180ac00N0x18b2538">
+      <listitem>
         <para>Select to generate a warning message if the entered quantity to
         receive does not match the quantity remaining to be received. The
         warning message will alert users that a difference exists. However, it
@@ -277,7 +277,7 @@
     </varlistentry>
     <varlistentry>
       <term>Default Shipping Form Copies</term>
-      <listitem id="listitemN0x180ac00N0x18b2580">
+      <listitem>
         <para>Indicate the number of Shipping Form copies you want to print by
         default:</para>
         <variablelist>
@@ -298,14 +298,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x189a630">
+      <listitem>
         <para>Cancels any configuration settings, returning you to the
         application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x189a678">
+      <listitem>
         <para>Saves the configuration settings, returning you to the
         application desktop.</para>
       </listitem>

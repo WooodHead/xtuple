@@ -23,7 +23,7 @@
   <variablelist>
     <varlistentry>
       <term>Next A/P Memo #</term>
-      <listitem id="listitemN0x180ac00N0x18ba734">
+      <listitem>
         <para>The next sequentially available Accounts Payable Memo Number
         will display here. You may change the number--creating a new basis for
         the next A/P Memo Number--by typing the new number into this
@@ -46,7 +46,7 @@
   <variablelist>
     <varlistentry>
       <term>Next A/R Memo #</term>
-      <listitem id="listitemN0x180ac00N0x18ba92c">
+      <listitem>
         <para>The next sequentially available Accounts Receivable Memo Number
         will display here. You may change the number--creating a new basis for
         the next A/R Memo Number--by typing the new number into this
@@ -55,7 +55,7 @@
     </varlistentry>
     <varlistentry>
       <term>Hide "Apply to Balance" button</term>
-      <listitem id="listitemN0x180ac00N0x18ba974">
+      <listitem>
         <para>Select if you want to hide the APPLY TO BALANCE button on the
         "Enter Cash Receipt" screen. If this option is selected, users will be
         required to apply Cash Receipts manually to individual open A/R
@@ -64,7 +64,7 @@
     </varlistentry>
     <varlistentry>
       <term>Enable Customer Deposits</term>
-      <listitem id="listitemN0x180ac00N0x18ba9bc">
+      <listitem>
         <para>Select if you want unapplied Cash Receipts from Customers to be
         handled by a Deferred Revenue Account. If selected, the A/R Account
         Assignments screen will include a Deferred Revenue Account option. Not
@@ -77,7 +77,7 @@
     </varlistentry>
     <varlistentry>
       <term>Remit-To Address</term>
-      <listitem id="listitemN0x180ac00N0x18baa04">
+      <listitem>
         <para>The Remit-To Address is used in multiple report definitions.
         Specify details to be used for your site's default Remit-To
         Address:</para>
@@ -133,16 +133,16 @@
   multi-segment approach to defining General Ledger accounts. The various
   segments include the following:</para>
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x18bab6c">
+    <listitem>
       <para>Base Account Segment</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18bab90">
+    <listitem>
       <para>Company Segment</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18babb4">
+    <listitem>
       <para>Profit Center</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18babd8">
+    <listitem>
       <para>Subaccount</para>
     </listitem>
   </itemizedlist>
@@ -170,7 +170,7 @@
   <variablelist>
     <varlistentry>
       <term>Main Segment Size</term>
-      <listitem id="listitemN0x180ac00N0x18bacd4">
+      <listitem>
         <para>Specify a main Segment size value between 3 and 10. This setting
         defines how large the base Account Number portion should be. For
         example, if you specify "4" here, then your Account Numbers would
@@ -275,7 +275,7 @@
   <variablelist>
     <varlistentry>
       <term>Allow manual entry of G/L Account Numbers</term>
-      <listitem id="listitemN0x180ac00N0x18bae84">
+      <listitem>
         <para>Select to enable users to manually enter G/L Account Numbers
         wherever G/L Account Numbers may be entered. If not selected, users
         will be required to use a browse button to select G/L Account Numbers
@@ -291,14 +291,14 @@
   <variablelist>
     <varlistentry>
       <term>Default Tax Authority</term>
-      <listitem id="listitemN0x180ac00N0x18baf14">
+      <listitem>
         <para>Specify the default Tax Authority to be used when setting up
         Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Retained Earnings, Year End Account</term>
-      <listitem id="listitemN0x180ac00N0x18baf5c">
+      <listitem>
         <para>Select a valid General Ledger Account. This is an Equity
         Account. It will be credited if retained earnings are positive--and
         debited if retained earnings are negative. The retained earnings
@@ -317,7 +317,7 @@
   <variablelist>
     <varlistentry>
       <term>Currency Gain/Loss Account</term>
-      <listitem id="listitemN0x180ac00N0x18c3800">
+      <listitem>
         <para>Select a valid General Ledger Account. This is an Expense
         Account. It will debited for Currency gains and credited for Currency
         losses arising from fluctuating Exchange Rates. Currency gains/losses
@@ -332,7 +332,7 @@
     </varlistentry>
     <varlistentry>
       <term>G/L Series Discrepancy Account</term>
-      <listitem id="listitemN0x180ac00N0x18c3848">
+      <listitem>
         <para>Select a valid General Ledger Account. This is an Expense
         Account. It will be debited or credited if rounding errors cause
         discrepancies when multiple line item (i.e., series) transactions are
@@ -343,7 +343,7 @@
     </varlistentry>
     <varlistentry>
       <term>Meaning of Currency Exchange Rates</term>
-      <listitem id="listitemN0x180ac00N0x18c3890">
+      <listitem>
         <para>Specify how you want Exchange Rates to be implemented and also
         displayed on the Exchange Rates master list:</para>
         <variablelist>
@@ -368,14 +368,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18c38fc">
+      <listitem>
         <para>Cancels any configuration settings, returning you to the
         application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18c3944">
+      <listitem>
         <para>Saves the configuration settings, returning you to the
         application desktop.</para>
       </listitem>

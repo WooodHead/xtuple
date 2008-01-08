@@ -33,20 +33,20 @@
   <variablelist>
     <varlistentry>
       <term>Sales Order #</term>
-      <listitem id="listitemN0x180ac00N0x19033b0">
+      <listitem>
         <para>Enter the Sales Order Number of the Sales Order you want to
         select for billing.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Order Date</term>
-      <listitem id="listitemN0x180ac00N0x19033f8">
+      <listitem>
         <para>Displays the original Sales Order date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ship Date</term>
-      <listitem id="listitemN0x180ac00N0x1903440">
+      <listitem>
         <para>By default, the most-recent ship date will appear in the field.
         You may override the default value by entering ship date information
         manually.</para>
@@ -54,7 +54,7 @@
     </varlistentry>
     <varlistentry>
       <term>Invoice Date</term>
-      <listitem id="listitemN0x180ac00N0x1903488">
+      <listitem>
         <para>By default, the current (today"s) date will appear in the field.
         You may override the default value by entering Invoice date
         information manually.</para>
@@ -62,19 +62,19 @@
     </varlistentry>
     <varlistentry>
       <term>Cust. Name</term>
-      <listitem id="listitemN0x180ac00N0x19034d0">
+      <listitem>
         <para>Name: Displays Customer's name.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Cust. Phone</term>
-      <listitem id="listitemN0x180ac00N0x1903518">
+      <listitem>
         <para>Phone: Displays Customer's phone number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>P/O Number</term>
-      <listitem id="listitemN0x180ac00N0x1903560">
+      <listitem>
         <para>Displays purchase for the specified Sales Order. Indicates the
         Customer Purchase Order Number assigned to the specified Sales
         Order.</para>
@@ -82,13 +82,13 @@
     </varlistentry>
     <varlistentry>
       <term>Ship-To Name</term>
-      <listitem id="listitemN0x180ac00N0x19035a8">
+      <listitem>
         <para>Displays Ship-To name.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Show Closed Line Items</term>
-      <listitem id="listitemN0x180ac00N0x19035f0">
+      <listitem>
         <para>Select to show closed Line Items in the "Line Items"
         display.</para>
       </listitem>
@@ -98,7 +98,7 @@
           <primary>billing</primary>
           <secondary>at line item level</secondary>
         </indexterm>Line Items</term>
-      <listitem id="listitemN0x180ac00N0x1903680">
+      <listitem>
         <para>Displays the Sales Order Line Items selected for billing.
         Double-clicking on a Line Item--or highlighting it and selecting the
         EDIT SELECTION button--enables you to select a billing quantity for
@@ -115,7 +115,7 @@
   <variablelist>
     <varlistentry>
       <term>Ship Via</term>
-      <listitem id="listitemN0x180ac00N0x1903710">
+      <listitem>
         <para>By default, the preferred Ship Via method for specified Customer
         will appear in the field. You may enter a free-form Ship Via simply by
         typing the name of the Ship Via into the field. Default Ship Vias may
@@ -130,19 +130,19 @@
   <variablelist>
     <varlistentry>
       <term>Close all Open Items</term>
-      <listitem id="listitemN0x180ac00N0x19037a0">
+      <listitem>
         <para>Select to close all open Sales Order Line Items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Subtotal</term>
-      <listitem id="listitemN0x180ac00N0x19037e8">
+      <listitem>
         <para>Displays the subtotal for the Sales Order Line Items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Sales Tax</term>
-      <listitem id="listitemN0x180ac00N0x1903830">
+      <listitem>
         <para>Displays the amount of Tax that will be added to the Sales
         Order, as defined by the specified Tax Code. To get a detailed view of
         the Tax calculation, click on the Tax link using your mouse.</para>
@@ -153,7 +153,7 @@
           <primary>billing</primary>
           <secondary>related charges for</secondary>
         </indexterm>Misc. Charge Amount</term>
-      <listitem id="listitemN0x180ac00N0x19038c0">
+      <listitem>
         <para>Enter the amount of the miscellaneous charge. Before entering a
         miscellaneous charge amount, you must first assign the charge to a
         Sales Account and also enter a description of the charge.</para>
@@ -161,20 +161,20 @@
     </varlistentry>
     <varlistentry>
       <term>Misc. Charge Description</term>
-      <listitem id="listitemN0x180ac00N0x1903908">
+      <listitem>
         <para>Enter a description to identify the miscellaneous charge.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Misc. Charge Sales Account</term>
-      <listitem id="listitemN0x180ac00N0x1903950">
+      <listitem>
         <para>Enter a Sales Account to assign the miscellaneous charge
         to.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Freight</term>
-      <listitem id="listitemN0x180ac00N0x1903998">
+      <listitem>
         <para>Enter the amount of freight charge to be added to the specified
         Order. The freight charge may be entered during the creation or
         modification of a Sales Order--or at the time of shipment.</para>
@@ -191,13 +191,13 @@
   <variablelist>
     <varlistentry>
       <term>Total</term>
-      <listitem id="listitemN0x180ac00N0x1903a28">
+      <listitem>
         <para>Displays the total amount of all uninvoiced Sales Orders.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Payment Received</term>
-      <listitem id="listitemN0x180ac00N0x1903a70">
+      <listitem>
         <para>Enter the amount of payment received against the specified Sales
         Order, if any. This amount will appear on any resulting Invoice, but
         will not be posted as a credit against the Invoice.</para>
@@ -205,7 +205,7 @@
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x1903ab8">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Sales Order selected for billing. Notes entered
         on this screen will follow the Order through the billing process. For
@@ -219,21 +219,21 @@
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-      <listitem id="listitemN0x180ac00N0x1903b24">
+      <listitem>
         <para>Closes the screen without selecting the Order for billing,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1903b6c">
+      <listitem>
         <para>Saves the information you specified in the screen and selects
         the Order for billing, creating an Invoice in the process.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT ORDER</term>
-      <listitem id="listitemN0x180ac00N0x1903bb4">
+      <listitem>
         <para>Brings you to the Sales Order screen, where you may edit the
         specified Sales Order. The Sales Order screen is described at length
         in <xref endterm="Anchor23923" linkend="Anchor23923" />.</para>
@@ -241,7 +241,7 @@
     </varlistentry>
     <varlistentry>
       <term>EDIT SELECTION</term>
-      <listitem id="listitemN0x180ac00N0x1903bfc">
+      <listitem>
         <para>Enables you to specify or edit the billing quantity for the
         highlighted Line Item. Double-clicking on a Line Item will also bring
         you to the billing quantity edit screen.</para>
@@ -249,14 +249,14 @@
     </varlistentry>
     <varlistentry>
       <term>CANCEL SELECTION</term>
-      <listitem id="listitemN0x180ac00N0x1903c44">
+      <listitem>
         <para>Removes previously entered billing quantity from a selected Line
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SELECT BALANCE</term>
-      <listitem id="listitemN0x180ac00N0x1903c8c">
+      <listitem>
         <para>Highlight a Line Item, then select this button to transfer the
         full balance to Billing.</para>
       </listitem>

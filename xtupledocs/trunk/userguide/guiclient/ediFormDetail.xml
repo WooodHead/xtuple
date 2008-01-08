@@ -18,7 +18,7 @@
   <variablelist>
     <varlistentry>
       <term>Name</term>
-      <listitem id="listitemN0x180ac00N0x1888a40">
+      <listitem>
         <para>Enter a name to identify the Form Detail query. In the example
         shown, the name indicates the query will return information to be used
         in the header of the CSV file output.</para>
@@ -26,7 +26,7 @@
     </varlistentry>
     <varlistentry>
       <term>Order</term>
-      <listitem id="listitemN0x180ac00N0x1888a88">
+      <listitem>
         <para>Select a value between 1 and 99 using the arrow buttons located
         to the right of the field. The value entered specifies the order in
         which a query will be executed.</para>
@@ -34,7 +34,7 @@
     </varlistentry>
     <varlistentry>
       <term>Query</term>
-      <listitem id="listitemN0x180ac00N0x1888ad0">
+      <listitem>
         <para>Enter a SQL query to identify the information you want to
         populate your CSV file with. As you can see in the example, the query
         selects invoice header information from the "invchead" table. You will
@@ -45,7 +45,7 @@
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x1888b18">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the EDI Detail query.</para>
       </listitem>
@@ -56,14 +56,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1888b84">
+      <listitem>
         <para>Closes the screen without adding a new query to the Form Details
         list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>OK</term>
-      <listitem id="listitemN0x180ac00N0x1888bcc">
+      <listitem>
         <para>Creates the query and adds it to the master list of Form
         Details.</para>
       </listitem>

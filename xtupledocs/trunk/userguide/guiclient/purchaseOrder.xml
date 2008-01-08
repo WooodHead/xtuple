@@ -21,7 +21,7 @@
   <variablelist>
     <varlistentry>
       <term>Order #</term>
-      <listitem id="listitemN0x180ac00N0x185ca1c">
+      <listitem>
         <para>Next available Purchase Order Number will automatically display,
         unless your system requires you to enter Purchase Order Numbers
         manually. Default values and input parameters for Purchase Order
@@ -30,13 +30,13 @@
     </varlistentry>
     <varlistentry>
       <term>Order Date</term>
-      <listitem id="listitemN0x180ac00N0x185ca64">
+      <listitem>
         <para>Displays current day's date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Receiving Whse.</term>
-      <listitem id="listitemN0x180ac00N0x185caac">
+      <listitem>
         <para>Specify the Warehouse where materials from the Purchase Order
         will be received. By default, all active Warehouses are available for
         selection as Receiving Warehouses. No special designation needs to be
@@ -54,7 +54,7 @@
   <variablelist>
     <varlistentry>
       <term>Vendor #</term>
-      <listitem id="listitemN0x180ac00N0x185cb3c">
+      <listitem>
         <para>Enter the Vendor number of the Vendor you are issuing the
         Purchase Order to.</para>
       </listitem>
@@ -69,7 +69,7 @@
   <variablelist>
     <varlistentry>
       <term>Main Address</term>
-      <listitem id="listitemN0x180ac00N0x185cbcc">
+      <listitem>
         <para>Displays the main address for the specified Vendor. The main
         address information is the primary Vendor address stored on the Vendor
         master.</para>
@@ -77,7 +77,7 @@
     </varlistentry>
     <varlistentry>
       <term>Purchasing Agent</term>
-      <listitem id="listitemN0x180ac00N0x185cc14">
+      <listitem>
         <para>Specify the name of the agent assigned to the Order. By default,
         the name of the logged-in user will be entered as Purchasing
         Agent--assuming that user is designated as a Purchasing Agent. If the
@@ -87,13 +87,13 @@
     </varlistentry>
     <varlistentry>
       <term>Status</term>
-      <listitem id="listitemN0x180ac00N0x185cc5c">
+      <listitem>
         <para>The Purchase Order status will display here.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Terms</term>
-      <listitem id="listitemN0x180ac00N0x185cca4">
+      <listitem>
         <para>Specify the billing Terms for the Order. Default billing Terms
         for a Vendor are defined on the Vendor master. You may select
         alternate Terms on the Purchase Order header.</para>
@@ -101,7 +101,7 @@
     </varlistentry>
     <varlistentry>
       <term>Alt. Address</term>
-      <listitem id="listitemN0x180ac00N0x185ccec">
+      <listitem>
         <para>Enter the number of an Alternate Address, if you prefer not to
         use the Main Address. Vendors may maintain multiple Alternate
         Addresses.</para>
@@ -109,7 +109,7 @@
     </varlistentry>
     <varlistentry>
       <term>Ship Via</term>
-      <listitem id="listitemN0x180ac00N0x185cd34">
+      <listitem>
         <para>Enter the preferred Ship Via method for this Vendor. By default,
         the Ship Via entered on the Vendor master will populate this
         field.</para>
@@ -117,7 +117,7 @@
     </varlistentry>
     <varlistentry>
       <term>F.O.B.</term>
-      <listitem id="listitemN0x180ac00N0x185cd7c">
+      <listitem>
         <para>Enter the Free On Board (F.O.B.) location for the shipping
         Warehouse.</para>
       </listitem>
@@ -128,7 +128,7 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x185cde8">
+      <listitem>
         <para>Creates the new Purchase Order and saves the Purchase Order
         information. If your system is configured to prompt for printing on
         SAVE, then you will be presented with additional processing options
@@ -137,7 +137,7 @@
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x185ce30">
+      <listitem>
         <para>Closes the screen without creating a new Purchase Order,
         returning you to the application desktop.</para>
       </listitem>
@@ -162,7 +162,7 @@
   <variablelist>
     <varlistentry>
       <term>Line Items</term>
-      <listitem id="listitemN0x180ac00N0x185cf50">
+      <listitem>
         <para>Display lists Line Items for this Purchase Order. A valid Vendor
         number must be entered in the "Vendor #" field before Line Items can
         be added to the Order.</para>
@@ -170,19 +170,19 @@
     </varlistentry>
     <varlistentry>
       <term>Subtotal</term>
-      <listitem id="listitemN0x180ac00N0x185cf98">
+      <listitem>
         <para>Displays the subtotal for the Purchase Order Line Items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Tax</term>
-      <listitem id="listitemN0x180ac00N0x185cfe0">
+      <listitem>
         <para>Enter any Tax amount, if applicable.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Misc. Freight</term>
-      <listitem id="listitemN0x180ac00N0x185d028">
+      <listitem>
         <para>Enter the amount of any miscellaneous freight charges to be
         added to the Order.</para>
       </listitem>
@@ -195,7 +195,7 @@
           <primary>purchase orders</primary>
           <secondary>freight charges on</secondary>
         </indexterm>Freight</term>
-      <listitem id="listitemN0x180ac00N0x185d100">
+      <listitem>
         <para>Displays the total amount of freight charges. The amount
         displayed includes the sum of all Line Item freight and miscellaneous
         freight charges.</para>
@@ -203,7 +203,7 @@
     </varlistentry>
     <varlistentry>
       <term>Total</term>
-      <listitem id="listitemN0x180ac00N0x185d148">
+      <listitem>
         <para>Displays the total value of the Purchase Order.</para>
       </listitem>
     </varlistentry>
@@ -213,26 +213,26 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x185d1b4">
+      <listitem>
         <para>Saves the Purchase Order Line Item information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x185d1fc">
+      <listitem>
         <para>Closes the screen without creating a new Purchase Order,
         returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x185d244">
+      <listitem>
         <para>Opens screen for creating a new Purchase Order Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x185d28c">
+      <listitem>
         <para>Enables you to edit highlighted Purchase Order Line Items. The
         edit screen is the same as that for creating a new Purchase Order Line
         Item--except that when editing, the fields will contain Purchase Order
@@ -242,7 +242,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x185d2d4">
+      <listitem>
         <para>Highlight a Purchase Order Line Item and then select this button
         to remove the Purchase Order Line Item from the list.</para>
       </listitem>
@@ -263,7 +263,7 @@
   <variablelist>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x1866254">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Purchase Order.</para>
       </listitem>
@@ -285,7 +285,7 @@
   <variablelist>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x186632c">
+      <listitem>
         <para>Display lists Comments for the specified Order.</para>
       </listitem>
     </varlistentry>
@@ -295,13 +295,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x1866398">
+      <listitem>
         <para>Opens screen for creating a new Comment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x18663e0">
+      <listitem>
         <para>Highlight a Comment and then select this button to reach a
         read-only view of the Comment.</para>
       </listitem>
@@ -320,7 +320,7 @@
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
-      <listitem id="listitemN0x180ac00N0x18664b8">
+      <listitem>
         <para>Specify one of the following Comment Types from the drop-down
         list: ChangeLog or General. Comment Types are used to categorize
         Comments. Once you have specified a Comment Type, you may type your
@@ -334,14 +334,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1866524">
+      <listitem>
         <para>Closes the screen without creating a new Comment, returning you
         to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x186656c">
+      <listitem>
         <para>Creates the Comment and adds it to the list of Order
         Comments.</para>
       </listitem>
@@ -371,7 +371,7 @@
   <variablelist>
     <varlistentry>
       <term>Item</term>
-      <listitem id="listitemN0x180ac00N0x1866668">
+      <listitem>
         <para>Enter an Inventory Item Number. This field is used for entering
         Items stored in Inventory. Use the "Vend. Item #" field for entering
         non-Inventory Items.</para>
@@ -379,7 +379,7 @@
     </varlistentry>
     <varlistentry>
       <term>Supplying Whs.</term>
-      <listitem id="listitemN0x180ac00N0x18666b0">
+      <listitem>
         <para>Select a Supplying Warehouse from the list of available options.
         By default, the user's preferred Warehouse will be presented
         first.</para>
@@ -387,7 +387,7 @@
     </varlistentry>
     <varlistentry>
       <term>Vend. Item #</term>
-      <listitem id="listitemN0x180ac00N0x18666f8">
+      <listitem>
         <para>Use this field for entering non-Inventory Item Numbers. If not
         used to handle non-Inventory Items, this field will display Vendor
         Item Numbers for Inventory Items which have Item Sources
@@ -396,7 +396,7 @@
     </varlistentry>
     <varlistentry>
       <term>Expense Cat.</term>
-      <listitem id="listitemN0x180ac00N0x1866740">
+      <listitem>
         <para>Enter the Expense Category you want your non-Inventory quantity
         to be assigned to. Use this option for non-Inventory Line Items
         only.</para>
@@ -404,33 +404,33 @@
     </varlistentry>
     <varlistentry>
       <term>Qty.</term>
-      <listitem id="listitemN0x180ac00N0x1866788">
+      <listitem>
         <para>Enter the quantity you want to purchase.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Unit Price</term>
-      <listitem id="listitemN0x180ac00N0x18667d0">
+      <listitem>
         <para>Enter the Unit Price for the Line Item. If an Item Source is
         defined, this information may fill in automatically.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ext. Price</term>
-      <listitem id="listitemN0x180ac00N0x1866818">
+      <listitem>
         <para>Displays the Extended Price. This is a calculated field and is
         shaded to indicate that it may not be edited.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Freight</term>
-      <listitem id="listitemN0x180ac00N0x1866860">
+      <listitem>
         <para>Enter the Freight amount, if any.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Due Date</term>
-      <listitem id="listitemN0x180ac00N0x18668a8">
+      <listitem>
         <para>Enter the due date. If an Item Source is defined, this
         information may fill in automatically.</para>
       </listitem>
@@ -441,14 +441,14 @@
   <variablelist>
     <varlistentry>
       <term>SAVE QUICK ENTRIES</term>
-      <listitem id="listitemN0x180ac00N0x1866914">
+      <listitem>
         <para>Select to save all the Line Items entered using the Quick Entry
         interface.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE QUICK ENTRY</term>
-      <listitem id="listitemN0x180ac00N0x186695c">
+      <listitem>
         <para>Highlight a Line Item and then select this button to remove the
         Item from the list.</para>
       </listitem>

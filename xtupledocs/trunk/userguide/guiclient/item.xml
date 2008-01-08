@@ -21,14 +21,14 @@
   <variablelist>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x184d56c">
+      <listitem>
         <para>Enter a number to uniquely identify the Item. Duplicate Item
         Numbers will not be accepted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Active</term>
-      <listitem id="listitemN0x180ac00N0x184d5b4">
+      <listitem>
         <para>Select if Item is active. Select this option if you intend to
         use the Item within the application. If you don"t select this option,
         the Item will be unavailable for use. To activate an inactive Item,
@@ -44,7 +44,7 @@
   <variablelist>
     <varlistentry>
       <term>Description #1</term>
-      <listitem id="listitemN0x180ac00N0x184d644">
+      <listitem>
         <para>The Item master features two description lines. The first line
         is typically used for entering the name used to describe the Item. In
         printed reports or other printouts, the first line will appear on a
@@ -55,7 +55,7 @@
     </varlistentry>
     <varlistentry>
       <term>Description #2</term>
-      <listitem id="listitemN0x180ac00N0x184d68c">
+      <listitem>
         <para>Use the second description line to provide additional
         information about the Item. The second line might include product,
         packaging, or any other descriptive information. In printed reports or
@@ -96,7 +96,7 @@
           <primary>items</primary>
           <secondary>list of types</secondary>
         </indexterm>Item Type</term>
-      <listitem id="listitemN0x180ac00N0x184d7ac">
+      <listitem>
         <para>Select one of the available Item Types:</para>
         <variablelist>
           <varlistentry>
@@ -232,7 +232,7 @@
     </varlistentry>
     <varlistentry>
       <term>Maximum Desired Cost</term>
-      <listitem id="listitemN0x180ac00N0x184d9a4">
+      <listitem>
         <para>This is an optional field to be used for entering the maximum
         Cost desired for the Item. The field is not used by the system for any
         calculations, and is provided for informational purposes only.</para>
@@ -240,7 +240,7 @@
     </varlistentry>
     <varlistentry>
       <term>Class Code</term>
-      <listitem id="listitemN0x180ac00N0x184d9ec">
+      <listitem>
         <para>Specify a Class Code to associate with the Item.</para>
       </listitem>
     </varlistentry>
@@ -252,7 +252,7 @@
           <primary>pricing</primary>
           <secondary>item list price</secondary>
         </indexterm>Inventory UOM</term>
-      <listitem id="listitemN0x180ac00N0x18596b4">
+      <listitem>
         <para>Specify the Item's primary Unit of Measure--or enter a free-form
         UOM. The Inventory (UOM) is the UOM in which Inventory is maintained.
         All Inventory transactions, sales transactions, and General Ledger
@@ -266,7 +266,7 @@
     </varlistentry>
     <varlistentry>
       <term>Pick List Item</term>
-      <listitem id="listitemN0x180ac00N0x18596fc">
+      <listitem>
         <para>Select if you want the Item to be included on Pick Lists when
         the Item is used. Pick Lists are printed lists showing the Work Order
         Material Requirements for a specified Work Order. You may decide not
@@ -277,7 +277,7 @@
     </varlistentry>
     <varlistentry>
       <term>Fractional</term>
-      <listitem id="listitemN0x180ac00N0x1859744">
+      <listitem>
         <para>Select if the Item may be maintained in fractional quantities.
         If not selected, the system will assume the Item is maintained in its
         Inventory UOM.</para>
@@ -285,7 +285,7 @@
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Planning System</term>
-      <listitem id="listitemN0x180ac00N0x1859768">
+      <listitem>
         <para>Specify which of the following planning systems you want the
         Item to be considered by:</para>
         <variablelist>
@@ -323,7 +323,7 @@
   <variablelist>
     <varlistentry>
       <term>Item is Sold</term>
-      <listitem id="listitemN0x180ac00N0x1859a38">
+      <listitem>
         <para>Select if the Item is an Item you sell. If not selected, the
         associated fields will be disabled.</para>
       </listitem>
@@ -332,7 +332,7 @@
   <variablelist>
     <varlistentry>
       <term>Product Category</term>
-      <listitem id="listitemN0x180ac00N0x1859b58">
+      <listitem>
         <para>Specify the Product Category if the Item is sold. All sold Items
         must be assigned a Product Category.</para>
       </listitem>
@@ -342,7 +342,7 @@
           <primary>pricing</primary>
           <secondary>item list price</secondary>
         </indexterm>List Price</term>
-      <listitem id="listitemN0x180ac00N0x1859be8">
+      <listitem>
         <para>Specify the List Price for the Item, based on the selling UOM
         (i.e., "Per" UOM). List Prices may also be created and modified in the
         Item Pricing section of the Sales module. Changes made to the List
@@ -354,7 +354,7 @@
           <primary>units of measure</primary>
           <secondary>selling specified</secondary>
         </indexterm>Per</term>
-      <listitem id="listitemN0x180ac00N0x1859c30">
+      <listitem>
         <para>Specify the selling Unit of Measure (UOM) for the Item. The List
         Price should be based on this selection. By default, the Inventory UOM
         will be used here. You will not be able to select a different UOM
@@ -364,7 +364,7 @@
     </varlistentry>
     <varlistentry>
       <term>UPC Code</term>
-      <listitem id="listitemN0x180ac00N0x1859c78">
+      <listitem>
         <para>Enter the Universal Product Code for the Item.</para>
       </listitem>
     </varlistentry>
@@ -386,7 +386,7 @@
           <primary>customers</primary>
           <secondary>exclusive items for</secondary>
         </indexterm>Exclusive</term>
-      <listitem id="listitemN0x180ac00N0x1859de0">
+      <listitem>
         <para>Select if the Item is sold exclusively. If a sold Item is marked
         as Exclusive, it may only be sold to specified Customers or Customer
         Types. To link Exclusive Items to Customers, you would first include
@@ -405,7 +405,7 @@
   <variablelist>
     <varlistentry>
       <term>Product Weight</term>
-      <listitem id="listitemN0x180ac00N0x1859e70">
+      <listitem>
         <para>Specify the pre-packaging weight of the product. The Unit of
         Measure applied to product weight is user-defined and can be specified
         on an Item-by-Item basis.</para>
@@ -413,7 +413,7 @@
     </varlistentry>
     <varlistentry>
       <term>Packaging Weight</term>
-      <listitem id="listitemN0x180ac00N0x1859eb8">
+      <listitem>
         <para>Specify the weight of the product packaging. The Unit of Measure
         applied to packaging weight is user-defined and can be specified on an
         Item-by-Item basis.</para>
@@ -421,7 +421,7 @@
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x1859f00">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Item. Any Notes entered on this screen are for
         internal purposes only.</para>
@@ -433,14 +433,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1859f6c">
+      <listitem>
         <para>Closes the screen without creating the Item, returning you to
         the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1859fb4">
+      <listitem>
         <para>Creates the Item and adds it to the master list of Items. Mac
         users may use COMMAND + S to save. After saving, the "Create New Item
         Sites" screen appears. If you select "YES," you will be directed to
@@ -451,13 +451,13 @@
     </varlistentry>
     <varlistentry>
       <term>PRINT</term>
-      <listitem id="listitemN0x180ac00N0x1859ffc">
+      <listitem>
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term>BOO</term>
-      <listitem id="listitemN0x180ac00N0x185a020">
+      <listitem>
         <para>Select to open the Bill of Operations (BOO) for the specified
         Item. If no BOO exists, you will have the option to create a new
         BOO.</para>
@@ -465,7 +465,7 @@
     </varlistentry>
     <varlistentry>
       <term>BOM</term>
-      <listitem id="listitemN0x180ac00N0x185a068">
+      <listitem>
         <para>Select to open the Bill of Materials (BOM) for the specified
         Item. If no BOM exists, you will have the option to create a new
         BOO.</para>
@@ -473,7 +473,7 @@
     </varlistentry>
     <varlistentry>
       <term>WORKBENCH</term>
-      <listitem id="listitemN0x180ac00N0x185a0b0">
+      <listitem>
         <para>Select to open the Item Availability Workbench for the specified
         Item.</para>
       </listitem>
@@ -497,7 +497,7 @@
   <variablelist>
     <varlistentry>
       <term>Extended Description</term>
-      <listitem id="listitemN0x180ac00N0x185a188">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         extended descriptions of the Item.</para>
       </listitem>
@@ -539,10 +539,10 @@
   <variablelist>
     <varlistentry>
       <term>Conversions/Where Used</term>
-      <listitem id="listitemN0x180ac00N0x185a35c">
+      <listitem>
         <para>Display lists the UOM Conversions defined for the Item (if any)
         and where these conversions are used. Global conversion ratios are
-        defined in the <xref endterm="uomConv" linkend="uomConv.xml" />
+        defined in the <xref endterm="uomConv" linkend="uomConv" />
         section.</para>
       </listitem>
     </varlistentry>
@@ -552,13 +552,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x185a3c8">
+      <listitem>
         <para>Opens screen for creating a new Item UOM conversion.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x1864600">
+      <listitem>
         <para>Enables you to edit highlighted Item UOM conversions. The edit
         screen is the same as that for creating a new Item UOM
         conversion--except that when editing, the fields will contain Item UOM
@@ -568,7 +568,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x1864648">
+      <listitem>
         <para>Highlight an Item UOM conversion and then select this button to
         remove the UOM conversion from the list.</para>
       </listitem>
@@ -660,7 +660,7 @@
         <variablelist>
           <varlistentry>
             <term>Alternate Capacity</term>
-            <listitem id="listitemN0x180ac00N0x18598d0">
+            <listitem>
               <para>The Alt. Capacity UOM should be used to provide an
               alternate UOM for viewing Inventory details. For example, a
               Sales Manager may be satisfied looking at a group of Items
@@ -754,14 +754,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x181a430">
+      <listitem>
         <para>Closes the screen without creating an alternate Item UOM(s),
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x181a478">
+      <listitem>
         <para>Creates the alternate Item UOM(s) and makes it available
         throughout the system.</para>
       </listitem>
@@ -799,7 +799,7 @@
   <variablelist>
     <varlistentry>
       <term>Characteristics</term>
-      <listitem id="listitemN0x180ac00N0x185a35d">
+      <listitem>
         <para>Display lists the Characteristic name and Value of Item
         Characteristics related to the Item.</para>
       </listitem>
@@ -810,13 +810,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x185a3c9">
+      <listitem>
         <para>Opens screen for creating a new Item Characteristic.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x1864601">
+      <listitem>
         <para>Enables you to edit highlighted Item Characteristics. The edit
         screen is the same as that for creating a new Item
         Characteristic--except that when editing, the fields will contain Item
@@ -826,7 +826,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x1864649">
+      <listitem>
         <para>Highlight an Item Characteristic and then select this button to
         remove the Item Characteristic from the list.</para>
       </listitem>
@@ -846,20 +846,20 @@
   <variablelist>
     <varlistentry>
       <term>Characteristic</term>
-      <listitem id="listitemN0x180ac00N0x1864720">
+      <listitem>
         <para>Select a Characteristic from the list of Characteristics
         designated as being available for use as Item Characteristics.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Value</term>
-      <listitem id="listitemN0x180ac00N0x1864768">
+      <listitem>
         <para>Enter a value to associate with the Item Characteristic.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Default</term>
-      <listitem id="listitemN0x180ac00N0x18647b0">
+      <listitem>
         <para>Select if the Value entered is the default Value for the
         specified Characteristic. The default Value will be presented
         initially wherever Item Characteristics are used.</para>
@@ -871,14 +871,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x186481c">
+      <listitem>
         <para>Closes the screen without creating the Item Characteristic,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1864864">
+      <listitem>
         <para>Creates the Item Characteristic and adds it to the list of Item
         Characteristics.</para>
       </listitem>
@@ -898,7 +898,7 @@
   <variablelist>
     <varlistentry>
       <term>Item Sites</term>
-      <listitem id="listitemN0x180ac00N0x186493c">
+      <listitem>
         <para>Display lists Item Sites for the specified Item.</para>
       </listitem>
     </varlistentry>
@@ -908,13 +908,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18649a8">
+      <listitem>
         <para>Opens screen for creating a new Item Site.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x18649f0">
+      <listitem>
         <para>Enables you to edit highlighted Item Sites. The edit screen is
         the same as that for creating a new Item Site--except that when
         editing, the fields will contain Item Site information.
@@ -924,14 +924,14 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x1864a38">
+      <listitem>
         <para>Highlight an Item Site and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x1864a80">
+      <listitem>
         <para>Highlight an Item Site and then select this button to remove the
         Item Site from the list.</para>
       </listitem>
@@ -956,7 +956,7 @@
   <variablelist>
     <varlistentry>
       <term>Tax Types</term>
-      <listitem id="listitemN0x180ac00N0x1864b7c">
+      <listitem>
         <para>Display lists Tax Types for the specified Item.</para>
       </listitem>
     </varlistentry>
@@ -966,13 +966,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x1864be8">
+      <listitem>
         <para>Opens screen for creating a new Tax Type definition.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x1864c30">
+      <listitem>
         <para>Enables you to edit highlighted Tax Type definitions. The edit
         screen is the same as that for creating a new Tax Type
         definition--except that when editing, the fields will contain Tax Type
@@ -982,7 +982,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x1864c78">
+      <listitem>
         <para>Highlight a Tax Type definition and then select this button to
         remove the Tax Type definition from the list.</para>
       </listitem>
@@ -1007,7 +1007,7 @@
           <primary>tax authorities</primary>
           <secondary>for sales orders</secondary>
         </indexterm>Tax Authority</term>
-      <listitem id="listitemN0x180ac00N0x1864d98">
+      <listitem>
         <para>Specify the Tax Authority you want to associate with the
         specified Tax Type. Tax Authorities are any entity legally-authorized
         to collect Taxes--for example, city, county, state, or federal
@@ -1031,7 +1031,7 @@
   <variablelist>
     <varlistentry>
       <term>Tax Types</term>
-      <listitem id="listitemN0x180ac00N0x1864e28">
+      <listitem>
         <para>Specify the Tax Type you want to associate with the specified
         Tax Authority. Tax Types provide a system for classifying goods and
         services into taxable categories. Creating a relationship between a
@@ -1050,14 +1050,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1864e94">
+      <listitem>
         <para>Closes the screen without creating the Tax Type definition,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1864edc">
+      <listitem>
         <para>Creates the Tax Type definition and adds it to the list of Tax
         Type definitions.</para>
       </listitem>
@@ -1078,7 +1078,7 @@
   <variablelist>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x1864fb4">
+      <listitem>
         <para>Display lists the date Comment entered, Comment Type, user who
         entered Comment, and a content preview.</para>
       </listitem>
@@ -1089,13 +1089,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x1865020">
+      <listitem>
         <para>Opens screen for creating a new Comment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x1865068">
+      <listitem>
         <para>Highlight a Comment and then select this button to reach a
         read-only view of the Comment.</para>
       </listitem>
@@ -1114,7 +1114,7 @@
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
-      <listitem id="listitemN0x180ac00N0x1865140">
+      <listitem>
         <para>Specify one of the following Comment Types from the drop-down
         list: ChangeLog or General. Comment Types are used to categorize
         Comments. Once you have specified a Comment Type, you may type your
@@ -1128,14 +1128,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18651ac">
+      <listitem>
         <para>Closes the screen without creating the Comment, returning you to
         the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18651f4">
+      <listitem>
         <para>Creates the Comment and adds it to the list of Comments.</para>
       </listitem>
     </varlistentry>
@@ -1170,7 +1170,7 @@
   <variablelist>
     <varlistentry>
       <term>Alias</term>
-      <listitem id="listitemN0x180ac00N0x18653a4">
+      <listitem>
         <para>Display lists Item Alias numbers and related Comments.</para>
       </listitem>
     </varlistentry>
@@ -1180,7 +1180,7 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x186e600">
+      <listitem>
         <para>Opens screen for creating a new Item Alias.</para>
       </listitem>
     </varlistentry>
@@ -1192,7 +1192,7 @@
   <variablelist>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x186e690">
+      <listitem>
         <para>Enables you to edit highlighted Item Alias definitions. The edit
         screen is the same as that for creating a new Item Alias
         definition--except that when editing, the fields will contain Item
@@ -1202,7 +1202,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x186e6d8">
+      <listitem>
         <para>Highlight an Item Alias definition and then select this button
         to remove the Item Alias from the list.</para>
       </listitem>
@@ -1224,20 +1224,20 @@
   <variablelist>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x186e7b0">
+      <listitem>
         <para>Item Number entered into previous screen will be
         displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x186e7f8">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Number</term>
-      <listitem id="listitemN0x180ac00N0x186e840">
+      <listitem>
         <para>This is the Alias number for the Item.</para>
       </listitem>
     </varlistentry>
@@ -1250,21 +1250,21 @@
           <secondary>related to shipping</secondary>
         </indexterm>Use an Alias Description on Billing and Shipping
       Paperwork</term>
-      <listitem id="listitemN0x180ac00N0x186e918">
+      <listitem>
         <para>Billing and Shipping Paperwork: Select to include an Item Alias
         description on Billing and Shipping paperwork.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Description</term>
-      <listitem id="listitemN0x180ac00N0x186e960">
+      <listitem>
         <para>Enter a description of the Item Alias for inclusion on Billing
         and Shipping paperwork.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x186e9a8">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Item Alias. This field may be useful for
         explaining why an Item Alias was created (e.g., "Customer XYZ, Inc.
@@ -1277,14 +1277,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x186ea14">
+      <listitem>
         <para>Closes the screen without creating an Item Alias, returning you
         to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x186ea5c">
+      <listitem>
         <para>Creates the Item Alias and adds it to the list of Item
         Aliases.</para>
       </listitem>
@@ -1314,7 +1314,7 @@
   <variablelist>
     <varlistentry>
       <term>Substitute</term>
-      <listitem id="listitemN0x180ac00N0x186eba0">
+      <listitem>
         <para>Display lists the rank of the Item Substitute, Substitute Item
         Number, Substitute Item description, and Substitute/Parent UOM
         ratio.</para>
@@ -1326,7 +1326,7 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x186ec0c">
+      <listitem>
         <para>Opens screen for creating a new Item Substitute.</para>
       </listitem>
     </varlistentry>
@@ -1338,7 +1338,7 @@
   <variablelist>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x186ec9c">
+      <listitem>
         <para>Enables you to edit highlighted Item Substitute definitions. The
         edit screen is the same as that for creating a new Item Substitute
         definition--except that when editing, the fields will contain Item
@@ -1348,7 +1348,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x186ece4">
+      <listitem>
         <para>Highlight an Item Substitute definition and then select this
         button to remove the Item Substitute from the list.</para>
       </listitem>
@@ -1373,32 +1373,32 @@
   <variablelist>
     <varlistentry>
       <term>Item Number (Root Item)</term>
-      <listitem id="listitemN0x180ac00N0x186ee04">
+      <listitem>
         <para>Item Number entered into previous screen will be
         displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x186ee4c">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Number (Substitution)</term>
-      <listitem id="listitemN0x180ac00N0x186ee94">
+      <listitem>
         <para>Enter the Item Number of the Substitute Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x186eedc">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Substitute/Parent UOM Ratio</term>
-      <listitem id="listitemN0x180ac00N0x186ef24">
+      <listitem>
         <para>Specifies the ratio between the Root Item's Inventory UOM and
         the Substitute Item's Inventory UOM.</para>
       </listitem>
@@ -1411,7 +1411,7 @@
           <primary>ranking</primary>
           <secondary>of item substitutes</secondary>
         </indexterm>Ranking</term>
-      <listitem id="listitemN0x180ac00N0x186effc">
+      <listitem>
         <para>Select a number using the arrow buttons, or manually enter a
         value up to a maximum of 9. Enter the specified ranking order of the
         Item Substitute. You may assign the same ranking to multiple Items, if
@@ -1424,14 +1424,14 @@
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-      <listitem id="listitemN0x180ac00N0x186f068">
+      <listitem>
         <para>Closes the screen without creating an Item Substitute, returning
         you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x186f0b0">
+      <listitem>
         <para>Creates the Item Substitute and adds it to the list of Item
         Substitutes.</para>
       </listitem>
@@ -1456,7 +1456,7 @@
   <variablelist>
     <varlistentry>
       <term>Transformations</term>
-      <listitem id="listitemN0x180ac00N0x186f1ac">
+      <listitem>
         <para>Display lists Items which may be chosen as target Items during
         Transformation transactions.</para>
       </listitem>
@@ -1467,14 +1467,14 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x186f218">
+      <listitem>
         <para>Opens a searchable Item list showing Items which may be chosen
         as target Items during Transformation transactions.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x186f260">
+      <listitem>
         <para>Highlight a target Item and then select this button to remove
         the target Item from the list.</para>
       </listitem>
@@ -1503,7 +1503,7 @@
   <variablelist>
     <varlistentry>
       <term>Images</term>
-      <listitem id="listitemN0x180ac00N0x1875e00">
+      <listitem>
         <para>Display lists information about stored Item Images.</para>
       </listitem>
     </varlistentry>
@@ -1513,13 +1513,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x1875e6c">
+      <listitem>
         <para>Opens master list of stored Item Images.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x1875eb4">
+      <listitem>
         <para>Enables you to edit highlighted Item Image definitions. The edit
         screen is the same as that for creating a new Item Image
         definition--except that when editing, the fields will contain Item
@@ -1529,20 +1529,20 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x1875efc">
+      <listitem>
         <para>Highlight an Item Image and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>PRINT</term>
-      <listitem id="listitemN0x180ac00N0x1875f44">
+      <listitem>
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x1875f8c">
+      <listitem>
         <para>Highlight an Item Image definition and then select this button
         to remove the Item Image from the list.</para>
       </listitem>
@@ -1567,7 +1567,7 @@
   <variablelist>
     <varlistentry>
       <term>Purpose</term>
-      <listitem id="listitemN0x180ac00N0x18760ac">
+      <listitem>
         <para>Select one of the available purposes an Image might
         serve:</para>
         <variablelist>
@@ -1607,7 +1607,7 @@
   <variablelist>
     <varlistentry>
       <term>Images</term>
-      <listitem id="listitemN0x180ac00N0x187613c">
+      <listitem>
         <para>Display lists stored Images available for association with the
         specified Item.</para>
       </listitem>
@@ -1618,20 +1618,20 @@
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-      <listitem id="listitemN0x180ac00N0x18761a8">
+      <listitem>
         <para>Closes the screen, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18761f0">
+      <listitem>
         <para>Highlight an Image, then select the SAVE button to associate the
         Image with the specified Item and purpose.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x1876238">
+      <listitem>
         <para>Opens screen for adding a new Image to the master list of stored
         Images.</para>
       </listitem>
@@ -1655,7 +1655,7 @@
   <variablelist>
     <varlistentry>
       <term>File Name</term>
-      <listitem id="listitemN0x180ac00N0x1876358">
+      <listitem>
         <para>Enter the physical directory location of the Image. The browse
         button enables you to search your system for the physical directory
         location of the Image file. Once you locate the file, simply select it
@@ -1664,13 +1664,13 @@
     </varlistentry>
     <varlistentry>
       <term>Name</term>
-      <listitem id="listitemN0x180ac00N0x18763a0">
+      <listitem>
         <para>Enter a unique name for the Image.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Description</term>
-      <listitem id="listitemN0x180ac00N0x18763e8">
+      <listitem>
         <para>Enter a description to further identify the Image.</para>
       </listitem>
     </varlistentry>
@@ -1680,14 +1680,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1876454">
+      <listitem>
         <para>Closes the screen without adding a new Image to the master list
         of stored Images.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x187649c">
+      <listitem>
         <para>Creates the Image and adds it to the master list of stored
         Images.</para>
       </listitem>
@@ -1707,7 +1707,7 @@
   <variablelist>
     <varlistentry>
       <term>Files</term>
-      <listitem id="listitemN0x180ac00N0x1876574">
+      <listitem>
         <para>Display lists the title and URL for any Files related to the
         Item.</para>
       </listitem>
@@ -1718,13 +1718,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18765e0">
+      <listitem>
         <para>Opens screen for creating a new Item File.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x1876628">
+      <listitem>
         <para>Enables you to edit highlighted Item File definitions. The edit
         screen is the same as that for creating a new Item File
         definition--except that when editing, the fields will contain Item
@@ -1734,21 +1734,21 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x1876670">
+      <listitem>
         <para>Highlight an Item File definition and then select this button to
         reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x18766b8">
+      <listitem>
         <para>Highlight an Item File definition and then select this button to
         remove the Item File definition from the list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>OPEN</term>
-      <listitem id="listitemN0x180ac00N0x1876700">
+      <listitem>
         <para>Highlight an Item File definition and then select this button to
         open the URL in a web browser.</para>
       </listitem>
@@ -1770,13 +1770,13 @@
   <variablelist>
     <varlistentry>
       <term>Title</term>
-      <listitem id="listitemN0x180ac00N0x18767d8">
+      <listitem>
         <para>Enter a title to identify the Item File.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>URL</term>
-      <listitem id="listitemN0x180ac00N0x1876820">
+      <listitem>
         <para>Enter the URL indicating where the Item File is located. Users
         will be able to access the file within a web browser when they select
         the OPEN button.</para>
@@ -1788,14 +1788,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x187688c">
+      <listitem>
         <para>Closes the screen without creating an Item File, returning you
         to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18768d4">
+      <listitem>
         <para>Creates the Item File and adds it to the list of Item
         Files.</para>
       </listitem>

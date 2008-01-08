@@ -29,35 +29,35 @@
   <variablelist>
     <varlistentry>
       <term>Sales Order #</term>
-      <listitem id="listitemN0x180ac00N0x181a76c">
+      <listitem>
         <para>Enter the Sales Order Number of the Sales Order whose Stock you
         want to issue to Shipping.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Transfer Order #</term>
-      <listitem id="listitemN0x180ac00N0x181a790">
+      <listitem>
         <para>Enter the Transfer Order Number of the Transfer Order whose
         Stock you want to issue to Shipping.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term>From</term>
-      <listitem id="listitemN0x180ac00N0x181a7b4">
+      <listitem>
         <para>Displays the Source Warehouse if a Transfer Order is
         selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term>To</term>
-      <listitem id="listitemN0x180ac00N0x181a7d8">
+      <listitem>
         <para>Displays the Destination Warehouse if a Transfer Order is
         selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Require sufficient Inventory</term>
-      <listitem id="listitemN0x180ac00N0x181a820">
+      <listitem>
         <para>Select to ensure you have enough Quantity on Hand of a Line Item
         prior to issuing Stock to Shipping. If selected, this option will
         prevent you from issuing Line Item quantity to Shipping if doing so
@@ -68,7 +68,7 @@
     </varlistentry>
     <varlistentry>
       <term>Line Items</term>
-      <listitem id="listitemN0x180ac00N0x181a868">
+      <listitem>
         <para>Display lists Sales Order Line Items available for Shipping. If
         the Scheduled Date for an unshipped Line Item is in the future, the
         line will display in green text. If the Scheduled Date for an
@@ -78,7 +78,7 @@
     </varlistentry>
     <varlistentry>
       <term>Issue Items Using Bar Code</term>
-      <listitem id="listitemN0x180ac00N0x181a8b0">
+      <listitem>
         <para>This is an optional field which allows you to issue stock to
         Shipping using a Bar Code scanner. Enter a UPC Code for a Sales Order
         Line Item using a Bar Code scanner--or manually enter the UPC Code.
@@ -101,7 +101,7 @@
   <variablelist>
     <varlistentry>
       <term>Qty.</term>
-      <listitem id="listitemN0x180ac00N0x181a940">
+      <listitem>
         <para>Specify the quantity of Line Items to be issued using a UPC
         Code. To issue the Line Item quantity to shipping, select the FIND
         button--or hit the ENTER key on your keyboard to select the FIND
@@ -128,7 +128,7 @@
   <variablelist>
     <varlistentry>
       <term>SHIP ORDER</term>
-      <listitem id="listitemN0x180ac00N0x181aa3c">
+      <listitem>
         <para>Select to Ship the specified Sales Order, as described in <xref
         linkend="Anchor28938" />.</para>
       </listitem>
@@ -155,14 +155,14 @@
   <variablelist>
     <varlistentry>
       <term>ISSUE LINE BAL.</term>
-      <listitem id="listitemN0x180ac00N0x181aba4">
+      <listitem>
         <para>Highlight a Line Item, then select this button to issue the
         balance of the Line to shipping.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>RETURN STOCK</term>
-      <listitem id="listitemN0x180ac00N0x181abec">
+      <listitem>
         <para>Highlight a Line Item, then select this button to remove the
         Line from Shipping, returning the stock to Inventory.</para>
       </listitem>
@@ -177,14 +177,14 @@
   <variablelist>
     <varlistentry>
       <term>ISSUE ALL BAL.</term>
-      <listitem id="listitemN0x180ac00N0x183046c">
+      <listitem>
         <para>Select to issue all Line Items to Shipping
         simultaneously.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>FIND</term>
-      <listitem id="listitemN0x180ac00N0x18304b4">
+      <listitem>
         <para>Compares the UPC Code entered in the "Issue Items Using Barcode"
         field with the UPC Codes for the listed Sales Order Line Items, then
         issues to Shipping the quantity specified in the "Qty." field. The

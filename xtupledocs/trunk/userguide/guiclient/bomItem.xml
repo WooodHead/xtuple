@@ -29,14 +29,14 @@
   <variablelist>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x1897c94">
+      <listitem>
         <para>Enter the Item Number of the Item you want to add to the Bill of
         Materials.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x1897cdc">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
@@ -45,7 +45,7 @@
           <primary>effectivity</primary>
           <secondary>in BOMs</secondary>
         </indexterm>Effectivity</term>
-      <listitem id="listitemN0x180ac00N0x1897d6c">
+      <listitem>
         <para>Specify the component's effectivity, using the following
         parameters:</para>
         <variablelist>
@@ -81,7 +81,7 @@
     </varlistentry>
     <varlistentry>
       <term>Qty. Per</term>
-      <listitem id="listitemN0x180ac00N0x1897db4">
+      <listitem>
         <para>Per: Specify the quantity of the component Item required per
         Bill of Materials. This is a required field.</para>
       </listitem>
@@ -96,7 +96,7 @@
     </varlistentry>
     <varlistentry>
       <term>Scrap %</term>
-      <listitem id="listitemN0x180ac00N0x1897dfc">
+      <listitem>
         <para>Number entered should represent a percentage of material
         quantity that is additionally consumed as Scrap. This is a required
         field.</para>
@@ -111,7 +111,7 @@
   <variablelist>
     <varlistentry>
       <term>Create Child W/O at Parent W/O Explosion</term>
-      <listitem id="listitemN0x180ac00N0x1897e8c">
+      <listitem>
         <para>Select to create Work Orders for manufactured components when
         their parent Items are exploded. This option applies only to
         manufactured Items appearing as components on a Bill of Materials. If
@@ -164,7 +164,7 @@
           <primary>backflush</primary>
           <secondary>as issue method</secondary>
         </indexterm>Issue Method</term>
-      <listitem id="listitemN0x180ac00N0x18981ec">
+      <listitem>
         <para>Method: Select one of the available issue methods:</para>
         <variablelist>
           <varlistentry>
@@ -213,7 +213,7 @@
   <variablelist>
     <varlistentry>
       <term>Used At</term>
-      <listitem id="listitemN0x180ac00N0x18a0a6c">
+      <listitem>
         <para>Specify which Operation the component is used at. Using the
         browse button located to the right of the field, select a Bill of
         Operations sequence number to identify which Operation the component
@@ -236,7 +236,7 @@
   <variablelist>
     <varlistentry>
       <term>Schedule w/ W/O Operation</term>
-      <listitem id="listitemN0x180ac00N0x18a0afc">
+      <listitem>
         <para>Select to indicate that this component is not due until the Work
         Order Operation that will consume it is scheduled to begin. The
         scheduling of Operations is handled by the Execution Day indicator on
@@ -259,7 +259,7 @@
           <primary>ECN</primary>
           <see>engineering change notices</see>
         </indexterm>ECN #</term>
-      <listitem id="listitemN0x180ac00N0x18a0bd4">
+      <listitem>
         <para>Enter the Engineering Change Notice Number--if applicable--for
         the specified component Item.</para>
       </listitem>
@@ -274,7 +274,7 @@
   <variablelist>
     <varlistentry>
       <term>Substitutions</term>
-      <listitem id="listitemN0x180ac00N0x18a0c64">
+      <listitem>
         <para>Choose one of the following Item Substitution options:</para>
         <variablelist>
           <varlistentry>
@@ -315,27 +315,27 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18a0cf4">
+      <listitem>
         <para>Closes the screen without inserting the component Item into the
         Bill of Materials, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18a0d3c">
+      <listitem>
         <para>Inserts the component Item into the Bill of Materials,
         automatically assigning it a sequence number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18a0d84">
+      <listitem>
         <para>Opens screen for creating a new BOM-defined Substitution.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x18a0dcc">
+      <listitem>
         <para>Enables you to edit a BOM-defined Substitution. Highlight the
         Item Substitute you want to edit and then hit the EDIT button--or
         double-click on the Item Substitute to enter the edit mode. The edit
@@ -346,7 +346,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x18a0e14">
+      <listitem>
         <para>Highlight an Item Substitute and then select this button to
         remove the Item Substitute from the list.</para>
       </listitem>
@@ -373,38 +373,38 @@
   <variablelist>
     <varlistentry>
       <term>Item Number (Root Item)</term>
-      <listitem id="listitemN0x180ac00N0x18a0f7c">
+      <listitem>
         <para>Displays Item Number of specified component Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x18a0fc4">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Number (Substitution)</term>
-      <listitem id="listitemN0x180ac00N0x18a100c">
+      <listitem>
         <para>Enter the Item Number of the Substitute Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x18a1054">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Substitute/Parent UOM Ratio</term>
-      <listitem id="listitemN0x180ac00N0x18a109c">
+      <listitem>
         <para>Indicate the ratio between the Issue UOM for the specified BOM
         Item and the corresponding Issue UOM for the Substitute Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ranking</term>
-      <listitem id="listitemN0x180ac00N0x18a10e4">
+      <listitem>
         <para>Select a number using the arrow buttons, or manually enter a
         value up to a maximum of 9. Enter the specified ranking order of the
         Item Substitute. You may assign the same ranking to multiple Items, if
@@ -417,13 +417,13 @@
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-      <listitem id="listitemN0x180ac00N0x18a1150">
+      <listitem>
         <para>Closes the screen, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18a1198">
+      <listitem>
         <para>Inserts the Item Substitution into the list of BOM-defined
         Substitutions.</para>
       </listitem>
@@ -444,7 +444,7 @@
   <variablelist>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x18a1270">
+      <listitem>
         <para>Display lists the date Comment entered, Comment Type, user who
         entered Comment, and a content preview.</para>
       </listitem>
@@ -455,13 +455,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18a12dc">
+      <listitem>
         <para>Opens screen for creating a new Comment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x18a1324">
+      <listitem>
         <para>Highlight a Comment and then select this button to reach a
         read-only view of the Comment.</para>
       </listitem>
@@ -480,7 +480,7 @@
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
-      <listitem id="listitemN0x180ac00N0x18a13fc">
+      <listitem>
         <para>Specify one of the following Comment Types from the drop-down
         list: ChangeLog or General.</para>
         <para>Comment Types are used to categorize Comments. Once you have
@@ -495,14 +495,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18a1468">
+      <listitem>
         <para>Closes the screen without creating the Comment, returning you to
         the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18a14b0">
+      <listitem>
         <para>Creates the Comment and adds it to the list of Comments.</para>
       </listitem>
     </varlistentry>
@@ -529,20 +529,20 @@
   <variablelist>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x18a1618">
+      <listitem>
         <para>The component Item selected on the Bill of Materials screen will
         display here.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x18a1660">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Bill of Operation Items</term>
-      <listitem id="listitemN0x180ac00N0x18a16a8">
+      <listitem>
         <para>Display lists Bill of Operations Items for the same manufactured
         Item whose Bill of Materials is being specified. Highlight the
         Operation you want to link the Bill of Materials Item to, then hit the
@@ -555,7 +555,7 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18a1714">
+      <listitem>
         <para>Closes the screen without linking the Bill of Materials
         component to a Bill of Operations Item, returning you to the
         application desktop.</para>
@@ -563,14 +563,14 @@
     </varlistentry>
     <varlistentry>
       <term>CLEAR</term>
-      <listitem id="listitemN0x180ac00N0x18a175c">
+      <listitem>
         <para>Removes the link between a Bill of Materials component and a
         Bill of Operations Item if such a link has been made.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SELECT</term>
-      <listitem id="listitemN0x180ac00N0x18a17a4">
+      <listitem>
         <para>Links the Bill of Operations Item to the specified Bill of
         Materials component. Highlight the desired Bill of Operations Item
         before selecting the SELECT button.</para>

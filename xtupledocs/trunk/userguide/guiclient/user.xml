@@ -36,7 +36,7 @@
           <primary>users</primary>
           <secondary>creating usernames for</secondary>
         </indexterm>Username</term>
-      <listitem id="listitemN0x180ac00N0x18c4094">
+      <listitem>
         <para>Enter a unique username to clearly distinguish the new user from
         existing users. The username is case-sensitive. This is a required
         field.</para>
@@ -44,7 +44,7 @@
     </varlistentry>
     <varlistentry>
       <term>Active</term>
-      <listitem id="listitemN0x180ac00N0x18c40dc">
+      <listitem>
         <para>Select to mark the user as Active.</para>
         <para>Not selecting marks the user as Inactive. Users cannot be
         deleted from the system, but marking them Inactive prevents them from
@@ -53,14 +53,14 @@
     </varlistentry>
     <varlistentry>
       <term>Proper Name</term>
-      <listitem id="listitemN0x180ac00N0x18c4124">
+      <listitem>
         <para>Enter the user's first name and last name (e.g., John
         Smith).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Initials</term>
-      <listitem id="listitemN0x180ac00N0x18c416c">
+      <listitem>
         <para>Enter the user's initials.</para>
       </listitem>
     </varlistentry>
@@ -75,7 +75,7 @@
           <primary>passwords</primary>
           <secondary>created by administrators</secondary>
         </indexterm>Password</term>
-      <listitem id="listitemN0x180ac00N0x18c428c">
+      <listitem>
         <para>User passwords are established to ensure application and system
         security. Passwords are case-sensitive. As you can see in the example,
         this field does not display the values entered on the screen. Instead,
@@ -87,7 +87,7 @@
     </varlistentry>
     <varlistentry>
       <term>Verify</term>
-      <listitem id="listitemN0x180ac00N0x18c42d4">
+      <listitem>
         <para>Verify the accuracy of the user's password by retyping it in
         this field. Again, individual keystrokes will be replaced by asterisks
         (*) to protect the password from being viewed.</para>
@@ -95,14 +95,14 @@
     </varlistentry>
     <varlistentry>
       <term>Dept.</term>
-      <listitem id="listitemN0x180ac00N0x18c431c">
+      <listitem>
         <para>Select a Department to associate with the specified user.</para>
         <para>This is an optional setting.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Shift</term>
-      <listitem id="listitemN0x180ac00N0x18c4364">
+      <listitem>
         <para>Select a Shift to associate with the specified user.</para>
         <para>This is an optional setting.</para>
       </listitem>
@@ -115,7 +115,7 @@
           <primary>openmfg administrators</primary>
           <secondary>user locales established by</secondary>
         </indexterm>Locale</term>
-      <listitem id="listitemN0x180ac00N0x18c443c">
+      <listitem>
         <para>Select one of the available Locales.</para>
         <para>Locale settings affect how information is formatted and
         displayed on a user's screen. The default Locale is "USEnglish", but
@@ -136,7 +136,7 @@
           <primary>privileges</primary>
           <secondary>for users</secondary>
         </indexterm>Purchasing Agent</term>
-      <listitem id="listitemN0x180ac00N0x18c455c">
+      <listitem>
         <para>Select if the users is authorized to make purchases.</para>
         <para>Not selecting means the user is not authorized to make
         purchases.</para>
@@ -144,7 +144,7 @@
     </varlistentry>
     <varlistentry>
       <term>Can Create System Users</term>
-      <listitem id="listitemN0x180ac00N0x18c45a4">
+      <listitem>
         <para>Select if the user is authorized to create new users.</para>
         <para>Not selecting means the user is not authorized to create new
         users.</para>
@@ -159,7 +159,7 @@
   <variablelist>
     <varlistentry>
       <term>Disable Export Display Contents</term>
-      <listitem id="listitemN0x180ac00N0x18cbe24">
+      <listitem>
         <para>Select to prevent user from exporting display contents.</para>
         <para>The "Export Contents" option can be found on right-click menus
         throughout the application. If selected, the user will be blocked from
@@ -168,7 +168,7 @@
     </varlistentry>
     <varlistentry>
       <term>Use Enhanced Authentication</term>
-      <listitem id="listitemN0x180ac00N0x18cbe6c">
+      <listitem>
         <para>Select to require users to use enhanced authentication when they
         log in to the application.</para>
         <para>Enhanced authentication adds a layer to the authentication
@@ -195,7 +195,7 @@
   <variablelist>
     <varlistentry>
       <term>May only use Shop Floor Workbench</term>
-      <listitem id="listitemN0x180ac00N0x18cbefc">
+      <listitem>
         <para>Select if you want the user to have access only to the Shop
         Floor Workbench--and to no other screens.</para>
         <para>If selected, the Shop Floor Workbench will be the only screen
@@ -208,7 +208,7 @@
     </varlistentry>
     <varlistentry>
       <term>Module</term>
-      <listitem id="listitemN0x180ac00N0x18cbf44">
+      <listitem>
         <para>Select an individual module to assign privileges for that
         module.</para>
         <para>Assign privileges to the user on a module-by-module basis.
@@ -222,7 +222,7 @@
           <primary>privileges</primary>
           <secondary>list of available</secondary>
         </indexterm>Available Privileges</term>
-      <listitem id="listitemN0x180ac00N0x18cbfd4">
+      <listitem>
         <para>Select appropriate privileges from list of available
         privileges.</para>
         <para>The privileges listed in this column represent the full range of
@@ -240,7 +240,7 @@
           <primary>privileges</primary>
           <secondary>list of granted</secondary>
         </indexterm>Granted Privileges</term>
-      <listitem id="listitemN0x180ac00N0x18cc064">
+      <listitem>
         <para>Displays granted privileges for the specified user.</para>
         <para>To remove a user's granted privileges for a specified module,
         highlight a granted privilege and then click the REVOKE button. The
@@ -256,7 +256,7 @@
   <variablelist>
     <varlistentry>
       <term>ADD-\&gt;</term>
-      <listitem id="listitemN0x180ac00N0x18cc0d0">
+      <listitem>
         <para>Highlight a specific privilege in the available privileges
         column, then select this button to transfer the privilege to the
         granted privileges column.</para>
@@ -266,14 +266,14 @@
     </varlistentry>
     <varlistentry>
       <term>ADD ALL-\&gt;\&gt;</term>
-      <listitem id="listitemN0x180ac00N0x18cc118">
+      <listitem>
         <para>Select this button to automatically transfer all available
         privileges to the granted privileges column.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>&lt;-REVOKE</term>
-      <listitem id="listitemN0x180ac00N0x18cc160">
+      <listitem>
         <para>Highlight a specific privilege in the granted privileges column,
         then select this button to remove the privilege from the granted
         privileges column.</para>
@@ -283,7 +283,7 @@
     </varlistentry>
     <varlistentry>
       <term>&lt;&lt;-REVOKE ALL</term>
-      <listitem id="listitemN0x180ac00N0x18cc1a8">
+      <listitem>
         <para>Select this button to automatically remove all granted
         privileges from the granted privileges column.</para>
       </listitem>
@@ -294,14 +294,14 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18cc214">
+      <listitem>
         <para>Saves the specified user's information and adds it to the list
         of registered users.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CLOSE</term>
-      <listitem id="listitemN0x180ac00N0x18cc25c">
+      <listitem>
         <para>Closes the screen without saving any changes, returning you to
         the previous screen.</para>
       </listitem>

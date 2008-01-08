@@ -23,14 +23,14 @@
   <variablelist>
     <varlistentry>
       <term>P/O Number</term>
-      <listitem id="listitemN0x180ac00N0x185d3ac">
+      <listitem>
         <para>Displays the Purchase Order Number specified in the "New
         Purchase Order" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Line #</term>
-      <listitem id="listitemN0x180ac00N0x185d3f4">
+      <listitem>
         <para>The application automatically assigns line numbers to Purchase
         Order Line Items. Numbering begins at one ("1") and increases
         automatically in increments of one.</para>
@@ -38,7 +38,7 @@
     </varlistentry>
     <varlistentry>
       <term>Inventory Item</term>
-      <listitem id="listitemN0x180ac00N0x185d43c">
+      <listitem>
         <para>If the Item being purchased is an Inventory Item, select this
         option and specify the following:</para>
         <variablelist>
@@ -72,7 +72,7 @@
   <variablelist>
     <varlistentry>
       <term>Non-Inventory Item</term>
-      <listitem id="listitemN0x180ac00N0x185d4cc">
+      <listitem>
         <para>If the Item being purchased is a non-Inventory Item, select this
         option and specify the following:</para>
         <variablelist>
@@ -88,7 +88,7 @@
     </varlistentry>
     <varlistentry>
       <term>Item Source Information</term>
-      <listitem id="listitemN0x180ac00N0x185d514">
+      <listitem>
         <para>If Item Source information exists for an Inventory Item, that
         information will display automatically here. For non-Inventory Items,
         you should specify an Item Number and Item description.</para>
@@ -152,7 +152,7 @@
     your Inventory UOM.</para>
   </note>
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x185d580">
+    <listitem>
       <para>Earliest Due Date: For Inventory Items only, displays the earliest
       due date for the specified Item.</para>
       <para>Qty. Ordered: Enter the quantity of the specified Item to be
@@ -161,7 +161,7 @@
       <para>Due Date: Specify date when Order is expected to be
       received.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x185d5a4">
+    <listitem>
       <para>If your system is configured to use Item Source Earliest Available
       dates as the default due date for manual Purchase Orders, then this
       field will be automatically calculated. Earliest Available dates are
@@ -205,7 +205,7 @@
   <variablelist>
     <varlistentry>
       <term>Project #</term>
-      <listitem id="listitemN0x180ac00N0x1865c24">
+      <listitem>
         <para>Select a Project Number to associate with the Purchase Order
         Line Item. If the Purchase Order Line Item is being created from a
         Purchase Request driven by Sales Order demand--and the parent Sales
@@ -217,7 +217,7 @@
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x1865c6c">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Purchase Order Line Item.</para>
       </listitem>
@@ -228,14 +228,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1865cd8">
+      <listitem>
         <para>Closes the screen without creating a new Purchase Order Line
         Item, returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1865d20">
+      <listitem>
         <para>Creates the new Purchase Order Line Item and adds it to the list
         of Purchase Order Line Items.</para>
       </listitem>
@@ -269,7 +269,7 @@
   <variablelist>
     <varlistentry>
       <term>Name</term>
-      <listitem id="listitemN0x180ac00N0x1865e1c">
+      <listitem>
         <para>Displays the name of any Item Characteristics associated with
         the Item. Characteristics defined as Item Characteristics may be
         associated with Items on the Item master.</para>
@@ -277,7 +277,7 @@
     </varlistentry>
     <varlistentry>
       <term>Value</term>
-      <listitem id="listitemN0x180ac00N0x1865e64">
+      <listitem>
         <para>Displays the default Value associated with an Item
         Characteristic, but permits you to specify an alternate Value. When
         associating Characteristic Values with a Purchase Order Item, you have
@@ -307,7 +307,7 @@
   <variablelist>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x1865f3c">
+      <listitem>
         <para>Display lists Comments for the specified Line Item.</para>
       </listitem>
     </varlistentry>
@@ -317,7 +317,7 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x1865fa8">
+      <listitem>
         <para>Opens screen for creating a new Comment. Purchase Order Line
         Item Comments may only be added after the Line Item has been saved to
         the Purchase Order.</para>
@@ -325,7 +325,7 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x1865ff0">
+      <listitem>
         <para>Highlight a Comment and then select this button to reach a
         read-only view of the Comment.</para>
       </listitem>
@@ -344,7 +344,7 @@
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
-      <listitem id="listitemN0x180ac00N0x18660c8">
+      <listitem>
         <para>Specify one of the following Comment Types from the drop-down
         list: ChangeLog or General. Comment Types are used to categorize
         Comments. Once you have specified a Comment Type, you may type your
@@ -358,14 +358,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1866134">
+      <listitem>
         <para>Closes the screen without creating a new Comment, returning you
         to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x186617c">
+      <listitem>
         <para>Creates the Comment and adds it to the list of Line Item
         Comments.</para>
       </listitem>

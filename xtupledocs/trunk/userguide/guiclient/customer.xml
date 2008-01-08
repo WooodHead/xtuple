@@ -28,19 +28,19 @@
   <variablelist>
     <varlistentry>
       <term>Customer #</term>
-      <listitem id="listitemN0x180ac00N0x181a0d0">
+      <listitem>
         <para>The Customer Number uniquely identifies the Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Customer Type</term>
-      <listitem id="listitemN0x180ac00N0x181a118">
+      <listitem>
         <para>Specify the Customer Type the Customer belongs to.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Customer Name</term>
-      <listitem id="listitemN0x180ac00N0x181a160">
+      <listitem>
         <para>Enter the name of the Customer or company you are doing business
         with. This field should not to be confused with the contact name of an
         individual at the company.</para>
@@ -48,14 +48,14 @@
     </varlistentry>
     <varlistentry>
       <term>Active</term>
-      <listitem id="listitemN0x180ac00N0x181a1a8">
+      <listitem>
         <para>Select if you are actively doing business with this Customer.
         Not selecting makes the Customer inactive.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Sales Rep</term>
-      <listitem id="listitemN0x180ac00N0x181a1f0">
+      <listitem>
         <para>Specify a default Sales Representative for the Customer.</para>
       </listitem>
     </varlistentry>
@@ -67,14 +67,14 @@
   <variablelist>
     <varlistentry>
       <term>Commission</term>
-      <listitem id="listitemN0x180ac00N0x181a280">
+      <listitem>
         <para>Specify the commission percentage for the selected Sales
         Representative.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Defaults</term>
-      <listitem id="listitemN0x180ac00N0x181a2c8">
+      <listitem>
         <para>Specify one of the available Shipping-related defaults:</para>
         <para>Ship Via: Specify the default Ship Via to be used for the
         Customer. You may enter a free-form Ship Via simply by typing the name
@@ -87,11 +87,11 @@
     websites of many leading shipping companies (i.e., "Ship Vias").</para>
   </tip>
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x181a334">
+    <listitem>
       <para>Shipping Form: Specify the default Shipping Form to be used for
       the Customer.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x181a358">
+    <listitem>
       <para>Shipping Charges: Specify the default Shipping Charges to be used
       for the Customer.</para>
     </listitem>
@@ -110,7 +110,7 @@
           <primary>customers</primary>
           <secondary>backorders accepted by</secondary>
         </indexterm>Accepts Backorders</term>
-      <listitem id="listitemN0x180ac00N0x181a478">
+      <listitem>
         <para>Select to indicate whether the Customer accepts Backorders. A
         backorder is defined as an unshipped Line Item on a shipped Sales
         Order. For example, if a Customer orders three Line Items, but only
@@ -137,7 +137,7 @@
           <primary>customers</primary>
           <secondary>partial shipments accepted by</secondary>
         </indexterm> Accepts Partial Shipments</term>
-      <listitem id="listitemN0x180ac00N0x181a5e0">
+      <listitem>
         <para>Accepts Partial Shipments: Select to indicate whether the
         Customer accepts partial shipments. A partial shipment is defined as a
         shipped Order having a Line Item whose full quantity is not included
@@ -157,7 +157,7 @@
   <variablelist>
     <varlistentry>
       <term>Allow Free-Form Ship-To"s</term>
-      <listitem id="listitemN0x180ac00N0x181a670">
+      <listitem>
         <para>Select to indicate that free-form Ship-To Addresses may be
         entered when Sales Orders are created for the Customer. If not
         selected, you are indicating that free-form Ship-To's may not be
@@ -167,7 +167,7 @@
     </varlistentry>
     <varlistentry>
       <term>Allow Free-Form Bill-To</term>
-      <listitem id="listitemN0x180ac00N0x181a6b8">
+      <listitem>
         <para>Select to indicate that free-form Bill-To Addresses may be
         entered when Sales Orders are created for the Customer. If not
         selected, you are indicating that free-form Bill-To's may not be
@@ -177,7 +177,7 @@
     </varlistentry>
     <varlistentry>
       <term>Preferred Selling Whs.</term>
-      <listitem id="listitemN0x180ac00N0x181a700">
+      <listitem>
         <para>Specify the preferred selling Warehouse, if any. This is an
         optional setting. If a preferred Warehouse is selected, then this
         Warehouse will be used when entering Sales Orders for the Customer. At
@@ -197,14 +197,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x181a790">
+      <listitem>
         <para>Closes the screen without creating the Customer, returning you
         to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x181a7d8">
+      <listitem>
         <para>Creates the Customer and enters the Customer into the master
         list of Customers.</para>
       </listitem>
@@ -234,7 +234,7 @@
           <primary>tax authorities</primary>
           <secondary>default for customers</secondary>
         </indexterm>Default Tax Authority</term>
-      <listitem id="listitemN0x180ac00N0x181a988">
+      <listitem>
         <para>Specify the primary Tax Authority you want to associate with the
         Customer. By default, the specified Tax Authority will be used on the
         Sales Order header whenever entering Sales Orders or Quotes for the
@@ -243,7 +243,7 @@
     </varlistentry>
     <varlistentry>
       <term>Tax Registration Numbers</term>
-      <listitem id="listitemN0x180ac00N0x181a9d0">
+      <listitem>
         <para>Display lists Tax Registration Numbers for the specified
         Customer.</para>
       </listitem>
@@ -254,14 +254,14 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x181aa3c">
+      <listitem>
         <para>Opens screen for creating a new Customer Tax Registration
         Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x181aa84">
+      <listitem>
         <para>Enables you to edit highlighted Customer Tax Registration
         Numbers. The edit screen is the same as that for creating a new
         Customer Tax Registration Number--except that when editing, the fields
@@ -272,14 +272,14 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x181aacc">
+      <listitem>
         <para>Highlight a Customer Tax Registration Number and then select
         this button to reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x181ab14">
+      <listitem>
         <para>Highlight a Customer Tax Registration Number and then select
         this button to remove the Customer Tax Registration Number from the
         list.</para>
@@ -309,20 +309,20 @@
   <variablelist>
     <varlistentry>
       <term>Customer #</term>
-      <listitem id="listitemN0x180ac00N0x182d86c">
+      <listitem>
         <para>Displays the Customer Number for the specified Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Tax Authority</term>
-      <listitem id="listitemN0x180ac00N0x182d8b4">
+      <listitem>
         <para>Specify the Tax Authority associated with the Tax Registration
         Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Registration Number</term>
-      <listitem id="listitemN0x180ac00N0x182d8fc">
+      <listitem>
         <para>Enter the Customer's Tax Registration Number for the specified
         Tax Authority. The registration number is used by Tax Authorities to
         identify businesses and/or individuals. An Employer Identification
@@ -341,14 +341,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x182d98c">
+      <listitem>
         <para>Closes the screen without creating a new Customer Tax
         Registration Number, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x182d9d4">
+      <listitem>
         <para>Creates the Customer Tax Registration Number and adds it to the
         master list of Customer Tax Registration Numbers.</para>
       </listitem>
@@ -369,13 +369,13 @@
   <variablelist>
     <varlistentry>
       <term>Default Terms</term>
-      <listitem id="listitemN0x180ac00N0x182daac">
+      <listitem>
         <para>Specify the default billing Terms for the Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Balance Method</term>
-      <listitem id="listitemN0x180ac00N0x182daf4">
+      <listitem>
         <para>Specify one of the available methods for handling open balances
         for the Customer:</para>
         <variablelist>
@@ -399,7 +399,7 @@
     </varlistentry>
     <varlistentry>
       <term>Default Discount</term>
-      <listitem id="listitemN0x180ac00N0x182db3c">
+      <listitem>
         <para>Enter the default discount--if any--which the Customer should
         receive. Customer discounts are applied to either a) the List Price
         for an Item if the List Price is being used or b) a specific Sale if a
@@ -409,7 +409,7 @@
     </varlistentry>
     <varlistentry>
       <term>Credit Limit</term>
-      <listitem id="listitemN0x180ac00N0x182db84">
+      <listitem>
         <para>Specify the credit ceiling you are willing to extend to the
         Customer.</para>
       </listitem>
@@ -419,7 +419,7 @@
           <primary>customers</primary>
           <secondary>credit rating options for</secondary>
         </indexterm>Credit Rating</term>
-      <listitem id="listitemN0x180ac00N0x182dc14">
+      <listitem>
         <para>You have the option of assigning a credit rating to the
         Customer. Any value entered here is purely informational. The system
         does not use the credit rating in any calculations.</para>
@@ -427,7 +427,7 @@
     </varlistentry>
     <varlistentry>
       <term>Credit Status</term>
-      <listitem id="listitemN0x180ac00N0x182dc5c">
+      <listitem>
         <para>Select one from the list below by clicking on the radio button
         to the left of the option. In Good Standing: Select to mark the
         Customer as having credit in good standing. Customers with credit "In
@@ -442,13 +442,13 @@
     overridden, but only by users having the appropriate privileges.</para>
   </note>
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x182dcc8">
+    <listitem>
       <para>On Credit Warning: Select to alert sales staff to possible credit
       problems with the Customer. Customers with credit "On Credit Warning"
       may not have Sales Orders issued for them. An orange-colored typeface
       will be associated with their account.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x182dcec">
+    <listitem>
       <para>On Credit Hold: Select to inform sales staff that Customer's
       credit has been suspended. Customers with credit "On Credit Hold" may
       not have Sales Orders issued for them. A red-colored typeface will be
@@ -463,7 +463,7 @@
         </varlistentry>
       </variablelist>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x182dd10">
+    <listitem>
       <para>If selected, users will be required to enter a Customer Purchase
       Order Number when entering a Sales Order. In addition, selecting the
       option will prevent users from entering duplicate Customer Purchase
@@ -481,7 +481,7 @@
           <primary>purchase orders</primary>
           <secondary>customers using blanket</secondary>
         </indexterm>Uses Blanket P/O"s</term>
-      <listitem id="listitemN0x180ac00N0x182dde8">
+      <listitem>
         <para>Blanket P/O"s: Select to indicate that the Customer uses blanket
         Purchase Orders. A blanket P/O is a Customer Purchase Order which may
         be used for more than one Sales Order. Selecting this option means
@@ -491,7 +491,7 @@
     </varlistentry>
     <varlistentry>
       <term>Place on Credit Warning when Credit Limit is Exceeded</term>
-      <listitem id="listitemN0x180ac00N0x182de30">
+      <listitem>
         <para>Select this option to automatically place the Customer on Credit
         Warning if their open Accounts Receivable (A/R) balance exceeds their
         Credit Limit. If a Customer is on Credit Warning, Sales Orders may not
@@ -503,7 +503,7 @@
     <varlistentry>
       <term>Place Open S/Os on Credit Hold when Credit Limit is
       Exceeded</term>
-      <listitem id="listitemN0x180ac00N0x182de78">
+      <listitem>
         <para>Select this option to place all new and existing open Sales
         Orders on Credit Hold if the Customer's Credit Limit is exceeded. The
         contents of Sales Orders placed on Credit Hold may not be issued to
@@ -536,7 +536,7 @@
   <variablelist>
     <varlistentry>
       <term>Billing Contact</term>
-      <listitem id="listitemN0x180ac00N0x182dfbc">
+      <listitem>
         <para>Manually enter billing Contact information in the fields
         below--or use the browse button to select pre-existing Contact
         information.</para>
@@ -594,7 +594,7 @@
   <variablelist>
     <varlistentry>
       <term>Address</term>
-      <listitem id="listitemN0x180ac00N0x182e04c">
+      <listitem>
         <para>Manually enter billing Address information in the fields
         below--or use the browse button to select pre-existing Address
         information.</para>
@@ -634,7 +634,7 @@
     </varlistentry>
     <varlistentry>
       <term>Correspondence Contact</term>
-      <listitem id="listitemN0x180ac00N0x182e094">
+      <listitem>
         <para>Manually enter non-billing-related Contact information in the
         fields below--or use the browse button to select pre-existing Contact
         information. Examples of non-billing-related correspondence might
@@ -688,7 +688,7 @@
     </varlistentry>
     <varlistentry>
       <term>Address</term>
-      <listitem id="listitemN0x180ac00N0x182e0dc">
+      <listitem>
         <para>Manually enter non-billing Address information in the fields
         below--or use the browse button to select pre-existing Address
         information.</para>
@@ -728,7 +728,7 @@
     </varlistentry>
     <varlistentry>
       <term>Ship-To Addresses</term>
-      <listitem id="listitemN0x180ac00N0x182e124">
+      <listitem>
         <para>Display lists Ship-To Addresses for the specified
         Customer.</para>
       </listitem>
@@ -743,13 +743,13 @@
   <variablelist>
     <varlistentry>
       <term>PRINT</term>
-      <listitem id="listitemN0x180ac00N0x182e1b4">
+      <listitem>
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x182e1fc">
+      <listitem>
         <para>Opens screen for creating a new Ship-To Address.</para>
       </listitem>
     </varlistentry>
@@ -823,35 +823,35 @@
   <variablelist>
     <varlistentry>
       <term>Customer #</term>
-      <listitem id="listitemN0x180ac00N0x182e55c">
+      <listitem>
         <para>The Customer Number and Customer name specified in the Customer
         master will display here.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ship-To #</term>
-      <listitem id="listitemN0x180ac00N0x182e5a4">
+      <listitem>
         <para>Specify a number or code to identify the Ship-To Address
         by.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Active</term>
-      <listitem id="listitemN0x180ac00N0x182e5ec">
+      <listitem>
         <para>Select to activate the Ship-To Address. If option is not
         selected, then the Ship-To Address is inactive.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Default</term>
-      <listitem id="listitemN0x180ac00N0x1842a24">
+      <listitem>
         <para>Select if this is the default Ship-To Address for the
         Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Name</term>
-      <listitem id="listitemN0x180ac00N0x1842a6c">
+      <listitem>
         <para>Enter the name of the company that will receive shipments at
         this Ship-To Address. Customers may maintain multiple Ship-To
         Addresses with diverse destinations.</para>
@@ -865,7 +865,7 @@
   <variablelist>
     <varlistentry>
       <term>Address</term>
-      <listitem id="listitemN0x180ac00N0x1842afc">
+      <listitem>
         <para>Manually enter billing Address information in the fields
         below--or use the browse button to select pre-existing Address
         information.</para>
@@ -914,7 +914,7 @@
           <primary>ship-to addresses</primary>
           <secondary>contact information for</secondary>
         </indexterm>Contact</term>
-      <listitem id="listitemN0x180ac00N0x1842bd4">
+      <listitem>
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information. This
         field should not to be confused with the "Name" field that appears on
@@ -967,7 +967,7 @@
     </varlistentry>
     <varlistentry>
       <term>Sales Rep</term>
-      <listitem id="listitemN0x180ac00N0x1842c1c">
+      <listitem>
         <para>Specify the Sales Representative for the Ship-To Address. When
         entering Orders for a Customer, the name of the Sales Representative
         specified on the Ship-To Address will be used.</para>
@@ -975,7 +975,7 @@
     </varlistentry>
     <varlistentry>
       <term>Commission</term>
-      <listitem id="listitemN0x180ac00N0x1842c64">
+      <listitem>
         <para>Field accepts up to 4 whole numbers and 2 decimals. Enter the
         Commission rate to be used when Sales Orders for this Customer are
         shipped to the specified Ship-To Address.</para>
@@ -983,19 +983,19 @@
     </varlistentry>
     <varlistentry>
       <term>Zone</term>
-      <listitem id="listitemN0x180ac00N0x1842cac">
+      <listitem>
         <para>Specify the Zone for the Ship-To Address.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Tax Code</term>
-      <listitem id="listitemN0x180ac00N0x1842cf4">
+      <listitem>
         <para>Specify Tax Code to be used for Ship-To Address.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Defaults</term>
-      <listitem id="listitemN0x180ac00N0x1842d3c">
+      <listitem>
         <para>Select one of the available Shipping-related defaults:</para>
         <variablelist>
           <varlistentry>
@@ -1015,16 +1015,16 @@
     websites of many leading shipping companies (i.e., "Ship Vias").</para>
   </tip>
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x1842da8">
+    <listitem>
       <para>Shipping Form: Specify the default Shipping Form to be used for
       the Ship-To Address.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x1842dcc">
+    <listitem>
       <para>Shipping Charges: Specify the default Shipping Charges to be used
       for the Ship-To Address.</para>
       <para>EDI Profile: Select one of the available EDI options:</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x1842df0">
+    <listitem>
       <para>Different EDI Profiles may be specified for different Ship-To
       Addresses. However, if you want the default Profile to mirror the
       Customer master settings, select the "Use Customer Master"
@@ -1045,14 +1045,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1842e5c">
+      <listitem>
         <para>Closes the screen without adding Customer Address information,
         returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1842ea4">
+      <listitem>
         <para>Saves any new Customer Address information.</para>
       </listitem>
     </varlistentry>
@@ -1073,7 +1073,7 @@
   <variablelist>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x1842f7c">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Customer. Any Notes entered on this screen are
         for internal purposes only.</para>
@@ -1085,14 +1085,14 @@
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-      <listitem id="listitemN0x180ac00N0x1842fe8">
+      <listitem>
         <para>Closes the screen without creating the Customer Note, returning
         you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1843030">
+      <listitem>
         <para>Creates the Customer Note and adds it to the Customer
         master.</para>
       </listitem>
@@ -1126,7 +1126,7 @@
   <variablelist>
     <varlistentry>
       <term>Characteristics</term>
-      <listitem id="listitemN0x180ac00N0x18431e0">
+      <listitem>
         <para>Display lists the Characteristics related to the
         Customer.</para>
       </listitem>
@@ -1145,13 +1145,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x184324c">
+      <listitem>
         <para>Opens screen for creating a new Customer Characteristic.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x1843294">
+      <listitem>
         <para>Enables you to edit highlighted Customer Characteristics. The
         edit screen is the same as that for creating a new Customer
         Characteristic--except that when editing, the fields will contain
@@ -1161,7 +1161,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x18432dc">
+      <listitem>
         <para>Highlight a Customer Characteristic and then select this button
         to remove the Customer Characteristic from the list.</para>
       </listitem>
@@ -1184,7 +1184,7 @@
   <variablelist>
     <varlistentry>
       <term>Characteristic</term>
-      <listitem id="listitemN0x180ac00N0x18433b4">
+      <listitem>
         <para>Select a Characteristic from the list of Characteristics
         designated as being available for use as Customer
         Characteristics.</para>
@@ -1192,7 +1192,7 @@
     </varlistentry>
     <varlistentry>
       <term>Value</term>
-      <listitem id="listitemN0x180ac00N0x18433fc">
+      <listitem>
         <para>Enter a description of the Customer Characteristic.</para>
       </listitem>
     </varlistentry>
@@ -1202,14 +1202,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1843468">
+      <listitem>
         <para>Closes the screen without creating the Customer Characteristic,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18434b0">
+      <listitem>
         <para>Creates the Customer Characteristic and adds it to the list of
         Customer Characteristics.</para>
       </listitem>
@@ -1230,7 +1230,7 @@
   <variablelist>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x1843588">
+      <listitem>
         <para>Display lists Comments related to the Customer.</para>
       </listitem>
     </varlistentry>
@@ -1240,13 +1240,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18435f4">
+      <listitem>
         <para>Opens the screen for creating a new Customer Comment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x184363c">
+      <listitem>
         <para>Opens a read-only view of the Customer Comment.</para>
       </listitem>
     </varlistentry>
@@ -1264,7 +1264,7 @@
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
-      <listitem id="listitemN0x180ac00N0x1843714">
+      <listitem>
         <para>Specify one of the following Comment Types from the drop-down
         list: ChangeLog or General. Comment Types are used to categorize
         Comments. Once you have specified a Comment Type, you may type your
@@ -1278,14 +1278,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1843780">
+      <listitem>
         <para>Closes the screen without creating the Customer Comment,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18437c8">
+      <listitem>
         <para>Creates the Comment and adds it to the list of Customer
         Comments.</para>
       </listitem>
@@ -1309,7 +1309,7 @@
   <variablelist>
     <varlistentry>
       <term>EDI Profile</term>
-      <listitem id="listitemN0x180ac00N0x184bc90">
+      <listitem>
         <para>Select from the following EDI Profile options:</para>
         <variablelist>
           <varlistentry>
@@ -1344,7 +1344,7 @@
     </varlistentry>
     <varlistentry>
       <term>EDI Email</term>
-      <listitem id="listitemN0x180ac00N0x184bcd8">
+      <listitem>
         <para>Enter the Customer email address to be used as the default
         recipient address whenever Sales Orders are emailed to the Customer.
         Only applies when the "Custom Email" EDI Profile option is
@@ -1360,7 +1360,7 @@
   <variablelist>
     <varlistentry>
       <term>Cc</term>
-      <listitem id="listitemN0x180ac00N0x184bd68">
+      <listitem>
         <para>Enter the email address to be used as the default carbon copy
         address whenever Sales Orders are emailed to the Customer. Only
         applies when the "Custom Email" EDI Profile option is selected.</para>
@@ -1368,7 +1368,7 @@
     </varlistentry>
     <varlistentry>
       <term>Subject</term>
-      <listitem id="listitemN0x180ac00N0x184bdb0">
+      <listitem>
         <para>Enter a default email subject line to be used whenever Sales
         Orders are emailed to the Customer. Only applies when the "Custom
         Email" EDI Profile option is selected.</para>
@@ -1376,7 +1376,7 @@
     </varlistentry>
     <varlistentry>
       <term>Filename</term>
-      <listitem id="listitemN0x180ac00N0x184bdf8">
+      <listitem>
         <para>XML tags may be used in this field to dynamically generate
         filename text. In the example shown in the screenshot above, the
         filename will include the Document Type (i.e., Sales Order) and the
@@ -1386,7 +1386,7 @@
     </varlistentry>
     <varlistentry>
       <term>EDI Email Body</term>
-      <listitem id="listitemN0x180ac00N0x184be40">
+      <listitem>
         <para>Use this text field to enter the default message that will
         accompany any Sales Orders sent to the Customer. Only applies when the
         "Custom Email" EDI Profile option is selected.</para>
@@ -1398,14 +1398,14 @@
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-      <listitem id="listitemN0x180ac00N0x184beac">
+      <listitem>
         <para>Closes the screen without setting up a Customer to receive Sales
         Orders via email, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x184bef4">
+      <listitem>
         <para>Enables the Customer to receive Sales Orders via email.</para>
       </listitem>
     </varlistentry>
@@ -1430,7 +1430,7 @@
   <variablelist>
     <varlistentry>
       <term>EDI Profile</term>
-      <listitem id="listitemN0x180ac00N0x184bff0">
+      <listitem>
         <para>Select from the following EDI Profile options:</para>
         <variablelist>
           <varlistentry>
@@ -1466,7 +1466,7 @@
     </varlistentry>
     <varlistentry>
       <term>EDI Email</term>
-      <listitem id="listitemN0x180ac00N0x184c038">
+      <listitem>
         <para>Enter the Customer email address to be used as the default
         recipient address whenever Invoices are emailed to the Customer. Only
         applies when the "Custom Email" EDI Profile option is selected.</para>
@@ -1481,7 +1481,7 @@
   <variablelist>
     <varlistentry>
       <term>Cc</term>
-      <listitem id="listitemN0x180ac00N0x184c0c8">
+      <listitem>
         <para>Enter the email address to be used as the default carbon copy
         address whenever Invoices are emailed to the Customer. Only applies
         when the "Custom Email" EDI Profile option is selected.</para>
@@ -1489,7 +1489,7 @@
     </varlistentry>
     <varlistentry>
       <term>Subject</term>
-      <listitem id="listitemN0x180ac00N0x184c110">
+      <listitem>
         <para>Enter a default email subject line to be used whenever Invoices
         are emailed to the Customer. Only applies when the "Custom Email" EDI
         Profile option is selected.</para>
@@ -1497,7 +1497,7 @@
     </varlistentry>
     <varlistentry>
       <term>Filename</term>
-      <listitem id="listitemN0x180ac00N0x184c158">
+      <listitem>
         <para>XML tags may be used in this field to dynamically generate
         filename text. In the example shown in the screenshot above, the
         filename will include the Document Type (i.e., Invoice) and the
@@ -1507,7 +1507,7 @@
     </varlistentry>
     <varlistentry>
       <term>EDI Email Body</term>
-      <listitem id="listitemN0x180ac00N0x184c1a0">
+      <listitem>
         <para>Use this text field to enter the default message that will
         accompany any Invoices sent to the Customer. Only applies when the
         "Custom Email" EDI Profile option is selected.</para>
@@ -1519,14 +1519,14 @@
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-      <listitem id="listitemN0x180ac00N0x184c20c">
+      <listitem>
         <para>Closes the screen without setting up a Customer to receive
         Invoices via email, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x184c254">
+      <listitem>
         <para>Enables the Customer to receive Invoices via email.</para>
       </listitem>
     </varlistentry>
@@ -1565,7 +1565,7 @@
   <variablelist>
     <varlistentry>
       <term>Credit Cards</term>
-      <listitem id="listitemN0x180ac00N0x184c404">
+      <listitem>
         <para>Display lists Credit Card records for the Customer.</para>
       </listitem>
     </varlistentry>
@@ -1575,14 +1575,14 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x184c470">
+      <listitem>
         <para>Opens screen for entering new Credit Card information for the
         Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x184c4b8">
+      <listitem>
         <para>Enables you to edit highlighted Credit Cards. The edit screen is
         the same as that for entering new Credit Card information--except that
         when editing, the fields will contain Credit Card information.</para>
@@ -1590,7 +1590,7 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x184c500">
+      <listitem>
         <para>Highlight a Credit Card and then select this button to reach a
         read-only view of the "Edit" screen. Double-clicking on a Credit Card
         will also bring you to the view screen.</para>
@@ -1598,7 +1598,7 @@
     </varlistentry>
     <varlistentry>
       <term>MOVE UP</term>
-      <listitem id="listitemN0x180ac00N0x184c548">
+      <listitem>
         <para>Highlight a Credit Card and then select this button to move the
         Credit Card up in the sequence of Credit Cards. Sequence numbers are
         automatically adjusted to reflect the change in position.</para>
@@ -1606,7 +1606,7 @@
     </varlistentry>
     <varlistentry>
       <term>MOVE DOWN</term>
-      <listitem id="listitemN0x180ac00N0x184c590">
+      <listitem>
         <para>Highlight a Credit Card and then select this button to move the
         Credit Card down the sequence of Credit Cards. Sequence numbers are
         automatically adjusted to reflect the change in position.</para>
@@ -1628,14 +1628,14 @@
   <variablelist>
     <varlistentry>
       <term>Customer #</term>
-      <listitem id="listitemN0x180ac00N0x184c668">
+      <listitem>
         <para>Displays the name of the Customer associated with the Credit
         Card record. The name of the Customer will also be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Credit Card Type</term>
-      <listitem id="listitemN0x180ac00N0x184c6b0">
+      <listitem>
         <para>Specify the type of Credit Card. The following Credit Card types
         are currently supported: Master Card, Visa, American Express, and
         Discover.</para>
@@ -1643,7 +1643,7 @@
     </varlistentry>
     <varlistentry>
       <term>Credit Card Number</term>
-      <listitem id="listitemN0x180ac00N0x184c6f8">
+      <listitem>
         <para>Enter the Credit Card Number. After the Credit Card record has
         been saved, all but the last four digits of the Credit Card Number
         will be encrypted for security purposes.</para>
@@ -1651,7 +1651,7 @@
     </varlistentry>
     <varlistentry>
       <term>Active</term>
-      <listitem id="listitemN0x180ac00N0x184c740">
+      <listitem>
         <para>Select if the Credit Card record is active. Do not select this
         option if the specified Credit Card is inactive or invalid for any
         reason.</para>
@@ -1659,26 +1659,26 @@
     </varlistentry>
     <varlistentry>
       <term>Name</term>
-      <listitem id="listitemN0x180ac00N0x184c788">
+      <listitem>
         <para>Enter a name to describe the Credit Card record.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Address</term>
-      <listitem id="listitemN0x180ac00N0x184c7d0">
+      <listitem>
         <para>Specify the billing address associated with the Credit Card
         record.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Country</term>
-      <listitem id="listitemN0x180ac00N0x184c818">
+      <listitem>
         <para>Specify the country associated with the billing address.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Expiration Month</term>
-      <listitem id="listitemN0x180ac00N0x184c860">
+      <listitem>
         <para>Enter the month when the specified Credit Card expires. The
         month must be saved in the format "MM". For example, the month of
         January would be represented as "01".</para>
@@ -1686,7 +1686,7 @@
     </varlistentry>
     <varlistentry>
       <term>Expiration Year</term>
-      <listitem id="listitemN0x180ac00N0x184c8a8">
+      <listitem>
         <para>Enter the year when the specified Credit Card expires. The year
         must be saved in the format "YYYY". For example, the year 2006 would
         be represented as "2006".</para>
@@ -1698,14 +1698,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x184c914">
+      <listitem>
         <para>Closes the screen without creating the Credit Card record,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x184c95c">
+      <listitem>
         <para>Creates the Credit Card record and adds it to the list of Credit
         Card records.</para>
       </listitem>

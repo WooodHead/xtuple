@@ -27,13 +27,13 @@
   <variablelist>
     <varlistentry>
       <term>Code</term>
-      <listitem id="listitemN0x180ac00N0x181a478">
+      <listitem>
         <para>The Warehouse code is used to identify a given Warehouse.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Active</term>
-      <listitem id="listitemN0x180ac00N0x181a4c0">
+      <listitem>
         <para>Select to specify the Warehouse is active. Not selecting means
         the Warehouse will be considered inactive. To re-activate a Warehouse,
         simply select this option.</para>
@@ -41,7 +41,7 @@
     </varlistentry>
     <varlistentry>
       <term>Description</term>
-      <listitem id="listitemN0x180ac00N0x181a508">
+      <listitem>
         <para>Enter a brief description of the Warehouse.</para>
       </listitem>
     </varlistentry>
@@ -53,7 +53,7 @@
   <variablelist>
     <varlistentry>
       <term>Address</term>
-      <listitem id="listitemN0x180ac00N0x181a598">
+      <listitem>
         <para>Manually enter Address information in the fields below--or use
         the browse button to select pre-existing Address information. The
         Warehouse Address is used on shipping and receiving paperwork.</para>
@@ -99,7 +99,7 @@
   <variablelist>
     <varlistentry>
       <term>Contact</term>
-      <listitem id="listitemN0x180ac00N0x181a628">
+      <listitem>
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
         <variablelist>
@@ -150,7 +150,7 @@
     </varlistentry>
     <varlistentry>
       <term>Post Unassigned Transactions to</term>
-      <listitem id="listitemN0x180ac00N0x181a670">
+      <listitem>
         <para>Specify a General Ledger Account to post unassigned transactions
         to. This account is used as a general bucket for General Ledger
         transactions which the system, for one reason or another, may not know
@@ -167,7 +167,7 @@
     </varlistentry>
     <varlistentry>
       <term>Inventory Warehouse</term>
-      <listitem id="listitemN0x180ac00N0x181a6b8">
+      <listitem>
         <para>Select if the Warehouse is to be used for Inventory storage. The
         following options are available for Inventory Warehouses:</para>
         <variablelist>
@@ -305,7 +305,7 @@
   <variablelist>
     <varlistentry>
       <term>Default Ship Via</term>
-      <listitem id="listitemN0x180ac00N0x181a9ac">
+      <listitem>
         <para>Specify a default Ship Via to be used by the Transit Warehouse.
         The selected Ship Via will be used by default on the Transfer Order
         header whenever the specified Transit Warehouse is used.</para>
@@ -313,7 +313,7 @@
     </varlistentry>
     <varlistentry>
       <term>Default Shipping Form</term>
-      <listitem id="listitemN0x180ac00N0x181a9f4">
+      <listitem>
         <para>Specify a default Shipping Form to be used by the Transit
         Warehouse. The selected Shipping Form will be used by default on the
         Transfer Order header whenever the specified Transit Warehouse is
@@ -328,7 +328,7 @@
   <variablelist>
     <varlistentry>
       <term>Default Cost Category</term>
-      <listitem id="listitemN0x180ac00N0x181aa84">
+      <listitem>
         <para>Specify a default Cost Category to be used by the Transit
         Warehouse. Associating a Cost Category with a Transit Warehouse makes
         it possible for the system to create Item Sites for Transit Warehouses
@@ -348,7 +348,7 @@
   <variablelist>
     <varlistentry>
       <term>Shipping Comments</term>
-      <listitem id="listitemN0x180ac00N0x181ab14">
+      <listitem>
         <para>Enter shipping Comments you want to associate with the Transit
         Warehouse. Shipping Comments entered here will be used on any Transfer
         Order which uses specified Transit Warehouse. This is a scrolling text
@@ -361,14 +361,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x181ab80">
+      <listitem>
         <para>Closes the screen without creating a Warehouse, returning you to
         the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x181abc8">
+      <listitem>
         <para>Creates the Warehouse and adds it to the master list of
         Warehouses.</para>
       </listitem>
@@ -394,7 +394,7 @@
           <primary>ARBL</primary>
           <secondary>enforcing in warehouses</secondary>
         </indexterm>Enforce ARBL Naming Convention</term>
-      <listitem id="listitemN0x180ac00N0x1830ed8">
+      <listitem>
         <para>Select to enforce the aisle, rack, bin, Location (ARBL) naming
         convention when defining Warehouse Locations. Specify values for the
         following ARBL parameters:</para>
@@ -464,7 +464,7 @@
           <primary>warehouses</primary>
           <secondary>zones for</secondary>
         </indexterm>Warehouse Zones</term>
-      <listitem id="listitemN0x180ac00N0x1831040">
+      <listitem>
         <para>Display includes Warehouse Zones for the specified
         Warehouse.</para>
       </listitem>
@@ -475,13 +475,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18310ac">
+      <listitem>
         <para>Opens screen for creating a new Warehouse Zone.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x18310f4">
+      <listitem>
         <para>Enables you to edit highlighted Warehouse Zones. The edit screen
         is the same as that for creating a new Warehouse Zone--except that
         when editing, the fields will contain Warehouse Zone information.
@@ -491,7 +491,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x183113c">
+      <listitem>
         <para>Highlight a Warehouse Zone and then select this button to remove
         the Zone from the list.</para>
       </listitem>
@@ -521,13 +521,13 @@
   <variablelist>
     <varlistentry>
       <term>Name</term>
-      <listitem id="listitemN0x180ac00N0x18312ec">
+      <listitem>
         <para>Enter a unique name for the Warehouse Zone.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Description</term>
-      <listitem id="listitemN0x180ac00N0x1831334">
+      <listitem>
         <para>Enter a brief description of the Warehouse Zone.</para>
       </listitem>
     </varlistentry>
@@ -537,14 +537,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18313a0">
+      <listitem>
         <para>Closes the screen without adding a new Warehouse Zone to the
         list of Warehouse Zones.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18313e8">
+      <listitem>
         <para>Creates the Warehouse Zone and adds it to the list of Warehouse
         Zones.</para>
       </listitem>
@@ -564,7 +564,7 @@
   <variablelist>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x18314c0">
+      <listitem>
         <para>Display lists the date Comment entered, Comment Type, user who
         entered Comment, and a content preview.</para>
       </listitem>
@@ -575,13 +575,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x183152c">
+      <listitem>
         <para>Opens screen for creating a new Comment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x1831574">
+      <listitem>
         <para>Highlight a Comment and then select this button to reach a
         read-only view of the Comment.</para>
       </listitem>
@@ -600,7 +600,7 @@
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
-      <listitem id="listitemN0x180ac00N0x183164c">
+      <listitem>
         <para>Specify one of the following Comment Types from the drop-down
         list: ChangeLog or General. Comment Types are used to categorize
         Comments. Once you have specified a Comment Type, you may type your
@@ -614,14 +614,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18316b8">
+      <listitem>
         <para>Closes the screen without creating the Comment, returning you to
         the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1831700">
+      <listitem>
         <para>Creates the Comment and adds it to the list of Comments.</para>
       </listitem>
     </varlistentry>

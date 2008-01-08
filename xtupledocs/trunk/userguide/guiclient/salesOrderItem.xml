@@ -21,20 +21,20 @@
   <variablelist>
     <varlistentry>
       <term>Order #</term>
-      <listitem id="listitemN0x180ac00N0x18a3b90">
+      <listitem>
         <para>Displays the Sales Order Number specified in the "Sales Order"
         screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Line #</term>
-      <listitem id="listitemN0x180ac00N0x18a3bd8">
+      <listitem>
         <para>Displays the Line Item Number for the current Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x18a3c20">
+      <listitem>
         <para>Enter the Item Number of the Item you want to sell. The Item
         list will contain sold Items available for purchase by the specified
         Customer. The list of available Items may vary from Customer to
@@ -45,7 +45,7 @@
     </varlistentry>
     <varlistentry>
       <term>Customer P/N</term>
-      <listitem id="listitemN0x180ac00N0x18a3c68">
+      <listitem>
         <para>Displays the Customer Part Number (i.e., Item Alias) that
         corresponds to the Item Number entered in the Item Number field. The
         Customer Part Number will display only if you enter an Item Alias in
@@ -60,7 +60,7 @@
     </varlistentry>
     <varlistentry>
       <term>Substitute for</term>
-      <listitem id="listitemN0x180ac00N0x18a3cb0">
+      <listitem>
         <para>Optional selection used solely for gathering information related
         to Sales Order Line Item substitutions. This feature can be used, for
         example, to gather information about Inventory shortages or Customer
@@ -77,7 +77,7 @@
           <primary>sales orders</primary>
           <secondary>selling warehouses for</secondary>
         </indexterm>Sold from Whs.</term>
-      <listitem id="listitemN0x180ac00N0x18a3d88">
+      <listitem>
         <para>Specify the Warehouse the Sales Order Item is sold from. Items
         may be supplied to Sales Orders from multiple Item Sites. After an
         Item Number is entered above, the system checks for available Item
@@ -100,7 +100,7 @@
   <variablelist>
     <varlistentry>
       <term>Qty. Ordered</term>
-      <listitem id="listitemN0x180ac00N0x18a3e18">
+      <listitem>
         <para>Enter the quantity of the specified Item to be ordered. The
         quantity ordered for sold Items is measured in the Item's Inventory
         UOM.</para>
@@ -123,7 +123,7 @@
           <primary>sales orders</primary>
           <secondary>line item pricing for</secondary>
         </indexterm>Net Unit Price</term>
-      <listitem id="listitemN0x180ac00N0x18a3ef0">
+      <listitem>
         <para>Displays the Unit Price for the Sales Order Item. By default,
         the system will choose the lower of the following two Prices: A) The
         most-specific Pricing Schedule Assignment or B) any Sale in effect at
@@ -143,7 +143,7 @@
   <variablelist>
     <varlistentry>
       <term>Extended Price</term>
-      <listitem id="listitemN0x180ac00N0x18a3f80">
+      <listitem>
         <para>Displays the Extended Price. The Extended Price for a Line Item
         is based on the quantity ordered multiplied by the Net Unit
         Price.</para>
@@ -151,7 +151,7 @@
     </varlistentry>
     <varlistentry>
       <term>Scheduled Date</term>
-      <listitem id="listitemN0x180ac00N0x18a3fc8">
+      <listitem>
         <para>The scheduled date is the date when the Line Item should be
         Shipped. The user who enters the Line Item is responsible for
         determining the scheduled date. After entering the scheduled date, hit
@@ -167,7 +167,7 @@
   <variablelist>
     <varlistentry>
       <term>Tax Type</term>
-      <listitem id="listitemN0x180ac00N0x18ac448">
+      <listitem>
         <para>Specify the Tax Type for the Sales Order Item. By default, the
         Item's Tax Type corresponding to the Sales Order's Tax Authority will
         be presented here. The link between Tax Types and Tax Authorities is
@@ -178,7 +178,7 @@
     </varlistentry>
     <varlistentry>
       <term>Tax Code</term>
-      <listitem id="listitemN0x180ac00N0x18ac490">
+      <listitem>
         <para>Specify the Tax Code to be applied to the Sales Order Item. By
         default, the Tax Code specified in the Tax Selection matrix will be
         displayed here. For a Tax Code to be used, the matrix must have an
@@ -196,7 +196,7 @@
   <variablelist>
     <varlistentry>
       <term>Tax</term>
-      <listitem id="listitemN0x180ac00N0x18ac520">
+      <listitem>
         <para>Displays the amount of Tax to be charged for the Sales Order
         Line Item quantity. Sales Tax is calculated at the Sales Order Line
         Item level. To get a detailed view of the Tax calculation, click on
@@ -208,7 +208,7 @@
           <primary>sales orders</primary>
           <secondary>availability of items for</secondary>
         </indexterm>Show Availability</term>
-      <listitem id="listitemN0x180ac00N0x18ac5b0">
+      <listitem>
         <para>Select to display Availability information for the Sales Order
         Item in the following categories:</para>
         <variablelist>
@@ -270,32 +270,32 @@
   <variablelist>
     <varlistentry>
       <term>Pricing UOM</term>
-      <listitem id="listitemN0x180ac00N0x18ac640">
+      <listitem>
         <para>Displays the Price UOM for the Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ratio</term>
-      <listitem id="listitemN0x180ac00N0x18ac688">
+      <listitem>
         <para>The ratio displayed here is the Price/Inventory UOM ratio, which
         is defined in the Item master for an Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Unit Cost</term>
-      <listitem id="listitemN0x180ac00N0x18ac6d0">
+      <listitem>
         <para>Displays the Standard Cost per unit.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>List Price</term>
-      <listitem id="listitemN0x180ac00N0x18ac718">
+      <listitem>
         <para>Displays the sales List Price per unit.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Customer Price</term>
-      <listitem id="listitemN0x180ac00N0x18ac760">
+      <listitem>
         <para>Displays the Price given to the specified Customer. Special
         Customer Prices can be set for individual Customers or Customer Groups
         by using a Pricing Schedule.</para>
@@ -306,7 +306,7 @@
           <primary>sales orders</primary>
           <secondary>discount percentages for</secondary>
         </indexterm>Discount % from List</term>
-      <listitem id="listitemN0x180ac00N0x18ac7f0">
+      <listitem>
         <para>Displays the percentage discount off the List Price. Indicates
         the difference between the List Price for an Item and the Net Unit
         Price as a percentage. This is the margin between the Net Unit Price
@@ -315,7 +315,7 @@
     </varlistentry>
     <varlistentry>
       <term>Discount % from Cust</term>
-      <listitem id="listitemN0x180ac00N0x18ac838">
+      <listitem>
         <para>Specify here and apply any discount for specified Customer for
         this Sales Order. This is a discount off the regular Customer Price,
         obtained either from the Customer master or a Pricing Schedule.</para>
@@ -323,7 +323,7 @@
     </varlistentry>
     <varlistentry>
       <term>Qty. Shipped to Date</term>
-      <listitem id="listitemN0x180ac00N0x18ac880">
+      <listitem>
         <para>Shipped to Date: Displays the total quantity shipped of the
         specified Line Item to date.</para>
       </listitem>
@@ -342,7 +342,7 @@
           <primary>sales orders</primary>
           <secondary>purchase requests generated by</secondary>
         </indexterm>Create Work Order</term>
-      <listitem id="listitemN0x180ac00N0x18ac9e8">
+      <listitem>
         <para>If the Line Item is a manufactured Item, select this option to
         automatically create a Work Order for the specified quantity. For
         make-to-order manufactured Items, this option will be selected
@@ -367,7 +367,7 @@
   <variablelist>
     <varlistentry>
       <term>W/O Qty.</term>
-      <listitem id="listitemN0x180ac00N0x18aca78">
+      <listitem>
         <para>The quantity ordered by the Sales Order Line Item will display
         here. If the Line Item is a purchased Item, the option "P/R Qty" will
         appear instead.</para>
@@ -375,7 +375,7 @@
     </varlistentry>
     <varlistentry>
       <term>W/O Due Date</term>
-      <listitem id="listitemN0x180ac00N0x18acac0">
+      <listitem>
         <para>The scheduled date of the Sales Order Line Item will display
         here. If the Line Item is a purchased Item, the option "P/R Due Date"
         will appear instead.</para>
@@ -389,7 +389,7 @@
           <primary>sales orders</primary>
           <secondary>supplying warehouses and</secondary>
         </indexterm>Supplying Whs.</term>
-      <listitem id="listitemN0x180ac00N0x18acb98">
+      <listitem>
         <para>Specify the Warehouse a corresponding Work Order would be
         supplied from. Work Orders may only be created for manufactured Items
         having a supplying Warehouse. Warehouses designated as "Supplied at"
@@ -414,7 +414,7 @@
   <variablelist>
     <varlistentry>
       <term>Name</term>
-      <listitem id="listitemN0x180ac00N0x18acc28">
+      <listitem>
         <para>Displays the name of any Item Characteristics associated with
         the Item. Characteristics defined as Item Characteristics may be
         associated with Items on the Item master.</para>
@@ -422,7 +422,7 @@
     </varlistentry>
     <varlistentry>
       <term>Value</term>
-      <listitem id="listitemN0x180ac00N0x18acc70">
+      <listitem>
         <para>Displays the default Value associated with an Item
         Characteristic, but permits you to specify an alternate Value. When
         associating Characteristic Values with a Sales Order Line Item, you
@@ -439,14 +439,14 @@
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-      <listitem id="listitemN0x180ac00N0x18accdc">
+      <listitem>
         <para>Closes the screen without creating a new Sales Order Line Item,
         returning you to the Sales Order header.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18acd24">
+      <listitem>
         <para>Creates the new Sales Order Line Item and adds it to the list of
         Sales Order Line Items. If "Create Work Order" is specified, the
         associated Work Order will also be created.</para>
@@ -454,20 +454,20 @@
     </varlistentry>
     <varlistentry>
       <term>PREVIOUS</term>
-      <listitem id="listitemN0x180ac00N0x18acd6c">
+      <listitem>
         <para>Select to view previous Line Items associated with the Sales
         Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18acdb4">
+      <listitem>
         <para>Select to create a new Sales Order Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL ITEM</term>
-      <listitem id="listitemN0x180ac00N0x18acdfc">
+      <listitem>
         <para>Select to cancel the current Sales Order Line Item. Records of
         canceled Line Items will be retained for informational purposes. To
         view canceled Line Items associated with a Sales Order, select the
@@ -492,7 +492,7 @@
   <variablelist>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x18ad1c8">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         general Notes related to the Sales Order Line Item.</para>
       </listitem>
@@ -524,7 +524,7 @@
   <variablelist>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x18b64d8">
+      <listitem>
         <para>Display lists Comments for the specified Line Item.</para>
       </listitem>
     </varlistentry>
@@ -534,7 +534,7 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18b6544">
+      <listitem>
         <para>Opens screen for creating a new Comment. Sales Order Line Item
         Comments may only be added after the Line Item has been saved to the
         Sales Order.</para>
@@ -542,7 +542,7 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x18b658c">
+      <listitem>
         <para>Highlight a Comment and then select this button to reach a
         read-only view of the Comment.</para>
       </listitem>
@@ -561,7 +561,7 @@
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
-      <listitem id="listitemN0x180ac00N0x18b6664">
+      <listitem>
         <para>Specify one of the following Comment Types from the drop-down
         list: ChangeLog or General. Comment Types are used to categorize
         Comments. Once you have specified a Comment Type, you may type your
@@ -575,14 +575,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18b66d0">
+      <listitem>
         <para>Closes the screen without creating a new Comment, returning you
         to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18b6718">
+      <listitem>
         <para>Creates the Comment and adds it to the list of Order
         Comments.</para>
       </listitem>
@@ -613,14 +613,14 @@
   <variablelist>
     <varlistentry>
       <term>Show Pending Availability as Indented BOM</term>
-      <listitem id="listitemN0x180ac00N0x18b6814">
+      <listitem>
         <para>Select to display Pending Availability as an indented Bill of
         Materials.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Pending Availability</term>
-      <listitem id="listitemN0x180ac00N0x18b685c">
+      <listitem>
         <para>Displays Pending Availability for component Items associated
         with sold manufactured Items. If you choose the "Show Pending
         Availability as Indented BOM" option, the information will be

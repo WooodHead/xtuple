@@ -29,7 +29,7 @@
   <variablelist>
     <varlistentry>
       <term>Order #</term>
-      <listitem id="listitemN0x180ac00N0x18d6204">
+      <listitem>
         <para>Next available Quote Number will automatically display, unless
         your system requires you to enter Quote Numbers manually. Default
         values and input parameters for Quote Numbers are configurable at the
@@ -44,7 +44,7 @@
   <variablelist>
     <varlistentry>
       <term>Warehouse</term>
-      <listitem id="listitemN0x180ac00N0x18d6294">
+      <listitem>
         <para>Specify the shipping Warehouse associated with the Quote. This
         Warehouse selection is for informational purposes only. A Warehouse
         may be designated as a shipping Warehouse on the Warehouse
@@ -53,13 +53,13 @@
     </varlistentry>
     <varlistentry>
       <term>Order Date</term>
-      <listitem id="listitemN0x180ac00N0x18d62dc">
+      <listitem>
         <para>Displays current day's date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Scheduled Date</term>
-      <listitem id="listitemN0x180ac00N0x18d6324">
+      <listitem>
         <para>Displays the Quote's earliest scheduled date. The scheduled date
         corresponds to the earliest scheduled date for an included Quote Item.
         Because Quotes may contain multiple Quote Items, the scheduled date
@@ -76,7 +76,7 @@
           <primary>quotes</primary>
           <secondary>pack dates for</secondary>
         </indexterm>Pack Date</term>
-      <listitem id="listitemN0x180ac00N0x18d63fc">
+      <listitem>
         <para>The pack date is the same date as the ship date. Because the
         field can be edited, you have the ability to change the pack date and
         make it different from the ship date.</para>
@@ -84,7 +84,7 @@
     </varlistentry>
     <varlistentry>
       <term>Originated By</term>
-      <listitem id="listitemN0x180ac00N0x18d6444">
+      <listitem>
         <para>Specify the origin of the Order using the available
         options:</para>
         <variablelist>
@@ -120,7 +120,7 @@
   <variablelist>
     <varlistentry>
       <term>Customer #</term>
-      <listitem id="listitemN0x180ac00N0x18d64d4">
+      <listitem>
         <para>Enter the Customer Number of the Customer (or Prospect) you want
         to create a Quote for. The browse button located to the right of the
         field leads to a searchable Customers list. You may also access this
@@ -145,7 +145,7 @@
   <variablelist>
     <varlistentry>
       <term>Cust. Type</term>
-      <listitem id="listitemN0x180ac00N0x18d6564">
+      <listitem>
         <para>Displays the Customer Type for the specified Customer.</para>
       </listitem>
     </varlistentry>
@@ -154,19 +154,19 @@
           <primary>quotes</primary>
           <secondary>billing information for</secondary>
         </indexterm>Bill-To Name</term>
-      <listitem id="listitemN0x180ac00N0x18d65f4">
+      <listitem>
         <para>Displays the Customer's Bill-To name.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Bill-To Phone</term>
-      <listitem id="listitemN0x180ac00N0x18d663c">
+      <listitem>
         <para>Displays the Customer's Bill-To phone number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Address</term>
-      <listitem id="listitemN0x180ac00N0x18d6684">
+      <listitem>
         <para>Displays the Customer's Bill-To Address. You may manually
         override the displayed Address information in the fields below--or use
         the browse button to select another Address.</para>
@@ -206,7 +206,7 @@
     </varlistentry>
     <varlistentry>
       <term>Copy to Ship-to</term>
-      <listitem id="listitemN0x180ac00N0x18d66cc">
+      <listitem>
         <para>Select to copy contents of billing address into Ship-To address
         field. This option is enabled if the Customer master for the specified
         Customer indicates that free-form Ship-To's are allowed.</para>
@@ -214,7 +214,7 @@
     </varlistentry>
     <varlistentry>
       <term>Ship-To #</term>
-      <listitem id="listitemN0x180ac00N0x18d6714">
+      <listitem>
         <para>Enter the number of the preferred Ship-To Address. Customers may
         maintain multiple Ship-To Addresses. If the Customer master for the
         specified Customer indicates that free-form Ship-To's are allowed,
@@ -229,19 +229,19 @@
           <primary>quotes</primary>
           <secondary>ship-to details for</secondary>
         </indexterm>Ship-To Name</term>
-      <listitem id="listitemN0x180ac00N0x18d67a4">
+      <listitem>
         <para>Displays the name for the specified Ship-To.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ship-To Phone</term>
-      <listitem id="listitemN0x180ac00N0x18d67ec">
+      <listitem>
         <para>Displays the phone number for the specified Ship-To.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Address</term>
-      <listitem id="listitemN0x180ac00N0x18df424">
+      <listitem>
         <para>Displays the specified Ship-To Address. You may manually
         override the displayed Address information in the fields below--or use
         the browse button to select another Address.</para>
@@ -287,7 +287,7 @@
           <primary>quotes</primary>
           <secondary>commissions on</secondary>
         </indexterm>Sales Rep.</term>
-      <listitem id="listitemN0x180ac00N0x18df4fc">
+      <listitem>
         <para>Specify the Sales Representative associated with the Order.
         Sales Representatives are linked to a Customer on the Customer
         master--either by a default setting or through the assignment of
@@ -299,7 +299,7 @@
     </varlistentry>
     <varlistentry>
       <term>Commission</term>
-      <listitem id="listitemN0x180ac00N0x18df544">
+      <listitem>
         <para>By default, the commission percentage recorded on the Customer
         master will be automatically entered in this field. If for some reason
         you select a non-default Sales Representative at Order entry, the
@@ -312,7 +312,7 @@
           <primary>tax authorities</primary>
           <secondary>for quotes</secondary>
         </indexterm>Tax Authority</term>
-      <listitem id="listitemN0x180ac00N0x18df5d4">
+      <listitem>
         <para>Specify the Tax Authority associated with the Quote. The Tax
         Authority for the specified Ship-To Address will be entered here by
         default. Otherwise, the primary Tax Authority for the Customer will be
@@ -325,7 +325,7 @@
           <primary>quotes</primary>
           <secondary>setting terms for</secondary>
         </indexterm>Terms</term>
-      <listitem id="listitemN0x180ac00N0x18df6ac">
+      <listitem>
         <para>Specify the billing Terms associated with the Order. By default,
         the Customer's standard billing Terms will appear in the field.
         Customer billing.</para>
@@ -339,7 +339,7 @@
   <variablelist>
     <varlistentry>
       <term>Project #</term>
-      <listitem id="listitemN0x180ac00N0x18df73c">
+      <listitem>
         <para>Select a Project Number to associate with the Quote. If a Sales
         Order is created from a converted Quote--and the Quote had a Project
         Number associated with it--then the Project Number from the
@@ -361,7 +361,7 @@
   <variablelist>
     <varlistentry>
       <term>Cust. PO #</term>
-      <listitem id="listitemN0x180ac00N0x18df7cc">
+      <listitem>
         <para>PO #: Enter a Customer Purchase Order Number, as needed.</para>
       </listitem>
     </varlistentry>
@@ -375,7 +375,7 @@
   <variablelist>
     <varlistentry>
       <term>F.O.B.</term>
-      <listitem id="listitemN0x180ac00N0x18df85c">
+      <listitem>
         <para>Enter free on board (FOB) Terms for the Order. By default,
         F.O.B. Terms entered on the Shipping Warehouse master will appear in
         this field. The default Terms may be changed during Order entry--and
@@ -384,7 +384,7 @@
     </varlistentry>
     <varlistentry>
       <term>Ship Via</term>
-      <listitem id="listitemN0x180ac00N0x18df8a4">
+      <listitem>
         <para>The preferred Ship Via method for the Customer will appear in
         the field. You may change the default Ship Via using the list. You may
         also enter a free-form Ship Via simply by typing the name of the Ship
@@ -405,7 +405,7 @@
           <primary>quotes</primary>
           <secondary>hold types for</secondary>
         </indexterm>Hold Type</term>
-      <listitem id="listitemN0x180ac00N0x18df9c4">
+      <listitem>
         <para>Specify a hold type (if any) from the available options:</para>
         <variablelist>
           <varlistentry>
@@ -454,7 +454,7 @@
           <primary>shipping forms</primary>
           <secondary>selecting on quotes</secondary>
         </indexterm>Shipping Chgs.</term>
-      <listitem id="listitemN0x180ac00N0x18dfb74">
+      <listitem>
         <para>Specify the shipping charges associated with the Order. The
         preferred Shipping Charges Type for the Customer will appear in the
         field.</para>
@@ -462,7 +462,7 @@
     </varlistentry>
     <varlistentry>
       <term>Shipping Form</term>
-      <listitem id="listitemN0x180ac00N0x18dfbbc">
+      <listitem>
         <para>Specify the shipping Form associated with the Order. The
         preferred Shipping Form for the Customer will appear in the
         field.</para>
@@ -474,13 +474,13 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18dfc28">
+      <listitem>
         <para>Creates the new Quote and saves the Quote information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18dfc70">
+      <listitem>
         <para>Closes the screen without creating a new Quote, returning you to
         the application desktop.</para>
       </listitem>
@@ -511,7 +511,7 @@
   <variablelist>
     <varlistentry>
       <term>Line Items</term>
-      <listitem id="listitemN0x180ac00N0x18dfdb4">
+      <listitem>
         <para>Display lists Line Items for this Quote. A valid Customer Number
         must be entered in the "Customer #" field before Line Items can be
         added to the Order.</para>
@@ -519,7 +519,7 @@
     </varlistentry>
     <varlistentry>
       <term>$ Margin</term>
-      <listitem id="listitemN0x180ac00N0x18dfdfc">
+      <listitem>
         <para>Displays the total profit margin for the Quote. The profit
         margin is based on the following formula:</para>
         <para>Quote Subtotal - Total Standard Costs for all Line Items</para>
@@ -527,13 +527,13 @@
     </varlistentry>
     <varlistentry>
       <term>Subtotal</term>
-      <listitem id="listitemN0x180ac00N0x18dfe44">
+      <listitem>
         <para>Displays the subtotal for the Quote Line Items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Tax</term>
-      <listitem id="listitemN0x180ac00N0x18dfe8c">
+      <listitem>
         <para>Displays the amount of Tax that will be added to the Sales
         Order, as defined by the specified Tax Code. To get a detailed view of
         the Tax calculation, click on the Tax link using your mouse.</para>
@@ -541,7 +541,7 @@
     </varlistentry>
     <varlistentry>
       <term>Misc. Charge Amount</term>
-      <listitem id="listitemN0x180ac00N0x18dfed4">
+      <listitem>
         <para>Enter the amount of any miscellaneous charge. Examples of
         miscellaneous charges include palletization costs, co-op refund, etc.
         Before entering a miscellaneous charge amount, you must first assign
@@ -559,20 +559,20 @@
   <variablelist>
     <varlistentry>
       <term>Misc. Charge Description</term>
-      <listitem id="listitemN0x180ac00N0x18dff64">
+      <listitem>
         <para>Enter a description to identify the miscellaneous charge.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Misc. Charge Sales Account</term>
-      <listitem id="listitemN0x180ac00N0x18dffac">
+      <listitem>
         <para>Enter a Sales Account to assign the miscellaneous charge
         to.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Freight Weight</term>
-      <listitem id="listitemN0x180ac00N0x18dfff4">
+      <listitem>
         <para>Displays the combined weight of all Quote Line Items. Freight
         weight represents the sum of an Item's product weight and packaging
         weight, both of which are defined on the Item master. The per unit
@@ -589,7 +589,7 @@
           <primary>sales orders</primary>
           <secondary>freight charges on</secondary>
         </indexterm>Freight</term>
-      <listitem id="listitemN0x180ac00N0x18e00cc">
+      <listitem>
         <para>Enter the amount of freight charge to be added to the specified
         Order. Freight charges may be entered during the creation or
         modification of a Quote--or at the time of shipment.</para>
@@ -597,7 +597,7 @@
     </varlistentry>
     <varlistentry>
       <term>Total</term>
-      <listitem id="listitemN0x180ac00N0x18e0114">
+      <listitem>
         <para>Displays the total amount of the Quote.</para>
       </listitem>
     </varlistentry>
@@ -611,26 +611,26 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18e01a4">
+      <listitem>
         <para>Saves the Quote Line Item information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18e01ec">
+      <listitem>
         <para>Closes the screen without creating a new Quote, returning you to
         the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18e7824">
+      <listitem>
         <para>Opens screen for creating a new Quote Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x18e786c">
+      <listitem>
         <para>Enables you to edit highlighted Quote Line Items. The edit
         screen is the same as that for creating a new Quote Line Item--except
         that when editing, the fields will contain Quote Line Item
@@ -642,7 +642,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x18e78b4">
+      <listitem>
         <para>Highlight a Quote Line Item and then select this button to
         remove the Quote Line Item from the list.</para>
       </listitem>
@@ -664,7 +664,7 @@
   <variablelist>
     <varlistentry>
       <term>Order Notes</term>
-      <listitem id="listitemN0x180ac00N0x18f3e20">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         general Notes related to the Quote. These Notes are for internal use
         only.</para>
@@ -676,13 +676,13 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18f3e8c">
+      <listitem>
         <para>Saves the Order Note.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18f3ed4">
+      <listitem>
         <para>Closes the screen without creating an Order Note, returning you
         to the application desktop.</para>
       </listitem>
@@ -704,7 +704,7 @@
   <variablelist>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x18f3fac">
+      <listitem>
         <para>Display lists Comments for the specified Quote.</para>
       </listitem>
     </varlistentry>
@@ -714,13 +714,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18f4018">
+      <listitem>
         <para>Opens screen for creating a new Comment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x18f4060">
+      <listitem>
         <para>Highlight a Comment and then select this button to reach a
         read-only view of the Comment.</para>
       </listitem>
@@ -739,7 +739,7 @@
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
-      <listitem id="listitemN0x180ac00N0x18f4138">
+      <listitem>
         <para>Specify one of the following Comment Types from the drop-down
         list: ChangeLog or General.</para>
         <para>Comment Types are used to categorize Comments. Once you have
@@ -754,14 +754,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18f41a4">
+      <listitem>
         <para>Closes the screen without creating a new Comment, returning you
         to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18f41ec">
+      <listitem>
         <para>Creates the Comment and adds it to the list of Quote
         Comments.</para>
       </listitem>
@@ -788,7 +788,7 @@
   <variablelist>
     <varlistentry>
       <term>Shipping Notes</term>
-      <listitem id="listitemN0x180ac00N0x18fb6b4">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         shipping Notes related to the Quote. These Notes are for internal use
         only.</para>
@@ -800,13 +800,13 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18fb720">
+      <listitem>
         <para>Saves the Shipping Notes.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18fb768">
+      <listitem>
         <para>Closes the screen without creating Shipping Notes, returning you
         to the application desktop.</para>
       </listitem>

@@ -33,7 +33,7 @@
   <variablelist>
     <varlistentry>
       <term>Name</term>
-      <listitem id="listitemN0x180ac00N0x187a684">
+      <listitem>
         <para>Enter a brief name to identify the EDI Profile. This is the name
         which will appear when the Profile is cross-referenced throughout the
         application--in the Customer master, for example.</para>
@@ -41,7 +41,7 @@
     </varlistentry>
     <varlistentry>
       <term>Type </term>
-      <listitem id="listitemN0x180ac00N0x187a6cc">
+      <listitem>
         <para>For this example, we have selected the "Email" delivery method.
         Selecting the "Email" option indicates that recipients will receive
         EDI documents as Email attachments.</para>
@@ -49,7 +49,7 @@
     </varlistentry>
     <varlistentry>
       <term>To</term>
-      <listitem id="listitemN0x180ac00N0x187a714">
+      <listitem>
         <para>Enter the email address to be used as the default recipient
         address whenever documents are emailed using this Profile.</para>
       </listitem>
@@ -63,34 +63,34 @@
   <variablelist>
     <varlistentry>
       <term>Cc</term>
-      <listitem id="listitemN0x180ac00N0x187a7a4">
+      <listitem>
         <para>Enter the email address to be used as the default carbon copy
         address whenever documents are emailed using this Profile.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Subject</term>
-      <listitem id="listitemN0x180ac00N0x187a7ec">
+      <listitem>
         <para>Enter a default email subject line to be used whenever documents
         are emailed using this Profile.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Message Body</term>
-      <listitem id="listitemN0x180ac00N0x187fc24">
+      <listitem>
         <para>Use this text field to enter the default message that will
         accompany any documents emailed using this Profile.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Forms</term>
-      <listitem id="listitemN0x180ac00N0x187fc6c">
+      <listitem>
         <para>Displays the EDI Form(s) associated with the Profile.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x187fcb4">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Profile.</para>
       </listitem>
@@ -101,27 +101,27 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x187fd20">
+      <listitem>
         <para>Closes the screen without adding a new Profile to the master
         list of EDI Profiles.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>OK</term>
-      <listitem id="listitemN0x180ac00N0x187fd68">
+      <listitem>
         <para>Creates the EDI Profile and adds it to the master list of EDI
         Profiles.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x187fdb0">
+      <listitem>
         <para>Opens screen for creating a new EDI Form definition.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x187fdf8">
+      <listitem>
         <para>Enables you to edit highlighted EDI Form definitions. The edit
         screen is the same as that for creating a new EDI Form
         definition--except that when editing, the fields will contain EDI Form
@@ -131,7 +131,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x187fe40">
+      <listitem>
         <para>Highlight an EDI Form definition and then select this button to
         remove the EDI Form from the list.</para>
       </listitem>
@@ -168,7 +168,7 @@
   <variablelist>
     <varlistentry>
       <term>Name</term>
-      <listitem id="listitemN0x180ac00N0x1880038">
+      <listitem>
         <para>Enter a brief name to identify the EDI Profile. This is the name
         which will appear when the Profile is cross-referenced throughout the
         application--in the Customer master, for example.</para>
@@ -176,7 +176,7 @@
     </varlistentry>
     <varlistentry>
       <term>Type</term>
-      <listitem id="listitemN0x180ac00N0x1880080">
+      <listitem>
         <para>For this example, we have selected the "FTP" delivery method.
         Selecting the "FTP" option indicates that recipients will receive EDI
         documents as files transferred by FTP to the server address specified
@@ -188,28 +188,28 @@
           <primary>servers</primary>
           <secondary>ftp for edi profile</secondary>
         </indexterm>Server</term>
-      <listitem id="listitemN0x180ac00N0x1880110">
+      <listitem>
         <para>Enter the IP Address of the FTP server where EDI documents
         should be transferred.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Login Name</term>
-      <listitem id="listitemN0x180ac00N0x1880158">
+      <listitem>
         <para>Enter the login name required to access the specified
         server.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Password</term>
-      <listitem id="listitemN0x180ac00N0x18801a0">
+      <listitem>
         <para>Enter the password required to access the specified
         server.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Directory</term>
-      <listitem id="listitemN0x180ac00N0x18801e8">
+      <listitem>
         <para>Specify the directory location (if any) where EDI documents
         transferred by FTP should be placed. By default, EDI documents will be
         placed in the top level directory.</para>
@@ -217,13 +217,13 @@
     </varlistentry>
     <varlistentry>
       <term>Forms</term>
-      <listitem id="listitemN0x180ac00N0x1880230">
+      <listitem>
         <para>Displays the EDI Form(s) associated with the Profile.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x1880278">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Profile.</para>
       </listitem>
@@ -234,27 +234,27 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18802e4">
+      <listitem>
         <para>Closes the screen without adding a new Profile to the master
         list of EDI Profiles.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>OK</term>
-      <listitem id="listitemN0x180ac00N0x188032c">
+      <listitem>
         <para>Creates the EDI Profile and adds it to the master list of EDI
         Profiles.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x1880374">
+      <listitem>
         <para>Opens screen for creating a new EDI Form definition.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x18803bc">
+      <listitem>
         <para>Enables you to edit highlighted EDI Form definitions. The edit
         screen is the same as that for creating a new EDI Form
         definition--except that when editing, the fields will contain EDI Form
@@ -264,7 +264,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x1880404">
+      <listitem>
         <para>Highlight an EDI Form definition and then select this button to
         remove the EDI Form from the list.</para>
       </listitem>

@@ -23,13 +23,13 @@
   <variablelist>
     <varlistentry>
       <term>Code</term>
-      <listitem id="listitemN0x180ac00N0x18a1d74">
+      <listitem>
         <para>Enter an identifying code for the Tax Code.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Description</term>
-      <listitem id="listitemN0x180ac00N0x18a1dbc">
+      <listitem>
         <para>Enter a description to identify the Tax Code.</para>
       </listitem>
     </varlistentry>
@@ -39,7 +39,7 @@
           <primary>freight</primary>
           <secondary>tax-related</secondary>
         </indexterm>Charge Tax on Freight</term>
-      <listitem id="listitemN0x180ac00N0x18a1e4c">
+      <listitem>
         <para>Select to charge Tax on top of any freight charges. If not
         selected, freight charges will not be taxed.</para>
       </listitem>
@@ -50,7 +50,7 @@
           <primary>tax codes</primary>
           <secondary>cumulative</secondary>
         </indexterm>Cumulative</term>
-      <listitem id="listitemN0x180ac00N0x18a1edc">
+      <listitem>
         <para>Select if you want Tax Rates to be applied on top of previously
         applied Taxes.</para>
         <para>This option pertains only to Tax Rates B and C. Tax Rate A is
@@ -75,7 +75,7 @@
           <primary>tax codes</primary>
           <secondary>rate structure for</secondary>
         </indexterm>Tax Rate A</term>
-      <listitem id="listitemN0x180ac00N0x18a1fb4">
+      <listitem>
         <para>Enter a Tax Rate percentage to be applied to the Line Item
         subtotal. Tax Rate A cannot be cumulative. By definition, it is always
         applied to the Line Item subtotal.</para>
@@ -83,7 +83,7 @@
     </varlistentry>
     <varlistentry>
       <term>Account</term>
-      <listitem id="listitemN0x180ac00N0x18a1ffc">
+      <listitem>
         <para>Specify a valid General Ledger Account. This is a Revenue
         Account. It will be credited when Invoices using Tax Rate A are posted
         and debited when Credit Memos using Tax Rate A are posted.</para>
@@ -98,7 +98,7 @@
   <variablelist>
     <varlistentry>
       <term>Tax Rate B</term>
-      <listitem id="listitemN0x180ac00N0x18a208c">
+      <listitem>
         <para>Enter a Tax Rate percentage to be applied to either the Line
         Item subtotal or the cumulative total. For Tax Rate B calculations to
         be cumulative, the "Cumulative" option must be selected.</para>
@@ -106,7 +106,7 @@
     </varlistentry>
     <varlistentry>
       <term>Account</term>
-      <listitem id="listitemN0x180ac00N0x18a20d4">
+      <listitem>
         <para>Specify a valid General Ledger Account. This is a Revenue
         Account. It will be credited when Invoices using Tax Rate B are posted
         and debited when Credit Memos using Tax Rate B are posted.</para>
@@ -114,7 +114,7 @@
     </varlistentry>
     <varlistentry>
       <term>Tax Rate C</term>
-      <listitem id="listitemN0x180ac00N0x18a211c">
+      <listitem>
         <para>Enter a Tax Rate percentage to be applied to either the Line
         Item subtotal or the cumulative total. For Tax Rate C calculations to
         be cumulative, the "Cumulative" option must be selected.</para>
@@ -122,7 +122,7 @@
     </varlistentry>
     <varlistentry>
       <term>Account</term>
-      <listitem id="listitemN0x180ac00N0x18a2164">
+      <listitem>
         <para>Specify a valid General Ledger Account. This is a Revenue
         Account. It will be credited when Invoices using Tax Rate C are posted
         and debited when Credit Memos using Tax Rate C are posted.</para>
@@ -134,14 +134,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18a21d0">
+      <listitem>
         <para>Closes the screen without creating a Tax Code, returning you to
         the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18a2218">
+      <listitem>
         <para>Creates the Tax Code and adds it to the master list of Tax
         Codes.</para>
       </listitem>

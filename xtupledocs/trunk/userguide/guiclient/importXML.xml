@@ -32,13 +32,13 @@
   <variablelist>
     <varlistentry>
       <term>Close</term>
-      <listitem id="listitemN0x180ac00N0x187fd08">
+      <listitem>
         <para>Close this window without doing any more work.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Add To List</term>
-      <listitem id="listitemN0x180ac00N0x187fd50">
+      <listitem>
         <para>Add another file to the list of files to be processed.</para>
         <para>This file is not permanently added to the list; it will be
         removed when either it has been imported successfully or you close the
@@ -47,7 +47,7 @@
     </varlistentry>
     <varlistentry>
       <term>Delete From List</term>
-      <listitem id="listitemN0x180ac00N0x187fd98">
+      <listitem>
         <para>Remove a file from the list of files to be processed.</para>
         <para>This file is not permanently removed from the list; it will
         reappear after you try to import data from other files, click the
@@ -60,7 +60,7 @@
     </varlistentry>
     <varlistentry>
       <term>Reset List</term>
-      <listitem id="listitemN0x180ac00N0x187fde0">
+      <listitem>
         <para>Rescan the default import directory and refresh the contents of
         the on-screen table.</para>
         <para>Files that have been imported successfully will be removed from
@@ -75,14 +75,14 @@
     </varlistentry>
     <varlistentry>
       <term>Clear Status</term>
-      <listitem id="listitemN0x180ac00N0x187fe28">
+      <listitem>
         <para>The Status column in the on-screen table will be set to blank on
         all rows.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Import Selected</term>
-      <listitem id="listitemN0x180ac00N0x187fe70">
+      <listitem>
         <para>Import all of the files in the on-screen table that are
         currently selected. Each file is imported in its own
         transaction.</para>
@@ -100,7 +100,7 @@
     </varlistentry>
     <varlistentry>
       <term>Import All</term>
-      <listitem id="listitemN0x180ac00N0x187feb8">
+      <listitem>
         <para>Import all of the files in the on-screen table. This behaves
         exactly the same way as the <guibutton>Import Selected</guibutton>
         button except it processes all of the listed files, not just the

@@ -26,7 +26,7 @@
   <variablelist>
     <varlistentry>
       <term>Number</term>
-      <listitem id="listitemN0x180ac00N0x182b844">
+      <listitem>
         <para>Enter an Account Number for the Account.</para>
         <para>Depending on how your system is configured, you may add the
         following segments to an Account Number in the following order:
@@ -38,13 +38,13 @@
     </varlistentry>
     <varlistentry>
       <term>Description</term>
-      <listitem id="listitemN0x180ac00N0x182b88c">
+      <listitem>
         <para>Enter a brief description of the Account.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ext. Reference</term>
-      <listitem id="listitemN0x180ac00N0x182b8d4">
+      <listitem>
         <para>Enter an optional external reference to associate with the
         Account Number. Typically this field is left blank. However, this
         field is useful during a data conversion when the Account Number is
@@ -60,7 +60,7 @@
           <primary>account numbers</primary>
           <secondary>assigning types to</secondary>
         </indexterm>Type</term>
-      <listitem id="listitemN0x180ac00N0x182b9ac">
+      <listitem>
         <para>Specify the Account Type you want to assign the Account Number
         to.</para>
         <para>The following selections are available: Asset, Liability,
@@ -76,7 +76,7 @@
           <primary>account numbers</primary>
           <secondary>subaccount types and</secondary>
         </indexterm>Sub Type</term>
-      <listitem id="listitemN0x180ac00N0x182ba84">
+      <listitem>
         <para>Specify the Subaccount Type you want to assign the Account
         Number to.</para>
         <para>This is an optional selection.</para>
@@ -91,7 +91,7 @@
           <primary>account numbers</primary>
           <secondary>posting options for</secondary>
         </indexterm>Allow Posting into Closed Periods</term>
-      <listitem id="listitemN0x180ac00N0x182bb5c">
+      <listitem>
         <para>Select to allow transactions involving the Account to update the
         Account's Trial Balance even if the transactions are posted into
         closed Accounting Periods.</para>
@@ -124,7 +124,7 @@
           <primary>forward-updating</primary>
           <secondary>performed automatically</secondary>
         </indexterm>Automatically Forward Update Trial Balances</term>
-      <listitem id="listitemN0x180ac00N0x183e4fc">
+      <listitem>
         <para>Select to automatically forward-update Trial Balances for the
         Account whenever transaction activity is posted into an Accounting
         Period.</para>
@@ -144,7 +144,7 @@
   <variablelist>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x183e58c">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Account Number.</para>
       </listitem>
@@ -155,14 +155,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x183e5f8">
+      <listitem>
         <para>Closes the screen without creating an Account Number, returning
         you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x183e640">
+      <listitem>
         <para>Creates the Account Number and adds it to the master list of
         Account Numbers.</para>
       </listitem>

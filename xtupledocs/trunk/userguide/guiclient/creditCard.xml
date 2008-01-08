@@ -29,7 +29,7 @@
   <variablelist>
     <varlistentry>
       <term>Accept Credit Cards</term>
-      <listitem id="listitemN0x180ac00N0x1861a68">
+      <listitem>
         <para>Select to indicate the system is configured to accept Credit
         Card Payments. If selected, the Credit Card processing functionality
         will be enabled throughout the system. For example, users will be able
@@ -41,7 +41,7 @@
     </varlistentry>
     <varlistentry>
       <term>Work in Test Mode</term>
-      <listitem id="listitemN0x180ac00N0x1861ab0">
+      <listitem>
         <para>Select if your site is testing the Credit Card configuration and
         functionality. If selected, the system will verify that the server
         specified under the "Server" tab is in fact the correct test server.
@@ -54,7 +54,7 @@
           <primary>credit cards</primary>
           <secondary>selecting verification service</secondary>
         </indexterm>Verification Service</term>
-      <listitem id="listitemN0x180ac00N0x1861b40">
+      <listitem>
         <para>Specify the Verification Service you will be using. The xTuple
         applications currently support the YourPay Verification
         Service.</para>
@@ -62,7 +62,7 @@
     </varlistentry>
     <varlistentry>
       <term>Confirm Transaction</term>
-      <listitem id="listitemN0x180ac00N0x1861b88">
+      <listitem>
         <para>Specify when you want to receive transaction confirmation
         messages:</para>
         <variablelist>
@@ -99,7 +99,7 @@
     </varlistentry>
     <varlistentry>
       <term>Enable Trans.</term>
-      <listitem id="listitemN0x180ac00N0x1861bd0">
+      <listitem>
         <para>Select which of the following options should be enabled under
         the Payments tab of the Sales Order header.</para>
         <variablelist>
@@ -143,7 +143,7 @@
           <primary>credit cards</primary>
           <secondary>pre-auth limits</secondary>
         </indexterm>Number of days Pre-authorizations are valid for</term>
-      <listitem id="listitemN0x180ac00N0x1861cf0">
+      <listitem>
         <para>Select a value between 1 and 99 using the arrow buttons located
         to the right of the field. Value entered specifies the number of days
         pre-authorizations will remain valid from the date they were entered.
@@ -159,7 +159,7 @@
           <primary>credit cards</primary>
           <secondary>bank accounts and</secondary>
         </indexterm>Default Bank Account</term>
-      <listitem id="listitemN0x180ac00N0x1861dc8">
+      <listitem>
         <para>Specify the default Bank Account to be used for receiving Cash
         whenever a Customer Credit Card is charged.</para>
       </listitem>
@@ -170,14 +170,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1868824">
+      <listitem>
         <para>Cancels any configuration settings, returning you to the
         application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x186886c">
+      <listitem>
         <para>Saves the configuration settings, returning you to the
         application desktop.</para>
       </listitem>
@@ -207,7 +207,7 @@
           <primary>servers</primary>
           <secondary>for credit card service</secondary>
         </indexterm>Server Name</term>
-      <listitem id="listitemN0x180ac00N0x18689d4">
+      <listitem>
         <para>Enter the IP Address for the specified Verification Service's
         server. The IP Address specified will vary, depending on whether you
         are working in test mode or production mode.</para>
@@ -215,14 +215,14 @@
     </varlistentry>
     <varlistentry>
       <term>Port</term>
-      <listitem id="listitemN0x180ac00N0x1868a1c">
+      <listitem>
         <para>Enter the port number for the specified Verification Service's
         server.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Login</term>
-      <listitem id="listitemN0x180ac00N0x1868a64">
+      <listitem>
         <para>YourPay does not require login information to be entered in this
         field. However, this information may be required by other Verification
         Services.</para>
@@ -230,7 +230,7 @@
     </varlistentry>
     <varlistentry>
       <term>Password</term>
-      <listitem id="listitemN0x180ac00N0x1868aac">
+      <listitem>
         <para>YourPay does not require login information to be entered in this
         field. However, this information may be required by other Verification
         Services.</para>
@@ -238,7 +238,7 @@
     </varlistentry>
     <varlistentry>
       <term>Use Proxy Server</term>
-      <listitem id="listitemN0x180ac00N0x1868af4">
+      <listitem>
         <para>Select if your site uses a proxy server. </para>
         <variablelist>
           <varlistentry>
@@ -292,7 +292,7 @@
   <variablelist>
     <varlistentry>
       <term>Windows PEM Location</term>
-      <listitem id="listitemN0x180ac00N0x1868bf0">
+      <listitem>
         <para>Specify the directory path any Windows machine on your system
         would use to access the YourPay PEM file. The PEM file may be stored
         locally for use by individual machines, or on a network drive for
@@ -301,7 +301,7 @@
     </varlistentry>
     <varlistentry>
       <term>Linux PEM Location</term>
-      <listitem id="listitemN0x180ac00N0x1868c38">
+      <listitem>
         <para>Specify the directory path any Linux machine on your system
         would use to access the YourPay PEM file. The PEM file may be stored
         locally for use by individual machines, or on a network drive for
@@ -310,7 +310,7 @@
     </varlistentry>
     <varlistentry>
       <term>Mac PEM Location</term>
-      <listitem id="listitemN0x180ac00N0x1868c80">
+      <listitem>
         <para>Specify the directory path any Mac machine on your system would
         use to access the YourPay PEM file. The PEM file may be stored locally
         for use by individual machines, or on a network drive for wider
@@ -319,7 +319,7 @@
     </varlistentry>
     <varlistentry>
       <term>Store Number</term>
-      <listitem id="listitemN0x180ac00N0x1868cc8">
+      <listitem>
         <para>Enter the number of your YourPay store. Store numbers are
         assigned when you register with the YourPay Verification
         Service.</para>
@@ -352,7 +352,7 @@
   <variablelist>
     <varlistentry>
       <term>Key File Name</term>
-      <listitem id="listitemN0x180ac00N0x1868e0c">
+      <listitem>
         <para>Enter the name of your key file. The key file is an encryption
         seed file, which enables you to read encrypted Credit Card
         information. The key file is required regardless of the Verification
@@ -372,7 +372,7 @@
   <variablelist>
     <varlistentry>
       <term>Windows Location</term>
-      <listitem id="listitemN0x180ac00N0x1868e9c">
+      <listitem>
         <para>Specify the directory path any Windows machine on your system
         would use to access the key file.</para>
         <para>All users and machines on the system must use the same key file.
@@ -388,7 +388,7 @@
   <variablelist>
     <varlistentry>
       <term>Linux Location</term>
-      <listitem id="listitemN0x180ac00N0x1868f2c">
+      <listitem>
         <para>Specify the directory path any Linux machine on your system
         would use to access the key file.</para>
         <para>All users and machines on the system must use the same key file.
@@ -398,7 +398,7 @@
     </varlistentry>
     <varlistentry>
       <term>Mac Location</term>
-      <listitem id="listitemN0x180ac00N0x1868f74">
+      <listitem>
         <para>Specify the directory path any Mac machine on your system would
         use to access the key file.</para>
         <para>All users and machines on the system must use the same key file.

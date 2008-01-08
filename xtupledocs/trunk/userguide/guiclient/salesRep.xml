@@ -1,53 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="salesRep">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales representatives</primary>
       <secondary>creating new</secondary>
     </indexterm>Sales Representative</title>
   <para>To create a new Sales Representative, select the NEW button. The
   following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic522992" fileref="images/salesRep.png"/>
+          <imagedata fileref="images/salesRep.png" id="salesRep.imagedata" />
         </imageobject>
-        <caption id="Caption518803">Create New Sales Representative</caption>
+        <caption id="salesRep.caption">Create New Sales
+        Representative</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When creating a new Sales Representative, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
       <term>Number</term>
-      <listitem id="listitemN0x180ac00N0x1869300">
+      <listitem>
         <para>Enter an identification number for the Sales
         Representative.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Active</term>
-      <listitem id="listitemN0x180ac00N0x1869348">
+      <listitem>
         <para>Select if the Sales Representative is currently active. Not
         selecting means the Sales Representative is inactive.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Name</term>
-      <listitem id="listitemN0x180ac00N0x1869390">
+      <listitem>
         <para>Enter the name of the Sales Representative.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>sales representatives</primary>
           <secondary>commission percentages for</secondary>
         </indexterm>Comm. Prcnt</term>
-      <listitem id="listitemN0x180ac00N0x1869420">
+      <listitem>
         <para>Enter the commission percentage for the Sales Representative.
         For example, if the commission is to be 5%, enter the value
         ".05".</para>
@@ -59,14 +57,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x186948c">
+      <listitem>
         <para>Closes the screen without creating a Sales Representative,
         returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18694d4">
+      <listitem>
         <para>Creates the Sales Representative and enters their information
         into the master list of Sales Representatives.</para>
       </listitem>

@@ -20,7 +20,7 @@
   <variablelist>
     <varlistentry>
       <term>P/O #</term>
-      <listitem id="listitemN0x180ac00N0x1870468">
+      <listitem>
         <para>Enter the Purchase Order Number of the Purchase Order you want
         to schedule for email delivery.</para>
       </listitem>
@@ -34,7 +34,7 @@
   <variablelist>
     <varlistentry>
       <term>From</term>
-      <listitem id="listitemN0x180ac00N0x18704f8">
+      <listitem>
         <para>The default address appearing in the "From" field will
         automatically be pre-populated with the email address of the user who
         is currently logged in to the application. User email addresses are
@@ -44,7 +44,7 @@
     </varlistentry>
     <varlistentry>
       <term>Send To</term>
-      <listitem id="listitemN0x180ac00N0x1870540">
+      <listitem>
         <para>If the Vendor associated with the selected Purchase Order has
         been set up to receive email, then the default email address for that
         Vendor will be automatically pre-populated here. Because this is an
@@ -53,7 +53,7 @@
     </varlistentry>
     <varlistentry>
       <term>Subject</term>
-      <listitem id="listitemN0x180ac00N0x1870588">
+      <listitem>
         <para>If EDI is set up for the Vendor, then the default subject line
         found on the Vendor master will be automatically pre-populated here.
         Because this is an editable field, you may modify the subject
@@ -62,7 +62,7 @@
     </varlistentry>
     <varlistentry>
       <term>Filename</term>
-      <listitem id="listitemN0x180ac00N0x18705d0">
+      <listitem>
         <para>If EDI is set up for the Vendor, then the default filename found
         on the Vendor master will be automatically pre-populated here. Because
         this is an editable field, you may modify the filename line. XML tags
@@ -74,7 +74,7 @@
     </varlistentry>
     <varlistentry>
       <term>Email Body</term>
-      <listitem id="listitemN0x180ac00N0x1870618">
+      <listitem>
         <para>If EDI is set up for the Vendor, then the default email body
         found on the Vendor master will be automatically pre-populated here.
         This is a scrolling text field with word-wrapping. You may edit the
@@ -83,7 +83,7 @@
     </varlistentry>
     <varlistentry>
       <term>Mark Purchase Order as having been Printed</term>
-      <listitem id="listitemN0x180ac00N0x1870660">
+      <listitem>
         <para>Select to mark highlighted Invoice as having been
         printed.</para>
       </listitem>
@@ -94,14 +94,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18706cc">
+      <listitem>
         <para>Closes the screen without scheduling a Purchase Order for email
         delivery, returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SUBMIT</term>
-      <listitem id="listitemN0x180ac00N0x1870714">
+      <listitem>
         <para>Select to submit requested action to the Batch Manager for
         processing. For additional information, see <xref linkend="Anchor61009"/>.</para>
       </listitem>

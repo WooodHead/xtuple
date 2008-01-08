@@ -35,26 +35,26 @@
   <variablelist>
     <varlistentry>
       <term>Transaction Date</term>
-      <listitem id="listitemN0x180ac00N0x188a518">
+      <listitem>
         <para>Displays the current day's date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x188a560">
+      <listitem>
         <para>Enter the Item Number of the Item you want to create a
         Miscellaneous Adjustment for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x188a5a8">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Warehouse</term>
-      <listitem id="listitemN0x180ac00N0x188a5f0">
+      <listitem>
         <para>Specify the Warehouse where the Miscellaneous Adjustment should
         be recorded. If an Item is located in more than one Warehouse, be sure
         to specify the correct Warehouse for the Miscellaneous
@@ -63,7 +63,7 @@
     </varlistentry>
     <varlistentry>
       <term>Adjustment Qty.</term>
-      <listitem id="listitemN0x180ac00N0x188a638">
+      <listitem>
         <para>The number entered will adjust the Quantity on Hand for the
         specified Item. Field accepts positive and negative numbers. To enter
         a negative number, simply prefix the number with a minus
@@ -72,7 +72,7 @@
     </varlistentry>
     <varlistentry>
       <term>Relative</term>
-      <listitem id="listitemN0x180ac00N0x188a680">
+      <listitem>
         <para>Select to make a relative adjustment to the Item's Quantity on
         Hand. The "Before" value, which represents current Quantity on Hand,
         will increase or decrease relative to the number entered in the
@@ -83,7 +83,7 @@
     </varlistentry>
     <varlistentry>
       <term>Absolute</term>
-      <listitem id="listitemN0x180ac00N0x188a6c8">
+      <listitem>
         <para>Select to make an absolute adjustment to the Item's Quantity on
         Hand. The "Before" value, which represents current Quantity on Hand,
         will be changed to the new value entered in the "Adjustment Qty."
@@ -94,7 +94,7 @@
     </varlistentry>
     <varlistentry>
       <term>Document #</term>
-      <listitem id="listitemN0x180ac00N0x188a710">
+      <listitem>
         <para>Creates a user-defined reference for the Miscellaneous
         Adjustment. The Document reference will be posted with the General
         Ledger (G/L) transaction record when the Miscellaneous Adjustment is
@@ -104,7 +104,7 @@
     </varlistentry>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x188a758">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the adjustment.</para>
       </listitem>
@@ -115,14 +115,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x188a7c4">
+      <listitem>
         <para>Closes the screen without posting an adjusted value, returning
         you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>POST</term>
-      <listitem id="listitemN0x180ac00N0x188a80c">
+      <listitem>
         <para>Posts the adjusted value to the Quantity on Hand balance.
         Additional steps will be necessary if the specified Item is stored in
         multiple Locations. For more information, see <xref linkend="Anchor81167"/>.</para>

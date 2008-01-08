@@ -30,27 +30,27 @@
   <variablelist>
     <varlistentry>
       <term>Bank Account</term>
-      <listitem id="listitemN0x180ac00N0x18ccc18">
+      <listitem>
         <para>Specify the Bank Account you want to reconcile.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Opening Balance</term>
-      <listitem id="listitemN0x180ac00N0x18ccc60">
+      <listitem>
         <para>Enter the previous ending balance, as shown on your Bank
         statement.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ending Balance</term>
-      <listitem id="listitemN0x180ac00N0x18ccca8">
+      <listitem>
         <para>Enter the current ending balance, as shown on your Bank
         statement.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Start Date</term>
-      <listitem id="listitemN0x180ac00N0x18cccf0">
+      <listitem>
         <para>Specify the beginning date of the current Bank Reconciliation
         period. Bank Reconciliations are identified by their date ranges, for
         reporting purposes.</para>
@@ -58,7 +58,7 @@
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
-      <listitem id="listitemN0x180ac00N0x18ccd38">
+      <listitem>
         <para>Specify the ending date of the current Bank Reconciliation
         period. Bank Reconciliations are identified by their date ranges, for
         reporting purposes.</para>
@@ -81,7 +81,7 @@
           <primary>bank reconciliations</primary>
           <secondary>marking deposits as cleared</secondary>
         </indexterm>Receipts and Other Deposits</term>
-      <listitem id="listitemN0x180ac00N0x18d4090">
+      <listitem>
         <para>Display lists posted Receipts and other Deposits which have not
         been previously reconciled. This display is a nested list, with a plus
         ("+") sign located to the far left of the display next to each Receipt
@@ -98,7 +98,7 @@
   <variablelist>
     <varlistentry>
       <term>Checks and Other Payments</term>
-      <listitem id="listitemN0x180ac00N0x18d4120">
+      <listitem>
         <para>Display lists posted Checks and other Payments which have not
         been previously reconciled.</para>
       </listitem>
@@ -120,7 +120,7 @@
           <primary>bank accounts</primary>
           <secondary>adjusting balances for</secondary>
         </indexterm>ADD ADJUSTMENT</term>
-      <listitem id="listitemN0x180ac00N0x18d4288">
+      <listitem>
         <para>Select to add a Bank Adjustment directly to either the Deposits
         or Payments list. Bank Adjustments marked as "Cleared" will
         automatically be posted to the General Ledger (G/L) when a Bank
@@ -130,7 +130,7 @@
     </varlistentry>
     <varlistentry>
       <term>Cleared Receipts and Deposits</term>
-      <listitem id="listitemN0x180ac00N0x18d42d0">
+      <listitem>
         <para>Displays a running total amount of Receipts and Deposits which
         have been marked as cleared. Double-click on a Document using your
         mouse to mark the Document as cleared. To unmark the Document,
@@ -140,7 +140,7 @@
     </varlistentry>
     <varlistentry>
       <term>Cleared Checks and Payments</term>
-      <listitem id="listitemN0x180ac00N0x18d4318">
+      <listitem>
         <para>Displays a running total amount of Checks and Payments which
         have been marked as cleared. Double-click on a Document using your
         mouse to mark the Document as cleared. To unmark the Document,
@@ -150,14 +150,14 @@
     </varlistentry>
     <varlistentry>
       <term>Ending Balance</term>
-      <listitem id="listitemN0x180ac00N0x18d4360">
+      <listitem>
         <para>Displays the ending balance entered in the "Ending Balance"
         field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Cleared Balance</term>
-      <listitem id="listitemN0x180ac00N0x18d43a8">
+      <listitem>
         <para>Displays the cleared balance. The cleared balance is calculated
         based on the following formula:</para>
         <para><equation>
@@ -187,7 +187,7 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18d4480">
+      <listitem>
         <para>Closes the screen without reconciling a Bank Account, returning
         you to the application desktop. If you want to save any work you have
         done in the current or a prior session, you should select the SAVE
@@ -197,7 +197,7 @@
     </varlistentry>
     <varlistentry>
       <term>RECONCILE</term>
-      <listitem id="listitemN0x180ac00N0x18d44c8">
+      <listitem>
         <para>Select to reconcile the specified Bank Account and create a
         record of the Bank Reconciliation. Selecting this option posts the
         Bank Reconciliation. The posting may be viewed using the Bank
@@ -214,7 +214,7 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18d4558">
+      <listitem>
         <para>Select this option to save your work during the current Bank
         Reconciliation. The next time you open the Bank Reconciliation screen,
         the work you saved previously will be ready for you to start working
@@ -223,7 +223,7 @@
     </varlistentry>
     <varlistentry>
       <term>UPDATE</term>
-      <listitem id="listitemN0x180ac00N0x18d45a0">
+      <listitem>
         <para>Select to update the Bank Reconciliation screen with any new
         transaction information not already listed.</para>
       </listitem>

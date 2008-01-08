@@ -33,20 +33,20 @@
   <variablelist>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x18e2d24">
+      <listitem>
         <para>Enter the Item Number of the Item you want to create a Count Tag
         for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x18e2d6c">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Warehouse</term>
-      <listitem id="listitemN0x180ac00N0x18e2db4">
+      <listitem>
         <para>Specify the Warehouse you want the Count Tag created for. This
         field will remain blank until you enter an Item Number into the "Item
         Number" field. Once that is entered, the Warehouse(s) where the Item
@@ -55,7 +55,7 @@
     </varlistentry>
     <varlistentry>
       <term>Mark Created Count Tag as Priority</term>
-      <listitem id="listitemN0x180ac00N0x18e2dfc">
+      <listitem>
         <para>Select to give priority status to Count Tag. Count Tags marked
         as having priority status are listed first in any prioritized lists.
         For example, priority Count Tags will appear at the top of the Count
@@ -71,7 +71,7 @@
           <primary>inventory</primary>
           <secondary>freezing at count tag creation</secondary>
         </indexterm>Freeze Inventory</term>
-      <listitem id="listitemN0x180ac00N0x18e2ed4">
+      <listitem>
         <para>Select to freeze Inventory. The Quantity on Hand value is not
         updated when a transaction is posted against a frozen Item Site.
         Instead, Inventory transactions are pooled and then posted later when
@@ -89,7 +89,7 @@
   <variablelist>
     <varlistentry>
       <term>Only for Specified Location</term>
-      <listitem id="listitemN0x180ac00N0x18e2f64">
+      <listitem>
         <para>Select if you want to create Count Tags for an individual
         Warehouse Location. If selected, you will have the option to specify
         which Warehouse Location you want to have Count Tags created for. This
@@ -113,7 +113,7 @@
           <primary>cycle counts</primary>
           <secondary>creating instructions for</secondary>
         </indexterm>Comments</term>
-      <listitem id="listitemN0x180ac00N0x18e3084">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Count Tag. Use the Comments field to enter any
         instructions or other Comments that need to reach and be read by the
@@ -126,14 +126,14 @@
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-      <listitem id="listitemN0x180ac00N0x18e30f0">
+      <listitem>
         <para>Closes the screen without creating a Count Tag, returning you to
         the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CREATE TAG</term>
-      <listitem id="listitemN0x180ac00N0x18e3138">
+      <listitem>
         <para>Creates Count Tag. Count Tag Numbers are generated automatically
         in an ordered sequence.</para>
       </listitem>

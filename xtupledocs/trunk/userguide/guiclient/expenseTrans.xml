@@ -28,33 +28,33 @@
   <variablelist>
     <varlistentry>
       <term>Transaction Date</term>
-      <listitem id="listitemN0x180ac00N0x1898324">
+      <listitem>
         <para>Displays the current day's date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x189836c">
+      <listitem>
         <para>Enter the Item Number of the Item you want to enter an Expense
         transaction for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x18983b4">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Warehouse</term>
-      <listitem id="listitemN0x180ac00N0x18983fc">
+      <listitem>
         <para>Specify Warehouse where the Item Site for the Expense
         transaction is located.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Scrap Qty.</term>
-      <listitem id="listitemN0x180ac00N0x1898444">
+      <listitem>
         <para>Enter the quantity of Inventory UOM you want to enter an Expense
         transaction for. The number entered will appear as a deduction in the
         "After" column. Non-netable Quantity on Hand is not included in these
@@ -63,7 +63,7 @@
     </varlistentry>
     <varlistentry>
       <term>Document #</term>
-      <listitem id="listitemN0x180ac00N0x189848c">
+      <listitem>
         <para>Creates a user-defined reference for the Expense transaction.
         The Document reference will be posted with the General Ledger (G/L)
         transaction record when the Expense transaction is generated. This
@@ -72,14 +72,14 @@
     </varlistentry>
     <varlistentry>
       <term>Expense Category</term>
-      <listitem id="listitemN0x180ac00N0x18984d4">
+      <listitem>
         <para>Specify the Expense Category you want to assign the Expense
         transaction to.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x189851c">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Expense transaction.</para>
       </listitem>
@@ -90,14 +90,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1898588">
+      <listitem>
         <para>Closes the screen without posting an Expense transaction,
         returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>POST</term>
-      <listitem id="listitemN0x180ac00N0x18985d0">
+      <listitem>
         <para>Posts the Expense transaction. Issues an Expense transaction and
         decrements Quantity on Hand. Additional steps will be necessary if the
         specified Item is stored in multiple Locations. For more information,

@@ -26,7 +26,7 @@
   <variablelist>
     <varlistentry>
       <term>Sales Order #</term>
-      <listitem id="listitemN0x180ac00N0x1830e8c">
+      <listitem>
         <para>Enter the Order Number of the Sales Order you want to ship. The
         browse button located to the right of the field leads to a searchable
         list of Sales Orders available for Shipping. This option will be
@@ -35,7 +35,7 @@
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Transfer Order #</term>
-      <listitem id="listitemN0x180ac00N0x1830eb0">
+      <listitem>
         <para>Enter the Order Number of the Transfer Order you want to ship.
         The browse button located to the right of the field leads to a
         searchable list of Transfer Orders available for Shipping. This option
@@ -44,21 +44,21 @@
     </varlistentry>
     <varlistentry role="openmfg">
       <term>From</term>
-      <listitem id="listitemN0x180ac00N0x1830ed4">
+      <listitem>
         <para>Displays the Source Warehouse if a Transfer Order is
         selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term>To</term>
-      <listitem id="listitemN0x180ac00N0x1830ef8">
+      <listitem>
         <para>Displays the Destination Warehouse if a Transfer Order is
         selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Select for Billing</term>
-      <listitem id="listitemN0x180ac00N0x1830f40">
+      <listitem>
         <para>Specify this option to select the Sales Order for Billing as
         soon as it is shipped. If selected, the Order will appear on the
         Billing Selections list--making it available to be converted into an
@@ -69,7 +69,7 @@
     </varlistentry>
     <varlistentry>
       <term>Create and Print Invoice</term>
-      <listitem id="listitemN0x180ac00N0x1830f88">
+      <listitem>
         <para>Specify this option to automatically create and print an Invoice
         for the Sales Order as soon as it is shipped. Selecting this option
         enables you to bypass the Billing Selection process. Once the Order is
@@ -82,14 +82,14 @@
     </varlistentry>
     <varlistentry>
       <term>Print Packing List</term>
-      <listitem id="listitemN0x180ac00N0x1830fd0">
+      <listitem>
         <para>Specify this option to automatically print a Packing List as
         soon as the Order is shipped.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Receive Immediately</term>
-      <listitem id="listitemN0x180ac00N0x1830ff4">
+      <listitem>
         <para>Select if you want the Transfer Order to be received
         automatically at the Destination Warehouse as soon as the Order is
         shipped. If this option is not used, Transfer Order Items must be
@@ -107,14 +107,14 @@
   <variablelist>
     <varlistentry>
       <term>Bill To</term>
-      <listitem id="listitemN0x180ac00N0x1831084">
+      <listitem>
         <para>Displays the name of the Customer to be billed for the Sales
         Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ship To</term>
-      <listitem id="listitemN0x180ac00N0x18310cc">
+      <listitem>
         <para>Displays the appropriate Ship-To Address.</para>
       </listitem>
     </varlistentry>
@@ -128,13 +128,13 @@
   <variablelist>
     <varlistentry>
       <term>Items to Ship</term>
-      <listitem id="listitemN0x180ac00N0x183115c">
+      <listitem>
         <para>Display lists Order Line Items available for Shipping.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Shipment Value</term>
-      <listitem id="listitemN0x180ac00N0x18311a4">
+      <listitem>
         <para>Displays the value of the Items being shipped. The shipment
         value represents the total of the extended prices for all Items
         included in the Shipment. The amount does not include freight or
@@ -149,7 +149,7 @@
           <primary>sales orders</primary>
           <secondary>freight charges on</secondary>
         </indexterm>Freight</term>
-      <listitem id="listitemN0x180ac00N0x1842a6c">
+      <listitem>
         <para>Enter the amount of freight charge to be added to the specified
         Order. Freight charges may be entered during the creation or
         modification of an Order--or at the time of shipment.</para>
@@ -163,7 +163,7 @@
   <variablelist>
     <varlistentry>
       <term>Ship Via</term>
-      <listitem id="listitemN0x180ac00N0x1842afc">
+      <listitem>
         <para>Specify the Ship Via for the Order. The Ship Via field supports
         free-form Ship Vias. If you want to enter a free-form Ship Via, simply
         type the name of the Ship Via into the field.</para>
@@ -179,7 +179,7 @@
   <variablelist>
     <varlistentry>
       <term>Tracking Number</term>
-      <listitem id="listitemN0x180ac00N0x1842b8c">
+      <listitem>
         <para>Tracking Numbers associated with an Order may be viewed in the
         Shipments by Sales Order report.</para>
       </listitem>
@@ -190,14 +190,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1842bf8">
+      <listitem>
         <para>Closes the screen without Shipping the Order, returning you to
         the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SHIP</term>
-      <listitem id="listitemN0x180ac00N0x1842c40">
+      <listitem>
         <para>Ships the Order, clearing the screen of previously-displayed
         data.</para>
       </listitem>

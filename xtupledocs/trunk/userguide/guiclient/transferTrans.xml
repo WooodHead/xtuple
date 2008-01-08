@@ -28,26 +28,26 @@
   <variablelist>
     <varlistentry>
       <term>Transaction Date</term>
-      <listitem id="listitemN0x180ac00N0x1897afc">
+      <listitem>
         <para>Displays the current day's date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x1897b44">
+      <listitem>
         <para>Enter the Item Number of the Item you want to transfer from one
         Warehouse to another.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x1897b8c">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>From Whse</term>
-      <listitem id="listitemN0x180ac00N0x1897bd4">
+      <listitem>
         <para>Specify the source Warehouse for the transaction. If an Item is
         located in more than one Warehouse, be sure to specify the correct
         Warehouse you want to transfer the Item from. The "Before" column
@@ -56,7 +56,7 @@
     </varlistentry>
     <varlistentry>
       <term>To Whse.</term>
-      <listitem id="listitemN0x180ac00N0x1897c1c">
+      <listitem>
         <para>: Specify the destination Warehouse for the transaction. If an
         Item is located in more than one Warehouse, be sure to specify the
         correct Warehouse you want to transfer the Item to. The "Before"
@@ -65,7 +65,7 @@
     </varlistentry>
     <varlistentry>
       <term>Transferred Qty.</term>
-      <listitem id="listitemN0x180ac00N0x1897c64">
+      <listitem>
         <para>The number entered will adjust the Item's Quantity on Hand in
         both the "From" and "To" Warehouses. The values displayed in the
         "After" column represent the new Quantity on Hand in each Location.
@@ -74,7 +74,7 @@
     </varlistentry>
     <varlistentry>
       <term>Document #</term>
-      <listitem id="listitemN0x180ac00N0x1897cac">
+      <listitem>
         <para>Creates a user-defined reference for the Inter-Warehouse
         Transfer. The Document reference will be posted with the General
         Ledger (G/L) transaction record when the Inter-Warehouse Transfer is
@@ -84,7 +84,7 @@
     </varlistentry>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x1897cf4">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the transfer.</para>
       </listitem>
@@ -95,14 +95,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1897d60">
+      <listitem>
         <para>Closes the screen without posting an Inter-Warehouse Transfer,
         returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>POST</term>
-      <listitem id="listitemN0x180ac00N0x1897da8">
+      <listitem>
         <para>Posts the Inter-Warehouse Transfer.Creates two transactions, one
         at each affected Warehouse. The Warehouse receiving Inventory is
         credited with the new Inventory amount, while the Warehouse being

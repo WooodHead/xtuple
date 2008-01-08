@@ -22,7 +22,7 @@
   <variablelist>
     <varlistentry>
       <term>Type</term>
-      <listitem id="listitemN0x180ac00N0x194a5f0">
+      <listitem>
         <para>Specify which type of Pricing Schedule Item you want to
         create:</para>
         <variablelist>
@@ -49,7 +49,7 @@
     </varlistentry>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x194a638">
+      <listitem>
         <para>Enter the Item Number of the Item you want to add to the Pricing
         Schedule. The browse button located to the right of the field leads to
         a searchable sold Items list. Multiple sold Items may be assigned to a
@@ -58,7 +58,7 @@
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x194a680">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
@@ -70,7 +70,7 @@
           <primary>pricing schedules</primary>
           <secondary>quantity breaks in</secondary>
         </indexterm>Qty. Break</term>
-      <listitem id="listitemN0x180ac00N0x194a758">
+      <listitem>
         <para>Enter the lowest quantity of the specified Item that must be
         purchased to receive the specified Price. The Quantity Break is
         measured in the Inventory Unit of Measure. Multiple Quantity Breaks
@@ -96,7 +96,7 @@
           <primary>pricing schedules</primary>
           <secondary>pricing detail for</secondary>
         </indexterm>Price</term>
-      <listitem id="listitemN0x180ac00N0x194a7e8">
+      <listitem>
         <para>Enter the Price the specified Item may be purchased for if the
         specified Quantity Break is met. The Price is measured in the Price
         Unit of Measure.</para>
@@ -113,27 +113,27 @@
     </varlistentry>
     <varlistentry>
       <term>List Price</term>
-      <listitem id="listitemN0x180ac00N0x194a830">
+      <listitem>
         <para>Displays the List Price for the specified Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Price/Inv. Ratio</term>
-      <listitem id="listitemN0x180ac00N0x194a8c0">
+      <listitem>
         <para>Displays the ratio between the Price and Inventory Units of
         Measure for the specified Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Cost (Pricing UOM)</term>
-      <listitem id="listitemN0x180ac00N0x194a908">
+      <listitem>
         <para>Displays Standard Cost and Actual Cost for the specified
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Margin</term>
-      <listitem id="listitemN0x180ac00N0x194a950">
+      <listitem>
         <para>The margin is determined by the following formula: Price - Cost
         / Price.</para>
       </listitem>
@@ -144,14 +144,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x194a9bc">
+      <listitem>
         <para>Closes the screen without creating the Pricing Schedule Item,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x194aa04">
+      <listitem>
         <para>Creates the Pricing Schedule Item and adds it to the Pricing
         Schedule.</para>
       </listitem>
@@ -180,7 +180,7 @@
   <variablelist>
     <varlistentry>
       <term>Product Category</term>
-      <listitem id="listitemN0x180ac00N0x194ab6c">
+      <listitem>
         <para>Specify the Product Category you want to add to the Pricing
         Schedule. All Items in the Product Category will be subject to the
         specified Quantity Break and Discount. Multiple Product Categories may
@@ -195,7 +195,7 @@
           <primary>pricing schedules</primary>
           <secondary>quantity breaks in</secondary>
         </indexterm>Qty. Break (Inventory UOM)</term>
-      <listitem id="listitemN0x180ac00N0x194ac44">
+      <listitem>
         <para>Enter the lowest quantity that must be purchased to receive the
         specified Discount. The Quantity Break applies to all Items in the
         specified Product Category. Multiple Quantity Breaks may be assigned
@@ -207,7 +207,7 @@
           <primary>pricing schedules</primary>
           <secondary>discount percentage for</secondary>
         </indexterm>Discount Percent (List Price)</term>
-      <listitem id="listitemN0x180ac00N0x194acd4">
+      <listitem>
         <para>Enter the Discount percentage off List Price to be used when the
         specified Quantity Break is reached. The List Prices for all Items in
         the Product Category will be reduced by the specified

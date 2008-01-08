@@ -24,27 +24,27 @@
   <variablelist>
     <varlistentry>
       <term>All Vendor Types</term>
-      <listitem id="listitemN0x180ac00N0x1852b40">
+      <listitem>
         <para>Select to assign the A/P Accounts to all Vendor Types.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Selected Vendor Type</term>
-      <listitem id="listitemN0x180ac00N0x1852b88">
+      <listitem>
         <para>Specify Vendor Type you want to associate with the A/P Account
         assignment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Vendor Type Pattern</term>
-      <listitem id="listitemN0x180ac00N0x1852bd0">
+      <listitem>
         <para>Enter a Vendor Type pattern to select a range of Vendor Types.
         Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>A/P Account</term>
-      <listitem id="listitemN0x180ac00N0x1852c18">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
         A/P Account. This is a Liability Account. It will be credited when
         Vouchers are posted and debited when Checks are posted.</para>
@@ -52,7 +52,7 @@
     </varlistentry>
     <varlistentry>
       <term>Prepaid Account</term>
-      <listitem id="listitemN0x180ac00N0x1852c60">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
         A/P Prepaid Account. This is an Asset Account. It should not be
         confused with or used interchangeably with the default A/P Account.
@@ -63,7 +63,7 @@
     </varlistentry>
     <varlistentry>
       <term>Discount Account</term>
-      <listitem id="listitemN0x180ac00N0x1852ca8">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to distribute purchasing
         Discounts to. This is a Revenue Account. It will be credited when
         purchasing Discounts are applied to selected Payments.</para>
@@ -75,14 +75,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1852d14">
+      <listitem>
         <para>Closes the screen without creating an Account assignment,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1852d5c">
+      <listitem>
         <para>Creates the Account assignment and adds it to the master list of
         Account Assignments.</para>
       </listitem>

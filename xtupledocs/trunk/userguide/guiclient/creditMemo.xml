@@ -20,7 +20,7 @@
   <variablelist>
     <varlistentry>
       <term>Memo #</term>
-      <listitem id="listitemN0x180ac00N0x1926024">
+      <listitem>
         <para>Next available Credit Memo Number will automatically display,
         unless your system requires you to enter Credit Memo Numbers
         manually.</para>
@@ -30,7 +30,7 @@
     </varlistentry>
     <varlistentry>
       <term>Memo Date</term>
-      <listitem id="listitemN0x180ac00N0x192606c">
+      <listitem>
         <para>Enter a date representing the date when you want the Credit Memo
         to be distributed. When a Credit Memo is posted, it is posted
         effective as of the Memo date.</para>
@@ -38,7 +38,7 @@
     </varlistentry>
     <varlistentry>
       <term>Status</term>
-      <listitem id="listitemN0x180ac00N0x19260b4">
+      <listitem>
         <para>Indicates whether Credit Memo is posted or unposted.</para>
       </listitem>
     </varlistentry>
@@ -55,7 +55,7 @@
           <primary>credit memos</primary>
           <secondary>customers associated with</secondary>
         </indexterm>Customer #</term>
-      <listitem id="listitemN0x180ac00N0x192618c">
+      <listitem>
         <para>Enter the Customer Number of the Customer you want to issue the
         Credit Memo to. The browse button located to the right of the field
         leads to a searchable Customers list. You may also access this list
@@ -80,19 +80,19 @@
           <primary>credit memos</primary>
           <secondary>billing information for</secondary>
         </indexterm>Bill-To Name</term>
-      <listitem id="listitemN0x180ac00N0x1926264">
+      <listitem>
         <para>Displays the Customer's Bill-To name.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Bill-To Phone</term>
-      <listitem id="listitemN0x180ac00N0x19262ac">
+      <listitem>
         <para>Displays the Customer's Bill-To phone number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Address</term>
-      <listitem id="listitemN0x180ac00N0x19262f4">
+      <listitem>
         <para>Displays the Customer's Bill-To Address. You may manually
         override the displayed Address information in the fields below--or use
         the browse button to select another Address.</para>
@@ -132,7 +132,7 @@
     </varlistentry>
     <varlistentry>
       <term>Copy to Ship-to -\&gt;</term>
-      <listitem id="listitemN0x180ac00N0x192633c">
+      <listitem>
         <para>Select to copy contents of billing address into Ship-To address
         field. This option is enabled if the Customer master for the specified
         Customer indicates that free-form Ship-To's are allowed.</para>
@@ -140,7 +140,7 @@
     </varlistentry>
     <varlistentry>
       <term>Ship-To #</term>
-      <listitem id="listitemN0x180ac00N0x1926384">
+      <listitem>
         <para>Enter the number of the preferred Ship-To Address. Customers may
         maintain multiple Ship-To Addresses. If the Customer master for the
         specified Customer indicates that free-form Ship-To's are allowed,
@@ -155,19 +155,19 @@
           <primary>credit memos</primary>
           <secondary>ship-to details for</secondary>
         </indexterm>Ship-To Name</term>
-      <listitem id="listitemN0x180ac00N0x1926414">
+      <listitem>
         <para>Displays the name for the specified Ship-To.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ship-To Phone</term>
-      <listitem id="listitemN0x180ac00N0x192645c">
+      <listitem>
         <para>Displays the phone number for the specified Ship-To.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Address</term>
-      <listitem id="listitemN0x180ac00N0x19264a4">
+      <listitem>
         <para>Displays the specified Ship-To Address. You may manually
         override the displayed Address information in the fields below--or use
         the browse button to select another Address.</para>
@@ -207,7 +207,7 @@
     </varlistentry>
     <varlistentry>
       <term>Apply To</term>
-      <listitem id="listitemN0x180ac00N0x19264ec">
+      <listitem>
         <para>Specify the Invoice Number of the Invoice you want to apply the
         Credit Memo to, using the browse button located to the right of the
         field. The list will include Invoices for the specified Customer. If a
@@ -226,7 +226,7 @@
   <variablelist>
     <varlistentry>
       <term>Sales Rep.</term>
-      <listitem id="listitemN0x180ac00N0x192657c">
+      <listitem>
         <para>Specify the Sales Representative associated with the Order. By
         default, the Customer's designated Sales Representative will appear in
         the field--except if you have selected an Invoice to apply the Credit
@@ -236,7 +236,7 @@
     </varlistentry>
     <varlistentry>
       <term>Commission</term>
-      <listitem id="listitemN0x180ac00N0x19265c4">
+      <listitem>
         <para>By default, the commission percentage recorded on the Customer
         master will be automatically entered in this field. If for some reason
         you select a non-default Sales Representative at Credit Memo entry,
@@ -249,7 +249,7 @@
           <primary>tax authorities</primary>
           <secondary>for credit memos</secondary>
         </indexterm>Tax Authority</term>
-      <listitem id="listitemN0x180ac00N0x1926654">
+      <listitem>
         <para>Specify the Tax Authority associated with the Credit Memo. The
         Tax Authority for the specified Ship-To Address will be entered here
         by default. Otherwise, the primary Tax Authority for the Customer will
@@ -259,7 +259,7 @@
     </varlistentry>
     <varlistentry>
       <term>Ship-To #</term>
-      <listitem id="listitemN0x180ac00N0x19266e4">
+      <listitem>
         <para>Enter the number of the preferred Ship-To Address.</para>
         <para>Customers may maintain multiple Ship-To Addresses. If Pricing
         Schedules by Ship-To are maintained for the Customer, the Ship-To
@@ -278,7 +278,7 @@
   <variablelist>
     <varlistentry>
       <term>Cust. PO #</term>
-      <listitem id="listitemN0x180ac00N0x1926774">
+      <listitem>
         <para>By default, the Customer Purchase Order Number associated with
         the Invoice being credited will display here. If no Customer Purchase
         Order Number was entered at the time of the original Sales Order--or
@@ -289,7 +289,7 @@
     </varlistentry>
     <varlistentry>
       <term>Reason Code</term>
-      <listitem id="listitemN0x180ac00N0x19267bc">
+      <listitem>
         <para>Specify the reason why an adjustment is being made to a
         Customer's account.</para>
       </listitem>
@@ -299,7 +299,7 @@
           <primary>credit memos</primary>
           <secondary>hold options for</secondary>
         </indexterm>Place on Hold</term>
-      <listitem id="listitemN0x180ac00N0x192684c">
+      <listitem>
         <para>Select to place Credit Memo on hold. If a Credit Memo is placed
         on hold, it cannot be posted. You would place a Credit Memo on hold,
         for example, to allow time for producing and processing a Return
@@ -313,14 +313,14 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x19268b8">
+      <listitem>
         <para>Creates the new Credit Memo and saves the Credit Memo
         information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1926900">
+      <listitem>
         <para>Closes the screen without creating a new Credit Memo, returning
         you to the application desktop.</para>
       </listitem>
@@ -346,7 +346,7 @@
   <variablelist>
     <varlistentry>
       <term>Line Items</term>
-      <listitem id="listitemN0x180ac00N0x1926a20">
+      <listitem>
         <para>Display lists Sales Order Line Item quantities that have been
         returned and selected for credit. Line Items are added to a Credit
         Memo using the NEW ITEM button.</para>
@@ -361,7 +361,7 @@
   <variablelist>
     <varlistentry>
       <term>Subtotal</term>
-      <listitem id="listitemN0x180ac00N0x1926ab0">
+      <listitem>
         <para>Displays the subtotal for the Credit Memo Line Items.</para>
       </listitem>
     </varlistentry>
@@ -370,7 +370,7 @@
           <primary>credit memos</primary>
           <secondary>charges related to</secondary>
         </indexterm>Misc. Charge Amount</term>
-      <listitem id="listitemN0x180ac00N0x1926b40">
+      <listitem>
         <para>Enter the amount of the miscellaneous charge. Before entering a
         miscellaneous charge amount, you must first assign the charge to a
         Sales Account and also enter a description of the charge.</para>
@@ -378,20 +378,20 @@
     </varlistentry>
     <varlistentry>
       <term>Misc. Charge Description</term>
-      <listitem id="listitemN0x180ac00N0x1926b88">
+      <listitem>
         <para>Enter a description to identify the miscellaneous charge.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Misc. Charge Credit Account</term>
-      <listitem id="listitemN0x180ac00N0x1926bd0">
+      <listitem>
         <para>Enter a Credit Account to assign the miscellaneous charge
         to.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Freight</term>
-      <listitem id="listitemN0x180ac00N0x1926c18">
+      <listitem>
         <para>Enter the amount of freight charge to be added to the specified
         Order. The freight charge may be entered during the creation or
         modification of a Credit Memo--or at the time of shipment.</para>
@@ -399,7 +399,7 @@
     </varlistentry>
     <varlistentry>
       <term>Tax</term>
-      <listitem id="listitemN0x180ac00N0x1926c60">
+      <listitem>
         <para>Displays the total amount of Tax to be charged on the Credit
         Memo. Sales Tax is calculated at the Credit Memo Line Item level. The
         Tax amount displayed here represents the total for all Line Item Tax
@@ -409,7 +409,7 @@
     </varlistentry>
     <varlistentry>
       <term>Total</term>
-      <listitem id="listitemN0x180ac00N0x1926ca8">
+      <listitem>
         <para>Displays the total amount of the Credit Memo.</para>
       </listitem>
     </varlistentry>
@@ -419,14 +419,14 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1926d14">
+      <listitem>
         <para>Saves new Credit Memo Line Items and updates any changes made to
         existing Line Items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1926d5c">
+      <listitem>
         <para>Closes the screen without creating a new Credit Memo Line Item
         or saving any changes, returning you to the application
         desktop.</para>
@@ -434,13 +434,13 @@
     </varlistentry>
     <varlistentry>
       <term>NEW ITEM</term>
-      <listitem id="listitemN0x180ac00N0x1926da4">
+      <listitem>
         <para>Opens screen for creating a new Credit Memo Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT ITEM</term>
-      <listitem id="listitemN0x180ac00N0x1926dec">
+      <listitem>
         <para>Enables you to edit highlighted Credit Memo Line Item. The edit
         screen is the same as that for creating a new Credit Memo Line
         Item--except that when editing, the fields will contain Line Item
@@ -450,7 +450,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE ITEM</term>
-      <listitem id="listitemN0x180ac00N0x1930c24">
+      <listitem>
         <para>Highlight a Credit Memo Line Item and then select this button to
         remove the Line Item from the Credit Memo list.</para>
       </listitem>
@@ -472,7 +472,7 @@
   <variablelist>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x1931668">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Credit Memo. Notes entered on this screen will
         follow the Credit Memo through the billing process. For example, you
@@ -486,13 +486,13 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x19316d4">
+      <listitem>
         <para>Saves the Credit Memo Notes.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x193171c">
+      <listitem>
         <para>Closes the screen without creating a Credit Memo Notes,
         returning you to the application desktop.</para>
       </listitem>

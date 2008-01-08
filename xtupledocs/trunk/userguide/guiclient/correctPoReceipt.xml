@@ -24,52 +24,52 @@
   <variablelist>
     <varlistentry>
       <term>P/O Number</term>
-      <listitem id="listitemN0x180ac00N0x187b524">
+      <listitem>
         <para>Displays the selected Purchase Order Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Line #</term>
-      <listitem id="listitemN0x180ac00N0x187b56c">
+      <listitem>
         <para>Displays the selected Line Item Number from the specified
         Purchase Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x187b5b4">
+      <listitem>
         <para>Displays Item Number associated with the specified Line Item
         Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x187b5fc">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Vend. Item Number</term>
-      <listitem id="listitemN0x180ac00N0x187b644">
+      <listitem>
         <para>Displays the Item Number the Vendor uses.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Vendor Item Description</term>
-      <listitem id="listitemN0x180ac00N0x187b68c">
+      <listitem>
         <para>Displays the description for the Vendor Item Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Vendor UOM</term>
-      <listitem id="listitemN0x180ac00N0x187b6d4">
+      <listitem>
         <para>Displays the Unit of Measure the Vendor uses for the specified
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Inventory/Vendor UOM Ratio</term>
-      <listitem id="listitemN0x180ac00N0x187b71c">
+      <listitem>
         <para>/Vendor UOM Ratio: Displays the ratio between Inventory and
         Vendor Units of Measure.</para>
       </listitem>
@@ -87,25 +87,25 @@
   <variablelist>
     <varlistentry>
       <term>Due Date</term>
-      <listitem id="listitemN0x180ac00N0x187b7ac">
+      <listitem>
         <para>Displays the date when the Line Item is due.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty. Ordered</term>
-      <listitem id="listitemN0x180ac00N0x187b7f4">
+      <listitem>
         <para>Displays the original Line Item quantity ordered.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty. Received</term>
-      <listitem id="listitemN0x180ac00N0x187b83c">
+      <listitem>
         <para>Displays the total Line Item quantity received to date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Correct Qty. to</term>
-      <listitem id="listitemN0x180ac00N0x187b884">
+      <listitem>
         <para>Enter the quantity you want to correct the received quantity to.
         This correction will create adjusting General Ledger entries when the
         CORRECT button is selected.</para>
@@ -117,7 +117,7 @@
           <primary>freight</primary>
           <secondary>correcting for purchasing</secondary>
         </indexterm>Correct Freight to</term>
-      <listitem id="listitemN0x180ac00N0x187b914">
+      <listitem>
         <para>Enter the amount you want to correct the Line Item freight to.
         This correction will create adjusting General Ledger entries when the
         CORRECT button is selected.</para>
@@ -125,7 +125,7 @@
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x187b95c">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the correction.</para>
       </listitem>
@@ -136,14 +136,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x187b9c8">
+      <listitem>
         <para>Closes the screen without entering a correction, returning you
         to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CORRECT</term>
-      <listitem id="listitemN0x180ac00N0x1882000">
+      <listitem>
         <para>Select to post the correction. This action will result in
         adjusting General Ledger transactions.</para>
       </listitem>

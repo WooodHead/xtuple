@@ -55,7 +55,7 @@
   <variablelist>
     <varlistentry>
       <term>Column Layouts</term>
-      <listitem id="listitemN0x180ac00N0x18dd3f4">
+      <listitem>
         <para>Display lists column layouts defined for the Cash Flow
         report.</para>
       </listitem>
@@ -66,27 +66,27 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18dd460">
+      <listitem>
         <para>Closes the screen without creating the report, returning you to
         the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18dd4a8">
+      <listitem>
         <para>Creates the report and adds it to the master list of Financial
         Reports.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>ADD</term>
-      <listitem id="listitemN0x180ac00N0x18dd4f0">
+      <listitem>
         <para>Select to add a column layout.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x18dd538">
+      <listitem>
         <para>Enables you to edit highlighted column layouts. The edit screen
         is the same as that for creating a new column layout--except that when
         editing, the fields will contain column layout information.
@@ -96,7 +96,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x18dd580">
+      <listitem>
         <para>Highlight a column layout and then select this button to remove
         the column layout from the list.</para>
       </listitem>
@@ -118,19 +118,19 @@
   <variablelist>
     <varlistentry>
       <term>Name</term>
-      <listitem id="listitemN0x180ac00N0x18f1048">
+      <listitem>
         <para>Enter a name to identify the column layout.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Description</term>
-      <listitem id="listitemN0x180ac00N0x18f1090">
+      <listitem>
         <para>Enter a brief description of the column layout.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Report Template</term>
-      <listitem id="listitemN0x180ac00N0x18f10d8">
+      <listitem>
         <para>Specify the report definition you want to associate with the
         column layout.</para>
       </listitem>
@@ -162,7 +162,7 @@
   <variablelist>
     <varlistentry>
       <term>Selected Period</term>
-      <listitem id="listitemN0x180ac00N0x18f1168">
+      <listitem>
         <para>Select the time period(s) you want to have included in the
         column layout:</para>
         <para>Month: Select to have the current month included as one of the
@@ -198,7 +198,7 @@
   <variablelist>
     <varlistentry>
       <term>Prior</term>
-      <listitem id="listitemN0x180ac00N0x18f11f8">
+      <listitem>
         <para>Select to include prior time period information in the column
         layout by selecting from the following options:</para>
         <para>Period: Will include information for the Accounting Period
@@ -231,44 +231,44 @@
     the "Period" or "Year" selections.</para>
   </tip>
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x18f1264">
+    <listitem>
       <para>Full Year: If selected, the full prior Fiscal Year's worth of
       information will be included when the report is run.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18f1288">
+    <listitem>
       <para>Year To Date: If selected, the current Fiscal Year to Date's worth
       of information will be included when the report is run.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18f12ac">
+    <listitem>
       <para>% of Group Total: If selected, the percentage of the group total
       for the prior time period will be included when the report is run. This
       information will only be shown for groups and Accounts whose row
       definition specifies "Show % of Group Total."</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18f12d0">
+    <listitem>
       <para>Difference: If selected, the amount of difference between the
       selected Accounting Period and the prior time period will be included
       when the report is run.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18f12f4">
+    <listitem>
       <para>% of Difference: If selected, the percentage difference between
       the selected Accounting Period and the prior time period will be
       included when the report is run.</para>
       <para>Budget: Select to include Budget information in the column layout.
       If selected, the following additional options will be available:</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18f1318">
+    <listitem>
       <para>% of Group Total: If selected, the Budget percentage of the group
       total will be included when the report is run. This information will
       only be shown for groups and Accounts whose row definition specifies
       "Show % of Group Total."</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18f133c">
+    <listitem>
       <para>Difference: If selected, the amount of difference between the
       selected Accounting Period and the Budget for the Period will be
       included when the report is run.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18f1360">
+    <listitem>
       <para>% of Difference: If selected, the percentage difference between
       the selected Accounting Period and the Budget for the Period will be
       included when the report is run.</para>
@@ -279,14 +279,14 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18f13cc">
+      <listitem>
         <para>Creates the column layout and adds it to the list of column
         layouts.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18f1414">
+      <listitem>
         <para>Closes the screen without creating the column layout, returning
         you to the previous screen.</para>
       </listitem>
@@ -309,14 +309,14 @@
   <variablelist>
     <varlistentry>
       <term>Show Grand Total</term>
-      <listitem id="listitemN0x180ac00N0x18f14ec">
+      <listitem>
         <para>Select if you want to include a grand total in the Financial
         Report.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Alternate Labels</term>
-      <listitem id="listitemN0x180ac00N0x18f1534">
+      <listitem>
         <para>You have the option to substitute alternate text for the
         following column headers or row labels when viewing or printing your
         Financial Report:</para>

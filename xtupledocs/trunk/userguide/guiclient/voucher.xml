@@ -23,7 +23,7 @@
   <variablelist>
     <varlistentry>
       <term>Voucher #</term>
-      <listitem id="listitemN0x180ac00N0x1882144">
+      <listitem>
         <para>Next available Voucher Number will automatically display, unless
         your system requires you to enter Voucher Numbers manually. Default
         values and input parameters for Voucher Numbers are configurable at
@@ -32,7 +32,7 @@
     </varlistentry>
     <varlistentry>
       <term>PO Number</term>
-      <listitem id="listitemN0x180ac00N0x188218c">
+      <listitem>
         <para>Enter the Purchase Order Number of the Purchase Order you want
         to create a Voucher for.</para>
       </listitem>
@@ -43,7 +43,7 @@
           <primary>vouchers</primary>
           <secondary>distributing quantities to</secondary>
         </indexterm>Amount to Distribute</term>
-      <listitem id="listitemN0x180ac00N0x188221c">
+      <listitem>
         <para>Specify the dollar amount you intend to distribute to the Vendor
         for the specified Purchase Order. You may enter an amount greater than
         the amount due on the Purchase Order.</para>
@@ -51,41 +51,41 @@
     </varlistentry>
     <varlistentry>
       <term>Amount Distributed</term>
-      <listitem id="listitemN0x180ac00N0x1882264">
+      <listitem>
         <para>Displays sum of all Line Item distributions for specified
         Purchase Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Balance</term>
-      <listitem id="listitemN0x180ac00N0x18822ac">
+      <listitem>
         <para>Displays the difference between amount to distribute and amount
         distributed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Flag for 1099</term>
-      <listitem id="listitemN0x180ac00N0x18822f4">
+      <listitem>
         <para>Select to flag transaction for Form 1099 Tax reporting.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Vendor</term>
-      <listitem id="listitemN0x180ac00N0x188233c">
+      <listitem>
         <para>The name and address of the Vendor associated with the specified
         Purchase Order will display here.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Invoice Date</term>
-      <listitem id="listitemN0x180ac00N0x1882384">
+      <listitem>
         <para>Enter an Invoice date for the Voucher. The Invoice date is used
         for determining the due date, based on the specified Terms.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Distribution Date</term>
-      <listitem id="listitemN0x180ac00N0x18823cc">
+      <listitem>
         <para>Enter the date of the current distribution. When the Voucher is
         posted, this is the date when the posting will be recorded in the
         General Ledger.</para>
@@ -93,14 +93,14 @@
     </varlistentry>
     <varlistentry>
       <term>Due Date</term>
-      <listitem id="listitemN0x180ac00N0x1882414">
+      <listitem>
         <para>Enter the date payment is due to the Vendor. The due date is
         derived when the specified Terms are added to the Invoice date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Terms</term>
-      <listitem id="listitemN0x180ac00N0x188245c">
+      <listitem>
         <para>Specify the billing Terms for the Voucher. By default, the
         billing Terms will be transferred from the original Purchase Order.
         You may select alternate Terms on the Voucher header.</para>
@@ -114,28 +114,28 @@
   <variablelist>
     <varlistentry>
       <term>Vendor Invoice #</term>
-      <listitem id="listitemN0x180ac00N0x18824ec">
+      <listitem>
         <para>Enter the Vendor Invoice Number associated with the specified
         Purchase Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Reference</term>
-      <listitem id="listitemN0x180ac00N0x1882534">
+      <listitem>
         <para>Use this field to enter any notation or reference required for
         further identification.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>P/O Items</term>
-      <listitem id="listitemN0x180ac00N0x188257c">
+      <listitem>
         <para>Display lists Line Items associated with the specified Purchase
         Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Miscellaneous Distributions</term>
-      <listitem id="listitemN0x180ac00N0x18825c4">
+      <listitem>
         <para>Display lists miscellaneous Cost distributions related to the
         specified Order.</para>
       </listitem>
@@ -146,14 +146,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1882630">
+      <listitem>
         <para>Closes the screen without entering a new Voucher, returning you
         to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1882678">
+      <listitem>
         <para>Creates the new Voucher.</para>
       </listitem>
     </varlistentry>
@@ -166,14 +166,14 @@
   <variablelist>
     <varlistentry>
       <term>DISTRIBUTIONS</term>
-      <listitem id="listitemN0x180ac00N0x1882708">
+      <listitem>
         <para>Highlight a Purchase Order Line Item and then select this button
         to reach the Voucher Item distribution screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DISTRIBUTE LINE</term>
-      <listitem id="listitemN0x180ac00N0x1882750">
+      <listitem>
         <para>Highlight a Purchase Order Line Item(s) and then select this
         button to automatically distribute all quantities and amounts for the
         selected Voucher Item(s).</para>
@@ -181,27 +181,27 @@
     </varlistentry>
     <varlistentry>
       <term>CLEAR</term>
-      <listitem id="listitemN0x180ac00N0x1882798">
+      <listitem>
         <para>Highlight a Purchase Order Line Item(s) and then select this
         button to automatically clear any distributions.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DISTRIBUTE ALL</term>
-      <listitem id="listitemN0x180ac00N0x18827e0">
+      <listitem>
         <para>Select to distribute quantities and amounts for all Voucher
         Items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x1882828">
+      <listitem>
         <para>Select to enter a new miscellaneous distribution.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x1882870">
+      <listitem>
         <para>Enables you to edit highlighted miscellaneous distributions. The
         edit screen is the same as that for creating a new miscellaneous
         distribution--except that when editing, the fields will contain
@@ -212,7 +212,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x18828b8">
+      <listitem>
         <para>Highlight a miscellaneous distribution and then select this
         button to remove the miscellaneous distribution from the list.</para>
       </listitem>

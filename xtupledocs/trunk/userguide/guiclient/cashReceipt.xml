@@ -25,7 +25,7 @@
   <variablelist>
     <varlistentry>
       <term>Customer #</term>
-      <listitem id="listitemN0x180ac00N0x189004c">
+      <listitem>
         <para>Enter the Customer Number of the Customer whose Cash has been
         received.</para>
         <para>The browse button located to the right of the field leads to a
@@ -50,33 +50,33 @@
   <variablelist>
     <varlistentry>
       <term>Amount Received</term>
-      <listitem id="listitemN0x180ac00N0x18900dc">
+      <listitem>
         <para>Specify the amount of Cash received from the Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Misc. Applications</term>
-      <listitem id="listitemN0x180ac00N0x1890124">
+      <listitem>
         <para>Displays the amount of any miscellaneous distribution(s).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Amount Applied</term>
-      <listitem id="listitemN0x180ac00N0x189016c">
+      <listitem>
         <para>Displays the amount of Cash that has been applied to the
         specified Customer's Invoice(s).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Balance</term>
-      <listitem id="listitemN0x180ac00N0x18901b4">
+      <listitem>
         <para>Displays the difference between the amount to be applied and the
         amount applied.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Funds Type</term>
-      <listitem id="listitemN0x180ac00N0x18901fc">
+      <listitem>
         <para>Specify the type of the Cash Receipt. Choose from following
         Funds Types: Check, Certified Check, Master Card, Visa, American
         Express, Discover Card, Other Credit Card, Cash, Wire Transfer, or
@@ -93,7 +93,7 @@
   <variablelist>
     <varlistentry>
       <term>Check/Document #</term>
-      <listitem id="listitemN0x180ac00N0x189028c">
+      <listitem>
         <para>Use this field to enter the Customer's Check Number, transaction
         number, Credit Card number, or any other Document Number associated
         with the Cash Receipt.</para>
@@ -104,7 +104,7 @@
           <primary>cash receipts</primary>
           <secondary>posting of</secondary>
         </indexterm>Post to</term>
-      <listitem id="listitemN0x180ac00N0x189031c">
+      <listitem>
         <para>Select the Bank Account you want to post the Cash Receipt to.
         The Asset Account used for the selected Bank Account is specified on
         the Bank Account master.</para>
@@ -119,14 +119,14 @@
   <variablelist>
     <varlistentry>
       <term>Distribution Date</term>
-      <listitem id="listitemN0x180ac00N0x18903ac">
+      <listitem>
         <para>Specify the date of the Cash distribution. By default, the
         current day's date will appear.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Apply Balance As</term>
-      <listitem id="listitemN0x180ac00N0x18903f4">
+      <listitem>
         <para>If your system is configured to enable Customer Deposits, you
         may select one of the following options for applying any unapplied
         Cash Receipt balance:</para>
@@ -154,7 +154,7 @@
     </varlistentry>
     <varlistentry>
       <term>Use Alternate A/R Account From Sales Category</term>
-      <listitem id="listitemN0x180ac00N0x189043c">
+      <listitem>
         <para>Select one of the following optional A/R Accounts:</para>
         <variablelist>
           <varlistentry>
@@ -176,7 +176,7 @@
   <variablelist>
     <varlistentry>
       <term>Find Document #</term>
-      <listitem id="listitemN0x180ac00N0x18904cc">
+      <listitem>
         <para>To search for an Invoice in the Open Items display, begin typing
         an Invoice Number into this field. As you type, the list will
         automatically scroll toward the Invoice Number you are typing. You can
@@ -186,14 +186,14 @@
     </varlistentry>
     <varlistentry>
       <term>Open Items</term>
-      <listitem id="listitemN0x180ac00N0x1890514">
+      <listitem>
         <para>Display lists A/R open items (i.e., Invoices and Debit Memos)
         for the specified Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Misc. Applications</term>
-      <listitem id="listitemN0x180ac00N0x189055c">
+      <listitem>
         <para>Display lists miscellaneous distributions.</para>
       </listitem>
     </varlistentry>
@@ -203,14 +203,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18905c8">
+      <listitem>
         <para>Closes the screen without entering a new Cash Receipt, returning
         you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1898800">
+      <listitem>
         <para>Saves the Cash Receipt record. If your site is configured to
         process Credit Cards from the system, the charge transaction will
         begin processing when you select the SAVE button.</para>
@@ -225,28 +225,28 @@
   <variablelist>
     <varlistentry>
       <term>APPLY</term>
-      <listitem id="listitemN0x180ac00N0x1898890">
+      <listitem>
         <para>Highlight an open Item and then select this button to apply an
         amount to an individual open Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>APPLY LINE BAL.</term>
-      <listitem id="listitemN0x180ac00N0x18988d8">
+      <listitem>
         <para>Highlight an open Item and then select this button to apply cash
         to the balance for the line.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CLEAR</term>
-      <listitem id="listitemN0x180ac00N0x1898920">
+      <listitem>
         <para>Highlight an open Item and then select this button to remove any
         amount applied toward the open Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>APPLY TO BALANCE</term>
-      <listitem id="listitemN0x180ac00N0x1898968">
+      <listitem>
         <para>Select to apply the available balance to A/R open items. If the
         applied balance exceeds the amount due on an open Item, the remaining
         balance will be applied to the next open amount.</para>
@@ -261,13 +261,13 @@
   <variablelist>
     <varlistentry>
       <term>ADD</term>
-      <listitem id="listitemN0x180ac00N0x18989f8">
+      <listitem>
         <para>Select to add a miscellaneous distribution.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x1898a40">
+      <listitem>
         <para>Enables you to edit highlighted miscellaneous distributions. The
         edit screen is the same as that for creating a new miscellaneous
         distribution--except that when editing, the fields will contain
@@ -278,7 +278,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x1898a88">
+      <listitem>
         <para>Highlight a miscellaneous distribution and then select this
         button to remove the distribution from the list.</para>
       </listitem>
@@ -306,7 +306,7 @@
   <variablelist>
     <varlistentry>
       <term>Credit Card</term>
-      <listitem id="listitemN0x180ac00N0x18991fc">
+      <listitem>
         <para>Display lists Credit Card information for the specified
         Customer.</para>
       </listitem>
@@ -317,14 +317,14 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x1899268">
+      <listitem>
         <para>Opens screen for entering new Credit Card information for the
         Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x18992b0">
+      <listitem>
         <para>Enables you to edit highlighted Credit Cards. The edit screen is
         the same as that for entering new Credit Card information--except that
         when editing, the fields will contain Credit Card information.</para>
@@ -332,7 +332,7 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x18992f8">
+      <listitem>
         <para>Highlight a Credit Card and then select this button to reach a
         read-only view of the "Edit" screen. Double-clicking on a Credit Card
         will also bring you to the view screen.</para>
@@ -340,7 +340,7 @@
     </varlistentry>
     <varlistentry>
       <term>MOVE UP</term>
-      <listitem id="listitemN0x180ac00N0x1899340">
+      <listitem>
         <para>Highlight a Credit Card and then select this button to move the
         Credit Card up in the sequence of Credit Cards. Sequence numbers are
         automatically adjusted to reflect the change in position.</para>
@@ -348,7 +348,7 @@
     </varlistentry>
     <varlistentry>
       <term>MOVE DOWN</term>
-      <listitem id="listitemN0x180ac00N0x1899388">
+      <listitem>
         <para>Highlight a Credit Card and then select this button to move the
         Credit Card down the sequence of Credit Cards. Sequence numbers are
         automatically adjusted to reflect the change in position.</para>
@@ -356,7 +356,7 @@
     </varlistentry>
     <varlistentry>
       <term>CVV Code</term>
-      <listitem id="listitemN0x180ac00N0x18993d0">
+      <listitem>
         <para>Enter the Card Verification Value (CVV) Code found on the back
         of the specified Credit Card. This may be an optional feature at your
         site. Contact your Systems Administrator for details.</para>
@@ -379,7 +379,7 @@
   <variablelist>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x18994a8">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Cash Receipt.</para>
       </listitem>

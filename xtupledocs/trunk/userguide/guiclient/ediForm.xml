@@ -27,7 +27,7 @@
   <variablelist>
     <varlistentry>
       <term>Type</term>
-      <listitem id="listitemN0x180ac00N0x188056c">
+      <listitem>
         <para>Select the type of document the Form will be used for. Invoices
         are currently the only supported document type. The Invoice type will
         be selected by default.</para>
@@ -35,7 +35,7 @@
     </varlistentry>
     <varlistentry>
       <term>Output</term>
-      <listitem id="listitemN0x180ac00N0x18805b4">
+      <listitem>
         <para>For this example, we have selected the "Report" output format.
         Selecting the "Report" option indicates that document information will
         be written using the report definition specified below. Documents will
@@ -44,7 +44,7 @@
     </varlistentry>
     <varlistentry>
       <term>File Name</term>
-      <listitem id="listitemN0x180ac00N0x18805fc">
+      <listitem>
         <para>Enter a standard file name to be used when documents are
         forwarded to EDI recipients using this EDI Form. You may enter tags to
         generate dynamic file names using information stored in your database.
@@ -54,7 +54,7 @@
     </varlistentry>
     <varlistentry>
       <term>Query</term>
-      <listitem id="listitemN0x180ac00N0x1880644">
+      <listitem>
         <para>This is an optional field to be used if you want to generate
         dynamic file names using information stored in your database. The
         example uses a basic SQL statement to select an Invoice number from
@@ -66,7 +66,7 @@
     </varlistentry>
     <varlistentry>
       <term>Report</term>
-      <listitem id="listitemN0x180ac00N0x188068c">
+      <listitem>
         <para>Specify the report definition you want to associate with the EDI
         Form.</para>
       </listitem>
@@ -103,7 +103,7 @@
   <variablelist>
     <varlistentry>
       <term>Type</term>
-      <listitem id="listitemN0x180ac00N0x1880884">
+      <listitem>
         <para>Select the type of document the Form will be used for. Invoices
         are currently the only supported document type. The Invoice type will
         be selected by default.</para>
@@ -111,7 +111,7 @@
     </varlistentry>
     <varlistentry>
       <term>Output</term>
-      <listitem id="listitemN0x180ac00N0x18808cc">
+      <listitem>
         <para>For this example, we have selected the "CSV" output format.
         Selecting the "CSV" option indicates that document information will be
         written using the Form details specified below. Documents will be
@@ -120,7 +120,7 @@
     </varlistentry>
     <varlistentry>
       <term>File Name</term>
-      <listitem id="listitemN0x180ac00N0x1880914">
+      <listitem>
         <para>Enter a standard file name to be used when documents are
         forwarded to EDI recipients using this EDI Form. You may enter tags to
         generate dynamic file names using information stored in your database.
@@ -130,7 +130,7 @@
     </varlistentry>
     <varlistentry>
       <term>Query</term>
-      <listitem id="listitemN0x180ac00N0x188095c">
+      <listitem>
         <para>This is an optional field to be used if you want to generate
         dynamic file names using information stored in your database. The
         example uses a basic SQL statement to select an Invoice number from
@@ -148,7 +148,7 @@
           <primary>electronic data interchange</primary>
           <secondary>file delimiter options for</secondary>
         </indexterm>Delimiter</term>
-      <listitem id="listitemN0x180ac00N0x1888824">
+      <listitem>
         <para>Select one of the following delimiter options:</para>
         <variablelist>
           <varlistentry>
@@ -168,7 +168,7 @@
     </varlistentry>
     <varlistentry>
       <term>EDI Form Details</term>
-      <listitem id="listitemN0x180ac00N0x188886c">
+      <listitem>
         <para>Displays a list of all the SQL queries to be used when
         generating the CSV file output.</para>
       </listitem>
@@ -179,13 +179,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18888d8">
+      <listitem>
         <para>Opens screen for creating a new Form Detail query.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x1888920">
+      <listitem>
         <para>Enables you to edit highlighted Form Detail definitions. The
         edit screen is the same as that for creating a new Form Detail
         definition--except that when editing, the fields will contain Form
@@ -195,7 +195,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x1888968">
+      <listitem>
         <para>Highlight a Form Detail definition and then select this button
         to remove the Form Detail from the list.</para>
       </listitem>

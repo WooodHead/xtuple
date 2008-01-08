@@ -29,13 +29,13 @@
   <variablelist>
     <varlistentry>
       <term>Source</term>
-      <listitem id="listitemN0x180ac00N0x18b7a3c">
+      <listitem>
         <para>Displays the source module for the transaction.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Document Type</term>
-      <listitem id="listitemN0x180ac00N0x18b7a84">
+      <listitem>
         <para>Specify a General Ledger Transaction Type for classifying the
         series entry.</para>
         <para>By default, the Journal Entry (JE) Transaction Type will be
@@ -44,19 +44,19 @@
     </varlistentry>
     <varlistentry>
       <term>Document #</term>
-      <listitem id="listitemN0x180ac00N0x18b7acc">
+      <listitem>
         <para>Enter a Document Number to identify the transaction.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Transaction Series</term>
-      <listitem id="listitemN0x180ac00N0x18b7b14">
+      <listitem>
         <para>Display lists transactions in the transaction series.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Totals</term>
-      <listitem id="listitemN0x180ac00N0x18b7b5c">
+      <listitem>
         <para>Displays the following information:</para>
         <para>Debits: Displays total Debits associated with the series. Totals
         will display in red if Debits and Credits do not balance.</para>
@@ -67,14 +67,14 @@
     </varlistentry>
     <varlistentry>
       <term>Dist. Date</term>
-      <listitem id="listitemN0x180ac00N0x18b7ba4">
+      <listitem>
         <para>Specify the date when you want the series journal entry to be
         posted to the General Ledger.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
-      <listitem id="listitemN0x180ac00N0x18b7bec">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the transaction. This may be a required field,
         depending on your system configuration.</para>
@@ -90,13 +90,13 @@
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem id="listitemN0x180ac00N0x18bde6c">
+      <listitem>
         <para>Opens screen for creating a new transaction.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x18bdeb4">
+      <listitem>
         <para>Enables you to edit highlighted transaction. The edit screen is
         the same as that for creating a new transaction--except that when
         editing, the fields will contain transaction information.
@@ -106,21 +106,21 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x18bdefc">
+      <listitem>
         <para>Highlight a transaction and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x18bdf44">
+      <listitem>
         <para>Highlight a transaction and then select this button to remove
         the transaction from the list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18bdf8c">
+      <listitem>
         <para>Closes the screen without creating a transaction series,
         returning you to the previous screen.</para>
       </listitem>
@@ -137,7 +137,7 @@
           <primary>transactions</primary>
           <secondary>posting g/l series</secondary>
         </indexterm>POST</term>
-      <listitem id="listitemN0x180ac00N0x18be0ac">
+      <listitem>
         <para>Posts the transaction series to the General Ledger.</para>
       </listitem>
     </varlistentry>
@@ -150,7 +150,7 @@
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x18be13c">
+      <listitem>
         <para>Select if you want to save the series transaction for posting at
         a later time.</para>
       </listitem>

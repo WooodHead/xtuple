@@ -34,32 +34,32 @@
   <variablelist>
     <varlistentry>
       <term>Transaction Date</term>
-      <listitem id="listitemN0x180ac00N0x18987c8">
+      <listitem>
         <para>Displays the current day's date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x18a0600">
+      <listitem>
         <para>Enter the Item Number of the material you are receiving into
         Inventory.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x18a0648">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Warehouse</term>
-      <listitem id="listitemN0x180ac00N0x18a0690">
+      <listitem>
         <para>Specify Warehouse where material is being received.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Receipt Qty.</term>
-      <listitem id="listitemN0x180ac00N0x18a06d8">
+      <listitem>
         <para>Record the quantity of the Item being received. The Item's
         Quantity on Hand before and after the material receipt will also be
         displayed. Non-netable Quantity on Hand is not included in these
@@ -69,7 +69,7 @@
     </varlistentry>
     <varlistentry>
       <term>Immediate Issue to Work Order</term>
-      <listitem id="listitemN0x180ac00N0x18a0720">
+      <listitem>
         <para>Check to issue material immediately to a Work Order. Any Work
         Order Material Requirements having an issue method of either "Mixed"
         or "Push" may be issued to a Work Order using this option. Because
@@ -90,7 +90,7 @@
   <variablelist>
     <varlistentry>
       <term>Work Order #</term>
-      <listitem id="listitemN0x180ac00N0x18a07b0">
+      <listitem>
         <para>Enter the Work Order Number of the Work Order you want to issue
         the received materials to. The browse button located to the right of
         the field leads to a searchable Work Orders list. The list will
@@ -100,32 +100,32 @@
     </varlistentry>
     <varlistentry>
       <term>Whs.</term>
-      <listitem id="listitemN0x180ac00N0x18a07f8">
+      <listitem>
         <para>Specifies supplying Warehouse for the Work Order's parent
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Number</term>
-      <listitem id="listitemN0x180ac00N0x18a0840">
+      <listitem>
         <para>Displays Item Number for the Work Order's parent Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM</term>
-      <listitem id="listitemN0x180ac00N0x18a0888">
+      <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Status</term>
-      <listitem id="listitemN0x180ac00N0x18a08d0">
+      <listitem>
         <para>Displays the Status of the selected Work Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Document #</term>
-      <listitem id="listitemN0x180ac00N0x18a0918">
+      <listitem>
         <para>Creates a user-defined reference for the Material Receipt. The
         Document reference will be posted with the General Ledger (G/L)
         transaction record when the Material Receipt is generated. This field
@@ -134,7 +134,7 @@
     </varlistentry>
     <varlistentry>
       <term>Comments</term>
-      <listitem id="listitemN0x180ac00N0x18a0960">
+      <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Material Receipt.</para>
       </listitem>
@@ -145,14 +145,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x18a09cc">
+      <listitem>
         <para>Closes the screen without posting and crediting the Material
         Receipt, returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>POST</term>
-      <listitem id="listitemN0x180ac00N0x18a0a14">
+      <listitem>
         <para>Posts and credits the Material Receipt. Additional steps will be
         necessary if the specified Item is stored in multiple Locations. For
         more information, see <xref endterm="Anchor81167"

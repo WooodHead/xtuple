@@ -24,14 +24,14 @@
   <variablelist>
     <varlistentry>
       <term>Selected Customer Type</term>
-      <listitem id="listitemN0x180ac00N0x1885988">
+      <listitem>
         <para>Specify the Customer Type you want to associate with the A/R
         Account assignment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Pattern</term>
-      <listitem id="listitemN0x180ac00N0x18859d0">
+      <listitem>
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
         <xref linkend="Anchor77806"/>.</para>
@@ -39,7 +39,7 @@
     </varlistentry>
     <varlistentry>
       <term>A/R Account</term>
-      <listitem id="listitemN0x180ac00N0x1885a18">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
         A/R Account. This is an Asset Account. For example, it will be debited
         when Invoices are posted and credited when Cash Receipts are
@@ -48,7 +48,7 @@
     </varlistentry>
     <varlistentry>
       <term>Prepaid Receivables Account</term>
-      <listitem id="listitemN0x180ac00N0x1885a60">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
         A/R Prepaid Account. This is a Revenue contra Account. It will be
         debited when Miscellaneous A/R Credit Memos are posted and credited
@@ -57,7 +57,7 @@
     </varlistentry>
     <varlistentry>
       <term>Freight Account</term>
-      <listitem id="listitemN0x180ac00N0x1885aa8">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
         Freight Account. This is a Revenue Account. It will be credited when
         Invoices are posted and debited when S/O Credit Memos are
@@ -66,7 +66,7 @@
     </varlistentry>
     <varlistentry>
       <term>Deferred Revenue Account</term>
-      <listitem id="listitemN0x180ac00N0x1885af0">
+      <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
         Deferred Revenue Account. This is a Liability Account. It is an
         optional Account, as systems may be configured to ignore it when
@@ -86,14 +86,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x1885b80">
+      <listitem>
         <para>Closes the screen without creating an A/R Account assignment,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x1885bc8">
+      <listitem>
         <para>Creates the A/R Account assignment and adds it to the master
         list of A/R Account assignments.</para>
       </listitem>
