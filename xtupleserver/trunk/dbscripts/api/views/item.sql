@@ -66,6 +66,9 @@ BEGIN;
   AND (item_inv_uom_id=i.uom_id)
   AND (item_price_uom_id=p.uom_id));
 
+GRANT ALL ON TABLE api.item TO openmfg;
+COMMENT ON VIEW api.item IS 'Item';
+
   --Rules
 
   CREATE OR REPLACE RULE "_INSERT" AS
