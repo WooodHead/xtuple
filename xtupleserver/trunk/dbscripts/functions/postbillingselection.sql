@@ -117,7 +117,8 @@ BEGIN
       invcitem_notes,
       invcitem_tax_id, invcitem_taxtype_id,
       invcitem_tax_pcta, invcitem_tax_pctb, invcitem_tax_pctc,
-      invcitem_tax_ratea, invcitem_tax_rateb, invcitem_tax_ratec )
+      invcitem_tax_ratea, invcitem_tax_rateb, invcitem_tax_ratec,
+      invcitem_coitem_id )
     VALUES
     ( _invcitemid, _invcheadid,
       _r.coitem_linenumber, _r.itemsite_item_id, _r.itemsite_warehous_id,
@@ -129,7 +130,8 @@ BEGIN
       _r.coitem_memo,
       _r.cobill_tax_id, _r.cobill_taxtype_id,
       _r.cobill_tax_pcta, _r.cobill_tax_pctb, _r.cobill_tax_pctc,
-      _r.cobill_tax_ratea, _r.cobill_tax_rateb, _r.cobill_tax_ratec );
+      _r.cobill_tax_ratea, _r.cobill_tax_rateb, _r.cobill_tax_ratec,
+      _r.coitem_id );
 
 --  Find and mark any Lot/Serial invdetail records associated with this bill
     UPDATE invdetail SET invdetail_invcitem_id = _invcitemid

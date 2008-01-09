@@ -20,28 +20,49 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-
 CREATE OR REPLACE FUNCTION postBillingSelections(INTEGER) RETURNS INTEGER AS '
+BEGIN
+  RETURN postBillingSelections($1, false);
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION postBillingSelections(INTEGER, BOOLEAN) RETURNS INTEGER AS '
 DECLARE
   pCustTypeId ALIAS FOR $1;
+  pConsolidate ALIAS FOR $2;
   _counter INTEGER;
+  _tcounter INTEGER;
   _cobmisc RECORD;
 
 BEGIN
 
   _counter := 0;
 
-  FOR _cobmisc IN SELECT cobmisc_id
-                  FROM cobmisc, cohead, custinfo
-                  WHERE ((NOT cobmisc_posted)
-                   AND (cohead_id=cobmisc_cohead_id)
-                   AND (cust_id=cohead_cust_id)
-                   AND (cust_custtype_id=pCustTypeId)) LOOP
+  IF (pConsolidate) THEN
+    FOR _cobmisc IN SELECT DISTINCT cust_id
+                      FROM cobmisc, cohead, custinfo
+                     WHERE((NOT cobmisc_posted)
+                       AND (cohead_id=cobmisc_cohead_id)
+                       AND (cust_id=cohead_cust_id)
+                       AND (cust_custtype_id=pCustTypeId)) LOOP
 
-    PERFORM postBillingSelection(_cobmisc.cobmisc_id);
-    _counter := (_counter + 1);
+      SELECT postBillingSelectionConsolidated(_cobmisc.cust_id)
+        INTO _tcounter;
+      _counter := (_counter + _tcounter);
+    END LOOP;
+  ELSE
+    FOR _cobmisc IN SELECT cobmisc_id
+                      FROM cobmisc, cohead, custinfo
+                     WHERE((NOT cobmisc_posted)
+                       AND (cohead_id=cobmisc_cohead_id)
+                       AND (cust_id=cohead_cust_id)
+                       AND (cust_custtype_id=pCustTypeId)) LOOP
+  
+      PERFORM postBillingSelection(_cobmisc.cobmisc_id);
+      _counter := (_counter + 1);
 
-  END LOOP;
+    END LOOP;
+  END IF;
 
   RETURN _counter;
 END;
