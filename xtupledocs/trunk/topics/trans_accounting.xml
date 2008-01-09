@@ -48,7 +48,7 @@
     Miscellaneous Adjustment to change the Quantity on Hand (QOH) for an Item
     in a particular Item Site. Using a Miscellaneous Adjustment, QOH can be
     adjusted either upwards or downwards:</para>
-    <informaltable id="Table611435">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -76,7 +76,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611451">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -108,7 +108,7 @@
     you have the option of moving quantities of the Item from one Warehouse to
     another. During an Inter-Warehouse transfer, you increase QOH at the
     receiving Warehouse and decrease QOH at the originating Warehouse.</para>
-    <informaltable id="Table611468">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -140,7 +140,7 @@
     different reasons. Entering a Scrap transaction decreases Inventory value
     by the Cost of the quantity being scrapped. The following Accounts are
     affected:</para>
-    <informaltable id="Table611484">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -172,7 +172,7 @@
     that they decrease Inventory value. The debit side of the transaction is
     assigned to an Expense Category. The Accounts used for Expense Categories
     will vary from site to site:</para>
-    <informaltable id="Table611499">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -217,7 +217,7 @@
     receive Inventory using a miscellaneous Material Receipt. When an Item is
     received into Inventory via a Material Receipt, the Inventory value of
     that Item is increased:</para>
-    <informaltable id="Table611518">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -250,7 +250,7 @@
     the source Item is concerned, its Inventory value is decreased. The
     reverse is true for the Target Item, whose Inventory value is increased.
     The following Accounts are affected:</para>
-    <informaltable id="Table611533">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -278,7 +278,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611548">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -311,7 +311,7 @@
     the ability to reset negative QOH values to "0." Adjusting Inventory from
     a negative value to "0" increases the value of the affected
     Inventory.</para>
-    <informaltable id="Table611564">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -344,7 +344,7 @@
     value in either a positive or a negative sense, depending on whether
     counted QOH was found to be greater than or less than recorded QOH. The
     Inventory Asset Account will be adjusted accordingly:</para>
-    <informaltable id="Table611579">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -372,7 +372,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611594">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -414,7 +414,7 @@
     non-netable quantities will be included in the calculation. If the
     Standard Cost is decreased, the opposite records will be generated, as
     shown below:</para>
-    <informaltable id="Table611612">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -443,7 +443,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611628">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -497,7 +497,7 @@
     using the S/R Module, the system considers returns to be P/O Module
     transactions. As shown below, the affected Accounts vary based on whether
     the return involves an Inventory or a non-Inventory Item:</para>
-    <informaltable id="Table611650">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -525,7 +525,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611665">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -572,7 +572,7 @@
     merchandise the Customer is returning must be placed back into Inventory.
     It is the Inventory return process which is owned by the S/O Module, as
     shown below.</para>
-    <informaltable id="Table611685">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -616,7 +616,7 @@
     the most basic transaction involves the issuance of materials to a Work
     Order. As shown below, materials are first removed from Inventory and then
     transferred to the Work Order as work-in-process (WIP) assets:</para>
-    <informaltable id="Table611703">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -646,7 +646,7 @@
     </informaltable>
     <para>Returning materials from a Work Order creates
     records opposite to those generated when materials are issued:</para>
-    <informaltable id="Table611718">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -677,7 +677,7 @@
     <para>When materials are scrapped from a Work Order, the
     WIP Asset Account is credited for the amount of the Scrap quantity--and
     the Manufacturing Scrap Account is debited, as shown below:</para>
-    <informaltable id="Table611733">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -732,7 +732,7 @@
       charge but also the applicable percentage of the hourly overhead
       rate.</para>
     </note>
-    <informaltable id="Table611754">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -760,7 +760,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611769">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -788,7 +788,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611784">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -823,7 +823,7 @@
     for a Breeder Item, a reversed pair of transactions is generated. These
     paired transactions effectively cancel each other out. As shown below,
     Breeder Items are both consumed by and received from manufacturing:</para>
-    <informaltable id="Table611801">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -851,7 +851,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611816">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -882,7 +882,7 @@
     <para>Next, the material required for Breeder Production
     must be issued to the Work Order. The following Accounts are affected when
     material requirements are issued to Breeder production:</para>
-    <informaltable id="Table611832">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -912,7 +912,7 @@
     </informaltable>
     <para>The Co-Products and/or By-Products which result from
     Breeder Production must be received into Inventory, as follows:</para>
-    <informaltable id="Table611848">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -943,7 +943,7 @@
     <para>And finally, if during Production you vary the
     standard quantity when distributing Co-Products and/or By-Products, the
     following Accounts will be affected:</para>
-    <informaltable id="Table611864">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -972,7 +972,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611880">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1012,7 +1012,7 @@
       Quantity on Hand values for the Breeder materials, the Co-Products, and
       the By-Products.</para>
     </note>
-    <informaltable id="Table611899">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1040,7 +1040,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611914">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1077,7 +1077,7 @@
       <para>Miscellaneous Production may not be posted for
       Breeder Items.</para>
     </note>
-    <informaltable id="Table611932">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1105,7 +1105,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611947">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1133,7 +1133,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611962">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1161,7 +1161,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611977">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1189,7 +1189,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table611992">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1218,7 +1218,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table612007">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1249,7 +1249,7 @@
     </informaltable>
     <para>When Work Order Operations are posted separately
     from Production posting, the following Accounts are affected:</para>
-    <informaltable id="Table612023">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1279,7 +1279,7 @@
     </informaltable>
     <para>The same Accounts affected when posting Operations
     are impacted in reverse order when correcting Operations posting:</para>
-    <informaltable id="Table612039">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1311,7 +1311,7 @@
     Material Usage and/or Labor variances. The sense of the records will
     depend on the transaction. If any variances exist for the Work Order in
     question, the following Accounts will be affected:</para>
-    <informaltable id="Table612055">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1345,7 +1345,7 @@
     <para>Sales Order Items are removed from Inventory at the
     point when they are issued to Shipping. Issuing Stock to Shipping affects
     the following Accounts:</para>
-    <informaltable id="Table612073">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1377,7 +1377,7 @@
     been issued to Shipping may be returned to Inventory. Returning Stock to
     Inventory reverses the transaction records created when Stock was issued
     to Shipping:</para>
-    <informaltable id="Table612089">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1408,7 +1408,7 @@
     <para>When Stock is shipped, the Shipping Asset Account is
     cleared out--and the Cost of Sales Account is debited, as shown
     below:</para>
-    <informaltable id="Table612105">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1439,7 +1439,7 @@
     <para>If a Shipment is returned to Shipping, the action
     reverses the transaction records generated when the Order was
     shipped:</para>
-    <informaltable id="Table612120">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1473,7 +1473,7 @@
     are non-Inventory Items, the appropriate Expense Account will be debited.
     In either case, if any P/O Line Item freight charges exist, they will be
     debited:</para>
-    <informaltable id="Table612136">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1501,7 +1501,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table612152">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1539,7 +1539,7 @@
     below for both Inventory and non-Inventory Items. Freight expenses may
     also be corrected:</para>
     <para>
-<informaltable id="Table612169">
+<informaltable>
         <tgroup cols="3">
           <thead>
             <row>
@@ -1571,7 +1571,7 @@
       </informaltable>
 </para>
     <para>
-<informaltable id="Table612186">
+<informaltable>
         <tgroup cols="3">
           <thead>
             <row>
@@ -1603,7 +1603,7 @@
       </informaltable>
 </para>
     <para>
-<informaltable id="Table612203">
+<informaltable>
         <tgroup cols="3">
           <thead>
             <row>
@@ -1635,7 +1635,7 @@
       </informaltable>
 </para>
     <para>
-<informaltable id="Table612220">
+<informaltable>
         <tgroup cols="3">
           <thead>
             <row>
@@ -1695,7 +1695,7 @@
       <para>The same Accounts are affected regardless of
       whether a Voucher is posted for Inventory or non-Inventory Items.</para>
     </note>
-    <informaltable id="Table612243">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1727,7 +1727,7 @@
     posting a Voucher, the following additional Accounts will be affected. The
     debit side of the transaction will vary depending on whether a
     miscellaneous Account or an Expense Category is selected:</para>
-    <informaltable id="Table612260">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1764,7 +1764,7 @@
     Account may vary--depending on the circumstances of the transaction. As
     with regular Vouchers, though, the Accounts Payable Account is credited,
     as shown below:</para>
-    <informaltable id="Table612279">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1796,7 +1796,7 @@
     selected for payment. The following Accounts are affected when applying a
     Discount to a Voucher:</para>
     <para>
-<informaltable id="Table612294">
+<informaltable>
         <tgroup cols="3">
           <thead>
             <row>
@@ -1829,7 +1829,7 @@
     the time of posting determines which Asset Account will be used. This is
     true whether posting a single or multiple Checks. The following Accounts
     are affected:</para>
-    <informaltable id="Table612309">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1859,7 +1859,7 @@
     </informaltable>
     <para>The Accounts affected differ slightly when a
     miscellaneous A/P Check is posted, as shown below:</para>
-    <informaltable id="Table612324">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1891,7 +1891,7 @@
     other things, to register prepaid amounts paid to Vendors. The following
     Accounts are affected when a miscellaneous A/P Credit Memo is
     posted:</para>
-    <informaltable id="Table612339">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1926,7 +1926,7 @@
     </note>
     <para>Similarly, miscellaneous A/P Debit Memos may be
     posted, with the reverse Accounts being affected:</para>
-    <informaltable id="Table612357">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -1970,7 +1970,7 @@
     debited, and the Sales Account credited. Several other Accounts may also
     be credited, depending on whether any additional charges are associated
     with the Order:</para>
-    <informaltable id="Table612375">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -2002,7 +2002,7 @@
     <para>When posting a Cash Receipt, the Asset Account
     specified for the selected Bank Account is debited, while the Accounts
     Receivable (A/R) Account is credited:</para>
-    <informaltable id="Table612393">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -2042,7 +2042,7 @@
     Credit Memo portion of the transaction is represented by the second pair
     listed below:</para>
     <para>
-<informaltable id="Table612410">
+<informaltable>
         <tgroup cols="3">
           <thead>
             <row>
@@ -2076,7 +2076,7 @@
     post an unapplied Cash Receipt balance. The Credit Memo portion of the
     transaction is represented by the second pair listed below:</para>
     <para>
-<informaltable id="Table612428">
+<informaltable>
         <tgroup cols="3">
           <thead>
             <row>
@@ -2109,7 +2109,7 @@
     the Credit Memo generated by the Customer Deposit is applied to A/R open
     items:</para>
     <para>
-<informaltable id="Table612446">
+<informaltable>
         <tgroup cols="3">
           <thead>
             <row>
@@ -2142,7 +2142,7 @@
     <para>If you make a miscellaneous distribution when
     posting a Cash Receipt, the following additional Accounts will be
     affected:</para>
-    <informaltable id="Table612462">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -2179,7 +2179,7 @@
     owns the Inventory return process; however, the billing aspects are owned
     by the A/R Module. The following Accounts represent the billing portion of
     an S/O Credit Memo posting:</para>
-    <informaltable id="Table612480">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -2212,7 +2212,7 @@
     other things, to register prepaid amounts received from Customers. The
     following Accounts are affected when a miscellaneous A/R Credit Memo is
     posted:</para>
-    <informaltable id="Table612499">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -2242,7 +2242,7 @@
     </informaltable>
     <para>Similarly, miscellaneous A/R Debit Memos may be
     posted, with the reverse Accounts being affected:</para>
-    <informaltable id="Table612515">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -2276,7 +2276,7 @@
     generated--a Credit Memo which should be applied at a later point--and the
     Cash is posted to the Asset Account for the relevant Bank Account:</para>
     <para>
-<informaltable id="Table612531">
+<informaltable>
         <tgroup cols="3">
           <thead>
             <row>
@@ -2326,7 +2326,7 @@
     affect the broadest possible spectrum of G/L Accounts. For example, the
     following actions are user-defined, meaning the Accounts affected will
     vary from case-to-case:</para>
-    <informaltable id="Table612553">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -2354,7 +2354,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table612567">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -2382,7 +2382,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table612581">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -2410,7 +2410,7 @@
         </tbody>
       </tgroup>
     </informaltable>
-    <informaltable id="Table612596">
+    <informaltable>
       <tgroup cols="3">
         <thead>
           <row>
@@ -2441,7 +2441,7 @@
     <para>When posting a Bank Adjustment, the sense of the
     transaction will vary based on the Adjustment Type:</para>
     <para>
-<informaltable id="Table612612">
+<informaltable>
         <tgroup cols="3">
           <thead>
             <row>
@@ -2471,7 +2471,7 @@
       </informaltable>
 </para>
     <para>
-<informaltable id="Table612627">
+<informaltable>
         <tgroup cols="3">
           <thead>
             <row>

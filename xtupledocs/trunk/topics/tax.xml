@@ -66,10 +66,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_0100_GL.png"
-                       id="Graphic611242" />
+            <imagedata fileref="images/Topic_tax_0100_GL.png" />
           </imageobject>
-          <caption id="Caption611246">G/L Account Definitions</caption>
+          <caption>G/L Account Definitions</caption>
         </mediaobject>
       </screenshot></para>
     <para>In this example we have created Accounts that relate to Tax Types
@@ -110,11 +109,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_0130_Accnt.png"
-                       id="Graphic611259" />
+            <imagedata fileref="images/Topic_tax_0130_Accnt.png" />
           </imageobject>
-          <caption id="Caption611263">Tax Authority CRM Account
-          Definition</caption>
+          <caption>Tax Authority CRM Account Definition</caption>
         </mediaobject>
       </screenshot></para>
     <tip>
@@ -139,28 +136,24 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_0160_Shi-To.png"
-                       id="Graphic611272" />
+            <imagedata fileref="images/Topic_tax_0160_Shi-To.png" />
           </imageobject>
-          <caption id="Caption611276">Customer Ship-To Tax
-          Definition</caption>
+          <caption>Customer Ship-To Tax Definition</caption>
         </mediaobject>
       </screenshot></para>
-    <para>The critical field for taxation in <xref endterm="Caption611276"
-    linkend="Caption611276" /> is the "Tax Authority" field. In this case we
-    see that Store 1 falls under the Tax jurisdiction of TAXZONE1. Store 2
-    (not shown) falls under TAXZONE2.</para>
+    <para>The critical field for taxation is the "Tax Authority" field. In
+    this case we see that Store 1 falls under the Tax jurisdiction of
+    TAXZONE1. Store 2 (not shown) falls under TAXZONE2.</para>
   </section>
   <section id="Section611281">
     <title>Tax Code Definitions</title>
     <para>Tax Codes hold both the rate(s) at which Tax is calculated and the
     G/L Account(s) Tax transactions are posted to. You can see a sample Tax
     Code detail in the following screen:</para>
-    <para><screenshot id="Figure611284">
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_0190_Tax Codes.png"
-                       id="Graphic611284" />
+            <imagedata fileref="images/Topic_tax_0190_Tax Codes.png" />
           </imageobject>
           <caption id="sampleTaxCodeDetail"><para>Sample Tax Code
           Detail</para></caption>
@@ -187,10 +180,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_230_TaxTypes.png"
-                       id="Graphic611295" />
+            <imagedata fileref="images/Topic_tax_230_TaxTypes.png" />
           </imageobject>
-          <caption id="Caption611298">Tax Types</caption>
+          <caption>Tax Types</caption>
         </mediaobject>
       </screenshot></para>
     <para>Another strategy is to relate the Tax Type to Product Categories. In
@@ -213,10 +205,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_260_TaxTypes.png"
-                       id="Graphic611304" />
+            <imagedata fileref="images/Topic_tax_260_TaxTypes.png" />
           </imageobject>
-          <caption id="Caption611308">Tax Selections</caption>
+          <caption>Tax Selections</caption>
         </mediaobject>
       </screenshot></para>
     <para>Here we see that Tax Authority TAXZONE1 links two different Tax
@@ -246,10 +237,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_290_ItemTax.png"
-                       id="Graphic611316" />
+            <imagedata fileref="images/Topic_tax_290_ItemTax.png" />
           </imageobject>
-          <caption id="Caption611320">Item Tax Types Assignments</caption>
+          <caption>Item Tax Types Assignments</caption>
         </mediaobject>
       </screenshot></para>
     <para>By default, an Item is not taxed if no relationship has been created
@@ -275,10 +265,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_320_ExpenseCat.png"
-                       id="Graphic611329" />
+            <imagedata fileref="images/Topic_tax_320_ExpenseCat.png" />
           </imageobject>
-          <caption id="Caption611333">Expense Categories for Tax</caption>
+          <caption>Expense Categories for Tax</caption>
         </mediaobject>
       </screenshot></para>
     <para>Notice how the "Expense" field for Expense Category TAXZONE1-TYPE1
@@ -302,11 +291,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_350_SO-Line-TaxDetail.png"
-                       id="Graphic611341" />
+            <imagedata fileref="images/Topic_tax_350_SO-Line-TaxDetail.png" />
           </imageobject>
-          <caption id="Caption611345">Sales Order Line Showing Tax
-          Detail</caption>
+          <caption>Sales Order Line Showing Tax Detail</caption>
         </mediaobject>
       </screenshot></para>
     <tip>
@@ -319,11 +306,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_380_SO-TaxBreak.png"
-                       id="Graphic611350" />
+            <imagedata fileref="images/Topic_tax_380_SO-TaxBreak.png" />
           </imageobject>
-          <caption id="Caption611354">Sales Order Line Items Showing Tax
-          Breakdown</caption>
+          <caption>Sales Order Line Items Showing Tax Breakdown</caption>
         </mediaobject>
       </screenshot></para>
     <para>From the "Line Items" tab screen, click on the "Tax" hyperlink to
@@ -347,11 +332,10 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_410_SO-GL.png"
-                       id="Graphic611361" />
+            <imagedata fileref="images/Topic_tax_410_SO-GL.png" />
           </imageobject>
-          <caption id="Caption611364">Summarized G/L Transactions for Sales
-          Tax on an Invoice</caption>
+          <caption>Summarized G/L Transactions for Sales Tax on an
+          Invoice</caption>
         </mediaobject>
       </screenshot></para>
     <para>Now that we have accrued the liability for the sales Tax, we must
@@ -370,10 +354,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_430_AP-Voucher.png"
-                       id="Graphic611370" />
+            <imagedata fileref="images/Topic_tax_430_AP-Voucher.png" />
           </imageobject>
-          <caption id="Caption611373">Voucher for Tax Payment</caption>
+          <caption>Voucher for Tax Payment</caption>
         </mediaobject>
       </screenshot></para>
     <para>Miscellaneous Distributions on a Miscellaneous Voucher enable us to
@@ -385,14 +368,12 @@
     <para>In the following screen you can see a summary of the G/L
     transactions which resulted from out posting of the Miscellaneous
     Voucher:</para>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_460_GL-PostVoucher.png"
-                       id="Graphic611377" />
+            <imagedata fileref="images/Topic_tax_460_GL-PostVoucher.png" />
           </imageobject>
-          <caption id="Caption611381">G/L Postings After Voucher
-          Posting</caption>
+          <caption>G/L Postings After Voucher Posting</caption>
         </mediaobject>
       </screenshot></para>
     <para>Posting the Voucher cleared the liability Accounts associated with
@@ -408,28 +389,24 @@
     record purchasing Tax.</para>
     <para>The following screen shows a sample Expense Category we have
     established to record Tax on purchases:</para>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_510_PurchTaxExpCat.png"
-                       id="Graphic611390" />
+            <imagedata fileref="images/Topic_tax_510_PurchTaxExpCat.png" />
           </imageobject>
-          <caption id="Caption611394">Expense Category for Taxes on Purchased
-          Items</caption>
+          <caption>Expense Category for Taxes on Purchased Items</caption>
         </mediaobject>
       </screenshot></para>
     <para>We will use the Expense Category during a vouchering scenario. In
     our example, the Vendor is charging us Tax on one or more Items of Type 1.
     The following screen shows the Voucher for this purchase, as well as the
     Miscellaneous Distribution for Tax purposes:</para>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_530_VoucherPurcTaxExpCat.png"
-                       id="Graphic611400" />
+            <imagedata fileref="images/Topic_tax_530_VoucherPurcTaxExpCat.png" />
           </imageobject>
-          <caption id="Caption611404">Miscellaneous Distribution of Voucher to
-          Pay Tax</caption>
+          <caption>Miscellaneous Distribution of Voucher to Pay Tax</caption>
         </mediaobject>
       </screenshot></para>
     <para>The Purchase Order we are vouchering is for a Vendor invoice
