@@ -81,7 +81,6 @@ BEGIN
 
     IF fetchmetrictext(''TrackMachineOverhead'') = ''M'' THEN
       _machineOverheadCost := machineoverheadCost(_p.item_id) * _parentQty;
-
       PERFORM insertGLTransaction(''W/O'', ''WO'', ''Misc.'',
 	      (''Machine Overhead Costs of Post to Misc. Production for Item Number '' || _p.item_number),
 	      costcat_laboroverhead_accnt_id, costcat_wip_accnt_id, _invhistid,
@@ -89,6 +88,8 @@ BEGIN
       FROM itemsite, costcat
       WHERE ((itemsite_costcat_id=costcat_id)
       AND  (itemsite_id=pItemsiteid));
+    ELSE
+      _machineOverheadCost := 0;
     END IF;
   ELSE
     _laborAndOverheadCost := 0;
@@ -99,7 +100,7 @@ BEGIN
   PERFORM insertGLTransaction( ''W/O'', ''WO'', ''Misc.'',
                                (''Cost Variance of Post to Misc. Production for Item Number '' || _p.item_number),
                                costcat_invcost_accnt_id, costcat_wip_accnt_id, _invhistid,
-			       stdcost(_p.item_id) * _parentQty - _laborAndOverheadCost- _machineOverheadCost - _componentCost,
+			       stdcost(_p.item_id) * _parentQty - _laborAndOverheadCost - _machineOverheadCost - _componentCost,
                                CURRENT_DATE )
   FROM itemsite, costcat
   WHERE ( (itemsite_costcat_id=costcat_id)
