@@ -117,7 +117,7 @@ INSERT INTO itemsite (
          WHEN NEW.control_method = 'Serial #' THEN
            'S'
          WHEN NEW.control_method = 'Lot #' THEN
-           'Lot #'
+           'L'
        END,
        COALESCE(NEW.perishable,FALSE),
        getPlanCodeId(NEW.planner_code),
@@ -146,13 +146,57 @@ INSERT INTO itemsite (
        COALESCE(NEW.notes,''));
   
 
---CREATE OR REPLACE RULE "_UPDATE" AS 
- --   ON UPDATE TO api.itemsite DO INSTEAD
+CREATE OR REPLACE RULE "_UPDATE" AS 
+    ON UPDATE TO api.itemsite DO INSTEAD
 
+UPDATE itemsite SET 
+     itemsite_active=NEW.active,
+     itemsite_supply=NEW.supplied_at_warehouse,
+     itemsite_createpr=NEW.create_prs,
+     itemsite_createwo=NEW.create_wos,
+     itemsite_sold=NEW.sold_from_warehouse,
+     itemsite_soldranking=NEW.ranking,
+     itemsite_controlmethod=
+       CASE
+         WHEN NEW.control_method = 'None' THEN
+           'N'
+         WHEN NEW.control_method = 'Regular' THEN
+           'R'
+         WHEN NEW.control_method = 'Serial #' THEN
+           'S'
+         WHEN NEW.control_method = 'Lot #' THEN
+           'L'
+       END,
+     itemsite_perishable=NEW.perishable,
+     itemsite_plancode_id=getPlanCodeId(NEW.planner_code),
+     itemsite_costcat_id=getCostCatId(NEW.cost_category),
+     itemsite_loccntrl=NEW.multiple_location_control,
+     itemsite_location_id=getLocationId(NEW.warehouse,NEW.location),
+     itemsite_location=NEW.user_defined_location,
+     itemsite_location_comments=NEW.user_defined_location,
+     itemsite_disallowblankwip=NEW.disallow_blank_wip_locations,
+     itemsite_stocked=NEW.stocked,
+     itemsite_abcclass=NEW.abc_class,
+     itemsite_autoabcclass=NEW.allow_automatic_updates,
+     itemsite_cyclecountfreq=NEW.cycl_cnt_freq,
+     itemsite_eventfence=NEW.event_fence,
+     itemsite_useparams=NEW.enforce_order_parameters,
+     itemsite_reorderlevel=NEW.reorder_level,
+     itemsite_ordertoqty=NEW.order_up_to,
+     itemsite_minordqty=NEW.minimum_order,
+     itemsite_maxordqty=NEW.maximum_order,
+     itemsite_multordqty=NEW.order_multiple,
+     itemsite_useparamsmanual=NEW.enforce_on_manual_orders,
+     itemsite_ordergroup=NEW.group_mps_mrp_orders,
+     itemsite_mps_timefence=NEW.mps_time_fence,
+     itemsite_leadtime=NEW.lead_time,
+     itemsite_safetystock=NEW.safety_stock,
+     itemsite_notes=NEW.notes
+   WHERE (itemsite_id=getItemSiteId(OLD.warehouse,OLD.item_number));
            
---CREATE OR REPLACE RULE "_DELETE" AS 
---    ON DELETE TO api.itemsite DO INSTEAD
+CREATE OR REPLACE RULE "_DELETE" AS 
+    ON DELETE TO api.itemsite DO INSTEAD
 
-
+   SELECT deleteitemsite(getItemSiteId(OLD.warehouse,OLD.item_number));
 
 COMMIT;
