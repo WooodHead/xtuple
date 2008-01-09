@@ -21,6 +21,7 @@ ALTER TABLE itemsite ADD FOREIGN KEY (itemsite_item_id) REFERENCES item (item_id
 ALTER TABLE itemsite ADD FOREIGN KEY (itemsite_warehous_id) REFERENCES whsinfo (warehous_id);
 ALTER TABLE itemsite ADD FOREIGN KEY (itemsite_plancode_id) REFERENCES plancode (plancode_id);
 ALTER TABLE itemsite ADD FOREIGN KEY (itemsite_costcat_id) REFERENCES costcat (costcat_id);
+ALTER TABLE itemsite ALTER COLUMN itemsite_item_id SET NOT NULL;
 ALTER TABLE itemsite ALTER COLUMN itemsite_warehous_id SET NOT NULL;
 ALTER TABLE itemsite ALTER COLUMN itemsite_cyclecountfreq SET NOT NULL;
 ALTER TABLE itemsite ALTER COLUMN itemsite_supply SET NOT NULL;
