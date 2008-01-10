@@ -1,8 +1,224 @@
 CREATE OR REPLACE FUNCTION _itemsiteTrigger () RETURNS TRIGGER AS '
 DECLARE
   _cmnttypeid INTEGER;
+  _state INTEGER;
+  _wasLocationControl BOOLEAN;
+  _isLocationControl BOOLEAN;
+  _wasLotSerial BOOLEAN;
+  _isLotSerial BOOLEAN;
+  _qty NUMERIC;
+  _maint BOOLEAN;
 
 BEGIN
+-- Check if we are doing maintenance
+  IF (TG_OP = ''INSERT'') THEN
+    _maint := TRUE;
+  ELSIF (TG_OP = ''UPDATE'') THEN
+    IF ((OLD.itemsite_item_id           != NEW.itemsite_item_id)
+     OR (OLD.itemsite_warehous_id       != NEW.itemsite_warehous_id)
+     OR (OLD.itemsite_reorderlevel      != NEW.itemsite_reorderlevel)
+     OR (OLD.itemsite_ordertoqty        != NEW.itemsite_ordertoqty)
+     OR (OLD.itemsite_cyclecountfreq    != NEW.itemsite_cyclecountfreq)
+     OR (OLD.itemsite_supply            != NEW.itemsite_supply)
+     OR (OLD.itemsite_loccntrl          != NEW.itemsite_loccntrl)
+     OR (OLD.itemsite_safetystock       != NEW.itemsite_safetystock)
+     OR (OLD.itemsite_minordqty         != NEW.itemsite_minordqty)
+     OR (OLD.itemsite_multordqty        != NEW.itemsite_multordqty)
+     OR (OLD.itemsite_leadtime          != NEW.itemsite_leadtime)
+     OR (OLD.itemsite_abcclass          != NEW.itemsite_abcclass)
+     OR (OLD.itemsite_controlmethod     != NEW.itemsite_controlmethod)
+     OR (OLD.itemsite_active            != NEW.itemsite_active)
+     OR (OLD.itemsite_plancode_id       != NEW.itemsite_plancode_id)
+     OR (OLD.itemsite_costcat_id        != NEW.itemsite_costcat_id)
+     OR (OLD.itemsite_eventfence        != NEW.itemsite_eventfence)
+     OR (OLD.itemsite_sold              != NEW.itemsite_sold)
+     OR (OLD.itemsite_stocked           != NEW.itemsite_stocked)
+     OR (OLD.itemsite_location_id       != NEW.itemsite_location_id)
+     OR (OLD.itemsite_useparams         != NEW.itemsite_useparams)
+     OR (OLD.itemsite_useparamsmanual   != NEW.itemsite_useparamsmanual)
+     OR (OLD.itemsite_soldranking       != NEW.itemsite_soldranking)
+     OR (OLD.itemsite_createpr          != NEW.itemsite_createpr)
+     OR (OLD.itemsite_location          != NEW.itemsite_location)
+     OR (OLD.itemsite_location_comments != NEW.itemsite_location_comments)
+     OR (OLD.itemsite_notes             != NEW.itemsite_notes)
+     OR (OLD.itemsite_perishable        != NEW.itemsite_perishable)
+     OR (OLD.itemsite_autoabcclass      != NEW.itemsite_autoabcclass)
+     OR (OLD.itemsite_ordergroup        != NEW.itemsite_ordergroup)
+     OR (OLD.itemsite_disallowblankwip  != NEW.itemsite_disallowblankwip)
+     OR (OLD.itemsite_maxordqty         != NEW.itemsite_maxordqty)
+     OR (OLD.itemsite_mps_timefence     != NEW.itemsite_mps_timefence)
+     OR (OLD.itemsite_createwo          != NEW.itemsite_createwo) ) THEN
+      _maint := TRUE;
+    END IF;
+  ELSE
+    _maint := FALSE;
+  END IF;
+
+  IF (_maint) THEN -- Begin Maintenance
+-- Privilege Checks
+    IF ( NOT checkPrivilege(''MaintainItemSites'') ) THEN
+       RAISE EXCEPTION ''You do not have privileges to maintain Item Sites.'';
+    ELSIF (OLD.itemsite_item_id != NEW.itemsite_item_id) THEN
+      RAISE EXCEPTION ''The item number on an itemsite may not be changed.'';
+    ELSIF (OLD.itemsite_warehous_id != NEW.itemsite_warehous_id) THEN
+      RAISE EXCEPTION ''The warehouse code on an itemsite may not be changed.'';
+    END IF;
+    
+-- Override values to avoid invalid data combinations
+    IF (NOT NEW.itemsite_supply) THEN
+      UPDATE itemsite SET
+        itemsite_createpr = FALSE,
+        itemsite_createwo = FALSE
+      WHERE (itemsite_id=NEW.itemsite_id);
+    END IF;
+
+    IF (NEW.itemsite_controlmethod NOT IN (''S'',''L'')) THEN
+      UPDATE itemsite SET
+        itemsite_perishable = FALSE
+      WHERE (itemsite_id=NEW.itemsite_id);
+    END IF;
+
+    IF (NOT NEW.itemsite_loccntrl) THEN
+      UPDATE itemsite SET
+        itemsite_disallowblankwip = FALSE
+      WHERE (itemsite_id=NEW.itemsite_id);
+    END IF;
+
+    IF (NOT NEW.itemsite_useparams) THEN
+      UPDATE itemsite SET
+        itemsite_reorderlevel    = 0,
+        itemsite_ordertoqty      = 0,
+        itemsite_minordqty       = 0,
+        itemsite_maxordqty       = 0,
+        itemsite_multordqty      = 0,
+        itemsite_useparamsmanual = FALSE
+      WHERE (itemsite_id = NEW.itemsite_id);
+    END IF;
+   
+-- Integrity check
+    IF (TG_OP = ''INSERT'') THEN
+      IF (NEW.itemsite_loccntrl) THEN
+        IF (SELECT count(*)=0
+            FROM location
+            WHERE ((location_warehous_id=NEW.itemsite_warehous_id)
+            AND ( (NOT location_restrict) OR
+                ( (location_restrict) AND
+                (location_id IN ( SELECT locitem_location_id
+                                  FROM locitem
+                                  WHERE (locitem_item_id=NEW.itemsite_item_id) ) ) ) ))) THEN
+          RAISE EXCEPTION ''You must first create at least one valid
+	    		  Location for this Item Site before it may be
+	   	          multiply located.'';
+        END IF;
+      END IF;
+    END IF;
+  
+    IF (TG_OP = ''UPDATE'') THEN
+  
+-- Integrity check
+      IF (NOT OLD.itemsite_loccntrl AND NEW.itemsite_loccntrl) THEN
+        IF (SELECT count(*)=0
+          FROM location
+          WHERE ((location_warehous_id=NEW.itemsite_warehous_id)
+          AND ( (NOT location_restrict) OR
+              ( (location_restrict) AND
+              (location_id IN ( SELECT locitem_location_id
+                                FROM locitem
+                                WHERE (locitem_item_id=NEW.itemsite_item_id) ) ) ) ))) THEN
+           RAISE EXCEPTION ''You must first create at least one valid
+			  Location for this Item Site before it may be
+		          multiply located.'';
+        END IF;
+      END IF;
+   
+-- Update detail records based on control method changes 
+      _wasLocationControl := OLD.itemsite_loccntrl;
+      _isLocationControl := NEW.itemsite_loccntrl;
+      _wasLotSerial := OLD.itemsite_controlmethod IN (''S'',''L'');
+      _isLotSerial := NEW.itemsite_controlmethod IN (''S'',''L''); 
+      _state := 0;
+    
+      IF ( (_wasLocationControl) AND (_isLocationControl) ) THEN
+        _state := 10;
+      ELSIF ( (NOT _wasLocationControl) AND (NOT _isLocationControl) ) THEN
+        _state := 20;
+      ELSIF ( (NOT _wasLocationControl) AND (_isLocationControl) ) THEN
+        _state := 30;
+      ELSIF ( (_wasLocationControl) AND (NOT _isLocationControl) ) THEN
+        _state := 40;
+      END IF;
+
+      IF ( (_wasLotSerial) AND (_isLotSerial) ) THEN
+        _state := _state + 1;
+      ELSIF ( (NOT _wasLotSerial) AND (NOT _isLotSerial) ) THEN
+        _state := _state + 2;
+      ELSIF ( (NOT _wasLotSerial) AND (_isLotSerial) ) THEN
+        _state := _state + 3;
+      ELSIF ( (_wasLotSerial) AND (NOT _isLotSerial) ) THEN
+        _state := _state + 4;
+      END IF;
+
+      IF (_state IN (41, 43)) THEN
+        PERFORM consolidateLotSerial(OLD.itemsite_id);
+      ELSIF (_state IN (14, 34)) THEN
+        PERFORM consolidateLocations(OLD.itemsite_id);
+      ELSIF (_state IN (24, 42, 44)) THEN
+
+        RAISE NOTICE ''Deleting item site detail records,'';
+
+        SELECT SUM(itemloc_qty) INTO _qty
+        FROM itemloc, location
+        WHERE ((itemloc_location_id=location_id)
+        AND (NOT location_netable) 
+        AND (itemloc_itemsite_id=OLD.itemsite_id));
+
+        IF (_qty != 0) THEN
+          UPDATE itemsite
+          SET itemsite_qtyonhand = itemsite_qtyonhand + _qty,
+            itemsite_nnqoh = itemsite_nnqoh - _qty
+          WHERE (itemsite_id=OLD.itemsite_id);
+        END IF;
+
+        DELETE FROM itemloc
+        WHERE (itemloc_itemsite_id=OLD.itemsite_id);
+      END IF;
+
+     IF (NEW.itemsite_qtyonhand > 0) THEN
+--  Handle detail creation
+--  Create itemloc records if they do not exist
+       IF (_state IN (23, 32, 33)) THEN
+          INSERT INTO itemloc 
+            ( itemloc_itemsite_id, itemloc_location_id,
+              itemloc_lotserial, itemloc_expiration, itemloc_qty )
+            VALUES
+            ( NEW.itemsite_id, -1,
+              '''', endOfTime(), NEW.itemsite_qtyonhand );
+        END IF;
+
+--  Handle Location distribution
+        IF (_state IN (31, 32, 33, 34)) THEN
+          IF (SELECT (COUNT(*)=1)
+              FROM location
+              WHERE ((location_id=NEW.itemsite_location_id)
+              AND (location_warehous_id=NEW.itemsite_warehous_id)
+              AND ( (NOT location_restrict) OR
+                  ( (location_restrict) AND
+                  (location_id IN ( SELECT locitem_location_id
+                                    FROM locitem
+                                    WHERE (locitem_item_id=NEW.itemsite_item_id) ) ) ) ))) THEN
+           PERFORM initialDistribution(NEW.itemsite_id, NEW.itemsite_location_id);
+          ELSE
+            RAISE EXCEPTION ''A valid default location must be selected to distribute existing inventory to.'';
+          END IF;
+        END IF;
+
+--  Handle Lot/Serial distribution
+        IF ( (_state = 13) OR (_state = 23) OR (_state = 33) OR (_state = 43) ) THEN
+          RAISE NOTICE ''You should now use the Reassign Lot/Serial # window to assign Lot/Serial #s.'';
+        END IF;
+      END IF;  
+    END IF;
+  END IF;  -- End Maintenance
 
   IF (TG_OP = ''UPDATE'') THEN
     IF ( (NEW.itemsite_qtyonhand <> OLD.itemsite_qtyonhand) ) THEN
@@ -65,7 +281,6 @@ BEGIN
                                ( ''Order Up To Changed from '' || formatQty(OLD.itemsite_ordertoqty) ||
                                  '' to '' || formatQty(NEW.itemsite_ordertoqty ) ) );
         END IF;
-
       END IF;
     END IF;
   END IF;
@@ -76,4 +291,4 @@ END;
 ' LANGUAGE 'plpgsql';
 
 DROP TRIGGER itemsiteTrigger ON itemsite;
-CREATE TRIGGER itemsiteTrigger BEFORE INSERT OR UPDATE ON itemsite FOR EACH ROW EXECUTE PROCEDURE _itemsiteTrigger();
+CREATE TRIGGER itemsiteTrigger AFTER INSERT OR UPDATE ON itemsite FOR EACH ROW EXECUTE PROCEDURE _itemsiteTrigger();

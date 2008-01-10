@@ -11,7 +11,8 @@ BEGIN
   SELECT location_id INTO _returnVal
   FROM location
   WHERE ((location_warehous_id=getWarehousId(pWarehouse_id,''ACTIVE''))
-  AND (formatLocationId(location_id)=pLocation));
+  AND (formatLocationId(location_id)=pLocation))
+  LIMIT 1;
 
   IF (_returnVal IS NULL) THEN
 	RAISE EXCEPTION ''Location % not found in Warehouse %.'', pLocation, pWarehouse;
