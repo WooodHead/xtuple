@@ -1,28 +1,28 @@
 BEGIN;
 
--- Customer Comment
+-- Item Comment
 
-DROP VIEW api.custcomment;
-CREATE VIEW api.custcomment
+DROP VIEW api.itemcomment;
+CREATE VIEW api.itemcomment
 AS 
    SELECT 
-     cust_number::varchar(100) AS customer_number,
+     item_number,
      cmnttype_name AS type,
      comment_date AS date,
      comment_user AS username,
      comment_text AS text
-   FROM custinfo, cmnttype, comment
-   WHERE ((comment_source='C')
-   AND (comment_source_id=cust_id)
+   FROM item, cmnttype, comment
+   WHERE ((comment_source='I')
+   AND (comment_source_id=item_id)
    AND (comment_cmnttype_id=cmnttype_id));
 
-GRANT ALL ON TABLE api.custcomment TO openmfg;
-COMMENT ON VIEW api.custcomment IS 'Customer Comment';
+GRANT ALL ON TABLE api.salesordercomment TO openmfg;
+COMMENT ON VIEW api.salesordercomment IS 'Item Comments';
 
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO api.custcomment DO INSTEAD
+    ON INSERT TO api.itemcomment DO INSTEAD
 
   INSERT INTO comment (
     comment_date,
@@ -34,16 +34,16 @@ CREATE OR REPLACE RULE "_INSERT" AS
     )
   VALUES (
     COALESCE(NEW.date,now()),
-    'C',
-    getCustId(NEW.customer_number),
+    'IS',
+    getItemId(NEW.item_number),
     COALESCE(NEW.username,current_user),
     getCmntTypeId(NEW.type),
     NEW.text);
 
 CREATE OR REPLACE RULE "_UPDATE" AS
-    ON UPDATE TO api.custcomment DO INSTEAD NOTHING;
+    ON UPDATE TO api.itemcomment DO INSTEAD NOTHING;
 
 CREATE OR REPLACE RULE "_DELETE" AS
-    ON DELETE TO api.custcomment DO INSTEAD NOTHING;
+    ON DELETE TO api.itemcomment DO INSTEAD NOTHING;
 
 COMMIT;

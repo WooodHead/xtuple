@@ -17,10 +17,7 @@ AS
    AND (comment_cmnttype_id=cmnttype_id));
 
 GRANT ALL ON TABLE api.addresscomment TO openmfg;
-COMMENT ON VIEW api.addresscomment IS '
-This view can be used as an interface to import Address Comment data directly  
-into the system.  Required fields will be checked and default values will be 
-populated';
+COMMENT ON VIEW api.addresscomment IS 'Address Comment';
 
 --Rules
 
@@ -36,7 +33,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     comment_text
     )
   VALUES (
-    COALESCE(NEW.date,current_date),
+    COALESCE(NEW.date,now()),
     'ADDR',
     NEW.Address_number,
     COALESCE(NEW.username,current_user),
