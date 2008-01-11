@@ -20,8 +20,8 @@ AS
    WHERE ((item_id=itemtax_item_id)
    AND (itemtax_taxtype_id=taxtype_id));
 
-GRANT ALL ON TABLE api.custtax TO openmfg;
-COMMENT ON VIEW api.custtax IS 'Item Tax Type';
+GRANT ALL ON TABLE api.itemtaxtype TO openmfg;
+COMMENT ON VIEW api.itemtaxtype IS 'Item Tax Type';
 
 --Rules
 
