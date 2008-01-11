@@ -71,4 +71,17 @@ SELECT COUNT(*)=0 FROM itemtax WHERE (itemtax_item_id NOT IN (
 SELECT item_id FROM item WHERE (item_id=itemtax_item_id)
 ));
 
+--  All item alias items must be valid
+SELECT COUNT(*)=0 FROM itemalias WHERE (itemalias_item_id NOT IN (
+SELECT item_id FROM item WHERE (item_id=itemalias_item_id)
+));
 
+--  All item substitute parent items must be valid
+SELECT COUNT(*)=0 FROM itemsub WHERE (itemsub_parent_item_id NOT IN (
+SELECT item_id FROM item WHERE (item_id=itemsub_parent_item_id)
+));
+
+--  All item substitute substitute items must be valid
+SELECT COUNT(*)=0 FROM itemsub WHERE (itemsub_sub_item_id NOT IN (
+SELECT item_id FROM item WHERE (item_id=itemsub_sub_item_id)
+));

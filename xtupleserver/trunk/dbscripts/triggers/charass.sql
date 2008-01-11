@@ -6,6 +6,10 @@ BEGIN
      RAISE EXCEPTION ''You do not have privileges to maintain Items.'';
    END IF;
 
+   IF (NEW.charass_target_type = ''C'' AND NOT checkPrivilege(''MaintainCustomerMasters'')) THEN
+     RAISE EXCEPTION ''You do not have privileges to maintain Customers.'';
+   END IF;
+
 -- Data check
   IF (NEW.charass_char_id IS NULL) THEN
 	RAISE EXCEPTION ''You must supply a valid Characteristic ID.'';
