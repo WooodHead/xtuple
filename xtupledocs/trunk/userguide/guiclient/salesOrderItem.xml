@@ -11,7 +11,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_newSOItem.png" />
+          <imagedata fileref="images/salesOrderItem.png" />
         </imageobject>
         <caption>Create New Sales Order Line Item</caption>
       </mediaobject>
@@ -76,7 +76,7 @@
         </indexterm> <indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>selling warehouses for</secondary>
-        </indexterm>Sold from Whs.</term>
+        </indexterm>Whs.</term>
       <listitem>
         <para>Specify the Warehouse the Sales Order Item is sold from. Items
         may be supplied to Sales Orders from multiple Item Sites. After an
@@ -119,6 +119,30 @@
   </note>
   <variablelist>
     <varlistentry>
+      <term>Qty. UOM</term>
+      <listitem>
+        <para>Specify the Unit of Measure to be used when selling the Line
+        Item. Sold Items may be assigned multiple Selling UOMs. These
+        alternate UOMs may be defined on the Item master. If a Line Item has
+        no Selling UOM defined, then the Inventory UOM will be used here by
+        default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Shipped</term>
+      <listitem>
+        <para>Displays the Line Item quantity shipped (if any) to date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cust Discount %</term>
+      <listitem>
+        <para>Specify here and apply any discount for specified Customer for
+        this Sales Order. This is a discount off the regular Customer Price,
+        obtained either from the Customer master or a Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>line item pricing for</secondary>
@@ -141,6 +165,15 @@
     field will not be editable.</para>
   </tip>
   <variablelist>
+    <varlistentry>
+      <term>Price UOM</term>
+      <listitem>
+        <para>The Price Unit of Measure is the same as the Selling UOM. If an
+        Item has Selling UOMs defined, then the Item may be sold and priced in
+        these alternate UOMs. If no Selling UOMs are defined, then the
+        Inventory UOM will be used here by default.</para>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>Extended Price</term>
       <listitem>
@@ -166,48 +199,29 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term>Tax Type</term>
+      <term>Promised Date</term>
       <listitem>
-        <para>Specify the Tax Type for the Sales Order Item. By default, the
-        Item's Tax Type corresponding to the Sales Order's Tax Authority will
-        be presented here. The link between Tax Types and Tax Authorities is
-        made on the Item master. If the Item master does not have a Tax Type
-        for the Sales Order's Tax Authority, then no Tax will be
-        charged.</para>
+        <para>Enter the date when you promised delivery of the Line Item. This
+        is an optional field. It will only be displayed on the screen if your
+        system is configured to enable promise dates.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Tax Code</term>
+      <term>Warranty</term>
       <listitem>
-        <para>Specify the Tax Code to be applied to the Sales Order Item. By
-        default, the Tax Code specified in the Tax Selection matrix will be
-        displayed here. For a Tax Code to be used, the matrix must have an
-        entry which matches both the Item's Tax Type definition and the Tax
-        Authority specified on the Sales Order header. If no Tax Selection
-        match exists, then no Tax Code will be used--meaning no Tax will be
-        charged.</para>
+        <para><remark>findme</remark></para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>The relationship between Tax Authorities, Tax Types, and Tax Codes
-    is established in the Tax Selection matrix.</para>
-  </tip>
+  <para>When entering Sales Orders you have the ability to view current
+  availability for Line Items. You may also create replenishment Orders if
+  they are needed.</para>
   <variablelist>
-    <varlistentry>
-      <term>Tax</term>
-      <listitem>
-        <para>Displays the amount of Tax to be charged for the Sales Order
-        Line Item quantity. Sales Tax is calculated at the Sales Order Line
-        Item level. To get a detailed view of the Tax calculation, click on
-        the Tax link using your mouse.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>availability of items for</secondary>
-        </indexterm>Show Availability</term>
+        </indexterm>Availability</term>
       <listitem>
         <para>Select to display Availability information for the Sales Order
         Item in the following categories:</para>
@@ -257,75 +271,20 @@
               Order Qty. = Available Qty.</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term>Lead Time</term>
+            <listitem>
+              <para>Displays the Item Site Lead Time for the specified Line
+              Item.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>The "Show Availability" feature can be turned on or off by default
-    at the system level. If the feature is turned on, the Availability totals
-    will display only after a Scheduled Date has been entered for the Line
-    Item.</para>
-  </tip>
-  <variablelist>
-    <varlistentry>
-      <term>Pricing UOM</term>
-      <listitem>
-        <para>Displays the Price UOM for the Item.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Ratio</term>
-      <listitem>
-        <para>The ratio displayed here is the Price/Inventory UOM ratio, which
-        is defined in the Item master for an Item.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Unit Cost</term>
-      <listitem>
-        <para>Displays the Standard Cost per unit.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>List Price</term>
-      <listitem>
-        <para>Displays the sales List Price per unit.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Customer Price</term>
-      <listitem>
-        <para>Displays the Price given to the specified Customer. Special
-        Customer Prices can be set for individual Customers or Customer Groups
-        by using a Pricing Schedule.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>sales orders</primary>
-          <secondary>discount percentages for</secondary>
-        </indexterm>Discount % from List</term>
-      <listitem>
-        <para>Displays the percentage discount off the List Price. Indicates
-        the difference between the List Price for an Item and the Net Unit
-        Price as a percentage. This is the margin between the Net Unit Price
-        and the List Price.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Discount % from Cust</term>
-      <listitem>
-        <para>Specify here and apply any discount for specified Customer for
-        this Sales Order. This is a discount off the regular Customer Price,
-        obtained either from the Customer master or a Pricing Schedule.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Qty. Shipped to Date</term>
-      <listitem>
-        <para>Shipped to Date: Displays the total quantity shipped of the
-        specified Line Item to date.</para>
+        <tip>
+          <para>The "Show Availability" feature can be turned on or off by
+          default at the system level. If the feature is turned on, the
+          Availability totals will display only after a Scheduled Date has
+          been entered for the Line Item.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -353,18 +312,17 @@
         Line Item will assume the same Order Number as the Sales Order the
         Line Item is associated with--even if that Order Number has already
         been used by a previous Work Order.</para>
+        <note>
+          <para>For purchased Items, the option "Create Purchase Request" will
+          appear instead. The displayed fields will resemble the fields shown
+          when "Create Work Order" is visible. One difference is you will be
+          given the option to override the purchase Price for the Line Item.
+          If used, this one-time override will replace any Item Source
+          Price(s) when the Purchase Request is converted to a Purchase Order
+          Line Item.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>For purchased Items, the option "Create Purchase Request" will
-    appear instead. The displayed fields will resemble the fields shown when
-    "Create Work Order" is visible. One difference is you will be given the
-    option to override the purchase Price for the Line Item. If used, this
-    one-time override will replace any Item Source Price(s) when the Purchase
-    Request is converted to a Purchase Order Line Item.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>W/O Qty.</term>
       <listitem>
@@ -396,41 +354,6 @@
         Warehouses in the Item Site master for an Item are considered
         supplying Warehouses. If no supplying Warehouse exists for an Item, a
         Work Order may not be created for the Item.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>If an Item has Characteristics associated with it, you have the option
-  of linking those Characteristics to a Sales Order Line Item. And, in the
-  case where Sales Order demand automatically generates either a Purchase
-  Request or a Work Order, the Characteristics defined here will be inherited
-  by those subsequent Orders.</para>
-  <tip>
-    <para>You can link Characteristics and Values to an Item by using the Item
-    master. Once entered, these Characteristics and Values will be available
-    to users entering Sales Order Line Items.</para>
-  </tip>
-  <para>When selecting or editing Characteristics for a Sales Order Line Item,
-  you are presented with the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Name</term>
-      <listitem>
-        <para>Displays the name of any Item Characteristics associated with
-        the Item. Characteristics defined as Item Characteristics may be
-        associated with Items on the Item master.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Value</term>
-      <listitem>
-        <para>Displays the default Value associated with an Item
-        Characteristic, but permits you to specify an alternate Value. When
-        associating Characteristic Values with a Sales Order Line Item, you
-        have four options: 1) Select the default Value; 2) select an alternate
-        pre-defined Value; 3) manually enter a new Value in place of the
-        pre-defined Value; or 4) make no selection. Making no selection means
-        the Characteristics will not be associated with the Sales Order Line
-        Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -476,13 +399,154 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>If an Item has Characteristics associated with it, you have the option
+  of linking those Characteristics to a Sales Order Line Item. And, in the
+  case where Sales Order demand automatically generates either a Purchase
+  Request or a Work Order, the Characteristics defined here will be inherited
+  by those subsequent Orders.</para>
+  <tip>
+    <para>You can link Characteristics and Values to an Item by using the Item
+    master. Once entered, these Characteristics and Values will be available
+    to users entering Sales Order Line Items.</para>
+  </tip>
+  <para>To associate Characteristics with a Sales Order Line Item, select the
+  "Item Characteristics" tab at the bottom of the screen, as shown
+  below:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/salesOrderItem_itemCharacteristicsTab.png" />
+        </imageobject>
+        <caption>Sales Order Line Item Characteristics</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When selecting or editing Characteristics for a Sales Order Line Item,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Displays the name of any Item Characteristics associated with
+        the Item. Characteristics defined as Item Characteristics may be
+        associated with Items on the Item master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Displays the default Value associated with an Item
+        Characteristic, but permits you to specify an alternate Value. When
+        associating Characteristic Values with a Sales Order Line Item, you
+        have four options: 1) Select the default Value; 2) select an alternate
+        pre-defined Value; 3) manually enter a new Value in place of the
+        pre-defined Value; or 4) make no selection. Making no selection means
+        the Characteristics will not be associated with the Sales Order Line
+        Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Costs or adjust Tax information for a Sales Order Line Item,
+  select the "Detail" tab at the bottom of the screen, as shown below:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/salesOrderItem_costs.png" />
+        </imageobject>
+        <caption>Sales Order Line Item Detail</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing Costs or adjusting Tax information for a Sales Order Line
+  Item, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Unit Cost (Inv. UOM)</term>
+      <listitem>
+        <para>Displays the Standard Cost per unit based on the Inventory Unit
+        of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>List Price</term>
+      <listitem>
+        <para>Displays the sales List Price per unit.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer Price</term>
+      <listitem>
+        <para>Displays the Price given to the specified Customer. Special
+        Customer Prices can be set for individual Customers or Customer Groups
+        by using a Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>discount percentages for</secondary>
+        </indexterm>List Discount %</term>
+      <listitem>
+        <para>Displays the percentage discount off the List Price. Indicates
+        the difference between the List Price for an Item and the Net Unit
+        Price as a percentage. This is the margin between the Net Unit Price
+        and the List Price.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>The following Tax options are available, should you need to
+        override the Tax Selection settings for the Line Item:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Tax Type</term>
+            <listitem>
+              <para>Specify the Tax Type for the Sales Order Item. By default,
+              the Item's Tax Type corresponding to the Sales Order's Tax
+              Authority will be presented here. The link between Tax Types and
+              Tax Authorities is made on the Item master. If the Item master
+              does not have a Tax Type for the Sales Order's Tax Authority,
+              then no Tax will be charged.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Tax Code</term>
+            <listitem>
+              <para>Specify the Tax Code to be applied to the Sales Order
+              Item. By default, the Tax Code specified in the Tax Selection
+              matrix will be displayed here. For a Tax Code to be used, the
+              matrix must have an entry which matches both the Item's Tax Type
+              definition and the Tax Authority specified on the Sales Order
+              header. If no Tax Selection match exists, then no Tax Code will
+              be used--meaning no Tax will be charged.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <tip>
+          <para>The relationship between Tax Authorities, Tax Types, and Tax
+          Codes is established in the Tax Selection matrix.</para>
+        </tip>
+        <variablelist>
+          <varlistentry>
+            <term>Tax</term>
+            <listitem>
+              <para>Displays the amount of Tax to be charged for the Sales
+              Order Line Item quantity. Sales Tax is calculated at the Sales
+              Order Line Item level. To get a detailed view of the Tax
+              calculation, click on the Tax link using your mouse.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To enter Notes related to a Sales Order Line Item, select the "Notes"
   tab at the bottom of the screen, as shown below:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_soItemNotes.png"
-                     />
+          <imagedata fileref="images/salesOrderItem_notesTab.png" />
         </imageobject>
         <caption>Sales Order Line Item Notes</caption>
       </mediaobject>
@@ -509,7 +573,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_soItemComm.png" />
+          <imagedata fileref="images/salesOrderItem_commentsTab.png" />
         </imageobject>
         <caption>Sales Order Line Item Comments</caption>
       </mediaobject>
@@ -595,11 +659,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_soItemPendAvail.png"
-                     />
+          <imagedata fileref="images/salesOrderItem_availability.png" />
         </imageobject>
-        <caption>Pending Availability for Component
-        Items</caption>
+        <caption>Pending Availability for Component Items</caption>
       </mediaobject>
     </screenshot></para>
   <para>When displaying Pending Availability for component Items, you are
@@ -637,6 +699,22 @@
     current Inventory Levels--it is not a time-phased view of
     Availability.</para>
   </tip>
+  <para>To define an alternate Cost of Sales Account for a Sales Order Line
+  Item, select the "Accounting" tab at the bottom of the screen, as shown
+  below:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/salesOrderItem_costofsalesTab.png" />
+        </imageobject>
+        <caption>Sales Order Line Item Accounting</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When defining an alternate Cost of Sales Account for a Sales Order
+  Line Item, you are presented with the following options:</para>
+  <para><remark>findme</remark></para>
+  <para></para>
+  <para></para>
   <xi:include href="priceList.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />
 </section>
