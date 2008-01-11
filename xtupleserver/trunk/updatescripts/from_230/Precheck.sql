@@ -66,4 +66,9 @@ SELECT COUNT(*)=0 FROM itemsite WHERE (itemsite_abcclass NOT IN ('A','B','C'));
 --  All itemsites must have valid control methods
 SELECT COUNT(*)=0 FROM itemsite WHERE (itemsite_controlmethod NOT IN ('N','R','S','L'));
 
+--  All item tax type items must be valid
+SELECT COUNT(*)=0 FROM itemtax WHERE (itemtax_item_id NOT IN (
+SELECT item_id FROM item WHERE (item_id=itemtax_item_id)
+));
+
 

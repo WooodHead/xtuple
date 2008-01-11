@@ -6,7 +6,7 @@ DROP VIEW api.itemcomment;
 CREATE VIEW api.itemcomment
 AS 
    SELECT 
-     item_number,
+     item_number::varchar(100) AS item_number,
      cmnttype_name AS type,
      comment_date AS date,
      comment_user AS username,

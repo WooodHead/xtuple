@@ -15,9 +15,7 @@ AS
    AND (taxreg_taxauth_id=taxauth_id));
 
 GRANT ALL ON TABLE api.custtax TO openmfg;
-COMMENT ON VIEW api.custtax IS '
-This view can be used as an interface to import Customer tax registration data directly  
-into the system.  Required fields will be checked';
+COMMENT ON VIEW api.custtax IS 'Customer Tax Registration';
 
 --Rules
 

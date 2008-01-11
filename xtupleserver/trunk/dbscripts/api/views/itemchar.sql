@@ -6,7 +6,7 @@ DROP VIEW api.itemchar;
 CREATE VIEW api.itemchar
 AS 
    SELECT 
-     item_number,
+     item_number::varchar(100) AS item_number,
      char_name::varchar(100) AS characteristic,
      charass_value AS value,
      charass_default AS default

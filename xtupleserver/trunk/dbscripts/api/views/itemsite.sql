@@ -6,8 +6,8 @@ DROP VIEW api.itemsite;
 CREATE VIEW api.itemsite
 AS 
    SELECT
-     item_number,
-     warehous_code AS warehouse,
+     item_number::varchar(100) AS item_number,
+     warehous_code::varchar(100) AS warehouse,
      itemsite_active AS active,
      itemsite_supply AS supplied_at_warehouse,
      itemsite_createpr AS create_prs,
