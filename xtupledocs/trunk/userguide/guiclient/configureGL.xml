@@ -6,128 +6,6 @@
       <primary>configuration</primary>
       <secondary>of accounting module</secondary>
     </indexterm>Configure Accounting</title>
-  <para>The Accounting Module configuration enables you to set your options
-  for Accounts Payable, Accounts Receivable, and the General Ledger.</para>
-  <para>To configure Accounts Payable options, select the "Accounts Payable"
-  tab. The following screen will appear:</para>
-  <screenshot>
-    <mediaobject>
-      <imageobject>
-        <imagedata fileref="images/Sys_configGL-AP.png" />
-      </imageobject>
-      <caption><para>Configure Accounts Payable</para></caption>
-    </mediaobject>
-  </screenshot>
-  <para>When configuring the A/P module, you are presented with the following
-  options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Next A/P Memo #</term>
-      <listitem>
-        <para>The next sequentially available Accounts Payable Memo Number
-        will display here. You may change the number--creating a new basis for
-        the next A/P Memo Number--by typing the new number into this
-        field.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To configure Accounts Receivable options, select the "Accounts
-  Receivable" tab. The following screen will appear:</para>
-  <screenshot>
-    <mediaobject>
-      <imageobject>
-        <imagedata fileref="images/Sys_configGL-AR.png" />
-      </imageobject>
-      <caption><para>Configure Accounts Receivable</para></caption>
-    </mediaobject>
-  </screenshot>
-  <para>When configuring Accounts Receivable options, you are presented with
-  the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Next A/R Memo #</term>
-      <listitem>
-        <para>The next sequentially available Accounts Receivable Memo Number
-        will display here. You may change the number--creating a new basis for
-        the next A/R Memo Number--by typing the new number into this
-        field.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Hide "Apply to Balance" button</term>
-      <listitem>
-        <para>Select if you want to hide the APPLY TO BALANCE button on the
-        "Enter Cash Receipt" screen. If this option is selected, users will be
-        required to apply Cash Receipts manually to individual open A/R
-        items.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Enable Customer Deposits</term>
-      <listitem>
-        <para>Select if you want unapplied Cash Receipts from Customers to be
-        handled by a Deferred Revenue Account. If selected, the A/R Account
-        Assignments screen will include a Deferred Revenue Account option. Not
-        selecting this option will hide the Deferred Revenue Account option on
-        the A/R Account assignments screen. Also hidden will be Customer
-        Deposit options on the Cash Receipts screen. If the Deferred Revenue
-        approach is not being used, then unapplied Cash Receipts will be
-        handled by the Asset Account for the specified Bank Account.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Remit-To Address</term>
-      <listitem>
-        <para>The Remit-To Address is used in multiple report definitions.
-        Specify details to be used for your site's default Remit-To
-        Address:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Street Address</term>
-            <listitem>
-              <para>Enter the street Address to be used on the default
-              Remit-To Address.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>City:</term>
-            <listitem>
-              <para>Enter the city to be used on the default Remit-To
-              Address.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>State:</term>
-            <listitem>
-              <para>Enter the state to be used on the default Remit-To
-              Address.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Postal Code</term>
-            <listitem>
-              <para>Enter the Postal Code for the Contact.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Country:</term>
-            <listitem>
-              <para>Enter the country to be used on the default Remit-To
-              Address.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-        <variablelist>
-          <varlistentry>
-            <term>Phone</term>
-            <listitem>
-              <para>Enter the phone for the default Remit-To Address.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <para>Setting up the default Account Number structure is one of the primary
   purposes of the General Ledger Configuration. The system uses a
   multi-segment approach to defining General Ledger accounts. The various
@@ -160,7 +38,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_configGL.png" />
+          <imagedata fileref="images/configureGL.png" />
         </imageobject>
         <caption>Configure General Ledger</caption>
       </mediaobject>
@@ -378,6 +256,126 @@
       <listitem>
         <para>Saves the configuration settings, returning you to the
         application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To configure Accounts Payable options, select the "Accounts Payable"
+  tab. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/configureGL_ap.png" />
+      </imageobject>
+      <caption><para>Configure Accounts Payable</para></caption>
+    </mediaobject>
+  </screenshot>
+  <para>When configuring the A/P module, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Next A/P Memo #</term>
+      <listitem>
+        <para>The next sequentially available Accounts Payable Memo Number
+        will display here. You may change the number--creating a new basis for
+        the next A/P Memo Number--by typing the new number into this
+        field.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To configure Accounts Receivable options, select the "Accounts
+  Receivable" tab. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/configureGL_ar.png" />
+      </imageobject>
+      <caption><para>Configure Accounts Receivable</para></caption>
+    </mediaobject>
+  </screenshot>
+  <para>When configuring Accounts Receivable options, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Next A/R Memo #</term>
+      <listitem>
+        <para>The next sequentially available Accounts Receivable Memo Number
+        will display here. You may change the number--creating a new basis for
+        the next A/R Memo Number--by typing the new number into this
+        field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Hide "Apply to Balance" button</term>
+      <listitem>
+        <para>Select if you want to hide the APPLY TO BALANCE button on the
+        "Enter Cash Receipt" screen. If this option is selected, users will be
+        required to apply Cash Receipts manually to individual open A/R
+        items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Enable Customer Deposits</term>
+      <listitem>
+        <para>Select if you want unapplied Cash Receipts from Customers to be
+        handled by a Deferred Revenue Account. If selected, the A/R Account
+        Assignments screen will include a Deferred Revenue Account option. Not
+        selecting this option will hide the Deferred Revenue Account option on
+        the A/R Account assignments screen. Also hidden will be Customer
+        Deposit options on the Cash Receipts screen. If the Deferred Revenue
+        approach is not being used, then unapplied Cash Receipts will be
+        handled by the Asset Account for the specified Bank Account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Remit-To Address</term>
+      <listitem>
+        <para>The Remit-To Address is used in multiple report definitions.
+        Specify details to be used for your site's default Remit-To
+        Address:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>Enter the street Address to be used on the default
+              Remit-To Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City:</term>
+            <listitem>
+              <para>Enter the city to be used on the default Remit-To
+              Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State:</term>
+            <listitem>
+              <para>Enter the state to be used on the default Remit-To
+              Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>Enter the Postal Code for the Contact.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country:</term>
+            <listitem>
+              <para>Enter the country to be used on the default Remit-To
+              Address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <variablelist>
+          <varlistentry>
+            <term>Phone</term>
+            <listitem>
+              <para>Enter the phone for the default Remit-To Address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

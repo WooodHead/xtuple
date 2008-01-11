@@ -11,7 +11,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_configSO.png"
+          <imagedata fileref="images/configureSO.png"
                      id="configureSO.imagedata" />
         </imageobject>
         <caption id="configureSO.caption">General Sales Configuration
@@ -227,20 +227,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Post Customer Changes to the Change Log</term>
-      <listitem>
-        <para>Select to post to the Change Log any changes made to Customer
-        masters.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Post Sales Order Changes to the Change Log</term>
-      <listitem>
-        <para>Select to post to the Change Log any changes made to Sales
-        Orders.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Restrict Credit Memos to Items that appear on their Apply-To
       Document</term>
       <listitem>
@@ -335,20 +321,47 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Enable S/O Reservations</term>
+      <listitem>
+        <para><remark>findme</remark></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Check Print S/O on Save by Default</term>
       <listitem>
         <para>Select to prompt users to print Sales Orders whenever Sales
-        Orders are saved.</para>
-        <para>If selected, users will be presented with a Sales Order print
-        screen whenever a Sales Order is saved. To bypass this feature, do not
-        select this option.</para>
+        Orders are saved. If selected, users will be presented with a Sales
+        Order print screen whenever a Sales Order is saved. To bypass this
+        feature, do not select this option.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Enable Promise Dates</term>
+      <listitem>
+        <para>Select to display a Promised Date field on the Sales Order Line
+        Item screen, by default. If not selected, there will be no Promised
+        Date field shown on that screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Customer Changes to the Change Log</term>
+      <listitem>
+        <para>Select to post to the Change Log any changes made to Customer
+        masters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Sales Order Changes to the Change Log</term>
+      <listitem>
+        <para>Select to post to the Change Log any changes made to Sales
+        Orders.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Pricing on Editing Line Items</term>
       <listitem>
         <para>Select one of the following as your preferred response when
-        users change Sales Order Line Item quantity on EDIT:</para>
+        users change Sales Order Line Item quantities:</para>
         <variablelist>
           <varlistentry>
             <term>Update Price on Line Item Edit</term>
@@ -406,8 +419,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_configSOInvoice.png"
-                     />
+          <imagedata fileref="images/configureSO_invoice.png" />
         </imageobject>
         <caption>Invoice Configuration Options</caption>
       </mediaobject>
@@ -476,11 +488,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_configSODefaults.png"
-                     />
+          <imagedata fileref="images/configureSO_customerDefault.png" />
         </imageobject>
-        <caption>Default Customer Configuration
-        Options</caption>
+        <caption>Default Customer Configuration Options</caption>
       </mediaobject>
     </screenshot></para>
   <para>When establishing Customer master default settings, you are presented
@@ -551,12 +561,12 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To define your systems Returns configuration, select the "Return" tab.
-  The following screen will appear:</para>
+  <para>To define your system's Returns configuration, select the "Return"
+  tab. The following screen will appear:</para>
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/Sys_configSOReturns.png" />
+        <imagedata fileref="images/configureSO_returns.png" />
       </imageobject>
       <caption><para>Returns Configuration Options</para></caption>
     </mediaobject>
