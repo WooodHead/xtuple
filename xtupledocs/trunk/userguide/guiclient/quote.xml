@@ -16,8 +16,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_newSalesQuote.png"
-                     />
+          <imagedata fileref="images/quote.png" />
         </imageobject>
         <caption>Create New Quote</caption>
       </mediaobject>
@@ -117,6 +116,28 @@
     either "On Credit Warning" or "On Credit Hold." Only users with special
     privileges may override these credit settings.</para>
   </note>
+  <variablelist>
+    <varlistentry>
+      <term>Project #</term>
+      <listitem>
+        <para>Select a Project Number to associate with the Quote. If a Sales
+        Order is created from a converted Quote--and the Quote had a Project
+        Number associated with it--then the Project Number from the
+        originating Quote will automatically be entered here. Once a Project
+        Number is associated with a Sales Order, any Work Orders or Purchase
+        Orders created by the Sales Order demand will automatically be linked
+        to the same Project Number as the Sales Order. In this way, Sales
+        Orders, Work Orders, and Purchase Orders may be linked to the same
+        Project.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If your site is configured to create Projects automatically whenever
+    new Sales Orders or Quotes are entered, the Projects generated in this way
+    will assume the number of the Sales Order or Quote which caused their
+    creation.</para>
+  </tip>
   <variablelist>
     <varlistentry>
       <term>Customer #</term>
@@ -495,8 +516,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_quoteLineItem.png"
-                     />
+          <imagedata fileref="images/quote_lineItemsPage.png" />
         </imageobject>
         <caption>Quote Line Items</caption>
       </mediaobject>
@@ -654,7 +674,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_quoteNote.png" />
+          <imagedata fileref="images/quote_orderCommentsPage.png" />
         </imageobject>
         <caption>Order Notes</caption>
       </mediaobject>
@@ -693,8 +713,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_quoteComment.png"
-                     />
+          <imagedata fileref="images/quote_orderComments.png" />
         </imageobject>
         <caption>Quote Comments</caption>
       </mediaobject>
@@ -777,8 +796,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_quoteShipNote.png"
-                     />
+          <imagedata fileref="images/quote_shippingComments.png" />
         </imageobject>
         <caption>Quote Shipping Notes</caption>
       </mediaobject>
