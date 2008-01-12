@@ -2,7 +2,7 @@ BEGIN;
 
 -- Item Alias
 
---DROP VIEW api.itemalias;
+DROP VIEW api.itemalias;
 CREATE VIEW api.itemalias
 AS 
    SELECT 

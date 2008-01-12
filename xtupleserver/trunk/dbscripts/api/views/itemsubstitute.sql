@@ -2,7 +2,7 @@ BEGIN;
 
 -- Item Substitute
 
---DROP VIEW api.itemsubstitute;
+DROP VIEW api.itemsubstitute;
 CREATE VIEW api.itemsubstitute
 AS 
    SELECT 
