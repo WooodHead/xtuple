@@ -16,6 +16,8 @@ AS
         'Engineering Reference'
        WHEN itemimage_purpose = 'M' THEN
         'Miscellaneos'
+       ELSE
+        'Other'
      END AS purpose,
      image_name AS image_name
    FROM item, itemimage, image
@@ -41,6 +43,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
         'E'
       WHEN NEW.purpose = 'Miscellaneous' THEN
         'M'
+      ELSE
+        'X'
      END,
     getImageId(NEW.image_name));
 
@@ -58,6 +62,8 @@ CREATE OR REPLACE RULE "_UPDATE" AS
         'E'
       WHEN NEW.purpose = 'Miscellaneous' THEN
         'M'
+      ELSE
+        'X'
      END,
     getImageId(NEW.image_name));
            

@@ -85,3 +85,8 @@ SELECT item_id FROM item WHERE (item_id=itemsub_parent_item_id)
 SELECT COUNT(*)=0 FROM itemsub WHERE (itemsub_sub_item_id NOT IN (
 SELECT item_id FROM item WHERE (item_id=itemsub_sub_item_id)
 ));
+
+--  All item file items must be valid
+SELECT COUNT(*)=0 FROM itemfile WHERE (itemfile_item_id NOT IN (
+SELECT item_id FROM item WHERE (item_id=itemfile_item_id)
+));
