@@ -1,5 +1,6 @@
 BEGIN;
 
-ALTER TABLE itemfile ADD FOREIGN KEY (itemfile_item_id) REFERENCES item (item_id);
+  ALTER TABLE itemalias ADD UNIQUE (itemalias_item_id, itemalias_number);
+  ALTER TABLE itemalias ALTER COLUMN itemalias_usedescrip SET NOT NULL;
 
 COMMIT;
