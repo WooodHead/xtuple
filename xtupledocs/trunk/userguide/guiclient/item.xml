@@ -227,6 +227,21 @@
               "MPS" by default when a Planning Item is created.</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term>Job</term>
+            <listitem>
+              <para>Job Items are specifically for make-to-order scenarios
+              where simplified production is required. Job Items cannot be
+              maintained in Inventory. And they also have no concept of
+              Standard Cost or Cost variances. All Costs for Job Items are
+              Actual. The Work Orders which create Job Items can only be
+              created via a Sales Order. The Costs for job Work Orders are
+              accumulated to WIP, and then transfered directly to Cost of
+              Sales when the job is shipped. BOM and BOO Items may be assigned
+              to Job items; however, they will not roll up to a Standard Cost
+              for Job items.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
@@ -1631,7 +1646,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_imageNew.png" />
+          <imagedata fileref="images/image.png" />
         </imageobject>
         <caption>Create New Image</caption>
       </mediaobject>
