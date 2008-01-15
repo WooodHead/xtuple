@@ -48,6 +48,11 @@ BEGIN
      OR (OLD.itemsite_maxordqty         != NEW.itemsite_maxordqty)
      OR (OLD.itemsite_mps_timefence     != NEW.itemsite_mps_timefence)
      OR (OLD.itemsite_createwo          != NEW.itemsite_createwo) ) THEN
+      IF (OLD.itemsite_item_id != NEW.itemsite_item_id) THEN
+        RAISE EXCEPTION ''The item number on an itemsite may not be changed.'';
+      ELSIF (OLD.itemsite_warehous_id != NEW.itemsite_warehous_id) THEN
+        RAISE EXCEPTION ''The warehouse code on an itemsite may not be changed.'';
+      END IF;
       _maint := TRUE;
     END IF;
   ELSE
@@ -58,10 +63,6 @@ BEGIN
 -- Privilege Checks
     IF ( NOT checkPrivilege(''MaintainItemSites'') ) THEN
        RAISE EXCEPTION ''You do not have privileges to maintain Item Sites.'';
-    ELSIF (OLD.itemsite_item_id != NEW.itemsite_item_id) THEN
-      RAISE EXCEPTION ''The item number on an itemsite may not be changed.'';
-    ELSIF (OLD.itemsite_warehous_id != NEW.itemsite_warehous_id) THEN
-      RAISE EXCEPTION ''The warehouse code on an itemsite may not be changed.'';
     END IF;
     
 -- Override values to avoid invalid data combinations
