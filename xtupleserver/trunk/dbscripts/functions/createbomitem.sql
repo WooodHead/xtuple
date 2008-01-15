@@ -110,8 +110,7 @@ BEGIN
 
 --  Grab the next Sequence Number, if any
   SELECT MAX(bomitem_seqnumber) INTO _seqNumber
-  FROM bomitem
-  WHERE (bomitem_parent_item_id=pParentItemid);
+  FROM bomitem(pParentItemid,pRevisionid);
 
   IF (_seqNumber IS NOT NULL) THEN
    _seqNumber := (_seqNumber + 10);
