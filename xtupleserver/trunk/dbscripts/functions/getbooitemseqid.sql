@@ -1,8 +1,7 @@
-CREATE OR REPLACE FUNCTION getBooitemSeqId(text,text,text) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION getBooitemSeqId(text,text) RETURNS INTEGER AS '
 DECLARE
   pItemNumber ALIAS FOR $1;
-  pRevision ALIAS FOR $2;
-  pSeqNumber ALIAS FOR $3;
+  pSeqNumber ALIAS FOR $2;
   _revid INTEGER;
   _returnVal INTEGER;
   
@@ -15,7 +14,7 @@ BEGIN
     RETURN -1;
   ELSE
     SELECT booitem_seq_id INTO _returnVal
-    FROM booitem(getItemId(pItemNumber),getRevId(pItemNumber,pRevision,''BOO''))
+    FROM booitem(getItemId(pItemNumber))
     WHERE (booitem_seqnumber=pSeqNumber);
   END IF;
     

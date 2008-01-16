@@ -1,8 +1,87 @@
--- TODO: bomitemTrigger
 CREATE OR REPLACE FUNCTION _bomitemTrigger() RETURNS TRIGGER AS '
 DECLARE
   _cmnttypeid INTEGER;
 BEGIN
+
+-- Privilege Checks
+  IF (NOT checkPrivilege(''MaintainBOMs'')) THEN
+    RAISE EXCEPTION ''You do not have privileges to maintain Bills of Material.'';
+  END IF;
+
+  IF (TG_OP IN (''INSERT'',''UPDATE'')) THEN
+-- Make sure sequence is unique.  Need to do this going forward here rather than as table
+-- constraint because lax enforcement in previous versions could make upgrading a
+-- substantial headache for legacy users.
+    IF (SELECT (COUNT(*) != 0) 
+        FROM bomitem(NEW.bomitem_parent_item_id,NEW.bomitem_rev_id)
+        WHERE ((bomitem_id != NEW.bomitem_id)
+        AND (bomitem_seqnumber=NEW.bomitem_seqnumber))) THEN
+      RAISE EXCEPTION ''BOM Item sequence number must be unique.'';
+    END IF;
+
+-- Check for valid UOM
+    IF (SELECT (count(*) != 1)
+        FROM
+               (SELECT uom_id
+                  FROM item
+                  JOIN uom ON (item_inv_uom_id=uom_id)
+                 WHERE(item_id=NEW.bomitem_item_id)
+                 UNION 
+                SELECT uom_id
+                  FROM item
+                  JOIN itemuomconv ON (itemuomconv_item_id=item_id)
+                  JOIN uom ON (itemuomconv_to_uom_id=uom_id),
+                  itemuom, uomtype 
+                 WHERE((itemuomconv_from_uom_id=item_inv_uom_id)
+                   AND (item_id=NEW.bomitem_item_id) 
+                   AND (itemuom_itemuomconv_id=itemuomconv_id) 
+                   AND (uomtype_id=itemuom_uomtype_id) 
+                   AND (uomtype_name=''MaterialIssue''))
+                 UNION 
+                SELECT uom_id
+                  FROM item
+                  JOIN itemuomconv ON (itemuomconv_item_id=item_id)
+                  JOIN uom ON (itemuomconv_from_uom_id=uom_id),
+                  itemuom, uomtype 
+                 WHERE((itemuomconv_to_uom_id=item_inv_uom_id)
+                   AND (item_id=NEW.bomitem_item_id) 
+                   AND (itemuom_itemuomconv_id=itemuomconv_id) 
+                   AND (uomtype_id=itemuom_uomtype_id) 
+                   AND (uomtype_name=''MaterialIssue''))) AS data
+          WHERE (uom_id=NEW.bomitem_uom_id)) THEN
+      RAISE EXCEPTION ''Unit of Measure Invalid for Material Issue.'';
+    END IF;
+
+-- Disallow changes that would compromise revision control integrity
+    IF (TG_OP = ''UPDATE'') THEN
+      IF (NEW.bomitem_parent_item_id != OLD.bomitem_parent_item_id) THEN
+        RAISE EXCEPTION ''Parent Item ID may not be changed.'';
+      END IF;
+
+      IF (NEW.bomitem_item_id != OLD.bomitem_item_id) THEN
+        RAISE EXCEPTION ''Item ID may not be changed.'';
+      END IF;
+
+      IF ((fetchMetricBool(''RevControl'')) AND (OLD.bomitem_rev_id > -1)) THEN
+        IF (SELECT (rev_status = ''I'') FROM rev WHERE (rev_id=OLD.bomitem_rev_id)) THEN
+          RAISE EXCEPTION ''Bill of material is Inactive and may not be modified'';
+        END IF;
+      END IF;
+    END IF;
+
+-- Over ride logic to disallow invalid data
+    IF (NEW.bomitem_createwo) THEN
+      IF (SELECT (item_type != ''M'') 
+          FROM item 
+          WHERE (item_id=NEW.bomitem_item_id)) THEN
+        NEW.bomitem_createwo := FALSE;
+      END IF;
+      IF (NEW.bomitem_booitem_seq_id = -1) THEN
+        NEW.bomitem_schedatwooper := FALSE;
+      END IF;
+    END IF;
+  END IF;
+  
 
   IF ( SELECT (metric_value=''t'')
        FROM metric

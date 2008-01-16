@@ -71,8 +71,6 @@ BEGIN
   DELETE FROM bomhead
   WHERE (bomhead_item_id=pItemid);
   DELETE FROM bomitem
-  WHERE (bomitem_parent_item_id=pItemid);
-  DELETE FROM bomitem
   WHERE (bomitem_item_id=pItemid);
 
   IF (_routings) THEN

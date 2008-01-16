@@ -1,11 +1,11 @@
 CREATE OR REPLACE FUNCTION getRevId(text,text,text) RETURNS INTEGER AS '
 DECLARE
-  pItemNumber ALIAS FOR $1;
-  pRevision ALIAS FOR $2;
-  pType ALIAS FOR $3;
+  pType ALIAS FOR $1;
+  pItemNumber ALIAS FOR $2;
+  pRevision ALIAS FOR $3;
   _returnVal INTEGER;
 BEGIN
-  IF (pItemNumber IS NULL) THEN
+  IF ((pItemNumber IS NULL) OR (pRevision IS NULL)) THEN
     RETURN NULL;
   END IF;
 

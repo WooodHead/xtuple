@@ -19,6 +19,10 @@ BEGIN
 --  Swap the seqnumber of the current bomitem and the next bomitem
 
     UPDATE bomitem
+    SET bomitem_seqnumber=NULL
+    WHERE (bomitem_id=_nextBomitem.bomitem_id);
+
+    UPDATE bomitem
     SET bomitem_seqnumber=_nextBomitem.next_seqnumber
     WHERE (bomitem_id=pBomitemid);
 

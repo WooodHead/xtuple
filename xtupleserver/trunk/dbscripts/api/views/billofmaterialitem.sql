@@ -7,7 +7,7 @@ BEGIN;
 
   SELECT
     p.item_number AS bom_item_number,
-    bomhead_revision AS revision,
+    bomhead_revision AS bom_revision,
     bomitem_seqnumber AS sequence_number,
     i.item_number AS item_number,
     CASE WHEN
@@ -67,8 +67,9 @@ COMMENT ON VIEW api.billofmaterialitem IS 'Bill of Material Item';
                           getItemId(NEW.item_number),
                           COALESCE(NEW.sequence_number,(
                             SELECT MAX(bomitem_seqnumber) + 10
-                            FROM bomitem(getItemId(NEW.bom_item_number),
-                                         getRevId(NEW.bom_item_number,NEW.revision,'BOM')))),
+                            FROM bomitem(getItemId(NEW.bom_item_number),COALESCE(
+                                         getRevId('BOM',NEW.bom_item_number,NEW.bom_revision),
+                                         getActiveRevId('BOM',getItemId(NEW.bom_item_number)))))),
                           CASE
                             WHEN NEW.issue_method = 'Mixed' THEN
                               'M'
@@ -76,28 +77,33 @@ COMMENT ON VIEW api.billofmaterialitem IS 'Bill of Material Item';
                               'S'
                             WHEN NEW.issue_method = 'Pull' THEN
                               'L'
+                            ELSE
+                              fetchMetricText('DefaultWomatlIssueMethod')
                           END,
-                          getUomId(NEW.issue_uom), 
+                          COALESCE(getUomId(NEW.issue_uom),(
+                          SELECT item_inv_uom_id
+                          FROM item
+                          WHERE (item_id=getItemId(NEW.item_number)))), 
                           NEW.qty_per, 
                           NEW.scrap,
-                          NULL, 
-                          NULL, 
+                          'N', 
+                          -1, 
                           NULL,
-                          NEW.effective::date, 
-                          NEW.expires::date,
+                          COALESCE(NEW.effective::date,startoftime()), 
+                          COALESCE(NEW.expires::date,endoftime()),
                           COALESCE(NEW.create_child_wo,FALSE),
-                          getBooitemSeqId(NEW.bom_item_number,NEW.revision,NEW.used_at)::integer,
+                          COALESCE(getBooitemSeqId(NEW.bom_item_number,NEW.used_at),-1),
                           COALESCE(NEW.schedule_at_wo_operation,FALSE),
                           NEW.ecn_number,
                           CASE
                             WHEN NEW.substitutions = 'No' THEN
                               'N'
-                            WHEN NEW.substitutions = 'Item-Defined' THEN
-                              'I'
                             WHEN NEW.substitutions = 'BOM-Defined' THEN
                               'B'
+                            ELSE
+                              'I'
                           END,
-                          getRevId(NEW.bom_item_number,NEW.revision,'BOM'));
+                          COALESCE(getRevId('BOM',NEW.bom_item_number,NEW.bom_revision),getActiveRevId('BOM',getItemId(NEW.bom_item_number))));
  
     CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO api.billofmaterialitem DO INSTEAD
@@ -115,10 +121,20 @@ COMMENT ON VIEW api.billofmaterialitem IS 'Bill of Material Item';
       bomitem_uom_id=getUomId(NEW.issue_uom), 
       bomitem_qtyper=NEW.qty_per, 
       bomitem_scrap=NEW.scrap,
-      bomitem_effective=NEW.effective::date, 
-      bomitem_expires=NEW.expires::date,
+      bomitem_effective=
+        CASE WHEN NEW.effective = 'Always' THEN
+          startoftime()
+        ELSE 
+          NEW.effective::date
+        END, 
+      bomitem_expires=
+        CASE WHEN NEW.expires = 'Never' THEN
+          endoftime()
+        ELSE 
+          NEW.expires::date
+        END,
       bomitem_createwo=NEW.create_child_wo,
-      bomitem_booitem_seq_id=getBooitemSeqId(NEW.bom_item_number,NEW.revision,NEW.used_at),
+      bomitem_booitem_seq_id=COALESCE(getBooitemSeqId(NEW.bom_item_number,NEW.bom_revision,NEW.used_at),-1),
       bomitem_schedatwooper=NEW.schedule_at_wo_operation,
       bomitem_ecn=NEW.ecn_number,
       bomitem_subtype=
@@ -130,17 +146,12 @@ COMMENT ON VIEW api.billofmaterialitem IS 'Bill of Material Item';
         WHEN NEW.substitutions = 'BOM-Defined' THEN
           'B'
       END,
-      bomitem_rev_id=getRevId(NEW.bom_item_number,NEW.revision,'BOM')
+      bomitem_rev_id=getRevId('BOM',NEW.bom_item_number,NEW.bom_revision)
       WHERE ((bomitem_parent_item_id=getItemId(OLD.bom_item_number))
-      AND (bomitem_rev_id=getRevId(OLD.bom_item_number,OLD.revision,'BOM'))
+      AND (bomitem_rev_id=getRevId('BOM',OLD.bom_item_number,OLD.bom_revision))
       AND (bomitem_seqnumber=OLD.sequence_number));
 
     CREATE OR REPLACE RULE "_DELETE" AS
-    ON DELETE TO api.billofmaterialitem DO INSTEAD
-
-    DELETE FROM bomitem
-    WHERE ((bomitem_parent_item_id=getItemId(OLD.bom_item_number))
-    AND (bomitem_rev_id=getRevId(OLD.bom_item_number,OLD.revision,'BOM'))
-    AND (bomitem_seqnumber=OLD.sequence_number));
+    ON DELETE TO api.billofmaterialitem DO INSTEAD NOTHING;
 
 END;
