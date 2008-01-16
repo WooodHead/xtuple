@@ -2,12 +2,12 @@ BEGIN;
 
   --Bill of Material Item View
 
-  DROP VIEW api.billofmaterialitem;
-  CREATE OR REPLACE VIEW api.billofmaterialitem AS
+  DROP VIEW api.bomitem;
+  CREATE OR REPLACE VIEW api.bomitem AS
 
   SELECT
-    p.item_number AS bom_item_number,
-    bomhead_revision AS bom_revision,
+    p.item_number::varchar(100) AS bom_item_number,
+    bomhead_revision::varchar(100) AS bom_revision,
     bomitem_seqnumber AS sequence_number,
     i.item_number AS item_number,
     CASE WHEN
@@ -54,13 +54,13 @@ BEGIN;
   AND (bomitem_item_id=i.item_id)
   AND (bomitem_uom_id=uom_id));
 
-GRANT ALL ON TABLE api.billofmaterialitem TO openmfg;
-COMMENT ON VIEW api.billofmaterialitem IS 'Bill of Material Item';
+GRANT ALL ON TABLE api.bomitem TO openmfg;
+COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
 
   --Rules
 
   CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO api.billofmaterialitem DO INSTEAD
+    ON INSERT TO api.bomitem DO INSTEAD
 
     SELECT createBOMItem( NEXTVAL('bomitem_bomitem_id_seq')::integer, 
                           getItemId(NEW.bom_item_number), 
@@ -106,7 +106,7 @@ COMMENT ON VIEW api.billofmaterialitem IS 'Bill of Material Item';
                           COALESCE(getRevId('BOM',NEW.bom_item_number,NEW.bom_revision),getActiveRevId('BOM',getItemId(NEW.bom_item_number))));
  
     CREATE OR REPLACE RULE "_UPDATE" AS
-    ON UPDATE TO api.billofmaterialitem DO INSTEAD
+    ON UPDATE TO api.bomitem DO INSTEAD
 
     UPDATE bomitem SET
       bomitem_issuemethod=
@@ -134,7 +134,7 @@ COMMENT ON VIEW api.billofmaterialitem IS 'Bill of Material Item';
           NEW.expires::date
         END,
       bomitem_createwo=NEW.create_child_wo,
-      bomitem_booitem_seq_id=COALESCE(getBooitemSeqId(NEW.bom_item_number,NEW.bom_revision,NEW.used_at),-1),
+      bomitem_booitem_seq_id=COALESCE(getBooitemSeqId(NEW.bom_item_number,NEW.used_at),-1),
       bomitem_schedatwooper=NEW.schedule_at_wo_operation,
       bomitem_ecn=NEW.ecn_number,
       bomitem_subtype=
@@ -152,6 +152,6 @@ COMMENT ON VIEW api.billofmaterialitem IS 'Bill of Material Item';
       AND (bomitem_seqnumber=OLD.sequence_number));
 
     CREATE OR REPLACE RULE "_DELETE" AS
-    ON DELETE TO api.billofmaterialitem DO INSTEAD NOTHING;
+    ON DELETE TO api.bomitem DO INSTEAD NOTHING;
 
 END;
