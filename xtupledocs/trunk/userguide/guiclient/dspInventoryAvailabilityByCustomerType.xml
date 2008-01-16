@@ -1,57 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section596333">
+<section>
   <title><indexterm significance="normal">
       <primary>inventory</primary>
-      <secondary>availability by sales order</secondary>
+      <secondary>availability by customer type</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>sales orders</primary>
       <secondary>inventory availability for</secondary>
-    </indexterm>Inventory Availability by Sales Order</title>
-  <para>To view Inventory Availability by Sales Order, select the "Inventory
-  Availability by Sales Order" option. The following screen will
+    </indexterm>Inventory Availability by Customer Type</title>
+  <para>If Sales Order Reservations are enabled at your site, this screen may
+  be considered a useful workbench for processing Sales Order Reservations.
+  While other screens support this functionality, the Inventory Availability
+  by Customer Type report consolidates several useful functions in one
+  location.</para>
+  <para>To view Inventory Availability by Customer Type, select the "Inventory
+  Availability by Customer Type" option. The following screen will
   appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspInventoryAvailabilityBySalesOrder.png" />
+          <imagedata fileref="images/dspInventoryAvailabilityByCustomerType.png" />
         </imageobject>
-        <caption>Inventory Availability by Sales Order</caption>
+        <caption>Inventory Availability by Customer Type</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying Inventory Availability by Sales Order, you are
+  <para>When displaying Inventory Availability by Customer Type, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Sales Order #</term>
+      <term>All Customer Types</term>
       <listitem>
-        <para>Enter the Sales Order Number of the Sales Order whose
-        Availability you want to view.</para>
+        <para>Select to display Inventory Availability for all Customer
+        Types.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Order Date</term>
+      <term>Selected</term>
       <listitem>
-        <para>Displays the date the Sales Order was placed.</para>
+        <para>Specify Customer Type whose Inventory Availability you want to
+        display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Cust. Name</term>
+      <term>Pattern</term>
       <listitem>
-        <para>Displays Customer name.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Cust. Phone</term>
-      <listitem>
-        <para>Phone: Displays Customer phone number.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>P/O Number</term>
-      <listitem>
-        <para>Displays Purchase Order Number.</para>
+        <para>Enter a Customer Type pattern to select a range of Customer
+        Types. Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -92,7 +88,7 @@
     <varlistentry>
       <term>Availability</term>
       <listitem>
-        <para>Display lists Inventory Availability by Sales Order, using the
+        <para>Display lists Inventory Availability by Customer Type, using the
         specified parameters. If an available quantity value displays in the
         color orange, this means the actual or projected Quantity on Hand is
         at or below the Reorder Level. If the color is red, the current or
