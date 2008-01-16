@@ -828,6 +828,20 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>RESERVE STOCK</term>
+      <listitem>
+        <para>Highlight a Sales Order Line Item and then select this button to
+        reserve Inventory quantity for the Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>RES. LINE BAL.</term>
+      <listitem>
+        <para>Highlight a Sales Order Line Item and then select this button to
+        reserve Inventory quantity for the remaining Line Item balance.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term><indexterm significance="normal">
           <primary>shipping</primary>
           <secondary>issuing stock to</secondary>
@@ -874,6 +888,18 @@
       <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(salesOrderDELETE1)" />
     </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickShowReservations)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickUnreserveStock)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReserveStock)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReserveLineBalance)" />
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickReturnStock)" />
