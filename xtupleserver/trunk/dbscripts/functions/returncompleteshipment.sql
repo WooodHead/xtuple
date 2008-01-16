@@ -20,6 +20,8 @@ BEGIN
     _itemlocSeries := returnShipmentTransaction(_r.shipitem_id, _itemlocSeries, _timestamp);
   END LOOP;
 
+  DELETE FROM pack
+   WHERE(pack_shiphead_id=pshipheadid);
   DELETE FROM shiphead
   WHERE (shiphead_id=pshipheadid);
 

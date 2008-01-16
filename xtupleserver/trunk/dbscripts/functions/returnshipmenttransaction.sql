@@ -36,7 +36,7 @@ BEGIN
 
       IF (SELECT (item_type != ''J'')
           FROM coitem, itemsite, item
-          WHERE ((coitem_id=_ordertemid)
+          WHERE ((coitem_id=_orderitemid)
           AND (coitem_itemsite_id=itemsite_id)
           AND (itemsite_item_id=item_id))) THEN
     SELECT postInvTrans( itemsite_id, ''RS'', _qty * coitem_qty_invuomratio,
@@ -68,7 +68,7 @@ BEGIN
           wo_status =''I''
         FROM coitem
         WHERE ((wo_ordtype = ''S'')
-        AND (wo_ordid = _ordertemid)
+        AND (wo_ordid = _orderitemid)
         AND (coitem_id = _orderitemid));
       END IF;
 
