@@ -3,7 +3,7 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section923250">
   <title><indexterm significance="normal">
-      <primary>hconfiguration</primary>
+      <primary>findmehconfiguration</primary>
       <secondary>of sales module</secondary>
     </indexterm>Configure Sales</title>
   <para>To configure the Sales module, select the "Configure Sales" option.
@@ -323,7 +323,10 @@
     <varlistentry>
       <term>Enable S/O Reservations</term>
       <listitem>
-        <para><remark>findme</remark></para>
+        <para>Select to enable the Sales Order Reservations functionality
+        system-wide. This feature allows for the hard allocation of quantity
+        to Sales Orders. If not selected, the Sales Order reservation options
+        will be hidden from view.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

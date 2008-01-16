@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section965001">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>exchange rates</primary>
       <secondary>master list of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -22,16 +22,14 @@
   </note>
   <para>To access the master list of Exchange Rates, select the "Exchange
   Rates" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/currencyConversions.png"/>
+          <imagedata fileref="images/currencyConversions.png" />
         </imageobject>
         <caption>Exchange Rates Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>The Exchange Rates master list displays information on all Exchange
   Rates. The following options are available:</para>
   <variablelist>
@@ -54,7 +52,7 @@
       <listitem>
         <para>Enter a foreign Currency pattern to select a range of foreign
         Currencies. Refine your search using Regular Expressions, as described
-        in <xref linkend="Anchor77806"/>.</para>
+        in <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -82,11 +80,11 @@
       <term>Foreign Currencies</term>
       <listitem>
         <para>Display lists valid Exchange Rates for the specified foreign
-        Currencies, using the specified parameters.</para>
-        <para>You can configure the meaning of your Exchange Rate values using
-        the Configure G/L screen in the System module. Exchange Rates may be
-        configured in either of two ways: 1) Base x Exchange Rate = Foreign or
-        2) Foreign x Exchange Rate = Base.</para>
+        Currencies, using the specified parameters. You can configure the
+        meaning of your Exchange Rate values using the Configure G/L screen in
+        the System module. Exchange Rates may be configured in either of two
+        ways: 1) Base x Exchange Rate = Foreign or 2) Foreign x Exchange Rate
+        = Base.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -162,17 +160,24 @@
   <variablelist>
     <varlistentry>
       <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(currencyConversionsEDIT1)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(currencyConversionsEDIT1)" />
     </varlistentry>
     <varlistentry>
       <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(currencyConversionsVIEW1)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(currencyConversionsVIEW1)" />
     </varlistentry>
     <varlistentry>
       <term>Delete</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(currencyConversionsDELETE1)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(currencyConversionsDELETE1)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="currencyConversion.xml" xpointer="element(/1)"/>
+  <xi:include href="currencyConversion.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

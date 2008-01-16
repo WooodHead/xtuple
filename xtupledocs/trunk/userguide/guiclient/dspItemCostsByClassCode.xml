@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520047">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>costing</primary>
       <secondary>for items by class code</secondary>
     </indexterm> <indexterm significance="normal">
@@ -14,16 +14,14 @@
     </indexterm>Item Costs by Class Code</title>
   <para>To view Item Costs by Class Code, select the "Item Costs by Class
   Code" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspItemCostsByClassCode.png"/>
+          <imagedata fileref="images/dspItemCostsByClassCode.png" />
         </imageobject>
         <caption>Item Costs by Class Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Item Costs by Class Code, you are presented with the
   following options:</para>
   <variablelist>
@@ -43,7 +41,8 @@
       <term>Pattern</term>
       <listitem>
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -94,24 +93,17 @@
   <para>Right-clicking on an Item in the list of Items displayed by Class Code
   enables you to select from the following menu options:</para>
   <variablelist>
-    <varlistentry>
-      <term>View Item Costing Summary</term>
-      <listitem>
-        <para/>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Update Actual Costs</term>
-      <listitem>
-        <para/>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Post Actual Costs</term>
-      <listitem>
-        <para/>
-      </listitem>
-    </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewItemCostSumm)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickUpdateActualCosts)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPostActualCosts)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

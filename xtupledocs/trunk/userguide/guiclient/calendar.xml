@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="calendar">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>calendars</primary>
       <secondary>creating new</secondary>
     </indexterm>Calendar</title>
-  <para>To create a new Calendar, select the NEW button. The
-  following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a new Calendar, select the NEW button. The following screen
+  will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_calendarType.png"/>
+          <imagedata fileref="images/Sys_calendarType.png" />
         </imageobject>
         <caption>Calendar Type</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When determining the type of Calendar you want to
-  create, you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When determining the type of Calendar you want to create, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -29,8 +27,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>calendars</primary>
           <secondary>absolute</secondary>
         </indexterm> <indexterm significance="normal">
@@ -44,40 +41,37 @@
           <secondary>creating new</secondary>
         </indexterm>ABSOLUTE</term>
       <listitem>
-        <para>Opens screen for creating a new absolute Calendar.</para>
-        <para>Absolute Calendars consist of fixed time periods
-        with specific dates defining the periods. The following example
-        illustrates the kind of fixed time period to be found in an absolute
-        Calendar: "01/01/2002 to 03/31/2002".</para>
+        <para>Opens screen for creating a new absolute Calendar. Absolute
+        Calendars consist of fixed time periods with specific dates defining
+        the periods. The following example illustrates the kind of fixed time
+        period to be found in an absolute Calendar: "01/01/2002 to
+        03/31/2002".</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>RELATIVE</term>
       <listitem>
-        <para>Opens screen for creating a new relative Calendar.</para>
-        <para>Relative Calendars are more dynamic than
-        absolute Calendars, allowing you to define time periods in relation to
-        a point in time. Examples of points in time that relative Calendar
-        periods might be defined in relation to include the following:
-        "Current Day" or "Beginning of Current Month" or "Beginning of Next
-        Quarter".</para>
+        <para>Opens screen for creating a new relative Calendar. Relative
+        Calendars are more dynamic than absolute Calendars, allowing you to
+        define time periods in relation to a point in time. Examples of points
+        in time that relative Calendar periods might be defined in relation to
+        include the following: "Current Day" or "Beginning of Current Month"
+        or "Beginning of Next Quarter".</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Regardless of which Calendar type you select, the
-  following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>Regardless of which Calendar type you select, the following screen
+  will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_calendarRelative.png"/>
+          <imagedata fileref="images/Sys_calendarRelative.png" />
         </imageobject>
         <caption>Create New Calendar</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Calendar, you are presented with
-  the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Calendar, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Name</term>
@@ -95,10 +89,22 @@
       <term>Calendar Type</term>
       <listitem>
         <para>One of the following options will be selected:</para>
-        <para>Absolute: Option will be selected if you
-        specified absolute Calendar.</para>
-        <para>Relative: Option will be selected if you
-        specified relative Calendar.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Absolute</term>
+            <listitem>
+              <para>Option will be selected if you specified absolute
+              Calendar.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Relative</term>
+            <listitem>
+              <para>Option will be selected if you specified relative
+              Calendar.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -110,16 +116,15 @@
     <varlistentry>
       <term>Calendar Items</term>
       <listitem>
-        <para>Display lists Calendar Items for the specified Calendar.</para>
-        <para>For relative Calendars, columns in the display
-        include Calendar Item name, offset, and period length. For absolute
-        Calendars, columns in the display include Calendar Item name, start
-        date, and period.</para>
+        <para>Display lists Calendar Items for the specified Calendar. For
+        relative Calendars, columns in the display include Calendar Item name,
+        offset, and period length. For absolute Calendars, columns in the
+        display include Calendar Item name, start date, and period.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -158,6 +163,10 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="absoluteCalendarItem.xml" xpointer="element(/1)"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="relativeCalendarItem.xml" xpointer="element(/1)"/>
+  <xi:include href="absoluteCalendarItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="relativeCalendarItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

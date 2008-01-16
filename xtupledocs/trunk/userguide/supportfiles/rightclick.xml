@@ -17,7 +17,7 @@
       </varlistentry>
       <varlistentry id="rightclickEdit">
         <term>Edit</term>
-        <listitem id="listitemN0x180ac00N0x1891764">
+        <listitem>
           <para>Select to edit the specified item.</para>
         </listitem>
       </varlistentry>
@@ -458,6 +458,18 @@
           <para>Select to reschedule the specified Sales Order.</para>
         </listitem>
       </varlistentry>
+      <varlistentry id="rightclickReserveLineBalance">
+        <term>Reserve Line Balance</term>
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReserveStock">
+        <term>Reserve Stock</term>
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
       <varlistentry id="rightclickScheduleSOforEmailDelivery">
         <term>Schedule S/O for Email Delivery</term>
         <listitem>
@@ -481,6 +493,18 @@
         <listitem>
           <para>Select to view the status of shipments for the specified
           Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickShowReservations">
+        <term>Show Reservations</term>
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickUnreserveStock">
+        <term>Unreserve Stock</term>
+        <listitem>
+          <para></para>
         </listitem>
       </varlistentry>
       <varlistentry id="rightclickViewBookings">
@@ -792,6 +816,20 @@
   <section>
     <title>Products</title>
     <variablelist>
+      <varlistentry id="rightclickCreateBOM">
+        <term>Create BOM</term>
+        <listitem>
+          <para>Select to create a Bill of Materials for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCreateBOO">
+        <term>Create BOO</term>
+        <listitem>
+          <para>Select to create a Bill of Operations for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
       <varlistentry id="rightclickCreateCompItemSite">
         <term>Create Component Item Site</term>
         <listitem>
@@ -799,10 +837,22 @@
           Component.</para>
         </listitem>
       </varlistentry>
+      <varlistentry id="rightclickCreateUserCost">
+        <term>Create User Cost</term>
+        <listitem>
+          <para>Select to create a user-defined Costing Element.</para>
+        </listitem>
+      </varlistentry>
       <varlistentry id="rightclickDeleteProdCat">
         <term>Delete Product Category</term>
         <listitem>
           <para>Select to delete the specified Product Category</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditActualCost">
+        <term>Edit Actual Cost</term>
+        <listitem>
+          <para>Select to edit the specified Actual Cost.</para>
         </listitem>
       </varlistentry>
       <varlistentry id="rightclickEditBOM">
@@ -841,10 +891,30 @@
           <para>Select to edit the specified Product Category.</para>
         </listitem>
       </varlistentry>
+      <varlistentry id="rightclickEditStdOperation">
+        <term>Edit Standard Operation</term>
+        <listitem>
+          <para>Select to edit the specified Standard Operation.</para>
+        </listitem>
+      </varlistentry>
       <varlistentry id="rightclickMaintainItemCosts">
         <term>Maintain Item Costs</term>
         <listitem>
           <para>Select to maintain Costs for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPostActualCosts">
+        <term>Post Actual Costs</term>
+        <listitem>
+          <para>Select to post Actual Costs to Standard Cost for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPostActToStd">
+        <term>Post Actual Cost to Standard</term>
+        <listitem>
+          <para>Select to post the specified Actual Cost to Standard
+          Cost.</para>
         </listitem>
       </varlistentry>
       <varlistentry id="rightclickReplace">
@@ -854,10 +924,28 @@
           Item.</para>
         </listitem>
       </varlistentry>
+      <varlistentry id="rightclickUpdateActCost">
+        <term>Update Actual Cost</term>
+        <listitem>
+          <para>Select to update the specified Actual Cost.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickUpdateActualCosts">
+        <term>Update Actual Costs</term>
+        <listitem>
+          <para>Select to update Actual Costs for the specified Item.</para>
+        </listitem>
+      </varlistentry>
       <varlistentry id="rightclickViewBOM">
         <term>View BOM</term>
         <listitem>
           <para>Select to view the BOM for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewBOMItem">
+        <term>View BOM Item</term>
+        <listitem>
+          <para>Select to view the specified BOM Item.</para>
         </listitem>
       </varlistentry>
       <varlistentry id="rightclickViewBOO">
@@ -866,11 +954,31 @@
           <para>Select to view the BOO for the specified Item.</para>
         </listitem>
       </varlistentry>
+      <varlistentry id="rightclickViewCostingDetail">
+        <term>View Costing Detail</term>
+        <listitem>
+          <para>Select to view detailed Costing information for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
       <varlistentry id="rightclickViewItemCosting">
         <term>View Item Costing</term>
         <listitem>
-          <para>Select to view Costing information for the specified
+          <para>Select to view detailed Costing information for the specified
           Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewItemCostSumm">
+        <term>View Item Costing Summary</term>
+        <listitem>
+          <para>Select to view summarized Costing information for the
+          specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewStdOperation">
+        <term>View Standard Operation</term>
+        <listitem>
+          <para>Select to view the specified Standard Operation.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -900,7 +1008,7 @@
       </varlistentry>
       <varlistentry id="rightclickCreateCreditMemo">
         <term>Create Credit Memo</term>
-        <listitem id="listitemN0x180ac00N0x187b230">
+        <listitem>
           <para>Select to create a Credit Memo for the specified
           Return.</para>
         </listitem>
@@ -920,7 +1028,7 @@
       </varlistentry>
       <varlistentry id="rightclickMarkasInvoiced">
         <term>Mark as Invoiced</term>
-        <listitem id="listitemN0x180ac00N0x187b134">
+        <listitem>
           <para>Select to mark the specified Receipt as invoiced.</para>
         </listitem>
       </varlistentry>
@@ -964,7 +1072,7 @@
       </varlistentry>
       <varlistentry id="rightclickViewPOItem">
         <term>View P/O Item</term>
-        <listitem id="listitemN0x180ac00N0x1882924">
+        <listitem>
           <para>Select to view the specified Purchase Order Item.</para>
         </listitem>
       </varlistentry>

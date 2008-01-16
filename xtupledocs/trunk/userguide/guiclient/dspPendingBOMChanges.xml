@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520437">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>bills of materials</primary>
       <secondary>pending changes in</secondary>
     </indexterm>Pending BOM Changes</title>
   <para>To view an Item's pending Bill of Materials changes, select the
   "Pending Bill of Materials Changes" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspPendingBOMChanges.png"/>
+          <imagedata fileref="images/dspPendingBOMChanges.png" />
         </imageobject>
-        <caption>Pending Bill of Materials
-        Changes</caption>
+        <caption>Pending Bill of Materials Changes</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying an Item's pending Bill of Materials changes, you are
   presented with the following options:</para>
   <variablelist>
@@ -70,13 +67,14 @@
   <para>Right-clicking on an Item in the Bill of Materials Item list enables
   you to select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditBOM)"/>
-    <varlistentry>
-      <term>View BOM Item</term>
-      <listitem>
-        <para/>
-      </listitem>
-    </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditBOM)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewBOMItem)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

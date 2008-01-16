@@ -16,25 +16,23 @@
   throughout the application. If you prefer not to use multi-currency at your
   site, then simply define a base Currency only--and no secondary
   Currencies.</para>
-  <note>
-    <title>Caution</title>
+  <caution>
     <para>You must define a base Currency, even if you do not plan to use
     multi-currency. System administrators must ensure that a base Currency is
     defined--and that it is defined accurately.</para>
-  </note>
+  </caution>
   <para>The base Currency is the Currency used for all General Ledger (G/L)
   transactions. Only one base Currency may be defined per each database. Any
   transactions conducted in a foreign Currency will be converted automatically
   to the base Currency (using the prevailing Exchange Rate) before they are
   posted to the G/L.</para>
-  <note>
-    <title>Warning</title>
+  <warning>
     <para>Once you post a transaction using multi-currency support, you cannot
     turn off multi-currency from that point forward. Either you implement
     multi-currency or you don"t. There is no middle ground. System-level
     privileges are available to prevent users from accessing Currency and
     Exchange Rate functionality.</para>
-  </note>
+  </warning>
   <para>To access the master list of Currencies, select the "Currencies"
   option. The following screen will appear:</para>
   <para><screenshot>

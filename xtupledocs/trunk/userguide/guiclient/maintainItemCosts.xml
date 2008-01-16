@@ -15,8 +15,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_Cost_maintItemCosts.png"
-                     />
+          <imagedata fileref="images/PD_Cost_maintItemCosts.png" />
         </imageobject>
         <caption>Maintain Item Costs</caption>
       </mediaobject>
@@ -81,47 +80,32 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Item Cost in the Costing Elements list enables
-  you to select from the following menu options. If the Costing Element does
-  not contain lower level Costs, you will not be given the option to view
-  Costing detail.</para>
+  <para><indexterm significance="normal">
+      <primary>actual costs</primary>
+      <secondary>posting to standard</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>costing</primary>
+      <secondary>posting actual to standard</secondary>
+    </indexterm>Right-clicking on an Item Cost in the Costing Elements list
+  enables you to select from the following menu options. If the Costing
+  Element does not contain lower level Costs, you will not be given the option
+  to view Costing detail.</para>
   <variablelist>
-    <varlistentry>
-      <term>View Costing Detail</term>
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Update Actual Cost</term>
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>actual costs</primary>
-          <secondary>posting to standard</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>costing</primary>
-          <secondary>posting actual to standard</secondary>
-        </indexterm>Post Actual Cost to Standard</term>
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Edit Actual Cost</term>
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Create User Cost</term>
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewCostingDetail)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickUpdateActCost)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPostActToStd)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditActualCost)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateUserCost)" />
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
@@ -137,8 +121,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_Cost_createItemCost.png"
-                     />
+          <imagedata fileref="images/PD_Cost_createItemCost.png" />
         </imageobject>
         <caption>Create New Item Cost</caption>
       </mediaobject>
