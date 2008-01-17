@@ -34,12 +34,7 @@ BEGIN;
       LEFT OUTER JOIN crmacct ON (cntct_crmacct_id=crmacct_id);
 
 GRANT ALL ON TABLE api.contact TO openmfg;
-COMMENT ON VIEW api.contact IS '
-This view can be used as an interface to import Contact data directly  
-into the system.  Required fields will be checked and defaults will 
-be populated if not specified.  The contact_number field is really
-a reference the contact id field.  In future releases this will likely be 
-turned into a separate and dedicated data field';
+COMMENT ON VIEW api.contact IS 'Contact';
 
 --Rules
 

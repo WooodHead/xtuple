@@ -30,10 +30,7 @@ AND (a.charass_target_id=item_id) )
 ORDER BY quhead_number,quitem_linenumber, char_name;
 
 GRANT ALL ON TABLE api.quotelinechar TO openmfg;
-COMMENT ON VIEW api.quotelinechar IS '
-This view can be used as an interface to import Quote Characteristic data directly  
-into the system.  Required fields will be checked and default values will be 
-populated';
+COMMENT ON VIEW api.quotelinechar IS 'Quote Line Item Characteristics';
 
 --Rules
 

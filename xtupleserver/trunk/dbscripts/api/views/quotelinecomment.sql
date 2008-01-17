@@ -20,10 +20,7 @@ AS
    ORDER BY quhead_number ASC, quitem_linenumber ASC, comment_date DESC;
 
 GRANT ALL ON TABLE api.quotelinecomment TO openmfg;
-COMMENT ON VIEW api.quotelinecomment IS '
-This view can be used as an interface to import Quote Line Item Comment data directly  
-into the system.  Required fields will be checked and default values will be 
-populated';
+COMMENT ON VIEW api.quotelinecomment IS 'Quote Line Item Comment';
 
 --Rules
 

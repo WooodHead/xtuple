@@ -30,10 +30,7 @@ AND (a.charass_target_id=item_id) )
 ORDER BY cohead_number,coitem_linenumber, char_name;
 
 GRANT ALL ON TABLE api.saleslinechar TO openmfg;
-COMMENT ON VIEW api.saleslinechar IS '
-This view can be used as an interface to import Sales Order Characteristic data directly  
-into the system.  Required fields will be checked and default values will be 
-populated';
+COMMENT ON VIEW api.saleslinechar IS 'Sales Order Line Item Characteristic';
 
 --Rules
 

@@ -15,10 +15,7 @@ AS
    AND (charass_char_id=char_id));
 
 GRANT ALL ON TABLE api.accountchar TO openmfg;
-COMMENT ON VIEW api.accountchar IS '
-This view can be used as an interface to import Account Characteristic data directly  
-into the system.  Required fields will be checked and default values will be 
-populated';
+COMMENT ON VIEW api.accountchar IS 'Account Characteristics';
 
 --Rules
 

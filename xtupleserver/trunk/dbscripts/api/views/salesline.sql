@@ -54,9 +54,7 @@ ORDER BY cohead_number,coitem_linenumber;
     
 
 GRANT ALL ON TABLE api.salesline TO openmfg;
-COMMENT ON VIEW api.salesline IS '
-This view can be used as an interface to import Sales Order Line Items data directly  
-into the system.  Required fields will be checked';
+COMMENT ON VIEW api.salesline IS 'Sales Order Line Item';
 
 --Rules
 

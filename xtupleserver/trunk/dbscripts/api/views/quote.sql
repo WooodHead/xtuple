@@ -73,10 +73,7 @@ AS
    AND (quhead_curr_id=curr_id));
 
 GRANT ALL ON TABLE api.quote TO openmfg;
-COMMENT ON VIEW api.quote IS '
-This view can be used as an interface to import Quote Header data directly  
-into the system.  Required fields will be checked and default values will be 
-populated';
+COMMENT ON VIEW api.quote IS 'Quote';
 
 --Rules
 

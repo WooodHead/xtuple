@@ -129,10 +129,7 @@ BEGIN;
   AND (cust_terms_id=terms_id));
 
 GRANT ALL ON TABLE api.customer TO openmfg;
-COMMENT ON VIEW api.customer IS '
-This view can be used as an interface to import Customer data directly  
-into the system.  Required fields will be checked and defaults will 
-be populated if not specified.';
+COMMENT ON VIEW api.customer IS 'Customer';
 
 --Rules
 

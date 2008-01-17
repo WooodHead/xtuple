@@ -21,15 +21,7 @@ BEGIN;
     addr;
 
 GRANT ALL ON TABLE api.address TO openmfg;
-COMMENT ON VIEW api.address IS '
-This view can be used as an interface to import Address data directly  
-into the system.  Required fields will be checked and defaults will 
-be populated if not specified.  The address_number field is really
-a reference the addr_id field.  In future releases this will likely be 
-turned into a separate and dedicated data field. If an address number
-is inserted with address data that has already been used, the view not
-insert the new address but will pass back the number of the pre-existing
-address';
+COMMENT ON VIEW api.address IS 'Address';
 
 --Rules
 

@@ -17,10 +17,7 @@ AS
    AND (comment_cmnttype_id=cmnttype_id));
 
 GRANT ALL ON TABLE api.salesordercomment TO openmfg;
-COMMENT ON VIEW api.salesordercomment IS '
-This view can be used as an interface to import Sales Order Comment data directly  
-into the system.  Required fields will be checked and default values will be 
-populated';
+COMMENT ON VIEW api.salesordercomment IS 'Sales Order Comment';
 
 --Rules
 

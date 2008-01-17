@@ -15,10 +15,7 @@ AS
    AND (charass_char_id=char_id));
 
 GRANT ALL ON TABLE api.contactchar TO openmfg;
-COMMENT ON VIEW api.contactchar IS '
-This view can be used as an interface to import Contact Characteristic data directly  
-into the system.  Required fields will be checked and default values will be 
-populated';
+COMMENT ON VIEW api.contactchar IS 'Contact Characteristics';
 
 --Rules
 

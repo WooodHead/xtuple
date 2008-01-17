@@ -39,10 +39,7 @@ BEGIN;
       LEFT OUTER JOIN cntct sc ON (c.crmacct_cntct_id_2=sc.cntct_id);
 
 GRANT ALL ON TABLE api.account TO openmfg;
-COMMENT ON VIEW api.account IS '
-This view can be used as an interface to import Account data directly  
-into the system.  Required fields will be checked and defaults will 
-be populated if not specified.';
+COMMENT ON VIEW api.account IS 'Account';
 
 --Rules
 

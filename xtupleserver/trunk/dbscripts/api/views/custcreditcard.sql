@@ -35,13 +35,7 @@ AS
    WHERE (ccard_cust_id=cust_id);
 
 GRANT ALL ON TABLE api.custcreditcard TO openmfg;
-COMMENT ON VIEW api.custcreditcard IS '
-This view can be used as an interface to import Customer Credit Card data directly  
-into the system.  Required fields will be checked and default values will be 
-populated.  The correct encryption key must to be passed on insertions for data to be
-readable in OpenMFG; the key should NOT be STORED on the same server as the database
-in any way.  Only insertions are allowed. Select statements will be encrypted.  
-Use the GUI interface to view and process credit cards.';
+COMMENT ON VIEW api.custcreditcard IS 'Customer Credit Cards.';
 
 --Rules
 

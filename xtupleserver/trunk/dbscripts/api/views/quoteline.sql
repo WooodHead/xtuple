@@ -43,9 +43,7 @@ ORDER BY quhead_number,quitem_linenumber;
     
 
 GRANT ALL ON TABLE api.quoteline TO openmfg;
-COMMENT ON VIEW api.quoteline IS '
-This view can be used as an interface to import Quote Line Items data directly  
-into the system.  Required fields will be checked';
+COMMENT ON VIEW api.quoteline IS 'Quote Line Item';
 
 --Rules
 
