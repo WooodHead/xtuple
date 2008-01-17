@@ -1,43 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="pricingScheduleAssignment">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>pricing</primary>
       <secondary>assigning schedules for</secondary>
     </indexterm>Pricing Schedule Assignment</title>
   <para>To create a Pricing Schedule assignment, select the NEW button. The
   following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/pricingScheduleAssignment.png"/>
+          <imagedata fileref="images/pricingScheduleAssignment.png" />
         </imageobject>
-        <caption>Create New Pricing Schedule
-        Assignment</caption>
+        <caption>Create New Pricing Schedule Assignment</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When creating a new Pricing Schedule assignment, you are presented
   with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Selected Customer</term>
       <listitem>
-        <para>Select to assign a Pricing Schedule to an individual Customer.
-        Customer #: Specify the Customer Number of the Customer you want to
-        assign a Pricing Schedule to. The browse button located to the right
-        of the field leads to a searchable Customers list. You may also access
-        this list using the keyboard shortcut "CTRL + L". Once a Customer
-        Number is entered, the Customer name and billing address will display.
-        Select the "?" or "$" symbol next to the browse button to view
-        Customer information for the specified Customer. If a Customer's
-        credit is "In Good Standing," the button will feature a black question
-        mark ("?") icon. If the icon turns to an orange dollar sign ("$"), the
-        Customer's credit Status is "On Credit Warning." A red dollar sign
-        ("$") indicates the Customer's credit Status is "On Credit
-        Hold."</para>
+        <para>Select to assign a Pricing Schedule to an individual
+        Customer.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Customer #</term>
+            <listitem>
+              <para>Specify the Customer Number of the Customer you want to
+              assign a Pricing Schedule to. The browse button located to the
+              right of the field leads to a searchable Customers list. You may
+              also access this list using the keyboard shortcut "CTRL + L".
+              Once a Customer Number is entered, the Customer name and billing
+              address will display. Select the "?" or "$" symbol next to the
+              browse button to view Customer information for the specified
+              Customer. If a Customer's credit is "In Good Standing," the
+              button will feature a black question mark ("?") icon. If the
+              icon turns to an orange dollar sign ("$"), the Customer's credit
+              Status is "On Credit Warning." A red dollar sign ("$") indicates
+              the Customer's credit Status is "On Credit Hold."</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -64,7 +69,7 @@
       <listitem>
         <para>Enter a Ship-To Address pattern to select a range of Ship-To
         Addresses for the selected Customer. Refine your search using Regular
-        Expressions, as described in <xref linkend="Anchor77806"/>.</para>
+        Expressions, as described in <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -79,7 +84,7 @@
       <listitem>
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806"/>.</para>
+        <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

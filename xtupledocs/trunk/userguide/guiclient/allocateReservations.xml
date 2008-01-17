@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>inventory</primary>
+      <secondary>reservation utility for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>sales orders</primary>
+      <secondary>reservation utility for</secondary>
+    </indexterm>Allocate Reservations</title>
+  <para>The Allocate Reservations utility enables you to allocate Inventory to
+  batches of open Sales Orders. This can be a more efficient method for
+  quickly making hard Inventory allocations, as compared to allocating
+  Inventory one-at-a-time at the individual Sales Order Line Item level. You
+  can allocate Inventory to batches of Sales Orders using the following
+  screen:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/allocateReservations.png" />
+      </imageobject>
+      <caption>Allocate Sales Order Reservations</caption>
+    </mediaobject>
+  </screenshot>
+  <note>
+    <para>Only Sales Order Line Items that can be completely reserved using
+    actual Quantity on Hand will be affected when this utility is run. If a
+    Line Item cannot be completely reserved, it will be skipped.</para>
+  </note>
+  <para>When allocating Inventory to batches of open Sales Orders, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Selected Customer</term>
+      <listitem>
+        <para>Select to allocate Inventory to an individual Customer's open
+        Sales Orders.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Customer #</term>
+            <listitem>
+              <para>Specify the Customer Number of the Customer whose open
+              Sales Orders you want to allocate Inventory to. The browse
+              button located to the right of the field leads to a searchable
+              Customers list. You may also access this list using the keyboard
+              shortcut "CTRL + L". Once a Customer Number is entered, the
+              Customer name and billing address will display. Select the "?"
+              or "$" symbol next to the browse button to view Customer
+              information for the specified Customer. If a Customer's credit
+              is "In Good Standing," the button will feature a black question
+              mark ("?") icon. If the icon turns to an orange dollar sign
+              ("$"), the Customer's credit Status is "On Credit Warning." A
+              red dollar sign ("$") indicates the Customer's credit Status is
+              "On Credit Hold."</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected Customer Ship-To</term>
+      <listitem>
+        <para>Specify the Customer Ship-To Address whose open Sales Orders you
+        want to allocate Inventory to. This is an optional setting which may
+        be used in conjunction with the "Selected Customer" setting. The
+        Ship-To option gives you the added flexibility of being able to assign
+        multiple Pricing Schedules to a single Customer based on separate
+        Ship-To Addresses.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Selected Cust. Ship-To Pattern</term>
+      <listitem>
+        <para>Enter a Ship-To Address pattern to select a range of Ship-To
+        Addresses for the selected Customer. Refine your search using Regular
+        Expressions, as described in <xref linkend="Anchor77806" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected Customer Type</term>
+      <listitem>
+        <para>Specify the Customer Type you want to assign a Pricing Schedule
+        to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer Type Pattern</term>
+      <listitem>
+        <para>Enter a Customer Type pattern to select a range of Customer
+        Types. Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Open Sales Orders having a due date on and after this date will
+        have Inventory allocated to them. Start date and end date must be
+        entered for calculation to proceed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Open Sales Orders having a due date on and before this date will
+        have Inventory allocated to them. Start date and end date must be
+        entered for calculation to proceed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Automatically Add to Packing List Batch</term>
+      <listitem>
+        <para>Select to automatically add affected Sales Orders to the Packing
+        List Batch.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ALLOCATE</term>
+      <listitem>
+        <para>Select to run the batch allocation process, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
