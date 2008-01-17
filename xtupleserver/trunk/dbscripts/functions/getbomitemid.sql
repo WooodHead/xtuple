@@ -11,7 +11,7 @@ BEGIN
   END IF;
 
   SELECT bomitem_id INTO _returnVal
-  FROM bomitem(getItemId(pItemNumber),COALESCE(getRevId(''BOM'',pItemNumber,pRevision),getActiveRevId(''BOM'',getItemId(pItemNumber))))
+  FROM bomitem(getItemId(pItemNumber),COALESCE(getRevId(''BOM'',pItemNumber,pRevision)))
   WHERE (bomitem_seqnumber=pSeqNumber);
     
   IF (_returnVal IS NULL) THEN

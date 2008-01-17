@@ -26,32 +26,24 @@ COMMENT ON VIEW api.bom IS 'Bill of Material Header';
   CREATE OR REPLACE RULE "_INSERT" AS
     ON INSERT TO api.bom DO INSTEAD
 
-  INSERT INTO bomhead
-    (bomhead_item_id,
-     bomhead_docnum,
-     bomhead_revision,
-     bomhead_revisiondate,
-     bomhead_batchsize,
-     bomhead_requiredqtyper)
-     VALUES
-    (getItemId(NEW.item_number),
-     NEW.document_number,
+  SELECT saveBomHead(
+     getItemId(NEW.item_number),
      NEW.revision,
      NEW.revision_date,
+     NEW.document_number,
      COALESCE(NEW.batch_size,0),
      NEW.total_qty_per);
  
     CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO api.bom DO INSTEAD
 
-    UPDATE bomhead SET
-      bomhead_revision=NEW.revision,
-      bomhead_revisiondate=NEW.revision_date,
-      bomhead_docnum=NEW.document_number,
-      bomhead_batchsize=NEW.batch_size,
-      bomhead_requiredqtyper=NEW.total_qty_per
-    WHERE ((bomhead_item_id=getItemId(NEW.item_number))
-    AND (bomhead_rev_id=getRevId(NEW.item_number,NEW.revision,'BOM')));
+  SELECT saveBomHead(
+     getItemId(NEW.item_number),
+     NEW.revision,
+     NEW.revision_date,
+     NEW.document_number,
+     COALESCE(NEW.batch_size,0),
+     NEW.total_qty_per);
 
     CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.bom DO INSTEAD

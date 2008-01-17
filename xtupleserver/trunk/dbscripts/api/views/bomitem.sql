@@ -68,8 +68,7 @@ COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
                           COALESCE(NEW.sequence_number,(
                             SELECT MAX(bomitem_seqnumber) + 10
                             FROM bomitem(getItemId(NEW.bom_item_number),COALESCE(
-                                         getRevId('BOM',NEW.bom_item_number,NEW.bom_revision),
-                                         getActiveRevId('BOM',getItemId(NEW.bom_item_number)))))),
+                                         getRevId('BOM',NEW.bom_item_number,NEW.bom_revision)))),10),
                           CASE
                             WHEN NEW.issue_method = 'Mixed' THEN
                               'M'
@@ -103,7 +102,7 @@ COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
                             ELSE
                               'I'
                           END,
-                          COALESCE(getRevId('BOM',NEW.bom_item_number,NEW.bom_revision),getActiveRevId('BOM',getItemId(NEW.bom_item_number))));
+                          COALESCE(getRevId('BOM',NEW.bom_item_number,NEW.bom_revision)));
  
     CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO api.bomitem DO INSTEAD

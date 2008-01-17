@@ -5,12 +5,14 @@ DECLARE
   pRevision ALIAS FOR $3;
   _returnVal INTEGER;
 BEGIN
-  IF ((pItemNumber IS NULL) OR (pRevision IS NULL)) THEN
+  IF (pItemNumber IS NULL) THEN
     RETURN NULL;
   END IF;
 
   IF (NOT fetchMetricBool(''RevControl'')) THEN
     RETURN -1;
+  ELSIF (pRevision IS NULL) THEN
+    SELECT getActiveRevId(pType, getItemId(pItemNumber)) INTO _returnVal;
   ELSE
     IF (pType=''BOM'') THEN
       SELECT rev_id INTO _returnVal
