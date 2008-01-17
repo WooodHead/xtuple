@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title> Item Reservations</title>
+  <para>The system gives you the ability to view all the Sales Order
+  reservations for an Item, if any. You can view these system-wide
+  reservations using the following screen:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/dspReservations.png" />
+      </imageobject>
+      <caption>Item Reservations</caption>
+    </mediaobject>
+  </screenshot>
+  <para>When viewing system-wide Item Reservations, you are presented with the
+  following information:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Item Number for the specified Sales Order Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warehouse</term>
+      <listitem>
+        <para>Sold-from Warehouse containing Sales Order Reservations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QOH</term>
+      <listitem>
+        <para>Current Quantity on Hand in sold-from Warehouse.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Available To Reserve</term>
+      <listitem>
+        <para>Total quantity available to be reserved in sold-from
+        Warehouse.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Reservations</term>
+      <listitem>
+        <para>Display lists Item Reservations, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

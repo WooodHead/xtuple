@@ -186,4 +186,10 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickIssuePurchaseOrder)" />
   </variablelist>
+  <xi:include href="reserveSalesOrderItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="dspReservations.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
