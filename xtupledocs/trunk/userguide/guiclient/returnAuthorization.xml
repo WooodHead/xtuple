@@ -1,619 +1,992 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
-   <title>
-   Return Authorization
-  </title>
-   <subtitle>returnAuthorization : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/returnAuthorization.png"/>
-            </imageobject>
-            <caption>
-   Return Authorization
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_returnAuthInformation</entry>
-               <entry>QTabWidget</entry>
-            </row>
-            <row>
-               <entry>Header Informaton</entry>
-               <entry>_headerPage</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Status:</guilabel>
-               </entry>
-               <entry>_statusLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_authNumber</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Auth. #:</guilabel>
-               </entry>
-               <entry>_authNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_authDat</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_expireDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Expire Date:</guilabel>
-               </entry>
-               <entry>_expireDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Open</guilabel>
-               </entry>
-               <entry>_status</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Auth. Date:</guilabel>
-               </entry>
-               <entry>_authDatLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_taxauth</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Sales Rep.:</guilabel>
-               </entry>
-               <entry>_salesRepLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_rsnCode</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_salesRep</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Commission:</guilabel>
-               </entry>
-               <entry>_commissionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Reason Code:</guilabel>
-               </entry>
-               <entry>_rsnCodeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_commission</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">%</guilabel>
-               </entry>
-               <entry>_commissionPrcntLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Tax Authority:</guilabel>
-               </entry>
-               <entry>_taxauthLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_disposition</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Credit by:</guilabel>
-               </entry>
-               <entry>_creditByLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_creditBy</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Immediately</guilabel>
-               </entry>
-               <entry>_immediately</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Disposition:</guilabel>
-               </entry>
-               <entry>_dispositionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Upon Receipt</guilabel>
-               </entry>
-               <entry>_uponReceipt</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>line_2</entry>
-               <entry>Line</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_salesOrder</entry>
-               <entry>SoCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_incident</entry>
-               <entry>IncidentCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_project</entry>
-               <entry>ProjectCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>line</entry>
-               <entry>Line</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_cust</entry>
-               <entry>CustInfo</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Undefined</guilabel>
-               </entry>
-               <entry>_custType</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Cust. Type:</guilabel>
-               </entry>
-               <entry>_custTypeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel moreinfo="none">Name:</guilabel>
-               </entry>
-               <entry>_billtoNameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel moreinfo="none"/>
-               </entry>
-               <entry>_billtoName</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_billToAddr</entry>
-               <entry>AddressCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Copy to Ship-to -&gt;</guilabel>
-               </entry>
-               <entry>_copyToShipto</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel moreinfo="none">Name:</guilabel>
-               </entry>
-               <entry>_shipToNameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_shipToName</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Ship-To #:</guilabel>
-               </entry>
-               <entry>_shipToNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">...</guilabel>
-               </entry>
-               <entry>_shipToList</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_shipToNumber</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_shipToAddr</entry>
-               <entry>AddressCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>line_3</entry>
-               <entry>Line</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Cust. PO #:</guilabel>
-               </entry>
-               <entry>_customerPOLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_customerPO</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>Line Items</entry>
-               <entry>_lineItemsPage</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_miscChargeDescription</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Misc. Charge Credit Account:</guilabel>
-               </entry>
-               <entry>_miscChargeAccountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Misc. Charge:</guilabel>
-               </entry>
-               <entry>_miscChargeAmountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_tax</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Freight:</guilabel>
-               </entry>
-               <entry>_freightLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Total:</guilabel>
-               </entry>
-               <entry>_totalLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Subtotal:</guilabel>
-               </entry>
-               <entry>_subtotalLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_freight</entry>
-               <entry>CurrCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_subtotal</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_currency</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Misc. Charge Description:</guilabel>
-               </entry>
-               <entry>_miscChargeDescriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Currency:</guilabel>
-               </entry>
-               <entry>_currencyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_total</entry>
-               <entry>CurrCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_miscCharge</entry>
-               <entry>CurrCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Tax:</guilabel>
-               </entry>
-               <entry>_taxLit</entry>
-               <entry>XURLLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_miscChargeAccount</entry>
-               <entry>GLCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_raitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel moreinfo="none">Edit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel moreinfo="none">Close</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel moreinfo="none">Authorize Line</guilabel>
-               </entry>
-               <entry>_authorizeLine</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel moreinfo="none">Clear</guilabel>
-               </entry>
-               <entry>_clear</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel moreinfo="none">Authorize All</guilabel>
-               </entry>
-               <entry>_authorizeAll</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel moreinfo="none">Enter Receipt...</guilabel>
-               </entry>
-               <entry>_enterReceipt</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel moreinfo="none">Receive All</guilabel>
-               </entry>
-               <entry>_receiveAll</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel moreinfo="none">Post on Save</guilabel>
-               </entry>
-               <entry>_postOnSave</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>Notes</entry>
-               <entry>_authCommentsPage</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_authComments</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry>Comments</entry>
-               <entry>_commentsPage</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_comments</entry>
-               <entry>Comments</entry>
-            </row>
-            <row>
-               <entry>Credit</entry>
-               <entry>_creditPage</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_cc</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">New</guilabel>
-               </entry>
-               <entry>_newCC</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Edit</guilabel>
-               </entry>
-               <entry>_editCC</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">View</guilabel>
-               </entry>
-               <entry>_viewCC</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Move Up</guilabel>
-               </entry>
-               <entry>_upCC</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Move Down</guilabel>
-               </entry>
-               <entry>_downCC</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Authorize</guilabel>
-               </entry>
-               <entry>_authorize</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Refund</guilabel>
-               </entry>
-               <entry>_refund</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Amount:</guilabel>
-               </entry>
-               <entry>_CCAmountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_CCAmount</entry>
-               <entry>CurrCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">CVV Code:</guilabel>
-               </entry>
-               <entry>_CCCVVLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_CCCVV</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Clear</guilabel>
-               </entry>
-               <entry>_clear</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Cancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+  <title><indexterm significance="normal">
+      <primary>return authorizations</primary>
+      <secondary>creating new</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>sales orders</primary>
+      <secondary>returns and</secondary>
+    </indexterm>Return Authorization</title>
+  <para>Creating a new Sales Order requires a detailed mix of Customer, Sales
+  Representative, and Shipping information. To access the Sales Order area,
+  select the "New Sales Order" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata />
+        </imageobject>
+        <caption>Create New Return Authorization</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Return Authorization, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Auth #</term>
+      <listitem>
+        <para>Next available Sales Order Number will automatically display,
+        unless your system requires you to enter Sales Order Numbers manually.
+        Default values and input parameters for Sales Order Numbers are
+        configurable at the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Auth. Date</term>
+      <listitem>
+        <para>Displays current day's date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expire Date</term>
+      <listitem>
+        <para>Displays the Order's earliest scheduled date. The scheduled date
+        corresponds to the earliest scheduled date for an included Sales Order
+        Item. Because Sales Orders may contain multiple Sales Order Items, the
+        scheduled date indicates the most recent scheduled date. No scheduled
+        date will display in the "Scheduled Date" field until a Sales Order
+        Line Item has been created and a scheduled date assigned to it.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales representatives</primary>
+          <secondary>commissions for</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>commissions on</secondary>
+        </indexterm>Sales Rep.</term>
+      <listitem>
+        <para>Specify the Sales Representative associated with the Order.
+        Sales Representatives are linked to a Customer on the Customer
+        master--either by a default setting or through the assignment of
+        Ship-To Addresses. Each Ship-To Address may have a different Sales
+        Representative associated with it. Consequently, the name of the Sales
+        Representative appearing on the Sales Order header will be the same as
+        specified for the Ship-To Address being used.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commission</term>
+      <listitem>
+        <para>By default, the commission percentage recorded on the Customer
+        master will be automatically entered in this field. If for some reason
+        you select a non-default Sales Representative at Order entry, the
+        commission rate will not change. To adjust the commission rate, you
+        must make the change manually.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>tax authorities</primary>
+          <secondary>for return authorizations</secondary>
+        </indexterm>Tax Authority</term>
+      <listitem>
+        <para>Specify the Tax Authority associated with the Sales Order. The
+        Tax Authority for the specified Ship-To Address will be entered here
+        by default. Otherwise, the primary Tax Authority for the Customer will
+        be entered. Ultimately, Tax is applied at the Line Item level--so the
+        Tax Authority associated with an Item's Tax Type will be used.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reason Code</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Disposition</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Credit</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Return</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Replace</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Service</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Substitute</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit/Ship</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Immediately</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Upon Receipt</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit by</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>None</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit Memo</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Check</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit Card</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print on Save</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Original Order #</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>New Order #</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Project #</term>
+      <listitem>
+        <para>Select a Project Number to associate with the Sales Order. If a
+        Sales Order is created from a converted Quote--and the Quote had a
+        Project Number associated with it--then the Project Number from the
+        originating Quote will automatically be entered here. Once a Project
+        Number is associated with a Sales Order, any Work Orders or Purchase
+        Orders created by the Sales Order demand will automatically be linked
+        to the same Project Number as the Sales Order. In this way, Sales
+        Orders, Work Orders, and Purchase Orders may be linked to the same
+        Project.</para>
+        <tip>
+          <para>If your site is configured to create Projects automatically
+          whenever new Sales Orders or Quotes are entered, the Projects
+          generated in this way will assume the number of the Sales Order or
+          Quote which caused their creation.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>Enter the Customer Number of the Customer to be billed for the
+        sale. The browse button located to the right of the field leads to a
+        searchable Customers list. You may also access this list using the
+        keyboard shortcut "CTRL + L". Once a Customer Number is entered, the
+        Customer name and billing address will display. Select the "?" or "$"
+        symbol next to the browse button to view Customer information for the
+        specified Customer. If a Customer's credit is "In Good Standing," the
+        button will feature a black question mark ("?") icon. If the icon
+        turns to an orange dollar sign ("$"), the Customer's credit Status is
+        "On Credit Warning." A red dollar sign ("$") indicates the Customer's
+        credit Status is "On Credit Hold."</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>A valid Customer Number must be entered in the "Customer #" field
+    before Line Items can be added to a Sales Order. If no valid Customer
+    Number is entered, you will not be able to add Line Items to the Sales
+    Order. Additionally, Sales Orders may only be entered for active
+    Customers.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Cust. Type</term>
+      <listitem>
+        <para>Displays the Customer Type for the specified Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>billing information for</secondary>
+        </indexterm>Bill-To Name</term>
+      <listitem>
+        <para>Displays the Customer's Bill-To name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bill-To Phone</term>
+      <listitem>
+        <para>Displays the Customer's Bill-To phone number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Address</term>
+      <listitem>
+        <para>Displays the Customer's Bill-To Address. You may manually
+        override the displayed Address information in the fields below--or use
+        the browse button to select another Address.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>The Customer's Bill-To street Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>The Customer's Bill-To city.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>The Customer's Bill-To state.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>The Customer's Bill-To Postal Code.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>The Customer's Bill-To country.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Copy to Ship-to -\&gt;</term>
+      <listitem>
+        <para>Select to copy contents of billing address into Ship-To address
+        field. This option is enabled if the Customer master for the specified
+        Customer indicates that free-form Ship-To's are allowed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship-To #</term>
+      <listitem>
+        <para>Enter the number of the preferred Ship-To Address. Customers may
+        maintain multiple Ship-To Addresses. If the Customer master for the
+        specified Customer indicates that free-form Ship-To's are allowed,
+        then any address may be entered. If free-form Ship-To's are not
+        allowed, then the Ship-To Address must be entered using the browse
+        button located to the right of the field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>ship-to details for</secondary>
+        </indexterm>Ship-To Name</term>
+      <listitem>
+        <para>Displays the name for the specified Ship-To.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship-To Phone</term>
+      <listitem>
+        <para>Displays the phone number for the specified Ship-To.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Address</term>
+      <listitem>
+        <para>Displays the specified Ship-To Address. You may manually
+        override the displayed Address information in the fields below--or use
+        the browse button to select another Address.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street Address:</term>
+            <listitem>
+              <para>The specified Ship-To street Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>The specified Ship-To city.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>The specified Ship-To state.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>The specified Ship-To Postal Code.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>The specified Ship-To country.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Cust. PO #</term>
+      <listitem>
+        <para>Enter a Customer Purchase Order Number, as needed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Incident</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>At the top of the screen, the following buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Return Authorization and saves the Return
+        Authorization information. The SAVE button must be selected in order
+        to save the Return Authorization record. It is not enough to save
+        Return Authorization Line Item information. The Return Authorization
+        header must also be saved.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Return Authorization,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>return authorizations</primary>
+      <secondary>adding line items to</secondary>
+    </indexterm>To create or modify Return Authorization Line Items, select
+  the "Line Items" tab at the top of the "Return Authorization" screen. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata />
+        </imageobject>
+        <caption>Return Authorization Line Items</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating or modifying Sales Order Line Items, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Line Items</term>
+      <listitem>
+        <para>Display lists Line Items for this Sales Order. A valid Customer
+        Number must be entered in the "Customer #" field before Line Items can
+        be added to the Order. The Shipping-related columns will not be
+        visible if the system is configured to hide Shipping options at Sales
+        Order entry. However, if the Shipping options are enabled, the Line
+        Items may display in different colors, depending on their scheduling.
+        If the Scheduled Date for an unshipped Line Item is in the future, the
+        line will display in green text. If the Scheduled Date for an
+        unshipped Line Item is not in the future, the line will display in red
+        text. Once shipped, all Line Items revert to black text.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Sales Order Line Items may exist in any of the following
+    statuses:</para>
+    <para>"O" = Open</para>
+    <para>"C" = Closed</para>
+    <para>"X" = Cancelled</para>
+    <para>"R" = Ready for Shipment (i.e., quantity available)</para>
+    <para>"I" = Invoiced</para>
+    <para>"P" = Partially-invoiced</para>
+    <para>"H" = On credit hold</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Require sufficient Inventory</term>
+      <listitem>
+        <para>Select to ensure you have enough Quantity on Hand of a Line Item
+        prior to issuing Stock to Shipping. If selected, this option will
+        prevent you from issuing Line Item quantity to Shipping if doing so
+        would force Quantity on Hand for the Item Site to fall below zero. Not
+        selecting this option means issuing Stock to Shipping may drive Item
+        Site Quantity on Hand negative. This option will not be visible if the
+        system is configured to hide Shipping options at Sales Order
+        entry.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Canceled Line Items</term>
+      <listitem>
+        <para>Select to include in the Line Items display Sales Order Line
+        Items which have been specifically canceled. Displaying canceled Line
+        Items can provide useful Customer and Order history
+        information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>$ At Shipping</term>
+      <listitem>
+        <para>Displays the monetary value of Sales Order Line Items at
+        Shipping. The shipment value represents the total of the extended
+        prices for all Items included in the Shipment. The amount does not
+        include freight or Tax. This displayed information will not be visible
+        if the system is configured to hide Shipping options at Sales Order
+        entry.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>$ Margin</term>
+      <listitem>
+        <para>Displays the total profit margin for the Order.The profit margin
+        is based on the following formula:</para>
+        <para>Order Subtotal - Total Standard Costs for all Line Items</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Subtotal</term>
+      <listitem>
+        <para>Displays the subtotal for the Sales Order Line Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>Displays the total amount of Tax to be charged on the Sales
+        Order. Sales Tax is calculated at the Sales Order Line Item level. The
+        Tax amount displayed here represents the total for all Line Item Tax
+        amounts. To get a detailed view of the Tax calculation, click on the
+        Tax link using your mouse.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Misc. Charge Amount</term>
+      <listitem>
+        <para>Enter the amount of any miscellaneous charge. Examples of
+        miscellaneous charges include palletization costs, co-op refund, etc.
+        Before entering a miscellaneous charge amount, you must first assign
+        the charge to a Sales Account and also enter a description of the
+        charge.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If you do not use Miscellaneous Charges at your site, you can hide
+    these fields so they are not visible when entering Sales Orders. To do so,
+    simply select the "Hide Misc. Charges" option in the system-level
+    configuration.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Misc. Charge Description</term>
+      <listitem>
+        <para>Enter a description to identify the miscellaneous charge.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Misc. Charge Sales Account</term>
+      <listitem>
+        <para>Enter a Sales Account to assign the miscellaneous charge
+        to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Allocated C/Ms</term>
+      <listitem>
+        <para>Displays the monetary value of any open Credit Memos and/or
+        Credit Card charges which have been specifically allocated to the
+        Sales Order. If your system is configured to automatically allocate
+        open Credit Memo balances to new Sales Orders, then the monetary value
+        of these allocated Credit Memos--plus any Credit Card charges applied
+        to the Order--will display here. If your system is not configured to
+        automatically allocate Credit Memos, then this field will display only
+        the monetary value of any Credit Card charges applied to the Order--if
+        any. The automatic allocation of Credit Memos helps reduce Customer
+        credit balances by ensuring that Customer credits are consumed when
+        new Sales Orders are entered. Any available, open Credit Memos are
+        eligible for allocation. The allocation of available Credit Memos
+        occurs only once--when a Sales Order is saved for the first time.
+        Subsequent saves will not result in additional allocations. Credit
+        Memos which have been allocated to a Sales Order are applied at the
+        point when the Invoice resulting from the Sales Order is posted. Once
+        the full balance of a Credit Memo has been applied, the Credit Memo is
+        then closed. The printed Invoice the Customer receives will indicate
+        whether Credit Memos have been applied. In addition, the total due
+        from the Customer will be automatically adjusted to reflect any
+        applied credits.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The allocation of available Credit Memos occurs only once--when a
+    Sales Order is saved for the first time. Subsequent saves will not result
+    in additional allocations.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Outstanding C/Ms</term>
+      <listitem>
+        <para>Displays the total monetary value of all unallocated Credit
+        Memos for the Customer. If no Credit Memos are allocated to the Sales
+        Order, then the amount displayed here will be equal to the Customer's
+        total open Credit Memo balance. If Credit Memos are allocated to the
+        Order, then the remaining Credit Memo balance will be displayed. The
+        open Credit Memo balance is considered when calculating the
+        outstanding balance due for the Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Authorized CC Payments</term>
+      <listitem>
+        <para>Displays the monetary value of any credit card
+        pre-authorizations for the Order. Credit Card charges may be
+        pre-authorized using the options found under the "Payment" tab. When a
+        Credit Card charge is pre-authorized, the authorization is stored and
+        may later be posted as a completed charge using the A/R
+        Workbench.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Freight Weight</term>
+      <listitem>
+        <para>Displays the combined weight of all Sales Order Line Items.
+        Freight weight represents the sum of an Item's product weight and
+        packaging weight, both of which are defined on the Item master. The
+        per unit freight weight multiplied by the quantity per gives you the
+        Line Item freight weight. The sum of all Line Item freight weights is
+        the combined weight for the Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>freight</primary>
+          <secondary>on sales orders</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>freight charges on</secondary>
+        </indexterm>Freight</term>
+      <listitem>
+        <para>Enter the amount of freight charge to be added to the specified
+        Order. Freight charges may be entered during the creation or
+        modification of a Sales Order--or at the time of shipment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total</term>
+      <listitem>
+        <para>Displays the total amount of the Sales Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Any Sales Order Line Item may be shipped--even if the Item or Item
+    Site in question becomes inactive after the Sales Order has been
+    created.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Outstanding Balance</term>
+      <listitem>
+        <para>Displays the projected total due for the Sales Order. The
+        outstanding balance represents the amount the Customer would owe if
+        all allocated and outstanding Credit Memos and Credit Card
+        pre-authorizations were applied to the Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>At the top of and to the far right of the screen, the following
+  buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLEAR</term>
+      <listitem>
+        <para>Select to clear the contents of the current Sales Order and open
+        a fresh, new Sales Order for Order entry. The Order Number of the
+        Order being cleared will display next to the CLEAR button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Selecting the CLEAR button on the Sales Order header does not delete
+    any information which has been saved previously.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the Sales Order information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Sales Order, returning
+        you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Sales Order Line Item. Mac users
+        may use COMMAND + N to enter a new Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="salesOrderEDIT1">
+        <para>Enables you to edit highlighted Sales Order Line Items. The edit
+        screen is the same as that for creating a new Sales Order Line
+        Item--except that when editing, the fields will contain Sales Order
+        Line Item information. Double-clicking on a Sales Order Line Item will
+        also bring you to the editing screen. Mac users may use COMMAND + E to
+        edit an existing Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem id="salesOrderCLOSE1">
+        <para>Highlight a Sales Order Line Item and then select this button to
+        close the Sales Order Line Item. If the highlighted Line Item is
+        already closed, this button will revert to an OPEN button, which may
+        be used to open the closed Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="salesOrderDELETE1">
+        <para>Highlight a Sales Order Line Item and then select this button to
+        remove the Sales Order Line Item from the list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>RESERVE STOCK</term>
+      <listitem>
+        <para>Highlight a Sales Order Line Item and then select this button to
+        reserve Inventory quantity for the Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>RES. LINE BAL.</term>
+      <listitem>
+        <para>Highlight a Sales Order Line Item and then select this button to
+        reserve Inventory quantity for the remaining Line Item balance.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>shipping</primary>
+          <secondary>issuing stock to</secondary>
+        </indexterm>ISSUE STOCK</term>
+      <listitem id="salesOrderISSUE1STOCK">
+        <para>Highlight a Sales Order Line Item and then select this button to
+        issue quantity to Shipping. This button will not be visible if the
+        system is configured to hide Shipping options at Sales Order
+        entry.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>You may select multiple Line Items for issuing to Shipping by
+    highlighting them using your mouse--or a combination of your mouse and
+    either the SHIFT or CTRL keys.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>ISSUE LINE BAL.</term>
+      <listitem id="salesOrderISSUELINEBAL1">
+        <para>Highlight a Sales Order Line Item and then select this button to
+        issue the balance of the Line Item quantity to Shipping. This button
+        will not be visible if the system is configured to hide Shipping
+        options at Sales Order entry.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the Line Items list enables you to select
+  from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Edit Line</term>
+      <listitem id="salesOrderEDIT1">
+        <para>Enables you to edit highlighted Sales Order Line Items. The edit
+        screen is the same as that for creating a new Sales Order Line
+        Item--except that when editing, the fields will contain Sales Order
+        Line Item information. Double-clicking on a Sales Order Line Item will
+        also bring you to the editing screen. Mac users may use COMMAND + E to
+        edit an existing Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Close Line</term>
+      <listitem id="salesOrderCLOSE1">
+        <para>Highlight a Sales Order Line Item and then select this button to
+        close the Sales Order Line Item. If the highlighted Line Item is
+        already closed, this button will revert to an OPEN button, which may
+        be used to open the closed Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Delete Line</term>
+      <listitem id="salesOrderDELETE1">
+        <para>Highlight a Sales Order Line Item and then select this button to
+        remove the Sales Order Line Item from the list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry id="rightclickShowReservations">
+      <term>Show Reservations</term>
+      <listitem>
+        <para>Show Sales Order Reservations for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry id="rightclickUnreserveStock">
+      <term>Unreserve Stock</term>
+      <listitem>
+        <para>Select to remove Inventory reservations for the specified Sales
+        Order Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry id="rightclickReserveStock">
+      <term>Reserve Stock</term>
+      <listitem>
+        <para>Select to reserve Inventory quantity for the specified Sales
+        Order Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry id="rightclickReserveLineBalance">
+      <term>Reserve Line Balance</term>
+      <listitem>
+        <para>Select to reserve Inventory quantity for the entire Line Item
+        balance.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry id="rightclickReturnStock">
+      <term>Return Stock</term>
+      <listitem>
+        <para>Select to return some or all of the specified Line Item quantity
+        to Inventory.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="salesOrderISSUESTOCK">Issue Stock</term>
+      <listitem id="salesOrderISSUE1STOCK">
+        <para>Highlight a Sales Order Line Item and then select this button to
+        issue quantity to Shipping. This button will not be visible if the
+        system is configured to hide Shipping options at Sales Order
+        entry.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Issue Line Balance</term>
+      <listitem id="salesOrderISSUELINEBAL1">
+        <para>Highlight a Sales Order Line Item and then select this button to
+        issue the balance of the Line Item quantity to Shipping. This button
+        will not be visible if the system is configured to hide Shipping
+        options at Sales Order entry.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry id="xtreewidget.menu.exportcontents">
+      <term><guimenuitem moreinfo="none">Export Contents</guimenuitem></term>
+      <listitem>
+        <para>Export the data displayed on the screen into a plain-text,
+        TAB-delimited file. This file may subsequently be imported into a
+        spreadsheet or other office tool.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The Shipping-related options will not be visible if the system is
+  configured to hide Shipping options at Sales Order entry. Also, if a
+  highlighted Line Item is Closed, the following additional option will be
+  available:</para>
+  <variablelist>
+    <varlistentry id="rightclickOpenLine">
+      <term>Open Line</term>
+      <listitem>
+        <para>Select to re-open the specified Sales Order Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Order Notes added to a Sales Order are used for internal purposes
+  only. To add Notes to a Sales Order, select the "Order Notes" tab at the top
+  of the "Sales Order" screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata />
+        </imageobject>
+        <caption>Return Authorization Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Notes to a Sales Order, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Order Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        general Notes related to the Sales Order. These Notes are for internal
+        use only.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the Order Note.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating an Order Note, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Comments related to a Sales Order, select the "Comments" tab.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata />
+        </imageobject>
+        <caption>Return Authorization Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Comments related to a Sales Order, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>Display lists Comments for the specified Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Comment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Comment and then select this button to reach a
+        read-only view of the Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a Sales Order Comment, select the NEW button. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CommentNew.png" />
+        </imageobject>
+        <caption>Create New Comment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Comment, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Comment and adds it to the list of Order
+        Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="returnAuthorizationItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

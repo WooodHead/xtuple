@@ -1,500 +1,541 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
-   <title>
-   Return Authorization Item
-  </title>
-   <subtitle>returnAuthorizationItem : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/returnAuthorizationItem.png"/>
-            </imageobject>
-            <caption>
-   Return Authorization Item
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_tab</entry>
-               <entry>QTabWidget</entry>
-            </row>
-            <row>
-               <entry>Notes</entry>
-               <entry>_comments</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_comments</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry>Lot/Serial</entry>
-               <entry>_lotserial</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_authorizeLotSerial</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel moreinfo="none">Clear Authorization</guilabel>
-               </entry>
-               <entry>_clearAuthorization</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel moreinfo="none">Authorize Line</guilabel>
-               </entry>
-               <entry>_authorizeLine</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel moreinfo="none">Authorize Al</guilabel>
-               </entry>
-               <entry>_authorizeAll</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel moreinfo="none">Delete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_authls</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>Cost of Returns</entry>
-               <entry>_costofReturns</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_altCostofReturns</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_altSalescatid</entry>
-               <entry>XComboBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel moreinfo="none">From Sales Category:</guilabel>
-               </entry>
-               <entry>_altSalescatidSelected</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel moreinfo="none">Account Number:</guilabel>
-               </entry>
-               <entry>_altAccntidSelected</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_altAccntid</entry>
-               <entry>GLCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_inventoryGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none"/>
-               </entry>
-               <entry>_qtyAuth</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Disposition:</guilabel>
-               </entry>
-               <entry>_dispositionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_authuom</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Reason Code:</guilabel>
-               </entry>
-               <entry>_rsnCodeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Qty. <accel>A</accel>uthorized:</guilabel>
-               </entry>
-               <entry>_qtyAuthLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Qty. Received:</guilabel>
-               </entry>
-               <entry>_qtyReceivedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_itemGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none"/>
-               </entry>
-               <entry>_qtySold</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Inventory Units:</guilabel>
-               </entry>
-               <entry>_invuomLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none"/>
-               </entry>
-               <entry>_invuom</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none"/>
-               </entry>
-               <entry>_qtyReceived</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_rsnCode</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dispostion</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Receiving Whse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Qty. Sold:</guilabel>
-               </entry>
-               <entry>_qtySoldLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Warranty</guilabel>
-               </entry>
-               <entry>_warranty</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_solduom</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none"/>
-               </entry>
-               <entry>_qtyShipped</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Qty. Shipped:</guilabel>
-               </entry>
-               <entry>_qtyReturnedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Line #:</guilabel>
-               </entry>
-               <entry>_authLineNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none"/>
-               </entry>
-               <entry>_orderNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none"/>
-               </entry>
-               <entry>_authNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Auth. #:</guilabel>
-               </entry>
-               <entry>_authNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none"/>
-               </entry>
-               <entry>_lineNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Line #:</guilabel>
-               </entry>
-               <entry>_orderLineNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none"/>
-               </entry>
-               <entry>_orderLineNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Sales Order #:</guilabel>
-               </entry>
-               <entry>_orderNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_taxGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Tax:</guilabel>
-               </entry>
-               <entry>_taxLit</entry>
-               <entry>XURLLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Tax Code:</guilabel>
-               </entry>
-               <entry>_taxCodeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_tax</entry>
-               <entry>CurrCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_taxCode</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_taxType</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Tax Type:</guilabel>
-               </entry>
-               <entry>_taxTypeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_amountGrou</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">...</guilabel>
-               </entry>
-               <entry>_listPrices</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Extended Price:</guilabel>
-               </entry>
-               <entry>_extendedPriceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_extendedPrice</entry>
-               <entry>CurrCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_priceGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Sale Price:</guilabel>
-               </entry>
-               <entry>_salePriceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_listPrice</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_salePrice</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">List Discount %:</guilabel>
-               </entry>
-               <entry>_discountFromListPrcntLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_unitCost</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Unit Cost:</guilabel>
-               </entry>
-               <entry>_unitCostLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">List Price:</guilabel>
-               </entry>
-               <entry>_listPriceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Sale Discount %:</guilabel>
-               </entry>
-               <entry>_discountFromSalePrcntLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_discountFromList</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_discountFromSale</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Net Unit Price:</guilabel>
-               </entry>
-               <entry>_netUnitPriceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_netUnitPrice</entry>
-               <entry>CurrCluster</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+  <title><indexterm significance="normal">
+      <primary>return authorizations</primary>
+      <secondary>adding line items to</secondary>
+    </indexterm>Return Authorization Item</title>
+  <para></para>
+  <para>To add a new Return Authorization Line Item, select the NEW button.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata />
+        </imageobject>
+        <caption>Create New Return Authorization Line Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Sales Order Line Item, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Order #</term>
+      <listitem>
+        <para>Displays the Sales Order Number specified in the "Sales Order"
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Line #</term>
+      <listitem>
+        <para>Displays the Line Item Number for the current Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item you want to sell. The Item
+        list will contain sold Items available for purchase by the specified
+        Customer. The list of available Items may vary from Customer to
+        Customer, depending on how Pricing Schedules are implemented at your
+        site. Once an Item Number is entered, the Inventory Unit of Measure
+        and Item description will automatically appear.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer P/N</term>
+      <listitem>
+        <para>Displays the Customer Part Number (i.e., Item Alias) that
+        corresponds to the Item Number entered in the Item Number field. The
+        Customer Part Number will display only if you enter an Item Alias in
+        the Item Number field. To enter an Item Alias, place the cursor in the
+        Item Number field and then use the keyboard shortcut "CTRL + A". After
+        you have entered a valid Item Alias, hit the TAB key. A list of Items
+        that use the specified Item Alias will be displayed. Select the
+        desired Item from the list. The Item Alias will display as the
+        Customer Part Number. Item Aliases are defined on the Item
+        master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Substitute for</term>
+      <listitem>
+        <para>Optional selection used solely for gathering information related
+        to Sales Order Line Item substitutions. This feature can be used, for
+        example, to gather information about Inventory shortages or Customer
+        first preferences. There is no impact on the system of using this
+        feature. Its function is simply to store information in the database,
+        where it may be accessed for reporting purposes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>warehouses</primary>
+          <secondary>sold from for sales orders</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>selling warehouses for</secondary>
+        </indexterm>Whs.</term>
+      <listitem>
+        <para>Specify the Warehouse the Sales Order Item is sold from. Items
+        may be supplied to Sales Orders from multiple Item Sites. After an
+        Item Number is entered above, the system checks for available Item
+        Sites for the Item. Any Item Sites having the "Sold from" flag set on
+        them will be selectable from this Warehouse list. By default, the Item
+        Site having the highest Ranking will be selected as the first
+        available Warehouse. If more than one Item Site share a Ranking of
+        "1," the Warehouses will be sorted in alphabetical order. Item Site
+        Rankings are set on the Item Site master.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If a preferred Selling Warehouse is specified for the Customer, then
+    that Warehouse will be selected here by default. If the preferred Selling
+    Warehouse is not selected--and you think it should be--verify that the
+    Item Site master for the Line Item in question is marked as a "Sold from"
+    Warehouse.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Qty. Ordered</term>
+      <listitem>
+        <para>Enter the quantity of the specified Item to be ordered. The
+        quantity ordered for sold Items is measured in the Item's Inventory
+        UOM.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The Quantity Ordered for sold Items is based on the Inventory UOM.
+    But the Price is based on the Price UOM. Whenever these two UOMs are not
+    identical, the Extended Price for a Line Item will be based on the
+    following formula:</para>
+    <para>(Qty. Ordered) x (Price/Inv. Ratio) x (Net Unit Price)</para>
+    <para>If for some reason the Prices don"t look correct, check the Item
+    master for the Line Item in question. It may be that the Inventory and
+    Price UOMs do not exist in a 1:1 relationship.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Qty. UOM</term>
+      <listitem>
+        <para>Specify the Unit of Measure to be used when selling the Line
+        Item. Sold Items may be assigned multiple Selling UOMs. These
+        alternate UOMs may be defined on the Item master. If a Line Item has
+        no Selling UOM defined, then the Inventory UOM will be used here by
+        default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Shipped</term>
+      <listitem>
+        <para>Displays the Line Item quantity shipped (if any) to date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cust Discount %</term>
+      <listitem>
+        <para>Specify here and apply any discount for specified Customer for
+        this Sales Order. This is a discount off the regular Customer Price,
+        obtained either from the Customer master or a Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>line item pricing for</secondary>
+        </indexterm>Net Unit Price</term>
+      <listitem>
+        <para>Displays the Unit Price for the Sales Order Item. By default,
+        the system will choose the lower of the following two Prices: A) The
+        most-specific Pricing Schedule Assignment or B) any Sale in effect at
+        the time of Order entry. The specificity of Pricing Schedule
+        Assignments is determined in the following descending order: By
+        Customer Ship-To Address (most specific), by Customer, by Customer
+        Type, by Customer Type pattern, by all Customers. The browse button
+        located to the right of the field leads to a Price List screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>The system can be configured to prevent users from editing the Net
+    Unit Price. If your system is configured that way, the Net Unit Price
+    field will not be editable.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Price UOM</term>
+      <listitem>
+        <para>The Price Unit of Measure is the same as the Selling UOM. If an
+        Item has Selling UOMs defined, then the Item may be sold and priced in
+        these alternate UOMs. If no Selling UOMs are defined, then the
+        Inventory UOM will be used here by default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Extended Price</term>
+      <listitem>
+        <para>Displays the Extended Price. The Extended Price for a Line Item
+        is based on the quantity ordered multiplied by the Net Unit
+        Price.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Scheduled Date</term>
+      <listitem>
+        <para>The scheduled date is the date when the Line Item should be
+        Shipped. The user who enters the Line Item is responsible for
+        determining the scheduled date. After entering the scheduled date, hit
+        the TAB key on your keyboard to display values in the remaining
+        display only fields.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The Sales Order Item having the earliest scheduled date will
+    determine the ship date for the Sales Order.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Promised Date</term>
+      <listitem>
+        <para>Enter the date when you promised delivery of the Line Item. This
+        is an optional field. It will only be displayed on the screen if your
+        system is configured to enable promise dates.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warranty</term>
+      <listitem>
+        <para><remark>findme</remark></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>When entering Sales Orders you have the ability to view current
+  availability for Line Items. You may also create replenishment Orders if
+  they are needed.</para>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>availability of items for</secondary>
+        </indexterm>Availability</term>
+      <listitem>
+        <para>Select to display Availability information for the Sales Order
+        Item in the following categories:</para>
+        <variablelist>
+          <varlistentry>
+            <term>On Hand</term>
+            <listitem>
+              <para>Displays the current Quantity on Hand value.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Allocated</term>
+            <listitem>
+              <para>Displays the quantity allocated to current Sales Orders
+              and/or Work Orders in the system. An Item is considered
+              allocated to a Sales Order if a Sales Order Line Item exists for
+              the Item--and that Line Item has not yet been issued to
+              Shipping. An Item is considered allocated to a Work Order if the
+              Item is a material requirement--and the material has not yet
+              been issued to the Work Order. Once the current Sales Order Line
+              Item is saved, the "Allocated" value will increase by the
+              quantity ordered.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Unallocated</term>
+            <listitem>
+              <para>Displays the Quantity on Hand remaining after allocations
+              have been accounted for, as in: QOH - Allocated Qty. =
+              Unallocated Qty.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>On Order</term>
+            <listitem>
+              <para>If the Sales Order Item is a manufactured Item, the
+              quantity ordered by current Work Orders will be displayed. If
+              the Sales Order Item is a purchased Item, the quantity ordered
+              by current Purchase Orders will be displayed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Available</term>
+            <listitem>
+              <para>Displays the available quantity. Available quantity is
+              determined using the following formula: Unallocated Qty. + On
+              Order Qty. = Available Qty.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Lead Time</term>
+            <listitem>
+              <para>Displays the Item Site Lead Time for the specified Line
+              Item.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <tip>
+          <para>The "Show Availability" feature can be turned on or off by
+          default at the system level. If the feature is turned on, the
+          Availability totals will display only after a Scheduled Date has
+          been entered for the Line Item.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>work orders generated by</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>work orders</primary>
+          <secondary>generated by sales orders</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>purchase requests</primary>
+          <secondary>generated by sales orders</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>purchase requests generated by</secondary>
+        </indexterm>Create Work Order</term>
+      <listitem>
+        <para>If the Line Item is a manufactured Item, select this option to
+        automatically create a Work Order for the specified quantity. For
+        make-to-order manufactured Items, this option will be selected
+        automatically. A Work Order will be created to meet the Sales Order
+        demand once you save the Line Item to the Order. An Item is designated
+        as make-to-order if the "Stocked at" flag on the Item Site master is
+        not selected. A Work Order created automatically from a Sales Order
+        Line Item will assume the same Order Number as the Sales Order the
+        Line Item is associated with--even if that Order Number has already
+        been used by a previous Work Order.</para>
+        <note>
+          <para>For purchased Items, the option "Create Purchase Request" will
+          appear instead. The displayed fields will resemble the fields shown
+          when "Create Work Order" is visible. One difference is you will be
+          given the option to override the purchase Price for the Line Item.
+          If used, this one-time override will replace any Item Source
+          Price(s) when the Purchase Request is converted to a Purchase Order
+          Line Item.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>W/O Qty.</term>
+      <listitem>
+        <para>The quantity ordered by the Sales Order Line Item will display
+        here. If the Line Item is a purchased Item, the option "P/R Qty" will
+        appear instead.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>W/O Due Date</term>
+      <listitem>
+        <para>The scheduled date of the Sales Order Line Item will display
+        here. If the Line Item is a purchased Item, the option "P/R Due Date"
+        will appear instead.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>warehouses</primary>
+          <secondary>for make-to-order</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>supplying warehouses and</secondary>
+        </indexterm>Supplying Whs.</term>
+      <listitem>
+        <para>Specify the Warehouse a corresponding Work Order would be
+        supplied from. Work Orders may only be created for manufactured Items
+        having a supplying Warehouse. Warehouses designated as "Supplied at"
+        Warehouses in the Item Site master for an Item are considered
+        supplying Warehouses. If no supplying Warehouse exists for an Item, a
+        Work Order may not be created for the Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen without creating a new Sales Order Line Item,
+        returning you to the Sales Order header.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the new Sales Order Line Item and adds it to the list of
+        Sales Order Line Items. If "Create Work Order" is specified, the
+        associated Work Order will also be created.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PREVIOUS</term>
+      <listitem>
+        <para>Select to view previous Line Items associated with the Sales
+        Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Select to create a new Sales Order Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL ITEM</term>
+      <listitem>
+        <para>Select to cancel the current Sales Order Line Item. Records of
+        canceled Line Items will be retained for informational purposes. To
+        view canceled Line Items associated with a Sales Order, select the
+        "Show Canceled Line Items" option on the Sales Order header's "Line
+        Items tab.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Costs or adjust Tax information for a Sales Order Line Item,
+  select the "Detail" tab at the bottom of the screen, as shown below:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata />
+        </imageobject>
+        <caption>Return Authorization Line Item Detail</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing Costs or adjusting Tax information for a Sales Order Line
+  Item, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Unit Cost (Inv. UOM)</term>
+      <listitem>
+        <para>Displays the Standard Cost per unit based on the Inventory Unit
+        of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>List Price</term>
+      <listitem>
+        <para>Displays the sales List Price per unit.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer Price</term>
+      <listitem>
+        <para>Displays the Price given to the specified Customer. Special
+        Customer Prices can be set for individual Customers or Customer Groups
+        by using a Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>discount percentages for</secondary>
+        </indexterm>List Discount %</term>
+      <listitem>
+        <para>Displays the percentage discount off the List Price. Indicates
+        the difference between the List Price for an Item and the Net Unit
+        Price as a percentage. This is the margin between the Net Unit Price
+        and the List Price.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>The following Tax options are available, should you need to
+        override the Tax Selection settings for the Line Item:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Tax Type</term>
+            <listitem>
+              <para>Specify the Tax Type for the Sales Order Item. By default,
+              the Item's Tax Type corresponding to the Sales Order's Tax
+              Authority will be presented here. The link between Tax Types and
+              Tax Authorities is made on the Item master. If the Item master
+              does not have a Tax Type for the Sales Order's Tax Authority,
+              then no Tax will be charged.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Tax Code</term>
+            <listitem>
+              <para>Specify the Tax Code to be applied to the Sales Order
+              Item. By default, the Tax Code specified in the Tax Selection
+              matrix will be displayed here. For a Tax Code to be used, the
+              matrix must have an entry which matches both the Item's Tax Type
+              definition and the Tax Authority specified on the Sales Order
+              header. If no Tax Selection match exists, then no Tax Code will
+              be used--meaning no Tax will be charged.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <tip>
+          <para>The relationship between Tax Authorities, Tax Types, and Tax
+          Codes is established in the Tax Selection matrix.</para>
+        </tip>
+        <variablelist>
+          <varlistentry>
+            <term>Tax</term>
+            <listitem>
+              <para>Displays the amount of Tax to be charged for the Sales
+              Order Line Item quantity. Sales Tax is calculated at the Sales
+              Order Line Item level. To get a detailed view of the Tax
+              calculation, click on the Tax link using your mouse.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To enter Notes related to a Sales Order Line Item, select the "Notes"
+  tab at the bottom of the screen, as shown below:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata />
+        </imageobject>
+        <caption>Return Authorization Line Item Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Notes related to a Sales Order Line Item, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        general Notes related to the Sales Order Line Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If a Sales Order Item is marked to create a Work Order, the
+    Production Notes for the created Work Order will contain the Sales Order
+    Number, the Customer Name, and any additional Sales Order Line Item
+    Notes.</para>
+  </tip>
+  <para>To define an alternate Cost of Sales Account for a Sales Order Line
+  Item, select the "Accounting" tab at the bottom of the screen, as shown
+  below:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata />
+        </imageobject>
+        <caption>Return Authorization Line Item Accounting</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When defining an alternate Cost of Sales Account for a Sales Order
+  Line Item, you are presented with the following options:</para>
+  <para><remark>findme</remark></para>
+  <para></para>
 </section>
