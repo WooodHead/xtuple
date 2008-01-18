@@ -3,6 +3,27 @@ DECLARE
   _cmnttypeid INTEGER;
 BEGIN
 
+IF (TG_OP = ''INSERT'') THEN
+       
+--       Insert Event Start
+       
+          INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
+                          evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number )
+          SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
+                     ''P'', NEW.poitem_id, itemsite_warehous_id, (pohead_number || ''-'' || NEW.poitem_linenumber || '': '' || item_number)
+          FROM evntnot, evnttype, itemsite, item, pohead
+          WHERE ( (evntnot_evnttype_id=evnttype_id)
+            AND (evntnot_warehous_id=itemsite_warehous_id)
+            AND (itemsite_id=NEW.poitem_itemsite_id)
+            AND (itemsite_item_id=item_id)
+            AND (NEW.poitem_pohead_id=pohead_id)
+            AND (NEW.poitem_duedate <= (CURRENT_DATE + itemsite_eventfence))
+            AND (evnttype_name=''POitemCreate'') );
+
+--       Insert Event End
+
+END IF;
+
   IF ( SELECT (metric_value=''t'')
        FROM metric
        WHERE (metric_name=''POChangeLog'') ) THEN
