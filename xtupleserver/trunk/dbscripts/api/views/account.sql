@@ -129,7 +129,8 @@ UPDATE crmacct SET
           NEW.secondary_contact_email,
           NULL,
           NEW.secondary_contact_job_title),
-    crmacct_notes=NEW.notes;
+    crmacct_notes=NEW.notes
+  WHERE (crmacct_number=OLD.account_number);
 
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.account DO INSTEAD
