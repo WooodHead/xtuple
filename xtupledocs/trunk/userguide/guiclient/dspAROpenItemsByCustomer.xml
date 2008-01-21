@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section532515">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>customers</primary>
       <secondary>open items by</secondary>
     </indexterm> <indexterm significance="normal">
@@ -14,16 +14,14 @@
     </indexterm>Open Items by Customer</title>
   <para>To view A/R open items by Customer, select the "Open Items by
   Customer" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspAROpenItemsByCustomer.png"/>
+          <imagedata fileref="images/dspAROpenItemsByCustomer.png" />
         </imageobject>
         <caption>A/R Open Items by Customer</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>If a Customer's open Accounts Receivable (A/R) balance exceeds their
     Credit Limit, the Customer will automatically be placed on Credit Warning.
@@ -52,6 +50,19 @@
       <listitem>
         <para>A/R open items having due dates on and before this date will be
         displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>As of Date</term>
+      <listitem>
+        <para>Specify the date you want the A/R open items to be relative to.
+        The report will include any A/R items which were open--that is, not
+        yet paid--as of the specified date. This feature provides
+        "point-in-time" open balance functionality.</para>
+        <note>
+          <para>The payment date used as a reference for the "As of Date"
+          field is the G/L distribution date, not the posting date.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -89,13 +100,21 @@
   <para>Right-clicking on an Item in the A/R open items list enables you to
   select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/2)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickView)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/3/2/2)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickView)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>If you right-click on an Invoice, the following additional option will
   be available:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/11/2/10)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/11/2/10)" />
   </variablelist>
 </section>

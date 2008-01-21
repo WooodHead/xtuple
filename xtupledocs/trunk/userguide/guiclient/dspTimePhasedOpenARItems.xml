@@ -52,13 +52,16 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>As of</term>
+      <term>As of Date</term>
       <listitem>
-        <para>Enter a date to use as the relative starting point for the aging
-        report.</para>
-        <para>By default, the current date is entered as the relative date.
-        However, you may change the relative date to a date of your
-        choosing.</para>
+        <para>Specify the date you want the A/R open items to be relative to.
+        The report will include any A/R items which were open--that is, not
+        yet paid--as of the specified date. This feature provides
+        "point-in-time" open balance functionality.</para>
+        <note>
+          <para>The payment date used as a reference for the "As of Date"
+          field is the G/L distribution date, not the posting date.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -90,8 +93,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_Disp_arAgingCalendar.png"
-                     />
+          <imagedata fileref="images/AR_Disp_arAgingCalendar.png" />
         </imageobject>
         <caption>Custom A/R Aging Calendar</caption>
       </mediaobject>
