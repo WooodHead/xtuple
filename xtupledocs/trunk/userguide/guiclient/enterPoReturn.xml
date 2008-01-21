@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520506">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>returns</primary>
       <secondary>entering at shipping</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>shipping</primary>
       <secondary>entering of returns</secondary>
-    </indexterm>Enter Return</title>
-  <para>Returns are used in the event that Purchase Order Items need to be
-  returned to a Vendor. To enter a Return, select the "Enter Return" option.
-  The following screen will appear:</para>
-  <para>
-<screenshot>
+    </indexterm>Purchase Order Return</title>
+  <para>Purchase Order Returns are used in the event that Purchase Order Items
+  need to be returned to a Vendor, as shown in the following
+  screen:<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/enterPoReturn.png"/>
+          <imagedata fileref="images/enterPoReturn.png" />
         </imageobject>
         <caption>Enter Purchase Order Return</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>Privileged users will be given the option to generate an A/P Credit
     Memo in the amount of the Return when the Return is posted. This option is
@@ -31,8 +28,8 @@
     closed at the time of a Return--then the Return may be processed normally
     from the "Uninvoiced Receipts and Returns" screen.</para>
   </tip>
-  <para>When entering a Return, you are presented with the following
-  options:</para>
+  <para>When entering a Purchase Order Return, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>P/O #</term>
@@ -114,5 +111,7 @@
       </indexterm>Multiple Location Control (MLC) Item, you will be prompted
     to specify the Location you want to issue the stock from.</para>
   </note>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="enterPoitemReturn.xml" xpointer="element(/1)"/>
+  <xi:include href="enterPoitemReturn.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

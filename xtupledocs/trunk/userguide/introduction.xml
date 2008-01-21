@@ -74,8 +74,7 @@
       <para><screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/INTRO_loginScreen.png"
-                         />
+              <imagedata fileref="images/INTRO_loginScreen.png" />
             </imageobject>
             <caption>Log In Screen</caption>
           </mediaobject>
@@ -160,8 +159,7 @@
       <para><screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/INTRO_loginOptions.png"
-                         />
+              <imagedata fileref="images/INTRO_loginOptions.png" />
             </imageobject>
             <caption>Login Options</caption>
           </mediaobject>
@@ -269,11 +267,9 @@
       <para><screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/INTRO_appDesktop.png"
-                         />
+              <imagedata fileref="images/INTRO_appDesktop.png" />
             </imageobject>
-            <caption>Main xTuple Application Desktop -
-            Non-Neo Mode</caption>
+            <caption>Main xTuple Application Desktop - Non-Neo Mode</caption>
           </mediaobject>
         </screenshot></para>
       <note>
@@ -459,8 +455,7 @@
       <para><screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/INTRO_browseButton.png"
-                         />
+              <imagedata fileref="images/INTRO_browseButton.png" />
             </imageobject>
             <caption>Browse Button</caption>
           </mediaobject>
@@ -475,8 +470,7 @@
       <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/INTRO_browseCallout.png"
-                         />
+              <imagedata fileref="images/INTRO_browseCallout.png" />
             </imageobject>
             <caption>Browse Button Detail</caption>
           </mediaobject>
@@ -552,11 +546,9 @@
       <para><screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/INTRO_bomRightClick.png"
-                         />
+              <imagedata fileref="images/INTRO_bomRightClick.png" />
             </imageobject>
-            <caption>Bill of Materials with Right-Click
-            Detail</caption>
+            <caption>Bill of Materials with Right-Click Detail</caption>
           </mediaobject>
         </screenshot></para>
       <para>As you can see, right-clicking on a component Item in the Bill of
@@ -608,11 +600,10 @@
       <para><screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/INTRO_colMemory.png"
-                         />
+              <imagedata fileref="images/INTRO_colMemory.png" />
             </imageobject>
-            <caption>Typical Report Screen With Column
-            Memory Options</caption>
+            <caption>Typical Report Screen With Column Memory
+            Options</caption>
           </mediaobject>
         </screenshot></para>
       <note>
@@ -660,6 +651,54 @@
       need the Username in the G/L Transactions screen, simply uncheck the
       Username row in the list. The screen will only display columns which
       have a check mark next to them in the column configuration list.</para>
+    </section>
+    <section>
+      <title><indexterm significance="normal">
+          <primary>screens</primary>
+          <secondary>size remembered for</secondary>
+        </indexterm>Screen Position/Size Memory</title>
+      <para>In addition to the column width memory available on many screens,
+      the system also gives you the ability to specify a default screen size
+      and position on a screen-by-screen basis. The controls for the screen
+      position and size memory are located under the Windows menu, as shown in
+      the following screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_screenMemory.png" />
+            </imageobject>
+            <caption>Setting Screen Position/Size Memory</caption>
+          </mediaobject>
+        </screenshot></para>
+      <note>
+        <para>Unless you specify otherwise, the system will always remember
+        the size of a screen --and also the position where the screen was
+        located--when you last used it.</para>
+      </note>
+      <para>When opening the Windows menu to set your screen position or size,
+      you are presented with the following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Remember Position</term>
+          <listitem>
+            <para>Select to have the system remember the position of the
+            specified screen. If selected, the system will remember the
+            position of the screen where it was last located. Un-selecting
+            this option means the screen position will not be remembered--and
+            the default position will be used instead.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Remember Size</term>
+          <listitem>
+            <para>Select to have the system remember the size of the specified
+            screen. If selected, the system will remember the size of the
+            screen where it was last located. Un-selecting this option means
+            the screen size will not be remembered--and the default size will
+            be used instead.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
     </section>
     <section id="Section483123">
       <title><indexterm significance="normal">
@@ -733,8 +772,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="images/INTRO_CTRL-L.png"
-                           />
+                <imagedata fileref="images/INTRO_CTRL-L.png" />
               </imageobject>
               <caption>Item Lookup (CTRL + L)</caption>
             </mediaobject>
@@ -752,11 +790,9 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="images/INTRO_CTRL-A.png"
-                           />
+                <imagedata fileref="images/INTRO_CTRL-A.png" />
               </imageobject>
-              <caption>Item Alias Lookup (CTRL +
-              A)</caption>
+              <caption>Item Alias Lookup (CTRL + A)</caption>
             </mediaobject>
           </screenshot></para>
         <variablelist>
@@ -775,8 +811,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="images/INTRO_CTRL-S.png"
-                           />
+                <imagedata fileref="images/INTRO_CTRL-S.png" />
               </imageobject>
               <caption>Searchable List (CTRL + S)</caption>
             </mediaobject>
@@ -829,7 +864,7 @@
         display with the following shortcut: ALT + W.</para>
       </section>
       <section id="Section474757">
-        <title id="Anchor73705"> <indexterm significance="normal">
+        <title id="Anchor73705"><indexterm significance="normal">
             <primary>formats</primary>
             <secondary>related to dates</secondary>
           </indexterm> <indexterm significance="normal">
@@ -941,8 +976,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="images/INTRO_toolbarMenu.png"
-                           />
+                <imagedata fileref="images/INTRO_toolbarMenu.png" />
               </imageobject>
               <caption>Toolbar Buttons</caption>
             </mediaobject>
@@ -967,8 +1001,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_itemSites.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_itemSites.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -979,8 +1012,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_dspInventoryAvailabilityByPlannerCode.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_dspInventoryAvailabilityByPlannerCode.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -992,8 +1024,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_itemAvailabilityWorkbench.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_itemAvailabilityWorkbench.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1004,8 +1035,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_items.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_items.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1016,8 +1046,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_boms.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_boms.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1028,8 +1057,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_boos.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_boos.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1040,8 +1068,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_runMrpByPlannerCode.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_runMrpByPlannerCode.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1052,8 +1079,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_dspPlannedOrdersByPlannerCode.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_dspPlannedOrdersByPlannerCode.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1064,8 +1090,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_shopFloorWorkbench.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_shopFloorWorkbench.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1076,8 +1101,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_dspWoScheduleByPlannerCode.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_dspWoScheduleByPlannerCode.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1088,8 +1112,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_listUnpostedPo.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_listUnpostedPo.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1100,8 +1123,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_dspPurchaseReqByPlannerCode.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_dspPurchaseReqByPlannerCode.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1112,8 +1134,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_customerInformationWorkbench.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_customerInformationWorkbench.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1124,8 +1145,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_listOpenSalesOrders.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_listOpenSalesOrders.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1136,8 +1156,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_uninvoicedShipments.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_uninvoicedShipments.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1148,8 +1167,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_billingSelections.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_billingSelections.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1160,8 +1178,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_dspSummarizedBacklogByWhse.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_dspSummarizedBacklogByWhse.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1172,8 +1189,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_issueStockToShipping.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_issueStockToShipping.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1184,8 +1200,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_postReceipts.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_postReceipts.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1196,8 +1211,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_accounts.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_accounts.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1208,8 +1222,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_contacts.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_contacts.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1220,8 +1233,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_incidents.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_incidents.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1232,8 +1244,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_toDoList.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_toDoList.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1244,8 +1255,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_projects.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_projects.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1256,8 +1266,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_listUnpostedVouchers.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_listUnpostedVouchers.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1268,8 +1277,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_selectPayments.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_selectPayments.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1280,8 +1288,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_prepareCheckRun.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_prepareCheckRun.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1292,8 +1299,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_viewCheckRun.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_viewCheckRun.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1304,8 +1310,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_apAging.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_apAging.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1316,8 +1321,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_unpostedInvoices.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_unpostedInvoices.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1328,8 +1332,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_arWorkbench.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_arWorkbench.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1340,8 +1343,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_editCashReceipts.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_editCashReceipts.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1352,8 +1354,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_arAging.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_arAging.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1364,8 +1365,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_journalEntries.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_journalEntries.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1376,8 +1376,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_bankReconciliation.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_bankReconciliation.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1388,8 +1387,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_viewFinancialReport.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_viewFinancialReport.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1400,8 +1398,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_viewTrialBalance.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_viewTrialBalance.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
@@ -1412,8 +1409,7 @@
                 <entry><para> <screenshot>
                     <mediaobject>
                       <imageobject>
-                        <imagedata fileref="images/TOOLS_dspEvents.png"
-                                   />
+                        <imagedata fileref="images/TOOLS_dspEvents.png" />
                       </imageobject>
                     </mediaobject>
                   </screenshot> </para></entry>
