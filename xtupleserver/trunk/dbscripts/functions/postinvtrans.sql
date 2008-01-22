@@ -2,14 +2,21 @@ CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
                                          TEXT, TEXT, TEXT, TEXT, TEXT,
                                          INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS '
 BEGIN
-  RETURN postInvTrans($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, CURRENT_TIMESTAMP);
+  RETURN postInvTrans($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, NULL, CURRENT_TIMESTAMP);
 END;
 ' LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
+                                         TEXT, TEXT, TEXT, TEXT, TEXT,
+                                         INTEGER, INTEGER, INTEGER[]) RETURNS INTEGER AS '
+BEGIN
+  RETURN postInvTrans($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, NULL, $11, CURRENT_TIMESTAMP);
+END;
+' LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
                                          TEXT, TEXT, TEXT, TEXT, TEXT,
-                                         INTEGER, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS '
+                                         INTEGER, INTEGER, INTEGER, INTEGER[], TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS '
 DECLARE
   pItemsiteid	ALIAS FOR $1;
   pTransType	ALIAS FOR $2;
@@ -22,6 +29,8 @@ DECLARE
   pDebitid	ALIAS FOR $9;
   pCreditid	ALIAS FOR $10;
   pItemlocSeries ALIAS FOR $11;
+  pItemlocSeriesList ALIAS FOR $12;
+  _timestamp	 TIMESTAMP WITH TIME ZONE := $13;
   _creditid	 INTEGER;
   _debitid	 INTEGER;
   _glreturn	 INTEGER;
@@ -29,11 +38,14 @@ DECLARE
   _r		 RECORD;
   _sense	 INTEGER;	-- direction in which to adjust inventory QOH
   _t		 RECORD;
-  _timestamp	 TIMESTAMP WITH TIME ZONE := $12;
   _xferwhsid	 INTEGER;
+  _distCounter NUMERIC;
+  _result NUMERIC;
 
 BEGIN
 
+  _distCounter := 0;
+  
   SELECT stdCost(itemsite_item_id) AS cost,
 	 itemsite_warehous_id,
          ( (item_type IN (''R'',''J'')) OR (itemsite_controlmethod = ''N'') ) AS nocontrol,
@@ -42,6 +54,12 @@ BEGIN
   FROM itemsite, item
   WHERE ( (itemsite_item_id=item_id)
     AND  (itemsite_id=pItemsiteid) );
+    
+  IF ( ((_r.lotserial) OR (_r.loccntrl)) 
+    AND (pItemlocSeries IS NULL )
+    AND (pItemlocSeriesList IS NULL) ) THEN
+    RAISE EXCEPTION ''Itemsite is lot, serial or location controlled, but no ditribution parameters were passed.'';
+  END IF;
 
   --  Post the Inventory Transactions
   IF (NOT _r.nocontrol) THEN
@@ -120,9 +138,9 @@ BEGIN
     SET itemsite_qtyonhand = (itemsite_qtyonhand + (_sense * pQty))
     WHERE (itemsite_id=pItemsiteid);
 
-    --  Distribute this if this itemsite is controlled
+    --  Distribute this if this itemsite is controlled (old way w/ no cancel option)
     -- what happens in TS case?
-    IF ( (_r.lotserial OR _r.loccntrl) AND (pItemlocSeries > 0) ) THEN
+    IF ( (_r.lotserial OR _r.loccntrl) AND (COALESCE(pItemlocSeries,0) > 0) ) THEN
       INSERT INTO itemlocdist
       ( itemlocdist_itemsite_id, itemlocdist_source_type,
         itemlocdist_reqlotserial,
@@ -135,9 +153,39 @@ BEGIN
 	     ((pQty * _sense) < 0),
              '''', endOfTime(),
              (_sense * pQty),
-             pItemlocSeries, _invhistid;
-    END IF;
+             pItemlocSeries, _invhistid;    
+             
+ -- Handle Location/Lot/Serial Distribution if applicable
+    ELSIF (pItemlocSeriesList[1] != -1) THEN  -- Negative one on array means force the trans w/o distribution
+      IF  ( (_r.lotserial OR _r.loccntrl) ) THEN
+        IF (_r.loccntrl) THEN -- location controled so the array is a location series to process
+          FOR _i IN 1..ARRAY_UPPER(pItemlocSeriesList,1)
+          LOOP
+            UPDATE itemlocdist SET itemlocdist_invhist_id=_invhistid
+            WHERE (itemlocdist_id=pItemlocSeriesList[_i]);
+ 
+            UPDATE itemlocdist SET itemlocdist_invhist_id=_invhistid
+            WHERE (itemlocdist_itemlocdist_id=pItemlocSeriesList[_i]);
 
+            SELECT distributeToLocations(pItemlocSeriesList[_i]) INTO _result;
+
+            _distCounter := _distCounter + _result;
+          END LOOP;
+        ELSE -- Must be lot serial w/o location, so just process the series
+            UPDATE itemlocdist SET itemlocdist_invhist_id=_invhistid
+            WHERE (itemlocdist_series = pItemlocSeriesList[1]);
+
+            SELECT distributeItemlocSeries(pItemlocSeriesList[1]) INTO _result;
+
+            _distCounter := _distCounter + _result;  
+        END IF;    
+      END IF;
+
+      IF (_distCounter != pQty) THEN
+        RAISE EXCEPTION ''Distribution qty not equal to transaction quantity.'';
+      END IF;
+    END IF;   
+    
     IF (pCreditid IN (SELECT accnt_id FROM accnt)) THEN
       _creditid = pCreditid;
     ELSE
