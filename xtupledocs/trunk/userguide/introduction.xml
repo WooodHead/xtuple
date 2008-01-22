@@ -17,11 +17,10 @@
   </itemizedlist>
   <para>Since both applications share a common code base, it makes sense that
   they also share a User Guide. In some cases, OpenMFG contains features
-  PostBooks does not. And so, to indicate these differences, we have placed
-  OpenMFG markers in the User Guide.</para>
-  <para role="openmfg">The OpenMFG markers look like this:</para>
-  <para>Whenever you see one of these markers, you"ll know the functionality
-  you"re reading about exists in OpenMFG but not in PostBooks.</para>
+  PostBooks does not. And so, to highlight these differences, we have placed
+  OpenMFG-only indicators in the User Guide. Whenever you see one of these
+  markers, you"ll know the functionality you"re reading about exists in
+  OpenMFG but not in PostBooks.</para>
   <para>For more information on the differences between the xTuple
   Applications, including licensing options, please visit the community
   homepage at www.xtuple.org.</para>
@@ -591,6 +590,9 @@
       <title><indexterm significance="normal">
           <primary>columns</primary>
           <secondary>size remembered for</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>memory</primary>
+          <secondary>for columns</secondary>
         </indexterm>Column Memory</title>
       <para>The system gives you the ability to customize the column layout of
       screens--and once customized, the columns will remember your preferences
@@ -654,11 +656,45 @@
     </section>
     <section>
       <title><indexterm significance="normal">
+          <primary>checkboxes</primary>
+          <secondary>setting for remembered</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>memory</primary>
+          <secondary>for checkboxes</secondary>
+        </indexterm>Checkbox Memory</title>
+      <para>On many screens where there are checkbox options (i.e., parameters
+      used for filtering data displayed on a screen), the system will remember
+      your preferred settings. An example of this functionality is shown in
+      the following screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_checkBoxMemory.png" />
+            </imageobject>
+            <caption>Checkbox Memory</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>A shaded bullet symbol indicates whether a checkbox supports the
+      memory feature. In our example, the "Show All Unvouchered P/Os" checkbox
+      has a shaded bullet next to it. This means your preferences for this
+      checkbox will be remembered by the system. If you select the checkbox,
+      then the checkbox will remain selected the next time you open the
+      screen. Should you decide you don't want the checkbox selected, simply
+      de-select it. The next time you open the screen the system will remember
+      you prefer the checkbox not selected.</para>
+    </section>
+    <section>
+      <title><indexterm significance="normal">
           <primary>screens</primary>
           <secondary>size remembered for</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>memory</primary>
+          <secondary>for screen sizes</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>memory</primary>
+          <secondary>for screen position</secondary>
         </indexterm>Screen Position/Size Memory</title>
-      <para>In addition to the column width memory available on many screens,
-      the system also gives you the ability to specify a default screen size
+      <para>The system gives you the ability to specify a default screen size
       and position on a screen-by-screen basis. The controls for the screen
       position and size memory are located under the Windows menu, as shown in
       the following screen:</para>
