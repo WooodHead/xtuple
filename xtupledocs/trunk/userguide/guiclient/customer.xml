@@ -12,8 +12,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custCreateNew.png"
-                     />
+          <imagedata fileref="images/customer.png" />
         </imageobject>
         <caption>Create New Customer</caption>
       </mediaobject>
@@ -215,7 +214,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custTaxReg.png" />
+          <imagedata fileref="images/customer_tax.png" />
         </imageobject>
         <caption>Customer Tax Information</caption>
       </mediaobject>
@@ -291,11 +290,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custTaxRegNew.png"
-                     />
+          <imagedata fileref="images/taxRegistration.png" />
         </imageobject>
-        <caption>Customer Tax Registration
-        Information</caption>
+        <caption>Tax Registration Information</caption>
       </mediaobject>
     </screenshot></para>
   <para><indexterm significance="normal">
@@ -359,7 +356,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custCredit.png" />
+          <imagedata fileref="images/customer_credit.png" />
         </imageobject>
         <caption>Customer Credit Terms</caption>
       </mediaobject>
@@ -518,8 +515,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custAddresses.png"
-                     />
+          <imagedata fileref="images/customer_tabAddresses.png" />
         </imageobject>
         <caption>Customer Addresses</caption>
       </mediaobject>
@@ -726,6 +722,19 @@
         </variablelist>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <para></para>
+  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customer_tabShipto.png" />
+        </imageobject>
+        <caption>Ship-To Addresses</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para></para>
+  <variablelist>
     <varlistentry>
       <term>Ship-To Addresses</term>
       <listitem>
@@ -734,6 +743,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para></para>
   <note>
     <para>You can maintain multiple Ship-To Addresses for your Customers.
     Ship-To Addresses are selected at the point of Sales Order entry.</para>
@@ -805,8 +815,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_ship-ToCreate.png"
-                     />
+          <imagedata fileref="images/SO_MI_ship-ToCreate.png" />
         </imageobject>
         <caption>Create New Ship-To Address</caption>
       </mediaobject>
@@ -1063,7 +1072,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custNotes.png" />
+          <imagedata fileref="images/customer_tabNotes.png" />
         </imageobject>
         <caption>Add Customer Notes</caption>
       </mediaobject>
@@ -1118,7 +1127,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custChar.png" />
+          <imagedata fileref="images/customer_tabCharacteristics.png" />
         </imageobject>
         <caption>Customer Characteristics</caption>
       </mediaobject>
@@ -1172,11 +1181,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/characteristicAssignmentCustomer.png"
-                     />
+          <imagedata fileref="images/characteristicAssignmentCustomer.png" />
         </imageobject>
-        <caption>Create New Customer
-        Characteristic</caption>
+        <caption>Create New Customer Characteristic</caption>
       </mediaobject>
     </screenshot></para>
   <para>When creating a new Customer Characteristic, you are presented with
@@ -1220,7 +1227,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custComment.png" />
+          <imagedata fileref="images/customer_tabComments.png" />
         </imageobject>
         <caption>Customer Comments</caption>
       </mediaobject>
@@ -1298,10 +1305,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custSOEDI.png" />
+          <imagedata fileref="images/customer_soEdi.png" />
         </imageobject>
-        <caption>Add Customer Sales Order EDI
-        Information</caption>
+        <caption>Sales Order EDI Information</caption>
       </mediaobject>
     </screenshot></para>
   <para>When setting up the Sales Order EDI preferences for a Customer, you
@@ -1415,10 +1421,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custInvEDI.png" />
+          <imagedata fileref="images/customer_tabEDI.png" />
         </imageobject>
-        <caption>Add Customer Invoice EDI
-        Information</caption>
+        <caption>Invoice EDI Information</caption>
       </mediaobject>
     </screenshot></para>
   <note>
@@ -1548,7 +1553,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custCC.png" />
+          <imagedata fileref="images/customer_tabCreditCards.png" />
         </imageobject>
         <caption>Customer Credit Cards</caption>
       </mediaobject>

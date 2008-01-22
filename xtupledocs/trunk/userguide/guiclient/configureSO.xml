@@ -500,9 +500,19 @@
   with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Shipping Form</term>
+      <term>Customer Type</term>
       <listitem>
-        <para>Specify a default Shipping Form.</para>
+        <para>Specify a default Customer Type to be used whenever new
+        Customers are created. The default Customer Type may be changed when
+        entering or editing new Customers.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Rep</term>
+      <listitem>
+        <para>Specify a default Sales Representative to be used whenever new
+        Customers are created. The Sales Rep may be changed when entering or
+        editing new Customers.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -512,20 +522,26 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Shipping Form</term>
+      <listitem>
+        <para>Specify a default Shipping Form.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Terms</term>
+      <listitem>
+        <para>Specify the default billing Terms to be used whenever new
+        Customers are created. The default Terms may be changed when entering
+        or editing new Customers.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Balance Method</term>
       <listitem>
         <para>Specify a default procedure for handling cash receipts from
         Customers. This notation is informational only. Balance Forward:
         Select to apply cash receipts to the Customer's current balance
         due.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Customer Type</term>
-      <listitem>
-        <para>Specify a default Customer Type to be used whenever new
-        Customers are created. The default Customer Type may be overridden by
-        users having the appropriate privileges.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
