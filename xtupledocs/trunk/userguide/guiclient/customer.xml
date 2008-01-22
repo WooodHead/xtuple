@@ -32,17 +32,17 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Customer Type</term>
-      <listitem>
-        <para>Specify the Customer Type the Customer belongs to.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Customer Name</term>
       <listitem>
         <para>Enter the name of the Customer or company you are doing business
         with. This field should not to be confused with the contact name of an
         individual at the company.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer Type</term>
+      <listitem>
+        <para>Specify the Customer Type the Customer belongs to.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -75,31 +75,42 @@
       <term>Defaults</term>
       <listitem>
         <para>Specify one of the available Shipping-related defaults:</para>
-        <para>Ship Via: Specify the default Ship Via to be used for the
-        Customer. You may enter a free-form Ship Via simply by typing the name
-        of the Ship Via into the field.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Ship Via</term>
+            <listitem>
+              <para>Specify the default Ship Via to be used for the Customer.
+              You may enter a free-form Ship Via simply by typing the name of
+              the Ship Via into the field.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipping Form</term>
+            <listitem>
+              <para>Specify the default Shipping Form to be used for the
+              Customer.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipping Charges</term>
+            <listitem>
+              <para>Specify the default Shipping Charges to be used for the
+              Customer.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>The system supports up-to-date shipment tracking with links to the
-    websites of many leading shipping companies (i.e., "Ship Vias").</para>
-  </tip>
-  <itemizedlist>
-    <listitem>
-      <para>Shipping Form: Specify the default Shipping Form to be used for
-      the Customer.</para>
-    </listitem>
-    <listitem>
-      <para>Shipping Charges: Specify the default Shipping Charges to be used
-      for the Customer.</para>
-    </listitem>
-  </itemizedlist>
   <note>
     <para>Shipping defaults specified on the Customer master will transfer to
     the Sales Order header when a new Sales Order is entered for a
     Customer.</para>
   </note>
+  <tip>
+    <para>The system supports up-to-date shipment tracking with links to the
+    websites of many leading shipping companies (i.e., "Ship Vias").</para>
+  </tip>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
@@ -405,6 +416,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Default Currency</term>
+      <listitem>
+        <para>Specify the Currency to be used when transacting business with
+        the Customer. With the system's multi-currency support, you can do
+        business with Customer's in their Currency, using Exchange Rates to
+        normalize transactions in your base Currency.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Credit Limit</term>
       <listitem>
         <para>Specify the credit ceiling you are willing to extend to the
@@ -430,44 +450,45 @@
         Customer as having credit in good standing. Customers with credit "In
         Good Standing" may have Sales Orders issued for them. A black-colored
         typeface will be associated with their account.</para>
+        <note>
+          <para>Sales Orders may not be entered for Customers whose credit
+          status is either "On Credit Warning" or "On Credit Hold." Credit
+          Holds may be overridden, but only by users having the appropriate
+          privileges.</para>
+        </note>
+        <variablelist>
+          <varlistentry>
+            <term>On Credit Warning</term>
+            <listitem>
+              <para>Select to alert sales staff to possible credit problems
+              with the Customer. Customers with credit "On Credit Warning" may
+              not have Sales Orders issued for them. An orange-colored
+              typeface will be associated with their account.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>On Credit Hold</term>
+            <listitem>
+              <para>Select to inform sales staff that Customer's credit has
+              been suspended. Customers with credit "On Credit Hold" may not
+              have Sales Orders issued for them. A red-colored typeface will
+              be associated with their account.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Uses Purchase Orders</term>
+      <listitem>
+        <para>Select to indicate that the Customer uses Purchase Orders. If
+        selected, users will be required to enter a Customer Purchase Order
+        Number when entering a Sales Order. In addition, selecting the option
+        will prevent users from entering duplicate Customer Purchase Order
+        Numbers--unless the Customer is marked as using Blanket POs.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>Sales Orders may not be entered for Customers whose credit status is
-    either "On Credit Warning" or "On Credit Hold." Credit Holds may be
-    overridden, but only by users having the appropriate privileges.</para>
-  </note>
-  <itemizedlist>
-    <listitem>
-      <para>On Credit Warning: Select to alert sales staff to possible credit
-      problems with the Customer. Customers with credit "On Credit Warning"
-      may not have Sales Orders issued for them. An orange-colored typeface
-      will be associated with their account.</para>
-    </listitem>
-    <listitem>
-      <para>On Credit Hold: Select to inform sales staff that Customer's
-      credit has been suspended. Customers with credit "On Credit Hold" may
-      not have Sales Orders issued for them. A red-colored typeface will be
-      associated with their account.</para>
-      <variablelist>
-        <varlistentry>
-          <term>Uses Purchase Orders</term>
-          <listitem>
-            <para>Select to indicate that the Customer uses Purchase
-            Orders.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </listitem>
-    <listitem>
-      <para>If selected, users will be required to enter a Customer Purchase
-      Order Number when entering a Sales Order. In addition, selecting the
-      option will prevent users from entering duplicate Customer Purchase
-      Order Numbers--unless the Customer is marked as using Blanket
-      POs.</para>
-    </listitem>
-  </itemizedlist>
   <note>
     <para>If the option "Uses Purchase Orders" is not selected, the system
     will place no restrictions on Customer Purchase Order Numbers.</para>
@@ -510,8 +531,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To view or edit Customer Addresses, select the "Addresses" tab. The
-  following screen will appear:</para>
+  <para>To view or edit Customer contact Addresses, select the "Addresses"
+  tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -523,8 +544,8 @@
   <para><indexterm significance="normal">
       <primary>customers</primary>
       <secondary>addresses for</secondary>
-    </indexterm>When adding addresses to a Customer master, you are presented
-  with the following options:</para>
+    </indexterm>When adding contacdt addresses to a Customer master, you are
+  presented with the following options:</para>
   <note>
     <para>If a new Contact is manually entered here, that Contact will be
     added automatically to the master list of Contacts.</para>
@@ -723,9 +744,10 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
-  <para></para>
-  <remark>findme</remark>
+  <para>Customers may have multiple Addresses where they want you to ship
+  their goods. To support this, the system allows you to maintain multiple
+  Customer Ship-To Addresses. To view or edit Customer Ship-To Addresses,
+  select the "Ship-To" tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -734,7 +756,6 @@
         <caption>Ship-To Addresses</caption>
       </mediaobject>
     </screenshot></para>
-  <para></para>
   <variablelist>
     <varlistentry>
       <term>Ship-To Addresses</term>
@@ -744,7 +765,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
   <note>
     <para>You can maintain multiple Ship-To Addresses for your Customers.
     Ship-To Addresses are selected at the point of Sales Order entry.</para>
@@ -1014,42 +1034,59 @@
               <para>Specify the default Ship Via to be used for the Ship-To
               Address. You may enter a free-form Ship Via simply by typing the
               name of the Ship Via into the field.</para>
+              <tip>
+                <para>The system supports up-to-date shipment tracking with
+                links to the websites of many leading shipping companies
+                (i.e., "Ship Vias").</para>
+              </tip>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipping Form</term>
+            <listitem>
+              <para>Specify the default Shipping Form to be used for the
+              Ship-To Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipping Charges</term>
+            <listitem>
+              <para>Specify the default Shipping Charges to be used for the
+              Ship-To Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>EDI Profile</term>
+            <listitem>
+              <para>Select one of the available EDI options. Different EDI
+              Profiles may be specified for different Ship-To Addresses.
+              However, if you want the default Profile to mirror the Customer
+              master settings, select the "Use Customer Master" option.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>General Notes</term>
+      <listitem>
+        <para>Select the "General Notes" tab to access this scrolling text
+        field with word-wrapping for entering general Notes related to the
+        Customer Ship-To Address. These Notes are for internal use
+        only.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipping Notes</term>
+      <listitem>
+        <para>Select the "Shipping Notes" tab to access this scrolling text
+        field with word-wrapping for entering Shipping Notes related to the
+        Customer Ship-To Address. Shipping Notes are transferred to the
+        "Shipping Notes" tab on the Sales Order header whenever a Sales Order
+        for the specified Ship-To Address is entered.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-  <tip>
-    <para>The system supports up-to-date shipment tracking with links to the
-    websites of many leading shipping companies (i.e., "Ship Vias").</para>
-  </tip>
-  <itemizedlist>
-    <listitem>
-      <para>Shipping Form: Specify the default Shipping Form to be used for
-      the Ship-To Address.</para>
-    </listitem>
-    <listitem>
-      <para>Shipping Charges: Specify the default Shipping Charges to be used
-      for the Ship-To Address.</para>
-      <para>EDI Profile: Select one of the available EDI options:</para>
-    </listitem>
-    <listitem>
-      <para>Different EDI Profiles may be specified for different Ship-To
-      Addresses. However, if you want the default Profile to mirror the
-      Customer master settings, select the "Use Customer Master"
-      option.</para>
-      <para>General Notes: Select the "General Notes" tab to access this
-      scrolling text field with word-wrapping for entering general Notes
-      related to the Customer Ship-To Address. These Notes are for internal
-      use only.</para>
-      <para>Shipping Notes: Select the "Shipping Notes" tab to access this
-      scrolling text field with word-wrapping for entering Shipping Notes
-      related to the Customer Ship-To Address. Shipping Notes are transferred
-      to the "Shipping Notes" tab on the Sales Order header whenever a Sales
-      Order for the specified Ship-To Address is entered.</para>
-    </listitem>
-  </itemizedlist>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
