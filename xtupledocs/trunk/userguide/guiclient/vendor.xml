@@ -3,7 +3,7 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972680">
   <title id="Anchor55000"><indexterm significance="normal">
-      <primary>vendors</primary>
+      <primary>xvendors</primary>
       <secondary>creating new</secondary>
     </indexterm>Create New Vendor</title>
   <para>To create a new Vendor, select the "New Vendor" option. The following
@@ -11,7 +11,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorNew.png" />
+          <imagedata fileref="images/vendor.png" />
         </imageobject>
         <caption>Create New Vendor</caption>
       </mediaobject>
@@ -139,7 +139,7 @@
         </indexterm>Default FOB</term>
       <listitem>
         <para>Indicate the default Free on Board (FOB) destination by
-        selecting one of the following options: </para>
+        selecting one of the following options:</para>
         <variablelist>
           <varlistentry>
             <term>Receiving Warehouse FOB</term>
@@ -230,7 +230,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorTax.png" />
+          <imagedata fileref="images/vendor_taxTab.png" />
         </imageobject>
         <caption>Vendor Tax Information</caption>
       </mediaobject>
@@ -310,11 +310,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorTaxReg.png"
-                     />
+          <imagedata fileref="images/taxRegistration.png" />
         </imageobject>
-        <caption>Vendor Tax Registration
-        Information</caption>
+        <caption>Vendor Tax Registration Information</caption>
       </mediaobject>
     </screenshot></para>
   <para><indexterm significance="normal">
@@ -378,8 +376,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorContact.png"
-                     />
+          <imagedata fileref="images/vendor_contactTab.png" />
         </imageobject>
         <caption>Vendor Contact Information</caption>
       </mediaobject>
@@ -399,7 +396,7 @@
           <varlistentry>
             <term>Title</term>
             <listitem>
-              <para> Select a Title from the list of available Titles.</para>
+              <para>Select a Title from the list of available Titles.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -411,7 +408,7 @@
           <varlistentry>
             <term>Last</term>
             <listitem>
-              <para> Enter the Contact's last name.</para>
+              <para>Enter the Contact's last name.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -450,7 +447,7 @@
           <varlistentry>
             <term>Title</term>
             <listitem>
-              <para> Select a Title from the list of available Titles.</para>
+              <para>Select a Title from the list of available Titles.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -462,7 +459,7 @@
           <varlistentry>
             <term>Last</term>
             <listitem>
-              <para> Enter the Contact's last name.</para>
+              <para>Enter the Contact's last name.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -500,8 +497,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorAddress.png"
-                     />
+          <imagedata fileref="images/vendor_addressTab.png" />
         </imageobject>
         <caption>Add Vendor Addresses</caption>
       </mediaobject>
@@ -564,8 +560,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendAddressNew.png"
-                     />
+          <imagedata fileref="images/vendorAddress.png" />
         </imageobject>
         <caption>Create New Vendor Address</caption>
       </mediaobject>
@@ -576,7 +571,14 @@
     <varlistentry>
       <term>Number</term>
       <listitem>
-        <para>Enter a number or code to identify the Vendor Address.</para>
+        <para>Enter a number or code to identify the Vendor Address. Using the
+        value "Remit" or "REMIT" or "remit" in this field will cause the
+        specified Address to be used as the default Remit-To Address when
+        printing Checks for the Vendor.</para>
+        <note>
+          <para>The Remit-To feature is only supported when printing Checks
+          using the APCheck report definition.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -608,7 +610,7 @@
           <varlistentry>
             <term>State</term>
             <listitem>
-              <para> Enter the state where the Vendor is located.</para>
+              <para>Enter the state where the Vendor is located.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -665,13 +667,13 @@
           <varlistentry>
             <term>Fax</term>
             <listitem>
-              <para> Enter the Contact's fax number.</para>
+              <para>Enter the Contact's fax number.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>E-Mail</term>
             <listitem>
-              <para> Enter the Contact's e-mail address.</para>
+              <para>Enter the Contact's e-mail address.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -708,7 +710,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorNotes.png" />
+          <imagedata fileref="images/vendor_notesTab.png" />
         </imageobject>
         <caption>Add Vendor Notes</caption>
       </mediaobject>
@@ -718,8 +720,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorComment.png"
-                     />
+          <imagedata fileref="images/vendor_commentsTab.png" />
         </imageobject>
         <caption>Add Vendor Comments</caption>
       </mediaobject>
@@ -796,8 +797,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorPONotes.png"
-                     />
+          <imagedata fileref="images/vendor_ponotesTab.png" />
         </imageobject>
         <caption>Add Purchasing Notes</caption>
       </mediaobject>
@@ -839,7 +839,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorEDI.png" />
+          <imagedata fileref="images/vendor_ediTab.png" />
         </imageobject>
         <caption>Add Vendor EDI Information</caption>
       </mediaobject>

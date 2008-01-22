@@ -140,6 +140,12 @@
         <para>Specify here and apply any discount for specified Customer for
         this Sales Order. This is a discount off the regular Customer Price,
         obtained either from the Customer master or a Pricing Schedule.</para>
+        <tip>
+          <para>When Sales Orders are entered, the system will search for
+          Quantity Break matches between the Sales Order Item and any relevant
+          Pricing Schedule. If duplicate Quantity Breaks are found, the lowest
+          Price for the given quantity will be used.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -159,12 +165,12 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>The system can be configured to prevent users from editing the Net
-    Unit Price. If your system is configured that way, the Net Unit Price
-    field will not be editable.</para>
-  </tip>
   <variablelist>
+    <tip>
+      <para>The system can be configured to prevent users from editing the Net
+      Unit Price. If your system is configured that way, the Net Unit Price
+      field will not be editable.</para>
+    </tip>
     <varlistentry>
       <term>Price UOM</term>
       <listitem>
