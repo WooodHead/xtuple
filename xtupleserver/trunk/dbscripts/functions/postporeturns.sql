@@ -47,7 +47,7 @@ BEGIN
       END IF;
 
       SELECT postInvTrans( itemsite_id, ''RP'', (_p.totalqty * _p.poitem_invvenduomratio * -1),
-                           ''P/O'', ''PO'', _p.pohead_number, '''', ''Return Inventory to P/O'',
+                           ''S/R'', ''PO'', _p.pohead_number, '''', ''Return Inventory to P/O'',
                            costcat_asset_accnt_id, costcat_liability_accnt_id, _itemlocSeries ) INTO _returnval
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)

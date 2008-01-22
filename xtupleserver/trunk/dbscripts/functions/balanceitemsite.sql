@@ -22,7 +22,7 @@ BEGIN
    AND (itemloc_itemsite_id=pItemsiteid) );
 
 --  Post an AD Transaction for the Netable portion
-  SELECT invAdjustment( itemsite_id, (_balanced - itemsite_qtyonhand),
+  SELECT invAdjustment( itemsite_id, (_balanced - itemsite_qtyonhand), ARRAY [-1],
                         ''Balance'', ''Inventory Balance'' ) INTO _itemlocseries
   FROM itemsite
   WHERE (itemsite_id=pItemsiteid);
