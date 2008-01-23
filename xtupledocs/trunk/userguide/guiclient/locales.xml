@@ -12,12 +12,13 @@
     </indexterm>Locales provide a mechanism for defining certain display
   formats based on linguistic and cultural conventions. For example, the
   manner in which currency, date, and Price formats are displayed is
-  controlled by Locale settings. The application supports multiple Locales--a
-  useful feature for multinational companies with a wide range of
-  international users. To illustrate, a user assigned a "USEnglish" Locale
-  setting will see dates displayed as "MM/DD/YY". By contrast, another user
-  assigned a "French" Locale setting will see dates displayed as
-  "DD/MM/YY".</para>
+  controlled by Locale settings. In addition to controlling display formats,
+  Locales also govern the formatting found in printed reports.</para>
+  <para>The application supports multiple Locales--a useful feature for
+  multinational companies with a wide range of international users. To
+  illustrate, a user assigned a "USEnglish" Locale setting will see dates
+  displayed as "MM/DD/YY". By contrast, another user assigned a "French"
+  Locale setting will see dates displayed as "DD/MM/YY".</para>
   <note>
     <para>There is a difference between Locale settings and the data entry
     formats used to store data in an database. Locale settings control the

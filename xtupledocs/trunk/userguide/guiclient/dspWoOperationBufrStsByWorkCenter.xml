@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section555361" role="openmfg">
   <title>W/O Operation Buffer Status by Work Center</title>
   <para>The Work Order buffer status displays provide information on your
@@ -12,17 +13,14 @@
   <para>To view Work Order Operation buffer statuses by Work Center, select
   the "W/O Buffer Status by Work Center" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspWoOperationBufrStsByWorkCenter.png"/>
+          <imagedata fileref="images/dspWoOperationBufrStsByWorkCenter.png" />
         </imageobject>
-        <caption>Work Order Operation Buffer Status by Work
-        Center</caption>
+        <caption>Work Order Operation Buffer Status by Work Center</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>When the buffer status for an Item hits 66 or higher, the status
     number will become red. By highlighting Items which are "red hot," the
@@ -56,10 +54,10 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term>Only Show W/O Operations with Load</term>
+      <term>Only Show W/O Operations with Qty. Available</term>
       <listitem>
-        <para>Select to only show Work Order Operations with load in the
-        display.</para>
+        <para>Select to only show Work Order Operations with quantity
+        available in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -100,13 +98,28 @@
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
+    <varlistentry role="openmfg">
+      <term>SUBMIT</term>
+      <listitem>
+        <para>Select to submit report to the Batch Manager. For additional
+        information, see <xref linkend="Anchor61009" />.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
   <para>Right-clicking on an Operation in the Operations list enables you to
   select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewOperation)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditOperation)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickDeleteOperation)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewOperation)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditOperation)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickDeleteOperation)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>
