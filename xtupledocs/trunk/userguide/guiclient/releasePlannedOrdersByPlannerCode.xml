@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section537902" role="openmfg">
   <title>Release Planned Orders by Planner Code</title>
   <para>To release Planned Orders by Planner Code, select the "Release Planned
   Orders by Planner Code" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/releasePlannedOrdersByPlannerCode.png"/>
+          <imagedata fileref="images/releasePlannedOrdersByPlannerCode.png" />
         </imageobject>
-        <caption>Release Planned Orders by Planner
-        Code</caption>
+        <caption>Release Planned Orders by Planner Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When releasing Planned Orders by Planner Code, you are presented with
   the following options:</para>
   <variablelist>
@@ -35,7 +33,8 @@
       <term>Pattern</term>
       <listitem>
         <para>Enter a Planner Code pattern to select a range of Planner Codes.
-        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -43,6 +42,14 @@
       <listitem>
         <para>Indicates the last date when Planned Orders by Planner Code may
         be released.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Only Release Firmed</term>
+      <listitem>
+        <para>Select to release only those Planned Orders which have been
+        firmed. If selected, non-firmed Planned Orders will not be
+        released.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -80,7 +87,8 @@
       <term>SUBMIT</term>
       <listitem>
         <para>Select to submit the release Planned Orders job to the Batch
-        Manager. For additional information, see <xref linkend="Anchor61009"/>.</para>
+        Manager. For additional information, see <xref
+        linkend="Anchor61009" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>

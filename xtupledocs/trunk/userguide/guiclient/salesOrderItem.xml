@@ -137,9 +137,12 @@
     <varlistentry>
       <term>Cust Discount %</term>
       <listitem>
-        <para>Specify here and apply any discount for specified Customer for
-        this Sales Order. This is a discount off the regular Customer Price,
-        obtained either from the Customer master or a Pricing Schedule.</para>
+        <para>Specify here any additional discount you want to apply to the
+        Sales Order Item. This additional discount is applied on top of the
+        Net Unit Price. In other words, the Customer Discount is applied after
+        any available Pricing Schedules, Quantity Breaks, etc. have been
+        calculated and the Net Unit Price for the Sales Order Item is
+        determined.</para>
         <tip>
           <para>When Sales Orders are entered, the system will search for
           Quantity Break matches between the Sales Order Item and any relevant
