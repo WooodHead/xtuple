@@ -2,6 +2,37 @@ CREATE OR REPLACE FUNCTION postReceipt(INTEGER, INTEGER) RETURNS INTEGER AS '
 DECLARE
   precvid		ALIAS FOR $1;
   _itemlocSeries	INTEGER := COALESCE($2, 0);
+  _result INTEGER;
+
+BEGIN
+
+  SELECT postReceipt(precvid, _itemlocSeries, NULL) INTO _result;
+
+  RETURN _result;
+
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION postReceipt(INTEGER, INTEGER[]) RETURNS INTEGER AS '
+DECLARE
+  precvid		ALIAS FOR $1;
+  pItemlocSeriesList   ALIAS FOR $2;
+  _result INTEGER;
+
+BEGIN
+
+  SELECT postReceipt(precvid, NULL, pItemlocSeriesList) INTO _result;
+
+  RETURN _result;
+
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION postReceipt(INTEGER, INTEGER, INTEGER[]) RETURNS INTEGER AS '
+DECLARE
+  precvid		ALIAS FOR $1;
+  _itemlocSeries	INTEGER := COALESCE($2, 0);
+  pItemlocSeriesList	ALIAS FOR $3;
   _freightAccnt		INTEGER;
   _glDate		TIMESTAMP WITH TIME ZONE;
   _o			RECORD;
@@ -123,7 +154,7 @@ BEGIN
 			   ''''::TEXT,
 			   ''Receive Inventory from '' || _ordertypeabbr,
 			   costcat_asset_accnt_id, costcat_liability_accnt_id,
-			   _itemlocSeries,
+			   0, pItemlocSeriesList,
 			   _glDate
 			   ) INTO _tmp
       FROM itemsite, costcat
@@ -179,7 +210,7 @@ BEGIN
 			  ELSE
 			    resolveCORAccount(_r.itemsite_id,_ra.rahead_cust_id)
 			  END,
-			  _itemlocSeries, _glDate) INTO _tmp
+			  0, pItemlocSeriesList, _glDate) INTO _tmp
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_r.itemsite_id) );
@@ -247,7 +278,7 @@ BEGIN
 			  ''Receive from Transit To Dest Warehouse'',
 			  tc.costcat_asset_accnt_id,
 			  sc.costcat_asset_accnt_id,
-			  _itemlocSeries, _glDate) INTO _tmp
+			  0, ARRAY[-1], _glDate) INTO _tmp
       FROM itemsite AS ti, costcat AS tc,
 	   itemsite AS si, costcat AS sc
       WHERE ((ti.itemsite_costcat_id=tc.costcat_id)
@@ -269,7 +300,7 @@ BEGIN
 			  ''Receive from Transit To Dest Warehouse'',
 			  tc.costcat_asset_accnt_id,
 			  tc.costcat_asset_accnt_id,
-			  _itemlocSeries, _glDate) INTO _tmp
+			  0, pItemlocSeriesList, _glDate) INTO _tmp
       FROM itemsite AS ti, costcat AS tc,
 	   itemsite AS si, costcat AS sc
       WHERE ((ti.itemsite_costcat_id=tc.costcat_id)

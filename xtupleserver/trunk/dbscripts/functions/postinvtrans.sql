@@ -170,14 +170,15 @@ BEGIN
             SELECT distributeToLocations(pItemlocSeriesList[_i]) INTO _result;
 
             _distCounter := _distCounter + _result;
+
           END LOOP;
         ELSE -- Must be lot serial w/o location, so just process the series
             UPDATE itemlocdist SET itemlocdist_invhist_id=_invhistid
             WHERE (itemlocdist_series = pItemlocSeriesList[1]);
 
             SELECT distributeItemlocSeries(pItemlocSeriesList[1]) INTO _result;
-
-            _distCounter := _distCounter + _result;  
+            
+            _distCounter := _distCounter + _result;
         END IF;    
       END IF;
 
