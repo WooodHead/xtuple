@@ -25,11 +25,10 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tpItemStats.png"
-                       />
+            <imagedata fileref="images/Topic_tpItemStats.png" />
           </imageobject>
-          <caption>I/M Report: Time-Phased Item Usage
-          Statistics by Item</caption>
+          <caption>I/M Report: Time-Phased Item Usage Statistics by
+          Item</caption>
         </mediaobject>
       </screenshot></para>
     <note>
@@ -49,8 +48,7 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_submitReportBatch.png"
-                       />
+            <imagedata fileref="images/Topic_submitReportBatch.png" />
           </imageobject>
           <caption>Submit Report to Batch Manager</caption>
         </mediaobject>
@@ -62,11 +60,24 @@
         <term>Scheduled</term>
         <listitem>
           <para>Specify when you would like the report to be run.</para>
-          <para>ASAP: Select to have the report run as soon as
-          possible.</para>
-          <para>Scheduled: Schedule a date and time to run the report. Specify
-          a date in the first field using a standard date format. Use the
-          arrow buttons in the second field to specify a time of day.</para>
+          <variablelist>
+            <varlistentry>
+              <term>ASAP</term>
+              <listitem>
+                <para>Select to have the report run as soon as
+                possible.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Scheduled</term>
+              <listitem>
+                <para>Schedule a date and time to run the report. Specify a
+                date in the first field using a standard date format. Use the
+                arrow buttons in the second field to specify a time of
+                day.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -80,8 +91,7 @@
         <term>Email From</term>
         <listitem>
           <para>Enter the email address of the person who is sending the
-          email.</para>
-          <para>The Batch Manager will print the report to .PDF format and
+          email. The Batch Manager will print the report to .PDF format and
           then email it to the person whose email address appears in the
           "Response Email To" field.</para>
         </listitem>
@@ -90,9 +100,8 @@
         <term>Response Email To</term>
         <listitem>
           <para>Enter the email address where you want the report to be sent
-          once it has been generated and printed.</para>
-          <para>The recipient will receive an email with the submitted report
-          attached in.PDF format.</para>
+          once it has been generated and printed. The recipient will receive
+          an email with the submitted report attached in.PDF format.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -145,11 +154,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_batchUpdateActual.png"
-                       />
+            <imagedata fileref="images/Topic_batchUpdateActual.png" />
           </imageobject>
-          <caption>Update Actual Costs by Class
-          Code</caption>
+          <caption>Update Actual Costs by Class Code</caption>
         </mediaobject>
       </screenshot></para>
     <note>
@@ -169,8 +176,7 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_submitJobBatch.png"
-                       />
+            <imagedata fileref="images/Topic_submitJobBatch.png" />
           </imageobject>
           <caption>Submit Job to Batch Manager</caption>
         </mediaobject>
@@ -189,19 +195,31 @@
         <term>Response Email</term>
         <listitem>
           <para>Enter the email address where you want notification that the
-          job is complete to be sent once it has been completed.</para>
-          <para>The recipient will receive an email letting them know the
-          submitted job has been completed.</para>
+          job is complete to be sent once it has been completed. The recipient
+          will receive an email letting them know the submitted job has been
+          completed.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Scheduled</term>
         <listitem>
           <para>Specify when you would like the job to be run.</para>
-          <para>ASAP: Select to have the job run as soon as possible.</para>
-          <para>Scheduled: Schedule a date and time to run the job. Specify a
-          date in the first field using a standard date format. Use the arrow
-          buttons in the second field to specify a time of day.</para>
+          <variablelist>
+            <varlistentry>
+              <term>ASAP</term>
+              <listitem>
+                <para>Select to have the job run as soon as possible.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Scheduled</term>
+              <listitem>
+                <para>Schedule a date and time to run the job. Specify a date
+                in the first field using a standard date format. Use the arrow
+                buttons in the second field to specify a time of day.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
         </listitem>
       </varlistentry>
     </variablelist>

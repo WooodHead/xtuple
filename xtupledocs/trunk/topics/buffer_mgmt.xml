@@ -105,7 +105,7 @@
     Finally, we will run Buffer Management to discover the system-defined
     value for the Item Site's stock buffer status. To access the Item Site
     screen, follow these steps:</para>
-    <itemizedlist>
+    <orderedlist>
       <listitem>
         <para>Pull down the I/M Module menu</para>
       </listitem>
@@ -128,7 +128,7 @@
         <para>On the Item Sites master list screen, click the CLOSE
         button</para>
       </listitem>
-    </itemizedlist>
+    </orderedlist>
     <para>By setting a Reorder Level of 1,000 for Item TBODY1, we are saying
     that when available quantity for this Item Site drops below 1,000 units,
     it is time to resupply. We are also saying that the stock buffer for this
@@ -138,7 +138,7 @@
     Buffer Management system handles discrepancies between Reorder Levels and
     available quantities. To adjust Quantity on Hand for this Item Site,
     follow these steps:</para>
-    <itemizedlist>
+    <orderedlist>
       <listitem>
         <para>Pull down the I/M Module menu</para>
       </listitem>
@@ -163,9 +163,8 @@
       <listitem>
         <para>Click the CLOSE button</para>
       </listitem>
-    </itemizedlist>
+    </orderedlist>
     <note>
-      <title>Stock Buffer</title>
       <para>A stock buffer, as the name implies, is an accumulation of Items
       stored in Inventory that act as a hedge against demand where the
       required service time is shorter than a time buffer for that Item would
@@ -184,7 +183,7 @@
     now ready to run the Buffer Management system--and to learn the buffer
     status of our newly-adjusted Item Site. To run the Buffer Management
     system by Planner Code, follow these steps:</para>
-    <itemizedlist>
+    <orderedlist>
       <listitem>
         <para>Pull down the M/S Module menu</para>
       </listitem>
@@ -200,18 +199,17 @@
       <listitem>
         <para>Click the CREATE button</para>
       </listitem>
-    </itemizedlist>
-    <note>
-      <title>Important</title>
+    </orderedlist>
+    <important>
       <para>The Buffer Management results displayed for this scenario assume
       you have completed all the Work Orders created in the previous sections
       of this Demo Guide. If you have not already completed those Work Orders,
       then your results will differ from those shown here.</para>
-    </note>
+    </important>
     <para>Now that we have run the Buffer Management system, we can display
     the results. To display the results of our buffer status run, follow these
     steps:</para>
-    <itemizedlist>
+    <orderedlist>
       <listitem>
         <para>Pull down the M/S Module menu</para>
       </listitem>
@@ -227,15 +225,13 @@
       <listitem>
         <para>The following screen will appear:</para>
       </listitem>
-    </itemizedlist>
-    <para> <screenshot>
+    </orderedlist>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/F064-Buffer-Inventory.png"
-                       />
+            <imagedata fileref="images/F064-Buffer-Inventory.png" />
           </imageobject>
-          <caption>Inventory Buffer Status by Class Code
-          Display</caption>
+          <caption>Inventory Buffer Status by Class Code Display</caption>
         </mediaobject>
       </screenshot></para>
     <note>
@@ -250,12 +246,10 @@
     greater, it will display in red. The buffer status for Item TBODY1 = 70.
     To review how this number was arrived at, we use the following
     equation:</para>
-    <itemizedlist>
-      <listitem>
-        <para>1,000 units (Reorder/Buffer Level) - 300 units (QOH) - 0 Units
-        (Allocated) = 700 units</para>
-      </listitem>
-    </itemizedlist>
+    <equation>
+      <mathphrase>1,000 units (Reorder/Buffer Level) - 300 units (QOH) - 0
+      Units (Allocated) = 700 units</mathphrase>
+    </equation>
     <para>This equation shows us that the stock buffer for this Item Site has
     been depleted by 700 units--or 70%. Keep in mind that this calculation
     also subtracts out allocated quantities, which in this case are 0. Hence,
@@ -294,7 +288,7 @@
     </note>
     <para>To perform the setup for this time buffer scenario, you will need to
     follow these steps:</para>
-    <itemizedlist>
+    <orderedlist>
       <listitem>
         <para>Enter a Sales Order for Customer TTOYS</para>
       </listitem>
@@ -313,13 +307,13 @@
       <listitem>
         <para>Save the Line Item</para>
       </listitem>
-    </itemizedlist>
+    </orderedlist>
     <para>Once you have completed your Sales Order setup--and the resulting
     Work Order has been automatically created--we are ready to run the Buffer
     Management system to collect information about our Work Order's time
     buffer. To run Buffer Management by Planner Code, follow these
     steps:</para>
-    <itemizedlist>
+    <orderedlist>
       <listitem>
         <para>Pull down the M/S Module menu</para>
       </listitem>
@@ -335,7 +329,7 @@
       <listitem>
         <para>Click the CREATE button</para>
       </listitem>
-    </itemizedlist>
+    </orderedlist>
     <para>Now that Buffer Management has been run, we can display the results.
     Again, it is important to note that the results displayed for this
     scenario assume you have completed all the Work Orders created in the
@@ -343,7 +337,7 @@
     those Work Orders, then your results will differ from those shown here. To
     display the results of our current buffer status run, follow these
     steps:</para>
-    <itemizedlist>
+    <orderedlist>
       <listitem>
         <para>Pull down the M/S Module menu</para>
       </listitem>
@@ -360,15 +354,13 @@
       <listitem>
         <para>The following screen will appear:</para>
       </listitem>
-    </itemizedlist>
-    <para> <screenshot>
+    </orderedlist>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/F065-TimeBuffer1.png"
-                       />
+            <imagedata fileref="images/F065-TimeBuffer1.png" />
           </imageobject>
-          <caption>W/O Buffer Status by Class Code
-          Display</caption>
+          <caption>W/O Buffer Status by Class Code Display</caption>
         </mediaobject>
       </screenshot></para>
     <para>As you can see in the example, the next-to last column "Buffer Type"
@@ -384,7 +376,6 @@
     which days the WH1 Warehouse is open, select the "Warehouse Week" option
     from the M/S Module's "Master Information" section.</para>
     <note>
-      <title>Time Buffer</title>
       <para>A time buffer is the lead time, measured in working days, of a
       supply order for an Item that is not stocked. By working days we mean
       the days that the shop is available to work, which may exclude weekends
@@ -398,7 +389,7 @@
     <para>If you want to, you can simulate the passage of time to see the
     impact on our Work Order's buffer status. To simulate the passage of time,
     follow these steps:</para>
-    <itemizedlist>
+    <orderedlist>
       <listitem>
         <para>Open the "W/O Buffer Status by Class Code" display</para>
       </listitem>
@@ -429,15 +420,13 @@
       <listitem>
         <para>The following screen will appear:</para>
       </listitem>
-    </itemizedlist>
+    </orderedlist>
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/F066-TimeBuffer2.png"
-                       />
+            <imagedata fileref="images/F066-TimeBuffer2.png" />
           </imageobject>
-          <caption>W/O Buffer Status by Class Code
-          Display</caption>
+          <caption>W/O Buffer Status by Class Code Display</caption>
         </mediaobject>
       </screenshot></para>
     <para>Note that the Order's buffer status has now changed to 50. The more
@@ -451,11 +440,33 @@
     Management time buffer calculation.</para>
     <tip>
       <para>Here are some helpful benchmarks:</para>
-      <para>&lt; 40 -- BLACK: Not yet critical</para>
-      <para>\&gt;= 66 -- RED: Critical and requires immediate attention to
-      ensure the Order is in process and will be delivered on time</para>
-      <para>=100 -- RED: Order is due today</para>
-      <para>\&gt;100 -- RED: Order is late</para>
+      <variablelist>
+        <varlistentry>
+          <term>&lt; 40 and color = black</term>
+          <listitem>
+            <para>Not yet critical</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>&gt;= 66 and color = red</term>
+          <listitem>
+            <para>Critical and requires immediate attention to ensure the
+            Order is in process and will be delivered on time</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>=100 and color = red</term>
+          <listitem>
+            <para>Order is due today</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>&gt;100 and color = red</term>
+          <listitem>
+            <para>Order is late</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
     </tip>
     <para>Monitoring time buffers helps us avoid falling into the First In
     First Out (FIFO) trap that many shops get stuck in. The start time of a
@@ -485,7 +496,7 @@
     the current load in relation to a definable number of days of capacity. To
     view the capacity buffer status for our current Work Centers, follow these
     steps:</para>
-    <itemizedlist>
+    <orderedlist>
       <listitem>
         <para>Pull down the M/S Module menu</para>
       </listitem>
@@ -505,14 +516,13 @@
       <listitem>
         <para>The following screen will appear:</para>
       </listitem>
-    </itemizedlist>
+    </orderedlist>
     <para><screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/F067-CapBuf.png" />
           </imageobject>
-          <caption>Capacity Buffer Status by Work Center
-          Display</caption>
+          <caption>Capacity Buffer Status by Work Center Display</caption>
         </mediaobject>
       </screenshot></para>
     <para>The first two columns after the Work Center names show the current
@@ -534,7 +544,6 @@
     a 5-day period of time. We would see the value "85" displayed in the
     "Buffer Status" column.</para>
     <note>
-      <title>Capacity Buffer</title>
       <para>The capacity buffer is the relative load of a resource compared to
       the desired lead time of Items coming out of that resource. For example,
       suppose we have a shop with a typical lead time of two weeks that has a
