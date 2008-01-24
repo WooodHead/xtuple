@@ -1145,21 +1145,21 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Customer Characteristics are user-defined definitions which may be
-  used to provide additional layers of description about Customers. For
+  <para><indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>creating new for customer</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>customers having</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>characteristics for</secondary>
+    </indexterm>Customer Characteristics are user-defined definitions which
+  may be used to provide additional layers of description about Customers. For
   example, Customer Characteristics might be used to specify "Order
   Preferences" or "Buying Season". These constitute static descriptions which
   are not processed by the system, but are useful for informational purposes.
-  To enter <indexterm significance="normal">
-      <primary>characteristics</primary>
-      <secondary>creating new for customer</secondary>
-    </indexterm> <indexterm significance="normal">
-      <primary>characteristics</primary>
-      <secondary>customers having</secondary>
-    </indexterm> <indexterm significance="normal">
-      <primary>customers</primary>
-      <secondary>characteristics for</secondary>
-    </indexterm>Characteristics associated with a Customer, select the
+  To enter Characteristics associated with a Customer, select the
   "Characteristics" tab from the "Item" screen. The following screen will
   appear:</para>
   <para><screenshot>
@@ -1169,7 +1169,13 @@
         </imageobject>
         <caption>Customer Characteristics</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot><tip>
+      <para>If the Customer Type a Customer belongs to has a Characteristic
+      Profile (i.e., template) defined, then every Customer in that Customer
+      Type will be presented with a range of pre-defined Characteristics. You
+      can select or add values for each Characteristic by right-clicking on a
+      Characteristic in the list.</para>
+    </tip></para>
   <variablelist>
     <varlistentry>
       <term>Characteristics</term>
@@ -1180,15 +1186,18 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>Your ability to create new and/or edit Customer Characteristics will
-    depend on whether Characteristic Profiles are enabled for the Customer
-    Type in question. If Characteristic Profiles are enabled, you will not see
-    buttons on the right-side of the screen. Instead, values may only be
-    modified by clicking on value in the display. If you see buttons, then
-    Characteristic Profiles are not enabled for the Customer Type.</para>
+    <para>If Characteristic Profiles are enabled for the Customer Type, you
+    will not see buttons on the right-side of the screen. Values may be
+    selected or added by right-clicking on a Characteristic in the
+    list.</para>
   </note>
   <para>To the far right of the screen, the following buttons are
   available:</para>
+  <tip>
+    <para>If you see buttons to the right of the Customer Characteristics
+    screen, then Characteristic Profiles are not enabled for the Customer Type
+    the Customer belongs to.</para>
+  </tip>
   <variablelist>
     <varlistentry>
       <term>NEW</term>
@@ -1709,10 +1718,10 @@
     <varlistentry>
       <term>Address</term>
       <listitem>
-        <para> By default, the Customer's Billing Address will be entered
-        here. However, using the browse button associated with the Address
-        fields, you have the ability to specify an alternate billing address
-        for the Credit Card record.</para>
+        <para>By default, the Customer's Billing Address will be entered here.
+        However, using the browse button associated with the Address fields,
+        you have the ability to specify an alternate billing address for the
+        Credit Card record.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
