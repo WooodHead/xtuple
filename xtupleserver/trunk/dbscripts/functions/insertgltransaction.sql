@@ -23,6 +23,31 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION insertGLTransaction(TEXT, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, NUMERIC(12,2), DATE, BOOLEAN) RETURNS INTEGER AS '
+DECLARE
+  pSource ALIAS FOR $1;
+  pDocType ALIAS FOR $2;
+  pDocNumber ALIAS FOR $3;
+  pNotes ALIAS FOR $4;
+  pCreditid ALIAS FOR $5;
+  pDebitid ALIAS FOR $6;
+  pMiscid ALIAS FOR $7;
+  pAmount ALIAS FOR $8;
+  pDistDate ALIAS FOR $9;
+  pPostTrialBal ALIAS FOR $10;
+  _return INTEGER;
+
+BEGIN
+
+  SELECT insertGLTransaction( fetchJournalNumber(''GL-MISC''),
+                              pSource, pDocType, pDocNumber, pNotes,
+                              pCreditid, pDebitid, pMiscid, pAmount, pDistDate, pPostTrialBal) INTO _return;
+
+  RETURN _return;
+
+END;
+' LANGUAGE 'plpgsql';
+
 
 CREATE OR REPLACE FUNCTION insertGLTransaction(INTEGER, TEXT, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, NUMERIC(12,2), DATE) RETURNS INTEGER AS '
 DECLARE
@@ -36,6 +61,33 @@ DECLARE
   pMiscid ALIAS FOR $8;
   pAmount ALIAS FOR $9;
   pDistDate ALIAS FOR $10;
+  _return INTEGER;
+
+BEGIN
+
+  SELECT insertGLTransaction( pJournalNumber, pSource, pDocType, pDocNumber, pNotes,
+                              pCreditid, pDebitid, pMiscid, pAmount, pDistDate, TRUE) INTO _return;
+
+  RETURN _return;
+
+END;
+' LANGUAGE 'plpgsql';
+
+
+
+CREATE OR REPLACE FUNCTION insertGLTransaction(INTEGER, TEXT, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, NUMERIC(12,2), DATE, BOOLEAN) RETURNS INTEGER AS '
+DECLARE
+  pJournalNumber ALIAS FOR $1;
+  pSource ALIAS FOR $2;
+  pDocType ALIAS FOR $3;
+  pDocNumber ALIAS FOR $4;
+  pNotes ALIAS FOR $5;
+  pCreditid ALIAS FOR $6;
+  pDebitid ALIAS FOR $7;
+  pMiscid ALIAS FOR $8;
+  pAmount ALIAS FOR $9;
+  pDistDate ALIAS FOR $10;
+  pPostTrialBal ALIAS FOR $11;
   _debitid INTEGER;
   _creditid INTEGER;
   _sequence INTEGER;
@@ -104,7 +156,9 @@ BEGIN
     pDocType, pDocNumber, pNotes,
     pMiscid, (pAmount * -1) );
 
-  PERFORM postIntoTrialBalance(_sequence);
+  IF (pPostTrialBal) THEN
+    PERFORM postIntoTrialBalance(_sequence);
+  END IF;
 
   RETURN _sequence;
 

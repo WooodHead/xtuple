@@ -1,26 +1,19 @@
-
-CREATE OR REPLACE FUNCTION fetchJournalNumber(TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postItemlocSeries(INTEGER) RETURNS BOOLEAN AS '
 DECLARE
   pUse ALIAS FOR $1;
   _number INTEGER;
 
 BEGIN
 
-  SELECT orderseq_number INTO _number
-  FROM orderseq
-  WHERE (orderseq_name=''JournalNumber'');
+  SELECT nextval(''journal_number_seq'') INTO _number;
 
   INSERT INTO jrnluse
   (jrnluse_date, jrnluse_number, jrnluse_use)
   VALUES
   (CURRENT_TIMESTAMP, _number, pUse);
 
-  UPDATE orderseq
-  SET orderseq_number = (orderseq_number + 1)
-  WHERE (orderseq_name=''JournalNumber'');
-
   RETURN _number;
-
+  
 END;
 ' LANGUAGE 'plpgsql';
 

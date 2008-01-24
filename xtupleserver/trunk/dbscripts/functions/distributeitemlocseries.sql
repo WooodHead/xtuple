@@ -1,7 +1,7 @@
-CREATE OR REPLACE FUNCTION distributeItemlocSeries(INTEGER) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION distributeItemlocSeries(INTEGER) RETURNS INTEGER AS '
 DECLARE
   pItemlocSeries ALIAS FOR $1;
-  _distCounter NUMERIC;
+  _distCounter INTEGER;
   _itemlocdist RECORD;
   _itemlocid INTEGER;
   _invhistid INTEGER;
@@ -26,7 +26,7 @@ BEGIN
                        AND (itemlocdist_series=pItemlocSeries) )
                       ORDER BY itemlocdist_flush DESC LOOP
 
-    _distCounter := _distCounter + _itemlocdist.qty;
+    _distCounter := _distCounter + 1;
 
 --  Mark the invhist tuple for the itemlocdist in question as having detail
     UPDATE invhist

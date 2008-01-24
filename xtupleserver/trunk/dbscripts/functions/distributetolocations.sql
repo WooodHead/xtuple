@@ -1,7 +1,7 @@
-CREATE OR REPLACE FUNCTION distributeToLocations(INTEGER) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION distributeToLocations(INTEGER) RETURNS INTEGER AS '
 DECLARE
   pItemlocdistid ALIAS FOR $1;
-  _distCounter NUMERIC;
+  _distCounter INTEGER;
   _itemlocdist RECORD;
   _itemlocid INTEGER;
   _runningQty NUMERIC;
@@ -27,7 +27,7 @@ BEGIN
                        AND (p.itemlocdist_itemsite_id=itemsite_id)
                        AND (p.itemlocdist_id=pItemlocdistid) ) LOOP
 
-    _distCounter := _distCounter + _itemlocdist.qty;
+    _distCounter := _distCounter + 1;
 
 --  If the target for this itemlocdist is a location, check to see if the
 --  required itemloc already exists
