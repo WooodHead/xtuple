@@ -168,11 +168,11 @@ BEGIN
     INSERT INTO shipitem
     ( shipitem_shiphead_id, shipitem_orderitem_id, shipitem_qty,
       shipitem_transdate, shipitem_trans_username, shipitem_invoiced,
-      shipitem_value )
+      shipitem_value, shipitem_invhist_id )
     VALUES
     ( _shipheadid, pitemid, pQty,
       _timestamp, CURRENT_USER, FALSE,
-      _value );
+      _value, _invhistid );
 
     UPDATE coitem
        SET coitem_qtyreserved = noNeg(coitem_qtyreserved - pQty)
@@ -228,10 +228,12 @@ BEGIN
 
     INSERT INTO shipitem
     ( shipitem_shiphead_id, shipitem_orderitem_id, shipitem_qty,
-      shipitem_transdate, shipitem_trans_username, shipitem_value )
+      shipitem_transdate, shipitem_trans_username, shipitem_value,
+      shipitem_invhist_id )
     SELECT
       _shipheadid, pitemid, pQty,
-      _timestamp, CURRENT_USER, stdcost(item_id)
+      _timestamp, CURRENT_USER, stdcost(item_id),
+      _invhistid
     FROM toitem, item
     WHERE ((toitem_id=pitemid)
     AND (item_id=toitem_item_id));
