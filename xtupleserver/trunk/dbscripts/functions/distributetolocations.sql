@@ -60,9 +60,10 @@ BEGIN
 --  Record the invdetail for this itemlocdist
     INSERT INTO invdetail
     ( invdetail_invhist_id, invdetail_location_id, invdetail_lotserial,
-      invdetail_qty, invdetail_qty_before, invdetail_qty_after )
+      invdetail_qty, invdetail_qty_before, invdetail_qty_after, invdetail_expiration )
     SELECT _itemlocdist.invhistid, itemloc_location_id, itemloc_lotserial,
-           _itemlocdist.qty, itemloc_qty, (itemloc_qty + _itemlocdist.qty)
+           _itemlocdist.qty, itemloc_qty, (itemloc_qty + _itemlocdist.qty),
+           itemloc_expiration
     FROM itemloc
     WHERE (itemloc_id=_itemlocid);
 
