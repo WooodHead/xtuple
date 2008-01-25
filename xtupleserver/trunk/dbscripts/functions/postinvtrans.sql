@@ -147,7 +147,8 @@ BEGIN
 
     --  Distribute this if this itemsite is controlled
     -- what happens in TS case?
-    IF (_r.lotserial OR _r.loccntrl) THEN
+    IF ( (_r.lotserial OR _r.loccntrl)
+        AND (pItemlocSeries > 0) ) THEN
       INSERT INTO itemlocdist
       ( itemlocdist_itemsite_id, itemlocdist_source_type,
         itemlocdist_reqlotserial,
@@ -167,7 +168,6 @@ BEGIN
     -- user enters item distribution information.  Cant have that.
       INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
       VALUES ( _glreturn, pItemlocSeries );
-
     END IF;
 
     RETURN _invhistid;
