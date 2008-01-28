@@ -3,7 +3,7 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section923250">
   <title><indexterm significance="normal">
-      <primary>findmehconfiguration</primary>
+      <primary>configuration</primary>
       <secondary>of sales module</secondary>
     </indexterm>Configure Sales</title>
   <para>To configure the Sales module, select the "Configure Sales" option.
@@ -93,7 +93,7 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Automatic, Use Quote #"s, Allow Override</term>
+            <term>Automatic, Use Quote #'s, Allow Override</term>
             <listitem>
               <para>Quote Numbers will be automatically generated and
               incremented, as under the "Automatic" option described above.
@@ -122,6 +122,44 @@
         Number--by typing the new number into this field. Any changes you make
         here will be reflected the next time a new Quote is created in the S/O
         module.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>return authorizations</primary>
+          <secondary>numbering of</secondary>
+        </indexterm>Return Auth. # Generation</term>
+      <listitem>
+        <para>Select one of the available Return Authorization Number
+        generation methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Manual</term>
+            <listitem>
+              <para>Return Authorization Numbers must be entered manually
+              whenever you create a new Return Authorization.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Use R/A #'s</term>
+            <listitem>
+              <para>Return Authorization Numbers will be automatically
+              incremented by 1 each time a new Return Authorization is
+              created. These automatically-generated numbers may not be
+              edited. They are read-only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Use R/A #s, Allow Override</term>
+            <listitem>
+              <para>Return Authorization Numbers will be automatically
+              generated and incremented, as under the "Automatic" option
+              described above. However, this option also allows you to
+              manually override the Return Authorization Number at the time of
+              Return Authorization creation.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -485,9 +523,12 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To establish default settings to be used whenever new Customers are
-  entered, select the "Customer Defaults" tab. The following screen will
-  appear:</para>
+  <para><indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>default configuration for</secondary>
+    </indexterm>To establish default settings to be used whenever new
+  Customers are entered, select the "Customer Defaults" tab. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -580,9 +621,12 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To define your system's Returns configuration, select the "Return"
-  tab. The following screen will appear:</para>
-  <screenshot>
+  <para role="openmfg"><indexterm significance="normal">
+      <primary>return authorizations</primary>
+      <secondary>configuration for</secondary>
+    </indexterm>To define your system's Returns configuration, select the
+  "Return" tab. The following screen will appear:</para>
+  <screenshot role="openmfg">
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/configureSO_returns.png" />
@@ -590,72 +634,113 @@
       <caption><para>Returns Configuration Options</para></caption>
     </mediaobject>
   </screenshot>
-  <para>When configuring Returns settings, you are presented with the
-  following options:</para>
+  <para role="openmfg">When configuring Returns settings, you are presented
+  with the following options:</para>
   <variablelist role="openmfg">
     <varlistentry>
       <term>Enable Return Authorizations</term>
       <listitem>
         <para>Select to enable the system's Return Authorizations capability.
         If not selected, users will be prevented from performing any tasks
-        related to Return Authorizations. If your system is using Return
-        Authorizations, this option will be hidden.</para>
+        related to Return Authorizations--and related functionality will be
+        hidden from view. For systems where Return Authorizations are enabled,
+        this option will be hidden.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Post Return Authorization Changes to the Change Log</term>
       <listitem>
-        <para><remark>findme</remark></para>
+        <para>Select to record changes made to Return Authorizations in the
+        Return Authorization change log. If not selected, the Return
+        Authorization changelog will not contain change information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Default Disposition</term>
       <listitem>
-        <para>Specify one of the following default disposition options:</para>
+        <para>Specify one of the following default methods for handling Return
+        Authorizations:</para>
         <variablelist>
           <varlistentry>
             <term>Credit</term>
             <listitem>
-              <para><remark>findme</remark></para>
+              <para>Select if, by default, you want to issue credit to
+              Customers for authorized Line Items and quantities. No return is
+              required or expected. Return Authorization Line Items will close
+              when an associated Credit Memo is posted.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Return</term>
             <listitem>
-              <para><remark>findme</remark></para>
+              <para>Select if, by default, you want to authorize returns from
+              Customers. Return Authorization Items will close when an
+              associated Credit Memo is posted, or when all Items on a line
+              have been returned, whichever comes last.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Replace</term>
             <listitem>
-              <para><remark>findme</remark></para>
+              <para>Select if, by default, you want to replace Items returned
+              by Customers. Authorized quantities will be added as additional
+              order quantity to an associated Sales Order line, which in turn
+              should be reopened if closed. Return Authorization Items will
+              close when all Items on the line have been returned or all
+              authorized Items on the line have been shipped, whichever comes
+              last. No money should be involved when invoicing replacement
+              Items.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Service</term>
             <listitem>
-              <para><remark>findme</remark></para>
+              <para>Select if, by default, you want to repair and service
+              Items returned by Customers. Service or repair items will first
+              be received by a Return Authorization. Then a new Sales Order
+              with linked Work Order(s) will be created to track work and
+              shipping on the repair. The new Sales Order will be on RMA Hold
+              until Items have been received by the Return
+              Authorization.</para>
+              <note>
+                <para>You may not link service work to an original Sales
+                Order.</para>
+              </note>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Mixed</term>
             <listitem>
-              <para><remark>findme</remark></para>
+              <para>Select if, by default, you handle Customer returns in a
+              mixed mode scenario where, for example, some Items may be
+              returned and some replaced on a new Sales Order.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Immediately</term>
+      <term>Credit/Ship</term>
       <listitem>
-        <para><remark>findme</remark></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Upon Receipt</term>
-      <listitem>
-        <para><remark>findme</remark></para>
+        <para>Specify the default timetable for Customer credits and/or
+        returns:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Immediately</term>
+            <listitem>
+              <para>Select to issue credit or send returns to Customers
+              immediately by default.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Upon Receipt</term>
+            <listitem>
+              <para>Select to issue credit or send returns to Customers only
+              after you have received returned good from them by
+              default.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -667,25 +752,30 @@
           <varlistentry>
             <term>None</term>
             <listitem>
-              <para><remark>findme</remark></para>
+              <para>Select if you do not have a default method for crediting
+              Customer returns, but instead decide on a case-by-case
+              basis.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Credit Memo</term>
             <listitem>
-              <para><remark>findme</remark></para>
+              <para>Select if, by default, you credit Customer returns with a
+              Credit Memo to the Customer's account.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Check</term>
             <listitem>
-              <para><remark>findme</remark></para>
+              <para>Select if, by default, you credit Customer returns by
+              sending them a Check.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Credit Card</term>
             <listitem>
-              <para><remark>findme</remark></para>
+              <para>Select if, by default, you credit Customer returns by
+              crediting their Credit Card.</para>
             </listitem>
           </varlistentry>
         </variablelist>
