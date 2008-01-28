@@ -340,6 +340,11 @@ BEGIN
            WHERE((raitem_new_coitem_id=NEW.coitem_id)
              AND (raitem_scheddate != NEW.coitem_scheddate));
         END IF;
+        IF (OLD.coitem_memo <> NEW.coitem_memo) THEN
+          UPDATE raitem SET raitem_notes = NEW.coitem_memo
+           WHERE((raitem_new_coitem_id=NEW.coitem_id)
+             AND (raitem_notes != NEW.coitem_memo));
+        END IF;
         IF ((OLD.coitem_qtyshipped <> NEW.coitem_qtyshipped) AND 
            (NEW.coitem_qtyshipped >= _r.raitem_qtyauthorized) AND
            ((_r.raitem_disposition = ''S'') OR
