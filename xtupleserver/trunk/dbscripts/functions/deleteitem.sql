@@ -130,6 +130,14 @@ BEGIN
   DELETE FROM itemsite
   WHERE (itemsite_item_id=pItemid);
 
+  DELETE FROM itemuom
+   WHERE(itemuom_itemuomconv_id IN (SELECT itemuomconv_id
+                                      FROM itemuomconv
+                                     WHERE(itemuomconv_item_id=pItemid)));
+
+  DELETE FROM itemuomconv
+   WHERE(itemuomconv_item_id=pItemid);
+
   DELETE FROM item
   WHERE (item_id=pItemid);
 
