@@ -21,7 +21,8 @@ BEGIN
     checkhead_misc, checkhead_expcat_id, checkhead_curr_id )
   SELECT _newCheckid, checkhead_recip_id, checkhead_recip_type,
 	 checkhead_bankaccnt_id, checkhead_checkdate,
-	 fetchNextCheckNumber(checkhead_bankaccnt_id), checkhead_amount,
+	 -1, -- fetchNextCheckNumber(checkhead_bankaccnt_id),
+         checkhead_amount,
 	 checkhead_for, checkhead_journalnumber,
          checkhead_notes || ''\nReplaces voided check '' || checkhead_number,
 	 checkhead_misc, checkhead_expcat_id, checkhead_curr_id

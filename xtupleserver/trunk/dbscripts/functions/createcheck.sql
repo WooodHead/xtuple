@@ -84,7 +84,7 @@ BEGIN
     checkhead_curr_id )
   VALUES
   ( _checkid,			pRecipType,		pRecipId,
-    pBankaccntid,		fetchNextCheckNumber(pBankaccntid),
+    pBankaccntid,		-1, --fetchNextCheckNumber(pBankaccntid),
     currToCurr(pCurrid, _bankaccnt_currid, pAmount, pCheckDate),
     pCheckDate,			COALESCE(pMisc, FALSE),	pExpcatid,
     _journalNumber,		pFor,			pNotes,
