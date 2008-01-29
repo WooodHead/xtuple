@@ -313,11 +313,12 @@ BEGIN
       WHERE ((raitem_new_coitem_id=NEW.coitem_id)
       AND (rahead_id=raitem_rahead_id));
       IF (FOUND) THEN
-        IF (_r.raitem_qtyauthorized <> NEW.coitem_qtyord OR
+        IF ((_r.raitem_qtyauthorized <> NEW.coitem_qtyord OR
             _r.raitem_qty_uom_id <> NEW.coitem_qty_uom_id OR
             _r.raitem_qty_invuomratio <> NEW.coitem_qty_invuomratio OR
             _r.raitem_price_uom_id <> NEW.coitem_price_uom_id OR
-            _r.raitem_price_invuomratio <> NEW.coitem_price_invuomratio) THEN
+            _r.raitem_price_invuomratio <> NEW.coitem_price_invuomratio)
+            AND NOT (NEW.coitem_status = ''X'' AND _r.raitem_qtyauthorized = 0)) THEN
           RAISE EXCEPTION ''Quantities for line item % may only be changed on the Return Authorization that created it.'',NEW.coitem_linenumber;
         END IF;
         IF (OLD.coitem_warranty <> NEW.coitem_warranty) THEN
