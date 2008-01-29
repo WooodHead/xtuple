@@ -297,7 +297,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     cohead_custponumber=NEW.cust_po_number,
     cohead_orderdate=NEW.order_date,
     cohead_warehous_id=getWarehousId(NEW.warehouse,'SHIPPING'),
-    cohead_shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number),
+    cohead_shipto_id=COALESCE(getShiptoId(NEW.customer_number,NEW.shipto_number),-1),
     cohead_shiptoname=NEW.shipto_name,
     cohead_shiptoaddress1=NEW.shipto_address1,
     cohead_shiptoaddress2=NEW.shipto_address2,
