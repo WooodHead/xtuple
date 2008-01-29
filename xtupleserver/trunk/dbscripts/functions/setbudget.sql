@@ -26,7 +26,7 @@ BEGIN
      AND  (budgitem_budghead_id=pBudgheadid)
      AND  (budgitem_accnt_id=pAccntid));
   IF (FOUND) THEN
-    UPDATE budget
+    UPDATE budgitem
        SET budgitem_amount = pAmount
      WHERE (budgitem_id=_budgetid);
   ELSE
