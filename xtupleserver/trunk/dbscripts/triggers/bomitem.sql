@@ -15,8 +15,9 @@ BEGIN
     IF (SELECT (COUNT(*) != 0) 
         FROM bomitem(NEW.bomitem_parent_item_id,NEW.bomitem_rev_id)
         WHERE ((bomitem_id != NEW.bomitem_id)
+        AND (bomitem_item_id = NEW.bomitem_item_id)
         AND (bomitem_seqnumber=NEW.bomitem_seqnumber))) THEN
-      RAISE EXCEPTION ''BOM Item sequence number must be unique.'';
+      RAISE EXCEPTION ''BOM Item sequence number must be unique for effectivity range.'';
     END IF;
 
 -- Check for valid UOM

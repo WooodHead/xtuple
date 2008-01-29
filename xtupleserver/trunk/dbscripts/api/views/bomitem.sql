@@ -148,7 +148,8 @@ COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
       bomitem_rev_id=getRevId('BOM',NEW.bom_item_number,NEW.bom_revision)
       WHERE ((bomitem_parent_item_id=getItemId(OLD.bom_item_number))
       AND (bomitem_rev_id=getRevId('BOM',OLD.bom_item_number,OLD.bom_revision))
-      AND (bomitem_seqnumber=OLD.sequence_number));
+      AND (bomitem_seqnumber=OLD.sequence_number)
+      AND (bomitem_item_id=getItemId(OLD.bom_item_number)));
 
     CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.bomitem DO INSTEAD NOTHING;
