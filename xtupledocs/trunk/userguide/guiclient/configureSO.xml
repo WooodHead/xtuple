@@ -624,8 +624,8 @@
   <para role="openmfg"><indexterm significance="normal">
       <primary>return authorizations</primary>
       <secondary>configuration for</secondary>
-    </indexterm>To define your system's Returns configuration, select the
-  "Return" tab. The following screen will appear:</para>
+    </indexterm>To define your system's Return Authorization configuration,
+  select the "Return" tab. The following screen will appear:</para>
   <screenshot role="openmfg">
     <mediaobject>
       <imageobject>
@@ -634,8 +634,8 @@
       <caption><para>Returns Configuration Options</para></caption>
     </mediaobject>
   </screenshot>
-  <para role="openmfg">When configuring Returns settings, you are presented
-  with the following options:</para>
+  <para role="openmfg">When configuring Return Authorization settings, you are
+  presented with the following options:</para>
   <variablelist role="openmfg">
     <varlistentry>
       <term>Enable Return Authorizations</term>
@@ -695,25 +695,24 @@
           <varlistentry>
             <term>Service</term>
             <listitem>
-              <para>Select if, by default, you want to repair and service
-              Items returned by Customers. Service or repair items will first
-              be received by a Return Authorization. Then a new Sales Order
-              with linked Work Order(s) will be created to track work and
-              shipping on the repair. The new Sales Order will be on RMA Hold
-              until Items have been received by the Return
+              <para>Select if, by default, you want to repair or service Items
+              returned by Customers. Service or repair items will first be
+              received by a Return Authorization. Then a new Sales Order with
+              linked Work Order(s) will be created to track work and shipping
+              on the repair or service. The new Sales Order will be on RMA
+              Hold until Items have been received by the Return
               Authorization.</para>
-              <note>
-                <para>You may not link service work to an original Sales
-                Order.</para>
-              </note>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Mixed</term>
+            <term>Substitute</term>
             <listitem>
-              <para>Select if, by default, you handle Customer returns in a
-              mixed mode scenario where, for example, some Items may be
-              returned and some replaced on a new Sales Order.</para>
+              <para>Select if, by default, you want to authorize the
+              substitution of Items returned by Customers. Under this option,
+              when an original Sales Order is imported into the Return
+              Authorization, the Return Authorization Line Items will default
+              to the Return disposition. Any new Line Items added beyond the
+              original ones will have a default disposition of Ship.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -736,7 +735,7 @@
             <term>Upon Receipt</term>
             <listitem>
               <para>Select to issue credit or send returns to Customers only
-              after you have received returned good from them by
+              after you have received returned goods from them by
               default.</para>
             </listitem>
           </varlistentry>
@@ -752,23 +751,24 @@
           <varlistentry>
             <term>None</term>
             <listitem>
-              <para>Select if you do not have a default method for crediting
-              Customer returns, but instead decide on a case-by-case
-              basis.</para>
+              <para>Select if, by default, you do not issue credit for
+              Customer returns.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Credit Memo</term>
             <listitem>
               <para>Select if, by default, you credit Customer returns with a
-              Credit Memo to the Customer's account.</para>
+              Credit Memo to the Customer's account. This option will result
+              in the automatic creation of a sales Credit Memo.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Check</term>
             <listitem>
               <para>Select if, by default, you credit Customer returns by
-              sending them a Check.</para>
+              sending them a Check. This option will create a Credit Memo,
+              then a Misc. Check that applies to the Credit Memo.</para>
             </listitem>
           </varlistentry>
           <varlistentry>

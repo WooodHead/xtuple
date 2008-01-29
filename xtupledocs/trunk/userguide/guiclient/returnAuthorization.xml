@@ -16,7 +16,7 @@
   resolve a problem resulting from dissatisfaction with products or services
   shipped. Depending on the business model, users may handle the return in a
   number of ways. The OpenMFG return system is flexible enough to handle the
-  needs of most business scenarios. </para>
+  needs of most business scenarios.</para>
   <para>To access the Return Authorization area, select the "Return
   Authorization" option. The following screen will appear:</para>
   <para><screenshot>
@@ -48,7 +48,10 @@
     <varlistentry>
       <term>Expire Date</term>
       <listitem>
-        <para></para>
+        <para>Specify the date when the Return Authorization will expire. This
+        is an optional setting used to determine the amount of time that
+        should pass before the transactions on the Return Authorization are
+        considered past due</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -60,10 +63,10 @@
           <secondary>commissions on</secondary>
         </indexterm>Sales Rep.</term>
       <listitem>
-        <para>Specify the Sales Representative associated with the Order.
-        Sales Representatives are linked to a Customer on the Customer
-        master--either by a default setting or through the assignment of
-        Ship-To Addresses. Each Ship-To Address may have a different Sales
+        <para>Specify the Sales Representative associated with the Return
+        Authorization. Sales Representatives are linked to a Customer on the
+        Customer master--either by a default setting or through the assignment
+        of Ship-To Addresses. Each Ship-To Address may have a different Sales
         Representative associated with it. Consequently, the name of the Sales
         Representative appearing on the Return Authorization header will be
         the same as specified for the Ship-To Address being used.</para>
@@ -74,9 +77,9 @@
       <listitem>
         <para>By default, the commission percentage recorded on the Customer
         master will be automatically entered in this field. If for some reason
-        you select a non-default Sales Representative at Order entry, the
-        commission rate will not change. To adjust the commission rate, you
-        must make the change manually.</para>
+        you select a non-default Sales Representative, the commission rate
+        will not change. To adjust the commission rate, you must make the
+        change manually.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -96,42 +99,75 @@
     <varlistentry>
       <term>Reason Code</term>
       <listitem>
-        <para></para>
+        <para>Specify the reason for the Return Authorization. Reason codes
+        are used to explain why a Customer return is being authorized.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Disposition</term>
       <listitem>
-        <para></para>
+        <para>Specify the method to be used for handling the Return
+        Authorization. If your system is configured to use a default
+        disposition, then that value will be shown.</para>
+        <note>
+          <para>The disposition of individual Line Items will be determined
+          conditionally based on the settings made at the Return Authorization
+          header level.</para>
+        </note>
         <variablelist>
           <varlistentry>
             <term>Credit</term>
             <listitem>
-              <para></para>
+              <para>Select to authorize the issuing of credit to the specified
+              Customer. No return is required or expected; as a result, the
+              Credit/Ship timetable option will be disabled for this
+              disposition method. Return Authorization Line Items will close
+              when an associated Credit Memo is posted.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Return</term>
             <listitem>
-              <para></para>
+              <para>Select to authorize returns from the specified Customer.
+              Return Authorization Items will close when an associated Credit
+              Memo is posted, or when all Items on a line have been returned,
+              whichever comes last.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Replace</term>
             <listitem>
-              <para></para>
+              <para>Select to authorize the replacement of Items returned by
+              the specified Customer. Authorized quantities will be added as
+              additional order quantity to an associated Sales Order line,
+              which in turn should be reopened if closed. Return Authorization
+              Items will close when all Items on the line have been returned
+              or all authorized Items on the line have been shipped, whichever
+              comes last. No money should be involved when invoicing
+              replacement Items.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Service</term>
             <listitem>
-              <para></para>
+              <para>Select to authorize the repair or service of Items
+              returned by the specified Customer. Service or repair items will
+              first be received by the Return Authorization. Then a new Sales
+              Order with linked Work Order(s) will be created to track work
+              and shipping on the repair or service. The new Sales Order will
+              be on RMA Hold until Items have been received by the Return
+              Authorization.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Substitute</term>
             <listitem>
-              <para></para>
+              <para>Select to authorize the substitution of Items returned by
+              the specified Customer. Under this option, when an original
+              Sales Order is imported into the Return Authorization, the
+              Return Authorization Line Items will default to the Return
+              disposition. Any new Line Items added beyond the original ones
+              will have a default disposition of Ship.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -140,18 +176,21 @@
     <varlistentry>
       <term>Credit/Ship</term>
       <listitem>
-        <para></para>
+        <para>Specify the timing for the Return Authorization:</para>
         <variablelist>
           <varlistentry>
             <term>Immediately</term>
             <listitem>
-              <para></para>
+              <para>Select to issue credit or send returns to the specified
+              Customer immediately.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Upon Receipt</term>
             <listitem>
-              <para></para>
+              <para>Select to issue credit or send returns to the specified
+              Customer only after you have received returned goods from
+              them.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -160,30 +199,49 @@
     <varlistentry>
       <term>Credit by</term>
       <listitem>
-        <para></para>
+        <para>Specify the method to be used for crediting the Customer:</para>
         <variablelist>
           <varlistentry>
             <term>None</term>
             <listitem>
-              <para></para>
+              <para>Select if you will not be issuing credit to the Customer.
+              If you select this option, you will be unable to add pricing
+              information at the Line Item level. </para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Credit Memo</term>
             <listitem>
-              <para></para>
+              <para>Select to credit the return with a Credit Memo to the
+              Customer's account. If selected, a sales Credit Memo will be
+              automatically queued up for processing on the Return
+              Authorizations Workbench.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Check</term>
             <listitem>
-              <para></para>
+              <para>Select to credit the return by sending the Customer a
+              Check. If selected, a Customer Check will be queued up for
+              processing on the Return Authorizations Workbench. When the
+              Check is processed, a sales Credit Memo will be created
+              automatically--and the Check will be applied to it.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Credit Card</term>
             <listitem>
-              <para></para>
+              <para>Select to credit the return with a refund to the
+              Customer's Credit Card. If selected, the payment will be queued
+              up for processing on the Return Authorizations Workbench. A
+              Credit Memo will be posted when the refund is processed--and the
+              refund charges will be applied to it. If the timing of the
+              credit is immediately, then you may issue the refund directly
+              from the Line Items tab of the Return Authorization. </para>
+              <note>
+                <para>The Credit Card functionality must be enabled at your
+                site for the Credit Card method to function properly.</para>
+              </note>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -192,7 +250,8 @@
     <varlistentry>
       <term>Print on Save</term>
       <listitem>
-        <para></para>
+        <para>Select to print a copy of the Return Authorization when you
+        select the SAVE button.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -201,6 +260,9 @@
       <term>Original Order #</term>
       <listitem>
         <para></para>
+        <para>If an original Sales Order Number is entered here, the original
+        Line Items from the Sales Order will be imported into the Return
+        Authorization. </para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -555,8 +617,9 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem>
-        <para><remark>findme</remark></para>
+      <listitem id="openVouchersVIEW">
+        <para>Highlight a Return Authorization Line Item and then select this
+        button to reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -574,6 +637,31 @@
         <para>Highlight a Return Authorization Line Item and then select this
         button to remove the Return Authorization Line Item from the
         list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>AUTHORIZE LINE</term>
+      <listitem>
+        <para>Highlight a Return Authorization Line Item and then select this
+        button to authorize the Line Item. If the Line Item was imported from
+        an original Sales Order, then the original Line Item must be shipped
+        before it may be authorized.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLEAR AUTHORIZATION</term>
+      <listitem>
+        <para>Highlight a Return Authorization Line Item and then select this
+        button to clear the authorization, returning the Line Item to an
+        unauthorized state.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>AUTHORIZE ALL</term>
+      <listitem>
+        <para>Select to authorize all unathorized Line Items. If the Line
+        Items were imported from an original Sales Order, then the original
+        Line Items must be shipped before they may be authorized.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
