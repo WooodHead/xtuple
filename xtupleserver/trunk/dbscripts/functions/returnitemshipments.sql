@@ -24,6 +24,7 @@ DECLARE
   _oldinvhistid INTEGER;
   _itemlocdistid INTEGER;
   _r RECORD;
+  _m RECORD;
   _ils INTEGER;
 
 BEGIN
@@ -75,6 +76,31 @@ BEGIN
          AND (coitem_id=pitemid) )
         GROUP BY costcat_shipasset_accnt_id,costcat_wip_accnt_id;
 
+  --  Reverse Backflush eligble material
+      FOR _m IN SELECT womatl_id, womatl_qtyper, womatl_scrap, womatl_qtywipscrap,
+		     womatl_qtyreq - roundQty(item_fractional, womatl_qtyper * wo_qtyord) AS preAlloc
+	      FROM womatl, wo, itemsite, item
+	      WHERE ((womatl_issuemethod = ''L'')
+		AND  (womatl_wo_id=wo_id)
+		AND  (womatl_itemsite_id=itemsite_id)
+		AND  (itemsite_item_id=item_id)
+		AND  (wo_ordtype = ''S'')
+		AND  (wo_ordid = pitemid))
+      LOOP
+        -- CASE says: don''t use scrap % if someone already entered actual scrap
+        SELECT returnWoMaterial(_m.womatl_id,
+	  CASE WHEN _m.womatl_qtywipscrap > _m.preAlloc THEN
+	    _qty * _m.womatl_qtyper + (_m.womatl_qtywipscrap - _m.preAlloc)
+	  ELSE
+	    _qty * _m.womatl_qtyper * (1 + _m.womatl_scrap)
+	  END, _itemlocSeries) INTO _itemlocSeries;
+
+        UPDATE womatl
+        SET womatl_issuemethod=''L''
+        WHERE ( (womatl_issuemethod=''M'')
+          AND (womatl_id=_m.womatl_id) );
+    
+      END LOOP;
 
   --  Update the work order about what happened
         UPDATE wo SET 

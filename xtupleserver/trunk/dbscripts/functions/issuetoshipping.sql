@@ -25,6 +25,7 @@ DECLARE
   _shipnumber		INTEGER;
   _r                    RECORD;
   _p                    RECORD;
+  _m                    RECORD;
   _value                NUMERIC;
 
 BEGIN
@@ -127,6 +128,34 @@ BEGIN
       _value := round(stdcost(_r.item_id) * pQty * _r.coitem_qty_invuomratio,2);
     ELSE
     -- This is a job so deal with costing and work order
+    
+       --Backflush eligble material
+      FOR _m IN SELECT womatl_id, womatl_qtyper, womatl_scrap, womatl_qtywipscrap,
+		     womatl_qtyreq - roundQty(item_fractional, womatl_qtyper * wo_qtyord) AS preAlloc
+	      FROM womatl, wo, itemsite, item
+	      WHERE ((womatl_issuemethod IN (''L'', ''M''))
+		AND  (womatl_wo_id=wo_id)
+		AND  (womatl_itemsite_id=itemsite_id)
+		AND  (itemsite_item_id=item_id)
+		AND  (wo_ordtype = ''S'')
+		AND  (wo_ordid = pitemid))
+      LOOP
+        -- CASE says: don''t use scrap % if someone already entered actual scrap
+        SELECT issueWoMaterial(_m.womatl_id,
+	  CASE WHEN _m.womatl_qtywipscrap > _m.preAlloc THEN
+	    pQty * _m.womatl_qtyper + (_m.womatl_qtywipscrap - _m.preAlloc)
+	  ELSE
+	    pQty * _m.womatl_qtyper * (1 + _m.womatl_scrap)
+	  END, _itemlocSeries) INTO _itemlocSeries;
+
+        UPDATE womatl
+        SET womatl_issuemethod=''L''
+        WHERE ( (womatl_issuemethod=''M'')
+          AND (womatl_id=_m.womatl_id) );
+    
+      END LOOP;
+      
+      --Get Work Order Info
       SELECT
         wo_id, formatwonumber(wo_id) AS f_wonumber,wo_status, wo_qtyord, wo_qtyrcv,
         CASE WHEN (wo_cosmethod = ''D'') THEN
@@ -142,10 +171,10 @@ BEGIN
       END IF;
 
   --  Distribute to G/L, debit Shipping Asset, credit WIP
-      SELECT MIN(insertGLTransaction( ''S/R'', ''SH'', formatSoNumber(pItemid), ''Issue to Shipping'',
+      PERFORM MIN(insertGLTransaction( ''S/R'', ''SH'', formatSoNumber(pItemid), ''Issue to Shipping'',
                                      costcat_wip_accnt_id,
 				     costcat_shipasset_accnt_id,
-                                     -1, _p.value, current_date )) INTO _invhistid
+                                     -1, _p.value, current_date )) 
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
       AND (itemsite_id=_r.coitem_itemsite_id) );

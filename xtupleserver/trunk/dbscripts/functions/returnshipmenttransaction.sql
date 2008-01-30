@@ -22,11 +22,13 @@ DECLARE
   _qty			NUMERIC;
   _ils                 INTEGER;
   _r                   RECORD;
+  _m                   RECORD;
   _itemlocdistid       INTEGER;
+  _value               NUMERIC;
 
 BEGIN
-  SELECT DISTINCT shiphead_order_type, shipitem_orderitem_id, shipitem_qty, shipitem_invhist_id INTO
-		_ordertype, _orderitemid, _qty, _invhistid
+  SELECT DISTINCT shiphead_order_type, shipitem_orderitem_id, shipitem_qty, shipitem_invhist_id, shipitem_value INTO
+		_ordertype, _orderitemid, _qty, _invhistid, _value
   FROM shiphead, shipitem
   WHERE ((shiphead_id=shipitem_shiphead_id)
     AND  (shipitem_id=pshipitemid));
@@ -50,38 +52,65 @@ BEGIN
         WHERE ((coitem_id=_orderitemid)
           AND (coitem_itemsite_id=itemsite_id)
           AND (itemsite_item_id=item_id))) THEN
-    SELECT postInvTrans( itemsite_id, ''RS'', _qty * coitem_qty_invuomratio,
+      SELECT postInvTrans( itemsite_id, ''RS'', _qty * coitem_qty_invuomratio,
 			 ''S/R'', _ordertype, formatSoNumber(coitem_id), '''',
 			 ''Return from Shipping'',
 			 costcat_asset_accnt_id, costcat_shipasset_accnt_id,
 			 _ils, _timestamp ) INTO _invhistid
-    FROM coitem, itemsite, costcat
-    WHERE ((_orderitemid=coitem_id)
+      FROM coitem, itemsite, costcat
+      WHERE ((_orderitemid=coitem_id)
       AND  (coitem_itemsite_id=itemsite_id)
       AND  (itemsite_costcat_id=costcat_id));
       
-      ELSE
-        SELECT insertGLTransaction( ''S/R'', ''RS'', formatSoNumber(_orderitemid), ''Return from Shipping'',
+    ELSE
+      SELECT insertGLTransaction( ''S/R'', ''RS'', formatSoNumber(_orderitemid), ''Return from Shipping'',
                                      costcat_shipasset_accnt_id,
 				     costcat_wip_accnt_id,
                                      -1, _value, current_date ) INTO _invhistid
-        FROM coitem, itemsite, costcat
-        WHERE ( (coitem_itemsite_id=itemsite_id)
-         AND (itemsite_costcat_id=costcat_id)
-         AND (coitem_id=pitemid) )
-        GROUP BY costcat_shipasset_accnt_id,costcat_wip_accnt_id;
+      FROM coitem, itemsite, costcat
+      WHERE ( (coitem_itemsite_id=itemsite_id)
+       AND (itemsite_costcat_id=costcat_id)
+       AND (coitem_id=pshipitemid) )
+      GROUP BY costcat_shipasset_accnt_id,costcat_wip_accnt_id;
+      
+   --  Reverse Backflush eligble material
+      FOR _m IN SELECT womatl_id, womatl_qtyper, womatl_scrap, womatl_qtywipscrap,
+		     womatl_qtyreq - roundQty(item_fractional, womatl_qtyper * wo_qtyord) AS preAlloc
+	      FROM womatl, wo, itemsite, item, shipitem
+	      WHERE ((womatl_issuemethod = ''L'')
+		AND  (womatl_wo_id=wo_id)
+		AND  (womatl_itemsite_id=itemsite_id)
+		AND  (itemsite_item_id=item_id)
+		AND  (wo_ordtype = ''S'')
+		AND  (wo_ordid = shipitem_orderitem_id)
+		AND  (shipitem_id=pshipitemid))
+      LOOP
+        -- CASE says: don''t use scrap % if someone already entered actual scrap
+        SELECT returnWoMaterial(_m.womatl_id,
+	  CASE WHEN _m.womatl_qtywipscrap > _m.preAlloc THEN
+	    _qty * _m.womatl_qtyper + (_m.womatl_qtywipscrap - _m.preAlloc)
+	  ELSE
+	    _qty * _m.womatl_qtyper * (1 + _m.womatl_scrap)
+	  END, _itemlocSeries) INTO _itemlocSeries;
+
+        UPDATE womatl
+        SET womatl_issuemethod=''L''
+        WHERE ( (womatl_issuemethod=''M'')
+          AND (womatl_id=_m.womatl_id) );
+    
+      END LOOP;
 
 
   --  Update the work order about what happened
-        UPDATE wo SET 
-          wo_qtyrcv = wo_qtyrcv - _qty * coitem_qty_invuomratio,
-          wo_wipvalue = wo_wipvalue + _value,
-          wo_status =''I''
-        FROM coitem
-        WHERE ((wo_ordtype = ''S'')
-        AND (wo_ordid = _orderitemid)
-        AND (coitem_id = _orderitemid));
-      END IF;
+      UPDATE wo SET 
+        wo_qtyrcv = wo_qtyrcv - _qty * coitem_qty_invuomratio,
+        wo_wipvalue = wo_wipvalue + _value,
+        wo_status =''I''
+      FROM coitem
+      WHERE ((wo_ordtype = ''S'')
+      AND (wo_ordid = _orderitemid)
+      AND (coitem_id = _orderitemid));
+    END IF;
 
   ELSEIF (_ordertype = ''TO'') THEN
     SELECT postInvTrans( itemsite_id, ''RS'', _qty,
