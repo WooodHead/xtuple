@@ -98,7 +98,7 @@ BEGIN
    
 -- Integrity check
     IF (TG_OP = ''INSERT'') THEN
-      IF (NEW.itemsite_loccntrl) THEN
+      IF ( (NEW.itemsite_loccntrl) AND (NEW.itemsite_warehous_id IS NOT NULL) ) THEN
         IF (SELECT count(*)=0
             FROM location
             WHERE ((location_warehous_id=NEW.itemsite_warehous_id)
