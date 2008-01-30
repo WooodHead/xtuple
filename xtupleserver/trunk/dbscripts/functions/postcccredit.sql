@@ -33,8 +33,8 @@ BEGIN
 
   _sequence := fetchGLSequence();
 
-  IF (_c.ccpay_yp_r_ref IS NOT NULL) THEN
-    _ccOrderDesc := (_c.ccard_type || ''-'' || _c.ccpay_yp_r_ref);
+  IF (_c.ccpay_r_ref IS NOT NULL) THEN
+    _ccOrderDesc := (_c.ccard_type || ''-'' || _c.ccpay_r_ref);
   ELSE
     _ccOrderDesc := (_c.ccard_type || ''-'' || _c.ccpay_order_number::TEXT ||
 		     ''-'' || COALESCE(_c.ccpay_order_number_seq::TEXT, ''''));
@@ -66,7 +66,7 @@ BEGIN
 		    INTO _r
   FROM aropen
   WHERE ((aropen_doctype=''C'')
-    AND  (aropen_docnumber=_c.ccpay_yp_r_ref)
+    AND  (aropen_docnumber=_c.ccpay_r_ref)
     AND  (ROUND(aropen_amount - aropen_paid, 2) <=
 	      ROUND(currToCurr(_c.ccpay_curr_id, aropen_curr_id,_c.ccpay_amount,
 			       _c.ccpay_transaction_datetime::DATE), 2))

@@ -47,3 +47,7 @@ DELETE FROM metric WHERE metric_name IN ('CCConfirmTrans',
 					 'CCSoOptions',
 					 'CCYPTestResult'
 					 );
+SELECT setMetric('CCValidDays', 30)
+FROM metric
+WHERE ((metric_name='CCValidDays')
+  AND  (metric_value::INTEGER > 30));
