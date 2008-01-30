@@ -90,3 +90,6 @@ SELECT item_id FROM item WHERE (item_id=itemsub_sub_item_id)
 SELECT COUNT(*)=0 FROM itemfile WHERE (itemfile_item_id NOT IN (
 SELECT item_id FROM item WHERE (item_id=itemfile_item_id)
 ));
+
+--  Any inventory that is currently at shipping either needs to be shipped or returned
+SELECT COUNT(*)=0 FROM shiphead,shipitem WHERE ((shiphead_id=shipitem_shiphead_id) AND (NOT shiphead_shipped));
