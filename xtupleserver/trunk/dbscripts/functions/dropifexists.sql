@@ -5,7 +5,18 @@ DECLARE
   _table	TEXT;
   _query	TEXT;
 BEGIN
-  IF (UPPER(pType) = ''VIEW'') THEN
+  IF (UPPER(pType) = ''TABLE'') THEN
+    _query = ''DROP TABLE '' || quote_ident(LOWER(pObject));
+    BEGIN
+      EXECUTE _query;
+    EXCEPTION WHEN undefined_table THEN
+		RAISE NOTICE ''No table % to drop'', pObject;
+		RETURN 0;
+	      WHEN OTHERS THEN RAISE EXCEPTION ''% %'', SQLSTATE, SQLERRM;
+    END;
+    RAISE NOTICE ''TABLE % dropped'', pObject;
+
+  ELSIF (UPPER(pType) = ''VIEW'') THEN
     _query = ''DROP VIEW '' || quote_ident(LOWER(pObject));
     BEGIN
       EXECUTE _query;
