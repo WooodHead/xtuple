@@ -65,7 +65,7 @@ BEGIN
 					 _c.ccpay_transaction_datetime::DATE), 2) >= ROUND(aropen_amount, 2)) AS closed
 		    INTO _r
   FROM aropen
-  WHERE ((aropen_doctype=''C'')
+  WHERE ((aropen_doctype IN (''C'', ''R''))
     AND  (aropen_docnumber=_c.ccpay_r_ref)
     AND  (ROUND(aropen_amount - aropen_paid, 2) <=
 	      ROUND(currToCurr(_c.ccpay_curr_id, aropen_curr_id,_c.ccpay_amount,
