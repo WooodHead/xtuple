@@ -1,6 +1,8 @@
-CREATE OR REPLACE FUNCTION postCCcredit(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postCCcredit(INTEGER, TEXT, INTEGER) RETURNS INTEGER AS '
 DECLARE
   pCCpay	ALIAS FOR $1;
+  preftype      ALIAS FOR $2;
+  prefid        ALIAS FOR $3;
   _sequence	INTEGER;
   _c		RECORD;
   _r		RECORD;
@@ -16,6 +18,12 @@ BEGIN
 
   IF (NOT FOUND) THEN
     RETURN -1;
+  END IF;
+
+  IF ((preftype = ''cohead'') AND NOT EXISTS(SELECT cohead_id
+					     FROM cohead
+					     WHERE (cohead_id=prefid))) THEN
+    RETURN -2;
   END IF;
 
   SELECT * INTO _c
@@ -97,6 +105,14 @@ BEGIN
       ROUND(_c.ccpay_amount, 2), _r.closed,
       CURRENT_DATE, fetchJournalNumber(''AR-CM''), CURRENT_USER,
       _c.ccpay_curr_id );
+  END IF;
+
+  IF (preftype = ''cohead'') THEN
+    INSERT INTO payco (
+      payco_ccpay_id, payco_cohead_id, payco_amount, payco_curr_id 
+    ) VALUES (
+      pCCpay, prefid, 0 - _c.ccpay_amount, _c.ccpay_curr_id
+    );
   END IF;
 
   RETURN 0;

@@ -15,6 +15,7 @@ DECLARE
   _test		INTEGER;
 
 BEGIN
+  SELECT * INTO _r FROM cohead WHERE (cohead_id=pSoheadid);
 
   SELECT coitem_id INTO _test
   FROM coitem
@@ -32,16 +33,22 @@ BEGIN
     RETURN -2;
   END IF;
 
-  SELECT cohead_number, cohead_warehous_id, cohead_cust_id, cohead_prj_id INTO _r
-  FROM cohead
-  WHERE (cohead_id=pSoheadid);
-  IF (FOUND) THEN
-    _test := detachCCPayFromSO(_r.cohead_number, _r.cohead_warehous_id, _r.cohead_cust_id);
-    IF (_test < 0) THEN
-      RETURN -100 + _test;
-    END IF;
+  IF (EXISTS(SELECT ccpay_id
+	     FROM ccpay, payco
+	     WHERE ((ccpay_status IN (''C''))
+	       AND  (ccpay_id=payco_ccpay_id)
+	       AND  (payco_cohead_id=pSoheadid)))) THEN
+    RETURN -4;
   END IF;
- 
+
+  IF (EXISTS(SELECT ccpay_id
+	     FROM ccpay, payco
+	     WHERE ((ccpay_status != ''C'')
+	       AND  (ccpay_id=payco_ccpay_id)
+	       AND  (payco_cohead_id=pSoheadid)))) THEN
+    RETURN -5;
+  END IF;
+
   UPDATE pr SET pr_prj_id=-1
   FROM coitem
   WHERE ((coitem_cohead_id=pSoheadid)
