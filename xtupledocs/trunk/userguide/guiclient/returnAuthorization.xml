@@ -206,7 +206,7 @@
             <listitem>
               <para>Select if you will not be issuing credit to the Customer.
               If you select this option, you will be unable to add pricing
-              information at the Line Item level. </para>
+              information at the Line Item level.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -237,7 +237,7 @@
               Credit Memo will be posted when the refund is processed--and the
               refund charges will be applied to it. If the timing of the
               credit is immediately, then you may issue the refund directly
-              from the Line Items tab of the Return Authorization. </para>
+              from the Line Items tab of the Return Authorization.</para>
               <note>
                 <para>The Credit Card functionality must be enabled at your
                 site for the Credit Card method to function properly.</para>
@@ -259,24 +259,40 @@
     <varlistentry>
       <term>Original Order #</term>
       <listitem>
-        <para></para>
-        <para>If an original Sales Order Number is entered here, the original
-        Line Items from the Sales Order will be imported into the Return
-        Authorization. </para>
+        <para>You have the option to select an original Sales Order for all
+        disposition types. When an original Sales Order is selected, all Line
+        Items from the original Order will be imported into the Return
+        Authorization automatically. This feature imports the original pricing
+        and billing information, which can be useful if needed. If additional
+        Line Items are added to the original Sales Order, they will
+        automatically be added to the Return Authorization document or vice
+        versa. When a Sales Order number is selected, the Customer Number and
+        address information will be populated and disabled.</para>
+        <note>
+          <para>A Sales Order may be linked to only one open Return
+          Authorization at a time. </para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>New Order #</term>
       <listitem>
-        <para></para>
+        <para>For Return Authorizations having either Replace, Service, or
+        Substitute dispositions, the system will automatically generate a new
+        Sales Order for shipping purposes once any Line Item quantity has been
+        authorized. Authorized Line Item quantities are added automatically to
+        the new Sales Order, enabling you to ship the quantity at the
+        appropriate time.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Project #</term>
       <listitem>
-        <para>Select a Project Number to associate with the Return
-        Authorization. Link the Return Authorization with other Orders linked
-        to the same project.</para>
+        <para>You have the option to select a Project Number to associate with
+        the Return Authorization. This enables you to link the Return
+        Authorization with other Orders linked to the same project. The browse
+        button located to the right of the field enables you to select from a
+        list of available Projects.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -450,7 +466,9 @@
     <varlistentry>
       <term>Incident</term>
       <listitem>
-        <para></para>
+        <para>You have the option to associate an Incident Number with the
+        Return Authorization. The browse button located to the right of the
+        field enables you to select from a list of available Projects.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -496,7 +514,7 @@
       <listitem>
         <para>Display lists Line Items for this Return Authorization. A valid
         Customer Number must be entered in the "Customer #" field before Line
-        Items can be added to the Order.</para>
+        Items can be added to the Return Authorization.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -511,20 +529,17 @@
     <varlistentry>
       <term>Misc. Charge Amount</term>
       <listitem>
-        <para>Enter the amount of any miscellaneous charge. Examples of
-        miscellaneous charges include palletization costs, co-op refund, etc.
-        Before entering a miscellaneous charge amount, you must first assign
-        the charge to a Sales Account and also enter a description of the
-        charge.</para>
+        <para>Enter the amount of any miscellaneous charge. Before entering a
+        miscellaneous charge amount, you must first assign the charge to a
+        Sales Account and also enter a description of the charge.</para>
+        <tip>
+          <para>You may only enter miscellaneous charges on a Return
+          Authorization if pricing is enabled and/or specified at the Return
+          Authorization Line Item level.</para>
+        </tip>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>If you do not use Miscellaneous Charges at your site, you can hide
-    these fields so they are not visible when entering Return Authorizations.
-    To do so, simply select the "Hide Misc. Charges" option in the
-    system-level configuration.</para>
-  </tip>
   <variablelist>
     <varlistentry>
       <term>Misc. Charge Description</term>
@@ -551,8 +566,8 @@
         </indexterm>Freight</term>
       <listitem>
         <para>Enter the amount of freight charge to be added to the specified
-        Order. Freight charges may be entered during the creation or
-        modification of a Return Authorization--or at the time of
+        Return Authorization. Freight charges may be entered during the
+        creation or modification of a Return Authorization--or at the time of
         shipment.</para>
       </listitem>
     </varlistentry>
@@ -576,7 +591,9 @@
     <varlistentry>
       <term>CVV Code</term>
       <listitem>
-        <para><remark>findme</remark></para>
+        <para>Enter the Card Verification Value (CVV) Code found on the back
+        of the specified Credit Card. This may be an optional feature at your
+        site. Contact your Systems Administrator for details.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -643,49 +660,59 @@
       <term>AUTHORIZE LINE</term>
       <listitem>
         <para>Highlight a Return Authorization Line Item and then select this
-        button to authorize the Line Item. If the Line Item was imported from
-        an original Sales Order, then the original Line Item must be shipped
-        before it may be authorized.</para>
+        button to authorize the Line Item quantity. This option is available
+        only when an imported original Sales Order is being used--and then,
+        the original Line Item quantity must be shipped before it may be
+        authorized.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CLEAR AUTHORIZATION</term>
       <listitem>
         <para>Highlight a Return Authorization Line Item and then select this
-        button to clear the authorization, returning the Line Item to an
-        unauthorized state.</para>
+        button to change the authorization quantity to zero for the Line
+        Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>AUTHORIZE ALL</term>
       <listitem>
-        <para>Select to authorize all unathorized Line Items. If the Line
-        Items were imported from an original Sales Order, then the original
-        Line Items must be shipped before they may be authorized.</para>
+        <para>Select to authorize the full quantity for all unathorized Line
+        Items. This option is available only when an imported original Sales
+        Order is being used--and then, the original Line Item quantity must be
+        shipped before it may be authorized.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>ENTER RECEIPT</term>
       <listitem>
-        <para><remark>findme</remark></para>
+        <para>Highlight an authorized Return Authorization Line Item and then
+        select this button to receive the authorized quantity. The received
+        quantity will be saved for subsequent posting.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>RECEIVE ALL</term>
       <listitem>
-        <para><remark>findme</remark></para>
+        <para>Select to automatically receive all authorized Line Item
+        quantity. The received quantities will be saved for subsequent
+        posting.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>POST RECEIPTS</term>
       <listitem>
-        <para><remark>findme</remark></para>
+        <para>Select to post all pending receipts for the Return
+        Authorization.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>REFUND</term>
       <listitem>
-        <para><remark>findme</remark></para>
+        <para>Select to issue the specified Customer a refund on their Credit
+        Card. This option is only available for credits issued by Credit Card.
+        Your system must also be configured to use Credit Cards for this
+        option to work.</para>
       </listitem>
     </varlistentry>
   </variablelist>
