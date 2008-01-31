@@ -6,7 +6,6 @@
       <primary>return authorizations</primary>
       <secondary>adding line items to</secondary>
     </indexterm>Return Authorization Item</title>
-  <para></para>
   <para>To add a new Return Authorization Line Item, select the NEW button.
   The following screen will appear:</para>
   <para><screenshot>
@@ -17,20 +16,50 @@
         <caption>Create New Return Authorization Line Item</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When creating a new Sales Order Line Item, you are presented with the
-  following options:</para>
+  <para>When creating a new Return Authorization Line Item, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Order #</term>
+      <term>Anth #</term>
       <listitem>
-        <para>Displays the Sales Order Number specified in the "Sales Order"
-        screen.</para>
+        <para>Displays the Return Authorization Number specified in the
+        "Return Authorization" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Line #</term>
       <listitem>
         <para>Displays the Line Item Number for the current Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Original Order #</term>
+      <listitem>
+        <para></para>
+        <para>Displays the original Sales Order Number if the Line Item has
+        been imported into the Return Authorization.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Line #</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>New Order #</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Line #</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -45,29 +74,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Customer P/N</term>
+      <term>Recv. Whs.</term>
       <listitem>
-        <para>Displays the Customer Part Number (i.e., Item Alias) that
-        corresponds to the Item Number entered in the Item Number field. The
-        Customer Part Number will display only if you enter an Item Alias in
-        the Item Number field. To enter an Item Alias, place the cursor in the
-        Item Number field and then use the keyboard shortcut "CTRL + A". After
-        you have entered a valid Item Alias, hit the TAB key. A list of Items
-        that use the specified Item Alias will be displayed. Select the
-        desired Item from the list. The Item Alias will display as the
-        Customer Part Number. Item Aliases are defined on the Item
-        master.</para>
+        <para></para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Substitute for</term>
+      <term>Ship Whs.</term>
       <listitem>
-        <para>Optional selection used solely for gathering information related
-        to Sales Order Line Item substitutions. This feature can be used, for
-        example, to gather information about Inventory shortages or Customer
-        first preferences. There is no impact on the system of using this
-        feature. Its function is simply to store information in the database,
-        where it may be accessed for reporting purposes.</para>
+        <para></para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -100,7 +115,7 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term>Qty. Ordered</term>
+      <term>Qty. Auth.</term>
       <listitem>
         <para>Enter the quantity of the specified Item to be ordered. The
         quantity ordered for sold Items is measured in the Item's Inventory
@@ -130,13 +145,25 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Qty. Sold</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Received</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Qty. Shipped</term>
       <listitem>
         <para>Displays the Line Item quantity shipped (if any) to date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Cust Discount %</term>
+      <term>Restock Charge Discount %</term>
       <listitem>
         <para>Specify here and apply any discount for specified Customer for
         this Sales Order. This is a discount off the regular Customer Price,
@@ -199,14 +226,6 @@
     determine the ship date for the Sales Order.</para>
   </note>
   <variablelist>
-    <varlistentry>
-      <term>Promised Date</term>
-      <listitem>
-        <para>Enter the date when you promised delivery of the Line Item. This
-        is an optional field. It will only be displayed on the screen if your
-        system is configured to enable promise dates.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>Warranty</term>
       <listitem>
