@@ -22,6 +22,14 @@ BEGIN;
     pc.cntct_phone AS primary_contact_voice,
     pc.cntct_fax AS primary_contact_fax,
     pc.cntct_email AS primary_contact_email,
+    (''::TEXT) AS primary_contact_address_change,
+    m.addr_line1 AS primary_contact_address1,
+    m.addr_line2 AS primary_contact_address2,
+    m.addr_line3 AS primary_contact_address3,
+    m.addr_city AS primary_contact_city,
+    m.addr_state AS primary_contact_state,
+    m.addr_postalcode AS primary_contact_postalcode,
+    m.addr_country AS primary_contact_country,
     c.crmacct_cntct_id_2 AS secondary_contact_number,
     sc.cntct_honorific AS secondary_contact_honorific,
     sc.cntct_first_name AS secondary_contact_first,
@@ -31,12 +39,22 @@ BEGIN;
     sc.cntct_fax AS secondary_contact_fax,
     sc.cntct_email AS secondary_contact_email,
     sc.cntct_webaddr AS secondary_contact_web,
+    (''::TEXT) AS secondary_contact_address_change,
+    s.addr_line1 AS secondary_contact_address1,
+    s.addr_line2 AS secondary_contact_address2,
+    s.addr_line3 AS secondary_contact_address3,
+    s.addr_city AS secondary_contact_city,
+    s.addr_state AS secondary_contact_state,
+    s.addr_postalcode AS secondary_contact_postalcode,
+    s.addr_country AS secondary_contact_country,
     c.crmacct_notes AS notes
   FROM
     crmacct c
       LEFT OUTER JOIN crmacct p ON (c.crmacct_id=p.crmacct_parent_id)
       LEFT OUTER JOIN cntct pc ON (c.crmacct_cntct_id_1=pc.cntct_id)
-      LEFT OUTER JOIN cntct sc ON (c.crmacct_cntct_id_2=sc.cntct_id);
+      LEFT OUTER JOIN addr m ON (pc.cntct_addr_id=m.addr_id)
+      LEFT OUTER JOIN cntct sc ON (c.crmacct_cntct_id_2=sc.cntct_id)
+      LEFT OUTER JOIN addr s ON (sc.cntct_addr_id=s.addr_id);
 
 GRANT ALL ON TABLE api.account TO openmfg;
 COMMENT ON VIEW api.account IS 'Account';
@@ -65,7 +83,16 @@ INSERT INTO crmacct
          ELSE 'O' END,
          saveCntct(
           NEW.primary_contact_number,
-          NULL,
+          saveAddr(
+            NULL,
+            NEW.primary_contact_address1,
+            NEW.primary_contact_address2,
+            NEW.primary_contact_address3,
+            NEW.primary_contact_city,
+            NEW.primary_contact_state,
+            NEW.primary_contact_postalcode,
+            NEW.primary_contact_country,
+            NEW.primary_contact_address_change),
           NEW.primary_contact_first,
           NEW.primary_contact_last,
           NEW.primary_contact_honorific,
@@ -78,7 +105,16 @@ INSERT INTO crmacct
           ),
           saveCntct(
           NEW.secondary_contact_number,
-          NULL,
+            saveAddr(
+            NULL,
+            NEW.secondary_contact_address1,
+            NEW.secondary_contact_address2,
+            NEW.secondary_contact_address3,
+            NEW.secondary_contact_city,
+            NEW.secondary_contact_state,
+            NEW.secondary_contact_postalcode,
+            NEW.secondary_contact_country,
+            NEW.secondary_contact_address_change),
           NEW.secondary_contact_first,
           NEW.secondary_contact_last,
           NEW.secondary_contact_honorific,
@@ -105,7 +141,16 @@ UPDATE crmacct SET
     crmacct_cntct_id_1=         
     saveCntct(
           NEW.primary_contact_number,
-          NULL,
+          saveAddr(
+            NULL,
+            NEW.primary_contact_address1,
+            NEW.primary_contact_address2,
+            NEW.primary_contact_address3,
+            NEW.primary_contact_city,
+            NEW.primary_contact_state,
+            NEW.primary_contact_postalcode,
+            NEW.primary_contact_country,
+            NEW.primary_contact_address_change),
           NEW.primary_contact_first,
           NEW.primary_contact_last,
           NEW.primary_contact_honorific,
@@ -119,7 +164,16 @@ UPDATE crmacct SET
     crmacct_cntct_id_2=
           saveCntct(
           NEW.secondary_contact_number,
-          NULL,
+          saveAddr(
+            NULL,
+            NEW.secondary_contact_address1,
+            NEW.secondary_contact_address2,
+            NEW.secondary_contact_address3,
+            NEW.secondary_contact_city,
+            NEW.secondary_contact_state,
+            NEW.secondary_contact_postalcode,
+            NEW.secondary_contact_country,
+            NEW.secondary_contact_address_change),
           NEW.secondary_contact_first,
           NEW.secondary_contact_last,
           NEW.secondary_contact_honorific,
