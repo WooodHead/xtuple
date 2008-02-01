@@ -227,15 +227,13 @@ BEGIN
 
   -- Create work order and process if flagged to do so
   IF ((NEW.coitem_order_type=''W'') AND (NEW.coitem_order_id=-1)) THEN
-    SELECT createwo(cohead_number,NEW.coitem_itemsite_id,NEW.coitem_qtyord,itemsite_leadtime,
-                           NEW.coitem_scheddate,NEW.coitem_memo) INTO NEW.coitem_order_id
+    SELECT createwo(cohead_number,     NEW.coitem_itemsite_id, 1,
+		    NEW.coitem_qtyord, itemsite_leadtime,  NEW.coitem_scheddate,
+		    NEW.coitem_memo,   ''S'',              NEW.coitem_id,
+		    cohead_prj_id) INTO NEW.coitem_order_id
     FROM cohead, itemsite 
     WHERE ((cohead_id=NEW.coitem_cohead_id)
     AND (itemsite_id=NEW.coitem_itemsite_id));
-
-    UPDATE wo
-    SET wo_ordid=NEW.coitem_id, wo_ordtype=''S''
-    WHERE (wo_id=NEW.coitem_order_id);
 
     INSERT INTO charass
       (charass_target_type, charass_target_id,
