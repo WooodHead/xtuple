@@ -242,31 +242,36 @@
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomVIEW)" />
+      <listitem>
+        <para><xref linkend="bomVIEW" /></para>
+      </listitem>
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomEDIT)" />
+      <listitem>
+        <para><xref linkend="bomEDIT" /></para>
+      </listitem>
     </varlistentry>
     <varlistentry>
       <term>Expire</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomEXPIRE)" />
+      <listitem>
+        <para><xref linkend="bomEXPIRE" /></para>
+      </listitem>
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickReplace)" />
     <varlistentry>
       <term>Move Up</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomMOVEUP)" />
+      <listitem>
+        <para><xref linkend="bomMOVEUP" /></para>
+      </listitem>
     </varlistentry>
     <varlistentry>
       <term>Move Down</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomMOVEDOWN)" />
+      <listitem>
+        <para><xref linkend="bomMOVEDOWN" /></para>
+      </listitem>
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
