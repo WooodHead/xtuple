@@ -22,8 +22,8 @@
     <varlistentry>
       <term>Anth #</term>
       <listitem>
-        <para>Displays the Return Authorization Number specified in the
-        "Return Authorization" screen.</para>
+        <para>Displays the Return Authorization Number specified on the Return
+        Authorization header.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -35,9 +35,28 @@
     <varlistentry>
       <term>Original Order #</term>
       <listitem>
-        <para></para>
         <para>Displays the original Sales Order Number if the Line Item has
-        been imported into the Return Authorization.</para>
+        been imported into the Return Authorization. Importing Return
+        Authorization Line Items from an original Sales Order is optional
+        only. When Line Items are imported, the original quantities and
+        pricing information are imported also.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Line #</term>
+            <listitem>
+              <para>Displays the original Sales Order Line Item Number.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>New Order #</term>
+      <listitem>
+        <para>Displays the Order Number for the new Sales Order created in
+        support of the Return Authorization, if applicable. New Sales Orders
+        will be automatically created for Return Authorizations having the
+        following dispositions: replace, service, ship. </para>
         <variablelist>
           <varlistentry>
             <term>Line #</term>
@@ -49,12 +68,36 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>New Order #</term>
+      <term>Disposition</term>
       <listitem>
         <para></para>
         <variablelist>
           <varlistentry>
-            <term>Line #</term>
+            <term>Credit</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Return</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Replace</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Service</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Ship</term>
             <listitem>
               <para></para>
             </listitem>
