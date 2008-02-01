@@ -23,7 +23,7 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the manufactured Item you want to
-        create a Bill of Materials for.</para>
+        create a Bill of Materials for. </para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -242,36 +242,31 @@
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <listitem>
-        <para><xref linkend="bomVIEW" /></para>
-      </listitem>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(bomVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <listitem>
-        <para><xref linkend="bomEDIT" /></para>
-      </listitem>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(bomEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>Expire</term>
-      <listitem>
-        <para><xref linkend="bomEXPIRE" /></para>
-      </listitem>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(bomEXPIRE)" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickReplace)" />
     <varlistentry>
       <term>Move Up</term>
-      <listitem>
-        <para><xref linkend="bomMOVEUP" /></para>
-      </listitem>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(bomMOVEUP)" />
     </varlistentry>
     <varlistentry>
       <term>Move Down</term>
-      <listitem>
-        <para><xref linkend="bomMOVEDOWN" /></para>
-      </listitem>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(bomMOVEDOWN)" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
