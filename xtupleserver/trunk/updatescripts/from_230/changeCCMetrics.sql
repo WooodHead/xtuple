@@ -45,7 +45,11 @@ SELECT setMetric('CCConfirmPreauth',
 			 
 DELETE FROM metric WHERE metric_name IN ('CCConfirmTrans',
 					 'CCSoOptions',
-					 'CCYPTestResult'
+					 'CCYPTestResult',
+					 'CCVSUser',
+					 'CCVSVendor',
+					 'CCVSPartner',
+					 'CCVSPassword'
 					 );
 SELECT setMetric('CCValidDays', 30)
 FROM metric
