@@ -40,13 +40,13 @@ BEGIN
     ( bomitem_id, bomitem_parent_item_id, bomitem_seqnumber, bomitem_item_id,
       bomitem_uom_id, bomitem_qtyper, bomitem_scrap,
       bomitem_configtype, bomitem_configid, bomitem_booitem_seq_id,
-      bomitem_effective, bomitem_expires, bomitem_ecn,
+      bomitem_effective, bomitem_expires, bomitem_ecn, bomitem_schedatwooper,
       bomitem_createwo, bomitem_issuemethod, bomitem_moddate, bomitem_subtype )
     VALUES
     ( _bomitemid, pTItemid, _r.bomitem_seqnumber, _r.bomitem_item_id,
       _r.bomitem_uom_id, _r.bomitem_qtyper, _r.bomitem_scrap,
       _r.bomitem_configtype, _r.bomitem_configid, -1,
-      CURRENT_DATE, _r.bomitem_expires, _r.bomitem_ecn,
+      CURRENT_DATE, _r.bomitem_expires, _r.bomitem_ecn, false,
       _r.bomitem_createwo, _r.bomitem_issuemethod, CURRENT_DATE, _r.bomitem_subtype );
 
     INSERT INTO bomitemsub
