@@ -56,12 +56,13 @@
         <para>Displays the Order Number for the new Sales Order created in
         support of the Return Authorization, if applicable. New Sales Orders
         will be automatically created for Return Authorizations having the
-        following dispositions: replace, service, ship. </para>
+        following dispositions: Replace, Service, Ship.</para>
         <variablelist>
           <varlistentry>
             <term>Line #</term>
             <listitem>
-              <para></para>
+              <para>Displays the Line Item Number for the new Sales
+              Order.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -70,117 +71,124 @@
     <varlistentry>
       <term>Disposition</term>
       <listitem>
-        <para></para>
+        <para>Line Item dispositions are determined conditionally, based on
+        the Return Authorization's header-level disposition setting. If Line
+        Items have been imported from an original Sales Order, then the line
+        level disposition may not be changed. However, you may manually set
+        the line level disposition when creating new Return Authorization Line
+        Items. The following options are available:</para>
         <variablelist>
           <varlistentry>
             <term>Credit</term>
             <listitem>
-              <para></para>
+              <para>Select to authorize the issuing of credit for the
+              specified Item quantity at the specified Price. No return is
+              required or expected.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Return</term>
             <listitem>
-              <para></para>
+              <para>Select to authorize the return of the specified Item
+              quantity at the specified Price.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Replace</term>
             <listitem>
-              <para></para>
+              <para>Select to authorize the replacement of the specified Item
+              quantity. The Price controls will be disabled for this
+              disposition.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Service</term>
             <listitem>
-              <para></para>
+              <para>Select to authorize the servicing of Service (i.e., Job)
+              Item for the specified quantity. This disposition is valid only
+              for Items having the Job Item Type. The Price controls will be
+              disabled for this disposition. A new corresponding Sales Order
+              and line will be created if one does not already exist.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Ship</term>
             <listitem>
-              <para></para>
+              <para>Select to authorize the shipment of the specified
+              quantity. The Price controls will be disabled for this
+              disposition. A new corresponding Sales Order and line will be
+              created if one does not already exist.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Reason Code</term>
+      <listitem>
+        <para>Specify the reason for the Return Authorization. Reason codes
+        are used to explain why a Customer return is being authorized. The
+        Line Item inherits the Reason Code from the header, but may be
+        overridden at the line level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Item Number</term>
       <listitem>
-        <para>Enter the Item Number of the Item you want to sell. The Item
-        list will contain sold Items available for purchase by the specified
-        Customer. The list of available Items may vary from Customer to
-        Customer, depending on how Pricing Schedules are implemented at your
-        site. Once an Item Number is entered, the Inventory Unit of Measure
-        and Item description will automatically appear.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Recv. Whs.</term>
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Ship Whs.</term>
-      <listitem>
-        <para></para>
+        <para>Enter the Item Number of the Item you want to authorize. The
+        Items you may select will vary depending on the Line Item disposition.
+        For example, only Job Items may be selected for Line Items having the
+        Service disposition. Once an Item Number is entered, the Inventory
+        Unit of Measure and Item description will automatically appear.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>warehouses</primary>
-          <secondary>sold from for sales orders</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>sales orders</primary>
-          <secondary>selling warehouses for</secondary>
-        </indexterm>Whs.</term>
+          <secondary>for receiving returns</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>return authorizations</primary>
+          <secondary>receiving warehouses for</secondary>
+        </indexterm>Recv. Whs.</term>
       <listitem>
-        <para>Specify the Warehouse the Sales Order Item is sold from. Items
-        may be supplied to Sales Orders from multiple Item Sites. After an
-        Item Number is entered above, the system checks for available Item
-        Sites for the Item. Any Item Sites having the "Sold from" flag set on
-        them will be selectable from this Warehouse list. By default, the Item
-        Site having the highest Ranking will be selected as the first
-        available Warehouse. If more than one Item Site share a Ranking of
-        "1," the Warehouses will be sorted in alphabetical order. Item Site
-        Rankings are set on the Item Site master.</para>
+        <para>Specify the Warehouse where you want the returned Item quantity
+        to be received. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>warehouses</primary>
+          <secondary>for shipping returns</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>return authorizations</primary>
+          <secondary>shipping warehouses for</secondary>
+        </indexterm>Ship Whs.</term>
+      <listitem>
+        <para>Specify the Warehouse where you want authorized Return
+        Authorization quantity to be shipped from. This option is only
+        available for Line Items having a disposition which requires creation
+        of a new Sales Order (i.e., Replace, Service, Ship).</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>If a preferred Selling Warehouse is specified for the Customer, then
-    that Warehouse will be selected here by default. If the preferred Selling
-    Warehouse is not selected--and you think it should be--verify that the
-    Item Site master for the Line Item in question is marked as a "Sold from"
-    Warehouse.</para>
-  </tip>
   <variablelist>
     <varlistentry>
       <term>Qty. Auth.</term>
       <listitem>
-        <para>Enter the quantity of the specified Item to be ordered. The
-        quantity ordered for sold Items is measured in the Item's Inventory
-        UOM.</para>
+        <para>Enter the quantity of the specified Item you want to
+        authorize.</para>
+        <note>
+          <para>The quantity authorized is based on the quantity Unit of
+          Measure.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>The Quantity Ordered for sold Items is based on the Inventory UOM.
-    But the Price is based on the Price UOM. Whenever these two UOMs are not
-    identical, the Extended Price for a Line Item will be based on the
-    following formula:</para>
-    <para>(Qty. Ordered) x (Price/Inv. Ratio) x (Net Unit Price)</para>
-    <para>If for some reason the Prices don"t look correct, check the Item
-    master for the Line Item in question. It may be that the Inventory and
-    Price UOMs do not exist in a 1:1 relationship.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term>Qty. UOM</term>
       <listitem>
-        <para>Specify the Unit of Measure to be used when selling the Line
+        <para>Specify the Unit of Measure to be used when authorizing the Line
         Item. Sold Items may be assigned multiple Selling UOMs. These
         alternate UOMs may be defined on the Item master. If a Line Item has
         no Selling UOM defined, then the Inventory UOM will be used here by
@@ -188,29 +196,24 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Qty. Sold</term>
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Qty. Received</term>
       <listitem>
-        <para></para>
+        <para>Displays the quantity received against the Return Authorization
+        Line Item (if any) to date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty. Shipped</term>
       <listitem>
-        <para>Displays the Line Item quantity shipped (if any) to date.</para>
+        <para>Displays the Return Authorization Line Item quantity shipped (if
+        any) to date. This value applies to Line Items having a corresponding
+        line on a new Sales Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Restock Charge Discount %</term>
       <listitem>
-        <para>Specify here and apply any discount for specified Customer for
-        this Sales Order. This is a discount off the regular Customer Price,
-        obtained either from the Customer master or a Pricing Schedule.</para>
+        <para><remark>findme</remark></para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -219,22 +222,17 @@
           <secondary>line item pricing for</secondary>
         </indexterm>Net Unit Price</term>
       <listitem>
-        <para>Displays the Unit Price for the Sales Order Item. By default,
-        the system will choose the lower of the following two Prices: A) The
-        most-specific Pricing Schedule Assignment or B) any Sale in effect at
-        the time of Order entry. The specificity of Pricing Schedule
-        Assignments is determined in the following descending order: By
-        Customer Ship-To Address (most specific), by Customer, by Customer
-        Type, by Customer Type pattern, by all Customers. The browse button
-        located to the right of the field leads to a Price List screen.</para>
+        <para>Displays the Net Unit Price for the Sales Order Item. This
+        information will be imported automatically for Return Authorizations
+        linked to an original Sales Order. The browse button located to the
+        right of the field leads to a Price List screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>The system can be configured to prevent users from editing the Net
-    Unit Price. If your system is configured that way, the Net Unit Price
-    field will not be editable.</para>
-  </tip>
+  <note>
+    <para>The Price controls will be automatically disabled for Line Items
+    having the following dispositions: Replace, Service, Ship.</para>
+  </note>
   <variablelist>
     <varlistentry>
       <term>Price UOM</term>
@@ -256,18 +254,14 @@
     <varlistentry>
       <term>Scheduled Date</term>
       <listitem>
-        <para>The scheduled date is the date when the Line Item should be
-        Shipped. The user who enters the Line Item is responsible for
-        determining the scheduled date. After entering the scheduled date, hit
-        the TAB key on your keyboard to display values in the remaining
+        <para>The scheduled date is the date when the Line Item quantity
+        should be shipped. The user who enters the Line Item is responsible
+        for determining the scheduled date. After entering the scheduled date,
+        hit the TAB key on your keyboard to display values in the remaining
         display only fields.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>The Sales Order Item having the earliest scheduled date will
-    determine the ship date for the Sales Order.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term>Warranty</term>
