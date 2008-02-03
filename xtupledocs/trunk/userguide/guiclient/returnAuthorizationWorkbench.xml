@@ -16,7 +16,160 @@
       </mediaobject>
     </screenshot>When processing open Return Authorizations, you are presented
   with the following options:</para>
-  <para></para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer Types</term>
+      <listitem>
+        <para>Select to display Return Authorizations for one of the following
+        Customer Type options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Customer Types</term>
+            <listitem>
+              <para>Select to display Return Authorizations for all Customer
+              Types.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Selected</term>
+            <listitem>
+              <para>Specify Customer Type whose Return Authorizations you want
+              to display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Pattern</term>
+            <listitem>
+              <para>Enter a Customer Type pattern to select a range of
+              Customer Types. Refine your search using Regular Expressions, as
+              described in <xref linkend="Anchor77806" />.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer</term>
+      <listitem>
+        <para>Select to display Return Authorizations for a specified
+        Customer:</para>
+        <variablelist>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Returns Awaiting</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Receipt</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipment</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Payment</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Include</term>
+      <listitem>
+        <para>You may choose to include the following optional
+        information:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Expired</term>
+            <listitem>
+              <para>Select to include expired Return Authorizations in the
+              display. If not selected, expired Return Authorizations will not
+              be included.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Include Closed</term>
+      <listitem>
+        <para>You may choose to include closed Return Authorizations within a
+        specified date range:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Closed Return Authorizations entered on and after this
+              date will be displayed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Closed Return Authorizations entered on and before this
+              date will be displayed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Return Authorizations</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para></para>
   <para><screenshot>
       <mediaobject>
@@ -27,5 +180,82 @@
       </mediaobject>
     </screenshot>When processing open Return Authorization credits due, you
   are presented with the following options:</para>
-  <para></para>
+  <variablelist>
+    <varlistentry>
+      <term>Credit Memo</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Check</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Card</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Returns Eligible for Credit</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Credit Memos Immediately</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print Credit Memo</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PROCESS</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
