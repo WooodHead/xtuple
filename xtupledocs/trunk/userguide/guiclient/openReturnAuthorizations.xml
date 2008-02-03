@@ -3,7 +3,8 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section role="openmfg">
   <title>List Return Authorizations</title>
-  <para></para>
+  <para>To display open Return Authorizations by Warehouse, select the "List
+  Open Return Authorizations" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -18,27 +19,28 @@
     <varlistentry role="openmfg">
       <term>All Warehouses</term>
       <listitem>
-        <para>Select to display a list of open Sales Orders for all
+        <para>Select to display a list of open Return Authorizations for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Selected</term>
       <listitem>
-        <para>Specify Warehouse whose open Sales Orders you want to
+        <para>Specify Warehouse whose open Return Authorizations you want to
         display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Show Expired</term>
       <listitem>
-        <para></para>
+        <para>Select to include expired Return Authorizations in the
+        display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Return Authorizations</term>
       <listitem>
-        <para>Display lists open Sales Orders.</para>
+        <para>Display lists open Return Authorizations.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -105,21 +107,21 @@
     <varlistentry>
       <term>Edit</term>
       <listitem id="openSalesOrdersEDIT">
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(openReturnAuthorizationsEDIT)" />
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>View</term>
       <listitem id="openSalesOrdersVIEW">
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(openReturnAuthorizationsVIEW)" />
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Delete</term>
       <listitem id="openSalesOrdersDELETE">
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(openReturnAuthorizationsDELETE)" />
       </listitem>
     </varlistentry>
@@ -130,6 +132,4 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-  <para></para>
-  <para></para>
 </section>
