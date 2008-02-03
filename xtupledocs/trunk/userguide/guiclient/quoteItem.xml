@@ -100,21 +100,13 @@
     <varlistentry>
       <term>Qty. Ordered</term>
       <listitem>
-        <para>Enter the quantity of the specified Item to be ordered. The
-        quantity ordered for sold Items is measured in the Item's Inventory
-        UOM.</para>
+        <para>Enter the quantity of the specified Item being ordered.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>The Quantity Ordered for sold Items is based on the Inventory UOM.
-    But the Price is based on the Price UOM. Whenever these two UOMs are not
-    identical, the Extended Price for a Line Item will be based on the
-    following formula:</para>
-    <para>(Qty. Ordered) x (Price/Inv. Ratio) x (Net Unit Price)</para>
-    <para>If for some reason the Prices don"t look correct, check the Item
-    master for the Line Item in question. It may be that the Inventory and
-    Price UOMs do not exist in a 1:1 relationship.</para>
+    <para>The quantity ordered is based on the Quantity Unit of
+    Measure.</para>
   </note>
   <variablelist>
     <varlistentry>

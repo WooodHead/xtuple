@@ -101,8 +101,7 @@
     <varlistentry>
       <term>Qty. Ordered</term>
       <listitem>
-        <para>Enter the quantity being ordered of the specified Item to be
-        ordered.</para>
+        <para>Enter the quantity of the specified Item being ordered.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -124,7 +123,7 @@
     <varlistentry>
       <term>Qty. Shipped</term>
       <listitem>
-        <para>Displays the Line Item quantity shipped (if any) to date.</para>
+        <para>Displays the Line Item quantity shipped to date, if any.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -211,7 +210,7 @@
     <varlistentry>
       <term>Warranty</term>
       <listitem>
-        <para><remark>findme</remark></para>
+        <para>Select if the Line Item is a warranty Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -714,9 +713,16 @@
     </screenshot></para>
   <para>When defining an alternate Cost of Sales Account for a Sales Order
   Line Item, you are presented with the following options:</para>
-  <para><remark>findme</remark></para>
-  <para></para>
-  <para></para>
+  <variablelist>
+    <varlistentry>
+      <term>Alternate Cost of Sales Account</term>
+      <listitem>
+        <para>Specify an alternate Account to be used for the Cost of Sales.
+        The Account you specify will be used instead of the typical Account
+        pre-defined in the Sales Account Assignments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <xi:include href="priceList.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />
 </section>
