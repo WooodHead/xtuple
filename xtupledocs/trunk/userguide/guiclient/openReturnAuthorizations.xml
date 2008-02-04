@@ -75,29 +75,26 @@
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="openSalesOrdersEDIT">
-        <para id="openReturnAuthorizationsEDIT">Enables you to edit
-        highlighted Return Authorizations. The edit screen is the same as that
-        for creating a new Return Authorization--except that when editing, the
-        fields will contain Return Authorization information. Double-clicking
-        on a Return Authorization will also bring you to the editing
-        screen.</para>
+      <listitem id="openReturnAuthorizationsEDIT">
+        <para>Enables you to edit highlighted Return Authorizations. The edit
+        screen is the same as that for creating a new Return
+        Authorization--except that when editing, the fields will contain
+        Return Authorization information. Double-clicking on a Return
+        Authorization will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="openSalesOrdersVIEW">
-        <para id="openReturnAuthorizationsVIEW">Highlight a Return
-        Authorization and then select this button to reach a read-only view of
-        the "Edit" screen.</para>
+      <listitem id="openReturnAuthorizationsVIEW">
+        <para>Highlight a Return Authorization and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="openSalesOrdersDELETE">
-        <para id="openReturnAuthorizationsDELETE">Highlight a Return
-        Authorization and then select this button to remove the Return
-        Authorization from the master list</para>
+      <listitem id="openReturnAuthorizationsDELETE">
+        <para>Highlight a Return Authorization and then select this button to
+        remove the Return Authorization from the master list</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -106,24 +103,18 @@
   <variablelist>
     <varlistentry>
       <term>Edit</term>
-      <listitem id="openSalesOrdersEDIT">
-        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(openReturnAuthorizationsEDIT)" />
-      </listitem>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openReturnAuthorizationsEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>View</term>
-      <listitem id="openSalesOrdersVIEW">
-        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(openReturnAuthorizationsVIEW)" />
-      </listitem>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openReturnAuthorizationsVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Delete</term>
-      <listitem id="openSalesOrdersDELETE">
-        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(openReturnAuthorizationsDELETE)" />
-      </listitem>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openReturnAuthorizationsDELETE)" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
