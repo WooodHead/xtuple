@@ -55,9 +55,21 @@
         Customer:</para>
         <variablelist>
           <varlistentry>
-            <term></term>
+            <term>Customer #</term>
             <listitem>
-              <para></para>
+              <para>Enter the Customer Number of the Customer whose Return
+              Authorizations you want to display. The browse button located to
+              the right of the field leads to a searchable Customers list. You
+              may also access this list using the keyboard shortcut "CTRL +
+              L". Once a Customer Number is entered, the Customer name and
+              billing address will display. Select the "?" or "$" symbol next
+              to the browse button to view Customer information for the
+              specified Customer. If a Customer's credit is "In Good
+              Standing," the button will feature a black question mark ("?")
+              icon. If the icon turns to an orange dollar sign ("$"), the
+              Customer's credit Status is "On Credit Warning." A red dollar
+              sign ("$") indicates the Customer's credit Status is "On Credit
+              Hold."</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -66,24 +78,29 @@
     <varlistentry>
       <term>Returns Awaiting</term>
       <listitem>
-        <para></para>
+        <para>Return Authorizations may exist in several stages of readiness.
+        Choose which of the following stages you want to include in the
+        display:</para>
         <variablelist>
           <varlistentry>
             <term>Receipt</term>
             <listitem>
-              <para></para>
+              <para>Select to include Return Authorizations waiting for
+              Customer returns to be posted as received in the display.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Shipment</term>
             <listitem>
-              <para></para>
+              <para>Select to include Return Authorizations waiting to be
+              shipped to Customers in the display.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Payment</term>
             <listitem>
-              <para></para>
+              <para>Select to include Return Authorizations waiting for
+              Customer payment in the display.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -132,7 +149,8 @@
     <varlistentry>
       <term>Return Authorizations</term>
       <listitem>
-        <para></para>
+        <para>Display lists Return Authorizations by Customer or Customer
+        Type, using the specified parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -142,79 +160,102 @@
     <varlistentry>
       <term>CLOSE</term>
       <listitem>
-        <para></para>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>QUERY</term>
       <listitem>
-        <para></para>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>PRINT</term>
       <listitem>
-        <para></para>
+        <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
       <listitem>
-        <para></para>
+        <para>Enables you to edit highlighted Return Authorization. The edit
+        screen is the same as that for creating a new Return
+        Authorization--except that when editing, the fields will contain
+        Return Authorization information. Double-clicking on a Return
+        Authorization will also bring you to the editing screen.</para>
+        <tip>
+          <para>Some of the processing required for a Return Authorization
+          (e.g., posting Receipts) may be handled on the Return Authorization
+          header, which you can reach by using the EDIT button.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
       <listitem>
-        <para></para>
+        <para>Highlight a Return Authorization and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
+  <para>Using the Return Authorization Workbench you have the ability to
+  process Customer returns where credit is due. To process Customer returns
+  due credit, select the "Due Credit" tab. The following screen will appear:
+  </para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/returnAuthorizationWorkbench_dueCredit.png" />
         </imageobject>
-        <caption>Return Authorization Credits Due</caption>
+        <caption>Customer Credits Due</caption>
       </mediaobject>
-    </screenshot>When processing open Return Authorization credits due, you
-  are presented with the following options:</para>
+    </screenshot>When processing Customer returns due credit, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Credit Memo</term>
       <listitem>
-        <para></para>
+        <para>Select to include Customer returns eligible for a Credit Memo in
+        the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Check</term>
       <listitem>
-        <para></para>
+        <para>Select to include Customer returns eligible for payment by Check
+        in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Credit Card</term>
       <listitem>
-        <para></para>
+        <para>Select to include Customer returns eligible for a Credit Card
+        refund in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Returns Eligible for Credit</term>
       <listitem>
-        <para></para>
+        <para>Display lists Customer returns eligible for credit, using the
+        specified parameters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Post Credit Memos Immediately</term>
       <listitem>
-        <para></para>
+        <para>Select if you want processed Credit Memos to be posted
+        immediately after they are created. Using this option, Credit Memos
+        may be posted regardless of the credit/ship timing of the Return
+        Authorization</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Print Credit Memo</term>
       <listitem>
-        <para></para>
+        <para>Select if you want Credit Memos to be printed as part of their
+        processing.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -224,37 +265,50 @@
     <varlistentry>
       <term>CLOSE</term>
       <listitem>
-        <para></para>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>QUERY</term>
       <listitem>
-        <para></para>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>PRINT</term>
       <listitem>
-        <para></para>
+        <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
       <listitem>
-        <para></para>
+        <para>Enables you to edit highlighted Return Authorization. The edit
+        screen is the same as that for creating a new Return
+        Authorization--except that when editing, the fields will contain
+        Return Authorization information. Double-clicking on a Return
+        Authorization will also bring you to the editing screen.</para>
+        <tip>
+          <para>Some of the processing required for a Return Authorization
+          (e.g., posting Receipts) may be handled on the Return Authorization
+          header, which you can reach by using the EDIT button.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
       <listitem>
-        <para></para>
+        <para>Highlight a Return Authorization and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>PROCESS</term>
       <listitem>
-        <para></para>
+        <para>Highlight a Return Authorization and then select this button to
+        process the selected item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
