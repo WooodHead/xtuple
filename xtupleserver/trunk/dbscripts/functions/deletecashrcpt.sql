@@ -16,7 +16,7 @@ BEGIN
   WHERE (cashrcptitem_cashrcpt_id=pcashrcptid);
 
   DELETE FROM cashrcptmisc
-  WHERE (cashrcpmisc_cashrcpt_id=pcashrcptid);
+  WHERE (cashrcptmisc_cashrcpt_id=pcashrcptid);
 
   DELETE FROM cashrcpt
   WHERE (cashrcpt_id=pcashrcptid);
