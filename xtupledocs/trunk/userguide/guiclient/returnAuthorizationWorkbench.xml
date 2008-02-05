@@ -202,8 +202,8 @@
   </variablelist>
   <para>Using the Return Authorization Workbench you have the ability to
   process Customer returns where credit is due. To process Customer returns
-  due credit, select the "Due Credit" tab. The following screen will appear:
-  </para>
+  due credit, select the "Due Credit" tab. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -219,6 +219,12 @@
       <listitem>
         <para>Select to include Customer returns eligible for a Credit Memo in
         the display.</para>
+        <note>
+          <para>Customer returns handled by Return Authorizations are handled
+          outside the normal sales Credit Memo Inventory handling process. By
+          default, Credit Memo Line Items created from a Return Authorization
+          will show a quantity returned value equal to zero.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>

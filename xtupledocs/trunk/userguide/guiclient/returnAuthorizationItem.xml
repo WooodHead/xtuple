@@ -276,7 +276,9 @@
       <listitem>
         <para>Select if the Line Item is a warranty Item. If selected, the
         Cost of Warranty Account will be used when shipping the Line Item,
-        instead of the Cost of Sales Account.</para>
+        instead of the Cost of Sales Account. It will also be used when
+        receiving warranty Items through a Return Authorization, instead of
+        the P/O Liability Clearing Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>

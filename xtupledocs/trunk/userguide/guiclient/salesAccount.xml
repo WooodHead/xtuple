@@ -13,8 +13,7 @@
         <imageobject>
           <imagedata fileref="images/salesAccount.png" />
         </imageobject>
-        <caption>Create New Sales Account
-        Assignment</caption>
+        <caption>Create New Sales Account Assignment</caption>
       </mediaobject>
     </screenshot></para>
   <para>When creating a new Sales Account assignment, you are presented with
@@ -109,19 +108,27 @@
     <varlistentry>
       <term>Returns Account</term>
       <listitem>
-        <para><remark>findme</remark></para>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Returns Account. This is a contra Revenue Account. It will be debited
+        when sales Credit Memos are posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Cost of Returns Account</term>
       <listitem>
-        <para><remark>findme</remark></para>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Cost of Returns Account. This is a contra Expense Account. It will be
+        credited when Return Authorization quantity is posted as
+        received.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Cost of Warranty Account</term>
       <listitem>
-        <para><remark>findme</remark></para>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Warranty Account. This is a contra Expense Account. It will be debited
+        when warranty Items are shipped and credited when warranty Items are
+        received.</para>
       </listitem>
     </varlistentry>
   </variablelist>
