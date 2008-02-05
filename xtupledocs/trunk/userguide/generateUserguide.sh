@@ -20,6 +20,7 @@ $XSLTPROC --xinclude \
           --stringparam toc.section.depth 3 \
           --stringparam section.autolabel 1 \
           --stringparam section.label.includes.component.label 1 \
+          --stringparam show.comments 0 \
           --stringparam chunk.section.depth 2 \
           --stringparam chunk.first.sections 1 \
           --stringparam chunk.separate.lots 1 \
