@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972085">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>creating new</secondary>
     </indexterm>Enter New Voucher</title>
   <para>To enter a new Voucher, select the "Enter New Voucher" option. The
   following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/voucher.png"/>
+          <imagedata fileref="images/voucher.png" />
         </imageobject>
         <caption>Enter New Voucher</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When entering a new Voucher, you are presented with the following
   options:</para>
   <variablelist>
@@ -38,8 +36,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term>Vendor</term>
+      <listitem>
+        <para>The name and address of the Vendor associated with the specified
+        Purchase Order will display here.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
           <primary>vouchers</primary>
           <secondary>distributing quantities to</secondary>
         </indexterm>Amount to Distribute</term>
@@ -61,19 +65,6 @@
       <listitem>
         <para>Displays the difference between amount to distribute and amount
         distributed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Flag for 1099</term>
-      <listitem>
-        <para>Select to flag transaction for Form 1099 Tax reporting.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Vendor</term>
-      <listitem>
-        <para>The name and address of the Vendor associated with the specified
-        Purchase Order will display here.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -104,13 +95,13 @@
         <para>Specify the billing Terms for the Voucher. By default, the
         billing Terms will be transferred from the original Purchase Order.
         You may select alternate Terms on the Voucher header.</para>
+        <tip>
+          <para>You are given the opportunity to apply any billing Terms
+          Discounts when selecting a posted Voucher for payment.</para>
+        </tip>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>You are given the opportunity to apply any billing Terms Discounts
-    when selecting a posted Voucher for payment.</para>
-  </tip>
   <variablelist>
     <varlistentry>
       <term>Vendor Invoice #</term>
@@ -127,17 +118,16 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>P/O Items</term>
+      <term>Flag for 1099</term>
       <listitem>
-        <para>Display lists Line Items associated with the specified Purchase
-        Order.</para>
+        <para>Select to flag transaction for Form 1099 Tax reporting.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Miscellaneous Distributions</term>
+      <term>Line Items</term>
       <listitem>
-        <para>Display lists miscellaneous Cost distributions related to the
-        specified Order.</para>
+        <para>Display lists Line Items associated with the specified Purchase
+        Order.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -157,13 +147,6 @@
         <para>Creates the new Voucher.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>You may select multiple Purchase Order Line Items for distribution
-    or clearing by highlighting them using your mouse--or a combination of
-    your mouse and either the SHIFT or CTRL keys.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term>DISTRIBUTIONS</term>
       <listitem>
@@ -193,6 +176,42 @@
         Items.</para>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <tip>
+    <para>You may select multiple Purchase Order Line Items for distribution
+    or clearing by highlighting them using your mouse--or a combination of
+    your mouse and either the SHIFT or CTRL keys.</para>
+  </tip>
+  <para>Right-clicking on a Purchase Order Item in the list of Purchase Order
+  Items enables you to select the following menu option:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewPOItem)" />
+  </variablelist>
+  <para>To add miscellaneous Cost distributions to a Voucher, select the
+  "Misc. Distributions" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/voucher_misc.png" />
+        </imageobject>
+        <caption>Misc. Voucher Distributions</caption>
+      </mediaobject>
+    </screenshot>When adding miscellaneous distibutions to a Voucher, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Account</term>
+      <listitem>
+        <para>Display lists Accounts and distribution amounts for any
+        miscellaneous distributions associated with the Voucher.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
     <varlistentry>
       <term>NEW</term>
       <listitem>
@@ -218,11 +237,10 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Purchase Order Item in the list of Purchase Order
-  Items enables you to select the following menu option:</para>
-  <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewPOItem)"/>
-  </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="voucherItem.xml" xpointer="element(/1)"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="voucherMiscDistrib.xml" xpointer="element(/1)"/>
+  <xi:include href="voucherItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="voucherMiscDistrib.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
