@@ -114,24 +114,11 @@ BEGIN
   SELECT copyItem(pSItemid, pTItemNumber) INTO _itemid;
 
   IF (pCopyBOM) THEN
-    PERFORM copyBOM(pSItemid, _itemid);
+    PERFORM copyBOM(pSItemid, _itemid, (pCopyBOO AND pCopyUsedAt));
   END IF;
 
   IF (pCopyBOO) THEN
     PERFORM copyBOO(pSItemid, _itemid);
-  END IF;
-
-  IF (pCopyBOM AND pCopyBOO AND pCopyUsedAt) THEN
-    UPDATE bomitem
-       SET bomitem_booitem_seq_id=Sbomitem_booitem_seq_id,
-           bomitem_schedatwooper=Sbomitem_schedatwooper
-      FROM (SELECT 
-             bomitem_item_id AS Sbomitem_item_id,
-             bomitem_schedatwooper AS Sbomitem_schedatwooper,
-             bomitem_booitem_seq_id AS Sbomitem_booitem_seq_id
-            FROM bomitem(pSItemid)) as data
-      WHERE ((bomitem_item_id=Sbomitem_item_id)
-      AND (bomitem_parent_item_id=getItemId(pTItemnumber)));
   END IF;
 
   IF (pCopyCosts) THEN
