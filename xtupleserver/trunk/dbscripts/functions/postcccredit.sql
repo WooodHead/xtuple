@@ -3,13 +3,15 @@ DECLARE
   pCCpay	ALIAS FOR $1;
   preftype      ALIAS FOR $2;
   prefid        ALIAS FOR $3;
-  _sequence	INTEGER;
+  _amountclosed NUMERIC;
   _c		RECORD;
-  _r		RECORD;
-  _notes	TEXT := ''Credit Customer via Credit Card'';
   _ccOrderDesc	TEXT;
+  _closed       BOOLEAN;
   _glaccnt	INTEGER;
   _journalNum	INTEGER;
+  _notes	TEXT := ''Credit Customer via Credit Card'';
+  _r		aropen%ROWTYPE;
+  _sequence	INTEGER;
 
 BEGIN
   SELECT bankaccnt_accnt_id INTO _glaccnt
@@ -23,6 +25,10 @@ BEGIN
   IF ((preftype = ''cohead'') AND NOT EXISTS(SELECT cohead_id
 					     FROM cohead
 					     WHERE (cohead_id=prefid))) THEN
+    RETURN -2;
+  ELSIF ((preftype = ''aropen'') AND NOT EXISTS(SELECT aropen_id
+                                                FROM aropen
+                                                WHERE (aropen_id=prefid))) THEN
     RETURN -2;
   END IF;
 
@@ -64,29 +70,31 @@ BEGIN
 
   PERFORM postGLSeries(_sequence, fetchJournalNumber(''C/R'') );
 
-  SELECT aropen.*,
-	 currToBase(_c.ccpay_curr_id, _c.ccpay_amount,
-		    aropen_docdate) AS amount_base,
-	 (ROUND(aropen_paid + currToCurr(_c.ccpay_curr_id,
-					 aropen_curr_id,
-					 _c.ccpay_amount,
-					 _c.ccpay_transaction_datetime::DATE), 2) >= ROUND(aropen_amount, 2)) AS closed
-		    INTO _r
-  FROM aropen
-  WHERE ((aropen_doctype IN (''C'', ''R''))
-    AND  (aropen_docnumber=_c.ccpay_r_ref)
-    AND  (ROUND(aropen_amount - aropen_paid, 2) <=
-	      ROUND(currToCurr(_c.ccpay_curr_id, aropen_curr_id,_c.ccpay_amount,
-			       _c.ccpay_transaction_datetime::DATE), 2))
-	);
+  IF (preftype = ''aropen'') THEN
+    SELECT * INTO _r
+    FROM aropen
+    WHERE (aropen_id=prefid);
+
+  ELSE
+    SELECT aropen.* INTO _r
+    FROM aropen
+    WHERE ((aropen_doctype IN (''C'', ''R''))
+      AND  (aropen_docnumber=_c.ccpay_r_ref)
+      AND  (ROUND(aropen_amount - aropen_paid, 2) <=
+                ROUND(currToCurr(_c.ccpay_curr_id, aropen_curr_id,_c.ccpay_amount,
+                                 _c.ccpay_transaction_datetime::DATE), 2))
+          );
+  END IF;
 
   IF (FOUND) THEN
+    _amountclosed := ROUND(currToCurr(_c.ccpay_curr_id,
+                                      _r.aropen_curr_id,
+                                      _c.ccpay_amount,
+                                      _c.ccpay_transaction_datetime::DATE), 2);
+    _closed := ROUND(_r.aropen_paid + _amountclosed, 2) >= ROUND(_r.aropen_amount, 2);
     UPDATE aropen
-    SET aropen_paid=ROUND(aropen_paid + currToCurr(_c.ccpay_curr_id,
-						   _r.aropen_curr_id,
-						   _c.ccpay_amount,
-						   _c.ccpay_transaction_datetime::DATE), 2),
-	aropen_open=(NOT _r.closed)
+    SET aropen_paid=ROUND(aropen_paid + _amountclosed, 2),
+	aropen_open=(NOT _closed)
     WHERE (aropen_id=_r.aropen_id);
 
     INSERT INTO arapply (
@@ -102,7 +110,7 @@ BEGIN
       _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
       -1, ''R'', ''Credit Card Credit'',
       _c.ccard_type, _c.ccpay_order_number,
-      ROUND(_c.ccpay_amount, 2), _r.closed,
+      ROUND(_c.ccpay_amount, 2), _closed,
       CURRENT_DATE, fetchJournalNumber(''AR-CM''), CURRENT_USER,
       _c.ccpay_curr_id );
   END IF;
