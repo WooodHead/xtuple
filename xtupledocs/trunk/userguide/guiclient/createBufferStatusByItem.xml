@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section537991" role="openmfg">
   <title>Run Buffer Status by Item</title>
-  <para>When you run buffer status by Item, you are running the Buffer
+  <para>When you run buffer status by Item, you are running the Constraint
   Management system. This utility, when it is run, scans through your data and
   then updates the buffer status for the specified Item using the most current
   information. Because buffer status information is time-sensitive, you must
   run the system frequently (i.e., daily) to keep your statuses up-to-date. In
   fact, the various buffer status displays will not even show status
-  information if Buffer Management has not been run on the day when you"re
+  information if Constraint Management has not been run on the day when you"re
   trying to view buffer status information. This built-in requirement prevents
   you from using information that is not current.</para>
   <note>
-    <para>The critical buffer status in the Buffer Management system is 66%.
-    In other words, any time you consume 66% of a buffer, then it\qs time to
-    act immediately to resolve the situation. The 66% value is a percentage
+    <para>The critical buffer status in the Constraint Management system is
+    66%. In other words, any time you consume 66% of a buffer, then it\qs time
+    to act immediately to resolve the situation. The 66% value is a percentage
     that is widely used in academic research and practical real-world
     implementations of the Theory of Constraints--a theory pioneered by
     Eliyahu Goldratt.</para>
   </note>
-  <para>After the buffer status utility has been run, you may view the Buffer
-  Management displays which pertain to the Item--and then decide whether to
-  take immediate action based on the newly-updated status value.</para>
+  <para>After the buffer status utility has been run, you may view the
+  Constraint Management displays which pertain to the Item--and then decide
+  whether to take immediate action based on the newly-updated status
+  value.</para>
   <para>To run buffer status by Item, select the "Run Buffer Status by Item"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/createBufferStatusByItem.png"/>
+          <imagedata fileref="images/createBufferStatusByItem.png" />
         </imageobject>
         <caption>Run Buffer Status by Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When running buffer status by Item, you are presented with the
   following options:</para>
   <variablelist>
@@ -79,7 +79,7 @@
       <term>SUBMIT</term>
       <listitem>
         <para>Select to submit the buffer status update to the Batch Manager.
-        For additional information, see <xref linkend="Anchor61009"/>.</para>
+        For additional information, see <xref linkend="Anchor61009" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>

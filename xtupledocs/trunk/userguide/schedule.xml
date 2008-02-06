@@ -27,7 +27,7 @@
         </indexterm>Material Requirements Planning (MRP)</para>
     </listitem>
     <listitem>
-      <para>Buffer Management</para>
+      <para>Constraint Management</para>
     </listitem>
     <listitem>
       <para>Planned Orders</para>
@@ -111,15 +111,16 @@
                 xpointer="element(/1)" />
   </section>
   <section id="Section539268" role="openmfg">
-    <title>Buffer Status</title>
+    <title>Constraint Management</title>
     <para>Manufacturing managers frequently look for tools and methods to help
     them identify actions requiring immediate attention. In this way, they can
     help ensure production output matches Customer demand. This is where the
-    Buffer Management system comes in. Buffer Management is used to evaluate
-    Items, Work Orders, Purchase Orders, and Work Centers-and then prioritize
-    each, identifying which should be worked on and/or addressed first.</para>
-    <para>The Buffer Management system reports on the following three types of
-    buffers:</para>
+    Constraint Management system comes in. Constraint Management is used to
+    evaluate Items, Work Orders, Purchase Orders, and Work Centers-and then
+    prioritize each, identifying which should be worked on and/or addressed
+    first.</para>
+    <para>The Constraint Management system reports on the following three
+    types of buffers:</para>
     <itemizedlist>
       <listitem>
         <para>Stock buffer: An accumulation of Items stored in Inventory that

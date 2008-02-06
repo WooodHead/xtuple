@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section538592" role="openmfg">
   <title>Warehouse Week</title>
   <para>Warehouse weeks are used to define the days of the week when a
@@ -7,21 +8,19 @@
   operate from Monday-Friday; whereas, the hours for a Shipping Warehouse may
   also include the weekend.</para>
   <note>
-    <para>The Buffer Management system considers work week settings when
+    <para>The Constraint Management system considers work week settings when
     calculating time buffers for Item Sites.</para>
   </note>
   <para>To define the work week for a Warehouse(s), select the "Warehouse
   Week" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/whseWeek.png"/>
+          <imagedata fileref="images/whseWeek.png" />
         </imageobject>
         <caption>Create New Warehouse Work Week</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When defining the work week for a Warehouse, you are presented with
   the following options:</para>
   <variablelist>

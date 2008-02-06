@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section538730" role="openmfg">
   <title>Warehouse Calendar Exceptions</title>
   <para>Warehouse calendar exceptions allow you to define variations from the
@@ -7,22 +8,20 @@
   a Warehouse will be closed for a company holiday--or whether extra shifts
   are being added to extend the standard week.</para>
   <note>
-    <para>The Buffer Management system will consider calendar exceptions when
-    determining the time buffer status for an Item Site.</para>
+    <para>The Constraint Management system will consider calendar exceptions
+    when determining the time buffer status for an Item Site.</para>
   </note>
   <para>To access the master list of calendar exceptions, select the
   "Warehouse Calendar Exceptions" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/whseCalendars.png"/>
+          <imagedata fileref="images/whseCalendars.png" />
         </imageobject>
         <caption>Warehouse Calendar Exceptions</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>The "Warehouse Calendar Exceptions" screen displays information on all
   existing Warehouse calendar exceptions, including affected Warehouse(s) and
   a description of the exception.</para>

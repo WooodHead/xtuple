@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section555646" role="openmfg">
   <title>P/O Items by Buffer Status</title>
   <para>The Purchase Order buffer status displays provide information on your
   current stock and time buffer levels for those Items having current Purchase
   Orders. Stock buffers apply to make-to-stock Items; whereas time buffers
   apply to Items which are make-to-order. Keep in mind that buffer status
-  information will only be displayed on days when the Buffer Management system
-  is run. If you find your displays show no information, this probably means
-  Buffer Management has not been run.</para>
+  information will only be displayed on days when the Constraint Management
+  system is run. If you find your displays show no information, this probably
+  means Constraint Management has not been run.</para>
   <para>To view Purchase Order Item buffer statuses, select the "P/O Items by
   Buffer Status" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspPoItemsByBufferStatus.png"/>
+          <imagedata fileref="images/dspPoItemsByBufferStatus.png" />
         </imageobject>
-        <caption>Purchase Order Items by Buffer
-        Status</caption>
+        <caption>Purchase Order Items by Buffer Status</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>When the buffer status for an Item hits 66 or higher, the status
     number will become red. By highlighting Items which are "red hot," the
