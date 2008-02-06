@@ -14,8 +14,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/reconcileBankaccount.png"
-                     />
+          <imagedata fileref="images/reconcileBankaccount.png" />
         </imageobject>
         <caption>Reconcile Bank Account</caption>
       </mediaobject>
@@ -160,10 +159,11 @@
       <listitem>
         <para>Displays the cleared balance. The cleared balance is calculated
         based on the following formula:</para>
-        <para><equation>
-            <mathphrase>(Opening Balance) + (Cleared Deposits) - (Cleared
-            Payments)</mathphrase>
-          </equation><tip>
+        <informalexample>
+          <para>(Opening Balance) + (Cleared Deposits) - (Cleared
+          Payments)</para>
+        </informalexample>
+        <para><tip>
             <para>A successful Bank Reconciliation will result in the cleared
             balance being equal to the ending balance.</para>
           </tip></para>
