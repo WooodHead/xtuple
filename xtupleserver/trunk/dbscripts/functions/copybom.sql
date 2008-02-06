@@ -2,10 +2,28 @@ CREATE OR REPLACE FUNCTION copyBOM(INTEGER, INTEGER) RETURNS INTEGER AS '
 DECLARE
   pSItemid ALIAS FOR $1;
   pTItemid ALIAS FOR $2;
+  _result INTEGER;
+
+BEGIN
+
+  SELECT copyBOM (pSItemid, PTItemid, FALSE) into _result;
+
+  RETURN _result;
+
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION copyBOM(INTEGER, INTEGER, BOOLEAN) RETURNS INTEGER AS '
+DECLARE
+  pSItemid ALIAS FOR $1;
+  pTItemid ALIAS FOR $2;
+  pCopyUsedAt ALIAS FOR $3;
   _r RECORD;
   _bomitemid INTEGER;
   _bomworksetid INTEGER;
   _temp INTEGER;
+  _schedatwooper BOOLEAN;
+  _booitemseqid INTEGER;
 
 BEGIN
 
@@ -30,23 +48,32 @@ BEGIN
                    bomitem_uom_id, bomitem_qtyper, bomitem_scrap,
                    bomitem_configtype, bomitem_configid,
                    bomitem_expires, bomitem_ecn,
-                   bomitem_createwo, bomitem_issuemethod, bomitem_subtype
+                   bomitem_createwo, bomitem_issuemethod, bomitem_subtype,
+                   bomitem_schedatwooper, bomitem_booitem_seq_id
             FROM bomitem(pSItemid) 
             WHERE (bomitem_expires>CURRENT_DATE) LOOP
 
     SELECT NEXTVAL(''bomitem_bomitem_id_seq'') INTO _bomitemid;
 
+    IF (pCopyUsedAt) THEN
+      _schedatwooper := _r.bomitem_schedatwooper;
+      _booitemseqid := _r.bomitem_booitem_seq_id;
+    ELSE
+      _schedatwooper := FALSE;
+      _booitemseqid := -1;
+    END IF;
+
     INSERT INTO bomitem
     ( bomitem_id, bomitem_parent_item_id, bomitem_seqnumber, bomitem_item_id,
-      bomitem_uom_id, bomitem_qtyper, bomitem_scrap,
+      bomitem_uom_id, bomitem_qtyper, bomitem_scrap, bomitem_schedatwooper,
       bomitem_configtype, bomitem_configid, bomitem_booitem_seq_id,
-      bomitem_effective, bomitem_expires, bomitem_ecn, bomitem_schedatwooper,
+      bomitem_effective, bomitem_expires, bomitem_ecn,
       bomitem_createwo, bomitem_issuemethod, bomitem_moddate, bomitem_subtype )
     VALUES
     ( _bomitemid, pTItemid, _r.bomitem_seqnumber, _r.bomitem_item_id,
-      _r.bomitem_uom_id, _r.bomitem_qtyper, _r.bomitem_scrap,
-      _r.bomitem_configtype, _r.bomitem_configid, -1,
-      CURRENT_DATE, _r.bomitem_expires, _r.bomitem_ecn, false,
+      _r.bomitem_uom_id, _r.bomitem_qtyper, _r.bomitem_scrap, _schedatwooper,
+      _r.bomitem_configtype, _r.bomitem_configid, _booitemseqid,
+      CURRENT_DATE, _r.bomitem_expires, _r.bomitem_ecn,
       _r.bomitem_createwo, _r.bomitem_issuemethod, CURRENT_DATE, _r.bomitem_subtype );
 
     INSERT INTO bomitemsub
