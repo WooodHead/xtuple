@@ -20,7 +20,11 @@ BEGIN
          recv_freight, recv_date::DATE),2) AS recv_freight,
          recv_posted, recv_order_type,
          COALESCE(itemsite_id, -1) AS itemsiteid,
-	 itemsite_item_id INTO _r
+	 itemsite_item_id,
+	 (recv_splitfrom_id IS NOT NULL
+	 OR (SELECT (count(*) > 0) 
+	     FROM recv
+	     WHERE (recv_splitfrom_id=recv_id))) AS split INTO _r
   FROM recv LEFT OUTER JOIN itemsite ON (recv_itemsite_id=itemsite_id)
   WHERE (recv_id=precvid);
 
@@ -30,6 +34,10 @@ BEGIN
 
   IF (NOT _r.recv_order_type IN (''PO'', ''RA'', ''TO'')) THEN
     RETURN -11;
+  END IF;
+
+  IF (_r.split) THEN
+    RETURN -12;
   END IF;
 
   SELECT currToBase(orderitem_unitcost_curr_id, orderitem_unitcost,
