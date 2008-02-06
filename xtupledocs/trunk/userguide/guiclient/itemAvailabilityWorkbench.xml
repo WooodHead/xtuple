@@ -228,10 +228,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para678067">Show Shortages</term>
+      <term>Show Shortages</term>
       <listitem>
-        <para>Select to only show Inventory shortages in display. A shortage
-        describes Inventory quantity whose Availability is negative.</para>
+        <para>Select to only show Inventory shortages in display. Shortages
+        are always shown in the report, if they exist. However, using this
+        option simply separates shortages out so you can see only them. A
+        shortage exists if Availability is less than zero, as in</para>
+        <informalexample>
+          <para>QOH - Allocated + Ordered &lt; 0</para>
+        </informalexample>
       </listitem>
     </varlistentry>
     <varlistentry>

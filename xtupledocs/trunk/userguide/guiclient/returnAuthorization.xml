@@ -623,13 +623,13 @@
     <varlistentry>
       <term>EDIT</term>
       <listitem>
-        <para>Enables you to edit highlighted Return Authorization Line Items.
-        The edit screen is the same as that for creating a new Return
-        Authorization Line Item--except that when editing, the fields will
-        contain Return Authorization Line Item information. Double-clicking on
-        a Return Authorization Line Item will also bring you to the editing
-        screen. Mac users may use COMMAND + E to edit an existing Line
-        Item.</para>
+        <para id="returnAuthorizationEDIT">Enables you to edit highlighted
+        Return Authorization Line Items. The edit screen is the same as that
+        for creating a new Return Authorization Line Item--except that when
+        editing, the fields will contain Return Authorization Line Item
+        information. Double-clicking on a Return Authorization Line Item will
+        also bring you to the editing screen. Mac users may use COMMAND + E to
+        edit an existing Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -642,18 +642,19 @@
     <varlistentry>
       <term>CLOSE</term>
       <listitem>
-        <para>Highlight a Return Authorization Line Item and then select this
-        button to close the Return Authorization Line Item. If the highlighted
-        Line Item is already closed, this button will revert to an OPEN
-        button, which may be used to open the closed Line Item.</para>
+        <para id="returnAuthorizationCLOSE">Highlight a Return Authorization
+        Line Item and then select this button to close the Return
+        Authorization Line Item. If the highlighted Line Item is already
+        closed, this button will revert to an OPEN button, which may be used
+        to open the closed Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
       <listitem>
-        <para>Highlight a Return Authorization Line Item and then select this
-        button to remove the Return Authorization Line Item from the
-        list.</para>
+        <para id="returnAuthorizationDELETE">Highlight a Return Authorization
+        Line Item and then select this button to remove the Return
+        Authorization Line Item from the list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -719,9 +720,59 @@
   <para>Right-clicking on an Item in the Line Items list enables you to select
   from the following menu options:</para>
   <variablelist>
+    <varlistentry>
+      <term>Edit Line</term>
+      <listitem>
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(returnAuthorizationEDIT)" />
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Close Line</term>
+      <listitem>
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(returnAuthorizationCLOSE)" />
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Delete Line</term>
+      <listitem>
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(returnAuthorizationDELETE)" />
+      </listitem>
+    </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>If a new Sales Order has been created for the Return Authorization,
+  the following additional options will be available:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditNewOrder)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewNewOrder)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditNewOrderLine)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewNewOrderLine)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickNewOrderShipStatus)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickNewOrderShipments)" />
+  </variablelist>
+  <para>If the Line Items were imported from an original Sales Order, the
+  following additional option will be available:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewOriginalOrder)" />
   </variablelist>
   <para>Order Notes added to a Return Authorization are used for internal
   purposes only. To add Notes to a Return Authorization, select the "Order

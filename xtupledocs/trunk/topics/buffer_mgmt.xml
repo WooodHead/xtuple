@@ -2,12 +2,12 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section554837" role="openmfg">
-  <title>Topic: Buffer Management Basics</title>
+  <title>Topic: Constraint Management Basics</title>
   <para>What is a buffer? In short, a buffer is a little extra of something
   that we maintain to ensure we can handle unexpected fluctuations. OpenMFG's
-  Buffer Management system reports on three types of buffers: stock, time, and
-  capacity. The following examples from daily life may help explain the three
-  different kinds of buffers:</para>
+  Constraint Management system reports on three types of buffers: stock, time,
+  and capacity. The following examples from daily life may help explain the
+  three different kinds of buffers:</para>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
@@ -32,9 +32,9 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>The critical buffer status in the OpenMFG Buffer Management system
-    is 66%. In other words, any time we consume 66% of a buffer, then it's
-    time to act immediately to resolve the situation. Using the coffee
+    <para>The critical buffer status in the OpenMFG Constraint Management
+    system is 66%. In other words, any time we consume 66% of a buffer, then
+    it's time to act immediately to resolve the situation. Using the coffee
     example, if our supply drops to one pound (and our buffer quantity is
     three pounds), then we"ve used up two-thirds of our buffer--or 66%. With
     that much of our buffer consumed, we need to buy more coffee right away.
@@ -90,7 +90,7 @@
         <primary>stock buffers</primary>
         <secondary>scenario explaining</secondary>
       </indexterm> <indexterm significance="normal">
-        <primary>buffer management</primary>
+        <primary>constraint management</primary>
         <secondary>stock buffers and</secondary>
       </indexterm>Stock Buffer Scenario</title>
     <note>
@@ -102,7 +102,7 @@
     begin, we will need to do some initial setup on the Item Site record for
     Item TBODY1. We will be adjusting its Reorder Level to 1,000. Then we will
     make a Miscellaneous Adjustment to set its Quantity on Hand to 300.
-    Finally, we will run Buffer Management to discover the system-defined
+    Finally, we will run Constraint Management to discover the system-defined
     value for the Item Site's stock buffer status. To access the Item Site
     screen, follow these steps:</para>
     <orderedlist>
@@ -135,8 +135,8 @@
     Item Site is 1,000 units.</para>
     <para>Next we will make a Miscellaneous Adjustment to the Quantity on Hand
     for Item TBODY1. Making this adjustment will allow us to see how the
-    Buffer Management system handles discrepancies between Reorder Levels and
-    available quantities. To adjust Quantity on Hand for this Item Site,
+    Constraint Management system handles discrepancies between Reorder Levels
+    and available quantities. To adjust Quantity on Hand for this Item Site,
     follow these steps:</para>
     <orderedlist>
       <listitem>
@@ -150,8 +150,8 @@
       </listitem>
       <listitem>
         <para>Enter the following values: Item Number = TBODY1; Warehouse =
-        WH1; Adjustment Qty. = 300; Absolute = CHECKED; Document # = Buffer
-        Management</para>
+        WH1; Adjustment Qty. = 300; Absolute = CHECKED; Document # =
+        Constraint Management</para>
       </listitem>
       <listitem>
         <para>Click the POST button</para>
@@ -180,15 +180,15 @@
       site.</para>
     </note>
     <para>Okay, we are finished with the setup needed for our scenario. We are
-    now ready to run the Buffer Management system--and to learn the buffer
-    status of our newly-adjusted Item Site. To run the Buffer Management
+    now ready to run the Constraint Management system--and to learn the buffer
+    status of our newly-adjusted Item Site. To run the Constraint Management
     system by Planner Code, follow these steps:</para>
     <orderedlist>
       <listitem>
         <para>Pull down the M/S Module menu</para>
       </listitem>
       <listitem>
-        <para>Select the Buffer Management submenu</para>
+        <para>Select the Constraint Management submenu</para>
       </listitem>
       <listitem>
         <para>Choose the "Run Buffer Status by Planner Code" option</para>
@@ -201,20 +201,20 @@
       </listitem>
     </orderedlist>
     <important>
-      <para>The Buffer Management results displayed for this scenario assume
-      you have completed all the Work Orders created in the previous sections
-      of this Demo Guide. If you have not already completed those Work Orders,
-      then your results will differ from those shown here.</para>
+      <para>The Constraint Management results displayed for this scenario
+      assume you have completed all the Work Orders created in the previous
+      sections of this Demo Guide. If you have not already completed those
+      Work Orders, then your results will differ from those shown here.</para>
     </important>
-    <para>Now that we have run the Buffer Management system, we can display
-    the results. To display the results of our buffer status run, follow these
-    steps:</para>
+    <para>Now that we have run the Constraint Management system, we can
+    display the results. To display the results of our buffer status run,
+    follow these steps:</para>
     <orderedlist>
       <listitem>
         <para>Pull down the M/S Module menu</para>
       </listitem>
       <listitem>
-        <para>Select the Buffer Management submenu</para>
+        <para>Select the Constraint Management submenu</para>
       </listitem>
       <listitem>
         <para>Choose the "Inventory Buffer Status by Class Code" option</para>
@@ -265,7 +265,7 @@
         <primary>time buffers</primary>
         <secondary>scenario explaining</secondary>
       </indexterm> <indexterm significance="normal">
-        <primary>buffer management</primary>
+        <primary>constraint management</primary>
         <secondary>time buffers and</secondary>
       </indexterm>Time Buffer Scenario</title>
     <para>Next we will look at a time buffer scenario. Please note that time
@@ -309,16 +309,16 @@
       </listitem>
     </orderedlist>
     <para>Once you have completed your Sales Order setup--and the resulting
-    Work Order has been automatically created--we are ready to run the Buffer
-    Management system to collect information about our Work Order's time
-    buffer. To run Buffer Management by Planner Code, follow these
+    Work Order has been automatically created--we are ready to run the
+    Constraint Management system to collect information about our Work Order's
+    time buffer. To run Constraint Management by Planner Code, follow these
     steps:</para>
     <orderedlist>
       <listitem>
         <para>Pull down the M/S Module menu</para>
       </listitem>
       <listitem>
-        <para>Select the Buffer Management submenu</para>
+        <para>Select the Constraint Management submenu</para>
       </listitem>
       <listitem>
         <para>Choose the "Run Buffer Status by Planner Code" option</para>
@@ -330,9 +330,9 @@
         <para>Click the CREATE button</para>
       </listitem>
     </orderedlist>
-    <para>Now that Buffer Management has been run, we can display the results.
-    Again, it is important to note that the results displayed for this
-    scenario assume you have completed all the Work Orders created in the
+    <para>Now that Constraint Management has been run, we can display the
+    results. Again, it is important to note that the results displayed for
+    this scenario assume you have completed all the Work Orders created in the
     previous sections of this Demo Guide. If you have not already completed
     those Work Orders, then your results will differ from those shown here. To
     display the results of our current buffer status run, follow these
@@ -342,7 +342,7 @@
         <para>Pull down the M/S Module menu</para>
       </listitem>
       <listitem>
-        <para>Select the Buffer Management submenu</para>
+        <para>Select the Constraint Management submenu</para>
       </listitem>
       <listitem>
         <para>Choose the "Work Order Buffer Status by Class Code"
@@ -367,7 +367,7 @@
     shows that OpenMFG has calculated a "Time" buffer for our Work Order. The
     value of this time buffer is shown in the "Buffer Status" column. Because
     the buffer status for the Work Order = 0, there is no need to take
-    immediate action. Remember, the magic number for the Buffer Management
+    immediate action. Remember, the magic number for the Constraint Management
     system is 66. As long as the buffer status of a Work Order is less than
     66, then the system does not consider the Order to be in a critical
     state.</para>
@@ -381,10 +381,10 @@
       the days that the shop is available to work, which may exclude weekends
       or holidays. For example: If a shop typically has a three-week lead
       time, but does not work weekends, then the time buffer for that shop
-      would typically be 15 working days. The OpenMFG Buffer Management system
-      looks at the start and finish dates of a discrete Purchase Order or Work
-      Order, removes non-working days for the Order\qs Warehouse, and then
-      calculates the time buffer.</para>
+      would typically be 15 working days. The OpenMFG Constraint Management
+      system looks at the start and finish dates of a discrete Purchase Order
+      or Work Order, removes non-working days for the Order\qs Warehouse, and
+      then calculates the time buffer.</para>
     </note>
     <para>If you want to, you can simulate the passage of time to see the
     impact on our Work Order's buffer status. To simulate the passage of time,
@@ -433,11 +433,11 @@
     time that passes from the start date of a Work Order to the due date of
     the Order, the more the Order's time buffer is consumed. Keep in mind that
     your results will vary depending on the current day of the week. The
-    Buffer Management system uses a Warehouse work week defined in the M/S
+    Constraint Management system uses a Warehouse work week defined in the M/S
     Module's "Master Information" section. The Warehouse week functionality
     enables you to define the days of the week your plant is open. Closed
-    days, such as weekends in the demo database, are factored into the Buffer
-    Management time buffer calculation.</para>
+    days, such as weekends in the demo database, are factored into the
+    Constraint Management time buffer calculation.</para>
     <tip>
       <para>Here are some helpful benchmarks:</para>
       <variablelist>
@@ -472,16 +472,16 @@
     First Out (FIFO) trap that many shops get stuck in. The start time of a
     Work Order is irrelevant. It is its completion on its due date which
     enables us to achieve a high degree of Customer satisfaction for on-time
-    delivery. Buffer Management shows us the Orders for which we risk missing
-    the delivery date because we have already used up 66% of their time
-    buffer.</para>
+    delivery. Constraint Management shows us the Orders for which we risk
+    missing the delivery date because we have already used up 66% of their
+    time buffer.</para>
   </section>
   <section id="Section554965">
     <title><indexterm significance="normal">
         <primary>capacity buffers</primary>
         <secondary>scenario explaining</secondary>
       </indexterm> <indexterm significance="normal">
-        <primary>buffer management</primary>
+        <primary>constraint management</primary>
         <secondary>capacity buffers and</secondary>
       </indexterm>Capacity Buffer Scenario</title>
     <para>Finally, let's examine a capacity buffer scenario. The Work Order we
@@ -501,7 +501,7 @@
         <para>Pull down the M/S Module menu</para>
       </listitem>
       <listitem>
-        <para>Select the Buffer Management submenu</para>
+        <para>Select the Constraint Management submenu</para>
       </listitem>
       <listitem>
         <para>Choose the "Capacity Buffer Status by Work Center" option</para>
@@ -548,7 +548,7 @@
       the desired lead time of Items coming out of that resource. For example,
       suppose we have a shop with a typical lead time of two weeks that has a
       milling department heavily loaded. Perhaps we have identified milling as
-      our shop's bottleneck and will use the Buffer Management system to
+      our shop's bottleneck and will use the Constraint Management system to
       monitor it. The capacity buffer would be two-weeks worth of load,
       meaning that the milling department can be loaded with up to two-weeks
       worth of work before it is considered fully-consumed. The capacity
@@ -563,8 +563,8 @@
     times.</para>
   </section>
   <section id="Section554985">
-    <title>Other Buffer Management Displays</title>
-    <para>Keep in mind that you must run the Buffer Management utilities
+    <title>Other Constraint Management Displays</title>
+    <para>Keep in mind that you must run the Constraint Management utilities
     (i.e., "Run Buffer Status by Planner Code" and "Run Buffer Status by
     Item") for the information in the buffer status screens to be updated.
     Best practice would be to submit the job "Run Buffer Status by Planner
@@ -578,7 +578,7 @@
     from stock. The Reorder Level for stock buffer Items will ensure you can
     meet your desired service levels.</para>
     <para>To review, in this supplement, we have scenarios describing the
-    three types of buffers recognized by the OpenMFG Buffer Management
+    three types of buffers recognized by the OpenMFG Constraint Management
     system:</para>
     <itemizedlist>
       <listitem>
@@ -591,12 +591,12 @@
         <para>Capacity</para>
       </listitem>
     </itemizedlist>
-    <para>If you are curious to see more displays related to Buffer
-    Management, take a look at the M/S Module's "Buffer Management" submenu.
-    There you will find numerous displays not covered here. These other
-    displays provide additional ways of monitoring the results of a buffer
-    update. As always, the goal is to provide you with a means to prioritize
-    the actions you need to take in order to meet or exceed Customer
-    requirements for service levels and on-time deliveries.</para>
+    <para>If you are curious to see more displays related to Constraint
+    Management, take a look at the M/S Module's "Constraint Management"
+    submenu. There you will find numerous displays not covered here. These
+    other displays provide additional ways of monitoring the results of a
+    buffer update. As always, the goal is to provide you with a means to
+    prioritize the actions you need to take in order to meet or exceed
+    Customer requirements for service levels and on-time deliveries.</para>
   </section>
 </section>

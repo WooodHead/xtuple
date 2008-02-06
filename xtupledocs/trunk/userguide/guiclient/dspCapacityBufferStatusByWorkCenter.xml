@@ -68,8 +68,10 @@
         generate buffer status information. The system uses the following
         equation to determine the capacity buffer status for a Work
         Center:</para>
-        <para>(Total Setup + Total Run) / (Max Days Load x Daily Capacity) =
-        Buffer (%)</para>
+        <informalexample>
+          <para>(Total Setup + Total Run) / (Max Days Load x Daily Capacity) =
+          Buffer (%)</para>
+        </informalexample>
       </listitem>
     </varlistentry>
   </variablelist>

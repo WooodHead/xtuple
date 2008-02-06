@@ -42,7 +42,7 @@
     </variablelist>
   </section>
   <section>
-    <title>Work Orders</title>
+    <title>Manufacturing</title>
     <variablelist>
       <varlistentry id="rightclickChangeWOQuantity">
         <term>Change W/O Quantity</term>
@@ -368,7 +368,7 @@
     </variablelist>
   </section>
   <section>
-    <title>Sales Orders</title>
+    <title>Sales</title>
     <variablelist>
       <varlistentry id="rightclickAddtoPackingListBatch">
         <term>Add to Packing List Batch</term>
@@ -407,6 +407,18 @@
           <para>Select to edit the specified Order Item.</para>
         </listitem>
       </varlistentry>
+      <varlistentry id="rightclickEditNewOrder">
+        <term>Edit New Order</term>
+        <listitem>
+          <para>Select to edit the new Sales Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditNewOrderLine">
+        <term>Edit New Order Line</term>
+        <listitem>
+          <para>Select to edit the new Sales Order Line Item</para>
+        </listitem>
+      </varlistentry>
       <varlistentry id="rightclickEditOrder">
         <term>Edit Order</term>
         <listitem>
@@ -424,6 +436,19 @@
         <term>Invoice Information</term>
         <listitem>
           <para>Select to view details for the specified Invoice.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickNewOrderShipments">
+        <term>New Order Shipments</term>
+        <listitem>
+          <para>Select to view Shipments for the new Sales Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickNewOrderShipStatus">
+        <term>New Order Shipment Status</term>
+        <listitem>
+          <para>Select to view Shipment statuses for the new Sales
+          Order.</para>
         </listitem>
       </varlistentry>
       <varlistentry id="rightclickOpenLine">
@@ -528,10 +553,28 @@
           <para>Select to view the specified Order Item.</para>
         </listitem>
       </varlistentry>
+      <varlistentry id="rightclickViewNewOrder">
+        <term>View New Order</term>
+        <listitem>
+          <para>Select to view the new Sales Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewNewOrderLine">
+        <term>View New Order Line</term>
+        <listitem>
+          <para>Select to view the new Sales Order Line Item.</para>
+        </listitem>
+      </varlistentry>
       <varlistentry id="rightclickViewSalesOrder">
         <term>View Order</term>
         <listitem>
           <para>Select to view the specified Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewOriginalOrder">
+        <term>View Original Order</term>
+        <listitem>
+          <para>Select to view the original Sales Order.</para>
         </listitem>
       </varlistentry>
       <varlistentry id="rightclickViewSalesDetail">
@@ -999,7 +1042,7 @@
     </variablelist>
   </section>
   <section>
-    <title>Purchase Orders</title>
+    <title>Purchasing</title>
     <variablelist>
       <varlistentry id="rightclickChangeQty">
         <term>Change Qty</term>

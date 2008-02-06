@@ -69,11 +69,10 @@
           WorldShip</caption>
         </mediaobject>
       </screenshot></para>
-    <para>As you can see in <xref linkend="UPSWorldShipExportMap" />, we have
-    created a map called "export." The map type is "Shipment," which indicates
-    the data export will occur when the shipment is shipped using UPS
-    WorldShip. And the ODBC driver used to export the data to the OpenMFG
-    Database is called "openmfg."</para>
+    <para>In our example, we have created a map called "export." The map type
+    is "Shipment," which indicates the data export will occur when the
+    shipment is shipped using UPS WorldShip. And the ODBC driver used to
+    export the data to the OpenMFG Database is called "openmfg."</para>
     <para>The following screenshot shows the utility you would use to edit
     your export map within UPS WorldShip:</para>
     <para><screenshot>
@@ -81,8 +80,7 @@
           <imageobject>
             <imagedata fileref="images/Topic_ups2.png" />
           </imageobject>
-          <caption>WorldShip Utility for Editing Export
-          Map</caption>
+          <caption>WorldShip Utility for Editing Export Map</caption>
         </mediaobject>
       </screenshot></para>
     <para>Your primary goal when creating an export map is to match UPS
@@ -292,11 +290,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_upsGraphic.png"
-                       />
+            <imagedata fileref="images/Topic_upsGraphic.png" />
           </imageobject>
-          <caption>Basic Process Flow for UPS WorldShip
-          Integration</caption>
+          <caption>Basic Process Flow for UPS WorldShip Integration</caption>
         </mediaobject>
       </screenshot></para>
     <para>The process flow begins in OpenMFG with the following
@@ -353,11 +349,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_upsShipOrder.png"
-                       />
+            <imagedata fileref="images/Topic_upsShipOrder.png" />
           </imageobject>
-          <caption>Sales Order with UPS WorldShip
-          Information</caption>
+          <caption>Sales Order with UPS WorldShip Information</caption>
         </mediaobject>
       </screenshot></para>
     <para>As you can see in int the example, our Order contains UPS Tracking
