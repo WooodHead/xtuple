@@ -1,44 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524363">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>check runs</primary>
-
       <secondary>viewing detailed list of</secondary>
     </indexterm>View Check Run</title>
-
   <para>To view a detailed list of Checks prepared to be run, select the "View
   Check Run" option. The following screen will appear:</para>
-
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/viewCheckRun.png"/>
+          <imagedata fileref="images/viewCheckRun.png" />
         </imageobject>
-
         <caption>View Check Run</caption>
       </mediaobject>
-    </screenshot>
-</para>
-
+    </screenshot></para>
   <para>When viewing the detailed list of Checks prepared to be run, you are
   presented with the following options:</para>
-
   <variablelist>
     <varlistentry>
       <term>Bank Account</term>
-
       <listitem>
         <para>Specify the Bank Account whose Check Run you want to
         view.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>A/P Checks</term>
-
       <listitem>
         <para>Display lists details for Checks included in the Check Run. This
         display is a nested list, with a plus ("+") sign located to the far
@@ -48,69 +37,52 @@
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>To the far right of the screen, the following buttons are
   available:</para>
-
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-
       <listitem>
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>PRINT EDIT LIST</term>
-
       <listitem>
         <para>Select to print a copy of the list displayed on the
         screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>check runs</primary>
-
           <secondary>printing of</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>checks</primary>
-
           <secondary>printing multiple</secondary>
         </indexterm>PRINT CHECK RUN</term>
-
       <listitem>
         <para>Select to print the Check Run, using the specified Bank Account.
-        For more information on printing Check Runs, see the <xref endterm="Anchor26666" linkend="Anchor26666"/> section.</para>
+        For more information on printing Check Runs, see the <xref
+        linkend="Anchor26666" /> section.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>checks</primary>
-
           <secondary>printing individual</secondary>
         </indexterm>PRINT CHECK</term>
-
       <listitem>
         <para>Highlight a Check in the list of Checks and then select this
         button to print the Check.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>checks</primary>
-
           <secondary>posting individual</secondary>
         </indexterm>POST CHECK</term>
-
       <listitem>
         <para>Highlight a Check in the list of Checks and then select this
         button to post the Check. A Check must be printed before it can be
@@ -118,15 +90,11 @@
         printed status.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>checks</primary>
-
           <secondary>voiding of</secondary>
         </indexterm>VOID CHECK</term>
-
       <listitem>
         <para>Highlight a Check in the list of Checks and then select this
         button to void the Check. Voided Checks may not be printed or posted.
@@ -139,16 +107,13 @@
       </listitem>
     </varlistentry>
   </variablelist>
-
   <tip>
     <para>To void a Check after it has been posted, use the right-click menu
     option on the Check Register.</para>
   </tip>
-
   <variablelist>
     <varlistentry>
       <term>EDIT CHECK</term>
-
       <listitem>
         <para>Highlight a miscellaneous Check and then select this button to
         edit the Check. Only unprinted miscellaneous Checks may be
@@ -156,35 +121,27 @@
       </listitem>
     </varlistentry>
   </variablelist>
-
   <note>
     <para>Only unprinted miscellaneous Checks may be edited. Regular Checks
     may not be edited.</para>
   </note>
-
   <variablelist>
     <varlistentry>
       <term>DELETE</term>
-
       <listitem>
         <para>Highlight a voided Check in the list of Checks and then select
         this button to delete the Check. Only voided Checks may be
         deleted.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>checks</primary>
-
           <secondary>replacing in check run</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>check runs</primary>
-
           <secondary>replacing checks in</secondary>
         </indexterm>REPLACE CHECK</term>
-
       <listitem>
         <para>Highlight a voided Check in the list of Checks and then select
         this button to replace the Check. Checks must be voided before they
@@ -194,10 +151,8 @@
         longer be available for payment on the Select Payments screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>REPLACE ALL</term>
-
       <listitem>
         <para>Select this button to replace all Checks shown in the list of
         Checks. Checks must be voided before they can be replaced.</para>

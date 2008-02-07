@@ -1,101 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section570079">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>accounts receivable</primary>
-
       <secondary>workbench for</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>workbenches</primary>
-
       <secondary>for accounts receivable</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>accounts receivable</primary>
-
       <secondary>workbench for</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>workbenches</primary>
-
       <secondary>for accounts receivable</secondary>
     </indexterm>A/R Workbench</title>
-
   <para>The Accounts Receivable (A/R) Workbench is designed to consolidate on
   one screen the functions performed by A/R personnel. To view the A/R
   Workbench, select the "A/R Workbench" option. The following screen will
   appear:</para>
-
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/arWorkBench.png"/>
+          <imagedata fileref="images/arWorkBench.png" />
         </imageobject>
-
         <caption>A/R Workbench</caption>
       </mediaobject>
-    </screenshot>
-</para>
-
+    </screenshot></para>
   <para>When viewing the A/R Workbench, you are presented with the following
   options:</para>
-
   <variablelist>
     <varlistentry>
       <term>Customer #</term>
-
       <listitem>
         <para>Enter the Customer Number of the Customer whose A/R information
         you want to display.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <note>
     <para>Once a Cash Receipt is posted, it will no longer appear in the Cash
     Receipts list.</para>
   </note>
-
   <variablelist>
     <varlistentry>
       <term>Total Open Items</term>
-
       <listitem>
         <para>Displays the total amount of A/R open items for the Customer.
         This total is the same amount as displayed in the A/R Display "Open
         Items by Customer."</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Cash Receipts</term>
-
       <listitem>
         <para>Displays the current list of unposted Cash Receipts for the
         specified Customer.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>To the far right of the screen, the following buttons are
   available:</para>
-
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-
       <listitem>
         <para>Opens screen for creating a new Cash Receipt. For more
-        information on entering Cash Receipts, see the <xref endterm="Anchor39275" linkend="Anchor39275"/> section.</para>
+        information on entering Cash Receipts, see the <xref
+        linkend="Anchor39275" /> section.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry id="arWorkBenchEDIT">
       <term>EDIT</term>
-
       <listitem id="arWorkBenchEDITCR1">
         <para>Enables you to edit highlighted Cash Receipt. The edit screen is
         the same as that for creating a new Cash Receipt--except that when
@@ -104,96 +80,79 @@
         screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>VIEW</term>
-
       <listitem id="arWorkBenchVIEWCR1">
         <para>Highlight a Cash Receipt and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>DELETE</term>
-
       <listitem id="arWorkBenchDELETECR1">
         <para>Highlight a Cash Receipt and then select this button to remove
         the Cash Receipt from the edit list.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>POST</term>
-
       <listitem id="arWorkBenchPOSTCR1">
         <para>Highlight a Cash Receipt and then select this button to post the
         Cash Receipt.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>Right-clicking on a Cash Receipt in the Cash Receipts list enables you
   to select from the following menu options:</para>
-
   <variablelist>
     <varlistentry>
       <term>Edit Cash Receipt</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchEDITCR1)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchEDITCR1)" />
     </varlistentry>
-
     <varlistentry>
       <term>View Cash Receipt</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchVIEWCR1)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchVIEWCR1)" />
     </varlistentry>
-
     <varlistentry>
       <term>Delete Cash Receipt</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchDELETECR1)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchDELETECR1)" />
     </varlistentry>
-
     <varlistentry>
       <term>Post Cash Receipt</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchPOSTCR1)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchPOSTCR1)" />
     </varlistentry>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
     <varlistentry>
       <term>A/R Open Credit Memos and Deposits</term>
-
       <listitem>
         <para>Displays the current list of open A/R Credit Memos for the
         specified Customer.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <tip>
     <para>Once the full amount of a Credit Memo has been applied, the Credit
     Memo will be removed from the A/R Open Credit Memos list.</para>
   </tip>
-
   <para>To the far right of the screen, the following buttons are
   available:</para>
-
   <variablelist>
     <varlistentry>
       <term>APPLY</term>
-
       <listitem id="arWorkBenchAPPLYCM1">
         <para>Highlight an unapplied Credit Memo and then select this button
-        to apply an amount, as described in the <xref endterm="Anchor30541" linkend="Anchor30541"/> section.</para>
+        to apply an amount, as described in the <xref linkend="Anchor30541" />
+        section.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>EDIT</term>
-
       <listitem id="arWorkBenchEDITCM1">
         <para>Enables you to edit highlighted Credit Memos. The edit screen is
         the same as that for creating a new Credit Memo--except that when
@@ -202,44 +161,37 @@
         screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>VIEW</term>
-
       <listitem id="arWorkBenchVIEWCM1">
         <para>Highlight an unapplied Credit Memo and then select this button
         to reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>Right-clicking on a Credit Memo in the A/R Open Credit Memos and
   Deposits list enables you to select from the following menu options:</para>
-
   <variablelist>
     <varlistentry>
       <term>Apply Credit Memo</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchAPPLYCM1)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchAPPLYCM1)" />
     </varlistentry>
-
     <varlistentry>
       <term>Edit Credit Memo</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchEDITCM1)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchEDITCM1)" />
     </varlistentry>
-
     <varlistentry>
       <term>View Credit Memo</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchVIEWCM1)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchVIEWCM1)" />
     </varlistentry>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
     <varlistentry>
       <term>A/R Open Items</term>
-
       <listitem>
         <para>Displays the current list of A/R open items for the specified
         Customer. This is the same information as displayed in the A/R Display
@@ -247,41 +199,35 @@
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>To the far right of the screen, the following buttons are
   available:</para>
-
   <variablelist>
     <varlistentry>
       <term>EDIT</term>
-
       <listitem>
         <para>Enables you to edit highlighted A/R open items. Double-clicking
         on an A/R open item will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>VIEW</term>
-
       <listitem>
         <para>Highlight an A/R open item and then select this button to reach
         a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>Right-clicking on an Invoice in the A/R Open Items list enables you to
   select from the following menu options:</para>
-
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewApplytoInvoice)"/>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewApplytoInvoice)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
     <varlistentry>
       <term>Pre-auth Credit Card Charges</term>
-
       <listitem>
         <para>Displays the current list of pre-authorized Credit Card charges
         for the specified Customer. Pre-authorizations are generated from the
@@ -289,10 +235,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>To the far right of the screen, the following options are
   available:</para>
-
   <itemizedlist>
     <listitem>
       <para>POST: Highlight a pre-authorized Credit Card charge amount and
@@ -301,13 +245,11 @@
       created in the specified post-authorization amount.</para>
     </listitem>
   </itemizedlist>
-
   <tip>
     <para>You only get one chance to post a Credit Card pre-authorization.
     Once a pre-authorization is post-authorized, it will no longer appear in
     the "Pre-authorized Credit Card Charges" list.</para>
   </tip>
-
   <itemizedlist>
     <listitem>
       <para>Amount: Specify the amount of the post-authorization. By default,
@@ -317,14 +259,11 @@
       amount).</para>
     </listitem>
   </itemizedlist>
-
   <para>To the far right of the screen, the following buttons are
   available:</para>
-
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-
       <listitem>
         <para>Closes the screen, returning you to the application
         desktop.</para>
