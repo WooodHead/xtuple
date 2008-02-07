@@ -67,6 +67,58 @@
         time.</para>
       </listitem>
     </varlistentry>
+    <varlistentry role="openmfg">
+      <term><indexterm significance="normal">
+          <primary>bills of materials</primary>
+          <secondary>revisions for</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>revisions</primary>
+          <secondary>in boms</secondary>
+        </indexterm>Revision</term>
+      <listitem>
+        <para>Specify the Bill of Materials Revision Number you want to view.
+        If none exists, simply enter a value to create one. The status of the
+        Revision will also be displayed. The following statuses apply to
+        Revisions:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Active</term>
+            <listitem>
+              <para>This is the current Revision. Only one Revision can be
+              active at the same time. Active Revisions may be modified.
+              However, once a Revision becomes inactive, it may no longer be
+              changed.</para>
+              <tip>
+                <para>The active Revision becomes inactive when a pending
+                Revision is activated. Inactive Revisions cannot be
+                modified.</para>
+              </tip>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Pending</term>
+            <listitem>
+              <para>This is a Revision that has never been used, but is under
+              development or consideration. You may store multiple pending
+              Revisions. When a pending Revision is entered in the "Revision"
+              field, an ACTIVATE button will dynamically appear to the far
+              right of the screen. Select the ACTIVATE button to convert a
+              pending Revision to the active Revision.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Inactive</term>
+            <listitem>
+              <para>This is a formerly active Revision. Inactive Revisions
+              cannot be modified--only viewed. They are stored to provide
+              historical, point-in-time build information, which may be used
+              for various purposes throughout the application. You may store
+              multiple inactive Revisions.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>Document #</term>
       <listitem>
@@ -75,15 +127,9 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Revision</term>
-      <listitem>
-        <para>Enter text to describe the revision--if any.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Revision Date</term>
       <listitem>
-        <para>Indicates the date of the revision--if any.</para>
+        <para>Indicates the date of the revision.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -93,12 +139,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>Once a revision date has been entered, the date field cannot be
-    erased. The specific date may be updated to reflect subsequent revisions,
-    but the field will never be null as long as the Bill of Materials
-    exists.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term>Bill of Materials</term>
@@ -171,17 +211,30 @@
   available:</para>
   <variablelist>
     <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>SAVE</term>
       <listitem>
         <para>Saves the new Bill of Materials to the master list of Bills of
         Materials. Mac users may use COMMAND + S to save.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>CLOSE</term>
+    <varlistentry role="openmfg">
+      <term>ACTIVATE</term>
       <listitem>
-        <para>Closes the screen, returning you to the application
-        desktop.</para>
+        <para>Select to activate a pending Revision. This button will only be
+        visible when a pending Revision number is entered in the "Revision"
+        field.</para>
+        <tip>
+          <para>When you activate a pending Revision, the currently active
+          Revision will become inactive. Inactive Revisions cannot be
+          modified.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
