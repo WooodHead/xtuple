@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION sufficientInventoryToShipOrder(TEXT, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION sufficientInventoryToShipOrder(TEXT, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pordertype	ALIAS FOR $1;
   porderid	ALIAS FOR $2;
@@ -6,19 +6,22 @@ DECLARE
   _returnVal	INTEGER := 0;
 
 BEGIN
-  FOR _s IN SELECT shipitem_orderitem_id
-	    FROM shipitem, shiphead
-	    WHERE ((shipitem_shiphead_id=shiphead_id)
-	      AND  (shiphead_order_id=porderid)
-	      AND  (shiphead_order_type=pordertype)
-	      AND  (NOT shiphead_shipped)) LOOP
+  IF (pordertype = 'SO') THEN
+    FOR _s IN SELECT coitem_id
+	        FROM coitem
+	       WHERE(coitem_cohead_id=porderid) LOOP
+      _returnVal := sufficientInventoryToShipItem(pordertype, _s.coitem_id);
+      EXIT WHEN (_returnVal < 0);
+    END LOOP;
+  ELSEIF (pordertype = 'TO') THEN
+    FOR _s IN SELECT toitem_id
+	        FROM toitem
+	       WHERE(toitem_tohead_id=porderid) LOOP
+      _returnVal := sufficientInventoryToShipItem(pordertype, _s.toitem_id);
+      EXIT WHEN (_returnVal < 0);
+    END LOOP;
+  END IF;
 
-    _returnVal := sufficientInventoryToShipItem(pordertype,
-						_s.shipitem_orderitem_id);
-    EXIT WHEN (_returnVal < 0);
-  END LOOP;
-
-  RAISE NOTICE ''%'', _returnVal;
   RETURN _returnVal;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
