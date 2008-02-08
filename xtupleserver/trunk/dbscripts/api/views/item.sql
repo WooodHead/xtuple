@@ -216,4 +216,4 @@ COMMENT ON VIEW api.item IS 'Item';
 
     SELECT deleteitem(getItemId(OLD.item_number));
 
-END;
+COMMIT;

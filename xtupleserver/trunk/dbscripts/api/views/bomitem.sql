@@ -154,4 +154,4 @@ COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
     CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.bomitem DO INSTEAD NOTHING;
 
-END;
+COMMIT;

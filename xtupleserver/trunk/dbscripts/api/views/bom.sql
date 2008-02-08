@@ -50,4 +50,4 @@ COMMENT ON VIEW api.bom IS 'Bill of Material Header';
 
     SELECT deletebom(getItemId(OLD.item_number));
 
-END;
+COMMIT;
