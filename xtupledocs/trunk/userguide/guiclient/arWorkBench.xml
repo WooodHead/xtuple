@@ -63,6 +63,13 @@
   available:</para>
   <variablelist>
     <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>NEW</term>
       <listitem>
         <para>Opens screen for creating a new Cash Receipt. For more
@@ -128,6 +135,10 @@
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>The A/R Open Credit Memos and Deposits section provides the following
+  options:</para>
+  <variablelist>
     <varlistentry>
       <term>A/R Open Credit Memos and Deposits</term>
       <listitem>
@@ -199,6 +210,17 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>The A/R Open Items section provides the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>A/R Open Items</term>
+      <listitem>
+        <para>Displays the current list of A/R open items for the specified
+        Customer. This is the same information as displayed in the A/R Display
+        "Open Items by Customer."</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
@@ -226,6 +248,10 @@
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>The Credit Card Pre-Authorization section provides the following
+  options:</para>
+  <variablelist>
     <varlistentry>
       <term>Pre-auth Credit Card Charges</term>
       <listitem>
@@ -237,36 +263,30 @@
   </variablelist>
   <para>To the far right of the screen, the following options are
   available:</para>
-  <itemizedlist>
-    <listitem>
-      <para>POST: Highlight a pre-authorized Credit Card charge amount and
-      then select this button to post-authorize the charge. When a
-      pre-authorization is post-authorized, an unposted Cash Receipt is
-      created in the specified post-authorization amount.</para>
-    </listitem>
-  </itemizedlist>
-  <tip>
-    <para>You only get one chance to post a Credit Card pre-authorization.
-    Once a pre-authorization is post-authorized, it will no longer appear in
-    the "Pre-authorized Credit Card Charges" list.</para>
-  </tip>
-  <itemizedlist>
-    <listitem>
-      <para>Amount: Specify the amount of the post-authorization. By default,
-      the pre-authorized amount will display here. However, you may override
-      the default amount. After posting, a Cash Receipt for the Customer will
-      be generated in the amount entered here (i.e., the post-authorization
-      amount).</para>
-    </listitem>
-  </itemizedlist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
   <variablelist>
     <varlistentry>
-      <term>CLOSE</term>
+      <term>POST</term>
       <listitem>
-        <para>Closes the screen, returning you to the application
-        desktop.</para>
+        <para>Highlight a pre-authorized Credit Card charge amount and then
+        select this button to post-authorize the charge. When a
+        pre-authorization is post-authorized, an unposted Cash Receipt is
+        created in the specified post-authorization amount.</para>
+        <tip>
+          <para>You only get one chance to post a Credit Card
+          pre-authorization. Once a pre-authorization is post-authorized, it
+          will no longer appear in the "Pre-authorized Credit Card Charges"
+          list.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>AMOUNT</term>
+      <listitem>
+        <para>Specify the amount of the post-authorization. By default, the
+        pre-authorized amount will display here. However, you may override the
+        default amount. After posting, a Cash Receipt for the Customer will be
+        generated in the amount entered here (i.e., the post-authorization
+        amount).</para>
       </listitem>
     </varlistentry>
   </variablelist>
