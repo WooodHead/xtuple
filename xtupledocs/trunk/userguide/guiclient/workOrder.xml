@@ -64,20 +64,17 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term>Priority</term>
-      <listitem>
-        <para>Select a number using the arrow buttons, or manually enter a
-        value up to a maximum of 99. Value entered assigns a priority to the
-        selected Work Order. By assigning a priority to a Work Order, you can
-        indicate the relative importance of a Work Order in comparison to
-        other Work Orders.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Qty. Ordered</term>
       <listitem>
         <para>Value entered specifies the number of Item units to be processed
         by the Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Received</term>
+      <listitem>
+        <para>Displays the quantity of finished product posted as received
+        into Inventory to date, if any.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -95,6 +92,16 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Priority</term>
+      <listitem>
+        <para>Select a number using the arrow buttons, or manually enter a
+        value up to a maximum of 99. Value entered assigns a priority to the
+        selected Work Order. By assigning a priority to a Work Order, you can
+        indicate the relative importance of a Work Order in comparison to
+        other Work Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term><indexterm significance="normal">
           <primary>work orders</primary>
           <secondary>adjusting lead times for</secondary>
@@ -108,10 +115,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>The option to associate a Project with a Work Order will only be
-    visible if your site is configured to use Projects.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term>Project #</term>
@@ -122,6 +125,10 @@
         from the parent Sales Order will automatically be entered here. In
         this way, Sales Orders and Work Orders may be linked to the same
         Project.</para>
+        <note>
+          <para>The option to associate a Project with a Work Order will only
+          be visible if your site is configured to use Projects.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -143,8 +150,9 @@
     <varlistentry>
       <term>Print Traveler</term>
       <listitem>
-        <para>Select to print a Work Order Traveler when Work Order is
-        created.</para>
+        <para>Select to print a Work Order Traveler when the Work Order is
+        created. This option will no longer be available once the Work Order
+        is created.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -152,20 +160,30 @@
   available:</para>
   <variablelist>
     <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>CANCEL</term>
       <listitem>
         <para>Closes the screen without creating the Work Order, returning you
         to the application desktop.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>CREATE</term>
-      <listitem>
-        <para>Creates the Work Order.</para>
-      </listitem>
-    </varlistentry>
   </variablelist>
-  <para></para>
+  <para>If an Item has Characteristics associated with it, you have the option
+  of linking those Characteristics to a Work Order Item. And, in the case
+  where a Work Order is generated from a linked Sales Order, the Work Order
+  will inherit Characteristics defined at the Sales Order level.</para>
+  <tip>
+    <para>You can link Characteristics and Values to an Item by using the Item
+    master. Once entered, these Characteristics and Values will be available
+    to users entering Sales Order Line Items.</para>
+  </tip>
+  <para>To associate Characteristics with a Work Order Item, select the
+  "Characteristics" tab at the bottom of the screen, as shown below:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -173,11 +191,33 @@
         </imageobject>
         <caption>Work Order Characteristics</caption>
       </mediaobject>
-    </screenshot></para>
-  <para></para>
-  <para></para>
-  <para>To view Comments related to a Work Order, select the "Comments" tab.
-  The following screen will appear:</para>
+    </screenshot>When specifying Characteristics for a Work Order Item, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Displays the name of any Item Characteristics associated with
+        the Item. Characteristics defined as Item Characteristics may be
+        associated with Items on the Item master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Displays the default Value associated with an Item
+        Characteristic, but permits you to specify an alternate Value. When
+        associating Characteristic Values with a Work Order Item, you have
+        four options: 1) Select the default Value; 2) select an alternate
+        pre-defined Value; 3) manually enter a new Value in place of the
+        pre-defined Value; or 4) make no selection. Making no selection means
+        the Characteristics will not be associated with the Work Order
+        Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create or view Comments related to a Work Order, select the
+  "Comments" tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -191,8 +231,8 @@
     creation. Instead, use the Production Notes tab for entering Notes related
     to a Work Order.</para>
   </note>
-  <para>When viewing Comments related to a Work Order, you are presented with
-  the following options:</para>
+  <para>When creating or viewing Comments related to a Work Order, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Comments</term>
@@ -201,19 +241,64 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
-  <para><screenshot>
+  <para>Once a Work Order is in process--that is, either materials have been
+  issued or Production or Operations have been posted--you can begin to view
+  Costing information for the Work Order. To view Costing information for the
+  Work Order, select the "Costing" tab. The following screen will
+  appear:</para>
+  <para><tip>
+      <para>The Costing tab will not be visible until after a Work Order has
+      been created. You will not see Costing information when creating a Work
+      Order.</para>
+    </tip><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/workOrder_costing.png" />
         </imageobject>
         <caption>Work Order Costing</caption>
       </mediaobject>
-    </screenshot></para>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para><screenshot>
+    </screenshot>When viewing Work Order Costing information, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Accumulated Costs</term>
+      <listitem>
+        <para>Information about the following categories of currently
+        accumulated Work Order Costs will be shown:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Posted</term>
+            <listitem>
+              <para>Displayes the current posted value of the Work Order. The
+              posted value is equal to the received value of finished goods
+              minus WIP.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Received</term>
+            <listitem>
+              <para>Displays the current value of finished goods received into
+              Inventory from the Work Order.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>WIP</term>
+            <listitem>
+              <para>Displays the current value of Work in Process (WIP) for
+              the Work Order.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para role="openmfg">When creating a Work Order, you have the option to
+  specify which Revision of the Work Order Item's Bill of Materials and Bill
+  of Operations you want to use. By default, the active Revision will be used.
+  Once the Work Order has been created, these options will become read-only.
+  To specify Revision information for a Work Order Item, select the "Revision"
+  tab. The following screen will appear:</para>
+  <para role=""><screenshot role="openmfg">
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/workOrder_revision.png" />
@@ -221,5 +306,40 @@
         <caption>Revision Information</caption>
       </mediaobject>
     </screenshot></para>
-  <para></para>
+  <para role="openmfg">When specifying Revision information for a Work Order
+  Item, you are presented with the following options:</para>
+  <variablelist role="openmfg">
+    <varlistentry>
+      <term>Bill of Materials</term>
+      <listitem>
+        <para>Specify the BOM Revision you want to use for the Work Order. By
+        default, the active Revision will be used.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Revision</term>
+            <listitem>
+              <para>Select from the list of existing available Revisions. The
+              status of the Revision will also be displayed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bill of Operations</term>
+      <listitem>
+        <para>Specify the BOO Revision you want to use for the Work Order. By
+        default, the active Revision will be used.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Revision</term>
+            <listitem>
+              <para>Select from the list of existing available Revisions. The
+              status of the Revision will also be displayed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
