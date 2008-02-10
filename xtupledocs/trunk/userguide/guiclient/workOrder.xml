@@ -78,6 +78,24 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>work orders</primary>
+          <secondary>adjusting lead times for</secondary>
+        </indexterm>Lead Time (Days)</term>
+      <listitem>
+        <para>Select a number using the arrow buttons, or manually enter a
+        value up to a maximum of 999. Value entered specifies the
+        manufacturing Lead Time required between the date the Work Order
+        starts and the date it is due. Lead Times for Items are specified in
+        the Item Site master, but may be modified on this screen.</para>
+        <tip>
+          <para>The Lead Time option is only available when creating a new
+          Work Order. Once the Order is created, this option will not be
+          visible.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Due Date</term>
       <listitem>
         <para>Enter the date the Work Order must be completed by.</para>
@@ -99,19 +117,6 @@
         selected Work Order. By assigning a priority to a Work Order, you can
         indicate the relative importance of a Work Order in comparison to
         other Work Orders.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>work orders</primary>
-          <secondary>adjusting lead times for</secondary>
-        </indexterm>Lead Time (Days)</term>
-      <listitem>
-        <para>Select a number using the arrow buttons, or manually enter a
-        value up to a maximum of 999. Value entered specifies the
-        manufacturing Lead Time required between the date the Work Order
-        starts and the date it is due. Lead Times for Items are specified in
-        the Item Site master, but may be modified on this screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -306,6 +311,12 @@
         <caption>Revision Information</caption>
       </mediaobject>
     </screenshot></para>
+  <note>
+    <para>You may create Work Orders for pending Revisions. For Work Order
+    purposes, a pending Revision is considered to be the same as an inactive
+    Revision. The Revision status of a pending Revision will not be changed if
+    a Work Order is created for it.</para>
+  </note>
   <para role="openmfg">When specifying Revision information for a Work Order
   Item, you are presented with the following options:</para>
   <variablelist role="openmfg">
