@@ -11,11 +11,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_POLineItemNew.png"
-                     />
+          <imagedata fileref="images/purchaseOrderItem.png" />
         </imageobject>
-        <caption>Create New Purchase Order Line
-        Item</caption>
+        <caption>Create New Purchase Order Line Item</caption>
       </mediaobject>
     </screenshot></para>
   <para>When creating a new Purchase Order Line Item, you are presented with
@@ -87,7 +85,69 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Item Source Information</term>
+      <term>Qty. Ordered</term>
+      <listitem>
+        <para>Enter the quantity of the specified Item to be ordered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Received</term>
+      <listitem>
+        <para>Displays quantity received from quantity ordered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Unit Price</term>
+      <listitem>
+        <para>Enter the Unit Price for the specified Item. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Extended Price</term>
+      <listitem>
+        <para>Displays the Extended Price. The Extended Price for a Line Item
+        is based on the quantity ordered multiplied by the Unit Price.</para>
+        <note>
+          <para>The option to associate a Project with a Purchase Order Line
+          Item will only be visible if your site is configured to use
+          Projects.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Line Item Freight</term>
+      <listitem>
+        <para>Enter the amount of freight charges for the entire Line Item
+        quantity. The system automatically calculates the per unit freight
+        charge by dividing the Line Item freight amount by the Line Item
+        quantity. This per unit freight charge is needed when receiving or
+        vouchering quantities less than the original quantity ordered. Line
+        Item freight is distinguished from miscellaneous freight, which
+        applies to the Purchase Order as a whole</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para> Specify date when Order is expected to be received.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Project #</term>
+      <listitem>
+        <para>Select a Project Number to associate with the Purchase Order
+        Line Item. If the Purchase Order Line Item is being created from a
+        Purchase Request driven by Sales Order demand--and the parent Sales
+        Order had a Project Number associated with it--then the Project Number
+        from the parent Sales Order will automatically be entered here. In
+        this way, Sales Orders and Purchase Order Line Items may be linked to
+        the same Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor Source Information</term>
       <listitem>
         <para>If Item Source information exists for an Inventory Item, that
         information will display automatically here. For non-Inventory Items,
@@ -134,92 +194,28 @@
           <varlistentry>
             <term>Inv./Vendor UOM Ratio:</term>
             <listitem>
-              <para> For Inventory Items only, displays the ratio between
+              <para>For Inventory Items only, displays the ratio between
               Inventory and Vendor Units of Measure.</para>
+              <note>
+                <para>The Inv./Vendor UOM Ratio specifies the ratio between
+                Inventory and Vendor Units of Measure (UOM). For example, if
+                you store an Item in single units, but a Vendor sells you the
+                Item in cases of 12, then the ratio would be 12--or 12:1. When
+                an Inv./Vend. ratio is specified, the system allows you to
+                purchase Items using the Vendor's UOM; however, when the Items
+                are received, the system will automatically convert the
+                Inventory to your Inventory UOM.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Earliest Avail. Due Date</term>
+            <listitem>
+              <para>For Inventory Items only, displays the earliest due date
+              for the specified Item.</para>
             </listitem>
           </varlistentry>
         </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note>
-    <para>The Inv./Vendor UOM Ratio specifies the ratio between Inventory and
-    Vendor Units of Measure (UOM). For example, if you store an Item in single
-    units, but a Vendor sells you the Item in cases of 12, then the ratio
-    would be 12--or 12:1. When an Inv./Vend. ratio is specified, the system
-    allows you to purchase Items using the Vendor's UOM; however, when the
-    Items are received, the system will automatically convert the Inventory to
-    your Inventory UOM.</para>
-  </note>
-  <itemizedlist>
-    <listitem>
-      <para>Earliest Due Date: For Inventory Items only, displays the earliest
-      due date for the specified Item.</para>
-      <para>Qty. Ordered: Enter the quantity of the specified Item to be
-      ordered.</para>
-      <para>Unit Price: Enter the Unit Price for the specified Item.</para>
-      <para>Due Date: Specify date when Order is expected to be
-      received.</para>
-    </listitem>
-    <listitem>
-      <para>If your system is configured to use Item Source Earliest Available
-      dates as the default due date for manual Purchase Orders, then this
-      field will be automatically calculated. Earliest Available dates are
-      determined by adding Item Source Lead Times to the current date. </para>
-      <variablelist>
-        <varlistentry>
-          <term>Line Item Freight</term>
-          <listitem>
-            <para>Enter the amount of freight charges for the entire Line Item
-            quantity. The system automatically calculates the per unit freight
-            charge by dividing the Line Item freight amount by the Line Item
-            quantity. This per unit freight charge is needed when receiving or
-            vouchering quantities less than the original quantity ordered.
-            Line Item freight is distinguished from miscellaneous freight,
-            which applies to the Purchase Order as a whole</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-      <variablelist>
-        <varlistentry>
-          <term>Qty. Received</term>
-          <listitem>
-            <para>Displays quantity received from quantity ordered.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Extended Price</term>
-          <listitem>
-            <para>Displays the Extended Price. The Extended Price for a Line
-            Item is based on the quantity ordered multiplied by the Unit
-            Price.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </listitem>
-  </itemizedlist>
-  <note>
-    <para>The option to associate a Project with a Purchase Order Line Item
-    will only be visible if your site is configured to use Projects.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
-      <term>Project #</term>
-      <listitem>
-        <para>Select a Project Number to associate with the Purchase Order
-        Line Item. If the Purchase Order Line Item is being created from a
-        Purchase Request driven by Sales Order demand--and the parent Sales
-        Order had a Project Number associated with it--then the Project Number
-        from the parent Sales Order will automatically be entered here. In
-        this way, Sales Orders and Purchase Order Line Items may be linked to
-        the same Project.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Notes</term>
-      <listitem>
-        <para>This is a scrolling text field with word-wrapping for entering
-        Notes related to the Purchase Order Line Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -241,6 +237,26 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To add miscellaneous Notes to the Purchase Order Item, select the
+  "Notes" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/purchaseOrderItem_notesTab.png" />
+        </imageobject>
+        <caption>Purchase Order Notes</caption>
+      </mediaobject>
+    </screenshot>When entering miscellaneous Notes to a Purchase Order Item,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Purchase Order Line Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>If an Item has Characteristics associated with it, you have the option
   of linking those Characteristics to a Purchase Order Item. In the case where
   Sales Order demand generates a Purchase Request, Item Characteristics and
@@ -258,10 +274,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_POItemChar.png" />
+          <imagedata fileref="images/purchaseOrderItem_itemchar.png" />
         </imageobject>
-        <caption>Purchase Order Line Item
-        Characteristics</caption>
+        <caption>Purchase Order Line Item Characteristics</caption>
       </mediaobject>
     </screenshot></para>
   <para>When selecting or editing Characteristics for a Purchase Order Line
@@ -296,10 +311,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_POItemComm.png" />
+          <imagedata fileref="images/purchaseOrderItem_commentsTab.png" />
         </imageobject>
-        <caption>Add Comments to Purchase Order Line
-        Item</caption>
+        <caption>Add Comments to Purchase Order Line Item</caption>
       </mediaobject>
     </screenshot></para>
   <para>When adding Comments to a Purchase Order Line Item, you are presented
@@ -368,6 +382,61 @@
       <listitem>
         <para>Creates the Comment and adds it to the list of Line Item
         Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>When ordering purchased Items, you have the option to specify which
+  Revision of the Item's Bill of Materials and Bill of Operations you want to
+  buy. By default, the active Revision will be used. To specify Revision
+  information for a Purchase Order Item, select the "Revision" tab. The
+  following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/purchaseOrderItem_revision.png" />
+      </imageobject>
+      <caption>Line Item Revisions</caption>
+    </mediaobject>
+  </screenshot>
+  <note>
+    <para>You may create Purchase Order Items for pending Revisions. For
+    Purchase Order purposes, a pending Revision is considered to be the same
+    as an inactive Revision. The Revision status of a pending Revision will
+    not be changed if a Purchase Order Item is created for it.</para>
+  </note>
+  <para role="openmfg">When specifying Revision information for a Purchase
+  Order Item, you are presented with the following options:</para>
+  <variablelist role="openmfg">
+    <varlistentry>
+      <term>Bill of Materials</term>
+      <listitem>
+        <para>Specify the BOM Revision you want to use for the Purchase Order
+        Item. By default, the active Revision will be used.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Revision</term>
+            <listitem>
+              <para>Select from the list of existing available Revisions. The
+              status of the Revision will also be displayed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bill of Operations</term>
+      <listitem>
+        <para>Specify the BOO Revision you want to use for the Purchase Order
+        Item. By default, the active Revision will be used.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Revision</term>
+            <listitem>
+              <para>Select from the list of existing available Revisions. The
+              status of the Revision will also be displayed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
