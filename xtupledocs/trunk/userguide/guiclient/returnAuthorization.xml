@@ -17,8 +17,9 @@
   shipped. Depending on the business model, users may handle the return in a
   number of ways. The OpenMFG return system is flexible enough to handle the
   needs of most business scenarios.</para>
-  <para>To access the Return Authorization area, select the "Return
-  Authorization" option. The following screen will appear:</para>
+  <para>To access the Return Authorization window, Return Authorizations must
+  be enabled in Sales Configuration. A Return Authorization appears as
+  follows:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -139,24 +140,26 @@
             <listitem>
               <para>Select to authorize the replacement of Items returned by
               the specified Customer. Authorized quantities will be added as
-              additional order quantity to an associated Sales Order line,
-              which in turn should be reopened if closed. Return Authorization
-              Items will close when all Items on the line have been returned
-              or all authorized Items on the line have been shipped, whichever
-              comes last. No money should be involved when invoicing
-              replacement Items.</para>
+              additional order quantity to a new associated Sales Order.
+              Return Authorization Items will close when all Items on the line
+              have been returned or all authorized Items on the line have been
+              shipped, whichever comes last. Any money to be credited to the
+              customer is set on the Return Authorization line; any money to
+              be billed to the customer is set at the new sales order
+              line.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Service</term>
             <listitem>
               <para>Select to authorize the repair or service of Items
-              returned by the specified Customer. Service or repair items will
-              first be received by the Return Authorization. Then a new Sales
-              Order with linked Work Order(s) will be created to track work
-              and shipping on the repair or service. The new Sales Order will
-              be on RMA Hold until Items have been received by the Return
-              Authorization.</para>
+              returned by the specified Customer. To isolate costing
+              implications, only Items of type Job may be selected. Service or
+              repair items will first be received by the Return Authorization.
+              A new Sales Order with linked Work Order(s) will be created to
+              track work and shipping on the repair or service. Money to be
+              billed for service or repair should be set at the New Sales
+              Order.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -188,9 +191,8 @@
           <varlistentry>
             <term>Upon Receipt</term>
             <listitem>
-              <para>Select to issue credit or send returns to the specified
-              Customer only after you have received returned goods from
-              them.</para>
+              <para>Select to issue credit or ship new associated Sales Order
+              items only after you have received the returned goods.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -206,7 +208,7 @@
             <listitem>
               <para>Select if you will not be issuing credit to the Customer.
               If you select this option, you will be unable to add pricing
-              information at the Line Item level.</para>
+              information at the Return Authorization Line Item level.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -262,12 +264,12 @@
         <para>You have the option to select an original Sales Order for all
         disposition types. When an original Sales Order is selected, all Line
         Items from the original Order will be imported into the Return
-        Authorization automatically. This feature imports the original pricing
-        and billing information, which can be useful if needed. If additional
-        Line Items are added to the original Sales Order, they will
-        automatically be added to the Return Authorization document or vice
-        versa. When a Sales Order number is selected, the Customer Number and
-        address information will be populated and disabled.</para>
+        Authorization automatically. For dispositions Credit and Return this
+        feature imports the original pricing and billing information. When a
+        Sales Order number is selected, the Customer Number and address
+        information will be populated and disabled. If the Customer is
+        selected first, only Sales Orders for that customer will appear on the
+        search list.</para>
         <note>
           <para>A Sales Order may be linked to only one open Return
           Authorization at a time.</para>
@@ -301,23 +303,17 @@
         <para>Enter the Customer Number of the Customer whose return you are
         authorizing. The browse button located to the right of the field leads
         to a searchable Customers list. You may also access this list using
-        the keyboard shortcut "CTRL + L". Once a Customer Number is entered,
-        the Customer name and billing address will display. Select the "?" or
-        "$" symbol next to the browse button to view Customer information for
-        the specified Customer. If a Customer's credit is "In Good Standing,"
-        the button will feature a black question mark ("?") icon. If the icon
-        turns to an orange dollar sign ("$"), the Customer's credit Status is
-        "On Credit Warning." A red dollar sign ("$") indicates the Customer's
-        credit Status is "On Credit Hold."</para>
+        the keyboard shortcut "CTRL + L". </para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
     <para>A valid Customer Number must be entered in the "Customer #" field
-    before Line Items can be added to a Return Authorization. If no valid
-    Customer Number is entered, you will not be able to add Line Items to the
-    Return Authorization. Additionally, Return Authorizations may only be
-    entered for active Customers.</para>
+    before Line Items can be added to a Return Authorization for all
+    disposition types except Return. If no valid Customer Number is entered,
+    you will not be able to add Line Items to the Return Authorization.
+    Additionally, Return Authorizations may only be entered for active
+    Customers.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -514,7 +510,8 @@
       <listitem>
         <para>Display lists Line Items for this Return Authorization. A valid
         Customer Number must be entered in the "Customer #" field before Line
-        Items can be added to the Return Authorization.</para>
+        Items can be added to the Return Authorization for all Dispositions
+        except Return.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -534,8 +531,10 @@
         Sales Account and also enter a description of the charge.</para>
         <tip>
           <para>You may only enter miscellaneous charges on a Return
-          Authorization if pricing is enabled and/or specified at the Return
-          Authorization Line Item level.</para>
+          Authorization only when a valid credit method is selected and a
+          credit amount has been specified for one or more line items. Once a
+          credit memo has been created against the Return Authorization, the
+          header amounts may not be subsequently modified.</para>
         </tip>
       </listitem>
     </varlistentry>
@@ -565,10 +564,8 @@
           <secondary>freight charges on</secondary>
         </indexterm>Freight</term>
       <listitem>
-        <para>Enter the amount of freight charge to be added to the specified
-        Return Authorization. Freight charges may be entered during the
-        creation or modification of a Return Authorization--or at the time of
-        shipment.</para>
+        <para>Enter the amount of freight charge to be credited on the
+        specified Return Authorization. </para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -607,17 +604,20 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>CLOSE</term>
+      <term>CANCEL/CLOSE</term>
       <listitem>
-        <para>Closes the screen without creating a new Return Authorization,
-        returning you to the application desktop.</para>
+        <para>Cancel closes the screen without creating a new Return
+        Authorization, returning you to the application desktop. When editing
+        a pre-existing Return Authorization, the same button will display
+        "Close." Closing will close the window without saving changes to the
+        header.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW</term>
       <listitem>
-        <para>Opens screen for creating a new Return Authorization Line Item.
-        Mac users may use COMMAND + N to enter a new Line Item.</para>
+        <para>Opens screen for creating a new Return Authorization Line
+        Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -628,8 +628,7 @@
         for creating a new Return Authorization Line Item--except that when
         editing, the fields will contain Return Authorization Line Item
         information. Double-clicking on a Return Authorization Line Item will
-        also bring you to the editing screen. Mac users may use COMMAND + E to
-        edit an existing Line Item.</para>
+        also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -723,21 +722,21 @@
     <varlistentry>
       <term>Edit Line</term>
       <listitem>
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(returnAuthorizationEDIT)" />
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Close Line</term>
       <listitem>
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(returnAuthorizationCLOSE)" />
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Delete Line</term>
       <listitem>
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(returnAuthorizationDELETE)" />
       </listitem>
     </varlistentry>
@@ -795,23 +794,6 @@
         <para>This is a scrolling text field with word-wrapping for entering
         general Notes related to the Return Authorization. These Notes are for
         internal use only.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Saves the Order Note.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating an Order Note, returning you
-        to the application desktop.</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -4,9 +4,8 @@
 <section role="openmfg">
   <title>Return Authorization Workbench</title>
   <para>The Return Authorization Workbench is designed to help manage and
-  process open Return Authorizations--and to process credits and refunds. To
-  use the Return Authorizations Workbench, select the "Workbench" option. The
-  following screen will appear:</para>
+  process open Return Authorizations--and to process credits and refunds. The
+  Return Authorization Workbench appears as follows:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -62,14 +61,9 @@
               the right of the field leads to a searchable Customers list. You
               may also access this list using the keyboard shortcut "CTRL +
               L". Once a Customer Number is entered, the Customer name and
-              billing address will display. Select the "?" or "$" symbol next
-              to the browse button to view Customer information for the
-              specified Customer. If a Customer's credit is "In Good
-              Standing," the button will feature a black question mark ("?")
-              icon. If the icon turns to an orange dollar sign ("$"), the
-              Customer's credit Status is "On Credit Warning." A red dollar
-              sign ("$") indicates the Customer's credit Status is "On Credit
-              Hold."</para>
+              billing address will display. Select the "?" symbol next to the
+              browse button to view Customer information for the specified
+              Customer.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -86,21 +80,21 @@
             <term>Receipt</term>
             <listitem>
               <para>Select to include Return Authorizations waiting for
-              Customer returns to be posted as received in the display.</para>
+              Customer returns to be posted as received.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Shipment</term>
             <listitem>
               <para>Select to include Return Authorizations waiting to be
-              shipped to Customers in the display.</para>
+              shipped to Customers.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Payment</term>
             <listitem>
               <para>Select to include Return Authorizations waiting for
-              Customer payment in the display.</para>
+              Customer payment.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -252,9 +246,10 @@
       <term>Post Credit Memos Immediately</term>
       <listitem>
         <para>Select if you want processed Credit Memos to be posted
-        immediately after they are created. Using this option, Credit Memos
-        may be posted regardless of the credit/ship timing of the Return
-        Authorization</para>
+        immediately after they are created. If processing a check or credit
+        card, this option is not available as the credit memo must
+        automatically post in order to process a check or credit card against
+        it.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

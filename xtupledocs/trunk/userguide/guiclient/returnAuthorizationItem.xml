@@ -20,7 +20,7 @@
   with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Anth #</term>
+      <term>Auth #</term>
       <listitem>
         <para>Displays the Return Authorization Number specified on the Return
         Authorization header.</para>
@@ -71,12 +71,11 @@
     <varlistentry>
       <term>Disposition</term>
       <listitem>
-        <para>Line Item dispositions are determined conditionally, based on
-        the Return Authorization's header-level disposition setting. If Line
-        Items have been imported from an original Sales Order, then the line
-        level disposition may not be changed. However, you may manually set
-        the line level disposition when creating new Return Authorization Line
-        Items. The following options are available:</para>
+        <para>Line Item dispositions are defaulted conditionally based on the
+        Return Authorization's header-level disposition setting. However, you
+        may manually over-ride the line level disposition when creating or
+        Return Authorization Line Items provided you do so before a quantity
+        has been authorized. The following options are available:</para>
         <variablelist>
           <varlistentry>
             <term>Credit</term>
@@ -97,27 +96,29 @@
             <term>Replace</term>
             <listitem>
               <para>Select to authorize the replacement of the specified Item
-              quantity. The Price controls will be disabled for this
-              disposition.</para>
+              quantity.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Service</term>
             <listitem>
-              <para>Select to authorize the servicing of Service (i.e., Job)
-              Item for the specified quantity. This disposition is valid only
-              for Items having the Job Item Type. The Price controls will be
-              disabled for this disposition. A new corresponding Sales Order
-              and line will be created if one does not already exist.</para>
+              <para>Select to authorize the servicing of an Item for the
+              specified quantity. This disposition is valid only for Items
+              having the Job Item Type. The Price controls will be disabled
+              for this disposition. A new corresponding Sales Order and line
+              will be created if one does not already exist. If any money is
+              to be billed for the service, this should be set at the new
+              Sales Order line item.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Ship</term>
             <listitem>
-              <para>Select to authorize the shipment of the specified
-              quantity. The Price controls will be disabled for this
+              <para>Select to authorize a shipment of a specified quantity on
+              a new Sales Order. The Price controls will be disabled for this
               disposition. A new corresponding Sales Order and line will be
-              created if one does not already exist.</para>
+              created if one does not already exist. Any money to be billed
+              should be set on the new Sales Order line item.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -199,7 +200,7 @@
       <term>Qty. Sold</term>
       <listitem>
         <para>Displays the Line Item quantity sold on the original Sales Order
-        line, if the Line Item was imported from an original Sales
+        line if the Line Item was imported from an original Sales
         Order.</para>
       </listitem>
     </varlistentry>
@@ -232,14 +233,16 @@
       <listitem>
         <para>Displays the Net Unit Price for the Sales Order Item. This
         information will be imported automatically for Return Authorizations
-        linked to an original Sales Order. The browse button located to the
+        linked to an original Sales Order if header disposition was Credit or
+        Return when the order was imported. The browse button located to the
         right of the field leads to a Price List screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>The Price controls will be automatically disabled for Line Items
-    having the following dispositions: Replace, Service, Ship.</para>
+    <para>The Price controls will be automatically disabled for Line Items if
+    a credit method has not been specified or for line items having the
+    following dispositions: Service and Ship.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -278,7 +281,7 @@
         Cost of Warranty Account will be used when shipping the Line Item,
         instead of the Cost of Sales Account. It will also be used when
         receiving warranty Items through a Return Authorization, instead of
-        the P/O Liability Clearing Account.</para>
+        the Cost of Returns Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -370,12 +373,12 @@
         make-to-order manufactured Items, this option will be selected
         automatically. A Work Order will be created to meet the Return
         Authorization demand once you save the Line Item to the Order. An Item
-        is designated as make-to-order if the "Stocked at" flag on the Item
-        Site master is not selected. A Work Order created automatically from a
-        Return Authorization Line Item will assume the same Order Number as
-        the new Sales Order the Return Authorization Line Item is associated
-        with--even if that Order Number has already been used by a previous
-        Work Order.</para>
+        is designated as make-to-order if the "Create W/Os to meet Sales
+        Demand" flag on the Item Site master is selected. A Work Order created
+        automatically from a Return Authorization Line Item will assume the
+        same Order Number as the new Sales Order the Return Authorization Line
+        Item is associated with--even if that Order Number has already been
+        used by a previous Work Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
