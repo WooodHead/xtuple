@@ -20,13 +20,9 @@ CREATE VIEW orderhead AS
   SELECT cohead_id		AS orderhead_id,
 	 'SO'			AS orderhead_type,
 	 cohead_number		AS orderhead_number,
-	 -- cohead_status expected to be in (X, O, C) and O sorts before C DESC
-	 (SELECT coitem_status
-	   FROM coitem
-	   WHERE coitem_cohead_id=cohead_id
-	     AND coitem_status != 'X'
-	   ORDER BY coitem_status DESC
-	   LIMIT 1)		AS orderhead_status,
+	 -- depends on cohead_status in ('X', 'O', 'C') exclusively and
+	 -- 'O' sorting before 'C' DESC
+	 COALESCE(coitem_status,'C') AS orderhead_status,
 	 cohead_orderdate	AS orderhead_orderdate,
 	 (SELECT count(*)
 	   FROM coitem
@@ -38,7 +34,9 @@ CREATE VIEW orderhead AS
 	 cohead_curr_id		AS orderhead_curr_id,
 	 ''			AS orderhead_agent_username,
 	 cohead_shipvia		AS orderhead_shipvia
-  FROM cohead LEFT OUTER JOIN custinfo ON (cohead_cust_id=cust_id);
+  FROM cohead LEFT OUTER JOIN custinfo ON (cohead_cust_id=cust_id)
+              LEFT OUTER JOIN coitem ON ((cohead_id=coitem_cohead_id)
+                                     AND (coitem_status='O'));
 REVOKE ALL ON TABLE orderhead FROM PUBLIC;
 GRANT  ALL ON TABLE orderhead TO mfgadmin;
 GRANT  ALL ON TABLE orderhead TO GROUP openmfg;
