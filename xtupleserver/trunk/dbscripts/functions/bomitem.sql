@@ -49,8 +49,6 @@ DECLARE
   _r RECORD;
 
 BEGIN
-  --See if revcontrol turned on
-  
   FOR _r IN SELECT *
             FROM bomitem
             WHERE ((bomitem_parent_item_id=pItemid)
