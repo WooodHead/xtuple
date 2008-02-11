@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section543196">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>releasing by planner code</secondary>
     </indexterm> <indexterm significance="normal">
@@ -13,17 +13,14 @@
   have the option of releasing them simultaneously. To release Work Orders by
   Planner Code, select the "Release Work Orders by Planner Code" option. The
   following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/releaseWorkOrdersByPlannerCode.png"/>
+          <imagedata fileref="images/releaseWorkOrdersByPlannerCode.png" />
         </imageobject>
-        <caption>Release Work Orders by Planner
-        Code</caption>
+        <caption>Release Work Orders by Planner Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>Once an Order has been released, the system considers the ordered
     quantity to be available at 00:00:01 of the due date of the Order in
@@ -49,7 +46,8 @@
       <term>Pattern</term>
       <listitem>
         <para>Enter a Planner Code pattern to select a range of Planner Codes.
-        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -85,6 +83,43 @@
       <listitem>
         <para>Specify Warehouse whose exploded Work Orders by Planner Code you
         want to release.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Documents</term>
+      <listitem>
+        <para>Select which of the following documents you want to print when
+        releasing the specified Work Orders:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Print Pick List</term>
+            <listitem>
+              <para>Select to print Pick Lists for the specified Work
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Print Routing</term>
+            <listitem>
+              <para>Select to print Routings for the specified Work
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Print Packing List</term>
+            <listitem>
+              <para>Select to print Packing Lists for the specified Work
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Print Work Order Label</term>
+            <listitem>
+              <para>Select to print Work Order Labels for the specified Work
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

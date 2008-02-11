@@ -64,6 +64,12 @@
         would force Quantity on Hand for the Item Site to fall below zero. Not
         selecting this option means issuing Stock to Shipping may drive Item
         Site Quantity on Hand negative.</para>
+        <note>
+          <para>If your site is configured to enable Sales Order Reservations,
+          which, by definition, require sufficient Inventory before Items may
+          be shipped, then the "Require sufficient Inventory" option will be
+          hidden.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>

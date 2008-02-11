@@ -4,19 +4,16 @@
 <section id="Section537350">
   <title><indexterm significance="normal">
       <primary>work orders</primary>
-      <secondary>scheduling by planner code</secondary>
-    </indexterm> <indexterm significance="normal">
-      <primary>planner codes</primary>
       <secondary>w/o schedule details for</secondary>
-    </indexterm>Work Order Schedule by Planner Code</title>
-  <para>To view Work Order schedules by Planner Code, select the "Work Order
-  Schedule by Planner Code" option. The following screen will appear:</para>
+    </indexterm>Work Order Schedule by Work Order</title>
+  <para>To view Work Order schedules by Work Order, select the "Work Order
+  Schedule by Order" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspWoScheduleByPlannerCode.png" />
+          <imagedata fileref="images/dspWoScheduleByWorkOrder.png" />
         </imageobject>
-        <caption>Work Order Schedule by Planner Code</caption>
+        <caption>Work Order Schedule by Work Order</caption>
       </mediaobject>
     </screenshot></para>
   <tip>
@@ -24,42 +21,27 @@
     menu in any of the "Work Order Schedule by..." displays. There you will
     find an "Edit W/O" option.</para>
   </tip>
-  <para>When displaying Work Order schedules by Planner Code, you are
-  presented with the following options:</para>
+  <para>When displaying Work Order schedules by Work Order, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>All Planner Codes</term>
+      <term>Work Order #</term>
       <listitem>
-        <para>Select to display Work Order schedules for all Planner
-        Codes.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected</term>
-      <listitem>
-        <para>Specify Planner Code whose Work Order schedule you want to
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Pattern</term>
-      <listitem>
-        <para>Enter a Planner Code pattern to select a range of Planner Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        <para>Enter the Work Order Number of the Work Order whose schedule you
+        want to display</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term>All Warehouses</term>
       <listitem>
-        <para>Select to display Work Order schedules by Planner Code for all
+        <para>Select to display Work Order schedules by Work Order for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Selected</term>
       <listitem>
-        <para>Specify Warehouse whose Work Order schedules by Planner Code you
+        <para>Specify Warehouse whose Work Order schedules by Work Order you
         want to display.</para>
       </listitem>
     </varlistentry>
@@ -75,13 +57,6 @@
       <listitem>
         <para>Select to sort the displayed results by Work Order due
         date.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Sort by Item Number</term>
-      <listitem>
-        <para>Select to sort the displayed results by Work Order Item
-        Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -117,7 +92,7 @@
     <varlistentry>
       <term>Work Orders</term>
       <listitem>
-        <para>Display lists Work Order schedules by Planner Code, using the
+        <para>Display lists Work Order schedules by Work Order, using the
         specified parameters. The start dates and end dates are color-coded
         for ease of use. Both dates will display in red type if the Work Order
         is not yet in-process and is also past due. Once a Work Order's Status
