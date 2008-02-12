@@ -150,7 +150,7 @@ BEGIN
                  shipitem ON (invcitem_id=shipitem_invcitem_id)
             WHERE ((invcitem_item_id=item_id)
               AND  (invcitem_invchead_id=pInvcheadid) )
-            GROUP BY invcitem_billed, invcitem_qty_invuomratio, invcitem_price, 
+            GROUP BY invcitem_id, invcitem_billed, invcitem_qty_invuomratio, invcitem_price, 
                      invcitem_price_invuomratio,invcitem_tax_ratea,invcitem_tax_rateb,
                      invcitem_tax_pcta,invcitem_tax_pctb,invcitem_tax_pctc,
                      invcitem_tax_ratec,invcitem_tax_id,invcitem_taxtype_id,
