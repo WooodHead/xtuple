@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION enterReceipt(TEXT, INTEGER, NUMERIC, NUMERIC, TEXT, INTEGER, DATE) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION enterReceipt(TEXT, INTEGER, NUMERIC, NUMERIC, TEXT, INTEGER, DATE) RETURNS INTEGER AS $$
 DECLARE
   pordertype	ALIAS FOR $1;
   porderitemid	ALIAS FOR $2;
@@ -15,7 +15,7 @@ BEGIN
   IF(precvdate IS NULL OR precvdate = CURRENT_DATE) THEN
     _timestamp := CURRENT_TIMESTAMP;
   END IF;
-  SELECT NEXTVAL(''recv_recv_id_seq'') INTO _recvid;
+  SELECT NEXTVAL('recv_recv_id_seq') INTO _recvid;
 
   DELETE FROM recv
   WHERE ((NOT recv_posted)
@@ -23,12 +23,12 @@ BEGIN
     AND  (recv_orderitem_id=porderitemid) );
 
   IF (pQty > 0) THEN
-    IF (fetchmetricbool(''MultiWhs'')) THEN
+    IF (fetchmetricbool('MultiWhs')) THEN
       SELECT orderhead_number,
   	   orderitem_id,
 	   orderhead_agent_username,
 	   CASE WHEN (orderitem_itemsite_id = -1) THEN NULL
-		WHEN (pordertype=''TO'') THEN
+		WHEN (pordertype='TO') THEN
 		     (SELECT itemsite_id
 		      FROM itemsite, tohead, toitem
 		      WHERE ((itemsite_warehous_id=tohead_dest_warehous_id)
@@ -37,22 +37,20 @@ BEGIN
 			AND  (toitem_id=orderitem_id)))
 		ELSE orderitem_itemsite_id
 	   END AS itemsite_id,
-	   CASE WHEN (pordertype=''PO'') THEN orderhead_from_id
+	   CASE WHEN (pordertype='PO') THEN orderhead_from_id
 		ELSE NULL
 	   END AS vend_id,
-	   COALESCE(poitem_vend_item_number, '''') AS vend_item_number,
-	   COALESCE(poitem_vend_item_descrip, '''') AS vend_item_descrip,
-	   COALESCE(poitem_vend_uom, '''') AS vend_uom,
+	   COALESCE(poitem_vend_item_number, '') AS vend_item_number,
+	   COALESCE(poitem_vend_item_descrip, '') AS vend_item_descrip,
+	   COALESCE(poitem_vend_uom, '') AS vend_uom,
 	   orderitem_scheddate AS duedate,
 	   orderitem_unitcost,
 	   orderitem_unitcost_curr_id,
 	   orderhead_curr_id AS freight_curr_id INTO _o
-        FROM orderhead, orderitem LEFT OUTER JOIN
-	   poitem ON (orderitem_orderhead_type=''PO'' AND orderitem_id=poitem_id)
+        FROM orderhead, orderitemdata(pordertype, NULL, porderitemid) AS orderitem LEFT OUTER JOIN
+	   poitem ON (orderitem_orderhead_type='PO' AND orderitem_id=poitem_id)
         WHERE ((orderhead_id=orderitem_orderhead_id)
-          AND  (orderhead_type=orderitem_orderhead_type)
-	  AND  (orderitem_id=porderitemid)
-	  AND  (orderitem_orderhead_type=pordertype));
+          AND  (orderhead_type=orderitem_orderhead_type));
     ELSE
      SELECT orderhead_number,
 	   orderitem_id,
@@ -60,22 +58,20 @@ BEGIN
 	   CASE WHEN (orderitem_itemsite_id = -1) THEN NULL
            ELSE orderitem_itemsite_id
 	   END AS itemsite_id,
-	   CASE WHEN (pordertype=''PO'') THEN orderhead_from_id
+	   CASE WHEN (pordertype='PO') THEN orderhead_from_id
 		ELSE NULL
 	   END AS vend_id,
-	   COALESCE(poitem_vend_item_number, '''') AS vend_item_number,
-	   COALESCE(poitem_vend_item_descrip, '''') AS vend_item_descrip,
-	   COALESCE(poitem_vend_uom, '''') AS vend_uom,
+	   COALESCE(poitem_vend_item_number, '') AS vend_item_number,
+	   COALESCE(poitem_vend_item_descrip, '') AS vend_item_descrip,
+	   COALESCE(poitem_vend_uom, '') AS vend_uom,
 	   orderitem_scheddate AS duedate,
 	   orderitem_unitcost,
 	   orderitem_unitcost_curr_id,
 	   orderhead_curr_id AS freight_curr_id INTO _o
-        FROM orderhead, orderitem LEFT OUTER JOIN
-	   poitem ON (orderitem_orderhead_type=''PO'' AND orderitem_id=poitem_id)
+        FROM orderhead, orderitemdata(pordertype, NULL, porderitemid) AS orderitem LEFT OUTER JOIN
+	   poitem ON (orderitem_orderhead_type='PO' AND orderitem_id=poitem_id)
         WHERE ((orderhead_id=orderitem_orderhead_id)
-          AND  (orderhead_type=orderitem_orderhead_type)
-	  AND  (orderitem_id=porderitemid)
-	  AND  (orderitem_orderhead_type=pordertype));
+          AND  (orderhead_type=orderitem_orderhead_type));
     END IF;
 
       IF (NOT FOUND) THEN
@@ -103,4 +99,4 @@ BEGIN
   RETURN _recvid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

@@ -13,14 +13,13 @@ CREATE VIEW orderitem AS
 	 uom_id			AS orderitem_qty_uom_id,
 	 poitem_invvenduomratio	AS orderitem_qty_invuomratio,
 	 poitem_unitprice	AS orderitem_unitcost,
-	 (SELECT pohead_curr_id FROM pohead WHERE pohead_id=poitem_pohead_id)
-	 			AS orderitem_unitcost_curr_id,
+	 pohead_curr_id         AS orderitem_unitcost_curr_id,
 	 poitem_freight		AS orderitem_freight,
 	 poitem_freight_received AS orderitem_freight_received,
-	 (SELECT pohead_curr_id FROM pohead WHERE pohead_id=poitem_pohead_id)
-	 			AS orderitem_freight_curr_id
+	 pohead_curr_id         AS orderitem_freight_curr_id
 
-  FROM poitem LEFT OUTER JOIN uom ON (uom_name=poitem_vend_uom)
+  FROM poitem LEFT OUTER JOIN pohead ON (poitem_pohead_id=pohead_id)
+              LEFT OUTER JOIN uom ON (uom_name=poitem_vend_uom)
   UNION
   SELECT coitem_id		AS orderitem_id,
 	 'SO'			AS orderitem_orderhead_type,
