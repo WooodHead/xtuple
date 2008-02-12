@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section600014">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>billing selections</primary>
       <secondary>posting of</secondary>
     </indexterm>Post Billing Selections</title>
@@ -11,16 +11,14 @@
   selected Order is created. To post Orders selected for billing in batch
   mode, select the "Post Billing Selections" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/postBillingSelections.png"/>
+          <imagedata fileref="images/postBillingSelections.png" />
         </imageobject>
         <caption>Post Billing Selections</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When posting billing selections, you are presented with the following
   options:</para>
   <variablelist>
@@ -42,7 +40,23 @@
       <listitem>
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806"/>.</para>
+        <xref linkend="Anchor77806" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Consolidate by Customer</term>
+      <listitem>
+        <para>Select to cause all Sales Orders selected for billing for each
+        Customer to be consolidated on one Invoice. To be consolidated, the
+        Orders must have matching criteria (e.g., Terms, Tax Authority,
+        Billing information). If these criteria do not match, then
+        non-conforming Orders will not be consolidated. If only a single Order
+        exists, at all or in a group, then it will be posted as a single
+        Invoice. Consolidated Orders are given a combined header, and the Line
+        Items are attached to the Invoice in no particular order. Line Items
+        themselves are never consolidated (i.e., you can have two lines for
+        the same Item). In addition, Invoice Line Items have a reference back
+        to their original Sales Order Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
