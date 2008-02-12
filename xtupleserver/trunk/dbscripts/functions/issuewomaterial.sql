@@ -84,8 +84,10 @@ BEGIN
    AND (pi.itemsite_id=_p.p_itemsite_id) );
 
 --  Create linkage to the transaction created
-  INSERT INTO womatlpost (womatlpost_womatl_id,womatlpost_invhist_id)
-              VALUES (pWomatlid,_invhistid);
+  IF (_invhistid != -1) THEN
+    INSERT INTO womatlpost (womatlpost_womatl_id,womatlpost_invhist_id)
+                VALUES (pWomatlid,_invhistid);
+  END IF;
 
 --  Increase the parent W/O''s WIP value by the value of the issued components
   UPDATE wo
