@@ -302,10 +302,10 @@
     <varlistentry>
       <term>Stocked</term>
       <listitem>
-        <para>Select if Item is stocked at the specified Warehouse. This
-        option pertains to manufactured Items. If you select this option, you
-        are indicating that the Item is a make-to-stock Item. If not selected,
-        the Item will be identified as a make-to-order Item. </para>
+        <para>Select if the Item is stocked at the specified Warehouse. This
+        setting is used to drive the constraint management system. As a
+        result, to avoid inaccurate results when running that system, an Item
+        Site must also have a Reorder Level defined to use this option.</para>
       </listitem>
     </varlistentry>
   </variablelist>
