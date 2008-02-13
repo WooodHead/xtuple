@@ -309,7 +309,7 @@ BEGIN
     apopen_docnumber, apopen_invcnumber, apopen_ponumber, apopen_reference,
     apopen_amount, apopen_paid, apopen_notes, apopen_username, apopen_posted,
     apopen_curr_id )
-  SELECT pJournalNumber, vohead_distdate, vohead_duedate, TRUE,
+  SELECT pJournalNumber, _glDate, vohead_duedate, TRUE,
          vohead_terms_id, vohead_vend_id, ''V'',
          vohead_number, vohead_invcnumber, COALESCE(TEXT(pohead_number), ''Misc.''), vohead_reference,
          round(_totalAmount, 2), 0, '''', CURRENT_USER, FALSE, vohead_curr_id
