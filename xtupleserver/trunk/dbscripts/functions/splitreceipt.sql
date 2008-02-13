@@ -25,7 +25,7 @@ BEGIN
          OR (_check.recv_vohead_id IS NOT NULL)
          OR (_check.recv_voitem_id IS NOT NULL) ) THEN
       RETURN -3;
-    ELSIF (_qty >= _check.recv_qty) THEN
+    ELSIF (pqty >= _check.recv_qty) THEN
       RETURN -4;
     ELSIF (COALESCE(pfreight,0) > _check.recv_freight) THEN
       RETURN -5;
