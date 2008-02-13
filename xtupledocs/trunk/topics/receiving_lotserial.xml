@@ -9,13 +9,13 @@
   Items can be received in three ways:</para>
   <orderedlist continuation="restarts" inheritnum="ignore">
     <listitem>
-      <para>As a Material Receipt transaction using the I/M Module</para>
+      <para>As a Material Receipt transaction</para>
     </listitem>
     <listitem>
-      <para>As a Shipping Receipt from the S/R Module</para>
+      <para>As a Shipping Receipt</para>
     </listitem>
     <listitem>
-      <para>Or as Manufacturing Receipt from the W/O Module</para>
+      <para>Or as Manufacturing Receipt</para>
     </listitem>
   </orderedlist>
   <section id="Section672621">
@@ -46,14 +46,12 @@
     </note>
     <para>But before we begin, let's examine the Item Site definition for our
     imported flowers, otherwise known as Item GLAD02:</para>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_lotNumItemSite.png"
-                       />
+            <imagedata fileref="images/Topic_lotNumItemSite.png" />
           </imageobject>
-          <caption>Item Site Definition for Lot-Controlled
-          Item</caption>
+          <caption>Item Site Definition for Lot-Controlled Item</caption>
         </mediaobject>
       </screenshot></para>
     <para>A few points are worth noting when looking at an Item Site
@@ -92,11 +90,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_enterMatRecpt.png"
-                       />
+            <imagedata fileref="images/Topic_enterMatRecpt.png" />
           </imageobject>
-          <caption>Enter Material Receipt for
-          Lot-Controlled Item</caption>
+          <caption>Enter Material Receipt for Lot-Controlled Item</caption>
         </mediaobject>
       </screenshot></para>
     <para>At this point in the process, the Material Receipt screen looks and
@@ -107,11 +103,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_assgnLotNum.png"
-                       />
+            <imagedata fileref="images/Topic_assgnLotNum.png" />
           </imageobject>
-          <caption>Initial Screen for Assigning Lot/Serial
-          Number</caption>
+          <caption>Initial Screen for Assigning Lot/Serial Number</caption>
         </mediaobject>
       </screenshot></para>
     <para>As you can see, the <indexterm significance="normal">
@@ -135,8 +129,7 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_createLotNum.png"
-                       />
+            <imagedata fileref="images/Topic_createLotNum.png" />
           </imageobject>
           <caption>Create Lot/Serial Number</caption>
         </mediaobject>
@@ -209,11 +202,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_assgnLotNum-2.png"
-                       />
+            <imagedata fileref="images/Topic_assgnLotNum-2.png" />
           </imageobject>
-          <caption>Lot Number Assigned to Lot-Controlled
-          Quantity</caption>
+          <caption>Lot Number Assigned to Lot-Controlled Quantity</caption>
         </mediaobject>
       </screenshot></para>
   </section>
@@ -243,17 +234,15 @@
     triggered:</para>
     <note>
       <para>For an in-depth discussion covering the distribution of Multiple
-      Location Control Items, see the "Topic: Distributing Multiple Location
-      Control (MLC) Items" section.</para>
+      Location Control Items, see <xref linkend="Anchor81167" />.</para>
     </note>
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrLotNum.png"
-                       />
+            <imagedata fileref="images/Topic_distrLotNum.png" />
           </imageobject>
-          <caption>Multiple Location Distribution of
-          Lot-Controlled Quantity</caption>
+          <caption>Multiple Location Distribution of Lot-Controlled
+          Quantity</caption>
         </mediaobject>
       </screenshot></para>
     <para>Noting that the quantity to distribute is the full 150 units, we
@@ -264,14 +253,12 @@
     quantity into Inventory. To verify the result, we open the I/M display
     Location/Lot/Serial Number Detail, as shown in the following
     screen:</para>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_displayLotDetail.png"
-                       />
+            <imagedata fileref="images/Topic_displayLotDetail.png" />
           </imageobject>
-          <caption>Verify Lot Transaction Using Detail
-          Display</caption>
+          <caption>Verify Lot Transaction Using Detail Display</caption>
         </mediaobject>
       </screenshot></para>
     <para>As you can see in the example, the Warehouse STAR is showing 150
@@ -291,8 +278,7 @@
           <imageobject>
             <imagedata fileref="images/Topic_recvLotSR.png" />
           </imageobject>
-          <caption>Receiving Lot-Controlled Quantity from
-          S/R Module</caption>
+          <caption>Receiving Lot-Controlled Quantity from S/R Module</caption>
         </mediaobject>
       </screenshot></para>
     <para>At this point in the process, the Enter Receipt screen looks and
@@ -304,11 +290,10 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_recvLotQty.png"
-                       />
+            <imagedata fileref="images/Topic_recvLotQty.png" />
           </imageobject>
-          <caption>Enter Purchase Order Item Receipt for
-          Lot-Controlled Item</caption>
+          <caption>Enter Purchase Order Item Receipt for Lot-Controlled
+          Item</caption>
         </mediaobject>
       </screenshot></para>
     <para>For this example, we specify that 300 units were received. After the
@@ -317,11 +302,10 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_recvLotSR-2.png"
-                       />
+            <imagedata fileref="images/Topic_recvLotSR-2.png" />
           </imageobject>
-          <caption>Receipt Entered for Lot-Controlled
-          Quantity in S/R Module</caption>
+          <caption>Receipt Entered for Lot-Controlled Quantity in S/R
+          Module</caption>
         </mediaobject>
       </screenshot></para>
     <para>It is when we select the POST button that the special Lot-controlled
@@ -329,11 +313,10 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_createLotSR.png"
-                       />
+            <imagedata fileref="images/Topic_createLotSR.png" />
           </imageobject>
-          <caption>Create Lot Number for Quantity Received
-          in S/R Module</caption>
+          <caption>Create Lot Number for Quantity Received in S/R
+          Module</caption>
         </mediaobject>
       </screenshot></para>
     <para>The process from this point forward is identical to the process
@@ -342,14 +325,12 @@
     Location Control Item, we go through the MLC distribution cycle. To verify
     the results, we can open the I/M display Location/Lot/Serial Number
     Detail, as shown in the following screen:</para>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_displayLotDetail-2.png"
-                       />
+            <imagedata fileref="images/Topic_displayLotDetail-2.png" />
           </imageobject>
-          <caption>Verify Lot Receipt Using Detail
-          Display</caption>
+          <caption>Verify Lot Receipt Using Detail Display</caption>
         </mediaobject>
       </screenshot></para>
     <para>As you can see in the example, the Warehouse STAR is now showing 300
@@ -368,14 +349,13 @@
     cover this topic in much detail. However, we will include the following
     screenshot showing Work Order production posting for Item V0, a
     Lot-controlled, manufactured Item:</para>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_createLotWO.png"
-                       />
+            <imagedata fileref="images/Topic_createLotWO.png" />
           </imageobject>
-          <caption>Create Lot Number for Quantity Received
-          from Manufacturing</caption>
+          <caption>Create Lot Number for Quantity Received from
+          Manufacturing</caption>
         </mediaobject>
       </screenshot></para>
     <para>As you can see in the example, the now familiar Lot Number
