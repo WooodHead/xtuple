@@ -25,9 +25,9 @@
   <section id="Section672849">
     <title>Receiving into Inventory</title>
     <para>In the example we will be using here, the Item in question is Item
-    TDMR100, a yellow toy truck. We will be receiving quantity of this Item
+    YTRUCK1, a yellow toy truck. We will be receiving quantity of this Item
     into Inventory, using a miscellaneous Material Receipt transaction--as
-    found under the Inventory Transactions menu in the I/M Module.</para>
+    found Inventory Module.</para>
     <note>
       <para>Items are received into Inventory by various paths--from Shipping,
       from Manufacturing, or through miscellaneous Material Receipt
@@ -40,22 +40,19 @@
     the definition of an MLC Item. It is an Item that is located in more than
     one Warehouse Location. You will notice that "01-01-01" is the Default
     Location for this Item.</para>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrStockToLoc.png"
-                       />
+            <imagedata fileref="images/Topic_distrStockToLoc.png" />
           </imageobject>
-          <caption>Distribute Stock To/From Warehouse
-          Locations</caption>
+          <caption>Distribute Stock To/From Warehouse Locations</caption>
         </mediaobject>
       </screenshot></para>
     <note>
-      <para>The "Distribute Stock To/From Warehouse Locations" sequence
-      described in this example cannot be cancelled once it is begun. If you
-      arrive at a distribution screen from an affiliated operation, you must
-      completely distribute all quantities before you exit the sequence. This
-      requirement ensures Inventory totals will be accurate.</para>
+      <para>If you ever change your mind or need to cancel a distribution
+      while it is in process, simply select the CANCEL button. This will stop
+      the distribution and no transactions will be posted. You can begin the
+      transaction again at a later point when you are ready to.</para>
     </note>
     <para>The "Distribute Stock To/From Warehouse Locations" screen will
     display whenever you are performing operations that change the Quantity on
@@ -63,25 +60,20 @@
     modules:</para>
     <itemizedlist>
       <listitem>
-        <para>I/M Module: Most all options listed under the "Inventory
-        Transactions" submenu.</para>
+        <para>Inventory Module: Most all options listed under the "Inventory
+        Transactions" submenu. Also any option that involves issuing goods to
+        shipping or receiving goods into Inventory.</para>
       </listitem>
       <listitem>
-        <para>W/O Module: Any option that involves production posting,
+        <para>Manufacture Module: Any option that involves production posting,
         operations posting, or the issuing and returning of materials.</para>
-      </listitem>
-      <listitem>
-        <para>S/R Module: Any option that involves issuing goods to shipping
-        or receiving goods into Inventory.</para>
       </listitem>
     </itemizedlist>
     <para>As you can see in the example, the Material Receipt operation that
     brought us to this point calls for the distribution of 300 units of Item
-    TDMR100. None of the units have been distributed so far--leaving all 300
-    units still to be distributed. At the bottom of the screen you can see
-    that 680 trucks are located in Location "01-01-01"--which is also the
-    Default Location--and 500 are located in "01-01-02." The next question is
-    this: Which Location(s) do we want to distribute the 300 trucks to?</para>
+    YTRUCK1. None of the units have been distributed so far--leaving all 300
+    units still to be distributed. The next question is this: Which
+    Location(s) do we want to distribute the 300 trucks to?</para>
     <note>
       <para>Items are not required to have a default Location. Instead,
       default Locations may optionally be assigned to Items within Item Site
@@ -102,6 +94,10 @@
         balance remaining.</para>
       </listitem>
       <listitem>
+        <para>We can select the CANCEL button and start over at any
+        point</para>
+      </listitem>
+      <listitem>
         <para>Or we can decide to distribute some to each Location by
         selecting the Locations individually from the "Valid Locations"
         list.</para>
@@ -120,14 +116,12 @@
     option--distributing some to one Location and some to the other. To begin,
     we will double-click on Location "01-01-02". The following distribution
     screen will appear:</para>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrToLoc.png"
-                       />
+            <imagedata fileref="images/Topic_distrToLoc.png" />
           </imageobject>
-          <caption>Initial Distribution to First
-          Location</caption>
+          <caption>Initial Distribution to First Location</caption>
         </mediaobject>
       </screenshot></para>
     <para>As you can see in the example, we must specify how many toy trucks
@@ -143,11 +137,10 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrStockToLoc2.png"
-                       />
+            <imagedata fileref="images/Topic_distrStockToLoc2.png" />
           </imageobject>
-          <caption>Display Showing Partial Distribution to
-          First Location</caption>
+          <caption>Display Showing Partial Distribution to First
+          Location</caption>
         </mediaobject>
       </screenshot></para>
     <para>The display now shows 100 trucks tagged for distribution to Location
@@ -156,18 +149,18 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrError.png"
-                       />
+            <imagedata fileref="images/Topic_distrError.png" />
           </imageobject>
           <caption>Error Message: Cannot Perform Partial
           Distribution</caption>
         </mediaobject>
       </screenshot></para>
-    <para>As the error message indicates, OpenMFG does not allow the posting
-    of partial distributions. The entire transaction quantity of an MLC Item
-    must be completely distributed before the transaction can be posted. The
-    next step, then, is to distribute the remaining quantity. Let's distribute
-    the remaining 200 truck units to Location "01-01-01".</para>
+    <para>As the error message indicates, the system does not allow the
+    posting of partial distributions. The entire transaction quantity of an
+    MLC Item must be completely distributed before the transaction can be
+    posted. The next step, then, is to distribute the remaining quantity.
+    Let's distribute the remaining 200 truck units to Location
+    "01-01-01".</para>
     <para>Since "01-01-01" is the default location, we have a couple of
     options here:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
@@ -186,11 +179,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrToLoc-2.png"
-                       />
+            <imagedata fileref="images/Topic_distrToLoc-2.png" />
           </imageobject>
-          <caption>Partial Distribution to Default
-          Location</caption>
+          <caption>Partial Distribution to Default Location</caption>
         </mediaobject>
       </screenshot></para>
     <para>The screen shows a balance of 200 truck units remaining to be
@@ -200,11 +191,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrStockToLoc3.png"
-                       />
+            <imagedata fileref="images/Topic_distrStockToLoc3.png" />
           </imageobject>
-          <caption>Display Showing Distribution to Second
-          Location</caption>
+          <caption>Display Showing Distribution to Second Location</caption>
         </mediaobject>
       </screenshot></para>
     <note>

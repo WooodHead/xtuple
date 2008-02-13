@@ -116,6 +116,13 @@
           Order.</para>
         </listitem>
       </varlistentry>
+      <varlistentry id="rightclickIssueMaterialItem">
+        <term>Issue Material Item</term>
+        <listitem>
+          <para>Select to issue a Work Order Material Item to the specified
+          Work Order.</para>
+        </listitem>
+      </varlistentry>
       <varlistentry id="rightclickPostOperations">
         <term>Post Operations</term>
         <listitem>
@@ -140,6 +147,13 @@
         <listitem>
           <para>Select to print a Traveler for the specified Work
           Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickProdTimeClockByWO">
+        <term>Production Time Clock by Work Order</term>
+        <listitem>
+          <para>Select to view the Production Time Clock for the specified
+          Work Order.</para>
         </listitem>
       </varlistentry>
       <varlistentry id="rightclickRecallWO">
@@ -230,11 +244,25 @@
           Order.</para>
         </listitem>
       </varlistentry>
+      <varlistentry id="rightclickViewParentSOInfo">
+        <term>View Parent Sales Order Information</term>
+        <listitem>
+          <para>Select to view the parent Sales Order information for the
+          specified Work Order.</para>
+        </listitem>
+      </varlistentry>
       <varlistentry id="rightclickViewParentWorkOrderInformation">
         <term>View Parent Work Order Information</term>
         <listitem>
-          <para>Select to view the Parent Work Order information for the
+          <para>Select to view the parent Work Order information for the
           specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickWorkOrderSched">
+        <term>Work Order Schedule</term>
+        <listitem>
+          <para>Select to view the Work Order Schedule for the specified Work
+          Order.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -278,6 +306,12 @@
         <term>Soften Order</term>
         <listitem>
           <para>Select to soften the specified Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickUsageStatistics">
+        <term>Usage Statistics</term>
+        <listitem>
+          <para>Select to view usage statistics for the specified Item.</para>
         </listitem>
       </varlistentry>
       <varlistentry id="rightclickViewDemand">
@@ -994,6 +1028,18 @@
           <para>Select to update Actual Costs for the specified Item.</para>
         </listitem>
       </varlistentry>
+      <varlistentry id="rightclickViewBillofMaterials">
+        <term>View Bill of Materials</term>
+        <listitem>
+          <para>Select to view the BOM for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewBillofOperations">
+        <term>View Bill of Operations</term>
+        <listitem>
+          <para>Select to view the BOO for the specified Item.</para>
+        </listitem>
+      </varlistentry>
       <varlistentry id="rightclickViewBOM">
         <term>View BOM</term>
         <listitem>
@@ -1176,6 +1222,12 @@
           <para>Select to reverse the specified Journal posting.</para>
         </listitem>
       </varlistentry>
+      <varlistentry id="rightclickViewAPOpen">
+        <term>View A/P Open</term>
+        <listitem>
+          <para>Select to view the AP open item.</para>
+        </listitem>
+      </varlistentry>
       <varlistentry id="rightclickViewApplytoInvoice">
         <term>View Apply to Invoice</term>
         <listitem>
@@ -1193,6 +1245,13 @@
         <term>View Credit Memo</term>
         <listitem>
           <para>Select to view the specified Credit Memo.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewGLSeries">
+        <term>View G/L Series</term>
+        <listitem>
+          <para>Select to view G/L Series information for the specified
+          document.</para>
         </listitem>
       </varlistentry>
       <varlistentry id="rightclickViewGLTransactions">
@@ -1218,6 +1277,12 @@
         <term>View Source Credit Memo</term>
         <listitem>
           <para>Select to view details for the specified Credit Memo.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewVoucher">
+        <term>View Voucher</term>
+        <listitem>
+          <para>Select to view the specified Voucher.</para>
         </listitem>
       </varlistentry>
       <varlistentry id="rightclickVoid">

@@ -101,12 +101,19 @@
                 xpointer="element(rightclickEdit)" />
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickView)" />
+                xpointer="element(rightclickViewAPOpen)" />
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickVoid)" />
+                xpointer="element(rightclickViewGLSeries)" />
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>If the selected document is a Voucher, the following additional option
+  will be available:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewVoucher)" />
   </variablelist>
 </section>

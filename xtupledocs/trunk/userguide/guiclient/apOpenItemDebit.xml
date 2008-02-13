@@ -1,31 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section539772">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>debit memos</primary>
       <secondary>entering new</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>accounts receivable</primary>
       <secondary>entering debit memos for</secondary>
     </indexterm>Enter Miscellaneous Debit Memo</title>
-  <para>A miscellaneous Debit Memo is like a Voucher--the main
-  difference being that a miscellaneous Debit Memo is not necessarily linked
-  to a Purchase Order. To enter a miscellaneous Debit Memo, select the "Enter
-  Misc. Debit Memo" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>A miscellaneous Debit Memo is like a Voucher--the main difference
+  being that a miscellaneous Debit Memo is not necessarily linked to a
+  Purchase Order. To enter a miscellaneous Debit Memo, select the "Enter Misc.
+  Debit Memo" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/apOpenItemDebit.png"/>
+          <imagedata fileref="images/apOpenItemDebit.png" />
         </imageobject>
         <caption>Enter Miscellaneous Debit Memo</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When entering a miscellaneous Debit Memo, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When entering a miscellaneous Debit Memo, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Vendor #</term>
@@ -58,8 +55,8 @@
       <listitem>
         <para>Displays the next available miscellaneous Debit Memo
         Number.</para>
-        <para>The value for the next available Debit Memo
-        Number can be configured at the system level.</para>
+        <para>The value for the next available Debit Memo Number can be
+        configured at the system level.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -80,8 +77,8 @@
     <varlistentry>
       <term>Terms</term>
       <listitem>
-        <para>Displays Invoice Terms if any amount has been applied to an
-        Invoice.</para>
+        <para>By default, the Terms defined on the Vendor master for the
+        specified Vendor will be used here.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -108,15 +105,15 @@
       <term>Use Alternate Prepaid Account</term>
       <listitem>
         <para>Select one of the following optional prepaid Accounts:</para>
-        <para>Alternate Prepaid Account: Specify an alternate
-        prepaid Account to use instead of the default prepaid Account.</para>
+        <para>Alternate Prepaid Account: Specify an alternate prepaid Account
+        to use instead of the default prepaid Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>If an alternate prepaid Account is not specified,
-    the system will use the default prepaid Account specified for the Vendor
-    Type under A/P Account Assignments.</para>
+    <para>If an alternate prepaid Account is not specified, the system will
+    use the default prepaid Account specified for the Vendor Type under A/P
+    Account Assignments.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -134,8 +131,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

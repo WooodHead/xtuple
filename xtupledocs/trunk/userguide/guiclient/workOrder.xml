@@ -6,6 +6,29 @@
       <primary>work orders</primary>
       <secondary>creating new</secondary>
     </indexterm>Create New Work Order</title>
+  <para>Work Orders define requirements for the production of manufactured
+  Items. These Items may have a Bill of Materials (BOM)--or not. The system
+  supports both BOM-based and non-BOM-based Work Orders.</para>
+  <variablelist>
+    <varlistentry>
+      <term>BOM-based</term>
+      <listitem>
+        <para>Material Requirements are drawn from the Bill of Materials when
+        the Work Order is exploded, using the specified Revision. Users may
+        add or subtract Material Requirements as needed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Non-BOM-based</term>
+      <listitem>
+        <para>Ideal for labor-only Work Orders having a Bill of Operations
+        (BOO) but no BOM--for example, service Work Orders which require labor
+        Operations only. Also good for Items or Jobs where the Material
+        Requirements are not-known--but must be added on an ad-hoc
+        basis.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To create a new Work Order, select the "Create New Work Order" option.
   The following screen will appear:</para>
   <para><screenshot>
