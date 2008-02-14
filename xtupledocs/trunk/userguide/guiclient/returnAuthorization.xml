@@ -253,7 +253,9 @@
       <term>Print on Save</term>
       <listitem>
         <para>Select to print a copy of the Return Authorization when you
-        select the SAVE button.</para>
+        select the SAVE button. You must have a Form "keyed on" Return
+        Authorizations for this option to work. The keyed on process is
+        described here: <xref linkend="formCreateNew" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -303,7 +305,7 @@
         <para>Enter the Customer Number of the Customer whose return you are
         authorizing. The browse button located to the right of the field leads
         to a searchable Customers list. You may also access this list using
-        the keyboard shortcut "CTRL + L". </para>
+        the keyboard shortcut "CTRL + L".</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -565,7 +567,7 @@
         </indexterm>Freight</term>
       <listitem>
         <para>Enter the amount of freight charge to be credited on the
-        specified Return Authorization. </para>
+        specified Return Authorization.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
