@@ -381,6 +381,13 @@ BEGIN
        AND (evntnot_warehous_id=NEW.cohead_warehous_id)
        AND (evnttype_name=''SoNotesChanged'') );
     END IF;
+
+    IF (OLD.cohead_shipchrg_id != NEW.cohead_shipchrg_id) THEN
+      UPDATE shiphead SET shiphead_shipchrg_id=NEW.cohead_shipchrg_id
+      WHERE ((shiphead_order_type=''SO'')
+      AND  (shiphead_order_id=NEW.cohead_id)
+      AND  (NOT shiphead_shipped));
+    END IF;
   END IF;
 
 
