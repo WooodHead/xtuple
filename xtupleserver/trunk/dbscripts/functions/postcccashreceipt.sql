@@ -1,56 +1,28 @@
-CREATE OR REPLACE FUNCTION postCCcashReceipt(integer, integer)
-  RETURNS integer AS
+CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER) RETURNS INTEGER AS '
+BEGIN
+  RETURN postCCCashReceipt($1, NULL, NULL);
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER, TEXT) RETURNS INTEGER AS
 '
 DECLARE
-  pCCpay ALIAS FOR $1;
-  _JournalNumber INTEGER;
-  _sequence INTEGER;
-  _arMemoNumber INTEGER;
-  _arAccntid INTEGER;
-  _bankAccntid ALIAS FOR $2;
-  _c RECORD;
-  _prepaid_accnt_id INTEGER;
-  _notes TEXT;
-  _ccOrderDesc TEXT;
-  _aropenid INTEGER;
-  _realaccnt INTEGER;
+  pCCpay        ALIAS FOR $1;
+  pdocid        ALIAS FOR $2;
+  pdoctype      ALIAS FOR $3;
+  _aropenid     INTEGER;
+  _c            RECORD;
+  _ccOrderDesc  TEXT;
+  _realaccnt    INTEGER;
 
 BEGIN
-
-  _notes := ''Cash Receipt from Credit Card'';
-
---    SELECT metric_value::INTEGER INTO _bankAccntid
---    FROM metric
---    WHERE (metric_name=''UnassignedAccount'');
---  SELECT metric_value::INTEGER AS bankaccnt INTO _bankAccntid
---     FROM metric
---     WHERE (metric_name=''CCDefaultBank'');
-
---  IF (NOT FOUND) THEN
--- We do not seem to have this value defined
---    RETURN -1;
---  END IF; 
-
---  IF (_bankAccntid < 1) THEN
--- We do not have the default bank account id defined
---    RETURN -2;
---  END IF;
-
--- We need to get the "bank account g/l" from the back account
-
-  SELECT bankaccnt_accnt_id INTO _realaccnt FROM bankaccnt WHERE bankaccnt_id = _bankAccntid;
+  SELECT bankaccnt_accnt_id INTO _realaccnt
+  FROM bankaccnt
+  WHERE (bankaccnt_id=fetchmetricvalue(''CCDefaultBank'')::INTEGER);
 
   IF (NOT FOUND) THEN
-    RETURN -1;
+    RETURN -10;
   END IF;
-
--- OK it appears that we are good to go on the bank account to receive the payments
-
-  SELECT fetchJournalNumber(''C/R'') INTO _JournalNumber;
-
-  SELECT fetchGLSequence() INTO _sequence;
-
--- Go get the ccpay record.
 
   SELECT * INTO _c
      FROM ccpay, ccard
@@ -58,37 +30,64 @@ BEGIN
        AND   (ccpay_ccard_id = ccard_id) );
 
   IF (NOT FOUND) THEN
--- Oops - what did we pass?
-    RETURN -3;
+    RETURN -11;
   END IF;
-
-  SELECT findPrepaidAccount(_c.ccpay_cust_id) INTO _prepaid_accnt_id;
 
   _ccOrderDesc := (_c.ccard_type || ''-'' || _c.ccpay_order_number::TEXT ||
 		   ''-'' || _c.ccpay_order_number_seq::TEXT);
-  PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CR'',
-			     ''Unapplied from '' || _ccOrderDesc, _prepaid_accnt_id,
-			     round(currToBase(_c.ccpay_curr_id, _c.ccpay_amount,
-				      _c.ccpay_transaction_datetime::DATE), 2),
-			     CURRENT_DATE, _notes );
-  SELECT fetchArMemoNumber() INTO _arMemoNumber;
--- note here that createARCreditMemo returns the aropen_id of the record created
-  SELECT createARCreditMemo( _c.ccpay_cust_id, _arMemoNumber, '''',
-			    CURRENT_DATE, _c.ccpay_amount,
-			    ''Unapplied from '' || _ccOrderDesc ) INTO _aropenid;
 
---  Debit Cash
-  PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CR'', _ccOrderDesc,
-			      _realaccnt,
-			      round(currToBase(_c.ccpay_curr_id,
-					       _c.ccpay_amount * -1,
+  _aropenid := createARCreditMemo(_c.ccpay_cust_id, fetchArMemoNumber(),
+                                  '''', CURRENT_DATE, _c.ccpay_amount,
+                                  ''Unapplied from '' || _ccOrderDesc );
+  IF (_aropenid < 0) THEN
+    RETURN _aropenid;
+  END IF;
+
+  IF (pdoctype = ''cashrcpt'') THEN
+    IF (COALESCE(pdocid, -1) < 0) THEN
+      INSERT INTO cashrcpt (
+        cashrcpt_cust_id,   cashrcpt_amount,     cashrcpt_curr_id,
+        cashrcpt_fundstype, cashrcpt_docnumber,  cashrcpt_notes,
+        cashrcpt_distdate,  cashrcpt_bankaccnt_id
+      ) VALUES (
+        _c.ccpay_cust_id,   _c.ccpay_amount,     _c.ccpay_curr_id,
+        _c.ccard_type,      _c.ccpay_r_ordernum, _ccOrderDesc,
+        CURRENT_DATE,       fetchmetricvalue(''CCDefaultBank'')::INTEGER);
+    ELSE
+      UPDATE cashrcpt
+      SET cashrcpt_cust_id=_c.ccpay_cust_id,
+          cashrcpt_amount=_c.ccpay_amount,
+          cashrcpt_curr_id=_c.ccpay_curr_id,
+          cashrcpt_fundstype=_c.ccard_type,
+          cashrcpt_docnumber=_c.ccpay_r_ordernum,
+          cashrcpt_notes=_ccOrderDesc,
+          cashrcpt_distdate=CURRENT_DATE,
+          cashrcpt_bankaccnt_id=fetchmetricvalue(''CCDefaultBank'')::INTEGER
+      WHERE (cashrcpt_id=pdocid);
+    END IF;
+
+  ELSIF (pdoctype = ''cohead'') THEN
+    INSERT INTO payaropen (payaropen_ccpay_id, payaropen_aropen_id,
+                           payaropen_amount,   payaropen_curr_id)
+                  VALUES  (pccpay,             _aropenid,
+                           _c.ccpay_amount,    _c.ccpay_curr_id);
+    INSERT INTO aropenco (aropenco_aropen_id, aropenco_cohead_id,
+                          aropenco_amount,    aropenco_curr_id)
+                  VALUES (_aropenid,          pdocid,
+                          _c.ccpay_amount,    _c.ccpay_curr_id);
+  END IF;
+
+  PERFORM insertGLTransaction(fetchJournalNumber(''C/R''), ''A/R'', ''CR'',
+                              _ccOrderDesc, 
+                              ''Cash Receipt from Credit Card'',
+                              findPrepaidAccount(_c.ccpay_cust_id),
+                              _realaccnt,
+                              NULL,
+			      ROUND(currToBase(_c.ccpay_curr_id,
+					       _c.ccpay_amount,
 					       _c.ccpay_transaction_datetime::DATE),2),
-			      CURRENT_DATE, _notes );
-
-  PERFORM postGLSeries(_sequence, _JournalNumber);
+                              CURRENT_DATE);
 
   RETURN _aropenid;
-
 END;
-'
-  LANGUAGE 'plpgsql';
+' LANGUAGE 'plpgsql';
