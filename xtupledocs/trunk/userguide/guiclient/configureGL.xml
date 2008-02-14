@@ -381,12 +381,26 @@
     <varlistentry>
       <term>Credit Warn Customers when Late</term>
       <listitem>
-        <para><remark>findme</remark></para>
+        <para>Select to globally enable the ability to place Customers on
+        credit warning when the due dates on their A/R open items become late
+        past the specified grace period. If this option is selected, you will
+        have the ability to run a utility called "Update Late Customer Credit
+        Status" described here: <xref
+        linkend="UpdateLateCustomerCreditStatus" />. When run, this utility
+        will review all late A/R open items for all Customers. Any Customers
+        found to have late items falling outside the grace period will be
+        placed on credit warning. These Customers will automatically be taken
+        off credit warning once their late items are paid.</para>
         <variablelist>
           <varlistentry>
             <term>Default Grace Period Days</term>
             <listitem>
-              <para></para>
+              <para>Specify the standard number of days beyond the A/R open
+              due date which will serve as a grace period. As long as A/R open
+              item due dates are within the grace period, Customers will not
+              be put on credit warning when the late status utility is run.
+              Once outside the grace period, they will be placed on credit
+              warning.</para>
             </listitem>
           </varlistentry>
         </variablelist>

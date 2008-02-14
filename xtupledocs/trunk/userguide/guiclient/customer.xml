@@ -512,10 +512,18 @@
       <listitem>
         <para>Select this option to automatically place the Customer on Credit
         Warning if their open Accounts Receivable (A/R) balance exceeds their
-        Credit Limit. If a Customer is on Credit Warning, Sales Orders may not
-        be entered for the Customer--except by users with override privileges.
-        Once the Customer's A/R open balance falls below their Credit Limit,
-        Sales Orders may once again be entered for the Customer.</para>
+        Credit Limit. This option must also be selected for a Customer's A/R
+        open items to be evaluated when the Update Late Customer Credit Status
+        utility is run. If a Customer is on Credit Warning, Sales Orders may
+        not be entered for the Customer--except by users with override
+        privileges. Once the Customer's A/R open balance falls below their
+        Credit Limit, Sales Orders may once again be entered for the
+        Customer.</para>
+        <tip>
+          <para>You must specify you want a Customer to be placed on credit
+          warning to enable the late credit status utility to consider a
+          Customer's A/R open items.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -528,6 +536,26 @@
         Shipping--except by users with override privileges. Once the
         Customer's Credit Limit is no longer exceeded, Sales Order contents
         may be issued to Shipping.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Alternate Late Grace Days</term>
+      <listitem>
+        <para>Select to specify an alternate grace period for the specific
+        Customer. If selected, this grace period will override the global
+        grace period used when the late credit status utility is run.
+        Alternate grace periods do not apply if the Customer does not have the
+        "Place on Credit Warning when Credit Limit is Exceeded" option
+        selected.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Grace Days</term>
+            <listitem>
+              <para>Specify the number of days beyond the due date before a
+              Customer's A/R open items are considered late.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
