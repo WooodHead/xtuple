@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section923259">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>configuration</primary>
       <secondary>of manufacture module</secondary>
     </indexterm>Configure Manufacture</title>
   <para>To configure the Manufacture module, select the "Configure
   Manufacture" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/configureWO.png"/>
+          <imagedata fileref="images/configureWO.png" />
         </imageobject>
         <caption>Configure W/O Module</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When configuring the Manufacture module, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>work orders</primary>
           <secondary>numbering of</secondary>
         </indexterm>Next Work Order #</term>
@@ -70,18 +67,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Post Work Order Changes to the Change Log</term>
-      <listitem>
-        <para>Select to post to the Change Log any changes made to Work
-        Orders.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>work orders</primary>
           <secondary>automatic explosion of</secondary>
-        </indexterm>Automatically Explode W/O"s</term>
+        </indexterm>Automatically Explode W/O's</term>
       <listitem>
         <para>Select if you want Work Orders to be exploded automatically.
         Work Order explosion is the process whereby Work Order Material
@@ -92,6 +81,19 @@
         child Work Orders should be created when the parent Work Order is
         exploded. If this option is not selected, Work Orders will need to be
         exploded manually.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Auto fill Post Operation Qty. to Balance</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Work Order Changes to the Change Log</term>
+      <listitem>
+        <para>Select to post to the Change Log any changes made to Work
+        Orders.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -127,8 +129,7 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>work orders</primary>
           <secondary>default explosion levels for</secondary>
         </indexterm>Default W/O Explosion Level</term>
@@ -164,11 +165,10 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>work orders</primary>
           <secondary>default variance reporting for</secondary>
-        </indexterm>Defaults</term>
+        </indexterm>Inventory Item Cost Defaults</term>
       <listitem>
         <para>Specify preferences for the following defaults:</para>
         <variablelist>
@@ -184,6 +184,27 @@
             <listitem>
               <para>Select to post labor variances whenever Work Order
               Operations are posted.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Job Item COS Recognition Defaults</term>
+      <listitem>
+        <para>Select one of the following Cost of Sales recognition defaults
+        for Job Items:</para>
+        <variablelist>
+          <varlistentry>
+            <term>To Date</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Proportional</term>
+            <listitem>
+              <para></para>
             </listitem>
           </varlistentry>
         </variablelist>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section571620">
+<section>
   <title><indexterm significance="normal">
       <primary>contacts</primary>
       <secondary>searching for</secondary>
@@ -124,18 +124,19 @@
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="searchForCRMAccountEDIT1">
-        <para>Enables you to edit highlighted Contact. The edit screen is the
-        same as that for creating a new Contact--except that when editing, the
-        fields will contain Contactinformation. Double-clicking on a Contact
-        will also bring you to the editing screen.</para>
+      <listitem>
+        <para id="searchForContactEDIT">Enables you to edit highlighted
+        Contact. The edit screen is the same as that for creating a new
+        Contact--except that when editing, the fields will contain
+        Contactinformation. Double-clicking on a Contact will also bring you
+        to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="searchForCRMAccountVIEW1">
-        <para>Highlight a Contact and then select this button to reach a
-        read-only view of the "Edit" screen.</para>
+      <listitem>
+        <para id="searchForContactVIEW">Highlight a Contact and then select d
+        this button to reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -144,13 +145,17 @@
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(searchForCRMAccountVIEW1)" />
+      <listitem>
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(searchForContactVIEW)" />
+      </listitem>
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(searchForCRMAccountEDIT1)" />
+      <listitem>
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(searchForContactEDIT)" />
+      </listitem>
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
