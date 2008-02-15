@@ -50,6 +50,31 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>ACCOUNT</term>
+      <listitem>
+        <para>Select this button to open the CRM Account record associated
+        with the Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cust. Type</term>
+      <listitem>
+        <para>Displays the Customer Type for the specified Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Payment Terms</term>
+      <listitem>
+        <para>Displays the Customer's default Terms.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Via</term>
+      <listitem>
+        <para>Displays the Customer's preferred Ship Via.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Correspondence Address</term>
       <listitem>
         <para>Displays Customer's correspondence address.</para>
@@ -74,6 +99,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Backlog</term>
+      <listitem>
+        <para>Displays Customer's backlog.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Last Year Sales</term>
       <listitem>
         <para>Displays total sales to Customer for previous year.</para>
@@ -86,9 +117,9 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Backlog</term>
+      <term>Credit Limit</term>
       <listitem>
-        <para>Displays Customer's backlog.</para>
+        <para>Displays the Customer's credit limit.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -123,6 +154,12 @@
   available:</para>
   <variablelist>
     <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>CLOSE</term>
       <listitem>
         <para>Closes the screen, returning you to the application
@@ -130,9 +167,17 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>PRINT</term>
+      <term>QUERY</term>
       <listitem>
-        <para>Runs the report associated with this screen.</para>
+        <para>Select to re-generate and update the information on the
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Select to edit the Customer master for the specified
+        Customer.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -315,13 +360,31 @@
         Orders master list screen.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Show Closed</term>
+      <listitem>
+        <para>Select to include closed Sales Orders in the display.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
     <varlistentry>
-      <term>NEW</term>
+      <term>PRINT</term>
       <listitem id="dspCustomerInformationNEWSO">
+        <para>Highlight a Sales Order and then select this button to print the
+        Sales Order.</para>
+        <tip>
+          <para>You must have a Form "keyed on" Sales Orders to successfully
+          print a Sales Order. The keyed on process is described here: <xref
+          linkend="formCreateNew" />.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
         <para>Opens screen for creating a new Sales Order, as described in
         <xref linkend="Anchor23923" />.</para>
       </listitem>
@@ -362,6 +425,12 @@
       <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(dspCustomerInformationVIEWSO)" />
     </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickShipmentStatus)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickShipments)" />
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
@@ -380,16 +449,32 @@
   are presented with the following options:</para>
   <variablelist>
     <varlistentry>
+      <term>Show Closed</term>
+      <listitem>
+        <para>Select to include closed Invoices in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Invoices</term>
       <listitem>
         <para>Displays the list of Invoices associated with the specified
         Customer.</para>
+        <note>
+          <para>Late Invoices will display in red type.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Highlight an Invoice and then select this button to print the
+        Invoice.</para>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>NEW</term>
       <listitem id="dspCustomerInformationNEWINV">
@@ -410,6 +495,20 @@
       <listitem id="dspCustomerInformationVIEWINV">
         <para>Highlight an Invoice and then select this button to reach a
         read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>WORKBENCH</term>
+      <listitem>
+        <para>Select to open the A/R Workbench for the specified
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CASH RECEIPT</term>
+      <listitem>
+        <para>Select to enter a Cash Receipt for the specified
+        Customer.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -461,8 +560,19 @@
   available:</para>
   <variablelist>
     <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Highlight a sales Credit Memo and then select this button to
+        print the Sales Credit Memo.</para>
+        <note>
+          <para>Printing is supported for sales Credit Memos only--not for
+          miscellaneous Credit Memos.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>NEW</term>
-      <listitem id="dspCustomerInformationNEWCM">
+      <listitem id="dspCustomerInformationNEW">
         <para>Opens screen for creating a new Sales Order Credit Memo, as
         described in <xref linkend="Anchor94106" />.</para>
       </listitem>
@@ -483,6 +593,13 @@
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>WORKBENCH</term>
+      <listitem>
+        <para>Select to open the A/R Workbench for the specified
+        Customer.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
   <para>Right-clicking on a Credit Memo in the Credit Memos list enables you
   to select from the following menu options:</para>
@@ -490,7 +607,7 @@
     <varlistentry>
       <term>New Credit Memo</term>
       <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationNEWCM)" />
+                  xpointer="element(dspCustomerInformationNEW)" />
     </varlistentry>
     <varlistentry>
       <term>Edit Credit Memo</term>
