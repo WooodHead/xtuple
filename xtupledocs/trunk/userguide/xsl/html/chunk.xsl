@@ -5,4 +5,6 @@
  <xsl:param name="chunk.section.depth" select="2" />
  <xsl:param name="chunk.first.sections" select="1" />
  <xsl:param name="chunk.separate.lots" select="1" />
+ <xsl:param name="html.stylesheet">xtuple_html.css</xsl:param>
+ <xsl:param name="html.stylesheet.type">text/css</xsl:param>
 </xsl:stylesheet>
