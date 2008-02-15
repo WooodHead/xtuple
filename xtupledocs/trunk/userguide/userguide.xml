@@ -1,30 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <book>
   <title>xTuple Applications User Guide</title>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="introduction.xml" xpointer="element(/1)"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="products.xml" xpointer="element(/1)"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inventory.xml" xpointer="element(/1)"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="schedule.xml" xpointer="element(/1)"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="purchase.xml" xpointer="element(/1)"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="manufacture.xml" xpointer="element(/1)"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="crm.xml" xpointer="element(/1)"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sales.xml" xpointer="element(/1)"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="accounting.xml" xpointer="element(/1)"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="system.xml" xpointer="element(/1)"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="glossary.xml" xpointer="element(/1)"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="appendixa.xml" xpointer="element(/1)"/>
-  <index/>
+  <subtitle>Version 2.3</subtitle>
+  <xi:include href="introduction.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="products.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="inventory.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="schedule.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="purchase.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="manufacture.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="crm.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="sales.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="accounting.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="system.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="glossary.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="appendixa.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <index></index>
 </book>

@@ -4,30 +4,33 @@
 <chapter id="Chapter464102">
   <title><anchor id="Anchor23250" role="Cross-Ref"
   xreflabel="23250: ChapterTitleNoNumber: Introduction" />Introduction</title>
-  <para>Welcome to the User Guide for the xTuple Applications! This User Guide
-  is designed as a reference tool for anyone using either of the following
-  xTuple Applications:</para>
+  <para>Welcome to the User Guide for xTuple Enterprice Resource Planning!
+  This User Guide is designed as a reference tool for anyone using any of the
+  following xTuple ERP Applications:</para>
   <itemizedlist>
     <listitem>
-      <para>OpenMFG - Enterprise Resource Planning</para>
+      <para>xTuple ERP: PostBooks Free Edition</para>
     </listitem>
     <listitem>
-      <para>PostBooks - Open Source Accounting / ERP</para>
+      <para>xTuple ERP: Standard Edition</para>
+    </listitem>
+    <listitem>
+      <para>PostBooks - OpenMFG Edition</para>
     </listitem>
   </itemizedlist>
-  <para>Since both applications share a common code base, it makes sense that
-  they also share a User Guide. In some cases, OpenMFG contains features
+  <para>Since all three applications share a common code base, it makes sense
+  that they also share a User Guide. In some cases, OpenMFG contains features
   PostBooks does not. And so, to highlight these differences, we have placed
   OpenMFG-only indicators in the User Guide. Whenever you see one of these
-  markers, you"ll know the functionality you"re reading about exists in
+  markers, you"ll know the functionality you're reading about exists in
   OpenMFG but not in PostBooks.</para>
-  <para>For more information on the differences between the xTuple
-  Applications, including licensing options, please visit the community
-  homepage at www.xtuple.org.</para>
+  <para>For more information on the differences between the xTuple ERP,
+  including licensing options, please visit <link
+  linkend="???">www.xtuple.com/comparison</link>.</para>
   <section id="Section468080">
     <title>Getting Started</title>
-    <para>The goal of this chapter is to orient you to some of basic features
-    of the xTuple Applications. As you will see, these fundamentals appear
+    <para>The goal of this chapter is to orient you to some of the basic
+    features of xTuple ERP. As you will see, these fundamentals appear
     throughout the application. We wanted to introduce them to you early so
     you would be familiar with them as you work your way through the xTuple
     Application modules.</para>
@@ -36,20 +39,17 @@
       taken from the OpenMFG Client for Windows, running on Windows XP. There
       is no functional difference between the Windows, Mac, or Linux Clients.
       You will find only minor graphical user interface differences. The same
-      holds true for the PostBooks Clients for Windows, Mac, and Linux.</para>
+      holds true for the xTuple ERP products.</para>
     </note>
     <para>The next sections describe the steps required to log in to and exit
-    the xTuple Applications. In some cases, you may need to ask your system
-    administrator for information concerning site-specific settings.</para>
+    xTuple ERP. In some cases, you may need to ask your system administrator
+    for information concerning site-specific settings.</para>
     <section id="Section466744">
       <title>Log In Options</title>
-      <para>The example shown in this section features the OpenMFG
-      application. However, the same steps are used when logging in to a
-      PostBooks Database.</para>
       <para>To log in using a Windows client, you should double-click on the
-      xTuple Application icon wherever it appears on your computer desktop.
-      Likewise, Macintosh users may click on the xTuple Application icon from
-      their desktop. <indexterm significance="normal">
+      xTuple ERP icon wherever it appears on your computer desktop. Likewise,
+      Macintosh users may click on the xTuple ERP icon from their desktop.
+      <indexterm significance="normal">
           <primary>linux</primary>
           <secondary>client log in procedure</secondary>
         </indexterm> <indexterm significance="normal">
@@ -67,9 +67,8 @@
         </indexterm> <indexterm significance="normal">
           <primary>log in</primary>
           <secondary>mac</secondary>
-        </indexterm>Linux users should run the appropriate xTuple Application
-      .sh file to launch the application. The following screen will
-      appear:</para>
+        </indexterm>Linux users should run the appropriate xTuple ERP .sh file
+      to launch the application. The following screen will appear:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
@@ -79,14 +78,14 @@
           </mediaobject>
         </screenshot></para>
       <tip>
-        <para>You should always be sure to use a version of the xTuple
-        Application which matches the version of your xTuple Database. Using
-        mis-matched versions can lead to errors and loss of data integrity.
-        The system will issue a warning message whenever you attempt to log in
-        to a database whose version does not match the client version.</para>
+        <para>You should always be sure to use a version of xTuple ERP which
+        matches the version of your xTuple Database. Using mis-matched
+        versions can lead to errors and loss of data integrity. The system
+        will issue a warning message whenever you attempt to log in to a
+        database whose version does not match the client version.</para>
       </tip>
-      <para>When logging into an xTuple Application, you are presented with
-      the following options:</para>
+      <para>When logging into xTuple ERP, you are presented with the following
+      options:</para>
       <variablelist>
         <varlistentry>
           <term><indexterm significance="normal">
@@ -208,11 +207,10 @@
           <listitem>
             <para>Select if your site requires you to use enhanced
             authentication. Enhanced authentication adds a layer to the
-            authentication process used to log in to the xTuple Applications.
-            When this feature is turned on, user passwords are stored in the
-            xTuple Database in a modified form. The end result is that you may
-            only log in to the xTuple Database using an xTuple
-            Application.</para>
+            authentication process used to log in to xTuple ERP. When this
+            feature is turned on, user passwords are stored in the xTuple
+            Database in a modified form. The end result is that you may only
+            log in to an xTuple Database using xTuple ERP.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -268,7 +266,7 @@
             <imageobject>
               <imagedata fileref="images/INTRO_appDesktop.png" />
             </imageobject>
-            <caption>Main xTuple Application Desktop - Non-Neo Mode</caption>
+            <caption>Main xTuple ERP Desktop - Non-Neo Mode</caption>
           </mediaobject>
         </screenshot></para>
       <note>
@@ -384,8 +382,8 @@
               <varlistentry>
                 <term>Table of Contents</term>
                 <listitem>
-                  <para>Select to access the xTuple Applications Help files.
-                  For this to work, the Help files must be installed on your
+                  <para>Select to access xTuple ERP Help files. For this to
+                  work, the Help files must be installed on your
                   system.</para>
                 </listitem>
               </varlistentry>
@@ -399,10 +397,10 @@
           <primary>exiting</primary>
           <secondary>how to</secondary>
         </indexterm>Exit the Application</title>
-      <para>There are two ways to successfully exit an xTuple Application.
-      Either use the "X" symbol associated with the desktop window. Or use the
-      System menu's "Exit" option. Both work the same way and are equally
-      valid methods for exiting the application.</para>
+      <para>There are two ways to successfully exit xTuple ERP. Either use the
+      "X" symbol associated with the desktop window. Or use the System menu's
+      "Exit" option. Both work the same way and are equally valid methods for
+      exiting the application.</para>
       <para>To exit the application using the System menu, select the "Exit"
       option from the System module, as shown below:</para>
       <para><screenshot>
@@ -416,8 +414,8 @@
       <para>After selecting this option, the application will close, returning
       you to your computer desktop</para>
       <tip>
-        <para>Be sure to close all open screens before exiting your xTuple
-        Application to help prevent data loss.</para>
+        <para>Be sure to close all open screens before exiting xTuple ERP to
+        help prevent data loss.</para>
       </tip>
     </section>
   </section>
@@ -425,10 +423,9 @@
     <title><indexterm significance="normal">
         <primary>application fundamentals</primary>
       </indexterm>Application Fundamentals</title>
-    <para>The xTuple Applications contain a number of fundamental features
-    designed to simplify your use of the software. In this section, we
-    describe those fundamentals in an effort to familiarize you with their
-    use.</para>
+    <para>xTuple ERPs contain a number of fundamental features designed to
+    simplify your use of the software. In this section, we describe those
+    fundamentals in an effort to familiarize you with their use.</para>
     <para>Let's look first at a sample Bill of Materials screen, as shown
     below. We will use this Bill of Materials screen to illustrate several of
     the application fundamentals to be found throughout the
@@ -536,12 +533,12 @@
         CTRL key on your keyboard when clicking on a record to reveal the
         right-click options.</para>
       </note>
-      <para>The xTuple Applications are full of displays similar to our sample
-      Bill of Materials example. Display screens feature parameter settings at
-      the top of the screen--and a main display area located toward the bottom
-      of the screen. Whenever you encounter a display like this, you can
-      right-click on a line in the display to reveal a host of additional
-      options, as shown in the following screen:</para>
+      <para>xTuple ERPs are full of displays similar to our sample Bill of
+      Materials example. Display screens feature parameter settings at the top
+      of the screen--and a main display area located toward the bottom of the
+      screen. Whenever you encounter a display like this, you can right-click
+      on a line in the display to reveal a host of additional options, as
+      shown in the following screen:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
@@ -749,11 +746,10 @@
       <para>The application supports drag-and-drop functionality for screens
       which use the Item Number widget. Using this functionality, you have the
       ability to drag an Item Number from one screen to another screen.</para>
-      <para>For example, let's say you have two xTuple Application screens
-      open on your desktop at the same time: The Bill of Materials (BOM) for
-      Item XYZ and also the Quantity on Hand (QOH) by Item display. In this
-      example, the QOH display does not have an Item Number entered in it
-      yet.</para>
+      <para>For example, let's say you have two xTuple ERP screens open on
+      your desktop at the same time: The Bill of Materials (BOM) for Item XYZ
+      and also the Quantity on Hand (QOH) by Item display. In this example,
+      the QOH display does not have an Item Number entered in it yet.</para>
       <para>To drag Item Number XYZ from the BOM screen to the QOH display,
       simply click your mouse on the Item Number in the BOM--and then drag the
       Item Number over to the Item Number field on the QOH display. You may
@@ -765,9 +761,9 @@
           <secondary>using instead of mouse</secondary>
         </indexterm>Keyboard Shortcuts</title>
       <para>Many people prefer to use keyboard shortcuts--instead of a
-      mouse--when navigating within a software application. The xTuple
-      Applications feature a number of keyboard shortcuts designed just for
-      this purpose.</para>
+      mouse--when navigating within a software application. xTuple ERP
+      features a number of keyboard shortcuts designed just for this
+      purpose.</para>
       <section id="Section456225">
         <title><indexterm significance="normal">
             <primary>TAB key</primary>
@@ -915,16 +911,16 @@
             <primary>keyboard shortcuts</primary>
             <secondary>for dates</secondary>
           </indexterm>Date Shortcuts</title>
-        <para>The xTuple Applications support a number of keyboard shortcuts
-        for dates. These shortcuts are designed to save you time when entering
-        dates in date fields. Keep in mind, you are required to hit the TAB
-        key after entering a shortcut value in a date field. The TAB key is
-        required to complete all date shortcut entries. The following table
-        describes these date shortcuts in more detail:</para>
+        <para>xTuple ERP supports a number of keyboard shortcuts for dates.
+        These shortcuts are designed to save you time when entering dates in
+        date fields. Keep in mind, you are required to hit the TAB key after
+        entering a shortcut value in a date field. The TAB key is required to
+        complete all date shortcut entries. The following table describes
+        these date shortcuts in more detail:</para>
         <note>
-          <para>The xTuple Applications accept a number of different "input"
-          formats for dates. Any of the following date formats will be
-          accepted by the application:</para>
+          <para>xTuple ERP accepts a number of different "input" formats for
+          dates. Any of the following date formats will be accepted by the
+          application:</para>
           <para>MM/DD/YY</para>
           <para>MM/DD/YYYY</para>
           <para>M or MM / D or DD / YY or YYYY</para>
@@ -1472,11 +1468,11 @@
       <title><indexterm significance="normal">
           <primary>common application buttons</primary>
         </indexterm>Common Application Buttons</title>
-      <para>A set of common buttons appear throughout the xTuple Applications.
-      They are usually located to the far right side of the screen. They can
-      be activated by a single mouse click, or by the use of associated
-      keyboard shortcuts. The following descriptions explain some of the more
-      common application buttons found within the xTuple Applications:</para>
+      <para>A set of common buttons appear throughout xTuple ERP. They are
+      usually located to the far right side of the screen. They can be
+      activated by a single mouse click, or by the use of associated keyboard
+      shortcuts. The following descriptions explain some of the more common
+      application buttons found within xTuple ERP:</para>
       <variablelist>
         <varlistentry>
           <term>CLOSE</term>
