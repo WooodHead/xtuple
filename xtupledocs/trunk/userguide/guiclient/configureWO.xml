@@ -86,7 +86,9 @@
     <varlistentry>
       <term>Auto fill Post Operation Qty. to Balance</term>
       <listitem>
-        <para></para>
+        <para>Check this option if you want quantities to be automatically be
+        populated with the quantity balance due when posting
+        operations.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -198,13 +200,20 @@
           <varlistentry>
             <term>To Date</term>
             <listitem>
-              <para></para>
+              <para>When work orders for Job items are shipped, all of the WIP
+              costs accumulated to date will be charged to cost of
+              sales.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Proportional</term>
             <listitem>
-              <para></para>
+              <para>When work orders for Job items are shipped, a value up to
+              the proportional value of the total quantity shipped will be
+              charged to cost of sales. For example if 3 items are to be
+              shipped on a Job Work Order and all the material has been
+              issued, if only 1 of the 3 is shipped, 1/3 of the value charged
+              to WIP at that point will be charged to Cost of Sales.</para>
             </listitem>
           </varlistentry>
         </variablelist>
