@@ -14,6 +14,8 @@ DECLARE
 BEGIN
   IF(precvdate IS NULL OR precvdate = CURRENT_DATE) THEN
     _timestamp := CURRENT_TIMESTAMP;
+  ELSE
+    _timestamp := precvdate;
   END IF;
   SELECT NEXTVAL('recv_recv_id_seq') INTO _recvid;
 
