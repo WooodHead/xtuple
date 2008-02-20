@@ -6,7 +6,12 @@ BEGIN
     RAISE EXCEPTION ''You do not have privileges to maintain Bills of Material.'';
   END IF;
 
-  RETURN NEW;
+  IF (TG_OP = ''DELETE'') THEN
+    RETURN OLD;
+  ELSE
+    RETURN NEW;
+  END IF;
+
 END;
 ' LANGUAGE 'plpgsql';
 
