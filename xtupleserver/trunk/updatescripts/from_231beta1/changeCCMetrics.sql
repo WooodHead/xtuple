@@ -58,4 +58,6 @@ DELETE FROM metricenc WHERE metricenc_name IN ('CCVSUser', 'CCVSVendor',
                                                'CCVSPartner', 'CCVSPassword',
                                                'CCVSProxyPassword');
 DELETE FROM metric WHERE metric_name = 'CCANMD5Hash';
+DELETE FROM metric WHERE metric_name IN ('CCANVerSetOnGateway', 'CCANDelimSetOnGateway',
+                                         'CCANEncapSetOnGateway', 'CCANCurrencySetOnGateway');
 COMMIT;
