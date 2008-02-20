@@ -111,14 +111,23 @@ BEGIN
 	    		  Location for this Item Site before it may be
 	   	          multiply located.'';
         END IF;
+        
+        --This could be made a table constraint later, but do not want to create a big problem
+        --for users with problematic legacy data over a relatively trivial problem for now,
+        --so we will just check moving forword.
+        IF (NEW.itemsite_stocked AND NEW.itemsite_reorderlevel<=0) THEN
+          RAISE EXCEPTION ''Stocked items must have postive reorder level specified.'';
+        END IF;
       END IF;
     END IF;
 
-    IF (TG_OP = ''INSERT'' OR TG_OP = ''UPDATE'') THEN
+    IF (TG_OP = ''UPDATE'') THEN
       --This could be made a table constraint later, but do not want to create a big problem
       --for users with problematic legacy data over a relatively trivial problem for now,
       --so we will just check moving forword.
-      IF (NEW.itemsite_stocked AND NEW.itemsite_reorderlevel<=0) THEN
+      IF ((NEW.itemsite_stocked)
+        AND (NEW.itemsite_stocked != OLD.itemsite_stocked) --Avoid checking unless explicitly changed
+        AND (NEW.itemsite_reorderlevel<=0)) THEN
         RAISE EXCEPTION ''Stocked items must have postive reorder level specified.'';
       END IF;
     END IF;
