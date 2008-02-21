@@ -297,29 +297,37 @@
           <varlistentry>
             <term>Posted</term>
             <listitem>
-              <para>Displayes the current posted value of the Work Order. The
-              posted value is equal to the received value of finished goods
-              minus WIP.</para>
+              <para>Displays the current posted value of the Work Order. The
+              posted value is equal to the total cost accumulated on the Work
+              Order, including both labor and materials.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Received</term>
             <listitem>
               <para>Displays the current value of finished goods received into
-              Inventory from the Work Order.</para>
+              Inventory from the Work Order. The received value is equal to
+              the posted value minus WIP.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>WIP</term>
             <listitem>
               <para>Displays the current value of Work in Process (WIP) for
-              the Work Order.</para>
+              the Work Order. The WIP value is equal to the posted value minus
+              the received value.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
+  <note>
+    <para>If the Work Order is for a Job Item, additional options related to
+    the Cost of Sales recognition method will be shown. The default Cost of
+    Sales recognition method is defined at the system level; however, you may
+    change the setting manually at the Work Order level.</para>
+  </note>
   <para role="openmfg">When creating a Work Order, you have the option to
   specify which Revision of the Work Order Item's Bill of Materials and Bill
   of Operations you want to use. By default, the active Revision will be used.

@@ -196,24 +196,30 @@
       <listitem>
         <para>Select one of the following Cost of Sales recognition defaults
         for Job Items:</para>
+        <note>
+          <para>The default method will be used when creating Work Orders for
+          Job Items. The method may be changed manually at the Work Order
+          header level.</para>
+        </note>
         <variablelist>
           <varlistentry>
             <term>To Date</term>
             <listitem>
-              <para>When work orders for Job items are shipped, all of the WIP
-              costs accumulated to date will be charged to cost of
-              sales.</para>
+              <para>When Work Orders for Job items are shipped, all of the WIP
+              costs accumulated to date will be charged to Cost of
+              Sales.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Proportional</term>
             <listitem>
-              <para>When work orders for Job items are shipped, a value up to
+              <para>When Work Orders for Job items are shipped, a value up to
               the proportional value of the total quantity shipped will be
-              charged to cost of sales. For example if 3 items are to be
+              charged to Cost of Sales. For example, if 3 Items are to be
               shipped on a Job Work Order and all the material has been
-              issued, if only 1 of the 3 is shipped, 1/3 of the value charged
-              to WIP at that point will be charged to Cost of Sales.</para>
+              issued--and if only 1 of the 3 is shipped--then 1/3 of the value
+              charged to WIP at that point will be charged to Cost of
+              Sales.</para>
             </listitem>
           </varlistentry>
         </variablelist>
