@@ -44,6 +44,7 @@ div.caption
 {
   margin-top:           1ex;
   margin-bottom:        2ex;
+  font-family:          "Gill Sans", sans-serif;
 }
 
 div.caution,
@@ -79,6 +80,11 @@ div.warning     > *.title
 dt > span[class="term"]
 {
   font-weight:    bold;
+}
+
+dd
+{
+  margin-left:  2em;
 }
 
 div.mediaobject,
