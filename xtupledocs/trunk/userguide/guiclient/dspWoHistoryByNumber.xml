@@ -12,17 +12,11 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspWoHistoryByNumber.png"
-                     />
+          <imagedata fileref="images/dspWoHistoryByNumber.png" />
         </imageobject>
         <caption>Work Order History by Work Order Number</caption>
       </mediaobject>
     </screenshot></para>
-  <note>
-    <para>Work Order Materials and Operations history is saved in the database
-    after a Work Order is closed. Reports can be written to retrieve this
-    information.</para>
-  </note>
   <para>When displaying Work Order History by Work Order Number, you are
   presented with the following options:</para>
   <variablelist>
@@ -45,8 +39,14 @@
     <varlistentry>
       <term>Show W/O Cost</term>
       <listitem>
-        <para>Select to display Work Order Costs in the "Work Orders"
-        display.</para>
+        <para>Select to include the current posted value of the Work Order in
+        the display. The posted value is equal to the total cost accumulated
+        on the Work Order, including both labor and materials. The posted
+        value will be the same as the WIP value until the point when finished
+        goods are received. Ultimately, once Production (or Operations)
+        posting is completed, the posted value will be equal to the received
+        value. If these two values are different, then a variance will
+        result.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
