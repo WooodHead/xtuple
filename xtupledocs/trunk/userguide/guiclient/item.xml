@@ -295,7 +295,15 @@
       <listitem>
         <para>Select if the Item may be maintained in fractional quantities.
         If not selected, the system will assume the Item is maintained in its
-        Inventory UOM.</para>
+        Inventory UOM, which is by definition a whole number. This means you
+        may never use fractional quantities of the Item (e.g., in
+        manufacturing or purchasing) unless this option is selected.</para>
+        <tip>
+          <para>If you will ever use the Item in fractional quantities, then
+          the "Fractional" option must be selected. If it is not selected, the
+          system will never let you use fractional quantities of the
+          Item.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
