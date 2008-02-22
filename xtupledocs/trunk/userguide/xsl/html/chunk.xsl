@@ -3,13 +3,16 @@
  <xsl:import href="http://docbook.sourceforge.net/release/xsl/current/html/chunk.xsl" />
  <xsl:include href="xtupletitlepages.xsl" />
  <xsl:include href="../common-options.xsl" />
- <xsl:param name="chunk.section.depth" select="2" />
+ <xsl:param name="chunk.section.depth"  select="2" />
  <xsl:param name="chunk.first.sections" select="1" />
- <xsl:param name="chunk.separate.lots" select="1" />
+ <xsl:param name="chunk.separate.lots"  select="1" />
  <xsl:param name="chunker.output.indent" select="'yes'" />
  <xsl:param name="html.stylesheet">css/xtuple_html.css</xsl:param>
  <xsl:param name="html.stylesheet.type">text/css</xsl:param>
  <xsl:param name="para.propagates.style" select="1" />
+ <xsl:param name="toc.max.depth"                select="3" />
+ <xsl:param name="generate.section.toc.level"   select="2" />
+ <xsl:param name="html.extra.head.links"        select="1" />
 
  <xsl:template match='section[@role = "openmfg"]' mode="class.value">
    <xsl:value-of select='"section-openmfg"'/>
