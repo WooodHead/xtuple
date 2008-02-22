@@ -1,0 +1,98 @@
+*.title,
+*.subtitle
+{
+  font-family: "Gill Sans", sans-serif;
+}
+
+p.openmfg,
+div.screenshot-openmfg,
+div.variablelist-openmfg,
+div.varlistentry-openmfg,
+div.section-openmfg
+{
+  background-image:     url("omfgicon.jpg");
+  background-repeat:    repeat-y;
+  background-position:  left;
+  padding-left:         45px;
+}
+
+p.standard,
+div.screenshot-standard,
+div.variablelist-standard,
+div.varlistentry-standard,
+div.section-standard
+{
+  background-image:     url("stdicon.jpg");
+  background-repeat:    repeat-y;
+  background-position:  left;
+  padding-left:         45px;
+}
+
+p.postbooks,
+div.screenshot-postbooks,
+div.variablelist-postbooks,
+div.varlistentry-postbooks,
+div.section-postbooks
+{
+  background-image:     url("pbicon.jpg");
+  background-repeat:    repeat-y;
+  background-position:  left;
+  padding-left:         45px;
+}
+
+div.caption
+{
+  margin-top:           1ex;
+  margin-bottom:        2ex;
+}
+
+div.caution,
+div.important,
+div.note,
+div.tip,
+div.warning
+{
+  margin-top:           2ex;
+  margin-bottom:        2ex;
+  border-style:         solid;
+  border-width:         1px;
+  border-left-color:    transparent;
+  border-right-color:   transparent;
+  display:              block;
+}
+
+h1.title,
+h2.subtitle
+{
+  text-align:   center;
+}
+
+div.caution     > *.title,
+div.important   > *.title,
+div.note        > *.title,
+div.tip         > *.title,
+div.warning     > *.title
+{
+  text-align:           center;
+}
+
+dt > span[class="term"]
+{
+  font-weight:    bold;
+}
+
+div.mediaobject,
+div.screenshot
+{
+  text-align:   center;
+}
+
+dd > p
+{
+  margin-top:   0;
+}
+
+img
+{
+  max-width: 90%;
+}
