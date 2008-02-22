@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="voucherItemDistrib">
+<section>
   <title><indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>splitting receipts for</secondary>
@@ -9,15 +9,15 @@
       <primary>receipts</primary>
       <secondary>splitting at vouchering</secondary>
     </indexterm> Split Receipt</title>
-  <para>To split a Purchase Order Receipt into different quantities, select
-  the "Split Receipt" option from the right-click menu. The following screen
-  will appear:</para>
+  <para>To split a Purchase Order Receipt into different, smaller quantities,
+  highlight a Receipt and then select the "Split Receipt" option from the
+  right-click menu. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/splitReceipt.png" />
         </imageobject>
-        <caption>Splitting Voucher Item Receipt</caption>
+        <caption>Split Voucher Item Receipt</caption>
       </mediaobject>
     </screenshot></para>
   <para>When splitting a Receipt quantity, you are presented with the
@@ -26,7 +26,8 @@
     <varlistentry>
       <term>Order Number</term>
       <listitem>
-        <para></para>
+        <para>Displays the Order Number of the Purchase Order whose Receipt is
+        to be split.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -34,37 +35,45 @@
     <varlistentry>
       <term>Line #</term>
       <listitem>
-        <para></para>
+        <para>Displays the specific Purchase Order Line Item to be
+        split.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Date Received</term>
       <listitem>
-        <para></para>
+        <para>By default, the date of the original Receipt will be displayed
+        here. However, you may change the date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty. Received</term>
       <listitem>
-        <para></para>
+        <para>Displays the quantity received for the selected Line
+        Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty. Split</term>
       <listitem>
-        <para></para>
+        <para>Enter the quantity you want to split off from the original
+        Receipt quantity. A new Receipt line will be created in the quantity
+        specified here.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Freight</term>
       <listitem>
-        <para></para>
+        <para>By default, the original Freight amount will be displayed here.
+        However, you may change the Freight amount.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Freight Split</term>
       <listitem>
-        <para></para>
+        <para>Enter the amount you want to split off from the original Freight
+        amount. The new Freight amount will be added to the new Receipt
+        line.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -80,7 +89,8 @@
     <varlistentry>
       <term>SPLIT</term>
       <listitem>
-        <para></para>
+        <para>Select to create a new Receipt line using the specified
+        parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>

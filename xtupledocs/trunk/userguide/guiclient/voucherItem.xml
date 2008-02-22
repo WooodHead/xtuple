@@ -236,7 +236,19 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking</para>
+  <para>Right-clicking on a Receipt in the Receipts and Returns list enables
+  you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCorrectReceipt)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickSplitReceipt)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
   <xi:include href="voucherItemDistrib.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />
