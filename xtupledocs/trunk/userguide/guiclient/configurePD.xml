@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519111">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>configuration</primary>
       <secondary>of products module</secondary>
     </indexterm>Configure Products</title>
   <para>To configure the Products module, select the "Configure Products"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/configurePD.png"/>
+          <imagedata fileref="images/configurePD.png" />
         </imageobject>
         <caption>Configure Products Module</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When configuring the Products module, you are presented with the
   following options:</para>
   <variablelist>
@@ -73,6 +71,15 @@
         <para>Select to enable the system's Item Transformation capability. If
         not selected, users will be prevented from performing tasks related to
         Item Transformations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>Enable Revision Control</term>
+      <listitem>
+        <para>Select to enable the Revision Control system. If selected,
+        privileged users will be able to maintain Revisions for Bills of
+        Material and Operations. Revisions may also be used in manufacturing
+        and purchasing processes.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
