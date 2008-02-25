@@ -1,7 +1,27 @@
 *.title,
 *.subtitle
 {
-  font-family: "Gill Sans", sans-serif;
+  font-family:  "Gill-Sans", sans-serif;
+}
+
+h1.title,
+h2.subtitle,
+p.title,
+div.caution     > *.title,
+div.important   > *.title,
+div.note        > *.title,
+div.tip         > *.title,
+div.warning     > *.title
+{
+  text-align:   center;
+}
+
+*.navheader > *,
+*.navfooter > *
+{
+  font-size:    125%;
+  font-family:  "Gill-Sans", sans-serif;
+  font-weight:  bold;
 }
 
 p.openmfg,
@@ -14,6 +34,16 @@ div.section-openmfg
   background-repeat:    repeat-y;
   background-position:  left;
   padding-left:         45px;
+}
+
+*.section-openmfg > p.openmfg,
+*.section-openmfg > div.screenshot-openmfg,
+*.section-openmfg > div.variablelist-openmfg,
+*.section-openmfg > div.varlistentry-openmfg,
+*.section-openmfg > div.section-openmfg
+{
+  background-image:     none;
+  padding-left:         0;
 }
 
 p.standard,
@@ -44,7 +74,8 @@ div.caption
 {
   margin-top:           1ex;
   margin-bottom:        2ex;
-  font-family:          "Gill Sans", sans-serif;
+  font-weight:          bold;
+  font-family:          "Gill-Sans", sans-serif;
 }
 
 div.caution,
@@ -62,29 +93,18 @@ div.warning
   display:              block;
 }
 
-h1.title,
-h2.subtitle
-{
-  text-align:   center;
-}
-
-div.caution     > *.title,
-div.important   > *.title,
-div.note        > *.title,
-div.tip         > *.title,
-div.warning     > *.title
-{
-  text-align:           center;
-}
-
-dt > span[class="term"]
+dt
 {
   font-weight:    bold;
+  padding-bottom: 0;
+  margin-bottom:  0;
 }
 
-dd
+dd > p
 {
-  margin-left:  2em;
+  padding-top:  0;
+  margin-top:   0;
+  margin-left:  -2em;
 }
 
 div.mediaobject,
@@ -93,12 +113,23 @@ div.screenshot
   text-align:   center;
 }
 
-dd > p
-{
-  margin-top:   0;
-}
-
 img
 {
   max-width: 90%;
+}
+
+table
+{
+  border-collapse:      collapse;
+  border-width:         0;
+  margin-left:          auto;
+  margin-right:         auto;
+}
+
+td
+{
+  padding-left:        0.5em;
+  padding-right:       0.5em;
+  padding-top:         0.25ex;
+  padding-bottom:      0.25ex;
 }
