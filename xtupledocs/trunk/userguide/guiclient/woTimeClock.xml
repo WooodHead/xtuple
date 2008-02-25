@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section559720" role="openmfg">
+<section id="Section559720">
   <title>Shop Floor Workbench</title>
   <para>The Shop Floor Workbench offers enhanced labor tracking and
   streamlined Work Order processing for either Operations or Production
   posting environments. Its built-in Time Clock functionality ensures precise
   run-time reporting. Workbench users are required to clock-in to and
   clock-out of Work Orders.</para>
-  <note>
+  <tip>
     <para>The clock-in requirement applies only to Shop Floor Workbench users.
     If you don"t use the Workbench, no clock-in is required.</para>
+  </tip>
+  <note role="openmfg">
+    <para>This section description includes references to both Operations and
+    Production posting. Operations posting is only allowed in the OpenMFG edition
+    of xTuple ERP.
+    </para>
   </note>
   <para>To access the Shop Floor Workbench, select the "Shop Floor Workbench"
   option. The following screen will appear:</para>
@@ -92,7 +98,7 @@
         Workbench.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="openmfg">
       <term>Operation</term>
       <listitem>
         <para>If the Workbench is configured for Operations-posting, select an

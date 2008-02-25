@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="Chapter550363">
+<chapter id="Chapter550363" role="openmfg">
   <title>Schedule Module</title>
   <para>In this chapter, we describe the Schedule module. This module enables
   you to develop your <indexterm significance="normal">
@@ -187,7 +187,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
-  <section>
+  <section role="openmfg">
     <title>Capacity Planning</title>
     <para>Capacity Planning section.</para>
     <xi:include href="guiclient/dspTimePhasedCapacityByWorkCenter.xml"
@@ -217,11 +217,11 @@
                 xpointer="element(Section530193)" />
   </section>
   <section id="Section551241" role="openmfg">
-    <title>M/S Reports</title>
+    <title>Reports</title>
     <para>The Schedule module offers a number of reports for viewing
     information related to planning and scheduling.</para>
   </section>
-  <section>
+  <section role="openmfg">
     <title>Reports</title>
     <para>Schedule Reports section.</para>
     <section>
@@ -265,7 +265,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
-  <section>
+  <section role="openmfg">
     <title>Master Information</title>
     <para>Master Information section.</para>
     <xi:include href="guiclient/plannerCodes.xml"
