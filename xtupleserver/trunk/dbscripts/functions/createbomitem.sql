@@ -2,7 +2,7 @@ CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, INTEGER, CH
                                           INTEGER, NUMERIC, NUMERIC,
                                           DATE, DATE,
                                           BOOL, INTEGER, BOOL, TEXT, CHAR, INTEGER,
-                                          INTEGER, TEXT )
+                                          INTEGER )
                            RETURNS INTEGER AS '
 DECLARE
   pBomitemid ALIAS FOR $1;
@@ -21,8 +21,7 @@ DECLARE
   pECN ALIAS FOR $14;
   pSubType ALIAS FOR $15;
   pRevisionid ALIAS FOR $16;
-  pCharId ALIAS FOR $17;
-  pCharValue ALIAS FOR $18;
+  pCharassId ALIAS FOR $17;
   _bomworksetid INTEGER;
   _temp INTEGER;
 
@@ -61,7 +60,7 @@ BEGIN
     bomitem_createwo,
     bomitem_booitem_seq_id, bomitem_schedatwooper,
     bomitem_ecn, bomitem_subtype, bomitem_moddate, bomitem_rev_id,
-    bomitem_char_id, bomitem_char_value )
+    bomitem_charass_id)
   VALUES
   ( pBomitemid, pParentItemid, pComponentItemid,
     pSeqNumber, pIssueMethod,
@@ -71,7 +70,7 @@ BEGIN
     pCreateWo,
     pBOOItemseqid, pSchedAtWooper,
     pECN, pSubType, CURRENT_DATE, pRevisionid,
-    pCharId, pCharValue );
+    pCharassId);
 
   RETURN pBomitemid;
 
@@ -82,7 +81,7 @@ CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, CHAR,
                                           INTEGER, NUMERIC, NUMERIC,
                                           DATE, DATE,
                                           BOOL, INTEGER, BOOL, TEXT, CHAR, INTEGER,
-                                          INTEGER, TEXT )
+                                          INTEGER )
                            RETURNS INTEGER AS '
 DECLARE
   pBomitemid ALIAS FOR $1;
@@ -100,8 +99,7 @@ DECLARE
   pECN ALIAS FOR $13;
   pSubType ALIAS FOR $14;
   pRevisionid ALIAS FOR $15;
-  pCharId ALIAS FOR $16;
-  pCharValue ALIAS FOR $17;
+  pCharassId ALIAS FOR $16;
   _seqNumber INTEGER;
   _bomitemid INTEGER;
 
@@ -122,7 +120,7 @@ BEGIN
                         pUomId, pQtyPer, pScrap,
                         pEffective, pExpires,
                         pCreateWo, pBOOItemseqid, pSchedAtWooper, pECN, pSubType, pRevisionid,
-                        pCharId, pCharValue ) INTO _bomitemid;
+                        pCharassId ) INTO _bomitemid;
 
   RETURN _bomitemid;
 
@@ -292,7 +290,7 @@ BEGIN
             pSeqNmber, pIssueMethod, item_inv_uom_id, pQtyPer, pScrap,
             pEffective, pExpires,
             pCreateWo, pBOOItemseqid, pSchedAtWooper, pECN, pSubType, pRevisionid,
-            NULL, NULL)
+            NULL)
     INTO _result
     FROM item
    WHERE(item_id=pParentItemid);
