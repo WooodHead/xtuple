@@ -54,18 +54,24 @@
           <secondary>selecting verification service</secondary>
         </indexterm>Verification Service</term>
       <listitem>
-        <para>Specify the Verification Service you will be using:</para>
+        <para>Specify the Credit Card payment gateway you will be
+        using:</para>
         <variablelist>
           <varlistentry>
             <term>Authorize.Net</term>
             <listitem>
-              <para></para>
+              <para>Select if you will be using the Authorize.Net payment
+              gateway for handling Credit Card transactions. Specific
+              Authorize.Net options will be enabled if you select this
+              service. </para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>YourPay</term>
             <listitem>
-              <para></para>
+              <para>Select if you will be using the YourPay payment gateway
+              for handling Credit Card transactions. Specific YourPay options
+              will be enabled if you select this service. </para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -81,26 +87,28 @@
             <term>Pre-Authorization</term>
             <listitem>
               <para>Select if you want to receive transaction confirmations
-              only when pre-authorizing.</para>
+              when pre-authorizing charges on a Credit Card.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Direct Charge</term>
             <listitem>
               <para>Select if you want to receive transaction confirmations
-              only when charging.</para>
+              when directly charging a Credit Card.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Charge Pre-Authorization</term>
             <listitem>
-              <para></para>
+              <para>Select if you want to receive transaction confirmations
+              when posting pre-authorizied charges.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Credit</term>
             <listitem>
-              <para></para>
+              <para>Select if you want to receive transaction confirmations
+              when crediting back charges on a Credit Card.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -129,13 +137,13 @@
           <varlistentry>
             <term>Charge Pre-Authorization</term>
             <listitem>
-              <para></para>
+              <para><remark>findme</remark></para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Credit</term>
             <listitem>
-              <para></para>
+              <para><remark>findme</remark></para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -143,10 +151,10 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Making changes to the "Enable Trans." setting will only impact the
-    buttons displayed under the "Payments" tab on the Sales Order header. Any
-    pending post-authorizations available to the A/R Workbench will not be
-    affected.</para>
+    <para><remark>findme</remark>Making changes to the "Enable Transaction on
+    Sales Order" setting will only impact the buttons displayed under the
+    "Payments" tab on the Sales Order header. Any pending post-authorizations
+    available to the A/R Workbench will not be affected.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -224,13 +232,14 @@
     <varlistentry>
       <term>Require Card Verification Value/Code (CVV)</term>
       <listitem>
-        <para></para>
+        <para>Select if you want to require users to enter a CVV code when
+        processing Credit Cards.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Card Verification</term>
       <listitem>
-        <para></para>
+        <para><remark>findme</remark></para>
         <variablelist>
           <varlistentry>
             <term>Do not check</term>
@@ -256,7 +265,7 @@
     <varlistentry>
       <term>Fail CVV Check If:</term>
       <listitem>
-        <para></para>
+        <para><remark>findme</remark></para>
         <variablelist>
           <varlistentry>
             <term>Code Does Not Match</term>
@@ -288,7 +297,7 @@
     <varlistentry>
       <term>Address Verification Service</term>
       <listitem>
-        <para></para>
+        <para><remark>findme</remark></para>
         <variablelist>
           <varlistentry>
             <term>Do not check</term>
@@ -314,7 +323,7 @@
     <varlistentry>
       <term>Fail AVS check if:</term>
       <listitem>
-        <para></para>
+        <para><remark>findme</remark></para>
         <variablelist>
           <varlistentry>
             <term>Address Does Not Match</term>
@@ -450,7 +459,7 @@
     <varlistentry>
       <term>Link Shield</term>
       <listitem>
-        <para></para>
+        <para><remark>findme</remark></para>
         <variablelist>
           <varlistentry>
             <term>Reject if Score Exceeds</term>
@@ -472,7 +481,8 @@
     <varlistentry>
       <term>Digital Certificate (PEM File) Location:</term>
       <listitem>
-        <para></para>
+        <para>Specify the physical location of the digital certificate (i.e.,
+        PEM file) according to your operating system:</para>
         <variablelist>
           <varlistentry>
             <term>Windows</term>
@@ -507,7 +517,7 @@
     <varlistentry>
       <term>In Test Mode, transactions should</term>
       <listitem>
-        <para></para>
+        <para><remark>findme</remark></para>
         <variablelist>
           <varlistentry>
             <term>Always Fail (Be Declined or Marked as Duplicates)</term>
@@ -547,37 +557,37 @@
     <varlistentry>
       <term>Transaction Version</term>
       <listitem>
-        <para></para>
+        <para><remark>findme</remark></para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Delimiting Character</term>
       <listitem>
-        <para></para>
+        <para><remark>findme</remark></para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Encapsulating Character</term>
       <listitem>
-        <para></para>
+        <para><remark>findme</remark></para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Duplicate Window</term>
       <listitem>
-        <para></para>
+        <para><remark>findme</remark></para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>MD5 Hash</term>
       <listitem>
-        <para></para>
+        <para><remark>findme</remark></para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Set on Gateway</term>
       <listitem>
-        <para></para>
+        <para><remark>findme</remark></para>
         <variablelist>
           <varlistentry>
             <term>Warn if MD5 check fails</term>
@@ -597,18 +607,20 @@
     <varlistentry>
       <term>Currency of Transactions</term>
       <listitem>
-        <para></para>
+        <para>Specify how you want to handle foreign Currency
+        transactions:</para>
         <variablelist>
           <varlistentry>
             <term>Same as Order</term>
             <listitem>
-              <para></para>
+              <para><remark>findme</remark></para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Always Use</term>
             <listitem>
-              <para></para>
+              <para>Select to always use the Currency specified here for all
+              Credit Card transactions.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -617,7 +629,7 @@
     <varlistentry>
       <term>Additional Options</term>
       <listitem>
-        <para></para>
+        <para><remark>findme</remark></para>
         <variablelist>
           <varlistentry>
             <term>Using Wells Fargo SecureSource</term>
