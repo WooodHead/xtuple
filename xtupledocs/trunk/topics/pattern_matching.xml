@@ -95,39 +95,61 @@
           <tbody>
             <row>
               <entry><para> . </para></entry>
-              <entry><para> Matches any single character. </para> <para>
-              Example: </para> <para> The Regular Expression b.t would match
-              bat , bet , bit , and bot , but not boot , BAT , BET , etc.
-              Because the substring might be part of a longer word, b.t would
-              also match bottle , batch , abbot , etc. </para></entry>
+              <entry><para>Matches any single character. </para><para>Example:
+              </para><itemizedlist>
+                  <listitem>
+                    <para>The Regular Expression b.t would match bat , bet ,
+                    bit , and bot , but not boot , BAT , BET , etc. Because
+                    the substring might be part of a longer word, b.t would
+                    also match bottle , batch , abbot , etc.</para>
+                  </listitem>
+                </itemizedlist></entry>
             </row>
             <row>
               <entry><para> [...] </para></entry>
-              <entry><para> Matches any single character listed between the
-              brackets. </para> <para> Examples: </para> <para> The Regular
-              Expression b[aeo]t would match bat , bet , and bot . It would
-              not match bit . </para> <para> Likewise, the expression
-              CUST[A-M] would match any strings containing the range of
-              patterns from CUSTA to CUSTM . This would include CUSTABC ,
-              CUSTA123 , CUSTBCD , CUSTB123 , etc. </para> <para> To match
-              both upper case and lower case occurrences, use the expression
-              CUST[A-Ma-m] . </para> <para> You may also combine ranges of
-              letters and numbers in the same expression. To locate product
-              categories beginning with A-B and/or 1-5, you would use PROD
-              CAT[A-B1-5] . This expression would match PRODCATABC ,
-              PRODCATB123 , PRODCAT1ABC , PRODCAT2123 , etc. </para></entry>
+              <entry><para>Matches any single character listed between the
+              brackets. </para><para>Examples: </para><itemizedlist>
+                  <listitem>
+                    <para>The Regular Expression b[aeo]t would match bat , bet
+                    , and bot . It would not match bit . </para>
+                  </listitem>
+                  <listitem>
+                    <para>Likewise, the expression CUST[A-M] would match any
+                    strings containing the range of patterns from CUSTA to
+                    CUSTM . This would include CUSTABC , CUSTA123 , CUSTBCD ,
+                    CUSTB123 , etc. </para>
+                  </listitem>
+                  <listitem>
+                    <para>To match both upper case and lower case occurrences,
+                    use the expression CUST[A-Ma-m] . </para>
+                  </listitem>
+                  <listitem>
+                    <para>You may also combine ranges of letters and numbers
+                    in the same expression. To locate product categories
+                    beginning with A-B and/or 1-5, you would use PROD
+                    CAT[A-B1-5] . This expression would match PRODCATABC ,
+                    PRODCATB123 , PRODCAT1ABC , PRODCAT2123 , etc. </para>
+                  </listitem>
+                </itemizedlist></entry>
             </row>
             <row>
               <entry><para> [^...] </para></entry>
-              <entry><para> Matches any single character except those listed
-              between the brackets. </para> <para> Examples: </para> <para>
-              Functions like the previous metacharacter, except that here the
-              caret symbol "^" excludes characters from the pattern. For
-              example, the expression b[^ae]t would match the substrings bit
-              and bot , but not bat and bet . </para> <para> To locate all
-              product categories except those at the end of the alphabet, you
-              would use PRODCAT[^X-Z] . This expression would return the same
-              results as PROD CAT[A-W] . </para></entry>
+              <entry><para>Matches any single character except those listed
+              between the brackets. </para><para>Examples:</para><itemizedlist>
+                  <listitem>
+                    <para>Functions like the previous metacharacter, except
+                    that here the caret symbol "^" excludes characters from
+                    the pattern. For example, the expression b[^ae]t would
+                    match the substrings bit and bot , but not bat and bet
+                    .</para>
+                  </listitem>
+                  <listitem>
+                    <para>To locate all product categories except those at the
+                    end of the alphabet, you would use PRODCAT[^X-Z] . This
+                    expression would return the same results as PROD CAT[A-W].
+                    </para>
+                  </listitem>
+                </itemizedlist></entry>
             </row>
           </tbody>
         </tgroup>
@@ -146,63 +168,88 @@
           <tbody>
             <row>
               <entry><para> ? </para></entry>
-              <entry><para> Matches the preceding element zero or one time.
-              </para> <para> Definition: The term "element" describes both
+              <entry><para>Matches the preceding element zero or one time.
+              </para><para>Definition: The term "element" describes both
               single characters (" A ") and also ranges or lists of characters
-              (" [A-Z] ", " [acfrg] ", " [^2-7] ", etc.). </para> <para>
-              Examples: </para> <para> The expression bo?ut would match two
-              separate substrings: those containing one instance of the
-              preceding "o" and those containing zero instances of the
-              preceding "o". As a result, the following matches would be
-              returned: bout , but , about , butter , etc. </para> <para>
-              CLASS[A-C]? would match any string containing the substrings
-              CLASSA ..., CLASSB ..., CLASSC .... Because zero instances of
-              [A-C ] would also be included, matches would be returned for any
-              string containing the root CLASS -- for example, CLASS123 ,
-              CLASSDEF , etc. </para></entry>
+              (" [A-Z] ", " [acfrg] ", " [^2-7] ", etc.).
+              </para><para>Examples: </para><itemizedlist>
+                  <listitem>
+                    <para>The expression bo?ut would match two separate
+                    substrings: those containing one instance of the preceding
+                    "o" and those containing zero instances of the preceding
+                    "o". As a result, the following matches would be returned:
+                    bout , but , about , butter , etc. </para>
+                  </listitem>
+                  <listitem>
+                    <para>CLASS[A-C]? would match any string containing the
+                    substrings CLASSA ..., CLASSB ..., CLASSC .... Because
+                    zero instances of [A-C ] would also be included, matches
+                    would be returned for any string containing the root CLASS
+                    -- for example, CLASS123 , CLASSDEF , etc.</para>
+                  </listitem>
+                </itemizedlist></entry>
             </row>
             <row>
               <entry><para> * </para></entry>
-              <entry><para> Matches the preceding element zero or more times.
-              </para> <para> Examples: </para> <para> Use a period followed by
-              an asterisk (".*") to match all existing patterns. For example,
-              enter .* to show all Customer Types where pattern matching by
-              Cus tomer Type is called for. </para> <para> The expression
-              CUST* would return Customer Type records for all Customer Types
-              containing the substring CUST . Records would also be returned
-              for all Customer Types containing the substring CUS , since the
-              asterisk also matches the preceding element (in this case, the
-              character "T") zero times. To avoid matching the substring CUS ,
-              insert a period before the asterisk. The expression CUST.* will
-              match all strings containing CUST , but not all strings
-              containing CUS . </para></entry>
+              <entry><para>Matches the preceding element zero or more times.
+              </para><para>Examples:</para><itemizedlist>
+                  <listitem>
+                    <para>Use a period followed by an asterisk (".*") to match
+                    all existing patterns. For example, enter .* to show all
+                    Customer Types where pattern matching by Cus tomer Type is
+                    called for. </para>
+                  </listitem>
+                  <listitem>
+                    <para>The expression CUST* would return Customer Type
+                    records for all Customer Types containing the substring
+                    CUST . Records would also be returned for all Customer
+                    Types containing the substring CUS , since the asterisk
+                    also matches the preceding element (in this case, the
+                    character "T") zero times. To avoid matching the substring
+                    CUS , insert a period before the asterisk. The expression
+                    CUST.* will match all strings containing CUST , but not
+                    all strings containing CUS </para>
+                  </listitem>
+                </itemizedlist></entry>
             </row>
             <row>
               <entry><para> + </para></entry>
-              <entry><para> Matches the preceding element one or more times.
-              </para> <para> Example: </para> <para> The Regular Expression
-              PRODCAT10+ would match the "0" at the end of the pattern one or
-              more times. Product Categories beginning with the numbers "10",
-              "100", "1000", etc. would be found, as in PRODCAT10ABC ,
-              PRODCAT100ABC , PRODCAT1000ABC , and so on. </para></entry>
+              <entry><para>Matches the preceding element one or more times.
+              </para><para>Example:</para><itemizedlist>
+                  <listitem>
+                    <para>The Regular Expression PRODCAT10+ would match the
+                    "0" at the end of the pattern one or more times. Product
+                    Categories beginning with the numbers "10", "100", "1000",
+                    etc. would be found, as in PRODCAT10ABC , PRODCAT100ABC ,
+                    PRODCAT1000ABC , and so on. </para>
+                  </listitem>
+                </itemizedlist></entry>
             </row>
             <row>
               <entry><para> {num} </para></entry>
-              <entry><para> Matches the preceding element num times. </para>
-              <para> Example: </para> <para> The expression CLASSA{3} would
-              match the "A" at the end of the pattern three times. The
-              following Class Codes would be found: CLASSAAA1 , CLASSAAA2 ,
-              CLASSAAA3 , etc. </para></entry>
+              <entry><para>Matches the preceding element num times.
+              </para><para>Example:</para><itemizedlist>
+                  <listitem>
+                    <para>The expression CLASSA{3} would match the "A" at the
+                    end of the pattern three times. The following Class Codes
+                    would be found: CLASSAAA1 , CLASSAAA2 , CLASSAAA3 , etc.
+                    </para>
+                  </listitem>
+                </itemizedlist></entry>
             </row>
             <row>
               <entry><para> {min,max} </para></entry>
-              <entry><para> Matches the preceding element at least min times,
-              but not more than max times. </para> <para> Example: </para>
-              <para> The expression CLASSA{2,3} would match the "A" at the end
-              of the pattern a minimum of two times and a maximum of three
-              times. The following Class Codes would be found: CLASSAA1 ,
-              CLASSAA2 , etc. and also CLASSAAA 1, CLASSAAA2 , etc.
-              </para></entry>
+              <entry><para>Matches the preceding element at least min times,
+              but not more than max times.
+              </para><para>Example:</para><itemizedlist>
+                  <listitem>
+                    <para>The expression CLASSA{2,3} would match the "A" at
+                    the end of the pattern a minimum of two times and a
+                    maximum of three times. The following Class Codes would be
+                    found: CLASSAA1 , CLASSAA2 , etc. and also CLASSAAA 1,
+                    CLASSAAA2 , etc. </para>
+                  </listitem>
+                </itemizedlist></entry>
             </row>
           </tbody>
         </tgroup>
@@ -218,27 +265,35 @@
           <tbody>
             <row>
               <entry><para> ^ </para></entry>
-              <entry><para> Matches at the start of the line. </para> <para>
-              Example: </para> <para> Use the caret symbol "^" to specify that
-              the substring you are trying to match occurs specifically at the
-              beginning of a line. For example, the expression ^ITEM would
-              match all lines beginning with the characters "ITEM", as in
-              ITEM100 , ITEMABC , etc. The expression ^ITEM would not match
-              the following, since "ITEM" does not occur at the beginning of
-              these lines: MFGITEM , PURCHITEM , REFITEM , etc.
-              </para></entry>
+              <entry><para>Matches at the start of the line.
+              </para><para>Example:</para><itemizedlist>
+                  <listitem>
+                    <para>Use the caret symbol "^" to specify that the
+                    substring you are trying to match occurs specifically at
+                    the beginning of a line. For example, the expression ^ITEM
+                    would match all lines beginning with the characters
+                    "ITEM", as in ITEM100 , ITEMABC , etc. The expression
+                    ^ITEM would not match the following, since "ITEM" does not
+                    occur at the beginning of these lines: MFGITEM , PURCHITEM
+                    , REFITEM , etc.</para>
+                  </listitem>
+                </itemizedlist></entry>
             </row>
             <row>
               <entry><para> $ </para></entry>
-              <entry><para> Matches at the end of the line. </para> <para>
-              Example: </para> <para> Use the dollar symbol "$" to specify
-              that the substring you are trying to match occurs specifically
-              at the end of a line. For example, the expression 999$ would
-              match all lines ending with the characters "999", as in
-              ITEM100999 , ITEM200999 , ITEM300999 , etc. The expression 999$
-              would not match the following, since "999" does not occur at the
-              end of these lines: ITEM 999123, ITEM999ABC , etc.
-              </para></entry>
+              <entry><para>Matches at the end of the line.
+              </para><para>Example:</para><itemizedlist>
+                  <listitem>
+                    <para>Use the dollar symbol "$" to specify that the
+                    substring you are trying to match occurs specifically at
+                    the end of a line. For example, the expression 999$ would
+                    match all lines ending with the characters "999", as in
+                    ITEM100999 , ITEM200999 , ITEM300999 , etc. The expression
+                    999$ would not match the following, since "999" does not
+                    occur at the end of these lines: ITEM 999123, ITEM999ABC ,
+                    etc. </para>
+                  </listitem>
+                </itemizedlist></entry>
             </row>
           </tbody>
         </tgroup>

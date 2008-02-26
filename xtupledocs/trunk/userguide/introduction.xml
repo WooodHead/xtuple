@@ -9,24 +9,21 @@
   following xTuple ERP applications:</para>
   <itemizedlist>
     <listitem>
-      <para>xTuple ERP: PostBooks Free Edition
-      <inlinemediaobject>
-        <imageobject>
-              <imagedata fileref="css/pbicon.jpg" />
-        </imageobject>
+      <para>xTuple ERP: PostBooks Free Edition <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="css/pbicon.jpg" />
+          </imageobject>
         </inlinemediaobject></para>
     </listitem>
     <listitem>
-      <para>xTuple ERP: Standard Edition
-      <inlinemediaobject>
-        <imageobject>
+      <para>xTuple ERP: Standard Edition <inlinemediaobject>
+          <imageobject>
             <imagedata fileref="css/stdicon.jpg" />
           </imageobject>
         </inlinemediaobject></para>
     </listitem>
     <listitem>
-      <para>xTuple ERP: OpenMFG Edition
-        <inlinemediaobject>
+      <para>xTuple ERP: OpenMFG Edition <inlinemediaobject>
           <imageobject>
             <imagedata fileref="css/omfgicon.jpg" />
           </imageobject>
@@ -34,12 +31,12 @@
     </listitem>
   </itemizedlist>
   <para>Since all three applications share a common code base, it makes sense
-  that they also share a User Guide. OpenMFG contains features
-  Standard Edition does not, and Standard Edition contains features that
-  PostBooks does not. To highlight these differences, we have placed
-  indicators in the User Guide. Whenever you see one of these
-  markers, you'll know the functionality you're reading about exists in
-  OpenMFG or Standard Edition but not in PostBooks.</para>
+  that they also share a User Guide. OpenMFG contains features Standard
+  Edition does not, and Standard Edition contains features that PostBooks does
+  not. To highlight these differences, we have placed indicators in the User
+  Guide. Whenever you see one of these markers, you'll know the functionality
+  you're reading about exists in OpenMFG or Standard Edition but not in
+  PostBooks.</para>
   <para>For more information on the differences between the xTuple ERP,
   including licensing options, please visit <ulink
   url="http://www.xtuple.com/comparison">www.xtuple.com/comparison</ulink>.</para>
@@ -104,6 +101,22 @@
       options:</para>
       <variablelist>
         <varlistentry>
+          <term>Log in to registered xTuple demo account</term>
+          <listitem>
+            <para>Select this option if you are logging in to a demo database
+            hosted on an xTuple server. If selected, the OPTIONS button will
+            be disabled.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Log in to server I specify</term>
+          <listitem>
+            <para>Select this option if you are logging in to any database
+            other than an xTuple demo database. If selected, you can specify
+            your connection details using the OPTIONS button.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
           <term><indexterm significance="normal">
               <primary>usernames</primary>
               <secondary>required at log in</secondary>
@@ -159,7 +172,9 @@
         <varlistentry>
           <term>OPTIONS</term>
           <listitem>
-            <para>Select to verify or change your connection settings.</para>
+            <para>Select to verify or change your connection settings. This
+            button will be disabled if logging in to an xTuple demo
+            database.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -338,6 +353,15 @@
                 <term>xTuple.org Home</term>
                 <listitem>
                   <para>Select to launch the xTuple.org home page.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry role="postbooks">
+                <term>Register</term>
+                <listitem>
+                  <para>PostBooks users are given the opportunity to register
+                  with xTuple using this menu option. Registration gives users
+                  access to additional resources not available to unregistered
+                  users--for example, extra documentation, videos, etc.</para>
                 </listitem>
               </varlistentry>
               <varlistentry>
@@ -957,7 +981,7 @@
                 <entry><para>+num</para></entry>
                 <entry><para>The "+" symbol followed by a whole number will
                 enter the date occurring num number of days after today's
-                date:</para> <para>Example:</para> <para>Entering "+1" would
+                date:</para><para>Example:</para><para>Entering "+1" would
                 give you tomorrow's date, "+2" would give you the
                 day-after-tomorrow, etc.</para></entry>
               </row>
@@ -965,29 +989,29 @@
                 <entry><para>-num</para></entry>
                 <entry><para>The "-" symbol followed by a whole number will
                 enter the date occurring num number of days before today's
-                date:</para> <para>Example:</para> <para>Entering "-1" would
+                date:</para><para>Example:</para><para>Entering "-1" would
                 give you yesterday's date, "-2" would give you the
                 day-before-yesterday, etc.</para></entry>
               </row>
               <row>
                 <entry><para>num</para></entry>
                 <entry><para>A standalone number will enter the day of the
-                current month represented by that number.</para>
-                <para>Examples:</para> <para>Entering "12" in the month of
-                March, 2003 would give you March 12, 2003. Similarly, the
-                number "23" would give you March 23, 2003, etc.</para>
-                <para>Any number from 1 to 99 may be entered. If the number
-                entered is greater than the last day of the current month, the
-                date will automatically default to the last day of the month.
-                In other words, entering the numbers "99" or "75" or "32"
-                would automatically enter the last day of the current
+                current month represented by that
+                number.</para><para>Examples:</para><para>Entering "12" in the
+                month of March, 2003 would give you March 12, 2003. Similarly,
+                the number "23" would give you March 23, 2003,
+                etc.</para><para>Any number from 1 to 99 may be entered. If
+                the number entered is greater than the last day of the current
+                month, the date will automatically default to the last day of
+                the month. In other words, entering the numbers "99" or "75"
+                or "32" would automatically enter the last day of the current
                 month.</para></entry>
               </row>
               <row>
                 <entry><para>#num</para></entry>
                 <entry><para>The "#" symbol followed by a whole number will
                 enter the day of the current Julian calendar year represented
-                by that number.</para> <para>Examples:</para> <para>Entering
+                by that number.</para><para>Examples:</para><para>Entering
                 "#1" in the year 2003 would give you January 1, 2003.
                 Similarly, "#100" would give you April 10, 2003. Entering
                 "#365" would give you December 31, 2003.</para></entry>
