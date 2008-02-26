@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section970413">
+<section>
   <title><indexterm significance="normal">
       <primary>configuration</primary>
       <secondary>for credit cards</secondary>
@@ -20,8 +20,8 @@
       </mediaobject>
     </screenshot></para>
   <note>
-    <para>The system currently supports only the YourPay Verification
-    Service.</para>
+    <para>The system currently supports only the YourPay and Authorize.Net
+    verification services.</para>
   </note>
   <para>When establishing the general settings for your Credit Card
   configuration, you are presented with the following options:</para>
@@ -54,9 +54,21 @@
           <secondary>selecting verification service</secondary>
         </indexterm>Verification Service</term>
       <listitem>
-        <para>Specify the Verification Service you will be using. The xTuple
-        applications currently support the YourPay Verification
-        Service.</para>
+        <para>Specify the Verification Service you will be using:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Authorize.Net</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>YourPay</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -66,61 +78,64 @@
         messages:</para>
         <variablelist>
           <varlistentry>
-            <term>None</term>
-            <listitem>
-              <para>Select if you do not want to receive transaction
-              confirmation messages.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Both</term>
-            <listitem>
-              <para>Select if you want to receive transaction confirmation
-              messages for both pre-authorizations and charges.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Authorize</term>
+            <term>Pre-Authorization</term>
             <listitem>
               <para>Select if you want to receive transaction confirmations
               only when pre-authorizing.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Charge</term>
+            <term>Direct Charge</term>
             <listitem>
               <para>Select if you want to receive transaction confirmations
               only when charging.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Charge Pre-Authorization</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit</term>
+            <listitem>
+              <para></para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Enable Trans.</term>
+      <term>Enable Transaction on Sales Order</term>
       <listitem>
         <para>Select which of the following options should be enabled under
         the Payments tab of the Sales Order header.</para>
         <variablelist>
           <varlistentry>
-            <term>Authorize</term>
+            <term>Pre-Authorization</term>
             <listitem>
               <para>If selected, only the AUTHORIZE button will be
               enabled.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Charge</term>
+            <term>Direct Charge</term>
             <listitem>
               <para>If selected, only the CHARGE button will be
               enabled.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Both</term>
+            <term>Charge Pre-Authorization</term>
             <listitem>
-              <para>If selected, both the AUTHORIZE and CHARGE buttons will be
-              enabled.</para>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit</term>
+            <listitem>
+              <para></para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -182,6 +197,153 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>Fraud detection methods vary depending on the payment gateway used.
+  Some services require fraud settings to be configured on the gateway server.
+  Other services, like YourPay, require the client software to pass the fraud
+  settings to the gateway. To configure client-side fraud detections settings,
+  if required, select the "Fraud Detection" tab. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureCC_fraudPage.png" />
+        </imageobject>
+        <caption>Configure Credit Card Fraud Detection</caption>
+      </mediaobject>
+    </screenshot><tip>
+      <para>The YourPay payment gateway requires fraud detection settings to
+      be configured at the client level. So if YourPay is the service being
+      used, the options on the "Fraud Detection" tab will be enabled--and
+      selections should be made. On the other hand, these options will be
+      disabled if the Authorize.Net gateway is being used. Fraud detection
+      settings for Authorize.Net must be configured on the Merchant
+      Interface.</para>
+    </tip>When configuring client-side fraud detection settings, if required,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Require Card Verification Value/Code (CVV)</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Card Verification</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Do not check</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Warn if failure</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Reject if failure</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Fail CVV Check If:</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Code Does Not Match</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>CVV Was Not Processed</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Card Had No Code</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Card Issuer Is Not Certified</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Address Verification Service</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Do not check</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Warn on Failed AVS Check</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Reject on Failed AVS Check</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Fail AVS check if:</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Address Does Not Match</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Address Comparison Not Available</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>ZIP Does Not Match</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>ZIP Comparison Not Available</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To establish the server settings for your Credit Card configuration,
   <indexterm significance="normal">
       <primary>servers</primary>
@@ -191,7 +353,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/configureCC_server.png" />
+          <imagedata fileref="images/configureCC_serverPage.png" />
         </imageobject>
         <caption>Configure Credit Card Server Options</caption>
       </mediaobject>
@@ -260,6 +422,10 @@
             <term>Password</term>
             <listitem>
               <para>Specify the password for your proxy server.</para>
+              <note>
+                <para>For Authorize.Net customers, a transaction key will be
+                requested instead of a password.</para>
+              </note>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -267,49 +433,32 @@
     </varlistentry>
   </variablelist>
   <para>To establish the service option settings for your Credit Card
-  configuration, select the "Service Options" tab. The following screen will
-  appear:</para>
+  configuration, select the "Service Options" tab. The options will vary
+  depending on the payment gateway being used. If YourPay is being used, the
+  following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/configureCC_other.png" />
+          <imagedata fileref="images/configureCC_optionsPage_yourPayStack.png" />
         </imageobject>
-        <caption>Configure Credit Card Service Options</caption>
+        <caption>YourPay Service Options</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When establishing the service option settings for your Credit Card
+  <para>When establishing the service option settings for your YourPay
   configuration, you are presented with the following options:</para>
-  <note>
-    <para>The examples shown in this section correspond to the YourPay
-    Verification Service requirements. Different options would be shown if a
-    different Verification Service were specified.</para>
-  </note>
   <variablelist>
     <varlistentry>
-      <term>Windows PEM Location</term>
+      <term>Link Shield</term>
       <listitem>
-        <para>Specify the directory path any Windows machine on your system
-        would use to access the YourPay PEM file. The PEM file may be stored
-        locally for use by individual machines, or on a network drive for
-        wider distribution.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Linux PEM Location</term>
-      <listitem>
-        <para>Specify the directory path any Linux machine on your system
-        would use to access the YourPay PEM file. The PEM file may be stored
-        locally for use by individual machines, or on a network drive for
-        wider distribution.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Mac PEM Location</term>
-      <listitem>
-        <para>Specify the directory path any Mac machine on your system would
-        use to access the YourPay PEM file. The PEM file may be stored locally
-        for use by individual machines, or on a network drive for wider
-        distribution.</para>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Reject if Score Exceeds</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -320,8 +469,167 @@
         Service.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Digital Certificate (PEM File) Location:</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Windows</term>
+            <listitem>
+              <para>Specify the directory path any Windows machine on your
+              system would use to access the YourPay PEM file. The PEM file
+              may be stored locally for use by individual machines, or on a
+              network drive for wider distribution.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Linux</term>
+            <listitem>
+              <para>Specify the directory path any Linux machine on your
+              system would use to access the YourPay PEM file. The PEM file
+              may be stored locally for use by individual machines, or on a
+              network drive for wider distribution.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Mac</term>
+            <listitem>
+              <para>Specify the directory path any Mac machine on your system
+              would use to access the YourPay PEM file. The PEM file may be
+              stored locally for use by individual machines, or on a network
+              drive for wider distribution.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>In Test Mode, transactions should</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Always Fail (Be Declined or Marked as Duplicates)</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Sometimes Fail</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Always Succeed If Possible</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
   </variablelist>
-  <para><indexterm significance="normal">
+  <para>If Authorize.Net is being used, the following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureCC_optionsPage_authorizeDotNetStack.png" />
+        </imageobject>
+        <caption>Authorize.Net Service Options</caption>
+      </mediaobject>
+    </screenshot>When establishing the service option settings for your
+  Authorize.net configuration, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Transaction Version</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Delimiting Character</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Encapsulating Character</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Duplicate Window</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>MD5 Hash</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Set on Gateway</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Warn if MD5 check fails</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Fail if MD5 check fails</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Currency of Transactions</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Same as Order</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Always Use</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Additional Options</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Using Wells Fargo SecureSource</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm>
       <primary>credit cards</primary>
       <secondary>key files and</secondary>
     </indexterm>To establish the key file settings for your Credit Card
@@ -330,7 +638,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/configureCC_TabPage.png" />
+          <imagedata fileref="images/configureCC_keyPage.png" />
         </imageobject>
         <caption>Configure Credit Card Key File Options</caption>
       </mediaobject>
