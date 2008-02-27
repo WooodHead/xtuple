@@ -201,12 +201,7 @@ BEGIN
     VALUES
     ( _shipheadid, pitemid, pQty,
       _timestamp, CURRENT_USER, FALSE,
-      _value, 
-      CASE WHEN _invhistid = -1 THEN
-        NULL
-      ELSE 
-        _invhistid
-      END );
+      _value, _invhistid );
 
     UPDATE coitem
        SET coitem_qtyreserved = noNeg(coitem_qtyreserved - pQty)
