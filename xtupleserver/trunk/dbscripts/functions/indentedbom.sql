@@ -34,7 +34,8 @@ BEGIN
                    item_id, bomitem_createwo,
                    itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper, bomitem_scrap, bomitem_issuemethod,
                    bomitem_effective, bomitem_expires,
-                   stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost
+                   stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost,
+                   bomitem_char_id, bomitem_value
   FROM bomitem(pItemId, pRevisionid), item
   WHERE ( (bomitem_item_id=item_id) ) LOOP
 
@@ -46,14 +47,16 @@ BEGIN
       bomwork_item_id, bomwork_createwo,
       bomwork_qtyper, bomwork_scrap, bomwork_issuemethod,
       bomwork_effective, bomwork_expires,
-      bomwork_stdunitcost, bomwork_actunitcost )
+      bomwork_stdunitcost, bomwork_actunitcost,
+      bomwork_char_id, bomwork_value )
     VALUES
     ( _bomworkid, _indexid, -1, 1,
       0, _r.bomitem_seqnumber,
       _r.item_id, _r.bomitem_createwo,
       _r.qtyper, _r.bomitem_scrap, _r.bomitem_issuemethod,
       _r.bomitem_effective, _r.bomitem_expires,
-      _r.standardcost, _r.actualcost );
+      _r.standardcost, _r.actualcost,
+      _r.bomitem_char_id, _r.bomitem_value );
 
 --  Explode the components of the current component
     PERFORM explodeBOM(_r.item_id, _bomworkid, 1);

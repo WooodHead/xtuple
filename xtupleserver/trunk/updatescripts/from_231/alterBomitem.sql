@@ -1,5 +1,6 @@
 BEGIN;
 
-ALTER TABLE bomitem ADD COLUMN bomitem_charass_id INTEGER REFERENCES charass (charass_id);
+ALTER TABLE bomitem ADD COLUMN bomitem_char_id INTEGER REFERENCES char (char_id);
+ALTER TABLE bomitem ADD COLUMN bomitem_value TEXT;
 
 COMMIT;
