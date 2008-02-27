@@ -1,4 +1,5 @@
 #!/bin/sh
+# Copyright (c) 2008 by OpenMFG, LLC, d/b/a/ xTuple . All rights reserved.
 PROG=`basename $0`
 
 # lets setup some variables that will make it easier to change the script
