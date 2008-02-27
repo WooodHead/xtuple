@@ -1,4 +1,7 @@
 <?xml version='1.0'?>
+<!--
+   Copyright (c) 2008 by OpenMFG, LLC, d/b/a/ xTuple . All rights reserved.
+ -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
  <xsl:import href="http://docbook.sourceforge.net/release/xsl/current/html/chunk.xsl" />
  <xsl:include href="xtupletitlepages.xsl" />
@@ -36,15 +39,27 @@
 </xsl:template>
 
 <xsl:template name="user.header.navigation">
-  <div class="xtuplefooter">
-    <table>
+  <div class="xtupleheader">
+    <table width="100%">
       <tr>
-        <td>
+        <td width="20%" align="left">
           <a>
+            <xsl:if test="self::chapter/preceding-sibling::*[1]">
+              <xsl:attribute name="href">
+                <xsl:call-template name="href.target">
+                  <xsl:with-param name="object"
+                                  select="self::chapter/preceding-sibling::*[1]"/>
+                  <xsl:with-param name="context" select="."/>
+                </xsl:call-template>
+              </xsl:attribute>
+              Previous Chapter
+            </xsl:if>
+
             <xsl:if test="ancestor::chapter">
               <xsl:attribute name="href">
                 <xsl:call-template name="href.target">
-                  <xsl:with-param name="object" select="ancestor::chapter"/>
+                  <xsl:with-param name="object"
+                                  select="ancestor::chapter"/>
                   <xsl:with-param name="context" select="."/>
                 </xsl:call-template>
               </xsl:attribute>
@@ -52,13 +67,13 @@
             </xsl:if>
           </a>
         </td>
-        <td>
+        <td width="60%" align="center">
         <!--
-          Copyright &#169; 1998-2008 by xTuple. All rights reserved.
+          placeholder for centered stuff
         -->
         </td>
-        <td>
-          <xsl:if test="(ancestor::chapter)/following-sibling::*[1]">
+        <td width="20%" align="right">
+          <xsl:if test="(ancestor-or-self::chapter)/following-sibling::*[1]">
             <a>
               <xsl:attribute name="href">
                 <xsl:call-template name="href.target">
