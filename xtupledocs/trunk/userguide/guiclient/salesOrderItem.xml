@@ -47,6 +47,19 @@
         Customer, depending on how Pricing Schedules are implemented at your
         site. Once an Item Number is entered, the Inventory Unit of Measure
         and Item description will automatically appear.</para>
+        <note>
+          <para><indexterm significance="normal">
+              <primary>job items</primary>
+              <secondary>creating demand for</secondary>
+            </indexterm><indexterm significance="normal">
+              <primary>sales orders</primary>
+              <secondary>job items and</secondary>
+            </indexterm>If the Item is a Job Item, a linked Work Order will
+          automatically be created. Creating a Sales Order for Job Item is the
+          only way to create a Job Item Work Order. Production for Job Item
+          Work Orders is posted automatically when the linked Sales Order Item
+          is linked to shipping.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>

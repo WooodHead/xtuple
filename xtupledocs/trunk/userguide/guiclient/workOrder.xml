@@ -62,6 +62,21 @@
       <listitem>
         <para>Enter the Item Number of the manufactured Item you want to
         create a Work Order for.</para>
+        <note>
+          <para><indexterm significance="normal">
+              <primary>job items</primary>
+              <secondary>work orders for</secondary>
+            </indexterm><indexterm significance="normal">
+              <primary>work orders</primary>
+              <secondary>for job items</secondary>
+            </indexterm>Work Orders for Job Items are created exclusively by
+          Sales Order demand. It is not possible to create a Job Item Work
+          Order using the Work Order screen. Similarly, production posting for
+          Job Items occurs in a unique way. Production for Job Item Work
+          Orders is posted when the Sales Order which demanded the Job Item is
+          issued to Shipping. This is the only way to post production for Job
+          Item Work Orders.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>

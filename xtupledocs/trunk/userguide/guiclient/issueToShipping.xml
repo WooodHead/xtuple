@@ -8,9 +8,23 @@
       <secondary>issuing stock to</secondary>
     </indexterm>Issue Stock to Shipping</title>
   <para>Once Sales Order (or Transfer Order) Line Items are ready to be
-  shipped, they must be issued to Shipping. To issue Stock to Shipping, select
-  the "Issue Stock to Shipping" option. The following screen will
-  appear:</para>
+  shipped, they must be issued to Shipping. Shipping is a two-step process.
+  Quantity is first issued to Shipping, and then it is shipped.</para>
+  <note>
+    <para><indexterm significance="normal">
+        <primary>job items</primary>
+        <secondary>posting production for</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>shipping</primary>
+        <secondary>job items and</secondary>
+      </indexterm>For Job Items linked to Sales Order Items, the act of
+    issuing to Shipping serves a dual purpose. On the one hand, quantity is
+    issued to Shipping. But at the same time, production for the linked Job
+    Item Work Order is also posted. Issuing to Shipping is the only way to
+    post production for a Job Item Work Order.</para>
+  </note>
+  <para>To issue Stock to Shipping, select the "Issue Stock to Shipping"
+  option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
