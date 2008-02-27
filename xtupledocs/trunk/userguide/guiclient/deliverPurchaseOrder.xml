@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section932714" role="standard">
-  <title>Schedule P/O for Email Delivery</title>
-  <para>To schedule a Purchase Order for email delivery, select the "Schedule
-  P/O for Email Delivery" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <title>E-mail Purchase Order Form</title>
+  <para>To email a Purchase Order to a Vendor, select the "E-mail Purchase
+  Order Form" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/deliverPurchaseOrder.png"/>
+          <imagedata fileref="images/deliverPurchaseOrder.png" />
         </imageobject>
-        <caption>Schedule Purchase Order for Email
-        Delivery</caption>
+        <caption>E-mail Purchase Order Form</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When scheduling a Purchase Order for email delivery, you are presented
-  with the following options:</para>
+    </screenshot></para>
+  <para>When emailing a Purchase Order to a Vendor, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>P/O #</term>
@@ -29,7 +27,7 @@
   <note>
     <para>Vendors are set up to receive email deliveries of information using
     the Electronic Data Interchange (EDI) tab on the Vendor master. For more
-    information, see <xref linkend="Anchor55000"/>.</para>
+    information, see <xref linkend="Anchor55000" />.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -49,6 +47,15 @@
         been set up to receive email, then the default email address for that
         Vendor will be automatically pre-populated here. Because this is an
         editable field, you may change the email address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cc</term>
+      <listitem>
+        <para>If EDI is set up for the Vendor, then the default carbon copy
+        (i.e., Cc:) line found on the Vendor master will be automatically
+        pre-populated here. Because this is an editable field, you may also
+        modify the Cc: line.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -103,7 +110,8 @@
       <term>SUBMIT</term>
       <listitem>
         <para>Select to submit requested action to the Batch Manager for
-        processing. For additional information, see <xref linkend="Anchor61009"/>.</para>
+        processing. For additional information, see <xref
+        linkend="Anchor61009" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>

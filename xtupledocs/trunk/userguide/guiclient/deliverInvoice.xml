@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section657140">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>invoices</primary>
       <secondary>email delivery of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -11,22 +11,19 @@
     </indexterm> <indexterm significance="normal">
       <primary>EDI</primary>
       <see>electronic data interchange</see>
-    </indexterm>Schedule Invoice for Email Delivery</title>
-  <para>To schedule an Invoice for email delivery, select the "Schedule
-  Invoice for Email Delivery" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+    </indexterm>E-mail Invoice Form</title>
+  <para>To send a copy of a Customer Invoice by email, select the "E-mail
+  Invoice Form" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/deliverInvoice.png"/>
+          <imagedata fileref="images/deliverInvoice.png" />
         </imageobject>
-        <caption>Schedule Invoice for Email
-        Delivery</caption>
+        <caption>E-mail Invoice Form</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When scheduling an Invoice for email delivery, you are presented with
-  the following options:</para>
+    </screenshot></para>
+  <para>When sending a copy of a Customer Invoice by email, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Invoices</term>
@@ -58,7 +55,16 @@
         <para>If the Customer associated with the selected Invoice has been
         set up to receive email, then the default email address for that
         Customer will be automatically pre-populated here. Because this is an
-        editable field, you may change the email address.</para>
+        editable field, you may also change the email address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cc</term>
+      <listitem>
+        <para>If EDI is set up for the Customer, then the default carbon copy
+        (i.e., Cc:) line found on the Customer master will be automatically
+        pre-populated here. Because this is an editable field, you may also
+        modify the Cc: line.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -66,7 +72,7 @@
       <listitem>
         <para>If EDI is set up for the Customer, then the default subject line
         found on the Customer master will be automatically pre-populated here.
-        Because this is an editable field, you may modify the subject
+        Because this is an editable field, you may also modify the subject
         line.</para>
       </listitem>
     </varlistentry>
@@ -75,11 +81,11 @@
       <listitem>
         <para>If EDI is set up for the Customer, then the default filename
         found on the Customer master will be automatically pre-populated here.
-        Because this is an editable field, you may modify the filename line.
-        XML tags may be used in this field to dynamically generate filename
-        text. In the example shown in the screenshot above, the filename will
-        include the Document Type (i.e., Invoice) and the Document Number
-        (i.e., Invoice Number).</para>
+        Because this is an editable field, you may also modify the filename
+        line. XML tags may be used in this field to dynamically generate
+        filename text. In the example shown in the screenshot above, the
+        filename will include the Document Type (i.e., Invoice) and the
+        Document Number (i.e., Invoice Number).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -87,8 +93,8 @@
       <listitem>
         <para>If EDI is set up for the Customer, then the default email body
         found on the Customer master will be automatically pre-populated here.
-        This is a scrolling text field with word-wrapping. You may edit the
-        default email body.</para>
+        This is a scrolling text field with word-wrapping. You may also edit
+        the default email body.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

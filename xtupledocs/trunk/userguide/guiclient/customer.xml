@@ -543,10 +543,9 @@
       <listitem>
         <para>Select to specify an alternate grace period for the specific
         Customer. If selected, this grace period will override the global
-        grace period used when the late credit status utility is run.
-        Alternate grace periods do not apply if the Customer does not have the
-        "Place on Credit Warning when Credit Limit is Exceeded" option
-        selected.</para>
+        grace period used when the late credit status utility is run. This
+        option is only available if the "Place on Credit Warning when Credit
+        Limit is Exceeded" option is selected.</para>
         <variablelist>
           <varlistentry>
             <term>Grace Days</term>
@@ -1491,8 +1490,9 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para role="standard">To establish a Customer's EDI preferences for Invoices,
-  select the "Invoice EDI" tab. The following screen will appear:</para>
+  <para role="standard">To establish a Customer's EDI preferences for
+  Invoices, select the "Invoice EDI" tab. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
