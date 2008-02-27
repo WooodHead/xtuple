@@ -1,13 +1,7 @@
+/* Copyright (c) 2008 by OpenMFG, LLC, d/b/a/ xTuple . All rights reserved. */
 div.section
 {
   margin-left: +45px;
-}
-
-div.xtuplefooter
-{
-  font-family:  "Gill-Sans", sans-serif;
-  text-align:   center;
-  width:        100%;
 }
 
 *.title,
@@ -29,9 +23,11 @@ div.warning     > *.title
 }
 
 *.navheader > *,
-*.navfooter > *
+*.navfooter > *,
+div.xtupleheader,
+div.xtuplefooter
 {
-  font-size:    125%;
+  font-size:    14pt;
   font-family:  "Gill-Sans", sans-serif;
   font-weight:  bold;
 }
