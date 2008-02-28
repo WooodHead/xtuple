@@ -205,8 +205,8 @@
     </screenshot><tip>
       <para>If YourPay is the service being used, the options on the "Fraud
       Detection" tab will be enabled and selections should be made. These
-      options will be disabled if the Authorize.Net gateway is being used and
-      fraud detection settings for Authorize.Net must be configured through
+      options will be disabled if the Authorize.Net gateway is being used.
+      Fraud detection settings for Authorize.Net must be configured through
       the Merchant Interface.</para>
     </tip>When configuring client-side fraud detection settings, if required,
   you are presented with the following options:</para>
@@ -225,25 +225,25 @@
           <varlistentry>
             <term>Do not check</term>
             <listitem>
-              <para>The xTuple application should ignore the CVV result sent
-              by the payment gateway.</para>
+              <para>Select if the xTuple application should ignore the CVV
+              result sent by the payment gateway.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Warn if failure</term>
             <listitem>
-              <para>The xTuple application should tell the user if the CVV
-              result sent by the payment gateway fails based on the criteria
-              checked in the "Fail CVV Check If" section.</para>
+              <para>Select if the xTuple application should tell the user if
+              the CVV result sent by the payment gateway fails based on the
+              criteria checked in the "Fail CVV Check If" section.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Reject if failure</term>
             <listitem>
-              <para>The xTuple application should void the transaction and
-              tell the user if the CVV result sent by the payment gateway
-              fails based on the criteria checked in the "Fail CVV Check If"
-              section.</para>
+              <para>Select if the xTuple application should void the
+              transaction and tell the user if the CVV result sent by the
+              payment gateway fails based on the criteria checked in the "Fail
+              CVV Check If" section.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -256,31 +256,31 @@
           <varlistentry>
             <term>Code Does Not Match</term>
             <listitem>
-              <para>The transaction should be treated as fraudulent if the CVV
-              does not match the credit card number.</para>
+              <para>Select if the transaction should be treated as fraudulent
+              if the CVV does not match the credit card number.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>CVV Was Not Processed</term>
             <listitem>
-              <para>The transaction should be treated as fraudulent if the
-              credit card company, such as Visa or American Express, could not
-              process the CVV for the payment gateway.</para>
+              <para>Select if the transaction should be treated as fraudulent
+              if the Credit Card company, such as Visa or American Express,
+              could not process the CVV for the payment gateway.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Card Had No Code</term>
             <listitem>
-              <para>The transaction should be treated as fraudulent if the
-              credit card does not have a CVV but is expected to have
+              <para>Select if the transaction should be treated as fraudulent
+              if the Credit Card does not have a CVV but is expected to have
               one.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Card Issuer Is Not Certified</term>
             <listitem>
-              <para>The transaction should be treated as fraudulent if the
-              financial institution that issued the credit card is not
+              <para>Select if the transaction should be treated as fraudulent
+              if the financial institution that issued the Credit Card is not
               certified.</para>
             </listitem>
           </varlistentry>
@@ -294,25 +294,25 @@
           <varlistentry>
             <term>Do not check</term>
             <listitem>
-              <para>The xTuple application should ignore the AVS result sent
-              by the payment gateway.</para>
+              <para>Select if the xTuple application should ignore the AVS
+              result sent by the payment gateway.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Warn on Failed AVS Check</term>
             <listitem>
-              <para>The xTuple application should tell the user if the AVS
-              result sent by the payment gateway fails based on the criteria
-              checked in the "Fail AVS Check If" section.</para>
+              <para>Select if the xTuple application should tell the user if
+              the AVS result sent by the payment gateway fails based on the
+              criteria checked in the "Fail AVS Check If" section.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Reject on Failed AVS Check</term>
             <listitem>
-              <para>The xTuple application should void the transaction and
-              tell the user if the AVS result sent by the payment gateway
-              fails based on the criteria checked in the "Fail AVS Check If"
-              section.</para>
+              <para>Select if the xTuple application should void the
+              transaction and tell the user if the AVS result sent by the
+              payment gateway fails based on the criteria checked in the "Fail
+              AVS Check If" section.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -325,34 +325,34 @@
           <varlistentry>
             <term>Address Does Not Match</term>
             <listitem>
-              <para>The transaction should be treated as fraudulent if the
-              address stored by the xTuple application does not match the
-              credit card company's recorded billing address for the credit
-              card.</para>
+              <para>Select if the transaction should be treated as fraudulent
+              if the address stored by the xTuple application does not match
+              the Credit Card company's recorded billing address for the
+              Credit Card.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Address Comparison Not Available</term>
             <listitem>
-              <para>The transaction should be treated as fraudulent if the
-              credit card company could not process the street address
+              <para>Select if the transaction should be treated as fraudulent
+              if the Credit Card company could not process the street address
               information for the payment gateway.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>ZIP Does Not Match</term>
             <listitem>
-              <para>The transaction should be treated as fraudulent if the
-              postal code stored by the xTuple application does not match the
-              credit card company's recorded billing address for the credit
-              card.</para>
+              <para>Select if the transaction should be treated as fraudulent
+              if the postal code stored by the xTuple application does not
+              match the Credit Card company's recorded billing address for the
+              Credit Card.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>ZIP Comparison Not Available</term>
             <listitem>
-              <para>The transaction should be treated as fraudulent if the
-              credit card company could not process the postal code
+              <para>Select if the transaction should be treated as fraudulent
+              if the Credit Card company could not process the postal code
               information for the payment gateway.</para>
             </listitem>
           </varlistentry>
@@ -488,7 +488,7 @@
               100 using the arrow buttons located to the right of the field or
               by typing a number in this field. A Link Shield score of 0
               indicates that this transaction has an extremely low risk, while
-              a score of 100 indicates a high risk transaction. </para>
+              a score of 100 indicates a high risk transaction.</para>
             </listitem>
           </varlistentry>
         </variablelist>

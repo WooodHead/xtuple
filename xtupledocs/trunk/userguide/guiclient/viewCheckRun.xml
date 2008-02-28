@@ -76,7 +76,12 @@
         </indexterm>PRINT CHECK</term>
       <listitem>
         <para>Highlight a Check in the list of Checks and then select this
-        button to print the Check.</para>
+        button to print the Check.<tip>
+            <para>If Checks being printed contain reference lines which spill
+            over and exceed one standard page, then consider using the report
+            definition CheckMultiPage.xml. This Check Form is designed to
+            support multiple pages for one Check number.</para>
+          </tip></para>
       </listitem>
     </varlistentry>
     <varlistentry>
