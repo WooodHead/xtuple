@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section599354">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>inventory history</primary>
       <secondary>by item group</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>Inventory History by Item Group</title>
   <para>To view Inventory history by Item Group, select the "Inventory History
   by Item Group" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspInventoryHistoryByItemGroup.png"/>
+          <imagedata fileref="images/dspInventoryHistoryByItemGroup.png" />
         </imageobject>
         <caption>Inventory History by Item Group</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>If a line displays in orange, this means the Item Site in question
     is frozen. Accurate Quantity on Hand information will not be shown until
@@ -47,7 +45,8 @@
       <term>Pattern</term>
       <listitem>
         <para>Enter an Item Group pattern to select a range of Item Groups.
-        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -164,7 +163,7 @@
       <term>QUERY</term>
       <listitem>
         <para>Select to generate the display, using the specified parameters.
-        tart date and end date must be entered for calculation to proceed.
+        Start date and end date must be entered for calculation to proceed.
         Results will be displayed in the "Inventory History" list.</para>
       </listitem>
     </varlistentry>
@@ -178,9 +177,15 @@
   <para>Right-clicking on a transaction in the Inventory History list enables
   you to select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewTransactionInformation)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditTransactionInfo)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewTransactionInformation)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditTransactionInfo)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>When editing transaction information, you may choose to exclude a
   transaction from Inventory analysis. Not including a transaction in this
@@ -190,6 +195,8 @@
   <para>If the Order Number is associated with a Work Order, the following
   additional menu option will also be available:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewWorkOrderInfo)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewWorkOrderInfo)" />
   </variablelist>
 </section>

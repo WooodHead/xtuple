@@ -72,7 +72,7 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
-        <primary>openmfg administrators</primary>
+        <primary>xtuple administrators</primary>
         <secondary>defined</secondary>
       </indexterm>Administrator</glossterm>
     <glossdef>
@@ -91,8 +91,8 @@
       <para>Also known as an "Item Alias," an Alias provides a means for
       cross-referencing internal and external Customer Item information. For
       example, a Customer may refer to an Item by a different Item Number than
-      you do. To avoid confusionand to simplify Item lookupsyou can create an
-      Item Alias linking the Customer's external Item Number to your own
+      you do. To avoid confusion and to simplify Item lookups you can create
+      an Item Alias linking the Customer's external Item Number to your own
       internal Item Number. The Item Alias acts as a substitute or alternate
       identifier. In this way, Items may be located using either internal or
       external Item information. Multiple Aliases can be assigned to one Item,
@@ -143,8 +143,8 @@
     <glossterm>APICS</glossterm>
     <glossdef>
       <para>Originally an acronym for the American Production and Inventory
-      Control Society, the organization is now known as "APICSThe Educational
-      Society for Resource Management."</para>
+      Control Society, the organization is now known as "APICS: The
+      Educational Society for Resource Management."</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -188,8 +188,8 @@
         <see>available to promise</see>
       </indexterm></glossterm>
     <glossdef>
-      <para>: Uncommitted Inventory quantity available to support new Sales
-      Ordersor the difference between Sales Orders already booked and the
+      <para>Uncommitted Inventory quantity available to support new Sales
+      Orders or the difference between Sales Orders already booked and the
       quantity that operations is planning to produce.</para>
     </glossdef>
   </glossentry>
@@ -237,7 +237,7 @@
         <secondary>defined</secondary>
       </indexterm>backlog</glossterm>
     <glossdef>
-      <para>Refers to Sales Orders that have either not yet been shippedor
+      <para>Refers to Sales Orders that have either not yet been shipped or
       have been shipped but are not yet invoiced.</para>
     </glossdef>
   </glossentry>
@@ -362,12 +362,13 @@
       <para>A logical Item from which Co-Products and By-Products are
       produced. An example use for a Breeder Item is the screening of raw
       gravel to produce different sizes of gravel. The Breeder Item's Bill of
-      Materials (BOM) defines the inputsin this case raw graveland the outputs
-      are defined on its Breeder BOM (i.e., Small, Medium and Large gravel). A
-      Work Order is created for the Breeder Item, but this Item is never
-      stocked or produced; again, it is a logical Item. Instead, raw gravel is
-      consumed by the Breeder's Work Order, along with labor, and the
-      resulting quantities of Co-Products and By-Products are recorded.</para>
+      Materials (BOM) defines the inputs in this case raw gravel and the
+      outputs are defined on its Breeder BOM (i.e., Small, Medium and Large
+      gravel). A Work Order is created for the Breeder Item, but this Item is
+      never stocked or produced; again, it is a logical Item. Instead, raw
+      gravel is consumed by the Breeder's Work Order, along with labor, and
+      the resulting quantities of Co-Products and By-Products are
+      recorded.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -437,7 +438,7 @@
     <glossterm><anchor id="Anchor466481" role="Glossary"
     xreflabel="character" />character</glossterm>
     <glossdef>
-      <para>Any alphanumeric characterboth upper and lower caseincluding
+      <para>Any alphanumeric character both upper and lower case including
       punctuation marks, white space, and other keyboard symbols.</para>
     </glossdef>
   </glossentry>
@@ -567,8 +568,8 @@
       </indexterm>Count Tag</glossterm>
     <glossdef>
       <para>The tool used to spearhead Inventory counts. A Count Tag collects
-      Inventory count totalseither independently or from affiliated Count
-      Slipsto determine the actual Quantity on Hand for an individual Item.
+      Inventory count totals either independently or from affiliated Count
+      Slips to determine the actual Quantity on Hand for an individual Item.
       When posted, the Count Tag total replaces the Quantity on Hand balance
       displayed in the system.</para>
     </glossdef>
@@ -833,8 +834,8 @@
         <secondary>defined</secondary>
       </indexterm>Execution Day</glossterm>
     <glossdef>
-      <para>A setting within an Operation screenassociated with either a Bill
-      of Operations or a Work Orderwhich defines when the specified Operation
+      <para>A setting within an Operation screen associated with either a Bill
+      of Operations or a Work Order which defines when the specified Operation
       should begin. For example, if the value "1" is entered in the Execution
       Day field, the Operation will begin on the first day of the
       manufacturing process. If "2" is entered, the Operation will begin on
@@ -848,9 +849,9 @@
       </indexterm>Expedite Exception</glossterm>
     <glossdef>
       <para>An indication that an Order is late. These late Orders need to be
-      acted onor expedited. Examples of late Orders would include a Work Order
-      whose start date is past due or a Planned Purchase Order which has not
-      yet been released.</para>
+      acted on or expedited. Examples of late Orders would include a Work
+      Order whose start date is past due or a Planned Purchase Order which has
+      not yet been released.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -894,7 +895,7 @@
       <para>A process whereby Planned Orders are solidified in the schedule.
       When you specify that a Planned Order is "firm," you are indicating that
       Material Requirements Planning (MRP) should not delete it when running
-      Planned Replenishment Ordersunless specifically told to do so.</para>
+      Planned Replenishment Orders unless specifically told to do so.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -923,7 +924,7 @@
         <secondary>defined</secondary>
       </indexterm>forward-update</glossterm>
     <glossdef>
-      <para>A processeither automatic or manualwhich carries the ending
+      <para>A process either automatic or manual which carries the ending
       balance for an Accounting Period forward through to the current Account
       Period.</para>
     </glossdef>
@@ -948,8 +949,8 @@
       <para>A mechanism for temporarily locking Quantity on Hand values at
       Item Sites to facilitate Inventory counting and ensure accurate totals.
       When an Item Site is frozen, any Inventory transactions entered against
-      that Item Siteincluding Work Orderswill not affect the Quantity on Hand
-      for that Item Site. Because of this, Inventory counting can proceed
+      that Item Site including Work Orders will not affect the Quantity on
+      Hand for that Item Site. Because of this, Inventory counting can proceed
       using a fixed baseline total. When the Item Site is thawed, any
       post-freeze activity is reconciled, bringing the Quantity on Hand total
       to its correct value. The freezing/thawing mechanism is designed to
@@ -1118,7 +1119,7 @@
       Inventory. And they also have no concept of Standard Cost or Cost
       variances. All Costs for Job Items are Actual. The Work Orders which
       create Job Items can only be created via a Sales Order. The Costs for
-      job Work Orders are accumulated to WIP, and then transfered directly to
+      job Work Orders are accumulated to WIP, and then transferred directly to
       Cost of Sales when the job is shipped. BOM and BOO Items may be assigned
       to Job items; however, they will not roll up to a Standard Cost for Job
       items.</para>
@@ -1210,7 +1211,7 @@
         <secondary>defined</secondary>
       </indexterm>Location</glossterm>
     <glossdef>
-      <para>A physical location within a Warehousefor example, a bin, shelf,
+      <para>A physical location within a Warehouse for example, a bin, shelf,
       aisle, etc. Also known as "Warehouse Location."</para>
     </glossdef>
   </glossentry>
@@ -1464,7 +1465,7 @@
       </indexterm>overhead</glossterm>
     <glossdef>
       <para>The Costs associated with the provision and maintenance of a
-      manufacturing facility. These Costs includebut are not limited toCosts
+      manufacturing facility. These Costs include but are not limited to Costs
       related to building rental, utilities, machinery, supervision,
       maintenance, etc.</para>
     </glossdef>
@@ -1712,7 +1713,7 @@
       </indexterm>proximo</glossterm>
     <glossdef>
       <para>A billing term used to specify that payment is expected on a
-      certain day of the monthas in the 15th or the last day of the
+      certain day of the month as in the 15th or the last day of the
       month.</para>
     </glossdef>
   </glossentry>
@@ -1896,7 +1897,7 @@
       an Item Site. If Planned Availability falls below the Reorder Level,
       then a Replenishment Order will be created when Material Requirements
       Planning (MRP) is run. The quantity of the Replenishment Order will be
-      enough to restore Planned Availability back to the Reorder Levelor to
+      enough to restore Planned Availability back to the Reorder Level or to
       the Order Up To (OUT) Level, if the OUT Level is greater. Reorder Levels
       are defined on the Item Site master.</para>
     </glossdef>
@@ -2259,7 +2260,7 @@
         <secondary>defined</secondary>
       </indexterm>Tax Authority</glossterm>
     <glossdef>
-      <para>Any entity legally-authorized to collect Taxesfor example, city,
+      <para>Any entity legally-authorized to collect Taxes for example, city,
       county, state, or federal government agencies.</para>
     </glossdef>
   </glossentry>
@@ -2345,7 +2346,7 @@
       </indexterm>Throughput</glossterm>
     <glossdef>
       <para>Indicates the number of units, in the given Item's Inventory UOM,
-      that can be produced in a minuteand also the number of minutes that are
+      that can be produced in a minute and also the number of minutes that are
       required to produce 1 unit, expressed in the given Item's Inventory
       UOM.</para>
     </glossdef>
@@ -2575,7 +2576,7 @@
         <secondary>defined</secondary>
       </indexterm>Warehouse Location</glossterm>
     <glossdef>
-      <para>A physical location within a Warehousefor example, a bin, shelf,
+      <para>A physical location within a Warehouse for example, a bin, shelf,
       aisle, etc. Also known as a "Location."</para>
     </glossdef>
   </glossentry>
@@ -2600,7 +2601,7 @@
       </indexterm>WIP</glossterm>
     <glossdef>
       <para>An acronym for work in process. Refers to Inventory in various
-      stages of completionranging from Work Order Material Requirements in
+      stages of completion ranging from Work Order Material Requirements in
       production to packaged Inventory awaiting Shipment.</para>
     </glossdef>
   </glossentry>

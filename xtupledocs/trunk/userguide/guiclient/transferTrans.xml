@@ -104,8 +104,8 @@
     <varlistentry>
       <term>POST</term>
       <listitem>
-        <para>Posts the Inter-Warehouse Transfer.Creates two transactions, one
-        at each affected Warehouse. The Warehouse receiving Inventory is
+        <para>Posts the Inter-Warehouse Transfer. Creates two transactions,
+        one at each affected Warehouse. The Warehouse receiving Inventory is
         credited with the new Inventory amount, while the Warehouse being
         relieved of Inventory is debited. Additional steps will be necessary
         if the specified Item is stored in multiple Locations. For more

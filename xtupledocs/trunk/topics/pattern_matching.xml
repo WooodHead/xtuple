@@ -112,24 +112,24 @@
               brackets. </para><para>Examples: </para><itemizedlist>
                   <listitem>
                     <para>The Regular Expression b[aeo]t would match bat , bet
-                    , and bot . It would not match bit . </para>
+                    , and bot . It would not match bit .</para>
                   </listitem>
                   <listitem>
                     <para>Likewise, the expression CUST[A-M] would match any
                     strings containing the range of patterns from CUSTA to
                     CUSTM . This would include CUSTABC , CUSTA123 , CUSTBCD ,
-                    CUSTB123 , etc. </para>
+                    CUSTB123 , etc.</para>
                   </listitem>
                   <listitem>
                     <para>To match both upper case and lower case occurrences,
-                    use the expression CUST[A-Ma-m] . </para>
+                    use the expression CUST[A-Ma-m] .</para>
                   </listitem>
                   <listitem>
                     <para>You may also combine ranges of letters and numbers
                     in the same expression. To locate product categories
                     beginning with A-B and/or 1-5, you would use PROD
                     CAT[A-B1-5] . This expression would match PRODCATABC ,
-                    PRODCATB123 , PRODCAT1ABC , PRODCAT2123 , etc. </para>
+                    PRODCATB123 , PRODCAT1ABC , PRODCAT2123 , etc.</para>
                   </listitem>
                 </itemizedlist></entry>
             </row>
@@ -147,8 +147,8 @@
                   <listitem>
                     <para>To locate all product categories except those at the
                     end of the alphabet, you would use PRODCAT[^X-Z] . This
-                    expression would return the same results as PROD CAT[A-W].
-                    </para>
+                    expression would return the same results as PROD
+                    CAT[A-W].</para>
                   </listitem>
                 </itemizedlist></entry>
             </row>
@@ -156,10 +156,10 @@
         </tgroup>
       </table></para>
     <note>
-      <para>OpenMFG supports pattern matching with Regular Expressions in
+      <para>xTuple ERP supports pattern matching with Regular Expressions in
       accordance with the <indexterm significance="normal">
           <primary>posix</primary>
-          <secondary>openmfg support for</secondary>
+          <secondary>xtuple support for</secondary>
         </indexterm>Portable Operating System Interface (POSIX)
       standard.</para>
     </note>
@@ -179,7 +179,7 @@
                     substrings: those containing one instance of the preceding
                     "o" and those containing zero instances of the preceding
                     "o". As a result, the following matches would be returned:
-                    bout , but , about , butter , etc. </para>
+                    bout , but , about , butter , etc.</para>
                   </listitem>
                   <listitem>
                     <para>CLASS[A-C]? would match any string containing the
@@ -197,8 +197,8 @@
                   <listitem>
                     <para>Use a period followed by an asterisk (".*") to match
                     all existing patterns. For example, enter .* to show all
-                    Customer Types where pattern matching by Cus tomer Type is
-                    called for. </para>
+                    Customer Types where pattern matching by Customer Type is
+                    called for.</para>
                   </listitem>
                   <listitem>
                     <para>The expression CUST* would return Customer Type
@@ -209,7 +209,7 @@
                     character "T") zero times. To avoid matching the substring
                     CUS , insert a period before the asterisk. The expression
                     CUST.* will match all strings containing CUST , but not
-                    all strings containing CUS </para>
+                    all strings containing CUS</para>
                   </listitem>
                 </itemizedlist></entry>
             </row>
@@ -222,7 +222,7 @@
                     "0" at the end of the pattern one or more times. Product
                     Categories beginning with the numbers "10", "100", "1000",
                     etc. would be found, as in PRODCAT10ABC , PRODCAT100ABC ,
-                    PRODCAT1000ABC , and so on. </para>
+                    PRODCAT1000ABC , and so on.</para>
                   </listitem>
                 </itemizedlist></entry>
             </row>
@@ -233,8 +233,8 @@
                   <listitem>
                     <para>The expression CLASSA{3} would match the "A" at the
                     end of the pattern three times. The following Class Codes
-                    would be found: CLASSAAA1 , CLASSAAA2 , CLASSAAA3 , etc.
-                    </para>
+                    would be found: CLASSAAA1 , CLASSAAA2 , CLASSAAA3 ,
+                    etc.</para>
                   </listitem>
                 </itemizedlist></entry>
             </row>
@@ -248,7 +248,7 @@
                     the end of the pattern a minimum of two times and a
                     maximum of three times. The following Class Codes would be
                     found: CLASSAA1 , CLASSAA2 , etc. and also CLASSAAA 1,
-                    CLASSAAA2 , etc. </para>
+                    CLASSAAA2 , etc.</para>
                   </listitem>
                 </itemizedlist></entry>
             </row>
@@ -292,7 +292,7 @@
                     ITEM100999 , ITEM200999 , ITEM300999 , etc. The expression
                     999$ would not match the following, since "999" does not
                     occur at the end of these lines: ITEM 999123, ITEM999ABC ,
-                    etc. </para>
+                    etc.</para>
                   </listitem>
                 </itemizedlist></entry>
             </row>

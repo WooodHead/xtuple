@@ -10,12 +10,12 @@
       <primary>ups</primary>
       <secondary>worldship support</secondary>
     </indexterm>Topic: UPS WorldShip Integration</title>
-  <para>In this section we will provide an overview describing OpenMFG's
+  <para>In this section we will provide an overview describing xTuple ERP's
   support for UPS WorldShip integration. UPS WorldShip is a Windows-based,
   shipping software application for UPS Customers who have high-volume
-  shipping needs. When UPS WorldShip and OpenMFG are integrated, you have the
+  shipping needs. When UPS WorldShip and xTuple ERP are integrated, you have the
   ability to export key UPS information&mdash;that is, Tracking Numbers and Freight
-  charges&mdash;directly into OpenMFG.</para>
+  charges&mdash;directly into xTuple ERP.</para>
   <note>
     <para>For technical support using and/or configuring UPS WorldShip, please
     contact your local or area UPS WorldShip representative. Detailed
@@ -25,11 +25,8 @@
   </note>
   <section id="Section551410">
     <title>Basic Requirements</title>
-    <para>OpenMFG support for UPS WorldShip began with OpenMFG version 1.3.0.
-    To take advantage of this support, you must be running OpenMFG 1.3.0 or
-    better. That is the only OpenMFG requirement.</para>
     <para>The requirements for setting up UPS WorldShip to communicate with
-    OpenMFG include the following:</para>
+    xTuple ERP include the following:</para>
     <itemizedlist>
       <listitem>
         <para>Install UPS WorldShip software on a networked workstation</para>
@@ -40,8 +37,8 @@
     </itemizedlist>
     <note>
       <para>The ODBC driver for PostgreSQL is needed so the UPS WorldShip
-      software can export shipping information to an OpenMFG Database. OpenMFG
-      Databases run on the PostgreSQL database server.</para>
+      software can export shipping information to an xTuple ERP Database.
+      xTuple ERP Databases run on the PostgreSQL database server.</para>
     </note>
     <itemizedlist>
       <listitem>
@@ -49,16 +46,16 @@
         driver</para>
       </listitem>
       <listitem>
-        <para>Create user-defined field for entering OpenMFG Sales Order
+        <para>Create user-defined field for entering xTuple ERP Sales Order
         Numbers</para>
       </listitem>
       <listitem>
         <para>Define export mapping to associate UPS WorldShip data fields
-        with corresponding OpenMFG data fields</para>
+        with corresponding xTuple ERP data fields</para>
       </listitem>
     </itemizedlist>
     <para>UPS WorldShip supports both import and export maps. However, for
-    integration with OpenMFG, you only need an export map since the
+    integration with xTuple ERP, you only need an export map since the
     communication is one-way. The following screenshot shows a sample export
     map created using the UPS WorldShip mapping utility:</para>
     <para><screenshot>
@@ -73,7 +70,7 @@
     <para>In our example, we have created a map called "export." The map type
     is "Shipment," which indicates the data export will occur when the
     shipment is shipped using UPS WorldShip. And the ODBC driver used to
-    export the data to the OpenMFG Database is called "openmfg."</para>
+    export the data to the xTuple ERP Database is called "openmfg."</para>
     <para>The following screenshot shows the utility you would use to edit
     your export map within UPS WorldShip:</para>
     <para><screenshot>
@@ -85,19 +82,19 @@
         </mediaobject>
       </screenshot></para>
     <para>Your primary goal when creating an export map is to match UPS
-    WorldShip tables and fields with the corresponding OpenMFG Database tables
-    and fields. The following table provides you with the information you will
-    need to successfully map the tables and fields from one system to the
-    other.</para>
+    WorldShip tables and fields with the corresponding xTuple ERP Database
+    tables and fields. The following table provides you with the information
+    you will need to successfully map the tables and fields from one system to
+    the other.</para>
     <para><table>
         <title>Data Mapping Information</title>
         <tgroup cols="4">
           <thead>
             <row>
-              <entry><para> WorldShip </para> <para> Table </para></entry>
-              <entry><para> WorldShip </para> <para> Field </para></entry>
-              <entry><para> OpenMFG </para> <para> Table </para></entry>
-              <entry><para> OpenMFG </para> <para> Field </para></entry>
+              <entry><para> WorldShip Table </para></entry>
+              <entry><para> WorldShip Field </para></entry>
+              <entry><para> xTuple ERP Table </para></entry>
+              <entry><para> xTuple ERP Field </para></entry>
             </row>
           </thead>
           <tbody>
@@ -162,7 +159,7 @@
     <tip>
       <para>By default, UPS WorldShip gives you a Reference field for
       miscellaneous purposes. Because this field may prove useful at some
-      point, you should create a second Reference field for storing OpenMFG
+      point, you should create a second Reference field for storing xTuple ERP
       Sales Order Numbers.</para>
     </tip>
     <para>In addition to requiring specific table and field mappings, UPS
@@ -185,7 +182,7 @@
               <term>DSN Name</term>
               <listitem>
                 <para>Enter a name to describe the Data Source Name (DSN)
-                connection to OpenMFG (e.g., "openmfg).</para>
+                connection to xTuple ERP (e.g., "openmfg).</para>
               </listitem>
             </varlistentry>
             <varlistentry>
@@ -198,8 +195,8 @@
             <varlistentry>
               <term>ODBC Driver Name</term>
               <listitem>
-                <para>Specify the name of the required ODBC driver. For
-                OpenMFG Databases, the driver is "PostgreSQL".</para>
+                <para>Specify the name of the required ODBC driver. For xTuple
+                ERP Databases, the driver is "PostgreSQL".</para>
               </listitem>
             </varlistentry>
             <varlistentry>
@@ -213,7 +210,7 @@
             <varlistentry>
               <term>Database Name</term>
               <listitem>
-                <para>Enter the name of the OpenMFG Database which will be
+                <para>Enter the name of the xTuple ERP Database which will be
                 receiving UPS WorldShip data (e.g., "production").</para>
               </listitem>
             </varlistentry>
@@ -296,7 +293,7 @@
           <caption>Basic Process Flow for UPS WorldShip Integration</caption>
         </mediaobject>
       </screenshot></para>
-    <para>The process flow begins in OpenMFG with the following
+    <para>The process flow begins in xTuple ERP with the following
     sequence:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem>
@@ -319,7 +316,7 @@
         <para>Enter Customer destination information</para>
       </listitem>
       <listitem>
-        <para>Enter OpenMFG Sales Order Number(s) in the special Reference
+        <para>Enter xTuple ERP Sales Order Number(s) in the special Reference
         field created for this purpose</para>
       </listitem>
       <listitem>
@@ -330,8 +327,8 @@
       </listitem>
     </orderedlist>
     <para>As soon as you ship the Order in WorldShip, the data will be
-    exported to OpenMFG via the ODBC connection. The following UPS information
-    will now be stored in the OpenMFG Database:</para>
+    exported to xTuple ERP via the ODBC connection. The following UPS
+    information will now be stored in the xTuple ERP Database:</para>
     <itemizedlist>
       <listitem>
         <para>UPS Tracking Number</para>
@@ -343,7 +340,7 @@
         <para>Total Shipping and Handling Charges</para>
       </listitem>
     </itemizedlist>
-    <para>The process flow returns now to OpenMFG, where we either 1) issue
+    <para>The process flow returns now to xTuple ERP, where we either 1) issue
     Stock to Shipping or 2) ship the Order. For this example, we have already
     issued two Line Items to Shipping. We see these two Line Items on the Ship
     Order screen, as shown below:</para>
@@ -359,15 +356,15 @@
     Number information. And the total shipping and handling charges appear in
     the Freight field.</para>
     <note>
-      <para>The actual weight of the UPS package(s) is stored in the OpenMFG
-      Database, but is not visible using the application.</para>
+      <para>The actual weight of the UPS package(s) is stored in the xTuple
+      ERP Database, but is not visible using the application.</para>
     </note>
     <para>In this example, there are two distinct Tracking Numbers shown on
     the Ship Order screen. However, only one Tracking Number can be associated
-    with each OpenMFG shipment. The fact that there are two Tracking Numbers
-    in this example indicates there are additional Line Items for this Sales
-    Order which have been shipped in UPS WorldShip, but have not yet been
-    issued to Shipping in OpenMFG.</para>
+    with each xTuple ERP shipment. The fact that there are two Tracking
+    Numbers in this example indicates there are additional Line Items for this
+    Sales Order which have been shipped in UPS WorldShip, but have not yet
+    been issued to Shipping in xTuple ERP.</para>
     <para>We are now ready to complete the final steps:</para>
     <itemizedlist>
       <listitem>
@@ -382,7 +379,7 @@
     shipped. In this way, users are prevented from accidentally using the same
     Tracking Number twice.</para>
     <tip>
-      <para>You can track UPS shipments from OpenMFG using the S/R Module
+      <para>You can track UPS shipments from xTuple ERP using the S/R Module
       Display "Shipments by Sales Order." You will be connected directly to
       the UPS website when you select the "Query Shipments" option from the
       right-click menu.</para>
