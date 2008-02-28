@@ -63,8 +63,8 @@
             <listitem>
               <para>Select if you will be using the Authorize.Net payment
               gateway for handling Credit Card transactions. Specific
-              Authorize.Net options will be enabled if you select this
-              service.</para>
+              Authorize.Net options will be enabled on the screen if you
+              select this service.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -72,7 +72,7 @@
             <listitem>
               <para>Select if you will be using the YourPay payment gateway
               for handling Credit Card transactions. Specific YourPay options
-              will be enabled if you select this service.</para>
+              will be enabled on the screen if you select this service.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -221,6 +221,8 @@
     <varlistentry>
       <term>Card Verification</term>
       <listitem>
+        <para>Specify how you want to handle Credit Card verification
+        processing:</para>
         <variablelist>
           <varlistentry>
             <term>Do not check</term>
@@ -252,6 +254,8 @@
     <varlistentry>
       <term>Fail CVV Check If:</term>
       <listitem>
+        <para>Specify how you want to handle Credit Card Verification Value
+        (CVV) check failures:</para>
         <variablelist>
           <varlistentry>
             <term>Code Does Not Match</term>
@@ -290,6 +294,7 @@
     <varlistentry>
       <term>Address Verification Service</term>
       <listitem>
+        <para>Specify how you want to handle address verification:</para>
         <variablelist>
           <varlistentry>
             <term>Do not check</term>
@@ -321,6 +326,8 @@
     <varlistentry>
       <term>Fail AVS check if:</term>
       <listitem>
+        <para>Specify how you want to handle address verification check
+        failures:</para>
         <variablelist>
           <varlistentry>
             <term>Address Does Not Match</term>
@@ -549,10 +556,10 @@
           <varlistentry>
             <term>Always Fail (Be Declined or Marked as Duplicates)</term>
             <listitem>
-              <para>If this is checked then the test gateway will always
+              <para>If this is selected then the test gateway will always
               return a message indicating that the transaction failed.
               Sometimes it will send a message saying the transaction was
-              Declined and sometimes it will send a message saying the
+              declined and sometimes it will send a message saying the
               transaction failed because it is a duplicate of a prior
               transaction.</para>
             </listitem>
@@ -564,8 +571,8 @@
               transactions attempted by the application will be sent unaltered
               and should be expected to succeed. Approximately 10% of the
               transactions sent to the test server should be marked as
-              Declined and approximately 10% should be marked as
-              Duplicates.</para>
+              declined and approximately 10% should be marked as
+              duplicates.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -590,18 +597,18 @@
         <caption>Authorize.Net Service Options</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When establishing the service option settings for your Authorize.net
+  <para>When establishing the service option settings for your Authorize.Net
   configuration, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Transaction Version</term>
       <listitem>
-        <para><remark>Authorize.Net supports three different versions of the
+        <para>Authorize.Net supports three different versions of the
         communications protocol at this time, with the potential for more to
         be added in the future. The xTuple application builds transaction
         requests which conform to version 3.1 of the Authorize.Net protocol.
         This field is a placeholder to allow for future expansion by both
-        xTuple and Authorize.Net.</remark></para>
+        xTuple and Authorize.Net.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -650,6 +657,8 @@
     <varlistentry>
       <term>Set on Gateway</term>
       <listitem>
+        <para>Specify how you want the gateway to respond if the MD5 hash
+        fails:</para>
         <variablelist>
           <varlistentry>
             <term>Warn if MD5 check fails</term>
@@ -698,6 +707,8 @@
       <term>Additional Options</term>
       <listitem>
         <variablelist>
+          <para>You have the option to specify the following additional
+          options:</para>
           <varlistentry>
             <term>Using Wells Fargo SecureSource</term>
             <listitem>
