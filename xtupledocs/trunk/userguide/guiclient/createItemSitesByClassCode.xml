@@ -11,7 +11,7 @@
       <secondary>creating item sites for</secondary>
     </indexterm>Create Item Sites by Class Code</title>
   <para>When setting up a new Warehouse, you have the ability to create
-  batches of Item Sites--rather than having to create them one-at-a-time. To
+  batches of Item Sites&mdash;rather than having to create them one-at-a-time. To
   create Item Sites by Class Code, select the "Create Item Sites by Class
   Code" option. The following screen will appear:</para>
   <para><screenshot>
@@ -59,7 +59,7 @@
   <note>
     <para>Running Material Requirements Planning (MRP) on your system consists
     entirely of running the Create Planned Replenishment Orders
-    screens--either by Item or by Planner Code. As MRP runs, the Planned
+    screens&mdash;either by Item or by Planner Code. As MRP runs, the Planned
     Replenishment Orders are generated automatically.</para>
   </note>
   <variablelist>
@@ -72,7 +72,7 @@
         will be created when Material Requirements Planning (MRP) is run. The
         Replenishment Order quantity will be equal to the quantity required to
         return Planned Availability to either the Reorder Level or the Order
-        Up To quantity--whichever is greater. For more information, see <xref
+        Up To quantity&mdash;whichever is greater. For more information, see <xref
         linkend="Anchor14508" />.</para>
       </listitem>
     </varlistentry>
@@ -121,7 +121,7 @@
         for Planned Replenishment Orders when MRP is run. The setting does not
         apply to manual Orders, but to Planned Orders only. When a maximum
         Order quantity is specified, MRP will ignore Order multiples and
-        minimum Order specifications--focusing instead solely on the maximum
+        minimum Order specifications&mdash;focusing instead solely on the maximum
         Order setting. For example, if the maximum Order quantity is set to 10
         and there is demand for 17, then Planned Orders of 10 and 7 would be
         generated when MRP is run.</para>
@@ -161,7 +161,7 @@
     <varlistentry role="openmfg">
       <term>Group MPS/MRP Orders Every</term>
       <listitem>
-        <para>Specify the length of a periodmeasured in days--within which MPS
+        <para>Specify the length of a periodmeasured in days&mdash;within which MPS
         or MRP Planned Orders will be grouped together (i.e, consolidated) to
         meet scheduled demand for the period.</para>
         <para>This functionality serves to limit the total number of Planned
@@ -355,7 +355,7 @@
   <note>
     <para>Purchase Requests created, as specified above, to meet Sales Order
     and Work Order demands will be created regardless of an Item's
-    Availability--and also regardless of whether Material Requirements
+    Availability&mdash;and also regardless of whether Material Requirements
     Planning (MRP) is being run in parallel.</para>
   </note>
   <variablelist>
@@ -374,7 +374,7 @@
   </variablelist>
   <note>
     <para>Work Orders created, as specified above, to meet Sales Order demand
-    will be created regardless of an Item's Availability--and also regardless
+    will be created regardless of an Item's Availability&mdash;and also regardless
     of whether Material Requirements Planning (MRP) is being run in
     parallel.</para>
   </note>

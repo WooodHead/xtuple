@@ -19,12 +19,12 @@
     <title>Overview</title>
     <para>In this scenario, we will show the setup for and operation of a
     simple Tax scheme in which there are two Tax Authorities (described as
-    "Tax Zones"). Two Tax Types will also be defined--one for Normal Products
+    "Tax Zones"). Two Tax Types will also be defined&mdash;one for Normal Products
     (Tax Type 1) and one for Educational Products (Tax Type 2). The same
     Customer will ship to two different stores, each of which will fall under
     the jurisdiction of a different Tax Authority. In one case, Educational
     Products are taxed at 1% and Normal Products at 5%. In the other, both are
-    taxed at 5%. Two Items will be defined--one a normal toy truck (YTRUCK1)
+    taxed at 5%. Two Items will be defined&mdash;one a normal toy truck (YTRUCK1)
     and the other an educational toy truck (ETRUCK1). We will demonstrate how
     OpenMFG applies the appropriate Tax to each S/O Line Item depending on the
     Item ordered and the Ship-To Address selected. Tax Codes have been
@@ -41,7 +41,7 @@
         <para>Tax Liability: Taxes collected from Customers are recorded as a
         liability on the balance sheet. When the Tax is paid, the liability is
         reduced based on the amount of the payment. In this section, we will
-        create two Expense Categories--one for each of the Customer scenarios.
+        create two Expense Categories&mdash;one for each of the Customer scenarios.
         Each Expense Category is linked not to a G/L expense Account (as the
         name implies) but rather to a liability Account corresponding to the
         type of Tax being paid. When a Voucher for a Tax payment is posted,
@@ -99,7 +99,7 @@
         <para>Tax Registrations</para>
       </listitem>
     </itemizedlist>
-    <para>We will look at each of these Master Information categories--with
+    <para>We will look at each of these Master Information categories&mdash;with
     the exception of Tax Registrations, which are used (optionally) to store
     Tax Account numbers by Tax Authority.</para>
   </section>
@@ -165,7 +165,7 @@
     selected, Tax is calculated cumulatively on the previous Tax Rate. Such a
     scenario is very rare.</para>
     <para>Notice that G/L Accounts are also linked to each Tax Rate. The same
-    Account may be used for all three Tax Rates--or a different Account may be
+    Account may be used for all three Tax Rates&mdash;or a different Account may be
     used for each to capture more detail for G/L and Tax reporting
     purposes.</para>
   </section>
@@ -175,7 +175,7 @@
     record. You should think carefully about how to approach Tax Types. For
     example, you may consider creating Tax Types that relate to different Tax
     Authorities. In this case, you might have Tax TYPE10 and Tax TYPE15. A
-    single Item could be linked to each--TYPE10 for each Tax Authority that
+    single Item could be linked to each&mdash;TYPE10 for each Tax Authority that
     taxes it at 10% and TYPE15 for each that taxes it at 15%.</para>
     <para>A sample Tax Types list is shown in the following screen:</para>
     <para><screenshot>
@@ -276,7 +276,7 @@
     Authority, we will use this Expense Category to clear the lability.</para>
     <tip>
       <para>An alternate method for clearing Tax liability is to book the
-      Sales Tax collected to a Revenue Account--and then offset it with an
+      Sales Tax collected to a Revenue Account&mdash;and then offset it with an
       Expense Category linked to an expense Account.</para>
     </tip>
   </section>
@@ -345,7 +345,7 @@
   <section id="Section611366">
     <title>Tax Payment at Vouchering</title>
     <para>While a Miscellaneous Check could be used to pay the sales Tax we
-    have collected, a Voucher provides an additional level of control--and
+    have collected, a Voucher provides an additional level of control&mdash;and
     also give us the ability to define amounts specific to the different types
     of Tax being paid. A Miscellaneous Check may only be linked to a single
     Expense Category; whereas, a Voucher can have an unlimited number of
@@ -384,7 +384,7 @@
   <section id="Section611386">
     <title>Taxes on Purchases</title>
     <para>Just as we calculated sales Tax for our Customers, our Vendors will
-    do the same for us. Tax on purchases appears on the Vendor's invoice--and
+    do the same for us. Tax on purchases appears on the Vendor's invoice&mdash;and
     should be recorded during the vouchering process. Again, when vouchering
     we can use Miscellaneous Distributions along with Expense Categories to
     record purchasing Tax.</para>
@@ -471,7 +471,7 @@
       <listitem>
         <para>Transactions in Progress: Prior to version 2.1, Tax on taxable
         transactions (such as Invoices) was stored at the header level. With
-        version 2.1, Tax is now calculated at the Line Item level--and the
+        version 2.1, Tax is now calculated at the Line Item level&mdash;and the
         detail is stored at the Line Item level. The upgrade script analyzes
         all pending transactions, recalculates the Tax for each line, stores
         the detail for how it was calculated in each line, and places the sum

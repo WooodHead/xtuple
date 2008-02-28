@@ -100,10 +100,10 @@
               <para>Displays the quantity allocated to current Sales Orders,
               Transfer Orders, and/or Work Orders in the system. An Item is
               considered allocated to a Sales Order/Transfer Order if a
-              Transfer Order Line Item exists for the Item--and that Line Item
+              Transfer Order Line Item exists for the Item&mdash;and that Line Item
               has not yet been issued to Shipping. An Item is considered
               allocated to a Work Order if the Item is a material
-              requirement--and the material has not yet been issued to the
+              requirement&mdash;and the material has not yet been issued to the
               Work Order. Once the current Transfer Order Line Item is saved,
               the "Allocated" value will increase by the quantity
               ordered.</para>
@@ -391,7 +391,7 @@
         <para>Displays Pending Availability for component Items associated
         with sold manufactured Items. If you choose the "Show Pending
         Availability as Indented BOM" option, the information will be
-        displayed in a nested list--with a plus ("+") sign located to the far
+        displayed in a nested list&mdash;with a plus ("+") sign located to the far
         left of the screen next to each line that may be expanded to lower
         levels. By clicking your mouse on a plus sign, you reveal lower levels
         of information related to the Line Item.</para>
@@ -401,7 +401,7 @@
   <tip>
     <para>Keep in mind that Pending Availability in this case is not the same
     as Available to Promise. This view to Pending Availability reflects
-    current Inventory Levels--it is not a time-phased view of
+    current Inventory Levels&mdash;it is not a time-phased view of
     Availability.</para>
   </tip>
 </section>

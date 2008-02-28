@@ -193,7 +193,7 @@
         optional setting. If a preferred Warehouse is selected, then this
         Warehouse will be used when entering Sales Orders for the Customer. At
         Sales Order entry, the preferred Warehouse will be the default
-        Shipping Warehouse for the Sales Order--as well as the default selling
+        Shipping Warehouse for the Sales Order&mdash;as well as the default selling
         Warehouse for Sales Order Items.</para>
       </listitem>
     </varlistentry>
@@ -275,7 +275,7 @@
       <listitem>
         <para>Enables you to edit highlighted Customer Tax Registration
         Numbers. The edit screen is the same as that for creating a new
-        Customer Tax Registration Number--except that when editing, the fields
+        Customer Tax Registration Number&mdash;except that when editing, the fields
         will contain Customer Tax Registration Number information.
         Double-clicking on a Customer Tax Registration Number will also bring
         you to the editing screen.</para>
@@ -409,7 +409,7 @@
     <varlistentry>
       <term>Default Discount</term>
       <listitem>
-        <para>Enter the default discount--if any--which the Customer should
+        <para>Enter the default discount&mdash;if any&mdash;which the Customer should
         receive. Customer discounts are applied to either a) the List Price
         for an Item if the List Price is being used or b) a specific Sale if a
         Sale is in place which the Customer is assigned to. The discount does
@@ -486,7 +486,7 @@
         selected, users will be required to enter a Customer Purchase Order
         Number when entering a Sales Order. In addition, selecting the option
         will prevent users from entering duplicate Customer Purchase Order
-        Numbers--unless the Customer is marked as using Blanket POs.</para>
+        Numbers&mdash;unless the Customer is marked as using Blanket POs.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -516,7 +516,7 @@
         Credit Limit. This option must also be selected for a Customer's A/R
         open items to be evaluated when the Update Late Customer Credit Status
         utility is run. If a Customer is on Credit Warning, Sales Orders may
-        not be entered for the Customer--except by users with override
+        not be entered for the Customer&mdash;except by users with override
         privileges. Once the Customer's A/R open balance falls below their
         Credit Limit, Sales Orders may once again be entered for the
         Customer.</para>
@@ -534,7 +534,7 @@
         <para>Select this option to place all new and existing open Sales
         Orders on Credit Hold if the Customer's Credit Limit is exceeded. The
         contents of Sales Orders placed on Credit Hold may not be issued to
-        Shipping--except by users with override privileges. Once the
+        Shipping&mdash;except by users with override privileges. Once the
         Customer's Credit Limit is no longer exceeded, Sales Order contents
         may be issued to Shipping.</para>
       </listitem>
@@ -583,7 +583,7 @@
       <term>Billing Contact</term>
       <listitem>
         <para>Manually enter billing Contact information in the fields
-        below--or use the browse button to select pre-existing Contact
+        below&mdash;or use the browse button to select pre-existing Contact
         information.</para>
         <variablelist>
           <varlistentry>
@@ -641,7 +641,7 @@
       <term>Address</term>
       <listitem>
         <para>Manually enter billing Address information in the fields
-        below--or use the browse button to select pre-existing Address
+        below&mdash;or use the browse button to select pre-existing Address
         information.</para>
         <variablelist>
           <varlistentry>
@@ -681,7 +681,7 @@
       <term>Correspondence Contact</term>
       <listitem>
         <para>Manually enter non-billing-related Contact information in the
-        fields below--or use the browse button to select pre-existing Contact
+        fields below&mdash;or use the browse button to select pre-existing Contact
         information. Examples of non-billing-related correspondence might
         include Price updates, holiday cards, etc. You may also enter
         additional contact information.</para>
@@ -735,7 +735,7 @@
       <term>Address</term>
       <listitem>
         <para>Manually enter non-billing Address information in the fields
-        below--or use the browse button to select pre-existing Address
+        below&mdash;or use the browse button to select pre-existing Address
         information.</para>
         <variablelist>
           <varlistentry>
@@ -816,7 +816,7 @@
       <term>EDIT</term>
       <listitem id="customerShipToEDIT">
         <para>Enables you to edit highlighted Ship-To Address. The edit screen
-        is the same as that for creating a new Ship-To Address--except that
+        is the same as that for creating a new Ship-To Address&mdash;except that
         when editing, the fields will contain Ship-To Address information.
         Double-clicking on a Ship-To Address will also bring you to the
         editing screen.</para>
@@ -871,7 +871,7 @@
     </screenshot></para>
   <tip>
     <para>The Ship-To master shares many common fields with the Customer
-    master--shipping defaults, Sales Representative, etc. By default, the
+    master&mdash;shipping defaults, Sales Representative, etc. By default, the
     Customer master values will pre-populate the Ship-To master. However, when
     specifying a specific Ship-To Address on a Sales Order, the specific
     Ship-To details will populate the Sales Order header.</para>
@@ -925,7 +925,7 @@
       <term>Address</term>
       <listitem>
         <para>Manually enter billing Address information in the fields
-        below--or use the browse button to select pre-existing Address
+        below&mdash;or use the browse button to select pre-existing Address
         information.</para>
         <variablelist>
           <varlistentry>
@@ -973,7 +973,7 @@
           <secondary>contact information for</secondary>
         </indexterm>Contact</term>
       <listitem>
-        <para>Manually enter Contact information in the fields below--or use
+        <para>Manually enter Contact information in the fields below&mdash;or use
         the browse button to select pre-existing Contact information. This
         field should not to be confused with the "Name" field that appears on
         the Ship-To Address label.</para>
@@ -1238,7 +1238,7 @@
       <listitem>
         <para>Enables you to edit highlighted Customer Characteristics. The
         edit screen is the same as that for creating a new Customer
-        Characteristic--except that when editing, the fields will contain
+        Characteristic&mdash;except that when editing, the fields will contain
         Customer Characteristic information. Double-clicking on a Customer
         Characteristic will also bring you to the editing screen.</para>
       </listitem>
@@ -1406,7 +1406,7 @@
               <para>Select this option if you want to bypass standard EDI
               Profiles and instead create custom email preferences for the
               Customer. These preferences will be stored solely with the
-              Customer master--and will be used to send email versions of
+              Customer master&mdash;and will be used to send email versions of
               Sales Orders to the Customer. When this option is selected, the
               email-related fields on the Customer master will be enabled.
               Otherwise, the email-related fields will be disabled.</para>
@@ -1527,7 +1527,7 @@
               <para>Select this option if you want to bypass standard EDI
               Profiles and instead create custom email preferences for the
               Customer. These preferences will be stored solely with the
-              Customer master--and will be used to send email versions of
+              Customer master&mdash;and will be used to send email versions of
               Invoices to the Customer when Invoices for the Customer are
               printed. When this option is selected, the email-related fields
               on the Customer master will be enabled. Otherwise, the
@@ -1665,7 +1665,7 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Credit Cards. The edit screen is
-        the same as that for entering new Credit Card information--except that
+        the same as that for entering new Credit Card information&mdash;except that
         when editing, the fields will contain Credit Card information.</para>
       </listitem>
     </varlistentry>

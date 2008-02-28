@@ -111,7 +111,7 @@
             <listitem>
               <para>Conversely, if you choose to select the "Allow Posting
               into Closed Periods" option for your Accounts, then users will
-              be allowed to post into closed Periods--and the associated Trial
+              be allowed to post into closed Periods&mdash;and the associated Trial
               Balance records will automatically be updated.</para>
             </listitem>
             <listitem>
@@ -215,7 +215,7 @@
     the steps we will be following:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem>
-        <para>Enter a simple Journal Entry using the Cash Account--and attempt
+        <para>Enter a simple Journal Entry using the Cash Account&mdash;and attempt
         to post it into a prior Period (2006-January) which is both closed and
         frozen.</para>
       </listitem>
@@ -269,13 +269,13 @@
     Periods if the Accounts are specifically set up to disallow it. No G/L
     activity is recorded when transactions are blocked in this manner.</para>
     <para>The error message indicates the dates for the closed Period in
-    question. To allow the transaction to proceed--if that is what you truly
-    want--then it will be necessary to identify the Period and then open it to
+    question. To allow the transaction to proceed&mdash;if that is what you truly
+    want&mdash;then it will be necessary to identify the Period and then open it to
     allow the transaction to go forward. We discuss thawing and opening
     Periods in the next section.</para>
     <para>Thawing and Opening Accounting Periods</para>
     <para>In order for our simple Journal Entry to be posted successfully to
-    the G/L--and for the Trial Balance to recognize it--we must first thaw and
+    the G/L&mdash;and for the Trial Balance to recognize it&mdash;we must first thaw and
     open the Accounting Period (2006-January) into which we attempted to
     distribute the transaction.</para>
     <note>
@@ -322,7 +322,7 @@
       </screenshot></para>
     <para>We can see our actions have caused the "Closed" and "Frozen" columns
     to read "No" for the 2006-January Accounting Period. We are now able to
-    post the simple Journal Entry again--and it will be distributed
+    post the simple Journal Entry again&mdash;and it will be distributed
     successfully to the G/L.</para>
     <para>Pending Transactions</para>
     <para>If for some reason you have pending transactions in your G/L, you
@@ -339,7 +339,7 @@
         </mediaobject>
       </screenshot></para>
     <para>Your options here are to investigate the transactions and learn more
-    about them--and then, if appropriate, open the Period in question to allow
+    about them&mdash;and then, if appropriate, open the Period in question to allow
     the transactions to update the Trial Balance records.</para>
     <para>A "pending" transaction is defined as any transaction which has
     posted to the G/L, but whose Trial Balance record has not yet been updated
@@ -404,7 +404,7 @@
       through to the current Period.</para>
     </note>
     <para>For the purposes of this exercise, we will use the third
-    method--that is, we will close the 2006-January Accounting Period. When
+    method&mdash;that is, we will close the 2006-January Accounting Period. When
     the Period is closed, a forward update will automatically be
     performed.</para>
     <para>Closing and Freezing Accounting Periods</para>
@@ -487,7 +487,7 @@
       <listitem>
         <para>Thaw Accounting Period: Once the Period is thawed, however, the
         Journal Entry transaction will immediately be marked as posted in the
-        G/L--and the Trial Balance will be updated appropriately. Yes, the
+        G/L&mdash;and the Trial Balance will be updated appropriately. Yes, the
         Period is still closed, but the Accounts are now configured to allow
         posting into closed Periods.</para>
       </listitem>
@@ -619,7 +619,7 @@
     <para>Reopening Fiscal Years</para>
     <para>Fiscal Years may be reopened after they have been closed. For
     example, you may want to reopen a Fiscal Year to recognize new
-    transactions which have been posted--inadvertently or not--into Periods
+    transactions which have been posted&mdash;inadvertently or not&mdash;into Periods
     within a closed Fiscal Year. Keep in mind that reopening and then
     re-closing a Fiscal Year may cause your retained earnings amount for the
     year to be updated to reflect the value of any newly-recognized

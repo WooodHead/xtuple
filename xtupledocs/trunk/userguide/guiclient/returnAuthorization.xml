@@ -67,7 +67,7 @@
       <listitem>
         <para>Specify the Sales Representative associated with the Return
         Authorization. Sales Representatives are linked to a Customer on the
-        Customer master--either by a default setting or through the assignment
+        Customer master&mdash;either by a default setting or through the assignment
         of Ship-To Addresses. Each Ship-To Address may have a different Sales
         Representative associated with it. Consequently, the name of the Sales
         Representative appearing on the Return Authorization header will be
@@ -94,7 +94,7 @@
         Authorization. The Tax Authority for the specified Ship-To Address
         will be entered here by default. Otherwise, the primary Tax Authority
         for the Customer will be entered. Ultimately, Tax is applied at the
-        Line Item level--so the Tax Authority associated with an Item's Tax
+        Line Item level&mdash;so the Tax Authority associated with an Item's Tax
         Type will be used.</para>
       </listitem>
     </varlistentry>
@@ -228,7 +228,7 @@
               Check. If selected, a Customer Check will be queued up for
               processing on the Return Authorizations Workbench. When the
               Check is processed, a sales Credit Memo will be created
-              automatically--and the Check will be applied to it.</para>
+              automatically&mdash;and the Check will be applied to it.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -237,7 +237,7 @@
               <para>Select to credit the return with a refund to the
               Customer's Credit Card. If selected, the payment will be queued
               up for processing on the Return Authorizations Workbench. A
-              Credit Memo will be posted when the refund is processed--and the
+              Credit Memo will be posted when the refund is processed&mdash;and the
               refund charges will be applied to it. If the timing of the
               credit is immediately, then you may issue the refund directly
               from the Line Items tab of the Return Authorization.</para>
@@ -344,7 +344,7 @@
       <term>Address</term>
       <listitem>
         <para>Displays the Customer's Bill-To Address. You may manually
-        override the displayed Address information in the fields below--or use
+        override the displayed Address information in the fields below&mdash;or use
         the browse button to select another Address.</para>
         <variablelist>
           <varlistentry>
@@ -418,7 +418,7 @@
       <term>Address</term>
       <listitem>
         <para>Displays the specified Ship-To Address. You may manually
-        override the displayed Address information in the fields below--or use
+        override the displayed Address information in the fields below&mdash;or use
         the browse button to select another Address.</para>
         <variablelist>
           <varlistentry>
@@ -628,7 +628,7 @@
       <listitem>
         <para id="returnAuthorizationEDIT">Enables you to edit highlighted
         Return Authorization Line Items. The edit screen is the same as that
-        for creating a new Return Authorization Line Item--except that when
+        for creating a new Return Authorization Line Item&mdash;except that when
         editing, the fields will contain Return Authorization Line Item
         information. Double-clicking on a Return Authorization Line Item will
         also bring you to the editing screen.</para>
@@ -664,7 +664,7 @@
       <listitem>
         <para>Highlight a Return Authorization Line Item and then select this
         button to authorize the Line Item quantity. This option is available
-        only when an imported original Sales Order is being used--and then,
+        only when an imported original Sales Order is being used&mdash;and then,
         the original Line Item quantity must be shipped before it may be
         authorized.</para>
       </listitem>
@@ -682,7 +682,7 @@
       <listitem>
         <para>Select to authorize the full quantity for all unathorized Line
         Items. This option is available only when an imported original Sales
-        Order is being used--and then, the original Line Item quantity must be
+        Order is being used&mdash;and then, the original Line Item quantity must be
         shipped before it may be authorized.</para>
       </listitem>
     </varlistentry>

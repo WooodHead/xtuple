@@ -19,7 +19,7 @@
         <secondary>order parameter settings</secondary>
       </indexterm>Item Site Settings</title>
     <para>For the purposes of this exercise, we will be looking at the Order
-    Parameter settings for a purchased Item--Item V1. The following screenshot
+    Parameter settings for a purchased Item&mdash;Item V1. The following screenshot
     shows the Item Site master for Item V1:</para>
     <para> <screenshot>
         <mediaobject>
@@ -45,7 +45,7 @@
         Safety Stock falls below the Reorder Level, then a Replenishment Order
         will be created when MRP is run. The Replenishment Order quantity will
         be equal to the quantity required to return Planned Availability to
-        either the Reorder Level or the Order Up To quantity--whichever is
+        either the Reorder Level or the Order Up To quantity&mdash;whichever is
         greater. We will look at Planned Availability later in this section.
         In this example, the Reorder Level is set to 30. So, when Planned
         Availability minus Safety Stock falls below 30, MRP (when it is run)
@@ -87,7 +87,7 @@
             <primary>material requirements planning</primary>
             <secondary>consolidation of planned orders and</secondary>
           </indexterm>Group MRP Orders Every: Value entered specifies the
-        length of a period--measured in days--within which Planned
+        length of a period&mdash;measured in days&mdash;within which Planned
         Replenishment Orders will be grouped together (i.e, consolidated) to
         meet scheduled demand for the period. This functionality serves to
         limit the total number of Planned Replenishment Orders, thereby
@@ -153,7 +153,7 @@
   </section>
   <section id="Section672525">
     <title>Viewing Planned Availability</title>
-    <para>Planned Availability--also known as available quantity--describes
+    <para>Planned Availability&mdash;also known as available quantity&mdash;describes
     Inventory quantity available for consumption by Work Orders or Sales
     Orders. To determine available quantity, the system uses the following
     formula:</para>
@@ -228,7 +228,7 @@
     Reorder Level, a Planned Order will be generated when MRP is run. The only
     question now is what will the Planned Order quantity be?</para>
     <para>The following M/S Module screen, "Run MRP by Item," is one of two
-    utilities used to run MRP--the other is "Run MRP by Planner Code." For
+    utilities used to run MRP&mdash;the other is "Run MRP by Planner Code." For
     this exercise, we will be running MRP by Item, as shown in the following
     screenshot:</para>
     <para><screenshot>
@@ -260,7 +260,7 @@
     units was the required quantity?</para>
     <para>Well, when MRP creates Planned Orders, the system looks at both the
     Reorder Level and the Order Up To (OUT) Level. It determines which of the
-    two has the greater value--and then it places an Order to replenish
+    two has the greater value&mdash;and then it places an Order to replenish
     available quantity up to that value. In our example, the OUT Level (100)
     is the greater value. And so we have the following scenario:</para>
     <blockquote>
@@ -272,7 +272,7 @@
     <note>
       <para>Because Item V1 is a purchased Item, the Replenishment Order is a
       Planned Purchase Order. Had the Item been a manufactured Item, Planned
-      Work Orders would have been created--and also Planned Purchase Orders,
+      Work Orders would have been created&mdash;and also Planned Purchase Orders,
       depending on the availability and Reorder Levels of required component
       Items.</para>
     </note>
@@ -332,7 +332,7 @@
     <para>We choose the Vendor Smithson Industries from the list, because this
     is the Vendor with the highest ranking. After selecting the Vendor, we are
     asked whether we want to add the Item to an existing open Purchase
-    Order--or whether we would like to create a new Purchase Order for this
+    Order&mdash;or whether we would like to create a new Purchase Order for this
     Item:</para>
     <para><screenshot>
         <mediaobject>

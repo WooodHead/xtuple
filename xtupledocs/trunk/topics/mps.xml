@@ -22,7 +22,7 @@
   Independent demand Items are defined as those Items which derive their
   demand directly from Customer requirements through Sales Orders. By
   contrast, "dependent" demand Items are normally purchased Items and
-  subassemblies. The demand for dependent Items is derived indirectly--that
+  subassemblies. The demand for dependent Items is derived indirectly&mdash;that
   is, based on the demand for their parent Items in a Bill of
   Materials.</para>
   <para>In this section, we will demonstrate OpenMFG's MPS functionality,
@@ -62,7 +62,7 @@
   logical construct, and, as such, no Planned Orders will be created for
   it.</para>
   <note>
-    <para>In our scenario, we will be forecasting using a Planning Item--a
+    <para>In our scenario, we will be forecasting using a Planning Item&mdash;a
     special type of Item used to defined families or lines of products.
     However, the system also allows you to place individual MPS Items on a
     Production Schedule.</para>
@@ -301,7 +301,7 @@
     Calendar selected. In this case, the Calendar being used is a special
     absolute Calendar that shows the last three months of 2006 and the first
     two months of 2007. As you follow this scenario, you should select the
-    Calendar appropriate for the current date--whatever the current date may
+    Calendar appropriate for the current date&mdash;whatever the current date may
     be. If you need a 2008 Calendar, simply select it from the drop-down list
     and then click again on the Item whose MPS Detail information you want to
     display. Also, depending on the time of year, you may need to scroll to
@@ -379,7 +379,7 @@
     were not present after we ran MPS initially. The reason for this is
     simple: The extra Orders are MRP Orders generated to satisfy the demand
     created by the MPS Orders. Essentially, we forecasted demand and then
-    discovered what materials would be needed to meet that demand--net
+    discovered what materials would be needed to meet that demand&mdash;net
     existing Quantity on Hand, other demand, existing supplies, and expected
     receipts.</para>
     <para>If you want to filter out MRP or MPS Items, you may do so on the

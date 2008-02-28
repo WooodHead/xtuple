@@ -112,7 +112,7 @@
   <tip>
     <para>If a preferred Selling Warehouse is specified for the Customer, then
     that Warehouse will be selected here by default. If the preferred Selling
-    Warehouse is not selected--and you think it should be--verify that the
+    Warehouse is not selected&mdash;and you think it should be&mdash;verify that the
     Item Site master for the Line Item in question is marked as a "Sold from"
     Warehouse.</para>
   </tip>
@@ -262,9 +262,9 @@
               <para>Displays the quantity allocated to current Sales Orders
               and/or Work Orders in the system. An Item is considered
               allocated to a Sales Order if a Sales Order Line Item exists for
-              the Item--and that Line Item has not yet been issued to
+              the Item&mdash;and that Line Item has not yet been issued to
               Shipping. An Item is considered allocated to a Work Order if the
-              Item is a material requirement--and the material has not yet
+              Item is a material requirement&mdash;and the material has not yet
               been issued to the Work Order. Once the current Sales Order Line
               Item is saved, the "Allocated" value will increase by the
               quantity ordered.</para>
@@ -334,7 +334,7 @@
         as make-to-order if the "Stocked at" flag on the Item Site master is
         not selected. A Work Order created automatically from a Sales Order
         Line Item will assume the same Order Number as the Sales Order the
-        Line Item is associated with--even if that Order Number has already
+        Line Item is associated with&mdash;even if that Order Number has already
         been used by a previous Work Order.</para>
         <note>
           <para>For purchased Items, the option "Create Purchase Request" will
@@ -543,7 +543,7 @@
               matrix must have an entry which matches both the Item's Tax Type
               definition and the Tax Authority specified on the Sales Order
               header. If no Tax Selection match exists, then no Tax Code will
-              be used--meaning no Tax will be charged.</para>
+              be used&mdash;meaning no Tax will be charged.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -710,7 +710,7 @@
         <para>Displays Pending Availability for component Items associated
         with sold manufactured Items. If you choose the "Show Pending
         Availability as Indented BOM" option, the information will be
-        displayed in a nested list--with a plus ("+") sign located to the far
+        displayed in a nested list&mdash;with a plus ("+") sign located to the far
         left of the screen next to each line that may be expanded to lower
         levels. By clicking your mouse on a plus sign, you reveal lower levels
         of information related to the Line Item.</para>
@@ -720,7 +720,7 @@
   <tip>
     <para>Keep in mind that Pending Availability in this case is not the same
     as Available to Promise. This view to Pending Availability reflects
-    current Inventory Levels--it is not a time-phased view of
+    current Inventory Levels&mdash;it is not a time-phased view of
     Availability.</para>
   </tip>
   <para>To define an alternate Cost of Sales Account for a Sales Order Line

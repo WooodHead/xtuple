@@ -27,10 +27,10 @@
     <title>Receiving into Inventory</title>
     <para>In the example we will be using here, the Item in question is Item
     YTRUCK1, a yellow toy truck. We will be receiving quantity of this Item
-    into Inventory, using a miscellaneous Material Receipt transaction--as
+    into Inventory, using a miscellaneous Material Receipt transaction&mdash;as
     found Inventory Module.</para>
     <note>
-      <para>Items are received into Inventory by various paths--from Shipping,
+      <para>Items are received into Inventory by various paths&mdash;from Shipping,
       from Manufacturing, or through miscellaneous Material Receipt
       transactions. Although this example describes a miscellaneous Material
       Receipt transaction, the distribution sequence is the same when
@@ -72,7 +72,7 @@
     </itemizedlist>
     <para>As you can see in the example, the Material Receipt operation that
     brought us to this point calls for the distribution of 300 units of Item
-    YTRUCK1. None of the units have been distributed so far--leaving all 300
+    YTRUCK1. None of the units have been distributed so far&mdash;leaving all 300
     units still to be distributed. The next question is this: Which
     Location(s) do we want to distribute the 300 trucks to?</para>
     <note>
@@ -84,7 +84,7 @@
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem>
         <para>We can select the DEFAULT AND POST button. Doing so will
-        automatically distribute 300 truck units to the Default Location--in
+        automatically distribute 300 truck units to the Default Location&mdash;in
         this case, "01-01-01"--and then post the distribution, creating a
         transaction record.</para>
       </listitem>
@@ -114,7 +114,7 @@
         <secondary>distributing quantity and</secondary>
       </indexterm>Distributing Quantity</title>
     <para>For the purpose of this exercise, let's choose the third
-    option--distributing some to one Location and some to the other. To begin,
+    option&mdash;distributing some to one Location and some to the other. To begin,
     we will double-click on Location "01-01-02". The following distribution
     screen will appear:</para>
     <para><screenshot>
@@ -175,7 +175,7 @@
         distribution screen we saw earlier.</para>
       </listitem>
     </orderedlist>
-    <para>Let's choose the second option--double-clicking on the line for
+    <para>Let's choose the second option&mdash;double-clicking on the line for
     Location "01-01-01". The following distribution screen will appear:</para>
     <para><screenshot>
         <mediaobject>
@@ -186,7 +186,7 @@
         </mediaobject>
       </screenshot></para>
     <para>The screen shows a balance of 200 truck units remaining to be
-    distributed--with a quantity of 100 units already tagged. We enter "200"
+    distributed&mdash;with a quantity of 100 units already tagged. We enter "200"
     into the "Qty. to this Location" field and then select the DISTRIBUTE
     button, which returns us to the previous screen:</para>
     <para><screenshot>
@@ -198,8 +198,8 @@
         </mediaobject>
       </screenshot></para>
     <note>
-      <para>If you decide to distribute quantities differently--after having
-      distributed them once already--you may do so before you select the POST
+      <para>If you decide to distribute quantities differently&mdash;after having
+      distributed them once already&mdash;you may do so before you select the POST
       button. Simply follow the steps above, substituting new quantities where
       appropriate.</para>
     </note>
@@ -241,7 +241,7 @@
       to issue stock from that Location. The MLC distribution screen will only
       feature Locations with a positive QOH. By way of contrast, all valid
       Locations will be display when receiving Stock into
-      Inventory--regardless of the QOH.</para>
+      Inventory&mdash;regardless of the QOH.</para>
     </note>
   </section>
 </section>

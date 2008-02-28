@@ -54,8 +54,8 @@
         have an Operation with an Execution Day = 5. This means the Operation
         is scheduled to begin five days after the start date of the Work
         Order. Components scheduled with this Operation are due the day before
-        the Operation starts--that is, on day four after the Work Order start
-        date--to ensure they will be available when the Operation is scheduled
+        the Operation starts&mdash;that is, on day four after the Work Order start
+        date&mdash;to ensure they will be available when the Operation is scheduled
         to begin. If this option is not selected, then the component
         scheduling will be governed by the start and due dates set on the Work
         Order header. Based on the values entered for all listed Operations,
@@ -75,13 +75,13 @@
         <para>Effective: The system enables you to specify when an operation
         can be used in a Bill of Materials. For example, the company's
         engineering department may be working on a new design for an existing
-        Item--but that new design will not be available for use until a given
+        Item&mdash;but that new design will not be available for use until a given
         date in the future. In this case, you can specify the "effective" date
         when the component will be available for use.</para>
         <para>Expires: The system also enables you to specify when an
         operation is planned to be obsoleted from (i.e., no longer used in) a
         Bill of Materials. As mentioned above, the company's engineering
-        department may be working on a new design for an existing Item--but
+        department may be working on a new design for an existing Item&mdash;but
         that new design will not be available for use until a given date in
         the future. In this case, the old component Item must be marked for
         "expiration" on a given date. This expiration date will most likely
@@ -367,7 +367,7 @@
         </indexterm>Throughput</term>
       <listitem>
         <para>Indicates the number of units, in the given Item's Inventory
-        UOM, that can be produced in a minute--and also the number of minutes
+        UOM, that can be produced in a minute&mdash;and also the number of minutes
         that are required to produce 1 unit, expressed in the given Item's
         Inventory UOM.</para>
       </listitem>
@@ -457,7 +457,7 @@
       <listitem>
         <para>Enables you to edit highlighted Operation Image definitions. The
         edit screen is the same as that for creating a new Operation Image
-        definition--except that when editing, the fields will contain
+        definition&mdash;except that when editing, the fields will contain
         Operation Image information. Double-clicking on an Operation Image
         definition will also bring you to the editing screen.</para>
       </listitem>

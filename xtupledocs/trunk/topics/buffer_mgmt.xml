@@ -37,10 +37,10 @@
     system is 66%. In other words, any time we consume 66% of a buffer, then
     it's time to act immediately to resolve the situation. Using the coffee
     example, if our supply drops to one pound (and our buffer quantity is
-    three pounds), then we"ve used up two-thirds of our buffer--or 66%. With
+    three pounds), then we"ve used up two-thirds of our buffer&mdash;or 66%. With
     that much of our buffer consumed, we need to buy more coffee right away.
     The 66% value is a percentage that is widely used in academic research and
-    practical real-world implementations of the Theory of Constraints--a
+    practical real-world implementations of the Theory of Constraints&mdash;a
     theory pioneered by Eliyahu Goldratt.</para>
   </note>
   <variablelist>
@@ -75,7 +75,7 @@
         <para>A capacity buffer is like the surface on your barbecue grill
         which can hold up to 12 hamburgers at one time. In this scenario, the
         grill's capacity buffer is 12. If each hamburger takes 15 minutes to
-        cook--and you can cook 12 at a time--then you can produce 48
+        cook&mdash;and you can cook 12 at a time&mdash;then you can produce 48
         hamburgers in an hour. Now, let's say you"ve got 100 guests coming for
         dinner. If your plan is to feed everyone in one hour, you"ve got a
         capacity problem. You"ll either need to fire up an extra grill, or
@@ -181,7 +181,7 @@
       site.</para>
     </note>
     <para>Okay, we are finished with the setup needed for our scenario. We are
-    now ready to run the Constraint Management system--and to learn the buffer
+    now ready to run the Constraint Management system&mdash;and to learn the buffer
     status of our newly-adjusted Item Site. To run the Constraint Management
     system by Planner Code, follow these steps:</para>
     <orderedlist>
@@ -252,7 +252,7 @@
       Units (Allocated) = 700 units</mathphrase>
     </equation>
     <para>This equation shows us that the stock buffer for this Item Site has
-    been depleted by 700 units--or 70%. Keep in mind that this calculation
+    been depleted by 700 units&mdash;or 70%. Keep in mind that this calculation
     also subtracts out allocated quantities, which in this case are 0. Hence,
     the buffer status for Item TBODY1 in Warehouse WH1 = 70.</para>
     <itemizedlist>
@@ -276,7 +276,7 @@
     generated automatically during Sales Order entry to meet demand.</para>
     <para>The Item Site Lead Time determines the initial buffer size for
     make-to-order Work Orders. That lead time should include a "Murphy"
-    factor--that is, time for things that might go wrong. Orders with short
+    factor&mdash;that is, time for things that might go wrong. Orders with short
     Lead Times will increase in status faster than those with long Lead Times.
     This helps to ease the problem where operators concentrate just on Work
     Order start/finish dates, when the total amount of work involved (and
@@ -309,8 +309,8 @@
         <para>Save the Line Item</para>
       </listitem>
     </orderedlist>
-    <para>Once you have completed your Sales Order setup--and the resulting
-    Work Order has been automatically created--we are ready to run the
+    <para>Once you have completed your Sales Order setup&mdash;and the resulting
+    Work Order has been automatically created&mdash;we are ready to run the
     Constraint Management system to collect information about our Work Order's
     time buffer. To run Constraint Management by Planner Code, follow these
     steps:</para>
@@ -488,7 +488,7 @@
     <para>Finally, let's examine a capacity buffer scenario. The Work Order we
     created in the previous section enabled us to get familiar with the
     concept of time buffers. Well, in addition to time factors, we must also
-    consider the impact--or load--that a Work Order places on Work Centers. In
+    consider the impact&mdash;or load&mdash;that a Work Order places on Work Centers. In
     the case of production for the YTRUCK1 Item, three Work Centers will be
     affected.</para>
     <para>Nearly all manufacturers have one bottleneck Work Center that
@@ -571,7 +571,7 @@
     Best practice would be to submit the job "Run Buffer Status by Planner
     Code" to the Batch Manager on a nightly basis, scheduling it to run each
     night after midnight. In this way, you will be able to monitor the updated
-    buffer status results when you arrive in the morning--allowing you to then
+    buffer status results when you arrive in the morning&mdash;allowing you to then
     set appropriate priorities for the rest of the day.</para>
     <para>Also recall that time buffers are only calculated for make-to-order
     Items. The appropriate buffer for Items that are not make-to-order is the

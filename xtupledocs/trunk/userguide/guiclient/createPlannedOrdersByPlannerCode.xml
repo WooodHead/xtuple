@@ -9,7 +9,7 @@
   Replenishment Orders will be created whenever a Planned Availability for an
   Item Site falls below its Reorder Level. The quantity of the Replenishment
   Order will be enough to restore Planned Availability back to the Reorder
-  Level--or to the Order Up To (OUT) Level, if the OUT Level is
+  Level&mdash;or to the Order Up To (OUT) Level, if the OUT Level is
   greater.</para>
   <note>
     <para>Running MRP by Planner Code may be used to generate Planned Orders
@@ -84,7 +84,7 @@
   </variablelist>
   <tip>
     <para>If you schedule an MRP or MPS job submitted to the Batch Manager to
-    run on a periodic basis--daily, weekly, monthly--the cutoff date used for
+    run on a periodic basis&mdash;daily, weekly, monthly&mdash;the cutoff date used for
     the run will automatically be updated by the number of days in the
     specified reschedule interval (Day = +1, Week = +7, and Month =
     +30).</para>

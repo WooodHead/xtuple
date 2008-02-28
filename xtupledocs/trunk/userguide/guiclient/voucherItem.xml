@@ -132,17 +132,17 @@
         Item quantity tagged to be vouchered for the given Voucher Item. The
         quantity displayed equals the tagged received qty. minus any returned
         qty. which may also have been tagged. The quantity to voucher is a
-        divisor applied to the distribution amount. The resulting amount--that
+        divisor applied to the distribution amount. The resulting amount&mdash;that
         is, the Voucher Item distribution amount divided by the quantity
-        vouchered--determines the per unit Actual Cost for an Item. The system
+        vouchered&mdash;determines the per unit Actual Cost for an Item. The system
         will automatically handle any differences between the Inventory and
-        Vendor UOMs--if any differences exist.</para>
+        Vendor UOMs&mdash;if any differences exist.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>If you want to partially pay for a Receipt--but find you cannot edit
-    the value in the "Qty. to Voucher" field--you should first correct the
+    <para>If you want to partially pay for a Receipt&mdash;but find you cannot edit
+    the value in the "Qty. to Voucher" field&mdash;you should first correct the
     quantity on the original Receipt to be the amount you want to pay for,
     then enter a second Receipt for the balance. To correct Receipt
     quantities, use the right-click menu on the "Uninvoiced Receipts and
@@ -155,8 +155,8 @@
         <para>Enter the amount of any Purchase Order Line Item freight
         charges. The freight amount entered in this field will be added to the
         total amount for the Voucher Item. If you are vouchering for less than
-        the original quantity ordered--and if Line Item freight was entered
-        when the Purchase Order was created--then you should consider
+        the original quantity ordered&mdash;and if Line Item freight was entered
+        when the Purchase Order was created&mdash;then you should consider
         adjusting the Line Item freight amount accordingly. To make this
         adjustment, multiply the quantity you are vouchering by the per unit
         freight charge. The per unit freight charge is determined by dividing
@@ -223,7 +223,7 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Costing Element. The edit screen
-        is the same as that for adding a new Costing Element--except that when
+        is the same as that for adding a new Costing Element&mdash;except that when
         editing, the fields will contain Costing Element information.
         Double-clicking on a Costing Element will also bring you to the
         editing screen.</para>

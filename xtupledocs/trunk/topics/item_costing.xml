@@ -15,7 +15,7 @@
     </indexterm>Topic: Item Costing</title>
   <para>Assigning Costs to Items is an essential step in the process of
   Inventory Accounting. In this section, we will cover the basics of Item
-  costing--looking first at how Costs are assigned to simple purchased Items.
+  costing&mdash;looking first at how Costs are assigned to simple purchased Items.
   And then we will examine more complex manufactured Items and the layers of
   Costs associated with them.</para>
   <section id="Section665446">
@@ -174,7 +174,7 @@
       </screenshot></para>
     <note>
       <para>The system will automatically update Actual Costs for purchased
-      Items when Vouchers are posted--that is, if the vouchered Cost per Item
+      Items when Vouchers are posted&mdash;that is, if the vouchered Cost per Item
       differs from the current Actual Cost on file. The Actual Cost on record
       may increase or decrease, depending on the cost per Item entered when
       Purchase Orders are vouchered.</para>
@@ -251,7 +251,7 @@
         </mediaobject>
       </screenshot></para>
     <para>As you can see in the example, we have selected the "Roll Up Actual
-    Costs" option. Here we are performing a Cost roll up--which is to say that
+    Costs" option. Here we are performing a Cost roll up&mdash;which is to say that
     we are seeking to impact Actual Costs for all Items that use Item B1.
     After we select the UPDATE button, all Items that use Item B1 will
     recognize the Actual Cost update. To verify the change has been
@@ -270,7 +270,7 @@
     <para>Sure enough, the Total Cost for Item SET is now equal to its Actual
     Cost. We have successfully rolled up the Cost update for the component
     Item B1. The update has been recognized by the parent Item. And the update
-    has been recognized not only by Item SET--but also by any other parent
+    has been recognized not only by Item SET&mdash;but also by any other parent
     Items where Item B1 is used.</para>
     <tip>
       <para>Our example has focused on Cost roll ups for individual Items. But
@@ -368,7 +368,7 @@
     Actual Cost for Item B1.</para>
     <note>
       <para>There is no requirement that all Actual Costs must be posted to
-      Standard. You may post certain Costs and not others--depending on the
+      Standard. You may post certain Costs and not others&mdash;depending on the
       needs of your site.</para>
     </note>
     <para><screenshot>
@@ -402,7 +402,7 @@
     distributed.</para>
     <tip>
       <para>In addition to using Costing Elements, you may also create Costing
-      Items--that is, Items assigned the Item Type "Costing." A Costing Item
+      Items&mdash;that is, Items assigned the Item Type "Costing." A Costing Item
       is a kind of pseudo Item used solely to provide a costed value for a
       Costing Element. Simply insert a Costing Item into a Bill of Materials,
       add Costs to the Item, and then link the Item to a Costing Element. You
@@ -419,7 +419,7 @@
     let's look at costing for a manufactured Item.</para>
     <para>The manufactured Item we will be using in this next scenario is Item
     TDMR100, a yellow toy truck having four component Items. The fourth
-    component--Item TDPKIT--is also manufactured. Item TDPKIT is the packaging
+    component&mdash;Item TDPKIT&mdash;is also manufactured. Item TDPKIT is the packaging
     used to package the yellow toy truck. The next screen shows an indented
     Bill of Materials for Item TDMR100:</para>
     <para> <screenshot>
@@ -431,8 +431,8 @@
           <caption>Indented Bill of Materials</caption>
         </mediaobject>
       </screenshot></para>
-    <para>Because manufactured Items consist of component Items--sometimes
-    extending to several layers--the costing issues are more complex than they
+    <para>Because manufactured Items consist of component Items&mdash;sometimes
+    extending to several layers&mdash;the costing issues are more complex than they
     are for purchased Items. New Costs are assigned in the same way as they
     are for purchased Items. But the layers of Costs and the relationships
     between them make costing for manufactured Items unique.</para>
@@ -469,11 +469,11 @@
       </listitem>
       <listitem>
         <para>Material Costs for manufactured Items are always lower
-        level--which means they are associated with component Items, not with
+        level&mdash;which means they are associated with component Items, not with
         the parent Item.</para>
       </listitem>
       <listitem>
-        <para>Direct labor and overhead Costs are this level--meaning, if in
+        <para>Direct labor and overhead Costs are this level&mdash;meaning, if in
         use, these Costs are associated with the parent Item they refer
         to.</para>
       </listitem>
@@ -593,11 +593,11 @@
     assembling packaging for the yellow toy truck. With a run time of 1 minute
     and a per value of 1 EACH, that means it takes 1 minute to assemble the
     packaging for one unit of Item TDPKIT. So, if a Work Order calls for 100
-    units of packaging, then run time will be charged 100 times--for a total
+    units of packaging, then run time will be charged 100 times&mdash;for a total
     of 100 minutes.</para>
     <para>Setup time is charged differently. Setup time refers to the amount
     of time needed to prepare the Work Center to perform the Operation. Setup
-    time is charged only once per Operation--regardless of the number of units
+    time is charged only once per Operation&mdash;regardless of the number of units
     required by a Work Order. In other words, to use our previous example, if
     a Work Order calls for 100 units of packaging, the setup time charge would
     be 5 minutes.</para>
@@ -779,7 +779,7 @@
           Display for Item TDMR100</caption>
         </mediaobject>
       </screenshot></para>
-    <para>As you can see, Item TDMR100 consists of four component Items--one
+    <para>As you can see, Item TDMR100 consists of four component Items&mdash;one
     of which, Item TDPKIT, has two component Items of its own.</para>
     <para>We"ve already determined that material Costs for manufactured Items
     are always lower level. So, to determine material Costs for Item TDMR100,
@@ -794,7 +794,7 @@
       represents the unit Cost multiplied by the quantity required by the Bill
       of Materials.</para>
     </tip>
-    <para>When we add all these material Costs together--TDMRY ($0.0025),
+    <para>When we add all these material Costs together&mdash;TDMRY ($0.0025),
     TDMRB ($2.5000), TDMRW ($1.2500), TDK1 ($0.3000), and TDK2 ($0.2500)--we
     get an overall material Cost for Item TDMR100 of $8.0525. Referring back
     to the example, we can verify on the Maintain Item Costs screen that this
@@ -813,7 +813,7 @@
         </mediaobject>
       </screenshot></para>
     <para>As you can see, the Bill of Operations for Item TDMR100 contains
-    three Operations--as compared to the one Operation we saw for component
+    three Operations&mdash;as compared to the one Operation we saw for component
     Item TDPKIT. We"ve already discussed how to locate costing information on
     both the Operation and Work Center screens. So, rather than repeat that
     process here, we"ve extracted the pertinent information into the following

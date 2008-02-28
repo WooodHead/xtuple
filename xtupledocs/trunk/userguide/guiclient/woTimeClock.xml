@@ -129,7 +129,7 @@
         <para>Select to clock-in to the specified Work Order. When a user
         clocks-in to a Work Order, the run-time clock starts running from that
         point. The clock stops when a user clocks-out of the Work Order. The
-        elapsed time--or "effort"--is used for labor reporting purposes. Users
+        elapsed time&mdash;or "effort"--is used for labor reporting purposes. Users
         may only clock-in to Work Orders they are not already clocked-in to.
         However, users may clock-in to and clock-out of the same Work Order as
         many times as necessary. Each clock-in starts the run-time Time Clock;
@@ -143,7 +143,7 @@
         the run-time clock stops for the specified Work Order. The time
         elapsed since the user last clocked-in is added to the run time total
         for the Work Order. This run-time calculation is automatic and cannot
-        be overridden--except by users who have override privileges. Users may
+        be overridden&mdash;except by users who have override privileges. Users may
         only clock-out of Work Orders they are already clocked-in to. If the
         Workbench is configured for Operations-posting, the "Post Operations"
         screen will be presented immediately after the CLOCK OUT button is
