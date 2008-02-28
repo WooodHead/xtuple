@@ -17,8 +17,7 @@
         <imageobject>
           <imagedata fileref="images/bomItem.png" />
         </imageobject>
-        <caption>Add New Bill of Materials Component
-        Item</caption>
+        <caption>Add New Bill of Materials Component Item</caption>
       </mediaobject>
     </screenshot></para>
   <tip>
@@ -56,10 +55,10 @@
               <para>The system enables you to specify when a component can be
               used in a Bill of Materials. For example, the company's
               engineering department may be working on a new design for an
-              existing Item&mdash;but that new design will not be available for use
-              until a given date in the future. In this case, you can specify
-              a future "effective" date to indicate when the component will be
-              available for use.</para>
+              existing Item&mdash;but that new design will not be available
+              for use until a given date in the future. In this case, you can
+              specify a future "effective" date to indicate when the component
+              will be available for use.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -69,12 +68,12 @@
               planned to be obsoleted from (i.e., no longer used in) a Bill of
               Materials. As mentioned above, the company's engineering
               department may be working on a new design for an existing
-              Item&mdash;but that new design will not be available for use until a
-              given date in the future. In this case, the old component Item
-              must be marked for "expiration" on the date when the new Item
-              becomes effective. Setting this parameter will instruct the
-              system to stop using the specified component on the date entered
-              into this field.</para>
+              Item&mdash;but that new design will not be available for use
+              until a given date in the future. In this case, the old
+              component Item must be marked for "expiration" on the date when
+              the new Item becomes effective. Setting this parameter will
+              instruct the system to stop using the specified component on the
+              date entered into this field.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -91,8 +90,8 @@
       <term>Issue UOM</term>
       <listitem>
         <para>Specify the Unit of Measure (UOM) you want to use when issuing
-        Item quantity to Work Orders. Unless you specifiy an alternate UOM,
-        the Inventory UOM will be used by default.</para>
+        Item quantity to Work Orders. Unless you specify an alternate UOM, the
+        Inventory UOM will be used by default.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -117,7 +116,7 @@
         their parent Items are exploded. This option applies only to
         manufactured Items appearing as components on a Bill of Materials. If
         selected, a Work Order will automatically be created for the
-        manufactured component when the parent Item is exploded.The impact on
+        manufactured component when the parent Item is exploded. The impact on
         Work Order numbers will be visible. For example, a "-1" will be
         appended to the parent level Work Order and a "-2" to the child level
         Work Order&mdash;as in, #1061-1 and #1061-2. If this option is not
@@ -196,9 +195,9 @@
             <term>Mixed</term>
             <listitem>
               <para>Select if you want the component Item to take upon itself
-              the issue method applied to it initially&mdash;that is, either "Pull"
-              or "Push." Assigning the "Mixed" issue method to a component
-              Item gives you the flexibility of deciding on a
+              the issue method applied to it initially&mdash;that is, either
+              "Pull" or "Push." Assigning the "Mixed" issue method to a
+              component Item gives you the flexibility of deciding on a
               Work-Order-by-Work-Order basis whether you want to assign the
               "Pull" or "Push" method to the component Item.</para>
             </listitem>
@@ -246,8 +245,8 @@
         scheduled to begin five days after the start date of the Work Order.
         Components scheduled with this Operation are due the day before the
         Operation starts&mdash;that is, on day four after the Work Order start
-        date&mdash;to ensure they will be available when the Operation is scheduled
-        to begin. If this option is not selected, then the component
+        date&mdash;to ensure they will be available when the Operation is
+        scheduled to begin. If this option is not selected, then the component
         scheduling will be governed by the start and due dates set on the Work
         Order header.</para>
       </listitem>
@@ -261,8 +260,8 @@
           <see>engineering change notices</see>
         </indexterm>ECN #</term>
       <listitem>
-        <para>Enter the Engineering Change Notice Number&mdash;if applicable&mdash;for
-        the specified component Item.</para>
+        <para>Enter the Engineering Change Notice Number&mdash;if
+        applicable&mdash;for the specified component Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -340,9 +339,9 @@
         <para>Enables you to edit a BOM-defined Substitution. Highlight the
         Item Substitute you want to edit and then hit the EDIT button&mdash;or
         double-click on the Item Substitute to enter the edit mode. The edit
-        screen is the same as that for creating a new Item Substitute&mdash;except
-        that when editing, the fields will contain existing
-        information.</para>
+        screen is the same as that for creating a new Item
+        Substitute&mdash;except that when editing, the fields will contain
+        existing information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -438,8 +437,7 @@
         <imageobject>
           <imagedata fileref="images/bomItem_Comments.png" />
         </imageobject>
-        <caption>Add Comment to Bill of Materials Component
-        Item</caption>
+        <caption>Add Comment to Bill of Materials Component Item</caption>
       </mediaobject>
     </screenshot></para>
   <variablelist>

@@ -117,7 +117,7 @@
         <para>If a Sales Order was converted from a Quote, the originating
         Quote Number will display here.</para>
         <note>
-          <para>If the Sales Order was generated from a Return Authoriztion,
+          <para>If the Sales Order was generated from a Return Authorization,
           the Return Authorization Number will display here.</para>
         </note>
       </listitem>
@@ -172,8 +172,8 @@
       <term>Address</term>
       <listitem>
         <para>Displays the Customer's Bill-To Address. You may manually
-        override the displayed Address information in the fields below&mdash;or use
-        the browse button to select another Address.</para>
+        override the displayed Address information in the fields
+        below&mdash;or use the browse button to select another Address.</para>
         <variablelist>
           <varlistentry>
             <term>Street Address</term>
@@ -246,8 +246,8 @@
       <term>Address</term>
       <listitem>
         <para>Displays the specified Ship-To Address. You may manually
-        override the displayed Address information in the fields below&mdash;or use
-        the browse button to select another Address.</para>
+        override the displayed Address information in the fields
+        below&mdash;or use the browse button to select another Address.</para>
         <variablelist>
           <varlistentry>
             <term>Street Address:</term>
@@ -319,8 +319,9 @@
         <para>Specify the Tax Authority associated with the Sales Order. The
         Tax Authority for the specified Ship-To Address will be entered here
         by default. Otherwise, the primary Tax Authority for the Customer will
-        be entered. Ultimately, Tax is applied at the Line Item level&mdash;so the
-        Tax Authority associated with an Item's Tax Type will be used.</para>
+        be entered. Ultimately, Tax is applied at the Line Item level&mdash;so
+        the Tax Authority associated with an Item's Tax Type will be
+        used.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -343,14 +344,14 @@
       <term>Project #</term>
       <listitem>
         <para>Select a Project Number to associate with the Sales Order. If a
-        Sales Order is created from a converted Quote&mdash;and the Quote had a
-        Project Number associated with it&mdash;then the Project Number from the
-        originating Quote will automatically be entered here. Once a Project
-        Number is associated with a Sales Order, any Work Orders or Purchase
-        Orders created by the Sales Order demand will automatically be linked
-        to the same Project Number as the Sales Order. In this way, Sales
-        Orders, Work Orders, and Purchase Orders may be linked to the same
-        Project.</para>
+        Sales Order is created from a converted Quote&mdash;and the Quote had
+        a Project Number associated with it&mdash;then the Project Number from
+        the originating Quote will automatically be entered here. Once a
+        Project Number is associated with a Sales Order, any Work Orders or
+        Purchase Orders created by the Sales Order demand will automatically
+        be linked to the same Project Number as the Sales Order. In this way,
+        Sales Orders, Work Orders, and Purchase Orders may be linked to the
+        same Project.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -380,8 +381,8 @@
       <listitem>
         <para>Enter free on board (FOB) Terms for the Order. By default, FOB.
         Terms entered on the Shipping Warehouse master will appear in this
-        field. The default Terms may be changed during Order entry&mdash;and also
-        at later stages during the billing cycle.</para>
+        field. The default Terms may be changed during Order entry&mdash;and
+        also at later stages during the billing cycle.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -612,8 +613,8 @@
     <varlistentry>
       <term>$ Margin</term>
       <listitem>
-        <para>Displays the total profit margin for the Order.The profit margin
-        is based on the following formula:</para>
+        <para>Displays the total profit margin for the Order. The profit
+        margin is based on the following formula:</para>
         <para>Order Subtotal - Total Standard Costs for all Line Items</para>
       </listitem>
     </varlistentry>
@@ -671,30 +672,30 @@
         Credit Card charges which have been specifically allocated to the
         Sales Order. If your system is configured to automatically allocate
         open Credit Memo balances to new Sales Orders, then the monetary value
-        of these allocated Credit Memos&mdash;plus any Credit Card charges applied
-        to the Order&mdash;will display here. If your system is not configured to
-        automatically allocate Credit Memos, then this field will display only
-        the monetary value of any Credit Card charges applied to the Order&mdash;if
-        any. The automatic allocation of Credit Memos helps reduce Customer
-        credit balances by ensuring that Customer credits are consumed when
-        new Sales Orders are entered. Any available, open Credit Memos are
-        eligible for allocation. The allocation of available Credit Memos
-        occurs only once&mdash;when a Sales Order is saved for the first time.
-        Subsequent saves will not result in additional allocations. Credit
-        Memos which have been allocated to a Sales Order are applied at the
-        point when the Invoice resulting from the Sales Order is posted. Once
-        the full balance of a Credit Memo has been applied, the Credit Memo is
-        then closed. The printed Invoice the Customer receives will indicate
-        whether Credit Memos have been applied. In addition, the total due
-        from the Customer will be automatically adjusted to reflect any
-        applied credits.</para>
+        of these allocated Credit Memos&mdash;plus any Credit Card charges
+        applied to the Order&mdash;will display here. If your system is not
+        configured to automatically allocate Credit Memos, then this field
+        will display only the monetary value of any Credit Card charges
+        applied to the Order&mdash;if any. The automatic allocation of Credit
+        Memos helps reduce Customer credit balances by ensuring that Customer
+        credits are consumed when new Sales Orders are entered. Any available,
+        open Credit Memos are eligible for allocation. The allocation of
+        available Credit Memos occurs only once&mdash;when a Sales Order is
+        saved for the first time. Subsequent saves will not result in
+        additional allocations. Credit Memos which have been allocated to a
+        Sales Order are applied at the point when the Invoice resulting from
+        the Sales Order is posted. Once the full balance of a Credit Memo has
+        been applied, the Credit Memo is then closed. The printed Invoice the
+        Customer receives will indicate whether Credit Memos have been
+        applied. In addition, the total due from the Customer will be
+        automatically adjusted to reflect any applied credits.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>The allocation of available Credit Memos occurs only once&mdash;when a
-    Sales Order is saved for the first time. Subsequent saves will not result
-    in additional allocations.</para>
+    <para>The allocation of available Credit Memos occurs only once&mdash;when
+    a Sales Order is saved for the first time. Subsequent saves will not
+    result in additional allocations.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -753,8 +754,8 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>Any Sales Order Line Item may be shipped&mdash;even if the Item or Item
-    Site in question becomes inactive after the Sales Order has been
+    <para>Any Sales Order Line Item may be shipped&mdash;even if the Item or
+    Item Site in question becomes inactive after the Sales Order has been
     created.</para>
   </note>
   <variablelist>
@@ -810,10 +811,10 @@
       <listitem id="salesOrderEDIT1">
         <para>Enables you to edit highlighted Sales Order Line Items. The edit
         screen is the same as that for creating a new Sales Order Line
-        Item&mdash;except that when editing, the fields will contain Sales Order
-        Line Item information. Double-clicking on a Sales Order Line Item will
-        also bring you to the editing screen. Mac users may use COMMAND + E to
-        edit an existing Line Item.</para>
+        Item&mdash;except that when editing, the fields will contain Sales
+        Order Line Item information. Double-clicking on a Sales Order Line
+        Item will also bring you to the editing screen. Mac users may use
+        COMMAND + E to edit an existing Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -861,8 +862,8 @@
   </variablelist>
   <tip>
     <para>You may select multiple Line Items for issuing to Shipping by
-    highlighting them using your mouse&mdash;or a combination of your mouse and
-    either the SHIFT or CTRL keys.</para>
+    highlighting them using your mouse&mdash;or a combination of your mouse
+    and either the SHIFT or CTRL keys.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -1048,9 +1049,9 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Shipping Notes are drawn from the Customer master&mdash;specifically from
-  the "Shipping Notes" tab on the Ship-To Address master. The Notes may vary
-  depending on the Ship-To Address specified for the Order. These Notes
+  <para>Shipping Notes are drawn from the Customer master&mdash;specifically
+  from the "Shipping Notes" tab on the Ship-To Address master. The Notes may
+  vary depending on the Ship-To Address specified for the Order. These Notes
   provide a mechanism for transferring shipping information from the Customer
   master to the Sales Order. To view Sales Order Shipping Notes, select the
   "Shipping Notes" tab at the top of the "Sales Order" screen. The following
@@ -1139,8 +1140,9 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Credit Cards. The edit screen is
-        the same as that for entering new Credit Card information&mdash;except that
-        when editing, the fields will contain Credit Card information.</para>
+        the same as that for entering new Credit Card information&mdash;except
+        that when editing, the fields will contain Credit Card
+        information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

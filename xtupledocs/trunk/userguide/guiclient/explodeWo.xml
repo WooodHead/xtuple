@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518563">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>explosion</primary>
       <secondary>of work orders</secondary>
     </indexterm> <indexterm significance="normal">
@@ -15,16 +15,14 @@
   Bill of Materials and Bill of Operations for the parent Item. To manually
   explode a Work Order, select the "Explode Work Order" option. The following
   screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/explodeWo.png"/>
+          <imagedata fileref="images/explodeWo.png" />
         </imageobject>
         <caption>Explode Work Order</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>Work Orders can be exploded either manually or automatically by
     default. The default setting is configured at the system level.</para>
@@ -75,8 +73,7 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>work orders</primary>
           <secondary>explosion levels for</secondary>
         </indexterm>Level</term>
@@ -94,7 +91,7 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Multiple Level Explosio</term>
+            <term>Multiple Level Explosion</term>
             <listitem>
               <para>In a multiple-level explosion, any manufactured components
               of the parent Item are identified and Work Orders are created

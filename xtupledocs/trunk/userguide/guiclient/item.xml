@@ -139,10 +139,10 @@
               <para>A logical Item from which Co-Products and By-Products are
               produced. An example use for a Breeder Item is the screening of
               raw gravel to produce different sizes of gravel. The Breeder
-              Item's Bill of Materials (BOM) defines the inputs&mdash;in this case
-              raw gravel&mdash;and the outputs are defined on its Breeder BOM
-              (i.e., Small, Medium and Large gravel). A Work Order is created
-              for the Breeder Item, but this Item is never stocked or
+              Item's Bill of Materials (BOM) defines the inputs&mdash;in this
+              case raw gravel&mdash;and the outputs are defined on its Breeder
+              BOM (i.e., Small, Medium and Large gravel). A Work Order is
+              created for the Breeder Item, but this Item is never stocked or
               produced; again, it is a logical Item. Instead, raw gravel is
               consumed by the Breeder's Work Order, along with labor, and the
               resulting quantities of Co-Products and By-Products are
@@ -171,9 +171,9 @@
                 <secondary>as item type</secondary>
               </indexterm>Reference</term>
             <listitem>
-              <para>Select if the Item is an Item you sell&mdash;but you neither
-              manufacture nor purchase it. Services are an example of a
-              reference Item. The company sells consulting services, but it
+              <para>Select if the Item is an Item you sell&mdash;but you
+              neither manufacture nor purchase it. Services are an example of
+              a reference Item. The company sells consulting services, but it
               doesn"t manufacture or purchase them.</para>
             </listitem>
           </varlistentry>
@@ -217,9 +217,9 @@
             <listitem>
               <para>An Item whose Bill of Materials (BOM) groups together
               other Items so that a Production Plan may be defined for the
-              Planning Item&mdash;and then exploded down to the lower level Items
-              during a Master Production Scheduling (MPS) run. Planning Items
-              are frequently used to group together product families or
+              Planning Item&mdash;and then exploded down to the lower level
+              Items during a Master Production Scheduling (MPS) run. Planning
+              Items are frequently used to group together product families or
               product lines of MPS Items. MPS Items are typically top-level
               saleable Items. By grouping together MPS Items under a Planning
               Item, the family may be forecasted through with a Production
@@ -236,11 +236,13 @@
               maintained in Inventory. And they also have no concept of
               Standard Cost or Cost variances. All Costs for Job Items are
               Actual. The Work Orders which create Job Items can only be
-              created via a Sales Order. The Costs for job Work Orders are
-              accumulated to WIP, and then transfered directly to Cost of
-              Sales when the job is shipped. BOM and BOO Items may be assigned
-              to Job items; however, they will not roll up to a Standard Cost
-              for Job items.</para>
+              created via a Sales Order. The Costs for Job Item Work Orders
+              are accumulated to WIP, and then transferred directly to Cost of
+              Sales when the job is shipped. Production for a Job Item Work
+              Order is posted when the linked Sales Order Item is issued to
+              Shipping. BOM and BOO Items may be assigned to Job items;
+              however, they will not roll up to a Standard Cost for Job
+              items.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -269,11 +271,12 @@
           <secondary>item list price</secondary>
         </indexterm>Inventory UOM</term>
       <listitem>
-        <para>Specify the Item's primary Unit of Measure&mdash;or enter a free-form
-        UOM. The Inventory (UOM) is the UOM in which Inventory is maintained.
-        All Inventory transactions, sales transactions, and General Ledger
-        transactions reflect movement in Inventory UOMs. The Inventory UOM is
-        also the base reference for all UOM conversion ratios.</para>
+        <para>Specify the Item's primary Unit of Measure&mdash;or enter a
+        free-form UOM. The Inventory (UOM) is the UOM in which Inventory is
+        maintained. All Inventory transactions, sales transactions, and
+        General Ledger transactions reflect movement in Inventory UOMs. The
+        Inventory UOM is also the base reference for all UOM conversion
+        ratios.</para>
         <note>
           <para>Once transactions have been posted using an Item's Inventory
           UOM, you may no longer change the Inventory UOM for the Item.</para>
@@ -579,9 +582,9 @@
       <listitem>
         <para>Enables you to edit highlighted Item UOM conversions. The edit
         screen is the same as that for creating a new Item UOM
-        conversion&mdash;except that when editing, the fields will contain Item UOM
-        conversion information. Double-clicking on an Item UOM conversion will
-        also bring you to the editing screen.</para>
+        conversion&mdash;except that when editing, the fields will contain
+        Item UOM conversion information. Double-clicking on an Item UOM
+        conversion will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -698,16 +701,16 @@
               <para>In Capacity Planning and Sales Analysis reports, the
               Capacity UOM enables you to make apples-to-apples comparisons of
               Items that use different Inventory UOMs. For example, let's say
-              that Item A is a carton containing 24 Item B"s&mdash;and that you
-              sell both Items. However, Item A and Item B use different
+              that Item A is a carton containing 24 Item B"s&mdash;and that
+              you sell both Items. However, Item A and Item B use different
               Inventory UOMs. Item A is measured by the CASE (24), and Item B
               is measured by EACH. By utilizing the Capacity UOM, you have the
-              ability to track total load and total sales for Item B&mdash;even
-              though the Inventory UOM for Item A obscures the quantity of
-              Item B's contained therein. If, when you query the database, you
-              request data to be displayed in Capacity UOMs, then the system
-              will normalize the quantities of Item A to EACH, allowing you to
-              see the total quantity of Item Bs.</para>
+              ability to track total load and total sales for Item
+              B&mdash;even though the Inventory UOM for Item A obscures the
+              quantity of Item B's contained therein. If, when you query the
+              database, you request data to be displayed in Capacity UOMs,
+              then the system will normalize the quantities of Item A to EACH,
+              allowing you to see the total quantity of Item Bs.</para>
               <note>
                 <para>The Capacity UOM has no impact on Bills of Materials. It
                 is used solely for Capacity Planning and Sales Analysis
@@ -742,11 +745,11 @@
               For example, cans of soda may be stocked in Inventory as
               individual units (EACH), but sold by the case (CASE24). In this
               example, Inventory transactions will be recorded using the
-              Inventory UOM (EACH), but all pricing&mdash;including List Price and
-              Pricing Schedules&mdash;will reflect the Selling UOM (CASE24). An
-              Item may also have multiple Selling UOMs, for example SIX-PACK,
-              CASE24, PALLET, etc. You specify the Selling UOM you want to use
-              at Sales Order entry time.</para>
+              Inventory UOM (EACH), but all pricing&mdash;including List Price
+              and Pricing Schedules&mdash;will reflect the Selling UOM
+              (CASE24). An Item may also have multiple Selling UOMs, for
+              example SIX-PACK, CASE24, PALLET, etc. You specify the Selling
+              UOM you want to use at Sales Order entry time.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -836,9 +839,9 @@
       <listitem>
         <para>Enables you to edit highlighted Item Characteristics. The edit
         screen is the same as that for creating a new Item
-        Characteristic&mdash;except that when editing, the fields will contain Item
-        Characteristic information. Double-clicking on an Item Characteristic
-        will also bring you to the editing screen.</para>
+        Characteristic&mdash;except that when editing, the fields will contain
+        Item Characteristic information. Double-clicking on an Item
+        Characteristic will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -989,9 +992,9 @@
       <listitem>
         <para>Enables you to edit highlighted Tax Type definitions. The edit
         screen is the same as that for creating a new Tax Type
-        definition&mdash;except that when editing, the fields will contain Tax Type
-        definition information. Double-clicking on a Tax Type definition will
-        also bring you to the editing screen.</para>
+        definition&mdash;except that when editing, the fields will contain Tax
+        Type definition information. Double-clicking on a Tax Type definition
+        will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1076,9 +1079,9 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To view system-generated Comments associated with an Item&mdash;or to add
-  new Comments of your own&mdash;select the "Comments" tab. The following screen
-  will appear:</para>
+  <para>To view system-generated Comments associated with an Item&mdash;or to
+  add new Comments of your own&mdash;select the "Comments" tab. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -1164,10 +1167,10 @@
     </indexterm>Item Aliases are assigned to Items as a means for
   cross-referencing internal and external Item information. For example, a
   Customer may refer to an Item by a different Item Number than you do. To
-  avoid confusion&mdash;and to simplify Item lookups&mdash;you can create an Item Alias
-  linking the Customer's external Part Number to your own internal Item
-  Number. The Item Alias acts as an alternate identifier. In this way, Items
-  may be located using either internal or external Item information. To
+  avoid confusion&mdash;and to simplify Item lookups&mdash;you can create an
+  Item Alias linking the Customer's external Part Number to your own internal
+  Item Number. The Item Alias acts as an alternate identifier. In this way,
+  Items may be located using either internal or external Item information. To
   associate an Item Alias with an Item, select the "Alias" tab. The following
   screen will appear:</para>
   <para><screenshot>
@@ -1206,9 +1209,9 @@
       <listitem>
         <para>Enables you to edit highlighted Item Alias definitions. The edit
         screen is the same as that for creating a new Item Alias
-        definition&mdash;except that when editing, the fields will contain Item
-        Alias information. Double-clicking on an Item Alias definition will
-        also bring you to the editing screen.</para>
+        definition&mdash;except that when editing, the fields will contain
+        Item Alias information. Double-clicking on an Item Alias definition
+        will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1350,8 +1353,8 @@
       <listitem>
         <para>Enables you to edit highlighted Item Substitute definitions. The
         edit screen is the same as that for creating a new Item Substitute
-        definition&mdash;except that when editing, the fields will contain Item
-        Substitute information. Double-clicking on an Item Substitute
+        definition&mdash;except that when editing, the fields will contain
+        Item Substitute information. Double-clicking on an Item Substitute
         definition will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
@@ -1528,9 +1531,9 @@
       <listitem>
         <para>Enables you to edit highlighted Item Image definitions. The edit
         screen is the same as that for creating a new Item Image
-        definition&mdash;except that when editing, the fields will contain Item
-        Image information. Double-clicking on an Item Image definition will
-        also bring you to the editing screen.</para>
+        definition&mdash;except that when editing, the fields will contain
+        Item Image information. Double-clicking on an Item Image definition
+        will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1731,8 +1734,8 @@
       <listitem>
         <para>Enables you to edit highlighted Item File definitions. The edit
         screen is the same as that for creating a new Item File
-        definition&mdash;except that when editing, the fields will contain Item
-        File definition information. Double-clicking on an Item File
+        definition&mdash;except that when editing, the fields will contain
+        Item File definition information. Double-clicking on an Item File
         definition will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section559720">
   <title>Shop Floor Workbench</title>
   <para>The Shop Floor Workbench offers enhanced labor tracking and
@@ -14,22 +15,19 @@
   </tip>
   <note role="openmfg">
     <para>This section description includes references to both Operations and
-    Production posting. Operations posting is only allowed in the OpenMFG edition
-    of xTuple ERP.
-    </para>
+    Production posting. Operations posting is only allowed in the OpenMFG
+    edition of xTuple ERP.</para>
   </note>
   <para>To access the Shop Floor Workbench, select the "Shop Floor Workbench"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/woTimeClock.png"/>
+          <imagedata fileref="images/woTimeClock.png" />
         </imageobject>
         <caption>Shop Floor Workbench</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>The Shop Floor Workbench must be configured for either Operations
     posting or Production posting. You may not use the Workbench for both
@@ -129,11 +127,11 @@
         <para>Select to clock-in to the specified Work Order. When a user
         clocks-in to a Work Order, the run-time clock starts running from that
         point. The clock stops when a user clocks-out of the Work Order. The
-        elapsed time&mdash;or "effort"--is used for labor reporting purposes. Users
-        may only clock-in to Work Orders they are not already clocked-in to.
-        However, users may clock-in to and clock-out of the same Work Order as
-        many times as necessary. Each clock-in starts the run-time Time Clock;
-        each clock-out stops it.</para>
+        elapsed time&mdash;or "effort"&mdash;is used for labor reporting
+        purposes. Users may only clock-in to Work Orders they are not already
+        clocked-in to. However, users may clock-in to and clock-out of the
+        same Work Order as many times as necessary. Each clock-in starts the
+        run-time Time Clock; each clock-out stops it.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -143,12 +141,13 @@
         the run-time clock stops for the specified Work Order. The time
         elapsed since the user last clocked-in is added to the run time total
         for the Work Order. This run-time calculation is automatic and cannot
-        be overridden&mdash;except by users who have override privileges. Users may
-        only clock-out of Work Orders they are already clocked-in to. If the
-        Workbench is configured for Operations-posting, the "Post Operations"
-        screen will be presented immediately after the CLOCK OUT button is
-        selected. By default, the "Scrap Work Order Material from W/O" screen
-        will immediately follow the "Post Operations" screen.</para>
+        be overridden&mdash;except by users who have override privileges.
+        Users may only clock-out of Work Orders they are already clocked-in
+        to. If the Workbench is configured for Operations-posting, the "Post
+        Operations" screen will be presented immediately after the CLOCK OUT
+        button is selected. By default, the "Scrap Work Order Material from
+        W/O" screen will immediately follow the "Post Operations"
+        screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
