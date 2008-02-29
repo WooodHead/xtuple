@@ -54,16 +54,16 @@
       </listitem>
     </orderedlist>
     <para>Production Plans are at the heart of MPS. Using Production Plans,
-    you have the ability to load sales Forecasts into the system&mdash;and then
-    view the impact of the Forecasts on production planning.</para>
+    you have the ability to load sales Forecasts into the system&mdash;and
+    then view the impact of the Forecasts on production planning.</para>
     <para>Typically, MPS is used to plan for Items having "independent"
     demand. Independent demand Items are defined as those Items which derive
     their demand directly from Customer requirements through Sales Orders. By
     contrast, "dependent" demand Items are normally purchased Items and
-    subassemblies. The demand for dependent Items is derived indirectly&mdash;that
-    is, based on the demand for their parent Items in a Bill of Materials. The
-    Material Requirements Planning (MRP) system is typically used to plan for
-    dependent demand.</para>
+    subassemblies. The demand for dependent Items is derived
+    indirectly&mdash;that is, based on the demand for their parent Items in a
+    Bill of Materials. The Material Requirements Planning (MRP) system is
+    typically used to plan for dependent demand.</para>
     <xi:include href="guiclient/plannedSchedule.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -217,11 +217,6 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(Section530193)" />
   </section>
-  <section id="Section551241" role="openmfg">
-    <title>Reports</title>
-    <para>The Schedule module offers a number of reports for viewing
-    information related to planning and scheduling.</para>
-  </section>
   <section role="openmfg">
     <title>Reports</title>
     <para>Schedule Reports section.</para>
@@ -268,7 +263,7 @@
   </section>
   <section role="openmfg">
     <title>Master Information</title>
-    <para>Master Information section.</para>
+    <para>Schedule Master Information section.</para>
     <xi:include href="guiclient/plannerCodes.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />

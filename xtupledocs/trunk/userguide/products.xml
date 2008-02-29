@@ -10,7 +10,7 @@
     <para>Product Reports section.</para>
     <section>
       <title>Items</title>
-      <para>Reports by Item.</para>
+      <para>Item Reports section.</para>
       <xi:include href="guiclient/dspItemsByProductCategory.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -23,7 +23,7 @@
     </section>
     <section>
       <title>Bills of Materials</title>
-      <para>Reports by Bills of Materials</para>
+      <para>Bills of Materials Reports section.</para>
       <xi:include href="guiclient/dspSingleLevelBOM.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -39,7 +39,7 @@
     </section>
     <section>
       <title>Where Used</title>
-      <para>Reports by where used.</para>
+      <para>Where used Reports section.</para>
       <xi:include href="guiclient/dspSingleLevelWhereUsed.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -58,7 +58,7 @@
                 xpointer="element(/1)" />
     <section>
       <title>Capacity UOMs</title>
-      <para>Reports by Capacity Units of Measure.</para>
+      <para>Capacity Units of Measure Reports section.</para>
       <xi:include href="guiclient/dspCapacityUOMsByClassCode.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -69,7 +69,7 @@
   </section>
   <section id="Section518881">
     <title>Item</title>
-    <para>In this section we describe the features of each Items.</para>
+    <para>Items section.</para>
     <xi:include href="guiclient/item.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -99,7 +99,7 @@
       </indexterm>Bill of Materials</title>
     <para>A Bill of Materials (BOM) is a list of component parts and specified
     quantities required to manufacture an Item. In this section we describe
-    the features of each "Bills of Materials" category.</para>
+    the features of Bills of Materials.</para>
     <xi:include href="guiclient/bom.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -134,11 +134,8 @@
   <section id="Section519671" role="openmfg">
     <title>Breeder Bill of Materials</title>
     <para>A Breeder Item is an Item from which other Items&mdash;or
-    by-products&mdash;are produced. An example would be gravel. A company can put
-    gravel through a screening process, using screens of different widths. The
-    resulting by-products might be three grades of materials: fine, medium,
-    and coarse. Each by-product would be considered a separate Item, having
-    been bred from the initial Breeder Item.</para>
+    by-products&mdash;are produced. In this section we describe the features
+    of Breeder Bills of Materials.</para>
     <xi:include href="guiclient/bbom.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -225,9 +222,7 @@
         <primary>master information</primary>
         <secondary>for p/d module</secondary>
       </indexterm>Master Information</title>
-    <para>Each Master Information category gives you the ability to define and
-    maintain essential data that support not only the Products module, but
-    also other modules throughout the application.</para>
+    <para>Products Master Information section.</para>
     <xi:include href="guiclient/uoms.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -255,8 +250,7 @@
         <primary>utilities</primary>
         <secondary>in p/d module</secondary>
       </indexterm>Utilities</title>
-    <para>The P/D utilities are designed to perform house-cleaning and
-    troubleshooting functions.</para>
+    <para>Products Utilities section.</para>
     <xi:include href="guiclient/dspUnusedPurchasedItems.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />

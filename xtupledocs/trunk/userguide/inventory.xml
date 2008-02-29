@@ -20,16 +20,19 @@
       <para>Physical Inventory</para>
     </listitem>
     <listitem>
+      <para>Shipping &amp; Receiving</para>
+    </listitem>
+    <listitem>
       <para>Warehouses</para>
     </listitem>
     <listitem>
-      <para>Warehouse Locations</para>
+      <para>Warehouse Location</para>
+    </listitem>
+    <listitem>
+      <para>Lot/Serial</para>
     </listitem>
     <listitem>
       <para>Cost Categories</para>
-    </listitem>
-    <listitem>
-      <para>Item Controls</para>
     </listitem>
   </itemizedlist>
   <para>The module is also responsible for generating General Ledger (G/L)
@@ -50,11 +53,10 @@
         <primary>physical inventory</primary>
         <secondary>management of</secondary>
       </indexterm>Physical Inventory</title>
-    <para>The management of physical Inventory is covered in this
-    section.</para>
+    <para>Physical Inventoy section.</para>
     <section>
       <title>Create Count Tags</title>
-      <para>Create Count Tags section.</para>
+      <para>Count Tags section.</para>
       <xi:include href="guiclient/createCountTagsByPlannerCode.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -143,8 +145,7 @@
         <primary>shipping</primary>
         <secondary>receiving purchased items from</secondary>
       </indexterm>Receiving</title>
-    <para>A Receipt represents the action of receiving and posting Inventory
-    against a given Purchase Order for later Vouchering.</para>
+    <para>Receiving section.</para>
     <xi:include href="guiclient/enterPoReceipt.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -164,7 +165,7 @@
   </section>
   <section id="Section518491">
     <title>Shipping</title>
-    <para>The shipment of orders is described in this section.</para>
+    <para>Shipping section.</para>
     <xi:include href="guiclient/issueToShipping.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -254,7 +255,7 @@
         <primary>transactions</primary>
         <secondary>See also inventory transactions[transactions</secondary>
       </indexterm>Transactions</title>
-    <para>Inventory transactions are covered in this section.</para>
+    <para>Inventory transactions section.</para>
     <xi:include href="guiclient/adjustmentTrans.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -288,17 +289,17 @@
   </section>
   <section>
     <title>Forms</title>
-    <para>Forms section.</para>
+    <para>Inventory Forms section.</para>
     <xi:include href="guiclient/printItemLabelsByClassCode.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
   <section id="Section519902">
     <title>Reports</title>
-    <para>This section covers Reports section.</para>
+    <para>Inventory Reports section.</para>
     <section>
       <title>Item Sites</title>
-      <para>Item Site Reports.</para>
+      <para>Item Site Reports section.</para>
       <xi:include href="guiclient/dspItemSitesByPlannerCode.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -363,7 +364,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
     <section>
-      <title>Inventory Buffer Status</title>
+      <title>Inventory Status</title>
       <para>Inventory Buffer Status Reports section.</para>
       <xi:include href="guiclient/dspInventoryBufferStatusByPlannerCode.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -453,13 +454,7 @@
   </section>
   <section id="Section652128" role="standard">
     <title>Lot/Serial Control</title>
-    <para>Items that are controlled by either Lot or Serial Number require
-    special handling.</para>
-    <note>
-      <para>For information on the special steps required to receive
-      Lot/Serial Items into Inventory, see the "Topic: Receiving Lot/Serial
-      Items into Inventory" section.</para>
-    </note>
+    <para>Lot/Serial control section.</para>
     <xi:include href="guiclient/lotSerialComments.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -478,8 +473,7 @@
         <primary>master information</primary>
         <secondary>for i/m module</secondary>
       </indexterm>Master Information</title>
-    <para>This is the section where you define Master Information for the
-    module.</para>
+    <para>Inventory Master Information section.</para>
     <xi:include href="guiclient/costCategories.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -495,7 +489,7 @@
         <primary>utilities</primary>
         <secondary>in i/m module</secondary>
       </indexterm>Utilities</title>
-    <para>The Utilities for the module are located in this section.</para>
+    <para>Inventory Utilities section.</para>
     <xi:include href="guiclient/dspUnbalancedQOHByClassCode.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />

@@ -127,7 +127,7 @@
   </section>
   <section>
     <title>Forms</title>
-    <para>Forms section.</para>
+    <para>Purchase Forms section.</para>
     <xi:include href="guiclient/printPurchaseOrder.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(Section972547)" />
@@ -146,7 +146,7 @@
   </section>
   <section id="Section518907">
     <title>Reports</title>
-    <para>This module offers a number of reports.</para>
+    <para>Purchase Reports section.</para>
     <xi:include href="guiclient/dspItemSitesByPlannerCode.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -264,7 +264,8 @@
   <section id="Section959109">
     <title>Item Source</title>
     <para>Item Sources identify the relationship between Items and the Vendors
-    who supply them.</para>
+    who supply them. In this section we describe the features of Item
+    Sources.</para>
     <xi:include href="guiclient/itemSource.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(Section520355)" />
@@ -277,9 +278,7 @@
         <primary>master information</primary>
         <secondary>for p/o module</secondary>
       </indexterm>Master Information</title>
-    <para>Each Master Information category gives you the ability to define and
-    maintain essential data that support not only this module, but also other
-    modules throughout the system.</para>
+    <para>Purchase Master Information section.</para>
     <xi:include href="guiclient/plannerCodes.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -301,7 +300,7 @@
         <primary>utilities</primary>
         <secondary>in p/o module</secondary>
       </indexterm>Utilities</title>
-    <para>Utilities for the module are handled here.</para>
+    <para>Purchase Utilities section.</para>
     <xi:include href="guiclient/dspItemsWithoutItemSources.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(Section940988)" />

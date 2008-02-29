@@ -42,8 +42,7 @@
         <primary>sales orders</primary>
         <secondary>customer relations and</secondary>
       </indexterm>Sales Order</title>
-    <para>Sales Orders are orders placed by Customers for the purchase of sold
-    Items.</para>
+    <para>Sales Order section.</para>
     <xi:include href="guiclient/salesOrder.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -56,14 +55,13 @@
   </section>
   <section id="Section528858">
     <title>Billing</title>
-    <para>The Billing information for the module is stored in this
-    section.</para>
+    <para>Billing section.</para>
     <section id="Section568790">
       <title><indexterm significance="normal">
           <primary>invoices</primary>
           <secondary>as billing tool</secondary>
         </indexterm>Invoice</title>
-      <para>Invoices are described in this section.</para>
+      <para>Invoice section.</para>
       <xi:include href="guiclient/uninvoicedShipments.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -93,7 +91,8 @@
       <title>Credit Memo</title>
       <para>Sales Order Credit Memos are used to issue credit for sold
       Inventory. They differ from Accounts Receivable (A/R) Credit Memos,
-      which are issued for non-Inventory purposes.</para>
+      which are issued for non-Inventory purposes. In this section we describe
+      the features of sales Credit Memos.</para>
       <xi:include href="guiclient/creditMemo.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -132,7 +131,7 @@
   </section>
   <section>
     <title>Return</title>
-    <para>Return section.</para>
+    <para>Return Authorization section.</para>
     <xi:include href="guiclient/returnAuthorization.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -145,7 +144,7 @@
   </section>
   <section>
     <title>Lookup</title>
-    <para>Lookup section.</para>
+    <para>Sales lookup section.</para>
     <section>
       <title>Quote</title>
       <para>Quote lookup section.</para>
@@ -197,8 +196,7 @@
   </section>
   <section id="Section519901">
     <title>Reports</title>
-    <para>The module offers a number of reports for viewing information
-    related to Sales Orders.</para>
+    <para>Sales Reports section.</para>
     <xi:include href="guiclient/dspSummarizedBacklogByWarehouse.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -259,10 +257,10 @@
   </section>
   <section id="Section518499">
     <title>Analysis</title>
-    <para>Reports for the module are stored here.</para>
+    <para>Sales Analysis section.</para>
     <section>
       <title>Bookings</title>
-      <para>Bookings analysis section.</para>
+      <para>Bookings section.</para>
       <xi:include href="guiclient/dspBookingsBySalesRep.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -297,7 +295,7 @@
     </section>
     <section>
       <title>Sales History</title>
-      <para>Sales history analysis section.</para>
+      <para>Sales history section.</para>
       <xi:include href="guiclient/dspSalesHistoryBySalesrep.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -325,7 +323,7 @@
     </section>
     <section>
       <title>Brief Sales History</title>
-      <para>Brief sales history analysis section.</para>
+      <para>Brief sales history section.</para>
       <xi:include href="guiclient/dspBriefSalesHistoryBySalesRep.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -338,7 +336,7 @@
     </section>
     <section>
       <title>Summarized Sales History</title>
-      <para>Summarized sales history analysis section.</para>
+      <para>Summarized sales history section.</para>
       <xi:include href="guiclient/dspSummarizedSalesBySalesRep.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -363,7 +361,7 @@
     </section>
     <section>
       <title>Time-Phased Summarized Sales History</title>
-      <para>Time-phased summarized sales history analysis section.</para>
+      <para>Time-phased summarized sales history section.</para>
       <xi:include href="guiclient/dspTimePhasedSalesByCustomerGroup.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -421,7 +419,7 @@
         <primary>items</primary>
         <secondary>pricing for</secondary>
       </indexterm>Item Pricing</title>
-    <para>Item Pricing is handled in this section.</para>
+    <para>Item Pricing section.</para>
     <xi:include href="guiclient/itemListPrice.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -466,9 +464,7 @@
         <primary>master information</primary>
         <secondary>for s/o module</secondary>
       </indexterm>Master Information</title>
-    <para>Each Master Information category gives you the ability to define and
-    maintain essential data that support not only the Sales module, but also
-    other modules throughout the system.</para>
+    <para>Sales Master Information section.</para>
     <xi:include href="guiclient/characteristics.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -511,7 +507,7 @@
         <primary>utilities</primary>
         <secondary>in s/o module</secondary>
       </indexterm>Utilities</title>
-    <para>Utilities for the module are handled here.</para>
+    <para>Sales Utilities section.</para>
     <xi:include href="guiclient/dspCustomerInformationExport.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />

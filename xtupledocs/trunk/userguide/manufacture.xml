@@ -42,9 +42,9 @@
         <secondary>relation to production</secondary>
       </indexterm>Work Order</title>
     <para>A Work Order is a document which authorizes the production of
-    manufactured Items. Work Orders can exist in five different states&mdash;from
-    creation to completion. The five different states of Work Orders are
-    listed below:</para>
+    manufactured Items. Work Orders can exist in five different
+    states&mdash;from creation to completion. The five different states of
+    Work Orders are listed below:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem>
         <para>Open ("O"): This is the initial state a Work Order receives when
@@ -183,7 +183,7 @@
   </section>
   <section>
     <title>Forms</title>
-    <para>Work Order Forms section.</para>
+    <para>Manufacturing Forms section.</para>
     <xi:include href="guiclient/printWoTraveler.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -205,7 +205,7 @@
     <para>Manufacturing reports are contained in this section.</para>
     <section>
       <title>Work Order Schedule</title>
-      <para>Work Order Schedule Reports section.</para>
+      <para>Manufacturing Schedule Reports section.</para>
       <xi:include href="guiclient/dspWoScheduleByPlannerCode.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -226,8 +226,8 @@
                   xpointer="element(/1)" />
     </section>
     <section>
-      <title>Buffer Status</title>
-      <para>Work Order Buffer Status Reports section.</para>
+      <title>Work Order Status</title>
+      <para>Manufacturing Buffer Status Reports section.</para>
       <xi:include href="guiclient/dspWoBufferStatusByPlannerCode.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -279,7 +279,7 @@
     </section>
     <section>
       <title>History</title>
-      <para>Work Order History Reports section.</para>
+      <para>Manufacturing History Reports section.</para>
       <xi:include href="guiclient/dspWoHistoryByClassCode.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -312,7 +312,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
     </section>
-    <section>
+    <section role="openmfg">
       <title>Labor Variance</title>
       <para>Labor Variance Reports section.</para>
       <xi:include href="guiclient/dspLaborVarianceByWorkCenter.xml"
@@ -328,7 +328,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
     </section>
-    <section>
+    <section role="openmfg">
       <title>Breeder Distribution Variance</title>
       <para>Breeder Distribution Variance Reports section.</para>
       <xi:include href="guiclient/dspBreederDistributionVarianceByWarehouse.xml"
@@ -351,7 +351,7 @@
   </section>
   <section>
     <title>Utilities</title>
-    <para>Work Order Utilities section.</para>
+    <para>Manufacturing Utilities section.</para>
     <xi:include href="guiclient/purgeClosedWorkOrders.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />

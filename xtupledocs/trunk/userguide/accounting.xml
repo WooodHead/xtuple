@@ -1,4 +1,4 @@
-xTuple ERP<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
@@ -57,8 +57,7 @@ xTuple ERP<?xml version="1.0" encoding="UTF-8"?>
         </indexterm> <indexterm significance="normal">
           <primary>vendors</primary>
           <secondary>making payments to</secondary>
-        </indexterm>Managing payments to Vendors is a central focus of the
-      module.</para>
+        </indexterm>Payments section.</para>
       <xi:include href="guiclient/selectPayments.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -150,7 +149,7 @@ xTuple ERP<?xml version="1.0" encoding="UTF-8"?>
     </section>
     <section id="Section524296">
       <title>A/R Memos</title>
-      <para>Debit and Credit Memos are described in this section.</para>
+      <para>A/R Memos section.</para>
       <xi:include href="guiclient/arOpenItemCredit.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -163,7 +162,7 @@ xTuple ERP<?xml version="1.0" encoding="UTF-8"?>
     </section>
     <section id="Section572894">
       <title>Cash Receipt</title>
-      <para>Cash Receipts are described in this section.</para>
+      <para>Cash Receipts section.</para>
       <xi:include href="guiclient/cashReceipt.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -258,8 +257,7 @@ xTuple ERP<?xml version="1.0" encoding="UTF-8"?>
           <primary>journals</primary>
           <secondary>standard</secondary>
         </indexterm>Standard Journal</title>
-      <para>Standard Journals are used to define reoccurring General Ledger
-      (G/L) entries.</para>
+      <para>Standard Journal section.</para>
       <xi:include href="guiclient/standardJournal.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
@@ -293,7 +291,7 @@ xTuple ERP<?xml version="1.0" encoding="UTF-8"?>
   </section>
   <section id="Section524367">
     <title>Reports</title>
-    <para>The module offers a number of reports.</para>
+    <para>Accounting reports section.</para>
     <xi:include href="guiclient/dspGLTransactions.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(Section524434)" />
@@ -318,8 +316,7 @@ xTuple ERP<?xml version="1.0" encoding="UTF-8"?>
         <primary>financial reports</primary>
         <secondary>previewing of</secondary>
       </indexterm>Financial Statements</title>
-    <para>The Financial Reports section is where you create and generate
-    Financial Reports based on transaction information.</para>
+    <para>Financial Statements section.</para>
     <xi:include href="guiclient/financialLayout.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -335,7 +332,7 @@ xTuple ERP<?xml version="1.0" encoding="UTF-8"?>
   </section>
   <section>
     <title>Fiscal Calendar</title>
-    <para>Fiscal Calendar information.</para>
+    <para>Fiscal Calendar section.</para>
     <xi:include href="guiclient/accountingYearPeriods.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -370,8 +367,7 @@ xTuple ERP<?xml version="1.0" encoding="UTF-8"?>
   </section>
   <section id="Section572061">
     <title>Budget</title>
-    <para>The Budget section contains the tools you need to create and
-    maintain budgetary information.</para>
+    <para>Budget section.</para>
     <xi:include href="guiclient/maintainBudget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -406,7 +402,7 @@ xTuple ERP<?xml version="1.0" encoding="UTF-8"?>
   </section>
   <section>
     <title>Master Information</title>
-    <para>Accounting Module Master Information</para>
+    <para>Accounting Master Information section.</para>
     <xi:include href="guiclient/termses.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -449,7 +445,7 @@ xTuple ERP<?xml version="1.0" encoding="UTF-8"?>
         <primary>utilities</primary>
         <secondary>in accounting module</secondary>
       </indexterm>Utilities</title>
-    <para>Accounting Module Utilities.</para>
+    <para>Accounting Utilities section.</para>
     <xi:include href="guiclient/forwardUpdateAccounts.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
