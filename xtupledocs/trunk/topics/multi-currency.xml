@@ -12,8 +12,8 @@
     </indexterm>Topic: Multi-Currency Basics</title>
   <note>
     <para>The scenarios described in this section refer to Items and other
-    data found in the OpenMFG Demo Database. The Demo Database is available
-    for download from the OpenMFG website. The demo databases have been
+    data found in the xTuple ERP Demo Database. The Demo Database is available
+    for download from the xTuple website. The demo databases have been
     pre-loaded with a default Currency of U.S. Dollars and the foreign
     Currencies British Pounds and Euros. The expiration date on these
     Currencies has been set well into the future. During the course of the
@@ -21,7 +21,7 @@
     to simulate the normal fluctuations that take place in the Currency
     markets on a daily basis.</para>
   </note>
-  <para>To illustrate OpenMFG's multi-currency integration, we will enter a
+  <para>To illustrate xTuple ERP's multi-currency integration, we will enter a
   Miscellaneous Invoice using a foreign Currency (in this case, British
   Pounds) and post it with today's date. We will then set up a new Exchange
   Rate having tomorrow's date. Next, we will enter a Cash Receipt and assign
@@ -55,8 +55,8 @@
         <para>Click the NEW button</para>
       </listitem>
       <listitem>
-        <para>Enter Customer Number "XTRM" in the "Customer #" field&mdash;or use
-        the browse button to locate and select this Customer</para>
+        <para>Enter Customer Number "XTRM" in the "Customer #" field&mdash;or
+        use the browse button to locate and select this Customer</para>
       </listitem>
       <listitem>
         <para>Click the COPY TO SHIP-TO button</para>
@@ -73,13 +73,27 @@
       </listitem>
       <listitem>
         <para>Enter the following values:</para>
-        <para>Item: "Product Design Services"</para>
-        <para>Description: "Design of new product concept and delivery of
-        prototype"</para>
-        <para>Sales Category: NORMAL-SALE</para>
-        <para>Qty. Ordered: 1</para>
-        <para>Qty. Billed: 1</para>
-        <para>Net Unit Price: 10,000 (followed by the TAB key)</para>
+        <itemizedlist>
+          <listitem>
+            <para>Item: "Product Design Services"</para>
+          </listitem>
+          <listitem>
+            <para>Description: "Design of new product concept and delivery of
+            prototype"</para>
+          </listitem>
+          <listitem>
+            <para>Sales Category: NORMAL-SALE</para>
+          </listitem>
+          <listitem>
+            <para>Qty. Ordered: 1</para>
+          </listitem>
+          <listitem>
+            <para>Qty. Billed: 1</para>
+          </listitem>
+          <listitem>
+            <para>Net Unit Price: 10,000 (followed by the TAB key)</para>
+          </listitem>
+        </itemizedlist>
       </listitem>
     </itemizedlist>
     <note>
@@ -90,8 +104,7 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/F075-MC-Invioce-Line.png"
-                       />
+            <imagedata fileref="images/F075-MC-Invioce-Line.png" />
           </imageobject>
           <caption>New Invoice Line Item</caption>
         </mediaobject>
@@ -153,7 +166,7 @@
         <para>Open the Exchange Rates screen</para>
       </listitem>
       <listitem>
-        <para>Double-click on the Exchange Rate entry for "GBP-<!--Pound-->"</para>
+        <para>Double-click on the Exchange Rate entry for "GBP"</para>
       </listitem>
       <listitem>
         <para>Change the value in the "End Date" field to today's date</para>
@@ -162,8 +175,7 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/F076-ExchangeRateChange.png"
-                       />
+            <imagedata fileref="images/F076-ExchangeRateChange.png" />
           </imageobject>
           <caption>Currency Exchange Rate</caption>
         </mediaobject>
@@ -185,10 +197,20 @@
       </listitem>
       <listitem>
         <para>Enter the following information:</para>
-        <para>Currency: GBP-<!--Pound--></para>
-        <para>Exchange Rate: 1.788</para>
-        <para>Start Date: Enter tomorrow's date</para>
-        <para>End Date: Enter 12/31/2008</para>
+        <itemizedlist>
+          <listitem>
+            <para>Currency: GBP</para>
+          </listitem>
+          <listitem>
+            <para>Exchange Rate: 1.788</para>
+          </listitem>
+          <listitem>
+            <para>Start Date: Enter tomorrow's date</para>
+          </listitem>
+          <listitem>
+            <para>End Date: Enter 12/31/2008</para>
+          </listitem>
+        </itemizedlist>
       </listitem>
       <listitem>
         <para>Click the SAVE button</para>
@@ -205,11 +227,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/F077-MC-ExchRates.png"
-                       />
+            <imagedata fileref="images/F077-MC-ExchRates.png" />
           </imageobject>
-          <caption>Updated Currency Exchange
-          Rates</caption>
+          <caption>Updated Currency Exchange Rates</caption>
         </mediaobject>
       </screenshot></para>
     <itemizedlist>
@@ -254,19 +274,30 @@
       </listitem>
       <listitem>
         <para>Enter the following information:</para>
-        <para>Customer #: XTRM (followed by the TAB key)</para>
-        <para>Amount Received: <!--Pound-->10,000 (i.e., British
-        Pounds)</para>
-        <para>Check/Document#: 12011</para>
-        <para>Post to: GBank-GBank</para>
-        <para>Distribution Date: Enter tomorrow's date (e.g., +1)</para>
+        <itemizedlist>
+          <listitem>
+            <para>Customer #: XTRM (followed by the TAB key)</para>
+          </listitem>
+          <listitem>
+            <para>Amount Received: 10,000 (i.e., British Pounds)</para>
+          </listitem>
+          <listitem>
+            <para>Check/Document#: 12011</para>
+          </listitem>
+          <listitem>
+            <para>Post to: GBank-GBank</para>
+          </listitem>
+          <listitem>
+            <para>Distribution Date: Enter tomorrow's date (e.g., +1)</para>
+          </listitem>
+        </itemizedlist>
       </listitem>
       <listitem>
         <para>Click on the APPLY TO BALANCE button</para>
       </listitem>
     </itemizedlist>
     <note>
-      <para>Selecting the APPLY TO BALANCE button will distribute the <!--Pound-->10,000
+      <para>Selecting the APPLY TO BALANCE button will distribute the 10,000
       Cash Receipt to the Invoice you previously entered and posted. The
       Invoice information is displayed in the Open Items section of the Cash
       Receipt screen.</para>
@@ -274,11 +305,10 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/F078-MC-CashRcpt.png"
-                       />
+            <imagedata fileref="images/F078-MC-CashRcpt.png" />
           </imageobject>
-          <caption>Cash Receipt Screen Application in
-          Foreign Currency</caption>
+          <caption>Cash Receipt Screen Application in Foreign
+          Currency</caption>
         </mediaobject>
       </screenshot></para>
     <itemizedlist>
@@ -299,8 +329,8 @@
       </listitem>
     </itemizedlist>
     <para>Now let's look at the General Ledger postings that resulted from
-    these transactions&mdash;and the impact that the fluctuating Exchange Rates had
-    on them.</para>
+    these transactions&mdash;and the impact that the fluctuating Exchange
+    Rates had on them.</para>
   </section>
   <section id="Section980167">
     <title><indexterm significance="normal">
@@ -325,21 +355,26 @@
       </listitem>
       <listitem>
         <para>Enter the following information:</para>
-        <para>Start Date: Enter today's date (i.e., 0)</para>
-        <para>End Date: Enter tomorrow's date (i.e., +1)</para>
+        <itemizedlist>
+          <listitem>
+            <para>Start Date: Enter today's date (i.e., 0)</para>
+          </listitem>
+          <listitem>
+            <para>End Date: Enter tomorrow's date (i.e., +1)</para>
+          </listitem>
+        </itemizedlist>
       </listitem>
       <listitem>
         <para>Click the QUERY button</para>
       </listitem>
     </itemizedlist>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/F079-MC-GL-Trans.png"
-                       />
+            <imagedata fileref="images/F079-MC-GL-Trans.png" />
           </imageobject>
-          <caption>G/L Transactions Screen Showing Result
-          of Multi-currency Transactions</caption>
+          <caption>G/L Transactions Screen Showing Result of Multi-currency
+          Transactions</caption>
         </mediaobject>
       </screenshot></para>
     <tip>

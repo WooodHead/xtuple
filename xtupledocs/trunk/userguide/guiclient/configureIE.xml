@@ -9,11 +9,11 @@
   These data might be generated manually or by other database or e-commerce
   systems. For example xTuple supports importing orders from Yahoo!
   stores.</para>
-  <para>Importing data from XML files is a multistep process:</para>
+  <para>Importing data from XML files is a multi-step process:</para>
   <orderedlist>
     <listitem>
       <para>The files have to be received from the originator and placed on a
-      computer filesystem where the xTuple application can find them.</para>
+      computer file system where the xTuple application can find them.</para>
     </listitem>
     <listitem>
       <para>Any wrapper information has to be stripped off, such as mail
@@ -65,7 +65,7 @@
       Directories</term>
       <listitem>
         <para>The XSLT files used to perform the translation between XML data
-        formats must be present on the filesystem of the computer which is
+        formats must be present on the file system of the computer which is
         running the xTuple application. This set of options lets you define
         one directory for each operating system platform where the application
         should look for XSLT files.</para>

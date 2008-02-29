@@ -22,17 +22,17 @@
   Independent demand Items are defined as those Items which derive their
   demand directly from Customer requirements through Sales Orders. By
   contrast, "dependent" demand Items are normally purchased Items and
-  subassemblies. The demand for dependent Items is derived indirectly&mdash;that
-  is, based on the demand for their parent Items in a Bill of
-  Materials.</para>
-  <para>In this section, we will demonstrate OpenMFG's MPS functionality,
+  subassemblies. The demand for dependent Items is derived
+  indirectly&mdash;that is, based on the demand for their parent Items in a
+  Bill of Materials.</para>
+  <para>In this section, we will demonstrate xTuple ERP's MPS functionality,
   using a Production Plan called COLLECTORS-2007. We have linked a Planning
   Item, COLLECTORS-LINE, to this Production Plan. Both the Plan and the
-  Planning Item are included in the data for the OpenMFG Demo Database.</para>
+  Planning Item are included in the data for the xTuple ERP Demo Database.</para>
   <note>
     <para>The scenarios described in this section refer to Items and other
-    data found in the OpenMFG Demo Database. The Demo Database is available
-    for download from the OpenMFG website.</para>
+    data found in the xTuple ERP Demo Database. The Demo Database is available
+    for download from the xTuple website.</para>
   </note>
   <para>The Bill of Materials for the COLLECTORS-LINE Planning Item is
   composed of three MPS planned Items, each of which have the following
@@ -62,10 +62,10 @@
   logical construct, and, as such, no Planned Orders will be created for
   it.</para>
   <note>
-    <para>In our scenario, we will be forecasting using a Planning Item&mdash;a
-    special type of Item used to defined families or lines of products.
-    However, the system also allows you to place individual MPS Items on a
-    Production Schedule.</para>
+    <para>In our scenario, we will be forecasting using a Planning
+    Item&mdash;a special type of Item used to defined families or lines of
+    products. However, the system also allows you to place individual MPS
+    Items on a Production Schedule.</para>
   </note>
   <section id="Section555062">
     <title><indexterm significance="normal">
@@ -111,8 +111,7 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/F058-ProdPlanItem.png"
-                       />
+            <imagedata fileref="images/F058-ProdPlanItem.png" />
           </imageobject>
           <caption>Production Plan Item Screen</caption>
         </mediaobject>
@@ -246,11 +245,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/F060-MPS-OrdDisplay.png"
-                       />
+            <imagedata fileref="images/F060-MPS-OrdDisplay.png" />
           </imageobject>
-          <caption>Planned Orders by Planner Code
-          Display</caption>
+          <caption>Planned Orders by Planner Code Display</caption>
         </mediaobject>
       </screenshot></para>
     <para>The Planned Orders by Planner Code display shows us the top-down
@@ -289,7 +286,7 @@
         below:</para>
       </listitem>
     </itemizedlist>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/F061-MPSDetail.png" />
@@ -301,11 +298,11 @@
     Calendar selected. In this case, the Calendar being used is a special
     absolute Calendar that shows the last three months of 2006 and the first
     two months of 2007. As you follow this scenario, you should select the
-    Calendar appropriate for the current date&mdash;whatever the current date may
-    be. If you need a 2008 Calendar, simply select it from the drop-down list
-    and then click again on the Item whose MPS Detail information you want to
-    display. Also, depending on the time of year, you may need to scroll to
-    the right to see the Forecast and Planned Orders.</para>
+    Calendar appropriate for the current date&mdash;whatever the current date
+    may be. If you need a 2008 Calendar, simply select it from the drop-down
+    list and then click again on the Item whose MPS Detail information you
+    want to display. Also, depending on the time of year, you may need to
+    scroll to the right to see the Forecast and Planned Orders.</para>
     <para>Now that we have generated the planned MPS Orders, let's see the
     impact these will have on the plan for Material Requirements Planning
     (MRP) Items.</para>
@@ -398,11 +395,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/F063-MRP-Run-Output.png"
-                       />
+            <imagedata fileref="images/F063-MRP-Run-Output.png" />
           </imageobject>
-          <caption>Planned Orders by Planner Code
-          Display</caption>
+          <caption>Planned Orders by Planner Code Display</caption>
         </mediaobject>
       </screenshot></para>
     <itemizedlist>
@@ -413,7 +408,7 @@
     <para>If you want to continue further and act upon the advice provided by
     the MPS and MRP planning systems, you can proceed by right-clicking on a
     specific Planned Order and releasing it. For more information on releasing
-    Planned Orders, see the Basic Business Process Flow chapter of the OpenMFG
+    Planned Orders, see the Basic Business Process Flow chapter of the xTuple ERP
     Demo Guide.</para>
   </section>
 </section>

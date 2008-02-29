@@ -5,10 +5,10 @@
 <section id="Section554837" role="openmfg">
   <title>Topic: Constraint Management Basics</title>
   <para>What is a buffer? In short, a buffer is a little extra of something
-  that we maintain to ensure we can handle unexpected fluctuations. OpenMFG's
-  Constraint Management system reports on three types of buffers: stock, time,
-  and capacity. The following examples from daily life may help explain the
-  three different kinds of buffers:</para>
+  that we maintain to ensure we can handle unexpected fluctuations. xTuple
+  ERP's Constraint Management system reports on three types of buffers: stock,
+  time, and capacity. The following examples from daily life may help explain
+  the three different kinds of buffers:</para>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
@@ -33,15 +33,15 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>The critical buffer status in the OpenMFG Constraint Management
+    <para>The critical buffer status in the xTuple ERP Constraint Management
     system is 66%. In other words, any time we consume 66% of a buffer, then
     it's time to act immediately to resolve the situation. Using the coffee
     example, if our supply drops to one pound (and our buffer quantity is
-    three pounds), then we"ve used up two-thirds of our buffer&mdash;or 66%. With
-    that much of our buffer consumed, we need to buy more coffee right away.
-    The 66% value is a percentage that is widely used in academic research and
-    practical real-world implementations of the Theory of Constraints&mdash;a
-    theory pioneered by Eliyahu Goldratt.</para>
+    three pounds), then we've used up two-thirds of our buffer&mdash;or 66%.
+    With that much of our buffer consumed, we need to buy more coffee right
+    away. The 66% value is a percentage that is widely used in academic
+    research and practical real-world implementations of the Theory of
+    Constraints&mdash;a theory pioneered by Eliyahu Goldratt.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -76,8 +76,8 @@
         which can hold up to 12 hamburgers at one time. In this scenario, the
         grill's capacity buffer is 12. If each hamburger takes 15 minutes to
         cook&mdash;and you can cook 12 at a time&mdash;then you can produce 48
-        hamburgers in an hour. Now, let's say you"ve got 100 guests coming for
-        dinner. If your plan is to feed everyone in one hour, you"ve got a
+        hamburgers in an hour. Now, let's say you've got 100 guests coming for
+        dinner. If your plan is to feed everyone in one hour, you've got a
         capacity problem. You"ll either need to fire up an extra grill, or
         start cooking an hour early to build up your stock burger buffer ahead
         of time.</para>
@@ -85,7 +85,7 @@
     </varlistentry>
   </variablelist>
   <para>Now that we have gained a basic understanding of the different buffer
-  types, we can begin to look at how these buffers function in OpenMFG.</para>
+  types, we can begin to look at how these buffers function in xTuple ERP.</para>
   <section id="Section554849">
     <title><indexterm significance="normal">
         <primary>stock buffers</primary>
@@ -96,8 +96,8 @@
       </indexterm>Stock Buffer Scenario</title>
     <note>
       <para>The scenarios described in this section refer to Items and other
-      data found in the OpenMFG Demo Database. The Demo Database is available
-      for download from the OpenMFG website.</para>
+      data found in the xTuple ERP Demo Database. The Demo Database is available
+      for download from the xTuple website.</para>
     </note>
     <para>First let's take at look at how the stock buffer operates. Before we
     begin, we will need to do some initial setup on the Item Site record for
@@ -181,9 +181,9 @@
       site.</para>
     </note>
     <para>Okay, we are finished with the setup needed for our scenario. We are
-    now ready to run the Constraint Management system&mdash;and to learn the buffer
-    status of our newly-adjusted Item Site. To run the Constraint Management
-    system by Planner Code, follow these steps:</para>
+    now ready to run the Constraint Management system&mdash;and to learn the
+    buffer status of our newly-adjusted Item Site. To run the Constraint
+    Management system by Planner Code, follow these steps:</para>
     <orderedlist>
       <listitem>
         <para>Pull down the M/S Module menu</para>
@@ -252,9 +252,10 @@
       Units (Allocated) = 700 units</mathphrase>
     </equation>
     <para>This equation shows us that the stock buffer for this Item Site has
-    been depleted by 700 units&mdash;or 70%. Keep in mind that this calculation
-    also subtracts out allocated quantities, which in this case are 0. Hence,
-    the buffer status for Item TBODY1 in Warehouse WH1 = 70.</para>
+    been depleted by 700 units&mdash;or 70%. Keep in mind that this
+    calculation also subtracts out allocated quantities, which in this case
+    are 0. Hence, the buffer status for Item TBODY1 in Warehouse WH1 =
+    70.</para>
     <itemizedlist>
       <listitem>
         <para>Click the CLOSE button to exit the display</para>
@@ -270,22 +271,22 @@
         <secondary>time buffers and</secondary>
       </indexterm>Time Buffer Scenario</title>
     <para>Next we will look at a time buffer scenario. Please note that time
-    buffers are calculated only for make-to-order Items. In OpenMFG terms, a
+    buffers are calculated only for make-to-order Items. In xTuple ERP terms, a
     make-to-order Item is an Item whose Item Site record leaves the "Stocked
     at this Warehouse" flag UNCHECKED. Work Orders for make-to-order Items are
     generated automatically during Sales Order entry to meet demand.</para>
     <para>The Item Site Lead Time determines the initial buffer size for
     make-to-order Work Orders. That lead time should include a "Murphy"
-    factor&mdash;that is, time for things that might go wrong. Orders with short
-    Lead Times will increase in status faster than those with long Lead Times.
-    This helps to ease the problem where operators concentrate just on Work
-    Order start/finish dates, when the total amount of work involved (and
+    factor&mdash;that is, time for things that might go wrong. Orders with
+    short Lead Times will increase in status faster than those with long Lead
+    Times. This helps to ease the problem where operators concentrate just on
+    Work Order start/finish dates, when the total amount of work involved (and
     corresponding time allotment) has a lot to do with what should be worked
     on first.</para>
     <note>
       <para>The steps required for entering a Sales Order and creating new
       Line Items are covered in detail in the Basic Business Process Flow
-      section of the OpenMFG Demo Guide.</para>
+      section of the xTuple ERP Demo Guide.</para>
     </note>
     <para>To perform the setup for this time buffer scenario, you will need to
     follow these steps:</para>
@@ -309,11 +310,11 @@
         <para>Save the Line Item</para>
       </listitem>
     </orderedlist>
-    <para>Once you have completed your Sales Order setup&mdash;and the resulting
-    Work Order has been automatically created&mdash;we are ready to run the
-    Constraint Management system to collect information about our Work Order's
-    time buffer. To run Constraint Management by Planner Code, follow these
-    steps:</para>
+    <para>Once you have completed your Sales Order setup&mdash;and the
+    resulting Work Order has been automatically created&mdash;we are ready to
+    run the Constraint Management system to collect information about our Work
+    Order's time buffer. To run Constraint Management by Planner Code, follow
+    these steps:</para>
     <orderedlist>
       <listitem>
         <para>Pull down the M/S Module menu</para>
@@ -365,7 +366,7 @@
         </mediaobject>
       </screenshot></para>
     <para>As you can see in the example, the next-to last column "Buffer Type"
-    shows that OpenMFG has calculated a "Time" buffer for our Work Order. The
+    shows that xTuple ERP has calculated a "Time" buffer for our Work Order. The
     value of this time buffer is shown in the "Buffer Status" column. Because
     the buffer status for the Work Order = 0, there is no need to take
     immediate action. Remember, the magic number for the Constraint Management
@@ -382,7 +383,7 @@
       the days that the shop is available to work, which may exclude weekends
       or holidays. For example: If a shop typically has a three-week lead
       time, but does not work weekends, then the time buffer for that shop
-      would typically be 15 working days. The OpenMFG Constraint Management
+      would typically be 15 working days. The xTuple ERP Constraint Management
       system looks at the start and finish dates of a discrete Purchase Order
       or Work Order, removes non-working days for the Order\qs Warehouse, and
       then calculates the time buffer.</para>
@@ -488,9 +489,9 @@
     <para>Finally, let's examine a capacity buffer scenario. The Work Order we
     created in the previous section enabled us to get familiar with the
     concept of time buffers. Well, in addition to time factors, we must also
-    consider the impact&mdash;or load&mdash;that a Work Order places on Work Centers. In
-    the case of production for the YTRUCK1 Item, three Work Centers will be
-    affected.</para>
+    consider the impact&mdash;or load&mdash;that a Work Order places on Work
+    Centers. In the case of production for the YTRUCK1 Item, three Work
+    Centers will be affected.</para>
     <para>Nearly all manufacturers have one bottleneck Work Center that
     constrains their entire operation. It is the load on this Work Center that
     warrants close monitoring. The capacity buffer screen enables us to view
@@ -571,15 +572,15 @@
     Best practice would be to submit the job "Run Buffer Status by Planner
     Code" to the Batch Manager on a nightly basis, scheduling it to run each
     night after midnight. In this way, you will be able to monitor the updated
-    buffer status results when you arrive in the morning&mdash;allowing you to then
-    set appropriate priorities for the rest of the day.</para>
+    buffer status results when you arrive in the morning&mdash;allowing you to
+    then set appropriate priorities for the rest of the day.</para>
     <para>Also recall that time buffers are only calculated for make-to-order
     Items. The appropriate buffer for Items that are not make-to-order is the
     stock buffer. By definition, Items that are not make-to-order are sold
     from stock. The Reorder Level for stock buffer Items will ensure you can
     meet your desired service levels.</para>
     <para>To review, in this supplement, we have scenarios describing the
-    three types of buffers recognized by the OpenMFG Constraint Management
+    three types of buffers recognized by the xTuple ERPxTuple ERPxTuple ERPxTuple ERP Constraint Management
     system:</para>
     <itemizedlist>
       <listitem>

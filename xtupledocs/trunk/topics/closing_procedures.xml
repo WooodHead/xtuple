@@ -15,7 +15,7 @@
     </indexterm>Topic: Closing Periods and Years</title>
   <para>The process of closing Accounting Periods and Fiscal Years is simple
   and straightforward. However, to truly understand the process, we must first
-  review several OpenMFG configuration options. To begin, we will look at G/L
+  review several xTuple ERP configuration options. To begin, we will look at G/L
   Account Number settings and how they relate to Accounting Periods that are
   open and/or frozen. Next, we will run two scenarios based on different
   configurations of these settings to further our understanding. Finally, we
@@ -115,7 +115,7 @@
               Balance records will automatically be updated.</para>
             </listitem>
             <listitem>
-              <para>When you close an Accounting Period, OpenMFG forward
+              <para>When you close an Accounting Period, xTuple ERP forward
               updates Trial Balances through to the current Period. Again, the
               system will automatically forward-update at the moment an
               Accounting Period is closed.</para>
@@ -141,7 +141,7 @@
             </listitem>
             <listitem>
               <para>You must first thaw a frozen Accounting Period before
-              OpenMFG allows you to reopen it.</para>
+              xTuple ERP allows you to reopen it.</para>
             </listitem>
           </itemizedlist>
         </listitem>
@@ -344,10 +344,10 @@
     <para>A "pending" transaction is defined as any transaction which has
     posted to the G/L, but whose Trial Balance record has not yet been updated
     to reflect the transaction amount. These types of transactions are rare in
-    OpenMFG. The following conditions may lead to pending transactions:</para>
+    xTuple ERP. The following conditions may lead to pending transactions:</para>
     <itemizedlist>
       <listitem>
-        <para>Legacy data posted in OpenMFG prior to OpenMFG version
+        <para>Legacy data posted in xTuple ERP prior to xTuple ERP version
         2.0.2</para>
       </listitem>
       <listitem>
@@ -536,7 +536,7 @@
       defining a Fiscal Year without any gaps. It is essential that your
       Accounting Periods and Fiscal Year line up precisely.</para>
     </tip>
-    <para>When a Fiscal Year is closed, OpenMFG totals all Revenue Account
+    <para>When a Fiscal Year is closed, xTuple ERP totals all Revenue Account
     balances for the Accounting Periods that make up the Fiscal Year and
     subtracts from that Revenue total the total for all Expense Account
     balances for the same Period of time. The resulting Net Income for the
@@ -637,7 +637,7 @@
   <section id="Section612887">
     <title>Conclusion</title>
     <para>The process for managing Accounting Periods and Fiscal Years in
-    OpenMFG is flexible and straightforward. It will yield the results you
+    xTuple ERPxTuple ERPxTuple ERP is flexible and straightforward. It will yield the results you
     expect so long as you understand the implications of the settings on your
     G/L Accounts and take a disciplined approach to ensure there is no pending
     activity in an Accounting Period before you close it.</para>

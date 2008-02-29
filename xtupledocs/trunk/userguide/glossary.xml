@@ -5,7 +5,7 @@
 <glossary id="glossary">
   <title>Glossary of Terms</title>
   <para>This glossary contains definitions for manufacturing and technical
-  terms used within the OpenMFG User Guide. If a definition below contains
+  terms used within the xTuple ERP User Guide. If a definition below contains
   unfamiliar terms, please look elsewhere in the glossary for additional
   information. To see terms used in context, consult the Index.</para>
   <!--
@@ -77,8 +77,8 @@
       </indexterm>Administrator</glossterm>
     <glossdef>
       <para>An Administrator is a person charged with maintaining the correct
-      functioning of an OpenMFG installation. Sometimes called a systems
-      administrator, an OpenMFG Administrator monitors the software, maintains
+      functioning of an xTuple ERP installation. Sometimes called a systems
+      administrator, an xTuple ERP Administrator monitors the software, maintains
       users, and performs other important technical tasks.</para>
     </glossdef>
   </glossentry>
@@ -226,7 +226,7 @@
     <glossdef>
       <para>The automatic deduction from Inventory of component Item
       quantities executed at the time Production is posted for a Work Order.
-      In OpenMFG, backflushing is synonymous with the "Pull" issue method.
+      In xTuple ERP, backflushing is synonymous with the "Pull" issue method.
       Issue methods are assigned to component Items within a Bill of
       Materials.</para>
     </glossdef>
@@ -262,7 +262,7 @@
       <para>An alternating series of vertical bars and white spaces of varying
       widths used to encode information that can be read by electronic
       scanners. Bar codes increase efficiency and greatly limit data entry
-      errors. Standard bar code formats supported by OpenMFG include the
+      errors. Standard bar code formats supported by xTuple ERP include the
       following: Code 3of9, Code 3of9 Extended, Code 128, UPC-A, UPC-E, EAN-8,
       EAN-13.</para>
     </glossdef>
@@ -451,7 +451,7 @@
       <para>User-defined definition of an Item which may be used to provide
       additional layers of description to an Item. For example, Item
       Characteristics might be used to specify "Season" or "Primary Vendor".
-      These constitute static descriptions which are not processed by OpenMFG,
+      These constitute static descriptions which are not processed by xTuple ERP,
       but are useful for informational purposes.</para>
     </glossdef>
   </glossentry>
@@ -660,7 +660,7 @@
   <glossentry>
     <glossterm>data entry</glossterm>
     <glossdef>
-      <para>The process of typing information into fields found on OpenMFG
+      <para>The process of typing information into fields found on xTuple ERP
       screens.</para>
     </glossdef>
   </glossentry>
@@ -671,7 +671,7 @@
       </indexterm>data entry format</glossterm>
     <glossdef>
       <para>Refers to the combination of keyboard characters supported by
-      OpenMFG data entry fields. Any data entered into a field must correspond
+      xTuple ERP data entry fields. Any data entered into a field must correspond
       to the format supported by that field. For example, date formats must be
       entered into date fields. Monetary formats must be entered into monetary
       fields. Some fields have no format restrictions and allow an unlimited
@@ -713,7 +713,7 @@
   <glossentry>
     <glossterm>display</glossterm>
     <glossdef>
-      <para>An on-screen representation of an OpenMFG report.</para>
+      <para>An on-screen representation of an xTuple ERP report.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -800,7 +800,7 @@
       </indexterm>Event</glossterm>
     <glossdef>
       <para>Any one of a limited set of possible occurrences precipitated by
-      user activity which OpenMFG defines as having special importance. For
+      user activity which xTuple ERP defines as having special importance. For
       example, an Event has occurred if Quantity on Hand for an Item falls
       below zero, if a Work Order is created, if a Sales Order Line Item is
       cancelled, etc. An Event may trigger an Event notification, depending on
@@ -881,7 +881,7 @@
         <secondary>defined</secondary>
       </indexterm>field</glossterm>
     <glossdef>
-      <para>Refers to those areas found on OpenMFG screens where data can be
+      <para>Refers to those areas found on xTuple ERP screens where data can be
       entered. Examples include Item Number fields, date fields, Comment
       fields, etc.</para>
     </glossdef>
@@ -1030,7 +1030,7 @@
     <glossdef>
       <para>The means by which component Items are deducted from Inventory for
       Work Order processing. The issue method a component Item assumes is
-      determined at the Bill of Materials level. OpenMFG recognizes three
+      determined at the Bill of Materials level. xTuple ERP recognizes three
       issue methods: "Pull", "Push," and "Mixed."</para>
     </glossdef>
   </glossentry>
@@ -1063,7 +1063,7 @@
     <glossdef>
       <para>An electronic graphics file which may be linked with an Item in
       the Item master. An Item Image may be a visual representation (i.e.,
-      photograph) of an Item or any related graphic. OpenMFG supports the
+      photograph) of an Item or any related graphic. xTuple ERP supports the
       following Image file types: .PNG, .XPM, .JPG, or .GIF.</para>
     </glossdef>
   </glossentry>
@@ -1202,7 +1202,7 @@
       <para>A mechanism for defining certain display formats based on
       linguistic and cultural conventions. For example, the manner in which
       currency, date, and Price formats are displayed is controlled by Locale
-      settings. OpenMFG supports multiple Locales.</para>
+      settings. xTuple ERP supports multiple Locales.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -1524,7 +1524,7 @@
       </indexterm>pattern matching</glossterm>
     <glossdef>
       <para>A method for shaping database queries using Regular Expressions to
-      improve the precision of results. OpenMFG supports pattern matching
+      improve the precision of results. xTuple ERP supports pattern matching
       using Regular Expressions in accordance with the Portable Operating
       System Interface (POSIX) standard.</para>
     </glossdef>
@@ -2165,7 +2165,7 @@
     <glossdef>
       <para>An acronym for Secure Sockets Layer. SSL is a security protocol
       designed to provide communications privacy for client/server
-      applications like OpenMFG which communicate over the Internet.</para>
+      applications like xTuple ERP which communicate over the Internet.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -2365,7 +2365,7 @@
       is available to work, which may exclude weekends or holidays. For
       example: If a shop typically has a three-week lead time, but does not
       work weekends, then the time buffer for that shop would typically be 15
-      working days. The OpenMFG Buffer Management system looks at the start
+      working days. The xTuple ERP Constraint Management system looks at the start
       and finish dates of a discrete Purchase Order or Work Order, removes
       non-working days for the Order\qs Warehouse, and then calculates the
       time buffer.</para>
@@ -2428,7 +2428,7 @@
       </indexterm>transaction</glossterm>
     <glossdef>
       <para>Any event involving a change in Inventory value or status, and the
-      resulting recording of such events in the General Ledger (G/L). OpenMFG
+      resulting recording of such events in the General Ledger (G/L). xTuple ERP
       recognizes both Inventory transactions and G/L transactions. For a
       complete list of Inventory transaction types, see Appendix A.</para>
     </glossdef>
@@ -2507,7 +2507,7 @@
       </indexterm>User Preferences</glossterm>
     <glossdef>
       <para>Controls found within the System Module which users can manipulate
-      to customize their interaction with OpenMFG. For example, users may
+      to customize their interaction with xTuple ERP. For example, users may
       customize the appearance of their application desktop or specify the
       Events they are subscribed to.</para>
     </glossdef>

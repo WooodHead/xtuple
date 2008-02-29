@@ -10,11 +10,11 @@
       <primary>topics</primary>
       <secondary>taxation basics</secondary>
     </indexterm>Topic: Taxation Basics</title>
-  <para>Beginning with version 2.1.0, OpenMFG has implemented a comprehensive
+  <para>Beginning with version 2.1.0, xTuple ERP has implemented a comprehensive
   and flexible design for taxation intended to address the unique requirements
   for sales Tax around the world. This section illustrates how this capability
   can be adapted to wide-ranging requirements. It also offers tips for users
-  migrating from previous releases of OpenMFG.</para>
+  migrating from previous releases of xTuple ERP.</para>
   <section id="Section611233">
     <title>Overview</title>
     <para>In this scenario, we will show the setup for and operation of a
@@ -26,14 +26,14 @@
     Products are taxed at 1% and Normal Products at 5%. In the other, both are
     taxed at 5%. Two Items will be defined&mdash;one a normal toy truck (YTRUCK1)
     and the other an educational toy truck (ETRUCK1). We will demonstrate how
-    OpenMFG applies the appropriate Tax to each S/O Line Item depending on the
+    xTuple ERP applies the appropriate Tax to each S/O Line Item depending on the
     Item ordered and the Ship-To Address selected. Tax Codes have been
     established to determine the Tax Rate to apply (5% or 1% in this example)
     and the appropriate General Ledger (G/L) Account to use.</para>
   </section>
   <section id="Section611235">
     <title>Creating G/L Accounts for Taxation</title>
-    <para>OpenMFG gives you the ability to collect Taxes on Sales Orders.
+    <para>xTuple ERP gives you the ability to collect Taxes on Sales Orders.
     There are generally two methods for recording the collection of sales Tax
     in the General Ledger:</para>
     <itemizedlist>
@@ -105,7 +105,7 @@
   </section>
   <section id="Section611256">
     <title>Creating Tax Authorities</title>
-    <para>Tax Authorities are defined as CRM Accounts in OpenMFG, as shown in
+    <para>Tax Authorities are defined as CRM Accounts in xTuple ERP, as shown in
     the following screenshot:</para>
     <para><screenshot>
         <mediaobject>
@@ -123,7 +123,7 @@
     <para>The detail under a Tax Authority provides a place to store Account
     information, Contacts, and Addresses.</para>
     <note>
-      <para>The concept of a Tax Authority is new beginning with OpenMFG
+      <para>The concept of a Tax Authority is new beginning with xTuple ERP
       version 2.1. For users migrating to this version, the upgrade script
       will automatically create Tax Authorities from each pre-existing Tax
       Code.</para>
@@ -191,7 +191,7 @@
     relationship between Item, Tax Type, and Tax Authority is then established
     based on how each Tax Authority treats that type of product.</para>
     <para>Some Tax Authorities charge Tax on Freight. A reserved Tax Type
-    called Freight is pre-populated in the OpenMFG database specifically for
+    called Freight is pre-populated in the xTuple ERP database specifically for
     this purpose. On the Tax Selection screen (see below), the freight Tax
     Type is then linked to a) Tax Authorities that charge Tax on freight and
     b) Tax Codes that contain the appropriate rate.</para>
@@ -426,8 +426,8 @@
   <section id="Section611411">
     <title>Tips on Upgrading to Version 2.1</title>
     <para>The Tax functionality described in this section is new, as of
-    OpenMFG version 2.1 The upgrade to version 2.1 from an earlier versions of
-    OpenMFG should be seamless. However, it may be helpful to know how the
+    xTuple ERP version 2.1 The upgrade to version 2.1 from an earlier versions of
+    xTuple ERP should be seamless. However, it may be helpful to know how the
     changes impact the underlying data:</para>
     <itemizedlist>
       <listitem>

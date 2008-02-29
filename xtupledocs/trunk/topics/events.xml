@@ -14,13 +14,13 @@
       <secondary>management of</secondary>
     </indexterm>Topic: How Events Work</title>
   <para>This section is designed to illustrate the powerful features of the
-  OpenMFG Event Management system. To take full advantage of these features,
-  it's important to have an understanding of how Events work.</para>
+  xTuple ERP Event Management system. To take full advantage of these
+  features, it's important to have an understanding of how Events work.</para>
   <para>Let's begin with a few definitions:</para>
   <itemizedlist>
     <listitem>
       <para>Event: Any one of a limited set of possible occurrences
-      precipitated by user activity which OpenMFG defines as having special
+      precipitated by user activity which xTuple ERP defines as having special
       importance. For a complete list of system-defined Events, see <xref
       linkend="Anchor80421" />.</para>
     </listitem>
@@ -39,7 +39,7 @@
         <primary>events</primary>
         <secondary>initiation of</secondary>
       </indexterm>Initiating an Event</title>
-    <para>If these terms seem confusing now, they shouldn"t by the time you
+    <para>If these terms seem confusing now, they shouldn't by the time you
     finish reading. The aim of this section is to clarify these definitions
     with concrete examples showing just how Events work. Perhaps the best way
     to begin is to imagine a manufacturing scenario. For the purpose of this
@@ -48,11 +48,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_bomBOQ-002.png"
-                       />
+            <imagedata fileref="images/Topic_bomBOQ-002.png" />
           </imageobject>
-          <caption>Bill of Materials for Manufactured
-          Item</caption>
+          <caption>Bill of Materials for Manufactured Item</caption>
         </mediaobject>
       </screenshot></para>
     <para>Rather than consider all the available Events at once, let's look at
@@ -61,14 +59,12 @@
     the quantity of a Work Order. To see this Event in action, we will create
     a Work Order for 100 units of Item BOQ-002. The following screenshot shows
     the Work Order we are creating:</para>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_wOrderBOQ-002.png"
-                       />
+            <imagedata fileref="images/Topic_wOrderBOQ-002.png" />
           </imageobject>
-          <caption>Work Order for Manufactured
-          Item</caption>
+          <caption>Work Order for Manufactured Item</caption>
         </mediaobject>
       </screenshot></para>
     <para>To initiate the Event, we will need to change the Work Order
@@ -85,11 +81,10 @@
     User Preferences screen found in the System Module. On the User
     Preferences screen, select the EVENTS button. The following screen will
     appear:</para>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_eventNotify1.png"
-                       />
+            <imagedata fileref="images/Topic_eventNotify1.png" />
           </imageobject>
           <caption>User Event Notification Screen</caption>
         </mediaobject>
@@ -122,17 +117,16 @@
     <para>Remembering that the EAST Warehouse is specified as the supplying
     Warehouse on the Work Order we created for Item BOQ-002--meaning this is
     the Warehouse where a change in Work Order quantity would occur,
-    triggering an Event&mdash;we double-click on Warehouse EAST. Doing so changes
-    the Notification status for Warehouse EAST to "Yes," as shown in the
-    example. The user is now subscribed to the "WoQtyChanged" Event.</para>
-    <para> <screenshot>
+    triggering an Event&mdash;we double-click on Warehouse EAST. Doing so
+    changes the Notification status for Warehouse EAST to "Yes," as shown in
+    the example. The user is now subscribed to the "WoQtyChanged"
+    Event.</para>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_eventNotify2.png"
-                       />
+            <imagedata fileref="images/Topic_eventNotify2.png" />
           </imageobject>
-          <caption>Event Notification Established for
-          Warehouse</caption>
+          <caption>Event Notification Established for Warehouse</caption>
         </mediaobject>
       </screenshot></para>
   </section>
@@ -154,11 +148,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_itemSiteBOQ-002.png"
-                       />
+            <imagedata fileref="images/Topic_itemSiteBOQ-002.png" />
           </imageobject>
-          <caption>Event Fence for Manufactured
-          Item</caption>
+          <caption>Event Fence for Manufactured Item</caption>
         </mediaobject>
       </screenshot></para>
     <para>Given their measurement in days, Event Fences relate to the timing
@@ -188,11 +180,9 @@
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_changeWoQty.png"
-                       />
+            <imagedata fileref="images/Topic_changeWoQty.png" />
           </imageobject>
-          <caption>Event Initiated by Change in Work Order
-          Quantity</caption>
+          <caption>Event Initiated by Change in Work Order Quantity</caption>
         </mediaobject>
       </screenshot></para>
   </section>
@@ -205,20 +195,18 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_eventAlert.png"
-                       />
+            <imagedata fileref="images/Topic_eventAlert.png" />
           </imageobject>
           <caption>Event Notification Alert</caption>
         </mediaobject>
       </screenshot></para>
     <para>To see details about the Event, we double-click on the alert button.
-    Doing so opens the OpenMFG Event Manager, as shown in the following
+    Doing so opens the xTuple ERP Event Manager, as shown in the following
     screen:</para>
-    <para> <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_eventManager1.png"
-                       />
+            <imagedata fileref="images/Topic_eventManager1.png" />
           </imageobject>
           <caption>Event Shown in Event Manager</caption>
         </mediaobject>
@@ -241,11 +229,9 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_eventManager2.png"
-                       />
+            <imagedata fileref="images/Topic_eventManager2.png" />
           </imageobject>
-          <caption>Event Acknowledged in Event
-          Manager</caption>
+          <caption>Event Acknowledged in Event Manager</caption>
         </mediaobject>
       </screenshot></para>
     <para>We have now followed a complete life cycle for the Event

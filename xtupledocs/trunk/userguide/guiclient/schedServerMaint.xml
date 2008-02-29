@@ -6,7 +6,7 @@
   <title>Schedule Server Maintenance</title>
   <para>The server maintenance utility is designed to perform automated
   maintenance on your server. Server maintenance should be performed on a
-  regular basis to ensure the smooth operation of your server. </para>
+  regular basis to ensure the smooth operation of your server.</para>
   <note>
     <para>When server maintenance is performed, a VACUUM FULL ANALYZE
     operation is run on your server, followed by a REINDEX. The user who
@@ -33,8 +33,7 @@
       <term>Action</term>
       <listitem>
         <para>Displays the name of the action to be performed by the Batch
-        Manager.</para>
-        <para>In this case, the name of the action is
+        Manager. In this case, the name of the action is
         serverMaintenance.</para>
       </listitem>
     </varlistentry>
@@ -49,10 +48,22 @@
       <term>Scheduled</term>
       <listitem>
         <para>Select one of the following Schedule options:</para>
-        <para>ASAP: Select to have the job run as soon as possible.</para>
-        <para>Scheduled: Schedule a date and time to run the job. Specify a
-        date in the first field using a standard date format. Use the arrow
-        buttons in the second field to specify a time of day.</para>
+        <variablelist>
+          <varlistentry>
+            <term>ASAP</term>
+            <listitem>
+              <para>Select to have the job run as soon as possible.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Scheduled</term>
+            <listitem>
+              <para>Schedule a date and time to run the job. Specify a date in
+              the first field using a standard date format. Use the arrow
+              buttons in the second field to specify a time of day.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

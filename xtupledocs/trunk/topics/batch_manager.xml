@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+xTuple ERP<?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section979997" role="standard">
   <title id="Anchor61009">Topic: Submitting Reports and Jobs to the Batch
   Manager</title>
-  <para>While the majority of OpenMFG reports and other jobs run quickly and
-  easily, some require more time to generate. In some cases, it may make sense
-  to submit these longer, more complex reports or jobs to the OpenMFG Batch
-  Manager for processing. Submitting a job or report to the Batch Manager
-  enables you to specify when the report or job should be run. For example,
-  you can schedule the process to run during off-peak hours, when demand for
-  server resources is lowest.</para>
+  <para>While the majority of xTuple ERP reports and other jobs run quickly
+  and easily, some require more time to generate. In some cases, it may make
+  sense to submit these longer, more complex reports or jobs to the xTuple ERP
+  Batch Manager for processing. Submitting a job or report to the Batch
+  Manager enables you to specify when the report or job should be run. For
+  example, you can schedule the process to run during off-peak hours, when
+  demand for server resources is lowest.</para>
   <note>
     <para>Some reports and jobs may place a heavy load on Server resources.
     Not only will these reports and jobs take extra time to generate, they may
@@ -35,7 +35,7 @@
     <note>
       <para>For details on installing and setting up the Batch Manager at your
       site, please see the Batch Manager documentation available in the
-      Downloads area of the OpenMFG community website.</para>
+      Downloads area of the xTuple community website.</para>
     </note>
     <para>This is a report with the potential to place a heavy load on Server
     resources. As you can see in the screen shot, the report is asking the
@@ -147,10 +147,10 @@
     P/D Module job "Update Actual Costs by Class Code," as shown below:</para>
     <tip>
       <para>If you schedule an MRP or MPS job submitted to the Batch Manager
-      to run on a periodic basis&mdash;daily, weekly, monthly&mdash;the cutoff date used
-      for the run will automatically be updated by the number of days in the
-      specified reschedule interval (Day = +1, Week = +7, and Month =
-      +30).</para>
+      to run on a periodic basis&mdash;daily, weekly, monthly&mdash;the cutoff
+      date used for the run will automatically be updated by the number of
+      days in the specified reschedule interval (Day = +1, Week = +7, and
+      Month = +30).</para>
     </tip>
     <para><screenshot>
         <mediaobject>
@@ -163,7 +163,7 @@
     <note>
       <para>For details on installing and setting up the Batch Manager at your
       site, please see the Batch Manager documentation available in the
-      Downloads area of the OpenMFG community website.</para>
+      Downloads area of the xTuple community website.</para>
     </note>
     <para>This is a job with the potential to place a heavy load on Server
     resources. As you can see in the screen shot, the job is asking the
