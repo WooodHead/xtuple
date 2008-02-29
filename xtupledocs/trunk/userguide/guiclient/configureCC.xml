@@ -33,7 +33,7 @@
         <para>Select to indicate the system is configured to accept Credit
         Card Payments. If selected, the Credit Card processing functionality
         will be enabled throughout the system. For example, users will be able
-        to store Customer Credit Card information on the Customer master&mdash;and
+        to store Customer Credit Card information on the Customer master—and
         receive Credit Card payments when processing Sales Orders. If this
         option is not selected, Credit Card functionality will be
         disabled.</para>
@@ -47,6 +47,19 @@
         specified under the "Server" tab is in fact the correct test server.
         If this option is not selected, the system will verify that the
         correct production server is specified.</para>
+        <warning>
+          <para>Make sure that you <emphasis>uncheck</emphasis> this option as
+          soon as you are ready to put the application into production. Most
+          credit card transactions will appear to succeed whether running in
+          test mode or live mode but there will be no actual charges made if
+          in test mode.</para>
+          <para>If you are using Authorize.Net then you should also make sure
+          that the Merchant Interface is configured to run in live mode
+          instead of test mode. Both xTupleERP and the Authorize.Net gateway
+          allow sending test transactions to the live server but both
+          applications must be set to run in live mode for real transactions
+          to occur.</para>
+        </warning>
       </listitem>
     </varlistentry>
     <varlistentry>
