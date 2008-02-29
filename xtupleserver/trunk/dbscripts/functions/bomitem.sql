@@ -33,6 +33,8 @@ BEGIN
     _row.bomitem_subtype:=_r.bomitem_subtype;
     _row.bomitem_uom_id:=_r.bomitem_uom_id;
     _row.bomitem_rev_id:=_r.bomitem_rev_id;
+    _row.bomitem_char_id:=_r.bomitem_char_id;
+    _row.bomitem_value:=_r.bomitem_value;
 
     RETURN NEXT _row;
   END LOOP;
@@ -75,6 +77,8 @@ BEGIN
     _row.bomitem_subtype:=_r.bomitem_subtype;
     _row.bomitem_uom_id:=_r.bomitem_uom_id;
     _row.bomitem_rev_id:=_r.bomitem_rev_id;
+    _row.bomitem_char_id:=_r.bomitem_char_id;
+    _row.bomitem_value:=_r.bomitem_value;
 
     RETURN NEXT _row;
   END LOOP;

@@ -125,7 +125,9 @@ BEGIN
        bomwork_actunitcost AS actunitcost,
        bomwork_stdunitcost AS stdunitcost,
        bomwork_qtyper * (1 + bomwork_scrap) * bomwork_actunitcost AS actextendedcost,
-       bomwork_qtyper * (1 + bomwork_scrap) * bomwork_stdunitcost AS stdextendedcost
+       bomwork_qtyper * (1 + bomwork_scrap) * bomwork_stdunitcost AS stdextendedcost,
+       bomwork_char_id,
+       bomwork_value
        FROM bomwork, item, uom 
        WHERE ( (bomwork_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
@@ -139,7 +141,8 @@ BEGIN
               currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE) AS actunitcost,
               itemcost_stdcost AS stdunitcost,
               currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE) AS actextendedcost,
-              itemcost_stdcost AS stdextendedcost
+              itemcost_stdcost AS stdextendedcost,
+              NULL,NULL
        FROM itemcost, costelem 
        WHERE ( (itemcost_costelem_id=costelem_id)
        AND (NOT itemcost_lowlevel)
@@ -168,6 +171,8 @@ BEGIN
         _row.bomdata_stdunitcost := _x.stdunitcost;
         _row.bomdata_actextendedcost := _x.actextendedcost;
         _row.bomdata_stdextendedcost := _x.stdextendedcost;
+        _row.bomdata_char_id := _x.bomwork_char_id;
+        _row.bomdata_value := _x.bomwork_value;
         RETURN NEXT _row;
     END LOOP;
     
@@ -201,7 +206,9 @@ BEGIN
        bomhist_actunitcost AS actunitcost,
        bomhist_stdunitcost AS stdunitcost,
        bomhist_qtyper * (1 + bomhist_scrap) * bomhist_actunitcost AS actextendedcost,
-       bomhist_qtyper * (1 + bomhist_scrap) * bomhist_stdunitcost AS stdextendedcost
+       bomhist_qtyper * (1 + bomhist_scrap) * bomhist_stdunitcost AS stdextendedcost,
+       bomhist_char_id,
+       bomhist_value
        FROM bomhist, item, uom 
        WHERE ( (bomhist_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
@@ -215,7 +222,8 @@ BEGIN
               bomhist_actunitcost AS actunitcost,
               bomhist_stdunitcost AS stdunitcost,
               bomhist_actunitcost AS actextendedcost,
-              bomhist_stdunitcost AS stdextendedcost
+              bomhist_stdunitcost AS stdextendedcost,
+              NULL,NULL
        FROM bomhist, costelem 
        WHERE ((bomhist_rev_id=pRevisionid)
        AND (costelem_id=bomhist_item_id))
@@ -243,6 +251,8 @@ BEGIN
         _row.bomdata_stdunitcost := _x.stdunitcost;
         _row.bomdata_actextendedcost := _x.actextendedcost;
         _row.bomdata_stdextendedcost := _x.stdextendedcost;
+        _row.bomdata_char_id := _x.char_id;
+        _row.bomdata_value := _x.value;
         RETURN NEXT _row;
     END LOOP;
   END IF;   

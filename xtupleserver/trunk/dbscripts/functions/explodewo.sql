@@ -111,7 +111,16 @@ BEGIN
    AND (ps.itemsite_warehous_id=cs.itemsite_warehous_id)
    AND (cs.itemsite_item_id=item_id)
    AND (woEffectiveDate(wo_startdate) BETWEEN bomitem_effective AND (bomitem_expires - 1))
-   AND (wo_id=pWoid) );
+   AND (wo_id=pWoid)
+       AND ((bomitem_char_id IS NULL)
+       OR  EXISTS (
+         SELECT charass_id
+         FROM coitem,charass
+         WHERE ((charass_target_type=''SI'')
+          AND  (charass_target_id=coitem_id)
+          AND  (charass_char_id=bomitem_char_id)
+          AND  (charass_value=bomitem_value)
+          AND  (coitem_order_id=wo_id)))) );
 
 --  Create any required P/R''s
   PERFORM createPr(''W'', womatl_id)
@@ -243,7 +252,7 @@ BEGIN
              startOfTime(), startOfTime(),
              0, ci.item_picklist, ( (ci.item_type=''M'') AND (bomitem_createwo) ),
              bomitem_issuemethod
-      FROM wo, womatl, bomitem,
+      FROM wo, womatl, bomitem, 
            itemsite AS cs, itemsite AS ps,
            item AS ci, item AS pi
       WHERE ( (womatl_itemsite_id=ps.itemsite_id)
@@ -254,7 +263,7 @@ BEGIN
        AND (cs.itemsite_item_id=ci.item_id)
        AND (ps.itemsite_item_id=pi.item_id)
        AND (woEffectiveDate(_p.wo_startdate) BETWEEN bomitem_effective AND (bomitem_expires - 1))
-       AND (womatl_id=_p.womatl_id) );
+       AND (womatl_id=_p.womatl_id));
 
       DELETE FROM womatl
       WHERE (womatl_id=_p.womatl_id);
