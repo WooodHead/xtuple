@@ -3,7 +3,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
-  <title>Topics: Importing Data</title>
+  <title>Topic: Importing Data</title>
   <para>Imagine the following:</para>
   <informalexample>
     <para>You've finished your evaluation of the xTuple applications and have
@@ -105,7 +105,7 @@ John, Smith, 123 Main Street, Apt 4, Norfolk, VA, 23510, US, 56789, PHONE, 1, 15
   </section>
   <section>
     <title>Import Directly Into Tables</title>
-    <para>The database schema for the xTupleERP applications has separate
+    <para>The database schema for the xTuple ERP applications has separate
     tables for customer information, addresses, sales orders, and sales order
     line items. To import this simple order, only 19 pieces of information,
     we'll need to create entries in at least 5 different tables. Complicating
@@ -253,7 +253,7 @@ COMMIT;</programlisting>
         </itemizedlist>
       </callout>
       <callout arearefs="import_data.directly.insert.coitem.line1">
-        <para> You have to create increment the line number when creating the
+        <para>You have to create increment the line number when creating the
         line items, as well as handling the unit of measure conversions and
         selecting the data from some odd mix of apparently unrelated
         tables.</para>
@@ -312,11 +312,11 @@ END;' LANGUAGE 'plpgsql';</programlisting>
     something that looks like a database table and can be programmed to act
     like a table, but isn't really a table. It's actually a set of rules that
     describe what should happen when someone selects data from the view or
-    tries to modify data through through the view.</para>
+    tries to modify data through the view.</para>
     <para>These views have the following advantages:</para>
     <itemizedlist>
       <listitem>
-        <para>You can update some auxilliary tables in the same statement as
+        <para>You can update some auxiliary tables in the same statement as
         the update on the main table.</para>
       </listitem>
       <listitem>
@@ -425,8 +425,8 @@ COMMIT;</programlisting>
     schema.</para>
     <para>If you can convert incoming XML files to a format that matches
     xTuple's expectations, you're in good shape. This is where the API views
-    and a basic knowledge of DTD's and XSLT come in handy. What? You don't
-    know what a DTD is? XSLT looks like a collision of fingers on a
+    and a basic knowledge of DTDs and XSLT come in handy. What? You don't know
+    what a DTD is? XSLT looks like a collision of fingers on a
     keyboard?</para>
     <para>DTD stands for Document Type Definition. It's the part of the XML
     standard that describes what a well-formed document looks like. This
@@ -434,7 +434,7 @@ COMMIT;</programlisting>
     and so software can ensure that a document is complete. For example, it
     would be difficult to communicate sales order information without both
     parties knowing the sales order number, so a DTD for a sales order
-    document would have a manditory tag for the sales order number.</para>
+    document would have a mandatory tag for the sales order number.</para>
     <para>xTuple has created a DTD that parallels the API views described
     above. As we expand the set of views in the API we'll also expand the DTD
     to include them. This DTD is called the <literal>xtupleapi.dtd</literal>
