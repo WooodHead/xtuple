@@ -70,6 +70,15 @@ BEGIN
       END IF;
     END IF;
 
+-- Disallow configuration parameters if parent is not a job item
+   IF (NEW.bomitem_char_id IS NOT NULL) THEN
+     IF (SELECT item_type != ''J''
+         FROM item
+         WHERE (item_id=NEW.bomitem_parent_item_id)) THEN
+       RAISE EXCEPTION ''Configuration characteristics may only be defined for Job Items'';
+     END IF;
+   END IF;
+
 -- Over ride logic to disallow invalid data
     IF (NEW.bomitem_createwo) THEN
       IF (SELECT (item_type != ''M'') 

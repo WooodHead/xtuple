@@ -26,7 +26,20 @@ DECLARE
   _charassprice NUMERIC;
 
 BEGIN
-    
+
+  -- Check for Valid Assignment
+  IF (pTargetType=''SI'') THEN
+    IF (SELECT (item_type=''J'' AND wo_status != ''O'')
+        FROM coitem,itemsite,item,wo
+        WHERE ((coitem_id=pTargetId)
+        AND (itemsite_id=coitem_itemsite_id)
+        AND (item_id=itemsite_item_id)
+        AND (wo_ordtype=''S'')
+        AND (wo_ordid=coitem_id)))  THEN
+      RAISE EXCEPTION  ''Characteristic may not be updated for Job Item with exploded Work Order.'';
+    END IF;
+  END IF;
+  
   SELECT charass_id INTO _charassid
     FROM charass
    WHERE ((charass_target_type=pTargetType)

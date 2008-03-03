@@ -44,11 +44,14 @@ BEGIN;
         'Item-Defined'
       WHEN bomitem_subtype = 'B' THEN
         'BOM-Defined'
-    END AS substitutions
+    END AS substitutions,
+    char_name AS characteristic,
+    bomitem_value AS value
   FROM
     bomitem
       LEFT OUTER JOIN bomhead ON ((bomitem_parent_item_id=bomhead_item_id)
-                              AND (bomitem_rev_id=bomhead_rev_id)), 
+                              AND (bomitem_rev_id=bomhead_rev_id))
+      LEFT OUTER JOIN char ON (bomitem_char_id=char_id), 
     item p, item i, uom
   WHERE ((bomitem_parent_item_id=p.item_id)
   AND (bomitem_item_id=i.item_id)
@@ -85,9 +88,6 @@ COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
                           WHERE (item_id=getItemId(NEW.item_number)))), 
                           NEW.qty_per, 
                           NEW.scrap,
-                          'N', 
-                          -1, 
-                          NULL,
                           COALESCE(NEW.effective::date,startoftime()), 
                           COALESCE(NEW.expires::date,endoftime()),
                           COALESCE(NEW.create_child_wo,FALSE),
@@ -102,7 +102,9 @@ COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
                             ELSE
                               'I'
                           END,
-                          COALESCE(getRevId('BOM',NEW.bom_item_number,NEW.bom_revision)));
+                          COALESCE(getRevId('BOM',NEW.bom_item_number,NEW.bom_revision)),
+                          getCharId(NEW.characteristic,'I'),
+                          NEW.value);
  
     CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO api.bomitem DO INSTEAD
@@ -145,7 +147,9 @@ COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
         WHEN NEW.substitutions = 'BOM-Defined' THEN
           'B'
       END,
-      bomitem_rev_id=getRevId('BOM',NEW.bom_item_number,NEW.bom_revision)
+      bomitem_rev_id=getRevId('BOM',NEW.bom_item_number,NEW.bom_revision),
+      bomitem_char_id=getCharId(NEW.characteristic,'I'),
+      bomitem_value=NEW.value
       WHERE ((bomitem_parent_item_id=getItemId(OLD.bom_item_number))
       AND (bomitem_rev_id=getRevId('BOM',OLD.bom_item_number,OLD.bom_revision))
       AND (bomitem_seqnumber=OLD.sequence_number)

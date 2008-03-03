@@ -51,7 +51,8 @@ COMMENT ON VIEW api.saleslinechar IS 'Sales Order Line Item Characteristic';
 CREATE OR REPLACE RULE "_INSERT" AS
     ON INSERT TO api.saleslinechar DO INSTEAD
 
-SELECT DISTINCT updateCharAssignment('SI', coitem_id, charass_char_id, NEW.value)
+SELECT DISTINCT updateCharAssignment('SI', coitem_id, charass_char_id, NEW.value, 
+itemcharprice(item_id,char_id,NEW.value,cohead_cust_id,cohead_shipto_id,coitem_qtyord,cohead_curr_id,cohead_orderdate))
 FROM cohead, coitem, itemsite, item, charass, char
 WHERE ((cohead_number=NEW.order_number)
 AND (cohead_id=coitem_cohead_id)
@@ -66,7 +67,8 @@ AND (char_name=NEW.characteristic));
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.saleslinechar DO INSTEAD
 
-SELECT DISTINCT updateCharAssignment('SI', coitem_id, charass_char_id, NEW.value)
+SELECT DISTINCT updateCharAssignment('SI', coitem_id, charass_char_id, NEW.value, 
+itemcharprice(item_id,char_id,NEW.value,cohead_cust_id,cohead_shipto_id,coitem_qtyord,cohead_curr_id,cohead_orderdate))
 FROM cohead, coitem, itemsite, item, charass, char
 WHERE ((cohead_number=OLD.order_number)
 AND (cohead_id=coitem_cohead_id)

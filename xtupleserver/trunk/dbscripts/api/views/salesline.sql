@@ -20,6 +20,8 @@ AS
        WHERE uom_id=coitem_qty_uom_id), 'None') AS qty_uom,
      coitem_price AS net_unit_price,
      coitem_scheddate AS scheduled_date,
+     coitem_promdate AS promise_date,
+     coitem_warranty AS warranty,
      COALESCE((
        SELECT taxtype_name
        FROM taxtype
@@ -40,7 +42,12 @@ AS
          true
      END AS create_order,
      coitem_prcost AS overwrite_po_price,
-     coitem_memo AS notes
+     coitem_memo AS notes,
+     CASE WHEN (coitem_cos_accnt_id IS NOT NULL) THEN
+       formatglaccount(coitem_cos_accnt_id) 
+     ELSE
+       NULL
+     END AS alternate_cos_account
   FROM cohead, coitem
     LEFT OUTER JOIN itemsite isb ON (coitem_substitute_item_id=isb.itemsite_id)
     LEFT OUTER JOIN item s ON (isb.itemsite_item_id=s.item_id)
@@ -85,7 +92,9 @@ CREATE OR REPLACE RULE "_INSERT" AS
     coitem_order_type,
     coitem_substitute_item_id,
     coitem_prcost,
-    coitem_tax_id)
+    coitem_tax_id,
+    coitem_warranty,
+    coitem_cos_accnt_id)
   SELECT
     getSalesOrderId(NEW.order_number),
     COALESCE(NEW.line_number,(
@@ -98,7 +107,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
       SELECT MIN(coitem_scheddate)
       FROM coitem
       WHERE (coitem_cohead_id=getSalesOrderId(NEW.order_number)))),
-    endoftime(),
+    NEW.promise_date,
     NEW.qty_ordered,
     COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
 	     item_price_uom_id),
@@ -137,7 +146,9 @@ CREATE OR REPLACE RULE "_INSERT" AS
              SELECT tax_id
              FROM tax
              WHERE ((tax_id=getTaxSelection(cohead_taxauth_id,
-	           getItemTaxType(itemsite_item_id, cohead_taxauth_id))))))
+	           getItemTaxType(itemsite_item_id, cohead_taxauth_id)))))),
+    COALESCE(NEW.warranty,FALSE),
+    getGlAccntId(NEW.alternate_cos_account)
   FROM cohead, itemsite, item, whsinfo
   WHERE ((cohead_id=getSalesOrderId(NEW.order_number))
   AND (itemsite_id=getItemsiteId(COALESCE(NEW.sold_from_whs,(
@@ -162,6 +173,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
   UPDATE coitem SET
     coitem_status=NEW.status,
     coitem_scheddate=NEW.scheduled_date,
+    coitem_promdate=NEW.promise_date,
     coitem_qtyord=NEW.qty_ordered,
     coitem_qty_uom_id=COALESCE(
 	    (SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
@@ -188,7 +200,9 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     END,
     coitem_substitute_item_id=getItemsiteId(NEW.sold_from_whs,NEW.item_number),
     coitem_prcost=NEW.overwrite_po_price,
-    coitem_tax_id=getTaxId(NEW.tax_code)
+    coitem_tax_id=getTaxId(NEW.tax_code),
+    coitem_warranty=NEW.warranty,
+    coitem_cos_accnt_id=getGlAccntId(NEW.alternate_cos_account)
    FROM item
    WHERE ((item_id=getItemId(OLD.item_number))
    AND (coitem_cohead_id=getSalesOrderId(OLD.order_number))
