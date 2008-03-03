@@ -120,7 +120,8 @@ BEGIN
           AND  (charass_target_id=coitem_id)
           AND  (charass_char_id=bomitem_char_id)
           AND  (charass_value=bomitem_value)
-          AND  (coitem_order_id=wo_id)))) );
+          AND  (wo_ordtype=''S'')
+          AND  (coitem_id=wo_ordid)))) );
 
 --  Create any required P/R''s
   PERFORM createPr(''W'', womatl_id)
