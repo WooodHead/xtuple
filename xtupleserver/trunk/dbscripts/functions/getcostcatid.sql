@@ -9,7 +9,7 @@ BEGIN
 
   SELECT costcat_id INTO _returnVal
   FROM costcat
-  WHERE (castcat_code=pCostCat);
+  WHERE (costcat_code=pCostCat);
 
   IF (_returnVal IS NULL) THEN
 	RAISE EXCEPTION ''Cost Category Code % not found.'', pCostCat;
