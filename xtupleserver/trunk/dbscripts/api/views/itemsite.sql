@@ -99,7 +99,8 @@ INSERT INTO itemsite (
      itemsite_mps_timefence,
      itemsite_leadtime,
      itemsite_safetystock,
-     itemsite_notes)
+     itemsite_notes,
+     itemsite_qtyonhand)
      VALUES (
        getItemId(NEW.item_number),
        getWarehousId(NEW.warehouse,'ACTIVE'),
@@ -143,7 +144,8 @@ INSERT INTO itemsite (
        COALESCE(NEW.mps_time_fence,0),
        COALESCE(NEW.lead_time,0),
        COALESCE(NEW.safety_stock,0),
-       COALESCE(NEW.notes,''));
+       COALESCE(NEW.notes,''),
+       0);
   
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
