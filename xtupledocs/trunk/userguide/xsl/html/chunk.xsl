@@ -10,6 +10,8 @@
  <xsl:param name="html.stylesheet">css/xtuple_html.css</xsl:param>
  <xsl:param name="html.stylesheet.type">text/css</xsl:param>
 
+ <xsl:param name="callout.graphics"             select="0" />
+ <xsl:param name="callout.unicode"              select="1" />
  <xsl:param name="chunk.first.sections"         select="1" />
  <xsl:param name="chunk.section.depth"          select="2" />
  <xsl:param name="chunk.separate.lots"          select="1" />
@@ -18,6 +20,12 @@
  <xsl:param name="html.extra.head.links"        select="1" />
  <xsl:param name="para.propagates.style"        select="1" />
  <xsl:param name="toc.max.depth"                select="2" />
+
+ <!-- need saxon or xalan to use these and get callouts to really work:
+ <xsl:param name="use.extensions"               select="1" />
+ <xsl:param name="callouts.extension"           select="1" />
+ <xsl:param name="textinsert.extension"         select="1" />
+ -->
 
 
  <xsl:template match='*[string-length(@role) > 0]' mode="class.value">

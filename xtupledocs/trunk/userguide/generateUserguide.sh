@@ -124,5 +124,7 @@ cp $USERGUIDE/images/* $OUTDIR/images/.                         || exit 4
 cp $USERGUIDE/../topics/images/* $OUTDIR/images/.               || exit 4
 cp $USERGUIDE/guiclient/images/* $OUTDIR/images/.               || exit 4
 cp $SOURCEDIR/common/images/splashXTuple.png $OUTDIR/images/.   || exit 4
-mkdir $OUTDIR/css                                               || exit 4
+if [ ! -d $OUTDIR/css ] ; then
+  mkdir $OUTDIR/css                                             || exit 4
+fi
 cp $USERGUIDE/../css/* $OUTDIR/css/.                            || exit 4

@@ -12,11 +12,11 @@
   </informalexample>
   <para>Or perhaps you are in a different situation:</para>
   <informalexample>
-    <para>You've been using xTuple ERP for several years. Your boss has
-    decided you need to open a web store. How do you integrate that web system
-    with your xTuple ERP database?</para>
+    <para>You've been using OpenMFG for several years. Your boss has decided
+    you need to open a web store. How do you integrate that web system with
+    your xTuple ERP database?</para>
   </informalexample>
-  <para>The general problem is the same in both situations - you need to
+  <para>The general problem is the same in both situations &mdash; you need to
   import data to an xTuple database. In the case of the implementing
   PostBooks, the data are coming from some other database system, while for
   the web store you receive new orders as text files using email or ftp or
@@ -67,6 +67,8 @@ John, Smith, 123 Main Street, Apt 4, Norfolk, VA, 23510, US, 56789, PHONE, 1, 15
     <example>
       <title>XML format with separate elements for multiple line items</title>
       <programlisting language="xml">&lt;?xml version="1.0&gt;
+&lt;!DOCTYPE orders SYSTEM "http://my.ecommerce.biz/orders.dtd"&gt;
+&lt;orders&gt;
   &lt;order number="56789"&gt;
     &lt;first&gt;John&lt;/first&gt;
     &lt;last&gt;Smith&lt;/last&gt;
@@ -92,7 +94,8 @@ John, Smith, 123 Main Street, Apt 4, Norfolk, VA, 23510, US, 56789, PHONE, 1, 15
     &lt;/itemlist&gt;
     &lt;tax&gt;10.15&lt;/tax&gt;
     &lt;total&gt;213.15&lt;/total&gt;
-  &lt;/order&gt;</programlisting>
+  &lt;/order&gt;
+&lt;/orders&gt;</programlisting>
     </example>
     <para>In all three of these examples, the data are the same although they
     are arranged differently. The comma-separated example differs only in that
@@ -253,8 +256,8 @@ COMMIT;</programlisting>
         </itemizedlist>
       </callout>
       <callout arearefs="import_data.directly.insert.coitem.line1">
-        <para>You have to create increment the line number when creating the
-        line items, as well as handling the unit of measure conversions and
+        <para>You have to increment the line number when creating the line
+        items, as well as handling the unit of measure conversions and
         selecting the data from some odd mix of apparently unrelated
         tables.</para>
       </callout>
@@ -268,8 +271,8 @@ COMMIT;</programlisting>
     constantly added, you would have to update the program that converts the
     input, whichever form you selected to start with, to keep pace.</para>
     <para>As an alternative to directly transforming the data from your web
-    store into this series of <code language="sql">insert</code>s, you could
-    write a short series of stored procedures:</para>
+    store into this series of <code language="sql">insert</code> statements,
+    you could write a short series of stored procedures:</para>
     <programlisting>CREATE OR REPLACE FUNCTION insertContact(first TEXT, last TEXT, line1 TEXT, line2 TEXT,
                                          city TEXT, state TEXT, country TEXT, zip TEXT)
 RETURNS INTEGER AS '
@@ -305,7 +308,7 @@ END;' LANGUAGE 'plpgsql';</programlisting>
     there an easier way?</para>
   </section>
   <section>
-    <title>Import into API Views</title>
+    <title id="import.api">Import into API Views</title>
     <para>The database for xTuple ERP has a collection of views that can make
     this data import a lot easier. As the functionality of the application
     grows, the views grow with it. In case you didn't know, a view is
@@ -385,7 +388,7 @@ COMMIT;</programlisting>
           data you know and let the view fill in the rest.</para>
         </callout>
         <callout arearefs="import_data.api.insert.salesline1">
-          <para>Inserting a sales line is just about as easy as the sales
+          <para>Inserting a sales line is about as easy as the sales
           order.</para>
         </callout>
         <callout arearefs="import_data.api.insert.salesline2">
@@ -402,23 +405,143 @@ COMMIT;</programlisting>
     statements to get the right data next time. The views give you a wide
     range of control while still ensuring that you have consistent
     data.</para>
-    <para>Why would anyone ever use the tables directly?</para>
+    <para>Why would anyone ever use the tables directly? It's a matter of
+    control and volume of data. If you have a lot of data to import and you
+    understand the relationships between those data, both in the source
+    database and the destination xTuple ERP database, you might find it makes
+    sense to work directly with the core tables. However, most import tasks
+    are better handled using the API views.</para>
   </section>
   <section>
     <title>CSV Import</title>
-    <para>uses existing structure</para>
-    <para>serial numbers</para>
-    <para>how to solve our sample problem with csv import - is it even
-    possible?</para>
+    <para>As an alternative to transforming the data to import from the format
+    sent by the web store to SQL <code language="sql">insert</code>
+    statements, it might be easier to have the web store send the data as
+    comma-separated values (CSV), make minimal changes to the data, and import
+    them with the CSV Import utility in the xTuple suite. You can find the
+    manual for this utility in the
+    <filename>csvimp_docs_examples.zip</filename> file on the <ulink
+    url="http://sourceforge.net/project/showiles.php?group_id=196195">SourceForge
+    downloads page for PostBooks</ulink>.</para>
+    <para>The first time you do this you will have to create a CSV Atlas to
+    map the various columns of the input to columns in the appropriate tables
+    or API views. Remember the point made above about the customer number,
+    though &mdash; you have to generate a customer number &mdash; and you'll
+    have to generate a customer name, too. To do this, edit the CSV file and
+    add the customer number and customer name to the end of each line.</para>
+    <para>Open the CSV Import application and use it to open the CSV file from
+    the web store. You will see something like this:</para>
+    <mediaobjectco>
+      <imageobjectco>
+        <areaspec units="calspair">
+          <area coords="100 100" id="import.csv.api.csvdata.colnumbers" />
+        </areaspec>
+        <imageobject>
+          <imagedata fileref="images/Topic_import_csvfile.png" />
+        </imageobject>
+        <calloutlist>
+          <callout arearefs="import.csv.api.csvdata.colnumbers">
+            <para>Each column is numbered. You'll need these numbers when you
+            create the CSV Atlas next.</para>
+          </callout>
+        </calloutlist>
+      </imageobjectco>
+    </mediaobjectco>
+    <para>Now select <guimenuitem>Edit</guimenuitem> from the
+    <guimenu>Map</guimenu> menu and add three maps, one for the <database
+    class="view">api.customer view</database>, one for <database
+    class="view">api.salesorder</database>, and one for <database
+    class="view">api.salesline</database>.</para>
+    <mediaobject>
+      <imageobjectco>
+        <areaspec units="calspair">
+          <area coords="200 200" id="import.csv.map.salesline.table" />
+          <area coords="600 600" id="import.csv.map.salesline.mappings" />
+        </areaspec>
+        <imageobject>
+          <imagedata fileref="images/Topic_import_salesorderitemMap.png" />
+        </imageobject>
+        <calloutlist>
+          <callout arearefs="import.csv.map.salesline.table">
+            <para>The window shows the name of the table or view into which
+            the data will be inserted.</para>
+          </callout>
+          <callout arearefs="import.csv.map.salesline.mappings">
+            <para>Here you see the map between fields in the <database
+            class="view">salesline</database> view and columns in the CSV
+            file.</para>
+          </callout>
+        </calloutlist>
+      </imageobjectco>
+    </mediaobject>
+    <para>Everything up to this point has been setup. Now it's time to
+    actually run the import.</para>
+    <para>To actually import the data, click on the <guilabel>CSV
+    Tool</guilabel> window and select <guimenuitem>Start...</guimenuitem> from
+    the <guimenu>Import</guimenu> menu. Since we're creating a new customer,
+    we'll have to import into all three views. Make sure that the customer map
+    is the current map shown in the <guilabel>Select Map</guilabel> window and
+    click the <guibutton>OK</guibutton> button.</para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/Topic_import_selectmap.png" />
+      </imageobject>
+    </mediaobject>
+    <para>Repeat this sequence for the <literal>salesorder</literal> map and
+    the <literal>salesline</literal> map. It might be useful to open the
+    <guilabel>Log</guilabel> window to look for errors (<guimenuitem>select
+    View Log...</guimenuitem> from the <guimenu>Import</guimenu> menu). In
+    this case we expect to see 2 errors:</para>
+    <orderedlist>
+      <listitem>
+        <para>There should be one error reporting a duplicate insert on the
+        customer view because there are two lines in the input and we try to
+        create a customer from each line.</para>
+      </listitem>
+      <listitem>
+        <para>There should be another error reporting a duplicate insert on
+        the sales order view, essentially for the same reason.</para>
+      </listitem>
+    </orderedlist>
+    <para>After the initial configuration, importing should be fairly easy.
+    You should just follow these steps:</para>
+    <procedure>
+      <step>
+        <para>Download the comma-separated order file from the web
+        store.</para>
+      </step>
+      <step>
+        <para>Edit the file to add customer number and customer name fields to
+        the end of each line.</para>
+      </step>
+      <step>
+        <para>Open the CSV Import application.</para>
+      </step>
+      <step>
+        <para>Inside the CSV Import application, open the atlas, the edited
+        CSV file, and the log window.</para>
+      </step>
+      <step>
+        <para>If all of the customers in the file are new, import the
+        customers.</para>
+      </step>
+      <step>
+        <para>Import the sales orders.</para>
+        <para>Import the sales lines.</para>
+        <para>Review the log window for errors and correct them when
+        necessary.</para>
+      </step>
+    </procedure>
   </section>
   <section>
     <title>XML Import</title>
     <para>XML, the Extensible Markup Language, is a World Wide Web Consortium
     standard for structuring, transferring, and processing data on the Web.
-    The newer versions of HTML are XML documents. Many e-commerce sites use
-    XML files to communicate with their users. For example Yahoo! uses XML to
-    send orders to the companies that have Yahoo! storefronts; in turn these
-    companies send XML files back to Yahoo! to describe their catalogs.</para>
+    The newer versions of HTML are specific instances of XML. Many e-commerce
+    sites use XML files to communicate with their users. For example Yahoo!
+    uses XML to send orders to the companies that have Yahoo! storefronts; in
+    turn these companies send XML files back to Yahoo! to describe their
+    catalogs.</para>
     <para>The xTuple applications support importing XML files. The complexity
     comes from having to deal with many XML formats for incoming data, some of
     which may be structured very differently from xTuple's database
@@ -435,23 +558,170 @@ COMMIT;</programlisting>
     would be difficult to communicate sales order information without both
     parties knowing the sales order number, so a DTD for a sales order
     document would have a mandatory tag for the sales order number.</para>
-    <para>xTuple has created a DTD that parallels the API views described
-    above. As we expand the set of views in the API we'll also expand the DTD
-    to include them. This DTD is called the <literal>xtupleapi.dtd</literal>
-    and is in the <filename>share/xml</filename> directory of the
-    <literal>xtuple</literal> source tree.</para>
+    <para>xTuple has created a DTD that parallels the API views described in
+    <xref linkend="import.api" />above. As we expand the set of views in the
+    API we'll also expand the DTD to include them. This DTD is called the
+    <literal>xtupleapi.dtd</literal> and is in the
+    <filename>share/xml</filename> directory of the <literal>xtuple</literal>
+    source tree.</para>
     <para>Yahoo! also has a DTD, one which describes the sales orders it
     collects from Yahoo! stores and sends to its users. This is the
     <literal>OrderList2.dtd</literal> and is available from Yahoo!.</para>
     <para>As an example of how you can import XML files into an xTuple
     database, we have written an XSLT stylesheet to convert a Yahoo! order
     list to a file that matches the <literal>xtupleapi.dtd</literal>.</para>
-    <para>converting from format X to xtuple xml</para>
-    <para>supplying missing data - parameterizing your xslt</para>
-    <para>how to solve our sample problem with xml import</para>
-  </section>
-  <section>
-    <title>Obtaining the Tools</title>
-    <para></para>
+    <para>The conversion of the web store XML shown above into XML that can be
+    handled by the API views is pretty simple. It's conceptually very similar
+    to creating the CSV Atlas. The advantage is that you can run an import in
+    a single step from within the xTuple ERP application instead of having to
+    start CSV Import and run the import multiple times. The cost is that you,
+    or someone you know, has to know enough XSLT to write the transformation
+    stylesheet.</para>
+    <para>How hard is that? You can start by copying the
+    <filename>yahoo_to_xtupleapi.xsl</filename> file and stripping out the
+    parts you don't need and changing a few key words. Here's an example of
+    the type of change you would have to make: The stylesheet which converts
+    between Yahoo and xTuple documents expects the top-level element to be an
+    <literal>Order</literal> element with an <literal>id</literal> attribute
+    that contains an account number and order number combined, while the
+    example XML for our hypothetical web store has an <literal>order</literal>
+    element with a <literal>number</literal> attribute.</para>
+    <example>
+      <title>A portion of the XSLT stylesheet for importing from a Yahoo!
+      store</title>
+      <programlisting language="xml">...
+&lt;xsl:template match="Order"&gt;
+  ...
+  &lt;salesorder&gt;
+    &lt;order_number&gt;
+      &lt;xsl:value-of select="substring-after(@id, concat(/OrderList/@StoreAccountName, '-'))"/&gt;
+    &lt;/order_number&gt;
+  ...
+&lt;/xsl:template&gt;
+...</programlisting>
+    </example>
+    <para>These are just a few short lines from the middle of a fairly long
+    file&mdash;about 730 lines at this writing. This excerpt is fairly easy to
+    understand: after doing some preliminary work processing the Order
+    element</para>
+    <example>
+      <title>The same XSLT changed for importing from the example web
+      store</title>
+      <programlistingco>
+        <areaspec units="linerange">
+          <area coords="2 2" id="import.xml.xslt.after.order.co"
+                linkends="import.xml.xslt.after.order" />
+          <area coords="6 6" id="import.xml.xslt.after.number.co"
+                linkends="import.xml.xslt.after.number" />
+        </areaspec>
+        <programlisting language="xml">...
+&lt;xsl:template match="order"&gt;
+  ...
+  &lt;salesorder&gt;
+    &lt;order_number&gt;
+      &lt;xsl:value-of select="@number"/&gt;
+    &lt;/order_number&gt;
+  ...
+&lt;/xsl:template&gt;
+...</programlisting>
+        <calloutlist>
+          <callout arearefs="import.xml.xslt.after.order.co"
+                   id="import.xml.xslt.after.order">
+            <para>It's a subtle distinction but the case for element name
+            being matched has to be changed: <literal>Order</literal> to
+            <literal>order</literal>.</para>
+          </callout>
+          <callout arearefs="import.xml.xslt.after.number.co"
+                   id="import.xml.xslt.after.number">
+            <para>The structure of the example web store's XML is slightly
+            simpler than a real Yahoo! store, so less work is required to get
+            the order number from our example. In the Yahoo! transformation,
+            the order number has to be extracted out of the
+            <literal>id</literal> attribute (the <literal>@id</literal> in the
+            Yahoo! XSLT stands for "the <literal>id</literal> attribute of the
+            current element (<literal>Order</literal>)") by stripping off the
+            store number, which itself is embedded in an attribute of the
+            <literal>OrderList</literal> element. In our example the order
+            number is simply an attribute of the current element
+            <literal>order</literal>.</para>
+          </callout>
+        </calloutlist>
+      </programlistingco>
+    </example>
+    <para>Modifying XSLT is not always easy but it has a pretty big pay-off.
+    Conceptually it is fairly similar to setting up the CSV Atlas but in
+    practice it is very different. However, once you have an XSL stylesheet to
+    transform from your web store's format to the xTuple API format and have
+    configured xTuple ERP to use this stylesheet, the import is very easy to
+    perform.</para>
+    <para>To configure the application to use your stylesheet, use <xref
+    linkend="configureIE.title" />. Click the <guibutton>New</guibutton>
+    button and fill in the details that describe when to use your
+    stylesheet:</para>
+    <mediaobjectco>
+      <imageobjectco>
+        <areaspec units="calspair">
+          <area coords="50 50" id="import.xml.xslt.map.name.co"
+                linkends="import.xml.xslt.map.name" />
+          <area coords="50 100" id="import.xml.xslt.map.doctype.co"
+                linkends="import.xml.xslt.map.doctype" />
+          <area coords="50 150" id="import.xml.xslt.map.system.co"
+                linkends="import.xml.xslt.map.system" />
+          <area coords="50 200" id="import.xml.xslt.map.importfile.co"
+                linkends="import.xml.xslt.map.importfile" />
+        </areaspec>
+        <imageobject>
+          <imagedata fileref="images/Topic_import_xsltmap.png" />
+        </imageobject>
+        <calloutlist>
+          <callout arearefs="import.xml.xslt.map.name.co"
+                   id="import.xml.xslt.map.name">
+            <para>Put a meaningful name here, one that will distinguish this
+            mapping from any others you might use.</para>
+          </callout>
+          <callout arearefs="import.xml.xslt.map.doctype.co"
+                   id="import.xml.xslt.map.doctype">
+            <para>The value to put here should be the first word in the <code
+            language="xml">&lt;!DOCTYPE&gt;</code> directive in the XML files
+            you will get from your e-commerce provider.</para>
+          </callout>
+          <callout arearefs="import.xml.xslt.map.system.co"
+                   id="import.xml.xslt.map.system">
+            <para>The value of the <guilabel>System Identifier</guilabel> also
+            comes from the e-commerce provider's XML file. It should be the
+            quoted string that follows the word <literal>SYSTEM</literal> in
+            the sample file above.</para>
+          </callout>
+          <callout arearefs="import.xml.xslt.map.importfile.co"
+                   id="import.xml.xslt.map.importfile">
+            <para>Type the name of your XSLT stylesheet here. The best thing
+            to do is put the simple filename here and use the
+            <guilabel>Default XSLT File Directories</guilabel> fields on the
+            <guilabel>Configure Import and Export</guilabel> window to name
+            the path through the directory tree to find this file.</para>
+          </callout>
+        </calloutlist>
+      </imageobjectco>
+    </mediaobjectco>
+    <para>Then use the Configure Import and Export window to name the default
+    directory to scan for files to import.</para>
+    <para>The steps for importing the data once everything is configured are
+    simple:</para>
+    <procedure>
+      <step>
+        <para>Every time you receive an XML orders file from your e-commerce
+        provider, copy the file to your default import directory.</para>
+      </step>
+      <step>
+        <para>Open the <xref linkend="importXML.title" /> window in the xTuple
+        ERP application.</para>
+      </step>
+      <step>
+        <para>Select the line(s) in the display for the new file(s).</para>
+      </step>
+      <step>
+        <para>Click the <guibutton>Import Selected</guibutton> button.</para>
+      </step>
+    </procedure>
   </section>
 </section>
