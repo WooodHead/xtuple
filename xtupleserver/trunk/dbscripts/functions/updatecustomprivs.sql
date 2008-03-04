@@ -14,6 +14,7 @@ BEGIN
                                      FROM cmd))
                AND  (priv_module=''Custom'')) LOOP
     -- TODO: something here
+    DELETE FROM grppriv WHERE grppriv_priv_id=_r.priv_id;
     DELETE FROM usrpriv WHERE usrpriv_priv_id=_r.priv_id;
     DELETE FROM priv WHERE priv_id=_r.priv_id;
   END LOOP;

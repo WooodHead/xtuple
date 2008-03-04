@@ -4,10 +4,20 @@ DECLARE
   _result TEXT;
 BEGIN
   SELECT priv_id INTO _result
+    FROM priv, grppriv, usrgrp
+   WHERE((usrgrp_grp_id=grppriv_grp_id)
+     AND (grppriv_priv_id=priv_id)
+     AND (priv_name=pPrivilege)
+     AND (usrgrp_username=CURRENT_USER));
+  IF (FOUND) THEN
+    RETURN true;
+  END IF;
+
+  SELECT priv_id INTO _result
   FROM priv, usrpriv
   WHERE ((priv_id=usrpriv_priv_id)
   AND (priv_name=pPrivilege)
-  AND (usrpriv_username=current_user));
+  AND (usrpriv_username=CURRENT_USER));
   
   IF (FOUND) THEN
     RETURN true;
