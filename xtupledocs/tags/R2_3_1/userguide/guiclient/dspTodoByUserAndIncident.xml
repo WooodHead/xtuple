@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560417">
+  <title>To-Do List Items by User and Incident</title>
+
+  <para>To view To-Do List items by user and Incident, select the "To-Do List
+  Items by User and Incident" option. The following screen will appear:</para>
+
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspTodoByUserAndIncident.png"/>
+        </imageobject>
+
+        <caption>To-Do List Items by User and
+        Incident</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+
+  <para>When displaying To-Do List items by user and Incident, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>All Users</term>
+
+      <listitem>
+        <para>Select to display To-Do List items for all users.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Selected User</term>
+
+      <listitem>
+        <para>Select user whose To-Do List items you want to display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Pattern</term>
+
+      <listitem>
+        <para>Enter a user pattern to select a range of users. Refine your
+        search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>All Incidents</term>
+
+      <listitem>
+        <para>Select to include all Incidents for the specified user(s) in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Selected</term>
+
+      <listitem>
+        <para>Select the Incident you want to display information
+        about.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Date Started</term>
+
+      <listitem>
+        <para>Enter a range of To-Do List item start dates:</para>
+
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+
+            <listitem>
+              <para>To-Do List items started on or after this date will be
+              included in the display.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>End Date</term>
+
+            <listitem>
+              <para>To-Do List items started on or before this date will be
+              included in the display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Date Due</term>
+
+      <listitem>
+        <para>Enter a range of To-Do List item due dates:</para>
+
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+
+            <listitem>
+              <para>To-Do List items due on or after this date will be
+              included in the display.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>End Date</term>
+
+            <listitem>
+              <para>To-Do List items due on or before this date will be
+              included in the display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Show Completed Items</term>
+
+      <listitem>
+        <para>Select to include completed To-Do List items in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Show Inactive Items</term>
+
+      <listitem>
+        <para>Select in include inactive To-Do List items in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>To-Do List Items</term>
+
+      <listitem>
+        <para>Display lists To-Do List items, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>QUERY</term>
+
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>PRINT</term>
+
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>Right-clicking on a To-Do List item in the list enables you to select
+  from the following menu options:</para>
+
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickNew)"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEdit)"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickView)"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickDelete)"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

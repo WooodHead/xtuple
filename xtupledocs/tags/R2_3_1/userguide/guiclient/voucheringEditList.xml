@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section972283">
+  <title>
+<indexterm significance="normal">
+      <primary>vouchering edit list</primary>
+    </indexterm> <indexterm significance="normal">
+      <primary>vouchers</primary>
+
+      <secondary>edit list for</secondary>
+    </indexterm>Vouchering Edit List</title>
+
+  <para>To edit Vouchers that have been created but not yet posted, select the
+  "Vouchering Edit List" option. The following screen will appear:</para>
+
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/voucheringEditList.png"/>
+        </imageobject>
+
+        <caption>Vouchering Edit List</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+
+  <para>The "Vouchering Edit" screen displays information on all existing
+  Vouchers, including Voucher Number, Purchase Order Number, Vendor number,
+  Vendor name/description, Vendor Item UOM, quantity to Voucher, and Cost.
+  Voucher Line Items and Account distributions will display in a nested manner
+  beneath the associated parent Voucher. Select a plus "+" sign to reveal
+  lower levels of detail. To hide detail, select the minus "-" sign.</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>PRINT</term>
+
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>Right-clicking on a Voucher line in the Vouchering list enables you to
+  select from the following menu options:</para>
+
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEdit)"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickView)"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

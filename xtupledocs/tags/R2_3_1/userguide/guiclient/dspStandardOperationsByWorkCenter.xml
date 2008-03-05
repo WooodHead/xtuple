@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520490" role="openmfg">
+  <title>Standard Operations by Work Center</title>
+  <para>To view a list of Standard Operations performed at a Work Center,
+  select the "Standard Operations by Work Center" option. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspStandardOperationsByWorkCenter.png" />
+        </imageobject>
+        <caption>Standard Operations by Work Center</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Standard Operations by Work Center, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Work Center</term>
+      <listitem>
+        <para>Specify Work Center whose Standard Operations you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warehouse</term>
+      <listitem>
+        <para>The Warehouse code for the Warehouse where the Work Center is
+        located will display once a Work Center has been selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Standard Operations</term>
+      <listitem>
+        <para>Display lists Standard Operations by Work Center, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Operation in the Operations list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewStdOperation)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditStdOperation)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+</section>

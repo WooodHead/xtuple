@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="salesAccount">
+  <title><indexterm significance="normal">
+      <primary>sales account assignments</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Sales Account Assignment</title>
+  <para>To create a new Sales Account assignment, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/salesAccount.png" />
+        </imageobject>
+        <caption>Create New Sales Account Assignment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Sales Account assignment, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Warehouse</term>
+      <listitem>
+        <para>Specify Warehouse to be associated with the Account
+        assignment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>In the case of conflicts between Sales Account assignments, the
+    system by default selects specific assignments before all-inclusive ones.
+    For example, if there were a choice between an assignment featuring
+    "WHSE-1" as the supplying Warehouse and another featuring "ANY" Warehouse,
+    the more-specific "WHSE-1" would be selected.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>All Customer Types</term>
+      <listitem>
+        <para>Select to associate all Customer Types with the Sales Account
+        assignment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify the Customer Type you want to associate with the Sales
+        Account assignment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Customer Type pattern to select a range of Customer
+        Types. Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Product Categories</term>
+      <listitem>
+        <para>Select to associate all Product Categories with the Sales
+        Account assignment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify the Product Category you want to associate with the
+        Sales Account assignment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Product Category pattern to select a range of Product
+        Categories. Refine your search using Regular Expressions, as described
+        in <xref linkend="Anchor77806" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Account</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Sales Account. This is a Revenue Account. It will be credited when
+        Invoices are posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Memo Account</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        S/O Credit Memo Account. This is a Revenue contra Account. It will be
+        debited when S/O Credit Memos are posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cost of Sales Account</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Cost of Sales Account. This is an Expense Account. It will be debited
+        when Sales Order Items are shipped. It will be credited when Sales
+        Order Items are returned to Stock&mdash;either through Shipping or the
+        processing of a Sales Order Credit Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Returns Account</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Returns Account. This is a contra Revenue Account. It will be debited
+        when sales Credit Memos are posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cost of Returns Account</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Cost of Returns Account. This is a contra Expense Account. It will be
+        credited when Return Authorization quantity is posted as
+        received.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cost of Warranty Account</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Warranty Account. This is a contra Expense Account. It will be debited
+        when warranty Items are shipped and credited when warranty Items are
+        received.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a Sales Account assignment,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Sales Account assignment and adds it to the master
+        list of Sales Account assignments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

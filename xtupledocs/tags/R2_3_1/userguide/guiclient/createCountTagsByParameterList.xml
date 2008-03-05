@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+   <title>
+   Create Count Tags by Parameter List/Warehouse
+  </title>
+   <subtitle>createCountTagsByParameterList : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/createCountTagsByParameterList.png"/>
+            </imageobject>
+            <caption>
+   Create Count Tags by Parameter List/Warehouse
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_parameter</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Create <accel>T</accel>ags</guilabel>
+               </entry>
+               <entry>_create</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Warehouse:</guilabel>
+               </entry>
+               <entry>_warehouseLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Mark Created Count Tag as Priority</guilabel>
+               </entry>
+               <entry>_priority</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Freeze Inventory</guilabel>
+               </entry>
+               <entry>_freeze</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Ignore Zero Balance Item Sites</guilabel>
+               </entry>
+               <entry>_ignoreZeroBalance</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Only for Specified Location:</guilabel>
+               </entry>
+               <entry>_byLocation</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_location</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Comments:</guilabel>
+               </entry>
+               <entry>_commentsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_comments</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

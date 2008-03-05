@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+   <title>
+   Purchase Request
+  </title>
+   <subtitle>purchaseRequest : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/purchaseRequest.png"/>
+            </imageobject>
+            <caption>
+   Purchase Request
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Purchase Request #:</guilabel>
+               </entry>
+               <entry>_numberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_number</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">C<accel>r</accel>eate</guilabel>
+               </entry>
+               <entry>_create</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Warehouse:</guilabel>
+               </entry>
+               <entry>_warehouseLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Qty. Ordered:</guilabel>
+               </entry>
+               <entry>_qtyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Due Date:</guilabel>
+               </entry>
+               <entry>_eueDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_qty</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_dueDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_project</entry>
+               <entry>ProjectCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Notes:</guilabel>
+               </entry>
+               <entry>_notesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_notes</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

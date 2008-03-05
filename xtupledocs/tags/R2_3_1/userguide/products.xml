@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter id="Chapter658670">
+  <title>Products Module</title>
+  <para>In this chapter, we describe the Products module.</para>
+  <section id="Section520254">
+    <title>Reports</title>
+    <para>Product Reports section.</para>
+    <section>
+      <title>Items</title>
+      <para>Item Reports section.</para>
+      <xi:include href="guiclient/dspItemsByProductCategory.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspItemsByClassCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspItemsByCharacteristic.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <section>
+      <title>Bills of Materials</title>
+      <para>Bills of Materials Reports section.</para>
+      <xi:include href="guiclient/dspSingleLevelBOM.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspIndentedBOM.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspSummarizedBOM.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspSequencedBOM.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <section>
+      <title>Where Used</title>
+      <para>Where used Reports section.</para>
+      <xi:include href="guiclient/dspSingleLevelWhereUsed.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspIndentedWhereUsed.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <xi:include href="guiclient/dspPendingBOMChanges.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspOperationsByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspStandardOperationsByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <section>
+      <title>Capacity UOMs</title>
+      <para>Capacity Units of Measure Reports section.</para>
+      <xi:include href="guiclient/dspCapacityUOMsByClassCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspCapacityUOMsByProductCategory.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+  </section>
+  <section id="Section518881">
+    <title>Item</title>
+    <para>Items section.</para>
+    <xi:include href="guiclient/item.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/items.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/searchForItem.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/copyItem.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/itemAvailabilityWorkbench.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/itemGroups.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/itemImages.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section519278">
+    <title><indexterm significance="normal">
+        <primary>BOM</primary>
+        <see>bills of materials</see>
+      </indexterm>Bill of Materials</title>
+    <para>A Bill of Materials (BOM) is a list of component parts and specified
+    quantities required to manufacture an Item. In this section we describe
+    the features of Bills of Materials.</para>
+    <xi:include href="guiclient/bom.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/bomList.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/copyBOM.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/massReplaceComponent.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/massExpireComponent.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section519479" role="openmfg">
+    <title>Bill of Operations</title>
+    <para>A Bill of Operations (BOO) is a sequential list of Operations
+    required to manufacture an Item. In this section we describe the features
+    of Bills of Operations.</para>
+    <xi:include href="guiclient/boo.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/booList.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/copyBOO.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section519671" role="openmfg">
+    <title>Breeder Bill of Materials</title>
+    <para>A Breeder Item is an Item from which other Items&mdash;or
+    by-products&mdash;are produced. In this section we describe the features
+    of Breeder Bills of Materials.</para>
+    <xi:include href="guiclient/bbom.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/bboms.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section519762">
+    <title>Costing</title>
+    <para>The maintenance and posting of Costs associated with Items occurs
+    within the Costing section.</para>
+    <xi:include href="guiclient/maintainItemCosts.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="../topics/item_costing.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <section>
+      <title>Update Actual Costs</title>
+      <para>Update Actual Costs section.</para>
+      <xi:include href="guiclient/updateActualCostsByItem.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/updateActualCostsByClassCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <section>
+      <title>Post Actual Costs</title>
+      <para>Post Actual Costs section.</para>
+      <xi:include href="guiclient/postCostsByItem.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/postCostsByClassCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <section>
+      <title>Post Standard Costs</title>
+      <para>Post Standard Costs section.</para>
+      <xi:include href="guiclient/postStandCostsByItem.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/postStandCostsByClassCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <section id="Section519980">
+      <title>Reports</title>
+      <para>Costing reports are found in this section.</para>
+      <section>
+        <title>Costed BOM</title>
+        <para>Costed BOM Reports.</para>
+        <xi:include href="guiclient/dspCostedSingleLevelBOM.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1)" />
+        <xi:include href="guiclient/dspCostedIndentedBOM.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1)" />
+        <xi:include href="guiclient/dspCostedSummarizedBOM.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1)" />
+      </section>
+      <section>
+        <title>Item Costs</title>
+        <para>Item Cost Reports.</para>
+        <xi:include href="guiclient/dspItemCostsByClassCode.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1)" />
+        <xi:include href="guiclient/dspItemCostSummary.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1)" />
+        <xi:include href="guiclient/dspItemCostHistory.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1)" />
+      </section>
+    </section>
+    <xi:include href="guiclient/costingElements.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section518577">
+    <title><indexterm significance="normal">
+        <primary>master information</primary>
+        <secondary>for p/d module</secondary>
+      </indexterm>Master Information</title>
+    <para>Products Master Information section.</para>
+    <xi:include href="guiclient/uoms.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/classCodes.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/productCategories.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/characteristics.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/laborRates.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/workCenters.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/standardOperations.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section662694">
+    <title><indexterm significance="normal">
+        <primary>utilities</primary>
+        <secondary>in p/d module</secondary>
+      </indexterm>Utilities</title>
+    <para>Products Utilities section.</para>
+    <xi:include href="guiclient/dspUnusedPurchasedItems.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspUndefinedManufacturedItems.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspInvalidBillsOfMaterials.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/reassignClassCodeByClassCode.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/reassignProductCategoryByProductCategory.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+</chapter>

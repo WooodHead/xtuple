@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section611231">
+  <title><indexterm significance="normal">
+      <primary>taxes</primary>
+      <secondary>explained</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>topics</primary>
+      <secondary>taxation basics</secondary>
+    </indexterm>Topic: Taxation Basics</title>
+  <para>Beginning with version 2.1.0, xTuple ERP has implemented a comprehensive
+  and flexible design for taxation intended to address the unique requirements
+  for sales Tax around the world. This section illustrates how this capability
+  can be adapted to wide-ranging requirements. It also offers tips for users
+  migrating from previous releases of xTuple ERP.</para>
+  <section id="Section611233">
+    <title>Overview</title>
+    <para>In this scenario, we will show the setup for and operation of a
+    simple Tax scheme in which there are two Tax Authorities (described as
+    "Tax Zones"). Two Tax Types will also be defined&mdash;one for Normal Products
+    (Tax Type 1) and one for Educational Products (Tax Type 2). The same
+    Customer will ship to two different stores, each of which will fall under
+    the jurisdiction of a different Tax Authority. In one case, Educational
+    Products are taxed at 1% and Normal Products at 5%. In the other, both are
+    taxed at 5%. Two Items will be defined&mdash;one a normal toy truck (YTRUCK1)
+    and the other an educational toy truck (ETRUCK1). We will demonstrate how
+    xTuple ERP applies the appropriate Tax to each S/O Line Item depending on the
+    Item ordered and the Ship-To Address selected. Tax Codes have been
+    established to determine the Tax Rate to apply (5% or 1% in this example)
+    and the appropriate General Ledger (G/L) Account to use.</para>
+  </section>
+  <section id="Section611235">
+    <title>Creating G/L Accounts for Taxation</title>
+    <para>xTuple ERP gives you the ability to collect Taxes on Sales Orders.
+    There are generally two methods for recording the collection of sales Tax
+    in the General Ledger:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Tax Liability: Taxes collected from Customers are recorded as a
+        liability on the balance sheet. When the Tax is paid, the liability is
+        reduced based on the amount of the payment. In this section, we will
+        create two Expense Categories&mdash;one for each of the Customer scenarios.
+        Each Expense Category is linked not to a G/L expense Account (as the
+        name implies) but rather to a liability Account corresponding to the
+        type of Tax being paid. When a Voucher for a Tax payment is posted,
+        the liability Account linked to the Expense Category is cleared and
+        the cash Account on which the Check is drawn is charged.</para>
+      </listitem>
+      <listitem>
+        <para>Tax Revenue: Using the method described above assumes that Tax
+        collected from a Customer is revenue and as such is posted to a
+        revenue Account in the G/L. Expense Categories are established that
+        charge G/L expense Accounts when the Tax is paid to the Tax Authority
+        thereby offsetting Tax revenues and Tax expenses on the Income
+        Statement.</para>
+      </listitem>
+    </itemizedlist>
+    <para>These two methods are not mutually exclusive, but the relationships
+    between Tax Codes, Expense Categories, and corresponding G/L Accounts and
+    Tax Authorities must be carefully thought out.</para>
+    <para>You will setup your G/L Accounts with the level of detail necessary
+    to provide the insight and reporting you require for your situation. The
+    following screen shows the Account detail for a Tax liability
+    Account:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_0100_GL.png" />
+          </imageobject>
+          <caption>G/L Account Definitions</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>In this example we have created Accounts that relate to Tax Types
+    and Tax Authorities. This may be desirable if you plan to use the
+    Financial Reporting Engine (FRE) to perform financial analysis or to
+    generate supporting documents for Tax returns that require this level of
+    detail.</para>
+  </section>
+  <section id="Section611248">
+    <title>Tax Controls</title>
+    <para>The following Tax-related screens are grouped together in the
+    "Master Information" section of the G/L Module:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Tax Authorities</para>
+      </listitem>
+      <listitem>
+        <para>Tax Codes</para>
+      </listitem>
+      <listitem>
+        <para>Tax Types</para>
+      </listitem>
+      <listitem>
+        <para>Tax Selections</para>
+      </listitem>
+      <listitem>
+        <para>Tax Registrations</para>
+      </listitem>
+    </itemizedlist>
+    <para>We will look at each of these Master Information categories&mdash;with
+    the exception of Tax Registrations, which are used (optionally) to store
+    Tax Account numbers by Tax Authority.</para>
+  </section>
+  <section id="Section611256">
+    <title>Creating Tax Authorities</title>
+    <para>Tax Authorities are defined as CRM Accounts in xTuple ERP, as shown in
+    the following screenshot:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_0130_Accnt.png" />
+          </imageobject>
+          <caption>Tax Authority CRM Account Definition</caption>
+        </mediaobject>
+      </screenshot></para>
+    <tip>
+      <para>If we need to generate a Check to pay Taxes to a Tax Authority,
+      the parent CRM Account should also be defined as a Vendor in order to
+      facilitate the payment process.</para>
+    </tip>
+    <para>The detail under a Tax Authority provides a place to store Account
+    information, Contacts, and Addresses.</para>
+    <note>
+      <para>The concept of a Tax Authority is new beginning with xTuple ERP
+      version 2.1. For users migrating to this version, the upgrade script
+      will automatically create Tax Authorities from each pre-existing Tax
+      Code.</para>
+    </note>
+  </section>
+  <section id="Section611269">
+    <title>Customer Ship-To Tax Definitions</title>
+    <para>In this scenario, we will use one Customer who ships to stores that
+    fall under the Tax jurisdiction of two different Tax Authorities, each
+    with different Tax Rates on different types of products.</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_0160_Shi-To.png" />
+          </imageobject>
+          <caption>Customer Ship-To Tax Definition</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>The critical field for taxation is the "Tax Authority" field. In
+    this case we see that Store 1 falls under the Tax jurisdiction of
+    TAXZONE1. Store 2 (not shown) falls under TAXZONE2.</para>
+  </section>
+  <section id="Section611281">
+    <title>Tax Code Definitions</title>
+    <para>Tax Codes hold both the rate(s) at which Tax is calculated and the
+    G/L Account(s) Tax transactions are posted to. You can see a sample Tax
+    Code detail in the following screen:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_0190_Tax Codes.png" />
+          </imageobject>
+          <caption id="sampleTaxCodeDetail"><para>Sample Tax Code
+          Detail</para></caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>You may define up to three Tax Rates. Each is calculated
+    independently, unless the "Cumulative" box is checked. When that option is
+    selected, Tax is calculated cumulatively on the previous Tax Rate. Such a
+    scenario is very rare.</para>
+    <para>Notice that G/L Accounts are also linked to each Tax Rate. The same
+    Account may be used for all three Tax Rates&mdash;or a different Account may be
+    used for each to capture more detail for G/L and Tax reporting
+    purposes.</para>
+  </section>
+  <section id="Section611291">
+    <title>Tax Type Definitions</title>
+    <para>Tax Types are linked to Items and Tax Authorities in an Item's P/D
+    record. You should think carefully about how to approach Tax Types. For
+    example, you may consider creating Tax Types that relate to different Tax
+    Authorities. In this case, you might have Tax TYPE10 and Tax TYPE15. A
+    single Item could be linked to each&mdash;TYPE10 for each Tax Authority that
+    taxes it at 10% and TYPE15 for each that taxes it at 15%.</para>
+    <para>A sample Tax Types list is shown in the following screen:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_230_TaxTypes.png" />
+          </imageobject>
+          <caption>Tax Types</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Another strategy is to relate the Tax Type to Product Categories. In
+    our scenario, we have Normal Products and Educational Products. The
+    relationship between Item, Tax Type, and Tax Authority is then established
+    based on how each Tax Authority treats that type of product.</para>
+    <para>Some Tax Authorities charge Tax on Freight. A reserved Tax Type
+    called Freight is pre-populated in the xTuple ERP database specifically for
+    this purpose. On the Tax Selection screen (see below), the freight Tax
+    Type is then linked to a) Tax Authorities that charge Tax on freight and
+    b) Tax Codes that contain the appropriate rate.</para>
+  </section>
+  <section id="Section611301">
+    <title>Tax Selection Matrix</title>
+    <para>Before we look at an Item and its relationship to Tax Types, let's
+    take a look at Tax Selections. The Tax Selections screen creates a matrix
+    combining the Tax Type (linked to the Item), the Tax Authority (also
+    linked to the Item), and the Tax Code. The following screen shows a sample
+    Tax Selections master list:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_260_TaxTypes.png" />
+          </imageobject>
+          <caption>Tax Selections</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Here we see that Tax Authority TAXZONE1 links two different Tax
+    Types (one for Normal Products and one for Educational Products) to two
+    distinct Tax Codes. Tax Code ZONE1-TYPE1 will calculate the Tax at 5% and
+    post it through to a special G/L Account. Tax Code ZONE1-TYPE2 will
+    calculate the Tax at 1% and post it through to a different G/L Account.
+    Any Tax Type linked to TAXZONE2 will result in a 5% Tax calculation
+    defined in the Tax Code ZONE2-TYPE1. A distinct Tax Code was defined ONLY
+    because this Tax Code links a G/L Account specifically defined to hold Tax
+    Authority TAXZONE2 balances. Were this not desired, a single 5% Tax Code
+    could have been use for both TAXZONE1 and TAXZONE2.</para>
+  </section>
+  <section id="Section611310">
+    <title>Item Tax Type Assignments</title>
+    <para>The P/D Item record contains a tab called "Tax Types." This tab is
+    used to associate an Item with a Tax Type and corresponding Tax
+    Authority.</para>
+    <tip>
+      <para>The same Tax Type may be taxed differently by different Tax
+      Authorities. This is controlled on the Tax Selections screen, where Tax
+      Authorities/Tax Types are linked to Tax Codes (which determine Tax
+      Rates).</para>
+    </tip>
+    <para>The following screen shows the "Tax Types" tab on a sample Item
+    master:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_290_ItemTax.png" />
+          </imageobject>
+          <caption>Item Tax Types Assignments</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>By default, an Item is not taxed if no relationship has been created
+    to link it to a Tax Type and Tax Authority. However, it may be desirable
+    in some cases to intentionally indicate that an Item is not taxed for a
+    specific Tax Authority. If so, you would set this up by creating an
+    appropriate Tax Type/Tax Authority relationship on the Item master. You
+    would then link this relationship to a Tax Selection record pointing to a
+    Tax Code having a 0% Tax Rate. Again, this is optional and may or may not
+    be desirable.</para>
+  </section>
+  <section id="Section611322">
+    <title>Clearing Tax Liability with Expense Categories</title>
+    <para>Because we are charging Customers Tax that we must ultimately pay to
+    Tax Authorities, it is important to have a mechanism for making payments
+    to Tax Authorities. Sales Tax is a liability that must be settled. As we
+    saw in <xref endterm="sampleTaxCodeDetail"
+    linkend="sampleTaxCodeDetail" />, our sample Tax Code references a
+    liability Account. By creating an Expense Category that links to the same
+    liability Account, we can clear our Tax liability when we post Vouchers
+    that pay Tax Authorities.</para>
+    <para>The following screen shows a sample Expense Category detail:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_320_ExpenseCat.png" />
+          </imageobject>
+          <caption>Expense Categories for Tax</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Notice how the "Expense" field for Expense Category TAXZONE1-TYPE1
+    is linked to a liability Account. When we Voucher our payment to the Tax
+    Authority, we will use this Expense Category to clear the
+    liability.</para>
+    <tip>
+      <para>An alternate method for clearing Tax liability is to book the
+      Sales Tax collected to a Revenue Account&mdash;and then offset it with an
+      Expense Category linked to an expense Account.</para>
+    </tip>
+  </section>
+  <section id="Section611337">
+    <title>Sample Sales Order</title>
+    <para>Let's create a Sales Order for a Customer Ship-To Address that taxes
+    Educational Products at one rate and Normal Products at another. In
+    addition, we will use a Tax Selection record that links the Freight Tax
+    Type to a Tax Code, thereby causing Tax to be calculated on the freight
+    charge.</para>
+    <para>The following screen shows the Line Item Tax detail for the sample
+    Sales Order will be using:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_350_SO-Line-TaxDetail.png" />
+          </imageobject>
+          <caption>Sales Order Line Showing Tax Detail</caption>
+        </mediaobject>
+      </screenshot></para>
+    <tip>
+      <para>To view Line Item Tax detail, simply click on the "Tax" hyperlink
+      found on the Sales Order Item screen.</para>
+    </tip>
+    <para>While Tax is calculated at the Line Item level, we can see the Tax
+    impact for an entire Sales Order from the "Line Items" tab, as shown
+    below:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_380_SO-TaxBreak.png" />
+          </imageobject>
+          <caption>Sales Order Line Items Showing Tax Breakdown</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>From the "Line Items" tab screen, click on the "Tax" hyperlink to
+    see an overview of the Tax calculation for the entire Order. In this case,
+    the total Tax resulted from the educational Item taxed at 1%, a normal
+    Item taxed at 5%, and freight taxed at 5%.</para>
+    <para>When the product is shipped and the corresponding Invoice is posted,
+    the appropriate Tax Accounts will be reflected in the G/L.</para>
+  </section>
+  <section id="Section611357">
+    <title>G/L Transactions After Invoice Posting</title>
+    <para>You will recall that in this scenario we are posting Sales Tax to a
+    liability Account. And even though it is not necessary to do so, our
+    example uses a different G/L Account for each different Tax Type/Tax
+    Authority combination we are using. This varied approach enables us to
+    better demonstrate how the Financial Reporting Engine (FRE) can be used as
+    a Tax reporting tool.</para>
+    <para>The following screen shows a summary of the G/L transactions
+    recorded after we posted the Invoice corresponding to our initial Sales
+    Order:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_410_SO-GL.png" />
+          </imageobject>
+          <caption>Summarized G/L Transactions for Sales Tax on an
+          Invoice</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Now that we have accrued the liability for the sales Tax, we must
+    next pay the Tax Authority.</para>
+  </section>
+  <section id="Section611366">
+    <title>Tax Payment at Vouchering</title>
+    <para>While a Miscellaneous Check could be used to pay the sales Tax we
+    have collected, a Voucher provides an additional level of control&mdash;and
+    also give us the ability to define amounts specific to the different types
+    of Tax being paid. A Miscellaneous Check may only be linked to a single
+    Expense Category; whereas, a Voucher can have an unlimited number of
+    distributions to different Expense Categories.</para>
+    <para>The following screen shows a sample Miscellaneous Voucher
+    Distribution:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_430_AP-Voucher.png" />
+          </imageobject>
+          <caption>Voucher for Tax Payment</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Miscellaneous Distributions on a Miscellaneous Voucher enable us to
+    select the appropriate Expense Category for each type of Tax being paid on
+    a single payment. You may recall that our scenario links an Expense
+    Category to the same G/L Account used for accruing sales Tax liability.
+    Paying taxes in this way enables us to clear the appropriate liability
+    Account when we post Miscellaneous Vouchers.</para>
+    <para>In the following screen you can see a summary of the G/L
+    transactions which resulted from out posting of the Miscellaneous
+    Voucher:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_460_GL-PostVoucher.png" />
+          </imageobject>
+          <caption>G/L Postings After Voucher Posting</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Posting the Voucher cleared the liability Accounts associated with
+    the Expense Categories used on the Voucher. The A/P liability will
+    subsequently be cleared when a Check paying the Voucher is posted.</para>
+  </section>
+  <section id="Section611386">
+    <title>Taxes on Purchases</title>
+    <para>Just as we calculated sales Tax for our Customers, our Vendors will
+    do the same for us. Tax on purchases appears on the Vendor's invoice&mdash;and
+    should be recorded during the vouchering process. Again, when vouchering
+    we can use Miscellaneous Distributions along with Expense Categories to
+    record purchasing Tax.</para>
+    <para>The following screen shows a sample Expense Category we have
+    established to record Tax on purchases:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_510_PurchTaxExpCat.png" />
+          </imageobject>
+          <caption>Expense Category for Taxes on Purchased Items</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>We will use the Expense Category during a vouchering scenario. In
+    our example, the Vendor is charging us Tax on one or more Items of Type 1.
+    The following screen shows the Voucher for this purchase, as well as the
+    Miscellaneous Distribution for Tax purposes:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_530_VoucherPurcTaxExpCat.png" />
+          </imageobject>
+          <caption>Miscellaneous Distribution of Voucher to Pay Tax</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>The Purchase Order we are vouchering is for a Vendor invoice
+    totaling $220.00. Of this amount, $200.00 is for the product and $20.00 is
+    for Tax. The Tax is accounted for using the Expense Category corresponding
+    to the type of Tax being paid. Because Expense Categories are linked to
+    G/L Accounts, the Tax amount will be posted to the appropriate
+    Account.</para>
+    <tip>
+      <para>If multiple types of Taxes are identified on a Vendor invoice,
+      multiple Expense Categories pointing to different Tax Accounts may be
+      used.</para>
+    </tip>
+  </section>
+  <section id="Section611411">
+    <title>Tips on Upgrading to Version 2.1</title>
+    <para>The Tax functionality described in this section is new, as of
+    xTuple ERP version 2.1 The upgrade to version 2.1 from an earlier versions of
+    xTuple ERP should be seamless. However, it may be helpful to know how the
+    changes impact the underlying data:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Item Taxable Check Box Removed: The "Taxable" check box on the
+        Item master is removed in version 2.1. As mentioned earlier, an Item
+        that is not taxable will contain no entry for a given Tax Authority in
+        the new Tax Types tab on the Item screen.</para>
+      </listitem>
+      <listitem>
+        <para>Tax Codes Create Tax Authorities - The 2.1 upgrade script reads
+        the Tax Codes table and creates a CRM Account entry for each Tax Code,
+        flagging it as a Tax Authority. Keep in mind that there is no Contact
+        Information or Address information contained in a Tax Code, so these
+        fields will be blank in the resulting Tax Authorities entry.</para>
+      </listitem>
+      <listitem>
+        <para>Freight Moved From Tax Codes to Tax Selection: The Tax Code
+        check box for "Freight" has been removed. Instead, an entry in the Tax
+        Selections screen links the new Tax Authority (created from the Tax
+        Code) to the new system-defined Tax Type called Freight; the
+        relationship to the original Tax Code is maintained. This enables the
+        Tax on freight to be linked to a unique Tax Code with a distinct Tax
+        Rate should this be necessary.</para>
+      </listitem>
+      <listitem>
+        <para>Customer Linked to New Tax Authority: In versions prior to 2.1,
+        each Customer (and, if applicable, each Ship-To Address), was linked
+        to a Tax Code. During the upgrade to 2.1, the Tax Code reference is
+        replaced with the relevant Tax Authority (created from the Tax Code).
+        A Tax Selection record that links the new Tax Authority to the
+        existing Tax Code and a system defined Tax Type called "Taxable" is
+        automatically created.</para>
+      </listitem>
+      <listitem>
+        <para>Tax Registration Numbers: Version 2.1 introduces the concept of
+        Tax Registration Numbers for Customers. Prior to version 2.1, there
+        was a single field in the Customer master called "Tax Ex: Number." The
+        upgrade moves the value stored in that field so it now appears as a
+        Tax Registration number associated with the new Tax Authority for the
+        Customer.</para>
+      </listitem>
+      <listitem>
+        <para>Transactions in Progress: Prior to version 2.1, Tax on taxable
+        transactions (such as Invoices) was stored at the header level. With
+        version 2.1, Tax is now calculated at the Line Item level&mdash;and the
+        detail is stored at the Line Item level. The upgrade script analyzes
+        all pending transactions, recalculates the Tax for each line, stores
+        the detail for how it was calculated in each line, and places the sum
+        in the header record.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+</section>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section588066">
+  <title>
+<indexterm significance="normal">
+      <primary>tax codes</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Tax Codes</title>
+  <para>Tax Codes define the amount and type(s) of Tax to be added to an
+  Order. To access the master list of Tax Codes, select the "Tax Codes"
+  option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/taxCodes.png"/>
+        </imageobject>
+        <caption>Tax Codes Master List</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>The Tax Codes master list displays the code and description for all
+  existing Tax Codes.</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Tax Code.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Tax Code. The edit screen is the
+        same as that for creating a new Tax Code&mdash;except that when editing,
+        the fields will contain Tax Code information. Double-clicking on a Tax
+        Code will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Tax Code and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Tax Code and then select this button to remove the
+        Tax Code from the master list</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="taxCode.xml" xpointer="element(/1)"/>
+</section>

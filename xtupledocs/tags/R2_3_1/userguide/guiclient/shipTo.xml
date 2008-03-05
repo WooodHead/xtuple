@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+   <title>
+   Ship-To
+  </title>
+   <subtitle>shipTo : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/shipTo.png"/>
+            </imageobject>
+            <caption>
+   Ship-To
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Customer #:</guilabel>
+               </entry>
+               <entry>_custNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_custNum</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_custName</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Ship-<accel>T</accel>o #:</guilabel>
+               </entry>
+               <entry>_shipToNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>N</accel>ame:</guilabel>
+               </entry>
+               <entry>_nameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipToNumber</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_name</entry>
+               <entry>XLineEdit</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">Active</guilabel>
+               </entry>
+               <entry>_active</entry>
+               <entry>QCheckBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">Default</guilabel>
+               </entry>
+               <entry>_default</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_address</entry>
+               <entry>AddressCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_contact</entry>
+               <entry>ContactCluster</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">Sales Rep.:</guilabel>
+               </entry>
+               <entry>_salesRepLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">Comm<accel>i</accel>ssion:</guilabel>
+               </entry>
+               <entry>_commissionLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">Zone:</guilabel>
+               </entry>
+               <entry>_zoneLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">Tax Authority:</guilabel>
+               </entry>
+               <entry>_taxAuthLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_salesRep</entry>
+               <entry>XComboBox</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_commission</entry>
+               <entry>XLineEdit</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_shipZone</entry>
+               <entry>XComboBox</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_taxauth</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_defaultsGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel moreinfo="none">Ship Via:</guilabel>
+               </entry>
+               <entry>_shipviaLlit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel moreinfo="none">Shipping Form:</guilabel>
+               </entry>
+               <entry>_shippingFormLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel moreinfo="none">Shipping Charges:</guilabel>
+               </entry>
+               <entry>_shippingChargesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_shipVia</entry>
+               <entry>XComboBox</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_shipform</entry>
+               <entry>XComboBox</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_shipchrg</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">EDI Profile:</guilabel>
+               </entry>
+               <entry>_ediProfileLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_ediProfile</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_commentsTab</entry>
+               <entry>QTabWidget</entry>
+            </row>
+            <row>
+               <entry>General Notes</entry>
+               <entry>_generalTab</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_comments</entry>
+               <entry>QTextEdit</entry>
+            </row>
+            <row>
+               <entry>Shipping Notes</entry>
+               <entry>_shippingTab</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shippingComments</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

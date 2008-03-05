@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section553315">
+  <title>
+<indexterm significance="normal">
+      <primary>cash receipts</primary>
+
+      <secondary>history of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customers</primary>
+
+      <secondary>cash received from</secondary>
+    </indexterm>Cash Receipts by Customer</title>
+
+  <para>To view the history of Cash Receipts and their applications by
+  Customer, select the "Cash Receipts by Customer" option. The following
+  screen will appear:</para>
+
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspCashReceipts.png"/>
+        </imageobject>
+
+        <caption>Cash Receipts by Customer</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+
+  <note>
+    <para>The display will include unposted as well as posted Cash Receipts
+    which have an apply-to document. Unapplied Cash Receipts will not appear
+    on this screen.</para>
+  </note>
+
+  <para>When viewing Cash Receipts by Customer, you are presented with the
+  following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>All Customers</term>
+
+      <listitem>
+        <para>Select to display Cash Receipt details for all Customers.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Selected Customer</term>
+
+      <listitem>
+        <para>Select to display Cash Receipt details for a selected
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Selected Customer Type</term>
+
+      <listitem>
+        <para>Specify Customer Type whose Cash Receipt details you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Customer Type Pattern</term>
+
+      <listitem>
+        <para>Enter a Customer Type pattern to select a range of Customer
+        Types. Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806"/>.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Start Date</term>
+
+      <listitem>
+        <para>Cash Receipts entered on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>End Date</term>
+
+      <listitem>
+        <para>Cash Receipts entered on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>A/R Applications</term>
+
+      <listitem>
+        <para>Display lists Cash Receipt details, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>QUERY</term>
+
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>PRINT</term>
+
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

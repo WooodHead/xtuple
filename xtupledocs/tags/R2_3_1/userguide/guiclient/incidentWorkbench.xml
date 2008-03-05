@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560363">
+  <title>
+<indexterm significance="normal">
+      <primary>incidents</primary>
+
+      <secondary>workbench for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customer relationship management</primary>
+
+      <secondary>incident workbench and</secondary>
+    </indexterm>Incident Workbench</title>
+
+  <para>The Incident Workbench enables you to monitor and take action on the
+  full range of issues entered in your system.</para>
+
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incidentWorkbench.png"/>
+        </imageobject>
+
+        <caption>Incident Workbench</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+
+  <para>When using the Incident Workbench, you are presented with the
+  following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>All Users</term>
+
+      <listitem>
+        <para>Select to display Incidents for all users.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Selected User</term>
+
+      <listitem>
+        <para>Specify the user whose Incidents you want to display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Pattern</term>
+
+      <listitem>
+        <para>Enter a user pattern to select a range of users. Refine your
+        search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Status</term>
+
+      <listitem>
+        <para>Specify which of the following system-defined Incident statuses
+        you want to include in the display. Not selecting a status means
+        Incidents having that status will not be included in the
+        display:</para>
+
+        <variablelist>
+          <varlistentry>
+            <term>New</term>
+
+            <listitem>
+              <para>Select to include Incidents having "New" status in the
+              display. This is the default Incident status when a new Incident
+              is entered.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Feedback</term>
+
+            <listitem>
+              <para>Select to include Incidents having "Feedback" status in
+              the display. This status can be used for Incidents which require
+              more information before they can be confirmed.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Confirmed</term>
+
+            <listitem>
+              <para>Select to include Incidents having "Confirmed" status in
+              the display. A confirmed Incident is ready to be acted
+              on.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Assigned</term>
+
+            <listitem>
+              <para>Select to include Incidents having "Assigned" status in
+              the display. When Incidents are assigned to a user, they become
+              that user's responsibility.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Resolved</term>
+
+            <listitem>
+              <para>Select to include Incidents having "Resolved" status in
+              the display. A resolved Incident is ready to be closed.
+              Typically, users work to resolve the Incidents assigned to
+              them.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Closed</term>
+
+            <listitem>
+              <para>Select to include Incidents having "Closed" status in the
+              display. This is the final status and indicates an Incident
+              requires no further action. It is completed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>First Creation Date</term>
+
+      <listitem>
+        <para>Incidents created on or after this date will be included in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Last Creation Date</term>
+
+      <listitem>
+        <para>Incidents created on or before this date will be included in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Summary/Description Matches</term>
+
+      <listitem>
+        <para>Enter a text pattern to locate keywords found in Incident
+        "Summary" and/or "Description" fields. Refine your search using
+        Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Incidents</term>
+
+      <listitem>
+        <para>Display lists Incidents, using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Automatically Update</term>
+
+      <listitem>
+        <para>Select to automatically update the display every five
+        minutes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>QUERY</term>
+
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>PRINT</term>
+
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>RESET</term>
+
+      <listitem>
+        <para>Select to clear the "Summary/Description Matches" field.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>NEW</term>
+
+      <listitem>
+        <para>Opens screen for creating a new Incident.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>EDIT</term>
+
+      <listitem>
+        <para>Enables you to edit highlighted Incidents. The edit screen is
+        the same as that for creating a new Incident&mdash;except that when
+        editing, the fields will contain Incident information. Double-clicking
+        on an Incident will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>VIEW</term>
+
+      <listitem>
+        <para>Highlight an Incident and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

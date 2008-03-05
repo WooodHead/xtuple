@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter id="Chapter550363" role="openmfg">
+  <title>Schedule Module</title>
+  <para>In this chapter, we describe the Schedule module. This module enables
+  you to develop your <indexterm significance="normal">
+      <primary>production plans</primary>
+      <secondary>in master scheduling</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>master scheduling</primary>
+      <secondary>production plans in</secondary>
+    </indexterm>Production Plan and balance supply and demand throughout your
+  manufacturing process. The following Manufacturing Scheduling categories
+  will be covered:</para>
+  <itemizedlist>
+    <listitem>
+      <para><indexterm significance="normal">
+          <primary>MPS</primary>
+          <see>master production scheduling</see>
+        </indexterm>Master Production Scheduling (MPS)</para>
+    </listitem>
+    <listitem>
+      <para><indexterm significance="normal">
+          <primary>MRP</primary>
+          <see>material requirements planning</see>
+        </indexterm>Material Requirements Planning (MRP)</para>
+    </listitem>
+    <listitem>
+      <para>Constraint Management</para>
+    </listitem>
+    <listitem>
+      <para>Planned Orders</para>
+    </listitem>
+    <listitem>
+      <para>Planner Codes</para>
+    </listitem>
+  </itemizedlist>
+  <section id="Section539566" role="openmfg">
+    <title>Production Plan</title>
+    <para>The Master Production Scheduling (MPS) system serves several
+    important purposes:</para>
+    <orderedlist continuation="restarts" inheritnum="ignore">
+      <listitem>
+        <para>Increases visibility into future demand</para>
+      </listitem>
+      <listitem>
+        <para>Provides capability for anticipating future demand</para>
+      </listitem>
+      <listitem>
+        <para>Drives the plan for lower level components (i.e., Material
+        Requirements) based on the Forecast</para>
+      </listitem>
+    </orderedlist>
+    <para>Production Plans are at the heart of MPS. Using Production Plans,
+    you have the ability to load sales Forecasts into the system&mdash;and
+    then view the impact of the Forecasts on production planning.</para>
+    <para>Typically, MPS is used to plan for Items having "independent"
+    demand. Independent demand Items are defined as those Items which derive
+    their demand directly from Customer requirements through Sales Orders. By
+    contrast, "dependent" demand Items are normally purchased Items and
+    subassemblies. The demand for dependent Items is derived
+    indirectly&mdash;that is, based on the demand for their parent Items in a
+    Bill of Materials. The Material Requirements Planning (MRP) system is
+    typically used to plan for dependent demand.</para>
+    <xi:include href="guiclient/plannedSchedule.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/plannedSchedules.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section518545" role="openmfg">
+    <title>Scheduling</title>
+    <para>Planned Orders are a scheduling mechanism used by the two planning
+    systems&mdash;Master Production Scheduling (MPS) and Material Requirements
+    Planning (MRP)--to create "soft" demands for materials and capacity
+    required to meet the Production Plan. These Planned Orders are converted
+    to actual Work Orders or Purchase Orders as their Lead Time
+    approaches.</para>
+    <xi:include href="guiclient/plannedOrder.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/runMPSByPlannerCode.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="../topics/mps.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <section>
+      <title>Run MRP</title>
+      <para>Run MRP section.</para>
+      <xi:include href="guiclient/createPlannedOrdersByPlannerCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/createPlannedOrdersByItem.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <xi:include href="guiclient/firmPlannedOrdersByPlannerCode.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/releasePlannedOrdersByPlannerCode.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/deletePlannedOrdersByPlannerCode.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/deletePlannedOrder.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section539268" role="openmfg">
+    <title>Constraint Management</title>
+    <para>Manufacturing managers frequently look for tools and methods to help
+    them identify actions requiring immediate attention. In this way, they can
+    help ensure production output matches Customer demand. This is where the
+    Constraint Management system comes in. Constraint Management is used to
+    evaluate Items, Work Orders, Purchase Orders, and Work Centers-and then
+    prioritize each, identifying which should be worked on and/or addressed
+    first.</para>
+    <para>The Constraint Management system reports on the following three
+    types of buffers:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Stock buffer: An accumulation of Items stored in Inventory that
+        act as a hedge against demand where the required service time is
+        shorter than a time buffer for that Item would allow. The buffer size
+        is determined by the Reorder Level at the Item Site.</para>
+      </listitem>
+      <listitem>
+        <para>Time buffer: The lead time, measured in working days, of a
+        supply order for an Item that is not stocked.</para>
+      </listitem>
+      <listitem>
+        <para>Capacity buffer: The relative load of a resource (i.e., Work
+        Center) compared to the desired lead time of Items coming out of that
+        resource.</para>
+      </listitem>
+    </itemizedlist>
+    <section>
+      <title>Update</title>
+      <para>Update Buffer Status section.</para>
+      <xi:include href="guiclient/createBufferStatusByPlannerCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/createBufferStatusByItem.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <xi:include href="../topics/buffer_mgmt.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <section>
+      <title>Inventory</title>
+      <para>Inventory Buffer Status section.</para>
+      <xi:include href="guiclient/dspInventoryBufferStatusByPlannerCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspInventoryBufferStatusByClassCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspInventoryBufferStatusByItemGroup.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <xi:include href="guiclient/dspPoItemsByBufferStatus.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <section>
+      <title>Work Order</title>
+      <para>Work Order Buffer Status section.</para>
+      <xi:include href="guiclient/dspWoBufferStatusByPlannerCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspWoBufferStatusByClassCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspWoBufferStatusByItemGroup.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <xi:include href="guiclient/dspCapacityBufferStatusByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspWoOperationBufrStsByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section role="openmfg">
+    <title>Capacity Planning</title>
+    <para>Capacity Planning section.</para>
+    <xi:include href="guiclient/dspTimePhasedCapacityByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspTimePhasedLoadByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspTimePhasedAvailableCapacityByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <section>
+      <title>Time-Phased Production</title>
+      <para>Time-Phased Production section.</para>
+      <xi:include href="guiclient/dspTimePhasedProductionByPlannerCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section518753)" />
+      <xi:include href="guiclient/dspTimePhasedProductionByItem.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section518748)" />
+    </section>
+    <xi:include href="guiclient/dspTimePhasedDemandByPlannerCode.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(Section518743)" />
+    <xi:include href="guiclient/dspCapacityBufferStatusByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(Section530193)" />
+  </section>
+  <section role="openmfg">
+    <title>Reports</title>
+    <para>Schedule Reports section.</para>
+    <section>
+      <title>Planned Items</title>
+      <para>Planned Items Reports section.</para>
+      <xi:include href="guiclient/dspPlannedOrdersByPlannerCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspPlannedOrdersByItem.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <xi:include href="guiclient/dspRunningAvailability.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspTimePhasedAvailability.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspMPSDetail.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspMRPDetail.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspExpediteExceptionsByPlannerCode.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspReorderExceptionsByPlannerCode.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspRoughCutByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspTimePhasedRoughCutByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspPlannedRevenueExpensesByPlannerCode.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspTimePhasedPlannedREByPlannerCode.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section role="openmfg">
+    <title>Master Information</title>
+    <para>Schedule Master Information section.</para>
+    <xi:include href="guiclient/plannerCodes.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/whseWeek.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/whseCalendars.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/workCenters.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+</chapter>

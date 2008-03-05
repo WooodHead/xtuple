@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519273">
+  <title>
+<indexterm significance="normal">
+      <primary>count slips</primary>
+      <secondary>entering of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>physical inventory</primary>
+      <secondary>entering count slips</secondary>
+    </indexterm>Enter Count Slip</title>
+  <para>Count Slips are used for contributing Inventory count totals to
+  unposted Count Tags. Unlike Count Tags, however, Count Slips do not have to
+  be created before they can be entered. To enter a Count Slip, select the
+  "Enter Count Slip" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/countSlip.png"/>
+        </imageobject>
+        <caption>Enter Count Slip</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When entering a Count Slip, you are presented with the following
+  options:</para>
+  <tip>
+    <para>Restrictions may be imposed on the creation of Count Slips. To learn
+    more, see <xref linkend="Anchor19758"/>.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Count Tag #</term>
+      <listitem>
+        <para>Enter the Count Tag Number of the Count Tag you want to enter a
+        Count Slip toward.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays Item Number automatically when Count Tag Number is
+        entered into "Count Tag #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warehouse</term>
+      <listitem>
+        <para>Specify Warehouse where count is being conducted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Counted Qty. TD</term>
+      <listitem>
+        <para>Displays total for specified Count Tag to date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Slip #</term>
+      <listitem>
+        <para>Enter a Count Slip Number to identify the Count Slip. Some
+        restrictions may apply. To learn more about Count Slip numbering
+        restrictions, see the <xref linkend="Anchor19758"/>.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Slip Qty</term>
+      <listitem>
+        <para>Enter the Physical Count total.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Location</term>
+      <listitem>
+        <para>Specify the Location you want the Count Slip created for. The
+        list will show all valid Warehouse Locations for the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Lot/Serial #</term>
+      <listitem>
+        <para>Displays related Lot/Serial Number information, if
+        applicable.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Lot Expiration</term>
+      <listitem>
+        <para>If a Lot-controlled Item Site is also perishable, you will have
+        the option to enter an expiration date for the counted
+        quantity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Comments related to the Count Slip.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a Count Slip, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates Count Slip and adds Count Slip quantity to the total of
+        the specified Count Tag.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

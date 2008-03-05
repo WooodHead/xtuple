@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518556">
+  <title>
+<indexterm significance="normal">
+      <primary>images</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Images</title>
+  <para>You can store various types of Images in an database for later
+  reference. For example, you may want to store an Image of your company logo
+  to display on printed Invoices. Users who have been granted the
+  "MaintainImages" privilege will have the ability to load and maintain
+  Images. The following list shows the supported Image formats:</para>
+  <itemizedlist>
+    <listitem>
+      <para>
+<indexterm significance="normal">
+          <primary>graphics</primary>
+          <secondary>supported formats</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>images</primary>
+          <secondary>supported formats</secondary>
+        </indexterm>Graphics Interchange Format (.gif)</para>
+    </listitem>
+    <listitem>
+      <para>Joint Photographic Experts Group (.jpg)</para>
+    </listitem>
+    <listitem>
+      <para>Portable Network Graphics (.png)</para>
+    </listitem>
+    <listitem>
+      <para>XPixMap (.xpm)</para>
+    </listitem>
+  </itemizedlist>
+  <para>To access the master list of stored Images, select the "Images"
+  option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/images.png"/>
+        </imageobject>
+        <caption>Images Master List</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>The Images master list displays information on all stored Images,
+  including Image name, Image description, and Image file size.</para>
+  <para>To the far right of the list, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for adding a new Image to the master list of stored
+        Images.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Image definitions. The edit
+        screen is the same as that for creating a new Image definition&mdash;except
+        that when editing, the fields will contain Image information.
+        Double-clicking on an Image definition will also bring you to the
+        editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an Image definition and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Image definition and then select this button to
+        remove the Image from the master list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="image.xml" xpointer="element(/1)"/>
+</section>

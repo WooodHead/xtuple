@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<appendix id="Appendix461495">
+  <title id="Anchor80421">Appendix A</title>
+  <para>This Appendix contains reference information that applies to many of
+  the modules found within xTuple ERP. The following topics are referenced in
+  this Appendix:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Inventory Transaction Types</para>
+    </listitem>
+    <listitem>
+      <para>General Ledger Transaction Types</para>
+    </listitem>
+    <listitem>
+      <para>Commonly Used Data Entry Formats</para>
+    </listitem>
+    <listitem>
+      <para>System-Defined Events</para>
+    </listitem>
+  </itemizedlist>
+  <section id="Section461282">
+    <title><indexterm significance="normal">
+        <primary>inventory</primary>
+        <secondary>transaction types listed</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>transactions</primary>
+        <secondary>listing of inventory types</secondary>
+      </indexterm>Inventory Transaction Types</title>
+    <para>Inventory transactions are associated with Inventory transaction
+    types. These transaction types appear in various displays throughout the
+    application&mdash;most notably in the Inventory Management (I/M) Module. The
+    following table identifies the Inventory transaction types and provides
+    additional information about the relationship between these types and
+    their corresponding <indexterm significance="normal">
+        <primary>general ledger</primary>
+        <secondary>inventory transaction types and</secondary>
+      </indexterm>General Ledger (G/L) transactions.</para>
+    <table id="Table462844">
+      <title>Inventory Transaction Types</title>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry><para>Transaction Type Code</para></entry>
+            <entry><para>Description</para></entry>
+            <entry><para>G/L Transaction</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para>AD</para></entry>
+            <entry><para>Miscellaneous Adjustment</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>CC</para></entry>
+            <entry><para>Cycle Count</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>EX</para></entry>
+            <entry><para>Material Expense</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>IB</para></entry>
+            <entry><para>Issue Inventory to Breeder
+            Manufacturing</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>IM</para></entry>
+            <entry><para>Issue Inventory to Manufacturing</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>IT</para></entry>
+            <entry><para>Issue Item Transformation</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>NN</para></entry>
+            <entry><para>Change to Non-Netable Quantity</para></entry>
+            <entry><para>No</para></entry>
+          </row>
+          <row>
+            <entry><para>RB</para></entry>
+            <entry><para>Receive Inventory from Breeder
+            Manufacturing</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>RL</para></entry>
+            <entry><para>Relocate Inventory Items</para></entry>
+            <entry><para>No</para></entry>
+          </row>
+          <row>
+            <entry><para>RM</para></entry>
+            <entry><para>Receive Inventory from Manufacturing</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>RP</para></entry>
+            <entry><para>Receive Inventory from Purchasing</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>RS</para></entry>
+            <entry><para>Return Inventory to Stock</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>RT</para></entry>
+            <entry><para>Receive Item Transformation</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>RX</para></entry>
+            <entry><para>Miscellaneous Inventory Receipt</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>SH</para></entry>
+            <entry><para>Ship Inventory to Customer</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>SI</para></entry>
+            <entry><para>Scrap Inventory</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>SV</para></entry>
+            <entry><para>Ship Inventory to Vendor</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>TR</para></entry>
+            <entry><para>Transfer Order Receipt</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>TS</para></entry>
+            <entry><para>Transfer Order Shipment</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry><para>TW</para></entry>
+            <entry><para>Inter-Warehouse Transfer</para></entry>
+            <entry><para>Yes</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+  <section id="Section463202">
+    <title><indexterm significance="normal">
+        <primary>general ledger</primary>
+        <secondary>transaction types listed</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>transactions</primary>
+        <secondary>listing of g/l types</secondary>
+      </indexterm>General Ledger Transactions</title>
+    <para>Many of the transactions which hit the General Ledger (G/L) are
+    assigned a system-defined DocType. The following list details the various
+    DocTypes used by the system to identify G/L transactions.</para>
+    <table id="Table462982">
+      <title>General Ledger Transactions</title>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry><para>DocType</para></entry>
+            <entry><para>Description</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para>AD</para></entry>
+            <entry><para>Bank Adjustment</para></entry>
+          </row>
+          <row>
+            <entry><para>CK</para></entry>
+            <entry><para>Check posted</para></entry>
+          </row>
+          <row>
+            <entry><para>CM</para></entry>
+            <entry><para>Credit Memo posted</para></entry>
+          </row>
+          <row>
+            <entry><para>CR</para></entry>
+            <entry><para>Cash Receipt posted</para></entry>
+          </row>
+          <row>
+            <entry><para>CT</para></entry>
+            <entry><para>Count Tag posted</para></entry>
+          </row>
+          <row>
+            <entry><para>DM</para></entry>
+            <entry><para>Debit Memo posted</para></entry>
+          </row>
+          <row>
+            <entry><para>DS</para></entry>
+            <entry><para>A/P Discount posted</para></entry>
+          </row>
+          <row>
+            <entry><para>IN</para></entry>
+            <entry><para>Invoice posted</para></entry>
+          </row>
+          <row>
+            <entry><para>JE</para></entry>
+            <entry><para>Journal Entry posted</para></entry>
+          </row>
+          <row>
+            <entry><para>PO</para></entry>
+            <entry><para>Purchase Order Receipt posted</para></entry>
+          </row>
+          <row>
+            <entry><para>SO</para></entry>
+            <entry><para>Issue Stock to Shipping posted; Ship Order
+            posted</para></entry>
+          </row>
+          <row>
+            <entry><para>ST</para></entry>
+            <entry><para>Standard Journal posted</para></entry>
+          </row>
+          <row>
+            <entry><para>VO</para></entry>
+            <entry><para>Voucher posted</para></entry>
+          </row>
+          <row>
+            <entry><para>WO</para></entry>
+            <entry><para>Work Order posted</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+  <section id="Section461939">
+    <title><indexterm significance="normal">
+        <primary>events</primary>
+        <secondary>system-defined</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>events</primary>
+        <secondary>complete list of</secondary>
+      </indexterm>System-Defined Events</title>
+    <para>The following table identifies the complete list of system-defined
+    Events. The table includes the name that xTuple ERP assigns to the Event, a
+    brief description of the Event, and the name of the Module where the Event
+    originates.</para>
+    <table id="Table462070">
+      <title>System-Defined Events</title>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry><para>Event Name</para></entry>
+            <entry><para>Event Description</para></entry>
+            <entry><para>Module</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para>ClosedIncident</para></entry>
+            <entry><para>Incident Closed</para></entry>
+            <entry><para>CRM</para></entry>
+          </row>
+          <row>
+            <entry><para>NewIncident</para></entry>
+            <entry><para>New Incident Created</para></entry>
+            <entry><para>CRM</para></entry>
+          </row>
+          <row>
+            <entry><para>ReopenedIncident</para></entry>
+            <entry><para>Incident which had been closed previously is being
+            reopened</para></entry>
+            <entry><para>CRM</para></entry>
+          </row>
+          <row>
+            <entry><para>UpdatedIncident</para></entry>
+            <entry><para>Incident Modified</para></entry>
+            <entry><para>CRM</para></entry>
+          </row>
+          <row>
+            <entry><para>CannotDistributeTransToGL</para></entry>
+            <entry><para>Cannot Distribute an Inventory Transaction to the
+            G/L</para></entry>
+            <entry><para>G/L</para></entry>
+          </row>
+          <row>
+            <entry><para>QOHBelowZero</para></entry>
+            <entry><para>QOH Dropped to a Negative Value</para></entry>
+            <entry><para>I/M</para></entry>
+          </row>
+          <row>
+            <entry>ToitemCancelled</entry>
+            <entry>Transfer Order Item Cancelled</entry>
+            <entry>I/M</entry>
+          </row>
+          <row>
+            <entry>ToitemCreated</entry>
+            <entry>Transfer Order Item Created</entry>
+            <entry>I/M</entry>
+          </row>
+          <row>
+            <entry>ToitemNoDestItemSite</entry>
+            <entry>Transfer Order Item created without an Item Site at the
+            Destination Warehouse</entry>
+            <entry>I/M</entry>
+          </row>
+          <row>
+            <entry>ToitemNoTransitItemSite</entry>
+            <entry>Transfer Order Item created without an Item Site at the
+            Transit Warehouse</entry>
+            <entry>I/M</entry>
+          </row>
+          <row>
+            <entry>ToitemQtyChanged</entry>
+            <entry>Transfer Order Item Qty. Changed</entry>
+            <entry>I/M</entry>
+          </row>
+          <row>
+            <entry>ToitemSchedDateChanged</entry>
+            <entry>Transfer Order Item Ship Date Changed</entry>
+            <entry>I/M</entry>
+          </row>
+          <row>
+            <entry>ToNotesChanged</entry>
+            <entry>Transfer Order Comments Changed</entry>
+            <entry>I/M</entry>
+          </row>
+          <row>
+            <entry>POitemCreate</entry>
+            <entry>Purchase Order Purchased Item Line Added</entry>
+            <entry>P/O</entry>
+          </row>
+          <row>
+            <entry><para>CannotConvertQuote</para></entry>
+            <entry><para>Cannot Convert a Quote to a Sales
+            Order</para></entry>
+            <entry><para>S/O</para></entry>
+          </row>
+          <row>
+            <entry><para>DetachCCPayFromSO</para></entry>
+            <entry><para>Detach Credit Card payment from S/O</para></entry>
+            <entry><para>S/O</para></entry>
+          </row>
+          <row>
+            <entry><para>SoitemCancelled</para></entry>
+            <entry><para>Sales Order Item Canceled</para></entry>
+            <entry><para>S/O</para></entry>
+          </row>
+          <row>
+            <entry><para>SoitemCreated</para></entry>
+            <entry><para>Sales Order Item Added</para></entry>
+            <entry><para>S/O</para></entry>
+          </row>
+          <row>
+            <entry><para>SoitemQtyChanged</para></entry>
+            <entry><para>Sales Order Qty. Changed</para></entry>
+            <entry><para>S/O</para></entry>
+          </row>
+          <row>
+            <entry><para>SoitemSchedDateChanged</para></entry>
+            <entry><para>Sales Order Item Ship Date Changed</para></entry>
+            <entry><para>S/O</para></entry>
+          </row>
+          <row>
+            <entry>SoNotesChanged</entry>
+            <entry>Sales Order Notes Changed</entry>
+            <entry>S/O</entry>
+          </row>
+          <row>
+            <entry><para>SoReleased</para></entry>
+            <entry><para>Sales Order Released</para></entry>
+            <entry><para>S/O</para></entry>
+          </row>
+          <row>
+            <entry><para>RWoDueDateRequestChange</para></entry>
+            <entry><para>Request to Change Released Due Date</para></entry>
+            <entry><para>W/O</para></entry>
+          </row>
+          <row>
+            <entry><para>RWoQtyRequestChange</para></entry>
+            <entry><para>Request to Change Released W/O Qty.</para></entry>
+            <entry><para>W/O</para></entry>
+          </row>
+          <row>
+            <entry><para>RWoRequestCancel</para></entry>
+            <entry><para>Request to Cancel Released W/O</para></entry>
+            <entry><para>W/O</para></entry>
+          </row>
+          <row>
+            <entry><para>WoCancelled</para></entry>
+            <entry><para>Work Order Canceled</para></entry>
+            <entry><para>W/O</para></entry>
+          </row>
+          <row>
+            <entry><para>WOClockInOnClosedJob</para></entry>
+            <entry><para>User clocked in to a closed Work Order</para></entry>
+            <entry><para>W/O</para></entry>
+          </row>
+          <row>
+            <entry><para>WOClockOutWNoClockIn</para></entry>
+            <entry><para>User clocked out of a Work Order on which s/he was
+            not clocked in</para></entry>
+            <entry><para>W/O</para></entry>
+          </row>
+          <row>
+            <entry><para>WoCreated</para></entry>
+            <entry><para>Work Order Created</para></entry>
+            <entry><para>W/O</para></entry>
+          </row>
+          <row>
+            <entry><para>WODoubleClockIn</para></entry>
+            <entry><para>User clocked in to a Work Order without having
+            previously clocked out</para></entry>
+            <entry><para>W/O</para></entry>
+          </row>
+          <row>
+            <entry><para>WODoubleClockOut</para></entry>
+            <entry><para>User clocked out of a Work Order without having
+            previously clocked in</para></entry>
+            <entry><para>W/O</para></entry>
+          </row>
+          <row>
+            <entry><para>WoDueDateChanged</para></entry>
+            <entry><para>Work Order Due Date Changed</para></entry>
+            <entry><para>W/O</para></entry>
+          </row>
+          <row>
+            <entry><para>WoQtyChanged</para></entry>
+            <entry><para>Work Order Qty. Changed</para></entry>
+            <entry><para>W/O</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+  <section id="Section463309">
+    <title><indexterm significance="normal">
+        <primary>comments</primary>
+        <secondary>source types for</secondary>
+      </indexterm>Comment Sources</title>
+    <para>Comments may be added manually or automatically from several modules
+    throughout the application. Once entered, these Comments are stored in the
+    comments table of the xTuple ERP Database.</para>
+    <table id="Table463311">
+      <title>Comment Source Types</title>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry><para>Comment Source</para></entry>
+            <entry><para>Description</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para>BMI</para></entry>
+            <entry><para>Bill of Materials Item</para></entry>
+          </row>
+          <row>
+            <entry><para>C</para></entry>
+            <entry><para>Customer Master</para></entry>
+          </row>
+          <row>
+            <entry><para>I</para></entry>
+            <entry><para>Item Master</para></entry>
+          </row>
+          <row>
+            <entry><para>IS</para></entry>
+            <entry><para>Item Source Master</para></entry>
+          </row>
+          <row>
+            <entry><para>O</para></entry>
+            <entry><para>Lot/Serial Comment</para></entry>
+          </row>
+          <row>
+            <entry><para>P</para></entry>
+            <entry><para>Purchase Order Header</para></entry>
+          </row>
+          <row>
+            <entry><para>PI</para></entry>
+            <entry><para>Purchase Order Item</para></entry>
+          </row>
+          <row>
+            <entry><para>Q</para></entry>
+            <entry><para>Quote Header</para></entry>
+          </row>
+          <row>
+            <entry><para>QI</para></entry>
+            <entry><para>Quote Item</para></entry>
+          </row>
+          <row>
+            <entry><para>S</para></entry>
+            <entry><para>Sales Order Header</para></entry>
+          </row>
+          <row>
+            <entry><para>SI</para></entry>
+            <entry><para>Sales Order Item</para></entry>
+          </row>
+          <row>
+            <entry><para>V</para></entry>
+            <entry><para>Vendor Master</para></entry>
+          </row>
+          <row>
+            <entry><para>W</para></entry>
+            <entry><para>Work Order</para></entry>
+          </row>
+          <row>
+            <entry><para>WH</para></entry>
+            <entry><para>Warehouse Master</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+</appendix>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518568">
+  <title id="Anchor28938"><indexterm significance="normal">
+      <primary>shipping</primary>
+      <secondary>shipping sales orders</secondary>
+    </indexterm> Ship Order</title>
+  <para>To ship an Order, select the "Ship Order" option. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/shipOrder.png" />
+        </imageobject>
+        <caption>Ship Order</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>Before a Sales Order can be shipped successfully, Sales Account and
+    Accounts Receivable (A/R) Account Assignments for the specified Customer
+    must be in place.</para>
+  </tip>
+  <para>When Shipping an Order, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Sales Order #</term>
+      <listitem>
+        <para>Enter the Order Number of the Sales Order you want to ship. The
+        browse button located to the right of the field leads to a searchable
+        list of Sales Orders available for Shipping. This option will be
+        disabled if a Transfer Order is specified.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Transfer Order #</term>
+      <listitem>
+        <para>Enter the Order Number of the Transfer Order you want to ship.
+        The browse button located to the right of the field leads to a
+        searchable list of Transfer Orders available for Shipping. This option
+        will be disabled if a Sales Order is specified.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>From</term>
+      <listitem>
+        <para>Displays the Source Warehouse if a Transfer Order is
+        selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>To</term>
+      <listitem>
+        <para>Displays the Destination Warehouse if a Transfer Order is
+        selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Select for Billing</term>
+      <listitem>
+        <para>Specify this option to select the Sales Order for Billing as
+        soon as it is shipped. If selected, the Order will appear on the
+        Billing Selections list&mdash;making it available to be converted into an
+        Invoice. This option will be selected by default if specified in your
+        system-level configuration. This option will be disabled if a Transfer
+        Order is specified.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Create and Print Invoice</term>
+      <listitem>
+        <para>Specify this option to automatically create and print an Invoice
+        for the Sales Order as soon as it is shipped. Selecting this option
+        enables you to bypass the Billing Selection process. Once the Order is
+        shipped, an Invoice will be created and printed. This Invoice will
+        appear on the list of unposted Invoices&mdash;making it available for
+        posting. By default, the "Select for Billing" option will also be
+        selected. This option will be disabled if a Transfer Order is
+        specified.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print Packing List</term>
+      <listitem>
+        <para>Specify this option to automatically print a Packing List as
+        soon as the Order is shipped.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Receive Immediately</term>
+      <listitem>
+        <para>Select if you want the Transfer Order to be received
+        automatically at the Destination Warehouse as soon as the Order is
+        shipped. If this option is not used, Transfer Order Items must be
+        received manually at the Destination Warehouse. This option will be
+        disabled if a Sales Order is specified.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>The system will move Transfer Order Items to the specified Transit
+    Warehouse when the Order is shipped. If the Order is marked to be received
+    immediately, the system will then receive Inventory at the Destination
+    Warehouse.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Bill To</term>
+      <listitem>
+        <para>Displays the name of the Customer to be billed for the Sales
+        Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship To</term>
+      <listitem>
+        <para>Displays the appropriate Ship-To Address.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If your site integrates UPS WorldShip with the system, you should
+    process Orders in WorldShip after they have been issued to Shipping&mdash;but
+    before they have been shipped. For more information, see <xref
+    linkend="Anchor29552" />.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Items to Ship</term>
+      <listitem>
+        <para>Display lists Order Line Items available for Shipping.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipment Value</term>
+      <listitem>
+        <para>Displays the value of the Items being shipped. The shipment
+        value represents the total of the extended prices for all Items
+        included in the Shipment. The amount does not include freight or
+        Tax.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>freight</primary>
+          <secondary>on sales orders</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>freight charges on</secondary>
+        </indexterm>Freight</term>
+      <listitem>
+        <para>Enter the amount of freight charge to be added to the specified
+        Order. Freight charges may be entered during the creation or
+        modification of an Order&mdash;or at the time of shipment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The system supports up-to-date shipment tracking with links to the
+    websites of many leading shipping companies (i.e., "Ship Vias").</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Ship Via</term>
+      <listitem>
+        <para>Specify the Ship Via for the Order. The Ship Via field supports
+        free-form Ship Vias. If you want to enter a free-form Ship Via, simply
+        type the name of the Ship Via into the field.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Get the most up-to-date tracking information directly from the
+    shipper's website by using the "Query Shipment Status" option found in the
+    "Shipments by Sales Order" report. This feature is enabled for a limited
+    number of shipping companies (i.e., "Ship Vias")</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Tracking Number</term>
+      <listitem>
+        <para>Tracking Numbers associated with an Order may be viewed in the
+        Shipments by Sales Order report.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without Shipping the Order, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SHIP</term>
+      <listitem>
+        <para>Ships the Order, clearing the screen of previously-displayed
+        data.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If an Order is marked "Ship Complete," you will be prevented from
+    shipping the Order until all Line Item quantities are issued to
+    Shipping.</para>
+  </note>
+</section>

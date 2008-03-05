@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title id="UpdateLateCustomerCreditStatus"><indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>warning for lateness</secondary>
+    </indexterm>Update Late Customer Credit Status</title>
+  <para>The system can be configured to place Customers on credit warning when
+  their A/R open items become past due. Instructions for setting up that
+  configuration can be found here: <xref linkend="configureGLTitle" />. To
+  take full advantage of this functionality, you will need to regularly run
+  the Update Late Customer Credit Status utility.</para>
+  <note>
+    <para>This utility will be hidden if your system is not configured to
+    place Customers on credit warning when their A/R open items become past
+    due.</para>
+  </note>
+  <para>When run, this utility will review all late A/R open items for all
+  Customers. Any Customers found to have late items falling outside the grace
+  period will be placed on credit warning. These Customers will automatically
+  be taken off credit warning once their late items are paid. You can run the
+  utility using the following screen:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/updateLateCustCreditStatus.png" />
+      </imageobject>
+      <caption>Update Late Customer Credit Status</caption>
+    </mediaobject>
+  </screenshot>
+  <para>When updating the credit status for late Customers, you are presented
+  with the following options:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UPDATE</term>
+      <listitem>
+        <para>Select to run the batch allocation process, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>SUBMIT</term>
+      <listitem>
+        <para>Select to submit requested action to the Batch Manager for
+        processing. For additional information, see <xref
+        linkend="Anchor61009" />.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

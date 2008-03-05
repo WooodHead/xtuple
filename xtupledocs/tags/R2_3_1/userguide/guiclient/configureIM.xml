@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Anchor19758">
+  <title><indexterm significance="normal">
+      <primary>configuration</primary>
+      <secondary>of inventory module</secondary>
+    </indexterm>Configure Inventory</title>
+  <para>To configure the Inventory module, select the "Configure Inventory"
+  option. The following screen will appear</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureIM.png" />
+        </imageobject>
+        <caption>Configure Inventory Module</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When configuring the Inventory module, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>event fences</primary>
+          <secondary>default for item sites</secondary>
+        </indexterm>Defaults</term>
+      <listitem>
+        <para>Specify a default Event Fence:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Event Fence</term>
+            <listitem>
+              <para>Select a value between 0 and 999 using the arrow buttons
+              located to the right of the field. Indicates the Event Fence
+              value that will appear by default whenever a new Item Site is
+              created. The value is measured in days.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Item Site Changes to the Change Log</term>
+      <listitem>
+        <para>Select to post to the Change Log any changes made to Item Site
+        masters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Warehouse Changes to the Change Log</term>
+      <listitem>
+        <para>Select to post to the Change Log any changes made to Warehouse
+        masters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Enable Multiple Warehouses</term>
+      <listitem>
+        <para>Select to allow more than one Warehouse to be entered in the
+        system. If multiple Warehouses are not enabled, your system will be
+        single Warehouse only. Users will be prevented from creating more than
+        one Warehouse. If your system has multiple Warehouses defined, this
+        option will be hidden.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Transfer Order # Generation</term>
+      <listitem>
+        <para>If multiple Warehouses are enabled, select one of the available
+        Transfer Order Number generation methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Automatic</term>
+            <listitem>
+              <para>Transfer Order Numbers will be automatically incremented
+              by 1 each time a new Transfer Order is created. These
+              automatically-generated numbers may not be edited. They are
+              read-only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Manual</term>
+            <listitem>
+              <para>Transfer Order Numbers must be entered manually whenever
+              you create a new Transfer Order.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Allow Override</term>
+            <listitem>
+              <para>Transfer Order Numbers will be automatically generated and
+              incremented, as under the "Automatic" option described above.
+              However, this option also allows you to manually override the
+              Transfer Order Number at the time of Transfer Order
+              creation.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Next #</term>
+      <listitem>
+        <para>The next sequentially available Transfer Order Number will
+        display here. You may change the number&mdash;creating a new basis for the
+        next Transfer Order Number&mdash;by typing the new number into this field.
+        Any changes you make here will be reflected the next time a new
+        Transfer Order is created.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Default Transit Warehouse</term>
+      <listitem>
+        <para>If multiple Warehouses are enabled, specify the default Transit
+        Warehouse. The specified Warehouse will be pre-selected by default
+        whenever Transfer Orders are entered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Enable Lot/Serial Control</term>
+      <listitem>
+        <para>Select to enable Lot/Serial tracking capability in the system.
+        If not selected, users will be prevented from creating Item Sites
+        having either the Lot or Serial control method. Without the ability to
+        create Lot/Serial Item Sites, the Lot/Serial tracking capability is
+        disabled. If your system has Lot/Serial Item Sites defined, this
+        option will be hidden.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>count tags</primary>
+          <secondary>count slip discrepancies and</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>count slips</primary>
+          <secondary>count tag discrepancies and</secondary>
+        </indexterm>When Count Tag Qty. exceeds Slip Qty</term>
+      <listitem>
+        <para>Select one of the following options for handling discrepancies
+        in count quantities:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Post Difference to Default Location, if any</term>
+            <listitem>
+              <para>Select to post excess Count Tag quantity to an Item's
+              default location if the Item's Count Tag quantity exceeds its
+              Count Slip quantity. Applies only if a default location has been
+              defined for the Item. Default locations are defined for an Item
+              in the Item Site record.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Do Not Post Count Tag</term>
+            <listitem>
+              <para>Select to prevent Count Tag quantity from being posted if
+              it exceeds the Item's Count Slip quantity.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>By default, the system allows only one unposted Count Tag per Item
+    Site. If an unposted Count Tag already exists for an Item Site, then an
+    additional duplicate Count Tag may not be added.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>count slips</primary>
+          <secondary>auditing of</secondary>
+        </indexterm>Count Slip # Auditing</term>
+      <listitem>
+        <para>Select one of the following Count Slip number auditing
+        methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>No Slip # Checks, allow Duplications</term>
+            <listitem>
+              <para>Allows any Count Slip numbers to be used. Duplicate Count
+              Slip numbers will also be allowed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Disallow Unposted Slip # Duplications within a
+            Warehouse</term>
+            <listitem>
+              <para>Prevents duplicate "Unposted" Count Slip numbers from
+              existing within a given Warehouse. However, duplicate "Unposted"
+              Count Slip numbers may exist within multiple Warehouses.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Disallow All Unposted Slip # Duplications</term>
+            <listitem>
+              <para>Prevents duplicate "Unposted" Count Slip numbers from
+              existing within multiple Warehouses.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Disallow All Slip # Duplications within a Warehouse</term>
+            <listitem>
+              <para>Prevents duplicate Count Slip numbers from existing within
+              a given Warehouse. However, duplicate Count Slip numbers may
+              exist within multiple Warehouses.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Disallow All Slip # Duplications</term>
+            <listitem>
+              <para>Prevents duplicate Count Slip Numbers from existing within
+              multiple Warehouses.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To configure the Inventory Shipping and Receiving options, select the
+  "Shipping and Receiving" tab. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/configureIM_tab_2.png" />
+      </imageobject>
+      <caption>Configure Shipping and Receiving</caption>
+    </mediaobject>
+  </screenshot>
+  <para>When configuring Shipping and Receiving, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Shipment # Generation</term>
+      <listitem>
+        <para>By default, Shipment Numbers are generated automatically.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Next #</term>
+      <listitem>
+        <para>Enter the next Shipment Number to be used. The system assigns
+        Shipment Numbers to Sales Order Line Item quantities when stock is
+        issued to Shipping. All stock at Shipping for an individual Sales
+        Order is assigned the same Shipment Number. If no stock is already at
+        Shipping, then a new Shipment Number will be used.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Disallow P/O Receipt of Qty greater than ordered</term>
+      <listitem>
+        <para>Select to ensure the maximum receiving quantity does not exceed
+        the quantity ordered. If selected, the system will prevent users from
+        receiving more Purchase Order Line Item quantity than the quantity
+        ordered. Not selecting this option means users will be allowed to
+        receive quantity in excess of the quantity ordered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warn if P/O Receipt Qty differs from receivable Qty</term>
+      <listitem>
+        <para>Select to generate a warning message if the entered quantity to
+        receive does not match the quantity remaining to be received. The
+        warning message will alert users that a difference exists. However, it
+        will not prevent users from continuing.</para>
+        <variablelist>
+          <varlistentry>
+            <term>By the following amount:</term>
+            <listitem>
+              <para>Specify the percentage difference between Receipt quantity
+              and receivable quantity which when reached should trigger a
+              warning message.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Shipping Form Copies</term>
+      <listitem>
+        <para>Indicate the number of Shipping Form copies you want to print by
+        default:</para>
+        <variablelist>
+          <varlistentry>
+            <term># of Copies</term>
+            <listitem>
+              <para>Specify the number of miscellaneous copies you want to
+              print. Information about the specified copies will display
+              below. To add a Watermark, double-click on a copy line.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Cancels any configuration settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the configuration settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

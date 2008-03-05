@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="applyDiscount">
+  <title>
+<indexterm significance="normal">
+      <primary>discounts</primary>
+      <secondary>applying to open a/p items</secondary>
+    </indexterm>Apply Discount</title>
+  <para>To apply a billing Terms Discount and have the Discount amount
+  deducted from the total owed, select the APPLY DISCOUNT button. The
+  following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/applyDiscount.png"/>
+        </imageobject>
+        <caption>Apply Billing Terms Discount</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>Discounts are posted to the General Ledger (G/L) when the Check they
+    are associated with is posted. Any time prior to the posting of the Check,
+    the Discount can be edited or reversed.</para>
+  </note>
+  <para>When applying a billing Terms Discount, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Vendor #</term>
+      <listitem>
+        <para>Displays the name of the Vendor who is owed payment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Type</term>
+      <listitem>
+        <para>Displays the Document Type. Valid Document Types include posted
+        Vouchers and miscellaneous A/P Debit Memos.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc #</term>
+      <listitem>
+        <para>Displays the Document Number of the Document being selected for
+        payment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Date</term>
+      <listitem>
+        <para>Displays the Document's origination date. In the case of a
+        Voucher, the Document date is the same as the Invoice date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Terms</term>
+      <listitem>
+        <para>Displays the billing Terms selected at the time the Document was
+        posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discount Date</term>
+      <listitem>
+        <para>Displays the expiration date for the billing Terms Discount
+        period. The Discount date will display in red type once the Discount
+        period has expired. Once the Discount period has expired, the system
+        will no longer automatically update the Discount amount field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discount %</term>
+      <listitem>
+        <para>Displays the Discount percentage, as specified in the billing
+        Terms.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total Owed</term>
+      <listitem>
+        <para>Displays the total amount due to the Vendor. The total owed is
+        equal to the vouchered amount&mdash;or to the amount of the miscellaneous
+        A/P Credit Memo at the time of posting.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discounts Applied</term>
+      <listitem>
+        <para>Displays the amount of any Discounts previously applied to the
+        selected Document.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discount Amount</term>
+      <listitem>
+        <para>Enter the amount of the Discount to be applied to the total
+        owed. As long as the Discount period has not expired, the system will
+        automatically calculate the Discount amount for you. The Discount
+        amount will be equal to the total owed multiplied by the Discount
+        percentage. The Account used for posting Discounts to the General
+        Ledger (G/L) is defined on the A/P Account Assignments screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

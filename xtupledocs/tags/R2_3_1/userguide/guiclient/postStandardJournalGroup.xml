@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section524415">
+  <title>
+<indexterm significance="normal">
+      <primary>standard journal groups</primary>
+      <secondary>posting of</secondary>
+    </indexterm>Post Standard Journal Group</title>
+  <para>To post a Standard Journal Group, select the "Post Standard Journal
+  Group" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/postStandardJournalGroup.png"/>
+        </imageobject>
+        <caption>Post Standard Journal Group</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When posting a Standard Journal Group, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Standard Journal Group</term>
+      <listitem>
+        <para>Specify the Standard Journal Group you want to post.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Distribution Date</term>
+      <listitem>
+        <para>Indicates date when the Standard Journal Group should be posted
+        to the General Ledger.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reverse Journal Entries</term>
+      <listitem>
+        <para>Select if you want to reverse the selected Standard Journal
+        Group when it is posted.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without posting the Standard Journal Group,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Posts the Standard Journal Group to the General Ledger effective
+        on the specified distribution date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>SUBMIT</term>
+      <listitem>
+        <para>Select to submit the Standard Journal Group to the Batch
+        Manager. For additional information, see <xref linkend="Anchor61009"/>.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

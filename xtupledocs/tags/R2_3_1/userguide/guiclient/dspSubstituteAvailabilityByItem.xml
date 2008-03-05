@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520293">
+  <title>
+<indexterm significance="normal">
+      <primary>substitute availability</primary>
+      <secondary>by root item</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>root items</primary>
+      <secondary>substitute availability for</secondary>
+    </indexterm>Substitute Availability by Root Item</title>
+  <para>To view substitute Availability by Root Item, select the "Substitute
+  Availability by Root Item" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspSubstituteAvailabilityByItem.png"/>
+        </imageobject>
+        <caption>Substitute Availability by Root
+        Item</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When displaying substitute Availability by Root Item, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose substitute Availability
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Availability as of</term>
+      <listitem>
+        <para>Show Availability using one of the following criteria:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item Site Lead Time</term>
+            <listitem>
+              <para>Select to show projected Availability based on the Lead
+              Time specified in the Item Site master.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Look Ahead Days</term>
+            <listitem>
+              <para>Select a number using the arrow buttons, or manually enter
+              a value up to a maximum of 1000. Future Availability for the
+              specified Item will be displayed based on the value entered
+              here.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Date</term>
+            <listitem>
+              <para>Display will show projected Inventory Availability as of
+              date entered up to a maximum of 1000 days.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to display substitute Availability for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose substitute Availability you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Normalize to Parent UOM</term>
+      <listitem>
+        <para>Select to adjust the Quantity on Hand of substitute Items so
+        these quantities meet requirements for substitution. The adjusted
+        Quantity on Hand is determined by the Item substitution ratio.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Substitute Availability</term>
+      <listitem>
+        <para>Display lists substitute Availability by Item, using the
+        specified parameters. If "Normalize to Parent UOM" option is selected,
+        the substitute Item's Quantity on Hand is adjusted to reflect the
+        substitution ratio. If Planned Availability displays in the color
+        orange, this means the actual or projected Quantity on Hand is at or
+        below the Reorder Level. If the color is red, the current or projected
+        Quantity on Hand is below 0.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>When quantity appears in the "On Order" column, this refers to
+    quantity that is on order through either a Work Order or Purchase Order.
+    In the case of Purchase Orders, the quantity will always be represented in
+    the Inventory Unit of Measure (UOM)--regardless of the Vendor UOM used on
+    the Purchase Order.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

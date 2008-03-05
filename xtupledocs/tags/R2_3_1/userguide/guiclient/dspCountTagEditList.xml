@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519553">
+  <title>
+<indexterm significance="normal">
+      <primary>count tags</primary>
+      <secondary>edit list for</secondary>
+    </indexterm>Count Tag Edit List</title>
+  <para>The Count Tag Edit List displays the unposted Count Tags currently
+  available in your system. From this list, you can manage current Count Tags
+  and their associated Count Slips. To display available Count Tags, select
+  the "Count Tag Edit List" option. The following screen will appear:</para>
+  <tip>
+    <para>By default, the system allows only one unposted Count Tag per Item
+    Site. Use the Count Tag Edit List to view all unposted Count Tags in your
+    system.</para>
+  </tip>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspCountTagEditList.png"/>
+        </imageobject>
+        <caption>Count Tag Edit List</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When displaying the Count Tag Edit List, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Search For</term>
+      <listitem>
+        <para>To search for a Count Tag in the edit list, begin typing in the
+        search field. As you type, the list will automatically scroll toward
+        the Count Tag you are typing. You can also search for Count Tags
+        manually by scrolling through the list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to display Count Tags for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose Count Tags you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Sites in</term>
+      <listitem>
+        <para>Specify which of the following codes you want to have Count Tag
+        displayed for:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Class Code</term>
+            <listitem>
+              <para>If selected, you will be presented with Class Code
+              options.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Planner Code</term>
+            <listitem>
+              <para>If selected, you will be presented with Planner Code
+              options.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>One way to manage Count Slips associated with a Count Tag is by
+    using the right-click menu options available from the Count Tag Edit
+    List.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Show Count Slips</term>
+      <listitem>
+        <para>Select to display Count Slips associated with Count Tags. Count
+        Slips will display in a nested manner beneath their associated Count
+        Tag. Look for a plus "+" sign in the first column to determine if
+        Count Slips are associated. Select the plus "+" sign to reveal the
+        Count Slips. To hide the Count Slips, select the minus "-"
+        sign.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>No Highlighting</term>
+      <listitem>
+        <para>Select to not highlight Count Tags with variances.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Highlight Count Tag when Variance Value Exceeds</term>
+      <listitem>
+        <para>Select to highlight Count Tags whose dollar amount variance
+        exceeds the value entered. In addition to checking the box, you must
+        also enter a value in the field. Once the value is entered, select the
+        QUERY button. Count Tags meeting your criteria will automatically be
+        highlighted in red.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Count Tags showing both positive and negative variances will be
+    highlighted. For example, if you enter "100" in the field "Highlight Count
+    Tag When Variance Value Exceeds," all dollar amount variances greater than
+    $100 will be highlighted, but so too will negative variances exceeding
+    -$100. The same principle holds true if a percentage value is
+    entered.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Highlight Count Tag when Variance Exceeds %</term>
+      <listitem>
+        <para>Select to highlight Count Tags whose variance exceeds a
+        user-defined percentage. In addition to checking the box, you must
+        also enter a percentage in the percentage field. Once the percentage
+        is entered, select the QUERY button. Count Tags meeting your criteria
+        will automatically be highlighted in red.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Count Tags</term>
+      <listitem>
+        <para>Display lists Count Tag Edit List, using the specified
+        parameters. If the count quantity displays in blue type, this means
+        the Item has not been counted.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Count Tags may be created to count an entire Item Site&mdash;or a
+    specific Warehouse Location within an Item Site.</para>
+  </tip>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The Count Tag Edit List supports multiple-select, using the SHIFT
+    and/or CTRL keys.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="dspCountTagEditListEDIT">
+        <para>Enables you to edit highlighted Count Tags. The edit screen is
+        the same as that for creating a new Count Tag&mdash;except that when
+        editing, the fields will contain Count Tag information.
+        Double-clicking on a Count Tag will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="dspCountTagEditListDELETE">
+        <para>Highlight a Count Tag&mdash;or group of Count Tags using the SHIFT
+        and/or CTRL keys&mdash;and then select this button to remove the Count Tag
+        from the list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem id="dspCountTagEditListPOST">
+        <para>Highlight an individual Count Tag&mdash;or group of Count Tags using
+        the SHIFT and/or CTRL keys&mdash;and then select this button to post the
+        Count Tag(s). Posts Count Tag quantities to the Quantity on Hand for
+        the associated Item Site(s)</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ENTER SLIP</term>
+      <listitem id="dspCountTagEditListENTERSLIP">
+        <para>Select to enter a Count Slip.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Automatically Update</term>
+      <listitem>
+        <para>Select to automatically update the display every five
+        minutes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Count Tag in the Count Tags list enables you to
+  select the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Enter Count Slip</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(dspCountTagEditListENTERSLIP)"/>
+    </varlistentry>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickCountSlipEditList)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewPendingInventoryHistory)"/>
+    <varlistentry>
+      <term>Edit Count Tag</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(dspCountTagEditListEDIT)"/>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Count Tag</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(dspCountTagEditListPOST)"/>
+    </varlistentry>
+    <varlistentry>
+      <term>Delete Count Tag</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(dspCountTagEditListDELETE)"/>
+    </varlistentry>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

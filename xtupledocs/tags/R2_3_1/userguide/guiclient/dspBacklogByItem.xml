@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657239">
+  <title>
+<indexterm significance="normal">
+      <primary>backlog</primary>
+      <secondary>by item</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>backlog details for</secondary>
+    </indexterm>Backlog by Item</title>
+  <para>To view Backlog by Item, select the "Backlog by Item" option. The
+  following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspBacklogByItem.png"/>
+        </imageobject>
+        <caption>Backlog by Item</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When displaying Backlog by Item, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose Backlog you want to
+        view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Backlog by Item entered on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Backlog by Item entered on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Prices</term>
+      <listitem>
+        <para>Select to include pricing information in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to display Backlog by Item for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose Backlog by Item you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Backlog</term>
+      <listitem>
+        <para>Display lists Backlog by Item, using the specified parameters.
+        If the "Show Prices" option is selected, an additional column showing
+        the amount of the backlog will display. The total backlog will also be
+        shown.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Sales Order Line Item in the Backlog list enables
+  you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditOrder)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewSalesOrder)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditItem)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewItem)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickPrintPackingList)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

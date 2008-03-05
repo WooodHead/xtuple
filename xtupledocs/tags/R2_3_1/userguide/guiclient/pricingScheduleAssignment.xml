@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="pricingScheduleAssignment">
+  <title><indexterm significance="normal">
+      <primary>pricing</primary>
+      <secondary>assigning schedules for</secondary>
+    </indexterm>Pricing Schedule Assignment</title>
+  <para>To create a Pricing Schedule assignment, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/pricingScheduleAssignment.png" />
+        </imageobject>
+        <caption>Create New Pricing Schedule Assignment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Pricing Schedule assignment, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Selected Customer</term>
+      <listitem>
+        <para>Select to assign a Pricing Schedule to an individual
+        Customer.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Customer #</term>
+            <listitem>
+              <para>Specify the Customer Number of the Customer you want to
+              assign a Pricing Schedule to. The browse button located to the
+              right of the field leads to a searchable Customers list. You may
+              also access this list using the keyboard shortcut "CTRL + L".
+              Once a Customer Number is entered, the Customer name and billing
+              address will display. Select the "?" or "$" symbol next to the
+              browse button to view Customer information for the specified
+              Customer. If a Customer's credit is "In Good Standing," the
+              button will feature a black question mark ("?") icon. If the
+              icon turns to an orange dollar sign ("$"), the Customer's credit
+              Status is "On Credit Warning." A red dollar sign ("$") indicates
+              the Customer's credit Status is "On Credit Hold."</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected Customer Ship-To</term>
+      <listitem>
+        <para>Specify the Customer Ship-To Address you want to assign a
+        Pricing Schedule to. This is an optional setting which may be used in
+        conjunction with the "Selected Customer" setting. The Ship-To option
+        gives you the added flexibility of being able to assign multiple
+        Pricing Schedules to a single Customer based on separate Ship-To
+        Addresses.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>When entering Credit Memos, make sure the Ship-To Address on the
+    Credit Memo matches the Ship-To Address on the Customer's Pricing
+    Schedule. If they don"t match, you won"t be able to issue credit for
+    exclusively sold Items.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Selected Cust. Ship-To Pattern</term>
+      <listitem>
+        <para>Enter a Ship-To Address pattern to select a range of Ship-To
+        Addresses for the selected Customer. Refine your search using Regular
+        Expressions, as described in <xref linkend="Anchor77806" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected Customer Type</term>
+      <listitem>
+        <para>Specify the Customer Type you want to assign a Pricing Schedule
+        to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer Type Pattern</term>
+      <listitem>
+        <para>Enter a Customer Type pattern to select a range of Customer
+        Types. Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pricing Schedule</term>
+      <listitem>
+        <para>Specify the Pricing Schedule to be used when entering Sales
+        Orders for the specified Customers.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

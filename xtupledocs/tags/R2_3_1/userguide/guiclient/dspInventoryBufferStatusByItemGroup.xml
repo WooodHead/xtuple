@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section556124" role="openmfg">
+  <title>Inventory Buffer Status by Item Group</title>
+  <para>The Inventory buffer status displays provide information on your
+  current stock buffer levels. Stock buffers apply to make-to-stock Items.
+  Keep in mind that buffer status information will only be displayed on days
+  when the Constraint Management system is run. If you find your displays show
+  no information, this probably means Constraint Management has not been
+  run.</para>
+  <para>To view Inventory buffer status by Item Group, select the "Inventory
+  Buffer Status by Item Group" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspInventoryBufferStatusByItemGroup.png" />
+        </imageobject>
+        <caption>Inventory Buffer Status by Item Group</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>When the buffer status for an Item hits 66 or higher, the status
+    number will become red. By highlighting Items which are "red hot," the
+    system is informing you which Items should be acted on immediately. The
+    best remedy for red hot Item Sites is to expedite any associated Work
+    Orders or Purchase Orders.</para>
+  </note>
+  <para>When displaying Inventory buffer statuses by Item Group, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Item Groups</term>
+      <listitem>
+        <para>Select to display Inventory buffer statuses for all Item
+        Groups.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Item Group whose Inventory buffer statuses you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Group Pattern</term>
+      <listitem>
+        <para>Enter an Item Group pattern to select a range of Item Groups.
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Buffer Status</term>
+      <listitem>
+        <para>Show buffer statuses using one of the following criteria:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Greater than zero</term>
+            <listitem>
+              <para>Select to display only those Item Sites having a buffer
+              status greater than zero.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>In Emergency Zone</term>
+            <listitem>
+              <para>Select to display only those Item Sites whose buffer
+              status is in the "emergency zone." The emergency zone is defined
+              as a buffer status of 66 or greater.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>All</term>
+            <listitem>
+              <para>Select to display buffer statuses for all Item
+              Sites.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to display Inventory buffer statuses for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose Inventory buffer statuses you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>By default, the display will sort Item Sites by buffer status in
+    descending order. In other words, Item Sites with the highest buffer
+    status will appear at the top of the list; Item Sites with the lowest
+    buffer status will appear at the bottom.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Availability</term>
+      <listitem>
+        <para>Display lists Inventory buffer statuses by Item Group, using the
+        specified parameters. If Planned Availability displays in the color
+        orange, this means the actual or projected Quantity on Hand is at or
+        below the Reorder Level. If the color is red, the current or projected
+        Quantity on Hand is below 0.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>When quantity appears in the "On Order" column, this refers to
+    quantity that is on order through either a Work Order or Purchase Order.
+    In the case of Purchase Orders, the quantity will always be represented in
+    the Inventory Unit of Measure (UOM)--regardless of the Vendor UOM used on
+    the Purchase Order.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the Availability list enables you to
+  select from the following context-sensitive menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewInventoryHistory)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAllocations)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewOrders)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickRunningAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewSubstituteAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueCountTag)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>The following additional options are available for purchased
+  Items:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreatePR)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreatePO)" />
+  </variablelist>
+  <para>The following additional options are available for manufactured
+  Items:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateWO)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPostMiscProduction)" />
+  </variablelist>
+</section>

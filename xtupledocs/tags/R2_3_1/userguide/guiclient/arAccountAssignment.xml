@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="arAccountAssignment">
+  <title>
+<indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>creating new assignment for</secondary>
+    </indexterm>A/R Account Assignment</title>
+  <para>To create a new A/R Account assignment, select the NEW button. The
+  following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/arAccountAssignment.png"/>
+        </imageobject>
+        <caption>Create New A/R Account
+        Assignment</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When creating a new A/R Account assignment, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Selected Customer Type</term>
+      <listitem>
+        <para>Specify the Customer Type you want to associate with the A/R
+        Account assignment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Customer Type pattern to select a range of Customer
+        Types. Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806"/>.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>A/R Account</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        A/R Account. This is an Asset Account. For example, it will be debited
+        when Invoices are posted and credited when Cash Receipts are
+        posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Prepaid Receivables Account</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        A/R Prepaid Account. This is a Revenue contra Account. It will be
+        debited when Miscellaneous A/R Credit Memos are posted and credited
+        when Miscellaneous A/R Debit Memos are posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Freight Account</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Freight Account. This is a Revenue Account. It will be credited when
+        Invoices are posted and debited when S/O Credit Memos are
+        posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Deferred Revenue Account</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Deferred Revenue Account. This is a Liability Account. It is an
+        optional Account, as systems may be configured to ignore it when
+        handling Customer Deposits. When this Account is used, it will be
+        credited when unapplied Cash Receipts are posted and debited when the
+        A/R Credit Memos resulting from unapplied Cash Receipts are applied to
+        A/R open items.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>You can disable the use of a Deferred Revenue Account for handling
+    Customer Deposits at the system level.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating an A/R Account assignment,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the A/R Account assignment and adds it to the master
+        list of A/R Account assignments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

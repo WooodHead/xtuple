@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section942568">
+  <title id="configureGLTitle"><indexterm significance="normal">
+      <primary>configuration</primary>
+      <secondary>of accounting module</secondary>
+    </indexterm>Configure Accounting</title>
+  <para>Setting up the default Account Number structure is one of the primary
+  purposes of the General Ledger Configuration. The system uses a
+  multi-segment approach to defining General Ledger accounts. The various
+  segments include the following:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Base Account Segment</para>
+    </listitem>
+    <listitem>
+      <para>Company Segment</para>
+    </listitem>
+    <listitem>
+      <para>Profit Center</para>
+    </listitem>
+    <listitem>
+      <para>Subaccount</para>
+    </listitem>
+  </itemizedlist>
+  <para>Depending on the parameters selected, the system will display General
+  Ledger Account Numbers in the Profit Center-Account Number-Subaccount
+  sequence. An example of this sequence would be 001-11111-001.</para>
+  <tip>
+    <para>It is important to realize that the system does not utilize
+    sub-Accounts in the same manner that some other packaged software does. It
+    does not roll-up into the base account, but allows you to define "related"
+    Accounts.</para>
+  </tip>
+  <para>To configure the General Ledger, select the "General Ledger" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureGL.png" />
+        </imageobject>
+        <caption>Configure General Ledger</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When configuring the General Ledger, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Main Segment Size</term>
+      <listitem>
+        <para>Specify a main Segment size value between 3 and 10. This setting
+        defines how large the base Account Number portion should be. For
+        example, if you specify "4" here, then your Account Numbers would
+        probably range from 1000 through 9999. Similarly, if you specify "5"
+        then your Account Number range would be from 10000 though
+        99999.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Company Segment</term>
+      <listitem>
+        <para>Select to utilize a Company Segment by default. This is an
+        optional setting.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Company Segment Size</term>
+            <listitem>
+              <para>If a Company Segment is being utilized, specify a Company
+              Segment size value between 1 and 10.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Profit Centers</term>
+      <listitem>
+        <para>Select to utilize Profit Centers by default. This is an optional
+        setting.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Profit Center Segment Size</term>
+            <listitem>
+              <para>If Profit Centers are being utilized, specify a Profit
+              Center Segment size value between 1 and 10. This segment is
+              placed at the front end of the Account Number. Profit Centers
+              are typically used to identify activity for different
+              Warehouses.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Allow Free-Form Profit Centers</term>
+            <listitem>
+              <para>Select to allow free-form Profit Centers. Free-form means
+              the values may be edited on the Account Number master. In other
+              words, you will not be required to select a predetermined Profit
+              Center value from the list. Using free-form Profit Centers can
+              lead to inconsistent Account Numbers if not handled
+              correctly.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Subaccounts</term>
+      <listitem>
+        <para>Select to utilize Subaccounts by default. This is an optional
+        setting.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Subaccount Segment Size</term>
+            <listitem>
+              <para>If Subaccounts are being utilized, specify a Subaccount
+              Segment size value between 1 and 10. This segment is placed at
+              the back end of the Account Number. Subaccounts are typically
+              used to identify activity for similar types of accounts where
+              detail is important.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Allow Free-Form Subaccounts</term>
+            <listitem>
+              <para>Select to allow free-form Subaccounts. Free-form means the
+              values may be edited on the Account Number master. In other
+              words, you will not be required to select a predetermined
+              Subaccount value from the list. Using free-form Subaccounts can
+              lead to inconsistent Account Numbers if not handled
+              correctly.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Enforce mandatory notes for Manual G/L Entries</term>
+      <listitem>
+        <para>Select if you want to require users to be required to enter
+        Notes when posting simple or series manual Journal entries. If this
+        option is not selected, users will not be required to enter Notes when
+        posting simple or series manual Journal entries.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Try to avoid changing your Year End Equity Account if you have
+    already used it to close a Fiscal Year. If you do change this Account
+    after a fiscal year has been closed, be sure to consult your system
+    administrator. The trial balance for the new Account will need to be
+    manually updated.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Allow manual entry of G/L Account Numbers</term>
+      <listitem>
+        <para>Select to enable users to manually enter G/L Account Numbers
+        wherever G/L Account Numbers may be entered. If not selected, users
+        will be required to use a browse button to select G/L Account Numbers
+        from a list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If Account Numbers have multiple segments separated by dashes, the
+    dashes must be included when manually entering G/L Account Numbers. If the
+    dashes are not included, the manual entry will not work.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Default Tax Authority</term>
+      <listitem>
+        <para>Specify the default Tax Authority to be used when setting up
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Retained Earnings, Year End Account</term>
+      <listitem>
+        <para>Select a valid General Ledger Account. This is an Equity
+        Account. It will be credited if retained earnings are positive&mdash;and
+        debited if retained earnings are negative. The retained earnings
+        calculation occurs when a Fiscal Year is closed. Total Expenses for
+        the year are subtracted from total Revenues, and the balance is
+        transferred to the Year End Equity Account. The system then
+        automatically resets the beginning balances for Revenue and Expense
+        Accounts to $0 for the start of the new Fiscal Year.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The Currency Gain/Loss Account is needed only for databases where
+    multiple Currencies are used.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Currency Gain/Loss Account</term>
+      <listitem>
+        <para>Select a valid General Ledger Account. This is an Expense
+        Account. It will debited for Currency gains and credited for Currency
+        losses arising from fluctuating Exchange Rates. Currency gains/losses
+        may be recognized at the following points: 1) When posting a Cash
+        Receipt applied to an Invoice; 2) when posting an A/P Check applied to
+        a Voucher; 3) when applying an A/R Misc. Credit Memo to an Invoice;
+        and 4) when applying an A/P Misc. Credit Memo to a Voucher. In each
+        case, the gain or loss arises when the Exchange Rate used for the
+        Apply-To document differs from the Exchange Rate used for the
+        application.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>G/L Series Discrepancy Account</term>
+      <listitem>
+        <para>Select a valid General Ledger Account. This is an Expense
+        Account. It will be debited or credited if rounding errors cause
+        discrepancies when multiple line item (i.e., series) transactions are
+        posted to the General Ledger. If used, the amounts posted to this
+        Account will be miniscule, as rounding errors are fractional by
+        nature.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Meaning of Currency Exchange Rates</term>
+      <listitem>
+        <para>Specify how you want Exchange Rates to be implemented and also
+        displayed on the Exchange Rates master list:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Base x Exchange Rate = Foreign</term>
+            <listitem>
+              <para>If selected, this equation will be used.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Foreign x Exchange Rate = Base</term>
+            <listitem>
+              <para>If selected, this equation will be used.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Cancels any configuration settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the configuration settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To configure Accounts Payable options, select the "Accounts Payable"
+  tab. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/configureGL_ap.png" />
+      </imageobject>
+      <caption><para>Configure Accounts Payable</para></caption>
+    </mediaobject>
+  </screenshot>
+  <para>When configuring the A/P module, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Next A/P Memo #</term>
+      <listitem>
+        <para>The next sequentially available Accounts Payable Memo Number
+        will display here. You may change the number&mdash;creating a new basis for
+        the next A/P Memo Number&mdash;by typing the new number into this
+        field.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To configure Accounts Receivable options, select the "Accounts
+  Receivable" tab. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/configureGL_ar.png" />
+      </imageobject>
+      <caption><para>Configure Accounts Receivable</para></caption>
+    </mediaobject>
+  </screenshot>
+  <para>When configuring Accounts Receivable options, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Next A/R Memo #</term>
+      <listitem>
+        <para>The next sequentially available Accounts Receivable Memo Number
+        will display here. You may change the number&mdash;creating a new basis for
+        the next A/R Memo Number&mdash;by typing the new number into this
+        field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Hide "Apply to Balance" button</term>
+      <listitem>
+        <para>Select if you want to hide the APPLY TO BALANCE button on the
+        "Enter Cash Receipt" screen. If this option is selected, users will be
+        required to apply Cash Receipts manually to individual open A/R
+        items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Enable Customer Deposits</term>
+      <listitem>
+        <para>Select if you want unapplied Cash Receipts from Customers to be
+        handled by a Deferred Revenue Account. If selected, the A/R Account
+        Assignments screen will include a Deferred Revenue Account option. Not
+        selecting this option will hide the Deferred Revenue Account option on
+        the A/R Account assignments screen. Also hidden will be Customer
+        Deposit options on the Cash Receipts screen. If the Deferred Revenue
+        approach is not being used, then unapplied Cash Receipts will be
+        handled by the Asset Account for the specified Bank Account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Remit-To Address</term>
+      <listitem>
+        <para>The Remit-To Address is used in multiple report definitions.
+        Specify details to be used for your site's default Remit-To
+        Address:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>Enter the street Address to be used on the default
+              Remit-To Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City:</term>
+            <listitem>
+              <para>Enter the city to be used on the default Remit-To
+              Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State:</term>
+            <listitem>
+              <para>Enter the state to be used on the default Remit-To
+              Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>Enter the Postal Code for the Contact.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country:</term>
+            <listitem>
+              <para>Enter the country to be used on the default Remit-To
+              Address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <variablelist>
+          <varlistentry>
+            <term>Phone</term>
+            <listitem>
+              <para>Enter the phone for the default Remit-To Address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Warn Customers when Late</term>
+      <listitem>
+        <para>Select to globally enable the ability to place Customers on
+        credit warning when the due dates on their A/R open items become late
+        past the specified grace period. If this option is selected, you will
+        have the ability to run a utility called "Update Late Customer Credit
+        Status" described here: <xref
+        linkend="UpdateLateCustomerCreditStatus" />. When run, this utility
+        will review all late A/R open items for all Customers. Any Customers
+        found to have late items falling outside the grace period will be
+        placed on credit warning. These Customers will automatically be taken
+        off credit warning once their late items are paid.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Default Grace Period Days</term>
+            <listitem>
+              <para>Specify the standard number of days beyond the A/R open
+              due date which will serve as a grace period. As long as A/R open
+              item due dates are within the grace period, Customers will not
+              be put on credit warning when the late status utility is run.
+              Once outside the grace period, they will be placed on credit
+              warning.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

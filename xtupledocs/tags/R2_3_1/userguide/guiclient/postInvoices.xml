@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657165">
+  <title>
+<indexterm significance="normal">
+      <primary>invoices</primary>
+      <secondary>email delivery of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>electronic data interchange</primary>
+      <secondary>invoice delivery using</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>EDI</primary>
+      <see>electronic data interchange</see>
+    </indexterm> <indexterm significance="normal">
+      <primary>invoices</primary>
+      <secondary>posting of</secondary>
+    </indexterm>Post Invoices</title>
+  <para>To post Invoices in batch mode, select the "Post Invoices" option. The
+  following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/postInvoices.png"/>
+        </imageobject>
+        <caption>Post Invoices</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When posting Invoices, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Post Unprinted Invoices</term>
+      <listitem>
+        <para>Select to include unprinted Invoices in the list of Invoices to
+        be posted. If not selected&mdash;and if there are unprinted Invoices
+        waiting to be posted&mdash;you will be prompted to print the unprinted
+        Invoices before posting may occur.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print Sales Journal</term>
+      <listitem>
+        <para>Select to print the Sales Journal in addition to posting the
+        Invoices. Sales Journals are assigned a unique identification number,
+        which corresponds to the Invoice batch and the date the batch was
+        posted.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>A Sales Journal will also be created for Invoices that are posted
+    individually&mdash;that is, not in batch mode, but one at a time. As with batch
+    postings, the Sales Journals for individually-posted Invoices are assigned
+    a unique identification number.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without posting any Invoices, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Posts the Invoices, using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>SUBMIT</term>
+      <listitem>
+        <para>Select to submit the requested action to the Batch Manager. For
+        additional information, see <xref linkend="Anchor61009"/>.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

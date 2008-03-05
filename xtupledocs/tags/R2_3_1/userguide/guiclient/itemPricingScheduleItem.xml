@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="itemPricingScheduleItem">
+  <title><indexterm significance="normal">
+      <primary>pricing schedules</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Pricing Schedule Item</title>
+  <para>To create a new Pricing Schedule Item, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemPricingSchedule.png"
+                     />
+        </imageobject>
+        <caption>Pricing Schedule for Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Pricing Schedule Item, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Specify which type of Pricing Schedule Item you want to
+        create:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item</term>
+            <listitem>
+              <para>Select if the Pricing Schedule is for an individual
+              Item.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Product Category</term>
+            <listitem>
+              <para>Select if the Pricing Schedule is for a Product
+              Category.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <tip>
+          <para>The screen options will differ depending on whether the
+          Pricing Schedule is for an Item or a Product Category.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item you want to add to the Pricing
+        Schedule. The browse button located to the right of the field leads to
+        a searchable sold Items list. Multiple sold Items may be assigned to a
+        single Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>quantity breaks</primary>
+          <secondary>in pricing schedules</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>pricing schedules</primary>
+          <secondary>quantity breaks in</secondary>
+        </indexterm>Qty. Break</term>
+      <listitem>
+        <para>Enter the lowest quantity of the specified Item that must be
+        purchased to receive the specified Price. The Quantity Break is
+        measured in the Inventory Unit of Measure. Multiple Quantity Breaks
+        may be assigned to a single Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. UOM</term>
+      <listitem>
+        <para>Specify the Unit of Measure you want to use for the Quantity
+        Break. By default, the Inventory UOM will appear here. However, if you
+        have Selling UOMs defined for the specified Item, you may also select
+        one of these. Selling UOMs are defined on the Item master.</para>
+        <tip>
+          <para>When using a Selling UOM for the Quantity Break, you may not
+          select an alternate Price UOM. The reason for this is that selling
+          UOMs use the same UOM for both quantity and pricing.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>pricing schedules</primary>
+          <secondary>pricing detail for</secondary>
+        </indexterm>Price</term>
+      <listitem>
+        <para>Enter the Price the specified Item may be purchased for if the
+        specified Quantity Break is met. The Price is measured in the Price
+        Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Price UOM</term>
+      <listitem>
+        <para>Specify the Price Unit of Measure to be used with the specified
+        Quantity Break UOM. If you select a Selling UOM for the Qty. UOM, you
+        will not be able to select a Price UOM. For Selling UOMs, the Selling
+        UOM and the Price UOM are the same.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>List Price</term>
+      <listitem>
+        <para>Displays the List Price for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Price/Inv. Ratio</term>
+      <listitem>
+        <para>Displays the ratio between the Price and Inventory Units of
+        Measure for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cost (Pricing UOM)</term>
+      <listitem>
+        <para>Displays Standard Cost and Actual Cost for the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Margin</term>
+      <listitem>
+        <para>The margin is determined by the following formula: Price - Cost
+        / Price.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Pricing Schedule Item,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Pricing Schedule Item and adds it to the Pricing
+        Schedule.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>pricing schedules</primary>
+      <secondary>by product category</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>product categories</primary>
+      <secondary>pricing schedules for</secondary>
+    </indexterm>If you are creating a new Pricing Schedule for a Product
+  Category, the following screen will appear:</para>
+  <para> <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_IP_pricingSchedPCat.png"
+                     />
+        </imageobject>
+        <caption>Pricing Schedule for Product
+        Category</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Pricing Schedule for a Product Category, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Product Category</term>
+      <listitem>
+        <para>Specify the Product Category you want to add to the Pricing
+        Schedule. All Items in the Product Category will be subject to the
+        specified Quantity Break and Discount. Multiple Product Categories may
+        be assigned to a single Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>quantity breaks</primary>
+          <secondary>in pricing schedules</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>pricing schedules</primary>
+          <secondary>quantity breaks in</secondary>
+        </indexterm>Qty. Break (Inventory UOM)</term>
+      <listitem>
+        <para>Enter the lowest quantity that must be purchased to receive the
+        specified Discount. The Quantity Break applies to all Items in the
+        specified Product Category. Multiple Quantity Breaks may be assigned
+        to a single Product Category.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>pricing schedules</primary>
+          <secondary>discount percentage for</secondary>
+        </indexterm>Discount Percent (List Price)</term>
+      <listitem>
+        <para>Enter the Discount percentage off List Price to be used when the
+        specified Quantity Break is reached. The List Prices for all Items in
+        the Product Category will be reduced by the specified
+        percentage.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

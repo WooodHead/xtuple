@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657335">
+  <title>
+<indexterm significance="normal">
+      <primary>backlog</primary>
+      <secondary>summarized by warehouse</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>warehouses</primary>
+      <secondary>backlog summarized by</secondary>
+    </indexterm>Summarized Backlog by Warehouse</title>
+  <para>To view summarized Backlog by Warehouse, select the "Summarized
+  Backlog by Warehouse" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspSummarizedBacklogByWarehouse.png"/>
+        </imageobject>
+        <caption>Summarized Backlog by Warehouse</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When displaying summarized Backlog by Warehouse, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Customer Types</term>
+      <listitem>
+        <para>Select to display summarized Backlog by Warehouse for all
+        Customer Types.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Customer Type whose Backlog by Warehouse you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Customer Type pattern to select a range of Customer
+        Types. Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806"/>.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Summarized Backlog by Warehouse entered on and after this date
+        will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Summarized Backlog by Warehouse entered on and before this date
+        will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Prices and Costs</term>
+      <listitem>
+        <para>Select to include pricing and Cost information in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to display summarized Backlog for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose summarized Backlog you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order By</term>
+      <listitem>
+        <para>Select one of the following options to indicate how you want the
+        results to be organized:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Ship Date</term>
+            <listitem>
+              <para>Select to order the display by Ship Date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Pack Date</term>
+            <listitem>
+              <para>Select to order the display by Pack Date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>S/O Number</term>
+            <listitem>
+              <para>Select to order the display by Sales Order Number.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Backlog</term>
+      <listitem>
+        <para>Display lists summarized Backlog by Warehouse, using the
+        specified parameters. The display is a nested list, with a plus ("+")
+        sign located to the far left of the screen next to each line that may
+        be expanded to lower levels. By clicking your mouse on a plus sign,
+        you reveal lower levels of information related to the Order. If the
+        "Show Prices and Costs" option is selected, additional columns showing
+        sales Price, Cost, and margin will display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The Summarized Backlog by Warehouse display is color-coded for ease
+    of use. The following colors are used to describe the backlog status of
+    Sales Order Line Items:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Blue</term>
+        <listitem>
+          <para>Order is at Shipping but is not yet shipped</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Green</term>
+        <listitem>
+          <para>Order has been shipped but is not yet invoiced</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Red</term>
+        <listitem>
+          <para>Part of the Order has been shipped and invoiced, but Backorder
+          Items still need to be shipped and invoiced</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term/>
+        <listitem>
+          <para>Order has remaining uninvoiced Line Items remain on
+          Backorder</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Black</term>
+        <listitem>
+          <para>None of the above conditions is true.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Total Sales Orders</term>
+      <listitem>
+        <para>Displays the total number of Sales Orders on Backlog.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total Line Items</term>
+      <listitem>
+        <para>Displays the total number of Sales Order Line Items on
+        Backlog.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total Qty (Shipping UOM)</term>
+      <listitem>
+        <para>Displays the total number of unshipped Sales Order Line Items on
+        Backlog.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Sales Order in the Backlog list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEdit)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickView)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickReschedule)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickDelete)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickPrintPackingList)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

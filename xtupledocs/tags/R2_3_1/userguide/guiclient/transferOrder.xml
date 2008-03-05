@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section658633" role="standard">
+  <title><indexterm significance="normal">
+      <primary>transfer orders</primary>
+      <secondary>creating new</secondary>
+    </indexterm>New Transfer Order</title>
+  <para>Transfer Orders are used to move Inventory between Warehouses. They
+  are distinct from Inter-Warehouse Transfers in three primary ways: 1) you
+  can add multiple Items to a single Transfer Order and transfer all the Items
+  at once; 2) all Transfer Order transfers involve a Transit Warehouse, for
+  tracking Inventory while it is "in transit"; and 3) there are reports (i.e.,
+  paperwork) associated with Transfer Orders. To enter a new Transfer Order,
+  select the "New Transfer Order" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_IT_transferOrdNew.png"
+                     />
+        </imageobject>
+        <caption>Create New Transfer Order</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Transfer Order, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Order #</term>
+      <listitem>
+        <para>Next available Transfer Order Number will automatically display,
+        unless your system requires you to enter Transfer Order Numbers
+        manually. Default values and input parameters for Transfer Order
+        Numbers are configurable at the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Status</term>
+      <listitem>
+        <para>Displays the current status of the Transfer Order. Transfer
+        Orders may be either Open = "O" or Closed = "C" depending on the
+        status of the associated Line Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Date</term>
+      <listitem>
+        <para>Displays current day's date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Scheduled Date</term>
+      <listitem>
+        <para>Displays the Order's earliest scheduled date. The scheduled date
+        corresponds to the earliest scheduled date for an included Transfer
+        Order Item. Because Transfer Orders may contain multiple Transfer
+        Order Items, the scheduled date indicates the most recent scheduled
+        date. No scheduled date will display in the "Scheduled Date" field
+        until a Transfer Order Line Item has been created and a scheduled date
+        assigned to it.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>pack dates</primary>
+          <secondary>for transfer orders</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>transfer orders</primary>
+          <secondary>pack dates for</secondary>
+        </indexterm>Pack Date</term>
+      <listitem>
+        <para>The pack date is the same date as the ship date. Because the
+        field can be edited, you have the ability to change the pack date and
+        make it different from the ship date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Agent</term>
+      <listitem>
+        <para>Specify the Agent associated with the Transfer Order. By
+        default, the name of the logged-in user will be entered as Purchasing
+        Agent-assuming that user is designated as a Purchasing Agent. If the
+        user is not a Purchasing Agent, the first alphabetical name in the
+        list of Purchasing Agents will be entered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Project #</term>
+      <listitem>
+        <para>Select a Project Number to associate with the Transfer Order.
+        Projects may be used to link Transfer Orders with Work Orders, Sales
+        Orders, Purchase Orders, etc.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>tax authorities</primary>
+          <secondary>for transfer orders</secondary>
+        </indexterm>Tax Authority</term>
+      <listitem>
+        <para>Specify the Tax Authority associated with the Transfer Order.
+        The Tax Authority associated with the Destination Warehouse will be
+        entered here by default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>From Warehouse</term>
+      <listitem>
+        <para>Select a Source Warehouse from the available options. If the
+        following Contact and Address information is defined on the Warehouse
+        master, then it will be entered automatically; otherwise you may enter
+        that information manually:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Name</term>
+            <listitem>
+              <para>The name of the primary Contact at the Source
+              Warehouse.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Job Title</term>
+            <listitem>
+              <para>The primary Contact's Job Title.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Voice</term>
+            <listitem>
+              <para>The primary Contact's phone number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Fax</term>
+            <listitem>
+              <para>The primary Contact's fax number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>E-Mail</term>
+            <listitem>
+              <para>The primary Contact's email address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>The street Address for the Source Warehouse.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>The city the Source Warehouse is located in.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>The state the Source Warehouse is located in.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>The Postal Code for the Source Warehouse</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>The country the Source Warehouse is located in.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>To Warehouse</term>
+      <listitem>
+        <para>Select a Destination Warehouse from the available options. If
+        the following Contact and Address information is defined on the
+        Warehouse master, then it will be entered automatically; otherwise you
+        may enter that information manually:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Name</term>
+            <listitem>
+              <para>The name of the primary Contact at the Destination
+              Warehouse.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Job Title</term>
+            <listitem>
+              <para>The primary Contact's Job Title.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Voice</term>
+            <listitem>
+              <para>The primary Contact's phone number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Fax</term>
+            <listitem>
+              <para>The primary Contact's fax number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>E-mail</term>
+            <listitem>
+              <para>The primary Contact's email address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>The street Address for the Destination Warehouse.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>The city the Destination Warehouse is located in.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>The state the Destination Warehouse is located in.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>The Postal Code for the Destination Warehouse.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>The country the Destination Warehouse is located
+              in.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Complete</term>
+      <listitem>
+        <para>Select to require that all Transfer Order Line Item quantities
+        be issued to Shipping before the Order is shipped. This feature is
+        designed to prevent partial shipments. If selected, users will be
+        prevented from shipping the Order unless all Line Item quantities have
+        been issued to Shipping. If not selected, partial shipments for the
+        Order will be allowed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Via</term>
+      <listitem>
+        <para>Specify the Ship Via associated with the Transfer Order. You may
+        enter a free-form Ship Via simply by typing the name of the Ship Via
+        into the field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipping Form</term>
+      <listitem>
+        <para>Specify the Shipping Form associated with the Transfer
+        Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>At the top of the screen, the following buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE AND ADD TO PACKING LIST BATCH</term>
+      <listitem>
+        <para>Creates the Transfer Order, saves it, and adds it to the list of
+        Orders available for printing on the Packing List Batch.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Transfer Order and saves the Transfer Order
+        information. The SAVE button must be selected in order to save the
+        Transfer Order record. It is not enough to save Transfer Order Line
+        Item information. The Transfer Order header must also be saved.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Transfer Order,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>transfer orders</primary>
+      <secondary>adding line items to</secondary>
+    </indexterm>To create or modify Transfer Order Line Items, select the
+  "Line Items" tab at the top of the "Transfer Order" screen. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_IT_transferOrdLines.png"
+                     />
+        </imageobject>
+        <caption>Transfer Order Line Items</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating or modifying Transfer Order Line Items, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Line Items</term>
+      <listitem>
+        <para>Display lists Line Items for this Transfer Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Transfer Order Line Items may exist in any of the following
+    statuses:</para>
+    <para>"O" = Open</para>
+    <para>"C" = Closed</para>
+    <para>"X" = Cancelled</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Show Canceled Line Items</term>
+      <listitem>
+        <para>Select to include in the Line Items display Transfer Order Line
+        Items which have been specifically canceled. Displaying canceled Line
+        Items can provide useful Order history information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Require sufficient Inventory</term>
+      <listitem>
+        <para>Select to ensure you have enough Quantity on Hand of a Line Item
+        prior to issuing Stock to Shipping. If selected, this option will
+        prevent you from issuing Line Item quantity to Shipping if doing so
+        would force Quantity on Hand for the Item Site to fall below zero. Not
+        selecting this option means issuing Stock to Shipping may drive Item
+        Site Quantity on Hand negative.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Freight Weight</term>
+      <listitem>
+        <para>Displays the combined weight of all Transfer Order Line Items.
+        Freight weight represents the sum of an Item's product weight and
+        packaging weight, both of which are defined on the Item master. The
+        per unit freight weight multiplied by the quantity per gives you the
+        Line Item freight weight. The sum of all Line Item freight weights is
+        the combined weight for the Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>freight</primary>
+          <secondary>on transfer orders</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>transfer orders</primary>
+          <secondary>freight charges on</secondary>
+        </indexterm>Line Item Freight Subtotal</term>
+      <listitem>
+        <para>Displays the subtotal for all Line Item Freight. Freight charges
+        may be added when entering or editing a Transfer Order Line
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>Displays the total amount of Tax to be charged on the Transfer
+        Order. Sales Tax is calculated at the Transfer Order Line Item level.
+        The Tax amount displayed here represents the total for all Line Item
+        Tax amounts. To get a detailed view of the Tax calculation, click on
+        the Tax link using your mouse.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total</term>
+      <listitem>
+        <para>Displays the total amount of the Transfer Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Any Transfer Order Line Item may be shipped&mdash;even if the Item or
+    Item Site in question becomes inactive after the Sales Order has been
+    created.</para>
+  </note>
+  <para>At the top of and to the far right of the screen, the following
+  buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLEAR</term>
+      <listitem>
+        <para>Select to clear the contents of the current Transfer Order and
+        open a fresh, new Transfer Order for Order entry. The Order Number of
+        the Order being cleared will display next to the CLEAR button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Selecting the CLEAR button on the Transfer Order header does not
+    delete any information which has been saved previously.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the Transfer Order information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Transfer Order,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Transfer Order Line Item. Mac
+        users may use COMMAND + N to enter a new Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="transferOrderEDIT">
+        <para>Enables you to edit highlighted Transfer Order Line Items. The
+        edit screen is the same as that for creating a new Transfer Order Line
+        Item&mdash;except that when editing, the fields will contain Transfer Order
+        Line Item information. Double-clicking on a Transfer Order Line Item
+        will also bring you to the editing screen. Mac users may use COMMAND +
+        E to edit an existing Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem id="transferOrderCLOSE">
+        <para>Highlight a Transfer Order Line Item and then select this to
+        close the Transfer Order Line Item. If the highlighted Line Item is
+        already closed, the label will revert to an OPEN, which may be used to
+        open the closed Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="transferOrderDELETE">
+        <para>Highlight a Transfer Order Line Item and then select this to
+        remove the Transfer Order Line Item from the list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>shipping</primary>
+          <secondary>issuing stock to</secondary>
+        </indexterm>ISSUE STOCK</term>
+      <listitem>
+        <para>Highlight a Transfer Order Line Item and then select this button
+        to issue quantity to Shipping.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>You may select multiple Line Items for issuing to Shipping by
+    highlighting them using your mouse&mdash;or a combination of your mouse and
+    either the SHIFT or CTRL keys.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>ISSUE LINE BAL.</term>
+      <listitem>
+        <para>Highlight a Transfer Order Line Item and then select this button
+        to issue the balance of the Line Item quantity to Shipping.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the Line Items list enables you to select
+  from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Edit Line</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(transferOrderEDIT)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Close Line</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(transferOrderCLOSE)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Delete Line</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(transferOrderDELETE)" />
+    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReturnStock)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueStock)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueLineBalance)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>Order Notes added to a Transfer Order are used for internal purposes
+  only. To add Notes to a Transfer Order, select the "Order Notes" tab at the
+  top of the "Transfer Order" screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_IT_transferOrdNotes.png"
+                     />
+        </imageobject>
+        <caption>Transfer Order Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Notes to a Transfer Order, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Order Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        general Notes related to the Transfer Order. These Notes are for
+        internal use only.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the Order Note.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating an Order Note, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Comments related to a Transfer Order, select the "Comments"
+  tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_IT_transferOrdComm.png"
+                     />
+        </imageobject>
+        <caption>Transfer Order Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Comments related to a Transfer Order, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>Display lists Comments for the specified Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Comment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Comment and then select this button to reach a
+        read-only view of the Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a Transfer Order Comment, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CommentNew.png" />
+        </imageobject>
+        <caption>Create New Comment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Comment, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Comment and adds it to the list of Order
+        Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Shipping Notes are drawn from the Shipping Comments (if any)
+  associated with Transit Warehouses. The Notes may vary depending on the
+  Transit Warehouse being used. These Notes provide a mechanism for
+  transferring information about Transit Warehouses to the Transfer Order. To
+  view Transfer Order Shipping Notes, select the "Shipping Notes" tab at the
+  top of the "Transfer Order" screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_IT_transferOrdShNtes.png"
+                     />
+        </imageobject>
+        <caption>Transfer Order Shipping Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing or editing Shipping Notes for a Transfer Order, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Shipping Notes</term>
+      <listitem>
+        <para>While the content for Shipping Notes may originate from the
+        Transit Warehouse master, you can edit the Notes to fit the
+        requirements of an Order. This is a scrolling text field with
+        word-wrapping.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the Shipping Note.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a Shipping Note, returning
+        you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>If you want to speed up your data entry of Transfer Order Line Items,
+  you can use the Quick Entry interface. This screen allows you to enter
+  multiple Line Items in one session. It also simplifies the process by
+  presenting only the minimum required fields. To enter Line Items using the
+  Quick Entry interface, select the "Quick Entry" tab at the top of the
+  "Transfer Order" screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_IT_transferOrdQEntry.png"
+                     />
+        </imageobject>
+        <caption>Transfer Order Quick Entry</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>To get started entering Line Items, place your cursor in the "Item"
+    field. You can then move from field-to-field using the TAB button on your
+    keyboard.</para>
+  </tip>
+  <para>When entering Transfer Order Line Items using the Quick Entry
+  interface, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item</term>
+      <listitem>
+        <para>Enter an Inventory Item Number. This field is used for entering
+        Items stored in Inventory.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty.</term>
+      <listitem>
+        <para>Enter the quantity you want to transfer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Standard Cost</term>
+      <listitem>
+        <para>Displays the Standard Cost per unit.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Freight</term>
+      <listitem>
+        <para>Enter the Freight amount, if any.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Enter the due date.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE QUICK ENTRIES</term>
+      <listitem>
+        <para>Select to save all the Line Items entered using the Quick Entry
+        interface.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE QUICK ENTRY</term>
+      <listitem>
+        <para>Highlight a Line Item and then select this button to remove the
+        Item from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="transferOrderItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

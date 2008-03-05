@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+   <title>
+   Item Characteristic
+  </title>
+   <subtitle>characteristicAssignment : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/characteristicAssignment.png"/>
+            </imageobject>
+            <caption>
+   Item Characteristic
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_value</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Characteristic:</guilabel>
+               </entry>
+               <entry>_characteristicLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Default</guilabel>
+               </entry>
+               <entry>_default</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>V</accel>alue:</guilabel>
+               </entry>
+               <entry>_valueLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_char</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section942284">
+  <title>
+<indexterm significance="normal">
+      <primary>purchase orders</primary>
+      <secondary>change line item qty. for</secondary>
+    </indexterm>Change Purchase Order Item Quantity</title>
+  <para>To change the quantity of a Purchase Order Line Item, select the
+  "Change Purchase Order Item Qty." option. The following screen will
+  appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/changePoitemQty.png"/>
+        </imageobject>
+        <caption>Change Purchase Order Item
+        Quantity</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>You may only change the quantity of Purchase Order Line Item if the
+    Purchase Order has been posted and the Line Item is open.</para>
+  </note>
+  <para>When changing the quantity of a Purchase Order Line Item, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>P/O #</term>
+      <listitem>
+        <para>Enter the Purchase Order Number of the Purchase Order whose Line
+        Item quantity you want to change.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Line Item</term>
+      <listitem>
+        <para>Specify the Purchase Order Line Item whose quantity you want to
+        change.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Ordered</term>
+      <listitem>
+        <para>Enter the quantity you would like to change the Line Item
+        quantity to. The current Line Item quantity will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Received</term>
+      <listitem>
+        <para>If any of the Purchase Order Item quantity has been received,
+        the quantity received will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Balance</term>
+      <listitem>
+        <para>Displays the difference between the quantity ordered and the
+        quantity received for both the current balance and the balance after
+        the quantity change.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Comment</term>
+      <listitem>
+        <para>Select to attach a Comment to the Line Item. This option must be
+        selected if you want to add a Comment to the Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CHANGE QTY.</term>
+      <listitem>
+        <para>Changes the Purchase Order Line Item quantity using the
+        specified quantity.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

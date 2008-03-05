@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560368">
+  <title><indexterm significance="normal">
+      <primary>incidents</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customer relationship management</primary>
+
+      <secondary>creating incidents for</secondary>
+    </indexterm>New Incident</title>
+
+  <para>To enter a new Incident, select the "New Incident" option. The
+  following screen will appear:</para>
+
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CRM_IM_incidNew.png" />
+        </imageobject>
+
+        <caption>Create New Incident</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para>When entering a new Incident, you are presented with the following
+  options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>Incident #</term>
+
+      <listitem>
+        <para>Displays the Incident Number.</para>
+
+        <para>You may set a beginning Incident Number at the system
+        level.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>CRM Account</term>
+
+      <listitem>
+        <para>Specify the CRM Account the Incident is associated with.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Category</term>
+
+      <listitem>
+        <para>Specify a user-defined Category to assign the Incident.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Status</term>
+
+      <listitem>
+        <para>Specify a system-defined Incident status to assign to the
+        Incident from the available options:</para>
+
+        <variablelist>
+          <varlistentry>
+            <term>New:</term>
+
+            <listitem>
+              <para>This is the default Incident status when a new Incident is
+              entered.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Feedback:</term>
+
+            <listitem>
+              <para>This status can be used for Incidents which require more
+              information before they can be confirmed.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Confirmed</term>
+
+            <listitem>
+              <para>A confirmed Incident is ready to be acted on.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Assigned:</term>
+
+            <listitem>
+              <para>When Incidents are assigned to a user, they become that
+              user's responsibility.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Resolve</term>
+
+            <listitem>
+              <para>A resolved Incident is ready to be closed. Typically,
+              users work to resolve the Incidents assigned to them.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Closed:</term>
+
+            <listitem>
+              <para>This is the final status and indicates an Incident
+              requires no further action. It is completed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Severity</term>
+
+      <listitem>
+        <para>Specify a user-defined Severity to assign the Incident.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Priority</term>
+
+      <listitem>
+        <para>Specify a user-defined Priority to assign the Incident.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Resolution</term>
+
+      <listitem>
+        <para>Specify a user-defined Resolution to assign the Incident.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Assigned To</term>
+
+      <listitem>
+        <para>Specify the user you want to assign the Incident to.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Contact</term>
+
+      <listitem>
+        <para>Manually enter Contact information in the fields below&mdash;or use
+        the browse button to select pre-existing Contact information.</para>
+
+        <variablelist>
+          <varlistentry>
+            <term>Title</term>
+
+            <listitem>
+              <para>Select a Title from the list of available Titles.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>First</term>
+
+            <listitem>
+              <para>Enter the Contact's first name.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Last</term>
+
+            <listitem>
+              <para>Enter the Contact's last name.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Job Title</term>
+
+            <listitem>
+              <para>Enter the Contact's job title.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Voice</term>
+
+            <listitem>
+              <para>Enter the Contact's phone number.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Fax</term>
+
+            <listitem>
+              <para>Enter the Contact's fax number.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>E-Mail:</term>
+
+            <listitem>
+              <para>Enter the Contact's e-mail address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Item Number</term>
+
+      <listitem>
+        <para>Enter the Item Number of the Item (if any) you want to associate
+        with the Incident.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>UOM</term>
+
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry role="standard">
+      <term>Lot/Serial #</term>
+
+      <listitem>
+        <para>Enter a Lot or Serial Number (if any) for the selected Item. The
+        date the Lot/Serial Number was created will also be displayed. Select
+        the "?" button to learn more about a selected Lot/Serial
+        Number.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Summary</term>
+
+      <listitem>
+        <para>Enter a short line of text to describe the Incident.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Description</term>
+
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        an extended description&mdash;or general notes&mdash;related to the
+        Incident.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>To-Do List Items</term>
+
+      <listitem>
+        <para>Display lists To-Do List items associated with the
+        Incident.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+
+      <listitem>
+        <para>Opens screen for creating a new To-Do List item.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>EDIT</term>
+
+      <listitem>
+        <para>Enables you to edit highlighted To-Do List items. The edit
+        screen is the same as that for creating a new To-Do List item&mdash;except
+        that when editing, the fields will contain To-Do List item
+        information. Double-clicking on a To-Do List item will also bring you
+        to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>VIEW</term>
+
+      <listitem>
+        <para>Highlight a To-Do List item and then select this button to reach
+        a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>DELETE</term>
+
+      <listitem>
+        <para>Highlight a To-Do List item and then select this button to
+        remove the association between the To-Do List item and the
+        Incident.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>To view the history associated with an Incident, select the "History"
+  tab. The following screen will appear:</para>
+
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CRM_IM_incidHist.png" />
+        </imageobject>
+
+        <caption>Incident History</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para>The "History" screen displays information related to the Incident,
+  including username of Incident creator, created date, status, and
+  description. To add Comments to an Incident, select the "Comments" tab at
+  the bottom of the "Incident" screen. The following screen will
+  appear:</para>
+
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CRM_IM_incidComm.png" />
+        </imageobject>
+
+        <caption>Incident Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para>The "Notes" screen displays information related to Incident Notes,
+  including sequence number, username of Note creator, created date, and Note
+  content.</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+
+      <listitem>
+        <para>Opens screen for creating a new Incident Note.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>EDIT</term>
+
+      <listitem>
+        <para>Enables you to edit highlighted Incident Notes. The edit screen
+        is the same as that for creating a new Incident Note&mdash;except that when
+        editing, the fields will contain Incident Note information.
+        Double-clicking on an Incident Note will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>VIEW</term>
+
+      <listitem>
+        <para>Highlight an Incident Note and then select this button to reach
+        a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>DELETE</term>
+
+      <listitem>
+        <para>Highlight an Incident Note and then select this button to remove
+        the Incident Note from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>To enter a new Incident Note, select the NEW button. The following
+  screen will appear:</para>
+
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CRM_IM_incidCommNote.png"
+                     />
+        </imageobject>
+
+        <caption>Create New Incident Note</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <variablelist>
+    <varlistentry>
+      <term>Incident Note</term>
+
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering a
+        Note related to the Incident.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+
+      <listitem>
+        <para>Closes the screen without creating the Incident Note, returning
+        you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>SAVE</term>
+
+      <listitem>
+        <para>Creates the Note and adds it to the list of Incident
+        Notes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

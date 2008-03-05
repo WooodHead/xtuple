@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section537794" role="openmfg">
+  <title>Run MPS by Planner Code</title>
+  <para>When you run MPS by Planner Code, you are running the Master
+  Production Scheduling (MPS) system. This utility creates firm Planned Orders
+  to meet forecasted demand (i.e., from Production Plans) and also actual
+  demand (i.e., from Sales Orders) for MPS Items. An Item is defined as an MPS
+  Item on its Item master.</para>
+  <para>By default, Planned Orders created by the MPS planning system will be
+  firm when they are generated. This establishes them as a legitimate source
+  of demand within the wider planning system. The firm-by-default nature of
+  MPS Orders distinguishes them from MRP Orders, which must be manually
+  firmed.</para>
+  <para>The quantities for MPS Planned Orders will vary depending on the
+  source of demand. The following considerations are used to identify the
+  appropriate demand:</para>
+  <orderedlist continuation="restarts" inheritnum="ignore">
+    <listitem>
+      <para>Actual demand quantity (i.e., from Sales Orders) will be used if
+      the planned date for a Production Plan Item falls within the Demand Time
+      Fence for that Item; forecasted demand is ignored within the Time
+      Fence</para>
+    </listitem>
+    <listitem>
+      <para>Outside the Demand Time Fence, the system will create Planned
+      Orders for whichever demand source is greater&mdash;that is, actual demand or
+      forecasted demand</para>
+    </listitem>
+  </orderedlist>
+  <tip>
+    <para>You might consider running the MRP system after you run MPS. Running
+    MRP after MPS will ensure you plan for the materials required to satisfy
+    your MPS-driven demand.</para>
+  </tip>
+  <para>To run MPS by Planner Code, select the "Run MPS by Planner Code"
+  option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/runMPSByPlannerCode.png"/>
+        </imageobject>
+        <caption>Run MPS by Planner Code</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>Only Items designated as MPS Items will have Planned Orders created
+    for them when MPS is run. By default, MPS generates firm Planned
+    Orders.</para>
+  </note>
+  <para>When running MPS by Planner Code, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Planner Codes</term>
+      <listitem>
+        <para>Select to create firm Planned Orders for all Planner
+        Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Planner Code you want to create firm Planned Orders
+        for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Planner Code pattern to select a range of Planner Codes.
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to create firm Planned Orders by Planner Code for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse firm Planned Order by Planner Code should be
+        created for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cutoff Date</term>
+      <listitem>
+        <para>Specify how far into the future the MPS run should look for
+        demand. The forecast will be ignored if the planned date for a
+        Production Plan Item falls within the Demand Time Fence for that Item.
+        Outside the Demand Time Fence, the greater of actual or forecasted
+        demand will be used.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If you schedule an MRP or MPS job submitted to the Batch Manager to
+    run on a periodic basis&mdash;daily, weekly, monthly&mdash;the cutoff date used for
+    the run will automatically be updated by the number of days in the
+    specified reschedule interval (Day = +1, Week = +7, and Month =
+    +30).</para>
+  </tip>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating firm Planned Orders by
+        Planner Code, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CREATE</term>
+      <listitem>
+        <para>Creates firm Planned Orders by Planner Code, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>SUBMIT</term>
+      <listitem>
+        <para>Select to submit the MPS run to the Batch Manager. For
+        additional information, see the <xref linkend="Anchor61009"/>.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+   <title>
+   Inventory Buffer Status by Parameter List
+  </title>
+   <subtitle>dspInventoryBufferStatusByParameterList : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/dspInventoryBufferStatusByParameterList.png"/>
+            </imageobject>
+            <caption>
+   Inventory Buffer Status by Parameter List
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_parameter</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_showByGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">Greater than zero</guilabel>
+               </entry>
+               <entry>_GreaterThanZero</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">In Emergency Zone:</guilabel>
+               </entry>
+               <entry>_EmergencyZone</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">All</guilabel>
+               </entry>
+               <entry>_All</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WarehouseGroup</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>Q</accel>uery</guilabel>
+               </entry>
+               <entry>_query</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Availability:</guilabel>
+               </entry>
+               <entry>_availabilityLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_availability</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

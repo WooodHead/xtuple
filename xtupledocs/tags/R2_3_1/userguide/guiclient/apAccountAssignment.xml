@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="apAccountAssignment">
+  <title>
+<indexterm significance="normal">
+      <primary>account assignments</primary>
+      <secondary>creating new for a/p</secondary>
+    </indexterm>A/P Account Assignment</title>
+  <para>To create a new A/P Account assignment, select the NEW button. The
+  following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/apAccountAssignment.png"/>
+        </imageobject>
+        <caption>Create New A/P Account
+        Assignment</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When creating a new A/P Account assignment, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Vendor Types</term>
+      <listitem>
+        <para>Select to assign the A/P Accounts to all Vendor Types.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected Vendor Type</term>
+      <listitem>
+        <para>Specify Vendor Type you want to associate with the A/P Account
+        assignment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor Type Pattern</term>
+      <listitem>
+        <para>Enter a Vendor Type pattern to select a range of Vendor Types.
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>A/P Account</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        A/P Account. This is a Liability Account. It will be credited when
+        Vouchers are posted and debited when Checks are posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Prepaid Account</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        A/P Prepaid Account. This is an Asset Account. It should not be
+        confused with or used interchangeably with the default A/P Account.
+        The Prepaid Account will be credited when Miscellaneous A/P Credit
+        Memos are posted and debited when Miscellaneous A/P Debit Memos are
+        posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discount Account</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to distribute purchasing
+        Discounts to. This is a Revenue Account. It will be credited when
+        purchasing Discounts are applied to selected Payments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating an Account assignment,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Account assignment and adds it to the master list of
+        Account Assignments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

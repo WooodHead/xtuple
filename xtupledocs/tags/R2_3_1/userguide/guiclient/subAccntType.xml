@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="subAccntType">
+  <title>
+<indexterm significance="normal">
+      <primary>subaccount types</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Subaccount Type</title>
+  <para>To create a new Subaccount Type, select the NEW
+  button. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/subAccntType.png"/>
+        </imageobject>
+        <caption>Create New Subaccount Type</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When creating a new Subaccount Type, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Code</term>
+      <listitem>
+        <para>Enter a code to describe the Subaccount Type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Specify the Account Type you want to assign the Subaccount Type
+        to.</para>
+        <para>The following selections are available: Asset,
+        Liability, Expense, Revenue, and Equity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a description to further describe the Subaccount
+        Type.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section551405">
+  <title id="Anchor29552"><indexterm significance="normal">
+      <primary>topics</primary>
+      <secondary>ups worldship</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>ups</primary>
+      <secondary>worldship support</secondary>
+    </indexterm>Topic: UPS WorldShip Integration</title>
+  <para>In this section we will provide an overview describing xTuple ERP's
+  support for UPS WorldShip integration. UPS WorldShip is a Windows-based,
+  shipping software application for UPS Customers who have high-volume
+  shipping needs. When UPS WorldShip and xTuple ERP are integrated, you have the
+  ability to export key UPS information&mdash;that is, Tracking Numbers and Freight
+  charges&mdash;directly into xTuple ERP.</para>
+  <note>
+    <para>For technical support using and/or configuring UPS WorldShip, please
+    contact your local or area UPS WorldShip representative. Detailed
+    WorldShip integration information can also be found on the UPS website at
+    <ulink id="Hypertext551409"
+    url="http://www.ups.com">http://www.ups.com</ulink>.</para>
+  </note>
+  <section id="Section551410">
+    <title>Basic Requirements</title>
+    <para>The requirements for setting up UPS WorldShip to communicate with
+    xTuple ERP include the following:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Install UPS WorldShip software on a networked workstation</para>
+      </listitem>
+      <listitem>
+        <para>Download and install ODBC driver for PostgreSQL</para>
+      </listitem>
+    </itemizedlist>
+    <note>
+      <para>The ODBC driver for PostgreSQL is needed so the UPS WorldShip
+      software can export shipping information to an xTuple ERP Database.
+      xTuple ERP Databases run on the PostgreSQL database server.</para>
+    </note>
+    <itemizedlist>
+      <listitem>
+        <para>Configure UPS WorldShip to auto-export using the PostgreSQL ODBC
+        driver</para>
+      </listitem>
+      <listitem>
+        <para>Create user-defined field for entering xTuple ERP Sales Order
+        Numbers</para>
+      </listitem>
+      <listitem>
+        <para>Define export mapping to associate UPS WorldShip data fields
+        with corresponding xTuple ERP data fields</para>
+      </listitem>
+    </itemizedlist>
+    <para>UPS WorldShip supports both import and export maps. However, for
+    integration with xTuple ERP, you only need an export map since the
+    communication is one-way. The following screenshot shows a sample export
+    map created using the UPS WorldShip mapping utility:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_ups1.png" />
+          </imageobject>
+          <caption id="UPSWorldShipExportMap">Export Map in UPS
+          WorldShip</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>In our example, we have created a map called "export." The map type
+    is "Shipment," which indicates the data export will occur when the
+    shipment is shipped using UPS WorldShip. And the ODBC driver used to
+    export the data to the xTuple ERP Database is called "openmfg."</para>
+    <para>The following screenshot shows the utility you would use to edit
+    your export map within UPS WorldShip:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_ups2.png" />
+          </imageobject>
+          <caption>WorldShip Utility for Editing Export Map</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Your primary goal when creating an export map is to match UPS
+    WorldShip tables and fields with the corresponding xTuple ERP Database
+    tables and fields. The following table provides you with the information
+    you will need to successfully map the tables and fields from one system to
+    the other.</para>
+    <para><table>
+        <title>Data Mapping Information</title>
+        <tgroup cols="4">
+          <thead>
+            <row>
+              <entry><para> WorldShip Table </para></entry>
+              <entry><para> WorldShip Field </para></entry>
+              <entry><para> xTuple ERP Table </para></entry>
+              <entry><para> xTuple ERP Field </para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><para> Package </para></entry>
+              <entry><para> Tracking Number </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_cosmisc_packnum_tracknum </para></entry>
+            </row>
+            <row>
+              <entry><para> Package </para></entry>
+              <entry><para> Package Type </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_package_type </para></entry>
+            </row>
+            <row>
+              <entry><para> Package </para></entry>
+              <entry><para> Reference [1-5] </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_cohead_number </para></entry>
+            </row>
+            <row>
+              <entry><para> Shipment Information </para></entry>
+              <entry><para> Void Indicator </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_void_ind </para></entry>
+            </row>
+            <row>
+              <entry><para> Shipment Information </para></entry>
+              <entry><para> Actual Weight </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_weight </para></entry>
+            </row>
+            <row>
+              <entry><para> Shipment Information </para></entry>
+              <entry><para> Shipment ID </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_cosmisc_tracknum </para></entry>
+            </row>
+            <row>
+              <entry><para> Shipment Information </para></entry>
+              <entry><para> Total Shipment &amp; Handling Charges
+              </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_total_freight </para></entry>
+            </row>
+            <row>
+              <entry><para> Shipment Information </para></entry>
+              <entry><para> Billing Option </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_billing_option </para></entry>
+            </row>
+            <row>
+              <entry><para> Shipment Information </para></entry>
+              <entry><para> Total Shipper Charge </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_base_freight </para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table></para>
+    <tip>
+      <para>By default, UPS WorldShip gives you a Reference field for
+      miscellaneous purposes. Because this field may prove useful at some
+      point, you should create a second Reference field for storing xTuple ERP
+      Sales Order Numbers.</para>
+    </tip>
+    <para>In addition to requiring specific table and field mappings, UPS
+    WorldShip will also require you to provide the following export map
+    information:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Map Name</term>
+        <listitem>
+          <para>Enter a name to describe your export map. In our example, we
+          have give the export map the name "export."</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Data Source Information</term>
+        <listitem>
+          <para>Specify the following Data Source information:</para>
+          <variablelist>
+            <varlistentry>
+              <term>DSN Name</term>
+              <listitem>
+                <para>Enter a name to describe the Data Source Name (DSN)
+                connection to xTuple ERP (e.g., "openmfg).</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>DSN Description</term>
+              <listitem>
+                <para>Enter a brief description of the DSN connection (e.g.,
+                "connection to openmfg").</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>ODBC Driver Name</term>
+              <listitem>
+                <para>Specify the name of the required ODBC driver. For xTuple
+                ERP Databases, the driver is "PostgreSQL".</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>ODBC Driver</term>
+              <listitem>
+                <para>Indicate the path where the ODBC driver for PostgreSQL
+                is located, as in the following:
+                C:\\WINDOWS\\system32\\psqlodbc.dll.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Database Name</term>
+              <listitem>
+                <para>Enter the name of the xTuple ERP Database which will be
+                receiving UPS WorldShip data (e.g., "production").</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Database Path</term>
+              <listitem>
+                <para>Not required. This information is defined when
+                configuring the ODBC driver for PostgreSQL.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Database Server</term>
+              <listitem>
+                <para>Not required. This information is defined when
+                configuring the ODBC driver for PostgreSQL.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Map Information</term>
+        <listitem>
+          <para>Specify the following map information:</para>
+          <variablelist>
+            <varlistentry>
+              <term>Map Type</term>
+              <listitem>
+                <para>The map type selection specifies the point at which the
+                data export should occur. In this case, you should select the
+                "Shipment" map type. Data export will occur when the shipment
+                is shipped using UPS WorldShip.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Map Version</term>
+              <listitem>
+                <para>Specify version "12".</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Primary Table</term>
+              <listitem>
+                <para>Not required.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Primary Key</term>
+              <listitem>
+                <para>Not required.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Package Name</term>
+              <listitem>
+                <para>Not required.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Prompt for Table Name</term>
+              <listitem>
+                <para>No.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section id="Section551556">
+    <title>Process Flow</title>
+    <para>Once the integration requirements are completed, you are ready to
+    begin processing and shipping Sales Orders. The following diagram
+    illustrates the basic process flow:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_upsGraphic.png" />
+          </imageobject>
+          <caption>Basic Process Flow for UPS WorldShip Integration</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>The process flow begins in xTuple ERP with the following
+    sequence:</para>
+    <orderedlist continuation="restarts" inheritnum="ignore">
+      <listitem>
+        <para>Enter Sales Order(s) for Customer(s)</para>
+      </listitem>
+      <listitem>
+        <para>Issue Stock to Shipping (optional)</para>
+      </listitem>
+    </orderedlist>
+    <note>
+      <para>You can issue Stock to Shipping before or after you have shipped
+      an Order in UPS WorldShip. The choice is up to you, based on your
+      desired process flow.</para>
+    </note>
+    <para>After Stock has been issued to Shipping&mdash;but not yet shipped&mdash;the
+    process flow moves to the UPS WorldShip system. Perform the following
+    steps from your UPS workstation:</para>
+    <orderedlist continuation="restarts" inheritnum="ignore">
+      <listitem>
+        <para>Enter Customer destination information</para>
+      </listitem>
+      <listitem>
+        <para>Enter xTuple ERP Sales Order Number(s) in the special Reference
+        field created for this purpose</para>
+      </listitem>
+      <listitem>
+        <para>Weigh package(s) you will be shipping with UPS</para>
+      </listitem>
+      <listitem>
+        <para>Finish Order and ship it in UPS WorldShip</para>
+      </listitem>
+    </orderedlist>
+    <para>As soon as you ship the Order in WorldShip, the data will be
+    exported to xTuple ERP via the ODBC connection. The following UPS
+    information will now be stored in the xTuple ERP Database:</para>
+    <itemizedlist>
+      <listitem>
+        <para>UPS Tracking Number</para>
+      </listitem>
+      <listitem>
+        <para>Actual Weight</para>
+      </listitem>
+      <listitem>
+        <para>Total Shipping and Handling Charges</para>
+      </listitem>
+    </itemizedlist>
+    <para>The process flow returns now to xTuple ERP, where we either 1) issue
+    Stock to Shipping or 2) ship the Order. For this example, we have already
+    issued two Line Items to Shipping. We see these two Line Items on the Ship
+    Order screen, as shown below:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_upsShipOrder.png" />
+          </imageobject>
+          <caption>Sales Order with UPS WorldShip Information</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>As you can see in int the example, our Order contains UPS Tracking
+    Number information. And the total shipping and handling charges appear in
+    the Freight field.</para>
+    <note>
+      <para>The actual weight of the UPS package(s) is stored in the xTuple
+      ERP Database, but is not visible using the application.</para>
+    </note>
+    <para>In this example, there are two distinct Tracking Numbers shown on
+    the Ship Order screen. However, only one Tracking Number can be associated
+    with each xTuple ERP shipment. The fact that there are two Tracking
+    Numbers in this example indicates there are additional Line Items for this
+    Sales Order which have been shipped in UPS WorldShip, but have not yet
+    been issued to Shipping in xTuple ERP.</para>
+    <para>We are now ready to complete the final steps:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Select the correct Tracking Number</para>
+      </listitem>
+      <listitem>
+        <para>Ship the Order</para>
+      </listitem>
+    </itemizedlist>
+    <para>The Tracking Number is now associated with the shipment. It will not
+    appear on the list of Tracking Numbers when the remaining Line Items are
+    shipped. In this way, users are prevented from accidentally using the same
+    Tracking Number twice.</para>
+    <tip>
+      <para>You can track UPS shipments from xTuple ERP using the S/R Module
+      Display "Shipments by Sales Order." You will be connected directly to
+      the UPS website when you select the "Query Shipments" option from the
+      right-click menu.</para>
+    </tip>
+  </section>
+</section>
