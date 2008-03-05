@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section972320">
+  <title><indexterm significance="normal">
+      <primary>purchase orders</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Enter New Purchase Order</title>
+  <para>To create a new Purchase Order, select the "Enter New Purchase Order"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_PO_newPO.png" />
+        </imageobject>
+        <caption>Enter New Purchase Order</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When entering a new Purchase Order, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Order #</term>
+      <listitem>
+        <para>Next available Purchase Order Number will automatically display,
+        unless your system requires you to enter Purchase Order Numbers
+        manually. Default values and input parameters for Purchase Order
+        Numbers are configurable at the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Date</term>
+      <listitem>
+        <para>Displays current day's date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Receiving Whse.</term>
+      <listitem>
+        <para>Specify the Warehouse where materials from the Purchase Order
+        will be received. By default, all active Warehouses are available for
+        selection as Receiving Warehouses. No special designation needs to be
+        made in the Warehouse master or elsewhere to indicate that a Warehouse
+        may be used for receiving purposes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>The receiving Warehouse may differ from the supplying Warehouse(s)
+    for some Purchase Order Line Items. To update your Inventory records to
+    indicate that Items have been moved from the receiving to the supplied
+    from Warehouse, perform an Inter-Warehouse Transfer.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Vendor #</term>
+      <listitem>
+        <para>Enter the Vendor number of the Vendor you are issuing the
+        Purchase Order to.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>A valid Vendor number must be entered in the "Vendor #" field before
+    Line Items can be added to the Purchase Order. If no valid Vendor number
+    is entered, you will not be able to add Line Items to the Purchase
+    Order.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Main Address</term>
+      <listitem>
+        <para>Displays the main address for the specified Vendor. The main
+        address information is the primary Vendor address stored on the Vendor
+        master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Purchasing Agent</term>
+      <listitem>
+        <para>Specify the name of the agent assigned to the Order. By default,
+        the name of the logged-in user will be entered as Purchasing
+        Agent&mdash;assuming that user is designated as a Purchasing Agent. If the
+        user is not a Purchasing Agent, the first alphabetical name in the
+        list of Purchasing Agents will be entered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>The Purchase Order status will display here.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Terms</term>
+      <listitem>
+        <para>Specify the billing Terms for the Order. Default billing Terms
+        for a Vendor are defined on the Vendor master. You may select
+        alternate Terms on the Purchase Order header.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Alt. Address</term>
+      <listitem>
+        <para>Enter the number of an Alternate Address, if you prefer not to
+        use the Main Address. Vendors may maintain multiple Alternate
+        Addresses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Via</term>
+      <listitem>
+        <para>Enter the preferred Ship Via method for this Vendor. By default,
+        the Ship Via entered on the Vendor master will populate this
+        field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>F.O.B.</term>
+      <listitem>
+        <para>Enter the Free On Board (F.O.B.) location for the shipping
+        Warehouse.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the new Purchase Order and saves the Purchase Order
+        information. If your system is configured to prompt for printing on
+        SAVE, then you will be presented with additional processing options
+        after this button is selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Purchase Order,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>purchase orders</primary>
+      <secondary>adding line items to</secondary>
+    </indexterm>To create or modify Purchase Order Line Items, select the
+  "Line Items" tab at the top of the "Purchase Order" screen. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_PO_POLineItems.png" />
+        </imageobject>
+        <caption>Purchase Order Line Items</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating or modifying Purchase Order Line Items, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Line Items</term>
+      <listitem>
+        <para>Display lists Line Items for this Purchase Order. A valid Vendor
+        number must be entered in the "Vendor #" field before Line Items can
+        be added to the Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Subtotal</term>
+      <listitem>
+        <para>Displays the subtotal for the Purchase Order Line Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>Enter any Tax amount, if applicable.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Misc. Freight</term>
+      <listitem>
+        <para>Enter the amount of any miscellaneous freight charges to be
+        added to the Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>freight</primary>
+          <secondary>on purchase orders</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>purchase orders</primary>
+          <secondary>freight charges on</secondary>
+        </indexterm>Freight</term>
+      <listitem>
+        <para>Displays the total amount of freight charges. The amount
+        displayed includes the sum of all Line Item freight and miscellaneous
+        freight charges.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total</term>
+      <listitem>
+        <para>Displays the total value of the Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the Purchase Order Line Item information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Purchase Order,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Purchase Order Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Purchase Order Line Items. The
+        edit screen is the same as that for creating a new Purchase Order Line
+        Item&mdash;except that when editing, the fields will contain Purchase Order
+        Line Item information. Double-clicking on a Purchase Order Line Item
+        will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Purchase Order Line Item and then select this button
+        to remove the Purchase Order Line Item from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Notes to a Purchase Order, select the "Notes" tab at the top of
+  the "Purchase Order" screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_PO_PONotes.png" />
+        </imageobject>
+        <caption>Add Notes to Purchase Order</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Notes to a Purchase Order, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Comments to a Purchase Order&mdash;or to view system-generated
+  Comments&mdash;select the "Comments" tab at the top of the "Purchase Order"
+  screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_PO_POComments.png" />
+        </imageobject>
+        <caption>Add Comments to Purchase Order</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Comments to a Purchase Order, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>Display lists Comments for the specified Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Comment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Comment and then select this button to reach a
+        read-only view of the Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a Purchase Order Comment, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CommentNew.png" />
+        </imageobject>
+        <caption>Create New Comment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Comment, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Comment and adds it to the list of Order
+        Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>If you want to speed up your data entry of Purchase Order Line Items,
+  you can use the Quick Entry interface. This screen allows you to enter
+  multiple Line Items in one session. It also simplifies the process by
+  presenting only the minimum required fields. To enter Line Items using the
+  Quick Entry interface, select the "Quick Entry" tab at the top of the
+  "Purchase Order" screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_PO_POQuick.png" />
+        </imageobject>
+        <caption>Purchase Order Quick Entry</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>To get started entering Line Items, place your cursor in the "Item"
+    field. You can then move from field-to-field using the TAB button on your
+    keyboard.</para>
+  </tip>
+  <para>When entering Purchase Order Line Items using the Quick Entry
+  interface, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item</term>
+      <listitem>
+        <para>Enter an Inventory Item Number. This field is used for entering
+        Items stored in Inventory. Use the "Vend. Item #" field for entering
+        non-Inventory Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Supplying Whs.</term>
+      <listitem>
+        <para>Select a Supplying Warehouse from the list of available options.
+        By default, the user's preferred Warehouse will be presented
+        first.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vend. Item #</term>
+      <listitem>
+        <para>Use this field for entering non-Inventory Item Numbers. If not
+        used to handle non-Inventory Items, this field will display Vendor
+        Item Numbers for Inventory Items which have Item Sources
+        defined.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expense Cat.</term>
+      <listitem>
+        <para>Enter the Expense Category you want your non-Inventory quantity
+        to be assigned to. Use this option for non-Inventory Line Items
+        only.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty.</term>
+      <listitem>
+        <para>Enter the quantity you want to purchase.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Unit Price</term>
+      <listitem>
+        <para>Enter the Unit Price for the Line Item. If an Item Source is
+        defined, this information may fill in automatically.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ext. Price</term>
+      <listitem>
+        <para>Displays the Extended Price. This is a calculated field and is
+        shaded to indicate that it may not be edited.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Freight</term>
+      <listitem>
+        <para>Enter the Freight amount, if any.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Enter the due date. If an Item Source is defined, this
+        information may fill in automatically.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE QUICK ENTRIES</term>
+      <listitem>
+        <para>Select to save all the Line Items entered using the Quick Entry
+        interface.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE QUICK ENTRY</term>
+      <listitem>
+        <para>Highlight a Line Item and then select this button to remove the
+        Item from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="purchaseOrderItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

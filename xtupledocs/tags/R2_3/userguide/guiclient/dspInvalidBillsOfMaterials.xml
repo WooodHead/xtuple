@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520838">
+  <title>
+<indexterm significance="normal">
+      <primary>bills of materials</primary>
+      <secondary>without component item sites</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>bills of materials</primary>
+      <secondary>invalid</secondary>
+    </indexterm>Bills of Materials Without Component Item Sites</title>
+  <para>The "Bills of Materials Without Component Item Sites" utility enables
+  you to generate a list of parent Items whose Bills of Materials do not have
+  component Item Sites. The display also provides other valuable information
+  about each Item. Selecting the "The Bills of Materials Without Component
+  Item Sites" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspInvalidBillsOfMaterials.png"/>
+        </imageobject>
+        <caption>Bills of Materials Without Component Item
+        Sites</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>This utility may run for a long period of time. We recommend running
+    it during off-peak hours whenever possible.</para>
+  </note>
+  <para>When using this utility, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry role="standard">
+      <term>All Warehouse</term>
+      <listitem>
+        <para>Select to display Bills of Materials without component Item
+        Sites from all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose Bills of Materials without component
+        Items Sites you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Update when Items or Item Sites are Changed</term>
+      <listitem>
+        <para>Select to update the display when changes are made to Items or
+        Item Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Invalid Bill of Material Items</term>
+      <listitem>
+        <para>Display lists invalid Bill of Materials Items sorted according
+        to the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to identify Bills of Materials without component Item
+        Sites, using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the Product Category list enables you to
+  select the following menu options:</para>
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditParentItem)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditParentItemSite)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickCreateCompItemSite)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

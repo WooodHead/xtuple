@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="configureIE">
+  <title id="configureIE.title">Configure Import and Export</title>
+  <para>The Import and Export configuration allows you to set options for
+  importing data from XML files as an alternative to the CSV Import tool.
+  These data might be generated manually or by other database or e-commerce
+  systems. For example xTuple supports importing orders from Yahoo!
+  stores.</para>
+  <para>Importing data from XML files is a multi-step process:</para>
+  <orderedlist>
+    <listitem>
+      <para>The files have to be received from the originator and placed on a
+      computer file system where the xTuple application can find them.</para>
+    </listitem>
+    <listitem>
+      <para>Any wrapper information has to be stripped off, such as mail
+      headers for files received by electronic mail.</para>
+    </listitem>
+    <listitem>
+      <para>The XML has to be converted from its original format to one
+      understood by the xTuple application.</para>
+    </listitem>
+    <listitem>
+      <para>The converted file has to be read by the xTuple application and
+      its contents inserted into the database.</para>
+    </listitem>
+  </orderedlist>
+  <para>xTuple currently does not automate the first two steps in this
+  process.</para>
+  <para>xTuple uses <indexterm>
+      <primary>XSLT</primary>
+      <secondary>transforming XML documents for import</secondary>
+    </indexterm><link linkend="glossary.XSLT">XSLT</link> to convert XML files
+  from one format to another. XML file formats are described in DTDs. The
+  <literal>xtupleimport</literal> <indexterm>
+      <primary>DTD</primary>
+      <secondary>xtupleapi</secondary>
+    </indexterm><link linkend="glossary.DTD">DTD</link> defines an XML file
+  format which can be directly imported by the xTuple application. This DTD
+  defines XML tags with names that correspond exactly with the names of views
+  and columns in the xTuple import API.</para>
+  <para>An XSLT file for transforming Yahoo! OrderList files for import into
+  an xTuple database is available from xTuple. If you need to import data
+  files in other XML formats you must write your own XSLT to convert the data
+  to conform to xTuple's DTD.</para>
+  <para>To configure which transformations to use for XML files in various
+  formats, click the XSLT Mapping tab on the Configure Import and Export
+  window.</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/configureIE_mappingTab.png" />
+      </imageobject>
+      <caption><para>Configure XSLT Mapping</para></caption>
+    </mediaobject>
+  </screenshot>
+  <para>When configuring XSLT Mapping, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="configureIE.defaultXSLTdirectory">Default XSLT File
+      Directories</term>
+      <listitem>
+        <para>The XSLT files used to perform the translation between XML data
+        formats must be present on the file system of the computer which is
+        running the xTuple application. This set of options lets you define
+        one directory for each operating system platform where the application
+        should look for XSLT files.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Map of XSLT import and export filters</term>
+      <listitem>
+        <para>This is a list of document transformations recognized by the
+        xTuple application. These transformations are called
+        <wordasword>filters</wordasword>.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the list of import and export filters, the
+  following buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens the screen for entering new XSLT import and export
+        filters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Opens the screen for editing existing XSLT import and export
+        filters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Delete existing XSLT import and export filters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new XSLT Map, select the NEW button. The following screen
+  will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/xsltMap.png" />
+      </imageobject>
+      <caption><para>XSLT Map</para></caption>
+    </mediaobject>
+  </screenshot>
+  <para>When creating a new XSLT Map, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Map Name</term>
+      <listitem>
+        <para>This is a name you choose to describe this map.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Document Type</term>
+      <listitem>
+        <para>This is the XML document type that the application will use to
+        find the correct filter to use when importing an XML document. When
+        the application starts to import an XML document, it looks for the
+        <literal>DOCTYPE</literal> processing directive at the top of the
+        file. If the <literal>DOCTYPE</literal> is
+        <literal>xtupleimport</literal> then no transformation is required.
+        Otherwise it searches for a match in the Document Type and System
+        Identifier columns to find the correct filter to use when importing
+        the file.</para>
+        <para>The Document Type of an XML file is the name of its root
+        element.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>System Identifier</term>
+      <listitem>
+        <para>This is the System Identifier that the application will use to
+        find the correct filter to use when importing an XML document.</para>
+        <para>The System Identifier is a URI that describes how to get the DTD
+        for the XML document.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Import XSLT File Name</term>
+      <listitem>
+        <para>This is the name of the XSLT file that will be used to transform
+        XML files with this Document Type and System Identiifer to xTuple's
+        format for XML files. If the name of the file is a full path, starting
+        with a drive letter on Windows or a / on Macintosh or Linux, then the
+        application will look for this file using this full path
+        specification. If the name is a simple filename (like
+        <filename>myTransform.xsl</filename>) or a relative pathname (like
+        <filename>oasis/from_ubl.xsl</filename>) then the application will
+        look for it in the default XSLT directory defined on the
+        <guilabel>Configure Import and Export</guilabel> window.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Export XSLT File Name</term>
+      <listitem>
+        <para>This is the name of the XSLT file that will be used to transform
+        XML files generated by xTuple to a file of the given Document Type and
+        System Identifier.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Exporting XML is not currently supported by xTuple. At this time the
+    <guilabel>Export XSLT File Name</guilabel> on the XSLT Map window and the
+    <guilabel>XML Export</guilabel> tab on the <guilabel>Configure Import and
+    Export</guilabel> window are placeholders for future development.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Cancels any changes to the XSLT Map and returns to the
+        <guilabel>Configure Import and Export </guilabel>window.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the changes to the XSLT Map and returns to the
+        <guilabel>Configure Import and Export</guilabel> window.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The <guilabel>XML Import</guilabel> tab on the <guilabel>Configure
+  Import and Export</guilabel> window lets you define how the transformations
+  are to be performed.</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/configureIE_importTab.png" />
+      </imageobject>
+      <caption><para>XML Import</para></caption>
+    </mediaobject>
+  </screenshot>
+  <para>When configuring XML Import processing you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>XSLT Processor</term>
+      <listitem>
+        <para>XSLT is a language for transforming XML documents. To apply an
+        XSLT stylesheet to a given XML document you need an XSLT processor.
+        This is a program that interprets or compiles the XSLT and then
+        performs the transformation on the XML file.</para>
+        <note>
+          <para>Each XSLT processor has its own command-line syntax.</para>
+        </note>
+        <variablelist>
+          <varlistentry>
+            <term>Use External XSLT Processor. Commands</term>
+            <listitem>
+              <para>Lets you define the command line that the xTuple
+              application should execute to perform the transformation. Two
+              arguments that will always be required are the name of the XSLT
+              file which describes the transformation and the XML file to be
+              transformed. When typing the command line that should be run to
+              call the XSLT processor, put %f where the XSLT processor expects
+              to find the name of the XML file and %x where the XSLT processor
+              expects to find the name of the XSLT file.</para>
+              <para>In the figure you see three different XSLT processors
+              defined. Each has its own syntax, which is reflected by the
+              differences in the sequence of options and the way run-time
+              parameters are passed to the stylesheets. Note that
+              <command>msxsl.exe</command> takes the XML and XSLT files in a
+              different order than the other two processors.</para>
+              <para>XSLT run-time parameters let you write a stylesheet with
+              default values that can be changed when you run a transformation
+              without editing the stylesheet itself. In this example, written
+              to use xTuple's stylesheet for importing Yahoo! orders, the
+              customer_default_tax_authority parameter is set to INET; when
+              Customer records are created they will all be assigned the tax
+              authority INET.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="configureIE.defaultImportDirectory">Default Import File
+      Directories</term>
+      <listitem>
+        <para>This names the directory on each platform that the xTuple
+        application will search when the user wants to import XML files. It is
+        used to populate the <guilabel>Import XML</guilabel> window.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>XML File Handling Options</term>
+      <listitem>
+        <para>This set of options lets you choose what the application should
+        do with XML files after they have been imported successfully. Files
+        which lead to errors during import will be left in place.</para>
+        <variablelist>
+          <varlistentry>
+            <term id="configureIE.filehandling.donothing">Do nothing after
+            successful import</term>
+            <listitem>
+              <para>If you choose this option then the application will leave
+              imported files unchanged in the import directory.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Rename after successful import. Append</term>
+            <listitem>
+              <para>If you choose this option then the application will leave
+              the files in the import directory but will add a suffix to the
+              file. You must give a suffix in the adjacent text field if you
+              select this option.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Move after successful import to</term>
+            <listitem>
+              <para>If you choose this option then the application will move
+              the files to the directory you name after the import is
+              complete. If the directory name is a simple or relative path
+              then the application assumes this is a subdirectory of or is
+              relative to the Default Import Directory.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Delete after successful import</term>
+            <listitem>
+              <para>This will remove the files from the import directory after
+              they have been imported.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The XML Export tab is currently empty. It is a placeholder for
+    future development.</para>
+  </note>
+</section>

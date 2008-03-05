@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section549958">
+  <title><indexterm significance="normal">
+      <primary>accounts payable</primary>
+      <secondary>aging report for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>open items</primary>
+      <secondary>aging report for payables</secondary>
+    </indexterm>A/P Aging</title>
+  <para>To view Accounts Payable (A/P) open items from an aging perspective,
+  select the "A/P Aging" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AP_Disp_apAging.png" />
+        </imageobject>
+        <caption>A/P Aging</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying aging A/P open items, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Vendors</term>
+      <listitem>
+        <para>Select to display A/P open items for all Vendors.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected Vendor</term>
+      <listitem>
+        <para>Select to display A/P open items for a selected Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected Vendor Type</term>
+      <listitem>
+        <para>Specify Vendor Type whose A/P open items you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor Type Pattern</term>
+      <listitem>
+        <para>Enter a Vendor Type pattern to select a range of Vendor Types.
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>As of Date</term>
+      <listitem>
+        <para>Specify the date you want the A/P open items to be relative to.
+        The report will include any A/P items which were open&mdash;that is, not
+        yet paid&mdash;as of the specified date. This feature provides
+        "point-in-time" open balance functionality.</para>
+        <note>
+          <para>The payment date used as a reference for the "As of Date"
+          field is the G/L distribution date, not the posting date.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Custom Calendar</term>
+      <listitem>
+        <para>Select if you want to display A/P open items using a custom
+        Calendar of your choosing. If selected, the screen will present a
+        series of different options, including the option to select a Calendar
+        and associated periods.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>A/P Open Items</term>
+      <listitem>
+        <para>Display lists aging A/P open items, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>accounts payable</primary>
+      <secondary>time-phased open items for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>open items</primary>
+      <secondary>time-phased for payables</secondary>
+    </indexterm>To view A/P open items using a custom Calendar, select the
+  "Use Custom Calendar" option above. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AP_Disp_apAgingCalendar.png" />
+        </imageobject>
+        <caption>Custom A/P Aging Calendar</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying A/P open items using a custom Calendar, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Calendar</term>
+      <listitem>
+        <para>Select the Calendar you want to use for the report. Associated
+        Calendar periods will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name/Selected Periods</term>
+      <listitem>
+        <para>Select as many periods as you want to display. Selected periods
+        correspond to Calendar specified in the "Calendar" field. Select
+        individual periods or groups of periods together. To select an
+        individual period, highlight the period using your mouse button. The
+        period is now selected. To select a sequence of periods, highlight the
+        first in the sequence using your mouse button. Then, holding down the
+        SHIFT key on your keyboard, highlight the last period in the sequence.
+        The entire sequence is now selected. To select periods that are out of
+        sequence (e.g., January, April, July, October), highlight the first
+        period in the group. Then, holding down the CTRL key on your keyboard,
+        highlight the next period you want to select. Continue highlighting
+        periods with the CTRL key depressed until all desired periods are
+        selected. The entire group is now selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>A/P Open Items</term>
+      <listitem>
+        <para>Display lists time-phased A/P open items, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>SUBMIT</term>
+      <listitem>
+        <para>Select to submit report to the Batch Manager. For additional
+        information, see <xref linkend="Anchor61009" />.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Vendor in the A/P open items list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewOpenItems)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+</section>

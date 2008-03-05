@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+   <title>
+   Create Lot/Serial #
+  </title>
+   <subtitle>createLotSerial : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/createLotSerial.png"/>
+            </imageobject>
+            <caption>
+   Create Lot/Serial #
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Lot/Serial #:</guilabel>
+               </entry>
+               <entry>_lotSerialLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Expiration Date:</guilabel>
+               </entry>
+               <entry>_expirationDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Qty. to Assign:</guilabel>
+               </entry>
+               <entry>_qtyToAssignLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_lotSerial</entry>
+               <entry>XLineEdit</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_expiration</entry>
+               <entry>DLineEdit</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_qtyToAssign</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>A</accel>ssign</guilabel>
+               </entry>
+               <entry>_assign</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

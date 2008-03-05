@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520815">
+  <title><indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>locating undefined manufactured</secondary>
+    </indexterm>Undefined Manufactured Items</title>
+  <para>The "Undefined Manufactured Items" utility enables you to generate a
+  list of purchased Items that do not have valid Bills of Materials and/or
+  Bills of Operations defined. The display also provides other valuable
+  information about each Item. Using the right-click option, you can use this
+  utility to quickly resolve problems related to invalid Bills of Materials
+  and/or Bills of Operations, using the right-click option. Selecting the
+  "Undefined Manufactured Items" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspUndefinedManufacturedItems.png" />
+        </imageobject>
+        <caption>Undefined Manufactured Items</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>This utility may run for a long period of time. We recommend running
+    it during off-peak hours whenever possible.</para>
+  </note>
+  <para>When using this utility, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Show Manufactured Items with valid Bills of Operations</term>
+      <listitem>
+        <para>Select to display all manufactured Items with valid Bills of
+        Operations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Manufactured Items without valid Bills of Materials</term>
+      <listitem>
+        <para>Select to display all manufactured Items without valid Bills of
+        Materials. Display will show undefined manufactured Items" for the
+        selected Class Code.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Inactive Items</term>
+      <listitem>
+        <para>Select to display inactive Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Undefined Manufactured Items</term>
+      <listitem>
+        <para>Display lists undefined Manufactured Items, using the parameters
+        specified on the screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to identify undefined Manufactured Items, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the list of undefined manufactured Items
+  enables you to select the following menu options. The "Create BOM" option
+  will appear only if the Item does not have a Bill of Materials. The "Create
+  BOO" option will appear only if the Item does not have a Bill of
+  Operations.</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateBOM)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateBOO)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/7/2/6)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+</section>

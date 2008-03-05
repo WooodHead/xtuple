@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section538592" role="openmfg">
+  <title>Warehouse Week</title>
+  <para>Warehouse weeks are used to define the days of the week when a
+  Warehouse is open for business. For example, a production Warehouse may
+  operate from Monday-Friday; whereas, the hours for a Shipping Warehouse may
+  also include the weekend.</para>
+  <note>
+    <para>The Constraint Management system considers work week settings when
+    calculating time buffers for Item Sites.</para>
+  </note>
+  <para>To define the work week for a Warehouse(s), select the "Warehouse
+  Week" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/whseWeek.png" />
+        </imageobject>
+        <caption>Create New Warehouse Work Week</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When defining the work week for a Warehouse, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to create a blanket schedule for all Warehouses. Specify
+        which days the Warehouses are open for business. Settings made using
+        this option will be inherited by all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>After creating a blanket schedule for all Warehouses, you may then
+    switch to the selected mode and modify the schedules for individual
+    Warehouses.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Select the Warehouse whose work week you want to define. Specify
+        which days the Warehouse is open for business. Settings made using
+        this option are specific to the selected Warehouse.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating work weeks for your
+        Warehouses, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the settings for any Warehouse weeks you have
+        defined.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section578361">
+  <title>
+<indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>exporting information for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>exporting</primary>
+      <secondary>of customer information</secondary>
+    </indexterm>Customer Information Export</title>
+  <para>The Customer Information Export utility enables you to selectively
+  identify Customer information, which you may then export into a plain-text,
+  TAB-delimited file. The exporting of selected information is handled using
+  the "Export Contents" option in the screen's right-click menu. To specify
+  the Customer information you want to tag for export, select the "Customer
+  Information Export" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspCustomerInformationExport.png"/>
+        </imageobject>
+        <caption>Customer Information Export</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When specifying Customer information you want to tag for export, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Customer Types</term>
+      <listitem>
+        <para>Select to tag all Customer Types for export.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Customer Type you want to tag for export.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Customer Type pattern to select a range of Customer
+        Types. Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806"/>.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>General</term>
+      <listitem>
+        <para>Select from the following general information categories:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Number</term>
+            <listitem>
+              <para>Select to tag the Customer Number for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Name</term>
+            <listitem>
+              <para>Select to tag the Customer name for export.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Billing Address</term>
+      <listitem>
+        <para>Select from the following billing address categories: </para>
+        <variablelist>
+          <varlistentry>
+            <term>Address 1</term>
+            <listitem>
+              <para>Select to tag the first address line for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Address 2</term>
+            <listitem>
+              <para>Select to tag the second address line for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Address 3</term>
+            <listitem>
+              <para>Select to tag the third address line for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>Select to tag the city for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>Select to tag the state for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Zip Code</term>
+            <listitem>
+              <para>Select to tag the zip code for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>Select to tag the country for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Contact</term>
+            <listitem>
+              <para>Select to tag the contact name for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Phone</term>
+            <listitem>
+              <para>Select to tag the contact's phone number for
+              export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>FAX</term>
+            <listitem>
+              <para>Select to tag the contact's fax number for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Email</term>
+            <listitem>
+              <para>Select to tag the contact's email address for
+              export.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Correspondence Address</term>
+      <listitem>
+        <para>Select from the following correspondence address
+        categories:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Address 1</term>
+            <listitem>
+              <para>Select to tag the first address line for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Address 2</term>
+            <listitem>
+              <para>Select to tag the second address line for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Address 3</term>
+            <listitem>
+              <para>Select to tag the third address line for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>Select to tag the city for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>Select to tag the state for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Zip Code</term>
+            <listitem>
+              <para>Select to tag the zip code for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>Select to tag the country for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Contact</term>
+            <listitem>
+              <para>Select to tag the contact name for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Phone</term>
+            <listitem>
+              <para>Select to tag the contact's phone number for
+              export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>FAX</term>
+            <listitem>
+              <para>Select to tag the contact's fax number for export.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Email</term>
+            <listitem>
+              <para>Select to tag the contact's email address for
+              export.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Inactive</term>
+      <listitem>
+        <para>Select to include inactive Customers in the list of Customers
+        tagged for export.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Information</term>
+      <listitem>
+        <para>Display lists Customer information tagged for export.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on the Customer Information list enables you to select
+  from the following menu option:</para>
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

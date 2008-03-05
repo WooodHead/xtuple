@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section972514">
+  <title>
+<indexterm significance="normal">
+      <primary>purchase orders</primary>
+      <secondary>list of unposted</secondary>
+    </indexterm>List Unposted Purchase Orders</title>
+  <para>The List Unposted Purchase Orders screen displays both unposted and
+  unvouchered Purchase Orders. From this screen you may create new or edit
+  existing Purchase Orders. To see the list of unposted and/or unvouchered
+  Purchase Orders, select the "List Unposted Purchase Orders" option. The
+  following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/unpostedPurchaseOrders.png"/>
+        </imageobject>
+        <caption>List Unposted Purchase Orders</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>Unposted Purchase Orders are considered to be a valid source of
+    supply by the planning systems.</para>
+  </note>
+  <para>The "Unposted Purchase Orders" screen displays information on all
+  existing unposted Purchase Orders, including Purchase Order Number, Vendor
+  name, Order due date, and status. Open Purchase Orders which have not yet
+  been vouchered may also be displayed by selecting the "Show All Unvouchered
+  P/Os" option.</para>
+  <tip>
+    <para>You may select multiple Purchase Orders for printing or posting by
+    highlighting them using your mouse&mdash;or a combination of your mouse and
+    either the SHIFT or CTRL keys.</para>
+  </tip>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="unpostedPurchaseOrdersEDIT">
+        <para>Enables you to edit highlighted Purchase Order. The edit screen
+        is the same as that for creating a new Purchase Order --except that
+        when editing, the fields will contain Purchase Order information.
+        Double-clicking on a Purchase Order will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>You can edit posted Purchase Orders if you select the "Show All
+    Unvouchered POs" option, which displays all posted POs which have not yet
+    been vouchered.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="unpostedPurchaseOrdersVIEW">
+        <para>Highlight a Purchase Order and then select this button to reach
+        a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="unpostedPurchaseOrdersDELETE">
+        <para>Highlight a Purchase Order and then select this button to remove
+        the Purchase Order from the list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT P/O</term>
+      <listitem id="unpostedPurchaseOrdersPRINT">
+        <para>Highlight a Purchase Order and then select this button to print
+        a copy of the selected Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST P/O</term>
+      <listitem id="unpostedPurchaseOrdersPOST">
+        <para>Highlight a Purchase Order and then select this button to post
+        the selected Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an unposted Purchase Order in the unposted Purchase
+  Order master list enables you to select from the following menu
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Edit</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(unpostedPurchaseOrdersEDIT)"/>
+    </varlistentry>
+    <varlistentry>
+      <term>View</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(unpostedPurchaseOrdersVIEW)"/>
+    </varlistentry>
+    <varlistentry>
+      <term>Delete</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(unpostedPurchaseOrdersDELETE)"/>
+    </varlistentry>
+    <varlistentry>
+      <term>Print</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(unpostedPurchaseOrdersPRINT)"/>
+    </varlistentry>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickDeliver)"/>
+    <varlistentry>
+      <term>Post</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(unpostedPurchaseOrdersPOST)"/>
+    </varlistentry>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

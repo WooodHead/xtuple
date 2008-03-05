@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519487" role="openmfg">
+  <title>Enter New Bill of Operations</title>
+  <para>To enter a new Bill of Operations, select the "Enter New Bill of
+  Operations" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/boo.png" />
+        </imageobject>
+        <caption>Create New Bill of Operations</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Bill of Operations, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the manufactured Item you want to
+        create a Bill of Operations for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>operations</primary>
+          <secondary>expired from BOOs</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>bills of operations</primary>
+          <secondary>expired operations in</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>expiration</primary>
+          <secondary>of operations in BOOs</secondary>
+        </indexterm>Show Expired Operations</term>
+      <listitem>
+        <para>Select to display expired Operations in the "Bill of Operations"
+        display. Expired Operations are Operations that have been expired from
+        the Bill of Operations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>operations</primary>
+          <secondary>adding to BOOs in future</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>bills of operations</primary>
+          <secondary>future operations in</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>future</primary>
+          <secondary>of operations in BOOs</secondary>
+        </indexterm>Show Future Operations</term>
+      <listitem>
+        <para>Select to display future Operations in the "Bill of Operations"
+        display. Future Operations are Operations that will be added to the
+        Bill of Operations at a future point in time.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>bills of operations</primary>
+          <secondary>revisions for</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>revisions</primary>
+          <secondary>in boos</secondary>
+        </indexterm>Revision</term>
+      <listitem>
+        <para>If Revision Control is enabled at your site, specify the Bill of
+        Operations Revision Number you want to view. If none exists, simply
+        enter a value to create one. The status of the Revision will also be
+        displayed. The following statuses apply to Revisions:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Active</term>
+            <listitem>
+              <para>This is the current Revision. Only one Revision can be
+              active at the same time. Active Revisions may be modified.
+              However, once a Revision becomes inactive, it may no longer be
+              changed.</para>
+              <tip>
+                <para>The active Revision becomes inactive when a pending
+                Revision is activated. Inactive Revisions cannot be
+                modified.</para>
+              </tip>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Pending</term>
+            <listitem>
+              <para>This is a Revision that has never been used, but is under
+              development or consideration. You may store multiple pending
+              Revisions. When a pending Revision is entered in the "Revision"
+              field, an ACTIVATE button will dynamically appear to the far
+              right of the screen. Select the ACTIVATE button to convert a
+              pending Revision to the active Revision.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Inactive</term>
+            <listitem>
+              <para>This is a formerly active Revision. Inactive Revisions
+              cannot be modified&mdash;only viewed. They are stored to provide
+              historical, point-in-time build information, which may be used
+              for various purposes throughout the application. You may store
+              multiple inactive Revisions.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Document #</term>
+      <listitem>
+        <para>If desired, enter a document number to further identify the Bill
+        of Materials.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Revision Date</term>
+      <listitem>
+        <para>Indicates the date of the revision. This field updates every
+        time the Bill of Operations is saved.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Once a revision date has been entered, the date field cannot be
+    erased. The specific date may be updated to reflect subsequent revisions,
+    but the field will never be null as long as the Bill of Materials
+    exists.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>work in process</primary>
+          <secondary>boo-defined locations for</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>bills of operations</primary>
+          <secondary>wip locations and</secondary>
+        </indexterm>Final Location</term>
+      <listitem>
+        <para>Select a final work-in-process (WIP) Location. This is an
+        optional selection which may be used for tracking the Warehouse
+        Locations of finished goods Inventory as it moves through the
+        manufacturing process. The feature applies only to top-level, Multiple
+        Location Control (MLC) Items whose production is posted through Work
+        Order Operations posting. If you choose to track finished MLC goods
+        using this feature, then the final Location is the Location where
+        Inventory will be located when Operations posting for the Work Order
+        is completed. If you do not wish to track WIP Locations for finished
+        MLC goods, then you can ignore this option.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>bills of operations</primary>
+          <secondary>production lead times in</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>lead times</primary>
+          <secondary>in BOOs</secondary>
+        </indexterm>Production Lead Time</term>
+      <listitem>
+        <para>Lead Time: Displays production Lead Time for the specified Item.
+        The production Lead Time value is equal to the maximum Execution Day
+        value specified for listed Operations. Each Operation must have an
+        Execution Day specified. Based on values entered for all listed
+        Operations, whichever Execution Day value is the maximum, that value
+        will be displayed as the production Lead Time for the Bill of
+        Operations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Close W/O when full Qty. Posted</term>
+      <listitem>
+        <para>Select to automatically close Work Orders when the full Work
+        Order quantity is posted when posting Operations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bill of Operations</term>
+      <listitem>
+        <para>Display lists all Operations for the selected Bill of
+        Operations.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the new Bill of Operations to the master list of Bills of
+        Operations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ACTIVATE</term>
+      <listitem>
+        <para>Select to activate a pending Revision. This button will only be
+        visible when a pending Revision number is entered in the "Revision"
+        field.</para>
+        <tip>
+          <para>When you activate a pending Revision, the currently active
+          Revision will become inactive. Inactive Revisions cannot be
+          modified.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Operation.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="booEDIT">
+        <para>Enables you to edit highlighted Operations. The edit screen is
+        the same as that for creating a new Operation&mdash;except that when
+        editing, the fields will contain Operation information.
+        Double-clicking on an Operation will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="booVIEW">
+        <para>Highlight an Operation and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EXPIRE</term>
+      <listitem id="booEXPIRE">
+        <para>Highlight an Operation and then select this button to expire the
+        Operation, causing it to be hidden from view on the list&mdash;unless the
+        "Show Expired Operations" option is specifically chosen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If the Operation is expired on the current day, the Operation will
+    still appear as an option when selecting "Used At" Operations on a Bill of
+    Materials (BOM) if done during the same current day. Once a day passes,
+    however, the expired Operation will no longer appear as a "Used At" option
+    on the BOM.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>MOVE UP</term>
+      <listitem id="booMOVEUP">
+        <para>Highlight an Operation and then select this button to move the
+        Operation up the Bill of Operations list. Sequence numbers, which are
+        incremented in multiples of ten, are automatically adjusted to reflect
+        the change in position.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>MOVE DOWN</term>
+      <listitem id="booMOVEDOWN">
+        <para>Highlight an Operation and then select this button to move the
+        Operation down the Bill of Operations list. Sequence numbers, which
+        are incremented in multiples of ten, are automatically adjusted to
+        reflect the change in position.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the Bill of Materials Item list enables
+  you to select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>View</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(booVIEW)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Edit</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(booEDIT)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Expire</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(booEXPIRE)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Move Up</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(booMOVEUP)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Move Down</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(booMOVEDOWN)" />
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <xi:include href="booItem.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

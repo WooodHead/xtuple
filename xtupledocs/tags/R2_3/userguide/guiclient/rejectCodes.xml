@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section960674">
+  <title>
+<indexterm significance="normal">
+      <primary>reject codes</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Reject Codes</title>
+  <para>Reject Codes provide a means for labeling purchased Items when and if
+  they are returned to the Vendor who supplied them. A Reject Code explains
+  why an Item is being returned. To access the master list of Reject Codes,
+  select the "Reject Codes" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/rejectCodes.png"/>
+        </imageobject>
+        <caption>Reject Codes Master List</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>The "Reject Codes" screen displays information on all existing Reject
+  Codes, including Reject Code and Reject Code description.</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Reject Code.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Reject Code. The edit screen is
+        the same as that for creating a new Reject Code --except that when
+        editing, the fields will contain Reject Code information.
+        Double-clicking on a Reject Code will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Reject Code and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Reject Code and then select this button to remove
+        the Reject Code from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rejectCode.xml" xpointer="element(/1)"/>
+</section>

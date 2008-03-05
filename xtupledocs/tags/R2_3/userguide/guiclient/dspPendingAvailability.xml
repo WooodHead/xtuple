@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519778">
+  <title>
+<indexterm significance="normal">
+      <primary>work orders</primary>
+      <secondary>pending material availability for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>materials</primary>
+      <secondary>pending w/o availability</secondary>
+    </indexterm>Pending W/O Material Availability</title>
+  <para>To view the Pending Availability for Work Order Material Requirements
+  associated with a Work Order, select the "Pending W/O Material Availability"
+  option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspPendingAvailability.png"/>
+        </imageobject>
+        <caption>Pending Work Order Material
+        Availability</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>This display shows Pending Availability for Work Order Material
+    Requirements associated with the manufactured parent Item.</para>
+  </note>
+  <para>When displaying pending Work Order Material Availability, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose pending material
+        Availability you want to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warehouse</term>
+      <listitem>
+        <para>Specify Warehouse whose pending Work Order Material Availability
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. to Build</term>
+      <listitem>
+        <para>Enter the quantity ordered for the hypothetical Work Order Item.
+        The Pending Availability for Material Requirements will vary depending
+        on the quantity entered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Effective</term>
+      <listitem>
+        <para>Pending Work Order Material Availability on or after this date
+        will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Build Date</term>
+      <listitem>
+        <para>Enter the date you need to begin building the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Only Show Shortages</term>
+      <listitem>
+        <para>Select to only show shortages in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Material Requirements</term>
+      <listitem>
+        <para>Display lists pending Work Order Material Availability, using
+        the specified parameters. The display is color-coded for ease of use.
+        Orange text indicates the Item has fallen below its Reorder Level. Red
+        text indicates the Quantity on Hand or Availability has fallen below
+        0.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

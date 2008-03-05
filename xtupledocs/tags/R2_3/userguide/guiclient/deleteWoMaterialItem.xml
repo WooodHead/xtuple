@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518843">
+   <title>
+       
+      <indexterm significance="normal">
+         <primary>work orders</primary>
+         <secondary>deleting material requirements from</secondary>
+      </indexterm>Delete W/O Material Requirement</title>
+   <para>To delete a Work Order Material Requirement, select
+    the "Delete Work Order Material Requirement" option. The following screen
+    will appear:</para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/deleteWoMaterialItem.png"/>
+            </imageobject>
+            <caption>Delete Work Order Material
+          Requirement</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <para>When deleting a Work Order Material Requirement, you
+    are presented with the following options:</para>
+   <variablelist>
+      <varlistentry>
+         <term>Work Order #</term>
+         <listitem>
+            <para>Enter the Work Order Number of the Work Order you want to
+          delete a Material Requirement from.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>Whs.</term>
+         <listitem>
+            <para>Displays Warehouse code automatically when Work Order Number
+          is entered into "Work Order #" field.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>Item Number</term>
+         <listitem>
+            <para>Displays Item Number automatically when Work Order Number is
+          entered into "Work Order #" field.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>UOM</term>
+         <listitem>
+            <para>Inventory Unit of Measure.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>Status</term>
+         <listitem>
+            <para>Displays Work Order Status automatically when Work Order
+          Number is entered into "Work Order #" field.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>Component Item Number</term>
+         <listitem>
+            <para>Select one of the component Items from the parent Item's Bill
+          of Materials.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>UOM</term>
+         <listitem>
+            <para>Inventory Unit of Measure.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>Qty. Per</term>
+         <listitem>
+            <para>Per: Displays the quantity per each specified on the Item's
+          Bill of Materials.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>Scrap %</term>
+         <listitem>
+            <para>Displays the Scrap percentage specified on the Item's Bill of
+          Materials.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>Qty. Required</term>
+         <listitem>
+            <para>Required: Displays quantity required to fulfill the Work Order
+          Material Requirement.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>Qty. Issued</term>
+         <listitem>
+            <para>Issued: Displays quantity issued toward fulfillment of the
+          Work Order Material Requirement.</para>
+         </listitem>
+      </varlistentry>
+   </variablelist>
+   <para>To the far right of the screen, the following
+    buttons are available:</para>
+   <variablelist>
+      <varlistentry>
+         <term>CLOSE</term>
+         <listitem>
+            <para>Closes the screen without deleting the selected Work Order
+          Material Requirement, returning you to the application
+          desktop.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>DELETE</term>
+         <listitem>
+            <para>Highlight a component Item and then select this button to
+          delete the selected Work Order Material Requirement.</para>
+         </listitem>
+      </varlistentry>
+   </variablelist>
+</section>

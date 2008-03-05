@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518641">
+  <title><indexterm significance="normal">
+      <primary>bills of lading</primary>
+      <secondary>printing of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>shipping forms</primary>
+      <secondary>printing of</secondary>
+    </indexterm>Print Shipping Form</title>
+  <para>A Bill of Lading is an example of a Shipping Form. To print a Shipping
+  Form, select the "Shipping Form" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SR_Forms_printShpForm.png"
+                     />
+        </imageobject>
+        <caption>Print Shipping Form</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When printing a Shipping Form, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Sales Order #</term>
+      <listitem>
+        <para>Enter the Sales Order Number of the Sales Order whose Shipping
+        Form you want to print.</para>
+        <para>The browse button located to the right of the field leads to a
+        searchable list of Sales Orders with quantities at Shipping. Only
+        Sales Orders with quantities at Shipping will appear in the
+        list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Only Sales Orders which have had Items issued to Shipping may be
+    selected. Once an Order has been shipped, you may no longer select it and
+    print a Shipping Form for it.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Ship To</term>
+      <listitem>
+        <para>Displays the Ship-To Address for the specified Sales
+        Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipping Form</term>
+      <listitem>
+        <para>Specify the name of the Shipping Form you want to print.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipping Form Copies</term>
+      <listitem>
+        <para>Specify details for the Shipping Form copies you want to
+        print.</para>
+        <variablelist>
+          <varlistentry>
+            <term># of Copies</term>
+            <listitem>
+              <para>Indicate the number of copies you want to print using the
+              arrow buttons. Information about the specified copies will
+              display below.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without printing a Shipping Form, returning
+        you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Prints specified number of copies of the Shipping Form for the
+        specified Sales Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add a Watermark to a Shipping Form, double-click on a copy line.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_Bill_addWatermark.png"
+                     />
+        </imageobject>
+        <caption>Add Watermark</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding a Watermark to a Shipping Form copy, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Watermark</term>
+      <listitem>
+        <para>Specify the name of the Watermark to be used for the selected
+        copy.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Prices</term>
+      <listitem>
+        <para>Select to show Prices in the selected copy.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without adding a Watermark, returning you to
+        the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the Watermark definition to the selected copy.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

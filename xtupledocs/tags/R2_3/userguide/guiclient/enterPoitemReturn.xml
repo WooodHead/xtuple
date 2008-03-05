@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="enterPoitemReturn">
+  <title>Enter Return Item</title>
+  <para>To enter Return details, highlight a Purchase Order Item and select
+  the ENTER RETURN button. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/enterPoitemReturn.png"/>
+        </imageobject>
+        <caption>Enter Purchase Order Item Return</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When entering Return details, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>P/O Number</term>
+      <listitem>
+        <para>Displays the Purchase Order Number specified on the previous
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Line #</term>
+      <listitem>
+        <para>Displays the Purchase Order Line Item number selected on the
+        previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays the Item Number of the Line Item selected on the
+        previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vend. Item Number</term>
+      <listitem>
+        <para>Displays the Vendor's Item number for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor Item Description</term>
+      <listitem>
+        <para>Displays Vendor's description of specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor UOM</term>
+      <listitem>
+        <para>Displays the Vendor's Item UOM for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Inv./Vendor UOM Ratio</term>
+      <listitem>
+        <para>Displays the ratio between Inventory and Vendor Units of
+        Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Ordered</term>
+      <listitem>
+        <para>Displays the quantity ordered of the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. to Return</term>
+      <listitem>
+        <para>Specify the quantity of the Item you want to return.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Returnable Qty.</term>
+      <listitem>
+        <para>Displays the quantity available to be returned. The maximum
+        returnable quantity is the original quantity ordered. The system will
+        not allow you to return more than the returnable quantity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reject Code</term>
+      <listitem>
+        <para>Specify a code to describe the return.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without entering a return for the Purchase
+        Order Line Item, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>RETURN</term>
+      <listitem>
+        <para>Select to return the specified Line Item quantity. When posting
+        a Return, privileged users will be given the option to generate an A/P
+        Credit Memo in the amount of the Return. This option is available when
+        returning against closed Purchase Order Line Items. Closed Purchase
+        Orders will be reopened automatically in this scenario to allow for
+        future Receipts.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

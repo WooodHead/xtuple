@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section611608">
+  <title><indexterm significance="normal">
+      <primary>expenses</primary>
+      <secondary>as inventory transaction</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>inventory transactions</primary>
+      <secondary>expense</secondary>
+    </indexterm>Expense Transaction</title>
+  <para>Expense transactions are a form of miscellaneous Inventory
+  transaction. Expense transactions can be used to remove Items from
+  Inventory, while assigning the transactions to preset Expense Categories
+  (e.g., Trade Show Expense). To remove Items from Inventory and assign the
+  transaction to an Expense Category, select the "Expense" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/expenseTrans.png" />
+        </imageobject>
+        <caption>Enter Expense Transaction</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When entering an Expense transaction, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Transaction Date</term>
+      <listitem>
+        <para>Displays the current day's date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item you want to enter an Expense
+        transaction for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warehouse</term>
+      <listitem>
+        <para>Specify Warehouse where the Item Site for the Expense
+        transaction is located.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Scrap Qty.</term>
+      <listitem>
+        <para>Enter the quantity of Inventory UOM you want to enter an Expense
+        transaction for. The number entered will appear as a deduction in the
+        "After" column. Non-netable Quantity on Hand is not included in these
+        values.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Document #</term>
+      <listitem>
+        <para>Creates a user-defined reference for the Expense transaction.
+        The Document reference will be posted with the General Ledger (G/L)
+        transaction record when the Expense transaction is generated. This
+        field may be used for internal tracking and auditing purposes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expense Category</term>
+      <listitem>
+        <para>Specify the Expense Category you want to assign the Expense
+        transaction to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Comments related to the Expense transaction.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without posting an Expense transaction,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Posts the Expense transaction. Issues an Expense transaction and
+        decrements Quantity on Hand. Additional steps will be necessary if the
+        specified Item is stored in multiple Locations. For more information,
+        see <xref linkend="Anchor81167" />.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

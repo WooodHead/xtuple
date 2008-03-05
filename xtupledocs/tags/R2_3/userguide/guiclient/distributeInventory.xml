@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+   <title>
+   Distribute Stock To/From Warehouse Locations
+  </title>
+   <subtitle>distributeInventory : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/distributeInventory.png"/>
+            </imageobject>
+            <caption>
+   Distribute Stock To/From Warehouse Locations
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">Warehouse:</guilabel>
+               </entry>
+               <entry>_warehouseLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">Lot/Serial #:</guilabel>
+               </entry>
+               <entry>_lotSerialLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WComboBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none"/>
+               </entry>
+               <entry>_lotSerial</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">Qty. to Distribute:</guilabel>
+               </entry>
+               <entry>_toDistributeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">Qty. Tagged:</guilabel>
+               </entry>
+               <entry>_taggedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">Qty. Remaining:</guilabel>
+               </entry>
+               <entry>_remainingLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none"/>
+               </entry>
+               <entry>_qtyToDistribute</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none"/>
+               </entry>
+               <entry>_qtyTagged</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none"/>
+               </entry>
+               <entry>_qtyRemaining</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>P</accel>ost</guilabel>
+               </entry>
+               <entry>_post</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>D</accel>efault</guilabel>
+               </entry>
+               <entry>_default</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">De<accel>f</accel>ault and Post</guilabel>
+               </entry>
+               <entry>_defaultAndPost</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Valid Locations:</guilabel>
+               </entry>
+               <entry>_validLocationsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_itemloc</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

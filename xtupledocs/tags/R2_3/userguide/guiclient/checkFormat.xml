@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="checkFormat">
+  <title>
+<indexterm significance="normal">
+      <primary>check formats</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Check Format</title>
+
+  <para>To add a new Check format, select the NEW button. The
+  following screen will appear:</para>
+
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/checkFormat.png"/>
+        </imageobject>
+
+        <caption>Create New Check Format</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+
+  <para>When creating a new Check format, you are presented
+  with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+
+      <listitem>
+        <para>Enter a name to describe the Check format.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Description</term>
+
+      <listitem>
+        <para>Enter a description to further describe the Check format.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Report</term>
+
+      <listitem>
+        <para>Specify the report definition you want to associate with the
+        Check format.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+
+      <listitem>
+        <para>Closes the screen without creating a Check format, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>SAVE</term>
+
+      <listitem>
+        <para>Creates the Check format and adds it to the master list of Check
+        formats.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

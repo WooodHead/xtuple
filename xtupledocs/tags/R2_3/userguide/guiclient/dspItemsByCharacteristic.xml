@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section604556">
+  <title>
+<indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>items having</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>with characteristics</secondary>
+    </indexterm>Items by Characteristic</title>
+  <para>To view Items by Characteristic, select the "Items by Characteristic"
+  option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspItemsByCharacteristic.png"/>
+        </imageobject>
+        <caption>Items by Characteristic</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When displaying Items by Characteristic, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristic</term>
+      <listitem>
+        <para>Select a Characteristic from the list of Characteristics
+        designated as being available for use as Item Characteristics.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Enter the Characteristic value whose associated Items you want
+        to include in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Inactive Items</term>
+      <listitem>
+        <para>Select to include inactive Items in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Items</term>
+      <listitem>
+        <para>Display lists Items by Characteristic, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the Items list enables you to select from
+  the following options:</para>
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditItemMaster)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

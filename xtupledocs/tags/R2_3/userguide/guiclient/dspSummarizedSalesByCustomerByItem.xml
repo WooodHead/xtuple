@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section530325">
+  <title><indexterm significance="normal">
+      <primary>sales history</primary>
+      <secondary>summarized by customer by item</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>sales history summarized by</secondary>
+    </indexterm>Summarized Sales History by Customer by Item</title>
+  <para id="Para518897">To view summarized Sales history by Customer by Item,
+  select the "Summarized Sales History by Customer by Item" option. The
+  following screen will appear:</para>
+  <para id="Para518901"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspSummarizedSalesByCustomerByItem.png"
+                     />
+        </imageobject>
+        <caption>Summarized Sales History by Customer by
+        Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para id="Para551034">From this screen, you can highlight a Line Item and
+    then drag and drop it into a Sales Order using your mouse.</para>
+  </tip>
+  <para id="Para551028">When displaying summarized Sales history by Customer
+  by Item, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para518904">Customer #</term>
+      <listitem>
+        <para>Enter the Customer Number of the Customer whose summarized Sales
+        history by Item you want to display. The browse button located to the
+        right of the field leads to a searchable Customers list. You may also
+        access this list using the keyboard shortcut "CTRL + L". Once a
+        Customer Number is entered, the Customer name and billing address will
+        display. Select the "?" or "$" symbol next to the browse button to
+        view Customer information for the specified Customer. If a Customer's
+        credit is "In Good Standing," the button will feature a black question
+        mark ("?") icon. If the icon turns to an orange dollar sign ("$"), the
+        Customer's credit Status is "On Credit Warning." A red dollar sign
+        ("$") indicates the Customer's credit Status is "On Credit
+        Hold."</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518909">Start Date</term>
+      <listitem>
+        <para>Summarized Sales history by Customer by Item generated on or
+        after this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518914">End Date</term>
+      <listitem>
+        <para>Summarized Sales history by Customer by Item generated on or
+        before this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term id="Para518916">All Warehouses</term>
+      <listitem>
+        <para>Select to display summarized Sales history by Customer by Item
+        for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term id="Para518918">Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose summarized Sales history by Customer by
+        Item you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para535721">Order By</term>
+      <listitem>
+        <para>Order the output by one of the following methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item Number</term>
+            <listitem>
+              <para>Select to order Items in display by Item Number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Quantity Volume</term>
+            <listitem>
+              <para>Select to order Items in display by quantity
+              volume.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Sales Volume</term>
+            <listitem>
+              <para>Select to order Items in display by sales volume.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518920">Sales History</term>
+      <listitem>
+        <para>Display lists summarized Sales history by Customer by Item,
+        using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para518922">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para518923">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para541878">QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para555024">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

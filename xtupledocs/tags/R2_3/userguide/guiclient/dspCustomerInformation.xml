@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section631832">
+  <title><indexterm significance="normal">
+      <primary>customer information</primary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>information about</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>workbenches</primary>
+      <secondary>for customer service</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customer information</primary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>information about</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>workbenches</primary>
+      <secondary>for customer service</secondary>
+    </indexterm>Customer Information Workbench</title>
+  <para>The Customer Information Workbench groups together in one location a
+  wide range of both current and historical Customer information. To access
+  the Customer Information Workbench, select the "Customer Information
+  Workbench" option from the "Orders" menu. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspCustomerInformation.png" />
+        </imageobject>
+        <caption>Notes on the Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Customer information, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>Enter the Customer Number of the Customer whose information you
+        want to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Displays Customer name automatically when Item Number is entered
+        into "Item Number" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ACCOUNT</term>
+      <listitem>
+        <para>Select this button to open the CRM Account record associated
+        with the Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cust. Type</term>
+      <listitem>
+        <para>Displays the Customer Type for the specified Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Payment Terms</term>
+      <listitem>
+        <para>Displays the Customer's default Terms.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Via</term>
+      <listitem>
+        <para>Displays the Customer's preferred Ship Via.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Correspondence Address</term>
+      <listitem>
+        <para>Displays Customer's correspondence address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Billing Address</term>
+      <listitem>
+        <para>Displays Customer's billing address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>First Sales Date</term>
+      <listitem>
+        <para>Displays date of first sale made to the Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Last Sales Date</term>
+      <listitem>
+        <para>Displays date of last sale made to the Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Backlog</term>
+      <listitem>
+        <para>Displays Customer's backlog.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Last Year Sales</term>
+      <listitem>
+        <para>Displays total sales to Customer for previous year.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>YTD Sales</term>
+      <listitem>
+        <para>Displays year-to-date sales made to the Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Limit</term>
+      <listitem>
+        <para>Displays the Customer's credit limit.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Open Balance</term>
+      <listitem>
+        <para>Displays Customer's open balance.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Late Balance</term>
+      <listitem>
+        <para>Displays Customer's late balance.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Status</term>
+      <listitem>
+        <para>Displays Customer's credit status.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>Displays any Notes entered on the Customer master for the
+        specified Customer. To modify the notes, you must edit the Notes found
+        under the "Notes" tab on the Customer master. To reach the Customer
+        master, select the EDIT button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to re-generate and update the information on the
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Select to edit the Customer master for the specified
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Comments associated with the Customer, select the "Comments"
+  tab at the bottom of the screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspCustomerInformation_comments.png" />
+        </imageobject>
+        <caption>Comments on the Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>Display lists Comments related to the Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens the screen for creating a new Customer Comment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Opens a read-only view of the Customer Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To enter a new Customer Comment, select the NEW button. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CommentNew.png" />
+        </imageobject>
+        <caption>Create New Comment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Customer Comment,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Comment and adds it to the list of Customer
+        Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view current Quotes associated with the Customer, select the
+  "Quotes" tab at the bottom of the screen. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspCustomerInformation_quotes.png" />
+        </imageobject>
+        <caption>Quotes on the Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying the list of current Quotes associated with the
+  Customer, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Quotes</term>
+      <listitem>
+        <para>Displays the list of current Quotes for the specified Customer.
+        This is the same information as displayed in the Quotes master list
+        screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem id="dspCustomerInformationNEWQuote">
+        <para>Opens screen for creating a new Quote, as described in <xref
+        linkend="Anchor51214" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="dspCustomerInformationEDITQuote">
+        <para>Enables you to edit highlighted Quotes. The edit screen is the
+        same as that for creating a new Quote&mdash;except that when editing, the
+        fields will contain Quote information. Double-clicking on a Quote will
+        also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="dspCustomerInformationVIEWQuote">
+        <para>Highlight a Quote and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CONVERT</term>
+      <listitem id="dspCustomerInformationCONVERTQuote">
+        <para>Select to convert a Quote to a Sales Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Quote in the Quotes list enables you to select
+  from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>New Quote</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationNEWQuote)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Edit Quote</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationEDITQuote)" />
+    </varlistentry>
+    <varlistentry>
+      <term>View Quote</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationVIEWQuote)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Convert Quote</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationCONVERTQuote)" />
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>To view open Sales Orders associated with the Customer, select the
+  "Sales Orders" tab at the bottom of the screen. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspCustomerInformation_salesOrders.png" />
+        </imageobject>
+        <caption>Open Sales Orders on the Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying the list of open Sales Orders associated with the
+  Customer, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Sales Orders</term>
+      <listitem>
+        <para>Displays the current list of open Sales Orders for the specified
+        Customer. This is the same information as displayed in the Open Sales
+        Orders master list screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Closed</term>
+      <listitem>
+        <para>Select to include closed Sales Orders in the display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem id="dspCustomerInformationNEWSO">
+        <para>Highlight a Sales Order and then select this button to print the
+        Sales Order.</para>
+        <tip>
+          <para>You must have a Form "keyed on" Sales Orders to successfully
+          print a Sales Order. The keyed on process is described here: <xref
+          linkend="formCreateNew" />.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Sales Order, as described in
+        <xref linkend="Anchor23923" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="dspCustomerInformationEDITSO">
+        <para>Enables you to edit highlighted Sales Order. The edit screen is
+        the same as that for creating a new Sales Order&mdash;except that when
+        editing, the fields will contain Sales Order information.
+        Double-clicking on a Sales Order will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="dspCustomerInformationVIEWSO">
+        <para>Highlight a Sales Order and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Order in the Sales Orders list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>New Order</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationNEWSO)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Edit Order</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationEDITSO)" />
+    </varlistentry>
+    <varlistentry>
+      <term>View Order</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationVIEWSO)" />
+    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickShipmentStatus)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickShipments)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>To view Invoices associated with the Customer, select the "Invoices"
+  tab at the bottom of the screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspCustomerInformation_invoices.png" />
+        </imageobject>
+        <caption>Invoice History on the Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying the list of Invoices associated with the Customer, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Show Closed</term>
+      <listitem>
+        <para>Select to include closed Invoices in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Invoices</term>
+      <listitem>
+        <para>Displays the list of Invoices associated with the specified
+        Customer.</para>
+        <note>
+          <para>Late Invoices will display in red type.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Highlight an Invoice and then select this button to print the
+        Invoice.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem id="dspCustomerInformationNEWINV">
+        <para>Opens screen for creating a new Invoice.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="dspCustomerInformationEDITINV">
+        <para>Enables you to edit highlighted Invoices. The edit screen is the
+        same as that for selecting a new Invoice&mdash;except that when editing,
+        the fields will contain Invoice information. Double-clicking on an
+        Invoice will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="dspCustomerInformationVIEWINV">
+        <para>Highlight an Invoice and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>WORKBENCH</term>
+      <listitem>
+        <para>Select to open the A/R Workbench for the specified
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CASH RECEIPT</term>
+      <listitem>
+        <para>Select to enter a Cash Receipt for the specified
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Invoice in the Invoices list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>New Invoice</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationNEWINV)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Edit Invoice</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationEDITINV)" />
+    </varlistentry>
+    <varlistentry>
+      <term>View Invoice</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationVIEWINV)" />
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>To view Credit Memos associated with the Customer, select the "Credit
+  Memos" tab at the bottom of the screen. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspCustomerInformation_creditMemos.png" />
+        </imageobject>
+        <caption>Credit Memos on the Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying the list of Credit Memos associated with the Customer,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Credit Memos</term>
+      <listitem>
+        <para>Displays the list of posted and unposted Credit Memos associated
+        with the specified Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Highlight a sales Credit Memo and then select this button to
+        print the Sales Credit Memo.</para>
+        <note>
+          <para>Printing is supported for sales Credit Memos only&mdash;not for
+          miscellaneous Credit Memos.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem id="dspCustomerInformationNEW">
+        <para>Opens screen for creating a new Sales Order Credit Memo, as
+        described in <xref linkend="Anchor94106" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="dspCustomerInformationEDITCM">
+        <para>Enables you to edit highlighted Credit Memos. The edit screen
+        will vary, depending on whether you are editing a Sales Order Credit
+        Memo or a miscellaneous Credit Memo. Double-clicking on a Credit Memo
+        will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="dspCustomerInformationVIEWCM">
+        <para>Highlight a Credit Memo and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>WORKBENCH</term>
+      <listitem>
+        <para>Select to open the A/R Workbench for the specified
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Credit Memo in the Credit Memos list enables you
+  to select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>New Credit Memo</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationNEW)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Edit Credit Memo</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationEDITCM)" />
+    </varlistentry>
+    <varlistentry>
+      <term>View Credit Memo</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationVIEWCM)" />
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>To view sales history for the Customer, select the "A/R History" tab
+  at the bottom of the screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspCustomerInformation_arHistory.png" />
+        </imageobject>
+        <caption>A/R History on the Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying sales history for the Customer, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>A/R History</term>
+      <listitem>
+        <para>Display lists sales history for the specified Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the A/R History list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditAROpenItem)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAROpenItem)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>To view Credit Card activity associated with the Customer, select the
+  "CC Payments" tab at the bottom of the screen. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspCustomerInformation_payments.png" />
+        </imageobject>
+        <caption>Credit Card Activity on the Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Credit Card activity associated with the Customer, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>C/C Payments</term>
+      <listitem>
+        <para>Display lists Credit Card activity for the specified
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+   <title>
+   Archive/Restore Sales History
+  </title>
+   <subtitle>archRestoreSalesHistory : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/archRestoreSalesHistory.png"/>
+            </imageobject>
+            <caption>
+   Archive/Restore Sales History
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_customerType</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_productCategory</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Act on Misc. Items</guilabel>
+               </entry>
+               <entry>_miscItems</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WarehouseGroup</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_dates</entry>
+               <entry>DateCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>S</accel>elect</guilabel>
+               </entry>
+               <entry>_select</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

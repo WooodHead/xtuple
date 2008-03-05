@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section486955">
+  <title id="Anchor77806"><indexterm significance="normal">
+      <primary>pattern matching</primary>
+      <secondary>with regular expressions</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>regular expressions</primary>
+      <secondary>pattern matching using</secondary>
+    </indexterm>Topic: Pattern Matching with Regular Expressions</title>
+  <para>xTuple ERP supports the use of Regular Expressions (also known as
+  "Regex") in fields where pattern matching is called for. This Regular
+  Expression support gives you tremendous flexibility and control whenever you
+  want to retrieve unique patterns from within any of the following
+  groupings:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Class Codes</para>
+    </listitem>
+    <listitem>
+      <para>Planner Codes</para>
+    </listitem>
+    <listitem>
+      <para>Item Groups</para>
+    </listitem>
+    <listitem>
+      <para>Product Categories</para>
+    </listitem>
+    <listitem>
+      <para>Customer Types</para>
+    </listitem>
+    <listitem>
+      <para>Customer Groups</para>
+    </listitem>
+    <listitem>
+      <para>Vendor Types</para>
+    </listitem>
+  </itemizedlist>
+  <para>Let's say, for example, you want to generate a report showing Internet
+  sales during a given period. To access this data, you would need to look at
+  sales made to your Internet Customers. Because Internet Customers are a
+  subset of Customer Types, you would create a Regular Expression to retrieve
+  this subset and send it to the report.</para>
+  <section id="Section486965">
+    <title>Characters and Metacharacters</title>
+    <para><indexterm significance="normal">
+        <primary>metacharacters</primary>
+        <secondary>in regular expressions</secondary>
+      </indexterm>Regular Expressions are created using different combinations
+    of characters and metacharacters. A character is defined as any
+    alphanumeric character&mdash;both upper and lower case&mdash;including punctuation
+    marks, white space, and other keyboard symbols. Metacharacters, sometimes
+    referred to as " <indexterm significance="normal">
+        <primary>wildcards</primary>
+      </indexterm>wildcards," are special characters used to facilitate
+    pattern matching. The most common metacharacters are described in the
+    tables below.</para>
+    <tip>
+      <para>The more you understand the role of metacharacters, the more you
+      will be able to control your pattern matching.</para>
+    </tip>
+    <para>The first thing to understand is that Regular Expressions match "
+    <indexterm significance="normal">
+        <primary>substrings</primary>
+        <secondary>metacharacters and</secondary>
+      </indexterm>substrings." A substring is a subset of a " <indexterm
+        significance="normal">
+        <primary>strings</primary>
+        <secondary>pattern matching and</secondary>
+      </indexterm>string"--a string being a sequence of characters arranged in
+    a line. For example, the numbers 123 are a substring of the string 012345.
+    Similarly, the letters EAT are a substring of the strings MEAT, EATERY,
+    and THEATER. Numbers and letters can also be combined to form a substring.
+    The pattern INTCUST4 is a substring of a particular set of Internet
+    Customer strings: INTCUST400, INTCUST401, INTCUST402, and so on. As you
+    can see, substrings may appear anywhere in a string&mdash;at the beginning, the
+    middle, or the end.</para>
+    <tip>
+      <para>Regular Expressions are case-sensitive. This means there is a
+      difference between "a" and "A". Keep this in mind when using Regular
+      Expressions for pattern matching.</para>
+    </tip>
+    <para>Metacharacters give you even more control over your substring
+    definitions. With metacharacters, you can specify the exact location of a
+    substring: beginning of a word or line, end of a word or line, etc. You
+    can also specify ranges of data: Customers A-Z, Items 1-9, etc. This sort
+    of control is especially vital when searching through large quantities of
+    data. As you can imagine, metacharacters will not only save you time, they
+    will also increase your precision. The following tables describe
+    metacharacters in more detail.</para>
+    <para><table>
+        <title>Single Character Metacharacters</title>
+        <tgroup cols="2">
+          <tbody>
+            <row>
+              <entry><para> . </para></entry>
+              <entry><para>Matches any single character. </para><para>Example:
+              </para><itemizedlist>
+                  <listitem>
+                    <para>The Regular Expression b.t would match bat , bet ,
+                    bit , and bot , but not boot , BAT , BET , etc. Because
+                    the substring might be part of a longer word, b.t would
+                    also match bottle , batch , abbot , etc.</para>
+                  </listitem>
+                </itemizedlist></entry>
+            </row>
+            <row>
+              <entry><para> [...] </para></entry>
+              <entry><para>Matches any single character listed between the
+              brackets. </para><para>Examples: </para><itemizedlist>
+                  <listitem>
+                    <para>The Regular Expression b[aeo]t would match bat , bet
+                    , and bot . It would not match bit .</para>
+                  </listitem>
+                  <listitem>
+                    <para>Likewise, the expression CUST[A-M] would match any
+                    strings containing the range of patterns from CUSTA to
+                    CUSTM . This would include CUSTABC , CUSTA123 , CUSTBCD ,
+                    CUSTB123 , etc.</para>
+                  </listitem>
+                  <listitem>
+                    <para>To match both upper case and lower case occurrences,
+                    use the expression CUST[A-Ma-m] .</para>
+                  </listitem>
+                  <listitem>
+                    <para>You may also combine ranges of letters and numbers
+                    in the same expression. To locate product categories
+                    beginning with A-B and/or 1-5, you would use PROD
+                    CAT[A-B1-5] . This expression would match PRODCATABC ,
+                    PRODCATB123 , PRODCAT1ABC , PRODCAT2123 , etc.</para>
+                  </listitem>
+                </itemizedlist></entry>
+            </row>
+            <row>
+              <entry><para> [^...] </para></entry>
+              <entry><para>Matches any single character except those listed
+              between the brackets. </para><para>Examples:</para><itemizedlist>
+                  <listitem>
+                    <para>Functions like the previous metacharacter, except
+                    that here the caret symbol "^" excludes characters from
+                    the pattern. For example, the expression b[^ae]t would
+                    match the substrings bit and bot , but not bat and bet
+                    .</para>
+                  </listitem>
+                  <listitem>
+                    <para>To locate all product categories except those at the
+                    end of the alphabet, you would use PRODCAT[^X-Z] . This
+                    expression would return the same results as PROD
+                    CAT[A-W].</para>
+                  </listitem>
+                </itemizedlist></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table></para>
+    <note>
+      <para>xTuple ERP supports pattern matching with Regular Expressions in
+      accordance with the <indexterm significance="normal">
+          <primary>posix</primary>
+          <secondary>xtuple support for</secondary>
+        </indexterm>Portable Operating System Interface (POSIX)
+      standard.</para>
+    </note>
+    <para><table>
+        <title>Quantifiers</title>
+        <tgroup cols="2">
+          <tbody>
+            <row>
+              <entry><para> ? </para></entry>
+              <entry><para>Matches the preceding element zero or one time.
+              </para><para>Definition: The term "element" describes both
+              single characters (" A ") and also ranges or lists of characters
+              (" [A-Z] ", " [acfrg] ", " [^2-7] ", etc.).
+              </para><para>Examples: </para><itemizedlist>
+                  <listitem>
+                    <para>The expression bo?ut would match two separate
+                    substrings: those containing one instance of the preceding
+                    "o" and those containing zero instances of the preceding
+                    "o". As a result, the following matches would be returned:
+                    bout , but , about , butter , etc.</para>
+                  </listitem>
+                  <listitem>
+                    <para>CLASS[A-C]? would match any string containing the
+                    substrings CLASSA ..., CLASSB ..., CLASSC .... Because
+                    zero instances of [A-C ] would also be included, matches
+                    would be returned for any string containing the root CLASS
+                    -- for example, CLASS123 , CLASSDEF , etc.</para>
+                  </listitem>
+                </itemizedlist></entry>
+            </row>
+            <row>
+              <entry><para> * </para></entry>
+              <entry><para>Matches the preceding element zero or more times.
+              </para><para>Examples:</para><itemizedlist>
+                  <listitem>
+                    <para>Use a period followed by an asterisk (".*") to match
+                    all existing patterns. For example, enter .* to show all
+                    Customer Types where pattern matching by Customer Type is
+                    called for.</para>
+                  </listitem>
+                  <listitem>
+                    <para>The expression CUST* would return Customer Type
+                    records for all Customer Types containing the substring
+                    CUST . Records would also be returned for all Customer
+                    Types containing the substring CUS , since the asterisk
+                    also matches the preceding element (in this case, the
+                    character "T") zero times. To avoid matching the substring
+                    CUS , insert a period before the asterisk. The expression
+                    CUST.* will match all strings containing CUST , but not
+                    all strings containing CUS</para>
+                  </listitem>
+                </itemizedlist></entry>
+            </row>
+            <row>
+              <entry><para> + </para></entry>
+              <entry><para>Matches the preceding element one or more times.
+              </para><para>Example:</para><itemizedlist>
+                  <listitem>
+                    <para>The Regular Expression PRODCAT10+ would match the
+                    "0" at the end of the pattern one or more times. Product
+                    Categories beginning with the numbers "10", "100", "1000",
+                    etc. would be found, as in PRODCAT10ABC , PRODCAT100ABC ,
+                    PRODCAT1000ABC , and so on.</para>
+                  </listitem>
+                </itemizedlist></entry>
+            </row>
+            <row>
+              <entry><para> {num} </para></entry>
+              <entry><para>Matches the preceding element num times.
+              </para><para>Example:</para><itemizedlist>
+                  <listitem>
+                    <para>The expression CLASSA{3} would match the "A" at the
+                    end of the pattern three times. The following Class Codes
+                    would be found: CLASSAAA1 , CLASSAAA2 , CLASSAAA3 ,
+                    etc.</para>
+                  </listitem>
+                </itemizedlist></entry>
+            </row>
+            <row>
+              <entry><para> {min,max} </para></entry>
+              <entry><para>Matches the preceding element at least min times,
+              but not more than max times.
+              </para><para>Example:</para><itemizedlist>
+                  <listitem>
+                    <para>The expression CLASSA{2,3} would match the "A" at
+                    the end of the pattern a minimum of two times and a
+                    maximum of three times. The following Class Codes would be
+                    found: CLASSAA1 , CLASSAA2 , etc. and also CLASSAAA 1,
+                    CLASSAAA2 , etc.</para>
+                  </listitem>
+                </itemizedlist></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table></para>
+    <tip>
+      <para>A space between characters is considered a character itself. You
+      should avoid using spaces when writing Regular Expressions, unless the
+      pattern you are matching expressly calls for them.</para>
+    </tip>
+    <para><table>
+        <title>Anchors</title>
+        <tgroup cols="2">
+          <tbody>
+            <row>
+              <entry><para> ^ </para></entry>
+              <entry><para>Matches at the start of the line.
+              </para><para>Example:</para><itemizedlist>
+                  <listitem>
+                    <para>Use the caret symbol "^" to specify that the
+                    substring you are trying to match occurs specifically at
+                    the beginning of a line. For example, the expression ^ITEM
+                    would match all lines beginning with the characters
+                    "ITEM", as in ITEM100 , ITEMABC , etc. The expression
+                    ^ITEM would not match the following, since "ITEM" does not
+                    occur at the beginning of these lines: MFGITEM , PURCHITEM
+                    , REFITEM , etc.</para>
+                  </listitem>
+                </itemizedlist></entry>
+            </row>
+            <row>
+              <entry><para> $ </para></entry>
+              <entry><para>Matches at the end of the line.
+              </para><para>Example:</para><itemizedlist>
+                  <listitem>
+                    <para>Use the dollar symbol "$" to specify that the
+                    substring you are trying to match occurs specifically at
+                    the end of a line. For example, the expression 999$ would
+                    match all lines ending with the characters "999", as in
+                    ITEM100999 , ITEM200999 , ITEM300999 , etc. The expression
+                    999$ would not match the following, since "999" does not
+                    occur at the end of these lines: ITEM 999123, ITEM999ABC ,
+                    etc.</para>
+                  </listitem>
+                </itemizedlist></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table></para>
+    <tip>
+      <para>Build Regular Expressions using trial and error. If your first
+      attempt doesn"t yield the desired results, modify the expression and try
+      again.</para>
+    </tip>
+  </section>
+  <section id="Section487089">
+    <title>Hierarchical Structure</title>
+    <para><indexterm significance="normal">
+        <primary>hierarchical structure</primary>
+        <secondary>pattern matching and</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>structure</primary>
+        <secondary>hierarchical</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>pattern matching</primary>
+        <secondary>hierarchical structure and</secondary>
+      </indexterm>To simplify your pattern matching efforts, you should
+    organize your groupings according to a hierarchical structure. Again, the
+    following groupings support pattern matching using Regular
+    Expressions:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Class Codes</para>
+      </listitem>
+      <listitem>
+        <para>Planner Codes</para>
+      </listitem>
+      <listitem>
+        <para>Item Groups</para>
+      </listitem>
+      <listitem>
+        <para>Product Categories</para>
+      </listitem>
+      <listitem>
+        <para>Customer Types</para>
+      </listitem>
+      <listitem>
+        <para>Customer Groups</para>
+      </listitem>
+    </itemizedlist>
+    <para>Let's consider the Customer Type grouping to illustrate this point
+    about hierarchies. If your Customer Types have been arranged
+    hierarchically, the naming convention will exhibit a logical, sequential
+    order. The following list shows an orderly, hierarchical arrangement of
+    Customer Types:</para>
+    <itemizedlist>
+      <listitem>
+        <para>CUSTUSA100, 101, 102, ...</para>
+      </listitem>
+      <listitem>
+        <para>CUSTEUROPE100, 101, 102, ...</para>
+      </listitem>
+      <listitem>
+        <para>CUSTASIA100, 101, 102, ...</para>
+      </listitem>
+    </itemizedlist>
+    <para>Regular Expressions will find and match any pattern. But writing
+    them will be easier if you arrange your groupings hierarchically, as shown
+    in the example above.</para>
+  </section>
+</section>

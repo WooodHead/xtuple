@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section549768">
+  <title>
+<indexterm significance="normal">
+      <primary>item usage statistics</primary>
+      <secondary>by warehouse</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>warehouses</primary>
+      <secondary>item usage statistics for</secondary>
+    </indexterm>Item Usage Statistics by Warehouse</title>
+  <para>To view Item usage statistics by Warehouse, select the "Item Usage
+  Statistics by Warehouse" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspUsageStatisticsByWarehouse.png"/>
+        </imageobject>
+        <caption>Item Usage Statistics by
+        Warehouse</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When displaying Item usage statistics by Warehouse, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Warehouse</term>
+      <listitem>
+        <para>Specify Warehouse whose Item usage statistics you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Item usage recorded on and after this date will be displayed.
+        Start date and end date must be entered for calculation to
+        proceed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Item usage recorded on and before this date will be displayed.
+        Start date and end date must be entered for calculation to
+        proceed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Usage</term>
+      <listitem>
+        <para>Display lists Item usage statistics by Warehouse, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified parameters.
+        Start date and end date must be entered for calculation to proceed.
+        Results will be displayed in the "Usage" list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the Usage list enables you to select from
+  the following menu options:</para>
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewTransaction)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+  <para>The right-click menu is context-sensitive, meaning transaction details
+  will vary depending on which column you select to view transactions
+  from.</para>
+</section>

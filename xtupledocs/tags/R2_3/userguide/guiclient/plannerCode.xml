@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="plannerCode">
+  <title>
+<indexterm significance="normal">
+      <primary>planner codes</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Planner Code</title>
+  <para>To create a new Planner Code, select the NEW button. The following
+  screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/plannerCode.png"/>
+        </imageobject>
+        <caption>Create New Planner Code</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <tip>
+    <para>Create your Planner Codes using a logical, hierarchical structure.
+    This will make it easier to retrieve Planner Code information in the
+    future. For more information on matching patterns using Regular
+    Expressions, see <xref linkend="Anchor77806"/>.</para>
+  </tip>
+  <para>When creating a new Planner Code, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Code</term>
+      <listitem>
+        <para>Enter a code to identify the Planner Code.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a brief description of the Planner Code.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If you want requirements to be created for Planned Work Orders, the
+    option "Automatically Explode Planned Orders" must be selected. If not
+    selected, Planned Work Orders will not be exploded. This means that
+    Planned Orders for lower level material requirements will not be generated
+    when MRP is run.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>
+<indexterm significance="normal">
+          <primary>explosion</primary>
+          <secondary>automatic by planner code</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>planner codes</primary>
+          <secondary>automatic explosion by</secondary>
+        </indexterm>Automatically Explode Planned Orders</term>
+      <listitem>
+        <para>Select one of the following if you want Planned Work Orders to
+        be exploded automatically:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Single Level Explosion</term>
+            <listitem>
+              <para>This option specifies that when Planned Work Orders are
+              exploded, requirements should be created for the parent Planned
+              Work Order only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Multiple Level Explosion</term>
+            <listitem>
+              <para>This option specifies that requirements should be created
+              for both parent and child Planned Work Orders.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If you"re running MRP by Planner Code, the explosion level setting
+    may not make a difference&mdash;depending on how your Planner Codes are
+    assigned. For example, if all your Items fall within the same Planner
+    Code, Planned Orders will be generated for all levels of
+    requirements&mdash;regardless of whether single or multiple level explosion is
+    set. The same does not hold true when running MRP by Item.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a Planner Code, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Planner Code and adds it to the master list of
+        Planner Codes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

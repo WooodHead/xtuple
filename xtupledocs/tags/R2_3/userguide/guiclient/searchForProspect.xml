@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section636767">
+  <title>Search for Prospect</title>
+  <para>To search for a Prospect, select the "Search for Prospect" option. The
+  following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/searchForProspect.png"/>
+        </imageobject>
+        <caption>Search for Prospects</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When searching to retrieve Prospect information from the database, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Search for</term>
+      <listitem>
+        <para>Enter any character or combination of characters you want to
+        match, followed by the TAB key. The "Search for" field supports
+        pattern matching with Regular Expressions. For more information on
+        matching patterns using Regular Expressions, see <xref linkend="Anchor77806"/>.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Hitting the TAB key activates the search operation.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Search through</term>
+      <listitem>
+        <para>Specify which of the following criteria you want to include in
+        the search:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Prospect Number</term>
+            <listitem>
+              <para>Select to search by Prospect Number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Prospect Name</term>
+            <listitem>
+              <para>Select to search by Prospect Name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Primary Contact Name</term>
+            <listitem>
+              <para>Select to search by Primary Contact Name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Primary Contact Phone #</term>
+            <listitem>
+              <para>Select to search by Primary Contact Phone Number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>Select to search by Primary Contact Street Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>Select to search by Primary Contact City.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>Select to search by Primary Contact State.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>Select to search by Primary Contact Postal Code.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>Select to search by Primary Contact Country.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Inactive Prospects</term>
+      <listitem>
+        <para>Select to show inactive Prospects as well as active Prospects.
+        By default, inactive Prospects are not displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CRM Accounts</term>
+      <listitem>
+        <para>Display will show search results for Prospect Accounts, using
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="searchForProspectEDIT">
+        <para>Enables you to edit highlighted Prospect. The edit screen is the
+        same as that for creating a new Prospect&mdash;except that when editing,
+        the fields will contain Prospect information. Double-clicking on a
+        Prospect will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="searchForProspectVIEW">
+        <para>Highlight a Prospect and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Prospect in the Prospect list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>View</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(searchForProspectVIEW)"/>
+    </varlistentry>
+    <varlistentry>
+      <term>Edit</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(searchForProspectEDIT)"/>
+    </varlistentry>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

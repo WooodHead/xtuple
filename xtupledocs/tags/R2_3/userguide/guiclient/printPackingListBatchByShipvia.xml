@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section547036">
+  <title>
+<indexterm significance="normal">
+      <primary>packing lists</primary>
+      <secondary>batch printing of</secondary>
+    </indexterm>
+<indexterm significance="normal">
+      <primary>batch mode</primary>
+      <secondary>printing packing lists using</secondary>
+    </indexterm>
+<indexterm significance="normal">
+      <primary>ship vias</primary>
+      <secondary>printing packing lists by</secondary>
+    </indexterm>Print Packing List Batch by Ship Via</title>
+  <para>If you want to print batches of Packing Lists
+  according to their Ship Via method, select the "Print Packing List Batch by
+  Ship Via" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/printPackingListBatchByShipvia.png"/>
+        </imageobject>
+        <caption>Print Packing List Batch by Ship
+        Via</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <tip>
+    <para>If you don"t see any Ship Vias appearing in the Ship
+    Via list, this probably means you don"t have any unprinted Orders on the
+    Packing List Batch. To verify, open the Packing List Batch and check the
+    printed status of the Orders listed there.</para>
+  </tip>
+  <para>When printing batches of Packing Lists according to
+  their Ship Via, you are presented with the following options:</para>
+  <note>
+    <para>The system supports up-to-date shipment tracking
+    with links to the websites of many leading shipping companies (i.e., "Ship
+    Vias").</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Ship Via</term>
+      <listitem>
+        <para>Specify the Ship Via whose batched Packing Lists you want to
+        print.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without printing a Packing List batch,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Prints the Packing List batch for the specified Ship Via.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section554837" role="openmfg">
+  <title>Topic: Constraint Management Basics</title>
+  <para>What is a buffer? In short, a buffer is a little extra of something
+  that we maintain to ensure we can handle unexpected fluctuations. xTuple
+  ERP's Constraint Management system reports on three types of buffers: stock,
+  time, and capacity. The following examples from daily life may help explain
+  the three different kinds of buffers:</para>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>buffers</primary>
+          <secondary>stock type defined</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>stock buffers</primary>
+          <secondary>defined</secondary>
+        </indexterm>Stock Buffer</term>
+      <listitem>
+        <para>A stock buffer is like the extra coffee we keep in the cupboard
+        to make certain we have enough should company drop in. For example,
+        let's say we want to always keep at least three pounds of coffee on
+        hand. Three pounds, then, is our buffer quantity. As long as we have
+        this buffer, we"re confident we"ll have enough to serve unexpected
+        guests. Whenever our supply drops below three pounds, we"ll put coffee
+        on our shopping list and buy more. Just because the coffee falls below
+        three pounds doesn"t mean we"re in a critical situation. However, if
+        we fall significantly below that level, we need to act
+        immediately.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The critical buffer status in the xTuple ERP Constraint Management
+    system is 66%. In other words, any time we consume 66% of a buffer, then
+    it's time to act immediately to resolve the situation. Using the coffee
+    example, if our supply drops to one pound (and our buffer quantity is
+    three pounds), then we've used up two-thirds of our buffer&mdash;or 66%.
+    With that much of our buffer consumed, we need to buy more coffee right
+    away. The 66% value is a percentage that is widely used in academic
+    research and practical real-world implementations of the Theory of
+    Constraints&mdash;a theory pioneered by Eliyahu Goldratt.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>buffers</primary>
+          <secondary>time type defined</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>time buffers</primary>
+          <secondary>defined</secondary>
+        </indexterm>Time Buffer</term>
+      <listitem>
+        <para>A time buffer is like the time we factor into a trip to the
+        airport to catch a flight. Let\qs say we allow ourselves three hours
+        to reach the airport, check bags, pass through security and proceed to
+        the gate ready to board. That means our time buffer is three hours. If
+        we get stuck in traffic for two hours, then we\qve used up 66% of our
+        buffer. This is now a critical situation requiring our full attention.
+        We must act immediately to either get out of traffic, take an
+        alternate route, or reschedule our flight.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>buffers</primary>
+          <secondary>capacity type defined</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>capacity buffers</primary>
+          <secondary>defined</secondary>
+        </indexterm>Capacity Buffer</term>
+      <listitem>
+        <para>A capacity buffer is like the surface on your barbecue grill
+        which can hold up to 12 hamburgers at one time. In this scenario, the
+        grill's capacity buffer is 12. If each hamburger takes 15 minutes to
+        cook&mdash;and you can cook 12 at a time&mdash;then you can produce 48
+        hamburgers in an hour. Now, let's say you've got 100 guests coming for
+        dinner. If your plan is to feed everyone in one hour, you've got a
+        capacity problem. You"ll either need to fire up an extra grill, or
+        start cooking an hour early to build up your stock burger buffer ahead
+        of time.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Now that we have gained a basic understanding of the different buffer
+  types, we can begin to look at how these buffers function in xTuple ERP.</para>
+  <section id="Section554849">
+    <title><indexterm significance="normal">
+        <primary>stock buffers</primary>
+        <secondary>scenario explaining</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>constraint management</primary>
+        <secondary>stock buffers and</secondary>
+      </indexterm>Stock Buffer Scenario</title>
+    <note>
+      <para>The scenarios described in this section refer to Items and other
+      data found in the xTuple ERP Demo Database. The Demo Database is available
+      for download from the xTuple website.</para>
+    </note>
+    <para>First let's take at look at how the stock buffer operates. Before we
+    begin, we will need to do some initial setup on the Item Site record for
+    Item TBODY1. We will be adjusting its Reorder Level to 1,000. Then we will
+    make a Miscellaneous Adjustment to set its Quantity on Hand to 300.
+    Finally, we will run Constraint Management to discover the system-defined
+    value for the Item Site's stock buffer status. To access the Item Site
+    screen, follow these steps:</para>
+    <orderedlist>
+      <listitem>
+        <para>Pull down the I/M Module menu</para>
+      </listitem>
+      <listitem>
+        <para>Select the Item Sites submenu</para>
+      </listitem>
+      <listitem>
+        <para>Choose the "List Items Sites" option</para>
+      </listitem>
+      <listitem>
+        <para>Double-click on Item TBODY1</para>
+      </listitem>
+      <listitem>
+        <para>Change the value in the "Reorder Level" field to "1,000"</para>
+      </listitem>
+      <listitem>
+        <para>Click the SAVE button</para>
+      </listitem>
+      <listitem>
+        <para>On the Item Sites master list screen, click the CLOSE
+        button</para>
+      </listitem>
+    </orderedlist>
+    <para>By setting a Reorder Level of 1,000 for Item TBODY1, we are saying
+    that when available quantity for this Item Site drops below 1,000 units,
+    it is time to resupply. We are also saying that the stock buffer for this
+    Item Site is 1,000 units.</para>
+    <para>Next we will make a Miscellaneous Adjustment to the Quantity on Hand
+    for Item TBODY1. Making this adjustment will allow us to see how the
+    Constraint Management system handles discrepancies between Reorder Levels
+    and available quantities. To adjust Quantity on Hand for this Item Site,
+    follow these steps:</para>
+    <orderedlist>
+      <listitem>
+        <para>Pull down the I/M Module menu</para>
+      </listitem>
+      <listitem>
+        <para>Select the Inventory Transactions submenu</para>
+      </listitem>
+      <listitem>
+        <para>Choose the "Miscellaneous Adjustment" option</para>
+      </listitem>
+      <listitem>
+        <para>Enter the following values: Item Number = TBODY1; Warehouse =
+        WH1; Adjustment Qty. = 300; Absolute = CHECKED; Document # =
+        Constraint Management</para>
+      </listitem>
+      <listitem>
+        <para>Click the POST button</para>
+      </listitem>
+      <listitem>
+        <para>Quantity on Hand for Item TBODY1 in the WH1 Warehouse is now set
+        to 300 units</para>
+      </listitem>
+      <listitem>
+        <para>Click the CLOSE button</para>
+      </listitem>
+    </orderedlist>
+    <note>
+      <para>A stock buffer, as the name implies, is an accumulation of Items
+      stored in Inventory that act as a hedge against demand where the
+      required service time is shorter than a time buffer for that Item would
+      allow. For example: If we have a standard part that takes two weeks to
+      produce, but which we must be able to ship in one day, we would stock
+      that Item to ensure the one-day service level. In another case, we may
+      be able to produce the Item in a day, but sometimes seasonal load
+      changes result in a production bottleneck where the backlog on a
+      critical resource for that Item is greater than a day. The stock buffer
+      allows us to continue shipping the Item under those circumstances. It is
+      important to note that due dates are irrelevant for Orders with stock
+      buffers. The buffer size is determined by the Reorder Level at the Item
+      site.</para>
+    </note>
+    <para>Okay, we are finished with the setup needed for our scenario. We are
+    now ready to run the Constraint Management system&mdash;and to learn the
+    buffer status of our newly-adjusted Item Site. To run the Constraint
+    Management system by Planner Code, follow these steps:</para>
+    <orderedlist>
+      <listitem>
+        <para>Pull down the M/S Module menu</para>
+      </listitem>
+      <listitem>
+        <para>Select the Constraint Management submenu</para>
+      </listitem>
+      <listitem>
+        <para>Choose the "Run Buffer Status by Planner Code" option</para>
+      </listitem>
+      <listitem>
+        <para>Check "All Planner Codes" and "All Warehouses"</para>
+      </listitem>
+      <listitem>
+        <para>Click the CREATE button</para>
+      </listitem>
+    </orderedlist>
+    <important>
+      <para>The Constraint Management results displayed for this scenario
+      assume you have completed all the Work Orders created in the previous
+      sections of this Demo Guide. If you have not already completed those
+      Work Orders, then your results will differ from those shown here.</para>
+    </important>
+    <para>Now that we have run the Constraint Management system, we can
+    display the results. To display the results of our buffer status run,
+    follow these steps:</para>
+    <orderedlist>
+      <listitem>
+        <para>Pull down the M/S Module menu</para>
+      </listitem>
+      <listitem>
+        <para>Select the Constraint Management submenu</para>
+      </listitem>
+      <listitem>
+        <para>Choose the "Inventory Buffer Status by Class Code" option</para>
+      </listitem>
+      <listitem>
+        <para>Click the QUERY button</para>
+      </listitem>
+      <listitem>
+        <para>The following screen will appear:</para>
+      </listitem>
+    </orderedlist>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/F064-Buffer-Inventory.png" />
+          </imageobject>
+          <caption>Inventory Buffer Status by Class Code Display</caption>
+        </mediaobject>
+      </screenshot></para>
+    <note>
+      <para>The color red is a signal that an Item has consumed at least 66%
+      of its buffer. Items in this category are considered to be "red hot."
+      This means they require immediate attention. The best remedy for red hot
+      Item Sites is to expedite any associated Work Orders or Purchase
+      Orders.</para>
+    </note>
+    <para>As you can see in the example, the buffer status calculation is
+    shown in the "Status" column. If an Item has a buffer status of 66 or
+    greater, it will display in red. The buffer status for Item TBODY1 = 70.
+    To review how this number was arrived at, we use the following
+    equation:</para>
+    <equation>
+      <mathphrase>1,000 units (Reorder/Buffer Level) - 300 units (QOH) - 0
+      Units (Allocated) = 700 units</mathphrase>
+    </equation>
+    <para>This equation shows us that the stock buffer for this Item Site has
+    been depleted by 700 units&mdash;or 70%. Keep in mind that this
+    calculation also subtracts out allocated quantities, which in this case
+    are 0. Hence, the buffer status for Item TBODY1 in Warehouse WH1 =
+    70.</para>
+    <itemizedlist>
+      <listitem>
+        <para>Click the CLOSE button to exit the display</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section id="Section554902">
+    <title><indexterm significance="normal">
+        <primary>time buffers</primary>
+        <secondary>scenario explaining</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>constraint management</primary>
+        <secondary>time buffers and</secondary>
+      </indexterm>Time Buffer Scenario</title>
+    <para>Next we will look at a time buffer scenario. Please note that time
+    buffers are calculated only for make-to-order Items. In xTuple ERP terms, a
+    make-to-order Item is an Item whose Item Site record leaves the "Stocked
+    at this Warehouse" flag UNCHECKED. Work Orders for make-to-order Items are
+    generated automatically during Sales Order entry to meet demand.</para>
+    <para>The Item Site Lead Time determines the initial buffer size for
+    make-to-order Work Orders. That lead time should include a "Murphy"
+    factor&mdash;that is, time for things that might go wrong. Orders with
+    short Lead Times will increase in status faster than those with long Lead
+    Times. This helps to ease the problem where operators concentrate just on
+    Work Order start/finish dates, when the total amount of work involved (and
+    corresponding time allotment) has a lot to do with what should be worked
+    on first.</para>
+    <note>
+      <para>The steps required for entering a Sales Order and creating new
+      Line Items are covered in detail in the Basic Business Process Flow
+      section of the xTuple ERP Demo Guide.</para>
+    </note>
+    <para>To perform the setup for this time buffer scenario, you will need to
+    follow these steps:</para>
+    <orderedlist>
+      <listitem>
+        <para>Enter a Sales Order for Customer TTOYS</para>
+      </listitem>
+      <listitem>
+        <para>Create a new Line Item for Item YTRUCK1</para>
+      </listitem>
+      <listitem>
+        <para>Specify a quantity of 1,000</para>
+      </listitem>
+      <listitem>
+        <para>Specify a Scheduled Date +5 days from today</para>
+      </listitem>
+      <listitem>
+        <para>Make sure the "Create Work Order" option is CHECKED</para>
+      </listitem>
+      <listitem>
+        <para>Save the Line Item</para>
+      </listitem>
+    </orderedlist>
+    <para>Once you have completed your Sales Order setup&mdash;and the
+    resulting Work Order has been automatically created&mdash;we are ready to
+    run the Constraint Management system to collect information about our Work
+    Order's time buffer. To run Constraint Management by Planner Code, follow
+    these steps:</para>
+    <orderedlist>
+      <listitem>
+        <para>Pull down the M/S Module menu</para>
+      </listitem>
+      <listitem>
+        <para>Select the Constraint Management submenu</para>
+      </listitem>
+      <listitem>
+        <para>Choose the "Run Buffer Status by Planner Code" option</para>
+      </listitem>
+      <listitem>
+        <para>Check "All Planner Codes" and "All Warehouses"</para>
+      </listitem>
+      <listitem>
+        <para>Click the CREATE button</para>
+      </listitem>
+    </orderedlist>
+    <para>Now that Constraint Management has been run, we can display the
+    results. Again, it is important to note that the results displayed for
+    this scenario assume you have completed all the Work Orders created in the
+    previous sections of this Demo Guide. If you have not already completed
+    those Work Orders, then your results will differ from those shown here. To
+    display the results of our current buffer status run, follow these
+    steps:</para>
+    <orderedlist>
+      <listitem>
+        <para>Pull down the M/S Module menu</para>
+      </listitem>
+      <listitem>
+        <para>Select the Constraint Management submenu</para>
+      </listitem>
+      <listitem>
+        <para>Choose the "Work Order Buffer Status by Class Code"
+        option</para>
+      </listitem>
+      <listitem>
+        <para>Click the QUERY button</para>
+      </listitem>
+      <listitem>
+        <para>The following screen will appear:</para>
+      </listitem>
+    </orderedlist>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/F065-TimeBuffer1.png" />
+          </imageobject>
+          <caption>W/O Buffer Status by Class Code Display</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>As you can see in the example, the next-to last column "Buffer Type"
+    shows that xTuple ERP has calculated a "Time" buffer for our Work Order. The
+    value of this time buffer is shown in the "Buffer Status" column. Because
+    the buffer status for the Work Order = 0, there is no need to take
+    immediate action. Remember, the magic number for the Constraint Management
+    system is 66. As long as the buffer status of a Work Order is less than
+    66, then the system does not consider the Order to be in a critical
+    state.</para>
+    <para>Your results may vary from those displayed above since there is no
+    way to predict what day of the week you may run this scenario. To learn
+    which days the WH1 Warehouse is open, select the "Warehouse Week" option
+    from the M/S Module's "Master Information" section.</para>
+    <note>
+      <para>A time buffer is the lead time, measured in working days, of a
+      supply order for an Item that is not stocked. By working days we mean
+      the days that the shop is available to work, which may exclude weekends
+      or holidays. For example: If a shop typically has a three-week lead
+      time, but does not work weekends, then the time buffer for that shop
+      would typically be 15 working days. The xTuple ERP Constraint Management
+      system looks at the start and finish dates of a discrete Purchase Order
+      or Work Order, removes non-working days for the Order\qs Warehouse, and
+      then calculates the time buffer.</para>
+    </note>
+    <para>If you want to, you can simulate the passage of time to see the
+    impact on our Work Order's buffer status. To simulate the passage of time,
+    follow these steps:</para>
+    <orderedlist>
+      <listitem>
+        <para>Open the "W/O Buffer Status by Class Code" display</para>
+      </listitem>
+      <listitem>
+        <para>Right-click on the Work Order</para>
+      </listitem>
+      <listitem>
+        <para>Select the "Reschedule Work Order" option</para>
+      </listitem>
+      <listitem>
+        <para>Enter a Start Date -2 days from today</para>
+      </listitem>
+      <listitem>
+        <para>Enter a Due Date +1 days from today</para>
+      </listitem>
+      <listitem>
+        <para>Click the RESCHEDULE button.</para>
+      </listitem>
+      <listitem>
+        <para>Re-run Buffer Status by Planner Code, as described above</para>
+      </listitem>
+      <listitem>
+        <para>Re-open the "W/O Buffer Status by Class Code" display</para>
+      </listitem>
+      <listitem>
+        <para>Click QUERY</para>
+      </listitem>
+      <listitem>
+        <para>The following screen will appear:</para>
+      </listitem>
+    </orderedlist>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/F066-TimeBuffer2.png" />
+          </imageobject>
+          <caption>W/O Buffer Status by Class Code Display</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Note that the Order's buffer status has now changed to 50. The more
+    time that passes from the start date of a Work Order to the due date of
+    the Order, the more the Order's time buffer is consumed. Keep in mind that
+    your results will vary depending on the current day of the week. The
+    Constraint Management system uses a Warehouse work week defined in the M/S
+    Module's "Master Information" section. The Warehouse week functionality
+    enables you to define the days of the week your plant is open. Closed
+    days, such as weekends in the demo database, are factored into the
+    Constraint Management time buffer calculation.</para>
+    <tip>
+      <para>Here are some helpful benchmarks:</para>
+      <variablelist>
+        <varlistentry>
+          <term>&lt; 40 and color = black</term>
+          <listitem>
+            <para>Not yet critical</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>&gt;= 66 and color = red</term>
+          <listitem>
+            <para>Critical and requires immediate attention to ensure the
+            Order is in process and will be delivered on time</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>=100 and color = red</term>
+          <listitem>
+            <para>Order is due today</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>&gt;100 and color = red</term>
+          <listitem>
+            <para>Order is late</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </tip>
+    <para>Monitoring time buffers helps us avoid falling into the First In
+    First Out (FIFO) trap that many shops get stuck in. The start time of a
+    Work Order is irrelevant. It is its completion on its due date which
+    enables us to achieve a high degree of Customer satisfaction for on-time
+    delivery. Constraint Management shows us the Orders for which we risk
+    missing the delivery date because we have already used up 66% of their
+    time buffer.</para>
+  </section>
+  <section id="Section554965">
+    <title><indexterm significance="normal">
+        <primary>capacity buffers</primary>
+        <secondary>scenario explaining</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>constraint management</primary>
+        <secondary>capacity buffers and</secondary>
+      </indexterm>Capacity Buffer Scenario</title>
+    <para>Finally, let's examine a capacity buffer scenario. The Work Order we
+    created in the previous section enabled us to get familiar with the
+    concept of time buffers. Well, in addition to time factors, we must also
+    consider the impact&mdash;or load&mdash;that a Work Order places on Work
+    Centers. In the case of production for the YTRUCK1 Item, three Work
+    Centers will be affected.</para>
+    <para>Nearly all manufacturers have one bottleneck Work Center that
+    constrains their entire operation. It is the load on this Work Center that
+    warrants close monitoring. The capacity buffer screen enables us to view
+    the current load in relation to a definable number of days of capacity. To
+    view the capacity buffer status for our current Work Centers, follow these
+    steps:</para>
+    <orderedlist>
+      <listitem>
+        <para>Pull down the M/S Module menu</para>
+      </listitem>
+      <listitem>
+        <para>Select the Constraint Management submenu</para>
+      </listitem>
+      <listitem>
+        <para>Choose the "Capacity Buffer Status by Work Center" option</para>
+      </listitem>
+      <listitem>
+        <para>Set the following: All Work Centers = CHECKED; All Warehouses =
+        CHECKED; Max Days Load = 5.</para>
+      </listitem>
+      <listitem>
+        <para>Click the QUERY button</para>
+      </listitem>
+      <listitem>
+        <para>The following screen will appear:</para>
+      </listitem>
+    </orderedlist>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/F067-CapBuf.png" />
+          </imageobject>
+          <caption>Capacity Buffer Status by Work Center Display</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>The first two columns after the Work Center names show the current
+    load on each Work Center Orders that pass through each, regardless of
+    their scheduled dates. The fifth column shows the Daily Capacity of each
+    Work Center, as defined in the Master Information for each Work Center's
+    definition. The "Days Load" column shows the sum of Total Setup and Total
+    Run (total load in minutes) divided by a Work Center's Daily Capacity. The
+    final "Buffer Status" column takes into account the value you set in the
+    "Max Days Load" field before you clicked the QUERY button.</para>
+    <para>Here is another example to illustrate how the capacity buffer is
+    calculated. Suppose that the Daily Capacity of the Stamping Work Center is
+    480 minutes, and we set the display with a Max Days Load = 5 days. The
+    numerator in our calculation would be 5 * 480 = 2400 minutes. If the Total
+    Setup for all Work Orders going through Stamping is 60 minutes and the
+    Total Run time is 2000 minutes, the numerator will be 2060 minutes. The
+    buffer status would then be 2060 / 2400, or 85%. This tells us that we
+    have loaded the Stamping operation with 85% of the capacity available over
+    a 5-day period of time. We would see the value "85" displayed in the
+    "Buffer Status" column.</para>
+    <note>
+      <para>The capacity buffer is the relative load of a resource compared to
+      the desired lead time of Items coming out of that resource. For example,
+      suppose we have a shop with a typical lead time of two weeks that has a
+      milling department heavily loaded. Perhaps we have identified milling as
+      our shop's bottleneck and will use the Constraint Management system to
+      monitor it. The capacity buffer would be two-weeks worth of load,
+      meaning that the milling department can be loaded with up to two-weeks
+      worth of work before it is considered fully-consumed. The capacity
+      buffer size is entered as "Max Days Load" by the user when they run the
+      Capacity Buffer Status report. When the Buffer column in the display for
+      milling equals 100 we know it is fully consumed.</para>
+    </note>
+    <para>The capacity buffer is an excellent tool for monitoring your shop's
+    bottleneck Work Center(s). Using the system, you can help ensure that the
+    shop as a whole is able to achieve complete Work Orders, and, ultimately,
+    deliver Orders successfully to your Customers within the stated lead
+    times.</para>
+  </section>
+  <section id="Section554985">
+    <title>Other Constraint Management Displays</title>
+    <para>Keep in mind that you must run the Constraint Management utilities
+    (i.e., "Run Buffer Status by Planner Code" and "Run Buffer Status by
+    Item") for the information in the buffer status screens to be updated.
+    Best practice would be to submit the job "Run Buffer Status by Planner
+    Code" to the Batch Manager on a nightly basis, scheduling it to run each
+    night after midnight. In this way, you will be able to monitor the updated
+    buffer status results when you arrive in the morning&mdash;allowing you to
+    then set appropriate priorities for the rest of the day.</para>
+    <para>Also recall that time buffers are only calculated for make-to-order
+    Items. The appropriate buffer for Items that are not make-to-order is the
+    stock buffer. By definition, Items that are not make-to-order are sold
+    from stock. The Reorder Level for stock buffer Items will ensure you can
+    meet your desired service levels.</para>
+    <para>To review, in this supplement, we have scenarios describing the
+    three types of buffers recognized by the xTuple ERPxTuple ERPxTuple ERPxTuple ERP Constraint Management
+    system:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Stock</para>
+      </listitem>
+      <listitem>
+        <para>Time</para>
+      </listitem>
+      <listitem>
+        <para>Capacity</para>
+      </listitem>
+    </itemizedlist>
+    <para>If you are curious to see more displays related to Constraint
+    Management, take a look at the M/S Module's "Constraint Management"
+    submenu. There you will find numerous displays not covered here. These
+    other displays provide additional ways of monitoring the results of a
+    buffer update. As always, the goal is to provide you with a means to
+    prioritize the actions you need to take in order to meet or exceed
+    Customer requirements for service levels and on-time deliveries.</para>
+  </section>
+</section>

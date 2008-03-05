@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="purchaseOrderItem">
+  <title><indexterm significance="normal">
+      <primary>purchase orders</primary>
+      <secondary>creating items for</secondary>
+    </indexterm>Purchase Order Item</title>
+  <para>To create a new Purchase Order Line Item, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/purchaseOrderItem.png" />
+        </imageobject>
+        <caption>Create New Purchase Order Line Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Purchase Order Line Item, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>P/O Number</term>
+      <listitem>
+        <para>Displays the Purchase Order Number specified in the "New
+        Purchase Order" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Line #</term>
+      <listitem>
+        <para>The application automatically assigns line numbers to Purchase
+        Order Line Items. Numbering begins at one ("1") and increases
+        automatically in increments of one.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Inventory Item</term>
+      <listitem>
+        <para>If the Item being purchased is an Inventory Item, select this
+        option and specify the following:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item Number</term>
+            <listitem>
+              <para>Enter the Item Number of the Item you want to add to the
+              Purchase Order.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Supplying Whse.</term>
+            <listitem>
+              <para>Specify the Warehouse the Item will be supplied from. The
+              supplying Warehouse is the Warehouse that supplies the Item in
+              question to the shipping Warehouse for shipment to Customers.
+              Warehouses may be designated as supplying Warehouses in the Item
+              Site definition.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>The supplying Warehouse may differ from the receiving Warehouse(s)
+    for some Purchase Order Line Items. To update your Inventory records to
+    indicate that Items have been moved from the receiving to the supplied
+    from Warehouse, perform an Inter-Warehouse Transfer.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Non-Inventory Item</term>
+      <listitem>
+        <para>If the Item being purchased is a non-Inventory Item, select this
+        option and specify the following:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Expense Category</term>
+            <listitem>
+              <para>Select an Expense Category to assign the non-Inventory
+              Item to.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Ordered</term>
+      <listitem>
+        <para>Enter the quantity of the specified Item to be ordered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Received</term>
+      <listitem>
+        <para>Displays quantity received from quantity ordered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Unit Price</term>
+      <listitem>
+        <para>Enter the Unit Price for the specified Item. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Extended Price</term>
+      <listitem>
+        <para>Displays the Extended Price. The Extended Price for a Line Item
+        is based on the quantity ordered multiplied by the Unit Price.</para>
+        <note>
+          <para>The option to associate a Project with a Purchase Order Line
+          Item will only be visible if your site is configured to use
+          Projects.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Line Item Freight</term>
+      <listitem>
+        <para>Enter the amount of freight charges for the entire Line Item
+        quantity. The system automatically calculates the per unit freight
+        charge by dividing the Line Item freight amount by the Line Item
+        quantity. This per unit freight charge is needed when receiving or
+        vouchering quantities less than the original quantity ordered. Line
+        Item freight is distinguished from miscellaneous freight, which
+        applies to the Purchase Order as a whole</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para> Specify date when Order is expected to be received.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Project #</term>
+      <listitem>
+        <para>Select a Project Number to associate with the Purchase Order
+        Line Item. If the Purchase Order Line Item is being created from a
+        Purchase Request driven by Sales Order demand&mdash;and the parent Sales
+        Order had a Project Number associated with it&mdash;then the Project Number
+        from the parent Sales Order will automatically be entered here. In
+        this way, Sales Orders and Purchase Order Line Items may be linked to
+        the same Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor Source Information</term>
+      <listitem>
+        <para>If Item Source information exists for an Inventory Item, that
+        information will display automatically here. For non-Inventory Items,
+        you should specify an Item Number and Item description.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Vend. Item Number</term>
+            <listitem>
+              <para>Enter the Item number the Vendor assigns to the specified
+              Item.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Vendor Item Description</term>
+            <listitem>
+              <para>Enter the description the Vendor uses to describe to the
+              specified Item.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Min. Order Qty</term>
+            <listitem>
+              <para>For Inventory Items only, displays the minimum order
+              quantity for the specified Item and the specified Vendor.
+              Minimum order quantities are established in the Item Source
+              master.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Order Qty. Mult.</term>
+            <listitem>
+              <para>For Inventory Items only, displays the order multiple for
+              the specified Item and the specified Vendor. Order multiples are
+              established in the Item Source master.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Vendor UOM:</term>
+            <listitem>
+              <para>For Inventory Items only, displays the Unit of Measure
+              used by the Vendor for the specified Item.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Inv./Vendor UOM Ratio:</term>
+            <listitem>
+              <para>For Inventory Items only, displays the ratio between
+              Inventory and Vendor Units of Measure.</para>
+              <note>
+                <para>The Inv./Vendor UOM Ratio specifies the ratio between
+                Inventory and Vendor Units of Measure (UOM). For example, if
+                you store an Item in single units, but a Vendor sells you the
+                Item in cases of 12, then the ratio would be 12--or 12:1. When
+                an Inv./Vend. ratio is specified, the system allows you to
+                purchase Items using the Vendor's UOM; however, when the Items
+                are received, the system will automatically convert the
+                Inventory to your Inventory UOM.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Earliest Avail. Due Date</term>
+            <listitem>
+              <para>For Inventory Items only, displays the earliest due date
+              for the specified Item.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Purchase Order Line
+        Item, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the new Purchase Order Line Item and adds it to the list
+        of Purchase Order Line Items.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add miscellaneous Notes to the Purchase Order Item, select the
+  "Notes" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/purchaseOrderItem_notesTab.png" />
+        </imageobject>
+        <caption>Purchase Order Notes</caption>
+      </mediaobject>
+    </screenshot>When entering miscellaneous Notes to a Purchase Order Item,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Purchase Order Line Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>If an Item has Characteristics associated with it, you have the option
+  of linking those Characteristics to a Purchase Order Item. In the case where
+  Sales Order demand generates a Purchase Request, Item Characteristics and
+  Values inherited from the Sales Order will already be linked to the Purchase
+  Order. Ultimately, Characteristics associated with a Purchase Order Item may
+  be printed on the Purchase Order report.</para>
+  <tip>
+    <para>You can link Characteristics and Values to an Item by using the Item
+    master. Once entered, these Characteristics and Values will be available
+    to users entering Purchase Order Items.</para>
+  </tip>
+  <para>To specify or edit Characteristics for a Purchase Order Item, select
+  the "Characteristics" tab at the bottom of the screen. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/purchaseOrderItem_itemchar.png" />
+        </imageobject>
+        <caption>Purchase Order Line Item Characteristics</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When selecting or editing Characteristics for a Purchase Order Line
+  Item, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Displays the name of any Item Characteristics associated with
+        the Item. Characteristics defined as Item Characteristics may be
+        associated with Items on the Item master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Displays the default Value associated with an Item
+        Characteristic, but permits you to specify an alternate Value. When
+        associating Characteristic Values with a Purchase Order Item, you have
+        four options: 1) Select the default Value; 2) select an alternate
+        pre-defined Value; 3) manually enter a new Value in place of the
+        pre-defined Value; or 4) make no selection. Making no selection means
+        the Characteristics will not be associated with the Purchase Order
+        Item&mdash;except in the case of Characteristics inherited from Sales
+        Orders, by way of Purchase Requests.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Comments to a Purchase Order Line Item&mdash;or to view
+  system-generated Comments&mdash;select the "Comments" tab at the bottom of the
+  screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/purchaseOrderItem_commentsTab.png" />
+        </imageobject>
+        <caption>Add Comments to Purchase Order Line Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Comments to a Purchase Order Line Item, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>Display lists Comments for the specified Line Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Comment. Purchase Order Line
+        Item Comments may only be added after the Line Item has been saved to
+        the Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Comment and then select this button to reach a
+        read-only view of the Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a Purchase Order Line Item Comment, select the NEW button.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CommentNew.png" />
+        </imageobject>
+        <caption>Create New Comment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Comment, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Comment and adds it to the list of Line Item
+        Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para role="standard">When ordering purchased Items, you have the option to specify which
+  Revision of the Item's Bill of Materials and Bill of Operations you want to
+  buy. By default, the active Revision will be used. To specify Revision
+  information for a Purchase Order Item, select the "Revision" tab. The
+  following screen will appear:</para>
+  <screenshot role="standard">
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/purchaseOrderItem_revision.png" />
+      </imageobject>
+      <caption>Line Item Revisions</caption>
+    </mediaobject>
+  </screenshot>
+  <note>
+    <para role="standard">You may create Purchase Order Items for pending Revisions. For
+    Purchase Order purposes, a pending Revision is considered to be the same
+    as an inactive Revision. The Revision status of a pending Revision will
+    not be changed if a Purchase Order Item is created for it.</para>
+  </note>
+  <para role="standard">When specifying Revision information for a Purchase
+  Order Item, you are presented with the following options:</para>
+  <variablelist role="standard">
+    <varlistentry>
+      <term>Bill of Materials</term>
+      <listitem>
+        <para>Specify the BOM Revision you want to use for the Purchase Order
+        Item. By default, the active Revision will be used.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Revision</term>
+            <listitem>
+              <para>Select from the list of existing available Revisions. The
+              status of the Revision will also be displayed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>Bill of Operations</term>
+      <listitem>
+        <para>Specify the BOO Revision you want to use for the Purchase Order
+        Item. By default, the active Revision will be used.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Revision</term>
+            <listitem>
+              <para>Select from the list of existing available Revisions. The
+              status of the Revision will also be displayed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

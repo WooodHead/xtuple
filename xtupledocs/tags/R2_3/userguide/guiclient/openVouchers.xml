@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section972251">
+  <title>
+<indexterm significance="normal">
+      <primary>vouchers</primary>
+
+      <secondary>list of unposted</secondary>
+    </indexterm>Unposted Vouchers</title>
+
+  <para>To display unposted Vouchers, select the "List Unposted Vouchers"
+  option. The following screen will appear:</para>
+
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/openVouchers.png"/>
+        </imageobject>
+
+        <caption>List Unposted Vouchers</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+
+  <note>
+    <para>Actual Costs for purchased Items will be automatically updated when
+    Vouchers are posted if there are differences between current Actual Costs
+    and the vouchered Costs for the Items in question. Please keep in mind
+    that Actual Costs only will be updated at posting. For new Costs to be
+    recognized as Standard Costs, Actual Costs must be posted to
+    Standard.</para>
+  </note>
+
+  <para>The "Vouchers" screen displays information on all unposted Vouchers,
+  including Voucher Number, Purchase Order Number, Vendor Number/Vendor name,
+  Vendor Invoice Number, and distribution date. Users with the appropriate
+  privilege will also see the G/L distribution date column.</para>
+
+  <tip>
+    <para>You may select multiple Vouchers for posting by highlighting them
+    using your mouse&mdash;or a combination of your mouse and either the SHIFT or
+    CTRL keys.</para>
+  </tip>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>PRINT</term>
+
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>NEW</term>
+
+      <listitem>
+        <para>Opens screen for creating a new Voucher.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>NEW MISC.</term>
+
+      <listitem>
+        <para>Opens screen for creating a new Miscellaneous Voucher.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>EDIT</term>
+
+      <listitem id="openVouchersEDIT">
+        <para>Enables you to edit highlighted Vouchers. The edit screen is the
+        same as that for creating a new Voucher&mdash;except that when editing, the
+        fields will contain Voucher information. Double-clicking on a Voucher
+        will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>VIEW</term>
+
+      <listitem id="openVouchersVIEW">
+        <para>Highlight a Voucher and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <tip>
+    <para>If you have a Purchase Order Voucher that was corrupted by, for
+    example, a sudden power outage, you can clear the record by running the
+    Post Vouchers screen. In most cases, this action will remove the corrupted
+    record and allow you to voucher the Purchase Order with a fresh
+    Voucher.</para>
+  </tip>
+
+  <variablelist>
+    <varlistentry>
+      <term>POST</term>
+
+      <listitem id="openVouchersPOST">
+        <para>Highlight one&mdash;or multiple&mdash;Vouchers, then select this button to
+        post the selected Voucher(s). By default, Vouchers post to the General
+        Ledger (G/L) on their distribution date. However, users with the
+        appropriate privilege may change the G/L distribution date to an
+        alternate date during the Voucher posting process. If used, Vouchers
+        will post on the alternate date. The ability privileged users have to
+        change the distribution date applies to the posting of both individual
+        and also batches of Vouchers from this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>DELETE</term>
+
+      <listitem id="openVouchersDELETE">
+        <para>Highlight a Voucher and then select this button to remove the
+        Voucher from the list.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Print Journal after Post</term>
+
+      <listitem>
+        <para>Select if you want to print a copy of the Payables Journal after
+        the selected Vouchers are posted.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>Right-clicking on an unposted Voucher in the list of unposted Vouchers
+  enables you to select from the following menu options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>Edit Voucher</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(openVouchersEDIT)"/>
+    </varlistentry>
+
+    <varlistentry>
+      <term>View Voucher</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(openVouchersVIEW)"/>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Delete Voucher</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(openVouchersDELETE)"/>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Post Voucher</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(openVouchersPOST)"/>
+    </varlistentry>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

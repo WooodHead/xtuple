@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518905">
+  <title>
+<indexterm significance="normal">
+      <primary>work orders</primary>
+      <secondary>issuing materials in batch mode</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>batch mode</primary>
+      <secondary>issuing w/o materials in</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>work order material requirements</primary>
+      <secondary>issuing in batch mode</secondary>
+    </indexterm>Issue W/O Material Batch</title>
+  <para>To issue Work Order Material Requirement Items simultaneously in a
+  batch, select the "Issue W/O Material Batch" option. The following screen
+  will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/issueWoMaterialBatch.png"/>
+        </imageobject>
+        <caption>Issue Work Order Material Batch</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When issuing Work Order Material Requirement Items in a batch, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Work Order #</term>
+      <listitem>
+        <para>Enter the Work Order Number of the Work Order whose component
+        Items you want to issue in a batch.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Whs.</term>
+      <listitem>
+        <para>Displays Warehouse code automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays Work Order Item Number automatically when Work Order
+        Number is entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Displays Work Order Status automatically when Work Order Number
+        is entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Issue Items not on Pick List</term>
+      <listitem>
+        <para>Select to indicate that non-Pick List Items should be
+        backflushed as well.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>W/O Material Requirements</term>
+      <listitem>
+        <para>Display lists Work Order Material Requirements. The display is
+        color-coded for ease of use. If an Item's issue method is "Pull," then
+        that Item&mdash;and the entire row it sits on&mdash;will appear in blue type.
+        The blue type indicates that the batch issue utility will not affect
+        these Items. By definition, pulled Items are backflushed, not issued.
+        However, if an Item's issue method is "Push," then that Item&mdash;and the
+        row it sits on&mdash;will appear in black type. Rows with black type are
+        affected by the batch issue utility. One other color may also appear.
+        If the quantity required by the Work Order exceeds the Quantity on
+        Hand&mdash;meaning there is an Inventory shortage&mdash;the value in the "Short"
+        column will display in red.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If you are issuing Lot/Serial Items to a Work Order, these cannot be
+    issued automatically from a default Location. You must individually select
+    and then distribute the desired Lot/Serial quantity.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without issuing any materials to the selected
+        Work Order, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ISSUE MATERIALS</term>
+      <listitem>
+        <para>Issues all pushed Work Order Material Requirements for the
+        selected Work Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

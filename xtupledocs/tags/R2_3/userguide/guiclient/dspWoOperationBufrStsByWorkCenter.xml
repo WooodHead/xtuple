@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section555361" role="openmfg">
+  <title>W/O Operation Buffer Status by Work Center</title>
+  <para>The Work Order buffer status displays provide information on your
+  current stock and time buffer levels for those Items having current Work
+  Orders. Stock buffers apply to make-to-stock Items; whereas time buffers
+  apply to Items which are make-to-order. Keep in mind that buffer status
+  information will only be displayed on days when the Constraint Management
+  system is run. If you find your displays show no information, this probably
+  means Constraint Management has not been run.</para>
+  <para>To view Work Order Operation buffer statuses by Work Center, select
+  the "W/O Buffer Status by Work Center" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspWoOperationBufrStsByWorkCenter.png" />
+        </imageobject>
+        <caption>Work Order Operation Buffer Status by Work Center</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>When the buffer status for an Item hits 66 or higher, the status
+    number will become red. By highlighting Items which are "red hot," the
+    system is informing you which Items should be acted on immediately. The
+    best remedy for red hot Item Sites is to expedite any associated Work
+    Orders or Purchase Orders.</para>
+  </note>
+  <para>When displaying Work Order Operation buffer statuses by Work Center,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Work Center</term>
+      <listitem>
+        <para>Specify Work Center whose Work Order Operation buffer statuses
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warehouse</term>
+      <listitem>
+        <para>Displays Warehouse code for Warehouse where Work Center is
+        located.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>By default, the display will sort Work Orders by buffer status in
+    descending order. In other words, Work Orders with the highest buffer
+    status will appear at the top of the list; Work Orders with the lowest
+    buffer status will appear at the bottom.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Only Show W/O Operations with Qty. Available</term>
+      <listitem>
+        <para>Select to only show Work Order Operations with quantity
+        available in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Operations</term>
+      <listitem>
+        <para>Display lists Work Order Operation buffer statuses by Work
+        Center, using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Automatically Update</term>
+      <listitem>
+        <para>Select to automatically update the display every five
+        minutes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right and at the bottom of the screen, the following
+  buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>SUBMIT</term>
+      <listitem>
+        <para>Select to submit report to the Batch Manager. For additional
+        information, see <xref linkend="Anchor61009" />.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Operation in the Operations list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewOperation)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditOperation)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickDeleteOperation)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+</section>
