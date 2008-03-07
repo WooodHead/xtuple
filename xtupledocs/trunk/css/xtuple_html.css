@@ -120,7 +120,7 @@ div.screenshot
   text-align:   center;
 }
 
-img
+div.mediaobject > img
 {
   max-width:    90%;
   text-align:   center;
@@ -131,7 +131,7 @@ img
   font-size:    smaller;
 }
 
-table
+div.table > table
 {
   border-collapse:      collapse;
   border-width:         0;
@@ -139,7 +139,7 @@ table
   margin-right:         auto;
 }
 
-td
+div.table > td
 {
   padding-left:        0.5em;
   padding-right:       0.5em;
