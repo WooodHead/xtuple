@@ -126,6 +126,12 @@ div.mediaobject > img
   text-align:   center;
 }
 
+div.itemizedlist > ul > li > p,
+div.orderedlist > ol > li > p
+{
+  display: inline;
+}
+
 .programlisting
 {
   font-size:    smaller;
