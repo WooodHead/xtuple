@@ -5,6 +5,7 @@ DECLARE
     _result	INTEGER;
     _counterNum	INTEGER	:= 1;
     _feedBackNum INTEGER := 1;
+    _r                  RECORD;
 
 BEGIN
     DELETE FROM costUpdate;
@@ -13,31 +14,39 @@ BEGIN
 	INSERT INTO costUpdate ( costUpdate_item_id, costUpdate_item_type )
 			SELECT item_id, item_type
 			FROM   item;
+
+        -- Recalculate the Item Lowlevel codes
+        WHILE _feedBackNum > 0 LOOP
+            SELECT updateLowlevel(_counterNum) INTO _feedBackNum;
+            _counterNum := _counterNum + 1;
+        END LOOP;
+
     ELSE
 	INSERT INTO costUpdate ( costUpdate_item_id, costUpdate_item_type )
 			SELECT item_id, item_type
 			FROM   item
-			WHERE  item_id = pItemId;
-	GET DIAGNOSTICS _result = ROW_COUNT;
-	WHILE _result != 0 LOOP
-	    INSERT INTO costUpdate ( costUpdate_item_id, costUpdate_item_type )
-		 SELECT DISTINCT item_id, item_type
-		 FROM item,
-		      bomitem(pItemId) JOIN
-		      costUpdate ON (bomitem_parent_item_id = costUpdate_item_id)
-		 WHERE item_id NOT IN (SELECT costUpdate_item_id
-				       FROM costUpdate)
-		   AND ( CURRENT_DATE BETWEEN bomitem_effective
-                                               AND (bomitem_expires - 1) );
-	    GET DIAGNOSTICS _result = ROW_COUNT;
-	END LOOP;
-    END IF;
+                        WHERE (item_id=pItemId);
+      FOR _r IN SELECT item_id, bomdata_bomwork_level, item_type
+                FROM item,
+                     indentedBOM(pItemId, getActiveRevId(''BOM'',pItemId),0,0)
+                WHERE (bomdata_item_id=item_id)
+                ORDER BY bomdata_bomwork_level LOOP
 
-    -- Recalculate the Item Lowlevel codes
-    WHILE _feedBackNum > 0 LOOP
-	SELECT updateLowlevel(_counterNum) INTO _feedBackNum;
-	_counterNum := _counterNum + 1;
-    END LOOP;
+        -- this only works because of the ORDER BY in the loop SELECT
+        UPDATE costUpdate
+        SET costupdate_lowlevel_code = _r.bomdata_bomwork_level
+        WHERE (costupdate_item_id=_r.item_id);
+
+        IF (NOT FOUND) THEN
+          INSERT INTO costUpdate (
+            costUpdate_item_id, costUpdate_lowlevel_code, costUpdate_item_type
+          ) VALUES (
+            _r.item_id, _r.bomdata_bomwork_level, _r.item_type
+          );
+        END IF;
+      END LOOP;
+
+    END IF;
 
     SELECT count(*) INTO _result
     FROM costUpdate;
