@@ -128,7 +128,8 @@ BEGIN
     cobmisc_adjtax_ratea, cobmisc_adjtax_rateb, cobmisc_adjtax_ratec,
     cobmisc_freighttax_id, cobmisc_freighttaxtype_id,
     cobmisc_freighttax_pcta, cobmisc_freighttax_pctb, cobmisc_freighttax_pctc,
-    cobmisc_freighttax_ratea, cobmisc_freighttax_rateb, cobmisc_freighttax_ratec )
+    cobmisc_freighttax_ratea, cobmisc_freighttax_rateb, cobmisc_freighttax_ratec,
+    cobmisc_notes )
   SELECT _cobmiscid, _cohead.cohead_id,
          _shipDate, _invcDate,
          _cohead.cohead_misc, _cohead.cohead_misc_accnt_id, _cohead.cohead_misc_descrip,
@@ -140,7 +141,8 @@ BEGIN
          NULL, NULL, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
          _tax.freight_tax_id, _tax.freight_taxtype_id,
          _tax.freight_pcnta, _tax.freight_pcntb, _tax.freight_pcntc,
-         _tax.freight_ratea, _tax.freight_rateb, _tax.freight_ratec
+         _tax.freight_ratea, _tax.freight_rateb, _tax.freight_ratec,
+         _cohead.cohead_ordercomments
   FROM custinfo
   WHERE (cust_id=_cohead.cohead_cust_id);
 
