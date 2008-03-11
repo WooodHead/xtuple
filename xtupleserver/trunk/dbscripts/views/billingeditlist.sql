@@ -109,6 +109,5 @@ WHERE ( (coitem_itemsite_id=itemsite_id)
 ORDER BY ordernumber, linenumber;
 
 REVOKE ALL ON billingEditList FROM PUBLIC;
-GRANT ALL ON billingEditList TO mfgadmin;
 GRANT ALL ON billingEditList TO GROUP openmfg;
 

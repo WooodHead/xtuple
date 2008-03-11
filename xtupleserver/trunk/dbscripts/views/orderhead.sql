@@ -38,7 +38,6 @@ CREATE VIEW orderhead AS
               LEFT OUTER JOIN coitem ON ((cohead_id=coitem_cohead_id)
                                      AND (coitem_status='O'));
 REVOKE ALL ON TABLE orderhead FROM PUBLIC;
-GRANT  ALL ON TABLE orderhead TO mfgadmin;
 GRANT  ALL ON TABLE orderhead TO GROUP openmfg;
 
 COMMENT ON VIEW orderhead IS 'Union of all orders for use by widgets and stored procedures which process multiple types of order';

@@ -12,11 +12,9 @@ CREATE TABLE ipsitemchar
 ALTER TABLE ipsitemchar ADD UNIQUE (ipsitemchar_ipsitem_id, ipsitemchar_char_id, ipsitemchar_value);
 
 REVOKE ALL ON TABLE ipsitemchar FROM PUBLIC;
-GRANT  ALL ON TABLE ipsitemchar TO   mfgadmin;
 GRANT  ALL ON TABLE ipsitemchar TO   GROUP openmfg;
 
 REVOKE ALL ON TABLE ipsitemchar_ipsitemchar_id_seq FROM PUBLIC;
-GRANT  ALL ON TABLE ipsitemchar_ipsitemchar_id_seq TO   mfgadmin;
 GRANT  ALL ON TABLE ipsitemchar_ipsitemchar_id_seq TO   GROUP openmfg;
 
 COMMENT ON TABLE ipsitemchar IS 'Item Price Schedule Characteristic Prices.';

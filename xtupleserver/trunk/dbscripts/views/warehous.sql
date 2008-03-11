@@ -31,6 +31,5 @@ FROM whsinfo LEFT OUTER JOIN cntct c1  ON (warehous_cntct_id=c1.cntct_id)
              LEFT OUTER JOIN addr m    ON (warehous_addr_id=m.addr_id);
 
 REVOKE ALL ON TABLE warehous FROM PUBLIC;
-GRANT  ALL ON TABLE warehous TO mfgadmin;
 GRANT  ALL ON TABLE warehous TO GROUP openmfg;
 

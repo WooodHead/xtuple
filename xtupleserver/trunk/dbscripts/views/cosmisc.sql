@@ -17,6 +17,5 @@ CREATE OR REPLACE VIEW cosmisc AS
   WHERE (shiphead_order_type='SO');
 
 REVOKE ALL ON TABLE cosmisc FROM PUBLIC;
-GRANT  ALL ON TABLE cosmisc TO mfgadmin;
 GRANT  ALL ON TABLE cosmisc TO GROUP openmfg;
 

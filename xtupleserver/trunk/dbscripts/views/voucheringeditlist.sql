@@ -69,6 +69,5 @@ WHERE vodist.vodist_vohead_id = vohead.vohead_id
 ORDER BY vouchernumber, itemid;
 
 REVOKE ALL ON voucheringEditList FROM PUBLIC;
-GRANT ALL ON voucheringEditList TO mfgadmin;
 GRANT ALL ON voucheringEditList TO GROUP openmfg;
 

@@ -31,6 +31,5 @@ FROM shiptoinfo LEFT OUTER JOIN cntct c1  ON (shipto_cntct_id=c1.cntct_id)
                 LEFT OUTER JOIN addr m    ON (shipto_addr_id=m.addr_id);
 
 REVOKE ALL ON TABLE shipto FROM PUBLIC;
-GRANT  ALL ON TABLE shipto TO mfgadmin;
 GRANT  ALL ON TABLE shipto TO GROUP openmfg;
 

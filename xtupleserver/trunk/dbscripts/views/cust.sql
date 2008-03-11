@@ -65,6 +65,5 @@ FROM custinfo LEFT OUTER JOIN cntct mc  ON (cust_cntct_id=mc.cntct_id)
           LEFT OUTER JOIN addr c    ON (cc.cntct_addr_id=c.addr_id);
 
 REVOKE ALL ON TABLE cust FROM PUBLIC;
-GRANT  ALL ON TABLE cust TO mfgadmin;
 GRANT  ALL ON TABLE cust TO GROUP openmfg;
 

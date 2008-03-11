@@ -44,6 +44,5 @@ FROM vendinfo LEFT OUTER JOIN cntct c1  ON (vend_cntct1_id=c1.cntct_id)
           LEFT OUTER JOIN cntct c2  ON (vend_cntct2_id=c2.cntct_id);
 
 REVOKE ALL ON TABLE vend FROM PUBLIC;
-GRANT  ALL ON TABLE vend TO mfgadmin;
 GRANT  ALL ON TABLE vend TO GROUP openmfg;
 

@@ -16,6 +16,5 @@ FROM vendaddrinfo LEFT OUTER JOIN cntct c1  ON (vendaddr_cntct_id=c1.cntct_id)
                   LEFT OUTER JOIN addr m    ON (vendaddr_addr_id=m.addr_id);
 
 REVOKE ALL ON TABLE vendaddr FROM PUBLIC;
-GRANT  ALL ON TABLE vendaddr TO mfgadmin;
 GRANT  ALL ON TABLE vendaddr TO GROUP openmfg;
 

@@ -7,6 +7,5 @@ CREATE VIEW budget AS
          budgitem_amount AS budget_amount
     FROM budgitem;
 REVOKE ALL ON TABLE budget FROM PUBLIC;
-GRANT  ALL ON TABLE budget TO   mfgadmin;
 GRANT  ALL ON TABLE budget TO   GROUP openmfg;
 

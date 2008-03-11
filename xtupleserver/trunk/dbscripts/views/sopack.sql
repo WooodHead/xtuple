@@ -7,5 +7,4 @@ CREATE VIEW sopack AS
   FROM pack
   WHERE (pack_head_type='SO');
 REVOKE ALL ON TABLE sopack FROM PUBLIC;
-GRANT  ALL ON TABLE sopack TO mfgadmin;
 GRANT  ALL ON TABLE sopack TO GROUP openmfg;
