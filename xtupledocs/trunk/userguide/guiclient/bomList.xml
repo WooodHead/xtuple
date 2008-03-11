@@ -47,10 +47,10 @@
       <listitem>
         <para>Enables you to edit a Bill of Materials. Highlight the Item
         whose Bill of Materials you want to edit and then hit the EDIT
-        button&mdash;or double-click on the Item to enter the edit mode. The edit
-        screen is the same as that for creating a new Bill of
-        Materials&mdash;except that when editing, the fields will contain existing
-        information.</para>
+        button&mdash;or double-click on the Item to enter the edit mode. The
+        edit screen is the same as that for creating a new Bill of
+        Materials&mdash;except that when editing, the fields will contain
+        existing information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -78,6 +78,11 @@
       <listitem>
         <para>Highlight an Item and then select this button to remove the Item
         from the list.</para>
+        <tip role="standard">
+          <para>You may not delete a Bill of Materials (BOM) if the Item in
+          question has any Revision history. You must make the BOM inactive
+          instead </para>
+        </tip>
       </listitem>
     </varlistentry>
   </variablelist>
