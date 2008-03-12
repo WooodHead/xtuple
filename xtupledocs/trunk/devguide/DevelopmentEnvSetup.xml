@@ -1,0 +1,1503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="../specs/docbook-omfg.css"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<article>
+  <title>Developers' Guide to</title>
+  <subtitle>Configuring a Development Environment</subtitle>
+  <articleinfo>
+    <corpauthor>xTuple (OpenMFG, LLC)</corpauthor>
+    <pubdate>$Date: 2008/03/12 15:39:26 $</pubdate>
+    <edition>cvs $Revision: 1.26 $</edition>
+    <copyright>
+      <year>2006-2007</year>
+      <holder>OpenMFG, LLC</holder>
+    </copyright>
+  </articleinfo>
+  <para>This document describes the tools you need and the steps you must
+  follow to create a software environment to contribute to the
+  <application>PostBooks</application> and <application>OpenMFG</application>
+  development effort. It assumes that the reader has a software development
+  background, is experienced with downloading software and source code bundles
+  from the Web, and has worked with tools similar to those described below.
+  This document does not describe the only way to do things, just those we
+  have tried with success.</para>
+  <para>The following tools all have to be present to successfully create a
+  binary version of the <application>PostBooks and OpenMFG</application>
+  applications.</para>
+  <variablelist>
+    <varlistentry>
+      <term><application>CVS</application></term>
+      <listitem>
+        <para>One of the source code management tools
+        <orgname>xTuple</orgname> uses for version control. Old repositories
+        are currently under <application>CVS</application> control although
+        this might change in the future. New repositories use
+        <application>Subversion</application>.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Subversion</term>
+      <listitem>
+        <para>The other source code management tool <orgname>xTuple</orgname>
+        uses for version control.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Software Development Environment</term>
+      <listitem>
+        <para>The particular development tools that <orgname>xTuple</orgname>
+        uses or recommends are described below in the sections on particular
+        operating systems. In general, however, the development environment
+        must include a C++ compiler and an application build tool similar to
+        <application>make</application>.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><application>Qt 4</application></term>
+      <listitem>
+        <para>This is the Graphical User Interface toolkit used to build the
+        <application>PostBooks</application>,
+        <application>OpenMFG</application>, and
+        <application>OpenRPT</application> applications.
+        <application>Qt</application> is available with either a free license
+        for non-commercial development and a commercial license for commercial
+        users.<important>
+            <para>To contribute to <application>OpenMFG</application> you must
+            contact <ulink
+            url="http://www.trolltech.com/"><orgname>Trolltech</orgname></ulink>
+            and get a commercial license for <application>Qt</application>.
+            You should carefully read Trolltech's license before using the
+            Open Source edition for <application>PostBooks</application>
+            development.</para>
+          </important></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><application>PostgreSQL</application></term>
+      <listitem>
+        <para><application>PostgreSQL</application> is an open-source database
+        engine at the heart of the <application>PostBooks</application> and
+        <application>OpenMFG</application> applications. Most of the logic of
+        the application is written in PL/pgSQL, the
+        <application>PostgreSQL</application> stored procedure
+        language.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><application>cURL</application></term>
+      <listitem>
+        <para><application>cURL</application> is a library and command line
+        file transfer utility that we use because it can retrieve files from
+        the Internet given their URL's.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>XML Editor and DocBook</term>
+      <listitem>
+        <para>The xTuple documentation is written using DocBook, so it would
+        be helpful to have a DocBook-aware XML editor if you want to view or
+        edit the documentation.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>You will need the following information from <orgname>xTuple</orgname>
+  before you begin: <itemizedlist>
+      <listitem>
+        <para>Version of <application>Qt</application> to get</para>
+      </listitem>
+      <listitem>
+        <para>Version of <application>PostgreSQL</application> to get</para>
+      </listitem>
+      <listitem>
+        <para>CVS tag to use when checking out
+        <application><literal>OpenRPT</literal></application></para>
+      </listitem>
+      <listitem>
+        <para>Subversion tag to use when checking out
+        <application><literal>postbooks</literal></application></para>
+      </listitem>
+      <listitem>
+        <para role="openmfg">Additional information to use when checking out
+        <application>OpenMFG</application>-specific source code. </para>
+      </listitem>
+    </itemizedlist></para>
+  <note>
+    <para>Contents marked with the <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="../user_guide/images/gears.png" />
+        </imageobject>
+      </inlinemediaobject>icon are specific to the
+    <application>OpenMFG</application> product and do not apply to
+    <application>PostBooks</application>.</para>
+  </note>
+  <section>
+    <title>Setup Steps</title>
+    <para>Here are the steps you need to follow to create a development
+    environment. Basic goals and platform-independent information are given at
+    the beginning of each step. This is immediately followed by
+    platform-specific information.</para>
+    <procedure>
+      <step>
+        <title>Operating System and basic software</title>
+        <para>Your computer will need an operating system installed and at
+        least a few basic utilities like a web browser. If you are installing
+        an operating system on your hardware, here are a few suggestions for
+        installation options:</para>
+        <stepalternatives>
+          <step>
+            <title>Microsoft Windows</title>
+            <para>The steps in this document were tested using Windows XP and
+            the Firefox web browser.</para>
+          </step>
+          <step>
+            <title>Linux</title>
+            <para>In addition to the basic workstation packages, install X11
+            and development tools. The following steps were performed on a
+            computer with the basic <application>Fedora Core 5</application>
+            installation plus the software development tools selected during
+            the installation.</para>
+          </step>
+        </stepalternatives>
+      </step>
+      <step>
+        <title>Basic Development Tools</title>
+        <para>The GUI client is a large application built in C++. You will
+        need a C++ compiler and a version of the make utility.</para>
+        <stepalternatives>
+          <step>
+            <title>Microsoft Windows using MinGW</title>
+            <para>xTuple recommends using MinGW for developing on Windows
+            although <link linkend="basicdevelopmenttools.windows.vc">we have
+            also tried Microsoft Visual C++ Express</link>.</para>
+            <substeps>
+              <step>
+                <para>point your browser to <ulink role="direct"
+                url="http://www.mingw.org"></ulink></para>
+              </step>
+              <step>
+                <para>click on <guibutton>Download</guibutton> -&gt;
+                <guibutton>SF File Release</guibutton> -&gt;
+                <guibutton>MinGW-<replaceable>version</replaceable>.exe</guibutton></para>
+                <para>Run the downloaded installer. When it asks which
+                components to install, select at least <literal>MinGW base
+                tools</literal>, <literal>g++ compiler</literal>, and
+                <literal>MinGW make</literal>. Otherwise accept all of the
+                defaults.</para>
+                <para>If you want to build
+                <application>PostgreSQL</application> from source, see <link
+                linkend="msys">below</link>.</para>
+                <para>Add the following values to your environment variables.
+                <variablelist>
+                    <varlistentry>
+                      <term>PATH</term>
+                      <listitem>
+                        <para><literal> C:\mingw\bin</literal></para>
+                      </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                      <term>INCLUDE</term>
+                      <listitem>
+                        <para><literal> C:\mingw\include </literal></para>
+                      </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                      <term>LIB</term>
+                      <listitem>
+                        <para><literal> C:\mingw\lib<replaceable>
+                        </replaceable> </literal></para>
+                      </listitem>
+                    </varlistentry>
+                  </variablelist></para>
+              </step>
+            </substeps>
+          </step>
+          <step id="basicdevelopmenttools.windows.vc">
+            <title>Microsoft Windows using Visual C++ Express Edition</title>
+            <para>On <application>Windows</application>
+            <orgname>xTuple</orgname> has tried both the
+            <application>Microsoft Visual C++ Express</application> and
+            <application>MinGW</application> development environments.
+            <application>Microsoft Visual C++ Express</application> worked
+            fine, except there were a number of additional steps necessary to
+            distribute binaries to non-build machines and running off of file
+            servers. Also, you have to start with a source distribution of
+            PostgreSQL and build the parts you need. These problems do not
+            seem to occur when using <application>MinGW</application>.</para>
+            <substeps>
+              <step>
+                <para>point your browser to <ulink role="direct"
+                url="http://msdn.microsoft.com/vstudio/express/visualc/"><application
+                role="direct">Microsoft Visual C++ Express</application> web
+                page</ulink></para>
+              </step>
+              <step>
+                <para>click on <guibutton>Download Now</guibutton> and follow
+                the instructions</para>
+              </step>
+              <step>
+                <para>accept the defaults (including "Graphical IDE" and
+                excluding both <application>MSDN 2005 Express
+                Edition</application> and <application>SQL Server 2005 Express
+                Edition</application>.</para>
+              </step>
+              <step>
+                <para>Download and install the <application>Microsoft Platform
+                SDK</application>.</para>
+              </step>
+              <step>
+                <para>Add the following values to your environment variables.
+                Be careful, however, to use the short version (8.3 style) of
+                the directory names or you will encounter very strange
+                problems trying to build. <variablelist>
+                    <varlistentry>
+                      <term>PATH</term>
+                      <listitem>
+                        <para><literal> <replaceable>C:\Program
+                        Files\Microsoft Visual Studio 8</replaceable>\VC\bin
+                        </literal>; <literal> <replaceable>C:\Program
+                        Files\Microsoft Visual Studio
+                        8</replaceable>\Common\IDE </literal>; <literal>
+                        <replaceable>C:\Program Files\Microsoft Platform SDK
+                        for Windows Server 2003 R2</replaceable>\Bin
+                        </literal></para>
+                      </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                      <term>INCLUDE</term>
+                      <listitem>
+                        <para><literal> <replaceable>C:\Program
+                        Files\Microsoft Visual Studio
+                        8</replaceable>\VC\include </literal>; <literal>
+                        <replaceable>C:\Program Files\Microsoft Platform SDK
+                        for Windows Server 2003 R2</replaceable>\Include
+                        </literal></para>
+                      </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                      <term>LIB</term>
+                      <listitem>
+                        <para><literal> <replaceable>C:\Program
+                        Files\Microsoft Platform SDK for Windows Server 2003
+                        R2</replaceable>\Lib </literal></para>
+                      </listitem>
+                    </varlistentry>
+                  </variablelist></para>
+              </step>
+            </substeps>
+          </step>
+          <step id="basicdevelopmenttools.mac">
+            <title>Macintosh OS X</title>
+            <para>Get and install <application>Xcode</application>:</para>
+            <substeps>
+              <step>
+                <para><ulink role="direct"
+                url="http://developer.apple.com/">http://developer.apple.com/</ulink></para>
+              </step>
+              <step>
+                <para>click <guibutton>Xcode Development Tools</guibutton>
+                -&gt; <guibutton>Tools Downloads</guibutton> -&gt;
+                <guibutton>Xcode
+                <replaceable>version</replaceable></guibutton> and either sign
+                in if you are an Apple Developer Connection member or
+                <guibutton>sign up</guibutton> if you are not a member yet.
+                This is a huge download (just under 1 Gb), so be prepared to
+                wait for a while and possibly restart the download. You must
+                get <application>Xcode</application> 2.2 or better for
+                <application>Qt</application> versions 4.1 and higher.</para>
+              </step>
+              <step>
+                <para>mount the <application>Xcode</application> disk
+                image</para>
+              </step>
+              <step>
+                <para>open <literal>XcodeTools.mpkg</literal> and accept the
+                default installation</para>
+              </step>
+            </substeps>
+          </step>
+          <step id="basicdevelopmenttools.linux">
+            <title>Linux</title>
+            <para>This step is not necessary if you installed software
+            development tools as part of your Linux operating system
+            installation. If they were not installed at that time, update your
+            installation with packages for C++, build tools, CVS, and other
+            stuff.<note>
+                <para>Find the precise procedure and package names for
+                supported Linux distributions.</para>
+              </note></para>
+          </step>
+        </stepalternatives>
+      </step>
+      <step>
+        <title>Get and install Subversion</title>
+        <para>You can find binary packages of
+        <application>Subversion</application> for many operating systems at
+        <ulink
+        url="http://subversion.tigris.org/project_packages.html">http://subversion.tigris.org/project_packages.html</ulink>.
+        If you need a graphical user interface environment for
+        <application>Subversion</application>, xTuple suggests using
+        <application>RapidSVN</application>; several of our developers use it
+        in-house, so we may be able to answer questions about it.</para>
+      </step>
+      <step>
+        <title>Get and install <application>CVS</application></title>
+        <para>CVS is installed with the basic development tools on Macintosh
+        OS X and Linux but you will have to get a version for Windows.</para>
+        <stepalternatives>
+          <step id="setup.win32.mingw.cvs">
+            <title>Microsoft Windows</title>
+            <para>At <orgname>xTuple</orgname> we typically use
+            <application>WinCVS</application> as our
+            <application>CVS</application> GUI client although others are
+            available. <application>WinCVS</application> comes bundled with
+            the <application>CVSNT</application> command line tools.</para>
+            <substeps>
+              <step>
+                <para>Point your web browser to <ulink role="direct"
+                url="http://www.wincvs.org">http://www.wincvs.org</ulink></para>
+              </step>
+              <step>
+                <para>Click <guibutton>Download</guibutton> -&gt; Latest
+                Recommended Release's <guibutton>Download
+                Installer</guibutton></para>
+              </step>
+              <step>
+                <para>This takes you to a <ulink
+                url="http://sourceforge.net">SourceForge</ulink> mirror page,
+                where you should select the closest site to your
+                machine.</para>
+              </step>
+              <step>
+                <para>Store the download on your machine.</para>
+              </step>
+              <step>
+                <para>Unzip the file and follow the directions in the Install
+                document. Install both <application>WinCVS</application> and
+                <application>CVSNT</application>, selecting the
+                <application>CVSNT</application> "Typical installation" and
+                defaults for everything else.</para>
+              </step>
+            </substeps>
+          </step>
+        </stepalternatives>
+      </step>
+      <step>
+        <title>Get and install PostgreSQL</title>
+        <para>Even if you don't run a PostgreSQL database server of your own
+        but instead connect to an existing database server instance, you will
+        need some header files and the libpq library to build
+        <application>PostBooks</application> and
+        <application>OpenMFG</application>. On some platforms you can use
+        binary installations, although xTuple recommends using source
+        installations whenever possible. In any case, start by downloading a
+        distribution:</para>
+        <orderedlist>
+          <listitem>
+            <para>Point your web browser to <ulink role="direct"
+            url="www.postgresql.org">www.postgresql.org</ulink>, click on
+            <guibutton>Downloads</guibutton>, then <guibutton>File
+            Browser.</guibutton></para>
+          </listitem>
+          <listitem>
+            <para>If downloading sources, click on the
+            <guibutton>source</guibutton> folder and then click the folder
+            named with the version number you got from
+            <orgname>xTuple</orgname>. You need to choose which file format to
+            download based on the compression software you have installed.
+            xTuple recommends downloading the whole distribution
+            (postgresql-<replaceable>version</replaceable>.tar.<replaceable>suffix</replaceable>)
+            as opposed to individual pieces (*base*, *docs*, and *opt*)</para>
+          </listitem>
+        </orderedlist>
+        <para>See the platform-specific information below if you need to get
+        binary distributions.</para>
+        <stepalternatives>
+          <step id="setup.win32.mingw.postgres">
+            <title>Microsoft Windows with MinGW</title>
+            <para>Install the <application>PostgreSQL</application> binary
+            distribution.</para>
+            <substeps>
+              <step>
+                <para>Click on <guibutton>binary</guibutton> -&gt; version
+                number from <orgname>xTuple</orgname> -&gt;
+                <guibutton>win32</guibutton> -&gt;
+                <guibutton>postgresql-<replaceable>version</replaceable>-1.zip</guibutton></para>
+              </step>
+              <step>
+                <para>Extract the contents of the archive to a temporary
+                location, such as your desktop or
+                <literal>C:\WINDOWS\Temp\postgres</literal></para>
+              </step>
+              <step>
+                <stepalternatives>
+                  <step>
+                    <para>Double-click
+                    <guibutton>postgresql-<replaceable>version</replaceable>.msi</guibutton></para>
+                  </step>
+                </stepalternatives>
+              </step>
+              <step>
+                <para>At minimum you must install the Development packages and
+                the <application>pgcrypto</application> contributed software.
+                You may install more if you like.</para>
+              </step>
+              <step>
+                <para>Now add the necessary include and library directories
+                (using the 8.3 version of the name) to</para>
+                <variablelist>
+                  <varlistentry>
+                    <term>PATH</term>
+                    <listitem>
+                      <para><literal>C:\Program
+                      Files\PostgreSQL\<replaceable>version</replaceable>\bin</literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>INCLUDE</term>
+                    <listitem>
+                      <para><literal>C:\Program
+                      Files\PostgreSQL\<replaceable>version</replaceable>\include</literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>LIB</term>
+                    <listitem>
+                      <para><literal>C:\Program
+                      Files\PostgreSQL\<replaceable>version</replaceable>\lib</literal></para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </step>
+            </substeps>
+          </step>
+          <step id="setup.win32.vcexpress.postgres">
+            <title>Microsoft Windows using Visual C++ Express Edition</title>
+            <para><application>Use a PostgreSQL source distribution. Microsoft
+            Visual C++ Express</application> is not supported by
+            <application>PostgreSQL</application> and you cannot build the
+            entire database server with it but you can still build the pieces
+            you need.</para>
+            <substeps>
+              <step>
+                <para>Extract the contents of the archive to
+                <literal>C:\postgresql</literal></para>
+              </step>
+              <step>
+                <para>Build libpq:</para>
+                <substeps>
+                  <step>
+                    <para><programlisting>cd \postgresql\postgresql-<replaceable>version</replaceable>\src\interfaces\libpq</programlisting></para>
+                  </step>
+                  <step>
+                    <para>disable the inline keyword by adding the following
+                    line at the beginning of
+                    <literal>../../backend/mb/wchar.c</literal>:</para>
+                    <programlisting>#define inline</programlisting>
+                  </step>
+                  <step>
+                    <programlisting>nmake /f win32.mak</programlisting>
+                  </step>
+                </substeps>
+              </step>
+              <step>
+                <para>Build and install the
+                <application>pgcrypto</application> contributed software for
+                use with credit card processing in the
+                <filename>contrib\pgcrypto </filename>directory of the
+                distribution.</para>
+                <para>Now add the necessary include and library directories
+                (using the 8.3 version of the name) to</para>
+                <variablelist>
+                  <varlistentry>
+                    <term>PATH</term>
+                    <listitem>
+                      <para><literal>C:\postgresql\postgresql-<replaceable>version</replaceable>\src\interfaces\libpq\Release</literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>INCLUDE</term>
+                    <listitem>
+                      <para><literal>
+                      C:\postgresql\postgresql-<replaceable>version</replaceable>\src\include
+                      </literal>; <literal>
+                      C:\postgresql\postgresql-<replaceable>version</replaceable>\src\interfaces\libpq
+                      </literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>LIB</term>
+                    <listitem>
+                      <para><literal>C:\postgresql\postgresql-<replaceable>version</replaceable>\src\interfaces\libpq\Release</literal></para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </step>
+            </substeps>
+          </step>
+          <step>
+            <title>Macintosh OS X binary installation</title>
+            <para>We typically recommend a <link
+            linkend="postgresql.mac.source">source installation</link>, but it
+            might be possible to use a binary installation of PostgreSQL. Some
+            of our VAR partners report that the Entropy distribution is good,
+            although we have not tried this for a development environment. You
+            can find it here: <ulink
+            url="http://www.entropy.ch/software/macosx/postgresql/">http://www.entropy.ch/software/macosx/postgresql/</ulink></para>
+          </step>
+          <step id="postgresql.mac.source">
+            <title>Macintosh OS X source installation</title>
+            <substeps>
+              <step>
+                <programlistingco>
+                  <areaspec>
+                    <area coords="1 14" id="mac.pginstall" units="linerange" />
+                    <area coords="1" id="mac.pginstall.mkdir" />
+                    <area coords="5" id="mac.pginstall.config" />
+                    <area coords="6" id="mac.pginstall.make" />
+                    <area coords="7" id="mac.pginstall.check" />
+                    <area coords="8" id="mac.pginstall.pgcrypto" />
+                  </areaspec>
+                  <programlisting>mkdir <replaceable>/opt/postgresql</replaceable>
+cd <replaceable>/opt/postgresql</replaceable>
+tar xzvf <replaceable>download-directory</replaceable>/postgresql-<replaceable>version</replaceable>.tar.gz
+cd postgresql-<replaceable>version</replaceable>
+./configure --prefix=<replaceable>/opt/postgresql/</replaceable>pg-<replaceable>version</replaceable> --with-bonjour --with-openssl
+make
+make check
+cd contrib/pgcrypto
+make
+cd ../..
+su
+make install
+cd contrib/pgcrypto
+make install</programlisting>
+                  <calloutlist>
+                    <callout arearefs="mac.pginstall">
+                      <para>Build and install
+                      <application>PostgreSQL</application> by following the
+                      directions in the <literal>INSTALL</literal> file up
+                      through and including the <literal>gmake
+                      install</literal> step.</para>
+                    </callout>
+                    <callout arearefs="mac.pginstall.mkdir">
+                      <para>Create a directory to hold the
+                      <application>PostgreSQL</application>
+                      installation.</para>
+                    </callout>
+                    <callout arearefs="mac.pginstall.config">
+                      <para>If you want to build universal binaries then add
+                      the following to the end of the configure line:
+                      <literal>CFLAGS="-arch i386 -arch ppc" LDFLAGS="-arch
+                      i386 -arch ppc"</literal> You will also have to edit
+                      many of the <literal>Makefile</literal>s to enable
+                      this:</para>
+                      <note>
+                        <para>There has to be a better way!</para>
+                      </note>
+                      <procedure>
+                        <step>
+                          <para>Look for the lines that need to be
+                          edited:</para>
+                          <programlisting>grep -rlw LD src   </programlisting>
+                        </step>
+                        <step>
+                          <para>In each file found by this command, look for
+                          the line that begins <literal>SUBSYS.o:</literal>
+                          and replace the <emphasis>next</emphasis> line,
+                          <literal>$(LD) $(LDREL) $(LDOUT) SUBSYS.o
+                          $(OBJS)</literal> with the following:
+                          <programlisting>$(LD) -arch i386 $(LDREL) $(LDOUT) SUBSYS_i386.o $(OBJS)
+$(LD) -arch ppc  $(LDREL) $(LDOUT)  SUBSYS_ppc.o $(OBJS)
+lipo -create -arch ppc SUBSYS_ppc.o -arch i386 SUBSYS_i386.o -o SUBSYS.o
+rm SUBSYS_ppc.o SUBSYS_i386.o</programlisting></para>
+                        </step>
+                        <step>
+                          <para>Replace any other lines that refer to
+                          <literal>$(LD)</literal> with a similar set of
+                          changes, but skip the files in the
+                          <filename>src/makefiles</filename> directory and all
+                          except the <literal>darwin</literal> versions of the
+                          <filename>src/backend/port/*/Makefile</filename>
+                          files.</para>
+                        </step>
+                        <step>
+                          <para>Edit the src/backend Makefile and change the
+                          code that builds <literal>postgres</literal> to
+                          <programlisting>$(LD) -arch i386 $(LDREL) $(LDOUT) SUBSYS_i386.o $^
+$(LD) -arch ppc  $(LDREL) $(LDOUT)  SUBSYS_ppc.o $^
+lipo -create -arch ppc SUBSYS_ppc.o -arch i386 SUBSYS_i386.o -o $@
+rm SUBSYS_ppc.o SUBSYS_i386.o</programlisting></para>
+                        </step>
+                        <step>
+                          <para>Edit
+                          <filename>src/Makefiles/Makefile.darwin</filename>:
+                          define <literal>AR = libtool</literal> and change
+                          <literal>AROPT</literal> to
+                          <literal>-o</literal></para>
+                        </step>
+                      </procedure>
+                      <para>The <literal>INSTALL</literal> file recommends the
+                      <literal>--with-bonjour</literal> option when building
+                      on <application>Macintosh OS X</application></para>
+                    </callout>
+                    <callout arearefs="mac.pginstall.make">
+                      <para>As noted in the <literal>INSTALL</literal> file,
+                      <application>gmake</application> does not exist, so
+                      build using <application>make</application>.</para>
+                    </callout>
+                    <callout arearefs="mac.pginstall.check">
+                      <para><literal>make check</literal> tests the binaries
+                      to make sure they work before you install them. However,
+                      there's still a problem building universal binaries, so
+                      if you get all the way through the build until you see
+                      the following: <programlisting>make -C src all
+gcc -no-cpp-precomp -arch i386 -arch ppc -Wall -Wmissing-prototypes \
+    -Wpointer-arith -Winline -Wdeclaration-after-statement \
+    -Wendif-labels -fno-strict-aliasing -bundle pl_gram.o \
+    pl_handler.o pl_comp.o pl_exec.o pl_funcs.o \
+    -L../../../../src/port \
+    -bundle_loader ../../../../src/backend/postgres \
+    -o libplpgsql.1.0.so
+/usr/bin/ld: for architecture ppc
+/usr/bin/ld: Undefined symbols:
+_SPI_result
+collect2: ld returned 1 exit status
+/usr/bin/ld: for architecture i386
+/usr/bin/ld: Undefined symbols:
+_SPI_result
+collect2: ld returned 1 exit status
+</programlisting> then you can install what you have (not a complete
+                      installation but enough to build
+                      <application>Qt</application> and run client programs)
+                      and continue on to the next step.</para>
+                    </callout>
+                    <callout arearefs="mac.pginstall.pgcrypto">
+                      <para>You should install the <literal>pgcrypto</literal>
+                      contributed software for use with credit card
+                      processing.</para>
+                    </callout>
+                  </calloutlist>
+                </programlistingco>
+              </step>
+              <step>
+                <para>Now add the necessary include and library directories
+                to</para>
+                <variablelist>
+                  <varlistentry>
+                    <term>PATH</term>
+                    <listitem>
+                      <para><literal>
+                      <replaceable>/opt/postgresql</replaceable>/pg-<replaceable>version</replaceable>/bin
+                      </literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>INCLUDE</term>
+                    <listitem>
+                      <para><literal>
+                      <replaceable>/opt/postgresql</replaceable>/pg-<replaceable>version</replaceable>/include
+                      </literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>CPATH</term>
+                    <listitem>
+                      <para><literal>
+                      <replaceable>/opt/postgresql</replaceable>/pg-<replaceable>version</replaceable>/lib
+                      </literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>LIBRARY_PATH</term>
+                    <listitem>
+                      <para><literal>
+                      <replaceable>/opt/postgresql</replaceable>/pg-<replaceable>version</replaceable>/lib
+                      </literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>DYLD_LIBRARY_PATH</term>
+                    <listitem>
+                      <para><literal><replaceable>/opt/postgresql</replaceable>/pg-<replaceable>version</replaceable>/lib</literal></para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </step>
+            </substeps>
+          </step>
+          <step>
+            <title>Linux</title>
+            <substeps>
+              <step>
+                <programlistingco>
+                  <areaspec>
+                    <area coords="1 9" id="linux.pginstall" units="linerange" />
+                    <area coords="1" id="linux.pginstall.mkdir" />
+                    <area coords="5" id="linux.pginstall.config" />
+                    <area coords="6" id="linux.pginstall.make" />
+                    <area coords="7" id="linux.pginstall.check" />
+                  </areaspec>
+                  <programlisting>mkdir <replaceable>/opt/postgresql</replaceable>
+cd <replaceable>/opt/postgresql</replaceable>
+tar xzvf <replaceable>download-directory</replaceable>/postgresql-<replaceable>version</replaceable>.tar.gz
+cd postgresql-<replaceable>version</replaceable>
+./configure --prefix=<replaceable>/opt</replaceable> --with-openssl
+make
+make check
+su
+make install
+cd contrib/pgcrypto
+make install</programlisting>
+                  <calloutlist>
+                    <callout arearefs="linux.pginstall">
+                      <para>Build and install
+                      <application>PostgreSQL</application> by following the
+                      directions in the <literal>INSTALL</literal> file up
+                      through and including the <literal>gmake
+                      install</literal> step.</para>
+                    </callout>
+                    <callout arearefs="linux.pginstall.mkdir">
+                      <para>Create a directory to hold the
+                      <application>PostgreSQL</application>
+                      installation.</para>
+                    </callout>
+                    <callout arearefs="linux.pginstall.make">
+                      <para>If <application>gmake</application> does not
+                      exist, use <application>make</application>
+                      instead.</para>
+                    </callout>
+                    <callout arearefs="linux.pginstall.check">
+                      <para><literal>make check</literal> tests the binaries
+                      to make sure they work before you install them.</para>
+                    </callout>
+                  </calloutlist>
+                </programlistingco>
+              </step>
+              <step>
+                <para>Now add the necessary include and library directories
+                to</para>
+                <variablelist>
+                  <varlistentry>
+                    <term>PATH</term>
+                    <listitem>
+                      <para><literal>/opt/bin</literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>INCLUDE</term>
+                    <listitem>
+                      <para><literal>/opt/include</literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>LD_LIBRARY_PATH</term>
+                    <listitem>
+                      <para><literal>/opt/lib</literal></para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </step>
+            </substeps>
+          </step>
+        </stepalternatives>
+        <para>While you are at the PostgreSQL web site, you might want to get
+        the <application>pgadmin</application> GUI client as well. After your
+        download of the <application>PostgreSQL</application> source code is
+        complete, back up your web browser two levels and then click on
+        <literal>pgadmin3</literal> -&gt; <literal>release</literal> -&gt;
+        <literal> <replaceable>latest version</replaceable> </literal> -&gt;
+        <literal><replaceable>os-name</replaceable></literal> -&gt; <literal>
+        pgadmin3-<replaceable>version.suffix</replaceable> </literal> and
+        install from this bundle.</para>
+      </step>
+      <step>
+        <title>Get <application>Qt</application> from Trolltech</title>
+        <para>Get and install <orgname>Trolltech's</orgname>
+        <application>Qt</application>. The examples here show the commands for
+        the commercial edition of <application>Qt</application>, but the
+        commands to build and install <application>Qt</application> are the
+        same for the free version.<note>
+            <para role="openmfg">If you want to contribute to
+            <application>OpenMFG</application> you must get a commercial
+            license for <application>Qt</application>. This is not necessary
+            if you are contributing to
+            <application>PostBooks</application>.</para>
+          </note></para>
+        <stepalternatives>
+          <step>
+            <title>Windows with MinGW</title>
+            <substeps>
+              <step>
+                <para>Extract the <literal>.zip</literal> file to
+                <literal>c:\qt</literal></para>
+              </step>
+              <step>
+                <para>In a command window</para>
+                <programlisting>cd \qt\qt-win-commercial-src-<replaceable>4.1.4</replaceable>
+configure.exe -shared -release -qt-sql-psql -qt-sql-odbc -qt-zlib -qt-gif \
+          -qt-libpng -qt-libjpeg -qt-style-windowsxp -platform win32-g++ \
+          -L C:\Progra~1\PostgreSQL\<replaceable>version</replaceable>\lib \
+          -I C:\Progra~1\PostgreSQL\<replaceable>version</replaceable>\include 
+mingw32-make</programlisting>
+              </step>
+              <step>
+                <para>When <application>Qt</application> has successfully
+                built, add the following values to your environment variables:
+                <variablelist>
+                    <varlistentry>
+                      <term>PATH</term>
+                      <listitem>
+                        <para><literal>
+                        c:\qt\qt-win-commercial-src-<replaceable>4.1.4</replaceable>\bin
+                        </literal></para>
+                      </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                      <term>INCLUDE</term>
+                      <listitem>
+                        <para><literal>
+                        c:\qt\qt-win-commercial-src-<replaceable>4.1.4</replaceable>\include
+                        </literal></para>
+                      </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                      <term>LIB</term>
+                      <listitem>
+                        <para><literal>
+                        c:\qt\qt-win-commercial-src-<replaceable>4.1.4</replaceable>\lib
+                        </literal></para>
+                      </listitem>
+                    </varlistentry>
+                  </variablelist> If the <application>Qt</application> build
+                quits without finishing successfully, try adding these
+                environment variables before rebuilding.</para>
+              </step>
+            </substeps>
+          </step>
+          <step id="setup.win32.vcexpress.qt">
+            <title>Windows with VisualC++ Express Edition</title>
+            <substeps>
+              <step>
+                <para>Extract the .zip file to <literal>
+                c:\qt\qt-win-commercial-src-<replaceable>4.1.4</replaceable>
+                </literal>.</para>
+              </step>
+              <step>
+                <para><guibutton>Start</guibutton> -&gt;
+                <guibutton>Programs</guibutton> -&gt; <guibutton>Microsoft
+                Visual C++ Express Edition</guibutton> -&gt; <guibutton>Visual
+                Studio Tools</guibutton> -&gt; <guibutton>Visual Studio 2005
+                Command Prompt</guibutton></para>
+              </step>
+              <step>
+                <programlisting>cd \qt\qt-win-commercial-src-4.1.4
+configure.exe -shared -release -qt-sql-psql -qt-sql-odbc -qt-zlib -qt-gif \
+          -qt-libpng -qt-libjpeg -qt-style-windowsxp -platform win32-msvc</programlisting>
+              </step>
+              <step>
+                <para>The configure step will probably fail with a link error
+                in the <literal>src\sql</literal> subdirectory. If this
+                happens then edit <literal>src\sql\Makefile.Release</literal>
+                and change the reference from <literal>libpq.lib</literal> to
+                <literal>libpqdll.lib</literal> on line ~22, then run
+                <literal>nmake</literal> from the top level.</para>
+              </step>
+              <step>
+                <para>When <application>Qt</application> has successfully
+                built, add the following values to your environment variables:
+                <variablelist>
+                    <varlistentry>
+                      <term>PATH</term>
+                      <listitem>
+                        <para><literal> c:\qt\qt-win-commercial-src-4.1.4\bin
+                        </literal></para>
+                      </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                      <term>INCLUDE</term>
+                      <listitem>
+                        <para><literal>
+                        c:\qt\qt-win-commercial-src-4.1.4\include
+                        </literal></para>
+                      </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                      <term>LIB</term>
+                      <listitem>
+                        <para><literal> c:\qt\qt-win-commercial-src-4.1.4\lib
+                        </literal></para>
+                      </listitem>
+                    </varlistentry>
+                  </variablelist> If the <application>Qt</application> build
+                quits without finishing successfully, try adding these
+                environment variables before rebuilding.</para>
+              </step>
+            </substeps>
+          </step>
+          <step>
+            <title>Macintosh OS X</title>
+            <para>On the <application>Macintosh</application> you have a
+            choice of installing a binary or source-code version of
+            <application>Qt</application>. xTuple recommends installing the
+            source-code version. If you are familiar with
+            <application>Xcode</application> and its build framework then you
+            can use the binary distribution of <application>Qt</application>,
+            but xTuple does not support this environment. We have had problems
+            with <literal>qmake</literal>'s handling of nested projects and
+            directory recursion with <application>Xcode</application> and
+            <literal>xcodebuild</literal> files, which is the build scheme for
+            the <application>Qt</application> binary distributions.</para>
+            <substeps>
+              <step>
+                <programlistingco>
+                  <areaspec>
+                    <area coords="5" id="mac.qtinstall.config" />
+                  </areaspec>
+                  <programlisting>mkdir /opt/qt
+cd /opt/qt
+tar xzf <replaceable>wherever-the-tarball-is</replaceable>/qt-mac-commercial-src-<replaceable>version</replaceable>.tar.gz
+cd qt-mac-commercial-src-<replaceable>version</replaceable>
+#for Qt4.1:
+./configure -prefix /opt/qt/Qt-<replaceable>version</replaceable> -plugin-sql-psql -qt-gif -no-framework \
+                                                 -I<replaceable>/opt/include</replaceable> -L<replaceable>/opt/lib</replaceable> -v
+#for Qt4.2:
+./configure -prefix-install -prefix /opt/qt/Qt-<replaceable>version</replaceable> -plugin-sql-psql -qt-gif -no-framework  \
+            -I<replaceable>/opt/postgresql/</replaceable>pg-<replaceable>version</replaceable>/include -L/opt/postgresql/pg-<replaceable>version</replaceable>/lib
+#for Qt4.3.2:
+./configure -prefix-install -prefix /opt/qt/Qt-<replaceable>version</replaceable> -plugin-sql-psql -qt-gif -no-framework  \
+            -I<replaceable>/opt/postgresql/</replaceable>pg-<replaceable>version</replaceable>/include -L/opt/postgresql/pg-<replaceable>version</replaceable>/lib -universal
+make
+su
+make install </programlisting>
+                  <calloutlist>
+                    <callout arearefs="mac.qtinstall.config">
+                      <para>The <literal>-no-framework</literal> argument to
+                      <literal>configure</literal> has been selected to reduce
+                      the risk of conflict between binary and source
+                      installations of <application>Qt</application>. The
+                      <literal>-I</literal> and <literal>-L</literal> options
+                      are not necessary if you installed
+                      <application>PostgreSQL</application> in
+                      <literal>/usr</literal>.</para>
+                      <para>If you want to build universal binaries, then add
+                      <literal>-universal</literal> at the end of the command
+                      line. If you do so then you must have built
+                      <application>PostgreSQL</application> universal binaries
+                      as well.</para>
+                      <para>If you want to be able to debug the application
+                      all the way down into the Qt libraries then add the
+                      <literal>--debug-and-release</literal> option to the
+                      <literal>configure</literal> command.</para>
+                    </callout>
+                  </calloutlist>
+                </programlistingco>
+              </step>
+            </substeps>
+          </step>
+          <step>
+            <title>Linux</title>
+            <para>xTuple has not tried building PostBooks and OpenMFG using
+            <application>Qt</application> directly from Linux distribution
+            installations, such as RPMs. If you try doing this then you are on
+            your own.</para>
+            <substeps>
+              <step>
+                <programlistingco>
+                  <areaspec>
+                    <area coords="5" id="linux.qtinstall.config" />
+                  </areaspec>
+                  <programlisting>mkdir /opt/qt
+cd /opt/qt
+tar xzf <replaceable>whereever-the-tarball-is</replaceable>/qt-x11-commercial-src-<replaceable>version</replaceable>.tar.gz
+cd qt-x11-commercial-src-<replaceable>version</replaceable>
+./configure -prefix /opt/qt/Qt-<replaceable>version</replaceable> -plugin-sql-psql -qt-gif -I<replaceable>/opt/include</replaceable> -L<replaceable>/opt/lib</replaceable> -v
+make
+su
+make install</programlisting>
+                  <calloutlist>
+                    <callout arearefs="linux.qtinstall.config">
+                      <para>The <literal>-I</literal> and
+                      <literal>-L</literal> options are not necessary if you
+                      installed <application>PostgreSQL</application> in
+                      <literal>/usr</literal>.</para>
+                    </callout>
+                  </calloutlist>
+                </programlistingco>
+              </step>
+              <step>
+                <para>Now add the necessary include and library directories
+                to</para>
+                <variablelist>
+                  <varlistentry>
+                    <term>PATH</term>
+                    <listitem>
+                      <para><literal>/opt/qt/Qt-<replaceable>version</replaceable>/bin</literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>INCLUDE</term>
+                    <listitem>
+                      <para><literal>
+                      /opt/qt/Qt-<replaceable>version</replaceable>/include
+                      </literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>LD_LIBRARY_PATH</term>
+                    <listitem>
+                      <para><literal>
+                      /opt/qt/Qt-<replaceable>version</replaceable>/lib
+                      </literal></para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </step>
+            </substeps>
+          </step>
+        </stepalternatives>
+      </step>
+      <step>
+        <title>Get and install <application>cURL</application></title>
+        <para>Download either the source distribution or the the
+        platform-specific binary distribution of cURL from <ulink
+        url="http://www.haxx.se/curl">http://www.haxx.se/curl</ulink></para>
+        <stepalternatives>
+          <step id="setup.win32.mingw.curl">
+            <title>Microsoft Windows with MinGW</title>
+            <substeps>
+              <step>
+                <para>Download the binary <ulink
+                url="http://curl.haxx.se/libcurl/"><command
+                role="productname">cURL</command> distribution</ulink>, which
+                consists of the two files
+                <filename>curl-version-win32-ssl.zip</filename> and
+                <filename>libcurl-version-ssl-sspi-sspi.zip</filename> and
+                extract the contents of these two <literal>.zip</literal>
+                files to <literal>c:\curl</literal></para>
+              </step>
+              <step>
+                <para>Now set some environment variables: <variablelist>
+                    <varlistentry>
+                      <term>INCLUDE</term>
+                      <listitem>
+                        <para><literal>
+                        c:\curl\libcurl-7.15.4\include</literal></para>
+                      </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                      <term>LIB</term>
+                      <listitem>
+                        <para><literal> c:\curl\libcurl-7.15.4\lib
+                        </literal></para>
+                      </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                      <term>PATH</term>
+                      <listitem>
+                        <para><literal>c:\curl\curl-7.15.4\bin</literal></para>
+                      </listitem>
+                    </varlistentry>
+                  </variablelist></para>
+              </step>
+            </substeps>
+          </step>
+          <step>
+            <title>Windows with VisualC++ Express Edition</title>
+            <substeps>
+              <step>
+                <para>Download the source <ulink
+                url="http://curl.haxx.se/libcurl/"><command
+                role="productname">cURL</command> distribution</ulink> and
+                extract the <literal>.zip</literal> file contents to
+                <literal>c:\curl</literal>, then read and follow the
+                directions in <literal>docs\INSTALL</literal>, in the section
+                named "MSVC from command line":</para>
+                <programlisting>cd c:\curl\curl-<replaceable>version</replaceable>
+vcvars32.bat
+nmake vc</programlisting>
+              </step>
+              <step>
+                <para>Now set some environment variables: <variablelist>
+                    <varlistentry>
+                      <term>INCLUDE</term>
+                      <listitem>
+                        <para><literal> c:\curl\curl-7.15.4\lib
+                        </literal></para>
+                      </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                      <term>LIB</term>
+                      <listitem>
+                        <para><literal> c:\curl\curl-7.15.4\lib
+                        </literal></para>
+                      </listitem>
+                    </varlistentry>
+                  </variablelist></para>
+              </step>
+            </substeps>
+          </step>
+          <step>
+            <title>Linux</title>
+            <substeps>
+              <step>
+                <para>Download the source distribution</para>
+              </step>
+              <step>
+                <programlisting>cd /opt/curl
+tar xzvf <replaceable>download-directory</replaceable>/curl-<replaceable>version</replaceable>.tar.gz</programlisting>
+              </step>
+              <step>
+                <para>Build and install <application>cURL</application> with
+                <programlisting>cd /opt/curl/curl-<replaceable>version</replaceable>
+./configure --prefix=/opt
+make
+su
+make install</programlisting></para>
+              </step>
+              <step>
+                <para>If you used the same <literal>--prefix</literal> option
+                for <application>configure</application> while building
+                <application>cURL</application> as when building
+                <application>PostgreSQL</application> then you do not have to
+                change any environment variables.</para>
+              </step>
+            </substeps>
+          </step>
+        </stepalternatives>
+      </step>
+      <step>
+        <title>Check out the <application>PostBooks</application> and
+        <application>OpenRPT</application> source code</title>
+        <para>The example here shows one possible arrangement of source code.
+        There are several that will work. This example uses command line
+        tools, but every reference to svn below can be replaced by commands
+        with RapidSVN and every reference to cvs can be replaced with a
+        command in WinCVS.<programlisting>mkdir <replaceable>postbooks-checkout-area</replaceable>
+cd <replaceable>postbooks-checkout-area</replaceable>
+svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks postbooks
+cd postbooks/xtuple
+cvs -d :pserver:anonymous@openrpt.cvs.sourceforge.net:/cvsroot/openrpt checkout -r <replaceable>OpenRPT-Tag</replaceable> openrpt</programlisting>If
+        you already have an account on SourceForge then use the following as
+        the argument to the <literal>-d</literal> option in the command
+        above:<programlisting>:ext:<replaceable>username</replaceable>@openrpt.cvs.sourceforge.net:/cvsroot/openrpt</programlisting></para>
+        <stepalternatives>
+          <step>
+            <title>To check out OpenRPT on Windows with
+            <application>WinCVS</application></title>
+            <substeps>
+              <step>
+                <para>Start <application>WinCVS</application></para>
+              </step>
+              <step>
+                <para>Go to the directory that holds your OpenRPT checkout and
+                check out the openmfg repository right next to it in the
+                filesystem. Then click on <guibutton>Remote</guibutton> -&gt;
+                <guibutton>Checkout Module ...</guibutton> and set</para>
+                <variablelist>
+                  <varlistentry>
+                    <term><literal>Module</literal></term>
+                    <listitem>
+                      <para><literal>openrpt</literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term><literal>CVSROOT</literal></term>
+                    <listitem>
+                      <para>leave blank</para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term><literal>protocol</literal></term>
+                    <listitem>
+                      <para><literal>ssh</literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term><literal>Repository path</literal></term>
+                    <listitem>
+                      <para><literal>/cvsroot</literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term><literal>Username</literal></term>
+                    <listitem>
+                      <para>your SourceForge username or
+                      <literal>anonymous</literal></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term><literal>Hostname</literal></term>
+                    <listitem>
+                      <para><literal>openrpt.cvs.sourceforge.net</literal></para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </step>
+              <step>
+                <para>click <guibutton>OK</guibutton></para>
+              </step>
+              <step>
+                <para><application>WinCVS</application> will prompt you for a
+                password or passphrase and should then check out the
+                <application>OpenMFG</application> repository for you.</para>
+              </step>
+            </substeps>
+          </step>
+        </stepalternatives>
+      </step>
+      <step>
+        <title role="openmfg">Check out the additional
+        <application>OpenMFG</application> source code</title>
+        <para role="openmfg">If you are working on the
+        <application>OpenMFG</application> application, contact xTuple for
+        information on how to get access to the <application>source
+        code</application> repository.</para>
+      </step>
+      <step>
+        <title>Build OpenRPT</title>
+        <para>Next build <application>OpenRPT:</application><programlisting>cd <replaceable>OpenRPT-checkout-dir</replaceable>
+qmake
+make</programlisting></para>
+        <stepalternatives id="platformdependent.make">
+          <step id="setup.win32.mingw.openrpt">
+            <title>Microsoft Windows with MinGW</title>
+            <para>replace <literal>make</literal> with
+            <literal>mingw32-make</literal></para>
+          </step>
+          <step>
+            <title>Microsoft Windows with Visual C++ Express Edition</title>
+            <para>replace <literal>make</literal> with
+            <literal>nmake</literal></para>
+          </step>
+        </stepalternatives>
+      </step>
+      <step>
+        <title>Build the main <application>xTuple</application>
+        application</title>
+        <para><programlisting>cd <replaceable>postbooks-checkout-dir</replaceable>/xtuple/trunk
+qmake
+make</programlisting></para>
+        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(platformdependent.make)" />
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Other tools you might need or want</title>
+    <section>
+      <title>pgadmin</title>
+      <para>While you are at the PostgreSQL web site, you might want to get
+      the pgadmin GUI client as well. After your download of the PostgreSQL
+      source code is complete, back up your web browser two levels and then
+      click on pgadmin3 -&gt; release -&gt; latest version -&gt; win32 -&gt;
+      pgadmin3-version.zip and install from the .zip file.</para>
+    </section>
+    <section>
+      <title>ssh<anchor id="ssh" /></title>
+      <para>You can get it from <ulink role="direct"
+      url="http://openssh.org/">http://openssh.org/</ulink> for
+      <application>Linux</application> and <application>UNIX</application>
+      variants.</para>
+    </section>
+    <section>
+      <title><application>CygWin</application> <anchor id="cygwin" /></title>
+      <para>If you want to work in a <application>UNIX</application>-like
+      environment you can install the <application>CVS</application> package
+      in <application>CygWin</application>. <important>
+          <para>If you do not use <application>WinCVS</application> and
+          <application>CVSNT</application>, you might need
+          <application>ssh</application> (see <link linkend="ssh">Other tools
+          you might need or want</link>) to check out the
+          <application>OpenMFG</application> source tree.</para>
+        </important>For Windows, install at least a minimal
+      <application>Cygwin</application> configuration and the ssh package from
+      http://www.cygwin.com: From the cygwin home page -&gt; Install or update
+      now! and save setup.exe. Run the setup.exe. You can accept the defaults
+      for most of the steps if you like. If you know the location of any of
+      the download sites on the "Choose A Download Site" page, pick one close
+      to you. Next comes the confusing part, the "Select Packages" page. You
+      can select whatever packages you wish, but for our purposes you
+      specifically need openssh and whatever it depends on. The Cygwin
+      installer setup will help resolve any dependencies if you decide to try
+      skipping anything that it needs. So... scroll down to the Net line and
+      expand the subtree by clicking on the - (-&gt; +) and click on the icon
+      of two arrows making a circle until a check box appears. Make sure there
+      is an X in the openssh checkbox. A few other lines will change at the
+      same time. This is the setup program telling you that these are
+      necessary to make openssh work. <note>
+          <para>You might see packages for <application>Qt</application> and
+          <application>PostgreSQL</application> in the
+          <application>Cygwin</application> package list. Do not select these,
+          as they may not be the versions of <application>Qt</application> and
+          <application>PostgreSQL</application> that we need.</para>
+        </note> I left everything at the default except for Net, where I set
+      openssh to install. The Cygwin installation process is very robust, so
+      if it stalls at some point and you have to kill it, it will restart
+      essentially where it left off. After Cygwin is installed, make sure your
+      PATH environment variable is set to include the Cygwin bin directory (by
+      default, C:\cygwin\bin).</para>
+    </section>
+    <section id="msys">
+      <title>MSys</title>
+      <para></para>
+      <para>return to <ulink role="direct"
+      url="http://www.mingw.org"></ulink></para>
+      <para>click on <guibutton>Download</guibutton> -&gt;
+      <guibutton>MSYS-<replaceable>version</replaceable>.exe</guibutton></para>
+      <para>run the <application>msys</application> installer and accept the
+      defaults</para>
+      <para>If you use <application>MinGW</application> and MSYS then you run
+      all of the remaining setup steps in an MSYS window instead of a cmd
+      window. You will also have to use <literal>make</literal> instead of
+      <literal>nmake</literal> when you build.</para>
+      <para>To build PostgreSQL, follow the directions in the FAQ_MinGW
+      document in the doc directory.<programlisting>cd /c/postgresql/postgresql-<replaceable>version</replaceable>
+./configure --without-zlib --prefix=/c/postgresql/postgresql-<replaceable>version</replaceable>
+vi src/include/port.h and comment out line 266 (extern def of timezone struct)
+vi src/include/pg_confnig_os.h and comment out lines 151-155 (declaration of struct timezone)
+vi src/port/gettimeofday.c and comment out the implementation of the gettimeofday function
+make
+make check</programlisting></para>
+    </section>
+  </section>
+  <section>
+    <title>Documentation Editing</title>
+    <para>You may also want to edit the documentation, most of which is
+    written in XML using DocBook for markup. Any XML editor that can use the
+    DocBook DTD will do. <application>XXE</application> , the "XMLmind XML
+    Editor", is easy to use for building well-structured DocBook documents.
+    You will need Subversion and possibly RapidSVN to access the xtupledocs
+    module in the postbooks Subversion repository.</para>
+  </section>
+  <section>
+    <title>XSLT Processing</title>
+    <para>If you want to generate HTML or PDF files from the raw XML
+    documentation files or if you want to integrate the xTuple applications
+    with other systems, you might want to get an XSLT processor. XSLT
+    processors can be used to transform XML files from one format to another,
+    including output as HTML, XML, and plain text.</para>
+    <para>If you want to integrate the xTuple applications with other systems,
+    you will <emphasis>need</emphasis> an XSLT processor. This will help you
+    transform XML documents produced by other systems, such as Yahoo! stores,
+    into a format which can be directly imported by PostBooks and OpenMFG.
+    Some common XSLT processors include xsltproc, Saxon, and Xalan-C++ and
+    Xalan-J. Saxon and Xalan-J are written in Java and distributed (?) as .jar
+    files. Xalan-C++ is a C++ application and API available from the Apache
+    XML Project. xTuple is considering incorporating Xalan-C++ into its
+    applications to eliminate the need for end-users to download and configure
+    an external XSLT processor.</para>
+    <para>If this integration occurs, the following should be added to the
+    list of required software:</para>
+    <variablelist>
+      <varlistentry>
+        <term>xsltproc</term>
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Saxon</term>
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><application>Xalan-C++</application></term>
+        <listitem>
+          <para>This is an <ulink
+          url="http://www.w3.org/TR/xslt20">XSLT</ulink> processor from the
+          Apache XML Project. It's necessary for processing XML documents for
+          EDI purposes and building documentation from sources.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><application>Xerces</application></term>
+        <listitem>
+          <para>This is required to build <application>Xalan-C++</application>
+          and is also available from the Apache XML Project.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>and the following should be added to the setup procedure:</para>
+    <procedure>
+      <step>
+        <title>Get and install Xerces</title>
+        <substeps>
+          <step>
+            <para>Point your web browser to <ulink
+            url="http://www.apache.org/dyn/closer.cgi/xml/xerces-c/">http://www.apache.org/dyn/closer.cgi/xml/xerces-c/</ulink></para>
+            <para>Click on <literal>source</literal></para>
+            <para>Click on
+            <filename>xerces-c-src_2_7_0.tar.gz</filename></para>
+          </step>
+          <step>
+            <para>Extract the sources:<programlisting>tar xzf xerces-c-src_2_7_0.tar.gz</programlisting></para>
+          </step>
+          <step>
+            <para>Follow the build instructions.</para>
+            <stepalternatives>
+              <step>
+                <title>Macintosh OS X</title>
+                <para>Refer to
+                <filename>xerces-c-src_2_7_0/doc/html/build-other.html#Mac</filename>.
+                Make the following changes if you want to build universal
+                binaries:<orderedlist>
+                    <listitem>
+                      <para>add the following to the runConfigure command
+                      line:</para>
+                      <programlisting>-z -arch -z ppc -z -arch -z i386</programlisting>
+                    </listitem>
+                    <listitem>
+                      <para>After running <literal>runConfigure</literal> but
+                      before running <literal>make</literal>, edit
+                      <filename>Makefile.incl </filename>and edit the section
+                      for <literal>MACOSX</literal> (~ line 613). Add
+                      <literal>-arch ppc -arch i386</literal> at the end of
+                      both lines <literal>MAKE_SHARED</literal> and
+                      <literal>MAKE_SHARED_C</literal></para>
+                    </listitem>
+                  </orderedlist></para>
+              </step>
+            </stepalternatives>
+          </step>
+          <step>
+            <para><programlisting>make install</programlisting></para>
+          </step>
+        </substeps>
+      </step>
+      <step>
+        <title>Get and install Xalan-C++</title>
+        <substeps>
+          <step>
+            <para>Point your web browser to <ulink
+            url="http://www.apache.org/dyn/closer.cgi/xml/xalan-c">http://www.apache.org/dyn/closer.cgi/xml/xalan-c</ulink></para>
+          </step>
+          <step>
+            <para>Retrieve a source bundle such as
+            <filename>Xalan-C_1_10_0-src.tar.gz</filename></para>
+          </step>
+          <step>
+            <para>Extract the sources:<programlisting>tar xzf Xalan-C_1_10_0-src.tar.gz</programlisting></para>
+          </step>
+          <step>
+            <para>Follow the build instructions in
+            <filename>xml-xalan/c/README</filename></para>
+            <stepalternatives>
+              <step>
+                <title>Macintosh OS X</title>
+                <para>If you want to build universal binaries, add
+                <literal>-arch ppc -arch i386</literal> to the runConfigure
+                command line.</para>
+              </step>
+            </stepalternatives>
+          </step>
+          <step>
+            <para><programlisting>make install</programlisting></para>
+          </step>
+        </substeps>
+      </step>
+    </procedure>
+    <para></para>
+  </section>
+</article>
