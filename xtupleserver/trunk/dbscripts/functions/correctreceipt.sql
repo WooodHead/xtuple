@@ -44,6 +44,7 @@ BEGIN
 		    _r.recv_date::DATE) AS unitprice_base,
 	 orderhead_number,
 	 orderhead_curr_id AS freight_curr_id,
+	 orderitem_orderhead_type,
 	 orderitem_qty_invuomratio INTO _o
   FROM orderhead, orderitem
   WHERE ((orderhead_id=orderitem_orderhead_id)
