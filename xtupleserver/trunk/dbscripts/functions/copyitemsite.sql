@@ -44,6 +44,7 @@ BEGIN
   _new.itemsite_datelastcount	:= NULL;
   _new.itemsite_datelastused	:= NULL;
   _new.itemsite_nnqoh		:= 0;
+  _new.itemsite_location_id    := -1;
 
   IF (_destwhs.warehous_transit) THEN
     _new.itemsite_reorderlevel	:= 0;

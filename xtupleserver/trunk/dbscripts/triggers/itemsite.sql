@@ -75,7 +75,21 @@ BEGIN
 
     IF (NEW.itemsite_controlmethod NOT IN (''S'',''L'')) THEN
       UPDATE itemsite SET
-        itemsite_perishable = FALSE
+        itemsite_perishable = FALSE,
+        itemsite_warrpurc = FALSE,
+        itemsite_warrsell = FALSE,
+        itemsite_warrperiod = 0,
+        itemsite_warrship = FALSE,
+        itemsite_warrreg = FALSE
+      WHERE (itemsite_id=NEW.itemsite_id);
+    ELSIF ((NEW.itemsite_warrsell = FALSE)
+      AND ((NEW.itemsite_warrperiod > 0)
+      OR  (NEW.itemsite_warrship=TRUE)
+      OR  (NEW.itemsite_warrreg=TRUE))) THEN
+      UPDATE itemsite SET
+        itemsite_warrperiod = 0,
+        itemsite_warrship = FALSE,
+        itemsite_warrreg = FALSE
       WHERE (itemsite_id=NEW.itemsite_id);
     END IF;
 

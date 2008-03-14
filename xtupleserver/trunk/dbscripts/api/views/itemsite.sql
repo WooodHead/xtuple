@@ -48,7 +48,12 @@ AS
      itemsite_mps_timefence AS mps_time_fence,
      itemsite_leadtime AS lead_time,
      itemsite_safetystock AS safety_stock,
-     itemsite_notes AS notes
+     itemsite_notes AS notes,
+     itemsite_warrpurc AS enable_purchase_warranty,
+     itemsite_warrsell AS enable_sales_warranty,
+     itemsite_warrperiod AS default_warranty_period,
+     itemsite_warrship AS require_expire_ship,
+     itemsite_warrreg AS require_expire_registration
    FROM item, itemsite
      LEFT OUTER JOIN location ON (itemsite_location_id=location_id),
      plancode,costcat,whsinfo
@@ -100,7 +105,12 @@ INSERT INTO itemsite (
      itemsite_leadtime,
      itemsite_safetystock,
      itemsite_notes,
-     itemsite_qtyonhand)
+     itemsite_qtyonhand,
+     itemsite_warrpurc,
+     itemsite_warrsell,
+     itemsite_warrperiod,
+     itemsite_warrship,
+     itemsite_warrreg)
      VALUES (
        getItemId(NEW.item_number),
        getWarehousId(NEW.warehouse,'ACTIVE'),
@@ -145,8 +155,12 @@ INSERT INTO itemsite (
        COALESCE(NEW.lead_time,0),
        COALESCE(NEW.safety_stock,0),
        COALESCE(NEW.notes,''),
-       0);
-  
+       0,
+       COALESCE(NEW.enable_purchase_warranty,FALSE),
+       COALESCE(NEW.enable_sales_warranty,FALSE),
+       COALESCE(NEW.default_warranty_period,0),
+       COALESCE(NEW.require_expire_ship,FALSE),
+       COALESCE(NEW.require_expire_registration,TRUE));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.itemsite DO INSTEAD
@@ -193,7 +207,12 @@ UPDATE itemsite SET
      itemsite_mps_timefence=NEW.mps_time_fence,
      itemsite_leadtime=NEW.lead_time,
      itemsite_safetystock=NEW.safety_stock,
-     itemsite_notes=NEW.notes
+     itemsite_notes=NEW.notes,
+     itemsite_warrpurc=NEW.enable_purchase_warranty,
+     itemsite_warrsell=NEW.enable_sales_warranty,
+     itemsite_warrperiod=NEW.default_warranty_period,
+     itemsite_warrship=NEW.require_expire_ship,
+     itemsite_warrreg=NEW.require_expire_registration
    WHERE (itemsite_id=getItemSiteId(OLD.warehouse,OLD.item_number));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
