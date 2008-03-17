@@ -97,11 +97,13 @@ BEGIN
     itemsite_nnqoh,			itemsite_autoabcclass,
     itemsite_ordergroup,		itemsite_disallowblankwip,
     itemsite_maxordqty,			itemsite_mps_timefence,
-    itemsite_createwo
+    itemsite_createwo,			itemsite_warrpurc,
+    itemsite_warrsell,			itemsite_warrperiod,
+    itemsite_warrstart
   ) VALUES (
     _new.itemsite_id,			_new.itemsite_item_id,
     _new.itemsite_warehous_id,		_new.itemsite_qtyonhand,
-    _new.itemsite_reorderlevel,		_new.itemsite_ordertoqty,
+    _new.itemsite_reorderlevel,	_new.itemsite_ordertoqty,
     _new.itemsite_cyclecountfreq,	_new.itemsite_datelastcount,
     _new.itemsite_datelastused,
     _new.itemsite_supply,		_new.itemsite_loccntrl,
@@ -120,7 +122,9 @@ BEGIN
     _new.itemsite_nnqoh,		_new.itemsite_autoabcclass,
     _new.itemsite_ordergroup,		_new.itemsite_disallowblankwip,
     _new.itemsite_maxordqty,		_new.itemsite_mps_timefence,
-    _new.itemsite_createwo
+    _new.itemsite_createwo,   	        _new.itemsite_warrpurc,
+    _new.itemsite_warrsell,	        _new.itemsite_warrperiod,
+    _new.itemsite_warrstart
     );
 
   RETURN _new.itemsite_id;

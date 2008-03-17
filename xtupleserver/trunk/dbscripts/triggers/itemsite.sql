@@ -47,7 +47,11 @@ BEGIN
      OR (OLD.itemsite_disallowblankwip  != NEW.itemsite_disallowblankwip)
      OR (OLD.itemsite_maxordqty         != NEW.itemsite_maxordqty)
      OR (OLD.itemsite_mps_timefence     != NEW.itemsite_mps_timefence)
-     OR (OLD.itemsite_createwo          != NEW.itemsite_createwo) ) THEN
+     OR (OLD.itemsite_createwo          != NEW.itemsite_createwo)
+     OR (OLD.itemsite_warrpurc          != NEW.itemsite_warrpurc)
+     OR (OLD.itemsite_warrsell          != NEW.itemsite_warrsell)
+     OR (OLD.itemsite_warrperiod        != NEW.itemsite_warrperiod)
+     OR (OLD.itemsite_warrstart         != NEW.itemsite_warrstart) ) THEN
       IF (OLD.itemsite_item_id != NEW.itemsite_item_id) THEN
         RAISE EXCEPTION ''The item number on an itemsite may not be changed.'';
       ELSIF (OLD.itemsite_warehous_id != NEW.itemsite_warehous_id) THEN
@@ -79,17 +83,14 @@ BEGIN
         itemsite_warrpurc = FALSE,
         itemsite_warrsell = FALSE,
         itemsite_warrperiod = 0,
-        itemsite_warrship = FALSE,
-        itemsite_warrreg = FALSE
+        itemsite_warrstart = NULL
       WHERE (itemsite_id=NEW.itemsite_id);
     ELSIF ((NEW.itemsite_warrsell = FALSE)
       AND ((NEW.itemsite_warrperiod > 0)
-      OR  (NEW.itemsite_warrship=TRUE)
-      OR  (NEW.itemsite_warrreg=TRUE))) THEN
+      OR  (NEW.itemsite_warrstart IS NOT NULL))) THEN
       UPDATE itemsite SET
         itemsite_warrperiod = 0,
-        itemsite_warrship = FALSE,
-        itemsite_warrreg = FALSE
+        itemsite_warrstart = NULL
       WHERE (itemsite_id=NEW.itemsite_id);
     END IF;
 
