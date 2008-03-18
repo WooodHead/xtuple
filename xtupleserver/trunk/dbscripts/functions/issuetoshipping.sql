@@ -215,7 +215,7 @@ BEGIN
   ELSEIF (pordertype = ''TO'') THEN
 
     SELECT postInvTrans( itemsite_id, ''SH'', pQty, ''S/R'',
-			 pordertype, tohead_number, '''', ''Issue to Shipping'',
+			 pordertype, CAST(tohead_number AS text), '''', ''Issue to Shipping'',
 			 costcat_shipasset_accnt_id, costcat_asset_accnt_id,
 			 _itemlocSeries, _timestamp) INTO _invhistid
     FROM tohead, toitem, itemsite, costcat
