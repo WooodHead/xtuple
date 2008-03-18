@@ -1,13 +1,13 @@
-CREATE OR REPLACE FUNCTION fetchSoNumber() RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION fetchSoNumber() RETURNS TEXT AS '
 DECLARE
-  _soNumber INTEGER;
+  _soNumber TEXT;
   _test INTEGER;
 
 BEGIN
 
   LOOP
 
-    SELECT orderseq_number INTO _soNumber
+    SELECT CAST(orderseq_number AS text) INTO _soNumber
     FROM orderseq
     WHERE (orderseq_name=''SoNumber'');
 

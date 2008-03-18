@@ -1,7 +1,7 @@
-CREATE OR REPLACE FUNCTION fetchNextNumber(TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION fetchNextNumber(TEXT) RETURNS TEXT AS '
 DECLARE
   psequence	ALIAS FOR $1;
-  _number	INTEGER;
+  _number	TEXT;
   _numcol	TEXT;
   _select	TEXT;
   _table	TEXT;
@@ -9,7 +9,7 @@ DECLARE
 
 BEGIN
   LOOP
-    SELECT orderseq_number, orderseq_table, orderseq_numcol
+    SELECT CAST(orderseq_number AS text), orderseq_table, orderseq_numcol
 	INTO _number, _table, _numcol
     FROM orderseq
     WHERE (orderseq_name=psequence);
