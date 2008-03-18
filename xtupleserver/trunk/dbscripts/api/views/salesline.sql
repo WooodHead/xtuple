@@ -1,7 +1,6 @@
 BEGIN;
 
 -- Sales Order Line
-
 DROP VIEW api.salesline;
 CREATE VIEW api.salesline
 AS 

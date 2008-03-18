@@ -1,5 +1,5 @@
+SELECT dropIfExists('view', 'billingEditList');
 
-DROP VIEW billingEditList;
 CREATE VIEW billingEditList AS
 SELECT cohead_id AS orderid, -2 AS itemid,
        CASE WHEN (formatInvcNumber(cobmisc_id) <> '') THEN ('Invc-' || formatInvcNumber(cobmisc_id))

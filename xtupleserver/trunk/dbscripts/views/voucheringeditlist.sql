@@ -1,5 +1,5 @@
 
-DROP VIEW voucheringEditList;
+SELECT dropIfExists('view', 'voucheringEditList');
 CREATE VIEW voucheringEditList AS
 SELECT vend_id AS vendid, vohead_id AS orderid, 1 AS itemid,
        vohead_number AS vouchernumber, COALESCE(TEXT(pohead_number), 'Misc.') AS ponumber,

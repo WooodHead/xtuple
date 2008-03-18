@@ -1,7 +1,6 @@
 BEGIN;
 
 -- Sales Order Line Characteristics
-
 DROP VIEW api.saleslinechar;
 CREATE VIEW api.saleslinechar
 AS 

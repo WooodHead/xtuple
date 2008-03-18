@@ -1,7 +1,6 @@
 BEGIN;
 
 -- SalesOrder
-
 DROP VIEW api.salesorder;
 CREATE VIEW api.salesorder
 AS
