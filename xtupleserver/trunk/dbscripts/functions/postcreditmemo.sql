@@ -75,7 +75,7 @@ BEGIN
 
     IF (_r.amount <> 0) THEN
 --  Debit the Sales Account for the current cmitem
-      SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', CAST(_r.cmhead_number AS text),
+      SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', _r.cmhead_number,
                                  CASE WHEN _r.cmhead_rahead_id IS NULL THEN
                                    salesaccnt_credit_accnt_id
                                  ELSE
@@ -94,7 +94,7 @@ BEGIN
     END IF;
 
     _taxBaseValue := addTaxToGLSeries(_sequence, _p.cmhead_tax_curr_id,
-				      ''A/R'', ''CM'', CAST(_p.cmhead_number AS text),
+				      ''A/R'', ''CM'', _p.cmhead_number,
 				      _glDate, _p.cmhead_docdate,
 				      _r.cmitem_tax_id,
 				      0 - COALESCE(_r.cmitem_tax_ratea,0.0),
@@ -150,7 +150,7 @@ BEGIN
 
 --  Credit the Misc. Account for Miscellaneous Charges
   IF (_p.cmhead_misc <> 0) THEN
-    SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', CAST(_p.cmhead_number AS text),
+    SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', _p.cmhead_number,
                                accnt_id, round(currToBase(_p.cmhead_curr_id,
                                                           _p.cmhead_misc * -1,
                                                           _p.cmhead_docdate), 2),
@@ -204,7 +204,7 @@ BEGIN
   IF (COALESCE(_p.cmhead_adjtax_ratea,0.0) != 0 OR COALESCE(_p.cmhead_adjtax_rateb,0.0) != 0 OR
       COALESCE(_p.cmhead_adjtax_ratec,0.0) != 0) THEN
     _taxBaseValue := addTaxToGLSeries(_sequence, _p.cmhead_tax_curr_id,
-				      ''A/R'', ''CM'', CAST(_p.cmhead_number AS text),
+				      ''A/R'', ''CM'', _p.cmhead_number,
 				      _glDate, _p.cmhead_docdate,
 				      _p.cmhead_adjtax_id,
 				      0 - COALESCE(_p.cmhead_adjtax_ratea,0.0),
@@ -261,7 +261,7 @@ BEGIN
 
 --  Debit the Freight Account
   IF (_p.cmhead_freight <> 0) THEN
-    SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', CAST(_p.cmhead_number AS text),
+    SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', _p.cmhead_number,
                                accnt_id,
                                round(currToBase(_p.cmhead_curr_id,
                                                 _p.cmhead_freight * -1,
@@ -277,7 +277,7 @@ BEGIN
     END IF;
 
     _taxBaseValue := addTaxToGLSeries(_sequence, _p.cmhead_tax_curr_id,
-				      ''A/R'', ''CM'', CAST(_p.cmhead_number AS text),
+				      ''A/R'', ''CM'', _p.cmhead_number,
 				      _glDate, _p.cmhead_docdate,
 				      _p.cmhead_freighttax_id,
 				      0 - COALESCE(_p.cmhead_freighttax_ratea,0.0),
@@ -337,7 +337,7 @@ BEGIN
 --  Credit the A/R for the total Amount
   IF (_totalAmount <> 0) THEN
     IF (_p.ar_accnt_id != -1) THEN
-      PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CM'', CAST(_p.cmhead_number AS text),
+      PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CM'', _p.cmhead_number,
                                   _p.ar_accnt_id,
                                   round(currToBase(_p.cmhead_curr_id,
                                                    _totalAmount,
@@ -370,7 +370,7 @@ BEGIN
            TRUE, FALSE,
            cmhead_cust_id, cmhead_custponumber,
            cmhead_number,
-           CASE WHEN (cmhead_invcnumber=-1) THEN ''OPEN''
+           CASE WHEN (cmhead_invcnumber=''-1'') THEN ''OPEN''
                 ELSE (cmhead_invcnumber::TEXT)
            END,
            ''C'',
@@ -397,7 +397,7 @@ BEGIN
       SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
     END IF;
     SELECT postInvTrans( itemsite_id, ''RS'', _r.qty,
-                         ''S/O'', ''CM'', CAST(_r.cmhead_number AS text), '''', '''',
+                         ''S/O'', ''CM'', _r.cmhead_number, '''', '''',
                          costcat_asset_accnt_id, resolveCOSAccount(itemsite_id, _r.cust_id), _itemlocSeries ) INTO _invhistid
     FROM itemsite, costcat
     WHERE ( (itemsite_costcat_id=costcat_id)
@@ -433,7 +433,7 @@ BEGIN
                     cmhead_docdate) AS balance INTO _p
   FROM aropen, cmhead
   WHERE ( (aropen_doctype=''I'')
-   AND (aropen_docnumber=CAST(cmhead_invcnumber AS text))
+   AND (aropen_docnumber=cmhead_invcnumber)
    AND (cmhead_id=pCmheadid) );
   IF (FOUND) THEN
 
