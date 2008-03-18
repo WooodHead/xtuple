@@ -1,4 +1,5 @@
--- DROP VIEW sopack;
+SELECT dropIfExists('view', 'sopack');
+
 CREATE VIEW sopack AS
   SELECT pack_id AS sopack_id,
 	 pack_head_id AS sopack_sohead_id,

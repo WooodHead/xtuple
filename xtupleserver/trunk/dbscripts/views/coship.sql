@@ -1,4 +1,5 @@
--- DROP VIEW coship;
+SELECT dropIfExists('view', 'coship');
+
 CREATE VIEW coship AS
   SELECT shipitem_id		AS coship_id,
 	 shipitem_orderitem_id	AS coship_coitem_id,

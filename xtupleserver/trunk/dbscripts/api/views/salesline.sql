@@ -96,17 +96,17 @@ CREATE OR REPLACE RULE "_INSERT" AS
     coitem_warranty,
     coitem_cos_accnt_id)
   SELECT
-    getSalesOrderId(NEW.order_number),
+    getSalesOrderId(CAST(NEW.order_number AS text)),
     COALESCE(NEW.line_number,(
       SELECT (COALESCE(MAX(coitem_linenumber), 0) + 1)
               FROM coitem
-              WHERE (coitem_cohead_id=getSalesOrderId(NEW.order_number)))),
+              WHERE (coitem_cohead_id=getSalesOrderId(CAST(NEW.order_number AS text))))),
     itemsite_id,
     COALESCE(NEW.status,'O'),
     COALESCE(NEW.scheduled_date,(
       SELECT MIN(coitem_scheddate)
       FROM coitem
-      WHERE (coitem_cohead_id=getSalesOrderId(NEW.order_number)))),
+      WHERE (coitem_cohead_id=getSalesOrderId(CAST(NEW.order_number AS text))))),
     NEW.promise_date,
     NEW.qty_ordered,
     COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
@@ -150,7 +150,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     COALESCE(NEW.warranty,FALSE),
     getGlAccntId(NEW.alternate_cos_account)
   FROM cohead, itemsite, item, whsinfo
-  WHERE ((cohead_id=getSalesOrderId(NEW.order_number))
+  WHERE ((cohead_id=getSalesOrderId(CAST(NEW.order_number AS text)))
   AND (itemsite_id=getItemsiteId(COALESCE(NEW.sold_from_whs,(
                                 SELECT warehous_code 
                                 FROM usrpref, whsinfo
@@ -205,14 +205,14 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     coitem_cos_accnt_id=getGlAccntId(NEW.alternate_cos_account)
    FROM item
    WHERE ((item_id=getItemId(OLD.item_number))
-   AND (coitem_cohead_id=getSalesOrderId(OLD.order_number))
+   AND (coitem_cohead_id=getSalesOrderId(CAST(OLD.order_number AS text)))
    AND (coitem_linenumber=OLD.line_number));
 
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.salesline DO INSTEAD
 
   DELETE FROM coitem
-  WHERE ((coitem_cohead_id=getSalesOrderId(OLD.order_number))
+  WHERE ((coitem_cohead_id=getSalesOrderId(CAST(OLD.order_number AS text)))
   AND (coitem_linenumber=OLD.line_number));
 
 COMMIT;
