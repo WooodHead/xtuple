@@ -1,4 +1,5 @@
-DROP VIEW creditMemoEditList;
+SELECT dropIfExists('view', 'creditMemoEditList');
+
 CREATE VIEW creditMemoEditList AS
 SELECT cmhead_id AS orderid, -2 AS itemid,
              ('C/M-' || formatCreditMemoNumber(cmhead_id)) AS documentnumber,

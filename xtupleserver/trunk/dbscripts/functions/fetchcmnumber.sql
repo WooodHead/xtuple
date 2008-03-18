@@ -1,13 +1,13 @@
-CREATE OR REPLACE FUNCTION fetchCMNumber() RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION fetchCMNumber() RETURNS text AS '
 DECLARE
-  _cmNumber INTEGER;
+  _cmNumber text;
   _test INTEGER;
 
 BEGIN
 
   LOOP
 
-    SELECT orderseq_number INTO _cmNumber
+    SELECT CAST(orderseq_number AS text) INTO _cmNumber
     FROM orderseq
     WHERE (orderseq_name=''CmNumber'');
 

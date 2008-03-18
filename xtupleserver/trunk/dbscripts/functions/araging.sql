@@ -80,13 +80,11 @@ BEGIN
         terms_descrip
 
         FROM aropen, custinfo, custtype, terms
-        WHERE ( (aropen_cust_id IS NOT NULL)
-        AND (aropen_cust_id = cust_id)
+        WHERE ( (aropen_cust_id = cust_id)
         AND (cust_terms_id = terms_id)
         AND (cust_custtype_id=custtype_id)
         AND (aropen_docdate <= pAsOfDate)
-        AND (COALESCE(aropen_closedate,pAsOfdate+1)>pAsOfdate)
-        AND ((currtobase(aropen_curr_id,aropen_amount,pAsOfdate) - arapplied(aropen_id,pAsofdate)) > 0) )
+        AND (COALESCE(aropen_closedate,pAsOfdate+1)>pAsOfdate) )
         ORDER BY cust_number, aropen_duedate
   LOOP
         _row.araging_docdate := _x.aropen_docdate;
