@@ -127,7 +127,7 @@ BEGIN
       _p.cmhead_docdate, '''',
       _p.cmhead_number, _p.cmhead_custponumber, _p.cmhead_docdate,
       ''C'', _p.cmhead_invcnumber, _p.cmhead_docdate,
-      (_r.cmitem_qtycredit * _r.cmitem_qty_invuomratio -1), _r.unitprice, _r.cost,
+      (_r.cmitem_qtycredit * _r.cmitem_qty_invuomratio * -1), _r.unitprice, _r.cost,
       _p.cmhead_salesrep_id, (_r.cmhead_commission * _r.amount * -1), FALSE,
       _p.cmhead_billtoname, _p.cmhead_billtoaddress1,
       _p.cmhead_billtoaddress2, _p.cmhead_billtoaddress3,
@@ -397,7 +397,7 @@ BEGIN
       SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
     END IF;
     SELECT postInvTrans( itemsite_id, ''RS'', _r.qty,
-                         ''S/O'', ''CM'', _r.cmhead_number, '''', '''',
+                         ''S/O'', ''CM'', CAST(_r.cmhead_number AS text), '''', '''',
                          costcat_asset_accnt_id, resolveCOSAccount(itemsite_id, _r.cust_id), _itemlocSeries ) INTO _invhistid
     FROM itemsite, costcat
     WHERE ( (itemsite_costcat_id=costcat_id)
@@ -433,7 +433,7 @@ BEGIN
                     cmhead_docdate) AS balance INTO _p
   FROM aropen, cmhead
   WHERE ( (aropen_doctype=''I'')
-   AND (aropen_docnumber=cmhead_invcnumber)
+   AND (aropen_docnumber=CAST(cmhead_invcnumber AS text))
    AND (cmhead_id=pCmheadid) );
   IF (FOUND) THEN
 
