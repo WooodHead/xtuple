@@ -75,7 +75,7 @@ BEGIN
 
     IF (_r.amount <> 0) THEN
 --  Debit the Sales Account for the current cmitem
-      SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', _r.cmhead_number,
+      SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', CAST(_r.cmhead_number AS text),
                                  CASE WHEN _r.cmhead_rahead_id IS NULL THEN
                                    salesaccnt_credit_accnt_id
                                  ELSE
@@ -94,7 +94,7 @@ BEGIN
     END IF;
 
     _taxBaseValue := addTaxToGLSeries(_sequence, _p.cmhead_tax_curr_id,
-				      ''A/R'', ''CM'', _p.cmhead_number,
+				      ''A/R'', ''CM'', CAST(_p.cmhead_number AS text),
 				      _glDate, _p.cmhead_docdate,
 				      _r.cmitem_tax_id,
 				      0 - COALESCE(_r.cmitem_tax_ratea,0.0),
@@ -150,7 +150,7 @@ BEGIN
 
 --  Credit the Misc. Account for Miscellaneous Charges
   IF (_p.cmhead_misc <> 0) THEN
-    SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', _p.cmhead_number,
+    SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', CAST(_p.cmhead_number AS text),
                                accnt_id, round(currToBase(_p.cmhead_curr_id,
                                                           _p.cmhead_misc * -1,
                                                           _p.cmhead_docdate), 2),
@@ -204,7 +204,7 @@ BEGIN
   IF (COALESCE(_p.cmhead_adjtax_ratea,0.0) != 0 OR COALESCE(_p.cmhead_adjtax_rateb,0.0) != 0 OR
       COALESCE(_p.cmhead_adjtax_ratec,0.0) != 0) THEN
     _taxBaseValue := addTaxToGLSeries(_sequence, _p.cmhead_tax_curr_id,
-				      ''A/R'', ''CM'', _p.cmhead_number,
+				      ''A/R'', ''CM'', CAST(_p.cmhead_number AS text),
 				      _glDate, _p.cmhead_docdate,
 				      _p.cmhead_adjtax_id,
 				      0 - COALESCE(_p.cmhead_adjtax_ratea,0.0),
@@ -261,7 +261,7 @@ BEGIN
 
 --  Debit the Freight Account
   IF (_p.cmhead_freight <> 0) THEN
-    SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', _p.cmhead_number,
+    SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', CAST(_p.cmhead_number AS text),
                                accnt_id,
                                round(currToBase(_p.cmhead_curr_id,
                                                 _p.cmhead_freight * -1,
@@ -277,7 +277,7 @@ BEGIN
     END IF;
 
     _taxBaseValue := addTaxToGLSeries(_sequence, _p.cmhead_tax_curr_id,
-				      ''A/R'', ''CM'', _p.cmhead_number,
+				      ''A/R'', ''CM'', CAST(_p.cmhead_number AS text),
 				      _glDate, _p.cmhead_docdate,
 				      _p.cmhead_freighttax_id,
 				      0 - COALESCE(_p.cmhead_freighttax_ratea,0.0),
@@ -337,7 +337,7 @@ BEGIN
 --  Credit the A/R for the total Amount
   IF (_totalAmount <> 0) THEN
     IF (_p.ar_accnt_id != -1) THEN
-      PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CM'', _p.cmhead_number,
+      PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CM'', CAST(_p.cmhead_number AS text),
                                   _p.ar_accnt_id,
                                   round(currToBase(_p.cmhead_curr_id,
                                                    _totalAmount,
