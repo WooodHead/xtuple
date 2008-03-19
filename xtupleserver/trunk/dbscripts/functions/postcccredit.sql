@@ -103,7 +103,7 @@ BEGIN
       arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
       arapply_fundstype, arapply_refnumber,
       arapply_applied, arapply_closed,
-      arapply_postdate, arapply_journalnumber, arapply_username,
+      arapply_postdate, arapply_distdate, arapply_journalnumber, arapply_username,
       arapply_curr_id )
     VALUES
     ( _c.ccpay_cust_id,
@@ -111,7 +111,7 @@ BEGIN
       -1, ''R'', ''Credit Card Credit'',
       _c.ccard_type, _c.ccpay_order_number,
       ROUND(_c.ccpay_amount, 2), _closed,
-      CURRENT_DATE, fetchJournalNumber(''AR-CM''), CURRENT_USER,
+      CURRENT_DATE, _c.ccpay_transaction_datetime::DATE, fetchJournalNumber(''AR-CM''), CURRENT_USER,
       _c.ccpay_curr_id );
   END IF;
 

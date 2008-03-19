@@ -194,12 +194,12 @@ BEGIN
 
 	--  Post the application
         INSERT INTO arapply
-        ( arapply_cust_id, arapply_postdate, arapply_username,
+        ( arapply_cust_id, arapply_postdate, arapply_distdate, arapply_username,
           arapply_source_aropen_id, arapply_source_doctype, arapply_source_docnumber,
           arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
           arapply_journalnumber, arapply_applied, arapply_curr_id )
         VALUES
-        ( _p.checkhead_recip_id, pVoidDate, CURRENT_USER,
+        ( _p.checkhead_recip_id, pVoidDate, pVoidDate, CURRENT_USER,
           -1, ''K'', _p.checkhead_number,
           _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
           pJournalNumber, (_r.checkitem_amount * -1), _r.checkitem_curr_id );
