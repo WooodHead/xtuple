@@ -7,7 +7,7 @@ DECLARE
   _asOfDate DATE;
 BEGIN
 
-  _asOfDate := COALESCE(_asOfDate,current_date);
+  _asOfDate := COALESCE(pAsOfDate,current_date);
 
   FOR _x IN
         SELECT
