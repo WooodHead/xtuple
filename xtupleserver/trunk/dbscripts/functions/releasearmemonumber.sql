@@ -10,7 +10,7 @@ BEGIN
   SELECT aropen_id INTO _test
   FROM aropen
   WHERE ( (aropen_doctype IN (''D'', ''C'', ''R''))
-   AND (aropen_docnumber=pNumber) );
+   AND (aropen_docnumber=CAST(pNumber AS TEXT)) );
 
   IF (FOUND) THEN
     RETURN FALSE;

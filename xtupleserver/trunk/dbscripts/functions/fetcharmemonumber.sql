@@ -1,14 +1,14 @@
 
-CREATE OR REPLACE FUNCTION fetchARMemoNumber() RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION fetchARMemoNumber() RETURNS TEXT AS '
 DECLARE
-  _number INTEGER;
+  _number TEXT;
   _test INTEGER;
 
 BEGIN
 
   LOOP
 
-    SELECT orderseq_number INTO _number
+    SELECT CAST(orderseq_number AS text) INTO _number
     FROM orderseq
     WHERE (orderseq_name=''ARMemoNumber'');
     IF (NOT FOUND) THEN
