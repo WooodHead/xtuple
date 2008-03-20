@@ -232,6 +232,11 @@ BEGIN
         AND  (ti.itemsite_warehous_id=_to.tohead_trns_warehous_id)
         AND  (si.itemsite_warehous_id=_to.tohead_src_warehous_id) );
 
+      --We do not need to distribute lot/serial info for transit, post trans and discard dist detail
+      PERFORM postIntoTrialBalance(itemlocpost_glseq) FROM itemlocpost WHERE (itemlocpost_itemlocseries=_itemlocSeries);
+      DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
+      DELETE FROM itemlocpost WHERE (itemlocpost_itemlocSeries=_itemlocSeries);
+
       IF (_result < 0) THEN
 	RETURN _result;
       END IF;

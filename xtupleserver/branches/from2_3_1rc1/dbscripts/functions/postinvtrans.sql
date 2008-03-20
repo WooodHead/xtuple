@@ -146,7 +146,6 @@ BEGIN
     END IF;
 
     --  Distribute this if this itemsite is controlled
-    -- what happens in TS case?
     IF ( (_r.lotserial OR _r.loccntrl)
         AND (pItemlocSeries > 0) ) THEN
       INSERT INTO itemlocdist
