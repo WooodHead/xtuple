@@ -1,4 +1,3 @@
-
 CREATE OR REPLACE FUNCTION postCashReceipt(INTEGER, INTEGER) RETURNS INTEGER AS '
 DECLARE
   pCashrcptid ALIAS FOR $1;
@@ -126,7 +125,7 @@ BEGIN
       _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
       _p.cashrcpt_fundstype, _p.cashrcpt_docnumber,
       round(_r.cashrcptitem_amount, 2), _r.closed,
-      CURRENT_DATE, _p.cashrcpt_daistdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id );
+      CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id );
 
     PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CR'',
                         (_r.aropen_doctype || ''-'' || _r.aropen_docnumber),
