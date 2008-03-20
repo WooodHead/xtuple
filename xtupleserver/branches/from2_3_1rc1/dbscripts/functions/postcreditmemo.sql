@@ -370,7 +370,7 @@ BEGIN
            TRUE, FALSE,
            cmhead_cust_id, cmhead_custponumber,
            cmhead_number,
-           CASE WHEN (cmhead_invcnumber=''-1'') THEN ''OPEN''
+           CASE WHEN (cmhead_invcnumber=-1) THEN ''OPEN''
                 ELSE (cmhead_invcnumber::TEXT)
            END,
            ''C'',
