@@ -370,7 +370,7 @@ BEGIN
            TRUE, FALSE,
            cmhead_cust_id, cmhead_custponumber,
            cmhead_number,
-           CASE WHEN (cmhead_invcnumber=-1) THEN ''OPEN''
+           CASE WHEN (cmhead_invcnumber=''-1'') THEN ''OPEN''
                 ELSE (cmhead_invcnumber::TEXT)
            END,
            ''C'',
@@ -433,7 +433,7 @@ BEGIN
                     cmhead_docdate) AS balance INTO _p
   FROM aropen, cmhead
   WHERE ( (aropen_doctype=''I'')
-   AND (aropen_docnumber=CAST(cmhead_invcnumber AS text))
+   AND (aropen_docnumber=cmhead_invcnumber)
    AND (cmhead_id=pCmheadid) );
   IF (FOUND) THEN
 
