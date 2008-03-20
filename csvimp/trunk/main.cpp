@@ -182,6 +182,7 @@ int main(int argc, char *argv[])
       params.append("databaseURL", databaseURL);
 
     login2 newdlg(0, "", TRUE);
+    newdlg.setLogo(QImage(":/images/splashCSVimp.png"));
     newdlg.set(params, 0);
 
     if (newdlg.exec() == QDialog::Rejected)

@@ -129,6 +129,8 @@ QT += xml  sql
 #The following line was inserted by qt3to4
 CONFIG += uic3
 
+RESOURCES += csvimp.qrc
+
 QT += qt3support
 macx {
   CONFIG += x86 ppc
