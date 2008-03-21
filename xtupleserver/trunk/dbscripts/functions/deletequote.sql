@@ -41,7 +41,7 @@ BEGIN
       -- do not release quote # if quote converted to sales order
       IF (NOT EXISTS (SELECT cohead_id
 		      FROM cohead
-		      WHERE (cohead_number=_quoteNumber))) THEN
+		      WHERE (cohead_number=CAST(_quoteNumber AS text)))) THEN
 	_returnVal = releaseQuNumber(_quoteNumber);
       END IF;
     ELSEIF (_quNumberScheme = ''S'') THEN

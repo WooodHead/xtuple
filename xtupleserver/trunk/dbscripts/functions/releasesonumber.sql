@@ -11,7 +11,7 @@ BEGIN
 --  Check to see if a S/O exists with the passed S/O Number
   SELECT cohead_id INTO _test
   FROM cohead
-  WHERE (cohead_number=pSoNumber);
+  WHERE (cohead_number=CAST(pSoNumber AS text));
 
   IF (FOUND) THEN
     RETURN FALSE;

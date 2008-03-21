@@ -127,6 +127,9 @@ BEGIN
   DELETE FROM locitem
   WHERE (locitem_item_id=pItemid);
 
+  DELETE FROM itemtax
+   WHERE(itemtax_item_id=pItemid);
+
   DELETE FROM itemsite
   WHERE (itemsite_item_id=pItemid);
 

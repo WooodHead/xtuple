@@ -74,12 +74,12 @@ BEGIN
   WHERE (aropenco_cohead_id=pSoheadid);
 
   IF (pSonumber IS NOT NULL) THEN
-    IF (NOT releaseSoNumber(pSonumber)) THEN
+    IF (NOT releaseSoNumber(CAST(pSonumber AS INTEGER))) THEN
       RETURN 0; -- change to -3 when releaseSoNumber returns INTEGER
     END IF;
 
   ELSEIF (_r.cohead_number IS NOT NULL) THEN
-    IF (NOT releaseSoNumber(_r.cohead_number)) THEN
+    IF (NOT releaseSoNumber(CAST(_r.cohead_number AS INTEGER))) THEN
       RETURN 0; -- change to -3 when releaseSoNumber returns INTEGER
     END IF;
       
