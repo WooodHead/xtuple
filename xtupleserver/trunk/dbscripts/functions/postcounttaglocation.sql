@@ -12,6 +12,7 @@ DECLARE
   _itemloc RECORD;
   _cntslip RECORD;
   _origLocQty NUMERIC;
+  _netable BOOLEAN;
 BEGIN
 
   SELECT invcnt_id, invcnt_tagnumber, invcnt_qoh_after,
@@ -32,12 +33,15 @@ BEGIN
     RETURN -9;
   END IF;
 
-  SELECT COALESCE(SUM(itemloc_qty),0.0) INTO _origLocQty
-    FROM itemloc
+  SELECT COALESCE(SUM(itemloc_qty),0.0), location_netable INTO _origLocQty,_netable
+    FROM itemloc,location
    WHERE ((itemloc_itemsite_id=_p.itemsite_id)
-     AND  (itemloc_location_id=_p.invcnt_location_id));
+     AND  (location_id=itemloc_location_id)
+     AND  (itemloc_location_id=_p.invcnt_location_id))
+   GROUP BY location_netable;
   IF (NOT FOUND) THEN
     _origLocQty := 0.0;
+    _netable := TRUE;
   END IF;
 
   SELECT NEXTVAL(''invhist_invhist_id_seq'') INTO _invhistid;
@@ -194,11 +198,18 @@ BEGIN
    AND (invcnt_id=pInvcntid) );
 
 --  Update the QOH
-  UPDATE itemsite
-  SET itemsite_qtyonhand= itemsite_qtyonhand + (_p.invcnt_qoh_after - _origLocQty),
-      itemsite_nnqoh = 0,
-      itemsite_datelastcount=_postDate
-  WHERE (itemsite_id=_p.itemsite_id);
+  IF (_netable) THEN
+    UPDATE itemsite
+    SET itemsite_qtyonhand= itemsite_qtyonhand + (_p.invcnt_qoh_after - _origLocQty),
+        itemsite_datelastcount=_postDate
+    WHERE (itemsite_id=_p.itemsite_id);
+  ELSE
+    UPDATE itemsite
+    SET itemsite_nnqoh =  itemsite_nnqoh - _origLocQty,
+	itemsite_qtyonhand = itemsite_qtyonhand + _p.invcnt_qoh_after,
+        itemsite_datelastcount=_postDate
+    WHERE (itemsite_id=_p.itemsite_id);
+  END IF;
  
 --  Post the detail, if any
   IF (_hasDetail) THEN
