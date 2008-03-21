@@ -462,14 +462,14 @@ BEGIN
       arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
       arapply_fundstype, arapply_refnumber,
       arapply_applied, arapply_closed,
-      arapply_postdate, arapply_journalnumber, arapply_curr_id )
+      arapply_postdate, arapply_distdate, arapply_journalnumber, arapply_curr_id )
     VALUES
     ( _p.aropen_cust_id,
       _aropenid, ''C'', _p.cmhead_number,
       _p.aropen_id, ''I'', _p.aropen_docnumber,
       '''', '''',
       round(_toApply, 2), _toClose,
-      CURRENT_DATE, 0, _p.cmhead_curr_id );
+      CURRENT_DATE, _p.cmhead_docdate, 0, _p.cmhead_curr_id );
 
   END IF;
     

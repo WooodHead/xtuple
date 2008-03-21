@@ -68,14 +68,14 @@ BEGIN
         arapply_source_aropen_id, arapply_source_doctype, arapply_source_docnumber,
         arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
         arapply_fundstype, arapply_refnumber,
-        arapply_applied, arapply_closed, arapply_postdate,
+        arapply_applied, arapply_closed, arapply_postdate, arapply_distdate,
         arapply_journalnumber, arapply_username, arapply_curr_id )
       VALUES
       ( _p.aropen_cust_id,
         pAropenid, _p.aropen_doctype, _p.aropen_docnumber,
         _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
         '''', '''',
-        round(_r.arcreditapply_amountSource, 2), TRUE, CURRENT_DATE,
+        round(_r.arcreditapply_amountSource, 2), TRUE, CURRENT_DATE, CURRENT_DATE,
         0, CURRENT_USER, _p.aropen_curr_id );
 
     END IF;

@@ -1,4 +1,3 @@
-
 CREATE OR REPLACE FUNCTION postCashReceipt(INTEGER, INTEGER) RETURNS INTEGER AS '
 DECLARE
   pCashrcptid ALIAS FOR $1;
@@ -118,7 +117,7 @@ BEGIN
       arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
       arapply_fundstype, arapply_refnumber,
       arapply_applied, arapply_closed,
-      arapply_postdate, arapply_journalnumber, arapply_username,
+      arapply_postdate, arapply_distdate, arapply_journalnumber, arapply_username,
       arapply_curr_id )
     VALUES
     ( _p.cashrcpt_cust_id,
@@ -126,7 +125,7 @@ BEGIN
       _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
       _p.cashrcpt_fundstype, _p.cashrcpt_docnumber,
       round(_r.cashrcptitem_amount, 2), _r.closed,
-      CURRENT_DATE, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id );
+      CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id );
 
     PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CR'',
                         (_r.aropen_doctype || ''-'' || _r.aropen_docnumber),
@@ -165,7 +164,7 @@ BEGIN
       arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
       arapply_fundstype, arapply_refnumber,
       arapply_applied, arapply_closed,
-      arapply_postdate, arapply_journalnumber, arapply_username,
+      arapply_postdate, arapply_distdate, arapply_journalnumber, arapply_username,
       arapply_curr_id )
     VALUES
     ( _p.cashrcpt_cust_id,
@@ -173,7 +172,7 @@ BEGIN
       -1, ''Misc.'', '''',
       _p.cashrcpt_fundstype, _p.cashrcpt_docnumber,
       round(_r.cashrcptmisc_amount, 2), TRUE,
-      CURRENT_DATE, pJournalNumber, CURRENT_USER, _r.cashrcpt_curr_id );
+      CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _r.cashrcpt_curr_id );
 
     PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CR'', _r.cashrcptmisc_notes,
                                 _r.cashrcptmisc_accnt_id,
