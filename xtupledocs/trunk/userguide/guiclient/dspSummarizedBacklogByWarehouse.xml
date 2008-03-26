@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section657335">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>backlog</primary>
       <secondary>summarized by warehouse</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>Summarized Backlog by Warehouse</title>
   <para>To view summarized Backlog by Warehouse, select the "Summarized
   Backlog by Warehouse" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspSummarizedBacklogByWarehouse.png"/>
+          <imagedata fileref="images/dspSummarizedBacklogByWarehouse.png" />
         </imageobject>
         <caption>Summarized Backlog by Warehouse</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying summarized Backlog by Warehouse, you are presented
   with the following options:</para>
   <variablelist>
@@ -44,7 +42,7 @@
       <listitem>
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806"/>.</para>
+        <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -129,27 +127,21 @@
       <varlistentry>
         <term>Blue</term>
         <listitem>
-          <para>Order is at Shipping but is not yet shipped</para>
+          <para>Order is at Shipping but is not yet shipped.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Green</term>
         <listitem>
-          <para>Order has been shipped but is not yet invoiced</para>
+          <para>Order has been shipped complete, but has not yet been selected
+          for Billing.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Red</term>
         <listitem>
-          <para>Part of the Order has been shipped and invoiced, but Backorder
-          Items still need to be shipped and invoiced</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term/>
-        <listitem>
-          <para>Order has remaining uninvoiced Line Items remain on
-          Backorder</para>
+          <para>Part of the Order has been shipped and selected for Billing,
+          but Backorder Items still need to be shipped and billed.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -209,11 +201,23 @@
   <para>Right-clicking on a Sales Order in the Backlog list enables you to
   select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEdit)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickView)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickReschedule)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickDelete)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickPrintPackingList)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEdit)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickView)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReschedule)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickDelete)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPrintPackingList)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>
