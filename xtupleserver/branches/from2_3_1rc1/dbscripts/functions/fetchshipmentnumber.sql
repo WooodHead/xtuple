@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION fetchShipmentNumber() RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION fetchshipmentnumber() RETURNS INTEGER AS '
 DECLARE
   _number		INTEGER;
   _test			INTEGER;
@@ -6,16 +6,7 @@ DECLARE
 BEGIN
   LOOP
 
-    SELECT orderseq_number INTO _number
-    FROM orderseq
-    WHERE (orderseq_name=''ShipmentNumber'');
-    IF (NOT FOUND) THEN
-      RETURN -1;
-    END IF;
-
-    UPDATE orderseq
-    SET orderseq_number=(orderseq_number + 1)
-    WHERE (orderseq_name=''ShipmentNumber'');
+    SELECT nextval(''shipment_number_seq'') INTO _number;
     
     SELECT shiphead_id INTO _test
       FROM shiphead
@@ -27,5 +18,9 @@ BEGIN
   END LOOP;
 
   RETURN _number;
+  
 END;
 ' LANGUAGE 'plpgsql';
+
+
+
