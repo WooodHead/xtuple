@@ -5,7 +5,7 @@ DECLARE
   _numcol	TEXT;
   _select	TEXT;
   _table	TEXT;
-  _test		INTEGER;
+  _test		TEXT;
 
 BEGIN
   LOOP
@@ -19,7 +19,8 @@ BEGIN
 
     _select := ''SELECT '' || quote_ident(_numcol) ||
 	       '' FROM ''  || quote_ident(_table) ||
-	       '' WHERE ('' || quote_ident(_numcol) || ''='' || _number || '');'';
+	       '' WHERE ('' || quote_ident(_numcol) || ''='' ||
+               quote_literal(_number) || '');'';
 
     UPDATE orderseq
     SET orderseq_number = (orderseq_number + 1)

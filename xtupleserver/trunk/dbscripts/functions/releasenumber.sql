@@ -3,7 +3,7 @@ DECLARE
   psequence	ALIAS FOR $1;
   pnumber	ALIAS FOR $2;
   _test		INTEGER;
-  _number	INTEGER;
+  _number	TEXT;
   _table	TEXT;
   _numcol	TEXT;
 
@@ -20,7 +20,8 @@ BEGIN
   -- check if an order exists with the given order number
   EXECUTE ''SELECT '' || quote_ident(_numcol) ||
 	  '' FROM ''  || quote_ident(_table) ||
-	  '' WHERE ('' || quote_ident(_numcol) || ''='' || _number || '');''
+	  '' WHERE ('' || quote_ident(_numcol) || ''='' ||
+          quote_literal(_number) || '');''
   INTO _test;
 
   IF (NOT FOUND) THEN
