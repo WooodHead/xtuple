@@ -20,13 +20,17 @@ BEGIN
                              itemlocdist_invhist_id AS invhistid,
                              itemlocdist_lotserial AS lotserial,
                              itemlocdist_expiration AS expiration,
-                             itemlocdist_flush
+                             itemlocdist_flush,
+                             itemlocdist_warranty AS warranty
                       FROM itemlocdist, itemsite
                       WHERE ( (itemlocdist_itemsite_id=itemsite_id)
                        AND (itemlocdist_series=pItemlocSeries) )
                       ORDER BY itemlocdist_flush DESC LOOP
 
     _distCounter := _distCounter + 1;
+
+--  Commit invhist to itemsite
+    PERFORM postInvHist(_itemlocdist.invhistid);
 
 --  Mark the invhist tuple for the itemlocdist in question as having detail
     UPDATE invhist
@@ -38,9 +42,11 @@ BEGIN
     IF (_itemlocdist.itemlocdist_flush) THEN
       INSERT INTO invdetail
       ( invdetail_invhist_id, invdetail_location_id, invdetail_lotserial,
-        invdetail_qty, invdetail_qty_before, invdetail_qty_after, invdetail_expiration )
+        invdetail_qty, invdetail_qty_before, invdetail_qty_after, invdetail_expiration,
+        invdetail_warrpurc )
       SELECT _itemlocdist.invhistid, itemloc_location_id, itemloc_lotserial,
-             (itemloc_qty * -1), itemloc_qty, 0, itemloc_expiration 
+             (itemloc_qty * -1), itemloc_qty, 0, itemloc_expiration, 
+             _itemlocdist.warranty
       FROM itemloc
       WHERE ( (itemloc_qty <> 0)
        AND (itemloc_id=_itemlocdist.sourceid) );
@@ -83,10 +89,11 @@ BEGIN
 --  Record the invdetail
       INSERT INTO invdetail
       (invdetail_invhist_id, invdetail_location_id, invdetail_lotserial,
-       invdetail_qty, invdetail_qty_before, invdetail_qty_after, invdetail_expiration)
+       invdetail_qty, invdetail_qty_before, invdetail_qty_after, invdetail_expiration,
+       invdetail_warrpurc)
       SELECT _itemlocdist.invhistid, itemloc_location_id, _itemlocdist.lotserial,
              _itemlocdist.qty, itemloc_qty, (itemloc_qty + _itemlocdist.qty),
-             itemloc_expiration
+             itemloc_expiration,_itemlocdist.warranty
       FROM itemloc
       WHERE (itemloc_id=_itemlocid);
 

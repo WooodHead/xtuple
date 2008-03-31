@@ -20,7 +20,8 @@ BEGIN
                              itemsite_freeze,
                              p.itemlocdist_invhist_id AS invhistid,
                              p.itemlocdist_lotserial AS lotserial,
-                             p.itemlocdist_expiration AS expiration
+                             p.itemlocdist_expiration AS expiration,
+                             p.itemlocdist_warranty AS warranty
                       FROM itemlocdist AS c, itemlocdist AS p, itemsite
                       WHERE ( (c.itemlocdist_itemlocdist_id=p.itemlocdist_id)
                        AND (p.itemlocdist_source_type=''O'')
@@ -60,10 +61,11 @@ BEGIN
 --  Record the invdetail for this itemlocdist
     INSERT INTO invdetail
     ( invdetail_invhist_id, invdetail_location_id, invdetail_lotserial,
-      invdetail_qty, invdetail_qty_before, invdetail_qty_after, invdetail_expiration )
+      invdetail_qty, invdetail_qty_before, invdetail_qty_after, invdetail_expiration, 
+      invdetail_warrpurc )
     SELECT _itemlocdist.invhistid, itemloc_location_id, itemloc_lotserial,
            _itemlocdist.qty, itemloc_qty, (itemloc_qty + _itemlocdist.qty),
-           itemloc_expiration
+           itemloc_expiration,_itemlocdist.warranty
     FROM itemloc
     WHERE (itemloc_id=_itemlocid);
 
@@ -78,6 +80,8 @@ BEGIN
       UPDATE itemloc
       SET itemloc_qty = (itemloc_qty + _itemlocdist.qty)
       WHERE (itemloc_id=_itemlocid);
+
+      PERFORM postInvHist(_itemlocdist.invhistid);
     END IF;
 
 --  Adjust QOH if this itemlocdist is to/from a non-netable location
@@ -112,7 +116,6 @@ BEGIN
       FROM itemloc
       WHERE ((itemloc_itemsite_id=itemsite_id)
        AND (itemloc_id=_itemlocid));
-
     END IF;
 
 --  Cache the running qty.

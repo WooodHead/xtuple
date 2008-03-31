@@ -38,7 +38,9 @@ BEGIN
 	 itemsite_warehous_id,
          ( (item_type IN (''R'',''J'')) OR (itemsite_controlmethod = ''N'') ) AS nocontrol,
          (itemsite_controlmethod IN (''L'', ''S'')) AS lotserial,
-         (itemsite_loccntrl) AS loccntrl INTO _r
+         (itemsite_loccntrl) AS loccntrl,
+         ((NOT itemsite_controlmethod IN (''L'', ''S'')) AND (NOT itemsite_loccntrl)) AS post,
+         itemsite_freeze AS frozen INTO _r
   FROM itemsite, item
   WHERE ( (itemsite_item_id=item_id)
     AND  (itemsite_id=pItemsiteid) );
@@ -103,22 +105,23 @@ BEGIN
       invhist_invqty, invhist_qoh_before,
       invhist_qoh_after,
       invhist_ordtype, invhist_ordnumber, invhist_docnumber, invhist_comments,
-      invhist_invuom, invhist_unitcost, invhist_xfer_warehous_id )
+      invhist_invuom, invhist_unitcost, invhist_xfer_warehous_id, invhist_posted )
     SELECT
       _invhistid, itemsite_id, pTransType, _timestamp,
       pQty, itemsite_qtyonhand,
       (itemsite_qtyonhand + (_sense * pQty)),
       pOrderType, pOrderNumber, pDocNumber, pComments,
-      uom_name, stdCost(item_id), _xferwhsid
+      uom_name, stdCost(item_id), _xferwhsid, _r.post
     FROM itemsite, item, uom
     WHERE ( (itemsite_item_id=item_id)
      AND (item_inv_uom_id=uom_id)
      AND (itemsite_id=pItemsiteid) );
 
-    --  Adjust QOH
-    UPDATE itemsite
-    SET itemsite_qtyonhand = (itemsite_qtyonhand + (_sense * pQty))
-    WHERE (itemsite_id=pItemsiteid);
+    --  If not lot/serial/location controlled or frozen Adjust QOH now, 
+    --  otherwise it will happen later
+    IF ((_r.post) AND (NOT _r.frozen)) THEN
+      PERFORM postInvHist(_invhistid);
+    END IF;
 
     IF (pCreditid IN (SELECT accnt_id FROM accnt)) THEN
       _creditid = pCreditid;
@@ -142,7 +145,7 @@ BEGIN
     IF (_creditid <> _debitid) THEN
       SELECT insertGLTransaction(pModule, pOrderType, pOrderNumber, pComments,
 				 _creditid, _debitid, _invhistid,
-				 (_r.cost * pQty), _timestamp::DATE, (NOT _r.lotserial AND NOT _r.loccntrl)) INTO _glreturn;
+				 (_r.cost * pQty), _timestamp::DATE, _r.post) INTO _glreturn;
     END IF;
 
     --  Distribute this if this itemsite is controlled
