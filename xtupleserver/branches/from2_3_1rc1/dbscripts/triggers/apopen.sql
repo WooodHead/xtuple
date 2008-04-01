@@ -9,6 +9,8 @@ BEGIN
   IF (TG_OP = ''UPDATE'') THEN
     IF ((OLD.apopen_open=TRUE) and (NEW.apopen_open=FALSE)) THEN
       NEW.apopen_closedate=current_date;
+    ELSIF ((NEW.apopen_open=TRUE) and (OLD.apopen_open=FALSE)) THEN
+      NEW.apopen_closedate=NULL;
     END IF;
   END IF;
 
