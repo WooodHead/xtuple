@@ -323,4 +323,4 @@ END;
 ' LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('trigger', 'itemsiteAfterTrigger');
-CREATE TRIGGER itemsiteAfterTrigger BEFORE INSERT OR UPDATE ON itemsite FOR EACH ROW EXECUTE PROCEDURE _itemsiteAfterTrigger();
+CREATE TRIGGER itemsiteAfterTrigger AFTER INSERT OR UPDATE ON itemsite FOR EACH ROW EXECUTE PROCEDURE _itemsiteAfterTrigger();
