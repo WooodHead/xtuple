@@ -142,7 +142,7 @@ BEGIN
     IF (_creditid <> _debitid) THEN
       SELECT insertGLTransaction(pModule, pOrderType, pOrderNumber, pComments,
 				 _creditid, _debitid, _invhistid,
-				 (_r.cost * pQty), _timestamp::DATE, (NOT _r.lotserial AND NOT _r.loccntrl)) INTO _glreturn;
+				 (_r.cost * pQty), _timestamp::DATE, ((NOT _r.lotserial AND NOT _r.loccntrl) OR (pItemlocSeries=0))) INTO _glreturn;
     END IF;
 
     --  Distribute this if this itemsite is controlled
