@@ -66,7 +66,8 @@ BEGIN
         WHERE ( (itemloc_itemsite_id=_itemlocdist.itemsiteid)
          AND (itemloc_location_id=_itemlocdist.sourceid)
          AND (itemloc_lotserial=_itemlocdist.lotserial)
-         AND (itemloc_expiration=_itemlocdist.expiration) );
+         AND (itemloc_expiration=_itemlocdist.expiration)
+         AND (itemloc_warrpurc=_itemlocdist.warranty) );
 
 --  Nope, create it
         IF (NOT FOUND) THEN
@@ -75,11 +76,13 @@ BEGIN
           INSERT INTO itemloc
           ( itemloc_id, itemloc_itemsite_id,
             itemloc_location_id, itemloc_qty,
-            itemloc_lotserial, itemloc_expiration )
+            itemloc_lotserial, itemloc_expiration,
+            itemloc_warrpurc )
           VALUES
           ( _itemlocid, _itemlocdist.itemsiteid,
             _itemlocdist.sourceid, 0,
-            _itemlocdist.lotserial, _itemlocdist.expiration );
+            _itemlocdist.lotserial, _itemlocdist.expiration,
+            _itemlocdist.warranty );
         END IF;
 
       ELSE

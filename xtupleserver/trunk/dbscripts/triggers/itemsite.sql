@@ -125,7 +125,11 @@ BEGIN
      OR (OLD.itemsite_disallowblankwip  != NEW.itemsite_disallowblankwip)
      OR (OLD.itemsite_maxordqty         != NEW.itemsite_maxordqty)
      OR (OLD.itemsite_mps_timefence     != NEW.itemsite_mps_timefence)
-     OR (OLD.itemsite_createwo          != NEW.itemsite_createwo) ) THEN
+     OR (OLD.itemsite_createwo          != NEW.itemsite_createwo)
+     OR (OLD.itemsite_warrpurc          != NEW.itemsite_warrpurc)
+     OR (OLD.itemsite_warrsell          != NEW.itemsite_warrsell)
+     OR (OLD.itemsite_warrperiod        != NEW.itemsite_warrperiod)
+     OR (OLD.itemsite_autoreg           != NEW.itemsite_autoreg) ) THEN
       IF (OLD.itemsite_item_id != NEW.itemsite_item_id) THEN
         RAISE EXCEPTION ''The item number on an itemsite may not be changed.'';
       ELSIF (OLD.itemsite_warehous_id != NEW.itemsite_warehous_id) THEN
@@ -173,9 +177,16 @@ BEGIN
         itemsite_useparamsmanual = FALSE
       WHERE (itemsite_id = NEW.itemsite_id);
     END IF;
-   
+
+    -- Handle Warranty control logic
+    IF (NOT NEW.itemsite_warrsell) THEN
+      NEW.itemsite_warrperiod=0;
+      NEW.itemsite_autoreg=FALSE;
+    END IF;
+    
 -- Integrity check
     IF (TG_OP = ''INSERT'') THEN
+      -- Handle MLC logic
       IF ( (NEW.itemsite_loccntrl) AND (NEW.itemsite_warehous_id IS NOT NULL) ) THEN
         IF (SELECT count(*)=0
             FROM location

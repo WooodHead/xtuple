@@ -2,7 +2,7 @@ BEGIN;
 
 -- Item Site
 
-DROP VIEW api.itemsite;
+--DROP VIEW api.itemsite;
 CREATE VIEW api.itemsite
 AS 
    SELECT
@@ -52,12 +52,7 @@ AS
      itemsite_warrpurc AS enable_purchase_warranty,
      itemsite_warrsell AS enable_sales_warranty,
      itemsite_warrperiod AS default_warranty_period,
-     CASE
-       WHEN itemsite_warrstart = 'S' THEN
-         'Shipping'
-       ELSE
-         'Registration'
-     END AS warranty_begins_at
+     itemsite_autoreg AS auto_register
    FROM item, itemsite
      LEFT OUTER JOIN location ON (itemsite_location_id=location_id),
      plancode,costcat,whsinfo
@@ -113,7 +108,7 @@ INSERT INTO itemsite (
      itemsite_warrpurc,
      itemsite_warrsell,
      itemsite_warrperiod,
-     itemsite_warrstart)
+     itemsite_autoreg)
      VALUES (
        getItemId(NEW.item_number),
        getWarehousId(NEW.warehouse,'ACTIVE'),
@@ -162,7 +157,7 @@ INSERT INTO itemsite (
        COALESCE(NEW.enable_purchase_warranty,FALSE),
        COALESCE(NEW.enable_sales_warranty,FALSE),
        COALESCE(NEW.default_warranty_period,0),
-       COALESCE(NEW.warranty_begins_at, CASE WHEN (NEW.enable_sales_warranty) THEN 'S' END));
+       COALESCE(NEW.auto_register,FALSE));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.itemsite DO INSTEAD
@@ -213,7 +208,7 @@ UPDATE itemsite SET
      itemsite_warrpurc=NEW.enable_purchase_warranty,
      itemsite_warrsell=NEW.enable_sales_warranty,
      itemsite_warrperiod=NEW.default_warranty_period,
-     itemsite_warrstart=NEW.warranty_begins_at
+     itemsite_autoreg=NEW.auto_register
    WHERE (itemsite_id=getItemSiteId(OLD.warehouse,OLD.item_number));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
