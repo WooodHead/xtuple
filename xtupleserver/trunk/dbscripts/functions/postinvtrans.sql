@@ -39,7 +39,7 @@ BEGIN
          ( (item_type IN (''R'',''J'')) OR (itemsite_controlmethod = ''N'') ) AS nocontrol,
          (itemsite_controlmethod IN (''L'', ''S'')) AS lotserial,
          (itemsite_loccntrl) AS loccntrl,
-         ((NOT itemsite_controlmethod IN (''L'', ''S'')) AND (NOT itemsite_loccntrl)) AS post,
+         (((NOT itemsite_controlmethod IN (''L'', ''S'')) AND (NOT itemsite_loccntrl)) OR (pItemlocseries = 0)) AS post,
          itemsite_freeze AS frozen INTO _r
   FROM itemsite, item
   WHERE ( (itemsite_item_id=item_id)
