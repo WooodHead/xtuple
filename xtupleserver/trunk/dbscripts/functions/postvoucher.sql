@@ -192,7 +192,7 @@ BEGIN
     END LOOP;
 
 --  Distribute from the clearing account
-    PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', _p.vohead_number,
+    PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', text(_p.vohead_number),
 		_a.lb_accnt_id,
 		round(_g.value_base + _g.vouchered_freight_base, 2) * -1,
 		_glDate, _p.glnotes );
@@ -204,7 +204,7 @@ BEGIN
 		    INTO _exchGainFreight;
     IF (round(_exchGainFreight, 2) <> 0) THEN
 	PERFORM insertIntoGLSeries(_sequence, ''A/P'', ''VO'',
-	    _p.vohead_number,
+	    text(_p.vohead_number),
 	    getGainLossAccntId(), round(_exchGainFreight, 2),
 	   _glDate, _p.glnotes);
     END IF;
@@ -212,7 +212,7 @@ BEGIN
 --  Distribute the remaining variance to the Purchase Price Variance account
     IF (round(_itemAmount_base, 2) <> round(_g.value_base, 2)) THEN
       _tmpTotal := round(_itemAmount_base, 2) - round(_g.value_base, 2);
-      PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', _p.vohead_number,
+      PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', text(_p.vohead_number),
 			          _a.pp_accnt_id,
 			          _tmpTotal * -1,
 			          _glDate, _p.glnotes );
@@ -221,7 +221,7 @@ BEGIN
 --  Distribute the remaining freight variance to the Purchase Price Variance account
     IF (round(_g.voitem_freight_base + _exchGainFreight, 2) <> round(_g.vouchered_freight_base, 2)) THEN
       _tmpTotal := round(_g.voitem_freight_base + _exchGainFreight, 2) - round(_g.vouchered_freight_base, 2);
-      PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', _p.vohead_number,
+      PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', text(_p.vohead_number),
 	      _a.pp_accnt_id,
 	      _tmpTotal * -1,
 	      _glDate, _p.glnotes );
@@ -271,14 +271,14 @@ BEGIN
 
 --  Distribute from the misc. account
     IF (_d.vodist_accnt_id = -1) THEN
-      PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', _p.vohead_number,
+      PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', text(_p.vohead_number),
 			  expcat_exp_accnt_id,
 			  round(_d.vodist_amount_base, 2) * -1,
 			  _glDate, _p.glnotes )
          FROM expcat
         WHERE (expcat_id=_d.vodist_expcat_id);
     ELSE
-      PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', _p.vohead_number,
+      PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', text(_p.vohead_number),
 			  _d.vodist_accnt_id,
 			  round(_d.vodist_amount_base, 2) * -1,
 			  _glDate, _p.glnotes );
@@ -290,7 +290,7 @@ BEGIN
 
   END LOOP;
 
-  SELECT insertIntoGLSeries( _sequence, ''A/P'', ''VO'', vohead_number,
+  SELECT insertIntoGLSeries( _sequence, ''A/P'', ''VO'', text(vohead_number),
                              accnt_id, round(_totalAmount_base, 2),
 			     _glDate, _p.glnotes ) INTO _test
   FROM vohead, accnt
