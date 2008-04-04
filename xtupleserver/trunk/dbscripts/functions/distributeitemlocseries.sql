@@ -5,7 +5,7 @@ DECLARE
   _itemlocdist RECORD;
   _itemlocid INTEGER;
   _invhistid INTEGER;
-
+  _check BOOLEAN;
 BEGIN
 
   _distCounter := 0;
@@ -18,7 +18,7 @@ BEGIN
                              itemlocdist_itemsite_id AS itemsiteid,
                              itemsite_freeze,
                              itemlocdist_invhist_id AS invhistid,
-                             itemlocdist_lotserial AS lotserial,
+                             itemlocdist_ls_id AS lotserialid,
                              itemlocdist_expiration AS expiration,
                              itemlocdist_flush,
                              itemlocdist_warranty AS warranty
@@ -41,10 +41,10 @@ BEGIN
 --  If this itemlocdist is a flush, write a invdetail tuple that records the empty
     IF (_itemlocdist.itemlocdist_flush) THEN
       INSERT INTO invdetail
-      ( invdetail_invhist_id, invdetail_location_id, invdetail_lotserial,
+      ( invdetail_invhist_id, invdetail_location_id, invdetail_ls_id,
         invdetail_qty, invdetail_qty_before, invdetail_qty_after, invdetail_expiration,
         invdetail_warrpurc )
-      SELECT _itemlocdist.invhistid, itemloc_location_id, itemloc_lotserial,
+      SELECT _itemlocdist.invhistid, itemloc_location_id, itemloc_ls_id,
              (itemloc_qty * -1), itemloc_qty, 0, itemloc_expiration, 
              _itemlocdist.warranty
       FROM itemloc
@@ -65,7 +65,7 @@ BEGIN
         FROM itemloc
         WHERE ( (itemloc_itemsite_id=_itemlocdist.itemsiteid)
          AND (itemloc_location_id=_itemlocdist.sourceid)
-         AND (itemloc_lotserial=_itemlocdist.lotserial)
+         AND (itemloc_ls_id=_itemlocdist.lotserialid)
          AND (itemloc_expiration=_itemlocdist.expiration)
          AND (itemloc_warrpurc=_itemlocdist.warranty) );
 
@@ -76,12 +76,12 @@ BEGIN
           INSERT INTO itemloc
           ( itemloc_id, itemloc_itemsite_id,
             itemloc_location_id, itemloc_qty,
-            itemloc_lotserial, itemloc_expiration,
+            itemloc_ls_id, itemloc_expiration,
             itemloc_warrpurc )
           VALUES
           ( _itemlocid, _itemlocdist.itemsiteid,
             _itemlocdist.sourceid, 0,
-            _itemlocdist.lotserial, _itemlocdist.expiration,
+            _itemlocdist.lotserialid, _itemlocdist.expiration,
             _itemlocdist.warranty );
         END IF;
 
@@ -91,10 +91,10 @@ BEGIN
 
 --  Record the invdetail
       INSERT INTO invdetail
-      (invdetail_invhist_id, invdetail_location_id, invdetail_lotserial,
+      (invdetail_invhist_id, invdetail_location_id, invdetail_ls_id,
        invdetail_qty, invdetail_qty_before, invdetail_qty_after, invdetail_expiration,
        invdetail_warrpurc)
-      SELECT _itemlocdist.invhistid, itemloc_location_id, _itemlocdist.lotserial,
+      SELECT _itemlocdist.invhistid, itemloc_location_id, _itemlocdist.lotserialid,
              _itemlocdist.qty, itemloc_qty, (itemloc_qty + _itemlocdist.qty),
              itemloc_expiration,_itemlocdist.warranty
       FROM itemloc

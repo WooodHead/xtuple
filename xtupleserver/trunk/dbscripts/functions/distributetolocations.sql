@@ -19,7 +19,7 @@ BEGIN
                              p.itemlocdist_itemsite_id AS itemsiteid,
                              itemsite_freeze,
                              p.itemlocdist_invhist_id AS invhistid,
-                             p.itemlocdist_lotserial AS lotserial,
+                             p.itemlocdist_ls_id AS lotserialid,
                              p.itemlocdist_expiration AS expiration,
                              p.itemlocdist_warranty AS warranty
                       FROM itemlocdist AS c, itemlocdist AS p, itemsite
@@ -47,12 +47,12 @@ BEGIN
         INSERT INTO itemloc
         ( itemloc_id, itemloc_itemsite_id,
           itemloc_location_id, itemloc_qty,
-          itemloc_lotserial, itemloc_expiration,
+          itemloc_ls_id, itemloc_expiration,
           itemloc_warrpurc )
         VALUES
         ( _itemlocid, _itemlocdist.itemsiteid,
           _itemlocdist.sourceid, 0,
-          _itemlocdist.lotserial, _itemlocdist.expiration,
+          _itemlocdist.lotserialid, _itemlocdist.expiration,
           _itemlocdist.warranty );
       END IF;
 
@@ -63,10 +63,10 @@ BEGIN
 
 --  Record the invdetail for this itemlocdist
     INSERT INTO invdetail
-    ( invdetail_invhist_id, invdetail_location_id, invdetail_lotserial,
+    ( invdetail_invhist_id, invdetail_location_id, invdetail_ls_id,
       invdetail_qty, invdetail_qty_before, invdetail_qty_after, invdetail_expiration, 
       invdetail_warrpurc )
-    SELECT _itemlocdist.invhistid, itemloc_location_id, itemloc_lotserial,
+    SELECT _itemlocdist.invhistid, itemloc_location_id, itemloc_ls_id,
            _itemlocdist.qty, itemloc_qty, (itemloc_qty + _itemlocdist.qty),
            itemloc_expiration,_itemlocdist.warranty
     FROM itemloc
