@@ -111,7 +111,7 @@ BEGIN
       pQty, itemsite_qtyonhand,
       (itemsite_qtyonhand + (_sense * pQty)),
       pOrderType, pOrderNumber, pDocNumber, pComments,
-      uom_name, stdCost(item_id), _xferwhsid, _r.post
+      uom_name, stdCost(item_id), _xferwhsid, FALSE
     FROM itemsite, item, uom
     WHERE ( (itemsite_item_id=item_id)
      AND (item_inv_uom_id=uom_id)
@@ -155,13 +155,13 @@ BEGIN
       ( itemlocdist_itemsite_id, itemlocdist_source_type,
         itemlocdist_reqlotserial,
         itemlocdist_distlotserial,
-        itemlocdist_lotserial, itemlocdist_expiration,
+        itemlocdist_expiration,
         itemlocdist_qty,
         itemlocdist_series, itemlocdist_invhist_id )
       SELECT pItemsiteid, ''O'',
              (((pQty * _sense) > 0)  AND _r.lotserial),
 	     ((pQty * _sense) < 0),
-             '''', endOfTime(),
+             endOfTime(),
              (_sense * pQty),
              pItemlocSeries, _invhistid;
 

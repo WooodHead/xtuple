@@ -1,0 +1,5 @@
+BEGIN;
+
+ALTER TABLE invhist ALTER COLUMN invhist_posted SET DEFAULT TRUE;
+
+COMMIT;

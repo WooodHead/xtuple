@@ -21,9 +21,10 @@ BEGIN
   END IF;
 
 --  Cache some parameters
-  SELECT itemloc_lotserial,
+  SELECT itemloc_ls_id,
          itemloc_itemsite_id AS itemsiteid,
          itemloc_expiration,
+         itemloc_warrpurc,
          itemloc_qty,
          sourceloc.location_netable AS sourcenet,
          targetloc.location_netable AS targetnet INTO _p
@@ -58,10 +59,12 @@ BEGIN
 
 --  Relocate the inventory from the source and record the transactions
   INSERT INTO invdetail
-  ( invdetail_invhist_id, invdetail_location_id, invdetail_lotserial,
-    invdetail_qty, invdetail_qty_before, invdetail_qty_after )
-  SELECT _invhistid, itemloc_location_id, itemloc_lotserial,
-         (pQty * -1), itemloc_qty, (itemloc_qty - pQty)
+  ( invdetail_invhist_id, invdetail_location_id, invdetail_ls_id,
+    invdetail_qty, invdetail_qty_before, invdetail_qty_after,
+    invdetail_expiration, invdetail_warrpurc )
+  SELECT _invhistid, itemloc_location_id, itemloc_ls_id,
+         (pQty * -1), itemloc_qty, (itemloc_qty - pQty),
+         itemloc_expiration, itemloc_warrpurc
   FROM itemloc
   WHERE (itemloc_id=pSourceItemlocid);
 
@@ -80,8 +83,9 @@ BEGIN
 --  Check to see if any of the current Lot/Serial #/Expiration exists at the target location
   SELECT itemloc_id INTO _targetItemlocid
   FROM itemloc 
-  WHERE ( (itemloc_lotserial=_p.itemloc_lotserial)
+  WHERE ( (itemloc_ls_id=_p.itemloc_ls_id)
    AND (itemloc_expiration=_p.itemloc_expiration)
+   AND (itemloc_warrpurc=_p.itemloc_warrpurc)
    AND (itemloc_itemsite_id=pItemsiteid)
    AND (itemloc_location_id=pTargetLocationid) );
 
@@ -89,18 +93,20 @@ BEGIN
     SELECT NEXTVAL(''itemloc_itemloc_id_seq'') INTO _targetItemlocid;
     INSERT INTO itemloc
     ( itemloc_id, itemloc_itemsite_id, itemloc_location_id,
-      itemloc_lotserial, itemloc_expiration, itemloc_qty )
+      itemloc_ls_id, itemloc_expiration, itemloc_warrpurc, itemloc_qty )
     VALUES
     ( _targetItemlocid, pItemsiteid, pTargetLocationid,
-      _p.itemloc_lotserial, _p.itemloc_expiration, 0 );
+      _p.itemloc_ls_id, _p.itemloc_expiration, _p.itemloc_warrpurc, 0 );
   END IF;
 
 --  Relocate the inventory to the resultant target and record the transactions
   INSERT INTO invdetail
-  ( invdetail_invhist_id, invdetail_location_id, invdetail_lotserial,
-    invdetail_qty, invdetail_qty_before, invdetail_qty_after )
-  SELECT _invhistid, pTargetLocationid, _p.itemloc_lotserial,
-         pQty, itemloc_qty, (itemloc_qty + pQty)
+  ( invdetail_invhist_id, invdetail_location_id, invdetail_ls_id,
+    invdetail_qty, invdetail_qty_before, invdetail_qty_after,
+    invdetail_expiration, invdetail_warrpurc )
+  SELECT _invhistid, pTargetLocationid, _p.itemloc_ls_id,
+         pQty, itemloc_qty, (itemloc_qty + pQty), 
+         _p.itemloc_expiration, _p.itemloc_warrpurc
   FROM itemloc
   WHERE (itemloc_id=_targetItemlocid);
 

@@ -37,7 +37,7 @@ BEGIN
       FROM itemloc
       WHERE ( (itemloc_itemsite_id=_itemlocdist.itemsiteid)
        AND (itemloc_location_id=_itemlocdist.sourceid)
-       AND (itemloc_lotserial=_itemlocdist.lotserial)
+       AND (itemloc_ls_id=_itemlocdist.lotserialid)
        AND (itemloc_expiration=_itemlocdist.expiration)
        AND (itemloc_warrpurc=_itemlocdist.warranty) );
 
