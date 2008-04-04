@@ -1,4 +1,3 @@
-
 SELECT dropIfExists('view', 'voucheringEditList');
 CREATE VIEW voucheringEditList AS
 SELECT vend_id AS vendid, vohead_id AS orderid, 1 AS itemid,
@@ -70,4 +69,3 @@ ORDER BY vouchernumber, itemid;
 
 REVOKE ALL ON voucheringEditList FROM PUBLIC;
 GRANT ALL ON voucheringEditList TO GROUP openmfg;
-

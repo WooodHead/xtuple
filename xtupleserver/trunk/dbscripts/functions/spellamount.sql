@@ -180,7 +180,7 @@ BEGIN
   END IF;
 
   IF _curr.curr_abbr = ''USD'' OR _curr.curr_abbr = ''CAD'' THEN
-      IF (_cents = 1) THEN
+      IF (_cents = ''1'') THEN
         _fractionalPartName = '' cent'';
       ELSE
         _fractionalPartName = '' cents'';
