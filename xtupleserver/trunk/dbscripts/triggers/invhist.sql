@@ -5,8 +5,6 @@ BEGIN
          FROM itemsite
          WHERE (itemsite_id=NEW.invhist_itemsite_id) ) ) THEN
     NEW.invhist_posted = FALSE;
-  ELSE
-    NEW.invhist_posted = TRUE;
   END IF;
 
   RETURN NEW;
