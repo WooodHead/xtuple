@@ -29,6 +29,9 @@ voiding Checks
 properly
 * [A/P] Moved to hide Credit Card options at Cash Receipt if system is 
 not configured to use Credit Cards
+* [A/P] Fixed Mac-only issue where when printing Checks the first Check 
+printed to the selected printer, but subsequent Checks printed to the
+default printer
 * [A/R] Fixed issue leading to error message when processing Credit 
 Cards at Sales Order entry
 * [A/R] Fixed loophole where Deposit Register was capable of showing 
