@@ -13,6 +13,8 @@ DECLARE
   _cntslip RECORD;
   _origLocQty NUMERIC;
   _netable BOOLEAN;
+  _ls RECORD;
+  _lsid INTEGER;
 BEGIN
 
   SELECT invcnt_id, invcnt_tagnumber, invcnt_qoh_after,
@@ -62,7 +64,7 @@ BEGIN
 
 --  Adjust any existing detail to 0
     FOR _itemloc IN SELECT itemloc_id, itemloc_location_id,
-                           itemloc_lotserial, itemloc_qty
+                           itemloc_ls_id, itemloc_qty
                     FROM itemloc
                     WHERE ((itemloc_itemsite_id=_p.itemsite_id)
                       AND  (itemloc_location_id=_p.invcnt_location_id)) LOOP
@@ -72,11 +74,11 @@ BEGIN
 --  Create the itemlocdist flushing records
       INSERT INTO itemlocdist
       ( itemlocdist_series, itemlocdist_source_type, itemlocdist_source_id,
-        itemlocdist_lotserial, itemlocdist_expiration,
+        itemlocdist_expiration,
         itemlocdist_itemsite_id, itemlocdist_invhist_id, itemlocdist_flush )
       VALUES
       ( _itemlocSeries, ''I'', _itemloc.itemloc_id,
-        '''', endOfTime(),
+        endOfTime(),
         _p.itemsite_id, _invhistid, TRUE );
 
     END LOOP;
@@ -87,11 +89,30 @@ BEGIN
 --  Adjust the detail to the cntslip indicated value
     FOR _cntslip IN SELECT cntslip_location_id, cntslip_lotserial,
                            cntslip_lotserial_expiration,
-                           SUM(cntslip_qty) AS qty
-                    FROM cntslip
-                    WHERE (cntslip_cnttag_id=pInvcntid)
-                    GROUP BY cntslip_location_id, cntslip_lotserial, cntslip_lotserial_expiration LOOP
+                           cntslip_lotserial_warrpurc,
+                           SUM(cntslip_qty) AS qty,
+                           itemsite_item_id
+                    FROM cntslip,invcnt,itemsite
+                    WHERE ((cntslip_cnttag_id=pInvcntid)
+                    AND (cntslip_invcnt_id=invcnt_id)
+                    AND (invcnt_itemsite_id=itemsite_id))
+                    GROUP BY cntslip_location_id, cntslip_lotserial, cntslip_lotserial_expiration,
+                    cntslip_lotserial_warrpurc, itemsite_id LOOP
 
+--  Handl the LotSerial
+      IF (LENGTH(_cntslip.cntslip_lotserial)>0) THEN
+        SELECT ls_id INTO _lsid
+        FROM ls
+        WHERE ((ls_item_id=_cntslip.itemsite_item_id)
+        AND (UPPER(ls_number)=UPPER(_cntslip.cntslip_lotserial)));
+
+        IF (NOT FOUND) THEN
+          _lsid := NEXTVAL(''ls_ls_id_seq'');
+          INSERT INTO ls
+          VALUES (_lsid,_cntslip.itemsite_item_id,UPPER(_cntslip.cntslip_lotserial));
+        END IF;
+      END IF;
+       
 --  Track the running Qty
       _runningQty := (_runningQty + _cntslip.qty);
       _hasDetail = TRUE;
@@ -100,12 +121,13 @@ BEGIN
       INSERT INTO itemlocdist
       ( itemlocdist_series, itemlocdist_source_type, itemlocdist_source_id,
         itemlocdist_itemsite_id,
-        itemlocdist_lotserial, itemlocdist_expiration,
+        itemlocdist_ls_id, itemlocdist_expiration, itemlocdist_warranty,
         itemlocdist_qty, itemlocdist_invhist_id )
       VALUES
       ( _itemlocSeries, ''L'', _cntslip.cntslip_location_id,
         _p.itemsite_id,
-        _cntslip.cntslip_lotserial, COALESCE(_cntslip.cntslip_lotserial_expiration, endOfTime()),
+        _lsid, COALESCE(_cntslip.cntslip_lotserial_expiration, endOfTime()),
+        _cntslip.cntslip_lotserial_warrpurc,
         _cntslip.qty, _invhistid );
 
     END LOOP;
@@ -143,11 +165,11 @@ BEGIN
         INSERT INTO itemlocdist
         ( itemlocdist_series, itemlocdist_source_type, itemlocdist_source_id,
           itemlocdist_itemsite_id,
-          itemlocdist_lotserial, itemlocdist_expiration,
+          itemlocdist_ls_id, itemlocdist_expiration,
           itemlocdist_qty, itemlocdist_invhist_id )
         SELECT _itemlocSeries, ''L'', _p.itemsite_location_id,
                _p.itemsite_id,
-               '''', endOfTime(),
+               endOfTime(),
                (_p.invcnt_qoh_after - _runningQty), _invhistid;
 
         _hasDetail = TRUE;

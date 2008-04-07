@@ -129,7 +129,7 @@ BEGIN
 
   --  Find out if there is location or lot/serial detail to undo and handle it 
   FOR _r IN 
-    SELECT  itemsite_id, invdetail_lotserial, (invdetail_qty * -1) AS invdetail_qty,
+    SELECT  itemsite_id, invdetail_ls_id, (invdetail_qty * -1) AS invdetail_qty,
       invdetail_location_id, invdetail_expiration,
       (itemsite_controlmethod IN (''L'', ''S'')) AS lotserial,
       (itemsite_loccntrl) AS loccntrl
@@ -144,34 +144,34 @@ BEGIN
     IF (( _r.lotserial) AND (NOT _r.loccntrl))  THEN          
       INSERT INTO itemlocdist
         ( itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
-          itemlocdist_itemsite_id, itemlocdist_lotserial, itemlocdist_expiration,
+          itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
           itemlocdist_qty, itemlocdist_series, itemlocdist_invhist_id ) 
         VALUES (_itemlocdistid, ''L'', -1,
-                _r.itemsite_id, _r.invdetail_lotserial,  COALESCE(_r.invdetail_expiration,startoftime()),
+                _r.itemsite_id, _r.invdetail_ls_id,  COALESCE(_r.invdetail_expiration,startoftime()),
                 _r.invdetail_qty, _itemlocSeries, _invhistid );
 
       INSERT INTO lsdetail 
-        ( lsdetail_itemsite_id, lsdetail_lotserial, lsdetail_created,
+        ( lsdetail_itemsite_id, lsdetail_ls_id, lsdetail_created,
           lsdetail_source_type, lsdetail_source_id, lsdetail_source_number ) 
-        VALUES ( _r.itemsite_id, _r.invdetail_lotserial, CURRENT_TIMESTAMP,
+        VALUES ( _r.itemsite_id, _r.invdetail_ls_id, CURRENT_TIMESTAMP,
                  ''I'', _itemlocdistid, '''');
 
       PERFORM distributeitemlocseries(_itemlocSeries);
     ELSE
       INSERT INTO itemlocdist
         ( itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
-          itemlocdist_itemsite_id, itemlocdist_lotserial, itemlocdist_expiration,
+          itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
           itemlocdist_qty, itemlocdist_series, itemlocdist_invhist_id ) 
       VALUES (_itemlocdistid, ''O'', -1,
-              _r.itemsite_id, _r.invdetail_lotserial, COALESCE(_r.invdetail_expiration,startoftime()),
+              _r.itemsite_id, _r.invdetail_ls_id, COALESCE(_r.invdetail_expiration,startoftime()),
               _r.invdetail_qty, _itemlocSeries, _invhistid );
  
       INSERT INTO itemlocdist
         ( itemlocdist_itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
-          itemlocdist_itemsite_id, itemlocdist_lotserial, itemlocdist_expiration,
+          itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
           itemlocdist_qty) 
       VALUES (_itemlocdistid, ''L'', _r.invdetail_location_id,
-              _r.itemsite_id, _r.invdetail_lotserial, COALESCE(_r.invdetail_expiration,startoftime()),
+              _r.itemsite_id, _r.invdetail_ls_id, COALESCE(_r.invdetail_expiration,startoftime()),
               _r.invdetail_qty);
 
       PERFORM distributetolocations(_itemlocdistid);

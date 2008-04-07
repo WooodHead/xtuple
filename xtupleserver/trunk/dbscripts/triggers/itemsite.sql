@@ -297,10 +297,10 @@ BEGIN
        IF (_state IN (23, 32, 33)) THEN
           INSERT INTO itemloc 
             ( itemloc_itemsite_id, itemloc_location_id,
-              itemloc_lotserial, itemloc_expiration, itemloc_qty )
+              itemloc_expiration, itemloc_qty )
             VALUES
             ( NEW.itemsite_id, -1,
-              '''', endOfTime(), NEW.itemsite_qtyonhand );
+              endOfTime(), NEW.itemsite_qtyonhand );
         END IF;
 
 --  Handle Location distribution

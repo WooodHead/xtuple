@@ -30,35 +30,33 @@ BEGIN
     AND (shipitem_invhist_id IS NOT NULL));
 
     IF (_newMethod) THEN
-      FOR _r IN SELECT DISTINCT invdetail_lotserial
+      FOR _r IN SELECT DISTINCT ls_number
                 FROM invdetail, invhist, shipitem
                WHERE ((shipitem_invcitem_id=pInvcitemid)
                  AND  (shipitem_invhist_id=invhist_id)
                  AND  (invhist_id=invdetail_invhist_id)
-                 AND  (invdetail_invcitem_id=pInvcitemid)) LOOP
-        IF ((_r.invdetail_lotserial IS NOT NULL) AND (_r.invdetail_lotserial != '''')) THEN
-          IF (_first = false) THEN
-            _lotserial := _lotserial || '', '';
-          END IF;
-          _lotserial := _lotserial || _r.invdetail_lotserial;
-          _first := false;
+                 AND  (invdetail_invcitem_id=pInvcitemid)
+                 AND  (invdetail_ls_id=ls_id)) LOOP
+        IF (_first = false) THEN
+          _lotserial := _lotserial || '', '';
         END IF;
+        _lotserial := _lotserial || _r.ls_number;
+        _first := false;
       END LOOP;
 
       RETURN _lotserial;
     ELSE
       -- Handle it old way
-      FOR _r IN SELECT DISTINCT invdetail_lotserial
+      FOR _r IN SELECT DISTINCT ls_number
                 FROM invdetail JOIN invhist ON (invdetail_invhist_id=invhist_id)
                WHERE ((invhist_transtype=''SH'')
-                 AND  (invdetail_invcitem_id=pInvcitemid)) LOOP
-        IF ((_r.invdetail_lotserial IS NOT NULL) AND (_r.invdetail_lotserial != '''')) THEN
-          IF (_first = false) THEN
-            _lotserial := _lotserial || '', '';
-          END IF;
-          _lotserial := _lotserial || _r.invdetail_lotserial;
-          _first := false;
+                 AND  (invdetail_invcitem_id=pInvcitemid)
+                 AND  (lnvdetail_ls_id=ls_id)) LOOP
+        IF (_first = false) THEN
+          _lotserial := _lotserial || '', '';
         END IF;
+        _lotserial := _lotserial || _r.ls_number;
+        _first := false;
       END LOOP;
 
       RETURN _lotserial;

@@ -22,7 +22,7 @@ BEGIN
          FROM itemsite
          WHERE (itemsite_id=pItemsiteid) ) ) THEN
 
-    FOR _r IN SELECT itemloc_id, itemloc_lotserial, itemloc_qty
+    FOR _r IN SELECT itemloc_id, itemloc_ls_id, itemloc_qty
               FROM itemloc
               WHERE (itemloc_itemsite_id=pItemsiteid) LOOP
 
@@ -52,10 +52,10 @@ BEGIN
 
 --  Record the detail transaction
       INSERT INTO invdetail
-      ( invdetail_invhist_id, invdetail_location_id, invdetail_lotserial,
+      ( invdetail_invhist_id, invdetail_location_id, invdetail_ls_id,
         invdetail_qty, invdetail_qty_before, invdetail_qty_after )
       VALUES
-      ( _invhistid, pLocationid, _r.itemloc_lotserial,
+      ( _invhistid, pLocationid, _r.itemloc_ls_id,
         _r.itemloc_qty, 0, _r.itemloc_qty );
 
 --  Adjust QOH if this itemlocdist is to/from a non-netable location
@@ -118,17 +118,17 @@ BEGIN
     SELECT NEXTVAL(''itemloc_itemloc_id_seq'') INTO _itemlocid;
     INSERT INTO itemloc
     ( itemloc_id, itemloc_itemsite_id, itemloc_location_id,
-      itemloc_expiration, itemloc_lotserial, itemloc_qty )
+      itemloc_expiration, itemloc_qty )
     SELECT _itemlocid, itemsite_id, pLocationid,
-           endOfTime(), '''', itemsite_qtyonhand
+           endOfTime(), itemsite_qtyonhand
     FROM itemsite
     WHERE (itemsite_id=pItemsiteid);
 
 --  Record the detail transaction
     INSERT INTO invdetail
-    ( invdetail_invhist_id, invdetail_location_id, invdetail_lotserial,
+    ( invdetail_invhist_id, invdetail_location_id,
       invdetail_qty, invdetail_qty_before, invdetail_qty_after )
-    SELECT _invhistid, pLocationid, '''',
+    SELECT _invhistid, pLocationid,
            itemsite_qtyonhand, 0, itemsite_qtyonhand
     FROM itemsite
     WHERE (itemsite_id=pItemsiteid);

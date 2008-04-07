@@ -67,7 +67,7 @@ BEGIN
          AND (itemloc_location_id=_itemlocdist.sourceid)
          AND (itemloc_ls_id=_itemlocdist.lotserialid)
          AND (itemloc_expiration=_itemlocdist.expiration)
-         AND (itemloc_warrpurc=_itemlocdist.warranty) );
+         AND (COALESCE(itemloc_warrpurc,endoftime())=COALESCE(_itemlocdist.warranty,endoftime())) );
 
 --  Nope, create it
         IF (NOT FOUND) THEN

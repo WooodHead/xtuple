@@ -33,12 +33,12 @@ BEGIN
 
 --  Grab all of the itemsite/location/lot/serial combinations
 --  that have unposted detail
-      FOR _coarse IN SELECT DISTINCT invdetail_location_id, invdetail_lotserial
+      FOR _coarse IN SELECT DISTINCT invdetail_location_id, invdetail_ls_id
                      FROM invhist, invdetail
                      WHERE ( (invdetail_invhist_id=invhist_id)
                       AND (NOT invhist_posted)
                       AND (invhist_itemsite_id=pItemsiteid) )
-                     ORDER BY invdetail_location_id, invdetail_lotserial LOOP
+                     ORDER BY invdetail_location_id, invdetail_ls_id LOOP
 
 --  Cache the initial qty of the itemloc specified by the
 --  itemsite/location/lot/serial
@@ -46,18 +46,18 @@ BEGIN
         FROM itemloc
         WHERE ( (itemloc_itemsite_id=pItemsiteid)
          AND (itemloc_location_id=_coarse.invdetail_location_id)
-         AND (itemloc_lotserial=_coarse.invdetail_lotserial) );
+         AND (COALESCE(itemloc_ls_id,-1)=COALESCE(_coarse.invdetail_ls_id,-1)) );
 
 --  If the itemloc in question cannot be found, create it
         IF (NOT FOUND) THEN
           SELECT NEXTVAL(''itemloc_itemloc_id_seq'') INTO _itemlocid;
           INSERT INTO itemloc
           ( itemloc_id, itemloc_itemsite_id,
-            itemloc_location_id, itemloc_lotserial,
+            itemloc_location_id, itemloc_ls_id,
             itemloc_qty, itemloc_expiration )
           VALUES
           ( _itemlocid, pItemsiteid,
-            _coarse.invdetail_location_id, _coarse.invdetail_lotserial,
+            _coarse.invdetail_location_id, _coarse.invdetail_ls_id,
             0, endOfTime() );
 
           _qoh := 0;
@@ -75,7 +75,7 @@ BEGIN
                       AND (NOT invhist_posted)
                       AND (invhist_itemsite_id=pItemsiteid)
                       AND (invdetail_location_id=_coarse.invdetail_location_id)
-                      AND (invdetail_lotserial=_coarse.invdetail_lotserial) )
+                      AND (COALESCE(invdetail_ls_id,-1)=COALESCE(_coarse.invdetail_ls_id,-1)) )
                      ORDER BY invhist_transdate LOOP
 
 --  Update the running qoh fields in the detail record

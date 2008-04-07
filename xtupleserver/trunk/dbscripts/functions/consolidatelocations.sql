@@ -14,10 +14,10 @@ BEGIN
             WHERE (itemloc_itemsite_id=pItemsiteid)
             GROUP BY itemloc_location_id LOOP
     INSERT INTO itemloc
-    ( itemloc_itemsite_id, itemloc_location_id, itemloc_lotserial,
+    ( itemloc_itemsite_id, itemloc_location_id,
       itemloc_expiration, itemloc_qty, itemloc_consolflag )
     VALUES
-    ( pItemsiteid, _r.itemloc_location_id, '''',
+    ( pItemsiteid, _r.itemloc_location_id,
       endOfTime(), _r.qty, FALSE );
   END LOOP;
 

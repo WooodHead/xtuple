@@ -34,7 +34,7 @@ BEGIN
   FROM itemlocdist AS source, itemlocdist AS target
   WHERE ( (target.itemlocdist_source_type=''I'')
    AND (target.itemlocdist_source_id=_itemlocid)
-   AND (target.itemlocdist_lotserial=source.itemlocdist_lotserial)
+   AND (COALESCE(target.itemlocdist_ls_id,-1)=COALESCE(source.itemlocdist_ls_id,-1))
    AND (target.itemlocdist_expiration=source.itemlocdist_expiration)
    AND (target.itemlocdist_itemlocdist_id=source.itemlocdist_id)
    AND (source.itemlocdist_id=pItemlocdistid) );
@@ -53,11 +53,11 @@ BEGIN
   INSERT INTO itemlocdist
   ( itemlocdist_id, itemlocdist_itemlocdist_id,
     itemlocdist_source_type, itemlocdist_source_id,
-    itemlocdist_qty, itemlocdist_expiration, itemlocdist_lotserial )
+    itemlocdist_qty, itemlocdist_expiration )
   VALUES
   ( _itemlocdistid, pItemlocdistid,
     ''I'', _itemlocid,
-    _qty, endOfTime(), '''' );
+    _qty, endOfTime() );
 
   RETURN _itemlocdistid;
 

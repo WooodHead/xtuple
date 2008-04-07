@@ -186,25 +186,11 @@ BEGIN
   END IF;
 
   -- find the warehouse for which to create evntlog entries
---   FOR _r IN SELECT itemsite_warehous_id
---   FROM itemsite, lsdetail
---   WHERE ((itemsite_item_id=NEW.incdt_item_id OR NEW.incdt_item_id IS NULL)
---     AND  (lsdetail_itemsite_id=itemsite_id)
---     AND  (UPPER(lsdetail_lotserial)=UPPER(NEW.incdt_lotserial) OR NEW.incdt_lotserial IS NULL)) LOOP
---     IF (_counter > 1) THEN
---       _whsI
---       EXIT;
---     ELSE
---       _whsId := _r.itemsite_warehous_id;
---       _counter := _counter + 1;
---     END IF;
---   END LOOP;
---   IF (_whsId IS NULL OR _whsId < 0) THEN
     SELECT usrpref_value  INTO _whsId
     FROM usrpref
     WHERE usrpref_username = CURRENT_USER
       AND usrpref_name = ''PreferredWarehouse'';
---   END IF;
+
   INSERT INTO evntlog (evntlog_evnttime, evntlog_username,
 		       evntlog_evnttype_id, evntlog_ordtype,
 		       evntlog_ord_id, evntlog_warehous_id, evntlog_number)

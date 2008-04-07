@@ -32,7 +32,7 @@ BEGIN
   WHERE ( (target.itemlocdist_source_type=''L'')
    AND (target.itemlocdist_source_id=_locationid)
    AND (target.itemlocdist_itemsite_id=source.itemlocdist_itemsite_id)
-   AND (target.itemlocdist_lotserial=source.itemlocdist_lotserial)
+   AND (COALESCE(target.itemlocdist_ls_id)=COALESCE(source.itemlocdist_ls_id))
    AND (target.itemlocdist_expiration=source.itemlocdist_expiration)
    AND (target.itemlocdist_itemlocdist_id=source.itemlocdist_itemlocdist_id)
    AND (target.itemlocdist_itemsite_id=itemsite_id)
@@ -51,10 +51,10 @@ BEGIN
 
   INSERT INTO itemlocdist
   ( itemlocdist_id, itemlocdist_itemlocdist_id, itemlocdist_source_type,
-    itemlocdist_lotserial, itemlocdist_expiration,
+    itemlocdist_ls_id, itemlocdist_expiration,
     itemlocdist_source_id, itemlocdist_itemsite_id, itemlocdist_qty )
   SELECT _itemlocdistid, pItemlocdistid, ''L'',
-         itemlocdist_lotserial, itemlocdist_expiration,
+         itemlocdist_ls_id, itemlocdist_expiration,
          _locationid, itemlocdist_itemsite_id, _qty
   FROM itemlocdist
   WHERE (itemlocdist_id=pItemlocdistid);
