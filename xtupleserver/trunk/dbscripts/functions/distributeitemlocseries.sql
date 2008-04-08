@@ -30,7 +30,9 @@ BEGIN
     _distCounter := _distCounter + 1;
 
 --  Commit invhist to itemsite
-    PERFORM postInvHist(_itemlocdist.invhistid);
+    IF (NOT _itemlocdist.itemsite_freeze) THEN
+	PERFORM postInvHist(_itemlocdist.invhistid);
+    END IF;
 
 --  Mark the invhist tuple for the itemlocdist in question as having detail
     UPDATE invhist

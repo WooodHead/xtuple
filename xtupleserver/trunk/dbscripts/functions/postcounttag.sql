@@ -11,6 +11,7 @@ DECLARE
   _p RECORD;
   _itemloc RECORD;
   _cntslip RECORD;
+  _lsid INTEGER;
 
 BEGIN
 
@@ -80,12 +81,29 @@ BEGIN
 --  Adjust the detail to the cntslip indicated value
       FOR _cntslip IN SELECT cntslip_location_id, cntslip_lotserial,
                              cntslip_lotserial_expiration,
-                             cntslip_lotserial_warrpruc,
-                             SUM(cntslip_qty) AS qty
-                      FROM cntslip
-                      WHERE (cntslip_cnttag_id=pInvcntid)
+                             cntslip_lotserial_warrpurc,
+                             SUM(cntslip_qty) AS qty,
+                             itemsite_item_id
+                      FROM cntslip, invcnt, itemsite
+                      WHERE ((cntslip_cnttag_id=pInvcntid)
+                      AND (cntslip_cnttag_id=invcnt_id)
+                      AND (invcnt_itemsite_id=itemsite_id))
                       GROUP BY cntslip_location_id, cntslip_lotserial, 
-                      cntslip_lotserial_expiration, cntslip_lotserial_warranty LOOP
+                      cntslip_lotserial_expiration, cntslip_lotserial_warrpurc,itemsite_item_id LOOP
+
+--  Handle the LotSerial
+        IF (LENGTH(_cntslip.cntslip_lotserial)>0) THEN
+          SELECT ls_id INTO _lsid
+          FROM ls
+          WHERE ((ls_item_id=_cntslip.itemsite_item_id)
+          AND (UPPER(ls_number)=UPPER(_cntslip.cntslip_lotserial)));
+
+          IF (NOT FOUND) THEN
+            _lsid := NEXTVAL(''ls_ls_id_seq'');
+            INSERT INTO ls
+            VALUES (_lsid,_cntslip.itemsite_item_id,UPPER(_cntslip.cntslip_lotserial));
+          END IF;
+        END IF;
 
 --  Track the running Qty
         _runningQty := (_runningQty + _cntslip.qty);
@@ -100,8 +118,8 @@ BEGIN
         VALUES
         ( _itemlocSeries, ''L'', _cntslip.cntslip_location_id,
           _p.itemsite_id,
-          _cntslip.cntslip_ls_id, COALESCE(_cntslip.cntslip_lotserial_expiration, endOfTime()),
-          _cntslip.cntslip_warrpurc,_cntslip.qty, _invhistid );
+          _lsid, COALESCE(_cntslip.cntslip_lotserial_expiration, endOfTime()),
+          _cntslip.cntslip_lotserial_warrpurc,_cntslip.qty, _invhistid );
 
       END LOOP;
 

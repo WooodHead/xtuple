@@ -13,7 +13,6 @@ DECLARE
   _cntslip RECORD;
   _origLocQty NUMERIC;
   _netable BOOLEAN;
-  _ls RECORD;
   _lsid INTEGER;
 BEGIN
 
@@ -94,12 +93,12 @@ BEGIN
                            itemsite_item_id
                     FROM cntslip,invcnt,itemsite
                     WHERE ((cntslip_cnttag_id=pInvcntid)
-                    AND (cntslip_invcnt_id=invcnt_id)
+                    AND (cntslip_cnttag_id=invcnt_id)
                     AND (invcnt_itemsite_id=itemsite_id))
                     GROUP BY cntslip_location_id, cntslip_lotserial, cntslip_lotserial_expiration,
-                    cntslip_lotserial_warrpurc, itemsite_id LOOP
+                    cntslip_lotserial_warrpurc, itemsite_item_id LOOP
 
---  Handl the LotSerial
+--  Handle the LotSerial
       IF (LENGTH(_cntslip.cntslip_lotserial)>0) THEN
         SELECT ls_id INTO _lsid
         FROM ls
