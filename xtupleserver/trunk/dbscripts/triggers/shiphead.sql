@@ -22,5 +22,5 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
---DROP TRIGGER shipheadBeforeTrigger ON shiphead;
+SELECT dropifexists('trigger', 'shipheadbeforetrigger');
 CREATE TRIGGER shipheadBeforeTrigger BEFORE INSERT OR UPDATE ON shiphead FOR EACH ROW EXECUTE PROCEDURE _shipheadBeforeTrigger();
