@@ -15,7 +15,8 @@ BEGIN
     OR (pType IN (''I'',''SI'',''QI'',''W'') AND char_items)
     OR (pType=''CRMACCT'' AND char_crmaccounts)
     OR (pType=''ADDR'' AND char_addresses)
-    OR (pType=''CNTCT'' AND char_contacts))) LIMIT 1;
+    OR (pType=''CNTCT'' AND char_contacts)
+    OR (pType=''LS'' AND char_lotserial))) LIMIT 1;
 
   IF (_returnVal IS NULL) THEN
 	RAISE EXCEPTION ''Characteristic % not found.'', pChar;
