@@ -8,5 +8,6 @@ DROP FUNCTION fetchRANumber();
 DROP FUNCTION fetchNextNumber(text);
 DROP FUNCTION deleteSo(INTEGER, INTEGER);
 DROP FUNCTION fetchARMemoNumber();
+DROP FUNCTION fetchShipmentNumber();
 
 COMMIT;
