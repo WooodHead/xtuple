@@ -1,5 +1,5 @@
 
-DROP VIEW cosmisc;
+SELECT dropifexists('view','cosmisc');
 CREATE OR REPLACE VIEW cosmisc AS
   SELECT shiphead_id		AS cosmisc_id,
 	 shiphead_order_id	AS cosmisc_cohead_id,
