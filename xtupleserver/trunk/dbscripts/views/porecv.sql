@@ -1,5 +1,5 @@
 BEGIN;
-DROP VIEW porecv;
+SELECT dropIfExists('VIEW', 'porecv');
 CREATE VIEW porecv AS
   SELECT	recv_id			AS porecv_id,
 		recv_date		AS porecv_date,
