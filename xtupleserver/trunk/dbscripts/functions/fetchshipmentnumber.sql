@@ -1,12 +1,12 @@
-CREATE OR REPLACE FUNCTION fetchshipmentnumber() RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION fetchshipmentnumber() RETURNS TEXT AS '
 DECLARE
-  _number		INTEGER;
+  _number		TEXT;
   _test			INTEGER;
 
 BEGIN
   LOOP
 
-    SELECT nextval(''shipment_number_seq'') INTO _number;
+    SELECT CAST(nextval(''shipment_number_seq'') AS TEXT) INTO _number;
     
     SELECT shiphead_id INTO _test
       FROM shiphead
