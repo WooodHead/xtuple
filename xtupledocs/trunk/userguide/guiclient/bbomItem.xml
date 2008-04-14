@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="bbomItem" role="openmfg">
-  <title>
-<indexterm significance="normal">
+  <title id="bbomItemTitle"><indexterm significance="normal">
       <primary>breeder items</primary>
       <secondary>adding to breeder bill</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,17 +12,14 @@
     </indexterm> Breeder Bill of Materials Item</title>
   <para>To create a new component Item for the Breeder Bill of Materials,
   select the NEW button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/bbomItem.png"/>
+          <imagedata fileref="images/bbomItem.png" />
         </imageobject>
-        <caption>Add New Breeder Bill of Materials
-        Component Item</caption>
+        <caption>Add New Breeder Bill of Materials Component Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When creating a new component Item for a Breeder Bill of Materials,
   you are presented with the following options:</para>
   <variablelist>
@@ -50,8 +47,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>costing</primary>
           <secondary>for co-products</secondary>
         </indexterm> <indexterm significance="normal">
@@ -69,8 +65,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>costing</primary>
           <secondary>for co-products</secondary>
         </indexterm> <indexterm significance="normal">
@@ -82,7 +77,21 @@
         </indexterm>Cost Absorption</term>
       <listitem>
         <para>Specify the percentage amount of Cost absorption each Co-Product
-        will assume.</para>
+        will assume. A Co-Product's Cost is tied directly to the absorption
+        percentage defined here. Co-Product Costs should not be entered
+        manually. Instead, they should be derived by the system when Cost
+        updates are run. The following formula illustrates how the system
+        determines Co-Product Costs. Based on this example, you can see how
+        the absorption percentage is used.</para>
+        <para><informalequation>
+            <mathphrase>Absorption % x Total Breeder Item Cost / Co-Product
+            Qty. Per on Breeder BOM</mathphrase>
+          </informalequation><note>
+            <para>As a rule, the system does not generate Costs for
+            By-Products. However, you may choose to assign User-Defined
+            Costing Elements to By-Products. Any manual By-Product Costs will
+            be factored into the costing for Co-Products.</para>
+          </note></para>
       </listitem>
     </varlistentry>
     <varlistentry>
