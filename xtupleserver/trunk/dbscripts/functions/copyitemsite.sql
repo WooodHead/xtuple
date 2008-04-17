@@ -98,7 +98,6 @@ BEGIN
     itemsite_ordergroup,		itemsite_disallowblankwip,
     itemsite_maxordqty,			itemsite_mps_timefence,
     itemsite_createwo,			itemsite_warrpurc,
-    itemsite_warrsell,			itemsite_warrperiod,
     itemsite_autoreg
   ) VALUES (
     _new.itemsite_id,			_new.itemsite_item_id,
@@ -123,7 +122,6 @@ BEGIN
     _new.itemsite_ordergroup,		_new.itemsite_disallowblankwip,
     _new.itemsite_maxordqty,		_new.itemsite_mps_timefence,
     _new.itemsite_createwo,   	        _new.itemsite_warrpurc,
-    _new.itemsite_warrsell,	        _new.itemsite_warrperiod,
     _new.itemsite_autoreg
     );
 
