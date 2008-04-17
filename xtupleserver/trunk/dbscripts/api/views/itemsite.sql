@@ -24,7 +24,6 @@ AS
        WHEN itemsite_controlmethod = 'L' THEN
          'Lot #'
      END AS control_method,
-     itemsite_perishable AS perishable,
      plancode_code AS planner_code,
      costcat_code AS cost_category,
      itemsite_loccntrl AS multiple_location_control,
@@ -49,9 +48,8 @@ AS
      itemsite_leadtime AS lead_time,
      itemsite_safetystock AS safety_stock,
      itemsite_notes AS notes,
-     itemsite_warrpurc AS enable_purchase_warranty,
-     itemsite_warrsell AS enable_sales_warranty,
-     itemsite_warrperiod AS default_warranty_period,
+     itemsite_perishable AS perishable,
+     itemsite_warrpurc AS require_warranty,
      itemsite_autoreg AS auto_register
    FROM item, itemsite
      LEFT OUTER JOIN location ON (itemsite_location_id=location_id),
@@ -106,8 +104,6 @@ INSERT INTO itemsite (
      itemsite_notes,
      itemsite_qtyonhand,
      itemsite_warrpurc,
-     itemsite_warrsell,
-     itemsite_warrperiod,
      itemsite_autoreg)
      VALUES (
        getItemId(NEW.item_number),
@@ -154,9 +150,7 @@ INSERT INTO itemsite (
        COALESCE(NEW.safety_stock,0),
        COALESCE(NEW.notes,''),
        0,
-       COALESCE(NEW.enable_purchase_warranty,FALSE),
-       COALESCE(NEW.enable_sales_warranty,FALSE),
-       COALESCE(NEW.default_warranty_period,0),
+       COALESCE(NEW.require_warranty,FALSE),
        COALESCE(NEW.auto_register,FALSE));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
@@ -205,9 +199,7 @@ UPDATE itemsite SET
      itemsite_leadtime=NEW.lead_time,
      itemsite_safetystock=NEW.safety_stock,
      itemsite_notes=NEW.notes,
-     itemsite_warrpurc=NEW.enable_purchase_warranty,
-     itemsite_warrsell=NEW.enable_sales_warranty,
-     itemsite_warrperiod=NEW.default_warranty_period,
+     itemsite_warrpurc=NEW.require_warranty,
      itemsite_autoreg=NEW.auto_register
    WHERE (itemsite_id=getItemSiteId(OLD.warehouse,OLD.item_number));
            

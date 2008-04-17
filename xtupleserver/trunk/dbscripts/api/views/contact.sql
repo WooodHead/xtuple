@@ -6,7 +6,7 @@ BEGIN;
   CREATE OR REPLACE VIEW api.contact AS
  
   SELECT 
-    cntct_id AS contact_number,
+    cntct_number AS contact_number,
     cntct_honorific AS honorific,
     cntct_first_name AS first,
     cntct_last_name AS last,
@@ -42,6 +42,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     ON INSERT TO api.contact DO INSTEAD
 
 SELECT saveCntct(
+	  NULL,
           NEW.contact_number,
           getCrmAcctid(NEW.crm_account),
           saveAddr(
@@ -72,6 +73,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO api.contact DO INSTEAD
 
 SELECT saveCntct(
+          getCntctId(NEW.contact_number),
           NEW.contact_number,
           getCrmAcctid(NEW.crm_account),
           saveAddr(
@@ -101,6 +103,6 @@ SELECT saveCntct(
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.contact DO INSTEAD
 
-SELECT deleteContact(OLD.contact_number);
+SELECT deleteContact(getCntctId(OLD.contact_number));
 
 COMMIT;

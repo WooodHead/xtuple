@@ -45,7 +45,7 @@ BEGIN;
     cust_autoholdorders AS credit_status_exceed_hold,
     cust_usespos AS uses_purchase_orders,
     cust_blanketpos AS uses_blanket_pos,
-    cust_cntct_id AS billing_contact_id,
+    mc.cntct_number AS billing_contact_number,
     mc.cntct_honorific AS billing_contact_honorific,
     mc.cntct_first_name AS billing_contact_first,
     mc.cntct_last_name AS billing_contact_last,
@@ -63,7 +63,7 @@ BEGIN;
     m.addr_state AS billing_contact_state,
     m.addr_postalcode AS billing_contact_postalcode,
     m.addr_country AS billing_contact_country,
-    cust_corrcntct_id AS correspond_contact_id,
+    cc.cntct_number AS correspond_contact_number,
     cc.cntct_honorific AS correspond_contact_honorific,
     cc.cntct_first_name AS correspond_contact_first,
     cc.cntct_last_name AS correspond_contact_last,
@@ -116,7 +116,7 @@ BEGIN;
       LEFT OUTER JOIN ediprofile iedi ON (cust_ediprofile_id=iedi.ediprofile_id)
       LEFT OUTER JOIN cntct mc ON (cust_cntct_id=mc.cntct_id)
       LEFT OUTER JOIN addr m ON (mc.cntct_addr_id=m.addr_id)
-      LEFT OUTER JOIN cntct cc ON (cust_cntct_id=cc.cntct_id)
+      LEFT OUTER JOIN cntct cc ON (cust_corrcntct_id=cc.cntct_id)
       LEFT OUTER JOIN addr c ON (cc.cntct_addr_id=c.addr_id)
       LEFT OUTER JOIN taxauth ON (cust_taxauth_id=taxauth_id),
     custtype,salesrep,shipform,
@@ -243,7 +243,8 @@ INSERT INTO custinfo
         COALESCE(getCurrId(NEW.default_currency),basecurrid()),
         COALESCE(getCurrID(NEW.credit_limit_currency),basecurrid()),
         saveCntct(
-          NEW.billing_contact_id,
+          getCntctId(NEW.billing_contact_number),
+          NEW.billing_contact_number,
           saveAddr(
             NULL,
             NEW.billing_contact_address1,
@@ -265,7 +266,8 @@ INSERT INTO custinfo
           NEW.billing_contact_job_title
           ),
         saveCntct(
-          NEW.correspond_contact_id,
+          getCntctId(NEW.correspond_contact_number),
+          NEW.correspond_contact_number,
           saveAddr(
             NULL,
             NEW.correspond_contact_address1,
@@ -371,7 +373,8 @@ UPDATE custinfo SET
         cust_curr_id=getCurrId(NEW.default_currency),
         cust_creditlmt_curr_id=getCurrId(NEW.credit_limit_currency),
         cust_cntct_id=saveCntct(
-          NEW.billing_contact_id,
+          getCntctId(NEW.billing_contact_number),
+          NEW.billing_contact_number,
           saveAddr((
               SELECT cntct_addr_id
               FROM cntct,custinfo
@@ -396,7 +399,8 @@ UPDATE custinfo SET
           NEW.billing_contact_job_title
           ),
         cust_corrcntct_id=saveCntct(
-          NEW.correspond_contact_id,
+          getCntctId(NEW.correspond_contact_number),
+          NEW.correspond_contact_number,
           saveAddr((
               SELECT cntct_addr_id
               FROM cntct,custinfo

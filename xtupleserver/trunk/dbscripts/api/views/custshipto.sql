@@ -19,7 +19,7 @@ AS
      addr_postalcode AS postal_code,
      addr_country AS country,
      (''::text) AS address_change,
-     shipto_cntct_id AS contact_id,
+     cntct_number AS contact_number,
      cntct_honorific AS honorific,
      cntct_first_name AS first,
      cntct_last_name AS last,
@@ -122,7 +122,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
         getEdiProfileId(NEW.edi_profile)
     END,
     saveCntct(
-      NEW.contact_id,
+      getCntctId(NEW.contact_number),
+      NEW.contact_number,
       NULL,
       NEW.first,
       NEW.last,
@@ -175,7 +176,8 @@ CREATE OR REPLACE RULE "_UPDATE" AS
         getEdiProfileId(NEW.edi_profile)
     END,
     shipto_cntct_id=saveCntct(
-      NEW.contact_id,
+      getCntctId(NEW.contact_number),
+      NEW.contact_number,
       NULL,
       NEW.first,
       NEW.last,

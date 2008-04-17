@@ -14,7 +14,7 @@ BEGIN;
       'Organization'
     ELSE 'Individual'
     END AS type,
-    c.crmacct_cntct_id_1 AS primary_contact_number,
+    pc.cntct_number AS primary_contact_number,
     pc.cntct_honorific AS primary_contact_honorific,
     pc.cntct_first_name AS primary_contact_first,
     pc.cntct_last_name AS primary_contact_last,
@@ -30,7 +30,7 @@ BEGIN;
     m.addr_state AS primary_contact_state,
     m.addr_postalcode AS primary_contact_postalcode,
     m.addr_country AS primary_contact_country,
-    c.crmacct_cntct_id_2 AS secondary_contact_number,
+    sc.cntct_number AS secondary_contact_number,
     sc.cntct_honorific AS secondary_contact_honorific,
     sc.cntct_first_name AS secondary_contact_first,
     sc.cntct_last_name AS secondary_contact_last,
@@ -82,6 +82,7 @@ INSERT INTO crmacct
            'I'
          ELSE 'O' END,
          saveCntct(
+          getCntctId(NEW.primary_contact_number),
           NEW.primary_contact_number,
           saveAddr(
             NULL,
@@ -104,6 +105,7 @@ INSERT INTO crmacct
           NEW.primary_contact_job_title
           ),
           saveCntct(
+          getCntctId(NEW.secondary_contact_number),
           NEW.secondary_contact_number,
             saveAddr(
             NULL,
@@ -140,6 +142,7 @@ UPDATE crmacct SET
     ELSE 'O' END),
     crmacct_cntct_id_1=         
     saveCntct(
+          getCntctId(NEW.primary_contact_number),
           NEW.primary_contact_number,
           saveAddr(
             NULL,
@@ -163,6 +166,7 @@ UPDATE crmacct SET
           ),
     crmacct_cntct_id_2=
           saveCntct(
+          getCntctId(NEW.secondary_contact_number),
           NEW.secondary_contact_number,
           saveAddr(
             NULL,

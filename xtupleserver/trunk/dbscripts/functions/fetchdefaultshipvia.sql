@@ -5,7 +5,7 @@ BEGIN
   SELECT shipvia_code INTO _returnVal
   FROM shipvia
   WHERE shipvia_id=
-	(SELECT metric_value::TEXT
+	(SELECT CAST(metric_value AS integer)
 	FROM metric
 	WHERE metric_name = ''DefaultShipViaId'');
   RETURN _returnVal;
