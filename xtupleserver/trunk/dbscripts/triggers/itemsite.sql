@@ -127,8 +127,6 @@ BEGIN
      OR (OLD.itemsite_mps_timefence     != NEW.itemsite_mps_timefence)
      OR (OLD.itemsite_createwo          != NEW.itemsite_createwo)
      OR (OLD.itemsite_warrpurc          != NEW.itemsite_warrpurc)
-     OR (OLD.itemsite_warrsell          != NEW.itemsite_warrsell)
-     OR (OLD.itemsite_warrperiod        != NEW.itemsite_warrperiod)
      OR (OLD.itemsite_autoreg           != NEW.itemsite_autoreg) ) THEN
       IF (OLD.itemsite_item_id != NEW.itemsite_item_id) THEN
         RAISE EXCEPTION ''The item number on an itemsite may not be changed.'';
@@ -157,7 +155,9 @@ BEGIN
 
     IF (NEW.itemsite_controlmethod NOT IN (''S'',''L'')) THEN
       UPDATE itemsite SET
-        itemsite_perishable = FALSE
+        itemsite_perishable = FALSE,
+        itemsite_warrpurc = FALSE,
+        itemsite_autoreg = FALSE
       WHERE (itemsite_id=NEW.itemsite_id);
     END IF;
 
@@ -176,12 +176,6 @@ BEGIN
         itemsite_multordqty      = 0,
         itemsite_useparamsmanual = FALSE
       WHERE (itemsite_id = NEW.itemsite_id);
-    END IF;
-
-    -- Handle Warranty control logic
-    IF (NOT NEW.itemsite_warrsell) THEN
-      NEW.itemsite_warrperiod=0;
-      NEW.itemsite_autoreg=FALSE;
     END IF;
     
 -- Integrity check
