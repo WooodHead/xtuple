@@ -10,9 +10,9 @@ DECLARE
   _posted NUMERIC := 0;
   _sequence INTEGER;
   _aropenid INTEGER;
-  _arMemoNumber INTEGER;
+  _arMemoNumber TEXT;
   _arAccntid INTEGER;
-  _bankAccntid INTEGER;
+  _debitAccntid INTEGER;
   _exchGain NUMERIC;
   _comment      TEXT;
 
@@ -37,15 +37,6 @@ BEGIN
     END IF;
   END IF;
 
-  SELECT accnt_id INTO _bankAccntid
-  FROM cashrcpt, bankaccnt, accnt
-  WHERE ( (cashrcpt_bankaccnt_id=bankaccnt_id)
-   AND (bankaccnt_accnt_id=accnt_id)
-   AND (cashrcpt_id=pCashrcptid) );
-  IF (NOT FOUND) THEN
-    RETURN -6;
-  END IF;
-
   SELECT cashrcpt_cust_id, (cust_number||''-''||cust_name) AS custnote,
          cashrcpt_fundstype, cashrcpt_docnumber,
          cashrcpt_distdate, cashrcpt_amount,
@@ -60,6 +51,19 @@ BEGIN
    AND (cashrcpt_id=pCashrcptid) );
   IF (NOT FOUND) THEN
     RETURN -7;
+  END IF;
+
+  IF (_p.cashrcpt_fundstype IN (''A'', ''D'', ''M'', ''V'')) THEN
+    _debitAccntid := findPrepaidAccount(_p.cashrcpt_cust_id);
+  ELSE
+    SELECT accnt_id INTO _debitAccntid
+    FROM cashrcpt, bankaccnt, accnt
+    WHERE ( (cashrcpt_bankaccnt_id=bankaccnt_id)
+     AND (bankaccnt_accnt_id=accnt_id)
+     AND (cashrcpt_id=pCashrcptid) );
+    IF (NOT FOUND) THEN
+      RETURN -6;
+    END IF;
   END IF;
 
 --  Determine the amount to post to A/R Open Items
@@ -215,7 +219,7 @@ BEGIN
 --  Debit Cash
   PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CR'',
                     (_p.cashrcpt_fundstype || ''-'' || _p.cashrcpt_docnumber),
-                     _bankAccntid, round(_p.cashrcpt_amount_base, 2) * -1,
+                     _debitAccntid, round(_p.cashrcpt_amount_base, 2) * -1,
                      _p.cashrcpt_distdate,
                      _p.custnote );
 
