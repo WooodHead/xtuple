@@ -17,7 +17,8 @@ SELECT cohead_id AS orderid, -2 AS itemid,
        'Debit' AS sence,
        COALESCE( ( SELECT formatGLAccountLong(accnt_id)
                    FROM accnt
-                   WHERE (accnt_id=findARAccount(cust_id)) ), 'Not Assigned') AS account
+                   WHERE (accnt_id=findARAccount(cust_id)) ), 'Not Assigned') AS account,
+       cobmisc_curr_id AS curr_id
 FROM cohead, custinfo,
      cobmisc LEFT OUTER JOIN
       (cobill JOIN
@@ -32,7 +33,7 @@ WHERE ( (cobmisc_cohead_id=cohead_id)
  AND (NOT cobmisc_posted) )
 GROUP BY cohead_id, cobmisc_id,
          cust_id, cust_number, cohead_billtoname, cohead_number,
-         cobmisc_freight, cobmisc_misc, cobmisc_tax
+         cobmisc_freight, cobmisc_misc, cobmisc_tax, cobmisc_curr_id
 
 UNION SELECT cohead_id AS orderid, -1 AS itemid,
              '' AS documentnumber,
@@ -45,7 +46,8 @@ UNION SELECT cohead_id AS orderid, -1 AS itemid,
              'Credit' AS sence,
              COALESCE( ( SELECT formatGLAccountLong(accnt_id)
                          FROM accnt
-                         WHERE (accnt_id=findFreightAccount(cohead_cust_id)) ), 'Not Assigned' ) AS account
+                         WHERE (accnt_id=findFreightAccount(cohead_cust_id)) ), 'Not Assigned' ) AS account,
+             cobmisc_curr_id AS curr_id
 FROM cobmisc, cohead
 WHERE ( (cobmisc_cohead_id=cohead_id)
  AND (NOT cobmisc_posted)
@@ -60,7 +62,8 @@ UNION SELECT cohead_id AS orderid, -1 AS itemid,
              cobmisc_misc AS price, formatMoney(cobmisc_misc) AS f_price,
              cobmisc_misc AS extprice, formatMoney(cobmisc_misc) AS f_extprice,
              'Credit' AS sence,
-             formatGLAccountLong(cobmisc_misc_accnt_id) AS account
+             formatGLAccountLong(cobmisc_misc_accnt_id) AS account,
+             cobmisc_curr_id AS curr_id
 FROM cobmisc, cohead
 WHERE ( (cobmisc_cohead_id=cohead_id)
  AND (NOT cobmisc_posted)
@@ -77,7 +80,8 @@ UNION SELECT cohead_id AS orderid, -1 AS itemid,
              'Credit' AS sence,
              COALESCE( ( SELECT formatGLAccountLong(accnt_id)
                          FROM accnt
-                         WHERE (accnt_id=tax_sales_accnt_id) ), 'Not Assigned' ) AS account
+                         WHERE (accnt_id=tax_sales_accnt_id) ), 'Not Assigned' ) AS account,
+             cobmisc_tax_curr_id AS curr_id
 FROM cobmisc, cohead, tax
 WHERE ( (cobmisc_cohead_id=cohead_id)
  AND (cohead_tax_id=tax_id)
@@ -98,7 +102,8 @@ UNION SELECT cohead_id AS orderid, coitem_id AS itemid,
              COALESCE( ( SELECT formatGLAccountLong(accnt_id)
                          FROM accnt, salesaccnt
                          WHERE ( (salesaccnt_sales_accnt_id=accnt_id)
-                          AND (salesaccnt_id=findSalesAccnt(itemsite_id, cohead_cust_id)) ) ), 'Not Assigned') AS account
+                          AND (salesaccnt_id=findSalesAccnt(itemsite_id, cohead_cust_id)) ) ), 'Not Assigned') AS account,
+             cobmisc_curr_id AS curr_id
 FROM item, itemsite, cobmisc, cohead, cobill, coitem, uom
 WHERE ( (coitem_itemsite_id=itemsite_id)
  AND (cobill_coitem_id=coitem_id)
