@@ -74,6 +74,13 @@ BEGIN
           END IF;
         END IF;
 
+--  Handle cust_discntprcnt
+        IF (OLD.cust_discntprcnt <> NEW.cust_discntprcnt) THEN
+          PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
+                               (''Discount Changed from "'' || formatprcnt(OLD.cust_discntprcnt)
+                                 || ''%" to "'' || formatprcnt(NEW.cust_discntprcnt) || ''%"'') );
+        END IF;
+
 --  Handle cust_creditlmt
         IF (OLD.cust_creditlmt <> NEW.cust_creditlmt) THEN
           PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
