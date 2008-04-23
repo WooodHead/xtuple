@@ -255,6 +255,7 @@ BEGIN
           -- data for the shipto number.  If not that will insert new address for CRM
           SELECT SaveAddr(
             NULL,
+            NULL,
             NEW.cohead_shiptoaddress1,
             NEW.cohead_shiptoaddress2,
             NEW.cohead_shiptoaddress3,
