@@ -1,6 +1,6 @@
 CREATE OR REPLACE FUNCTION saveCntct(int,int,int,text,text,text,text,bool,text,text,text,text,text,text,text) RETURNS INTEGER AS '
 BEGIN
-  RAISE EXCEPTION ''This function is deprecated.  Contact now requires a contact number. Use saveCntct(int,text,int,int,text,text,text,text,bool,text,text,text,text,text,text,text)'';
+  RAISE EXCEPTION ''This function is deprecated.  Contact now requires a contact number. Use saveCntct(int,text,int,int,text,text,text,text,bool,text,text,text,text,text,text,text,text)'';
 END;
 ' LANGUAGE 'plpgsql';
 
@@ -9,7 +9,7 @@ COMMENT ON FUNCTION saveCntct(int,int,int,text,text,text,text,bool,text,text,tex
 CREATE OR REPLACE FUNCTION saveCntct(int,int,text,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
 BEGIN
   
-  RAISE EXCEPTION ''This function is deprecated. Contact now requires a contact number. Use saveCntct(int,text,int,text,text,text,text,text,text,text,text,text)'';
+  RAISE EXCEPTION ''This function is deprecated. Contact now requires a contact number. Use saveCntct(int,text,int,text,text,text,text,text,text,text,text,text,text)'';
   
   RETURN _returnVal;
 
@@ -18,7 +18,7 @@ END;
 
 COMMENT ON FUNCTION saveCntct(int,int,text,text,text,text,text,text,text,text,text) IS 'Deprecated';
 
-CREATE OR REPLACE FUNCTION saveCntct(int,text,int,int,text,text,text,text,bool,text,text,text,text,text,text,text) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION saveCntct(int,text,int,int,text,text,text,text,bool,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
 DECLARE
   pCntctId ALIAS FOR $1;
   pContactNumber ALIAS FOR $2;
@@ -36,14 +36,22 @@ DECLARE
   pWebAddr ALIAS FOR $14;
   pNotes ALIAS FOR $15;
   pTitle ALIAS FOR $16;
+  pFlag ALIAS FOR $17;
   _cntctId INTEGER;
   _cntctNumber TEXT;
   _isNew BOOLEAN;
+  _flag TEXT;
 
 BEGIN
-
+  --Validate
+  IF ((pFlag IS NULL) OR (pFlag = ''CHECK'') OR (pFlag = ''CHANGEONE'') OR (pFlag = ''CHANGEALL'')) THEN
+	_flag = COALESCE(pFlag,''CHECK'');
+  ELSE
+	RAISE EXCEPTION ''Invalid Flag (%). Valid flags are CHECK, CHANGEONE or CHANGEALL'', pFlag;
+  END IF;
+  
   --If there is nothing here get out
-  IF ( (pCntctId IS NULL)
+  IF ( (pCntctId IS NULL OR pCntctId = -1)
 	AND (pCrmAcctId IS NULL)
 	AND (pAddrId IS NULL)
 	AND (pContactNumber = '''' OR pContactNumber IS NULL)
@@ -64,24 +72,30 @@ BEGIN
   END IF;
   
   IF (pCntctId IS NULL) THEN 
-    
     _isNew := true;
-    
-    IF (pContactNumber IS NULL) THEN
-      _cntctNumber := fetchNextNumber(''ContactNumber'');
-    ELSE
-      _cntctNumber := pContactNumber;
-    END IF;
+    _cntctId := nextval(''cntct_cntct_id_seq'');
+    _cntctNumber := fetchNextNumber(''ContactNumber'');
   ELSE
-    _cntctNumber := pContactNumber;
+    -- Business logic says if contacts name changes, then ask about new contact
+    IF (SELECT (COUNT(cntct_id) != 1) 
+      FROM cntct
+      WHERE ((cntct_id=pCntctId)
+      AND (cntct_first_name=pFirstName)
+      AND (cntct_last_name=pLastName))) THEN
+      IF (_flag=''CHECK'') THEN
+        RETURN -10;
+      ELSIF (_flag = ''CHANGEONE'') THEN
+        _isNew := true;
+        _cntctId := nextval(''cntct_cntct_id_seq'');
+        _cntctNumber := fetchNextNumber(''ContactNumber'');
+      END IF;
+    END IF;
   END IF;
 
+  _cntctNumber := COALESCE(_cntctNumber,pContactNumber,fetchNextNumber(''ContactNumber''));
+
   IF (_isNew) THEN
-    IF (pCntctId IS NULL) THEN
-      SELECT NEXTVAL(''cntct_cntct_id_seq'') INTO _cntctId;
-    ELSE
-      _cntctId := pCntctId;
-    END IF;
+    _cntctId := COALESCE(_cntctId,pCntctId,nextval(''cntct_cntct_id_seq''));
  
     INSERT INTO cntct (
       cntct_id,cntct_number,
@@ -122,7 +136,7 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION saveCntct(int,text,int,text,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION saveCntct(int,text,int,text,text,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
 DECLARE
   pCntctId ALIAS FOR $1;
   pContactNumber ALIAS FOR $2;
@@ -136,11 +150,12 @@ DECLARE
   pEmail ALIAS FOR $10;
   pWebAddr ALIAS FOR $11;
   pTitle ALIAS FOR $12;
+  pFlag ALIAS FOR $13;
   _returnVal INTEGER;
 
 BEGIN
   
-  SELECT saveCntct(pCntctId,pContactNumber,NULL,pAddrId,pFirstName,pLastName,pHonorific,NULL,NULL,pPhone,pPhone2,pFax,pEmail,pWebAddr,NULL,pTitle) INTO _returnVal;
+  SELECT saveCntct(pCntctId,pContactNumber,NULL,pAddrId,pFirstName,pLastName,pHonorific,NULL,NULL,pPhone,pPhone2,pFax,pEmail,pWebAddr,NULL,pTitle,pFlag) INTO _returnVal;
   
   RETURN _returnVal;
 

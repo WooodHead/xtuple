@@ -22,7 +22,7 @@ BEGIN;
     pc.cntct_phone AS primary_contact_voice,
     pc.cntct_fax AS primary_contact_fax,
     pc.cntct_email AS primary_contact_email,
-    (''::TEXT) AS primary_contact_address_change,
+    (''::TEXT) AS primary_contact_change,
     m.addr_line1 AS primary_contact_address1,
     m.addr_line2 AS primary_contact_address2,
     m.addr_line3 AS primary_contact_address3,
@@ -30,6 +30,7 @@ BEGIN;
     m.addr_state AS primary_contact_state,
     m.addr_postalcode AS primary_contact_postalcode,
     m.addr_country AS primary_contact_country,
+    (''::TEXT) AS primary_contact_address_change,
     sc.cntct_number AS secondary_contact_number,
     sc.cntct_honorific AS secondary_contact_honorific,
     sc.cntct_first_name AS secondary_contact_first,
@@ -39,7 +40,7 @@ BEGIN;
     sc.cntct_fax AS secondary_contact_fax,
     sc.cntct_email AS secondary_contact_email,
     sc.cntct_webaddr AS secondary_contact_web,
-    (''::TEXT) AS secondary_contact_address_change,
+    (''::TEXT) AS secondary_contact_change,
     s.addr_line1 AS secondary_contact_address1,
     s.addr_line2 AS secondary_contact_address2,
     s.addr_line3 AS secondary_contact_address3,
@@ -47,6 +48,7 @@ BEGIN;
     s.addr_state AS secondary_contact_state,
     s.addr_postalcode AS secondary_contact_postalcode,
     s.addr_country AS secondary_contact_country,
+    (''::TEXT) AS secondary_contact_address_change,
     c.crmacct_notes AS notes
   FROM
     crmacct c
@@ -102,7 +104,8 @@ INSERT INTO crmacct
           NEW.primary_contact_fax,
           NEW.primary_contact_email,
           NULL,
-          NEW.primary_contact_job_title
+          NEW.primary_contact_job_title,
+          NEW.primary_contact_change
           ),
           saveCntct(
           getCntctId(NEW.secondary_contact_number),
@@ -125,7 +128,8 @@ INSERT INTO crmacct
           NEW.secondary_contact_fax,
           NEW.secondary_contact_email,
           NULL,
-          NEW.secondary_contact_job_title),
+          NEW.secondary_contact_job_title,
+          NEW.secondary_contact_change),
           NEW.notes);
 
 CREATE OR REPLACE RULE "_UPDATE" AS
@@ -162,7 +166,8 @@ UPDATE crmacct SET
           NEW.primary_contact_fax,
           NEW.primary_contact_email,
           NULL,
-          NEW.primary_contact_job_title
+          NEW.primary_contact_job_title,
+          NEW.primary_contact_change
           ),
     crmacct_cntct_id_2=
           saveCntct(
@@ -186,7 +191,8 @@ UPDATE crmacct SET
           NEW.secondary_contact_fax,
           NEW.secondary_contact_email,
           NULL,
-          NEW.secondary_contact_job_title),
+          NEW.secondary_contact_job_title,
+          NEW.secondary_contact_change),
     crmacct_notes=NEW.notes
   WHERE (crmacct_number=OLD.account_number);
 

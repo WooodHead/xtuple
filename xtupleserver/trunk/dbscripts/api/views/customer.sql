@@ -55,7 +55,8 @@ BEGIN;
     mc.cntct_fax AS billing_contact_fax,
     mc.cntct_email AS billing_contact_email,
     mc.cntct_webaddr AS billing_contact_web,
-    (''::TEXT) AS billing_contact_address_change,
+    (''::TEXT) AS billing_contact_change,
+    m.addr_number AS billing_contact_address_number,
     m.addr_line1 AS billing_contact_address1,
     m.addr_line2 AS billing_contact_address2,
     m.addr_line3 AS billing_contact_address3,
@@ -63,6 +64,7 @@ BEGIN;
     m.addr_state AS billing_contact_state,
     m.addr_postalcode AS billing_contact_postalcode,
     m.addr_country AS billing_contact_country,
+    (''::TEXT) AS billing_contact_address_change,
     cc.cntct_number AS correspond_contact_number,
     cc.cntct_honorific AS correspond_contact_honorific,
     cc.cntct_first_name AS correspond_contact_first,
@@ -73,7 +75,8 @@ BEGIN;
     cc.cntct_fax AS correspond_contact_fax,
     cc.cntct_email AS correspond_contact_email,
     cc.cntct_webaddr AS correspond_contact_web,
-    (''::TEXT) AS correspond_contact_address_change,
+    (''::TEXT) AS correspond_contact_change,
+    c.addr_number AS correspond_contact_address_number,
     c.addr_line1 AS correspond_contact_address1,
     c.addr_line2 AS correspond_contact_address2,
     c.addr_line3 AS correspond_contact_address3,
@@ -81,6 +84,7 @@ BEGIN;
     c.addr_state AS correspond_contact_state,
     c.addr_postalcode AS correspond_contact_postalcode,
     c.addr_country AS correspond_contact_country,
+    (''::TEXT) AS correspond_contact_address_change,
     cust_comments AS notes,
     CASE 
       WHEN (cust_soediprofile_id IS NOT NULL) THEN
@@ -246,7 +250,8 @@ INSERT INTO custinfo
           getCntctId(NEW.billing_contact_number),
           NEW.billing_contact_number,
           saveAddr(
-            NULL,
+            getAddrId(NEW.billing_contact_address_number),
+            NEW.billing_contact_address_number,
             NEW.billing_contact_address1,
             NEW.billing_contact_address2,
             NEW.billing_contact_address3,
@@ -263,13 +268,15 @@ INSERT INTO custinfo
           NEW.billing_contact_fax,
           NEW.billing_contact_email,
           NEW.billing_contact_web,
-          NEW.billing_contact_job_title
+          NEW.billing_contact_job_title,
+          NEW.billing_contact_change
           ),
         saveCntct(
           getCntctId(NEW.correspond_contact_number),
           NEW.correspond_contact_number,
           saveAddr(
-            NULL,
+            getAddrId(NEW.correspond_contact_address_number),
+            NEW.correspond_contact_address_number,
             NEW.correspond_contact_address1,
             NEW.correspond_contact_address2,
             NEW.correspond_contact_address3,
@@ -286,7 +293,8 @@ INSERT INTO custinfo
           NEW.correspond_contact_fax,
           NEW.correspond_contact_email,
           NEW.correspond_contact_web,
-          NEW.correspond_contact_job_title
+          NEW.correspond_contact_job_title,
+          NEW.correspond_contact_change
           ),
         getTaxAuthId(NEW.default_tax_authority),
         CASE
@@ -375,11 +383,9 @@ UPDATE custinfo SET
         cust_cntct_id=saveCntct(
           getCntctId(NEW.billing_contact_number),
           NEW.billing_contact_number,
-          saveAddr((
-              SELECT cntct_addr_id
-              FROM cntct,custinfo
-              WHERE ((cust_cntct_id=cntct_id)
-              AND (cust_id=getCustId(NEW.customer_number)))),
+          saveAddr(
+            getAddrId(NEW.billing_contact_address_number),
+            NEW.billing_contact_address_number,
             NEW.billing_contact_address1,
             NEW.billing_contact_address2,
             NEW.billing_contact_address3,
@@ -396,16 +402,15 @@ UPDATE custinfo SET
           NEW.billing_contact_fax,
           NEW.billing_contact_email,
           NEW.billing_contact_web,
-          NEW.billing_contact_job_title
+          NEW.billing_contact_job_title,
+          NEW.billing_contact_change
           ),
         cust_corrcntct_id=saveCntct(
           getCntctId(NEW.correspond_contact_number),
           NEW.correspond_contact_number,
-          saveAddr((
-              SELECT cntct_addr_id
-              FROM cntct,custinfo
-              WHERE ((cust_corrcntct_id=cntct_id)
-              AND (cust_id=getCustId(NEW.customer_number)))),
+          saveAddr(
+            getAddrId(NEW.correspond_contact_address_number),
+            NEW.correspond_contact_address_number,
             NEW.correspond_contact_address1,
             NEW.correspond_contact_address2,
             NEW.correspond_contact_address3,
@@ -422,7 +427,8 @@ UPDATE custinfo SET
           NEW.correspond_contact_fax,
           NEW.correspond_contact_email,
           NEW.correspond_contact_web,
-          NEW.correspond_contact_job_title
+          NEW.correspond_contact_job_title,
+          NEW.correspond_contact_change
           ),
         cust_taxauth_id=getTaxAuthId(NEW.default_tax_authority),
         cust_soemaildelivery=

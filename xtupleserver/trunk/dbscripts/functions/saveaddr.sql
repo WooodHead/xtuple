@@ -1,32 +1,52 @@
 CREATE OR REPLACE FUNCTION saveAddr(int4, text, text, text, text, text, text, text, boolean, text, text)
   RETURNS integer AS '
+BEGIN
+  RAISE EXCEPTION ''This function is deprecated.  Address now requires an address number.  Use saveAddr(int4, text, text, text, text, text, text, text, text, boolean, text, text)'';
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION saveAddr(int4, text, text, text, text, text, text, text, text)
+  RETURNS integer AS '
+BEGIN
+  RAISE EXCEPTION ''This function is deprecated.  Address now requires an address number.  Use saveAddr(int4, text, text, text, text, text, text, text, text, text)'';
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION saveAddr(int4, text, text, text, text, text, text, text, text, boolean, text, text)
+  RETURNS integer AS '
 DECLARE
   pAddrId ALIAS FOR $1;
-  pAddr1 ALIAS FOR $2;
-  pAddr2 ALIAS FOR $3;
-  pAddr3 ALIAS FOR $4;
-  pCity ALIAS FOR $5;
-  pState ALIAS FOR $6;
-  pPostalCode ALIAS FOR $7;
-  pCountry ALIAS FOR $8;
-  pActive ALIAS FOR $9;
-  pNotes ALIAS FOR $10;
-  pFlag ALIAS FOR $11;
+  pNumber ALIAS FOR $2;
+  pAddr1 ALIAS FOR $3;
+  pAddr2 ALIAS FOR $4;
+  pAddr3 ALIAS FOR $5;
+  pCity ALIAS FOR $6;
+  pState ALIAS FOR $7;
+  pPostalCode ALIAS FOR $8;
+  pCountry ALIAS FOR $9;
+  pActive ALIAS FOR $10;
+  pNotes ALIAS FOR $11;
+  pFlag ALIAS FOR $12;
   _addrId INTEGER;
+  _addrNumber INTEGER;
   _flag TEXT;
   _p RECORD;
   _cnt INTEGER;
+  _notes TEXT;
 
 BEGIN
   --Validate
-  IF ((pFlag IS NULL) OR (pFlag='''') OR (pFlag = ''CHANGEONE'') OR (pFlag = ''CHANGEALL'')) THEN
-	_flag = pFlag;
+  IF ((pFlag IS NULL) OR (pFlag = ''CHECK'') OR (pFlag = ''CHANGEONE'') OR (pFlag = ''CHANGEALL'')) THEN
+	_flag = COALESCE(pFlag,''CHECK'');
   ELSE
 	RAISE EXCEPTION ''Invalid Flag (%). Valid flags are CHECK, CHANGEONE or CHANGEALL'', pFlag;
   END IF;
 
+  _notes := COALESCE(pNotes,'''');
+  
   --If there is nothing here, get out
-  IF ( (pAddr1 = '''' OR pAddr1 IS NULL)
+  IF ( (pNumber = '''' OR pNumber IS NULL)
+    AND (pAddr1 = '''' OR pAddr1 IS NULL)
     AND (pAddr2 = '''' OR pAddr2 IS NULL)
     AND (pAddr3 = '''' OR pAddr3 IS NULL)
     AND (pCity = '''' OR pCity IS NULL)
@@ -44,6 +64,7 @@ BEGIN
   IF (_addrId >= 0) THEN
     SELECT * FROM addr INTO _p
     WHERE ((pAddrId=addr_id)
+    AND (pNumber=addr_number)
     AND (pAddr1=addr_line1)
     AND (pAddr2=addr_line2)
     AND (pAddr3=addr_line3)
@@ -52,7 +73,7 @@ BEGIN
     AND (pPostalCode=addr_postalcode)
     AND (pCountry=addr_country)
     AND (pActive=addr_active)
-    AND (pNotes=addr_notes));
+    AND (_notes=COALESCE(addr_notes,'''')));
     IF (FOUND) THEN
       RETURN _addrId;
     END IF;
@@ -73,10 +94,10 @@ BEGIN
     IF (FOUND) THEN
 	--Note:  To prevent overwriting of existing notes, the application
 	--needs to load any existing notes for a matching address before altering them.
-	IF (pNotes <> _p.addr_notes) THEN
+	IF (_notes <> _p.addr_notes) THEN
 		UPDATE addr 
 		SET addr_notes=addr_notes || ''
-'' || pNotes	
+'' || _notes
 		WHERE addr_id=_p.addr_id;
 	END IF;
         RETURN _p.addr_id;  --A matching address exits
@@ -101,8 +122,8 @@ BEGIN
 		WHERE vendaddr_addr_id = _addrId 
 	UNION 
 	SELECT warehous_id, ''whsinfo'' FROM whsinfo
-	WHERE warehous_addr_id = _addr_id) AS useQ;
-    IF _cnt > 0 THEN
+	WHERE warehous_addr_id = _addrId) AS useQ;
+    IF _cnt > 1 THEN
       RETURN -2;
       ELSE IF _cnt = 1 THEN
         _flag := ''CHANGEONE'';
@@ -115,6 +136,7 @@ BEGIN
   IF (_flag = ''CHANGEALL'') THEN
    
     UPDATE addr SET
+      addr_number = pNumber,
       addr_line1 = pAddr1, addr_line2 = pAddr2, addr_line3 = pAddr3,
       addr_city = pCity, addr_state = pState,
       addr_postalcode = pPostalcode, addr_country = pCountry,
@@ -124,38 +146,41 @@ BEGIN
 
   ELSE
     SELECT NEXTVAL(''addr_addr_id_seq'') INTO _addrId;
+    
+    _addrNumber := fetchNextNumber(''AddressNumber'');
 
-    INSERT INTO addr ( addr_id,
+    INSERT INTO addr ( addr_id, addr_number,
     addr_line1, addr_line2, addr_line3, 
     addr_city, addr_state, addr_postalcode, addr_country, 
     addr_active, addr_notes  
-    ) VALUES ( _addrId,
+    ) VALUES ( _addrId, _addrNumber,
     pAddr1, pAddr2, pAddr3, 
     pCity, pState, pPostalcode, pCountry,
-    pActive, pNotes);
+    pActive, _notes);
     RETURN _addrId;
 	
   END IF;
 END;
 ' LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION saveAddr(int4, text, text, text, text, text, text, text, text)
+CREATE OR REPLACE FUNCTION saveAddr(int4, text, text, text, text, text, text, text, text, text)
   RETURNS integer AS '
 DECLARE
   pAddrId ALIAS FOR $1;
-  pAddr1 ALIAS FOR $2;
-  pAddr2 ALIAS FOR $3;
-  pAddr3 ALIAS FOR $4;
-  pCity ALIAS FOR $5;
-  pState ALIAS FOR $6;
-  pPostalCode ALIAS FOR $7;
-  pCountry ALIAS FOR $8;
-  pFlag ALIAS FOR $9;
+  pNumber ALIAS FOR $2;
+  pAddr1 ALIAS FOR $3;
+  pAddr2 ALIAS FOR $4;
+  pAddr3 ALIAS FOR $5;
+  pCity ALIAS FOR $6;
+  pState ALIAS FOR $7;
+  pPostalCode ALIAS FOR $8;
+  pCountry ALIAS FOR $9;
+  pFlag ALIAS FOR $10;
   _returnVal INTEGER;
 
 BEGIN
  
-  SELECT saveAddr(pAddrId,pAddr1,pAddr2,pAddr3,pCity,pState,pPostalCode,pCountry,true,'''',pFlag) INTO _returnVal;
+  SELECT saveAddr(pAddrId,pNumber, pAddr1,pAddr2,pAddr3,pCity,pState,pPostalCode,pCountry,true,'''',pFlag) INTO _returnVal;
   
   RETURN _returnVal;
 

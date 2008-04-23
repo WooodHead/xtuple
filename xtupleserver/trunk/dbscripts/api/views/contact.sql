@@ -19,6 +19,8 @@ BEGIN;
     cntct_fax AS fax,
     cntct_email AS email,
     cntct_webaddr AS web,
+    ''::TEXT AS contact_change, 
+    addr_number AS address_number,
     addr_line1 AS address1,
     addr_line2 AS address2,
     addr_line3 AS address3,
@@ -26,8 +28,8 @@ BEGIN;
     addr_state AS state,
     addr_postalcode AS postal_code,
     addr_country AS country,
-    ''::TEXT AS address_change,
-    cntct_notes AS notes       
+    cntct_notes AS notes, 
+    ''::TEXT AS address_change
   FROM
     cntct 
       LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
@@ -46,7 +48,8 @@ SELECT saveCntct(
           NEW.contact_number,
           getCrmAcctid(NEW.crm_account),
           saveAddr(
-            NULL,
+            getAddrId(NEW.address_number),
+            NEW.address_number,
             NEW.address1,
             NEW.address2,
             NEW.address3,
@@ -66,7 +69,8 @@ SELECT saveCntct(
           NEW.email,
           NEW.web,
           NEW.notes,
-          NEW.job_title
+          NEW.job_title,
+          NEW.contact_change
           );
 
 CREATE OR REPLACE RULE "_UPDATE" AS
@@ -77,7 +81,8 @@ SELECT saveCntct(
           NEW.contact_number,
           getCrmAcctid(NEW.crm_account),
           saveAddr(
-            NULL,
+            getAddrId(NEW.address_number),
+            NEW.address_number,
             NEW.address1,
             NEW.address2,
             NEW.address3,
@@ -97,7 +102,8 @@ SELECT saveCntct(
           NEW.email,
           NEW.web,
           NEW.notes,
-          NEW.job_title
+          NEW.job_title,
+          NEW.contact_change
           );
 
 CREATE OR REPLACE RULE "_DELETE" AS

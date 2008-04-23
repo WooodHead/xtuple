@@ -6,7 +6,7 @@ BEGIN;
   CREATE OR REPLACE VIEW api.address AS
  
   SELECT 
-    addr_id AS address_number,
+    addr_number AS address_number,
     addr_line1 AS address1,
     addr_line2 AS address2,
     addr_line3 AS address3,
@@ -29,6 +29,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     ON INSERT TO api.address DO INSTEAD
 
 SELECT    saveAddr(
+	    getAddrId(NEW.address_number),
             NEW.address_number,
             NEW.address1,
             NEW.address2,
@@ -45,6 +46,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO api.address DO INSTEAD
 
 SELECT saveAddr(
+            getAddrId(NEW.address_number),
             NEW.address_number,
             NEW.address1,
             NEW.address2,
@@ -60,6 +62,6 @@ SELECT saveAddr(
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.address DO INSTEAD
 
-SELECT deleteAddress(OLD.address_number);
+SELECT deleteAddress(getAddrId(OLD.address_number));
 
 COMMIT;
