@@ -1,0 +1,9 @@
+-- make sure every addr_country exists in the country table
+-- find all of the addresses that need updating with
+-- SELECT addr.*
+-- FROM addr LEFT OUTER JOIN country ON (addr_country=country_name)
+-- WHERE country_id IS NULL;
+-- why does SELECT ... WHERE addr_country NOT IN country_name not work?
+SELECT COUNT(*) = 0
+FROM addr LEFT OUTER JOIN country ON (addr_country=country_name)
+WHERE country_id IS NULL;

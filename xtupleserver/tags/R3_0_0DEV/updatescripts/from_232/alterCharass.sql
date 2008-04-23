@@ -1,0 +1,5 @@
+BEGIN;
+
+ALTER TABLE charass ADD COLUMN charass_price numeric(16,4) NOT NULL DEFAULT 0;
+
+COMMIT;
