@@ -135,7 +135,7 @@ BEGIN
 
     INSERT INTO coitem
     ( coitem_id, coitem_cohead_id, coitem_linenumber, coitem_itemsite_id,
-      coitem_status, coitem_scheddate,
+      coitem_status, coitem_scheddate, coitem_promdate,
       coitem_price, coitem_custprice, 
       coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
       coitem_qty_uom_id, coitem_qty_invuomratio,
@@ -144,7 +144,7 @@ BEGIN
       coitem_custpn, coitem_memo, coitem_prcost, coitem_tax_id )
     VALUES
     ( _soitemid, _soheadid, _r.quitem_linenumber, _r.quitem_itemsite_id,
-      ''O'', _r.quitem_scheddate,
+      ''O'', _r.quitem_scheddate, _r.quitem_promdate,
       _r.quitem_price, _r.quitem_custprice,
       _r.quitem_qtyord, 0, 0,
       _r.quitem_qty_uom_id, _r.quitem_qty_invuomratio,
