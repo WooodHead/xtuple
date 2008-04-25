@@ -1,10 +1,10 @@
-CREATE OR REPLACE FUNCTION shipShipment(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION shipShipment(INTEGER) RETURNS INTEGER AS $$
 BEGIN
   RETURN shipShipment($1, CURRENT_TIMESTAMP);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION shipShipment(INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION shipShipment(INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 DECLARE
   pshipheadid		ALIAS FOR $1;
   _timestamp		TIMESTAMP WITH TIME ZONE := $2;
@@ -37,7 +37,7 @@ BEGIN
     RETURN -50;
   END IF;
 
-  IF (_shiphead.shiphead_order_type = ''SO'') THEN
+  IF (_shiphead.shiphead_order_type = 'SO') THEN
 
     SELECT cohead_shipcomplete, cohead_holdtype INTO _shipcomplete, _coholdtype
       FROM cohead, shiphead
@@ -46,13 +46,13 @@ BEGIN
        AND  (shiphead_order_type=_shiphead.shiphead_order_type)
        AND  (shiphead_id=pshipheadid));
 
-    IF (_coholdtype = ''C'') THEN
+    IF (_coholdtype = 'C') THEN
       RETURN -12;
-    ELSIF (_coholdtype = ''P'') THEN
+    ELSIF (_coholdtype = 'P') THEN
       RETURN -13;
-    ELSIF (_coholdtype = ''R'') THEN
+    ELSIF (_coholdtype = 'R') THEN
       RETURN -14;
-    ELSIF (_coholdtype = ''S'') THEN
+    ELSIF (_coholdtype = 'S') THEN
       RETURN -15;
     END IF;
 
@@ -63,7 +63,7 @@ BEGIN
 		  FROM coitem LEFT OUTER JOIN
 		       shipitem ON (shipitem_orderitem_id=coitem_id
 		                AND shipitem_shiphead_id=pshipheadid)
-		 WHERE ((coitem_status<>''X'')
+		 WHERE ((coitem_status<>'X')
 		   AND  (coitem_cohead_id=_shiphead.shiphead_order_id))
 	      GROUP BY coitem_id, coitem_qtyshipped, coitem_qtyord,
 		       coitem_qtyreturned LOOP
@@ -92,7 +92,7 @@ BEGIN
 
       IF _c._value > 0 THEN
   --    Distribute to G/L, credit Shipping Asset, debit COS
-	SELECT MIN(insertGLTransaction( ''S/R'', ''SO'', _c.cohead_number, ''Ship Shipment'',
+	SELECT MIN(insertGLTransaction( 'S/R', 'SH', _shiphead.shiphead_number, 'Ship Shipment',
 				     costcat_shipasset_accnt_id,
                                      CASE WHEN(COALESCE(_c.coitem_cos_accnt_id, -1) != -1) THEN _c.coitem_cos_accnt_id
                                           WHEN(_c.coitem_warranty=TRUE) THEN resolveCOWAccount(itemsite_id, _c.cohead_cust_id)
@@ -166,7 +166,7 @@ BEGIN
 
     END LOOP;
 
-  ELSEIF (_shiphead.shiphead_order_type = ''TO'') THEN
+  ELSEIF (_shiphead.shiphead_order_type = 'TO') THEN
     IF (_shiphead.shiphead_shipped) THEN
       RETURN -8;
     END IF;
@@ -181,7 +181,7 @@ BEGIN
 			 (COALESCE(SUM(shipitem_qty),0) + toitem_qty_shipped)) AS remain
 		  FROM toitem LEFT OUTER JOIN
 		       shipitem ON (shipitem_orderitem_id=toitem_id)
-		 WHERE ((toitem_status<>''X'')
+		 WHERE ((toitem_status<>'X')
 		   AND  (toitem_tohead_id=_shiphead.shiphead_order_id))
 	      GROUP BY toitem_qty_shipped, toitem_qty_ordered LOOP
 	IF (_ti.remain > 0) THEN
@@ -206,20 +206,20 @@ BEGIN
       END IF;
 
       --  Create an open itemloc record if this is a controlled item
-      IF ( ( SELECT ((itemsite_loccntrl) OR (itemsite_controlmethod IN (''L'', ''S'')))
+      IF ( ( SELECT ((itemsite_loccntrl) OR (itemsite_controlmethod IN ('L', 'S')))
 	     FROM itemsite
 	     WHERE ((itemsite_item_id=_ti.toitem_item_id)
 	      AND (itemsite_warehous_id=_to.tohead_src_warehous_id)) ) ) THEN
 
 	IF (_itemlocSeries = 0 OR _itemlocSeries IS NULL) THEN
-	  _itemlocSeries := NEXTVAL(''itemloc_series_seq'');
+	  _itemlocSeries := NEXTVAL('itemloc_series_seq');
 	END IF;
       END IF;
 
-      SELECT postInvTrans(si.itemsite_id, ''TS'', _ti.qty, ''I/M'',
+      SELECT postInvTrans(si.itemsite_id, 'TS', _ti.qty, 'I/M',
 			  _shiphead.shiphead_order_type, _to.tohead_number,
 			  _to.tohead_number,
-			  ''Ship from Src to Transit Warehouse'',
+			  'Ship from Src to Transit Warehouse',
 			  tc.costcat_asset_accnt_id,
 			  sc.costcat_shipasset_accnt_id,
 			  _itemlocSeries, _timestamp) INTO _invhistid
@@ -243,10 +243,10 @@ BEGIN
 
       -- record inventory history and qoh changes at transit warehouse but
       -- there is only one g/l account to touch
-      SELECT postInvTrans(ti.itemsite_id, ''TR'', _ti.qty, ''I/M'',
+      SELECT postInvTrans(ti.itemsite_id, 'TR', _ti.qty, 'I/M',
 			  _shiphead.shiphead_order_type, _to.tohead_number,
 			  _to.tohead_number,
-			  ''Ship from Src to Transit Warehouse'',
+			  'Ship from Src to Transit Warehouse',
 			  tc.costcat_asset_accnt_id,
 			  tc.costcat_asset_accnt_id,
 			  _itemlocSeries, _timestamp) INTO _invhistid
@@ -276,4 +276,4 @@ BEGIN
   RETURN _itemlocSeries;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
