@@ -1,4 +1,43 @@
 CREATE OR REPLACE FUNCTION _itemTrigger () RETURNS TRIGGER AS '
+BEGIN
+ 
+-- Override values to avoid invalid data combinations
+  IF (NEW.item_type IN (''J'',''R'',''S'',''O'',''L'',''B'')) THEN
+    NEW.item_picklist := FALSE;
+  END IF;
+
+  IF (NEW.item_type IN (''J'',''R'',''S'',''T'')) THEN
+    NEW.item_planning_type := ''N'';
+  END IF;
+
+  IF (NEW.item_type = ''L'') THEN
+    NEW.item_planning_type := ''S'';
+  END IF;
+
+  IF (NEW.item_type IN (''F'',''S'',''T'',''O'',''L'',''B'')) THEN
+    NEW.item_picklist := FALSE;
+    NEW.item_sold := FALSE;
+    NEW.item_prodcat_id := -1;
+    NEW.item_exclusive := false;
+    NEW.item_listprice := 0;
+    NEW.item_upccode := '''';
+    NEW.item_prodweight := 0;
+    NEW.item_packweight := 0;
+  END IF;
+
+  IF (NEW.item_type != ''J'') THEN
+    NEW.item_config := false;
+  END IF;
+
+  RETURN NEW;
+
+END;
+' LANGUAGE 'plpgsql';
+
+DROP TRIGGER itemTrigger ON item;
+CREATE TRIGGER itemTrigger BEFORE INSERT OR UPDATE ON item FOR EACH ROW EXECUTE PROCEDURE _itemTrigger();
+
+CREATE OR REPLACE FUNCTION _itemAfterTrigger () RETURNS TRIGGER AS '
 DECLARE
   _cmnttypeid INTEGER;
 
@@ -31,30 +70,6 @@ BEGIN
       PERFORM updateCost(itemcost_id, 0) FROM itemcost WHERE (itemcost_item_id=OLD.item_id);
       UPDATE itemsite SET itemsite_active=false WHERE (itemsite_item_id=OLD.item_id);
     END IF;
-  END IF;
-  
--- Override values to avoid invalid data combinations
-  IF (NEW.item_type IN (''J'',''R'',''S'',''O'',''L'',''B'')) THEN
-    NEW.item_picklist := FALSE;
-  END IF;
-
-  IF (NEW.item_type IN (''J'',''R'',''S'',''T'')) THEN
-    NEW.item_planning_type := ''N'';
-  END IF;
-
-  IF (NEW.item_type = ''L'') THEN
-    NEW.item_planning_type := ''S'';
-  END IF;
-
-  IF (NEW.item_type IN (''F'',''S'',''T'',''O'',''L'',''B'')) THEN
-    NEW.item_picklist := FALSE;
-    NEW.item_sold := FALSE;
-    NEW.item_prodcat_id := -1;
-    NEW.item_exclusive := false;
-    NEW.item_listprice := 0;
-    NEW.item_upccode := '''';
-    NEW.item_prodweight := 0;
-    NEW.item_packweight := 0;
   END IF;
 
   IF ( SELECT (metric_value=''t'')
@@ -117,6 +132,13 @@ BEGIN
           PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
                                CASE WHEN (NEW.item_picklist) THEN ''Pick List Changed from FALSE to TRUE''
                                     ELSE ''Pick List Changed from TRUE to FALSE''
+                               END );
+        END IF;
+
+        IF (OLD.item_config <> NEW.item_config) THEN
+          PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
+                               CASE WHEN (NEW.item_config) THEN ''Configured Changed from FALSE to TRUE''
+                                    ELSE ''Configured Changed from TRUE to FALSE''
                                END );
         END IF;
 
@@ -225,5 +247,5 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-DROP TRIGGER itemTrigger ON item;
-CREATE TRIGGER itemTrigger AFTER INSERT OR UPDATE ON item FOR EACH ROW EXECUTE PROCEDURE _itemTrigger();
+DROP TRIGGER itemAfterTrigger ON item;
+CREATE TRIGGER itemAfterTrigger AFTER INSERT OR UPDATE ON item FOR EACH ROW EXECUTE PROCEDURE _itemAfterTrigger();

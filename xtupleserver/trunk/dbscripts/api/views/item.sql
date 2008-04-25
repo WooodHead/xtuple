@@ -41,6 +41,7 @@ BEGIN;
     i.uom_name AS inventory_uom,
     item_picklist AS pick_list_item,
     item_fractional AS fractional,
+    item_config AS configured,
     CASE
       WHEN item_planning_type = 'N' THEN
         'None'
@@ -85,6 +86,7 @@ COMMENT ON VIEW api.item IS 'Item';
 	    item_inv_uom_id,
 	    item_picklist,
 	    item_fractional,
+	    item_config,
 	    item_planning_type,
 	    item_sold,
 	    item_prodcat_id,
@@ -132,6 +134,7 @@ COMMENT ON VIEW api.item IS 'Item';
 	    getUomId(NEW.inventory_uom),
 	    COALESCE(NEW.pick_list_item,TRUE),
 	    COALESCE(NEW.fractional,FALSE),
+	    COALESCE(NEW.configured,FALSE),
 	    CASE
 	      WHEN NEW.planning_system = 'None' THEN
 	        'N'
@@ -190,6 +193,7 @@ COMMENT ON VIEW api.item IS 'Item';
       item_inv_uom_id=getUomId(NEW.inventory_uom),
       item_picklist=NEW.pick_list_item,
       item_fractional=NEW.fractional,
+      item_config=NEW.configured,
       item_planning_type=
       	    CASE
 	      WHEN NEW.planning_system = 'None' THEN
