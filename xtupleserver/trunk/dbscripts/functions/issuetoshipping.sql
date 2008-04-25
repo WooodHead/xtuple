@@ -171,7 +171,7 @@ BEGIN
       END IF;
 
   --  Distribute to G/L, debit Shipping Asset, credit WIP
-      PERFORM MIN(insertGLTransaction( ''S/R'', ''SH'', formatSoNumber(pItemid), ''Issue to Shipping'',
+      PERFORM MIN(insertGLTransaction( ''S/R'', ''SO'', formatSoNumber(pItemid), ''Issue to Shipping'',
                                      costcat_wip_accnt_id,
 				     costcat_shipasset_accnt_id,
                                      -1, _p.value, current_date )) 
