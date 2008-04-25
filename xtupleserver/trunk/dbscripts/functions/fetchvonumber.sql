@@ -17,7 +17,7 @@ BEGIN
 
     SELECT vohead_number INTO _test
     FROM vohead
-    WHERE (vohead_number=_voucherNumber);
+    WHERE (vohead_number=text(_voucherNumber));
 
     IF (NOT FOUND) THEN
       EXIT;

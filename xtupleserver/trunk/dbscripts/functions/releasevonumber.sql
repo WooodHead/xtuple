@@ -8,7 +8,7 @@ BEGIN
 --  Check to see if a Voucher exists with the passed Voucher Number
   SELECT vohead_id INTO _test
   FROM vohead
-  WHERE (vohead_number=pVoNumber);
+  WHERE (vohead_number=text(pVoNumber));
 
   IF (FOUND) THEN
     RETURN FALSE;
