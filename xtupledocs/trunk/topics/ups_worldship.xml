@@ -13,9 +13,9 @@
   <para>In this section we will provide an overview describing xTuple ERP's
   support for UPS WorldShip integration. UPS WorldShip is a Windows-based,
   shipping software application for UPS Customers who have high-volume
-  shipping needs. When UPS WorldShip and xTuple ERP are integrated, you have the
-  ability to export key UPS information&mdash;that is, Tracking Numbers and Freight
-  charges&mdash;directly into xTuple ERP.</para>
+  shipping needs. When UPS WorldShip and xTuple ERP are integrated, you have
+  the ability to export key UPS information&mdash;that is, Tracking Numbers
+  and Freight charges&mdash;directly into xTuple ERP.</para>
   <note>
     <para>For technical support using and/or configuring UPS WorldShip, please
     contact your local or area UPS WorldShip representative. Detailed
@@ -100,50 +100,50 @@
           <tbody>
             <row>
               <entry><para> Package </para></entry>
-              <entry><para> Tracking Number </para></entry>
-              <entry><para> shipdata </para></entry>
-              <entry><para> shipdata_cosmisc_packnum_tracknum </para></entry>
+              <entry><para>Tracking Number </para></entry>
+              <entry><para>shipdata </para></entry>
+              <entry><para>shipdata_cosmisc_packnum_tracknum </para></entry>
             </row>
             <row>
               <entry><para> Package </para></entry>
-              <entry><para> Package Type </para></entry>
+              <entry><para>Package Type </para></entry>
               <entry><para> shipdata </para></entry>
               <entry><para> shipdata_package_type </para></entry>
             </row>
             <row>
               <entry><para> Package </para></entry>
-              <entry><para> Reference [1-5] </para></entry>
+              <entry><para>Reference [1-5] </para></entry>
               <entry><para> shipdata </para></entry>
               <entry><para> shipdata_cohead_number </para></entry>
             </row>
             <row>
               <entry><para> Shipment Information </para></entry>
-              <entry><para> Void Indicator </para></entry>
+              <entry><para>Void Indicator </para></entry>
               <entry><para> shipdata </para></entry>
               <entry><para> shipdata_void_ind </para></entry>
             </row>
             <row>
               <entry><para> Shipment Information </para></entry>
-              <entry><para> Actual Weight </para></entry>
+              <entry><para>Actual Weight </para></entry>
               <entry><para> shipdata </para></entry>
               <entry><para> shipdata_weight </para></entry>
             </row>
             <row>
               <entry><para> Shipment Information </para></entry>
-              <entry><para> Shipment ID </para></entry>
+              <entry><para>Shipment ID </para></entry>
               <entry><para> shipdata </para></entry>
               <entry><para> shipdata_cosmisc_tracknum </para></entry>
             </row>
             <row>
               <entry><para> Shipment Information </para></entry>
-              <entry><para> Total Shipment &amp; Handling Charges
+              <entry><para>Total Shipment &amp; Handling Charges
               </para></entry>
               <entry><para> shipdata </para></entry>
               <entry><para> shipdata_total_freight </para></entry>
             </row>
             <row>
               <entry><para> Shipment Information </para></entry>
-              <entry><para> Billing Option </para></entry>
+              <entry><para>Service Type </para></entry>
               <entry><para> shipdata </para></entry>
               <entry><para> shipdata_billing_option </para></entry>
             </row>
@@ -308,9 +308,9 @@
       an Order in UPS WorldShip. The choice is up to you, based on your
       desired process flow.</para>
     </note>
-    <para>After Stock has been issued to Shipping&mdash;but not yet shipped&mdash;the
-    process flow moves to the UPS WorldShip system. Perform the following
-    steps from your UPS workstation:</para>
+    <para>After Stock has been issued to Shipping&mdash;but not yet
+    shipped&mdash;the process flow moves to the UPS WorldShip system. Perform
+    the following steps from your UPS workstation:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem>
         <para>Enter Customer destination information</para>
