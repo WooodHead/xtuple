@@ -71,7 +71,7 @@ BEGIN
 
   END IF;
   
-  IF (pCntctId IS NULL) THEN 
+  IF (pCntctId IS NULL OR pCntctId = -1) THEN 
     _isNew := true;
     _cntctId := nextval(''cntct_cntct_id_seq'');
     _cntctNumber := fetchNextNumber(''ContactNumber'');
