@@ -7,6 +7,11 @@ BEGIN
     NEW.invhist_posted = FALSE;
   END IF;
 
+  -- never change the created timestamp, which defaults to CURRENT_TIMESTAMP
+  IF (TG_OP != ''INSERT'') THEN
+    NEW.invhist_created = OLD.invhist_created;
+  END IF;
+
   RETURN NEW;
 
 END;

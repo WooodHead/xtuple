@@ -1,7 +1,14 @@
 CREATE OR REPLACE FUNCTION resetQOHBalance(INTEGER) RETURNS INTEGER AS '
+BEGIN
+  RETURN resetQOHBalance($1, CURRENT_TIMESTAMP);
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION resetQOHBalance(INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS '
 DECLARE
-  pItemsiteid ALIAS FOR $1;
-  _invhistid INTEGER;
+  pItemsiteid   ALIAS FOR $1;
+  pGlDistTS     ALIAS FOR $2;
+  _invhistid    INTEGER;
 
 BEGIN
 
@@ -16,8 +23,10 @@ BEGIN
   END IF;
 
   SELECT postInvTrans( itemsite_id, ''AD'', (itemsite_qtyonhand * -1),
-                       ''I/M'', '''', '''', ''RESET'', ''Reset QOH Balance to 0'',
-                       costcat_asset_accnt_id, costcat_adjustment_accnt_id, 0 ) INTO _invhistid
+                       ''I/M'', '''', '''', ''RESET'',
+                       ''Reset QOH Balance to 0'',
+                       costcat_asset_accnt_id, costcat_adjustment_accnt_id,
+                       0, pGlDistTS ) INTO _invhistid
   FROM itemsite, costcat
   WHERE ( (itemsite_costcat_id=costcat_id)
    AND (itemsite_id=pItemsiteid) );

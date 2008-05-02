@@ -108,7 +108,7 @@ BEGIN
       invhist_invuom, invhist_unitcost, invhist_xfer_warehous_id, invhist_posted )
     SELECT
       _invhistid, itemsite_id, pTransType, _timestamp,
-      pQty, itemsite_qtyonhand,
+      (_sense * pQty), itemsite_qtyonhand,
       (itemsite_qtyonhand + (_sense * pQty)),
       pOrderType, pOrderNumber, pDocNumber, pComments,
       uom_name, stdCost(item_id), _xferwhsid, FALSE

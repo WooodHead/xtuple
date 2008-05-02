@@ -1,12 +1,19 @@
 CREATE OR REPLACE FUNCTION relocateInventory(INTEGER, INTEGER, INTEGER, NUMERIC, TEXT) RETURNS INTEGER AS '
+BEGIN
+  RETURN relocateInventory($1, $2, $3, $4, $5, CURRENT_TIMESTAMP);
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION relocateInventory(INTEGER, INTEGER, INTEGER, NUMERIC, TEXT, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS '
 DECLARE
-  pSourceItemlocid ALIAS FOR $1;
-  pTargetLocationid ALIAS FOR $2;
-  pItemsiteid ALIAS FOR $3;
-  pQty ALIAS FOR $4;
-  pComments ALIAS FOR $5;
-  _targetItemlocid INTEGER;
-  _invhistid INTEGER;
+  pSourceItemlocid      ALIAS FOR $1;
+  pTargetLocationid     ALIAS FOR $2;
+  pItemsiteid           ALIAS FOR $3;
+  pQty                  ALIAS FOR $4;
+  pComments             ALIAS FOR $5;
+  _GlDistTS             TIMESTAMP WITH TIME ZONE := $6;
+  _targetItemlocid      INTEGER;
+  _invhistid            INTEGER;
   _p RECORD;
   _qty NUMERIC;
 
@@ -44,12 +51,12 @@ BEGIN
   ( invhist_id, invhist_itemsite_id,
     invhist_transtype, invhist_invqty,
     invhist_qoh_before, invhist_qoh_after,
-    invhist_comments,
+    invhist_comments,   invhist_transdate,
     invhist_invuom, invhist_unitcost ) 
   SELECT _invhistid, itemsite_id,
          ''RL'', 0,
          itemsite_qtyonhand, itemsite_qtyonhand,
-         pComments,
+         pComments, _GlDistTS,
          uom_name, stdCost(item_id)
   FROM item, itemsite, uom
   WHERE ((itemsite_item_id=item_id)
@@ -133,12 +140,12 @@ BEGIN
     ( invhist_itemsite_id,
       invhist_transtype, invhist_invqty,
       invhist_qoh_before, invhist_qoh_after,
-      invhist_docnumber, invhist_comments,
+      invhist_docnumber, invhist_comments, invhist_transdate,
       invhist_invuom, invhist_unitcost ) 
     SELECT itemsite_id,
            ''NN'', (_qty * -1),
            itemsite_qtyonhand, (itemsite_qtyonhand - _qty),
-           '''', '''',
+           '''', '''', _GlDistTS,
            uom_name, stdCost(item_id)
     FROM item, itemsite, uom
     WHERE ( (itemsite_item_id=item_id)
