@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section577935">
+<article>
   <title><indexterm significance="normal">
       <primary>topics</primary>
       <secondary>crm basics</secondary>
@@ -10,532 +9,535 @@
       <primary>customer relationship management</primary>
       <secondary>explained</secondary>
     </indexterm>Topic: CRM Basics</title>
-  <para>In this section we will look at how CRM Accounts are used and how they
-  relate to Customers, Vendors, Contacts, and Addresses. Then we will enter an
-  Incident linked to an Account and an Item. Finally, we will add To-Do's to
-  the Incident and assign them to users who must complete the To-Do's before
-  they may close the Incident.</para>
-  <note>
-    <para>The scenarios described in this section refer to Items and other
-    data found in the xTuple ERP Demo Database. The Demo Database is available
-    for download from the xTuple ERP website.</para>
-  </note>
-  <section id="Section577940">
-    <title><indexterm significance="normal">
-        <primary>crm</primary>
-        <secondary>accounts introduced</secondary>
-      </indexterm> <indexterm significance="normal">
-        <primary>crm</primary>
-        <secondary>addresses introduced</secondary>
-      </indexterm> <indexterm significance="normal">
-        <primary>crm</primary>
-        <secondary>contacts introduced</secondary>
-      </indexterm>CRM Accounts, Addresses, and Contacts</title>
-    <para>Central to the concept of Corporate/ Customer Relationship
-    Management is the Account. An Account holds information about an entity
-    and serves to define it further as a Customer, Prospect, Vendor,
-    Competitor, or Partner. The creation of an Account enables you to enter
-    new Contact and Address information&mdash;or draw from previously created
-    Contacts and Addresses.</para>
-    <para>In this section we will be modifying an existing Account and
-    defining it as a Vendor. We will then open the Contacts List and Addresses
-    List to see how that information was populated dynamically. Later, we will
-    record a related Incident, along with several To-Do's linked to the
-    Incident.</para>
-    <para>We will begin by modifying an existing Account. The Customer, TTOYS,
-    will be familiar from the Basic Business Process Flow chapter of the
-    xTuple ERP Demo Guide. To access the master list of CRM Accounts, follow
-    these steps:</para>
-    <itemizedlist>
-      <listitem>
-        <para>Pull down the CRM Module menu</para>
-      </listitem>
-      <listitem>
-        <para>Select the Address Book submenu</para>
-      </listitem>
-      <listitem>
-        <para>Choose the "List CRM Accounts" option</para>
-      </listitem>
-      <listitem>
-        <para>Click on the TTOYS Account</para>
-      </listitem>
-      <listitem>
-        <para>Click the EDIT button</para>
-      </listitem>
-      <listitem>
-        <para>The following screen will appear:</para>
-      </listitem>
-    </itemizedlist>
-    <para> <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/F068-CRM-Acct.png" />
-          </imageobject>
-          <caption>CRM Account Screen</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para>As you can see in our example, the "Customer" option is selected in
-    the "Relationships" portion of the screen. You can also see that the
-    customer is marked as "Active."</para>
-    <para>We will now update this Account record, modifying it so that our
-    Customer TTOYS is also listed as a Vendor. To update the Account record,
-    follow these steps:</para>
-    <itemizedlist>
-      <listitem>
-        <para>Select the "Vendor" check box under the "Relationships"
-        section</para>
-      </listitem>
-      <listitem>
-        <para>Notice the VENDOR button to the far right of the screen</para>
-      </listitem>
-      <listitem>
-        <para>Click on the VENDOR button</para>
-      </listitem>
-      <listitem>
-        <para>On the Vendor master, you may set any values you like&mdash;with the
-        exception of the following information, which is required for this
-        scenario:</para>
-        <para>Vendor Type: STANDARD</para>
-        <para>Address: Use the browse button located beneath the Postal Code
-        on the header page to select the first address listed for "Tremendous
-        Toys Inc."</para>
-        <para>Default Terms: 2-10N30</para>
-        <para>Contact Information tab: Manually enter your own personal
-        contact information for Contact 1; then do the same for Contact 2,
-        using instead the contact information for a colleague or friend</para>
-        <para>Addresses tab: Click the NEW button to display the Vendor
-        Address screen; manually enter your own address information; in
-        Contact area at the bottom of the Vendor Address screen, manually
-        enter the contact information for a person whose information you have
-        not already used</para>
-        <para>SAVE: Be sure to select the SAVE button to save the information
-        you have entered</para>
-      </listitem>
-      <listitem>
-        <para>Once back on the Vendor screen, click the SAVE button to return
-        to the CRM Account screen</para>
-      </listitem>
-      <listitem>
-        <para>If you receive the question "Would you like to update existing
-        contact or create new one?" select the CREATE NEW option</para>
-      </listitem>
-      <listitem>
-        <para>On the CRM Account screen, click the SAVE button</para>
-      </listitem>
-      <listitem>
-        <para>Note that on the CRM Accounts screen the TTOYS Account now has a
-        "Y" in the Vendor Column; previously, this Account was only marked as
-        a Customer Account</para>
-      </listitem>
-      <listitem>
-        <para>Click CLOSE to exit the CRM Accounts screen</para>
-      </listitem>
-    </itemizedlist>
-    <para>Now let's take a look at the new Contacts we created dynamically
-    during the process of updating our Account. To view the list of available
-    Contacts, follow these steps:</para>
-    <itemizedlist>
-      <listitem>
-        <para>Pull down the CRM Module menu</para>
-      </listitem>
-      <listitem>
-        <para>Select the Address Book submenu</para>
-      </listitem>
-      <listitem>
-        <para>Choose the "List Contacts" option</para>
-      </listitem>
-      <listitem>
-        <para>Locate your name on the list of Contacts</para>
-      </listitem>
-      <listitem>
-        <para>Double-click on your Contact name</para>
-      </listitem>
-    </itemizedlist>
-    <para><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/F069-CRMContact.png" />
-          </imageobject>
-          <caption>Contact Screen</caption>
-        </mediaobject>
-      </screenshot></para>
-    <itemizedlist>
-      <listitem>
-        <para>Note that your Contact information is linked to the CRM Account
-        TTOYS</para>
-      </listitem>
-      <listitem>
-        <para>You may now optionally update the entry with additional
-        information&mdash;or link yourself to an existing Address if you would
-        like</para>
-      </listitem>
-      <listitem>
-        <para>Click the SAVE button to exit the Contact screen</para>
-      </listitem>
-      <listitem>
-        <para>Click the CLOSE button to exit the List Contacts screen</para>
-      </listitem>
-    </itemizedlist>
-    <para>Now that we have modified an Account and seen how Contact
-    information was created dynamically, let's look at one of the Addresses we
-    generated. To access the master list of addresses, follow these
-    steps:</para>
-    <itemizedlist>
-      <listitem>
-        <para>Pull down the CRM Module menu</para>
-      </listitem>
-      <listitem>
-        <para>Select the Address Book submenu</para>
-      </listitem>
-      <listitem>
-        <para>Choose the "List Addresses" option</para>
-      </listitem>
-      <listitem>
-        <para>Locate the address you entered on the main page of the TTOYS
-        Vendor master</para>
-      </listitem>
-      <listitem>
-        <para>Double-click on the address</para>
-      </listitem>
-      <listitem>
-        <para>Click on the "Uses of the Address" tab</para>
-      </listitem>
-    </itemizedlist>
-    <para> <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/F070-CRM-Address.png"
-                       />
-          </imageobject>
-          <caption>Address Screen</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para>As you can see in our example, the Address we created during the
-    Account editing process is now clearly marked as a Vendor Address, linked
-    to the TTOYS Account.</para>
-    <itemizedlist>
-      <listitem>
-        <para>Click the CANCEL button on the Address screen to close it</para>
-      </listitem>
-      <listitem>
-        <para>Click the CLOSE button on the List Addresses screen to close
-        it</para>
-      </listitem>
-    </itemizedlist>
-  </section>
-  <section id="Section578011">
-    <title><indexterm significance="normal">
-        <primary>crm</primary>
-        <secondary>incident workbench and</secondary>
-      </indexterm> <indexterm significance="normal">
-        <primary>incident workbench</primary>
-        <secondary>introduced</secondary>
-      </indexterm> <indexterm significance="normal">
-        <primary>to-do lists</primary>
-        <secondary>introduced</secondary>
-      </indexterm>CRM Incident Workbench</title>
-    <para>The next step in this scenario is to create an Incident linked to
-    the TTOYS CRM Account. We will also be linking your Contact information to
-    the Incident&mdash;as well as your xTuple ERPxTuple ERP user. To begin the process of
-    creating a new Incident, follow these steps:</para>
-    <itemizedlist>
-      <listitem>
-        <para>Pull down the CRM Module menu</para>
-      </listitem>
-      <listitem>
-        <para>Select the Incident Management submenu</para>
-      </listitem>
-      <listitem>
-        <para>Choose the "Incident Workbench" option</para>
-      </listitem>
-      <listitem>
-        <para>Select All Users</para>
-      </listitem>
-      <listitem>
-        <para>Check all six of the Status boxes at the top of the
-        screen</para>
-      </listitem>
-      <listitem>
-        <para>Click the QUERY button</para>
-      </listitem>
-      <listitem>
-        <para>The following screen will appear:</para>
-      </listitem>
-    </itemizedlist>
-    <para><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/F071-CRM-IncWB.png" />
-          </imageobject>
-          <caption>Incident Workbench</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para>The Incident Workbench enables you to monitor and record Incidents
-    that are linked to Accounts, Contacts, Users, and To-Do"s. The flexibility
-    offered by the Incident Workbench enables you to effectively manage a
-    variety of business processes:</para>
-    <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem>
-        <para>Customer requests</para>
-      </listitem>
-      <listitem>
-        <para>Customer issues</para>
-      </listitem>
-      <listitem>
-        <para>Vendor certification</para>
-      </listitem>
-      <listitem>
-        <para>Outbound product quality tests</para>
-      </listitem>
-      <listitem>
-        <para>Inbound component quality tests</para>
-      </listitem>
-      <listitem>
-        <para>Any other processes that require tracking</para>
-      </listitem>
-    </orderedlist>
-    <para>In the previous example, we displayed information for All Statuses
-    and All Users. What would happen if we changed the search parameters?
-    Let's find out. To change the Incident search parameters, follow these
-    steps:</para>
-    <itemizedlist>
-      <listitem>
-        <para>UNCHECK all the Status boxes&mdash;except for the "New" check box;
-        leave it selected</para>
-      </listitem>
-      <listitem>
-        <para>Click the QUERY button</para>
-      </listitem>
-      <listitem>
-        <para>Note that one of the issues which displayed previously has
-        disappeared</para>
-      </listitem>
-    </itemizedlist>
-    <para>As you have probably figured out by now, the fields at the top of
-    the Incident Workbench are filters which enable you to zero-in on the
-    information you are searching for.</para>
-    <para>We have seen how to locate Incidents&mdash;and how to apply search
-    parameters to narrow down our search for information. Now let's create a
-    new Incident. To create a new Incident, follow these steps:</para>
-    <itemizedlist>
-      <listitem>
-        <para>Open the Incident Workbench</para>
-      </listitem>
-      <listitem>
-        <para>Click the NEW button</para>
-      </listitem>
-      <listitem>
-        <para>Enter TTOYS in the "CRM Account" field</para>
-      </listitem>
-      <listitem>
-        <para>Select "Customer" from the "Category" drop-down menu</para>
-      </listitem>
-      <listitem>
-        <para>Set the "Status" to "New"</para>
-      </listitem>
-      <listitem>
-        <para>Set the "Severity" to "Normal"</para>
-      </listitem>
-      <listitem>
-        <para>Set the "Priority" to "High"</para>
-      </listitem>
-      <listitem>
-        <para>Leave the "Resolution" blank</para>
-      </listitem>
-      <listitem>
-        <para>Click the browse button next to the Contact's last name</para>
-      </listitem>
-      <listitem>
-        <para>Double-click on the name "Mike Farely" on the Contacts
-        List</para>
-      </listitem>
-      <listitem>
-        <para>Click the browse button next to the "Assigned To" field</para>
-      </listitem>
-      <listitem>
-        <para>Double-click on your User on the Active Usernames screen</para>
-      </listitem>
-      <listitem>
-        <para>Enter YTRUCK1 in the "Item Number" field</para>
-      </listitem>
-      <listitem>
-        <para>Enter the following text in the "Summary" field: "Evaluate for
-        Related Product"</para>
-      </listitem>
-      <listitem>
-        <para>Enter the following text in the "Description" field: "TTOYS has
-        enquired about a derivative product similar to the truck but smaller
-        and with a NASCAR logo on it."</para>
-      </listitem>
-    </itemizedlist>
-    <para>We will now enter a To-Do item and associate it with the Incident.
-    To enter a To-Do item from the Incident Workbench, follow these
-    steps:</para>
-    <itemizedlist>
-      <listitem>
-        <para>Click the NEW button on the To-Do List Items tab</para>
-      </listitem>
-      <listitem>
-        <para>Enter the following text in the "Task Name" field: "Check With
-        Legal About NASCAR Logo"</para>
-      </listitem>
-      <listitem>
-        <para>Enter a date +7 days from today in the "Date Due" field</para>
-      </listitem>
-      <listitem>
-        <para>Enter "10" in the Sequence # field</para>
-      </listitem>
-      <listitem>
-        <para>Enter the following text in the "Description" field: "Check With
-        Legal About NASCAR Logo"</para>
-      </listitem>
-      <listitem>
-        <para>Click the SAVE button</para>
-      </listitem>
-    </itemizedlist>
-    <para><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/F072-CRM-Inc-ToDo.png"
-                       />
-          </imageobject>
-          <caption>To-Do List Item</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para>Now that we have added one To-Do item, let's go ahead and add a
-    couple more. Use the following instructions to add additional To-Do
-    items:</para>
-    <itemizedlist>
-      <listitem>
-        <para>Repeat steps for creating a new To-Do, only using the following
-        new information:</para>
-        <para>Task Name: "Build Prototype and Send to Customer"</para>
-        <para>Date Due: +14 days from today</para>
-        <para>Sequence #: 20</para>
-        <para>Description: "Build Prototype and Send to Customer"</para>
-      </listitem>
-      <listitem>
-        <para>Repeat steps for creating a new To-Do, only using the following
-        new information:</para>
-        <para>Task Name: "Get Written Customer Approval"</para>
-        <para>Date Due: +21 days from today</para>
-        <para>Sequence #: 30</para>
-        <para>Description: "Get Written Customer Approval"</para>
-      </listitem>
-      <listitem>
-        <para>Your Incident screen will now look like this:</para>
-      </listitem>
-    </itemizedlist>
-    <para><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/F073-CRM-Inc-ToDoTAB.png"
-                       />
-          </imageobject>
-          <caption>New Incident With To-Do"s</caption>
-        </mediaobject>
-      </screenshot></para>
-    <itemizedlist>
-      <listitem>
-        <para>On the Incident screen, click the SAVE button</para>
-      </listitem>
-      <listitem>
-        <para>On the Incident Workbench, click the QUERY button</para>
-      </listitem>
-      <listitem>
-        <para>Notice your new Incident appears here</para>
-      </listitem>
-      <listitem>
-        <para>Click the CLOSE button to close the Incident workbench</para>
-      </listitem>
-    </itemizedlist>
-  </section>
-  <section id="Section578087">
-    <title><indexterm significance="normal">
-        <primary>crm</primary>
-        <secondary>to-do lists and</secondary>
-      </indexterm> <indexterm significance="normal">
-        <primary>to-do lists</primary>
-        <secondary>management of</secondary>
-      </indexterm>To-Do List Management</title>
-    <para>Individual Users have the ability to mange their To-Do Lists using
-    the "To-Do List" display. To access the To-Do List management display,
-    follow these steps:</para>
-    <itemizedlist>
-      <listitem>
-        <para>Pull down the CRM Module menu</para>
-      </listitem>
-      <listitem>
-        <para>Select the To-Do List Management submenu</para>
-      </listitem>
-      <listitem>
-        <para>Choose the "To-Do List" option</para>
-      </listitem>
-      <listitem>
-        <para>Select your username from the Selected drop-down menu</para>
-      </listitem>
-      <listitem>
-        <para>UNCHECK the "Show Incidents" box</para>
-      </listitem>
-      <listitem>
-        <para>You will now see your new To-Do"s:</para>
-      </listitem>
-    </itemizedlist>
-    <para><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/F074-CRM-Inc-ToDoListStandAlone.png"
-                       />
-          </imageobject>
-          <caption>To-Do List</caption>
-        </mediaobject>
-      </screenshot></para>
-    <itemizedlist>
-      <listitem>
-        <para>Double-click on your first To-Do (Hint: It's the one with
-        Sequence #10.)</para>
-      </listitem>
-      <listitem>
-        <para>You will be presented with the To-Do List Item screen</para>
-      </listitem>
-      <listitem>
-        <para>Enter today's date in the "Date Started" field</para>
-      </listitem>
-      <listitem>
-        <para>Enter today's date in the "Date Completed" field</para>
-      </listitem>
-      <listitem>
-        <para>Enter the following text in the "Notes" tab portion of the
-        screen: "Legal confirms that our agreement with NASCAR covers the
-        requested logo"</para>
-      </listitem>
-      <listitem>
-        <para>Click the SAVE button</para>
-      </listitem>
-      <listitem>
-        <para>Note that this To-Do is no longer displayed on the To-Do List
-        screen</para>
-      </listitem>
-      <listitem>
-        <para>Back on the To-Do List, select the "Completed" check box</para>
-      </listitem>
-      <listitem>
-        <para>The To-Do you just completed will now display</para>
-      </listitem>
-    </itemizedlist>
+  <section id="Section577935">
+    <title>Overview</title>
+    <para>In this section we will look at how CRM Accounts are used and how
+    they relate to Customers, Vendors, Contacts, and Addresses. Then we will
+    enter an Incident linked to an Account and an Item. Finally, we will add
+    To-Do's to the Incident and assign them to users who must complete the
+    To-Do's before they may close the Incident.</para>
     <note>
-      <para>When a To-Do Item displays in black type, this indicates the item
-      has been completed. Red To-Do's are late. Green To-Do's are not yet
-      due.</para>
+      <para>The scenarios described in this section refer to Items and other
+      data found in the xTuple ERP Demo Database. The Demo Database is
+      available for download from the xTuple ERP website.</para>
     </note>
-    <itemizedlist>
-      <listitem>
-        <para>Note that this screen has an "Automatically Update" check box in
-        the lower right corner</para>
-      </listitem>
-      <listitem>
-        <para>Click the Close button to exit the To-Do list screen</para>
-      </listitem>
-    </itemizedlist>
+    <section id="Section577940">
+      <title><indexterm significance="normal">
+          <primary>crm</primary>
+          <secondary>accounts introduced</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>crm</primary>
+          <secondary>addresses introduced</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>crm</primary>
+          <secondary>contacts introduced</secondary>
+        </indexterm>CRM Accounts, Addresses, and Contacts</title>
+      <para>Central to the concept of Corporate/ Customer Relationship
+      Management is the Account. An Account holds information about an entity
+      and serves to define it further as a Customer, Prospect, Vendor,
+      Competitor, or Partner. The creation of an Account enables you to enter
+      new Contact and Address information&mdash;or draw from previously
+      created Contacts and Addresses.</para>
+      <para>In this section we will be modifying an existing Account and
+      defining it as a Vendor. We will then open the Contacts List and
+      Addresses List to see how that information was populated dynamically.
+      Later, we will record a related Incident, along with several To-Do's
+      linked to the Incident.</para>
+      <para>We will begin by modifying an existing Account. The Customer,
+      TTOYS, will be familiar from the Basic Business Process Flow chapter of
+      the xTuple ERP Demo Guide. To access the master list of CRM Accounts,
+      follow these steps:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Pull down the CRM Module menu</para>
+        </listitem>
+        <listitem>
+          <para>Select the Address Book submenu</para>
+        </listitem>
+        <listitem>
+          <para>Choose the "List CRM Accounts" option</para>
+        </listitem>
+        <listitem>
+          <para>Click on the TTOYS Account</para>
+        </listitem>
+        <listitem>
+          <para>Click the EDIT button</para>
+        </listitem>
+        <listitem>
+          <para>The following screen will appear:</para>
+        </listitem>
+      </itemizedlist>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/F068-CRM-Acct.png" />
+            </imageobject>
+            <caption>CRM Account Screen</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see in our example, the "Customer" option is selected
+      in the "Relationships" portion of the screen. You can also see that the
+      customer is marked as "Active."</para>
+      <para>We will now update this Account record, modifying it so that our
+      Customer TTOYS is also listed as a Vendor. To update the Account record,
+      follow these steps:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Select the "Vendor" check box under the "Relationships"
+          section</para>
+        </listitem>
+        <listitem>
+          <para>Notice the VENDOR button to the far right of the screen</para>
+        </listitem>
+        <listitem>
+          <para>Click on the VENDOR button</para>
+        </listitem>
+        <listitem>
+          <para>On the Vendor master, you may set any values you
+          like&mdash;with the exception of the following information, which is
+          required for this scenario:</para>
+          <para>Vendor Type: STANDARD</para>
+          <para>Address: Use the browse button located beneath the Postal Code
+          on the header page to select the first address listed for
+          "Tremendous Toys Inc."</para>
+          <para>Default Terms: 2-10N30</para>
+          <para>Contact Information tab: Manually enter your own personal
+          contact information for Contact 1; then do the same for Contact 2,
+          using instead the contact information for a colleague or
+          friend</para>
+          <para>Addresses tab: Click the NEW button to display the Vendor
+          Address screen; manually enter your own address information; in
+          Contact area at the bottom of the Vendor Address screen, manually
+          enter the contact information for a person whose information you
+          have not already used</para>
+          <para>SAVE: Be sure to select the SAVE button to save the
+          information you have entered</para>
+        </listitem>
+        <listitem>
+          <para>Once back on the Vendor screen, click the SAVE button to
+          return to the CRM Account screen</para>
+        </listitem>
+        <listitem>
+          <para>If you receive the question "Would you like to update existing
+          contact or create new one?" select the CREATE NEW option</para>
+        </listitem>
+        <listitem>
+          <para>On the CRM Account screen, click the SAVE button</para>
+        </listitem>
+        <listitem>
+          <para>Note that on the CRM Accounts screen the TTOYS Account now has
+          a "Y" in the Vendor Column; previously, this Account was only marked
+          as a Customer Account</para>
+        </listitem>
+        <listitem>
+          <para>Click CLOSE to exit the CRM Accounts screen</para>
+        </listitem>
+      </itemizedlist>
+      <para>Now let's take a look at the new Contacts we created dynamically
+      during the process of updating our Account. To view the list of
+      available Contacts, follow these steps:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Pull down the CRM Module menu</para>
+        </listitem>
+        <listitem>
+          <para>Select the Address Book submenu</para>
+        </listitem>
+        <listitem>
+          <para>Choose the "List Contacts" option</para>
+        </listitem>
+        <listitem>
+          <para>Locate your name on the list of Contacts</para>
+        </listitem>
+        <listitem>
+          <para>Double-click on your Contact name</para>
+        </listitem>
+      </itemizedlist>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/F069-CRMContact.png" />
+            </imageobject>
+            <caption>Contact Screen</caption>
+          </mediaobject>
+        </screenshot></para>
+      <itemizedlist>
+        <listitem>
+          <para>Note that your Contact information is linked to the CRM
+          Account TTOYS</para>
+        </listitem>
+        <listitem>
+          <para>You may now optionally update the entry with additional
+          information&mdash;or link yourself to an existing Address if you
+          would like</para>
+        </listitem>
+        <listitem>
+          <para>Click the SAVE button to exit the Contact screen</para>
+        </listitem>
+        <listitem>
+          <para>Click the CLOSE button to exit the List Contacts screen</para>
+        </listitem>
+      </itemizedlist>
+      <para>Now that we have modified an Account and seen how Contact
+      information was created dynamically, let's look at one of the Addresses
+      we generated. To access the master list of addresses, follow these
+      steps:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Pull down the CRM Module menu</para>
+        </listitem>
+        <listitem>
+          <para>Select the Address Book submenu</para>
+        </listitem>
+        <listitem>
+          <para>Choose the "List Addresses" option</para>
+        </listitem>
+        <listitem>
+          <para>Locate the address you entered on the main page of the TTOYS
+          Vendor master</para>
+        </listitem>
+        <listitem>
+          <para>Double-click on the address</para>
+        </listitem>
+        <listitem>
+          <para>Click on the "Uses of the Address" tab</para>
+        </listitem>
+      </itemizedlist>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/F070-CRM-Address.png" />
+            </imageobject>
+            <caption>Address Screen</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see in our example, the Address we created during the
+      Account editing process is now clearly marked as a Vendor Address,
+      linked to the TTOYS Account.</para>
+      <itemizedlist>
+        <listitem>
+          <para>Click the CANCEL button on the Address screen to close
+          it</para>
+        </listitem>
+        <listitem>
+          <para>Click the CLOSE button on the List Addresses screen to close
+          it</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section id="Section578011">
+      <title><indexterm significance="normal">
+          <primary>crm</primary>
+          <secondary>incident workbench and</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>incident workbench</primary>
+          <secondary>introduced</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>to-do lists</primary>
+          <secondary>introduced</secondary>
+        </indexterm>CRM Incident Workbench</title>
+      <para>The next step in this scenario is to create an Incident linked to
+      the TTOYS CRM Account. We will also be linking your Contact information
+      to the Incident&mdash;as well as your xTuple ERPxTuple ERP user. To
+      begin the process of creating a new Incident, follow these steps:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Pull down the CRM Module menu</para>
+        </listitem>
+        <listitem>
+          <para>Select the Incident Management submenu</para>
+        </listitem>
+        <listitem>
+          <para>Choose the "Incident Workbench" option</para>
+        </listitem>
+        <listitem>
+          <para>Select All Users</para>
+        </listitem>
+        <listitem>
+          <para>Check all six of the Status boxes at the top of the
+          screen</para>
+        </listitem>
+        <listitem>
+          <para>Click the QUERY button</para>
+        </listitem>
+        <listitem>
+          <para>The following screen will appear:</para>
+        </listitem>
+      </itemizedlist>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/F071-CRM-IncWB.png" />
+            </imageobject>
+            <caption>Incident Workbench</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>The Incident Workbench enables you to monitor and record Incidents
+      that are linked to Accounts, Contacts, Users, and To-Do"s. The
+      flexibility offered by the Incident Workbench enables you to effectively
+      manage a variety of business processes:</para>
+      <orderedlist continuation="restarts" inheritnum="ignore">
+        <listitem>
+          <para>Customer requests</para>
+        </listitem>
+        <listitem>
+          <para>Customer issues</para>
+        </listitem>
+        <listitem>
+          <para>Vendor certification</para>
+        </listitem>
+        <listitem>
+          <para>Outbound product quality tests</para>
+        </listitem>
+        <listitem>
+          <para>Inbound component quality tests</para>
+        </listitem>
+        <listitem>
+          <para>Any other processes that require tracking</para>
+        </listitem>
+      </orderedlist>
+      <para>In the previous example, we displayed information for All Statuses
+      and All Users. What would happen if we changed the search parameters?
+      Let's find out. To change the Incident search parameters, follow these
+      steps:</para>
+      <itemizedlist>
+        <listitem>
+          <para>UNCHECK all the Status boxes&mdash;except for the "New" check
+          box; leave it selected</para>
+        </listitem>
+        <listitem>
+          <para>Click the QUERY button</para>
+        </listitem>
+        <listitem>
+          <para>Note that one of the issues which displayed previously has
+          disappeared</para>
+        </listitem>
+      </itemizedlist>
+      <para>As you have probably figured out by now, the fields at the top of
+      the Incident Workbench are filters which enable you to zero-in on the
+      information you are searching for.</para>
+      <para>We have seen how to locate Incidents&mdash;and how to apply search
+      parameters to narrow down our search for information. Now let's create a
+      new Incident. To create a new Incident, follow these steps:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Open the Incident Workbench</para>
+        </listitem>
+        <listitem>
+          <para>Click the NEW button</para>
+        </listitem>
+        <listitem>
+          <para>Enter TTOYS in the "CRM Account" field</para>
+        </listitem>
+        <listitem>
+          <para>Select "Customer" from the "Category" drop-down menu</para>
+        </listitem>
+        <listitem>
+          <para>Set the "Status" to "New"</para>
+        </listitem>
+        <listitem>
+          <para>Set the "Severity" to "Normal"</para>
+        </listitem>
+        <listitem>
+          <para>Set the "Priority" to "High"</para>
+        </listitem>
+        <listitem>
+          <para>Leave the "Resolution" blank</para>
+        </listitem>
+        <listitem>
+          <para>Click the browse button next to the Contact's last name</para>
+        </listitem>
+        <listitem>
+          <para>Double-click on the name "Mike Farely" on the Contacts
+          List</para>
+        </listitem>
+        <listitem>
+          <para>Click the browse button next to the "Assigned To" field</para>
+        </listitem>
+        <listitem>
+          <para>Double-click on your User on the Active Usernames
+          screen</para>
+        </listitem>
+        <listitem>
+          <para>Enter YTRUCK1 in the "Item Number" field</para>
+        </listitem>
+        <listitem>
+          <para>Enter the following text in the "Summary" field: "Evaluate for
+          Related Product"</para>
+        </listitem>
+        <listitem>
+          <para>Enter the following text in the "Description" field: "TTOYS
+          has enquired about a derivative product similar to the truck but
+          smaller and with a NASCAR logo on it."</para>
+        </listitem>
+      </itemizedlist>
+      <para>We will now enter a To-Do item and associate it with the Incident.
+      To enter a To-Do item from the Incident Workbench, follow these
+      steps:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Click the NEW button on the To-Do List Items tab</para>
+        </listitem>
+        <listitem>
+          <para>Enter the following text in the "Task Name" field: "Check With
+          Legal About NASCAR Logo"</para>
+        </listitem>
+        <listitem>
+          <para>Enter a date +7 days from today in the "Date Due" field</para>
+        </listitem>
+        <listitem>
+          <para>Enter "10" in the Sequence # field</para>
+        </listitem>
+        <listitem>
+          <para>Enter the following text in the "Description" field: "Check
+          With Legal About NASCAR Logo"</para>
+        </listitem>
+        <listitem>
+          <para>Click the SAVE button</para>
+        </listitem>
+      </itemizedlist>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/F072-CRM-Inc-ToDo.png" />
+            </imageobject>
+            <caption>To-Do List Item</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>Now that we have added one To-Do item, let's go ahead and add a
+      couple more. Use the following instructions to add additional To-Do
+      items:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Repeat steps for creating a new To-Do, only using the
+          following new information:</para>
+          <para>Task Name: "Build Prototype and Send to Customer"</para>
+          <para>Date Due: +14 days from today</para>
+          <para>Sequence #: 20</para>
+          <para>Description: "Build Prototype and Send to Customer"</para>
+        </listitem>
+        <listitem>
+          <para>Repeat steps for creating a new To-Do, only using the
+          following new information:</para>
+          <para>Task Name: "Get Written Customer Approval"</para>
+          <para>Date Due: +21 days from today</para>
+          <para>Sequence #: 30</para>
+          <para>Description: "Get Written Customer Approval"</para>
+        </listitem>
+        <listitem>
+          <para>Your Incident screen will now look like this:</para>
+        </listitem>
+      </itemizedlist>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/F073-CRM-Inc-ToDoTAB.png" />
+            </imageobject>
+            <caption>New Incident With To-Do"s</caption>
+          </mediaobject>
+        </screenshot></para>
+      <itemizedlist>
+        <listitem>
+          <para>On the Incident screen, click the SAVE button</para>
+        </listitem>
+        <listitem>
+          <para>On the Incident Workbench, click the QUERY button</para>
+        </listitem>
+        <listitem>
+          <para>Notice your new Incident appears here</para>
+        </listitem>
+        <listitem>
+          <para>Click the CLOSE button to close the Incident workbench</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section id="Section578087">
+      <title><indexterm significance="normal">
+          <primary>crm</primary>
+          <secondary>to-do lists and</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>to-do lists</primary>
+          <secondary>management of</secondary>
+        </indexterm>To-Do List Management</title>
+      <para>Individual Users have the ability to mange their To-Do Lists using
+      the "To-Do List" display. To access the To-Do List management display,
+      follow these steps:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Pull down the CRM Module menu</para>
+        </listitem>
+        <listitem>
+          <para>Select the To-Do List Management submenu</para>
+        </listitem>
+        <listitem>
+          <para>Choose the "To-Do List" option</para>
+        </listitem>
+        <listitem>
+          <para>Select your username from the Selected drop-down menu</para>
+        </listitem>
+        <listitem>
+          <para>UNCHECK the "Show Incidents" box</para>
+        </listitem>
+        <listitem>
+          <para>You will now see your new To-Do"s:</para>
+        </listitem>
+      </itemizedlist>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/F074-CRM-Inc-ToDoListStandAlone.png" />
+            </imageobject>
+            <caption>To-Do List</caption>
+          </mediaobject>
+        </screenshot></para>
+      <itemizedlist>
+        <listitem>
+          <para>Double-click on your first To-Do (Hint: It's the one with
+          Sequence #10.)</para>
+        </listitem>
+        <listitem>
+          <para>You will be presented with the To-Do List Item screen</para>
+        </listitem>
+        <listitem>
+          <para>Enter today's date in the "Date Started" field</para>
+        </listitem>
+        <listitem>
+          <para>Enter today's date in the "Date Completed" field</para>
+        </listitem>
+        <listitem>
+          <para>Enter the following text in the "Notes" tab portion of the
+          screen: "Legal confirms that our agreement with NASCAR covers the
+          requested logo"</para>
+        </listitem>
+        <listitem>
+          <para>Click the SAVE button</para>
+        </listitem>
+        <listitem>
+          <para>Note that this To-Do is no longer displayed on the To-Do List
+          screen</para>
+        </listitem>
+        <listitem>
+          <para>Back on the To-Do List, select the "Completed" check
+          box</para>
+        </listitem>
+        <listitem>
+          <para>The To-Do you just completed will now display</para>
+        </listitem>
+      </itemizedlist>
+      <note>
+        <para>When a To-Do Item displays in black type, this indicates the
+        item has been completed. Red To-Do's are late. Green To-Do's are not
+        yet due.</para>
+      </note>
+      <itemizedlist>
+        <listitem>
+          <para>Note that this screen has an "Automatically Update" check box
+          in the lower right corner</para>
+        </listitem>
+        <listitem>
+          <para>Click the Close button to exit the To-Do list screen</para>
+        </listitem>
+      </itemizedlist>
+    </section>
   </section>
-</section>
+</article>

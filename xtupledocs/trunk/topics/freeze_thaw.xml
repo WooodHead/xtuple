@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section672121">
-  <title id="Anchor80983"><indexterm significance="normal">
+<article>
+  <title><indexterm significance="normal">
       <primary>topics</primary>
       <secondary>freezing and thawing</secondary>
     </indexterm> <indexterm significance="normal">
@@ -13,155 +12,158 @@
       <primary>thawing</primary>
       <secondary>explained</secondary>
     </indexterm>Topic: Freezing and Thawing</title>
-  <para>The freezing/thawing mechanism is designed to ensure you get accurate
-  Inventory counts without having to shut down operations. All you have to do
-  is follow these simple steps:</para>
-  <orderedlist continuation="restarts" inheritnum="ignore">
-    <listitem>
-      <para>Prior to beginning an Inventory count, freeze your <indexterm
-          significance="normal">
-          <primary>quantity on hand</primary>
-          <secondary>freezing and thawing of</secondary>
-        </indexterm>Quantity on Hand.</para>
-    </listitem>
-    <listitem>
-      <para>Once you finish the count and post your numbers, thaw your
-      Quantity on Hand.</para>
-    </listitem>
-    <listitem>
-      <para>The Quantity on Hand indicated on screen will be accurate because
-      it reflects not only the numbers from your count but also any Inventory
-      activity that may have occurred during the time your count was
-      underway.</para>
-    </listitem>
-  </orderedlist>
-  <para>To give you a better feel for how freezing and thawing works, consider
-  the following hypothetical scenarios. These scenarios approach the issue of
-  Inventory accuracy from a number of different perspectives.</para>
-  <section id="Section672129">
-    <title><indexterm significance="normal">
-        <primary>freezing</primary>
-        <secondary>implications of not using</secondary>
-      </indexterm> <indexterm significance="normal">
-        <primary>thawing</primary>
-        <secondary>implications of not using</secondary>
-      </indexterm>Counting Inventory without Freeze/Thaw</title>
-    <para>In our first scenario, we show an Inventory count where Quantity on
-    Hand is not frozen prior to the count. The numbers you see in the figure
-    correspond to the following chronological narrative:</para>
+  <section id="Section672121">
+    <title id="Anchor80983">Overview</title>
+    <para>The freezing/thawing mechanism is designed to ensure you get
+    accurate Inventory counts without having to shut down operations. All you
+    have to do is follow these simple steps:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem>
-        <para>The plant's Inventory manager decides to count Inventory and
-        issues a Count Tag. He does not select the "Freeze Inventory" option
-        on the Count Tag screen.</para>
+        <para>Prior to beginning an Inventory count, freeze your <indexterm
+            significance="normal">
+            <primary>quantity on hand</primary>
+            <secondary>freezing and thawing of</secondary>
+          </indexterm>Quantity on Hand.</para>
       </listitem>
       <listitem>
-        <para>The count begins and a quantity of 14 is counted. At this point
-        the count is done, but for some reason the Count Tag is not posted
-        right away. Perhaps the manager goes to lunch&mdash;or is called to perform
-        another task.</para>
+        <para>Once you finish the count and post your numbers, thaw your
+        Quantity on Hand.</para>
       </listitem>
       <listitem>
-        <para>Meanwhile, activity is occurring inside the Warehouse. We see
-        that 5 units are received into Inventory and 2 units are
-        issued.</para>
-      </listitem>
-      <listitem>
-        <para>This Warehouse activity is reflected on screen. The indicated
-        Quantity on Hand rises or falls with each Inventory
-        transaction.</para>
-      </listitem>
-      <listitem>
-        <para>After lunch, the Count Tag is now posted. The posted quantity
-        reflects the quantity counted earlier&mdash;which was 14. This value will
-        now display as the indicated Quantity on Hand.</para>
-      </listitem>
-      <listitem>
-        <para>However, as you can see from the far left-hand column in the
-        diagram, the indicated Quantity on Hand does not equal the actual
-        Quantity on Hand. Why? Because the Inventory count did not consider
-        ongoing Warehouse activity. The numbers are off&mdash;and this is a
-        problem.</para>
+        <para>The Quantity on Hand indicated on screen will be accurate
+        because it reflects not only the numbers from your count but also any
+        Inventory activity that may have occurred during the time your count
+        was underway.</para>
       </listitem>
     </orderedlist>
-    <para><anchor id="Anchor75689" role="Cross-Ref"
-    xreflabel="75689: Figure: Figure 3.1:  Scenario A: Inventory Count without Freezing Inventory" />
-    <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Drawing_inventoryNoFreeze.png"
-                       />
-          </imageobject>
-          <caption>Scenario A: Inventory Count without
-          Freezing Inventory</caption>
-        </mediaobject>
-      </screenshot></para>
+    <para>To give you a better feel for how freezing and thawing works,
+    consider the following hypothetical scenarios. These scenarios approach
+    the issue of Inventory accuracy from a number of different
+    perspectives.</para>
+    <section id="Section672129">
+      <title><indexterm significance="normal">
+          <primary>freezing</primary>
+          <secondary>implications of not using</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>thawing</primary>
+          <secondary>implications of not using</secondary>
+        </indexterm>Counting Inventory without Freeze/Thaw</title>
+      <para>In our first scenario, we show an Inventory count where Quantity
+      on Hand is not frozen prior to the count. The numbers you see in the
+      figure correspond to the following chronological narrative:</para>
+      <orderedlist continuation="restarts" inheritnum="ignore">
+        <listitem>
+          <para>The plant's Inventory manager decides to count Inventory and
+          issues a Count Tag. He does not select the "Freeze Inventory" option
+          on the Count Tag screen.</para>
+        </listitem>
+        <listitem>
+          <para>The count begins and a quantity of 14 is counted. At this
+          point the count is done, but for some reason the Count Tag is not
+          posted right away. Perhaps the manager goes to lunch&mdash;or is
+          called to perform another task.</para>
+        </listitem>
+        <listitem>
+          <para>Meanwhile, activity is occurring inside the Warehouse. We see
+          that 5 units are received into Inventory and 2 units are
+          issued.</para>
+        </listitem>
+        <listitem>
+          <para>This Warehouse activity is reflected on screen. The indicated
+          Quantity on Hand rises or falls with each Inventory
+          transaction.</para>
+        </listitem>
+        <listitem>
+          <para>After lunch, the Count Tag is now posted. The posted quantity
+          reflects the quantity counted earlier&mdash;which was 14. This value
+          will now display as the indicated Quantity on Hand.</para>
+        </listitem>
+        <listitem>
+          <para>However, as you can see from the far left-hand column in the
+          diagram, the indicated Quantity on Hand does not equal the actual
+          Quantity on Hand. Why? Because the Inventory count did not consider
+          ongoing Warehouse activity. The numbers are off&mdash;and this is a
+          problem.</para>
+        </listitem>
+      </orderedlist>
+      <para><anchor id="Anchor75689" role="Cross-Ref"
+      xreflabel="75689: Figure: Figure 3.1:  Scenario A: Inventory Count without Freezing Inventory" />
+      <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Drawing_inventoryNoFreeze.png" />
+            </imageobject>
+            <caption>Scenario A: Inventory Count without Freezing
+            Inventory</caption>
+          </mediaobject>
+        </screenshot></para>
+    </section>
+    <section id="Section672147">
+      <title><indexterm significance="normal">
+          <primary>freezing</primary>
+          <secondary>prior to counting</secondary>
+        </indexterm>Freezing Inventory Before Counting</title>
+      <para>The second scenario is similar to the first&mdash;except for one
+      important detail. In "Scenario B," the Inventory manager decides to
+      freeze Inventory prior to beginning the Inventory count. Again, the
+      numbers shown in the diagram correspond to the following chronological
+      narrative:</para>
+      <orderedlist continuation="restarts" inheritnum="ignore">
+        <listitem>
+          <para>Noticing a discrepancy between actual Quantity on Hand and
+          indicated Quantity on Hand, the Inventory manager orders an
+          Inventory count.</para>
+        </listitem>
+        <listitem>
+          <para>When creating the Count Tag, he selects the "Freeze Inventory"
+          option.</para>
+        </listitem>
+        <listitem>
+          <para>Because the Inventory is frozen, the indicated Quantity on
+          Hand will not change until Inventory is thawed at the end of the
+          process. As you can see, the indicated Quantity on Hand is frozen at
+          10 until after the thaw.</para>
+        </listitem>
+        <listitem>
+          <para>The count begins and a quantity of 14 is counted. At this
+          point the count is done and the manager goes to lunch&mdash;waiting
+          to post the count until after he returns.</para>
+        </listitem>
+        <listitem>
+          <para>Meanwhile, activity is occurring inside the Warehouse. We see
+          that 5 units are received into Inventory and 2 units are issued.
+          This Warehouse activity is not reflected on screen because Inventory
+          has been frozen.</para>
+        </listitem>
+        <listitem>
+          <para>After lunch, the manager posts the Count Tag. But notice that
+          the indicated Quantity on Hand does not change to the Count Tag
+          total of 14. Until Inventory is thawed, the indicated Quantity on
+          Hand will remain at its frozen level.</para>
+        </listitem>
+        <listitem>
+          <para>When posting the Count Tag, the manager selects the "Thaw
+          Frozen Inventory" option. As Inventory is thawing, the software
+          performs a number of calculations. First, it retrieves the Count Tag
+          total. Then it looks for any Warehouse transactions. Finally it
+          returns an indicated Quantity on Hand of 17. The equation would look
+          something like this: 14 + 5 - 2 = 17.</para>
+        </listitem>
+        <listitem>
+          <para>As a result of the thawing process, the indicated Quantity on
+          Hand equals the actual Quantity on Hand. The numbers are correct.
+          There is no problem.</para>
+        </listitem>
+      </orderedlist>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Drawing_inventoryFreeze.png" />
+            </imageobject>
+            <caption>Scenario B: Freezing Inventory Before Beginning Inventory
+            Count</caption>
+          </mediaobject>
+        </screenshot></para>
+    </section>
   </section>
-  <section id="Section672147">
-    <title><indexterm significance="normal">
-        <primary>freezing</primary>
-        <secondary>prior to counting</secondary>
-      </indexterm>Freezing Inventory Before Counting</title>
-    <para>The second scenario is similar to the first&mdash;except for one
-    important detail. In "Scenario B," the Inventory manager decides to freeze
-    Inventory prior to beginning the Inventory count. Again, the numbers shown
-    in the diagram correspond to the following chronological narrative:</para>
-    <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem>
-        <para>Noticing a discrepancy between actual Quantity on Hand and
-        indicated Quantity on Hand, the Inventory manager orders an Inventory
-        count.</para>
-      </listitem>
-      <listitem>
-        <para>When creating the Count Tag, he selects the "Freeze Inventory"
-        option.</para>
-      </listitem>
-      <listitem>
-        <para>Because the Inventory is frozen, the indicated Quantity on Hand
-        will not change until Inventory is thawed at the end of the process.
-        As you can see, the indicated Quantity on Hand is frozen at 10 until
-        after the thaw.</para>
-      </listitem>
-      <listitem>
-        <para>The count begins and a quantity of 14 is counted. At this point
-        the count is done and the manager goes to lunch&mdash;waiting to post the
-        count until after he returns.</para>
-      </listitem>
-      <listitem>
-        <para>Meanwhile, activity is occurring inside the Warehouse. We see
-        that 5 units are received into Inventory and 2 units are issued. This
-        Warehouse activity is not reflected on screen because Inventory has
-        been frozen.</para>
-      </listitem>
-      <listitem>
-        <para>After lunch, the manager posts the Count Tag. But notice that
-        the indicated Quantity on Hand does not change to the Count Tag total
-        of 14. Until Inventory is thawed, the indicated Quantity on Hand will
-        remain at its frozen level.</para>
-      </listitem>
-      <listitem>
-        <para>When posting the Count Tag, the manager selects the "Thaw Frozen
-        Inventory" option. As Inventory is thawing, the software performs a
-        number of calculations. First, it retrieves the Count Tag total. Then
-        it looks for any Warehouse transactions. Finally it returns an
-        indicated Quantity on Hand of 17. The equation would look something
-        like this: 14 + 5 - 2 = 17.</para>
-      </listitem>
-      <listitem>
-        <para>As a result of the thawing process, the indicated Quantity on
-        Hand equals the actual Quantity on Hand. The numbers are correct.
-        There is no problem.</para>
-      </listitem>
-    </orderedlist>
-    <para><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Drawing_inventoryFreeze.png"
-                       />
-          </imageobject>
-          <caption>Scenario B: Freezing Inventory Before
-          Beginning Inventory Count</caption>
-        </mediaobject>
-      </screenshot></para>
-  </section>
-</section>
+</article>
