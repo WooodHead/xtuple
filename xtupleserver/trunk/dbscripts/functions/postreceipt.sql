@@ -171,7 +171,7 @@ BEGIN
 			  (_r.recv_qty * _o.invvenduomratio),
 			  ''S/R'',
 			  _r.recv_order_type, _o.orderhead_number::TEXT,
-			  _ra.rahead_number::TEXT,
+			  _ra.rahead_number::TEXT || ''-'' || _ra.raitem_linenumber::TEXT,
 			  ''Receive Inventory from '' || _ordertypeabbr,
 			  costcat_asset_accnt_id,
 			  CASE WHEN (_ra.raitem_warranty) THEN
