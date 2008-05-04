@@ -44,8 +44,12 @@ DECLARE
 
 BEGIN
   --Validate
-  IF ((pFlag IS NULL) OR (pFlag = ''CHECK'') OR (pFlag = ''CHANGEONE'') OR (pFlag = ''CHANGEALL'')) THEN
-	_flag = COALESCE(pFlag,''CHECK'');
+  IF ((pFlag IS NULL) OR (pFlag = '''') OR (pFlag = ''CHECK'') OR (pFlag = ''CHANGEONE'') OR (pFlag = ''CHANGEALL'')) THEN
+    IF (pFlag='''') THEN
+      _flag := ''CHECK'';
+    ELSE
+      _flag := COALESCE(pFlag,''CHECK'');
+    END IF;
   ELSE
 	RAISE EXCEPTION ''Invalid Flag (%). Valid flags are CHECK, CHANGEONE or CHANGEALL'', pFlag;
   END IF;
