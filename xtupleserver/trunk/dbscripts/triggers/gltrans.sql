@@ -18,8 +18,51 @@ SELECT dropIfExists('TRIGGER', 'gltransInsertTrigger');
 CREATE TRIGGER gltransInsertTrigger BEFORE INSERT ON gltrans FOR EACH ROW EXECUTE PROCEDURE _gltransInsertTrigger();
 
 CREATE OR REPLACE FUNCTION _gltransAlterTrigger() RETURNS TRIGGER AS $$
+DECLARE
+  _updated BOOLEAN := false;
 BEGIN
-  RAISE EXCEPTION 'You may not make alterations to, or delete, G/L Transactions once they have been created.';
+  IF(TG_OP='DELETE') THEN
+    RAISE EXCEPTION 'You may not delete G/L Transactions once they have been created.';
+  ELSIF (TG_OP = 'UPDATE') THEN
+    IF(OLD.gltrans_id != NEW.gltrans_id) THEN
+      _updated := true;
+    ELSIF(OLD.gltrans_date != NEW.gltrans_date) THEN
+      _updated := true;
+    ELSIF(OLD.gltrans_accnt_id != NEW.gltrans_accnt_id) THEN
+      _updated := true;
+    ELSIF(OLD.gltrans_amount != NEW.gltrans_amount) THEN
+      _updated := true;
+    ELSIF(OLD.gltrans_username != NEW.gltrans_username) THEN
+      _updated := true;
+    ELSIF( (OLD.gltrans_sequence IS NULL     AND NEW.gltrans_sequence IS NOT NULL)
+        OR (OLD.gltrans_sequence IS NOT NULL AND NEW.gltrans_sequence IS NULL)
+        OR (COALESCE(OLD.gltrans_sequence,0) != COALESCE(NEW.gltrans_sequence,0)) ) THEN
+      _updated := true;
+    ELSIF( (OLD.gltrans_created IS NULL     AND NEW.gltrans_created IS NOT NULL)
+        OR (OLD.gltrans_created IS NOT NULL AND NEW.gltrans_created IS NULL)
+        OR (COALESCE(OLD.gltrans_created,now()) != COALESCE(NEW.gltrans_created,now())) ) THEN
+      _updated := true;
+    ELSIF( (OLD.gltrans_source IS NULL     AND NEW.gltrans_source IS NOT NULL)
+        OR (OLD.gltrans_source IS NOT NULL AND NEW.gltrans_source IS NULL)
+        OR (COALESCE(OLD.gltrans_source,'') != COALESCE(NEW.gltrans_source,'')) ) THEN
+      _updated := true;
+    ELSIF( (OLD.gltrans_docnumber IS NULL     AND NEW.gltrans_docnumber IS NOT NULL)
+        OR (OLD.gltrans_docnumber IS NOT NULL AND NEW.gltrans_docnumber IS NULL)
+        OR (COALESCE(OLD.gltrans_docnumber,'') != COALESCE(NEW.gltrans_docnumber,'')) ) THEN
+      _updated := true;
+    ELSIF( (OLD.gltrans_doctype IS NULL     AND NEW.gltrans_doctype IS NOT NULL)
+        OR (OLD.gltrans_doctype IS NOT NULL AND NEW.gltrans_doctype IS NULL)
+        OR (COALESCE(OLD.gltrans_doctype,'') != COALESCE(NEW.gltrans_doctype,'')) ) THEN
+      _updated := true;
+    END IF;
+
+    IF(_updated) THEN
+      RAISE EXCEPTION 'You may not alter some G/L Transaction fields once they have been created.';
+    END IF;
+  ELSE
+    RAISE EXCEPTION 'trigger for gltrans table called in unexpected state.';
+  END IF;
+  RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
 
