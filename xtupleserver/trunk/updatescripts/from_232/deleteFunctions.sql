@@ -9,5 +9,7 @@ DROP FUNCTION fetchNextNumber(text);
 DROP FUNCTION deleteSo(INTEGER, INTEGER);
 DROP FUNCTION fetchARMemoNumber();
 DROP FUNCTION fetchShipmentNumber();
+SELECT dropIfExists('TRIGGER', 'gltransTrigger');
+DROP FUNCTION _gltransTrigger();
 
 COMMIT;
