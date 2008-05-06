@@ -117,13 +117,14 @@ BEGIN
       -- This is inventory so handle with g/l transaction
       SELECT postInvTrans( itemsite_id, ''SH'', pQty * coitem_qty_invuomratio,
 			 ''S/R'', porderType,
-			 formatSoNumber(coitem_id), '''', ''Issue to Shipping'',
+			 formatSoNumber(coitem_id), shiphead_number, ''Issue to Shipping'',
 			 costcat_shipasset_accnt_id, costcat_asset_accnt_id,
 			 _itemlocSeries, _timestamp ) INTO _invhistid
-      FROM coitem, itemsite, costcat
+      FROM coitem, itemsite, costcat, shiphead
       WHERE ( (coitem_itemsite_id=itemsite_id)
        AND (itemsite_costcat_id=costcat_id)
-       AND (coitem_id=pitemid) );
+       AND (coitem_id=pitemid)
+       AND (shiphead_id=_shipheadid) );
 
       _value := round(stdcost(_r.item_id) * pQty * _r.coitem_qty_invuomratio,2);
     ELSE
