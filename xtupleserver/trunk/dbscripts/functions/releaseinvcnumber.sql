@@ -1,4 +1,10 @@
 CREATE OR REPLACE FUNCTION releaseInvcNumber(INTEGER) RETURNS BOOLEAN AS '
+BEGIN
+  RETURN releaseInvcNumber(CAST($1 AS TEXT));
+END;
+' LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION releaseInvcNumber(TEXT) RETURNS BOOLEAN AS '
 DECLARE
   pNumber ALIAS FOR $1;
   _test INTEGER;
@@ -19,7 +25,8 @@ BEGIN
   FROM orderseq
   WHERE (orderseq_name=''InvcNumber'');
 
-  IF ((_test - 1) <> pNumber) THEN
+  IF (CAST(_test   AS INTEGER) - 1 <>
+      CAST(pNumber AS INTEGER)) THEN
     RETURN FALSE;
   END IF;
 
