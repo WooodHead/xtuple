@@ -53,14 +53,16 @@ BEGIN
           AND (coitem_itemsite_id=itemsite_id)
           AND (itemsite_item_id=item_id))) THEN
       SELECT postInvTrans( itemsite_id, ''RS'', _qty * coitem_qty_invuomratio,
-			 ''S/R'', _ordertype, formatSoNumber(coitem_id), '''',
+			 ''S/R'', _ordertype, formatSoNumber(coitem_id), shiphead_number,
 			 ''Return from Shipping'',
 			 costcat_asset_accnt_id, costcat_shipasset_accnt_id,
 			 _ils, _timestamp ) INTO _invhistid
-      FROM coitem, itemsite, costcat
+      FROM coitem, itemsite, costcat, shiphead, shipitem
       WHERE ((_orderitemid=coitem_id)
       AND  (coitem_itemsite_id=itemsite_id)
-      AND  (itemsite_costcat_id=costcat_id));
+      AND  (itemsite_costcat_id=costcat_id)
+      AND  (shiphead_id=shipitem_shiphead_id)
+      AND  (shipitem_id=pshipitemid));
       
     ELSE
       SELECT insertGLTransaction( ''S/R'', ''RS'', formatSoNumber(_orderitemid), ''Return from Shipping'',
