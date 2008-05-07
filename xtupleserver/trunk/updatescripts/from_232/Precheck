@@ -7,3 +7,9 @@
 SELECT COUNT(*) = 0
 FROM addr LEFT OUTER JOIN country ON (addr_country=country_name)
 WHERE country_id IS NULL;
+
+-- check for any prospects that have null number's or names.
+SELECT COUNT(*) = 0
+  FROM prospect
+ WHERE((prospect_number IS NULL)
+    OR (prospect_name IS NULL));

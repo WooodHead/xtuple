@@ -48,7 +48,7 @@ CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER) RETURNS INTEGER AS
         _p.prospect_id, _p.prospect_active, _p.prospect_number,
         _p.prospect_name, _p.prospect_cntct_id, _p.prospect_taxauth_id,
         _p.prospect_comments, ''G'',
-        FetchMetricValue(''DefaultSalesRep''),
+        COALESCE(_p.prospect_salesrep_id, salesrep_id),
         FetchMetricValue(''DefaultTerms''),
         FetchMetricValue(''DefaultCustType''),
         FetchMetricValue(''DefaultShipFormId''),
