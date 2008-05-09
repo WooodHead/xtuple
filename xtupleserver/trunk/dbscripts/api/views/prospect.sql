@@ -58,7 +58,7 @@ INSERT INTO prospect
         prospect_salesrep_id,
   	prospect_comments)
         VALUES (
-        UPPER(checkUniqueProspectNumber(NEW.prospect_number,NULL)),
+        UPPER(NEW.prospect_number),
         COALESCE(NEW.prospect_name,''),
 	COALESCE(NEW.active,true),
         saveCntct(
@@ -94,7 +94,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO api.prospect DO INSTEAD
 
 UPDATE prospect SET
-        prospect_number=checkUniqueProspectNumber(NEW.prospect_number, OLD.prospect_number),
+        prospect_number=UPPER(NEW.prospect_number),
         prospect_name=NEW.prospect_name,
 	prospect_active=NEW.active,
         prospect_cntct_id=saveCntct(
