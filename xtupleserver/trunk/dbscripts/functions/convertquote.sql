@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION convertQuote(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION convertQuote(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pQuheadid ALIAS FOR $1;
   _soheadid INTEGER;
@@ -11,6 +11,13 @@ DECLARE
 
 BEGIN
 
+-- Check to make sure the quote has not expired
+  IF (SELECT COALESCE(quhead_expire, endOfTime()) < CURRENT_DATE
+        FROM quhead
+       WHERE(quhead_id=pQuheadid)) THEN
+    RETURN -6;
+  END IF;
+
 --  Check to make sure that all of the quote items have a valid itemsite
   SELECT quitem_id INTO _r
     FROM quitem LEFT OUTER JOIN itemsite ON (quitem_itemsite_id=itemsite_id)
@@ -20,11 +27,11 @@ BEGIN
     INSERT INTO evntlog (evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
                          evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number)
     SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
-           ''Q'', quhead_id, quhead_warehous_id, quhead_number
+           'Q', quhead_id, quhead_warehous_id, quhead_number
     FROM evntnot, evnttype, quhead
     WHERE ( (evntnot_evnttype_id=evnttype_id)
      AND (evntnot_warehous_id=quhead_warehous_id)
-     AND (evnttype_name=''CannotConvertQuote'')
+     AND (evnttype_name='CannotConvertQuote')
      AND (quhead_id=pQuheadid) );
 
     RETURN -1;
@@ -45,13 +52,13 @@ BEGIN
     ELSE
       RETURN -3;
     END IF;
-  ELSIF (_creditstatus = ''H'' AND NOT hasPriv(''CreateSOForHoldCustomer'')) THEN
+  ELSIF (_creditstatus = 'H' AND NOT hasPriv('CreateSOForHoldCustomer')) THEN
     RETURN -4;
-  ELSIF (_creditstatus = ''W'' AND NOT hasPriv(''CreateSOForWarnCustomer'')) THEN
+  ELSIF (_creditstatus = 'W' AND NOT hasPriv('CreateSOForWarnCustomer')) THEN
     RETURN -5;
   END IF;
 
-  SELECT NEXTVAL(''cohead_cohead_id_seq'') INTO _soheadid;
+  SELECT NEXTVAL('cohead_cohead_id_seq') INTO _soheadid;
   INSERT INTO cohead
   ( cohead_id, cohead_number, cohead_cust_id,
     cohead_orderdate, cohead_packdate,
@@ -87,7 +94,7 @@ BEGIN
          quhead_fob, quhead_shipvia,
          quhead_ordercomments, quhead_shipcomments,
          quhead_freight, quhead_misc, quhead_misc_accnt_id, quhead_misc_descrip,
-         ''N'', TRUE, quhead_number, quhead_prj_id,
+         'N', TRUE, quhead_number, quhead_prj_id,
 	 quhead_curr_id, quhead_taxauth_id
   FROM quhead, cust
   WHERE ( (quhead_cust_id=cust_id)
@@ -102,32 +109,32 @@ BEGIN
              AND (itemsite_item_id=item_id)
              AND (quitem_quhead_id=pQuheadid) ) LOOP
 
-    SELECT NEXTVAL(''coitem_coitem_id_seq'') INTO _soitemid;
+    SELECT NEXTVAL('coitem_coitem_id_seq') INTO _soitemid;
 
     _orderid := -1;
-    _ordertype := '''';
+    _ordertype := '';
     IF (_r.quitem_createorder) THEN
 
-      IF (_r.item_type IN (''M'',''J'')) THEN
+      IF (_r.item_type IN ('M','J')) THEN
         SELECT createWo( _r.quhead_number, supply.itemsite_id, 1, (_r.quitem_qtyord * _r.quitem_qty_invuomratio),
-                         _r.itemsite_leadtime, _r.quitem_scheddate, _r.quitem_memo, ''S'', _soitemid, _r.quhead_prj_id ) INTO _orderId
+                         _r.itemsite_leadtime, _r.quitem_scheddate, _r.quitem_memo, 'S', _soitemid, _r.quhead_prj_id ) INTO _orderId
         FROM itemsite sold, itemsite supply
         WHERE ((sold.itemsite_item_id=supply.itemsite_item_id)
          AND (supply.itemsite_warehous_id=_r.quitem_order_warehous_id)
          AND (sold.itemsite_id=_r.quitem_itemsite_id) );
-        _orderType := ''W'';
+        _orderType := 'W';
 
         INSERT INTO charass
               (charass_target_type, charass_target_id, charass_char_id, charass_value)
-        SELECT ''W'', _orderId, charass_char_id, charass_value
+        SELECT 'W', _orderId, charass_char_id, charass_value
           FROM charass
-         WHERE ((charass_target_type=''QI'')
+         WHERE ((charass_target_type='QI')
            AND  (charass_target_id=_r.quitem_id));
 
-      ELSIF (_r.item_type IN (''P'', ''O'')) THEN
+      ELSIF (_r.item_type IN ('P', 'O')) THEN
         SELECT createPr( _r.quhead_number, _r.quitem_itemsite_id, (_r.quitem_qtyord * _r.quitem_qty_invuomratio),
-                         _r.quitem_scheddate, '''', ''S'', _soitemid ) INTO _orderId;
-        _orderType := ''R'';
+                         _r.quitem_scheddate, '', 'S', _soitemid ) INTO _orderId;
+        _orderType := 'R';
         UPDATE pr SET pr_prj_id=_r.quhead_prj_id WHERE pr_id=_orderId;
       END IF;
 
@@ -144,7 +151,7 @@ BEGIN
       coitem_custpn, coitem_memo, coitem_prcost, coitem_tax_id )
     VALUES
     ( _soitemid, _soheadid, _r.quitem_linenumber, _r.quitem_itemsite_id,
-      ''O'', _r.quitem_scheddate, _r.quitem_promdate,
+      'O', _r.quitem_scheddate, _r.quitem_promdate,
       _r.quitem_price, _r.quitem_custprice,
       _r.quitem_qtyord, 0, 0,
       _r.quitem_qty_uom_id, _r.quitem_qty_invuomratio,
@@ -154,9 +161,9 @@ BEGIN
 
     INSERT INTO charass
           (charass_target_type, charass_target_id, charass_char_id, charass_value)
-    SELECT ''SI'', _soitemid, charass_char_id, charass_value
+    SELECT 'SI', _soitemid, charass_char_id, charass_value
       FROM charass
-     WHERE ((charass_target_type=''QI'')
+     WHERE ((charass_target_type='QI')
        AND  (charass_target_id=_r.quitem_id));
 
   END LOOP;
@@ -166,4 +173,4 @@ BEGIN
   RETURN _soheadid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

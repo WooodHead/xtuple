@@ -59,7 +59,8 @@ AS
      quhead_freight AS freight,
      quhead_ordercomments AS order_notes,
      quhead_shipcomments AS shipping_notes,
-     false AS add_to_packing_list_batch
+     false AS add_to_packing_list_batch,
+     quhead_expire AS expire_date
    FROM quhead
      LEFT OUTER JOIN whsinfo ON (quhead_warehous_id=warehous_id)
      LEFT OUTER JOIN prj ON (quhead_prj_id=prj_id)
@@ -120,7 +121,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
     quhead_shiptocountry,
     quhead_curr_id,
     quhead_taxauth_id,
-    quhead_imported
+    quhead_imported,
+    quhead_expire
     )
   VALUES (
     NEW.quote_number,
@@ -233,7 +235,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
       SELECT cust_taxauth_id
       FROM custinfo
       WHERE (cust_id=getCustId(NEW.customer_number,true)))),
-    true);
+    true,
+    NEW.expire_date);
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.quote DO INSTEAD
@@ -285,7 +288,8 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     quhead_billtocountry=NEW.billto_country,
     quhead_shiptocountry=NEW.shipto_country,
     quhead_curr_id=getCurrId(NEW.currency),
-    quhead_taxauth_id=getTaxAuthId(NEW.tax_authority)
+    quhead_taxauth_id=getTaxAuthId(NEW.tax_authority),
+    quhead_expire=NEW.expire_date
   WHERE (quhead_number=OLD.quote_number);
            
 CREATE OR REPLACE RULE "_DELETE" AS 
