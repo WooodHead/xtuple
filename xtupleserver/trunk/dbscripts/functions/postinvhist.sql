@@ -6,7 +6,12 @@ BEGIN
 
     --Update itemsite qoh and change posted flag
     UPDATE itemsite SET 
-      itemsite_qtyonhand = (itemsite_qtyonhand + invhist_invqty)
+      itemsite_qtyonhand = (itemsite_qtyonhand + invhist_invqty *
+        (CASE WHEN invhist_transtype IN (''IM'', ''IB'', ''IT'', ''SH'', ''SI'', ''EX'') THEN
+          -1
+        ELSE
+           1
+        END))
     FROM invhist
     WHERE ( (itemsite_id=invhist_itemsite_id)
     AND (invhist_id=pInvhistId)
