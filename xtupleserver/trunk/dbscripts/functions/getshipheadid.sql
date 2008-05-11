@@ -3,7 +3,7 @@ DECLARE
   pShipmentNumber ALIAS FOR $1;
   _returnVal INTEGER;
 BEGIN
-  IF (pShipmentNumber IS NULL) THEN
+  IF (pShipmentNumber IS NULL OR pShipmentNumber = '''') THEN
     RETURN NULL;
   END IF;
 

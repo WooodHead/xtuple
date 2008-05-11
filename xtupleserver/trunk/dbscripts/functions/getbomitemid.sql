@@ -6,7 +6,7 @@ DECLARE
   _returnVal INTEGER;
   
 BEGIN
-  IF ((pItemNumber IS NULL) OR (pSeqNumber IS NULL)) THEN
+  IF ((pItemNumber IS NULL) OR (pSeqNumber IS NULL) OR (pItemNumber = '''') OR (pSeqNumber = '''') ) THEN
     RETURN NULL;
   END IF;
 

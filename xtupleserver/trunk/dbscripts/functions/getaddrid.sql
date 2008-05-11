@@ -3,7 +3,7 @@ DECLARE
   pAddressNumber ALIAS FOR $1;
   _returnVal INTEGER;
 BEGIN
-  IF (pAddressNumber IS NULL) THEN
+  IF (pAddressNumber IS NULL OR pAddressNumber = '''') THEN
     RETURN NULL;
   END IF;
 
