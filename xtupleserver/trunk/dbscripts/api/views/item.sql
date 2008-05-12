@@ -65,7 +65,8 @@ BEGIN;
          classcode, uom AS i, uom AS p
   WHERE ((item_classcode_id=classcode_id)
   AND (item_inv_uom_id=i.uom_id)
-  AND (item_price_uom_id=p.uom_id));
+  AND (item_price_uom_id=p.uom_id))
+  ORDER BY item_number;
 
 GRANT ALL ON TABLE api.item TO openmfg;
 COMMENT ON VIEW api.item IS 'Item';
