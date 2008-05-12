@@ -1,12 +1,12 @@
 -- utility function used by triggers for crmacct and related tables
-CREATE OR REPLACE FUNCTION crmAcctNumberUsed(TEXT, INTEGER) RETURNS BOOL AS '
+CREATE OR REPLACE FUNCTION crmAcctNumberUsed(TEXT, INTEGER) RETURNS BOOL AS $$
 DECLARE
   pnumber	ALIAS FOR $1;
   pcrmacctid	ALIAS FOR $2;	-- skip data related to this crm acct
   r		RECORD;
 BEGIN
   IF (pcrmacctid IS NULL) THEN
-    -- presumably we''re doing an insert on a table other than crmacct and
+    -- presumably we're doing an insert on a table other than crmacct and
     -- the dup will get caught when we create the crmacct itself
     RETURN FALSE;
   END IF;
@@ -41,17 +41,17 @@ BEGIN
 	       AND  (taxauth_id!=r.crmacct_taxauth_id))
 	     ));
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION _crmacctBeforeTrigger () RETURNS TRIGGER AS '
+CREATE OR REPLACE FUNCTION _crmacctBeforeTrigger () RETURNS TRIGGER AS $$
 BEGIN
   -- disallow reusing crmacct_numbers
-  IF (TG_OP = ''INSERT'') THEN
+  IF (TG_OP = 'INSERT') THEN
     IF (crmAcctNumberUsed(NEW.crmacct_number, NEW.crmacct_id)) THEN
       RETURN OLD;
     END IF;
 
-  ELSEIF (TG_OP = ''UPDATE'' AND OLD.crmacct_number != NEW.crmacct_number) THEN
+  ELSEIF (TG_OP = 'UPDATE' AND OLD.crmacct_number != NEW.crmacct_number) THEN
     IF (crmAcctNumberUsed(NEW.crmacct_number, NEW.crmacct_id)) THEN
       RETURN OLD;
     END IF;
@@ -59,15 +59,17 @@ BEGIN
 
   RETURN NEW;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 DROP TRIGGER crmacctBeforeTrigger ON crmacct;
 CREATE TRIGGER crmacctBeforeTrigger BEFORE INSERT OR UPDATE ON crmacct FOR EACH ROW EXECUTE PROCEDURE _crmacctBeforeTrigger();
 
-CREATE OR REPLACE FUNCTION _crmacctAfterTrigger () RETURNS TRIGGER AS '
+CREATE OR REPLACE FUNCTION _crmacctAfterTrigger () RETURNS TRIGGER AS $$
+DECLARE
+  _cmnttypeid INTEGER;
 BEGIN
   -- propagate crmacct_number change
-  IF (TG_OP = ''INSERT'' OR TG_OP = ''UPDATE'') THEN
+  IF (TG_OP = 'INSERT' OR TG_OP = 'UPDATE') THEN
     IF (NEW.crmacct_cust_id IS NOT NULL) THEN
       UPDATE custinfo SET cust_number = NEW.crmacct_number
       WHERE ((cust_id=NEW.crmacct_cust_id)
@@ -104,10 +106,20 @@ BEGIN
         AND  (taxauth_name!=NEW.crmacct_name));
     END IF;
   END IF;
-  
+
+--  Cache the cmnttype_id for ChangeLog
+  SELECT cmnttype_id INTO _cmnttypeid
+    FROM cmnttype
+   WHERE (cmnttype_name='ChangeLog');
+  IF (FOUND) THEN
+    IF (TG_OP = 'INSERT') THEN
+      PERFORM postComment(_cmnttypeid, 'CRMA', NEW.crmacct_id, ('Created by ' || CURRENT_USER));
+    END IF;
+  END IF;
+
   RETURN NEW;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 DROP TRIGGER crmacctAfterTrigger ON crmacct;
-CREATE TRIGGER crmacctAfterTrigger BEFORE INSERT OR UPDATE ON crmacct FOR EACH ROW EXECUTE PROCEDURE _crmacctAfterTrigger();
+CREATE TRIGGER crmacctAfterTrigger AFTER INSERT OR UPDATE ON crmacct FOR EACH ROW EXECUTE PROCEDURE _crmacctAfterTrigger();
