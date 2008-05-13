@@ -9,6 +9,7 @@ UPDATE prospect SET prospect_taxauth_id = NULL
                         WHERE taxauth_id IS NULL);
 
 ALTER TABLE prospect ADD COLUMN prospect_salesrep_id INTEGER;
+ALTER TABLE prospect ADD COLUMN prospect_warehous_id INTEGER;
 ALTER TABLE prospect ALTER COLUMN prospect_created SET DEFAULT CURRENT_DATE;
 ALTER TABLE prospect ALTER COLUMN prospect_created SET NOT NULL;
 ALTER TABLE prospect ALTER COLUMN prospect_active SET NOT NULL;
@@ -17,6 +18,7 @@ ALTER TABLE prospect ALTER COLUMN prospect_name SET NOT NULL;
 
 ALTER TABLE prospect ADD FOREIGN KEY (prospect_taxauth_id)  REFERENCES taxauth(taxauth_id);
 ALTER TABLE prospect ADD FOREIGN KEY (prospect_salesrep_id)  REFERENCES salesrep(salesrep_id);
+ALTER TABLE prospect ADD FOREIGN KEY (prospect_warehous_id)  REFERENCES whsinfo(warehous_id);
 
 
 

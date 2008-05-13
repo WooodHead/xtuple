@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION convertCustomerToProspect(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION convertCustomerToProspect(INTEGER) RETURNS INTEGER AS $$
   DECLARE
     pCustId     ALIAS FOR $1;
     _returnVal  INTEGER := 0;
@@ -26,11 +26,14 @@ CREATE OR REPLACE FUNCTION convertCustomerToProspect(INTEGER) RETURNS INTEGER AS
     INSERT INTO prospect (
           prospect_id, prospect_active, prospect_number,
           prospect_name, prospect_cntct_id, prospect_taxauth_id,
-          prospect_salesrep_id, prospect_comments
+          prospect_salesrep_id, prospect_warehous_id, prospect_comments
     ) VALUES (
          _c.cust_id, _c.cust_active, _c.cust_number,
          _c.cust_name, _c.cust_cntct_id, _c.cust_taxauth_id,
          CASE WHEN(_c.cust_salesrep_id > 0) THEN _c.cust_salesrep_id
+              ELSE NULL
+         END,
+         CASE WHEN(_c.cust_preferred_warehous_id > 0) THEN _c.cust_preferred_warehous_id
               ELSE NULL
          END,
          _c.cust_comments);
@@ -41,5 +44,5 @@ CREATE OR REPLACE FUNCTION convertCustomerToProspect(INTEGER) RETURNS INTEGER AS
 
     RETURN pCustId;
   END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

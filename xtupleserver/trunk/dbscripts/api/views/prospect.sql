@@ -10,6 +10,7 @@ BEGIN;
     prospect_name AS prospect_name,
     prospect_active AS active,
     salesrep_number AS sales_rep,
+    warehous_code AS site_code,
     taxauth_code AS default_tax_authority,
     prospect_comments AS notes,
 
@@ -38,7 +39,8 @@ BEGIN;
       LEFT OUTER JOIN cntct ON (prospect_cntct_id=cntct_id)
       LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
       LEFT OUTER JOIN taxauth ON (prospect_taxauth_id=taxauth_id)
-      LEFT OUTER JOIN salesrep ON (prospect_salesrep_id=salesrep_id);
+      LEFT OUTER JOIN salesrep ON (prospect_salesrep_id=salesrep_id)
+      LEFT OUTER JOIN whsinfo ON (prospect_warehous_id=warehous_id);
 
 GRANT ALL ON TABLE api.prospect TO openmfg;
 COMMENT ON VIEW api.prospect IS 'Prospect';
@@ -56,6 +58,7 @@ INSERT INTO prospect
         prospect_cntct_id,
         prospect_taxauth_id,
         prospect_salesrep_id,
+        prospect_warehous_id,
   	prospect_comments)
         VALUES (
         UPPER(NEW.prospect_number),
@@ -88,6 +91,7 @@ INSERT INTO prospect
           ),
         getTaxAuthId(NEW.default_tax_authority),
         getSalesRepId(NEW.sales_rep),
+        getWarehousId(NEW.site_code,'ACTIVE'),
         COALESCE(NEW.notes,''));
 
 CREATE OR REPLACE RULE "_UPDATE" AS
@@ -124,6 +128,7 @@ UPDATE prospect SET
           ),
         prospect_taxauth_id=getTaxAuthId(NEW.default_tax_authority),
         prospect_salesrep_id=getSalesRepId(NEW.sales_rep),
+        prospect_warehous_id=getWarehousId(NEW.site_code,'ACTIVE'),
   	prospect_comments=NEW.notes
 
         WHERE prospect_id=getProspectId(OLD.prospect_number);

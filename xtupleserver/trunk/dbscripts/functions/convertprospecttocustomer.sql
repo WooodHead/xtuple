@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER) RETURNS INTEGER AS $$
   DECLARE
     pProspectId ALIAS FOR $1;
     _returnVal  INTEGER := 0;
@@ -33,7 +33,8 @@ CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER) RETURNS INTEGER AS
           cust_id, cust_active, cust_number,
           cust_name, cust_cntct_id, cust_taxauth_id,
           cust_comments, cust_creditstatus,
-          cust_salesrep_id, cust_terms_id,
+          cust_salesrep_id, cust_preferred_warehous_id,
+          cust_terms_id,
           cust_custtype_id, cust_shipform_id,
           cust_shipvia, cust_balmethod,
           cust_ffshipto, cust_backorder,
@@ -47,22 +48,23 @@ CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER) RETURNS INTEGER AS
     SELECT
         _p.prospect_id, _p.prospect_active, _p.prospect_number,
         _p.prospect_name, _p.prospect_cntct_id, _p.prospect_taxauth_id,
-        _p.prospect_comments, ''G'',
+        _p.prospect_comments, 'G',
         COALESCE(_p.prospect_salesrep_id, salesrep_id),
-        FetchMetricValue(''DefaultTerms''),
-        FetchMetricValue(''DefaultCustType''),
-        FetchMetricValue(''DefaultShipFormId''),
-        COALESCE(FetchMetricValue(''DefaultShipViaId''),-1),
-        FetchMetricText(''DefaultBalanceMethod''),
-        FetchMetricBool(''DefaultFreeFormShiptos''),
-        FetchMetricBool(''DefaultBackOrders''),
-        FetchMetricBool(''DefaultPartialShipments''),
-        FetchMetricValue(''SOCreditLimit''),
-        FetchMetricText(''SOCreditRate''),
+        COALESCE(_p.prospect_warehous_id, -1),
+        FetchMetricValue('DefaultTerms'),
+        FetchMetricValue('DefaultCustType'),
+        FetchMetricValue('DefaultShipFormId'),
+        COALESCE(FetchMetricValue('DefaultShipViaId'),-1),
+        FetchMetricText('DefaultBalanceMethod'),
+        FetchMetricBool('DefaultFreeFormShiptos'),
+        FetchMetricBool('DefaultBackOrders'),
+        FetchMetricBool('DefaultPartialShipments'),
+        FetchMetricValue('SOCreditLimit'),
+        FetchMetricText('SOCreditRate'),
         salesrep_commission,
         0, false, -1,false,false,false,false,
-        false,false
-    FROM salesrep WHERE (salesrep_id=FetchMetricValue(''DefaultSalesRep''));
+        false, false
+    FROM salesrep WHERE (salesrep_id=FetchMetricValue('DefaultSalesRep'));
 
     UPDATE crmacct SET crmacct_cust_id=pProspectId,
                        crmacct_prospect_id=NULL
@@ -70,5 +72,5 @@ CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER) RETURNS INTEGER AS
 
     RETURN pProspectId;
   END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
