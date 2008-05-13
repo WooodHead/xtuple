@@ -13,3 +13,28 @@ SELECT COUNT(*) = 0
   FROM prospect
  WHERE((prospect_number IS NULL)
     OR (prospect_name IS NULL));
+
+-- check for any invcitems that have null ordered qty's.
+SELECT COUNT(*) = 0
+  FROM invcitem
+ WHERE(invcitem_ordered IS NULL);
+
+-- check for any invcitems that don't have a valid invchead reference
+SELECT COUNT(*) = 0
+  FROM invcitem LEFT OUTER JOIN invchead ON (invcitem_invchead_id=invchead_id)
+ WHERE(invchead_id IS NULL);
+
+-- check for any duplicated invcitem line numbers on a single invoice
+SELECT count(*) = 0
+  FROM (SELECT invcitem_invchead_id, invcitem_linenumber, count(*)
+          FROM invcitem]
+         GROUP BY invcitem_invchead_id, invcitem_linenumber
+        HAVING count(*) > 1) AS data;
+
+-- Check for Invchead to make sure all invcnumber's are unique
+SELECT count(*) = 0
+  FROM (SELECT invchead_invcnumber, count(*)
+          FROM invchead
+         GROUP BY invchead_invcnumber
+        HAVING count(*) > 1) AS data;
+
