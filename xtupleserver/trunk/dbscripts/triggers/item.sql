@@ -25,7 +25,7 @@ BEGIN
     NEW.item_packweight := 0;
   END IF;
 
-  IF (NEW.item_type != ''J'') THEN
+  IF (NEW.item_type NOT IN (''J'',''R'')) THEN
     NEW.item_config := false;
   END IF;
 
