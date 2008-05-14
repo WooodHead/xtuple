@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _gltransInsertTrigger() RETURNS TRIGGER AS $$
+DECLARE
+  _reqNotes BOOLEAN;
 BEGIN
   -- Checks
   -- Start with privileges
@@ -6,7 +8,14 @@ BEGIN
       RAISE EXCEPTION 'You do not have privileges to create a Journal Entry.';
   END IF;
 
-  IF ((NEW.gltrans_doctype='JE') AND (NEW.gltrans_notes IS NULL)) THEN
+  SELECT metric_value='t'
+    INTO _reqNotes
+    FROM metric
+   WHERE(metric_name='MandatoryGLEntryNotes');
+  IF (_reqNotes IS NULL) THEN
+    _reqNotes := false;
+  END IF;
+  IF ((NEW.gltrans_doctype='JE') AND _reqNotes AND (TRIM(BOTH FROM COALESCE(NEW.gltrans_notes,''))='')) THEN
       RAISE EXCEPTION 'Notes are required for Journal Entries.';
   END IF;
   
