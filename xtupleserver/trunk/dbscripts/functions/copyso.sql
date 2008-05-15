@@ -1,5 +1,4 @@
-CREATE OR REPLACE FUNCTION copyso(integer, date) RETURNS integer
-    AS '
+CREATE OR REPLACE FUNCTION copySo(INTEGER, DATE) RETURNS INTEGER AS $$
 DECLARE
   pSoheadid ALIAS FOR $1;
   pSchedDate ALIAS FOR $2;
@@ -7,7 +6,7 @@ DECLARE
 
 BEGIN
 
-  SELECT NEXTVAL(''cohead_cohead_id_seq'') INTO _soheadid;
+  SELECT NEXTVAL('cohead_cohead_id_seq') INTO _soheadid;
 
   INSERT INTO cohead
   ( cohead_id, cohead_number, cohead_cust_id, cohead_prj_id,
@@ -46,19 +45,19 @@ BEGIN
     coitem_order_type, coitem_order_id,
     coitem_memo, coitem_custpn,
     coitem_imported, coitem_tax_id )
-  SELECT _soheadid, coitem_linenumber, coitem_itemsite_id, ''O'',
+  SELECT _soheadid, coitem_linenumber, coitem_itemsite_id, 'O',
          COALESCE(pSchedDate, coitem_scheddate),
          coitem_promdate,
          coitem_qtyord, 0, 0,
          coitem_price, coitem_custprice, stdCost(itemsite_item_id),
          coitem_qty_uom_id, coitem_price_uom_id,
          coitem_qty_invuomratio, coitem_price_invuomratio,
-         '''', -1,
+         coitem_order_type, -1,
          coitem_memo, coitem_custpn,
          FALSE, coitem_tax_id
   FROM coitem, itemsite
   WHERE ( (coitem_itemsite_id=itemsite_id)
-   AND (coitem_status <> ''X'')
+   AND (coitem_status <> 'X')
    AND (coitem_cohead_id=pSoheadid) );
 
   INSERT INTO charass
@@ -67,7 +66,7 @@ BEGIN
   SELECT charass_target_type, b.coitem_id,
          charass_char_id, charass_value
     FROM coitem a, charass, coitem b
-   WHERE ((charass_target_type=''SI'')
+   WHERE ((charass_target_type='SI')
      AND  (charass_target_id=a.coitem_id)
      AND  (a.coitem_cohead_id=pSoheadid)
      AND  (b.coitem_cohead_id=_soheadid)
@@ -76,5 +75,4 @@ BEGIN
   RETURN _soheadid;
 
 END;
-'
-    LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql;

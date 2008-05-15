@@ -133,7 +133,7 @@ BEGIN
      AND (womatl_id=pParentId));
 
   ELSIF (pParentType = ''S'') THEN
-    SELECT cohead_number INTO _orderNumber
+    SELECT CAST(cohead_number AS INTEGER) INTO _orderNumber
     FROM cohead, coitem
     WHERE ((coitem_cohead_id=cohead_id)
      AND (coitem_id=pParentId));
