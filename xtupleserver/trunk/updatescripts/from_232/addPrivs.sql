@@ -15,3 +15,13 @@ INSERT INTO priv (priv_module, priv_name, priv_descrip)
 VALUES
   ('Inventory', 'AlterTransactionDates',
    'Can set the Transaction Date written to the G/L and Inventory History tables for inventory transactions.');
+
+INSERT INTO priv (priv_module, priv_name, priv_descrip)
+VALUES
+  ('System', 'MaintainEmployees',
+   'Can Change or Create Employee records.');
+
+INSERT INTO priv (priv_module, priv_name, priv_descrip)
+VALUES
+  ('System', 'ViewEmployees',
+   'Can view Employee records.');
