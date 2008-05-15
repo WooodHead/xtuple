@@ -1,3 +1,3 @@
 
-SELECT setMetric('OpenMFGServerVersion', '3.0.0Dev');
+SELECT setMetric('OpenMFGServerVersion', '3.0.0Alpha');
 
