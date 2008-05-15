@@ -1,0 +1,416 @@
+<ui version="4.0" >
+ <class>dspDetailedInventoryHistoryByLotSerial</class>
+ <widget class="QMainWindow" name="dspDetailedInventoryHistoryByLotSerial" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>600</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="baseSize" >
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle" >
+   <string>Detailed Inventory History by Lot/Serial #</string>
+  </property>
+  <widget class="QWidget" name="widget" >
+   <layout class="QGridLayout" >
+    <item row="0" column="0" >
+     <widget class="QGroupBox" name="_itemGroup" >
+      <property name="title" >
+       <string/>
+      </property>
+      <layout class="QGridLayout" >
+       <item row="0" column="0" >
+        <widget class="ItemCluster" name="_item" >
+         <property name="minimumSize" >
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="focusPolicy" >
+          <enum>Qt::StrongFocus</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item rowspan="2" row="0" column="1" >
+     <layout class="QGridLayout" >
+      <item row="0" column="0" >
+       <widget class="QGroupBox" name="_transGroup" >
+        <property name="title" >
+         <string/>
+        </property>
+        <layout class="QGridLayout" >
+         <item row="0" column="0" >
+          <widget class="QLabel" name="_transTypeLit" >
+           <property name="text" >
+            <string>Trans. Types:</string>
+           </property>
+           <property name="alignment" >
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" >
+          <widget class="XComboBox" name="_transType" >
+           <property name="sizePolicy" >
+            <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="0" column="1" >
+       <widget class="WarehouseGroup" name="_warehouse" >
+        <property name="sizePolicy" >
+         <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="focusPolicy" >
+         <enum>Qt::StrongFocus</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" >
+       <widget class="QGroupBox" name="_dateGroup" >
+        <property name="title" >
+         <string>Date Range</string>
+        </property>
+        <property name="checkable" >
+         <bool>true</bool>
+        </property>
+        <property name="checked" >
+         <bool>false</bool>
+        </property>
+        <layout class="QGridLayout" >
+         <item row="0" column="0" >
+          <widget class="DateCluster" name="_dates" >
+           <property name="focusPolicy" >
+            <enum>Qt::StrongFocus</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="1" >
+       <widget class="QGroupBox" name="_traceGroup" >
+        <property name="title" >
+         <string>Multi-Level Trace</string>
+        </property>
+        <property name="checkable" >
+         <bool>true</bool>
+        </property>
+        <property name="checked" >
+         <bool>false</bool>
+        </property>
+        <layout class="QGridLayout" >
+         <item row="0" column="0" >
+          <widget class="QRadioButton" name="_forward" >
+           <property name="text" >
+            <string>Forward</string>
+           </property>
+           <property name="checked" >
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" >
+          <widget class="QRadioButton" name="_backward" >
+           <property name="text" >
+            <string>Backward</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="2" column="0" >
+       <spacer>
+        <property name="orientation" >
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" >
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item rowspan="2" row="0" column="2" >
+     <layout class="QVBoxLayout" >
+      <property name="spacing" >
+       <number>5</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="_close" >
+        <property name="text" >
+         <string>&amp;Close</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="_query" >
+        <property name="text" >
+         <string>&amp;Query</string>
+        </property>
+        <property name="autoDefault" >
+         <bool>true</bool>
+        </property>
+        <property name="default" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="_print" >
+        <property name="text" >
+         <string>&amp;Print</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer>
+        <property name="orientation" >
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" >
+         <size>
+          <width>20</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0" >
+     <widget class="QGroupBox" name="_lotserialGroup" >
+      <property name="sizePolicy" >
+       <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="title" >
+       <string>Lot/Serial #</string>
+      </property>
+      <layout class="QGridLayout" >
+       <item rowspan="2" row="0" column="0" >
+        <layout class="QVBoxLayout" >
+         <property name="topMargin" >
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QRadioButton" name="_selected" >
+           <property name="text" >
+            <string>Selected</string>
+           </property>
+           <property name="checked" >
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType" >
+            <enum>QSizePolicy::Preferred</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>20</width>
+             <height>25</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="_pattern" >
+           <property name="text" >
+            <string>Pattern</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1" >
+        <widget class="LotserialCluster" name="_lotSerial" >
+         <property name="focusPolicy" >
+          <enum>Qt::StrongFocus</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" >
+        <widget class="XLineEdit" name="_lotSerialPattern" >
+         <property name="enabled" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="3" >
+     <layout class="QGridLayout" >
+      <item row="1" column="0" >
+       <widget class="XTreeWidget" name="_invhist" >
+        <property name="sizePolicy" >
+         <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+          <horstretch>0</horstretch>
+          <verstretch>1</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="rootIsDecorated" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" >
+       <widget class="QLabel" name="_inventoryHistoryLit" >
+        <property name="text" >
+         <string>Inventory History:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <customwidgets>
+  <customwidget>
+   <class>DateCluster</class>
+   <extends>QWidget</extends>
+   <header>datecluster.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ItemCluster</class>
+   <extends>QWidget</extends>
+   <header>itemcluster.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>LotserialCluster</class>
+   <extends>QWidget</extends>
+   <header>lotserialcluster.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WarehouseGroup</class>
+   <extends>QGroupBox</extends>
+   <header>warehousegroup.h</header>
+  </customwidget>
+  <customwidget>
+   <class>XComboBox</class>
+   <extends>QComboBox</extends>
+   <header>xcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>XLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>xlineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>XTreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>xtreewidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>_item</tabstop>
+  <tabstop>_selected</tabstop>
+  <tabstop>_lotSerial</tabstop>
+  <tabstop>_pattern</tabstop>
+  <tabstop>_lotSerialPattern</tabstop>
+  <tabstop>_transType</tabstop>
+  <tabstop>_dateGroup</tabstop>
+  <tabstop>_dates</tabstop>
+  <tabstop>_warehouse</tabstop>
+  <tabstop>_traceGroup</tabstop>
+  <tabstop>_forward</tabstop>
+  <tabstop>_backward</tabstop>
+  <tabstop>_query</tabstop>
+  <tabstop>_print</tabstop>
+  <tabstop>_close</tabstop>
+  <tabstop>_invhist</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>_close</sender>
+   <signal>clicked()</signal>
+   <receiver>dspDetailedInventoryHistoryByLotSerial</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>929</x>
+     <y>32</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>_pattern</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>_lotSerialPattern</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>58</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>147</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>_item</sender>
+   <signal>privateIdChanged(int)</signal>
+   <receiver>_lotSerial</receiver>
+   <slot>setItemId(int)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>166</x>
+     <y>46</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>173</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
