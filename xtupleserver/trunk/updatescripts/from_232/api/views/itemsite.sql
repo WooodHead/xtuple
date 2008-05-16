@@ -2,7 +2,7 @@ BEGIN;
 
 -- Item Site
 
---DROP VIEW api.itemsite;
+DROP VIEW api.itemsite;
 CREATE VIEW api.itemsite
 AS 
    SELECT
