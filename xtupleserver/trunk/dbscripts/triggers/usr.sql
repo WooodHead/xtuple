@@ -4,11 +4,13 @@ DECLARE
   _empid        INTEGER;
   _empusrid     INTEGER;
 BEGIN
-  IF (TG_OP = ''INSERT'' OR TG_OP = ''UPDATE'') THEN
+  IF (TG_OP = ''UPDATE'') THEN
     IF (NEW.usr_username != OLD.usr_username) THEN
       RAISE EXCEPTION ''You cannot change the User Name.'';
     END IF;
+  END IF;
 
+  IF (TG_OP = ''INSERT'' OR TG_OP = ''UPDATE'') THEN
     SELECT emp_id, emp_usr_id INTO _empid, _empusrid
     FROM emp
     WHERE (emp_code=NEW.usr_username);
