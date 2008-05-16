@@ -9,13 +9,14 @@ CREATE TABLE emp (
   emp_cntct_id     INTEGER      REFERENCES cntct(cntct_id),
   emp_warehous_id  INTEGER      REFERENCES whsinfo(warehous_id),
   emp_mgr_emp_id   INTEGER      REFERENCES emp(emp_id),
-  emp_wage_type    TEXT         CHECK(emp_wage_type IN ('H', 'S') AND
-                                      (emp_wage IS NULL OR
-                                       (emp_wage_type IS NOT NULL AND emp_wage IS NOT NULL))
+  emp_wage_type    TEXT         CHECK(COALESCE(emp_wage_type, '') IN ('', 'H', 'S') AND
+                                      (COALESCE(emp_wage, 0) = 0 OR
+                                       (COALESCE(emp_wage_type, '') != '') AND emp_wage IS NOT NULL)
                                      ),
   emp_wage         NUMERIC,
   emp_wage_curr_id INTEGER      DEFAULT basecurrid() REFERENCES curr_symbol(curr_id),
-  emp_wage_period  TEXT         CHECK(emp_wage_period IN ('H', 'D', 'W', 'BW', 'M', 'Y')),
+  emp_wage_period  TEXT         CHECK(COALESCE(emp_wage_period, '') IN
+                                      ('', 'H', 'D', 'W', 'BW', 'M', 'Y')),
   emp_dept_id      INTEGER      REFERENCES dept(dept_id),
   emp_shift_id     INTEGER      REFERENCES shift(shift_id),
   emp_usr_id       INTEGER      REFERENCES usr(usr_id),
