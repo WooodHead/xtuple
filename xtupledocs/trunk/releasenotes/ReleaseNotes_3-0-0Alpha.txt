@@ -10,9 +10,17 @@ to hear feedback from alpha testers on the following new areas of
 functionality:
 
 Form Builder
-- 
-- 
-- 
+
+  You can now make small changes to existing windows and add new windows
+  to the application without learning C++.  A Design submenu has been
+  added to the System menu which lets you load Qt User Interface files
+  into the database, create menu items to trigger those UI files, and
+  write JavaScript to run against either these new UI files or when the
+  application loads precompiled windows. You will need Qt Designer to
+  create the new UI files; if you want to use xTuple's custom widgets in
+  your UI files then you will need to install a development environment
+  to build the widgets library.
+
 
 Assemble To Order (ATO) Configurator
 - 
@@ -25,14 +33,29 @@ Advanced Warranty Tracking
 - 
 
 User Roles/Groups
-- 
-- 
-- 
+
+  Now administrators may set application-level privileges to Groups and
+  then assign individual Users to these Groups. This simplifies the
+  process of configuring application security. Changes to Group privileges
+  automatically apply to Users who are members of those Groups.  A user
+  may be assigned to multiple Groups and may be granted additional
+  privileges if necessary.
 
 
-(NOTE: We have added visual Calendars to date fields throughout the
-application.)
-	
+Localization
+
+  The Locale definition has changed. Rather than specifying the details
+  of how numbers and dates should be formatted and the name of the
+  translation file, Locales now contain language and country selectors,
+  which are used to build the translation file name automatically. The
+  formats for dates, times, and numbers are then determined automatically
+  based on the chosen language and country. The precision of different
+  types of numeric value displayed by the application is now specified
+  directly instead of as full numeric format strings.
+
+  Part of this work involved adding visual Calendars to date fields
+  throughout the application.)
+
 ==================================
 
 The following features and bug fixes have been added to the applications 
