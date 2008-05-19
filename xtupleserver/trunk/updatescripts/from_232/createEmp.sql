@@ -37,9 +37,9 @@ GRANT ALL ON emp TO GROUP openmfg;
 REVOKE ALL ON emp_emp_id_seq FROM PUBLIC;
 GRANT ALL ON emp_emp_id_seq TO GROUP openmfg;
 
-INSERT INTO emp (emp_code, emp_number, emp_dept_id, emp_shift_id, emp_usr_id)
-  SELECT usr_username, usr_username, usr_dept_id, usr_shift_id, usr_id
-  FROM usr;
+INSERT INTO emp (emp_code, emp_number, emp_dept_id, emp_shift_id, emp_usr_id, emp_wage_curr_id)
+  SELECT usr_username, usr_username, usr_dept_id, usr_shift_id, usr_id, curr_id
+  FROM usr LEFT OUTER JOIN curr_symbol ON (curr_base);
 
 CREATE TABLE backup_usr AS SELECT * FROM usr;
 
