@@ -21,16 +21,24 @@ Form Builder
   your UI files then you will need to install a development environment
   to build the widgets library.
 
-
 Assemble To Order (ATO) Configurator
-- 
-- 
-- 
+
+  It is now possible to configure non-Inventory Items--namely Job Type
+  and Reference Type Items. Configuration begins at the Item level, 
+  where List Prices may be associated with Characteristics. When these 
+  Characteristics are selected at Sales Order Item entry, the Line Item 
+  Price is incremented accordingly. Likewise, Item Characteristics for 
+  Job Items can be associated with BOM Items.
 
 Advanced Warranty Tracking
-- 
-- 
-- 
+
+  Added the ability to pre-assign lot/serial numbers to Return 
+  Authorizations, enforced on receipt. Also includes the following:
+
+    * Multi-level historical trace
+    * Lot/Serial Characteristics
+    * Lot/Serial Warranty Registration for sold items
+    * Purchase warranty tracking for lot/serial controlled items
 
 User Roles/Groups
 
@@ -40,7 +48,6 @@ User Roles/Groups
   automatically apply to Users who are members of those Groups.  A user
   may be assigned to multiple Groups and may be granted additional
   privileges if necessary.
-
 
 Localization
 
