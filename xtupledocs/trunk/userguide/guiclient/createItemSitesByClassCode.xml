@@ -50,9 +50,7 @@
         <para>If this option is selected, then Material Requirements Planning
         (MRP) will follow the Order Parameters defined below when generating
         Planned Replenishment Orders. If you want to enforce Order Parameters
-        on manual Orders as well, select the "on Manual Orders" option. For
-        more information on how Order Parameters interact with MRP, see <xref
-        linkend="Anchor14508" />.</para>
+        on manual Orders as well, select the "on Manual Orders" option.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -72,8 +70,7 @@
         will be created when Material Requirements Planning (MRP) is run. The
         Replenishment Order quantity will be equal to the quantity required to
         return Planned Availability to either the Reorder Level or the Order
-        Up To quantity&mdash;whichever is greater. For more information, see <xref
-        linkend="Anchor14508" />.</para>
+        Up To quantity&mdash;whichever is greater.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -92,8 +89,7 @@
         Availability an Item Site should be replenished up to when Material
         Requirements Planning (MRP) is run. In cases where the Reorder Level
         for an Item Site exceeds the Order Up To Level, MRP will replenish the
-        Item Site up to the Reorder Level. For more information, see <xref
-        linkend="Anchor14508" />.</para>
+        Item Site up to the Reorder Level.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -453,9 +449,7 @@
               <para>Select to impose Lot Number control methods on the Item
               Site. Item Sites using Lot Number control are subject to unique
               processing requirements whenever Inventory is received or
-              distributed. For additional information on some of the unique
-              methods required to handle Lot-controlled Items, see <xref
-              linkend="Anchor58321" />.</para>
+              distributed.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -464,9 +458,7 @@
               <para>Select to impose Serial Number control methods on the Item
               Site. Item Sites using Serial Number control are subject to
               unique processing requirements whenever Inventory is received or
-              distributed. For additional information on some of the unique
-              methods required to handle Serial-controlled Items, see <xref
-              linkend="Anchor58321" />.</para>
+              distributed.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -492,8 +484,7 @@
         <para>Select if the specified Item is to be stored in multiple
         Locations within a single Warehouse. Items designated as Multiple
         Location Control (MLC) Items require special processing whenever Item
-        quantities are distributed. For more information on distributing MLC
-        Item quantities, see <xref linkend="Anchor81167" />.</para>
+        quantities are distributed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

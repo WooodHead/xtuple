@@ -29,8 +29,7 @@
   <tip>
     <para>Be sure to thaw any Item Site whose negative Quantity on Hand
     balance you want to reset to "0". An Item Site must be unfrozen before its
-    QOH balance can be reset. For more information on freezing and thawing,
-    see <xref linkend="Anchor80983"/>.</para>
+    QOH balance can be reset.</para>
   </tip>
   <para>When resetting Quantity on Hand balances, you are presented with the
   following options:</para>
@@ -67,7 +66,7 @@
       <term>Pattern</term>
       <listitem>
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
+        Refine your search using Regular Expressions.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -91,7 +90,6 @@
   </variablelist>
   <note>
     <para>Additional steps will be necessary if any Items within the specified
-    Class Code(s) are stored in multiple Locations. For more information, see
-    the <xref linkend="Anchor81167"/>.</para>
+    Class Code(s) are stored in multiple Locations.</para>
   </note>
 </section>
