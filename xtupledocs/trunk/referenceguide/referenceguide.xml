@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+  <title>xTuple ERP Reference Guide</title>
+  <subtitle>Version 2.3</subtitle>
+  <bookinfo>
+    <copyright>
+      <year>1998-2008</year>
+      <holder>xTuple</holder>
+    </copyright>
+    <pubdate>March, 2008</pubdate>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/splashXTuple.png" />
+      </imageobject>
+    </mediaobject>
+  </bookinfo>
+  <xi:include href="introduction.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="products.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="inventory.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="schedule.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="purchase.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="manufacture.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="crm.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="sales.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="accounting.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="system.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="glossary.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="appendixa.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <index></index>
+</book>
