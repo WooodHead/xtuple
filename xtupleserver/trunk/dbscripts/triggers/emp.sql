@@ -34,30 +34,48 @@ BEGIN
 
     IF (FOUND) THEN
       IF (TG_OP = ''INSERT'') THEN
-        PERFORM postComment(_cmnttypeid, ''C'', NEW.emp_id, ''Created'');
+        PERFORM postComment(_cmnttypeid, ''EMP'', NEW.emp_id, ''Created'');
 
       ELSIF (TG_OP = ''DELETE'') THEN
-	PERFORM postComment(_cmnttypeid, ''C'', OLD.emp_id,
+	PERFORM postComment(_cmnttypeid, ''EMP'', OLD.emp_id,
 			    (''Deleted "'' || OLD.emp_code || ''"''));
 
       ELSIF (TG_OP = ''UPDATE'') THEN
 
         IF (OLD.emp_number <> NEW.emp_number) THEN
-          PERFORM postComment( _cmnttypeid, ''C'', NEW.emp_id,
+          PERFORM postComment( _cmnttypeid, ''EMP'', NEW.emp_id,
                                (''Number Changed from "'' || OLD.emp_number || ''" to "'' || NEW.emp_number || ''"'') );
         END IF;
 
         IF (OLD.emp_code <> NEW.emp_code) THEN
-          PERFORM postComment( _cmnttypeid, ''C'', NEW.emp_id,
+          PERFORM postComment( _cmnttypeid, ''EMP'', NEW.emp_id,
                                (''Code Changed from "'' || OLD.emp_code || ''" to "'' || NEW.emp_code || ''"'') );
         END IF;
 
         IF (OLD.emp_active <> NEW.emp_active) THEN
           IF (NEW.emp_active) THEN
-            PERFORM postComment(_cmnttypeid, ''C'', NEW.emp_id, ''Activated'');
+            PERFORM postComment(_cmnttypeid, ''EMP'', NEW.emp_id, ''Activated'');
           ELSE
-            PERFORM postComment(_cmnttypeid, ''C'', NEW.emp_id, ''Deactivated'');
+            PERFORM postComment(_cmnttypeid, ''EMP'', NEW.emp_id, ''Deactivated'');
           END IF;
+        END IF;
+
+        IF (COALESCE(OLD.emp_dept_id, -1) <> COALESCE(NEW.emp_dept_id, -1)) THEN
+          PERFORM postComment(_cmnttypeid, ''EMP'', NEW.emp_id,
+                              (''Department Changed from "'' ||
+                               COALESCE((SELECT dept_number FROM dept WHERE dept_id=OLD.emp_dept_id), '''')
+                              || ''" to "'' ||
+                               COALESCE((SELECT dept_number FROM dept WHERE dept_id=NEW.emp_dept_id), '''')
+                               || ''"''));
+        END IF;
+
+        IF (COALESCE(OLD.emp_shift_id, -1) <> COALESCE(NEW.emp_shift_id, -1)) THEN
+          PERFORM postComment(_cmnttypeid, ''EMP'', NEW.emp_id,
+                              (''Shift Changed from "'' ||
+                               COALESCE((SELECT shift_number FROM shift WHERE shift_id=OLD.emp_shift_id), '''')
+                              || ''" to "'' ||
+                               COALESCE((SELECT shift_number FROM shift WHERE shift_id=NEW.emp_shift_id), '''')
+                               || ''"''));
         END IF;
 
       END IF;
