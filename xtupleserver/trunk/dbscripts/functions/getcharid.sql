@@ -4,7 +4,7 @@ DECLARE
   pType ALIAS FOR $2;
   _returnVal INTEGER;
 BEGIN
-  IF (pChar IS NULL) THEN
+  IF (COALESCE(pChar, '''') = '''') THEN
     RETURN NULL;
   END IF;
 
@@ -16,7 +16,9 @@ BEGIN
     OR (pType=''CRMACCT'' AND char_crmaccounts)
     OR (pType=''ADDR'' AND char_addresses)
     OR (pType=''CNTCT'' AND char_contacts)
-    OR (pType=''LS'' AND char_lotserial))) LIMIT 1;
+    OR (pType=''LS'' AND char_lotserial)
+    OR (pType=''EMP'' AND char_employees)
+    )) LIMIT 1;
 
   IF (_returnVal IS NULL) THEN
 	RAISE EXCEPTION ''Characteristic % not found.'', pChar;

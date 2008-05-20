@@ -1,13 +1,22 @@
 CREATE OR REPLACE FUNCTION dropIfExists(TEXT, TEXT) RETURNS INTEGER AS '
+BEGIN
+  RETURN dropIfExists($1, $2, ''public'');
+END;
+' LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION dropIfExists(TEXT, TEXT, TEXT) RETURNS INTEGER AS '
 DECLARE
-  pType	ALIAS FOR $1;
-  pObject	ALIAS FOR $2;
+  pType         ALIAS FOR $1;
+  pObject       ALIAS FOR $2;
+  pSchema       ALIAS FOR $3;
   _table	TEXT;
   _query	TEXT;
 BEGIN
   IF (UPPER(pType) = ''TABLE'') THEN
-    _query = ''DROP TABLE '' || quote_ident(LOWER(pObject));
+    _query = ''DROP TABLE '' || quote_ident(LOWER(pSchema)) || ''.'' || quote_ident(LOWER(pObject));
     BEGIN
+      RAISE NOTICE ''%'', _query;
       EXECUTE _query;
     EXCEPTION WHEN undefined_table THEN
 		RAISE NOTICE ''No table % to drop'', pObject;
@@ -17,8 +26,9 @@ BEGIN
     RAISE NOTICE ''TABLE % dropped'', pObject;
 
   ELSIF (UPPER(pType) = ''VIEW'') THEN
-    _query = ''DROP VIEW '' || quote_ident(LOWER(pObject));
+    _query = ''DROP VIEW '' || quote_ident(LOWER(pSchema)) || ''.'' || quote_ident(LOWER(pObject));
     BEGIN
+      RAISE NOTICE ''%'', _query;
       EXECUTE _query;
     EXCEPTION WHEN undefined_table THEN
 		RAISE NOTICE ''No view % to drop'', pObject;
@@ -37,8 +47,9 @@ BEGIN
     END IF;
 
     _query = ''DROP TRIGGER '' || quote_ident(LOWER(pObject)) ||
-	     '' ON '' || quote_ident(LOWER(_table));
+	     '' ON '' || quote_ident(LOWER(pSchema)) || ''.'' || quote_ident(LOWER(_table));
     BEGIN
+      RAISE NOTICE ''%'', _query;
       EXECUTE _query;
     EXCEPTION WHEN undefined_object THEN
 		RAISE NOTICE ''%'', SQLERRM;
@@ -57,5 +68,4 @@ BEGIN
   RETURN 1;
 
 END;
-'
-LANGUAGE 'plpgsql';
+' LANGUAGE 'plpgsql';
