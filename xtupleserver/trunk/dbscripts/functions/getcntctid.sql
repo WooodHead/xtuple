@@ -3,7 +3,7 @@ DECLARE
   pContactNumber ALIAS FOR $1;
   _returnVal INTEGER;
 BEGIN
-  IF (pContactNumber IS NULL) THEN
+  IF (COALESCE(TRIM(pContactNumber), '''') = '''') THEN
     RETURN NULL;
   END IF;
 
@@ -12,7 +12,7 @@ BEGIN
   WHERE (cntct_number=pContactNumber);
 
   IF (_returnVal IS NULL) THEN
-	RAISE EXCEPTION ''Contact Number % not found.'', pContactNumber;
+    RAISE EXCEPTION ''Contact Number % not found.'', pContactNumber;
   END IF;
 
   RETURN _returnVal;
