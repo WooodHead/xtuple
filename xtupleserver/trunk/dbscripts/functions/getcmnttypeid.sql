@@ -3,7 +3,7 @@ DECLARE
   pCmntType ALIAS FOR $1;
   _returnVal INTEGER;
 BEGIN
-  IF (pCmntType IS NULL) THEN
+  IF (COALESCE(TRIM(pCmntType), '''') = '''') THEN
     RETURN NULL;
   END IF;
 
