@@ -172,7 +172,10 @@
       <term>RETURN STOCK</term>
       <listitem>
         <para>Highlight a Line Item, then select this button to remove the
-        Line from Shipping, returning the stock to Inventory.</para>
+        Line from Shipping, returning the stock to Inventory. If the original
+        Line Item you shipped was either Lot/Serial or Multiple Location
+        Controlled, the system will automatically put the Inventory back where
+        it came from.</para>
       </listitem>
     </varlistentry>
   </variablelist>
