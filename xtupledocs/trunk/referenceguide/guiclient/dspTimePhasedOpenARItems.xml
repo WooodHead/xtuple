@@ -10,6 +10,34 @@
       <primary>accounts receivable</primary>
       <secondary>aging report for</secondary>
     </indexterm>A/R Aging</title>
+  <para>The A/R Aging report gives you the ability to view A/R open items in a
+  bucketed, time-phased perspective. And this perspective is portable,
+  allowing you to view point-in-time snapshots of open balances.</para>
+  <para>An open Item is recognized by the A/R Aging report "as of" the item's
+  document date. In the case of Invoices, the document date is the Invoice
+  date--not the date the Invoice is distributed to the General Ledger (G/L)
+  nor the date on which the Invoice is posted. (A/R Debit/Credit Memos are
+  recognized on their document date.) For example, if you post an Invoice on
+  January 1, but the Invoice date is February 15, then the "as of" date for
+  that open item will be February 15. This means, if you run the A/R Aging
+  report with an "as of" date in January, the open item with an Invoice date
+  of February 15 will not appear in the report. In fact, it will not appear in
+  the report until an "as of" date of February 15 or later is
+  specified.</para>
+  <tip>
+    <para>You can view the document date for an open item by right-clicking on
+    a line in the A/R Aging display. You can also find open item details on
+    other screens--for example, A/R Workbench, Customer History, Open Items by
+    Customer, etc.</para>
+  </tip>
+  <para>The grouping of open items into time-phased buckets is driven by a
+  document's due date. In other words, if a due date falls within 0-30 days of
+  the "as of" date specified when the report is run, then the open item will
+  appear in the first bucket. If the due date falls 31-60 days past the
+  specified "as of" date, then the open item will appear in the second bucket.
+  And so on. But again, keep in mind that the document date for an A/R open
+  item (e.g., Invoice date) must be on or before the specified "as of" date
+  for the item to be recognized by the report.</para>
   <para>To view open Accounts Receivable (A/R) open items from an aging
   perspective, select the "A/R Aging" option. The following screen will
   appear:</para>
@@ -54,13 +82,12 @@
       <term>As of Date</term>
       <listitem>
         <para>Specify the date you want the A/R open items to be relative to.
-        The report will include any A/R items which were open&mdash;that is, not
-        yet paid&mdash;as of the specified date. This feature provides
-        "point-in-time" open balance functionality.</para>
-        <note>
-          <para>The payment date used as a reference for the "As of Date"
-          field is the G/L distribution date, not the posting date.</para>
-        </note>
+        The report will include any A/R items which were open&mdash;that is,
+        not yet paid&mdash;as of the specified date. This feature provides
+        "point-in-time" open balance functionality. But again, keep in mind
+        that the document date for an A/R open item (e.g., Invoice date) must
+        be on or before the specified "as of" date for the item to be
+        recognized by the report.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -117,19 +144,18 @@
       <term>Name/Selected Periods</term>
       <listitem>
         <para>Select as many periods as you want to display. Selected periods
-        correspond to Calendar specified in the "Calendar" field.</para>
-        <para>Select individual periods or groups of periods together. To
-        select an individual period, highlight the period using your mouse
-        button. The period is now selected. To select a sequence of periods,
-        highlight the first in the sequence using your mouse button. Then,
-        holding down the SHIFT key on your keyboard, highlight the last period
-        in the sequence. The entire sequence is now selected. To select
-        periods that are out of sequence (e.g., January, April, July,
-        October), highlight the first period in the group. Then, holding down
-        the CTRL key on your keyboard, highlight the next period you want to
-        select. Continue highlighting periods with the CTRL key depressed
-        until all desired periods are selected. The entire group is now
-        selected.</para>
+        correspond to Calendar specified in the "Calendar" field. Select
+        individual periods or groups of periods together. To select an
+        individual period, highlight the period using your mouse button. The
+        period is now selected. To select a sequence of periods, highlight the
+        first in the sequence using your mouse button. Then, holding down the
+        SHIFT key on your keyboard, highlight the last period in the sequence.
+        The entire sequence is now selected. To select periods that are out of
+        sequence (e.g., January, April, July, October), highlight the first
+        period in the group. Then, holding down the CTRL key on your keyboard,
+        highlight the next period you want to select. Continue highlighting
+        periods with the CTRL key depressed until all desired periods are
+        selected. The entire group is now selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

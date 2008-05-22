@@ -10,6 +10,33 @@
       <primary>open items</primary>
       <secondary>aging report for payables</secondary>
     </indexterm>A/P Aging</title>
+  <para>The A/P Aging report gives you the ability to view A/P open items in a
+  bucketed, time-phased perspective. And this perspective is portable,
+  allowing you to view point-in-time snapshots of open balances.</para>
+  <para>An open Item is recognized by the A/P Aging report "as of" the item's
+  document date. In the case of Vouchers, the document date is the date the
+  Voucher is distributed to the General Ledger (G/L)--not the date on which it
+  is posted. (A/P Debit/Credit Memos are distributed to the G/L on their
+  document date.) For example, if you post a Voucher on January 1, but the G/L
+  distribution date is February 15, then the "as of" date for that open item
+  will be February 15. This means, if you run the A/P Aging report with an "as
+  of" date in January, the open item distributed to the G/L on February 15
+  will not appear in the report. In fact, it will not appear in the report
+  until an "as of" date of February 15 or later is specified.</para>
+  <tip>
+    <para>You can view the document date for an open item by right-clicking on
+    a line in the A/P Aging display. You can also find open item details on
+    other screens--for example, Vendor History, Open Items by Vendor,
+    etc.</para>
+  </tip>
+  <para>The grouping of open items into time-phased buckets is driven by a
+  document's due date. In other words, if a due date falls within 0-30 days of
+  the "as of" date specified when the report is run, then the open item will
+  appear in the first bucket. If the due date falls 31-60 days past the
+  specified "as of" date, then the open item will appear in the second bucket.
+  And so on. But again, keep in mind that the document date for an A/P open
+  item (e.g., Voucher distribution date) must be on or before the specified
+  "as of" date for the item to be recognized by the report.</para>
   <para>To view Accounts Payable (A/P) open items from an aging perspective,
   select the "A/P Aging" option. The following screen will appear:</para>
   <para><screenshot>
@@ -53,13 +80,12 @@
       <term>As of Date</term>
       <listitem>
         <para>Specify the date you want the A/P open items to be relative to.
-        The report will include any A/P items which were open&mdash;that is, not
-        yet paid&mdash;as of the specified date. This feature provides
-        "point-in-time" open balance functionality.</para>
-        <note>
-          <para>The payment date used as a reference for the "As of Date"
-          field is the G/L distribution date, not the posting date.</para>
-        </note>
+        The report will include any A/P items which were open&mdash;that is,
+        not yet paid&mdash;as of the specified date. This feature provides
+        "point-in-time" open balance functionality. But again, keep in mind
+        that the document date for an A/P open item (e.g., Voucher
+        distribution date) must be on or before the specified "as of" date for
+        the item to be recognized by the report.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
