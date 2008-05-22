@@ -26,7 +26,8 @@
     <varlistentry>
       <term>Transaction Date</term>
       <listitem>
-        <para>Displays the current day's date.</para>
+        <para>Specify the date you want the transaction to be posted to the
+        General Ledger. The current day's date will display by default.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -89,7 +90,8 @@
       <listitem>
         <para>Posts the Scrap transaction. Generates an Inventory Scrap
         transaction and decrements Quantity on Hand. Additional steps will be
-        necessary if the specified Item is stored in multiple Locations.</para>
+        necessary if the specified Item is stored in multiple
+        Locations.</para>
       </listitem>
     </varlistentry>
   </variablelist>

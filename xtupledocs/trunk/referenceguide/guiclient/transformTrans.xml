@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section666113" role="standard">
   <title>Transform</title>
   <para>Transformation is the process of converting quantity of one Item into
   quantity of another Item. The Transform utility can be applied in multiple
-  scenarios. For example, let's say you manufacture an Item&mdash;but when supplies
-  run low, you purchase replenishment quantity from a Vendor. You would
-  receive the replenishment quantity using an Item Number having the
+  scenarios. For example, let's say you manufacture an Item&mdash;but when
+  supplies run low, you purchase replenishment quantity from a Vendor. You
+  would receive the replenishment quantity using an Item Number having the
   "purchased" Item Type. This purchased quantity would then be transformed
   into quantity of your manufactured Item.</para>
   <note>
@@ -16,19 +17,24 @@
   </note>
   <para>To transform Inventory quantity, select the "Transform" option. The
   following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/transformTrans.png"/>
+          <imagedata fileref="images/transformTrans.png" />
         </imageobject>
         <caption>Transform Utility</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When transforming Inventory quantity, you are presented with the
   following options:</para>
   <variablelist>
+    <varlistentry>
+      <term>Transaction Date</term>
+      <listitem>
+        <para>Specify the date you want the transaction to be posted to the
+        General Ledger. The current day's date will display by default.</para>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>Item Number</term>
       <listitem>

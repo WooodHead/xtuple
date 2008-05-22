@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section615525">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>quantity on hand</primary>
       <secondary>resetting QOH balances</secondary>
     </indexterm> <indexterm significance="normal">
@@ -16,16 +16,14 @@
   negative Quantity on Hand balances to zero, either globally or locally,
   select the "Reset QOH Balances" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/resetQOHBalances.png"/>
+          <imagedata fileref="images/resetQOHBalances.png" />
         </imageobject>
         <caption>Reset QOH Balances</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>Be sure to thaw any Item Site whose negative Quantity on Hand
     balance you want to reset to "0". An Item Site must be unfrozen before its
@@ -67,6 +65,13 @@
       <listitem>
         <para>Enter a Class Code pattern to select a range of Class Codes.
         Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Transaction Date</term>
+      <listitem>
+        <para>Specify the date you want the transaction to be posted to the
+        General Ledger. The current day's date will display by default.</para>
       </listitem>
     </varlistentry>
   </variablelist>
