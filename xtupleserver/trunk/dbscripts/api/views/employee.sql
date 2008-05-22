@@ -1,6 +1,6 @@
 BEGIN;
 
-  SELECT dropIfExists('VIEW', 'api.employee');
+  SELECT dropIfExists('VIEW', 'employee', 'api');
   CREATE OR REPLACE VIEW api.employee AS
  
   SELECT 
@@ -56,7 +56,8 @@ BEGIN;
 
     (e.emp_usr_id IS NOT NULL)  AS is_user,
     (salesrep_id IS NOT NULL)   AS is_salesrep,
-    e.emp_notes                 AS notes
+    e.emp_notes                 AS notes,
+    image_name                  AS image
 
   FROM emp e
       LEFT OUTER JOIN cntct   ON (e.emp_cntct_id=cntct_id)
@@ -67,6 +68,7 @@ BEGIN;
       LEFT OUTER JOIN dept    ON (e.emp_dept_id=dept_id)
       LEFT OUTER JOIN shift   ON (e.emp_shift_id=shift_id)
       LEFT OUTER JOIN salesrep ON (e.emp_code=salesrep_number)
+      LEFT OUTER JOIN image    ON (e.emp_image_id=image_id)
       JOIN curr_symbol        ON (e.emp_wage_curr_id=curr_id);
 
 GRANT ALL ON TABLE api.employee TO openmfg;
@@ -89,6 +91,7 @@ CREATE OR REPLACE RULE "_INSERT" AS ON INSERT TO api.employee DO INSTEAD
       emp_dept_id,
       emp_shift_id,
       emp_usr_id,
+      emp_image_id,
       emp_notes
     ) VALUES (
       NEW.code,
@@ -136,6 +139,7 @@ CREATE OR REPLACE RULE "_INSERT" AS ON INSERT TO api.employee DO INSTEAD
       getDeptId(NEW.department),
       getShiftId(NEW.shift),
       (SELECT usr_id FROM usr WHERE (usr_username=NEW.code)),
+      getImageId(NEW.image),
       COALESCE(NEW.notes,'')
     );
 
@@ -187,6 +191,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS ON UPDATE TO api.employee DO INSTEAD
     emp_dept_id=getDeptId(NEW.department),
     emp_shift_id=getShiftId(NEW.shift),
     emp_usr_id=(SELECT usr_id FROM usr WHERE (usr_username=NEW.code)),
+    emp_image_id=getImageId(NEW.image),
     emp_notes=COALESCE(NEW.notes,'')
   WHERE emp_code=OLD.code;
 
