@@ -43,31 +43,11 @@
   options:</para>
   <variablelist>
     <varlistentry>
-      <term>Sales Order #</term>
+      <term>Order #</term>
       <listitem>
-        <para>Enter the Sales Order Number of the Sales Order whose Stock you
-        want to issue to Shipping.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Transfer Order #</term>
-      <listitem>
-        <para>Enter the Transfer Order Number of the Transfer Order whose
-        Stock you want to issue to Shipping.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>From</term>
-      <listitem>
-        <para>Displays the Source Warehouse if a Transfer Order is
-        selected.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>To</term>
-      <listitem>
-        <para>Displays the Destination Warehouse if a Transfer Order is
-        selected.</para>
+        <para>Enter the Order Number of the Order whose Stock you want to
+        issue to Shipping. Sales Orders and Transfer Orders may be issued to
+        Shipping.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -88,6 +68,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Issue Date</term>
+      <listitem>
+        <para>Specify the date you want the transaction to be posted to the
+        General Ledger. The current day's date will display by default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Line Items</term>
       <listitem>
         <para>Display lists Sales Order Line Items available for Shipping. If
@@ -102,9 +89,9 @@
       <listitem>
         <para>This is an optional field which allows you to issue stock to
         Shipping using a Bar Code scanner. Enter a UPC Code for a Sales Order
-        Line Item using a Bar Code scanner&mdash;or manually enter the UPC Code.
-        The UPC Code for an Item is stored on the Item master. Once the code
-        is entered, specify a quantity and then select the FIND button to
+        Line Item using a Bar Code scanner&mdash;or manually enter the UPC
+        Code. The UPC Code for an Item is stored on the Item master. Once the
+        code is entered, specify a quantity and then select the FIND button to
         issue the Line Item quantity to shipping. You may also hit the ENTER
         key on your keyboard to select the FIND button. This field also
         supports the scanning of Work Order bar codes, if the Work Order is
@@ -191,8 +178,8 @@
   </variablelist>
   <tip>
     <para>If your site integrates UPS WorldShip with the system, you should
-    process Orders in WorldShip after they have been issued to Shipping&mdash;but
-    before they have been shipped.</para>
+    process Orders in WorldShip after they have been issued to
+    Shipping&mdash;but before they have been shipped.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -208,12 +195,12 @@
         <para>Compares the UPC Code entered in the "Issue Items Using Barcode"
         field with the UPC Codes for the listed Sales Order Line Items, then
         issues to Shipping the quantity specified in the "Qty." field. The
-        FIND button may be selected using your mouse&mdash;or by hitting the ENTER
-        key, which corresponds to the FIND button. Because the FIND button
-        corresponds to the ENTER key, you can scan in a UPC Code and then hit
-        ENTER to issue a quantity of one to Shipping. If you prefer, you can
-        scan in a UPC Code and then specify a different quantity before
-        hitting ENTER.</para>
+        FIND button may be selected using your mouse&mdash;or by hitting the
+        ENTER key, which corresponds to the FIND button. Because the FIND
+        button corresponds to the ENTER key, you can scan in a UPC Code and
+        then hit ENTER to issue a quantity of one to Shipping. If you prefer,
+        you can scan in a UPC Code and then specify a different quantity
+        before hitting ENTER.</para>
       </listitem>
     </varlistentry>
   </variablelist>
