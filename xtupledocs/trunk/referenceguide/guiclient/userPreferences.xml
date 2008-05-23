@@ -222,11 +222,11 @@
             <listitem>
               <para>Specify the preferred Warehouse. Warehouses designated as
               preferred will appear at the top of Warehouse list by
-              default&mdash;eliminating the need to search the menu for the desired
-              Warehouse code. The user may access other Warehouses in these
-              lists in the normal way. Assigning a preferred Warehouse is
-              simply a time-saving feature and does not affect user access to
-              Warehouse data.</para>
+              default&mdash;eliminating the need to search the menu for the
+              desired Warehouse code. The user may access other Warehouses in
+              these lists in the normal way. Assigning a preferred Warehouse
+              is simply a time-saving feature and does not affect user access
+              to Warehouse data.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -251,285 +251,29 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>The system supports two different menu styles&mdash;and you are free to use
-  whichever you prefer. However, users should know that over time the Standard
-  menu style will be phased out in favor of the newer Neo menu. To define your
-  menu preference, select the "Menu" tab. The following screen will
-  appear:</para>
+  <para><indexterm significance="normal">
+      <primary>users</primary>
+      <secondary>module options for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>users</primary>
+      <secondary>toolbar options for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>toolbars</primary>
+      <secondary>user options for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>modules</primary>
+      <secondary>user options involving</secondary>
+    </indexterm>The system allows you to show only those menus which you want
+  to see. To define your menu preference, select the "Menu" tab. The following
+  screen will appear:</para>
   <para><mediaobject>
       <imageobject>
-        <imagedata fileref="images/userPreferences_menu_old.png" />
+        <imagedata fileref="images/userPreferences_menu.png" />
       </imageobject>
-      <caption>Standard Menu Options</caption>
+      <caption>Menu Preferences</caption>
     </mediaobject></para>
   <para>When specifying a preferred menu style, you are presented with the
   following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>users</primary>
-          <secondary>module options for</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>users</primary>
-          <secondary>toolbar options for</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>toolbars</primary>
-          <secondary>user options for</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>modules</primary>
-          <secondary>user options involving</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>menus</primary>
-          <secondary>styles for</secondary>
-        </indexterm>Menu Style</term>
-      <listitem>
-        <para>Select one of the following menu styles:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Standard</term>
-            <listitem>
-              <para>This is the original xTuple ERP menu style.</para>
-              <note>
-                <para>Support for the standard menu style will likely
-                disappear in future versions of the product.</para>
-              </note>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Neo</term>
-            <listitem>
-              <para>This is the new xTuple menu style, which organizes the
-              desktop by functional areas.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>The following options will appear if the Standard menu style is
-  selected:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Show I/M Menu</term>
-      <listitem>
-        <para>Select to display the Inventory Management (I/M) module menu on
-        the user's main application window.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show I/M Toolbar</term>
-            <listitem>
-              <para>Select to display I/M module toolbar buttons on the user's
-              main application window.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show P/D Menu</term>
-      <listitem>
-        <para>Select to display the Product Definition (P/D) module menu on
-        the user's main application window.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show P/D Toolbar</term>
-            <listitem>
-              <para>Select to display P/D module toolbar buttons on the user's
-              main application window.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show M/S Menu</term>
-      <listitem>
-        <para>Select to display the Manufacturing Scheduling (M/S) module menu
-        on the user's main application window.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show M/S Toolbar</term>
-            <listitem>
-              <para>Select to display M/S module toolbar buttons on the user's
-              main application window.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show C/P Menu</term>
-      <listitem>
-        <para>Select to display the Capacity Planning (C/P) module menu on the
-        user's main application window.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show C/P Toolbar</term>
-            <listitem>
-              <para>Select to display C/P module toolbar buttons on the user's
-              main application window.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show W/O Menu</term>
-      <listitem>
-        <para>Select to display the Work Order (W/O) module menu on the user's
-        main application window.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show W/O Toolbar</term>
-            <listitem>
-              <para>Select to display W/O module toolbar buttons on the user's
-              main application window.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show P/O Menu</term>
-      <listitem>
-        <para>Select to display the Purchase Order (P/O) module menu on the
-        user's main application window.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show P/O Toolbar</term>
-            <listitem>
-              <para>Select to display P/O module toolbar buttons on the user's
-              main application window.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show S/O Menu</term>
-      <listitem>
-        <para>Select to display the Sales Order (S/O) module menu on the
-        user's main application window.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show S/O Toolbar</term>
-            <listitem>
-              <para>Select to display S/O module toolbar buttons on the user's
-              main application window.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show S/R Menu</term>
-      <listitem>
-        <para>Select to display the Shipping &amp; Receiving (S/R) module menu
-        on the user's main application window.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show S/R Toolbar</term>
-            <listitem>
-              <para>Select to display S/R module toolbar buttons on the user's
-              main application window.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show S/A Menu</term>
-      <listitem>
-        <para>Select to display the Sales Analysis (S/A) module menu on the
-        user's main application window.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show S/A Toolbar</term>
-            <listitem>
-              <para>Select to display S/A module toolbar buttons on the user's
-              main application window.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show A/P Menu</term>
-      <listitem>
-        <para>Select to display the Accounts Payable (A/P) module menu on the
-        user's main application window.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show A/P Toolbar</term>
-            <listitem>
-              <para>Select to display A/P module toolbar buttons on the user's
-              main application window.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show A/R Menu</term>
-      <listitem>
-        <para>Select to display the Accounts Receivable (A/R) module menu on
-        the user's main application window.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show A/R Toolbar</term>
-            <listitem>
-              <para>Select to display A/R module toolbar buttons on the user's
-              main application window.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show G/L Menu</term>
-      <listitem>
-        <para>Select to display the General Ledger (G/L) module menu on the
-        user's main application window.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show G/L Toolbar</term>
-            <listitem>
-              <para>Select to display G/L module toolbar buttons on the user's
-              main application window.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show P/M Menu</term>
-      <listitem>
-        <para>Select to display the Project Management (P/M) module menu on
-        the user's main application window.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show P/M Toolbar</term>
-            <listitem>
-              <para>Select to display P/M module toolbar buttons on the user's
-              main application window.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>If you select the "Neo" menu option, the following screen will
-  appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/userPreferences_menu_neo.png" />
-        </imageobject>
-        <caption>Neo Menu Options</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>The following options will appear if the Neo menu style is
-  selected:</para>
   <variablelist>
     <varlistentry>
       <term>Show Inventory Menu</term>
@@ -689,9 +433,9 @@
       <listitem>
         <para>Enables you to edit highlighted Hot Key definitions. The edit
         screen is the same as that for creating a new Hot Key
-        definition&mdash;except that when editing, the fields will contain Hot Key
-        information. Double-clicking on a Hot Key definition will also bring
-        you to the editing screen.</para>
+        definition&mdash;except that when editing, the fields will contain Hot
+        Key information. Double-clicking on a Hot Key definition will also
+        bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

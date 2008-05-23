@@ -11,8 +11,8 @@
       <secondary>creating item sites for</secondary>
     </indexterm>Create Item Sites by Class Code</title>
   <para>When setting up a new Warehouse, you have the ability to create
-  batches of Item Sites&mdash;rather than having to create them one-at-a-time. To
-  create Item Sites by Class Code, select the "Create Item Sites by Class
+  batches of Item Sites&mdash;rather than having to create them one-at-a-time.
+  To create Item Sites by Class Code, select the "Create Item Sites by Class
   Code" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -117,10 +117,10 @@
         for Planned Replenishment Orders when MRP is run. The setting does not
         apply to manual Orders, but to Planned Orders only. When a maximum
         Order quantity is specified, MRP will ignore Order multiples and
-        minimum Order specifications&mdash;focusing instead solely on the maximum
-        Order setting. For example, if the maximum Order quantity is set to 10
-        and there is demand for 17, then Planned Orders of 10 and 7 would be
-        generated when MRP is run.</para>
+        minimum Order specifications&mdash;focusing instead solely on the
+        maximum Order setting. For example, if the maximum Order quantity is
+        set to 10 and there is demand for 17, then Planned Orders of 10 and 7
+        would be generated when MRP is run.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -157,9 +157,10 @@
     <varlistentry role="openmfg">
       <term>Group MPS/MRP Orders Every</term>
       <listitem>
-        <para>Specify the length of a period&mdash;measured in days&mdash;within which MPS
-        or MRP Planned Orders will be grouped together (i.e, consolidated) to
-        meet scheduled demand for the period.</para>
+        <para>Specify the length of a period&mdash;measured in
+        days&mdash;within which MPS or MRP Planned Orders will be grouped
+        together (i.e, consolidated) to meet scheduled demand for the
+        period.</para>
         <para>This functionality serves to limit the total number of Planned
         Replenishment Orders, thereby simplifying order processing. For
         example, to consolidate demand for an Item Site into 30-day buckets,
@@ -172,19 +173,19 @@
         <para>The initial grouping of Planned Orders is handled differently
         than subsequent buckets. The following formula specifies how the date
         range for the initial period is determined:</para>
+        <informalexample>
+          <para>Start Date = Today's Date</para>
+          <para>Start Date = Today's Date</para>
+          <para>All subsequent periods are determined using the following
+          calculations:</para>
+          <informalexample>
+            <para>Start Date = End Date of Previous Period + 1</para>
+            <para>End Date = Start Date of Current Period + Group Value</para>
+          </informalexample>
+        </informalexample>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Start Date = Today's Date</para>
-  <para>End Date = Today's Date + Lead Time</para>
-  <itemizedlist>
-    <listitem>
-      <para>All subsequent periods are determined using the following
-      calculations:</para>
-    </listitem>
-  </itemizedlist>
-  <para>Start Date = End Date of Previous Period + 1</para>
-  <para>End Date = Start Date of Current Period + Group Value</para>
   <tip>
     <para>To enforce <indexterm significance="normal">
         <primary>just-in-time</primary>
@@ -200,12 +201,20 @@
     demand due dates to which they correspond. If the MRP Order grouping value
     is set to "0", the initial period will be determined in the same way as
     for all Planned Order groups:</para>
-    <para>Start Date = Today's Date</para>
-    <para>End Date = Today's Date + Lead Time</para>
+    <informalexample>
+      <para>Start Date = Today's Date</para>
+    </informalexample>
+    <informalexample>
+      <para>End Date = Today's Date + Lead Time</para>
+    </informalexample>
     <para>However, the date range for all subsequent JIT Planned Orders will
     be based on the following calculations:</para>
-    <para>Start Date = Demand Due Date - Lead Time</para>
-    <para>End Date = Demand Due Date</para>
+    <informalexample>
+      <para>Start Date = Demand Due Date - Lead Time</para>
+    </informalexample>
+    <informalexample>
+      <para>End Date = Demand Due Date</para>
+    </informalexample>
   </tip>
   <variablelist>
     <varlistentry role="openmfg">
@@ -370,8 +379,8 @@
   </variablelist>
   <note>
     <para>Work Orders created, as specified above, to meet Sales Order demand
-    will be created regardless of an Item's Availability&mdash;and also regardless
-    of whether Material Requirements Planning (MRP) is being run in
+    will be created regardless of an Item's Availability&mdash;and also
+    regardless of whether Material Requirements Planning (MRP) is being run in
     parallel.</para>
   </note>
   <variablelist>
@@ -410,10 +419,10 @@
     <varlistentry>
       <term>Stocked</term>
       <listitem>
-        <para>Select if Item is stocked at specified Warehouse. This option
-        pertains to manufactured Items. If you select this option, you are
-        indicating that the Item is a make-to-stock Item. If not selected, the
-        Item will be identified as a make-to-order Item.</para>
+        <para>Select if the Item is stocked at the specified Warehouse. This
+        setting is used to drive the constraint management system. As a
+        result, to avoid inaccurate results when running that system, an Item
+        Site must also have a Reorder Level defined to use this option.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
