@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524391">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>standard journals</primary>
       <secondary>creating new</secondary>
     </indexterm>New Standard Journal</title>
+  <para>Standard Journals are designed to handle G/L Series transactions which
+  must be repeated frequently on a recurring basis. For example, Standard
+  Journals can be used for recording the payment of monthly utility bills--or
+  any other transactions which must be posted regularly. Once a Standard
+  Journal is set up, the posting of the Standard Journal can then be automated
+  using the Batch Manager. In this way, Standard Journal postings can be
+  scheduled at daily, weekly, or monthly intervals. </para>
   <para>To create a new Standard Journal, select the "Enter New Standard
   Journal" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/standardJournal.png"/>
+          <imagedata fileref="images/standardJournal.png" />
         </imageobject>
         <caption>Create New Standard Journal</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When creating a new Standard Journal, you are presented with the
   following options:</para>
   <variablelist>
@@ -44,12 +49,23 @@
       <term>Totals</term>
       <listitem>
         <para>Displays the following information:</para>
-        <para>Debits: Displays total Debits associated with the Journal.
-        Totals will display in red if Debits and Credits do not
-        balance.</para>
-        <para>Credits: Displays total Credits associated with the Journal.
-        Totals will display in red if Debits and Credits do not
-        balance.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Debits</term>
+            <listitem>
+              <para>Displays total Debits associated with the Journal. Totals
+              will display in red if Debits and Credits do not balance.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credits</term>
+            <listitem>
+              <para> Displays total Credits associated with the Journal.
+              Totals will display in red if Debits and Credits do not
+              balance.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -108,5 +124,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="standardJournalItem.xml" xpointer="element(/1)"/>
+  <xi:include href="standardJournalItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
