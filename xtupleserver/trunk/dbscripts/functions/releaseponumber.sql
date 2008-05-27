@@ -1,4 +1,11 @@
 CREATE OR REPLACE FUNCTION releasePoNumber(INTEGER) RETURNS BOOLEAN AS '
+BEGIN
+  RETURN releasePoNumber(CAST($1 AS TEXT));
+END;
+' LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION releasePoNumber(TEXT) RETURNS BOOLEAN AS '
 DECLARE
   pPoNumber ALIAS FOR $1;
   _test INTEGER;
@@ -19,7 +26,7 @@ BEGIN
   FROM orderseq
   WHERE (orderseq_name=''PoNumber'');
 
-  IF ((_test - 1) <> pPoNumber) THEN
+  IF (CAST(_test - 1 AS TEXT) <> pPoNumber) THEN
     RETURN FALSE;
   END IF;
 
