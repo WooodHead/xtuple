@@ -31,7 +31,7 @@ BEGIN
 
     IF (_newMethod) THEN
       FOR _r IN SELECT DISTINCT ls_number
-                FROM invdetail, invhist, shipitem
+                FROM invdetail, invhist, shipitem, ls
                WHERE ((shipitem_invcitem_id=pInvcitemid)
                  AND  (shipitem_invhist_id=invhist_id)
                  AND  (invhist_id=invdetail_invhist_id)
