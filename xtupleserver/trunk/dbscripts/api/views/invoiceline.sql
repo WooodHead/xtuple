@@ -91,8 +91,8 @@ BEGIN
 				(SELECT salescat_id FROM salescat WHERE salescat_name = pNew.sales_category)
 			ELSE NULL
 		END,
-		taxtype_id,
 		tax_id,
+		taxtype_id,
 		tax_ratea,
 		tax_rateb,
 		tax_ratec,
