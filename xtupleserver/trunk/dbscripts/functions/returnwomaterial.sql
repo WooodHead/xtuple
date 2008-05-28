@@ -51,8 +51,10 @@ BEGIN
      AND (womatl_id=pWomatlid) );
 
 --  Create linkage to the transaction created
-  INSERT INTO womatlpost (womatlpost_womatl_id,womatlpost_invhist_id)
-              VALUES (pWomatlid,_invhistid);
+  IF (_invhistid != -1) THEN
+    INSERT INTO womatlpost (womatlpost_womatl_id,womatlpost_invhist_id)
+                VALUES (pWomatlid,_invhistid);
+  END IF;
 
 --  Decrease the parent W/O''s WIP value by the value of the returned components
   UPDATE wo
