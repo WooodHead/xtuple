@@ -179,13 +179,13 @@
       <term>Retained Earnings, Year End Account</term>
       <listitem>
         <para>Select a valid General Ledger Account. This is an Equity
-        Account. It will be credited if retained earnings are positive&mdash;and
-        debited if retained earnings are negative. The retained earnings
-        calculation occurs when a Fiscal Year is closed. Total Expenses for
-        the year are subtracted from total Revenues, and the balance is
-        transferred to the Year End Equity Account. The system then
-        automatically resets the beginning balances for Revenue and Expense
-        Accounts to $0 for the start of the new Fiscal Year.</para>
+        Account. It will be credited if retained earnings are
+        positive&mdash;and debited if retained earnings are negative. The
+        retained earnings calculation occurs when a Fiscal Year is closed.
+        Total Expenses for the year are subtracted from total Revenues, and
+        the balance is transferred to the Year End Equity Account. The system
+        then automatically resets the beginning balances for Revenue and
+        Expense Accounts to $0 for the start of the new Fiscal Year.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -277,9 +277,9 @@
       <term>Next A/P Memo #</term>
       <listitem>
         <para>The next sequentially available Accounts Payable Memo Number
-        will display here. You may change the number&mdash;creating a new basis for
-        the next A/P Memo Number&mdash;by typing the new number into this
-        field.</para>
+        will display here. You may change the number&mdash;creating a new
+        basis for the next A/P Memo Number&mdash;by typing the new number into
+        this field.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -300,9 +300,9 @@
       <term>Next A/R Memo #</term>
       <listitem>
         <para>The next sequentially available Accounts Receivable Memo Number
-        will display here. You may change the number&mdash;creating a new basis for
-        the next A/R Memo Number&mdash;by typing the new number into this
-        field.</para>
+        will display here. You may change the number&mdash;creating a new
+        basis for the next A/R Memo Number&mdash;by typing the new number into
+        this field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -405,6 +405,20 @@
             </listitem>
           </varlistentry>
         </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Recurring Invoice Buffer</term>
+      <listitem>
+        <para>Specify the number of buffer days you want to allow for when
+        automatically processing recurring Invoices. This setting is used by
+        the recurring Invoices utility, which is described in more detail here
+        <xref linkend="CreateRecurringInvoices" />. Essentially, the buffer
+        days setting tells the utility how far to look ahead. When it runs,
+        the utility will create new Invoices for any recurring Invoices having
+        Invoice dates within the look-ahead (i.e., buffer) days. If an Invoice
+        date falls outside the buffer period, then no new Invoice will be
+        created.</para>
       </listitem>
     </varlistentry>
   </variablelist>
