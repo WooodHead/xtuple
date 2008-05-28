@@ -238,8 +238,8 @@
       <term>Tax</term>
       <listitem>
         <para>Tax is not calculated automatically when creating a
-        miscellaneous Invoice&mdash;as it is when an Invoice is generated from a
-        Sales Order. You must manually enter a Tax amount if you want to add
+        miscellaneous Invoice&mdash;as it is when an Invoice is generated from
+        a Sales Order. You must manually enter a Tax amount if you want to add
         Tax to a miscellaneous Invoice. To get a detailed view of the Tax
         calculation, click on the Tax link using your mouse.</para>
       </listitem>
@@ -330,10 +330,10 @@
       <listitem>
         <para>Enables you to edit highlighted Invoice Line Items. The edit
         screen is the same as that for creating a new Invoice Line
-        Item&mdash;except that when editing, the fields will contain Invoice Line
-        Item information. Double-clicking on an Invoice Line Item will also
-        bring you to the editing screen. Mac users may use COMMAND + E to edit
-        an existing Line Item.</para>
+        Item&mdash;except that when editing, the fields will contain Invoice
+        Line Item information. Double-clicking on an Invoice Line Item will
+        also bring you to the editing screen. Mac users may use COMMAND + E to
+        edit an existing Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -352,7 +352,9 @@
     </varlistentry>
   </variablelist>
   <para>To add Notes to an Invoice, select the "Notes" tab at the top of the
-  "Invoice" screen. The following screen will appear:</para>
+  "Invoice" screen. If the Invoice was created from a Sales Order, any Sales
+  Order Notes will be transfered to the Invoice. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
