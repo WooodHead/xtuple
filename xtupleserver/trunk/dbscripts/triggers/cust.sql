@@ -16,7 +16,11 @@ BEGIN
 
   IF (TG_OP IN (''INSERT'',''UPDATE'')) THEN
     IF (NEW.cust_number IS NULL) THEN
-	  RAISE EXCEPTION ''You must supply a valid Customer Number ID.'';
+	  RAISE EXCEPTION ''You must supply a valid Customer Number.'';
+    END IF;
+
+    IF (LENGTH(COALESCE(NEW.cust_name,''''))=0) THEN
+	  RAISE EXCEPTION ''You must supply a valid Customer Name.'';
     END IF;
 
     IF (NEW.cust_custtype_id IS NULL) THEN
