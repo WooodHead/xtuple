@@ -50,7 +50,7 @@ BEGIN
 
     SELECT NEXTVAL(''invhist_invhist_id_seq'') INTO _invhistid;
 
-    IF (_timestamp IS NULL) THEN
+    IF ((_timestamp IS NULL) OR (CAST(_timestamp AS date)=CURRENT_DATE)) THEN
       _timestamp := CURRENT_TIMESTAMP;
     END IF;
 
