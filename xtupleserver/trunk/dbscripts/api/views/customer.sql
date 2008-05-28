@@ -224,7 +224,7 @@ INSERT INTO custinfo
         COALESCE(NEW.notes,''),
         COALESCE(NEW.allow_free_form_billto,false),
         COALESCE(NEW.uses_purchase_orders,false),
-        UPPER(NEW.customer_number),
+        COALESCE(UPPER(NEW.customer_number),CAST(fetchCRMAccountNumber() AS text)),
         CASE
 	  WHEN (NEW.invc_edi_profile='Custom Email') THEN
 	    true

@@ -78,7 +78,7 @@ INSERT INTO crmacct
          crmacct_cntct_id_2,
          crmacct_notes )
         VALUES
-        (NEW.account_number,
+        (COALESCE(NEW.account_number,CAST(fetchCRMAccountNumber() AS text)),
          getCrmAcctId(NEW.parent_account),
          NEW.account_name,
          COALESCE(NEW.active,TRUE),
