@@ -104,7 +104,9 @@
     UOM. But the Price is based on the Price UOM. Whenever these two UOMs are
     not identical, the Extended Price for a Line Item will be based on the
     following formula:</para>
-    <para>(Qty. Ordered) x (Price/Inv. Ratio) x (Net Unit Price)</para>
+    <informalexample>
+      <para>(Qty. Ordered) x (Price/Inv. Ratio) x (Net Unit Price)</para>
+    </informalexample>
     <para>If for some reason the Prices don"t look correct, check the Item
     master for the Line Item in question. It may be that the Inventory and
     Price UOMs do not exist in a 1:1 relationship.</para>
@@ -139,49 +141,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Extended Price</term>
-      <listitem>
-        <para>Displays the Extended Price. The Extended Price for a Line Item
-        is based on the quantity ordered multiplied by the Net Unit
-        Price.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Tax Type</term>
-      <listitem>
-        <para>Specify the Tax Type for the Invoice Item. By default, the
-        Item's Tax Type corresponding to the Invoice's Tax Authority will be
-        presented here. The link between Tax Types and Tax Authorities is made
-        on the Item master. If the Item master does not have a Tax Type for
-        the Invoice's Tax Authority, then no Tax will be charged.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Tax Code</term>
-      <listitem>
-        <para>Specify the Tax Code to be applied to the Invoice Item. By
-        default, the Tax Code specified in the Tax Selection matrix will be
-        displayed here. For a Tax Code to be used, the matrix must have an
-        entry which matches both the Item's Tax Type definition and the Tax
-        Authority specified on the Invoice header. If no Tax Selection match
-        exists, then no Tax Code will be used&mdash;meaning no Tax will be
-        charged.</para>
-        <tip>
-          <para>The relationship between Tax Authorities, Tax Types, and Tax
-          Codes is established in the Tax Selection matrix.</para>
-        </tip>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Tax</term>
-      <listitem>
-        <para>Displays the amount of Tax to be charged for the Invoice Line
-        Item quantity. Sales Tax is calculated at the Invoice Line Item level.
-        To get a detailed view of the Tax calculation, click on the Tax link
-        using your mouse.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Pricing UOM</term>
       <listitem>
         <para>The Price Unit of Measure is the same as the Selling UOM. If an
@@ -191,12 +150,18 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Inv./Price Ratio</term>
+      <term>Extended Price</term>
       <listitem>
-        <para>Displays the ratio between the Inventory UOM and the Price (or
-        Selling) UOM.</para>
+        <para>Displays the Extended Price. The Extended Price for a Line Item
+        is based on the quantity ordered multiplied by the Net Unit
+        Price.</para>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <para>To view Costing and Tax information related to the Invoice Item,
+  select the "Detail" tab. You will be presented with the following
+  options:</para>
+  <variablelist>
     <varlistentry>
       <term>Unit Cost (Inv. UOM)</term>
       <listitem>
@@ -219,6 +184,66 @@
         Schedule.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>The following Tax-related information is available:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Type</term>
+            <listitem>
+              <para>Specify the Tax Type for the Invoice Item. By default, the
+              Item's Tax Type corresponding to the Invoice's Tax Authority
+              will be presented here. The link between Tax Types and Tax
+              Authorities is made on the Item master. If the Item master does
+              not have a Tax Type for the Invoice's Tax Authority, then no Tax
+              will be charged.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Code</term>
+            <listitem>
+              <para>Specify the Tax Code to be applied to the Invoice Item. By
+              default, the Tax Code specified in the Tax Selection matrix will
+              be displayed here. For a Tax Code to be used, the matrix must
+              have an entry which matches both the Item's Tax Type definition
+              and the Tax Authority specified on the Invoice header. If no Tax
+              Selection match exists, then no Tax Code will be
+              used&mdash;meaning no Tax will be charged.</para>
+              <tip>
+                <para>The relationship between Tax Authorities, Tax Types, and
+                Tax Codes is established in the Tax Selection matrix.</para>
+              </tip>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Tax</term>
+            <listitem>
+              <para>Displays the amount of Tax to be charged for the Invoice
+              Line Item quantity. Sales Tax is calculated at the Invoice Line
+              Item level. To get a detailed view of the Tax calculation, click
+              on the Tax link using your mouse.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Notes to an Invoice Line Item, select the "Notes" tab at the
+  bottom of the screen. If the Invoice was created from a Sales Order, any
+  Sales Order Line Item Notes will be transfered to the Invoice. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/invoiceItem_tab.png" />
+        </imageobject>
+        <caption>Invoice Line Item Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When entering Invoice Line Item Notes, you are presented with the
+  following options:</para>
+  <variablelist>
     <varlistentry>
       <term>Notes</term>
       <listitem>
