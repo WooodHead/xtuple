@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519291" role="openmfg">
   <title>Post Operation</title>
   <para>Work Order progress can be posted in terms of materials used or
@@ -8,16 +9,14 @@
   Operations-driven process for reporting progress. To post Work Order
   Operations, select the "Post Operations" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/postOperations.png"/>
+          <imagedata fileref="images/postOperations.png" />
         </imageobject>
         <caption>Post Work Order Operations</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When posting a Work Order's Operations, you are presented with the
   following options:</para>
   <variablelist>
@@ -81,8 +80,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>work orders</primary>
           <secondary>posting options</secondary>
         </indexterm>Post in Production UOMs</term>
@@ -159,6 +157,14 @@
         one Work Order Operation may have this flag set. If this option is
         selected, the General Ledger will show the finished goods being
         received into Inventory when the Operation is posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Close W/O</term>
+      <listitem>
+        <para>Select this option to close the Work Order. The option will be
+        selected automatically at the point when you are posting all quantity
+        complete.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
