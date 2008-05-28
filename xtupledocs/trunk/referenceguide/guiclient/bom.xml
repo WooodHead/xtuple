@@ -84,14 +84,15 @@
           <varlistentry>
             <term>Active</term>
             <listitem>
-              <para>This is the current Revision. Only one Revision can be
+              <para>This is the current, default Revision used for costing and
+              Material Requirements Planning (MRP). Only one Revision can be
               active at the same time. Active Revisions may be modified.
               However, once a Revision becomes inactive, it may no longer be
               changed.</para>
               <tip>
                 <para>The active Revision becomes inactive when a pending
-                Revision is activated. Inactive Revisions cannot be
-                modified.</para>
+                Revision is activated. Inactive Revisions cannot be modified.
+                </para>
               </tip>
             </listitem>
           </varlistentry>
@@ -112,8 +113,10 @@
               <para>This is a formerly active Revision. Inactive Revisions
               cannot be modified&mdash;only viewed. They are stored to provide
               historical, point-in-time build information, which may be used
-              for various purposes throughout the application. You may store
-              multiple inactive Revisions.</para>
+              for various purposes throughout the application. For example,
+              privileged users may select inactive Revisions when processing
+              Work Orders or Purchase Orders. There is no limit to the number
+              of inactive Revisions you may save.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -192,8 +195,9 @@
       <listitem>
         <para>Displays the maximum desired Cost for the component Items. The
         maximum desired Cost is defined on the Item master. It provides a
-        visual guide to help determine whether component Item Costs&mdash;either
-        Standard or Actual&mdash;have exceeded the maximum desired Cost.</para>
+        visual guide to help determine whether component Item
+        Costs&mdash;either Standard or Actual&mdash;have exceeded the maximum
+        desired Cost.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
