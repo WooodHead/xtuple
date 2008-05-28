@@ -48,10 +48,10 @@ BEGIN
     ELSE
       -- Handle it old way
       FOR _r IN SELECT DISTINCT ls_number
-                FROM invdetail JOIN invhist ON (invdetail_invhist_id=invhist_id)
+                FROM ls, invdetail JOIN invhist ON (invdetail_invhist_id=invhist_id)
                WHERE ((invhist_transtype=''SH'')
                  AND  (invdetail_invcitem_id=pInvcitemid)
-                 AND  (lnvdetail_ls_id=ls_id)) LOOP
+                 AND  (invdetail_ls_id=ls_id)) LOOP
         IF (_first = false) THEN
           _lotserial := _lotserial || '', '';
         END IF;
