@@ -156,17 +156,16 @@
       <listitem>
         <para>Select to indicate you want the Invoice to be a recurring
         Invoice, using the frequency settings you specify below. This feature
-        can be used, for example, to automatically generate Invoices on the
-        same day of every month.To automate the creation of recurring
-        Invoices, simply use the recurring Invoices utility, which is
-        described in more detail here <xref
-        linkend="CreateRecurringInvoices" />. When the utility is run, any
-        recurring Invoices it creates will automatically appear on the list of
-        unposted Invoices. The new Invoice date will depend on the frequency
-        you specify. However, the date will relate to the Invoice date on the
-        original Invoice. For example, if the original Invoice is dated
-        January 1 and the frequency is once every month, then the next
-        Invoices will be dated February 1, March 1, etc.</para>
+        enables you to automatically generate Invoices on a recurring basis
+        (e.g., the same day of every month). Recurring Invoices are generated
+        when you run the recurring Invoices utility, which is described in
+        more detail here <xref linkend="CreateRecurringInvoices" />.
+        Newly-created recurring Invoices will appear on the list of unposted
+        Invoices. Their distribution date will depend on the frequency
+        specified and the Invoice date on the original Invoice. For example,
+        if the original Invoice is dated January 1 and the frequency is once
+        every month, then the next Invoices will be dated February 1, March 1,
+        etc.</para>
         <tip>
           <para>Once the recurring flag is set on the original Invoice, all
           subsequent, recurring Invoices will be marked in the database as
