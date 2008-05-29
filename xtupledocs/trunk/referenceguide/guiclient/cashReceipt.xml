@@ -28,9 +28,8 @@
       <term>Customer #</term>
       <listitem>
         <para>Enter the Customer Number of the Customer whose Cash has been
-        received.</para>
-        <para>The browse button located to the right of the field leads to a
-        searchable Customers list. You may also access this list using the
+        received. The browse button located to the right of the field leads to
+        a searchable Customers list. You may also access this list using the
         keyboard shortcut "CTRL + L". Once a Customer Number is entered, the
         Customer name and billing address will display. Select the "?" or "$"
         symbol next to the browse button to view Customer information for the
@@ -79,9 +78,11 @@
       <term>Funds Type</term>
       <listitem>
         <para>Specify the type of the Cash Receipt. Choose from following
-        Funds Types: Check, Certified Check, Master Card, Visa, American
-        Express, Discover Card, Other Credit Card, Cash, Wire Transfer, or
-        Other.</para>
+        Funds Types: Check, Certified Check, Cash, Wire Transfer, and Other.
+        If you are using xTuple's Credit Card processing functionality at your
+        site, the following additional Funds Types options will be available:
+        Master Card, Visa, American Express, Discover Card, Other Credit Card.
+        </para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -91,6 +92,11 @@
     Card using the "Credit Card" tab below. The charge transaction will begin
     processing once you select the SAVE button.</para>
   </note>
+  <tip>
+    <para>You can use the Funds Type "Other" for entering Credit Card
+    information if you are not using xTuple's Credit Card processing
+    functionality at your site.</para>
+  </tip>
   <variablelist>
     <varlistentry>
       <term>Check/Document #</term>
@@ -220,8 +226,8 @@
   </variablelist>
   <tip>
     <para>You may select multiple open Items simultaneously by highlighting
-    them using your mouse&mdash;or a combination of your mouse and either the SHIFT
-    or CTRL keys.</para>
+    them using your mouse&mdash;or a combination of your mouse and either the
+    SHIFT or CTRL keys.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -293,8 +299,7 @@
         <imageobject>
           <imagedata fileref="images/AR_CashR_selectCC.png" />
         </imageobject>
-        <caption>Select Credit Card for Cash
-        Receipt</caption>
+        <caption>Select Credit Card for Cash Receipt</caption>
       </mediaobject>
     </screenshot></para>
   <note>
@@ -327,8 +332,9 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Credit Cards. The edit screen is
-        the same as that for entering new Credit Card information&mdash;except that
-        when editing, the fields will contain Credit Card information.</para>
+        the same as that for entering new Credit Card information&mdash;except
+        that when editing, the fields will contain Credit Card
+        information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -369,8 +375,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_CashR_enterNotes.png"
-                     />
+          <imagedata fileref="images/AR_CashR_enterNotes.png" />
         </imageobject>
         <caption>Enter Cash Receipt Notes</caption>
       </mediaobject>
