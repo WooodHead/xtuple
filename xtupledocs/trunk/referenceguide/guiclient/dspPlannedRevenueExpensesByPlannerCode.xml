@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518885" role="openmfg">
   <title>Planned Revenue/Expenses by Planner Code</title>
   <para>To view planned Revenue/Expenses by Planner Code, select the "Planned
   Revenue/Expenses by Planner Code" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspPlannedRevenueExpensesByPlannerCode.png"/>
+          <imagedata fileref="images/dspPlannedRevenueExpensesByPlannerCode.png" />
         </imageobject>
-        <caption>Planned Revenue/Expenses by Planner
-        Code</caption>
+        <caption>Planned Revenue/Expenses by Planner Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying planned Revenue/Expenses by Planner Code, you are
   presented with the following options:</para>
   <variablelist>
@@ -42,20 +40,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>All Warehouses</term>
-      <listitem>
-        <para>Select to display planned Revenue/Expenses by Planner Code for
-        all Warehouses.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected</term>
-      <listitem>
-        <para>Specify Warehouse whose planned Revenue/Expenses by Planner Code
-        you want to display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Costs</term>
       <listitem>
         <para>Sort the information using one of the following costing
@@ -74,6 +58,36 @@
             </listitem>
           </varlistentry>
         </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to display planned Revenue/Expenses by Planner Code for
+        all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose planned Revenue/Expenses by Planner Code
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Order Date</term>
+      <listitem>
+        <para>Planned Revenue/Expenses by Planner Code generated on or after
+        this date will be displayed. Start date and end date must be entered
+        for calculation to proceed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Order Date</term>
+      <listitem>
+        <para>Planned Revenue/Expenses by Planner Code generated on or before
+        this date will be displayed. Start date and end date must be entered
+        for calculation to proceed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -110,22 +124,6 @@
             </listitem>
           </varlistentry>
         </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Start Order Date</term>
-      <listitem>
-        <para>Planned Revenue/Expenses by Planner Code generated on or after
-        this date will be displayed. Start date and end date must be entered
-        for calculation to proceed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>End Order Date</term>
-      <listitem>
-        <para>Planned Revenue/Expenses by Planner Code generated on or before
-        this date will be displayed. Start date and end date must be entered
-        for calculation to proceed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
