@@ -82,10 +82,10 @@
       <term>EDIT</term>
       <listitem id="arWorkBenchEDITCR1">
         <para>Enables you to edit highlighted Cash Receipt. The edit screen is
-        the same as that for creating a new Cash Receipt&mdash;except that when
-        editing, the fields will contain pre-loaded Cash Receipt information.
-        Double-clicking on a Cash Receipt will also bring you to the editing
-        screen.</para>
+        the same as that for creating a new Cash Receipt&mdash;except that
+        when editing, the fields will contain pre-loaded Cash Receipt
+        information. Double-clicking on a Cash Receipt will also bring you to
+        the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -158,26 +158,36 @@
     <varlistentry>
       <term>APPLY</term>
       <listitem id="arWorkBenchAPPLYCM1">
-        <para>Highlight an unapplied Credit Memo and then select this button
-        to apply an amount, as described in the <xref linkend="Anchor30541" />
-        section.</para>
+        <para>Highlight an unapplied Credit Memo or Cash Deposit and then
+        select this button to apply an amount, as described in the <xref
+        linkend="Anchor30541" /> section.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
       <listitem id="arWorkBenchEDITCM1">
-        <para>Enables you to edit highlighted Credit Memos. The edit screen is
-        the same as that for creating a new Credit Memo&mdash;except that when
-        editing, the fields will contain pre-loaded Credit Memo information.
-        Double-clicking on a Credit Memo will also bring you to the editing
-        screen.</para>
+        <para>Enables you to edit highlighted Credit Memos or Cash Deposit.
+        The edit screen is the same as that for creating a new Credit
+        Memo&mdash;except that when editing, the fields will contain
+        pre-loaded Credit Memo information. Double-clicking on a Credit Memo
+        will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
       <listitem id="arWorkBenchVIEWCM1">
-        <para>Highlight an unapplied Credit Memo and then select this button
-        to reach a read-only view of the "Edit" screen.</para>
+        <para>Highlight an unapplied Credit Memo or Cash Deposit and then
+        select this button to reach a read-only view of the "Edit"
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CREDIT CARD REFUND</term>
+      <listitem>
+        <para>Highlight an unapplied Credit Memo or Cash Deposit and then
+        select this button to post a refund in the open amount to the
+        Customer's Credit Card. This option will be visible if Credit Cards
+        are enabled at your site.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -278,6 +288,13 @@
           will no longer appear in the "Pre-authorized Credit Card Charges"
           list.</para>
         </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VOID</term>
+      <listitem>
+        <para>Highlight a pre-authorized Credit Card charge amount and then
+        select this button to void the pre-authorization.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
