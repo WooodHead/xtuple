@@ -16,7 +16,7 @@ DECLARE
 BEGIN
   SELECT bankaccnt_accnt_id INTO _glaccnt
   FROM bankaccnt
-  WHERE bankaccnt_id = fetchMetricText(''CCDefaultBank'');
+  WHERE bankaccnt_id = fetchMetricValue(''CCDefaultBank'');
 
   IF (NOT FOUND) THEN
     RETURN -1;
