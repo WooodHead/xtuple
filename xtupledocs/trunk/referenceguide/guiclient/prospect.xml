@@ -13,15 +13,15 @@
   <tip>
     <para>To convert a Prospect to a Customer, simply select the "Customer"
     button on the Prospect's CRM Account. This will prompt you to convert the
-    Prospect information&mdash;and also give you the chance to convert any existing
-    Prospect Quotes to Customer Quotes.</para>
+    Prospect information&mdash;and also give you the chance to convert any
+    existing Prospect Quotes to Customer Quotes.</para>
   </tip>
   <para>To create a new Prospect, select the "Enter New Prospect" option. The
   following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_prospectNew.png" />
+          <imagedata fileref="images/prospect.png" />
         </imageobject>
         <caption>Create New Prospect Account</caption>
       </mediaobject>
@@ -44,6 +44,13 @@
       <term>Prospect Name</term>
       <listitem>
         <para>Enter a name to describe the Prospect.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Rep</term>
+      <listitem>
+        <para>Specify the Sales Representative associated with the
+        Prospect.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -72,8 +79,9 @@
     <varlistentry>
       <term>Contact</term>
       <listitem>
-        <para>Manually enter Contact information in the fields below&mdash;or use
-        the browse button to select pre-existing Contact information.</para>
+        <para>Manually enter Contact information in the fields below&mdash;or
+        use the browse button to select pre-existing Contact
+        information.</para>
         <variablelist>
           <varlistentry>
             <term>Title</term>
@@ -178,14 +186,13 @@
     </varlistentry>
   </variablelist>
   <para>The system allows you to enter Quotes for Prospects. To view the list
-  of existing Prospect Quotes&mdash;or to enter a new Quote for a Prospect&mdash;select
-  the "Quotes" tab at the bottom of the Prospect screen. The following screen
-  will appear:</para>
+  of existing Prospect Quotes&mdash;or to enter a new Quote for a
+  Prospect&mdash;select the "Quotes" tab at the bottom of the Prospect screen.
+  The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_prospectQuote.png"
-                     />
+          <imagedata fileref="images/prospect_quotesTab.png" />
         </imageobject>
         <caption>List of Prospect Quotes</caption>
       </mediaobject>
@@ -219,8 +226,8 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Prospect Quotes. The edit screen
-        is the same as that for creating new Prospect Quotes&mdash;except that when
-        editing, the fields will contain Prospect Quote information.
+        is the same as that for creating new Prospect Quotes&mdash;except that
+        when editing, the fields will contain Prospect Quote information.
         Double-clicking on a Prospect Quote line will also bring you to the
         editing screen.</para>
       </listitem>
