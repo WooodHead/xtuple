@@ -12,7 +12,7 @@ BEGIN
   FROM wo
   WHERE (wo_id=pWoid);
 
-  IF (woStatus = ''R'') THEN
+  IF (woStatus IN (''R'',''I'')) THEN
     INSERT INTO evntlog (evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
                          evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number,
                          evntlog_oldvalue, evntlog_newvalue)
@@ -28,50 +28,48 @@ BEGIN
      AND (wo_id=pWoid) );
 
      _result = 0;
-  ELSE
+  END IF;
 
-    UPDATE wo
-    SET wo_qtyord=pQty
-    WHERE (wo_id=pWoid);
+  UPDATE wo
+  SET wo_qtyord=pQty
+  WHERE (wo_id=pWoid);
 
-    IF (woStatus = ''E'') THEN
-      UPDATE womatl
-      SET womatl_qtyreq=(wo_qtyord * (womatl_qtyper * (1 + womatl_scrap)))
-      FROM wo
-      WHERE ((womatl_wo_id=wo_id)
-       AND (wo_id=pWoid));
+  IF (woStatus IN (''E'',''R'',''I'')) THEN
+    UPDATE womatl
+    SET womatl_qtyreq=(wo_qtyord * (womatl_qtyper * (1 + womatl_scrap)))
+    FROM wo
+    WHERE ((womatl_wo_id=wo_id)
+     AND (wo_id=pWoid));
 
-      IF ( ( SELECT (metric_value=''t'')
-             FROM metric
-             WHERE (metric_name=''Routings'') ) ) THEN
+    IF ( ( SELECT (metric_value=''t'')
+           FROM metric
+           WHERE (metric_name=''Routings'') ) ) THEN
 
-          UPDATE wooper
-             SET wooper_rntime = CASE WHEN ((booitem_rnqtyper = 0) OR (booitem_invproduomratio = 0)) THEN 0
-                                      WHEN (NOT booitem_rnrpt) THEN 0
-                                      ELSE ( ( booitem_rntime /
-                                               booitem_rnqtyper /
-                                               booitem_invproduomratio ) * wo_qtyord )
-                                 END
-            FROM booitem, wo
-           WHERE ((wooper_wo_id=wo_id)
-             AND  (wooper_booitem_id=booitem_id)
-             AND  (wo_id=pWoid));
-      END IF;
+        UPDATE wooper
+           SET wooper_rntime = CASE WHEN ((booitem_rnqtyper = 0) OR (booitem_invproduomratio = 0)) THEN 0
+                                    WHEN (NOT booitem_rnrpt) THEN 0
+                                    ELSE ( ( booitem_rntime /
+                                             booitem_rnqtyper /
+                                             booitem_invproduomratio ) * wo_qtyord )
+                               END
+          FROM booitem, wo
+         WHERE ((wooper_wo_id=wo_id)
+           AND  (wooper_booitem_id=booitem_id)
+           AND  (wo_id=pWoid));
+    END IF;
 
-      IF (changeChildren) THEN
-        _result := ( SELECT MIN(changeWoQty(wo_id, womatl_qtyreq, TRUE))
-                     FROM womatl, wo
-                     WHERE ((womatl_itemsite_id=wo_itemsite_id)
-                      AND (wo_ordtype=''W'')
-                      AND (womatl_wo_id=pWoid)
-                      AND (wo_ordid=pWoid)) );
-      ELSE
-        _result = 1;
-      END IF;
+    IF (changeChildren) THEN
+      _result := ( SELECT MIN(changeWoQty(wo_id, womatl_qtyreq, TRUE))
+                   FROM womatl, wo
+                   WHERE ((womatl_itemsite_id=wo_itemsite_id)
+                    AND (wo_ordtype=''W'')
+                    AND (womatl_wo_id=pWoid)
+                    AND (wo_ordid=pWoid)) );
     ELSE
       _result = 1;
     END IF;
-
+  ELSE
+    _result = 1;
   END IF;
 
   RETURN _result;
