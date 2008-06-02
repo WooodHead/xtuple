@@ -12,7 +12,7 @@ BEGIN
   FROM wo
   WHERE (wo_id=pWoid);
 
-  IF (NOT (_status IN (''O'', ''E''))) THEN
+  IF (NOT (_status IN (''O'', ''E'',''R'',''I''))) THEN
     return -1;
   END IF;
 
@@ -20,7 +20,7 @@ BEGIN
   SET wo_priority=pPriority
   WHERE (wo_id=pWoid);
 
-  IF ( (_status = ''E'') AND (pChangeChildren) ) THEN
+  IF ( (_status IN (''E'',''R'',''I'')) AND (pChangeChildren) ) THEN
     SELECT COALESCE(MIN(reprioritizeWo(wo_id, pPriority, TRUE)), 1) INTO _result
     FROM wo
     WHERE ( (wo_ordtype=''W'')

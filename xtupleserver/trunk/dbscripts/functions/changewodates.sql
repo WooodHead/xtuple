@@ -16,7 +16,7 @@ BEGIN
   IF (_p.wo_status = ''C'') THEN 
     returnCode := 0;
 
-  ELSIF (_p.wo_status = ''R'') THEN
+  ELSIF (_p.wo_status IN (''R'',''I'')) THEN
     INSERT INTO evntlog (evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
                          evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number,
                          evntlog_olddate, evntlog_newdate)
@@ -33,54 +33,53 @@ BEGIN
 
      returnCode := 0;
 
-  ELSE
+  END IF;
+  
 --  Reschedule operations if routings enabled
-    IF ( ( SELECT (metric_value=''t'')
-           FROM metric
-           WHERE (metric_name=''Routings'') ) ) THEN
+  IF ( ( SELECT (metric_value=''t'')
+         FROM metric
+         WHERE (metric_name=''Routings'') ) ) THEN
 
 --    Reschedule wooper
-      UPDATE wooper
-      SET wooper_scheduled = (wooper_scheduled::DATE + (pStartDate - wo_startdate))
-      FROM wo
-      WHERE ( (wooper_wo_id=wo_id)
-       AND (wo_id=pWoid) );
+    UPDATE wooper
+    SET wooper_scheduled = (wooper_scheduled::DATE + (pStartDate - wo_startdate))
+    FROM wo
+    WHERE ( (wooper_wo_id=wo_id)
+     AND (wo_id=pWoid) );
 
 --    Reschedule any womatl that is linked to wooper items
 --    and is set to be scheduled with the wooper in question
-      UPDATE womatl
-      SET womatl_duedate=wooper_scheduled
-      FROM wooper
-      WHERE ( (womatl_schedatwooper)
-       AND (womatl_wooper_id=wooper_id)
-       AND (womatl_wo_id=pWoid) );
-    END IF;
+    UPDATE womatl
+    SET womatl_duedate=wooper_scheduled
+    FROM wooper
+    WHERE ( (womatl_schedatwooper)
+     AND (womatl_wooper_id=wooper_id)
+     AND (womatl_wo_id=pWoid) );
+  END IF;
 
 -- Reschedule any womatl that is not linked to wooper items
-    UPDATE womatl
-    SET womatl_duedate=pStartDate
-    WHERE ( (NOT womatl_schedatwooper)
-     AND (womatl_wo_id=pWoid) );
+  UPDATE womatl
+  SET womatl_duedate=pStartDate
+  WHERE ( (NOT womatl_schedatwooper)
+   AND (womatl_wo_id=pWoid) );
 
 --  Reschedule the W/O
-    UPDATE wo
-    SET wo_startdate=pStartDate,
-        wo_duedate=pDueDate
-    WHERE (wo_id=pWoid);
+  UPDATE wo
+  SET wo_startdate=pStartDate,
+      wo_duedate=pDueDate
+  WHERE (wo_id=pWoid);
 
 --  Do the same for the children
-    IF (changeChildren) THEN
-      SELECT MAX(changeWoDates(wo_id, (pStartDate - itemsite_leadtime), pStartDate, TRUE)) INTO returnCode
-      FROM wo, itemsite
-      WHERE ( (wo_itemsite_id=itemsite_id)
-       AND (wo_ordtype=''W'')
-       AND (wo_ordid=pWoid) );
-    END IF;
+  IF (changeChildren) THEN
+    SELECT MAX(changeWoDates(wo_id, (pStartDate - itemsite_leadtime), pStartDate, TRUE)) INTO returnCode
+    FROM wo, itemsite
+    WHERE ( (wo_itemsite_id=itemsite_id)
+     AND (wo_ordtype=''W'')
+     AND (wo_ordid=pWoid) );
+  END IF;
 
-    IF (returnCode IS NULL) THEN
-      returnCode := 0;
-    END IF;
-
+  IF (returnCode IS NULL) THEN
+    returnCode := 0;
   END IF;
 
   RETURN returnCode;
