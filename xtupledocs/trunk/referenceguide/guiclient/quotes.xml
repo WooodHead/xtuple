@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section528867">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>quotes</primary>
       <secondary>master list of</secondary>
     </indexterm>List Quotes</title>
   <para>To view a list of Quotes, select the "List Quotes" option. The
   following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/quotes.png"/>
+          <imagedata fileref="images/quotes.png" />
         </imageobject>
         <caption>Quotes Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>Quotes may not be converted to Sales Orders for Customers whose
     credit status is either "On Credit Warning" or "On Credit Hold." Only
@@ -46,6 +44,12 @@
         be created for Prospects, you cannot convert a Prospect Quote to a
         Sales Order without first converting the Prospect to a
         Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Expired Quotes</term>
+      <listitem>
+        <para>Select to include expired Quotes in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -97,9 +101,9 @@
       <term>EDIT</term>
       <listitem id="listitemN0x180ac00N0x18fbb34">
         <para>Enables you to edit highlighted Quotes. The edit screen is the
-        same as that for creating a new Quote&mdash;except that when editing, the
-        fields will contain Quote information. Double-clicking on a Quote will
-        also bring you to the editing screen.</para>
+        same as that for creating a new Quote&mdash;except that when editing,
+        the fields will contain Quote information. Double-clicking on a Quote
+        will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -122,24 +126,31 @@
   <variablelist>
     <varlistentry>
       <term>Print</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18fba14)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18fba14)" />
     </varlistentry>
     <varlistentry>
       <term>Convert</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18fba5c)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18fba5c)" />
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18fbb34)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18fbb34)" />
     </varlistentry>
     <varlistentry>
       <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18fbb7c)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18fbb7c)" />
     </varlistentry>
     <varlistentry>
       <term>Delete</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18fbbc4)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18fbbc4)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>
