@@ -1,0 +1,5 @@
+-- Ensure that salesrep_number is unique
+SELECT COUNT(*)=0
+FROM salesrep a, salesrep b
+WHERE ((a.salesrep_number=b.salesrep_number)
+   AND (a.salesrep_id!=b.salesrep_id));
