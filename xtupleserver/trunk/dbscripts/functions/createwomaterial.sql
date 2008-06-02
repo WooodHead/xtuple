@@ -27,6 +27,25 @@ DECLARE
 
 BEGIN
 
+  SELECT createWoMaterial(pWoid,pItemsiteid,pIssueMethod,pUomId,pQtyPer,pScrap,-1) INTO _womatlid;
+
+  RETURN _womatlid;
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION createWoMaterial(INTEGER, INTEGER, char(1), INTEGER, NUMERIC, NUMERIC, INTEGER) RETURNS INTEGER AS '
+DECLARE
+  pWoid ALIAS FOR $1;
+  pItemsiteid ALIAS FOR $2;
+  pIssueMethod ALIAS FOR $3;
+  pUomId ALIAS FOR $4;
+  pQtyPer ALIAS FOR $5;
+  pScrap ALIAS FOR $6;
+  pBomitemId ALIAS FOR $7;
+  _womatlid INTEGER;
+
+BEGIN
+
   _womatlid := (SELECT NEXTVAL(''womatl_womatl_id_seq''));
 
   INSERT INTO womatl
@@ -37,7 +56,7 @@ BEGIN
   SELECT _womatlid, wo_id, pItemsiteid,
          pIssueMethod, pUomId, pQtyPer, pScrap,
          roundQty(item_fractional, (wo_qtyord * (pQtyPer * (1 + pScrap)))), 0, 0,
-         -1, -1, wo_startdate
+         -1, pBomitemId, wo_startdate
   FROM wo, itemsite, item
   WHERE ( (itemsite_item_id=item_id)
    AND (wo_id=pWoid)
@@ -55,3 +74,5 @@ BEGIN
   RETURN _womatlid;
 END;
 ' LANGUAGE 'plpgsql';
+
+
