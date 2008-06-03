@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518556">
-  <title>
-<indexterm significance="normal">
+  <title id="imagesTitle" pagenum=""><indexterm significance="normal">
       <primary>images</primary>
       <secondary>master list of</secondary>
     </indexterm>Images</title>
@@ -14,8 +14,7 @@
   Images. The following list shows the supported Image formats:</para>
   <itemizedlist>
     <listitem>
-      <para>
-<indexterm significance="normal">
+      <para><indexterm significance="normal">
           <primary>graphics</primary>
           <secondary>supported formats</secondary>
         </indexterm> <indexterm significance="normal">
@@ -35,16 +34,14 @@
   </itemizedlist>
   <para>To access the master list of stored Images, select the "Images"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/images.png"/>
+          <imagedata fileref="images/images.png" />
         </imageobject>
         <caption>Images Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>The Images master list displays information on all stored Images,
   including Image name, Image description, and Image file size.</para>
   <para>To the far right of the list, the following buttons are
@@ -68,10 +65,10 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Image definitions. The edit
-        screen is the same as that for creating a new Image definition&mdash;except
-        that when editing, the fields will contain Image information.
-        Double-clicking on an Image definition will also bring you to the
-        editing screen.</para>
+        screen is the same as that for creating a new Image
+        definition&mdash;except that when editing, the fields will contain
+        Image information. Double-clicking on an Image definition will also
+        bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -89,5 +86,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="image.xml" xpointer="element(/1)"/>
+  <xi:include href="image.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
