@@ -1,140 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="characteristic">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>characteristics</primary>
-
       <secondary>creating new</secondary>
     </indexterm>Characteristic</title>
-
   <para>To create a new Characteristic, select the NEW button. The following
   screen will appear:</para>
-
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/characteristic.png"/>
+          <imagedata fileref="images/characteristic.png" />
         </imageobject>
-
         <caption>Create New Characteristic</caption>
       </mediaobject>
-    </screenshot>
-</para>
-
+    </screenshot></para>
   <para>When creating a new Characteristic, you are presented with the
   following options:</para>
-
   <variablelist>
     <varlistentry>
       <term>Name</term>
-
       <listitem>
         <para>Enter a unique name for the Characteristic.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>May be used for</term>
-
       <listitem>
         <para>Select one of the following Characteristic assignment
         options:</para>
-
         <variablelist>
           <varlistentry>
             <term>Item Characteristics</term>
-
             <listitem>
               <para>Select to make Characteristic available for Item
               Characteristics.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term>Customer Characteristics</term>
-
             <listitem>
               <para>Select to make Characteristic available for Customer
               Characteristics.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term>Lot/Serial Characteristics</term>
-
             <listitem>
               <para>Select to make Characteristic available for Lot/Serial
               Characteristics.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term>Address Characteristics</term>
-
             <listitem>
               <para>Select to make Characteristic available for Address
               Characteristics.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term>CRM Account Characteristics</term>
-
             <listitem>
               <para>Select to make Characteristic available for CRM Account
               Characteristics.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term>Contact Characteristics</term>
-
             <listitem>
               <para>Select to make Characteristic available for Contact
               Characteristics.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term>Opportunity Characteristics</term>
-
             <listitem>
               <para>Select to make Characteristic available for Opportunity
+              Characteristics.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Employee Characteristics</term>
+            <listitem>
+              <para>Select to make Characteristic available for Employee
               Characteristics.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Description</term>
-
       <listitem>
         <para>Enter a brief description of the Characteristic.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>To the far right of the screen, the following buttons are
   available:</para>
-
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-
       <listitem>
         <para>Closes the screen without creating a Characteristic, returning
         you to the previous screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>SAVE</term>
-
       <listitem>
         <para>Creates the Characteristic and adds it to the master list of
         Characteristics.</para>
