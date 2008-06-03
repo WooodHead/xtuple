@@ -7,11 +7,13 @@
       <primary>employees</primary>
       <secondary>creating new</secondary>
     </indexterm>New Employee</title>
-  <para>To create a new Employee, use the following screen:</para>
+  <para>Employees are people who work for your company. They may or may not be
+  xTuple ERP system users. To create a new Employee, use the following
+  screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata />
+          <imagedata fileref="images/employee.png" />
         </imageobject>
         <caption>Create New Employee</caption>
       </mediaobject>
@@ -22,13 +24,16 @@
     <varlistentry>
       <term>Employee</term>
       <listitem>
-        <para></para>
+        <para>Enter the Employee's name. If the Employee is also an xTuple ERP
+        system user, then you should enter the Employee's username here. The
+        Employee name entered in this field and the Employee's username should
+        match.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Employee Number</term>
       <listitem>
-        <para></para>
+        <para>Enter a number to uniquely identify the Employee.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -39,54 +44,188 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Contact Information</term>
+      <term>Contact</term>
       <listitem>
-        <para></para>
+        <para>Manually enter Employee Contact information in the fields
+        below&mdash;or use the browse button to select pre-existing Contact
+        information.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Title</term>
+            <listitem>
+              <para>Select a Title from the list of available Titles.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>First</term>
+            <listitem>
+              <para>Enter the Employee's first name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Last</term>
+            <listitem>
+              <para>Enter the Employee's last name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Job Title</term>
+            <listitem>
+              <para>Enter the Employee's job title.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Voice</term>
+            <listitem>
+              <para>Enter the Employee's phone number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Alternate</term>
+            <listitem>
+              <para>Enter an alternate phone number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Fax</term>
+            <listitem>
+              <para>Enter the Employee's fax number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>E-Mail</term>
+            <listitem>
+              <para>Enter the Employee's e-mail address.</para>
+              <note>
+                <para>If a new Contact is manually entered here, that Contact
+                will be added automatically to the master list of
+                Contacts.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Address</term>
+      <listitem>
+        <para>Manually enter Employee Address information in the fields
+        below&mdash;or use the browse button to select pre-existing Address
+        information.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>Enter the street Address for the Employee.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>Enter the city where the Employee lives.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>Enter the state where the Employee lives.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>Enter the Postal Code for the Employee.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>Enter the country where the Employee lives.</para>
+              <note>
+                <para>If a new Address is manually entered here, that Address
+                will be added automatically to the master list of
+                Addresses.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To associate an Image with an Employee, select the "Image" tab. The
+  following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/employee_imageTab.png" />
+    </imageobject>
+    <caption>Employee Image</caption>
+  </mediaobject>
+  <para>When associating an Image with an Employee, you will be presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Picture</term>
+      <listitem>
+        <para>Select an Image from the list of available Images to associate
+        with the Employee.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <para></para>
   <para></para>
-  <para>To add Notes to an Employee record, select the "Notes" tab. The
-  following screen will appear:</para>
+  <para>To specify administrative details related to an Employee, select the
+  "Detail" tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata />
+          <imagedata fileref="images/employee_detailTab.png" />
+        </imageobject>
+        <caption>Employee Details</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When specifying administrative details related to an Employee, you
+  will be presented with the following options:</para>
+  <para></para>
+  <para></para>
+  <para>To add Notes to an Employee, select the "Notes" tab. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/employee_notesTab.png" />
         </imageobject>
         <caption>Employee Notes</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When adding Notes to an Employee record, you are presented with the
-  following options:</para>
+  <para>When adding Notes to an Employee, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Notes</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
-        Notes related to the Employee record. Any Notes entered on this screen
-        are for internal purposes only.</para>
+        Notes related to the Employee. Any Notes entered on this screen are
+        for internal purposes only.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Comments to an Employee record, select the "Comments" tab at
-  the bottom of the "Employee" screen. The following screen will
-  appear:</para>
+  <para>To add Comments to an Employee, select the "Comments" tab at the
+  bottom of the "Employee" screen. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata />
+          <imagedata fileref="images/employee_commentsTab.png" />
         </imageobject>
         <caption>Employee Comments</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When adding Comments to an Employee record, you are presented with the
+  <para>When adding Comments to an Employee, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
       <term>Comments</term>
       <listitem>
-        <para>Display lists Comments related to the Employee record, using the
+        <para>Display lists Comments related to the Employee, using the
         specified parameters.</para>
       </listitem>
     </varlistentry>
@@ -97,19 +236,18 @@
     <varlistentry>
       <term>NEW</term>
       <listitem>
-        <para>Opens the screen for creating a new Employee record
-        Comment.</para>
+        <para>Opens the screen for creating a new Employee Comment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
       <listitem>
-        <para>Opens a read-only view of the Employee record Comment.</para>
+        <para>Opens a read-only view of the Employee Comment.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To enter a new Employee record Comment, select the NEW button. The
-  following screen will appear:</para>
+  <para>To enter a new Employee Comment, select the NEW button. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -136,14 +274,14 @@
     <varlistentry>
       <term>CANCEL</term>
       <listitem>
-        <para>Closes the screen without creating the Employee record Comment,
+        <para>Closes the screen without creating the Employee Comment,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
       <listitem>
-        <para>Creates the Comment and adds it to the list of Employee record
+        <para>Creates the Comment and adds it to the list of Employee
         Comments.</para>
       </listitem>
     </varlistentry>
@@ -156,18 +294,18 @@
     </indexterm> <indexterm significance="normal">
       <primary>employees</primary>
       <secondary>characteristics for</secondary>
-    </indexterm>Characteristics associated with an Employee record, select the
+    </indexterm>Characteristics associated with an Employee, select the
   "Characteristics" tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata />
+          <imagedata fileref="images/employee_charactersticsTab.png" />
         </imageobject>
         <caption>Employee Characteristics</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When associating Characteristics with an Employee record, you are
-  presented with the following options:</para>
+  <para>When associating Characteristics with an Employee, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Characteristics</term>
@@ -208,7 +346,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/characteristicAssignmentCRM.png" />
+          <imagedata fileref="images/characteristicAssignmentEmployee.png" />
         </imageobject>
         <caption>Create New Employee Characteristic</caption>
       </mediaobject>
@@ -255,7 +393,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata />
+          <imagedata fileref="images/employee_groupTab.png" />
         </imageobject>
         <caption>Employee Group Membership</caption>
       </mediaobject>
