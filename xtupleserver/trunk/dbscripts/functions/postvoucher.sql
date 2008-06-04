@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION postVoucher(INTEGER, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postVoucher(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pVoheadid ALIAS FOR $1;
   pPostCosts ALIAS FOR $2;
@@ -6,15 +6,15 @@ DECLARE
 
 BEGIN
 
-  SELECT postVoucher(pVoheadid, fetchJournalNumber(''AP-VO''), pPostCosts) INTO _result;
+  SELECT postVoucher(pVoheadid, fetchJournalNumber('AP-VO'), pPostCosts) INTO _result;
 
   RETURN _result;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION postVoucher(INTEGER, INTEGER, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postVoucher(INTEGER, INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pVoheadid ALIAS FOR $1;
   pJournalNumber ALIAS FOR $2;
@@ -47,7 +47,7 @@ BEGIN
 
 --  Cache Voucher Infomation
   SELECT vohead.*,
-	 vend_number || ''-'' || vend_name || '' '' || vohead_reference
+	 vend_number || '-' || vend_name || ' ' || vohead_reference
 							  AS glnotes,
 	 COALESCE(pohead_orderdate, vohead_docdate) AS pohead_orderdate,
 	 COALESCE(pohead_curr_id, vohead_curr_id) AS pohead_curr_id INTO _p
@@ -63,7 +63,7 @@ BEGIN
     RETURN 0;
   END IF;
   IF (_p.vohead_amount <= 0) THEN
-    RAISE EXCEPTION ''Cannot Post Voucher #% for a negative or zero amount (%).'',
+    RAISE EXCEPTION 'Cannot Post Voucher #% for a negative or zero amount (%).',
 			_p.vohead_number, _p.vohead_amount;
   END IF;
 
@@ -77,11 +77,11 @@ BEGIN
     FROM vodist
    WHERE (vodist_vohead_id=pVoheadid);
   IF (_tmpTotal IS NULL OR _tmpTotal <= 0) THEN
-    RAISE EXCEPTION ''Cannot Post Voucher #% with negative or zero distributions (%).'',
+    RAISE EXCEPTION 'Cannot Post Voucher #% with negative or zero distributions (%).',
 			_p.vohead_number, _tmpTotal;
   END IF;
   IF (_tmpTotal > _p.vohead_amount) THEN
-    RAISE EXCEPTION ''Cannot Post Voucher #% with distributions greater than the voucher amount (% > %).'',
+    RAISE EXCEPTION 'Cannot Post Voucher #% with distributions greater than the voucher amount (% > %).',
 			_p.vohead_number, _tmpTotal, _p.vohead_amount;
   END IF;
 
@@ -94,7 +94,7 @@ BEGIN
      AND   (vodist_vohead_id=pVoheadid) )
    LIMIT 1;
   IF (FOUND) THEN
-    RAISE EXCEPTION ''Cannot Post Voucher #% as one or more of the line items have already been fully vouchered. Check P/O Line #%.'',
+    RAISE EXCEPTION 'Cannot Post Voucher #% as one or more of the line items have already been fully vouchered. Check P/O Line #%.',
          _p.vohead_number, _test;
   END IF;
 
@@ -140,7 +140,7 @@ BEGIN
        AND (expcat_liability_accnt_id=lb.accnt_id)
        AND (expcat_id=_g.poitem_expcat_id) );
       IF (NOT FOUND) THEN
-        RAISE EXCEPTION ''Cannot Post Voucher #% due to unassigned G/L Accounts.'', _p.vohead_number;
+        RAISE EXCEPTION 'Cannot Post Voucher #% due to unassigned G/L Accounts.', _p.vohead_number;
       END IF;
     ELSE
       SELECT pp.accnt_id AS pp_accnt_id,
@@ -150,7 +150,7 @@ BEGIN
        AND (costcat_liability_accnt_id=lb.accnt_id)
        AND (costcat_id=_g.costcatid) );
       IF (NOT FOUND) THEN
-        RAISE EXCEPTION ''Cannot Post Voucher #% due to unassigned G/L Accounts.'', _p.vohead_number;
+        RAISE EXCEPTION 'Cannot Post Voucher #% due to unassigned G/L Accounts.', _p.vohead_number;
       END IF;
     END IF;
 
@@ -192,7 +192,7 @@ BEGIN
     END LOOP;
 
 --  Distribute from the clearing account
-    PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', text(_p.vohead_number),
+    PERFORM insertIntoGLSeries( _sequence, 'A/P', 'VO', text(_p.vohead_number),
 		_a.lb_accnt_id,
 		round(_g.value_base + _g.vouchered_freight_base, 2) * -1,
 		_glDate, _p.glnotes );
@@ -203,7 +203,7 @@ BEGIN
 		    _firstExchDateFreight, _p.vohead_distdate )
 		    INTO _exchGainFreight;
     IF (round(_exchGainFreight, 2) <> 0) THEN
-	PERFORM insertIntoGLSeries(_sequence, ''A/P'', ''VO'',
+	PERFORM insertIntoGLSeries(_sequence, 'A/P', 'VO',
 	    text(_p.vohead_number),
 	    getGainLossAccntId(), round(_exchGainFreight, 2),
 	   _glDate, _p.glnotes);
@@ -212,7 +212,7 @@ BEGIN
 --  Distribute the remaining variance to the Purchase Price Variance account
     IF (round(_itemAmount_base, 2) <> round(_g.value_base, 2)) THEN
       _tmpTotal := round(_itemAmount_base, 2) - round(_g.value_base, 2);
-      PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', text(_p.vohead_number),
+      PERFORM insertIntoGLSeries( _sequence, 'A/P', 'VO', text(_p.vohead_number),
 			          _a.pp_accnt_id,
 			          _tmpTotal * -1,
 			          _glDate, _p.glnotes );
@@ -221,7 +221,7 @@ BEGIN
 --  Distribute the remaining freight variance to the Purchase Price Variance account
     IF (round(_g.voitem_freight_base + _exchGainFreight, 2) <> round(_g.vouchered_freight_base, 2)) THEN
       _tmpTotal := round(_g.voitem_freight_base + _exchGainFreight, 2) - round(_g.vouchered_freight_base, 2);
-      PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', text(_p.vohead_number),
+      PERFORM insertIntoGLSeries( _sequence, 'A/P', 'VO', text(_p.vohead_number),
 	      _a.pp_accnt_id,
 	      _tmpTotal * -1,
 	      _glDate, _p.glnotes );
@@ -240,7 +240,7 @@ BEGIN
         recv_recvcost=round(_g.value_base / _g.voitem_qty, 2)
     FROM poitem
     WHERE ((recv_orderitem_id=poitem_id)
-      AND  (recv_order_type=''PO'')
+      AND  (recv_order_type='PO')
       AND  (recv_orderitem_id=_g.poitem_id)
       AND  (recv_vohead_id=pVoheadid) );
 
@@ -271,14 +271,14 @@ BEGIN
 
 --  Distribute from the misc. account
     IF (_d.vodist_accnt_id = -1) THEN
-      PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', text(_p.vohead_number),
+      PERFORM insertIntoGLSeries( _sequence, 'A/P', 'VO', text(_p.vohead_number),
 			  expcat_exp_accnt_id,
 			  round(_d.vodist_amount_base, 2) * -1,
 			  _glDate, _p.glnotes )
          FROM expcat
         WHERE (expcat_id=_d.vodist_expcat_id);
     ELSE
-      PERFORM insertIntoGLSeries( _sequence, ''A/P'', ''VO'', text(_p.vohead_number),
+      PERFORM insertIntoGLSeries( _sequence, 'A/P', 'VO', text(_p.vohead_number),
 			  _d.vodist_accnt_id,
 			  round(_d.vodist_amount_base, 2) * -1,
 			  _glDate, _p.glnotes );
@@ -290,35 +290,36 @@ BEGIN
 
   END LOOP;
 
-  SELECT insertIntoGLSeries( _sequence, ''A/P'', ''VO'', text(vohead_number),
+  SELECT insertIntoGLSeries( _sequence, 'A/P', 'VO', text(vohead_number),
                              accnt_id, round(_totalAmount_base, 2),
 			     _glDate, _p.glnotes ) INTO _test
   FROM vohead, accnt
   WHERE ( (findAPAccount(vohead_vend_id)=accnt_id)
     AND (vohead_id=pVoheadid) );
   IF (NOT FOUND) THEN
-    RAISE EXCEPTION ''Cannot Post Voucher #% due to an unassigned A/P Account.'', _p.vohead_number;
+    RAISE EXCEPTION 'Cannot Post Voucher #% due to an unassigned A/P Account.', _p.vohead_number;
   END IF;
 
   PERFORM postGLSeries(_sequence, pJournalNumber);
 
 --  Create the A/P Open Item
   INSERT INTO apopen
-  ( apopen_journalnumber, apopen_docdate, apopen_duedate, apopen_open,
+  ( apopen_journalnumber, apopen_docdate, apopen_duedate, apopen_distdate, apopen_open,
     apopen_terms_id, apopen_vend_id, apopen_doctype,
     apopen_docnumber, apopen_invcnumber, apopen_ponumber, apopen_reference,
     apopen_amount, apopen_paid, apopen_notes, apopen_username, apopen_posted,
     apopen_curr_id )
-  SELECT pJournalNumber, _glDate, vohead_duedate, TRUE,
-         vohead_terms_id, vohead_vend_id, ''V'',
-         vohead_number, vohead_invcnumber, COALESCE(TEXT(pohead_number), ''Misc.''), vohead_reference,
-         round(_totalAmount, 2), 0, '''', CURRENT_USER, FALSE, vohead_curr_id
+-- TODO: 
+  SELECT pJournalNumber, vohead_docdate, vohead_duedate, _glDate, TRUE,
+         vohead_terms_id, vohead_vend_id, 'V',
+         vohead_number, vohead_invcnumber, COALESCE(TEXT(pohead_number), 'Misc.'), vohead_reference,
+         round(_totalAmount, 2), 0, '', CURRENT_USER, FALSE, vohead_curr_id
   FROM vohead LEFT OUTER JOIN pohead ON (vohead_pohead_id=pohead_id)
   WHERE (vohead_id=pVoheadid);
 
 --  Close all of the P/O Items that should be closed by this Voucher
   UPDATE poitem
-  SET poitem_status=''C''
+  SET poitem_status='C'
   FROM voitem
   WHERE ( (voitem_poitem_id=poitem_id)
    AND (voitem_close)
@@ -329,7 +330,7 @@ BEGIN
   IF ( (SELECT (count(*) < 1)
           FROM vohead, poitem
          WHERE ((vohead_pohead_id=poitem_pohead_id)
-           AND  (poitem_status<>''C'')
+           AND  (poitem_status<>'C')
            AND  (vohead_id=pVoheadid) ) ) ) THEN
     PERFORM closePo(vohead_pohead_id)
        FROM vohead
@@ -344,4 +345,4 @@ BEGIN
   RETURN pJournalNumber;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

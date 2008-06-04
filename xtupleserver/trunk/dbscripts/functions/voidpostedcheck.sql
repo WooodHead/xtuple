@@ -109,14 +109,14 @@ BEGIN
           INSERT INTO apopen
           ( apopen_id, apopen_username, apopen_journalnumber,
             apopen_vend_id, apopen_docnumber, apopen_doctype, apopen_ponumber,
-            apopen_docdate, apopen_duedate, apopen_terms_id,
+            apopen_docdate, apopen_duedate, apopen_distdate, apopen_terms_id,
             apopen_amount, apopen_paid, apopen_open,
 	    apopen_notes,
 	    apopen_accnt_id, apopen_curr_id, apopen_discount )
           VALUES
           ( _apopenid, CURRENT_USER, pJournalNumber,
             _p.checkhead_recip_id, _docnumber, 'D', '',
-            pVoidDate, pVoidDate, -1,
+            pVoidDate, pVoidDate, pVoidDate, -1,
             _r.checkitem_discount, _r.checkitem_discount, TRUE,
             ('Reverse Posted Discount ' || _r.apopen_doctype || ' ' ||
 	      _r.apopen_docnumber),

@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pVendid ALIAS FOR $1;
   pDocNumber ALIAS FOR $2;
@@ -10,16 +10,16 @@ DECLARE
 
 BEGIN
 
-  SELECT createAPDebitMemo( pVendid, fetchJournalNumber(''AP-MISC''),
+  SELECT createAPDebitMemo( pVendid, fetchJournalNumber('AP-MISC'),
                             pDocNumber, pPoNumber, pDocDate, pAmount, pNotes, -1, pDocDate, -1, baseCurrId() ) INTO _result;
 
   RETURN _result;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pVendid ALIAS FOR $1;
   pDocNumber ALIAS FOR $2;
@@ -32,16 +32,16 @@ DECLARE
 
 BEGIN
 
-  SELECT createAPDebitMemo( pVendid, fetchJournalNumber(''AP-MISC''),
+  SELECT createAPDebitMemo( pVendid, fetchJournalNumber('AP-MISC'),
                             pDocNumber, pPoNumber, pDocDate, pAmount, pNotes, pAccntid, pDocDate, -1, baseCurrId() ) INTO _result;
 
   RETURN _result;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, DATE, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, DATE, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pVendid ALIAS FOR $1;
   pDocNumber ALIAS FOR $2;
@@ -56,16 +56,16 @@ DECLARE
 
 BEGIN
 
-  SELECT createAPDebitMemo( pVendid, fetchJournalNumber(''AP-MISC''),
+  SELECT createAPDebitMemo( pVendid, fetchJournalNumber('AP-MISC'),
                             pDocNumber, pPoNumber, pDocDate, pAmount, pNotes, pAccntid, pDueDate, pTermsid, baseCurrId() ) INTO _result;
 
   RETURN _result;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pVendid ALIAS FOR $1;
   pJournalNumber ALIAS FOR $2;
@@ -80,10 +80,10 @@ BEGIN
   RETURN createAPDebitMemo(pVendid, pJournalNumber, pDocNumber, pPoNumber, pDocDate, pAmount, pNotes, -1, pDocDate, -1, baseCurrId() );
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pVendid ALIAS FOR $1;
   pJournalNumber ALIAS FOR $2;
@@ -97,10 +97,10 @@ BEGIN
   RETURN createAPDebitMemo( pVendid, pJournalNumber,
                             pDocNumber, pPoNumber, pDocDate, pAmount, pNotes, pAccntid, pDocDate, -1, baseCurrId() );
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, DATE, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, DATE, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pVendid ALIAS FOR $1;
   pJournalNumber ALIAS FOR $2;
@@ -116,10 +116,10 @@ DECLARE
 BEGIN
   RETURN createAPDebitMemo(pVendid, pJournalNumber, pDocNumber, pPoNumber, pDocDate, pAmount, pNotes, pAccntid, pDueDate, pTermsid, baseCurrId() );
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, DATE, INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createAPDebitMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, DATE, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pVendid ALIAS FOR $1;
   pJournalNumber ALIAS FOR $2;
@@ -152,9 +152,9 @@ BEGIN
     _accntid := -1;
   END IF;
 
-  SELECT NEXTVAL(''apopen_apopen_id_seq'') INTO _apopenid;
+  SELECT NEXTVAL('apopen_apopen_id_seq') INTO _apopenid;
 
-  SELECT insertGLTransaction( pJournalNumber, ''A/P'', ''DM'',
+  SELECT insertGLTransaction( pJournalNumber, 'A/P', 'DM',
                               pDocNumber, pNotes, cr.accnt_id, db.accnt_id,
                               _apopenid, currToBase(pCurrId, pAmount, pDocDate), pDocDate) INTO _glSequence
   FROM accnt AS db, accnt AS cr
@@ -167,15 +167,15 @@ BEGIN
   INSERT INTO apopen
   ( apopen_id, apopen_username, apopen_journalnumber,
     apopen_vend_id, apopen_docnumber, apopen_doctype, apopen_ponumber,
-    apopen_docdate, apopen_duedate, apopen_terms_id,
+    apopen_docdate, apopen_duedate, apopen_distdate, apopen_terms_id,
     apopen_amount, apopen_paid, apopen_open, apopen_notes, apopen_accnt_id, apopen_curr_id )
   VALUES
   ( _apopenid, CURRENT_USER, pJournalNumber,
-    pVendid, pDocNumber, ''D'', pPoNumber,
-    pDocDate, pDueDate, pTermsid,
+    pVendid, pDocNumber, 'D', pPoNumber,
+    pDocDate, pDueDate, pDocDate, pTermsid,
     pAmount, 0, (pAmount <> 0), pNotes, _accntid, pCurrId );
 
   RETURN _apopenid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
