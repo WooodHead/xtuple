@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>employees</primary>
+      <secondary>creating new</secondary>
+    </indexterm>New Employee</title>
+  <para>Employees are people who work for your company. An Employee may or may
+  not be an xTuple ERP system user. To create a new Employee, use the
+  following screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/employee.png" />
+        </imageobject>
+        <caption>Create New Employee</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Employee, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Employee</term>
+      <listitem>
+        <para>Enter the Employee's name. If the Employee is also an xTuple ERP
+        system user, then you should enter the Employee's system username
+        here.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Employee Number</term>
+      <listitem>
+        <para>Enter a number to uniquely identify the Employee.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Active</term>
+      <listitem>
+        <para>Select if the Employee is currently active. Not selecting makes
+        the Employee inactive.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Contact</term>
+      <listitem>
+        <para>Manually enter Employee Contact information in the fields
+        below&mdash;or use the browse buttons to select pre-existing Contact
+        and Address information.</para>
+        <note>
+          <para>If new Contact or Address information is manually entered
+          here, that information will be added automatically to the master
+          list of Contacts and/or Addresses.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To associate an Image with an Employee, select the "Image" tab. The
+  following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/employee_imageTab.png" />
+    </imageobject>
+    <caption>Employee Image</caption>
+  </mediaobject>
+  <para>When associating an Image with an Employee, you will be presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Picture</term>
+      <listitem>
+        <para>Select an Image from the list of available Images to associate
+        with the Employee. You can learn more about adding Images to the
+        database here <xref linkend="imagesTitle" />.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To specify administrative details related to an Employee, select the
+  "Detail" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/employee_detailTab.png" />
+        </imageobject>
+        <caption>Employee Details</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When specifying administrative details related to an Employee, you
+  will be presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Specify the Site (i.e., Warehouse, Store Location, etc.) where
+        the Employee is principally located.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Manager</term>
+      <listitem>
+        <para>Enter the name of the Employee's manager.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Dept.</term>
+      <listitem>
+        <para>Specify the Employee's Department.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shift</term>
+      <listitem>
+        <para>Specify the Shift the Employee generally works.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Specify whether the Employee is paid hourly or on a salary
+        basis.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Rate</term>
+      <listitem>
+        <para>Specify the Employee's compensation rate.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Per</term>
+      <listitem>
+        <para>Specify the period of time corresponding to the Employee's pay
+        rate. The following options are available: Hour, Day, Week, Bi-Weekly,
+        Year </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>User</term>
+      <listitem>
+        <para>If you have the ability to create new xTuple ERP system users,
+        then select this option to create the Employee as a system user. If
+        the Employee is already a system user, then this option will already
+        be checked.</para>
+        <tip>
+          <para>To ensure correspondence between the Employee record and the
+          system user record, the Employee name should match the Employee's
+          system username.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Rep</term>
+      <listitem>
+        <para>Select if the Employee is a Sales Representative. If the
+        Employee is already listed as a Sales Rep., then this option will
+        already by checked.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Notes to an Employee, select the "Notes" tab. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/employee_notesTab.png" />
+        </imageobject>
+        <caption>Employee Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Notes to an Employee, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Employee. Any Notes entered on this screen are
+        for internal purposes only.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Comments to an Employee, select the "Comments" tab at the
+  bottom of the "Employee" screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/employee_commentsTab.png" />
+        </imageobject>
+        <caption>Employee Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Comments to an Employee, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>Display lists Comments related to the Employee, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens the screen for creating a new Employee Comment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Opens a read-only view of the Employee Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To enter a new Employee Comment, select the NEW button. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CommentNew.png" />
+        </imageobject>
+        <caption>Create New Comment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Employee Comment,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Comment and adds it to the list of Employee
+        Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Employee Characteristics are user-defined definitions of an Employee
+  which may be used to provide additional layers of description. To enter
+  <indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>creating new for employees</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>employees</primary>
+      <secondary>characteristics for</secondary>
+    </indexterm>Characteristics associated with an Employee, select the
+  "Characteristics" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/employee_charactersticsTab.png" />
+        </imageobject>
+        <caption>Employee Characteristics</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When associating Characteristics with an Employee, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristics</term>
+      <listitem>
+        <para>Displays the Characteristics related to the Employee.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Employee Characteristic.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Employee Characteristics. The
+        edit screen is the same as that for creating a new Employee
+        Characteristic&mdash;except that when editing, the fields will contain
+        Employee Characteristic information. Double-clicking on an Employee
+        Characteristic will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Employee Characteristic and then select this button
+        to remove the Employee Characteristic from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Employee Characteristic, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/characteristicAssignmentEmployee.png" />
+        </imageobject>
+        <caption>Create New Employee Characteristic</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Employee Characteristic, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristic</term>
+      <listitem>
+        <para>Select a Characteristic from the list of Characteristics
+        designated as being available for use as Employee
+        Characteristics.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Enter a value to associate with the Employee
+        Characteristic.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Employee Characteristic,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Employee Characteristic and adds it to the list of
+        Employee Characteristics.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To associate group memberships with an Employee, select the "Group
+  Membership" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/employee_groupTab.png" />
+        </imageobject>
+        <caption>Employee Group Membership</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When associating group memberships with an Employee, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="crmaccountEDIT">
+        <para>Enables you to edit highlighted Employee Groups. The edit screen
+        is the same as that for creating a new Employee Group&mdash;except
+        that when editing, the fields will contain Employee Group information.
+        Double-clicking on an Employee Group will also bring you to the
+        editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an Employee Group and then select this button to reach
+        a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DETACH</term>
+      <listitem id="crmaccountDETACH">
+        <para>Highlight an Employee Group and then select this button to
+        remove the association between the Employee Group and the
+        Employee.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ATTACH</term>
+      <listitem id="crmaccountATTACH">
+        <para>Select to associate a new Employee Group with the
+        Employee.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
