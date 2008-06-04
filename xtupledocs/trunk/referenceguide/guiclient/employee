@@ -7,9 +7,9 @@
       <primary>employees</primary>
       <secondary>creating new</secondary>
     </indexterm>New Employee</title>
-  <para>Employees are people who work for your company. They may or may not be
-  xTuple ERP system users. To create a new Employee, use the following
-  screen:</para>
+  <para>Employees are people who work for your company. An Employee may or may
+  not be an xTuple ERP system user. To create a new Employee, use the
+  following screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -25,9 +25,8 @@
       <term>Employee</term>
       <listitem>
         <para>Enter the Employee's name. If the Employee is also an xTuple ERP
-        system user, then you should enter the Employee's username here. The
-        Employee name entered in this field and the Employee's username should
-        match.</para>
+        system user, then you should enter the Employee's system username
+        here.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -47,108 +46,13 @@
       <term>Contact</term>
       <listitem>
         <para>Manually enter Employee Contact information in the fields
-        below&mdash;or use the browse button to select pre-existing Contact
-        information.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Title</term>
-            <listitem>
-              <para>Select a Title from the list of available Titles.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>First</term>
-            <listitem>
-              <para>Enter the Employee's first name.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Last</term>
-            <listitem>
-              <para>Enter the Employee's last name.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Job Title</term>
-            <listitem>
-              <para>Enter the Employee's job title.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Voice</term>
-            <listitem>
-              <para>Enter the Employee's phone number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Alternate</term>
-            <listitem>
-              <para>Enter an alternate phone number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Fax</term>
-            <listitem>
-              <para>Enter the Employee's fax number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>E-Mail</term>
-            <listitem>
-              <para>Enter the Employee's e-mail address.</para>
-              <note>
-                <para>If a new Contact is manually entered here, that Contact
-                will be added automatically to the master list of
-                Contacts.</para>
-              </note>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Address</term>
-      <listitem>
-        <para>Manually enter Employee Address information in the fields
-        below&mdash;or use the browse button to select pre-existing Address
-        information.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Street Address</term>
-            <listitem>
-              <para>Enter the street Address for the Employee.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>City</term>
-            <listitem>
-              <para>Enter the city where the Employee lives.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>State</term>
-            <listitem>
-              <para>Enter the state where the Employee lives.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Postal Code</term>
-            <listitem>
-              <para>Enter the Postal Code for the Employee.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Country</term>
-            <listitem>
-              <para>Enter the country where the Employee lives.</para>
-              <note>
-                <para>If a new Address is manually entered here, that Address
-                will be added automatically to the master list of
-                Addresses.</para>
-              </note>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        below&mdash;or use the browse buttons to select pre-existing Contact
+        and Address information.</para>
+        <note>
+          <para>If new Contact or Address information is manually entered
+          here, that information will be added automatically to the master
+          list of Contacts and/or Addresses.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -188,60 +92,72 @@
     <varlistentry>
       <term>Site</term>
       <listitem>
-        <para></para>
+        <para>Specify the Site (i.e., Warehouse, Store Location, etc.) where
+        the Employee is principally located.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Manager</term>
       <listitem>
-        <para></para>
+        <para>Enter the name of the Employee's manager.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Dept.</term>
       <listitem>
-        <para></para>
+        <para>Specify the Employee's Department.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Shift</term>
       <listitem>
-        <para></para>
+        <para>Specify the Shift the Employee generally works.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Type</term>
       <listitem>
-        <para></para>
+        <para>Specify whether the Employee is paid hourly or on a salary
+        basis.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Rate</term>
       <listitem>
-        <para></para>
+        <para>Specify the Employee's compensation rate.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Per</term>
       <listitem>
-        <para></para>
+        <para>Specify the period of time corresponding to the Employee's pay
+        rate. The following options are available: Hour, Day, Week, Bi-Weekly,
+        Year </para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>User</term>
       <listitem>
-        <para></para>
+        <para>If you have the ability to create new xTuple ERP system users,
+        then select this option to create the Employee as a system user. If
+        the Employee is already a system user, then this option will already
+        be checked.</para>
+        <tip>
+          <para>To ensure correspondence between the Employee record and the
+          system user record, the Employee name should match the Employee's
+          system username.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Sales Rep</term>
       <listitem>
-        <para></para>
+        <para>Select if the Employee is a Sales Representative. If the
+        Employee is already listed as a Sales Rep., then this option will
+        already by checked.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
-  <para></para>
   <para>To add Notes to an Employee, select the "Notes" tab. The following
   screen will appear:</para>
   <para><screenshot>
@@ -455,37 +371,37 @@
     </screenshot></para>
   <para>When associating group memberships with an Employee, you are presented
   with the following options:</para>
-  <para></para>
-  <para></para>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
   <variablelist>
     <varlistentry>
       <term>EDIT</term>
       <listitem id="crmaccountEDIT">
-        <para>Enables you to edit highlighted Contacts. The edit screen is the
-        same as that for creating a new Contact&mdash;except that when
-        editing, the fields will contain Contact information. Double-clicking
-        on a Contact will also bring you to the editing screen.</para>
+        <para>Enables you to edit highlighted Employee Groups. The edit screen
+        is the same as that for creating a new Employee Group&mdash;except
+        that when editing, the fields will contain Employee Group information.
+        Double-clicking on an Employee Group will also bring you to the
+        editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
       <listitem>
-        <para></para>
+        <para>Highlight an Employee Group and then select this button to reach
+        a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DETACH</term>
       <listitem id="crmaccountDETACH">
-        <para>Highlight a Contact and then select this button to remove the
-        association between the Contact and the CRM Account.</para>
+        <para>Highlight an Employee Group and then select this button to
+        remove the association between the Employee Group and the
+        Employee.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>ATTACH</term>
       <listitem id="crmaccountATTACH">
-        <para>Select to associate a new Contact with the CRM Account.</para>
+        <para>Select to associate a new Employee Group with the
+        Employee.</para>
       </listitem>
     </varlistentry>
   </variablelist>
