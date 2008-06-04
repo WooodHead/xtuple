@@ -87,18 +87,18 @@
   <section>
     <title>Employees</title>
     <para>Information on Employees is contained in this section.</para>
-    <section>
-      <title>New Employee</title>
-      <para></para>
-    </section>
-    <section>
-      <title>Employee List</title>
-      <para></para>
-    </section>
-    <section>
-      <title>Search for Employee</title>
-      <para></para>
-    </section>
+    <xi:include href="guiclient/employee.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/employees.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/searchForEmp.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/empGroups.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
   </section>
   <xi:include href="guiclient/schedServerMaint.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude"
