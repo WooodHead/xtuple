@@ -108,7 +108,8 @@
       <term>Vendor Invoice #</term>
       <listitem>
         <para>Enter the Vendor Invoice Number associated with the specified
-        Purchase Order.</para>
+        Purchase Order. The system will issue a warning if you attempt to
+        enter an Invoice Number which has already been used.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -180,8 +181,8 @@
   </variablelist>
   <tip>
     <para>You may select multiple Purchase Order Line Items for distribution
-    or clearing by highlighting them using your mouse&mdash;or a combination of
-    your mouse and either the SHIFT or CTRL keys.</para>
+    or clearing by highlighting them using your mouse&mdash;or a combination
+    of your mouse and either the SHIFT or CTRL keys.</para>
   </tip>
   <para>Right-clicking on a Purchase Order Item in the list of Purchase Order
   Items enables you to select the following menu option:</para>
