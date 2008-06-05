@@ -1,6 +1,13 @@
-CREATE OR REPLACE FUNCTION apaging(date) RETURNS SETOF apaging AS '
+CREATE OR REPLACE FUNCTION apaging(date) RETURNS SETOF apaging AS $$
+BEGIN
+  RETURN QUERY SELECT apaging($1, false);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION apaging(date, boolean) RETURNS SETOF apaging AS $$
 DECLARE
   pAsOfDate ALIAS FOR $1;
+  pUseDocDate ALIAS FOR $2;
   _row apaging%ROWTYPE;
   _x RECORD;
   _returnVal INTEGER;
@@ -13,67 +20,67 @@ BEGIN
 
         --today and greater base:
         formatMoney(CASE WHEN((apopen_duedate >= DATE(pAsOfDate))) THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
-        CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END) AS cur_amt,
+        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END) AS cur_amt,
 
         CASE WHEN((apopen_duedate >= DATE(pAsOfDate))) THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
-        CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END AS cur_val,
+        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS cur_val,
 
         --0 to 30 base
         formatMoney(CASE WHEN((apopen_duedate >= DATE(pAsOfDate)-30) AND (apopen_duedate < DATE(pAsOfDate)))
         THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
-        CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END) AS thirty_amt,
+        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END) AS thirty_amt,
 
         CASE WHEN((apopen_duedate >= DATE(pAsOfDate)-30) AND (apopen_duedate < DATE(pAsOfDate)))
         THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
-        CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END AS thirty_val,
+        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS thirty_val,
 
         --30-60 base
         formatMoney(CASE WHEN((apopen_duedate >= DATE(pAsOfDate)-60) AND (apopen_duedate < DATE(pAsOfDate) - 30 ))
         THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
-        CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END) AS sixty_amt,
+        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END) AS sixty_amt,
 
         CASE WHEN((apopen_duedate >= DATE(pAsOfDate)-60) AND (apopen_duedate < DATE(pAsOfDate) - 30 ))
         THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
-        CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END AS sixty_val,
+        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS sixty_val,
 
         --60-90 base
         formatMoney(CASE WHEN((apopen_duedate >= DATE(pAsOfDate)-90) AND (apopen_duedate < DATE(pAsOfDate) - 60))
         THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
-        CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END) AS ninety_amt,
+        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END) AS ninety_amt,
 
         CASE WHEN((apopen_duedate >= DATE(pAsOfDate)-90) AND (apopen_duedate < DATE(pAsOfDate) - 60))
         THEN (currtobase(apopen_curr_id,(apopen_amount - apopen_paid),(pAsOfDate) ) *
-        CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END AS ninety_val,
+        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS ninety_val,
 
         --greater than 90 base:
         formatMoney(CASE WHEN((apopen_duedate > DATE(pAsOfDate)-10000) AND (apopen_duedate < DATE(pAsOfDate) - 90))
         THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
-        CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END) AS plus_amt,
+        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END) AS plus_amt,
 
         CASE WHEN((apopen_duedate > DATE(pAsOfDate)-10000) AND (apopen_duedate < DATE(pAsOfDate) - 90))
         THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
-        CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END AS plus_val,
+        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS plus_val,
 
         --total amount base:
 
         formatMoney(CASE WHEN((apopen_duedate > DATE(pAsOfDate)-10000)) THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
-        CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END) AS total_amt,
+        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END) AS total_amt,
 
         CASE WHEN((apopen_duedate > DATE(pAsOfDate)-10000)) THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
-        CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END AS total_val,
+        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS total_val,
 
         --AP Open Amount base
 
-        formatMoney(CASE WHEN apopen_doctype IN (''C'', ''R'') THEN currtobase(apopen_curr_id,(apopen_amount * -1),(pAsOfDate)) ELSE currtobase(apopen_curr_id,apopen_amount,pAsOfDate) END) AS f_apopen_amount,
+        formatMoney(CASE WHEN apopen_doctype IN ('C', 'R') THEN currtobase(apopen_curr_id,(apopen_amount * -1),(pAsOfDate)) ELSE currtobase(apopen_curr_id,apopen_amount,pAsOfDate) END) AS f_apopen_amount,
 
         --Discount AMT base
         formatMoney(CASE WHEN((DATE(pAsOfDate) <= apopen_docdate  + terms_discdays)) THEN (currtobase(apopen_curr_id,(apopen_amount * terms_discprcnt),(pAsOfDate)) *
-        CASE WHEN (apopen_doctype=''C'') THEN 0 ELSE 1 END) ELSE 0 END) AS disc_amt,
+        CASE WHEN (apopen_doctype='C') THEN 0 ELSE 1 END) ELSE 0 END) AS disc_amt,
 
         CASE WHEN((DATE(pAsOfDate) <= apopen_docdate  + terms_discdays)) THEN (currtobase(apopen_curr_id,(apopen_amount * terms_discprcnt),(pAsOfDate)) *
-        CASE WHEN (apopen_doctype=''C'') THEN 0 ELSE 1 END) ELSE 0 END AS disc_val,
+        CASE WHEN (apopen_doctype='C') THEN 0 ELSE 1 END) ELSE 0 END AS disc_val,
 
-        CASE WHEN((apopen_doctype<>''C'') AND (DATE(pAsOfDate) <= apopen_docdate  + terms_discdays)) THEN apopen_docdate  + terms_discdays
+        CASE WHEN((apopen_doctype<>'C') AND (DATE(pAsOfDate) <= apopen_docdate  + terms_discdays)) THEN apopen_docdate  + terms_discdays
         ELSE NULL END AS disc_date,
 
         apopen_docdate,
@@ -97,7 +104,7 @@ BEGIN
         AND (apopen_vend_id = vend_id)
         AND (vend_terms_id = terms_id)
         AND (vend_vendtype_id=vendtype_id)
-        AND (apopen_docdate <= pAsOfDate)
+        AND (CASE WHEN(pUseDocDate) THEN apopen_docdate ELSE apopen_distdate END <= pAsOfDate)
         AND (COALESCE(apopen_closedate,pAsOfdate+1)>pAsOfdate)
         AND ((currtobase(apopen_curr_id,apopen_amount,pAsOfdate) - apapplied(apopen_id,pAsofdate)) > 0)  )
         ORDER BY vend_number, apopen_duedate
@@ -137,4 +144,4 @@ BEGIN
   END LOOP;
   RETURN;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
