@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION openAPItemsValue(INTEGER, INTEGER) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION openAPItemsValue(INTEGER, INTEGER) RETURNS NUMERIC AS $$
 DECLARE
   pVendid ALIAS FOR $1;
   pPeriodid ALIAS FOR $2;
@@ -6,7 +6,7 @@ DECLARE
 
 BEGIN
 
-  SELECT SUM( CASE WHEN (apopen_doctype=''C'') THEN ((apopen_amount - apopen_paid) * -1)
+  SELECT SUM( CASE WHEN (apopen_doctype='C') THEN ((apopen_amount - apopen_paid) * -1)
                    ELSE (apopen_amount - apopen_paid)
               END )  INTO _value
   FROM apopen
@@ -21,4 +21,4 @@ BEGIN
   RETURN _value;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
