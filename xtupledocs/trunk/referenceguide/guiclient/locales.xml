@@ -6,35 +6,83 @@
   <title id="Anchor54109"><indexterm significance="normal">
       <primary>locales</primary>
       <secondary>master list of</secondary>
-    </indexterm>Locales</title>
-  <para><indexterm significance="normal">
+    </indexterm><indexterm significance="normal">
       <primary>locales</primary>
       <secondary>linguistic flexibility using</secondary>
-    </indexterm>Locales provide a mechanism for defining certain display
-  formats based on linguistic and cultural conventions. For example, the
-  manner in which currency, date, and Price formats are displayed is
-  controlled by Locale settings. In addition to controlling display formats,
-  Locales also govern the formatting found in printed reports.</para>
-  <para>The application supports multiple Locales&mdash;a useful feature for
-  multinational companies with a wide range of international users. To
-  illustrate, a user assigned a "USEnglish" Locale setting will see dates
-  displayed as "MM/DD/YY". By contrast, another user assigned a "French"
-  Locale setting will see dates displayed as "DD/MM/YY".</para>
-  <note>
-    <para>There is a difference between Locale settings and the data entry
-    formats used to store data in an database. Locale settings control the
-    manner in which data is displayed on screen within the application. Data
-    entry formats control the format of data stored in the database.</para>
-  </note>
-  <para>The following two tables illustrate a range of Locale formats
-  available for both time/date and numeric fields. The table describes valid
-  date/time formats. These formats would apply to any fields displaying dates,
-  times, or timestamps.</para>
-  <note>
-    <para>In most instances, the system will accept either upper case or lower
-    case characters for the majority of date, time, and numeric
-    formats.</para>
-  </note>
+    </indexterm>Locales</title>
+  <para>Locales are associated with users and define the format for date,
+  time, decimal precision, and color that the user sees on the screen. Part of
+  defining a Locale is setting the language and the Country. It is the
+  combination of language and Country that determines the format for the date
+  and how decimals and periods are displayed. For example, a Locale that
+  references English and the United States will display as follows:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Date</term>
+      <listitem>
+        <para>M/D/YY</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Time</term>
+      <listitem>
+        <para>12 hour format</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Numbers</term>
+      <listitem>
+        <para>1,999.00</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>A Locale that refers to German and Germany will display like
+  this:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Date</term>
+      <listitem>
+        <para>DD/MM/YY</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Time</term>
+      <listitem>
+        <para>12 hour format</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Numbers</term>
+      <listitem>
+        <para>1,999.00</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>When a Language is selected and the Country is left as "Default," the
+  xTuple client expects to find the file <filename>xTuple.xx.qm</filename>
+  (where xx is the ISO two letter language code) located in the directory
+  where the xTuple client is located. You can find these codes in xTuple by
+  navigating to System &gt; Master Information &gt; Countries and observing
+  the abbreviation column. The .QM file contains the translation information
+  xTuple requires to display the user interface in a different language.
+  Please contact xTuple for more information about the availability of .QM
+  files for various languages.</para>
+  <para>Alternately, when a Language is selected and the Country is also
+  selected, the xTuple client expects to find the file
+  <filename>xTuple.xx_yy.qm</filename> located in the directory where the
+  xTuple client is installed. The <filename>xx</filename> is the ISO two
+  letter language code and <filename>yy</filename> is the two letter country
+  code. If it does not find a file that matches the Language and Country
+  (<filename>xTuple.xx_yy.qm</filename>) it next looks for a file that
+  contains the Language only (e.g., <filename>xTuple.xx.qm</filename>). The
+  U.S. federal government makes the list of languages available on its <ulink
+  url="http://www.loc.gov/standards/iso639-2/php/code_list.php">language codes
+  website</ulink>. </para>
+  <para>If no .QM translaction file is found, the xTuple client will report
+  the error and continue the logon. The user will be presented the screens in
+  the default language, which is English. The conventions established for the
+  Locale that define date, time, decimal precision, and color will be
+  presented based on the Locale associated with the User.</para>
   <para><table>
       <title>Date &amp; Time Formats</title>
       <tgroup cols="2">
@@ -271,9 +319,9 @@
       <listitem>
         <para>Enables you to edit highlighted Locale definitions. The edit
         screen is the same as that for creating a new Locale
-        definition&mdash;except that when editing, the fields will contain Locale
-        information. Double-clicking on a Locale master will also bring you to
-        the editing screen.</para>
+        definition&mdash;except that when editing, the fields will contain
+        Locale information. Double-clicking on a Locale master will also bring
+        you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
