@@ -1,3 +1,9 @@
+-- Ensure that shiphead_number is unique
+SELECT COUNT(*)=0
+FROM shiphead a, shiphead b
+WHERE ((a.shiphead_number=b.shiphead_number)
+   AND (a.shiphead_id!=b.shiphead_id));
+
 -- Ensure that salesrep_number is unique
 SELECT COUNT(*)=0
 FROM salesrep a, salesrep b
