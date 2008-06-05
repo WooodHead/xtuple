@@ -1,23 +1,23 @@
-CREATE OR REPLACE FUNCTION postInvoice(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postInvoice(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pInvcheadid ALIAS FOR $1;
   _return INTEGER;
 
 BEGIN
 
-  SELECT postInvoice(pInvcheadid, fetchJournalNumber(''AR-IN'')) INTO _return;
+  SELECT postInvoice(pInvcheadid, fetchJournalNumber('AR-IN')) INTO _return;
 
   RETURN _return;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
 -- convenience function for use in postInvoices
 -- add tax information to a GL Series
 -- return the base currency value of the GL Series records inserted
 --	  NULL if there has been an error
-CREATE OR REPLACE FUNCTION addTaxToGLSeries(INTEGER, INTEGER, TEXT, TEXT, TEXT, DATE, DATE, INTEGER, NUMERIC, NUMERIC, NUMERIC) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION addTaxToGLSeries(INTEGER, INTEGER, TEXT, TEXT, TEXT, DATE, DATE, INTEGER, NUMERIC, NUMERIC, NUMERIC) RETURNS NUMERIC AS $$
   DECLARE
     pSequence	ALIAS FOR $1;
     pTaxCurrId	ALIAS FOR $2;
@@ -79,10 +79,10 @@ CREATE OR REPLACE FUNCTION addTaxToGLSeries(INTEGER, INTEGER, TEXT, TEXT, TEXT, 
 
     RETURN _returnVal;
   END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION postInvoice(INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postInvoice(INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pInvcheadid ALIAS FOR $1;
   pJournalNumber ALIAS FOR $2;
@@ -164,12 +164,12 @@ BEGIN
       IF (_r.itemsite_id IS NULL) THEN
 	SELECT salesaccnt_sales_accnt_id INTO _tmpAccntId
 	FROM salesaccnt
-	WHERE (salesaccnt_id=findSalesAccnt(_r.item_id, ''I'',
+	WHERE (salesaccnt_id=findSalesAccnt(_r.item_id, 'I',
 					    _p.invchead_cust_id));
       ELSE
 	SELECT salesaccnt_sales_accnt_id INTO _tmpAccntId
 	FROM salesaccnt
-	WHERE (salesaccnt_id=findSalesAccnt(_r.itemsite_id, ''IS'',
+	WHERE (salesaccnt_id=findSalesAccnt(_r.itemsite_id, 'IS',
 					    _p.invchead_cust_id));
       END IF;
 
@@ -184,7 +184,7 @@ BEGIN
 
       _roundedBase := round(currToBase(_p.invchead_curr_id, _amount,
                                       _firstExchDate), 2);
-      SELECT insertIntoGLSeries( _p.sequence, ''A/R'', ''IN'',
+      SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN',
                                  _p.invchead_invcnumber, _tmpAccntId,
                                  _roundedBase, _glDate ) INTO _test;
 
@@ -193,8 +193,8 @@ BEGIN
       _commissionDue := (_commissionDue + (_amount * _p.invchead_commission));
     END IF;
 
-    _taxBaseValue := addTaxToGLSeries(_p.sequence, _p.invchead_tax_curr_id,
-				      ''A/R'', ''IN'', _p.invchead_invcnumber,
+    _taxBaseValue := addTaxToGLSeries(_p.sequence, COALESCE(_p.invchead_tax_curr_id,_p.invchead_curr_id),
+				      'A/R', 'IN', _p.invchead_invcnumber,
 				      _glDate, _firstExchDate,
 				      _r.invcitem_tax_id,
 				      COALESCE(_r.invcitem_tax_ratea,0.0),
@@ -207,7 +207,7 @@ BEGIN
 	 AND  (cohist_invcnumber=_p.invchead_invcnumber));
       RETURN -12;
     END IF;
-    _totalAmount := _totalAmount + currToCurr(_p.invchead_tax_curr_id,
+    _totalAmount := _totalAmount + currToCurr(COALESCE(_p.invchead_tax_curr_id,_p.invchead_curr_id),
 					      _p.invchead_curr_id,
 					      COALESCE(_r.invcitem_tax_ratea,0.0) +
 					      COALESCE(_r.invcitem_tax_rateb,0.0) +
@@ -236,7 +236,7 @@ BEGIN
     ( _p.invchead_cust_id, _r.itemsite_id, _p.invchead_shipto_id, _r.invcitem_tax_id,
       _p.invchead_shipdate, _p.invchead_shipvia,
       _p.invchead_ordernumber, _p.invchead_ponumber, _p.invchead_orderdate,
-      ''I'', _p.invchead_invcnumber, _p.invchead_invcdate,
+      'I', _p.invchead_invcnumber, _p.invchead_invcdate,
       (_r.invcitem_billed * _r.invcitem_qty_invuomratio), (_r.invcitem_price / _r.invcitem_price_invuomratio), _r.cost,
       _p.invchead_salesrep_id, (_p.invchead_commission * (_r.invcitem_billed * _r.invcitem_qty_invuomratio) * (_r.invcitem_price / _r.invcitem_price_invuomratio)), FALSE,
       _p.invchead_billto_name, _p.invchead_billto_address1,
@@ -245,7 +245,7 @@ BEGIN
       _p.invchead_shipto_name, _p.invchead_shipto_address1,
       _p.invchead_shipto_address2, _p.invchead_shipto_address3,
       _p.invchead_shipto_city, _p.invchead_shipto_state,
-      _p.invchead_shipto_zipcode, _p.invchead_tax_curr_id,
+      _p.invchead_shipto_zipcode, COALESCE(_p.invchead_tax_curr_id,_p.invchead_curr_id),
       _p.sequence, _r.invcitem_taxtype_id,
       _r.invcitem_tax_pcta, _r.invcitem_tax_pctb, _r.invcitem_tax_pctc,
       COALESCE(_r.invcitem_tax_ratea,0.0), COALESCE(_r.invcitem_tax_rateb,0.0), COALESCE(_r.invcitem_tax_ratec,0.0));
@@ -267,7 +267,7 @@ BEGIN
 --  Credit the Sales Account for the invcitem item
       _roundedBase = round(currToBase(_p.invchead_curr_id, _amount,
                                       _firstExchDate), 2);
-      SELECT insertIntoGLSeries( _p.sequence, ''A/R'', ''IN'', _p.invchead_invcnumber,
+      SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN', _p.invchead_invcnumber,
                                  _r.salescat_sales_accnt_id, _roundedBase,
                                  _glDate ) INTO _test;
       IF (_test < 0) THEN
@@ -283,8 +283,8 @@ BEGIN
       _commissionDue := (_commissionDue + (_amount * _p.invchead_commission));
     END IF;
 
-    _taxBaseValue := addTaxToGLSeries(_p.sequence, _p.invchead_tax_curr_id,
-				      ''A/R'', ''IN'', _p.invchead_invcnumber,
+    _taxBaseValue := addTaxToGLSeries(_p.sequence, COALESCE(_p.invchead_tax_curr_id,_p.invchead_curr_id),
+				      'A/R', 'IN', _p.invchead_invcnumber,
 				      _glDate, _firstExchDate,
 				      _r.invcitem_tax_id,
 				      COALESCE(_r.invcitem_tax_ratea,0.0),
@@ -297,7 +297,7 @@ BEGIN
 	 AND  (cohist_invcnumber=_p.invchead_invcnumber));
       RETURN -13;
     END IF;
-    _totalAmount := _totalAmount + currToCurr(_p.invchead_tax_curr_id,
+    _totalAmount := _totalAmount + currToCurr(COALESCE(_p.invchead_tax_curr_id,_p.invchead_curr_id),
 					      _p.invchead_curr_id,
 					      COALESCE(_r.invcitem_tax_ratea,0.0) +
 					      COALESCE(_r.invcitem_tax_rateb,0.0) +
@@ -325,10 +325,10 @@ BEGIN
       cohist_tax_ratea, cohist_tax_rateb, cohist_tax_ratec)
     VALUES
     ( _p.invchead_cust_id, -1, _p.invchead_shipto_id, _r.invcitem_tax_id,
-      ''M'', (_r.invcitem_number || ''-'' || _r.invcitem_descrip),
+      'M', (_r.invcitem_number || '-' || _r.invcitem_descrip),
       _p.invchead_shipdate, _p.invchead_shipvia,
       _p.invchead_ordernumber, _p.invchead_ponumber, _p.invchead_orderdate,
-      ''I'', _p.invchead_invcnumber, _p.invchead_invcdate,
+      'I', _p.invchead_invcnumber, _p.invchead_invcdate,
       _r.invcitem_billed, _r.invcitem_price, 0,
       _p.invchead_salesrep_id, (_p.invchead_commission * _r.invcitem_billed * _r.invcitem_price), FALSE,
       _p.invchead_billto_name, _p.invchead_billto_address1,
@@ -337,7 +337,7 @@ BEGIN
       _p.invchead_shipto_name, _p.invchead_shipto_address1,
       _p.invchead_shipto_address2, _p.invchead_shipto_address3,
       _p.invchead_shipto_city, _p.invchead_shipto_state,
-      _p.invchead_shipto_zipcode, _p.invchead_tax_curr_id,
+      _p.invchead_shipto_zipcode, COALESCE(_p.invchead_tax_curr_id,_p.invchead_curr_id),
       _p.sequence, _r.invcitem_taxtype_id,
       _r.invcitem_tax_pcta, _r.invcitem_tax_pctb, _r.invcitem_tax_pctc,
       COALESCE(_r.invcitem_tax_ratea,0.0), COALESCE(_r.invcitem_tax_rateb,0.0), COALESCE(_r.invcitem_tax_ratec,0.0));
@@ -349,7 +349,7 @@ BEGIN
     IF (_p.freightaccntid <> -1) THEN
       _roundedBase = round(currToBase(_p.invchead_curr_id, _p.invchead_freight,
                                       _firstExchDate), 2);
-      SELECT insertIntoGLSeries( _p.sequence, ''A/R'', ''IN'', _p.invchead_invcnumber,
+      SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN', _p.invchead_invcnumber,
                                  _p.freightaccntid, _roundedBase,
                                  _glDate ) INTO _test;
 
@@ -369,8 +369,8 @@ BEGIN
       RETURN _test;
     END IF;
 
-    _taxBaseValue := addTaxToGLSeries(_p.sequence, _p.invchead_tax_curr_id,
-				      ''A/R'', ''IN'', _p.invchead_invcnumber,
+    _taxBaseValue := addTaxToGLSeries(_p.sequence, COALESCE(_p.invchead_tax_curr_id,_p.invchead_curr_id),
+				      'A/R', 'IN', _p.invchead_invcnumber,
 				      _glDate, _firstExchDate,
 				      _p.invchead_freighttax_id,
 				      COALESCE(_p.invchead_freighttax_ratea,0.0),
@@ -383,7 +383,7 @@ BEGIN
 	 AND  (cohist_invcnumber=_p.invchead_invcnumber));
       RETURN -15;
     END IF;
-    _totalAmount := _totalAmount + currToCurr(_p.invchead_tax_curr_id,
+    _totalAmount := _totalAmount + currToCurr(COALESCE(_p.invchead_tax_curr_id,_p.invchead_curr_id),
 					      _p.invchead_curr_id,
 					      COALESCE(_p.invchead_freighttax_ratea,0.0) +
 					      COALESCE(_p.invchead_freighttax_rateb,0.0) +
@@ -411,10 +411,10 @@ BEGIN
       cohist_tax_ratea, cohist_tax_rateb, cohist_tax_ratec)
     VALUES
     ( _p.invchead_cust_id, -1, _p.invchead_shipto_id, _p.invchead_freighttax_id,
-      ''F'', ''Freight'',
+      'F', 'Freight',
       _p.invchead_shipdate, _p.invchead_shipvia,
       _p.invchead_ordernumber, _p.invchead_ponumber, _p.invchead_orderdate,
-      ''I'', _p.invchead_invcnumber, _p.invchead_invcdate,
+      'I', _p.invchead_invcnumber, _p.invchead_invcdate,
       1, _p.invchead_freight, _p.invchead_freight,
       _p.invchead_salesrep_id, 0, FALSE,
       _p.invchead_billto_name, _p.invchead_billto_address1,
@@ -423,7 +423,7 @@ BEGIN
       _p.invchead_shipto_name, _p.invchead_shipto_address1,
       _p.invchead_shipto_address2, _p.invchead_shipto_address3,
       _p.invchead_shipto_city, _p.invchead_shipto_state,
-      _p.invchead_shipto_zipcode, _p.invchead_tax_curr_id,
+      _p.invchead_shipto_zipcode, COALESCE(_p.invchead_tax_curr_id,_p.invchead_curr_id),
       _p.sequence, _r.invcitem_taxtype_id,
       _p.invchead_freighttax_pcta, _p.invchead_freighttax_pctb, _p.invchead_freighttax_pctc,
       COALESCE(_p.invchead_freighttax_ratea,0.0), COALESCE(_p.invchead_freighttax_rateb,0.0), COALESCE(_p.invchead_freighttax_ratec,0.0));
@@ -434,7 +434,7 @@ BEGIN
   IF (_p.invchead_misc_amount <> 0) THEN
     _roundedBase := round(currToBase(_p.invchead_curr_id, _p.invchead_misc_amount,
                                      _firstExchDate), 2);
-    SELECT insertIntoGLSeries( _p.sequence, ''A/R'', ''IN'', _p.invchead_invcnumber,
+    SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN', _p.invchead_invcnumber,
                                _p.invchead_misc_accnt_id, _roundedBase,
                                _glDate ) INTO _test;
 
@@ -469,10 +469,10 @@ BEGIN
       cohist_curr_id, cohist_sequence )
     VALUES
     ( _p.invchead_cust_id, -1, _p.invchead_shipto_id, _p.invchead_adjtax_id,
-      ''M'', _p.invchead_misc_descrip, _p.invchead_misc_accnt_id,
+      'M', _p.invchead_misc_descrip, _p.invchead_misc_accnt_id,
       _p.invchead_shipdate, _p.invchead_shipvia,
       _p.invchead_ordernumber, _p.invchead_ponumber, _p.invchead_orderdate,
-      ''I'', _p.invchead_invcnumber, _p.invchead_invcdate,
+      'I', _p.invchead_invcnumber, _p.invchead_invcdate,
       1, _p.invchead_misc_amount, _p.invchead_misc_amount,
       _p.invchead_salesrep_id, 0, FALSE,
       _p.invchead_billto_name, _p.invchead_billto_address1,
@@ -486,8 +486,8 @@ BEGIN
 
   END IF;
 
-  _taxBaseValue := addTaxToGLSeries(_p.sequence, _p.invchead_tax_curr_id,
-				    ''A/R'', ''IN'', _p.invchead_invcnumber,
+  _taxBaseValue := addTaxToGLSeries(_p.sequence, COALESCE(_p.invchead_tax_curr_id,_p.invchead_curr_id),
+				    'A/R', 'IN', _p.invchead_invcnumber,
 				    _glDate, _firstExchDate,
 				    _p.invchead_adjtax_id,
 				    COALESCE(_p.invchead_adjtax_ratea,0.0),
@@ -500,7 +500,7 @@ BEGIN
        AND  (cohist_invcnumber=_p.invchead_invcnumber));
     RETURN -16;
   END IF;
-  _totalAmount := _totalAmount + currToCurr(_p.invchead_tax_curr_id,
+  _totalAmount := _totalAmount + currToCurr(COALESCE(_p.invchead_tax_curr_id,_p.invchead_curr_id),
 					    _p.invchead_curr_id,
 					    COALESCE(_p.invchead_adjtax_ratea,0.0) +
 					    COALESCE(_p.invchead_adjtax_rateb,0.0) +
@@ -528,10 +528,10 @@ BEGIN
     cohist_tax_ratea, cohist_tax_rateb, cohist_tax_ratec)
   VALUES
   ( _p.invchead_cust_id, -1, _p.invchead_shipto_id, _p.invchead_adjtax_id,
-    ''T'', ''Misc Tax Adjustment'',
+    'T', 'Misc Tax Adjustment',
     _p.invchead_shipdate, _p.invchead_shipvia,
     _p.invchead_ordernumber, _p.invchead_ponumber, _p.invchead_orderdate,
-    ''I'', _p.invchead_invcnumber, _p.invchead_invcdate,
+    'I', _p.invchead_invcnumber, _p.invchead_invcdate,
     1, 0.0, 0.0,
     _p.invchead_salesrep_id, 0, FALSE,
     _p.invchead_billto_name, _p.invchead_billto_address1,
@@ -540,7 +540,7 @@ BEGIN
     _p.invchead_shipto_name, _p.invchead_shipto_address1,
     _p.invchead_shipto_address2, _p.invchead_shipto_address3,
     _p.invchead_shipto_city, _p.invchead_shipto_state,
-    _p.invchead_shipto_zipcode, _p.invchead_tax_curr_id,
+    _p.invchead_shipto_zipcode, COALESCE(_p.invchead_tax_curr_id,_p.invchead_curr_id),
     _p.sequence, _r.invcitem_taxtype_id,
     _p.invchead_adjtax_pcta, _p.invchead_adjtax_pctb, _p.invchead_adjtax_pctc,
     COALESCE(_p.invchead_adjtax_ratea,0.0), COALESCE(_p.invchead_adjtax_rateb,0.0), COALESCE(_p.invchead_adjtax_ratec,0.0));
@@ -549,7 +549,7 @@ BEGIN
     _exchGain := currGain(_p.invchead_curr_id, _totalAmount,
                           _firstExchDate, _glDate);
     IF (_exchGain <> 0) THEN
-        SELECT insertIntoGLSeries( _p.sequence, ''A/R'', ''IN'',
+        SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN',
                                    _p.invchead_invcnumber, getGainLossAccntId(),
                                    round(_exchGain, 2) * -1,
                                    _glDate ) INTO _test ;
@@ -565,7 +565,7 @@ BEGIN
 --  Debit A/R for the total Amount
   IF (_totalRoundedBase <> 0) THEN
     IF (_p.araccntid != -1) THEN
-      PERFORM insertIntoGLSeries( _p.sequence, ''A/R'', ''IN'', _p.invchead_invcnumber,
+      PERFORM insertIntoGLSeries( _p.sequence, 'A/R', 'IN', _p.invchead_invcnumber,
                                   _p.araccntid, round(_totalRoundedBase * -1, 2),
                                   _glDate );
     ELSE
@@ -589,7 +589,7 @@ BEGIN
 
   IF (round(_totalAmount, 2) <> 0) THEN
 --  Create the Invoice aropen item
-    SELECT nextval(''aropen_aropen_id_seq'') INTO _aropenid;
+    SELECT nextval('aropen_aropen_id_seq') INTO _aropenid;
     INSERT INTO aropen
     ( aropen_id, aropen_username, aropen_journalnumber,
       aropen_open, aropen_posted,
@@ -604,7 +604,7 @@ BEGIN
     ( _aropenid, CURRENT_USER, pJournalNumber,
       TRUE, FALSE,
       _p.invchead_cust_id, _p.invchead_ponumber,
-      _p.invchead_invcnumber, _p.invchead_invcnumber, ''I'',
+      _p.invchead_invcnumber, _p.invchead_invcnumber, 'I',
       _p.invchead_invcdate, determineDueDate(_p.invchead_terms_id, _p.invchead_invcdate), _p.invchead_terms_id,
       round(_totalAmount, 2), 0, 
       _p.invchead_salesrep_id, _commissionDue, FALSE,
@@ -667,4 +667,4 @@ BEGIN
   RETURN pJournalNumber;
 
 END;
-' LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql;
