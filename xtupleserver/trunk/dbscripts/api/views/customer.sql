@@ -130,7 +130,8 @@ BEGIN;
   AND (cust_shipform_id=shipform_id)
   AND (cust_curr_id=dc.curr_id)
   AND (cust_creditlmt_curr_id=clc.curr_id)
-  AND (cust_terms_id=terms_id));
+  AND (cust_terms_id=terms_id))
+  ORDER BY cust_number;
 
 GRANT ALL ON TABLE api.customer TO openmfg;
 COMMENT ON VIEW api.customer IS 'Customer';
