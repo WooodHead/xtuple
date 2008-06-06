@@ -310,6 +310,17 @@
         </tip>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Configured</term>
+      <listitem>
+        <para>If the Item is a Job or Reference Item, then you will have the
+        option to configure the Item for Assemble to Order (ATO) scenarios.
+        This option will be disabled for all other Item Types. To learn more
+        about product configuration, see our <ulink
+        url="http://office.openmfg.com:88/AssembleToOrderConfigurator">ATO
+        Configurator Topic</ulink>.</para>
+      </listitem>
+    </varlistentry>
     <varlistentry role="openmfg">
       <term>Planning System</term>
       <listitem>
@@ -390,19 +401,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>UPC Code</term>
-      <listitem>
-        <para>Enter the Universal Product Code for the Item.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note>
-    <para>Standard bar code formats supported by the system include the
-    following: Code 3of9, Code 3of9 Extended, Code 128, UPC-A, UPC-E, EAN-8,
-    EAN-13.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
       <term><indexterm significance="normal">
           <primary>exclusive</primary>
           <secondary>item master control</secondary>
@@ -422,24 +420,49 @@
         specified Customers or Customer Types, using the Pricing Schedule
         assignment functionality found in the Item Pricing section of the
         Sales module.</para>
+        <note>
+          <para>Sold Items can be configured as Exclusive by default at the
+          system level.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warranty</term>
+      <listitem>
+        <para><remark>findme</remark></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UPC Code</term>
+      <listitem>
+        <para>Enter the Universal Product Code for the Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>Sold Items can be configured as Exclusive by default at the system
-    level.</para>
+    <para>Standard bar code formats supported by the system include the
+    following: Code 3of9, Code 3of9 Extended, Code 128, UPC-A, UPC-E, EAN-8,
+    EAN-13.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term>Product Weight</term>
+      <term>Weight</term>
       <listitem>
-        <para>Specify the pre-packaging weight of the product.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Packaging Weight</term>
-      <listitem>
-        <para>Specify the weight of the product packaging.</para>
+        <para>Enter details related to the weight of the Item.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Product</term>
+            <listitem>
+              <para>Specify the pre-packaging weight of the product.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Packaging</term>
+            <listitem>
+              <para>Specify the weight of the product packaging.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -479,7 +502,7 @@
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term>BOO</term>
+      <term>OPERATIONS</term>
       <listitem>
         <para>Select to open the Bill of Operations (BOO) for the specified
         Item. If no BOO exists, you will have the option to create a new
@@ -487,7 +510,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>BOM</term>
+      <term>MATERIALS</term>
       <listitem>
         <para>Select to open the Bill of Materials (BOM) for the specified
         Item. If no BOM exists, you will have the option to create a new
@@ -792,10 +815,14 @@
   be used to provide additional layers of description to Items. For example,
   Item Characteristics might be used to specify "Season" or "Primary Vendor".
   These constitute static descriptions which are not processed by the
-  application, but are useful for informational purposes.</para>
+  application, but are useful for informational purposes. For configured Items
+  (i.e., Job or Reference Items), Characteristics are used to store pricing
+  information for the options available on configured Items. That pricing by
+  Characteristic is then passed to Sales Order Line Items when particular
+  configurations are sold.</para>
   <tip>
-    <para>You can associate Item Characteristics with Sales Order and Purchase
-    Order Line Items, as well as with Work Orders.</para>
+    <para>Item Characteristics can be associated with Sales Order, Purchase
+    Order, and Work Order Iems.</para>
   </tip>
   <para>To enter <indexterm significance="normal">
       <primary>characteristics</primary>
@@ -874,6 +901,18 @@
       <term>Value</term>
       <listitem>
         <para>Enter a value to associate with the Item Characteristic.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>List Price</term>
+      <listitem>
+        <para>This field will be available only for configured Items (i.e.,
+        Job or Reference Items). Characteristics are used to store pricing
+        information for the options available on configured Items. That
+        pricing by Characteristic is then passed to Sales Order Line Items
+        when particular configurations are sold. The Price for configured
+        Items may vary depending on the Characteristics selected at Sales
+        Order entry time.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
