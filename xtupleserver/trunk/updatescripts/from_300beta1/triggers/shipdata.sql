@@ -54,9 +54,9 @@ BEGIN
 	      shipdatasum_billing_option=NEW.shipdata_billing_option,
 	      shipdatasum_package_type=NEW.shipdata_package_type,
 	      shipdatasum_shiphead_number=NEW.shipdata_shiphead_number
-       WHERE ((shipdatasum_cohead_number=OLD.shipdata_cohead_number)
-	  AND (shipdatasum_cosmisc_tracknum=OLD.shipdata_cosmisc_tracknum)
-	  AND (shipdatasum_cosmisc_packnum_tracknum=OLD.shipdata_cosmisc_packnum_tracknum));
+       WHERE ((TRIM(shipdatasum_cohead_number)=TRIM(OLD.shipdata_cohead_number))
+	  AND (TRIM(shipdatasum_cosmisc_tracknum)=TRIM(OLD.shipdata_cosmisc_tracknum))
+	  AND (TRIM(shipdatasum_cosmisc_packnum_tracknum)=TRIM(OLD.shipdata_cosmisc_packnum_tracknum)));
 
        GET DIAGNOSTICS _rows = ROW_COUNT;
        IF (_rows <= 0) THEN
