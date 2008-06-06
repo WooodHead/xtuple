@@ -2,11 +2,15 @@ CREATE OR REPLACE FUNCTION _ipsitemBeforeTrigger () RETURNS TRIGGER AS '
 BEGIN
 
   --  Checks
-  IF NOT (checkPrivilege(''MaintainPriceSchedules'')) THEN
+  IF NOT (checkPrivilege(''MaintainPricingSchedules'')) THEN
     RAISE EXCEPTION ''You do not have privileges to maintain Price Schedules.'';
   END IF;
   
-  RETURN NEW;
+  IF (TG_OP IN (''INSERT'',''UPDATE'')) THEN
+    RETURN NEW;
+  ELSE
+    RETURN OLD;
+  END IF;
 END;
 ' LANGUAGE 'plpgsql';
 

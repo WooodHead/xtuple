@@ -6,13 +6,14 @@ DROP VIEW api.pricingscheduleitemchar;
 CREATE VIEW api.pricingscheduleitemchar
 AS 
    SELECT 
-     ipshead_name::varchar(100) AS schedule_name,
+     ipshead_name::varchar(100) AS pricing_schedule,
      item_number::varchar(100) AS item_number,
      ipsitem_qtybreak AS qty_break,
      qtyuom.uom_name AS qty_uom,
      priceuom.uom_name AS price_uom,
      char_name::varchar(100) AS characteristic,
-     ipsitemchar_value AS value
+     ipsitemchar_value AS value,
+     ipsitemchar_price AS price
    FROM ipshead, ipsitem, ipsitemchar, item, char, uom qtyuom, uom priceuom
    WHERE ((ipshead_id=ipsitem_ipshead_id)
      AND (ipsitem_id=ipsitemchar_ipsitem_id)
@@ -32,26 +33,30 @@ CREATE OR REPLACE RULE "_INSERT" AS
   INSERT INTO ipsitemchar (
     ipsitemchar_ipsitem_id,
     ipsitemchar_char_id,
-    ipsitemchar_value
+    ipsitemchar_value,
+    ipsitemchar_price
     )
   VALUES (
-    getIpsitemId(NEW.schedule_name,NEW.item_number,NEW.qty_break,NEW.qty_uom,NEW.price_uom),
+    getIpsitemId(NEW.pricing_schedule,NEW.item_number,NEW.qty_break,NEW.qty_uom,NEW.price_uom),
     getCharId(NEW.characteristic,'I'),
-    NEW.value);
+    NEW.value,
+    COALESCE(NEW.price,0));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.pricingscheduleitemchar DO INSTEAD
 
   UPDATE ipsitemchar SET
-    ipsitemchar_value=NEW.value
-  WHERE ((ipsitemchar_ipsitem_id=getIpsitemId(OLD.schedule_name,OLD.item_number,OLD.qty_break,OLD.qty_uom,OLD.price_uom))
-  AND (ipsitemchar_char_id=getCharId(OLD.characteristic,'I')));
+    ipsitemchar_price=NEW.price
+  WHERE ((ipsitemchar_ipsitem_id=getIpsitemId(OLD.pricing_schedule,OLD.item_number,OLD.qty_break,OLD.qty_uom,OLD.price_uom))
+  AND (ipsitemchar_char_id=getCharId(OLD.characteristic,'I'))
+  AND (ipsitemchar_value=OLD.value));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.pricingscheduleitemchar DO INSTEAD
 
   DELETE FROM ipsitemchar
-  WHERE ((ipsitemchar_ipsitem_id=getIpsitemId(OLD.schedule_name,OLD.item_number,OLD.qty_break,OLD.qty_uom,OLD.price_uom))
-  AND (ipsitemchar_char_id=getCharId(OLD.characteristic,'I')));
+  WHERE ((ipsitemchar_ipsitem_id=getIpsitemId(OLD.pricing_schedule,OLD.item_number,OLD.qty_break,OLD.qty_uom,OLD.price_uom))
+  AND (ipsitemchar_char_id=getCharId(OLD.characteristic,'I'))
+  AND (ipsitemchar_value=OLD.value));
 
 COMMIT;

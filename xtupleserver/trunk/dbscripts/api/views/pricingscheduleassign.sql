@@ -48,16 +48,52 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 
   UPDATE ipsass SET
     ipsass_ipshead_id=getIpsheadId(new.pricing_schedule),
-    ipsass_cust_id=getCustId(new.customer_number),
-    ipsass_custtype_id=getCusttypeId(new.customer_type),
+    ipsass_cust_id=      
+    CASE
+      WHEN (new.customer_number='Any') THEN
+        -1
+      ELSE
+        getCustId(new.customer_number)
+    END,
+    ipsass_custtype_id=
+    CASE
+      WHEN (new.customer_type='N/A') THEN
+        -1
+      ELSE
+        getCusttypeId(new.customer_type)
+    END,
     ipsass_custtype_pattern=new.customer_type_pattern,
-    ipsass_shipto_id=getShiptoId(new.customer_number,new.customer_shipto),
+    ipsass_shipto_id=
+    CASE
+      WHEN (new.customer_number='Any' OR new.customer_shipto='Any') THEN
+        -1
+      ELSE
+        getShiptoId(new.customer_number,new.customer_shipto)
+    END,
     ipsass_shipto_pattern=new.customer_shipto_pattern
   WHERE ((ipsass_ipshead_id=getIpsheadId(old.pricing_schedule))
-    AND (ipsass_cust_id=getCustId(old.customer_number))
-    AND (ipsass_custtype_id=getCusttypeId(old.customer_type))
+    AND (ipsass_cust_id=
+      CASE
+        WHEN (old.customer_number='Any') THEN
+          -1
+        ELSE
+          getCustId(old.customer_number)
+      END)
+    AND (ipsass_custtype_id=
+      CASE
+        WHEN (old.customer_type='N/A') THEN
+          -1
+        ELSE
+          getCusttypeId(old.customer_type)
+      END)
     AND (ipsass_custtype_pattern=old.customer_type_pattern)
-    AND (ipsass_shipto_id=getShiptoId(old.customer_number,old.customer_shipto))
+    AND (ipsass_shipto_id=
+      CASE
+        WHEN (old.customer_shipto='Any') THEN
+          -1
+        ELSE
+          getShiptoId(old.customer_number,old.customer_shipto)
+      END)
     AND (ipsass_shipto_pattern=old.customer_shipto_pattern));
 
 CREATE OR REPLACE RULE "_DELETE" AS
@@ -65,10 +101,28 @@ CREATE OR REPLACE RULE "_DELETE" AS
 
   DELETE FROM ipsass
   WHERE ((ipsass_ipshead_id=getIpsheadId(old.pricing_schedule))
-    AND (ipsass_cust_id=getCustId(old.customer_number))
-    AND (ipsass_custtype_id=getCusttypeId(old.customer_type))
+    AND (ipsass_cust_id=
+      CASE
+        WHEN (old.customer_number='Any') THEN
+          -1
+        ELSE
+          getCustId(old.customer_number)
+      END)
+    AND (ipsass_custtype_id=
+      CASE
+        WHEN (old.customer_type='N/A') THEN
+          -1
+        ELSE
+          getCusttypeId(old.customer_type)
+      END)
     AND (ipsass_custtype_pattern=old.customer_type_pattern)
-    AND (ipsass_shipto_id=getShiptoId(old.customer_number,old.customer_shipto))
+    AND (ipsass_shipto_id=
+      CASE
+        WHEN (old.customer_shipto='Any') THEN
+          -1
+        ELSE
+          getShiptoId(old.customer_number,old.customer_shipto)
+      END)
     AND (ipsass_shipto_pattern=old.customer_shipto_pattern));
 
 COMMIT;

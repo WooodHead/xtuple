@@ -5,7 +5,7 @@ BEGIN;
 DROP VIEW api.pricingscheduleitem;
 CREATE OR REPLACE VIEW api.pricingscheduleitem AS 
  SELECT 
-   ipshead_name AS schedule_name, 
+   ipshead_name AS pricing_schedule, 
    'Item' AS type,
    item_number,
    '' AS product_category,
@@ -21,7 +21,7 @@ CREATE OR REPLACE VIEW api.pricingscheduleitem AS
    JOIN uom priceuom ON (ipsitem_price_uom_id = priceuom.uom_id)
  UNION
  SELECT
-   ipshead.ipshead_name AS schedule_name,
+   ipshead.ipshead_name AS pricing_schedule,
    'Product Category' AS type,
    '' AS item_number,
    prodcat_code,
@@ -37,78 +37,40 @@ CREATE OR REPLACE VIEW api.pricingscheduleitem AS
 GRANT ALL ON TABLE api.pricingscheduleitem TO openmfg;
 COMMENT ON VIEW api.pricingscheduleitem IS 'Pricing Schedule Item';
 
-CREATE OR REPLACE RULE "_INSERT_ITEMPRICE" AS
-    ON INSERT TO api.pricingscheduleitem WHERE (new.type = 'Item') DO INSTEAD  
-
-INSERT INTO ipsitem (
-  ipsitem_ipshead_id, 
-  ipsitem_item_id, 
-  ipsitem_qtybreak, 
-  ipsitem_price, 
-  ipsitem_qty_uom_id, 
-  ipsitem_price_uom_id) 
-VALUES (
-  getIpsheadId(new.schedule_name),
-  getItemId(new.item_number),
-  new.qty_break, 
-  new.price,
-  getUomId(new.qty_uom), 
-  getUomId(new.price_uom));
-
-CREATE OR REPLACE RULE "_INSERT_PRODCATPRICE" AS
-    ON INSERT TO api.pricingscheduleitem WHERE (new.type = 'Product Category') DO INSTEAD  
-
-INSERT INTO ipsprodcat (
-  ipsprodcat_ipshead_id, 
-  ipsprodcat_prodcat_id, 
-  ipsprodcat_qtybreak, 
-  ipsprodcat_discntprcnt) 
-VALUES (
-  getIpsheadId(new.schedule_name),
-  getItemId(new.item_number),
-  new.qty_break, 
-  new.discount_percent);
-
+CREATE OR REPLACE RULE "_INSERT" AS
+    ON INSERT TO api.pricingscheduleitem DO INSTEAD  
+    
+ SELECT
+   CASE 
+     WHEN (NEW.type = 'Item') THEN
+       saveIpsitem(NULL,getIpsheadId(NEW.pricing_schedule),getItemId(NEW.item_number),NEW.qty_break,NEW.price,getUomId(NEW.qty_uom),getUomId(NEW.price_uom))
+     WHEN (NEW.type = 'Product Category') THEN
+       saveIpsProdcat(NULL,getIpsheadId(NEW.pricing_schedule),getProdcatId(NEW.product_category),NEW.qty_break,NEW.discount_percent)
+   END;
           
-CREATE OR REPLACE RULE "_UPDATE_ITEMPRICE" AS
-  ON UPDATE TO api.pricingscheduleitem WHERE (new.type = 'Item') DO INSTEAD  
+CREATE OR REPLACE RULE "_UPDATE" AS
+  ON UPDATE TO api.pricingscheduleitem DO INSTEAD  
 
-  UPDATE ipsitem SET 
-    ipsitem_qtybreak = new.qty_break, 
-    ipsitem_price = new.price, 
-    ipsitem_qty_uom_id = getUomId(new.qty_uom), 
-    ipsitem_price_uom_id = getUomId(new.price_uom)
-  FROM ipshead
-  WHERE ((ipsitem_ipshead_id = getIpsheadId(old.schedule_name))
-    AND (ipsitem_item_id = getItemId(old.item_number))
-    AND (ipsitem_qtybreak = old.qty_break)
-    AND (ipsitem_qty_uom_id = getUomId(old.qty_uom))
-    AND (ipsitem_price_uom_id = getUomId(old.price_uom)));
+ SELECT
+   CASE 
+     WHEN (OLD.type = 'Item') THEN
+       saveIpsitem(getIpsitemId(OLD.pricing_schedule,OLD.item_number,OLD.qty_break,OLD.qty_uom,OLD.price_uom),
+       getIpsheadId(NEW.pricing_schedule),getItemId(NEW.item_number),NEW.qty_break,NEW.price,getUomId(NEW.qty_uom),getUomId(NEW.price_uom))
+     WHEN (OLD.type = 'Product Category') THEN
+       saveIpsProdcat(getIpsProdcatId(OLD.pricing_schedule,OLD.product_category,OLD.qty_break),
+       getIpsheadId(NEW.pricing_schedule),getProdCatId(NEW.product_category),NEW.qty_break,NEW.discount_percent)
+   END AS result;
 
-CREATE OR REPLACE RULE "_UPDATE_PRODCATPRICE" AS
-  ON UPDATE TO api.pricingscheduleitem WHERE (new.type = 'Product Category') DO INSTEAD  
+CREATE OR REPLACE RULE "_DELETE" AS
+  ON DELETE TO api.pricingscheduleitem DO INSTEAD  
 
-  UPDATE ipsprodcat SET
-    ipsprodcat_qtybreak = new.qty_break,
-    ipsprodcat_discntprcnt = new.discount_percent
-  WHERE ((ipsprodcat_ipshead_id = getIpsheadId(old.schedule_name))
-    AND (ipsprodcat_prodcat_id = getProdcatId(old.product_category))
-    AND (ipsprodcat_qtybreak = old.qty_break));
+ SELECT
+   CASE 
+     WHEN (OLD.type = 'Item') THEN
+       deleteIpsitem(getIpsitemId(OLD.pricing_schedule,OLD.item_number,OLD.qty_break,OLD.qty_uom,OLD.price_uom))
+     WHEN (OLD.type = 'Product Category') THEN
+       deleteIpsProdcat(getIpsProdcatId(OLD.pricing_schedule,OLD.product_category,OLD.qty_break))
+   END AS result;
 
-CREATE OR REPLACE RULE "_DELETE_ITEMPRICE" AS
-  ON DELETE TO api.pricingscheduleitem WHERE (old.type = 'Item') DO INSTEAD  
 
-  DELETE FROM ipsitem
-  WHERE ((ipsitem_ipshead_id = getIpsheadId(old.schedule_name))
-    AND (ipsitem_item_id = getItemId(old.item_number))
-    AND (ipsitem_qtybreak = old.qty_break)
-    AND (ipsitem_qty_uom_id = getUomId(old.qty_uom))
-    AND (ipsitem_price_uom_id = getUomId(old.price_uom)));
-
-CREATE OR REPLACE RULE "_DELETE_PRODCATPRICE" AS
-  ON DELETE TO api.pricingscheduleitem WHERE (old.type = 'Product Category') DO INSTEAD  
-
-  DELETE FROM ipsprodcat
-  WHERE ((ipsprodcat_ipshead_id = getIpsheadId(old.schedule_name))
-    AND (ipsprodcat_prodcat_id = getProdcatId(old.product_category))
-    AND (ipsprodcat_qtybreak = old.qty_break));
+COMMIT;

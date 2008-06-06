@@ -9,8 +9,10 @@ AS
     ipshead_name AS name, 
     ipshead_descrip AS description, 
     formatdate(ipshead_effective, 'Always') AS effective, 
-    formatdate(ipshead_expires, 'Never') AS expires
-  FROM ipshead;
+    formatdate(ipshead_expires, 'Never') AS expires,
+    curr_abbr AS currency
+  FROM ipshead, curr_symbol
+  WHERE (curr_id=ipshead_curr_id);
 
 GRANT ALL ON TABLE api.pricingschedule TO openmfg;
 COMMENT ON VIEW api.pricingschedule IS 'Pricing Schedule';
@@ -24,7 +26,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
     ipshead_name, 
     ipshead_descrip, 
     ipshead_effective, 
-    ipshead_expires, 
+    ipshead_expires,
+    ipshead_curr_id, 
     ipshead_updated) 
   VALUES (
     nextval('ipshead_ipshead_id_seq'), 
@@ -33,13 +36,14 @@ CREATE OR REPLACE RULE "_INSERT" AS
     CASE
       WHEN (new.effective = 'Always') THEN 
         CAST('1970-01-01' AS date)
-      ELSE CAST(new.effective AS date)
+      ELSE CAST(COALESCE(new.effective,'1970-01-01') AS date)
     END, 
     CASE
       WHEN (new.expires = 'Never') THEN 
         CAST('2100-01-01' AS date)
-      ELSE CAST(new.expires AS date)
+      ELSE CAST(COALESCE(new.expires,'2100-01-01') AS date)
     END, 
+    COALESCE(getCurrId(new.currency),basecurrid()),
     now());
 
 CREATE OR REPLACE RULE "_UPDATE" AS
@@ -61,12 +65,21 @@ CREATE OR REPLACE RULE "_UPDATE" AS
       ELSE 
         CAST(new.expires AS date)
     END, 
-    ipshead_updated = now()
-WHERE ipshead.ipshead_name = old.name;
+    ipshead_updated = now(),
+    ipshead_curr_id=
+    CASE
+      WHEN (SELECT (COUNT(ipsitem_id) =0)
+            FROM ipsitem
+            WHERE (ipsitem_ipshead_id=getIpsHeadId(old.name))) THEN
+         COALESCE(getCurrId(new.currency),basecurrid())
+      ELSE
+        getCurrId(old.currency)
+     END       
+WHERE ipshead_name = old.name;
 
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.pricingschedule DO INSTEAD  
 
-  DELETE FROM ipshead WHERE old.name = ipshead.ipshead_name;
+  DELETE FROM ipshead WHERE (old.name = ipshead_name);
 
 COMMIT;
