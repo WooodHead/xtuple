@@ -576,18 +576,18 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>If the parent Bill of Materials is for a configured Item (i.e.,
+  <para>On a Bill of Materials, if the parent Item is a configured Item (i.e.,
   configured Job Item or Reference Item), then you will have the option to
   link BOM Items to specific parent Item Characteristics. For example, let's
-  say the parent Item has a paint finish Characteristic with values "Flat" and
-  "Glossy". At the BOM Item level, you can specify whether the BOM Item goes
-  with "Flat" or "Glossy". In other words, if a BOM Item is assigned the
-  "Glossy" Characteristic value, then that means the BOM Item will be included
-  as a material requirement whenever Orders call for the "Glossy" version of
-  the parent Item. If no Characteristic association is made at the BOM Item
-  level, then the BOM Item will always appear on Work Orders--regardless of
-  the parent-level configuration selection. To associate Characteristics with
-  a BOM Item, select the "Configuration" tab. The following screen will
+  say the parent Item has a Characteristic for paint finish with the values
+  "Flat" and "Glossy". At the BOM Item level, you can specify whether the BOM
+  Item goes with "Flat" or "Glossy". If you choose "Glossy" to associate with
+  the BOM Item, then that means the BOM Item will be included as a material
+  requirement whenever Orders call for the "Glossy" version of the parent
+  Item. If no Characteristic association is made at the BOM Item level, then
+  the BOM Item will always appear on Work Orders--regardless of the
+  parent-level configuration selection. To associate Characteristics with a
+  BOM Item, select the "Configuration" tab. The following screen will
   appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -598,7 +598,8 @@
       </mediaobject>
     </screenshot></para>
   <note>
-    <para>You can learn more about this subject by reading our <ulink
+    <para>You can learn more about Item configuration in xTuple ERP by reading
+    the <ulink
     url="http://office.openmfg.com:88/AssembleToOrderConfiguratorTopic">Assemble
     to Order (ATO) Configuration Topic</ulink>.</para>
   </note>
@@ -610,10 +611,10 @@
       <listitem>
         <para>Select a Characteristic from the list of Characteristics. These
         Characteristics are Item Characteristics defined on the Item master
-        for the configured parent Item. Linking a parent Item Characteristic
-        to a BOM Item will mean the BOM Item will appear on Work Orders for
-        the parent Item when the same parent Item Characteristic is
-        specified.</para>
+        for the parent Item on the Bill of Materials. Linking parent
+        Characteristics to child BOM Items means the child Item will be
+        included as a material requirement whenever Orders call for the same
+        parent Item Characteristic.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
