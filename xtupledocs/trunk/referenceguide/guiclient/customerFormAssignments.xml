@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section546198">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>customer forms</primary>
       <secondary>assignment of</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>customers</primary>
       <secondary>assigning forms to</secondary>
     </indexterm>Customer Form Assignments</title>
-  <para>To access the Customer Form assignments master list, select the
-  "Customer Form Assignments" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>Customer Form assignments are used to specify which printed reports
+  you want your Customers to receive. You can make the assignments
+  individually by Customer--or by Customer Type. In the case where more than
+  one Form assignment applies to a Customer, the system will always use the
+  most specific reference first. For example, a Form assignment for an
+  individual Customer is more specific than a Form assignment for an entire
+  Customer Type, etc. To access the Customer Form assignments master list,
+  select the "Customer Form Assignments" option. The following screen will
+  appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/customerFormAssignments.png"/>
+          <imagedata fileref="images/customerFormAssignments.png" />
         </imageobject>
-        <caption>Customer Form Assignments Master
-        List</caption>
+        <caption>Customer Form Assignments Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>The "Customer Form Assignments" screen displays information on
   existing Customer Form assignments.</para>
   <para>To the far right of the screen, the following buttons are
@@ -53,9 +57,9 @@
       <listitem>
         <para>Enables you to edit highlighted Customer Form assignment. The
         edit screen is the same as that for creating a new Customer Form
-        assignment&mdash;except that when editing, the fields will contain Customer
-        Form assignment information. Double-clicking on a Customer Form
-        assignment will also bring you to the editing screen.</para>
+        assignment&mdash;except that when editing, the fields will contain
+        Customer Form assignment information. Double-clicking on a Customer
+        Form assignment will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -66,5 +70,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="customerFormAssignment.xml" xpointer="element(/1)"/>
+  <xi:include href="customerFormAssignment.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
