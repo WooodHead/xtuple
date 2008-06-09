@@ -173,8 +173,12 @@
             <listitem>
               <para>Select if the Item is an Item you sell&mdash;but you
               neither manufacture nor purchase it. Services are an example of
-              a reference Item. The company sells consulting services, but it
-              doesn"t manufacture or purchase them.</para>
+              Reference Item. The company sells consulting services, but it
+              doesn"t manufacture or purchase them. Reference Items may be
+              configured. This means you can add List Prices to any Reference
+              Item Characteristics. These Characteristic Prices are then added
+              to the Base Price of Sales Order Items when the Characteristic
+              is selected at Sales Order entry.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -241,8 +245,11 @@
               Sales when the job is shipped. Production for a Job Item Work
               Order is posted when the linked Sales Order Item is issued to
               Shipping. BOM and BOO Items may be assigned to Job items;
-              however, they will not roll up to a Standard Cost for Job
-              items.</para>
+              however, they will not roll up to a Standard Cost for Job items.
+              Job Items may be configured. This means you can add List Prices
+              to any Job Item Characteristics. These Characteristic Prices are
+              then added to the Base Price of Sales Order Items when the
+              Characteristic is selected at Sales Order entry.</para>
             </listitem>
           </varlistentry>
         </variablelist>
