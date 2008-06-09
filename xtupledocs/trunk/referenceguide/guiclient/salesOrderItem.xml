@@ -444,6 +444,12 @@
         <caption>Sales Order Line Item Characteristics</caption>
       </mediaobject>
     </screenshot></para>
+  <note>
+    <para>Characteristics for configured Items (i.e., Job or Reference Items)
+    also have List Prices associated with them. When configured Item
+    Characteristics are added to a Sales Order Item, the overall Net Unit
+    Price of the Item increases.</para>
+  </note>
   <para>When selecting or editing Characteristics for a Sales Order Line Item,
   you are presented with the following options:</para>
   <variablelist>
@@ -466,6 +472,18 @@
         pre-defined Value; or 4) make no selection. Making no selection means
         the Characteristics will not be associated with the Sales Order Line
         Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Base Price</term>
+      <listitem>
+        <para>If the Sales Order Item is a configured Item (i.e., Job or
+        Reference Item), the "Base Price" option will be shown.
+        Characteristics associated with configured Items may have additional
+        List Prices associated with them. As a result, when Characteristics
+        are added to a Sales Order Item, the overall Price of the Item may
+        increase. The Base Price shows the Price before any Characteristic
+        List Prices have been added to the Net Unit Price. </para>
       </listitem>
     </varlistentry>
   </variablelist>
