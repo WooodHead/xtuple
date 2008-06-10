@@ -3,3 +3,15 @@ SELECT COUNT(*) = 0
 FROM company a, company b
 WHERE ((a.company_number=b.company_number)
    AND (a.company_id!=b.company_id));
+
+-- make sure profit center number is unique so we can create a unique index
+SELECT COUNT(*) = 0
+FROM prftcntr a, prftcntr b
+WHERE ((a.prftcntr_number=b.prftcntr_number)
+   AND (a.prftcntr_id!=b.prftcntr_id));
+
+-- make sure subaccount number is unique so we can create a unique index
+SELECT COUNT(*) = 0
+FROM subaccnt a, subaccnt b
+WHERE ((a.subaccnt_number=b.subaccnt_number)
+   AND (a.subaccnt_id!=b.subaccnt_id));
