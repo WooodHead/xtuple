@@ -108,7 +108,7 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="searchForCustomerVIEW">
+      <listitem id="searchForEmployeeVIEW">
         <para>Highlight an Employee and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
@@ -119,12 +119,12 @@
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(searchForCustomerVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(searchForEmployeeVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(searchForEmployeeEDIT)" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
