@@ -48,10 +48,11 @@
   security at the functional level. Regardless of the privileges assigned to
   them, all users have the ability to set their own preferences and
   passwords.</para>
-  <para>Note</para>
-  <para>We recommend restricting access to sensitive administrative functions
-  found within the System module to individuals who are designated as system
-  administrators.</para>
+  <note>
+    <para>We recommend restricting access to sensitive administrative
+    functions found within the System module to individuals who are designated
+    as system administrators.</para>
+  </note>
   <xi:include href="guiclient/systemMessage.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />
@@ -62,6 +63,9 @@
               xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />
   <xi:include href="guiclient/errorLog.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="guiclient/userPreferences.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />
   <section id="Section955801">
@@ -149,9 +153,6 @@
     <xi:include href="guiclient/images.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <xi:include href="guiclient/reports.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
     <xi:include href="guiclient/forms.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -191,6 +192,21 @@
     <xi:include href="guiclient/configureIE.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
+  </section>
+  <section>
+    <title>Design</title>
+    <para>System Design section.</para>
+    <xi:include href="guiclient/reports.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <section>
+      <title>Screens</title>
+      <para></para>
+    </section>
+    <section>
+      <title>Scripts</title>
+      <para></para>
+    </section>
     <xi:include href="guiclient/customCommands.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
