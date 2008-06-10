@@ -1,0 +1,5 @@
+-- make sure company number is unique so we can create a unique index
+SELECT COUNT(*) = 0
+FROM company a, company b
+WHERE ((a.company_number=b.company_number)
+   AND (a.company_id!=b.company_id));
