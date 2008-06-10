@@ -5,10 +5,15 @@ PROG=`basename $0`
 # lets setup some variables that will make it easier to change the script
 USERGUIDE=`pwd`
 OUTDIR=${TMPDIR:-"$HOME/tmp"}/$PROG
-ROOTFILE=userguide.xml
+ROOTFILE=referenceguide.xml
 XSLTPROC=xsltproc
 OUTFMT=xsl/html/chunk.xsl
 SOURCEDIR=$USERGUIDE/../../xtuple/trunk
+
+if [ ! -d "$SOURCEDIR" ] ; then
+  SOURCEDIR=$USERGUIDE/../../xtuple
+fi
+
 
 usage() {
   echo "$PROG -h"
@@ -121,7 +126,6 @@ if [ ! -d $OUTDIR/images ] ; then
   mkdir $OUTDIR/images                                          || exit 4
 fi
 cp $USERGUIDE/images/* $OUTDIR/images/.                         || exit 4
-cp $USERGUIDE/../topics/images/* $OUTDIR/images/.               || exit 4
 cp $USERGUIDE/guiclient/images/* $OUTDIR/images/.               || exit 4
 cp $SOURCEDIR/common/images/splashXTuple.png $OUTDIR/images/.   || exit 4
 if [ ! -d $OUTDIR/css ] ; then
