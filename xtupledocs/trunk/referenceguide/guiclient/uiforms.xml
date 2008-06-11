@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>screens</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Screens</title>
+  <para>To view the master list of available custom screens, select the
+  "Screens" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/uiforms.png" />
+        </imageobject>
+        <caption>Screens Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The screens master list displays information on all stored screens,
+  including screen name, description, order, and enabled status.</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the window, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens window for adding a new screen to the screens master
+        list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted screens. The edit window is the
+        same as that for creating a new screen&mdash;except that when editing,
+        the fields will contain screen information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a screen and then select this button to remove the
+        screen from the master list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>TEST</term>
+      <listitem>
+        <para>Highlight a screen and then select this button to test the
+        screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="uiform.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>
