@@ -3,16 +3,21 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="customCommand">
-  <title><indexterm significance="normal">
+  <title id="customCommandTitle"><indexterm significance="normal">
       <primary>custom commands</primary>
       <secondary>creating new</secondary>
     </indexterm>Custom Command</title>
-  <para>To create a new Custom Command, select the NEW button. The following
-  screen will appear:</para>
+  <para>Custom Commands enable you to insert ad hoc functionality into the
+  xTuple ERP menu system. Examples of ad hoc features are custom report
+  definitions, custom .ui screens, and more. All Custom Commands are launched
+  from a special "Custom" menu directory which gets created at the bottom of
+  the menu tree for modules you are adding Custom Commands to. To create a new
+  Custom Command, select the NEW button. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_custCommNew.png" />
+          <imagedata fileref="images/customCommand.png" />
         </imageobject>
         <caption>Enter New Custom Command</caption>
       </mediaobject>
@@ -26,7 +31,7 @@
         <para>Select the name of the module where you want the custom menu
         option to appear. You may create Custom Commands for any of the
         modules within the system. By default, a menu option named "Custom"
-        will be added to the bottom of a module's menu structure when a Custom
+        will be added to the bottom of a module's menu tree when a Custom
         Command is created for that module.</para>
       </listitem>
     </varlistentry>
@@ -34,11 +39,9 @@
       <term>Menu Label</term>
       <listitem>
         <para>Enter a name to identify the Custom Command as it will appear on
-        the menu structure. The menu label will become a subset of the
-        "Custom" menu option appearing at the bottom of a module's menu
-        structure. Each menu label should be used to describe a separate
-        Custom Command. There is no limit to the number of Custom Commands
-        which may be added to a module.</para>
+        the menu tree for the specified module. Each menu label should be used
+        to describe a separate Custom Command. There is no limit to the number
+        of Custom Commands which may be added to a module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -52,21 +55,31 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Action Name</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Executable</term>
       <listitem>
-        <para>Enter the path to the location where the executable program you
-        want to launch is located. The executable program specified here will
-        be launched when users select the associated Custom Command menu
-        option. For example, if you want to run a custom report, specify the
-        location for the standalone report renderer ("RPTrender"). The
-        following examples illustrate how (on Windows) you can map to either
-        local or network drives:</para>
-        <example>
-          <title>Custom Windows Paths</title>
-          <para>Local Drive: C:\\Program Files\\OpenMFG\\RPTrender.exe</para>
-          <para>Network URL:
-          \\\\drive_name\\dir_name\\OpenMFG\\RPTrender.exe</para>
-        </example>
+        <para>The information entered in this field will vary depending on the
+        use case. If the Custom Command is designed to launch a custom screen,
+        then the following text should be entered:
+        <filename>!customuiform</filename>. If, on the other hand, the Custom
+        Command will launch an executable program (e.g., RPTRender), then you
+        should enter the path to the location where the executable program is
+        located. When users select the associated Custom Command menu option,
+        the executable program will be launched. For example, if you want to
+        run a custom report, specify the location for the standalone report
+        renderer ("RPTrender"). The following examples illustrate how (on
+        Windows) you can map to either local or network drives:</para>
+        <informalexample>
+          <para><emphasis role="bold">Local Drive</emphasis>:
+          <code>C:\\Program Files\\OpenMFG\\RPTrender.exe</code></para>
+          <para><emphasis role="bold">Network URL</emphasis>:
+          <code>\\\\drive_name\\dir_name\\OpenMFG\\RPTrender.exe</code></para>
+        </informalexample>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -80,8 +93,8 @@
     <para>Macintosh users should enter an executable path which points all the
     way to the executable file located within a package's Contents directory.
     For example, to launch the report renderer, enter the following path:
-    ../rptrender.app/Contents/MacOS/rptrender. Under Mac, the RPTrender
-    application will not open if the path does not continue past the
+    <code>../rptrender.app/Contents/MacOS/rptrender</code>. Under Mac, the
+    RPTrender application will not open if the path does not continue past the
     rptrender.app file.</para>
   </tip>
   <variablelist>
@@ -98,7 +111,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_custCommArg.png" />
+          <imagedata fileref="images/customCommand_arguments.png" />
         </imageobject>
         <caption>Custom Command Arguments</caption>
       </mediaobject>
@@ -109,10 +122,38 @@
     a Custom Command menu.</para>
   </note>
   <para>The arguments display lists all arguments defined for the specified
-  executable program. The arguments shown in the example illustrate typical
-  arguments needed to run custom reports from the system. As the example
-  shows, the following arguments will be passed to the RPTrender application
-  when the Custom Command is executed:</para>
+  executable. The arguments shown in the example illustrate typical arguments
+  needed to run custom reports from the system. As the example shows, the
+  following arguments will be passed to the RPTrender application when the
+  Custom Command is executed:</para>
+  <table>
+    <title>Arguments Used for Custom Screens</title>
+    <tgroup cols="2">
+      <thead>
+        <row>
+          <entry><para>Syntax</para></entry>
+          <entry><para>Description</para></entry>
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry><para>uiform=</para></entry>
+          <entry><para>Use this argument followed by the name of the ui form
+          (i.e., the screen) which the Custom Command will be executing. The
+          screen name is the name entered on the main custom screen
+          window.</para><para><emphasis
+          role="bold">Example</emphasis>:</para><para><code>uiform=Calculator</code></para></entry>
+        </row>
+        <row>
+          <entry><para>uiformtype=</para></entry>
+          <entry><para>Use this argument to specify which type of screen it
+          is. There are two possible values: <code>dialog</code> and
+          <code>window</code>.</para><para><emphasis
+          role="bold">Example</emphasis>:</para><para><code>uiformtype=dialog</code></para></entry>
+        </row>
+      </tbody>
+    </tgroup>
+  </table>
   <table>
     <title>Arguments Used for Custom Reports</title>
     <tgroup cols="2">
@@ -125,39 +166,45 @@
       <tbody>
         <row>
           <entry><para>-databaseURL</para></entry>
-          <entry><para>Used to specify the location of the database server. In
-          the example shown, the prefix "psql://" indicates a connection to a
-          PostgreSQL data base. This is followed by the server address,
-          database name, and port number. When the report renderer (RPTrender)
-          is launched, the program will automatically connect to the database
-          specified.</para></entry>
+          <entry><para>Used to specify the location of the database server.
+          This is followed by the server address, database name, and port
+          number. If running a custom report, the program will automatically
+          connect to the database specified when the report renderer
+          (RPTrender) is launched</para><para><emphasis
+          role="bold">Example</emphasis>:</para><para><code>-databaseURL=psql://server.openmfg.com/demo:5432</code></para></entry>
         </row>
         <row>
           <entry><para>-username</para></entry>
           <entry><para>Enter the username RPTrender should use to connect to
-          the specified database.</para></entry>
+          the specified database.</para><para><emphasis
+          role="bold">Example</emphasis>:</para><para><code>-username=jsmith</code></para></entry>
         </row>
         <row>
           <entry><para>-passwd</para></entry>
           <entry><para>Enter the password for the specified
-          user.</para></entry>
+          user.</para><para><emphasis
+          role="bold">Example</emphasis>:</para><para><code>-passwd=abc123</code></para></entry>
         </row>
         <row>
           <entry><para>-param</para></entry>
           <entry><para>Enter any parameters you want the system to pass to the
           report renderer. These pre-defined parameters will be used when
-          RPTrender runs the specified report definition.</para></entry>
+          RPTrender runs the specified report
+          definition.</para><para><emphasis
+          role="bold">Example</emphasis>:</para><para><code>-param=user_active:bool</code></para></entry>
         </row>
         <row>
           <entry><para>-print</para></entry>
           <entry><para>This argument tells RPTrender to print the specified
           report definition using the indicated parameters -- if
-          any.</para></entry>
+          any.</para><para><emphasis
+          role="bold">Example</emphasis>:</para><para><code>-print</code></para></entry>
         </row>
         <row>
           <entry><para>-close</para></entry>
           <entry><para>Use this argument to close the RPTrender program when
-          its work is done.</para></entry>
+          its work is done.</para><para><emphasis
+          role="bold">Example</emphasis>:</para><para><code>-close</code></para></entry>
         </row>
       </tbody>
     </tgroup>
