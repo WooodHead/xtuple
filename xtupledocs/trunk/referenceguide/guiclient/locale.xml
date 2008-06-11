@@ -69,14 +69,14 @@
         language option for you. The language selection impacts date and time
         formatting. It also tells the system which language translation file
         to load (if any). xTuple ERP supports multi-language translations of
-        the product interface through the use of .QM files. If a .QM
+        the product interface through the use of .qm files. If a .qm
         translation file is installed next to your xTuple ERP executable file,
         then the system will load the translation file at run
         time--automatically translating the application into your desired
-        language. As long as your .QM file follows the standard ISO-derived
+        language. As long as your .qm file follows the standard ISO-derived
         naming convention (e.g., <filename>xTuple.cn.qm</filename> = Chinese
         and <filename>xTuple.es.qm</filename> = Spanish), then the system will
-        successfully find it based on your Locale language selection. </para>
+        successfully find it based on your Locale language selection.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -136,29 +136,30 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>While date and time formatting are governed by the language and
-  country selections, you do have the ability to manually determine the number
-  of supported decimal places for various formats. The following formatting
-  options are available:</para>
+  <para>While date and time formatting and the general format of numeric
+  values are governed by the language and country selections, you do have the
+  ability to manually determine the number of decimal places displayed for
+  various types of numeric value. The following formatting options are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>Currency</term>
       <listitem>
-        <para>The currency format is used to display any currency data within
+        <para>The Currency format is used to display most monetary data within
         the application.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Sales Price</term>
       <listitem>
-        <para>The sales Price format is used to display any sales Price data
+        <para>The Sales Price format is used to display any Sales Price data
         within the application.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Purch. Price</term>
       <listitem>
-        <para>The purchase Price format is used to display any purchase Price
+        <para>The Purchase Price format is used to display any Purchase Price
         data within the application.</para>
       </listitem>
     </varlistentry>
@@ -179,37 +180,41 @@
     <varlistentry>
       <term>Qty.</term>
       <listitem>
-        <para>The quantity format is used to display quantity data within the
+        <para>The Quantity format is used to display quantity data within the
         application.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty. Per</term>
       <listitem>
-        <para>The quantity per format is used to display quantities per within
-        the application.</para>
+        <para>The Quantity Per format is used to display quantity ratios
+        within the application.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>UOM Ratio</term>
       <listitem>
-        <para>The Unit of Measure ratio format is used to display Unit of
-        Measure ratios within the application.</para>
+        <para>The Unit of Measure Ratio format is used to display Unit of
+        Measure Ratios within the application.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Color Coding</term>
       <listitem>
-        <para>Specify RGB values, or use any of the color names found in the
-        </para>
+        <para>Specify RGB values, or use any of the color names found in
+        the</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <para>You have the ability to define the colors used by the application to
   emphasize special cases in the data. When entering color choices, you can
-  either use standard RGB values or any of the color names found on the <ulink
+  either use standard RGB (Red, Green, Blue) values or any of the color names
+  found on the <ulink
   url="http://www.w3.org/TR/SVG/types.html#ColorKeywords">available colors
-  list</ulink>. Colors may be defined for any of the following cases:</para>
+  list</ulink>. If you choose to enter RGB values then the format is either
+  <literal>#RGB</literal>, <literal>#RRGGBB</literal>, or
+  <literal>#RRRGGGBBB</literal>. Colors may be defined for any of the
+  following cases:</para>
   <variablelist>
     <varlistentry>
       <term>Error</term>

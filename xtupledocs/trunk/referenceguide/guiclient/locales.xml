@@ -11,11 +11,13 @@
       <secondary>linguistic flexibility using</secondary>
     </indexterm>Locales</title>
   <para>Locales are associated with users and define the format for date,
-  time, decimal precision, and color that the user sees on the screen. Part of
-  defining a Locale is setting the language and the Country. It is the
-  combination of language and Country that determines the format for the date
-  and how decimals and periods are displayed. For example, a Locale that
-  references English and the United States will display as follows:</para>
+  time, and numbers. Locales are also used to search for translation files and
+  to specify decimal precision and some of the colors that the user sees on
+  the screen. Part of defining a Locale is setting the language and,
+  optionally, the Country. It is the combination of language and Country that
+  determines date and numeric formats and which translation file will be used.
+  For example, a Locale that references English and the United States will
+  display as follows:</para>
   <variablelist>
     <varlistentry>
       <term>Date</term>
@@ -42,7 +44,7 @@
     <varlistentry>
       <term>Date</term>
       <listitem>
-        <para>DD/MM/YY</para>
+        <para>DD.MM.YY</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -54,238 +56,46 @@
     <varlistentry>
       <term>Numbers</term>
       <listitem>
-        <para>1,999.00</para>
+        <para>1.999,00</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>When a Language is selected and the Country is left as "Default," the
-  xTuple client expects to find the file <filename>xTuple.xx.qm</filename>
-  (where xx is the ISO two letter language code) located in the directory
-  where the xTuple client is located. You can find these codes in xTuple by
-  navigating to System &gt; Master Information &gt; Countries and observing
-  the abbreviation column. The .QM file contains the translation information
-  xTuple requires to display the user interface in a different language.
-  Please contact xTuple for more information about the availability of .QM
-  files for various languages.</para>
-  <para>Alternately, when a Language is selected and the Country is also
-  selected, the xTuple client expects to find the file
-  <filename>xTuple.xx_yy.qm</filename> located in the directory where the
-  xTuple client is installed. The <filename>xx</filename> is the ISO two
-  letter language code and <filename>yy</filename> is the two letter country
-  code. If it does not find a file that matches the Language and Country
-  (<filename>xTuple.xx_yy.qm</filename>) it next looks for a file that
-  contains the Language only (e.g., <filename>xTuple.xx.qm</filename>). The
-  U.S. federal government makes the list of languages available on its <ulink
+  <para>Translation information is stored in .qm files, which xTuple uses to
+  display the user interface in a different language. When a Language is
+  selected in a Locale and the Country is left as "Default," the xTuple client
+  expects to find the file <filename>xTuple.xx.qm</filename> (where
+  <filename>xx</filename> is the ISO two letter language code) located in the
+  directory where the xTuple client is located. The U.S. Library of Congress
+  is the ISO registration authority for language codes and makes the list of
+  languages available on its <ulink
   url="http://www.loc.gov/standards/iso639-2/php/code_list.php">language codes
-  website</ulink>. </para>
-  <para>If no .QM translaction file is found, the xTuple client will report
-  the error and continue the logon. The user will be presented the screens in
-  the default language, which is English. The conventions established for the
+  website</ulink>. Please contact xTuple for more information about the
+  availability of .qm files for various languages.</para>
+  <para>When both a Language and a Country are selected, the xTuple client
+  looks for the file <filename>xTuple.xx_yy.qm</filename> located in the
+  directory where the xTuple client is installed. The <filename>xx</filename>
+  is the ISO two letter language code and <filename>yy</filename> is the two
+  letter country code. You can find country codes in xTuple by navigating to
+  System &gt; Master Information &gt; Countries and observing the abbreviation
+  column. If the xTuple client does not find a file that matches both Language
+  and Country (<filename>xTuple.xx_yy.qm</filename>) it next looks for a file
+  that contains the Language only (e.g., <filename>xTuple.xx.qm</filename>).
+  </para>
+  <para>If no .qm translation file is found, the xTuple client will report the
+  error and continue the logon. The user will be presented the screens in the
+  default language, which is English. The conventions established for the
   Locale that define date, time, decimal precision, and color will be
-  presented based on the Locale associated with the User.</para>
-  <para><table>
-      <title>Date &amp; Time Formats</title>
-      <tgroup cols="2">
-        <thead>
-          <row>
-            <entry><para>Date/Time Format</para></entry>
-            <entry><para>Description</para></entry>
-          </row>
-        </thead>
-        <tbody>
-          <row>
-            <entry><para>HH</para></entry>
-            <entry><para>Hour of day (01-12)</para></entry>
-          </row>
-          <row>
-            <entry><para>HH12</para></entry>
-            <entry><para>hour of day (01-12)</para></entry>
-          </row>
-          <row>
-            <entry><para>HH24</para></entry>
-            <entry><para>hour of day (00-23)</para></entry>
-          </row>
-          <row>
-            <entry><para>MI</para></entry>
-            <entry><para>minute (00-59)</para></entry>
-          </row>
-          <row>
-            <entry><para>SS</para></entry>
-            <entry><para>second (00-59)</para></entry>
-          </row>
-          <row>
-            <entry><para>MS</para></entry>
-            <entry><para>Millisecond (000-999)</para></entry>
-          </row>
-          <row>
-            <entry><para>US</para></entry>
-            <entry><para>microsecond (000000-999999)</para></entry>
-          </row>
-          <row>
-            <entry><para>SSSS</para></entry>
-            <entry><para>seconds past midnight (0-86399)</para></entry>
-          </row>
-          <row>
-            <entry><para>AM or A.M. or PM or P.M.</para></entry>
-            <entry><para>Meridian indicator</para></entry>
-          </row>
-          <row>
-            <entry><para>Y,YYY</para></entry>
-            <entry><para>Year (4 digits with comma)</para></entry>
-          </row>
-          <row>
-            <entry><para>YYYY</para></entry>
-            <entry><para>Year (4 digits no comma)</para></entry>
-          </row>
-          <row>
-            <entry><para>YYY</para></entry>
-            <entry><para>Last 3 digits of year</para></entry>
-          </row>
-          <row>
-            <entry><para>YY</para></entry>
-            <entry><para>Last 2 digits of year</para></entry>
-          </row>
-          <row>
-            <entry><para>Y</para></entry>
-            <entry><para>Last digit of year</para></entry>
-          </row>
-          <row>
-            <entry><para>BC or B.C. or AD or A.D.</para></entry>
-            <entry><para>Era indicator</para></entry>
-          </row>
-          <row>
-            <entry><para>MONTH</para></entry>
-            <entry><para>Month name. Supports mixed case (e.g.,
-            Month)</para></entry>
-          </row>
-          <row>
-            <entry><para>MON</para></entry>
-            <entry><para>Abbreviated month name. Supports mixed case (e.g.,
-            Mon)</para></entry>
-          </row>
-          <row>
-            <entry><para>MM</para></entry>
-            <entry><para>Month number (01-12)</para></entry>
-          </row>
-          <row>
-            <entry><para>DAY</para></entry>
-            <entry><para>Day name. Supports mixed case (e.g.,
-            Day)</para></entry>
-          </row>
-          <row>
-            <entry><para>DY</para></entry>
-            <entry><para>Abbreviated day name. Supports mixed case (e.g.,
-            Dy)</para></entry>
-          </row>
-          <row>
-            <entry><para>DDD</para></entry>
-            <entry><para>Day of year (001-366)</para></entry>
-          </row>
-          <row>
-            <entry><para>DD</para></entry>
-            <entry><para>Day of month (01-31)</para></entry>
-          </row>
-          <row>
-            <entry><para>D</para></entry>
-            <entry><para>Day of week (1-7; Sunday=1)</para></entry>
-          </row>
-          <row>
-            <entry><para>W</para></entry>
-            <entry><para>Week of month (1-5) where first week starts on the
-            first day of the month</para></entry>
-          </row>
-          <row>
-            <entry><para>WW</para></entry>
-            <entry><para>Week number of year (1-53) where first week starts on
-            the first day of the year</para></entry>
-          </row>
-          <row>
-            <entry><para>IW</para></entry>
-            <entry><para>ISO week number of year (The first Thursday of the
-            new year is in week 1.)</para></entry>
-          </row>
-          <row>
-            <entry><para>CC</para></entry>
-            <entry><para>Century (2 digits)</para></entry>
-          </row>
-          <row>
-            <entry><para>J</para></entry>
-            <entry><para>Julian Day (days since January 1, 4712
-            BC)</para></entry>
-          </row>
-          <row>
-            <entry><para>Q</para></entry>
-            <entry><para>Quarter</para></entry>
-          </row>
-          <row>
-            <entry><para>RM</para></entry>
-            <entry><para>Month in Roman Numerals (I-XII;
-            I=January)</para></entry>
-          </row>
-          <row>
-            <entry><para>TZ</para></entry>
-            <entry><para>Time zone name</para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </table></para>
-  <para>The numeric formats shown in the table would apply to any fields
-  displaying quantity, quantity per, Cost, currency, Price, or Extended Price
-  information.</para>
-  <note>
-    <para>Locale fields featuring numeric values are required to contain a
-    minimum of nine characters to the left of the decimal point.</para>
-  </note>
-  <para><table>
-      <title>Numeric Formats</title>
-      <tgroup cols="2">
-        <thead>
-          <row>
-            <entry><para>Transaction Type Code</para></entry>
-            <entry><para>Description</para></entry>
-          </row>
-        </thead>
-        <tbody>
-          <row>
-            <entry><para>9</para></entry>
-            <entry><para>Value with the specified number of
-            digits</para></entry>
-          </row>
-          <row>
-            <entry><para>0</para></entry>
-            <entry><para>Value with leading zeros</para></entry>
-          </row>
-          <row>
-            <entry><para>. (period)</para></entry>
-            <entry><para>Decimal point</para></entry>
-          </row>
-          <row>
-            <entry><para>, (comma)</para></entry>
-            <entry><para>Group (thousand) separator</para></entry>
-          </row>
-          <row>
-            <entry><para>S</para></entry>
-            <entry><para>Plus sign (+) at front of value</para></entry>
-          </row>
-          <row>
-            <entry><para>PL</para></entry>
-            <entry><para>Plus sign (+) in specified position</para></entry>
-          </row>
-          <row>
-            <entry><para>D</para></entry>
-            <entry><para>Decimal point</para></entry>
-          </row>
-          <row>
-            <entry><para>G</para></entry>
-            <entry><para>Group separator</para></entry>
-          </row>
-          <row>
-            <entry><para>L</para></entry>
-            <entry><para>Dollar sign ($) in specified position</para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </table></para>
+  presented based on the Locale associated with the User. If you don't want to
+  see this error message again, go to the Preferences window and check the
+  Ignore Missing Translations check box.</para>
+  <para>Numbers are generally formatted by the application in accordance with
+  the conventions associated with the selected language and Country. These
+  conventions mostly concern the character used to distinguish the fractional
+  part of a number from the integer part, commonly called the "decimal point"
+  or decimal separator, and the character used as the "group separator" or, at
+  least in the U.S., the "thousands separator." In addition to the core
+  numeric format, the xTuple application lets you choose the precision of
+  numeric display and data entry for different kinds of number.</para>
   <para>To access the master list of Locales, select the "Locales" option. The
   following screen will appear:</para>
   <para><screenshot>
