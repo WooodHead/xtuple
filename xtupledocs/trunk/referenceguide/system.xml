@@ -199,14 +199,12 @@
     <xi:include href="guiclient/reports.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <section>
-      <title>Screens</title>
-      <para></para>
-    </section>
-    <section>
-      <title>Scripts</title>
-      <para></para>
-    </section>
+    <xi:include href="guiclient/uiforms.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/scripts.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
     <xi:include href="guiclient/customCommands.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
