@@ -7,8 +7,8 @@
       <primary>screens</primary>
       <secondary>designing new</secondary>
     </indexterm>Screen</title>
-  <para>To create a new screen, select the NEW button. The following screen
-  will appear:</para>
+  <para>To create a new custom screen, select the NEW button. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -17,8 +17,8 @@
         <caption>Create New Screen</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When creating a new screen, you are presented with the following
-  options:</para>
+  <para>When creating a new custom screen, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Name</term>
@@ -35,7 +35,12 @@
     <varlistentry>
       <term>Order</term>
       <listitem>
-        <para></para>
+        <para>Specify the ranking of the screen. Having an order is useful
+        when you have more than one screen with the same name--as when testing
+        different versions of the same screen, for example. The version of the
+        screen having the lowest number will be used (e.g., 0 will be executed
+        before 1). To switch between screen versions, simply give the screen
+        you want to run the lowest number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -66,25 +71,26 @@
     <varlistentry>
       <term>SAVE</term>
       <listitem>
-        <para>Saves </para>
+        <para>Saves the screen definition.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>IMPORT</term>
       <listitem>
-        <para></para>
+        <para>Select to import a UI file.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EXPORT</term>
       <listitem>
-        <para></para>
+        <para>Select to export a UI file.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW</term>
       <listitem>
-        <para>Opens screen for creating a new script.</para>
+        <para>Opens screen for creating a new script. Read more about creating
+        scripts in the <xref linkend="scriptsTitle" /> section.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -128,7 +134,8 @@
       <term>NEW</term>
       <listitem>
         <para>Opens screen for creating a new command. The creation of custom
-        commands is described in the customCommandTitle section.</para>
+        commands is described in the <xref linkend="customCommandTitle" />
+        section.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
