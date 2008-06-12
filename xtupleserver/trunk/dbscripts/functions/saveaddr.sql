@@ -57,7 +57,6 @@ BEGIN
     AND (pState = '''' OR pState IS NULL)
     AND (pPostalCode = '''' OR pPostalCode IS NULL)
     AND (pCountry = '''' OR pCountry IS NULL) ) THEN
-	
     RETURN NULL;
   
   END IF;
@@ -129,11 +128,8 @@ BEGIN
 	WHERE warehous_addr_id = _addrId) AS useQ;
     IF _cnt > 1 THEN
       RETURN -2;
-      ELSE IF _cnt = 1 THEN
-        _flag := ''CHANGEONE'';
-      ELSE
-        _flag := ''CHANGEALL'';
-      END IF;
+    ELSE
+      _flag := ''CHANGEONE'';
     END IF;
   END IF;
 

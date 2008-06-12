@@ -41,6 +41,7 @@ DECLARE
   _cntctNumber TEXT;
   _isNew BOOLEAN;
   _flag TEXT;
+  _contactCount INTEGER := 0;
 
 BEGIN
   --Validate
@@ -78,19 +79,27 @@ BEGIN
     _cntctId := nextval(''cntct_cntct_id_seq'');
     _cntctNumber := fetchNextNumber(''ContactNumber'');
   ELSE
-    -- Business logic says if contacts name changes, then ask about new contact
-    IF (SELECT (COUNT(cntct_id) != 1) 
+    SELECT COUNT(cntct_id) INTO _contactCount
       FROM cntct
       WHERE ((cntct_id=pCntctId)
       AND (cntct_first_name=pFirstName)
-      AND (cntct_last_name=pLastName))) THEN
-      IF (_flag=''CHECK'') THEN
+      AND (cntct_last_name=pLastName));
+
+    -- ask whether new or update if name changes
+    -- but only if this isn''t a new record with a pre-allocated id
+    IF (_contactCount < 1 AND _flag = ''CHECK'') THEN
+      IF (EXISTS(SELECT cntct_id
+                 FROM cntct
+                 WHERE (cntct_id=pCntctId))) THEN
         RETURN -10;
-      ELSIF (_flag = ''CHANGEONE'') THEN
+      ELSE
         _isNew := true;
-        _cntctId := nextval(''cntct_cntct_id_seq'');
         _cntctNumber := fetchNextNumber(''ContactNumber'');
       END IF;
+    ELSIF (_flag = ''CHANGEONE'') THEN
+      _isNew := true;
+      _cntctId := nextval(''cntct_cntct_id_seq'');
+      _cntctNumber := fetchNextNumber(''ContactNumber'');
     END IF;
   END IF;
 
