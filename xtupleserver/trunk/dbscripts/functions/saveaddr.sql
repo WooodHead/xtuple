@@ -128,8 +128,10 @@ BEGIN
 	WHERE warehous_addr_id = _addrId) AS useQ;
     IF _cnt > 1 THEN
       RETURN -2;
-    ELSE
+    ELSIF (SELECT COUNT(addr_id)=0 FROM addr WHERE (addr_id=_addrId)) THEN
       _flag := ''CHANGEONE'';
+    ELSE
+      _flag := ''CHANGEALL'';
     END IF;
   END IF;
 
