@@ -10,10 +10,9 @@
   <para>Custom Commands enable you to insert ad hoc functionality into the
   xTuple ERP menu system. Examples of ad hoc features are custom report
   definitions, custom .ui screens, and more. All Custom Commands are launched
-  from a special "Custom" menu directory which gets created at the bottom of
-  the menu tree for modules you are adding Custom Commands to. To create a new
-  Custom Command, select the NEW button. The following screen will
-  appear:</para>
+  from a special "Custom" menu, which gets created at the bottom of the menu
+  tree for modules you are adding Custom Commands to. To create a new Custom
+  Command, select the NEW button. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -57,7 +56,14 @@
     <varlistentry>
       <term>Action Name</term>
       <listitem>
-        <para></para>
+        <para>Enter a programmatic-style name for the Custom Command, so the
+        system will be able to locate and process the information easily.
+        Having an action name also makes it possible to create a Hot Key for
+        the Custom Command. Because of the Hot Key feature, you should
+        consider using an action name which conforms to the already-existing
+        naming convention for Hot Key actions. The <xref
+        linkend="hotkeyTitle" /> section contains more information on Hot
+        Keys.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -65,15 +71,18 @@
       <listitem>
         <para>The information entered in this field will vary depending on the
         use case. If the Custom Command is designed to launch a custom screen,
-        then the following text should be entered:
-        <filename>!customuiform</filename>. If, on the other hand, the Custom
-        Command will launch an executable program (e.g., RPTRender), then you
-        should enter the path to the location where the executable program is
-        located. When users select the associated Custom Command menu option,
-        the executable program will be launched. For example, if you want to
-        run a custom report, specify the location for the standalone report
-        renderer ("RPTrender"). The following examples illustrate how (on
-        Windows) you can map to either local or network drives:</para>
+        then the following text should be entered:</para>
+        <informalexample>
+          <para><code>!customuiform</code></para>
+        </informalexample>
+        <para>If, on the other hand, the Custom Command will launch an
+        executable program (e.g., RPTRender), then you should enter the path
+        to the location where the executable program is located. When users
+        select the associated Custom Command menu option, the executable
+        program will be launched. For example, if you want to run a custom
+        report, specify the location for the standalone report renderer
+        (RPTrender). The following examples illustrate how (on Windows) you
+        can map to either local or network drives:</para>
         <informalexample>
           <para><emphasis role="bold">Local Drive</emphasis>:
           <code>C:\\Program Files\\OpenMFG\\RPTrender.exe</code></para>
@@ -92,10 +101,13 @@
   <tip>
     <para>Macintosh users should enter an executable path which points all the
     way to the executable file located within a package's Contents directory.
-    For example, to launch the report renderer, enter the following path:
-    <code>../rptrender.app/Contents/MacOS/rptrender</code>. Under Mac, the
-    RPTrender application will not open if the path does not continue past the
-    rptrender.app file.</para>
+    For example, to launch the report renderer, enter the following
+    path:</para>
+    <informalexample>
+      <para><code>../rptrender.app/Contents/MacOS/rptrender</code></para>
+    </informalexample>
+    <para>Under Mac, the RPTrender application will not open if the path does
+    not continue past the rptrender.app file.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -106,8 +118,8 @@
     </varlistentry>
   </variablelist>
   <para>If you want the system to pass parameters or other arguments to the
-  specified executable program when it is launched, select the "Arguments"
-  tab. The following screen will appear:</para>
+  specified executable when it is launched, select the "Arguments" tab. The
+  following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -116,16 +128,9 @@
         <caption>Custom Command Arguments</caption>
       </mediaobject>
     </screenshot></para>
-  <note>
-    <para>While the examples shown here emphasize arguments passed to the
-    report renderer, you may pass arguments to any other program executed from
-    a Custom Command menu.</para>
-  </note>
   <para>The arguments display lists all arguments defined for the specified
-  executable. The arguments shown in the example illustrate typical arguments
-  needed to run custom reports from the system. As the example shows, the
-  following arguments will be passed to the RPTrender application when the
-  Custom Command is executed:</para>
+  executable. The following table shows the range of possible arguments if the
+  executable is a custom screen (i.e., ui form):</para>
   <table>
     <title>Arguments Used for Custom Screens</title>
     <tgroup cols="2">
@@ -154,6 +159,8 @@
       </tbody>
     </tgroup>
   </table>
+  <para>The next table shows the range of possible arguments you can pass to
+  the report renderer (RPTRender) if you are running custom reports:</para>
   <table>
     <title>Arguments Used for Custom Reports</title>
     <tgroup cols="2">
