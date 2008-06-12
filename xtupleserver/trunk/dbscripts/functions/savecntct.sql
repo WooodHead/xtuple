@@ -56,20 +56,18 @@ BEGIN
   
   --If there is nothing here get out
   IF ( (pCntctId IS NULL OR pCntctId = -1)
-	AND (pCrmAcctId IS NULL)
 	AND (pAddrId IS NULL)
-	AND (pContactNumber = '''' OR pContactNumber IS NULL)
-	AND (pFirstName = '''' OR pFirstName IS NULL)
-	AND (pLastName = '''' OR pLastName IS NULL)
-	AND (pHonorific = '''' OR pHonorific IS NULL)
-	AND (pInitials = '''' OR pInitials IS NULL)
-	AND (pPhone = '''' OR pPhone IS NULL)
-	AND (pPhone2 = '''' OR pPhone2 IS NULL)
-	AND (pFax = '''' OR pFax IS NULL)
-	AND (pEmail = '''' OR pEmail IS NULL)
-	AND (pWebAddr = '''' OR pWebAddr IS NULL)
-	AND (pNotes = '''' OR pNotes IS NULL)
-	AND (pTitle = '''' OR pTitle IS NULL) ) THEN
+	AND (COALESCE(pFirstName, '''') = '''')
+	AND (COALESCE(pLastName, '''') = '''')
+	AND (COALESCE(pHonorific, '''') = '''')
+	AND (COALESCE(pInitials, '''') = '''')
+	AND (COALESCE(pPhone, '''') = '''')
+	AND (COALESCE(pPhone2, '''') = '''')
+	AND (COALESCE(pFax, '''') = '''')
+	AND (COALESCE(pEmail, '''') = '''')
+	AND (COALESCE(pWebAddr, '''') = '''')
+	AND (COALESCE(pNotes, '''') = '''')
+	AND (COALESCE(pTitle, '''') = '''') ) THEN
 	
 	RETURN NULL;
 
