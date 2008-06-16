@@ -738,9 +738,12 @@
           <secondary>for screen position</secondary>
         </indexterm>Screen Position/Size Memory</title>
       <para>The system gives you the ability to specify a default screen size
-      and position on a screen-by-screen basis. The controls for the screen
-      position and size memory are located under the Windows menu, as shown in
-      the following screen:</para>
+      and position on a screen-by-screen basis. This feature applies to all
+      Window screens, but not to Dialog screens. A Dialog screen is a screen
+      which holds the focus when it is open and prevents you from working on
+      other screens at the same time. The controls for the screen position and
+      size memory are located under the Windows menu, as shown in the
+      following screen:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
@@ -751,8 +754,8 @@
         </screenshot></para>
       <note>
         <para>Unless you specify otherwise, the system will always remember
-        the size of a screen --and also the position where the screen was
-        located&mdash;when you last used it.</para>
+        the size of all Window screens--and also the position where the screen
+        was located&mdash;when you last used it.</para>
       </note>
       <para>When opening the Windows menu to set your screen position or size,
       you are presented with the following options:</para>
