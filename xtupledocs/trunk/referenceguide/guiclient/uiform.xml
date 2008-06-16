@@ -8,7 +8,7 @@
       <secondary>designing new</secondary>
     </indexterm>Screen</title>
   <para>To create a new custom screen, select the NEW button. The following
-  screen will appear:</para>
+  window will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -71,19 +71,38 @@
     <varlistentry>
       <term>SAVE</term>
       <listitem>
-        <para>Saves the screen definition.</para>
+        <para>Saves the screen definition, including any UI file which you may
+        have imported. The screen definition and the UI file are both saved to
+        the database.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>IMPORT</term>
       <listitem>
-        <para>Select to import a UI file.</para>
+        <para>Select to import the UI file you want to use as the basis for
+        your custom screen. UI files should be created using Qt Designer. When
+        they are imported using this option, they are stored in the database
+        and associated with the specified screen definition. If you ever want
+        or need to edit the UI file and do not have a copy stored locally, you
+        can simply export the UI file to your file system--and then re-import
+        it when you are done editing. Whenever you import a UI file, it
+        automatically replaces whatever UI file was in place before it.</para>
+        <warning>
+          <para>Every time you import a UI file, the new UI file replaces
+          whatever UI file was imported previously--regardless of the name of
+          the file(s).</para>
+        </warning>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EXPORT</term>
       <listitem>
-        <para>Select to export a UI file.</para>
+        <para>Select to export the UI file associated with the screen. You
+        would use this option if you need or want to edit the UI file and do
+        not have a copy stored locally on your system. Once exported, the UI
+        can be edited using Qt Designer--and then re-imported into the
+        database using the import option. Whenever you import a UI file, it
+        automatically replaces whatever UI file was in place before it.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

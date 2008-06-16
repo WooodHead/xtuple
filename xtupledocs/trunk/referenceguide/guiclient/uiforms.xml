@@ -28,7 +28,7 @@
   directly on the database). And, creating a screen does not automatically
   make it available to users. You must first create a <xref
   linkend="customCommandTitle" /> to makes sure the screen is added to the
-  menu structure. </para>
+  menu structure.</para>
   <note>
     <para>Because screens are very limited in what they can be made to do
     without code or scripting, it will almost always be necessary to write one
@@ -81,8 +81,12 @@
     <varlistentry>
       <term>TEST</term>
       <listitem>
-        <para>Highlight a custom screen and then select this button to test
-        the screen.</para>
+        <para>Highlight a custom screen and then select this button to launch
+        the screen in the xTuple ERP application. If successful, the
+        highlighted screen will appear within the xTuple framework (e.g., on
+        the desktop). If the screen does not appear, then check your
+        settings--and be sure you have imported your source UI file into the
+        database.</para>
       </listitem>
     </varlistentry>
   </variablelist>
