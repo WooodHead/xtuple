@@ -5,15 +5,15 @@ BEGIN;
 DROP VIEW api.pricingscheduleitem;
 CREATE OR REPLACE VIEW api.pricingscheduleitem AS 
  SELECT 
-   ipshead_name AS pricing_schedule, 
-   'Item' AS type,
-   item_number,
-   '' AS product_category,
+   ipshead_name::varchar(100) AS pricing_schedule, 
+   'Item'::varchar(100) AS type,
+   item_number::varchar(100),
+   ''::varchar(100) AS product_category,
    ipsitem_qtybreak AS qty_break, 
+   qtyuom.uom_name::varchar(100) AS qty_uom, 
+   priceuom.uom_name::varchar(100) AS price_uom,
    ipsitem_price AS price,
-   0 AS discount_percent,
-   qtyuom.uom_name AS qty_uom, 
-   priceuom.uom_name AS price_uom
+   0 AS discount_percent
  FROM ipsitem
    JOIN ipshead ON (ipsitem_ipshead_id = ipshead_id)
    JOIN item ON (ipsitem_item_id = item_id)
@@ -21,15 +21,15 @@ CREATE OR REPLACE VIEW api.pricingscheduleitem AS
    JOIN uom priceuom ON (ipsitem_price_uom_id = priceuom.uom_id)
  UNION
  SELECT
-   ipshead.ipshead_name AS pricing_schedule,
-   'Product Category' AS type,
-   '' AS item_number,
-   prodcat_code,
+   ipshead.ipshead_name::varchar(100) AS pricing_schedule,
+   'Product Category'::varchar(100) AS type,
+   ''::varchar(100) AS item_number,
+   prodcat_code::varchar(100),
    ipsprodcat_qtybreak,
-   NULL AS price,
-   ipsprodcat_discntprcnt AS discount_percent,
    NULL AS qty_uom,
-   NULL AS price_uom
+   NULL AS price_uom,
+   NULL AS price,
+   ipsprodcat_discntprcnt AS discount_percent
  FROM ipsprodcat
    JOIN ipshead ON (ipsprodcat_ipshead_id = ipshead_id)
    JOIN prodcat ON (ipsprodcat_prodcat_id = prodcat_id);

@@ -6,7 +6,7 @@ DROP VIEW api.pricingschedule;
 CREATE OR REPLACE VIEW api.pricingschedule 
 AS 
   SELECT 
-    ipshead_name AS name, 
+    ipshead_name::varchar(100) AS name, 
     ipshead_descrip AS description, 
     formatdate(ipshead_effective, 'Always') AS effective, 
     formatdate(ipshead_expires, 'Never') AS expires,
