@@ -9,8 +9,8 @@ AS
      ipshead_name::varchar(100) AS pricing_schedule,
      item_number::varchar(100) AS item_number,
      ipsitem_qtybreak AS qty_break,
-     qtyuom.uom_name AS qty_uom,
-     priceuom.uom_name AS price_uom,
+     qtyuom.uom_name::varchar(100) AS qty_uom,
+     priceuom.uom_name::varchar(100) AS price_uom,
      char_name::varchar(100) AS characteristic,
      ipsitemchar_value AS value,
      ipsitemchar_price AS price
