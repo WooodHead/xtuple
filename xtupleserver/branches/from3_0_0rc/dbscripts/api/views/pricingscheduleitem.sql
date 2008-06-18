@@ -43,7 +43,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
  SELECT
    CASE 
      WHEN (NEW.type = 'Item') THEN
-       saveIpsitem(NULL,getIpsheadId(NEW.pricing_schedule),getItemId(NEW.item_number),NEW.qty_break,NEW.price,getUomId(NEW.qty_uom),getUomId(NEW.price_uom))
+       saveIpsitem(NULL,getIpsheadId(NEW.pricing_schedule),getItemId(NEW.item_number),COALESCE(NEW.qty_break,0),COALESCE(NEW.price,0),getUomId(NEW.qty_uom),getUomId(NEW.price_uom))
      WHEN (NEW.type = 'Product Category') THEN
        saveIpsProdcat(NULL,getIpsheadId(NEW.pricing_schedule),getProdcatId(NEW.product_category),NEW.qty_break,NEW.discount_percent)
    END;

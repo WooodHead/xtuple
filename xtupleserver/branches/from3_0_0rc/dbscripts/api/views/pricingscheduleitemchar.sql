@@ -12,7 +12,7 @@ AS
      qtyuom.uom_name::varchar(100) AS qty_uom,
      priceuom.uom_name::varchar(100) AS price_uom,
      char_name::varchar(100) AS characteristic,
-     ipsitemchar_value AS value,
+     ipsitemchar_value::varchar(100) AS value,
      ipsitemchar_price AS price
    FROM ipshead, ipsitem, ipsitemchar, item, char, uom qtyuom, uom priceuom
    WHERE ((ipshead_id=ipsitem_ipshead_id)
