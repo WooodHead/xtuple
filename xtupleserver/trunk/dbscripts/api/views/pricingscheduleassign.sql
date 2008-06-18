@@ -37,10 +37,25 @@ CREATE OR REPLACE RULE "_INSERT" AS
     ipsass_shipto_pattern) 
   VALUES (
     getIpsheadId(new.pricing_schedule),
-    getCustId(new.customer_number),
-    getCusttypeId(new.customer_type),
+    CASE
+      WHEN (new.customer_number='Any') THEN
+        -1
+      ELSE
+        getCustId(new.customer_number)
+    END,
+    CASE
+      WHEN (new.customer_type='N/A') THEN
+        -1
+      ELSE
+        getCusttypeId(new.customer_type)
+    END,
     new.customer_type_pattern,
-    getShiptoId(new.customer_number,new.customer_shipto),
+    CASE
+      WHEN (new.customer_number='Any' OR new.customer_shipto='Any') THEN
+        -1
+      ELSE
+        getShiptoId(new.customer_number,new.customer_shipto)
+    END,
     new.customer_shipto_pattern);
 
 CREATE OR REPLACE RULE "_UPDATE" AS
