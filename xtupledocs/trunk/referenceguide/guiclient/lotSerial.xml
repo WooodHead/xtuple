@@ -4,58 +4,132 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
   <title><indexterm significance="normal">
-      <primary>work orders</primary>
+      <primary>lots</primary>
       <secondary>creating new</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>lots</primary>
+      <secondary>registrations and</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>serial numbers</primary>
+      <secondary>creating new</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>serial numbers</primary>
+      <secondary>registrations and</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>registrations</primary>
+      <secondary>for lot/serial</secondary>
     </indexterm>Lot/Serial</title>
-  <para>Work Orders define requirements for the production of manufactured
-  Items. These Items may have a Bill of Materials (BOM)--or not. The system
-  supports both BOM-based and non-BOM-based Work Orders.</para>
-  <para>If an Item has Characteristics associated with it, you have the option
-  of linking those Characteristics to a Work Order Item. And, in the case
-  where a Work Order is generated from a linked Sales Order, the Work Order
-  will inherit Characteristics defined at the Sales Order level.</para>
-  <tip>
-    <para>You can link Characteristics and Values to an Item by using the Item
-    master. Once entered, these Characteristics and Values will be available
-    to users entering Sales Order Line Items.</para>
-  </tip>
-  <para>To associate Characteristics with a Work Order Item, select the
-  "Characteristics" tab at the bottom of the screen, as shown below:</para>
+  <para>The Lot/Serial screen provides a kind of Workbench for managing
+  Lot/Serial records and registrations. The screen may also be used for
+  creating new Lot/Serial Numbers for Items. To manage your Lot/Serial
+  records, use the following screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/lotSerial.png" />
         </imageobject>
-        <caption>Create New Lot/Serial Registration</caption>
+        <caption>Create New Lot/Serial Record</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When specifying Characteristics for a Work Order Item, you are
-  presented with the following options:</para>
+  <para>When managing Lot/Serial records, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
-      <term>Name</term>
+      <term>Item Number</term>
       <listitem>
-        <para>Displays the name of any Item Characteristics associated with
-        the Item. Characteristics defined as Item Characteristics may be
-        associated with Items on the Item master.</para>
+        <para>Enter the Item Number whose Lot/Serial records you want to
+        manage.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Lot/Serial #</term>
+      <listitem>
+        <para>Select a pre-existing Lot/Serial Number for the specified Item.
+        Or create a new Lot/Serial Number if none exists. Keep in mind that
+        any ad hoc Lot/Serial Numbers created here are not traceable. To have
+        traceable Lot/Serial Numbers, the Item must have an Item Site where
+        the control method is either Lot or Serial.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>If an Item has Characteristics associated with it, you have the option
+  of linking those Characteristics to a Lot/Serial Number. Characteristics
+  specified for Lot/Serial may also be associated. When associating
+  Characteristics with a Lot/Serial Number, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristics</term>
+      <listitem>
+        <para>Display lists the Characteristic name and Value of
+        Characteristics related to the Lot/Serial Number.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Lot/Serial
+        Characteristic.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Lot/Serial Characteristics. The
+        edit screen is the same as that for creating a new Lot/Serial
+        Characteristic&mdash;except that when editing, the fields will contain
+        Lot/Serial Characteristic information. Double-clicking on a Lot/Serial
+        Characteristic will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Lot/Serial Characteristic and then select this
+        button to remove the Lot/Serial Characteristic from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Lot/Serial Characteristic, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/characteristicAssignmentLotSerial.png" />
+        </imageobject>
+        <caption>Create New Lot/Serial Characteristic</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristic</term>
+      <listitem>
+        <para>Select a Characteristic from the list of Characteristics
+        designated as being available for use as Item or Lot/Serial
+        Characteristics.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Value</term>
       <listitem>
-        <para>Displays the default Value associated with an Item
-        Characteristic, but permits you to specify an alternate Value. When
-        associating Characteristic Values with a Work Order Item, you have
-        four options: 1) Select the default Value; 2) select an alternate
-        pre-defined Value; 3) manually enter a new Value in place of the
-        pre-defined Value; or 4) make no selection. Making no selection means
-        the Characteristics will not be associated with the Work Order
-        Item.</para>
+        <para>Displays the default Value associated with the Characteristic,
+        but permits you to specify an alternate Value.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
-  <para></para>
+  <para>You have the ability to register Lot/Serial Numbers--wether for
+  warranty or other purposes. To register a Lot/Serial Number, select the
+  "Register" tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -64,20 +138,64 @@
         <caption>Lot/Serial Registrations</caption>
       </mediaobject>
     </screenshot></para>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para></para>
+  <para>When registering Lot/Serial Numbers, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Registrations</term>
+      <listitem>
+        <para>Display lists registrations associated with the Lot/Serial
+        Number.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Lot/Serial registration.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Lot/Serial registration. The
+        edit screen is the same as that for creating a new Lot/Serial
+        registration&mdash;except that when editing, the fields will contain
+        Lot/Serial registration information. Double-clicking on a Lot/Serial
+        registration will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Lot/Serial registration and then select this button
+        to remove the Lot/Serial registrationfrom the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To associate Notes with the Lot/Serial record, select the "Notes" tab.
+  The following screen will appear:</para>
   <para><mediaobject>
       <imageobject>
         <imagedata fileref="images/lotSerial_tabNotes.png" />
       </imageobject>
       <caption>Lot/Serial Notes</caption>
     </mediaobject></para>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para>To create or view Comments related to a Work Order, select the
+  <para>When associating Notes with a Lot/Serial record, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Lot/Serial record.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create or view Comments related to a Lot/Serial record, select the
   "Comments" tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -87,18 +205,14 @@
         <caption>Add Lot/Serial Comments</caption>
       </mediaobject>
     </screenshot></para>
-  <note>
-    <para>Work Order Comments may not be added at the time of Work Order
-    creation. Instead, use the Production Notes tab for entering Notes related
-    to a Work Order.</para>
-  </note>
-  <para>When creating or viewing Comments related to a Work Order, you are
-  presented with the following options:</para>
+  <para>When creating or viewing Comments related to a Lot/Serial record, you
+  are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Comments</term>
       <listitem>
-        <para>Display lists Comments for the specified Order.</para>
+        <para>Display lists Comments for the specified Lot/Serial
+        record.</para>
       </listitem>
     </varlistentry>
   </variablelist>
