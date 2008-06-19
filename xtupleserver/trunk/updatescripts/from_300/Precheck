@@ -15,3 +15,15 @@ SELECT COUNT(*) = 0
 FROM subaccnt a, subaccnt b
 WHERE ((a.subaccnt_number=b.subaccnt_number)
    AND (a.subaccnt_id!=b.subaccnt_id));
+
+-- make sure warehouse default account is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM whsinfo LEFT OUTER JOIN accnt ON (accnt_id=warehous_default_accnt_id)
+WHERE (accnt_id IS NULL);
+
+-- make sure warehouse contact is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM whsinfo LEFT OUTER JOIN cntct ON (cntct_id=warehous_cntct_id)
+WHERE (cntct_id IS NULL);
