@@ -78,8 +78,8 @@
     <glossdef>
       <para>An Administrator is a person charged with maintaining the correct
       functioning of an xTuple ERP installation. Sometimes called a systems
-      administrator, an xTuple ERP Administrator monitors the software, maintains
-      users, and performs other important technical tasks.</para>
+      administrator, an xTuple ERP Administrator monitors the software,
+      maintains users, and performs other important technical tasks.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -451,8 +451,8 @@
       <para>User-defined definition of an Item which may be used to provide
       additional layers of description to an Item. For example, Item
       Characteristics might be used to specify "Season" or "Primary Vendor".
-      These constitute static descriptions which are not processed by xTuple ERP,
-      but are useful for informational purposes.</para>
+      These constitute static descriptions which are not processed by xTuple
+      ERP, but are useful for informational purposes.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -671,12 +671,12 @@
       </indexterm>data entry format</glossterm>
     <glossdef>
       <para>Refers to the combination of keyboard characters supported by
-      xTuple ERP data entry fields. Any data entered into a field must correspond
-      to the format supported by that field. For example, date formats must be
-      entered into date fields. Monetary formats must be entered into monetary
-      fields. Some fields have no format restrictions and allow an unlimited
-      number of alphanumeric characters. Data entry formats may differ from
-      Locale to Locale.</para>
+      xTuple ERP data entry fields. Any data entered into a field must
+      correspond to the format supported by that field. For example, date
+      formats must be entered into date fields. Monetary formats must be
+      entered into monetary fields. Some fields have no format restrictions
+      and allow an unlimited number of alphanumeric characters. Data entry
+      formats may differ from Locale to Locale.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -881,8 +881,8 @@
         <secondary>defined</secondary>
       </indexterm>field</glossterm>
     <glossdef>
-      <para>Refers to those areas found on xTuple ERP screens where data can be
-      entered. Examples include Item Number fields, date fields, Comment
+      <para>Refers to those areas found on xTuple ERP screens where data can
+      be entered. Examples include Item Number fields, date fields, Comment
       fields, etc.</para>
     </glossdef>
   </glossentry>
@@ -2057,7 +2057,7 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
-        <primary>Service Item</primary>
+        <primary>service Item</primary>
         <secondary>defined</secondary>
       </indexterm>Service Item</glossterm>
     <glossdef>
@@ -2365,10 +2365,10 @@
       is available to work, which may exclude weekends or holidays. For
       example: If a shop typically has a three-week lead time, but does not
       work weekends, then the time buffer for that shop would typically be 15
-      working days. The xTuple ERP Constraint Management system looks at the start
-      and finish dates of a discrete Purchase Order or Work Order, removes
-      non-working days for the Order\qs Warehouse, and then calculates the
-      time buffer.</para>
+      working days. The xTuple ERP Constraint Management system looks at the
+      start and finish dates of a discrete Purchase Order or Work Order,
+      removes non-working days for the Order\qs Warehouse, and then calculates
+      the time buffer.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -2428,8 +2428,8 @@
       </indexterm>transaction</glossterm>
     <glossdef>
       <para>Any event involving a change in Inventory value or status, and the
-      resulting recording of such events in the General Ledger (G/L). xTuple ERP
-      recognizes both Inventory transactions and G/L transactions. For a
+      resulting recording of such events in the General Ledger (G/L). xTuple
+      ERP recognizes both Inventory transactions and G/L transactions. For a
       complete list of Inventory transaction types, see Appendix A.</para>
     </glossdef>
   </glossentry>
