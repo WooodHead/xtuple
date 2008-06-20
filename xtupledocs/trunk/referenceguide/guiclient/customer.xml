@@ -462,18 +462,20 @@
             <term>On Credit Warning</term>
             <listitem>
               <para>Select to alert sales staff to possible credit problems
-              with the Customer. Customers with credit "On Credit Warning" may
-              not have Sales Orders issued for them. An orange-colored
-              typeface will be associated with their account.</para>
+              with the Customer. Non-privileged users will be prevented from
+              issuing Stock to Shipping for any Customers on credit warning.
+              An orange-colored typeface will be associated with their
+              account.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>On Credit Hold</term>
             <listitem>
               <para>Select to inform sales staff that Customer's credit has
-              been suspended. Customers with credit "On Credit Hold" may not
-              have Sales Orders issued for them. A red-colored typeface will
-              be associated with their account.</para>
+              been suspended. Non-privileged users will be prevented from
+              issuing Stock to Shipping for any Customers on credit hold. A
+              red-colored typeface will be associated with their
+              account.</para>
             </listitem>
           </varlistentry>
         </variablelist>

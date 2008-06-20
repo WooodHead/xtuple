@@ -432,7 +432,10 @@
           <varlistentry>
             <term>Credit</term>
             <listitem>
-              <para><remark>find me</remark></para>
+              <para>Indicates the open balance for the Customer has exceeded
+              the credit limit defined on their Customer master record. Users
+              will be prevented from issuing Stock to Shipping with this hold
+              type.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -454,7 +457,10 @@
           <varlistentry>
             <term>Return</term>
             <listitem>
-              <para><remark>find me</remark></para>
+              <para>This hold type is set automatically when a Sales Order is
+              created from a Return Authorization and the disposition requires
+              Inventory to be received before the replacement Order can be
+              shipped.</para>
             </listitem>
           </varlistentry>
         </variablelist>
