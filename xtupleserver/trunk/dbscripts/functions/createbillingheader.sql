@@ -107,11 +107,13 @@ BEGIN
 	 ) AS data
 	 LEFT OUTER JOIN tax ON (tax_id=freight_tax_id);
 
-  --  Determine if we are using the _shipDate or _schedDate for the _invcDate
+  --  Determine if we are using the _shipDate or _schedDate or current_date for the _invcDate
   IF( fetchMetricText(''InvoiceDateSource'')=''scheddate'') THEN
     _invcDate := _schedDate;
-  ELSE
+  ELSIF( fetchMetricText(''InvoiceDateSource'')=''shipdate'') THEN
     _invcDate := _shipDate;
+  ELSE
+    _invcDate := current_date;
   END IF;
 
   INSERT INTO cobmisc
