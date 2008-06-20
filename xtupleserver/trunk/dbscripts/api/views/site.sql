@@ -2,7 +2,6 @@ BEGIN;
 
   --Site (aka Warehouse) View
 
-  DROP VIEW api.site;
   CREATE OR REPLACE VIEW api.site AS
  
   SELECT 

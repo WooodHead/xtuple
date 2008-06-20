@@ -2,7 +2,6 @@ BEGIN;
 
 -- Site Zone (aka Warehouse Zone) View
 
-DROP VIEW api.sitezone;
 CREATE OR REPLACE VIEW api.sitezone AS
   SELECT 
     warehous_code::varchar(100) AS warehouse,

@@ -2,7 +2,6 @@ BEGIN;
 
 -- Location View
 
-DROP VIEW api.location;
 CREATE OR REPLACE VIEW api.location AS
   SELECT
     warehous_code::varchar(100) AS warehouse,
