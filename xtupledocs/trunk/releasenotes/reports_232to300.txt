@@ -63,10 +63,7 @@ SummarizedSalesByCustomerType
  <? elseif exists("vendtype_pattern") ?>
     WHERE (apaging_vendtype_code ~ <? value("vendtype_pattern") ?>)
  <? endif ?>;
- --------------------------------------------------------------------
    
-\ No newline at end of file
- 
  ====================================================================
  REPORT: BillingEditList
  QUERY: detail
@@ -343,10 +340,6 @@ SummarizedSalesByCustomerType
  
  ORDER BY ordernumber, linenumber;
  
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
  ====================================================================
  REPORT: CapacityUOMsByClassCode
  QUERY: head
@@ -386,10 +379,6 @@ SummarizedSalesByCustomerType
  )
  ORDER BY classcode_code, item_number;
      
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
  ====================================================================
  REPORT: CashReceiptsJournal
  QUERY: detail
@@ -422,9 +411,6 @@ SummarizedSalesByCustomerType
   WHERE ((aropen_docdate = CURRENT_DATE)
     AND  (aropen_journalnumber=<? value("journalNumber") ?>)
  )
- --------------------------------------------------------------------
-   
-\ No newline at end of file
  
  ====================================================================
  REPORT: DetailedInventoryHistoryByLocation
@@ -467,9 +453,6 @@ SummarizedSalesByCustomerType
     AND (transType(invhist_transtype, <? value("transType") ?>))
  )
  ORDER BY invhist_transdate DESC, invhist_transtype;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
  
  ====================================================================
  REPORT: ExpiredInventoryByClassCode
@@ -591,9 +574,6 @@ SummarizedSalesByCustomerType
  <? else ?>
    item_number
  <? endif ?>
- --------------------------------------------------------------------
-   
-\ No newline at end of file
  
  ====================================================================
  REPORT: InventoryHistoryByParameterList
@@ -845,9 +825,6 @@ SummarizedSalesByCustomerType
     AND (item_id IN (SELECT DISTINCT itemgrpitem_item_id FROM itemgrpitem))
  <? endif ?>
  );
- --------------------------------------------------------------------
-   
-\ No newline at end of file
  
  ====================================================================
  REPORT: Invoice
@@ -1055,16 +1032,12 @@ SummarizedSalesByCustomerType
  WHERE ((image_name='logo'));
  --------------------------------------------------------------------
    
-\ No newline at end of file
 +QUERY: tracknum
 +select cosmisc_tracknum from cohead, cosmisc, invchead 
 +where 
 +cohead_id = cosmisc_cohead_id
 +and cohead_number = invchead_ordernumber
 +and invchead_id = <? value("invchead_id") ?>;
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
  
  ====================================================================
  REPORT: PackingList
@@ -1396,9 +1369,6 @@ SummarizedSalesByCustomerType
 +GROUP BY shiphead_number,orderhead_number,item_number,invdetail_ls_id,
 +orderitem_linenumber,invhist_transtype
  ORDER BY ordernumber;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
  
  ====================================================================
  REPORT: PurchaseOrder
@@ -1506,9 +1476,6 @@ SummarizedSalesByCustomerType
       addr_id = warehous_addr_id
       and pohead_warehous_id = warehous_id
       AND pohead_id=<? value("pohead_id") ?> ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
  
  ====================================================================
  REPORT: QOHByLocation
@@ -1543,9 +1510,6 @@ SummarizedSalesByCustomerType
   AND (itemsite_location_id=<? value("location_id") ?>))
  
  ORDER BY item_number;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
  
  ====================================================================
  REPORT: SummarizedSalesByCustomerType
@@ -1605,5 +1569,3 @@ SummarizedSalesByCustomerType
         formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
         formatDate(<? value("endDate") ?>, 'Latest') AS enddate;
  --------------------------------------------------------------------
-   
-\ No newline at end of file
