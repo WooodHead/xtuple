@@ -19,11 +19,11 @@ PurchaseOrder
 QOHByLocation
 SummarizedSalesByCustomerType
 
- 
+
  ====================================================================
  REPORT: APAging
  QUERY: detail
- SELECT 
+ SELECT
  	apaging_docdate,
  	apaging_duedate,
  	apaging_ponumber,
@@ -63,7 +63,7 @@ SummarizedSalesByCustomerType
  <? elseif exists("vendtype_pattern") ?>
     WHERE (apaging_vendtype_code ~ <? value("vendtype_pattern") ?>)
  <? endif ?>;
-   
+
  ====================================================================
  REPORT: BillingEditList
  QUERY: detail
@@ -89,7 +89,7 @@ SummarizedSalesByCustomerType
 -       '' AS credit
 +       '' AS credit,
 +       currConcat(cobmisc_curr_id)      AS currabbr
- FROM cobmisc, cohead, cust 
+ FROM cobmisc, cohead, cust
  WHERE ( (cobmisc_cohead_id=cohead_id)
   AND (cohead_cust_id=cust_id)
   AND (NOT cobmisc_posted)
@@ -99,7 +99,7 @@ SummarizedSalesByCustomerType
   AND (NOT cobmisc_printed)
  <? endif ?>
  )
- 
+
  UNION
  SELECT cohead_id 			AS orderid,
         -1 				AS itemid,
@@ -131,14 +131,14 @@ SummarizedSalesByCustomerType
   AND (NOT cobmisc_printed)
  <? endif ?>
  )
- 
+
  UNION
- SELECT cohead_id 								AS orderid, 
+ SELECT cohead_id 								AS orderid,
  	-1 									AS itemid,
-         '' 									AS documentnumber, 
-         'Misc. Charge'								AS name, 
+         '' 									AS documentnumber,
+         'Misc. Charge'								AS name,
  	cohead_misc_descrip 							AS descrip,
-         ''		 							AS f_ordernumber, 
+         ''		 							AS f_ordernumber,
  	cohead_number								AS ordernumber,
  	-1 									AS linenumber,
  	'' 									AS iteminvuom,
@@ -163,14 +163,14 @@ SummarizedSalesByCustomerType
   AND (NOT cobmisc_printed)
  <? endif ?>
  )
- 
+
  UNION
- SELECT  cohead_id 								AS orderid, 
+ SELECT  cohead_id 								AS orderid,
  	-1 									AS itemid,
-         '' 									AS documentnumber, 
+         '' 									AS documentnumber,
          'Sales Tax'								AS name,
  	tax_descrip	 							AS descrip,
-         ''		 							AS f_ordernumber, 
+         ''		 							AS f_ordernumber,
  	cohead_number								as ordernumber,
  	-1				 					AS linenumber,
  	''						 			AS iteminvuom,
@@ -184,7 +184,7 @@ SummarizedSalesByCustomerType
 -        (formatGLAccount(taxaccnt.accnt_id) || ' - ' || taxaccnt.accnt_descrip) AS credit
 +        (formatGLAccount(taxaccnt.accnt_id) || ' - ' || taxaccnt.accnt_descrip) AS credit,
 +        currConcat(cobmisc_tax_curr_id)     AS currabbr
- FROM cobmisc, cohead, accnt AS taxaccnt, tax 
+ FROM cobmisc, cohead, accnt AS taxaccnt, tax
  WHERE ( (cobmisc_cohead_id=cohead_id)
   AND (tax_sales_accnt_id=taxaccnt.accnt_id)
   AND (cohead_tax_id=tax_id)
@@ -196,15 +196,15 @@ SummarizedSalesByCustomerType
   AND (NOT cobmisc_printed)
  <? endif ?>
  )
- 
+
  UNION
- SELECT  cohead_id 								AS orderid, 
+ SELECT  cohead_id 								AS orderid,
  	coitem_id 								AS itemid,
-         '' 									AS documentnumber, 
-         item_number								AS name, 
+         '' 									AS documentnumber,
+         item_number								AS name,
  	(item_descrip1 || ' ' || item_descrip2)					AS descrip,
-         ''		 							AS f_ordernumber, 
-         cohead_number	 							AS ordernumber, 
+         ''		 							AS f_ordernumber,
+         cohead_number	 							AS ordernumber,
  	coitem_linenumber 							AS linenumber,
  	uom_name AS iteminvuom,
          formatQty(cobill_qty) 							AS qtytobill,
@@ -235,9 +235,9 @@ SummarizedSalesByCustomerType
   AND (NOT cobmisc_printed)
  <? endif ?>
  )
- 
+
  UNION
- SELECT 	cmhead_id 					AS orderid, 
+ SELECT 	cmhead_id 					AS orderid,
  	-2 						AS itemid,
          ('C/M-' || formatCreditMemoNumber(cmhead_id)) 	AS documentnumber,
          cust_number					AS name,
@@ -267,15 +267,15 @@ SummarizedSalesByCustomerType
   AND (NOT cmhead_printed)
  <? endif ?>
  )
- 
+
  UNION
  SELECT  cmhead_id 								AS orderid,
  	-1 									AS itemid,
-         '' 									AS documentnumber, 
-         'Freight'								AS name, 
+         '' 									AS documentnumber,
+         'Freight'								AS name,
  	'Freight Charge'							AS descrip,
-         ''		 							AS f_ordernumber, 
-         cmhead_number	 							AS ordernumber, 
+         ''		 							AS f_ordernumber,
+         cmhead_number	 							AS ordernumber,
  	-1 									AS linenumber,
  	'' 									AS iteminvuom,
          '' 									AS qtytobill,
@@ -299,15 +299,15 @@ SummarizedSalesByCustomerType
   AND (NOT cmhead_printed)
  <? endif ?>
  )
- 
+
  UNION
- SELECT  cmhead_id 								AS orderid, 
+ SELECT  cmhead_id 								AS orderid,
  	cmitem_id 								AS itemid,
-         '' 									AS documentnumber, 
+         '' 									AS documentnumber,
          item_number								AS name,
  	(item_descrip1 || ' ' || item_descrip2)					AS descrip,
-         ''		 							AS f_ordernumber, 
-         cmhead_number	 							AS ordernumber, 
+         ''		 							AS f_ordernumber,
+         cmhead_number	 							AS ordernumber,
  	cmitem_linenumber 							AS linenumber,
 -	iteminvuom,
 +	item_invuom                                                             AS iteminvuom,
@@ -317,9 +317,9 @@ SummarizedSalesByCustomerType
  	((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio) * -1)			AS subextprice,
 -	((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio) * -1)			AS runningextprice,
 +	currtobase(cmhead_curr_id, ((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio) * -1), cmhead_gldistdate) AS runningextprice,
-         COALESCE( ( SELECT (formatGLAccount(accnt_id) || ' - ' || accnt_descrip) 
-                     FROM accnt, salesaccnt 
-                     WHERE ((salesaccnt_sales_accnt_id=accnt_id) 
+         COALESCE( ( SELECT (formatGLAccount(accnt_id) || ' - ' || accnt_descrip)
+                     FROM accnt, salesaccnt
+                     WHERE ((salesaccnt_sales_accnt_id=accnt_id)
                       AND (salesaccnt_id=findSalesAccnt(itemsite_id, cmhead_cust_id)))), 'Not Assigned') AS credit,
 -        '' AS debit
 +        '' AS debit,
@@ -337,24 +337,11 @@ SummarizedSalesByCustomerType
   AND (NOT cmhead_printed)
  <? endif ?>
  )
- 
+
  ORDER BY ordernumber, linenumber;
- 
+
  ====================================================================
  REPORT: CapacityUOMsByClassCode
- QUERY: head
- SELECT <? if exists("classcode_id") ?>
-          ( SELECT (classcode_code || '-' || classcode_descrip)
-              FROM classcode
-             WHERE (classcode_id=<? value("classcode_id") ?>) )
-        <? elseif exists("classcode_pattern") ?>
-          text(<? value("classcode_pattern") ?>)
-        <? else ?>
-          text('All Class Codes')
-        <? endif ?>
-        AS classcode;
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT classcode_code,
         item_number,
@@ -378,7 +365,7 @@ SummarizedSalesByCustomerType
  <? endif ?>
  )
  ORDER BY classcode_code, item_number;
-     
+
  ====================================================================
  REPORT: CashReceiptsJournal
  QUERY: detail
@@ -411,23 +398,9 @@ SummarizedSalesByCustomerType
   WHERE ((aropen_docdate = CURRENT_DATE)
     AND  (aropen_journalnumber=<? value("journalNumber") ?>)
  )
- 
+
  ====================================================================
  REPORT: DetailedInventoryHistoryByLocation
- QUERY: head
- SELECT formatLocationName(location_id) AS locationname,
-        firstLine(location_descrip) as f_descrip,
-        formatBoolYN(location_netable) AS f_netable,
-        formatBoolYN(location_restrict) AS f_restrict,
-        warehous_code AS warehouse,
-        formatDate(<? value("startDate") ?>) AS startdate,
-        formatDate(<? value("endDate") ?>) AS enddate
-   FROM location, warehous
-  WHERE ((location_id=<? value("location_id") ?>)
-    AND (location_warehous_id=warehous_id) );
- 
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT invhist_id,
         formatDateTime(invhist_transdate) AS transdate,
@@ -453,7 +426,7 @@ SummarizedSalesByCustomerType
     AND (transType(invhist_transtype, <? value("transType") ?>))
  )
  ORDER BY invhist_transdate DESC, invhist_transtype;
- 
+
  ====================================================================
  REPORT: ExpiredInventoryByClassCode
  QUERY: head
@@ -475,7 +448,7 @@ SummarizedSalesByCustomerType
           text('All Class Codes')
         <? endif ?>
         AS classcode,
-+       <? if exists("perishability") ?> 
++       <? if exists("perishability") ?>
 +       'Perishability'
 +       <? else ?>
 +       'Warranty'
@@ -496,7 +469,7 @@ SummarizedSalesByCustomerType
         <? endif ?>
         int4(<? value("thresholdDays") ?>) AS f_thresholddays;
  --------------------------------------------------------------------
-   
+
  QUERY: detail
  SELECT warehous_code,
         item_number,
@@ -574,64 +547,9 @@ SummarizedSalesByCustomerType
  <? else ?>
    item_number
  <? endif ?>
- 
+
  ====================================================================
  REPORT: InventoryHistoryByParameterList
- QUERY: head
- SELECT formatDate(<? value("startDate") ?>) AS startdate,
-        formatDate(<? value("endDate") ?>) AS enddate,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Warehouses')
-        <? endif ?>
-        AS warehouse,
-        <? if exists("itemgrp_id") ?>
-          ( SELECT (itemgrp_name||'-'||itemgrp_descrip)
-              FROM itemgrp
-             WHERE (itemgrp_id=<? value("itemgrp_id") ?>) )
-        <? elseif exists("itemgrp_pattern") ?>
-          text(<? value("itemgrp_pattern") ?>)
-        <? elseif exists("classcode_id") ?>
-          ( SELECT (classcode_code||'-'||classcode_descrip)
-              FROM classcode
-             WHERE (classcode_id=<? value("classcode_id") ?>) )
-        <? elseif exists("classcode_pattern") ?>
-          text(<? value("classcode_pattern") ?>)
-        <? elseif exists("plancode_id") ?>
-          ( SELECT (plancode_code||'-'||plancode_name)
-              FROM plancode
-             WHERE (plancode_id=<? value("plancode_id") ?>) )
-        <? elseif exists("plancode_pattern") ?>
-          text(<? value("plancode_pattern") ?>)
-        <? else ?>
-          text('All')
-        <? endif ?>
-        AS lbl_value,
-        <? if reExists("itemgrp.*") ?>
-          text('Item Group:')
-        <? elseif reExists("classcode.*") ?>
-          text('Class Code:')
-        <? elseif reExists("plancode.*") ?>
-          text('Planner Code:')
-        <? else ?>
-          text('Unknown Class:')
-        <? endif ?>
-        AS lbl_bytype,
-        <? if reExists("itemgrp.*") ?>
-          text('Inventory History by Item Group')
-        <? elseif reExists("classcode.*") ?>
-          text('Inventory History by Class Code')
-        <? elseif reExists("plancode.*") ?>
-          text('Inventory History by Planner Code')
-        <? else ?>
-          text('Inventory History')
-        <? endif ?>
-        AS lbl_title;
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT invhist_id,
         invhist_transdate,
@@ -825,12 +743,12 @@ SummarizedSalesByCustomerType
     AND (item_id IN (SELECT DISTINCT itemgrpitem_item_id FROM itemgrpitem))
  <? endif ?>
  );
- 
+
  ====================================================================
  REPORT: Invoice
  QUERY: GroupHead
 -SELECT remitto.*,
-+SELECT 
++SELECT
 +       --remitto.*,
 +remitto_name,
 +formatAddr(remitto_address1, remitto_address2, remitto_address3, remitto_citystatezip, remitto_country) AS remitto_adr,
@@ -853,192 +771,14 @@ SummarizedSalesByCustomerType
   AND (invchead_id=<? value("invchead_id") ?>) )
  ORDER BY ordernumber;
  --------------------------------------------------------------------
-   
- QUERY: Detail
- SELECT invcitem_linenumber,
-        formatQty(invcitem_billed) AS f_billed,
-        (select uom_name from uom where uom_id = invcitem_qty_uom_id) AS invuom,
-        CASE WHEN (item_number IS NULL) THEN invcitem_number
-             WHEN (invcitem_custpn != '') THEN invcitem_custpn
-             else item_number
-        END AS number,
-        CASE WHEN (item_number IS NULL) THEN invcitem_descrip
-             WHEN (invcitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip1
-             ELSE item_descrip1
-        END AS descrip1,
-        CASE WHEN (invcitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip2
-             ELSE itemalias_descrip2
-        END AS descrip2,
-        formatPrice(invcitem_price / COALESCE(invcitem_price_invuomratio,1)) AS f_unitprice,
-        formatMoney(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / COALESCE(invcitem_price_invuomratio,1)),2)) AS f_extprice,
-        invcitem_notes,
-        getInvcitemLotSerial(invcitem_id) AS lotserial,
-        characteristicsToString('SI', (SELECT coitem_id FROM coitem, cohead, invchead WHERE (cohead_number=invchead_ordernumber and invchead_id=<? value("invchead_id") ?> and coitem_cohead_id=cohead_id and coitem_linenumber=invcitem_linenumber)), '=', ', ') AS coitem_characteristics
- FROM invcitem LEFT OUTER JOIN (item JOIN uom ON (item_inv_uom_id=uom_id)) ON (invcitem_item_id=item_id) LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=invcitem_custpn)
- WHERE (invcitem_invchead_id=<? value("invchead_id") ?>)
- ORDER BY invcitem_linenumber;
- --------------------------------------------------------------------
-   
- QUERY: foot
- SELECT formatMoney(SUM(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / COALESCE(invcitem_price_invuomratio,1)),2))) AS f_extprice
- FROM invcitem LEFT OUTER JOIN item on (invcitem_item_id=item_id)
- WHERE (invcitem_invchead_id=<? value("invchead_id") ?>);
- --------------------------------------------------------------------
-   
- QUERY: GroupExtended
- SELECT formatMoney( noNeg(invchead_freight + invchead_misc_amount + invchead_tax +
-                        ( SELECT COALESCE(SUM(round(((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / COALESCE(invcitem_price_invuomratio,1))),2)), 0)
-                          FROM invcitem LEFT OUTER JOIN item ON (invcitem_item_id=item_id)
-                          WHERE (invcitem_invchead_id=<? value("invchead_id") ?>) )
-                     - total_allocated) ) AS f_totaldue,
-        formatMoney(invchead_misc_amount) AS f_misc,
-        formatMoney(invchead_tax) AS f_tax,
-        formatMoney(invchead_freight) AS f_freight,
-        formatMoney(invchead_payment) AS f_payment,
-        formatMoney(total_allocated) AS f_allocated,
-        invchead_notes,
-        invchead_misc_descrip
- FROM invchead,
- (SELECT COALESCE(SUM(CASE WHEN((aropen_amount - aropen_paid) >=
- 			        currToCurr(aropenco_curr_id, aropen_curr_id,
- 					   aropenco_amount, aropen_docdate))
- 		THEN currToCurr(aropenco_curr_id, invchead_curr_id,
- 				aropenco_amount, aropen_docdate)
- 		ELSE currToCurr(aropen_curr_id, invchead_curr_id,
- 				aropen_amount - aropen_paid, aropen_docdate)
- 	    END),0) AS total_allocated
-   FROM aropenco, aropen, cohead, invchead
-  WHERE ( (aropenco_aropen_id=aropen_id)
-    AND   (aropenco_cohead_id=cohead_id)
-    AND   ((aropen_amount - aropen_paid) > 0)
-    AND   (cohead_number=invchead_ordernumber)
-    AND   (NOT invchead_posted)
-    AND   (invchead_id=<? value("invchead_id") ?>) )
-  UNION
- SELECT COALESCE(SUM(currToCurr(arapply_curr_id, t.aropen_curr_id,
-                                arapply_applied, t.aropen_docdate)),0) AS total_allocated
-   FROM arapply, aropen s, aropen t, invchead
-  WHERE ( (s.aropen_id=arapply_source_aropen_id)
-    AND   (arapply_target_aropen_id=t.aropen_id)
-    AND   (arapply_target_doctype='I')
-    AND   (arapply_target_docnumber=invchead_invcnumber)
-    AND   (arapply_source_aropen_id=s.aropen_id)
-    AND   (invchead_posted)
-    AND   (invchead_id=<? value("invchead_id") ?>) )
-  -- there will be two rows, one each for posted and not. get the greater of the two
-  -- as at least one is guaranteed to be 0
- ORDER BY total_allocated DESC ) AS totalalloc
- WHERE (invchead_id=<? value("invchead_id") ?>)
- ;
- --------------------------------------------------------------------
-   
- QUERY: allocatedCMs
- SELECT cohead_id,
-        aropen_docnumber,
-        formatMoney(aropen_amount) AS f_total,
-        formatMoney(aropen_paid) AS f_paid,
-        formatMoney(aropen_amount - aropen_paid) AS f_balance,
-        CASE WHEN((aropen_amount - aropen_paid) >= currToCurr(aropenco_curr_id,
- 							     aropen_curr_id,
- 							     aropenco_amount,
- 							     aropen_docdate))
- 	    THEN currToCurr(aropenco_curr_id, aropen_curr_id,
- 			    aropenco_amount, aropen_docdate)
-             ELSE (aropen_amount - aropen_paid)
-        END AS allocated,
-        CASE WHEN((aropen_amount - aropen_paid) >= currToCurr(aropenco_curr_id,
- 							     aropen_curr_id,
- 							     aropenco_amount,
- 							     aropen_docdate))
- 	    THEN formatMoney(currToCurr(aropenco_curr_id, aropen_curr_id,
- 					aropenco_amount, aropen_docdate))
-             ELSE formatMoney(aropen_amount - aropen_paid)
-        END AS f_allocated,
-        CASE WHEN((aropen_amount - aropen_paid) >= currToCurr(aropenco_curr_id,
- 							     aropen_curr_id,
- 							     aropenco_amount,
- 							     aropen_docdate))
- 	    THEN currToCurr(aropenco_curr_id, invchead_curr_id,
- 			    aropenco_amount, aropen_docdate)
-             ELSE currToCurr(aropen_curr_id, invchead_curr_id,
-                             aropen_amount - aropen_paid, aropen_docdate)
-        END AS allocated_invccurr,
-        CASE WHEN((aropen_amount - aropen_paid) >= currToCurr(aropenco_curr_id,
- 							     aropen_curr_id,
- 							     aropenco_amount,
- 							     aropen_docdate))
- 	    THEN formatMoney(currToCurr(aropenco_curr_id, invchead_curr_id,
- 					aropenco_amount, aropen_docdate))
-             ELSE formatMoney(currToCurr(aropen_curr_id, invchead_curr_id,
-                                         aropen_amount - aropen_paid,
-                                         aropen_docdate))
-        END AS f_allocated_invccurr,
-        curr_symbol AS aropen_currsymbol
-   FROM aropenco, aropen, cohead, invchead, curr_symbol
-  WHERE ( (aropenco_aropen_id=aropen_id)
-    AND   (aropenco_cohead_id=cohead_id)
-    AND   ((aropen_amount - aropen_paid) > 0)
-    AND   (aropen_curr_id=curr_id)
-    AND   (cohead_number=invchead_ordernumber)
-    AND   (NOT invchead_posted)
-    AND   (invchead_id=<? value("invchead_id") ?>) )
- UNION
- SELECT cohead_id,
-        arapply_source_docnumber AS aropen_docnumber,
-        formatMoney(s.aropen_amount) AS f_total,
-        formatMoney(s.aropen_paid -
-                    currToCurr(arapply_curr_id, s.aropen_curr_id,
-                               arapply_applied, arapply_postdate)) AS f_paid,
-        formatMoney(s.aropen_amount - s.aropen_paid +
-                    currToCurr(arapply_curr_id, s.aropen_curr_id,
-                               arapply_applied, arapply_postdate)) AS f_balance,
-        currToCurr(arapply_curr_id, s.aropen_curr_id,
-                   arapply_applied, arapply_postdate) AS allocated,
-        formatMoney(currToCurr(arapply_curr_id, s.aropen_curr_id,
-                               arapply_applied,
-                               arapply_postdate)) AS f_allocated,
-        currToCurr(arapply_curr_id, invchead_curr_id,
-                   arapply_applied, t.aropen_docdate) AS allocated_invccurr,
-        formatMoney(currToCurr(arapply_curr_id, invchead_curr_id,
-                               arapply_applied,
-                               t.aropen_docdate)) AS f_allocated_invccurr,
-        curr_symbol AS aropen_currsymbol
-   FROM arapply, aropen s, aropen t, cohead, invchead, curr_symbol
-  WHERE ( (s.aropen_id=arapply_source_aropen_id)
-    AND   (arapply_target_aropen_id=t.aropen_id)
-    AND   (arapply_target_doctype='I')
-    AND   (arapply_target_docnumber=invchead_invcnumber)
-    AND   (arapply_source_aropen_id=s.aropen_id)
-    AND   (arapply_curr_id=curr_id)
-    AND   (cohead_number=invchead_ordernumber)
-    AND   (invchead_posted)
-    AND   (invchead_id=<? value("invchead_id") ?>) )
-  ORDER BY aropen_docnumber;
- --------------------------------------------------------------------
-   
- QUERY: currency
- SELECT
-  curr_symbol
- FROM
-     invchead,
-     curr_symbol
- WHERE (invchead_id = <? value("invchead_id") ?>) AND
-       invchead_curr_id = curr_id;
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
+
 +QUERY: tracknum
-+select cosmisc_tracknum from cohead, cosmisc, invchead 
-+where 
++select cosmisc_tracknum from cohead, cosmisc, invchead
++where
 +cohead_id = cosmisc_cohead_id
 +and cohead_number = invchead_ordernumber
 +and invchead_id = <? value("invchead_id") ?>;
- 
+
  ====================================================================
  REPORT: PackingList
  QUERY: head
@@ -1061,8 +801,8 @@ SummarizedSalesByCustomerType
         formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2,
                    cohead_shiptoaddress3,
                    (cohead_shiptocity || '  ' ||   cohead_shiptostate ||
-                   '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
- 
+                   '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,
+
         cust_number,
         cust_contact,
         cust_phone,
@@ -1084,7 +824,7 @@ SummarizedSalesByCustomerType
     AND  (cohead_id=<? value("head_id") ?>)
  <? endif ?>
  )
- 
+
  <? if exists("MultiWhs") ?>
  UNION
  SELECT COALESCE(shiphead_number::TEXT, 'Not Issued To Shipping') AS shiphead_number,
@@ -1109,7 +849,7 @@ SummarizedSalesByCustomerType
         tohead_destphone AS cust_phone,
         '' AS terms_descrip
 -  -- In 2.3: rearrange FROM and WHERE to use shiphead_id or order head_id, whichever we have
-   FROM tohead 
+   FROM tohead
  <? if exists("shiphead_id") ?>
  	JOIN
  <? else ?>
@@ -1125,7 +865,7 @@ SummarizedSalesByCustomerType
  <? endif ?>
  <? endif ?>;
  --------------------------------------------------------------------
-   
+
  QUERY: scheddate
  SELECT formatDate(MIN(orderitem_scheddate)) AS scheddate
 -  -- In 2.3: use orderitem view to get sched date regardless of order type
@@ -1146,7 +886,7 @@ SummarizedSalesByCustomerType
  <? endif ?>
   );
  --------------------------------------------------------------------
-   
+
  QUERY: detail
  SELECT 1 AS groupby,
         coitem_linenumber AS linenumber,
@@ -1161,7 +901,7 @@ SummarizedSalesByCustomerType
         item_shipuom,
         item_descrip1,
         item_descrip2,
- 
+
         formatQty(coitem_qtyord) AS ordered,
 -       -- In 2.3: use qtyAtShipping instead joining with the deprecated coship
 -       formatQty(qtyAtShipping('SO', coitem_id)) AS atshipping,
@@ -1169,7 +909,7 @@ SummarizedSalesByCustomerType
 +                 qtyInShipment('SO', coitem_id, <? value("shiphead_id") ?>)
 +                 <? else ?> qtyAtShipping('SO', coitem_id) <? endif ?>
 +                ) AS atshipping,
- 
+
         formatQty(roundUp((coitem_qtyord * coitem_qty_invuomratio) /
                           CASE WHEN(item_shipinvrat = 0) THEN 1
                                                          ELSE item_shipinvrat
@@ -1182,7 +922,7 @@ SummarizedSalesByCustomerType
                           CASE WHEN(item_shipinvrat = 0) THEN 1
                                                          ELSE item_shipinvrat
                           END)) AS shipatshipping,
- 
+
         CASE WHEN (coitem_status='O' AND (SELECT cust_creditstatus
                                             FROM cust,cohead
                                            WHERE coitem_cohead_id=cohead_id
@@ -1242,7 +982,7 @@ SummarizedSalesByCustomerType
         item_shipuom,
         item_descrip1,
         item_descrip2,
- 
+
         formatQty(toitem_qty_ordered) AS ordered,
 -       -- In 2.3: use qtyAtShipping instead of joining with the shipitem table
 -       formatQty(qtyAtShipping('TO', toitem_id)) AS atshipping,
@@ -1264,7 +1004,7 @@ SummarizedSalesByCustomerType
                           CASE WHEN (item_shipinvrat = 0) THEN 1
                                                           ELSE item_shipinvrat
                           END)) AS shipatshipping,
- 
+
         toitem_status AS f_status
    FROM itemsite, item, toitem, tohead, uom
 -  -- In 2.3: remove uses of the shipitem and shiphead tables in FROM and WHERE
@@ -1288,13 +1028,7 @@ SummarizedSalesByCustomerType
  <? endif ?>
  ORDER BY linenumber;
  --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
+
  QUERY: lotdetail
 -select distinct
 -cosmisc_number,
@@ -1319,9 +1053,9 @@ SummarizedSalesByCustomerType
 -from cosmisc, coship, cohead, coitem, itemsite, item, invhist, invdetail, lsdetail
 -
 ---left outer join comment on (comment_source_id = lsdetail_id)
----left outer join cmnttype on (comment_cmnttype_id = cmnttype_id) 
+---left outer join cmnttype on (comment_cmnttype_id = cmnttype_id)
 -
--where 
+-where
 -
 -(
 -
@@ -1336,8 +1070,8 @@ SummarizedSalesByCustomerType
 -AND
 -(cosmisc_id = coship_cosmisc_id)
 -AND
--(formatdate(invhist_transdate) = formatdate(coship_transdate)) 
--AND 
+-(formatdate(invhist_transdate) = formatdate(coship_transdate))
+-AND
 -(coship_coitem_id = coitem_id)
 -AND
 -(coitem_itemsite_id = itemsite_id)
@@ -1369,7 +1103,7 @@ SummarizedSalesByCustomerType
 +GROUP BY shiphead_number,orderhead_number,item_number,invdetail_ls_id,
 +orderitem_linenumber,invhist_transtype
  ORDER BY ordernumber;
- 
+
  ====================================================================
  REPORT: PurchaseOrder
  QUERY: Head
@@ -1408,87 +1142,9 @@ SummarizedSalesByCustomerType
 -   AND (warehous_addr_id = addr_id)
 ---   AND (pohead_id <> 9999))
     AND (pohead_id=<? value("pohead_id") ?>) );
- --------------------------------------------------------------------
-   
- QUERY: Detail
- SELECT poitem_linenumber,
-        poitem_comments,
-        poitem_linenumber AS f_line,
-        item_number,
-        poitem_vend_item_number,
----The Case statement below filters out TABs that a user may have inadvertently put in the Vend Desc field
----MDA v 2.1    
-        CASE WHEN (LENGTH(TRIM(BOTH '	' FROM poitem_vend_item_descrip)) <= 0) THEN
-           (item_descrip1 || '' || item_descrip2)
-        ELSE (poitem_vend_item_descrip)
-        END AS itemdescription,
-        formatQty(poitem_qty_ordered) AS f_ordered,
-        CASE WHEN (poitem_vend_uom LIKE '') THEN (uom_name)
-             ELSE (poitem_vend_uom)
-        END AS itemuom,
-        formatPrice(poitem_unitprice) AS f_price,
-        formatExtPrice(poitem_unitprice * poitem_qty_ordered) AS f_extended,
-        formatDate(poitem_duedate) AS f_duedate,
-        characteristicsToString('PI', poitem_id, '=', ', ') AS poitem_characteristics
- FROM poitem
- 	LEFT OUTER JOIN itemsite ON (poitem_itemsite_id = itemsite_id)
- 	LEFT OUTER JOIN (item JOIN uom ON (item_inv_uom_id=uom_id)) ON (itemsite_item_id = item_id)
- WHERE 	(poitem_pohead_id=<? value("pohead_id") ?>) 
- ORDER BY poitem_linenumber;
- --------------------------------------------------------------------
-   
- QUERY: Foot
- SELECT formatExtPrice(COALESCE(SUM(poitem_qty_ordered * poitem_unitprice), 0)) AS f_subtotal,
-        formatExtPrice(COALESCE(SUM(poitem_freight)+pohead_freight,0)) AS f_totalfreight,
-        formatExtPrice(COALESCE(pohead_tax,0)) AS f_tax,
-        formatExtPrice(COALESCE(SUM(poitem_qty_ordered * poitem_unitprice), 0)+COALESCE(SUM(poitem_freight)+pohead_freight,0)+COALESCE(pohead_tax,0)) AS f_totaldue
-   FROM poitem, pohead
-  WHERE ( (poitem_pohead_id=<? value("pohead_id") ?>)
-   AND (pohead_id=poitem_pohead_id) )
-  GROUP BY pohead_freight, pohead_tax;
- --------------------------------------------------------------------
-   
- QUERY: Logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
- QUERY: Currency
- SELECT
-  curr_symbol
- FROM
-     pohead,
-     curr_symbol
- WHERE (pohead_id = <? value("pohead_id") ?>) AND
-       pohead_curr_id = curr_id;
- --------------------------------------------------------------------
-   
- QUERY: Address
- SELECT
-      warehous_descrip,
-      formatAddr(addr_line1, addr_line2, addr_line3, ( addr_city || '  ' || addr_state || '  ' || addr_postalcode), addr_country) AS warehouse_address
- FROM
-      whsinfo, 
-      addr, 
-      pohead
- WHERE 
-      addr_id = warehous_addr_id
-      and pohead_warehous_id = warehous_id
-      AND pohead_id=<? value("pohead_id") ?> ;
- 
+
  ====================================================================
  REPORT: QOHByLocation
- QUERY: head
- SELECT (location_name||'-'||firstLine(location_descrip)) AS f_location,
-        formatBoolYN(location_netable) AS f_netable,
-        formatBoolYN(location_restrict) AS f_restricted,
-        warehous_code
-   FROM location, warehous
-  WHERE ((location_warehous_id=warehous_id)
-        AND (location_id=<? value("location_id") ?>) );
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT itemloc_id, warehous_code, item_number, item_descrip1, item_descrip2,
 -       itemloc_lotserial, uom_name, formatQty(itemloc_qty) AS f_qoh
@@ -1499,7 +1155,7 @@ SummarizedSalesByCustomerType
   AND (item_inv_uom_id=uom_id)
   AND (itemsite_warehous_id=warehous_id)
   AND (itemloc_location_id=<? value("location_id") ?>))
- 
+
  UNION SELECT -1, warehous_code, item_number, item_descrip1, item_descrip2,
               'N/A', uom_name, formatQty(itemsite_qtyonhand)
  FROM itemsite, warehous, item, uom
@@ -1508,9 +1164,9 @@ SummarizedSalesByCustomerType
   AND (itemsite_warehous_id=warehous_id)
   AND (NOT itemsite_loccntrl)
   AND (itemsite_location_id=<? value("location_id") ?>))
- 
+
  ORDER BY item_number;
- 
+
  ====================================================================
  REPORT: SummarizedSalesByCustomerType
  QUERY: detail
@@ -1519,17 +1175,17 @@ SummarizedSalesByCustomerType
         formatPrice(maxprice) AS f_maxprice,
         formatPrice(avgprice) AS f_avgprice,
         formatQty(totalunits) AS f_totalunits,
-        totalsales, formatMoney(totalsales) AS f_totalsales 
+        totalsales, formatMoney(totalsales) AS f_totalsales
  FROM ( SELECT custtype_id, custtype_code, warehous_code,
 -              MIN(cohist_unitprice) AS minprice, MAX(cohist_unitprice) AS maxprice,
 -              AVG(cohist_unitprice) AS avgprice, SUM(cohist_qtyshipped) AS totalunits,
--              SUM(round(cohist_qtyshipped * cohist_unitprice,2)) AS totalsales 
+-              SUM(round(cohist_qtyshipped * cohist_unitprice,2)) AS totalsales
 +              MIN(currToBase(COALESCE(cohist_curr_id, baseCurrId()), cohist_unitprice, cohist_invcdate)) AS minprice,
 +              MAX(currToBase(COALESCE(cohist_curr_id, baseCurrId()), cohist_unitprice, cohist_invcdate)) AS maxprice,
 +              AVG(currToBase(COALESCE(cohist_curr_id, baseCurrId()), cohist_unitprice, cohist_invcdate)) AS avgprice,
 +              SUM(currToBase(COALESCE(cohist_curr_id, baseCurrId()), cohist_qtyshipped, cohist_invcdate)) AS totalunits,
-+              SUM(currToBase(COALESCE(cohist_curr_id, baseCurrId()), round(cohist_qtyshipped * cohist_unitprice,2), cohist_invcdate)) AS totalsales 
-        FROM cohist, cust, custtype, itemsite, item, warehous 
++              SUM(currToBase(COALESCE(cohist_curr_id, baseCurrId()), round(cohist_qtyshipped * cohist_unitprice,2), cohist_invcdate)) AS totalsales
+        FROM cohist, cust, custtype, itemsite, item, warehous
         WHERE ( (cohist_cust_id=cust_id)
          AND (cust_custtype_id=custtype_id)
          AND (cohist_itemsite_id=itemsite_id)
@@ -1547,25 +1203,4 @@ SummarizedSalesByCustomerType
       )
  GROUP BY custtype_id, custtype_code, warehous_code ) AS data
  ORDER BY custtype_code, warehous_code;
- --------------------------------------------------------------------
-   
- QUERY: head
- SELECT <? if exists("warehous_id") ?>
-          (select warehous_code from warehous where warehous_id=<? value("warehous_id") ?>)
-        <? else ?>
-          text('All Warehouses')
-        <? endif ?>
-        AS warehouse,
-        <? if exists("custtype_id") ?>
-         (SELECT (custtype_code || '-' || custtype_descrip)
-            FROM custtype
-           WHERE custtype_id=<? value("custtype_id") ?>)
-        <? elseif exists("custtype_pattern") ?>
-          text(<? value("custtype_pattern") ?>
-        <? else  ?>
-          text('All Customer Types')
-        <? endif ?>
-        AS custtype,
-        formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate;
  --------------------------------------------------------------------
