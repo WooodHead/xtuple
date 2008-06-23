@@ -13,11 +13,9 @@ AS
      warehous_code AS sold_from_whs,
      coitem_status AS status,
      coitem_qtyord AS qty_ordered,
-     COALESCE((
-       SELECT uom_name
-       FROM uom
-       WHERE uom_id=coitem_qty_uom_id), 'None') AS qty_uom,
+     q.uom_name AS qty_uom,
      coitem_price AS net_unit_price,
+     p.uom_name AS price_uom,
      coitem_scheddate AS scheduled_date,
      coitem_promdate AS promise_date,
      coitem_warranty AS warranty,
@@ -51,14 +49,15 @@ AS
     LEFT OUTER JOIN itemsite isb ON (coitem_substitute_item_id=isb.itemsite_id)
     LEFT OUTER JOIN item s ON (isb.itemsite_item_id=s.item_id)
     LEFT OUTER JOIN tax ON (coitem_tax_id=tax_id),
-  itemsite il, item l, whsinfo
+  itemsite il, item l, whsinfo, uom q, uom p
   WHERE ((cohead_id=coitem_cohead_id)
   AND (coitem_itemsite_id=il.itemsite_id)
   AND (il.itemsite_item_id=l.item_id)
-  AND (il.itemsite_warehous_id=warehous_id))
+  AND (il.itemsite_warehous_id=warehous_id)
+  AND (coitem_qty_uom_id=q.uom_id)
+  AND (coitem_price_uom_id=p.uom_id))
 ORDER BY cohead_number,coitem_linenumber;
     
-
 GRANT ALL ON TABLE api.salesline TO openmfg;
 COMMENT ON VIEW api.salesline IS 'Sales Order Line Item';
 
@@ -95,39 +94,24 @@ CREATE OR REPLACE RULE "_INSERT" AS
     coitem_warranty,
     coitem_cos_accnt_id)
   SELECT
-    getSalesOrderId(CAST(NEW.order_number AS text)),
-    COALESCE(NEW.line_number,(
-      SELECT (COALESCE(MAX(coitem_linenumber), 0) + 1)
-              FROM coitem
-              WHERE (coitem_cohead_id=getSalesOrderId(CAST(NEW.order_number AS text))))),
+    cohead_id,
+    NEW.line_number,
     itemsite_id,
-    COALESCE(NEW.status,'O'),
-    COALESCE(NEW.scheduled_date,(
-      SELECT MIN(coitem_scheddate)
-      FROM coitem
-      WHERE (coitem_cohead_id=getSalesOrderId(CAST(NEW.order_number AS text))))),
+    NEW.status,
+    NEW.scheduled_date,
     NEW.promise_date,
     NEW.qty_ordered,
-    COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
-	     item_price_uom_id),
-    itemuomtouomratio(item_id, 
-		      COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
-			       item_price_uom_id),
-		      item_inv_uom_id),
+    COALESCE(getUomId(NEW.qty_uom),item_inv_uom_id),
+    itemuomtouomratio(item_id,COALESCE(getUomId(NEW.qty_uom),item_inv_uom_id),item_inv_uom_id),
     0,
     stdCost(item_id),
-    COALESCE(NEW.net_unit_price,itemPrice(getItemId(NEW.item_number),cohead_cust_id,
+    COALESCE(NEW.net_unit_price,itemPrice(item_id,cohead_cust_id,
              cohead_shipto_id,NEW.qty_ordered,cohead_curr_id,cohead_orderdate)),
-    COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
-	     item_price_uom_id),
-    itemuomtouomratio(item_id,
-		      COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
-			       item_price_uom_id),
-		      item_price_uom_id),
-    itemPrice(getItemId(NEW.item_number),cohead_cust_id,
-             cohead_shipto_id,NEW.qty_ordered,cohead_curr_id,cohead_orderdate),
+    COALESCE(getUomId(NEW.price_uom),item_price_uom_id),
+    itemuomtouomratio(item_id,COALESCE(getUomId(NEW.price_uom),item_price_uom_id),item_price_uom_id),
+    itemPrice(item_id,cohead_cust_id,cohead_shipto_id,NEW.qty_ordered,cohead_curr_id,cohead_orderdate),
     -1,
-    COALESCE(NEW.notes,''),
+    NEW.notes,
     true,
     0,
     NEW.customer_pn,
@@ -140,31 +124,25 @@ CREATE OR REPLACE RULE "_INSERT" AS
         'R'
     END,
     getItemsiteId(warehous_code,NEW.substitute_for),
-    COALESCE(NEW.overwrite_po_price,0),
-    COALESCE(getTaxId(NEW.tax_code),(
-             SELECT tax_id
-             FROM tax
-             WHERE ((tax_id=getTaxSelection(cohead_taxauth_id,
-	           getItemTaxType(itemsite_item_id, cohead_taxauth_id)))))),
-    COALESCE(NEW.warranty,FALSE),
+    NEW.overwrite_po_price,
+    COALESCE(getTaxId(NEW.tax_code),getTaxSelection(cohead_taxauth_id,
+	           getItemTaxType(itemsite_item_id, cohead_taxauth_id))),
+    NEW.warranty,
     getGlAccntId(NEW.alternate_cos_account)
   FROM cohead, itemsite, item, whsinfo
-  WHERE ((cohead_id=getSalesOrderId(CAST(NEW.order_number AS text)))
-  AND (itemsite_id=getItemsiteId(COALESCE(NEW.sold_from_whs,(
-                                SELECT warehous_code 
-                                FROM usrpref, whsinfo
-                                WHERE ((warehous_id=CAST(usrpref_value AS INTEGER))
-                                AND (warehous_active)
-                                AND (usrpref_username=current_user)
-                                AND (usrpref_name='PreferredWarehouse'))),''),
-                                COALESCE(NEW.item_number,(
-                                SELECT item_number
-                                FROM item, itemalias
-                                WHERE ((item_id=itemalias_item_id)
-                                AND (itemalias_number=NEW.customer_pn)))),
-                                'SOLD'))
+  WHERE ((cohead_number=NEW.order_number)
+  AND (itemsite_warehous_id=warehous_id
   AND (itemsite_item_id=item_id)
-  AND (warehous_id=itemsite_warehous_id));
+  AND (itemsite_active)
+  AND (item_number=NEW.item_number)
+  AND (warehous_active)
+  AND (warehous_shipping)
+  AND (warehous_code=COALESCE(NEW.sold_from_whs,(
+                                SELECT warehous_code
+                                FROM usrpref,whsinfo
+                                WHERE ((usrpref_username=current_user)
+                                AND (usrpref_name='PreferredWarehouse')
+                                AND (warehous_id=CAST(usrpref_value AS INTEGER))))))));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.salesline DO INSTEAD
@@ -174,21 +152,11 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     coitem_scheddate=NEW.scheduled_date,
     coitem_promdate=NEW.promise_date,
     coitem_qtyord=NEW.qty_ordered,
-    coitem_qty_uom_id=COALESCE(
-	    (SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
-	     item_price_uom_id),
-    coitem_qty_invuomratio=itemuomtouomratio(item_id, 
-		      COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
-			       item_price_uom_id),
-		      item_inv_uom_id),
+    coitem_qty_uom_id=getUomId(NEW.qty_uom),
+    coitem_qty_invuomratio=itemuomtouomratio(item_id,getUomId(NEW.qty_uom),item_inv_uom_id),
     coitem_price=NEW.net_unit_price,
-    coitem_price_uom_id=COALESCE(
-	    (SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
-	     item_price_uom_id),
-    coitem_price_invuomratio=itemuomtouomratio(item_id,
-		      COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
-			       item_price_uom_id),
-		      item_price_uom_id),
+    coitem_price_uom_id=getUomId(NEW.price_uom),
+    coitem_price_invuomratio=itemuomtouomratio(item_id,getUomId(NEW.price_uom),item_price_uom_id),
     coitem_memo=NEW.notes,
     coitem_order_type=
     CASE
@@ -203,15 +171,15 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     coitem_warranty=NEW.warranty,
     coitem_cos_accnt_id=getGlAccntId(NEW.alternate_cos_account)
    FROM item
-   WHERE ((item_id=getItemId(OLD.item_number))
-   AND (coitem_cohead_id=getSalesOrderId(CAST(OLD.order_number AS text)))
+   WHERE ((item_number=OLD.item_number)
+   AND (coitem_cohead_id=getCoheadId(OLD.order_number))
    AND (coitem_linenumber=OLD.line_number));
 
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.salesline DO INSTEAD
 
   DELETE FROM coitem
-  WHERE ((coitem_cohead_id=getSalesOrderId(CAST(OLD.order_number AS text)))
+  WHERE ((coitem_cohead_id=getCoheadId(OLD.order_number))
   AND (coitem_linenumber=OLD.line_number));
 
 COMMIT;

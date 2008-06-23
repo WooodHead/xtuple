@@ -55,6 +55,8 @@ AS
          'Shipping'
        WHEN cohead_holdtype = 'P' THEN
          'Packing'
+       WHEN cohead_holdtype = 'R' THEN
+         'Return'
        ELSE
          'Error'
      END AS hold_type,
@@ -64,7 +66,7 @@ AS
      curr_abbr AS currency,
      cohead_misc_descrip AS misc_charge_description,
      CASE
-       WHEN cohead_misc_accnt_id = -1 THEN
+       WHEN (cohead_misc_accnt_id IS NULL) THEN
          NULL
        ELSE
          formatglaccount(cohead_misc_accnt_id) 
@@ -144,40 +146,16 @@ CREATE OR REPLACE RULE "_INSERT" AS
   VALUES (
     NEW.order_number,
     getCustId(NEW.customer_number),
-    COALESCE(NEW.cust_po_number,''),
-    COALESCE(NEW.order_date,current_date),
-    COALESCE(getWarehousId(NEW.warehouse,'SHIPPING'),(
-      SELECT CAST(usrpref_value AS INTEGER) 
-              FROM usrpref, whsinfo
-              WHERE ((warehous_id=CAST(usrpref_value AS INTEGER))
-              AND (warehous_shipping)
-              AND (warehous_active)
-              AND (usrpref_username=current_user)
-              AND (usrpref_name='PreferredWarehouse'))),-1),
-    COALESCE(getShiptoId(NEW.customer_number,NEW.shipto_number),(
-      SELECT shipto_id
-      FROM shiptoinfo
-      WHERE ((shipto_cust_id=getCustId(NEW.customer_number))
-      AND (shipto_default))),-1),
+    NEW.cust_po_number,
+    NEW.order_date,
+    getWarehousId(NEW.warehouse,'SHIPPING'),
+    getShiptoId(NEW.customer_number,NEW.shipto_number),
     NEW.shipto_name,
     NEW.shipto_address1,
     NEW.shipto_address2,
     NEW.shipto_address3,
-    COALESCE(getSalesRepId(NEW.sales_rep),(
-      SELECT shipto_salesrep_id
-      FROM shiptoinfo
-      WHERE (shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number))),(
-      SELECT shipto_salesrep_id
-      FROM shiptoinfo
-      WHERE ((shipto_cust_id=getCustId(NEW.customer_number))
-      AND (shipto_default))),(
-      SELECT cust_salesrep_id
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number)))),
-    COALESCE(getTermsId(NEW.terms),(
-      SELECT cust_terms_id
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number)))),
+    getSalesRepId(NEW.sales_rep),
+    getTermsId(NEW.terms),
     CASE
       WHEN NEW.originated_by = 'Internet' THEN
         'I'
@@ -186,56 +164,19 @@ CREATE OR REPLACE RULE "_INSERT" AS
       ELSE
         'C'
     END,
-    COALESCE(NEW.fob,fetchDefaultFob((
-      SELECT CAST(usrpref_value AS INTEGER) 
-              FROM usrpref, whsinfo
-              WHERE ((warehous_id=CAST(usrpref_value AS INTEGER))
-              AND (warehous_shipping)
-              AND (warehous_active)
-              AND (usrpref_username=current_user)
-              AND (usrpref_name='PreferredWarehouse'))))),
-    COALESCE(NEW.ship_via,(
-      SELECT shipto_shipvia
-      FROM shiptoinfo
-      WHERE (shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number))),(
-      SELECT shipto_shipvia
-      FROM shiptoinfo
-      WHERE ((shipto_cust_id=getCustId(NEW.customer_number))
-      AND (shipto_default))),(
-      SELECT cust_shipvia
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number)))),
+    NEW.fob,
+    NEW.ship_via,
     NEW.shipto_city,
     NEW.shipto_state,
     NEW.shipto_postal_code,
-    COALESCE(NEW.freight,0),
-    COALESCE(NEW.misc_charge,0),
+    NEW.freight,
+    NEW.misc_charge,
     true,
-    COALESCE(NEW.order_notes,''),
-    COALESCE(NEW.shipping_notes,''),
-    COALESCE(NEW.shipto_phone,''),
-    COALESCE(getShipChrgId(NEW.shipping_chgs),(
-      SELECT shipto_shipchrg_id
-      FROM shiptoinfo
-      WHERE (shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number))),(
-      SELECT shipto_shipchrg_id
-      FROM shiptoinfo
-      WHERE ((shipto_cust_id=getCustId(NEW.customer_number))
-      AND (shipto_default))),(
-      SELECT cust_shipchrg_id
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number)))),
-    COALESCE(getShipFormId(NEW.shipping_form),(
-      SELECT shipto_shipform_id
-      FROM shiptoinfo
-      WHERE (shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number))),(
-      SELECT shipto_shipform_id
-      FROM shiptoinfo
-      WHERE ((shipto_cust_id=getCustId(NEW.customer_number))
-      AND (shipto_default))),(
-      SELECT cust_shipform_id
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number)))),
+    NEW.order_notes,
+    NEW.shipping_notes,
+    NEW.shipto_phone,
+    getShipChrgId(NEW.shipping_chgs),
+    getShipFormId(NEW.shipping_form),
     NEW.billto_name,
     NEW.billto_address1,
     NEW.billto_address2,
@@ -243,19 +184,9 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.billto_city,
     NEW.billto_state,
     NEW.billto_postal_code,
-    COALESCE(getGlAccntId(NEW.misc_account_number),-1),
-    COALESCE(NEW.misc_charge_description,''),
-    COALESCE(NEW.commission,(
-      SELECT shipto_commission
-      FROM shiptoinfo
-      WHERE (shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number))),(
-      SELECT shipto_commission
-      FROM shiptoinfo
-      WHERE ((shipto_cust_id=getCustId(NEW.customer_number))
-      AND (shipto_default))),(
-      SELECT cust_commprcnt
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number)))),
+    getGlAccntId(NEW.misc_account_number),
+    NEW.misc_charge_description,
+    NEW.commission,
     CASE
       WHEN NEW.hold_type = 'Credit' THEN
         'C'
@@ -266,26 +197,13 @@ CREATE OR REPLACE RULE "_INSERT" AS
       ELSE
         'N'
     END,
-    COALESCE(NEW.pack_date,NEW.order_date,current_date),
-    COALESCE(getPrjId(NEW.project_number),-1),
-    COALESCE(NEW.ship_complete,false),
+    NEW.pack_date,
+    getPrjId(NEW.project_number),
+    NEW.ship_complete,
     NEW.billto_country,
     NEW.shipto_country,
-    COALESCE(getCurrId(NEW.currency),(
-      SELECT cust_curr_id
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number))),basecurrid()),
-    COALESCE(getTaxAuthId(NEW.tax_authority),(
-      SELECT shipto_taxauth_id
-      FROM shiptoinfo
-      WHERE (shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number))),(
-      SELECT shipto_taxauth_id
-      FROM shiptoinfo
-      WHERE ((shipto_cust_id=getCustId(NEW.customer_number))
-      AND (shipto_default))),(
-      SELECT cust_taxauth_id
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number)))));
+    getCurrId(NEW.currency),
+    getTaxAuthId(NEW.tax_authority));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.salesorder DO INSTEAD
@@ -296,7 +214,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     cohead_custponumber=NEW.cust_po_number,
     cohead_orderdate=NEW.order_date,
     cohead_warehous_id=getWarehousId(NEW.warehouse,'SHIPPING'),
-    cohead_shipto_id=COALESCE(getShiptoId(NEW.customer_number,NEW.shipto_number),-1),
+    cohead_shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number),
     cohead_shiptoname=NEW.shipto_name,
     cohead_shiptoaddress1=NEW.shipto_address1,
     cohead_shiptoaddress2=NEW.shipto_address2,
@@ -331,7 +249,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     cohead_billtocity=NEW.billto_city,
     cohead_billtostate=NEW.billto_state,
     cohead_billtozipcode=NEW.billto_postal_code,
-    cohead_misc_accnt_id=COALESCE(getGlAccntId(NEW.misc_account_number),-1),
+    cohead_misc_accnt_id=getGlAccntId(NEW.misc_account_number),
     cohead_misc_descrip=NEW.misc_charge_description,
     cohead_commission=NEW.commission,
     cohead_holdtype=

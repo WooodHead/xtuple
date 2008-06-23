@@ -27,3 +27,114 @@ WHERE (accnt_id IS NULL);
 SELECT COUNT(*) = 0
 FROM whsinfo LEFT OUTER JOIN cntct ON (cntct_id=warehous_cntct_id)
 WHERE (cntct_id IS NULL);
+
+-- Check for custinfo to make sure all customer numbers are unique
+SELECT count(*) = 0
+  FROM (SELECT cust_number, count(*)
+          FROM custinfo
+         GROUP BY cust_number
+        HAVING count(*) > 1) AS data;
+
+-- Check for custtype to make sure all customer types are unique
+SELECT count(*) = 0
+  FROM (SELECT custtype_code, count(*)
+          FROM custtype
+         GROUP BY custtype_code
+        HAVING count(*) > 1) AS data;
+
+-- Check to make sure all warehouses on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id
+       FROM cohead
+       WHERE cohead_warehous_id != -1 AND cohead_warehous_id NOT IN (SELECT warehous_id FROM whsinfo WHERE warehous_id=cohead_warehous_id)) AS data;
+
+-- Check to make sure all shiptos on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id
+       FROM cohead
+       WHERE cohead_shipto_id != -1 AND cohead_shipto_id NOT IN (SELECT shipto_id FROM shipto WHERE shipto_id=cohead_shipto_id)) AS data;
+
+-- Check to make sure all account numbers on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id
+       FROM cohead
+       WHERE cohead_misc_accnt_id != -1 AND cohead_misc_accnt_id NOT IN (SELECT accnt_id FROM accnt WHERE accnt_id=cohead_misc_accnt_id)) AS data;
+
+-- Check to make sure all project numbers on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id
+       FROM cohead
+       WHERE cohead_prj_id != -1 AND cohead_prj_id NOT IN (SELECT prj_id FROM prj WHERE prj_id=cohead_prj_id)) AS data;
+
+-- Check for cohead to make sure all so numbers are unique
+SELECT count(*) = 0
+  FROM (SELECT cohead_number, count(*)
+          FROM cohead
+         GROUP BY cohead_number
+        HAVING count(*) > 1) AS data;
+
+-- Check to make sure all warehouses on quhead exist
+SELECT count(*) = 0
+ FROM (SELECT quhead_id
+       FROM quhead
+       WHERE quhead_warehous_id != -1 AND quhead_warehous_id NOT IN (SELECT warehous_id FROM whsinfo WHERE warehous_id=quhead_warehous_id)) AS data;
+
+-- Check to make sure all shiptos on quhead exist
+SELECT count(*) = 0
+ FROM (SELECT quhead_id
+       FROM quhead
+       WHERE quhead_shipto_id != -1 AND quhead_shipto_id NOT IN (SELECT shipto_id FROM shipto WHERE shipto_id=quhead_shipto_id)) AS data;
+
+-- Check to make sure all account numbers on quhead exist
+SELECT count(*) = 0
+ FROM (SELECT quhead_id
+       FROM quhead
+       WHERE quhead_misc_accnt_id != -1 AND quhead_misc_accnt_id NOT IN (SELECT accnt_id FROM accnt WHERE accnt_id=quhead_misc_accnt_id)) AS data;
+
+-- Check to make sure all project numbers on quhead exist
+SELECT count(*) = 0
+ FROM (SELECT quhead_id
+       FROM quhead
+       WHERE quhead_prj_id != -1 AND quhead_prj_id NOT IN (SELECT prj_id FROM prj WHERE prj_id=quhead_prj_id)) AS data;
+
+-- Check for quhead to make sure all so numbers are unique
+SELECT count(*) = 0
+  FROM (SELECT quhead_number, count(*)
+          FROM quhead
+         GROUP BY quhead_number
+        HAVING count(*) > 1) AS data;
+
+-- Check whsinfo to make sure all codes are unique
+SELECT count(*) = 0
+  FROM (SELECT warehous_code, count(*)
+          FROM whsinfo
+         GROUP BY warehous_code
+        HAVING count(*) > 1) AS data;
+
+-- Check item to make sure all numbers are unique
+SELECT count(*) = 0
+  FROM (SELECT item_number, count(*)
+          FROM item
+         GROUP BY item_number
+        HAVING count(*) > 1) AS data;
+
+-- Check to make sure all itemsites on coitem exist
+SELECT count(*) = 0
+ FROM (SELECT coitem_id
+       FROM coitem
+       WHERE coitem_itemsite_id NOT IN (SELECT itemsite_id FROM itemsite WHERE itemsite_id=coitem_itemsite_id)) AS data;
+
+-- Check to make sure all substitute itemsites on coitem exist
+SELECT count(*) = 0
+ FROM (SELECT coitem_id, coitem_substitute_item_id
+       FROM coitem
+       WHERE coitem_substitute_item_id IS NOT NULL AND coitem_substitute_item_id NOT IN (SELECT itemsite_id FROM itemsite WHERE itemsite_id=coitem_substitute_item_id)) AS data;
+
+-- check for any duplicated coitem line numbers on a single sales line
+SELECT count(*) = 0
+  FROM (SELECT coitem_cohead_id, coitem_linenumber, count(*)
+          FROM coitem
+         GROUP BY coitem_cohead_id, coitem_linenumber
+        HAVING count(*) > 1) AS data;
+
+

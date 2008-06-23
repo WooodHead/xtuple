@@ -12,7 +12,9 @@ AS
      quitem_custpn AS customer_pn,
      i.warehous_code AS sold_from_whs,
      quitem_qtyord AS qty_ordered,
+     q.uom_name AS qty_uom,
      quitem_price AS net_unit_price,
+     p.uom_name AS price_uom,
      quitem_scheddate AS scheduled_date,
      COALESCE((
        SELECT taxtype_name
@@ -31,14 +33,16 @@ AS
      s.warehous_code AS supplying_whs,
      quitem_prcost AS overwrite_po_price,
      quitem_memo AS notes
-  FROM quhead, quitem
+  FROM quhead, uom q, uom p, quitem
     LEFT OUTER JOIN tax ON (quitem_tax_id=tax_id)
     LEFT OUTER JOIN whsinfo s ON (quitem_order_warehous_id=s.warehous_id),
   itemsite il, item l, whsinfo i
   WHERE ((quhead_id=quitem_quhead_id)
   AND (quitem_itemsite_id=il.itemsite_id)
   AND (il.itemsite_item_id=l.item_id)
-  AND (il.itemsite_warehous_id=i.warehous_id))
+  AND (il.itemsite_warehous_id=i.warehous_id)
+  AND (quitem_qty_uom_id=q.uom_id)
+  AND (quitem_price_uom_id=p.uom_id))
 ORDER BY quhead_number,quitem_linenumber;
     
 
@@ -72,16 +76,16 @@ CREATE OR REPLACE RULE "_INSERT" AS
     quitem_price_uom_id,
     quitem_price_invuomratio)
   SELECT
-    getQuoteId(NEW.quote_number),
+    getQuoteId(NEW.quote_number::text),
     COALESCE(NEW.line_number,(
       SELECT (COALESCE(MAX(quitem_linenumber), 0) + 1)
               FROM quitem
-              WHERE (quitem_quhead_id=getQuoteId(NEW.quote_number)))),
+              WHERE (quitem_quhead_id=getQuoteId(NEW.quote_number::text)))),
     itemsite_id,
     COALESCE(NEW.scheduled_date,(
       SELECT MIN(quitem_scheddate)
       FROM quitem
-      WHERE (quitem_quhead_id=getQuoteId(NEW.quote_number)))),
+      WHERE (quitem_quhead_id=getQuoteId(NEW.quote_number::text)))),
     NEW.qty_ordered,
     stdCost(item_id),
     COALESCE(NEW.net_unit_price,itemPrice(getItemId(NEW.item_number),quhead_cust_id,
@@ -95,32 +99,26 @@ CREATE OR REPLACE RULE "_INSERT" AS
     COALESCE(getWarehousId(NEW.supplying_whs,'SHIPPING'),itemsite_warehous_id),
     getItemId(NEW.item_number),
     COALESCE(NEW.overwrite_po_price,0),
-    COALESCE(getTaxId(NEW.tax_code),(
-             SELECT tax_id
-             FROM tax
-             WHERE ((tax_id=getTaxSelection(quhead_taxauth_id,
-	           getItemTaxType(itemsite_item_id, quhead_taxauth_id)))))),
-    item_inv_uom_id,
-    1.0,
-    item_price_uom_id,
-    itemuomtouomratio(item_id, item_price_uom_id, NULL)
+    COALESCE(getTaxId(NEW.tax_code),getTaxSelection(quhead_taxauth_id,
+	           getItemTaxType(itemsite_item_id, quhead_taxauth_id))),
+    COALESCE(getUomId(NEW.qty_uom),item_inv_uom_id),
+    itemuomtouomratio(item_id,COALESCE(getUomId(NEW.qty_uom),item_inv_uom_id),item_inv_uom_id),
+    COALESCE(getUomId(NEW.price_uom),item_price_uom_id),
+    itemuomtouomratio(item_id,COALESCE(getUomId(NEW.price_uom),item_price_uom_id),item_price_uom_id)
   FROM quhead, itemsite, item, whsinfo
-  WHERE ((quhead_id=getQuoteId(NEW.quote_number))
-  AND (itemsite_id=getItemsiteId(COALESCE(NEW.sold_from_whs,(
-                                SELECT warehous_code 
-                                FROM usrpref, whsinfo
-                                WHERE ((warehous_id=CAST(usrpref_value AS INTEGER))
-                                AND (warehous_active)
-                                AND (usrpref_username=current_user)
-                                AND (usrpref_name='PreferredWarehouse'))),''),
-                                COALESCE(NEW.item_number,(
-                                SELECT item_number
-                                FROM item, itemalias
-                                WHERE ((item_id=itemalias_item_id)
-                                AND (itemalias_number=NEW.customer_pn)))),
-                                'SOLD'))
+  WHERE ((quhead_number=NEW.quote_number)
+  AND (itemsite_warehous_id=warehous_id
   AND (itemsite_item_id=item_id)
-  AND (warehous_id=itemsite_warehous_id));
+  AND (itemsite_active)
+  AND (item_number=NEW.item_number)
+  AND (warehous_active)
+  AND (warehous_shipping)
+  AND (warehous_code=COALESCE(NEW.sold_from_whs,(
+                                SELECT warehous_code
+                                FROM usrpref,whsinfo
+                                WHERE ((usrpref_username=current_user)
+                                AND (usrpref_name='PreferredWarehouse')
+                                AND (warehous_id=CAST(usrpref_value AS INTEGER))))))));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.quoteline DO INSTEAD
@@ -128,21 +126,25 @@ CREATE OR REPLACE RULE "_UPDATE" AS
   UPDATE quitem SET
     quitem_scheddate=NEW.scheduled_date,
     quitem_qtyord=NEW.qty_ordered,
+    quitem_qty_uom_id=getUomId(NEW.qty_uom),
+    quitem_qty_invuomratio=itemuomtouomratio(item_id,COALESCE(getUomId(NEW.qty_uom),item_inv_uom_id),item_inv_uom_id),
     quitem_price=NEW.net_unit_price,
+    quitem_price_uom_id=getUomId(NEW.price_uom),
+    quitem_price_invuomratio=itemuomtouomratio(item_id,COALESCE(getUomId(NEW.price_uom),item_inv_uom_id),item_inv_uom_id),
     quitem_memo=NEW.notes,
     quitem_createorder=NEW.create_order,
     quitem_order_warehous_id=getWarehousId(NEW.supplying_whs,'SHIPPING'),
     quitem_prcost=NEW.overwrite_po_price,
     quitem_tax_id=getTaxId(NEW.tax_code)
    FROM item
-   WHERE ((quitem_quhead_id=getQuoteId(OLD.quote_number))
+   WHERE ((quitem_quhead_id=getQuoteId(OLD.quote_number::text))
    AND (quitem_linenumber=OLD.line_number));
 
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.quoteline DO INSTEAD
 
   DELETE FROM quitem
-  WHERE ((quitem_quhead_id=getQuoteId(OLD.quote_number))
+  WHERE ((quitem_quhead_id=getQuoteId(OLD.quote_number::text))
   AND (quitem_linenumber=OLD.line_number));
 
 COMMIT;

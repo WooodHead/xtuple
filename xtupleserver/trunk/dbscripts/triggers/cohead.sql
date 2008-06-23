@@ -6,6 +6,7 @@ DECLARE
   _newHoldType TEXT;
   _p RECORD;
   _a RECORD;
+  _w RECORD;
   _shiptoId INTEGER;
   _addrId INTEGER;
   _prjId INTEGER;
@@ -36,7 +37,7 @@ BEGIN
       ELSE
         IF ((NEW.cohead_number IS NOT NULL) AND (_numGen='A')) THEN
           RAISE EXCEPTION 'You may not supply a new Order Number;
-                          OpenMFG will generate the number.';
+                          Order number is set for automatic generation.';
         ELSE
           IF (NEW.cohead_number IS NULL) THEN
             SELECT fetchsonumber() INTO NEW.cohead_number;
@@ -54,40 +55,32 @@ BEGIN
 
   IF (TG_OP IN ('INSERT','UPDATE')) THEN
 
-    IF (NEW.cohead_cust_id IS NULL) THEN
-      RAISE EXCEPTION 'You must supply a Customer ID.';
-    END IF;
-
-    IF (NEW.cohead_salesrep_id IS NULL) THEN
-      RAISE EXCEPTION 'You must supply a Sales Rep ID.';
-    END IF;
-
-    IF (NEW.cohead_shipform_id IS NULL) THEN
-      RAISE EXCEPTION 'You must supply a Ship Form ID.';
-    END IF;
-
-    IF (NEW.cohead_terms_id IS NULL) THEN
-      RAISE EXCEPTION 'You must supply a Terms Code ID.';
-    END IF;
-
-    IF (NEW.cohead_shipto_id IS NULL) THEN
-      RAISE EXCEPTION 'You must supply a Shipto ID.';
-    END IF;
- 
-    IF ((NEW.cohead_misc > 0) AND NOT (NEW.cohead_misc_accnt_id > 0 )) THEN
-      RAISE EXCEPTION 'You may not enter a Misc. Charge without
-                          indicating the G/L Sales Account number for the
-                          charge.  Please set the Misc. Charge amount to 0
-                          or select a Misc. Charge Sales Account.';
-    END IF;
-
     -- Get Customer data
-    SELECT * INTO _p
-    FROM custinfo
-      LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
-      LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
-      LEFT OUTER JOIN shiptoinfo ON ((cust_id=shipto_cust_id) AND shipto_default)
-    WHERE (cust_id=NEW.cohead_cust_id);
+    IF (NEW.cohead_shipto_id IS NULL) THEN
+      SELECT cust_creditstatus,cust_number,cust_usespos,cust_blanketpos,cust_ffbillto,
+	     cust_ffshipto,cust_name,cust_salesrep_id,cust_terms_id,cust_shipvia,
+	     cust_shipchrg_id,cust_shipform_id,cust_commprcnt,cust_curr_id,cust_taxauth_id,
+  	     addr_line1,addr_line2,addr_line3,addr_city,addr_state,addr_postalcode,addr_country,
+	     shipto_id,shipto_addr_id,shipto_name,shipto_salesrep_id,shipto_shipvia,
+	     shipto_shipchrg_id,shipto_shipform_id,shipto_commission,shipto_taxauth_id INTO _p
+      FROM custinfo
+        LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
+        LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
+        LEFT OUTER JOIN shiptoinfo ON ((cust_id=shipto_cust_id) AND shipto_default)
+      WHERE (cust_id=NEW.cohead_cust_id);
+    ELSE
+      SELECT cust_creditstatus,cust_number,cust_usespos,cust_blanketpos,cust_ffbillto,
+	     cust_ffshipto,cust_name,cust_salesrep_id,cust_terms_id,cust_shipvia,
+	     cust_shipchrg_id,cust_shipform_id,cust_commprcnt,cust_curr_id,cust_taxauth_id,
+  	     addr_line1,addr_line2,addr_line3,addr_city,addr_state,addr_postalcode,addr_country,
+	     shipto_id,shipto_addr_id,shipto_name,shipto_salesrep_id,shipto_shipvia,
+	     shipto_shipchrg_id,shipto_shipform_id,shipto_commission,shipto_taxauth_id INTO _p
+      FROM shiptoinfo,custinfo
+        LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
+        LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
+      WHERE ((cust_id=NEW.cohead_cust_id)
+      AND (shipto_id=shipto_id));
+    END IF;
 
     -- If there is customer data, then we can get to work
     IF (FOUND) THEN
@@ -122,6 +115,49 @@ BEGIN
               NEW.cohead_holdtype='C';
             END IF;
           END IF;
+
+          -- Set to defaults if values not provided
+          NEW.cohead_shipto_id 	:= COALESCE(NEW.cohead_shipto_id,_p.shipto_id);
+	  NEW.cohead_salesrep_id 	:= COALESCE(NEW.cohead_salesrep_id,_p.shipto_salesrep_id,_p.cust_salesrep_id);
+          NEW.cohead_terms_id		:= COALESCE(NEW.cohead_terms_id,_p.cust_terms_id);
+          NEW.cohead_shipvia		:= COALESCE(NEW.cohead_shipvia,_p.shipto_shipvia,_p.cust_shipvia);
+          NEW.cohead_shipchrg_id	:= COALESCE(NEW.cohead_shipchrg_id,_p.shipto_shipchrg_id,_p.cust_shipchrg_id);
+          NEW.cohead_shipform_id	:= COALESCE(NEW.cohead_shipform_id,_p.shipto_shipform_id,_p.cust_shipform_id);
+          NEW.cohead_commission	:= COALESCE(NEW.cohead_commission,_p.shipto_commission,_p.cust_commprcnt);
+          NEW.cohead_orderdate		:= COALESCE(NEW.cohead_orderdate,current_date);
+          NEW.cohead_packdate		:= COALESCE(NEW.cohead_packdate,NEW.cohead_orderdate);
+          NEW.cohead_curr_id		:= COALESCE(NEW.cohead_curr_id,_p.cust_curr_id,basecurrid());
+          NEW.cohead_taxauth_id	:= COALESCE(NEW.cohead_taxauth_id,_p.shipto_taxauth_id,_p.cust_taxauth_id);
+          NEW.cohead_freight		:= COALESCE(NEW.cohead_freight,0);
+          NEW.cohead_custponumber	:= COALESCE(NEW.cohead_custponumber,'');
+          NEW.cohead_ordercomments	:= COALESCE(NEW.cohead_ordercomments,'');
+          NEW.cohead_shipcomments	:= COALESCE(NEW.cohead_shipcomments,'');
+          NEW.cohead_shiptophone	:= COALESCE(NEW.cohead_shiptophone,'');
+          NEW.cohead_misc		:= COALESCE(NEW.cohead_misc,0);
+          NEW.cohead_misc_descrip	:= COALESCE(NEW.cohead_misc_descrip,'');
+          NEW.cohead_shipcomplete	:= COALESCE(NEW.cohead_shipcomplete,false);
+
+          IF ((NEW.cohead_warehous_id IS NULL) OR (NEW.cohead_fob IS NULL)) THEN
+            IF (NEW.cohead_warehous_id IS NULL) THEN
+              SELECT warehous_id,warehous_fob INTO _w
+              FROM usrpref, whsinfo
+              WHERE ((warehous_id=CAST(usrpref_value AS INTEGER))
+                AND (warehous_shipping)
+                AND (warehous_active)
+                AND (usrpref_username=current_user)
+                AND (usrpref_name='PreferredWarehouse'));
+            ELSE
+              SELECT warehous_id,warehous_fob INTO _w
+              FROM whsinfo
+              WHERE (warehous_id=NEW.cohead_warehous_id);
+            END IF;
+            
+            IF (FOUND) THEN
+              NEW.cohead_warehous_id 	:= COALESCE(NEW.cohead_warehous_id,_w.warehous_id);
+              NEW.cohead_fob		:= COALESCE(NEW.cohead_fob,_w.warehous_fob);
+            END IF;
+          END IF;
+          
       END IF;
 
       -- Only Check P/O logic for imports, because UI checks when entire order is saved
@@ -157,7 +193,7 @@ BEGIN
       END IF;
 
       --Auto create project if applicable
-      IF ((TG_OP = 'INSERT') AND (NEW.cohead_prj_id=-1)) THEN
+      IF ((TG_OP = 'INSERT') AND (NEW.cohead_prj_id IS NULL)) THEN
         SELECT fetchMetricBool('AutoCreateProjectsForOrders') INTO _check;
         IF (_check) THEN
           SELECT NEXTVAL('prj_prj_id_seq') INTO _prjId;
@@ -223,7 +259,7 @@ BEGIN
       -- If there's nothing in the address fields and there is a shipto id 
       -- or there is a default address available, let's put in some shipto address data
       IF ((TG_OP = 'INSERT') 
-        AND NOT ((NEW.cohead_shipto_id = -1) AND NOT _p.cust_ffshipto)
+        AND NOT ((NEW.cohead_shipto_id IS NULL) AND NOT _p.cust_ffshipto)
         AND (NEW.cohead_shiptoname IS NULL)
         AND (NEW.cohead_shiptoaddress1 IS NULL)
         AND (NEW.cohead_shiptoaddress2 IS NULL)
@@ -231,7 +267,7 @@ BEGIN
         AND (NEW.cohead_shiptocity IS NULL)
         AND (NEW.cohead_shiptostate IS NULL)
         AND (NEW.cohead_shiptocountry IS NULL)) THEN
-        IF ((NEW.cohead_shipto_id=-1) AND (_p.shipto_id IS NOT NULL)) THEN
+        IF ((NEW.cohead_shipto_id IS NULL) AND (_p.shipto_id IS NOT NULL)) THEN
           _shiptoId := _p.shipto_addr_id;
         ELSE
           _shiptoId := NEW.cohead_shipto_id;
@@ -268,12 +304,12 @@ BEGIN
           SELECT shipto_addr_id INTO _shiptoid FROM shiptoinfo WHERE (shipto_id=NEW.cohead_shipto_id);
           -- If the address passed doesn't match shipto address, then it's something else
           IF (_shiptoid <> _addrId) THEN
-            NEW.cohead_shipto_id := -1;
+            NEW.cohead_shipto_id := NULL;
           END IF;
         ELSE
           SELECT cohead_shipto_id INTO _shiptoid FROM cohead WHERE (cohead_id=NEW.cohead_id);
           -- Get the shipto address
-          IF (NEW.cohead_shipto_id <> COALESCE(_shiptoid,-1)) THEN
+          IF (COALESCE(NEW.cohead_shipto_id,-1) <> COALESCE(_shiptoid,-1)) THEN
             SELECT * INTO _a 
             FROM shiptoinfo
               LEFT OUTER JOIN cntct ON (shipto_cntct_id=cntct_id)

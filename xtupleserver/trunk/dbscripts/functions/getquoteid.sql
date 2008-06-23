@@ -9,7 +9,7 @@ BEGIN
 
   SELECT quhead_id INTO _returnVal
   FROM quhead
-  WHERE (quhead_number=pQuoteNumber);
+  WHERE (quhead_number=CAST(pQuoteNumber AS integer));
 
   IF (_returnVal IS NULL) THEN
 	RAISE EXCEPTION ''Quote Number % not found.'', pQuoteNumber;

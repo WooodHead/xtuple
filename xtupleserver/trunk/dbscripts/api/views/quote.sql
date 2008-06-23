@@ -25,7 +25,7 @@ AS
      taxauth_code AS tax_authority,
      terms_code AS terms,
      prj_number AS project_number,
-     cust_number AS customer_number,
+     COALESCE(cust_number,prospect_number) AS customer_number,
      quhead_billtoname AS billto_name,
      quhead_billtoaddress1 AS billto_address1,
      quhead_billtoaddress2 AS billto_address2,
@@ -50,7 +50,7 @@ AS
      curr_abbr AS currency,
      quhead_misc_descrip AS misc_charge_description,
      CASE
-       WHEN quhead_misc_accnt_id = -1 THEN
+       WHEN (quhead_misc_accnt_id IS NULL) THEN
          NULL
        ELSE
          formatglaccount(quhead_misc_accnt_id) 
@@ -61,17 +61,16 @@ AS
      quhead_shipcomments AS shipping_notes,
      false AS add_to_packing_list_batch,
      quhead_expire AS expire_date
-   FROM quhead
+   FROM curr_symbol,quhead
      LEFT OUTER JOIN whsinfo ON (quhead_warehous_id=warehous_id)
      LEFT OUTER JOIN prj ON (quhead_prj_id=prj_id)
      LEFT OUTER JOIN shiptoinfo ON (quhead_shipto_id=shipto_id)
-     LEFT OUTER JOIN taxauth ON (quhead_taxauth_id=taxauth_id),
-     custinfo,
-     salesrep,terms,curr_symbol
-   WHERE ((quhead_cust_id=cust_id)
-   AND (quhead_salesrep_id=salesrep_id)
-   AND (quhead_terms_id=terms_id)
-   AND (quhead_curr_id=curr_id));
+     LEFT OUTER JOIN taxauth ON (quhead_taxauth_id=taxauth_id)
+     LEFT OUTER JOIN custinfo ON (quhead_cust_id=cust_id)
+     LEFT OUTER JOIN prospect ON (quhead_cust_id=prospect_id)
+     LEFT OUTER JOIN salesrep ON (quhead_salesrep_id=salesrep_id)
+     LEFT OUTER JOIN terms ON (quhead_terms_id=terms_id)
+   WHERE (quhead_curr_id=curr_id);
 
 GRANT ALL ON TABLE api.quote TO openmfg;
 COMMENT ON VIEW api.quote IS 'Quote';
@@ -127,40 +126,16 @@ CREATE OR REPLACE RULE "_INSERT" AS
   VALUES (
     NEW.quote_number,
     getCustId(NEW.customer_number,true),
-    COALESCE(NEW.cust_po_number,''),
-    COALESCE(NEW.quote_date,current_date),
-    COALESCE(getWarehousId(NEW.warehouse,'SHIPPING'),(
-      SELECT CAST(usrpref_value AS INTEGER) 
-              FROM usrpref, whsinfo
-              WHERE ((warehous_id=CAST(usrpref_value AS INTEGER))
-              AND (warehous_shipping)
-              AND (warehous_active)
-              AND (usrpref_username=current_user)
-              AND (usrpref_name='PreferredWarehouse'))),-1),
-    COALESCE(getShiptoId(NEW.customer_number,NEW.shipto_number),(
-      SELECT shipto_id
-      FROM shiptoinfo
-      WHERE ((shipto_cust_id=getCustId(NEW.customer_number,true))
-      AND (shipto_default))),-1),
+    NEW.cust_po_number,
+    NEW.quote_date,
+    getWarehousId(NEW.warehouse,'SHIPPING'),
+    getShiptoId(NEW.customer_number,NEW.shipto_number),
     NEW.shipto_name,
     NEW.shipto_address1,
     NEW.shipto_address2,
     NEW.shipto_address3,
-    COALESCE(getSalesRepId(NEW.sales_rep),(
-      SELECT shipto_salesrep_id
-      FROM shiptoinfo
-      WHERE (shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number))),(
-      SELECT shipto_salesrep_id
-      FROM shiptoinfo
-      WHERE ((shipto_cust_id=getCustId(NEW.customer_number,true))
-      AND (shipto_default))),(
-      SELECT cust_salesrep_id
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number,true)))),
-    COALESCE(getTermsId(NEW.terms),(
-      SELECT cust_terms_id
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number,true)))),
+    getSalesRepId(NEW.sales_rep),
+    getTermsId(NEW.terms),
     CASE
       WHEN NEW.originated_by = 'Internet' THEN
         'I'
@@ -169,33 +144,16 @@ CREATE OR REPLACE RULE "_INSERT" AS
       ELSE
         'C'
     END,
-    COALESCE(NEW.fob,fetchDefaultFob((
-      SELECT CAST(usrpref_value AS INTEGER) 
-              FROM usrpref, whsinfo
-              WHERE ((warehous_id=CAST(usrpref_value AS INTEGER))
-              AND (warehous_shipping)
-              AND (warehous_active)
-              AND (usrpref_username=current_user)
-              AND (usrpref_name='PreferredWarehouse'))))),
-    COALESCE(NEW.ship_via,(
-      SELECT shipto_shipvia
-      FROM shiptoinfo
-      WHERE (shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number))),(
-      SELECT shipto_shipvia
-      FROM shiptoinfo
-      WHERE ((shipto_cust_id=getCustId(NEW.customer_number,true))
-      AND (shipto_default))),(
-      SELECT cust_shipvia
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number,true)))),
+    NEW.fob,
+    NEW.ship_via,
     NEW.shipto_city,
     NEW.shipto_state,
     NEW.shipto_postal_code,
-    COALESCE(NEW.freight,0),
-    COALESCE(NEW.misc_charge,0),
-    COALESCE(NEW.order_notes,''),
-    COALESCE(NEW.shipping_notes,''),
-    COALESCE(NEW.shipto_phone,''),
+    NEW.freight,
+    NEW.misc_charge,
+    NEW.order_notes,
+    NEW.shipping_notes,
+    NEW.shipto_phone,
     NEW.billto_name,
     NEW.billto_address1,
     NEW.billto_address2,
@@ -203,38 +161,15 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.billto_city,
     NEW.billto_state,
     NEW.billto_postal_code,
-    COALESCE(getGlAccntId(NEW.misc_account_number),-1),
-    COALESCE(NEW.misc_charge_description,''),
-    COALESCE(NEW.commission,(
-      SELECT shipto_commission
-      FROM shiptoinfo
-      WHERE (shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number))),(
-      SELECT shipto_commission
-      FROM shiptoinfo
-      WHERE ((shipto_cust_id=getCustId(NEW.customer_number,true))
-      AND (shipto_default))),(
-      SELECT cust_commprcnt
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number,true)))),
-    COALESCE(NEW.pack_date,NEW.quote_date,current_date),
-    COALESCE(getPrjId(NEW.project_number),-1),
+    getGlAccntId(NEW.misc_account_number),
+    NEW.misc_charge_description,
+    NEW.commission,
+    NEW.pack_date,
+    getPrjId(NEW.project_number),
     NEW.billto_country,
     NEW.shipto_country,
-    COALESCE(getCurrId(NEW.currency),(
-      SELECT cust_curr_id
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number,true))),basecurrid()),
-    COALESCE(getTaxAuthId(NEW.tax_authority),(
-      SELECT shipto_taxauth_id
-      FROM shiptoinfo
-      WHERE (shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number))),(
-      SELECT shipto_taxauth_id
-      FROM shiptoinfo
-      WHERE ((shipto_cust_id=getCustId(NEW.customer_number,true))
-      AND (shipto_default))),(
-      SELECT cust_taxauth_id
-      FROM custinfo
-      WHERE (cust_id=getCustId(NEW.customer_number,true)))),
+    getCurrId(NEW.currency),
+    getTaxAuthId(NEW.tax_authority),
     true,
     NEW.expire_date);
 
@@ -280,7 +215,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     quhead_billtocity=NEW.billto_city,
     quhead_billtostate=NEW.billto_state,
     quhead_billtozip=NEW.billto_postal_code,
-    quhead_misc_accnt_id=COALESCE(getGlAccntId(NEW.misc_account_number),-1),
+    quhead_misc_accnt_id=getGlAccntId(NEW.misc_account_number),
     quhead_misc_descrip=NEW.misc_charge_description,
     quhead_commission=NEW.commission,
     quhead_packdate=NEW.pack_date,

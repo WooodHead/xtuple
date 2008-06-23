@@ -58,6 +58,19 @@ BEGIN
       PERFORM postComment(_cmnttypeid, 'SI', NEW.coitem_id, 'Created');
     END IF;
 
+    --Set defaults if no values passed
+    NEW.coitem_linenumber	:= COALESCE(NEW.coitem_linenumber,
+                                          (SELECT (COALESCE(MAX(coitem_linenumber), 0) + 1)
+                                           FROM coitem
+                                           WHERE (coitem_cohead_id=NEW.coitem_cohead_id)));
+    NEW.coitem_status		:= COALESCE(NEW.coitem_status,'O');
+    NEW.coitem_scheddate	:= COALESCE(NEW.coitem_scheddate,
+					   (SELECT MIN(coitem_scheddate)
+					    FROM coitem
+					    WHERE (coitem_cohead_id=NEW.coitem_cohead_id)));
+    NEW.coitem_memo		:= COALESCE(NEW.coitem_memo,'');
+    NEW.coitem_prcost		:= COALESCE(NEW.coitem_prcost,0);
+    NEW.coitem_warranty	:= COALESCE(NEW.coitem_warranty,false);
     RETURN NEW;
 
   ELSIF (TG_OP = 'DELETE') THEN
