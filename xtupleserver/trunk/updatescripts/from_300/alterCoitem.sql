@@ -1,5 +1,8 @@
 BEGIN;
 
+ALTER TABLE coitem DISABLE TRIGGER soitemtrigger;
+ALTER TABLE coitem DISABLE TRIGGER soitemaftertrigger;  
+  
 --Remove invalid coitem records
 DELETE FROM coitem WHERE coitem_cohead_id NOT IN (SELECT cohead_id FROM cohead WHERE cohead_id=coitem_cohead_id);
 
@@ -12,5 +15,8 @@ ALTER TABLE coitem ADD FOREIGN KEY (coitem_cohead_id) REFERENCES cohead (cohead_
 ALTER TABLE coitem ADD CHECK (coitem_status IN ('O','C','X'));
 ALTER TABLE coitem ALTER coitem_linenumber SET NOT NULL;
 ALTER TABLE coitem ALTER coitem_unitcost SET NOT NULL;
+
+ALTER TABLE coitem ENABLE TRIGGER soitemtrigger;
+ALTER TABLE coitem ENABLE TRIGGER soitemaftertrigger;  
 
 COMMIT;

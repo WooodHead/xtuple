@@ -22,7 +22,7 @@ BEGIN
 
   SELECT cust_id INTO _returnVal
   FROM custinfo
-  WHERE (UPPER(cust_number)=UPPER(pCustNumber));
+  WHERE (cust_number=UPPER(pCustNumber));
   
   IF (_returnVal IS NULL) THEN
     IF (pInclProspects) THEN

@@ -48,6 +48,26 @@ SELECT count(*) = 0
        FROM cohead
        WHERE cohead_warehous_id != -1 AND cohead_warehous_id NOT IN (SELECT warehous_id FROM whsinfo WHERE warehous_id=cohead_warehous_id)) AS data;
 
+-- Check to make sure all sales reps on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id
+       FROM cohead
+       WHERE cohead_salesrep_id NOT IN (SELECT salesrep_id FROM salesrep WHERE salesrep_id=cohead_salesrep_id)) AS data;
+
+-- Check to make sure all ship forms on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id
+       FROM cohead
+       WHERE cohead_shipform_id NOT IN (SELECT shipform_id FROM shipform WHERE shipform_id=cohead_shipform_id)) AS data;
+
+-- Check to make sure all ship charges on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id,cohead_shipchrg_id
+       FROM cohead
+       WHERE cohead_shipchrg_id IS NOT NULL 
+       AND cohead_shipchrg_id != -1
+       AND cohead_shipchrg_id NOT IN (SELECT shipchrg_id FROM shipchrg WHERE shipchrg_id=cohead_shipchrg_id)) AS data;
+  
 -- Check to make sure all shiptos on cohead exist
 SELECT count(*) = 0
  FROM (SELECT cohead_id
@@ -136,5 +156,4 @@ SELECT count(*) = 0
           FROM coitem
          GROUP BY coitem_cohead_id, coitem_linenumber
         HAVING count(*) > 1) AS data;
-
 
