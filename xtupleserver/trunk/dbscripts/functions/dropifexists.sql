@@ -61,6 +61,26 @@ BEGIN
     END;
     RAISE NOTICE ''TRIGGER % on % dropped'', pObject, _table;
 
+  ELSIF (UPPER(pType) = ''CONSTRAINT'') THEN
+    SELECT relname INTO _table
+    FROM pg_constraint, pg_class, pg_namespace
+    WHERE ((conrelid=pg_class.oid)
+      AND  (connamespace=pg_namespace.oid)
+      AND  (conname=pObject)
+      AND  (nspname=pSchema));
+    IF (NOT FOUND) THEN
+      RAISE NOTICE ''No constraint % to drop'', pObject;
+      RETURN 0;
+    END IF;
+    BEGIN
+      RAISE NOTICE ''%'', _query;
+      EXECUTE _query;
+    EXCEPTION WHEN undefined_table THEN
+		RAISE NOTICE ''No table % to alter'', _table;
+		RETURN 0;
+	      WHEN OTHERS THEN RAISE EXCEPTION ''% %'', SQLSTATE, SQLERRM;
+    END;
+
   ELSE
     RAISE EXCEPTION ''dropIfExists(%, %): unknown pType %'', pType, pObject, pType;
   END IF;
