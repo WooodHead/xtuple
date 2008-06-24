@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION copyItemSite(INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION copyItemSite(INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pitemsiteid	ALIAS FOR $1;
   pdestwhsid	ALIAS FOR $2;
@@ -24,7 +24,7 @@ BEGIN
     END IF;
   END IF;
 
-  IF (NOT hasPriv(''MaintainItemSites'')) THEN
+  IF (NOT hasPriv('MaintainItemSites')) THEN
     RETURN -3;
   END IF;
 
@@ -38,9 +38,10 @@ BEGIN
   END IF;
 
   -- now override the things we know have to change
-  _new.itemsite_id		:= NEXTVAL(''itemsite_itemsite_id_seq'');
+  _new.itemsite_id		:= NEXTVAL('itemsite_itemsite_id_seq');
   _new.itemsite_warehous_id	:= pdestwhsid;
   _new.itemsite_qtyonhand	:= 0;
+  _new.itemsite_value           := 0;
   _new.itemsite_datelastcount	:= NULL;
   _new.itemsite_datelastused	:= NULL;
   _new.itemsite_nnqoh		:= 0;
@@ -56,7 +57,10 @@ BEGIN
     _new.itemsite_minordqty	:= 0;
     _new.itemsite_multordqty	:= 0;
     _new.itemsite_leadtime	:= 0;
-    _new.itemsite_controlmethod	:= ''R'';
+    _new.itemsite_controlmethod	:= 'R';
+    IF(_new.itemsite_costmethod='N') THEN
+      _new.itemsite_costmethod := 'S';
+    END IF;
     _new.itemsite_active	:= TRUE;
     -- ? _new.itemsite_plancode_id	:= -1;
     -- ? _new.itemsite_costcat_id	:= -1;
@@ -69,7 +73,7 @@ BEGIN
     _new.itemsite_createpr	:= FALSE;
     _new.itemsite_location	:= NULL;
     _new.itemsite_location_comments := NULL;
-    _new.itemsite_notes		:= ''Transit Warehouse'';
+    _new.itemsite_notes		:= 'Transit Warehouse';
     _new.itemsite_nnqoh		:= 0;
     _new.itemsite_createwo	:= FALSE;
     _new.itemsite_costcat_id	:= _destwhs.warehous_costcat_id;
@@ -78,6 +82,7 @@ BEGIN
   INSERT INTO itemsite (
     itemsite_id,			itemsite_item_id,
     itemsite_warehous_id,		itemsite_qtyonhand,
+    itemsite_costmethod,                itemsite_value,
     itemsite_reorderlevel,		itemsite_ordertoqty,
     itemsite_cyclecountfreq,		itemsite_datelastcount,
     itemsite_datelastused,
@@ -102,6 +107,7 @@ BEGIN
   ) VALUES (
     _new.itemsite_id,			_new.itemsite_item_id,
     _new.itemsite_warehous_id,		_new.itemsite_qtyonhand,
+    _new.itemsite_costmethod,           _new.itemsite_value,
     _new.itemsite_reorderlevel,	_new.itemsite_ordertoqty,
     _new.itemsite_cyclecountfreq,	_new.itemsite_datelastcount,
     _new.itemsite_datelastused,
@@ -127,4 +133,4 @@ BEGIN
 
   RETURN _new.itemsite_id;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

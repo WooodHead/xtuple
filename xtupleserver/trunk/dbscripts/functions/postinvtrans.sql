@@ -1,15 +1,15 @@
 CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
                                          TEXT, TEXT, TEXT, TEXT, TEXT,
-                                         INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS '
+                                         INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
 BEGIN
   RETURN postInvTrans($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, CURRENT_TIMESTAMP);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
                                          TEXT, TEXT, TEXT, TEXT, TEXT,
-                                         INTEGER, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS '
+                                         INTEGER, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 DECLARE
   pItemsiteid	ALIAS FOR $1;
   pTransType	ALIAS FOR $2;
@@ -34,12 +34,14 @@ DECLARE
 
 BEGIN
 
-  SELECT stdCost(itemsite_item_id) AS cost,
+  SELECT CASE WHEN(itemsite_costmethod='A') THEN COALESCE(NULL, avgcost(itemsite_id))
+              ELSE stdCost(itemsite_item_id)
+         END AS cost,
 	 itemsite_warehous_id,
-         ( (item_type IN (''R'',''J'')) OR (itemsite_controlmethod = ''N'') ) AS nocontrol,
-         (itemsite_controlmethod IN (''L'', ''S'')) AS lotserial,
+         ( (item_type IN ('R','J')) OR (itemsite_controlmethod = 'N') ) AS nocontrol,
+         (itemsite_controlmethod IN ('L', 'S')) AS lotserial,
          (itemsite_loccntrl) AS loccntrl,
-         (((NOT itemsite_controlmethod IN (''L'', ''S'')) AND (NOT itemsite_loccntrl)) OR (pItemlocseries = 0)) AS post,
+         (((NOT itemsite_controlmethod IN ('L', 'S')) AND (NOT itemsite_loccntrl)) OR (pItemlocseries = 0)) AS post,
          itemsite_freeze AS frozen INTO _r
   FROM itemsite, item
   WHERE ( (itemsite_item_id=item_id)
@@ -48,26 +50,26 @@ BEGIN
   --  Post the Inventory Transactions
   IF (NOT _r.nocontrol) THEN
 
-    SELECT NEXTVAL(''invhist_invhist_id_seq'') INTO _invhistid;
+    SELECT NEXTVAL('invhist_invhist_id_seq') INTO _invhistid;
 
     IF ((_timestamp IS NULL) OR (CAST(_timestamp AS date)=CURRENT_DATE)) THEN
       _timestamp := CURRENT_TIMESTAMP;
     END IF;
 
-    IF (pTransType = ''TS'' OR pTransType = ''TR'') THEN
+    IF (pTransType = 'TS' OR pTransType = 'TR') THEN
       SELECT * INTO _t FROM tohead WHERE (tohead_number=pOrderNumber);
-      IF (pTransType = ''TS'') THEN
+      IF (pTransType = 'TS') THEN
 	_xferwhsid := CASE
 	    WHEN (_t.tohead_src_warehous_id=_r.itemsite_warehous_id) THEN _t.tohead_trns_warehous_id
-	    WHEN (_t.tohead_trns_warehous_id=_r.itemsite_warehous_id AND pComments ~* ''recall'') THEN _t.tohead_src_warehous_id
+	    WHEN (_t.tohead_trns_warehous_id=_r.itemsite_warehous_id AND pComments ~* 'recall') THEN _t.tohead_src_warehous_id
 	    WHEN (_t.tohead_trns_warehous_id=_r.itemsite_warehous_id) THEN _t.tohead_dest_warehous_id
 	    WHEN (_t.tohead_dest_warehous_id=_r.itemsite_warehous_id) THEN _t.tohead_trns_warehous_id
 	    ELSE NULL
 	    END;
-      ELSIF (pTransType = ''TR'') THEN
+      ELSIF (pTransType = 'TR') THEN
 	_xferwhsid := CASE
 	    WHEN (_t.tohead_src_warehous_id=_r.itemsite_warehous_id) THEN _t.tohead_trns_warehous_id
-	    WHEN (_t.tohead_trns_warehous_id=_r.itemsite_warehous_id AND pComments ~* ''recall'') THEN _t.tohead_dest_warehous_id
+	    WHEN (_t.tohead_trns_warehous_id=_r.itemsite_warehous_id AND pComments ~* 'recall') THEN _t.tohead_dest_warehous_id
 	    WHEN (_t.tohead_trns_warehous_id=_r.itemsite_warehous_id) THEN _t.tohead_src_warehous_id
 	    WHEN (_t.tohead_dest_warehous_id=_r.itemsite_warehous_id) THEN _t.tohead_trns_warehous_id
 	    ELSE NULL
@@ -81,19 +83,19 @@ BEGIN
     -- TS and TR are special: shipShipment and recallShipment should not change
     -- QOH at the Transfer Order src whs (as this was done by issueToShipping)
     -- but postReceipt should change QOH at the transit whs
-    IF (pTransType=''TS'') THEN
+    IF (pTransType='TS') THEN
       _sense := CASE WHEN (SELECT tohead_trns_warehous_id=_r.itemsite_warehous_id
 			   FROM tohead
 			   WHERE (tohead_number=pOrderNumber)) THEN -1
 			   ELSE 0
 			   END;
-    ELSIF (pTransType=''TR'') THEN
+    ELSIF (pTransType='TR') THEN
       _sense := CASE WHEN (SELECT tohead_src_warehous_id=_r.itemsite_warehous_id
 			   FROM tohead
 			   WHERE (tohead_number=pOrderNumber)) THEN 0
 			   ELSE 1
 			   END;
-    ELSIF (pTransType IN (''IM'', ''IB'', ''IT'', ''SH'', ''SI'', ''EX'')) THEN
+    ELSIF (pTransType IN ('IM', 'IB', 'IT', 'SH', 'SI', 'EX')) THEN
       _sense := -1;
 
     ELSE
@@ -104,12 +106,14 @@ BEGIN
     ( invhist_id, invhist_itemsite_id, invhist_transtype, invhist_transdate,
       invhist_invqty, invhist_qoh_before,
       invhist_qoh_after,
+      invhist_costmethod, invhist_value_before, invhist_value_after,
       invhist_ordtype, invhist_ordnumber, invhist_docnumber, invhist_comments,
       invhist_invuom, invhist_unitcost, invhist_xfer_warehous_id, invhist_posted )
     SELECT
       _invhistid, itemsite_id, pTransType, _timestamp,
       pQty, itemsite_qtyonhand,
       (itemsite_qtyonhand + (_sense * pQty)),
+      itemsite_costmethod, itemsite_value, itemsite_value + (_r.cost * _sense * pQty),
       pOrderType, pOrderNumber, pDocNumber, pComments,
       uom_name, stdCost(item_id), _xferwhsid, FALSE
     FROM itemsite, item, uom
@@ -158,7 +162,7 @@ BEGIN
         itemlocdist_expiration,
         itemlocdist_qty,
         itemlocdist_series, itemlocdist_invhist_id )
-      SELECT pItemsiteid, ''O'',
+      SELECT pItemsiteid, 'O',
              (((pQty * _sense) > 0)  AND _r.lotserial),
 	     ((pQty * _sense) < 0),
              endOfTime(),
@@ -178,4 +182,4 @@ BEGIN
   END IF;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
