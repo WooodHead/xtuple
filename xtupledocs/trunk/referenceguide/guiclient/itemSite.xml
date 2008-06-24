@@ -103,8 +103,8 @@
   </variablelist>
   <note>
     <para>Work Orders created, as specified above, to meet Sales Order demand
-    will be created regardless of an Item's Availability&mdash;and also regardless
-    of whether Material Requirements Planning (MRP) is being run in
+    will be created regardless of an Item's Availability&mdash;and also
+    regardless of whether Material Requirements Planning (MRP) is being run in
     parallel.</para>
   </note>
   <variablelist>
@@ -186,17 +186,6 @@
             </listitem>
           </varlistentry>
         </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Perishable</term>
-      <listitem>
-        <para>Select if the Item is perishable. For Item Sites whose control
-        method is either Lot Number or Serial Number, you have the option of
-        also designating the Item Site as Perishable. Materials received into
-        a Perishable Item Site are required to specify an expiration date,
-        thereby increasing your ability to monitor the status of the
-        goods.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -476,10 +465,10 @@
         for Planned Replenishment Orders when MRP is run. The setting does not
         apply to manual Orders, but to Planned Orders only. When a maximum
         Order quantity is specified, MRP will ignore Order multiples and
-        minimum Order specifications&mdash;focusing instead solely on the maximum
-        Order setting. For example, if the maximum Order quantity is set to 10
-        and there is demand for 17, then Planned Orders of 10 and 7 would be
-        generated when MRP is run.</para>
+        minimum Order specifications&mdash;focusing instead solely on the
+        maximum Order setting. For example, if the maximum Order quantity is
+        set to 10 and there is demand for 17, then Planned Orders of 10 and 7
+        would be generated when MRP is run.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -515,17 +504,17 @@
     <varlistentry role="openmfg">
       <term>Group MPS/MRP Orders Every</term>
       <listitem>
-        <para>Specify the length of a period&mdash;measured in days&mdash;within which MPS
-        or MRP Planned Orders will be grouped together (i.e, consolidated) to
-        meet scheduled demand for the period. This functionality serves to
-        limit the total number of Planned Orders, thereby simplifying order
-        processing. For example, to consolidate demand for an Item Site into
-        30-day buckets, set the value to "30." When MRP is run, the system
-        will automatically consolidate all demand falling within the 30-day
-        horizon into a single Planned Purchase Order or Planned Work Order.
-        The grouping of Planned Orders moves forward in time, meaning the
-        system will create as many buckets as will fit within the cutoff date
-        specified when MRP is run.</para>
+        <para>Specify the length of a period&mdash;measured in
+        days&mdash;within which MPS or MRP Planned Orders will be grouped
+        together (i.e, consolidated) to meet scheduled demand for the period.
+        This functionality serves to limit the total number of Planned Orders,
+        thereby simplifying order processing. For example, to consolidate
+        demand for an Item Site into 30-day buckets, set the value to "30."
+        When MRP is run, the system will automatically consolidate all demand
+        falling within the 30-day horizon into a single Planned Purchase Order
+        or Planned Work Order. The grouping of Planned Orders moves forward in
+        time, meaning the system will create as many buckets as will fit
+        within the cutoff date specified when MRP is run.</para>
         <para>The initial grouping of Planned Orders is handled differently
         than subsequent buckets. The following formula specifies how the date
         range for the initial period is determined:</para>
@@ -733,8 +722,15 @@
         <caption>Restricted Locations for Item Site</caption>
       </mediaobject>
     </screenshot></para>
-  <para>The Restricted Locations list will show restricted Locations
-  associated with the Warehouse the Item Site is located in.</para>
+  <variablelist>
+    <varlistentry>
+      <term>Restricted Locations</term>
+      <listitem>
+        <para>Displays restricted Locations associated with the Warehouse the
+        Item Site is located in.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
@@ -745,6 +741,47 @@
         change the allowed status for the Item. Any changes made on the Item
         Site master related to an Item's allowed status will also be saved to
         the Warehouse Location master record.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>If the Item Site is Lot or Serial controlled, you will have access to
+  several product expiration options. The "Expiration" tab will be disabled
+  for non-Lot/Serial Item Sites. To view or modify expiration settings for the
+  Item Site, select the "Expiration" tab. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemSite_expirationTab.png" />
+        </imageobject>
+        <caption>Expiration Settings for Item Site</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing or modifying expiration settings for the Item Site, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry role="standard">
+      <term>Perishable</term>
+      <listitem>
+        <para>Select if the Item is Perishable. Materials received into a
+        Perishable Item Site are required to have an expiration date, thereby
+        increasing your ability to monitor the status of the goods.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Requires Warranty when Purchased</term>
+      <listitem>
+        <para>Select to require users to enter a warranty expiration date when
+        they are receiving Items into the Item site. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Auto Register Lot/Serial at Shipping</term>
+      <listitem>
+        <para>Select to automatically create a registration for Lot/Serial
+        Items when they are issued to Shipping. You can learn more about
+        registrations in the <xref linkend="lotSerialRegistrationTitle" />
+        section.</para>
       </listitem>
     </varlistentry>
   </variablelist>

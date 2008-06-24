@@ -3,7 +3,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
-  <title><indexterm significance="normal">
+  <title id="lotSerialRegistrationTitle"><indexterm significance="normal">
       <primary>registrations</primary>
       <secondary>creating new</secondary>
     </indexterm><indexterm significance="normal">
@@ -106,14 +106,13 @@
       <term>Qty</term>
       <listitem>
         <para>Specify the quantity of the Lot/Serial Item covered by the
-        current registration. </para>
+        current registration.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CRM Account</term>
       <listitem>
-        <para>Specify the CRM Account associated with the registration.
-        </para>
+        <para>Specify the CRM Account associated with the registration.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
