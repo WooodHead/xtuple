@@ -104,7 +104,8 @@ INSERT INTO itemsite (
      itemsite_notes,
      itemsite_qtyonhand,
      itemsite_warrpurc,
-     itemsite_autoreg)
+     itemsite_autoreg,
+     itemsite_freeze)
      VALUES (
        getItemId(NEW.item_number),
        getWarehousId(NEW.warehouse,'ACTIVE'),
@@ -151,7 +152,8 @@ INSERT INTO itemsite (
        COALESCE(NEW.notes,''),
        0,
        COALESCE(NEW.require_warranty,FALSE),
-       COALESCE(NEW.auto_register,FALSE));
+       COALESCE(NEW.auto_register,FALSE),
+       false);
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.itemsite DO INSTEAD
