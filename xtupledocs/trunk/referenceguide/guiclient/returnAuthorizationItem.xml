@@ -313,8 +313,8 @@
               allocated to a Sales Order if a Sales Order Line Item exists for
               the Item&mdash;and that Line Item has not yet been issued to
               Shipping. An Item is considered allocated to a Work Order if the
-              Item is a material requirement&mdash;and the material has not yet
-              been issued to the Work Order. Once the current Line Item is
+              Item is a material requirement&mdash;and the material has not
+              yet been issued to the Work Order. Once the current Line Item is
               saved, the "Allocated" value will increase by the quantity
               ordered.</para>
             </listitem>
@@ -378,8 +378,8 @@
         Demand" flag on the Item Site master is selected. A Work Order created
         automatically from a Return Authorization Line Item will assume the
         same Order Number as the new Sales Order the Return Authorization Line
-        Item is associated with&mdash;even if that Order Number has already been
-        used by a previous Work Order.</para>
+        Item is associated with&mdash;even if that Order Number has already
+        been used by a previous Work Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -421,6 +421,18 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/returnAuthorizationItem_lotserial.png" />
+        </imageobject>
+        <caption>Return Authorization Lot/Serial Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para></para>
+  <para></para>
+  <para></para>
   <para>To view Costs or adjust Tax information for a Return Authorization
   Line Item, select the "Detail" tab at the bottom of the screen, as shown
   below:</para>
