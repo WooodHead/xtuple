@@ -242,25 +242,30 @@
           <secondary>setting default locations in</secondary>
         </indexterm>Use Default Location</term>
       <listitem>
-        <para>Default Location: Select to designate one Location within a
-        Warehouse as the default Location for the specified Item. This option
-        may be used for single Location and Multiple Location Control (MLC)
-        Items alike. You may find that Inventory distributions for MLC Items
-        are greatly simplified if you designate a default Location.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Location</term>
-      <listitem>
-        <para>Specify the Warehouse Location to be used as the default
-        Location.</para>
+        <para>Use with the MLC option to designate one Location within a
+        Warehouse as the default Location for the specified Item. MLC
+        Inventory will be placed here by default when distributing MLC
+        quantities. This option may also be used to specify a user-defined
+        location. User-defined locations are non-transactional; however, they
+        may be used for reporting purposes.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Location</term>
+            <listitem>
+              <para>Specify the Warehouse Location to be used as the default
+              Location.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>User-Defined</term>
       <listitem>
         <para>This is a free-form field for describing storage areas with a
-        Warehouse not specifically designated as Warehouse Locations.</para>
+        Warehouse not specifically designated as Warehouse Locations. A
+        user-defined location is non-transactional, but may be used for
+        reporting purposes.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -772,7 +777,7 @@
       <term>Requires Warranty when Purchased</term>
       <listitem>
         <para>Select to require users to enter a warranty expiration date when
-        they are receiving Items into the Item site. </para>
+        they are receiving Items into the Item site.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
