@@ -1,12 +1,21 @@
 CREATE OR REPLACE FUNCTION _gltransInsertTrigger() RETURNS TRIGGER AS $$
 DECLARE
   _reqNotes BOOLEAN;
+  _externalCompany      BOOLEAN := false;
 BEGIN
   -- Checks
   -- Start with privileges
   IF ((NEW.gltrans_doctype='JE') AND (NOT checkPrivilege('PostJournalEntries'))) THEN
       RAISE EXCEPTION 'You do not have privileges to create a Journal Entry.';
   END IF;
+
+  SELECT company_external INTO _externalCompany
+  FROM company JOIN accnt ON (company_number=accnt_company)
+  WHERE (accnt_id=NEW.gltrans_accnt_id);
+  IF (_externalCompany) THEN
+    RAISE EXCEPTION 'Transactions are not allowed for G/L Accounts with External Company segments.';
+  END IF;
+  RAISE NOTICE '_gltransInsertTrigger(): company_external = %', _externalCompany;
 
   SELECT metric_value='t'
     INTO _reqNotes
@@ -28,11 +37,19 @@ CREATE TRIGGER gltransInsertTrigger BEFORE INSERT ON gltrans FOR EACH ROW EXECUT
 
 CREATE OR REPLACE FUNCTION _gltransAlterTrigger() RETURNS TRIGGER AS $$
 DECLARE
+  _externalCompany      BOOLEAN := false;
   _updated BOOLEAN := false;
 BEGIN
   IF(TG_OP='DELETE') THEN
     RAISE EXCEPTION 'You may not delete G/L Transactions once they have been created.';
   ELSIF (TG_OP = 'UPDATE') THEN
+    SELECT company_external INTO _externalCompany
+    FROM company JOIN accnt ON (company_number=accnt_company)
+    WHERE (accnt_id=NEW.gltrans_accnt_id);
+    IF (_externalCompany) THEN
+      RAISE EXCEPTION 'Transactions are not allowed for G/L Accounts with External Company segments.';
+    END IF;
+
     IF(OLD.gltrans_id != NEW.gltrans_id) THEN
       _updated := true;
     ELSIF(OLD.gltrans_date != NEW.gltrans_date) THEN
@@ -77,4 +94,3 @@ $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'gltransAlterTrigger');
 CREATE TRIGGER gltransAlterTrigger BEFORE UPDATE OR DELETE ON gltrans FOR EACH ROW EXECUTE PROCEDURE _gltransAlterTrigger();
-
