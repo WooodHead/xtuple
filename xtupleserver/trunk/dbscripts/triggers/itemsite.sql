@@ -1,10 +1,10 @@
-CREATE OR REPLACE FUNCTION _itemsiteTrigger () RETURNS TRIGGER AS '
+CREATE OR REPLACE FUNCTION _itemsiteTrigger () RETURNS TRIGGER AS $$
 DECLARE
   _cmnttypeid INTEGER;
 
 BEGIN
 
-  IF (TG_OP = ''UPDATE'') THEN
+  IF (TG_OP = 'UPDATE') THEN
     IF ( (NEW.itemsite_qtyonhand <> OLD.itemsite_qtyonhand) ) THEN
       IF (OLD.itemsite_freeze) THEN
         NEW.itemsite_qtyonhand := OLD.itemsite_qtyonhand;
@@ -18,52 +18,56 @@ BEGIN
           evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id,
           evntlog_number )
         SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
-               ''I'', NEW.itemsite_id, warehous_id,
-               (item_number || ''/'' || warehous_code)
+               'I', NEW.itemsite_id, warehous_id,
+               (item_number || '/' || warehous_code)
         FROM evntnot, evnttype, item, warehous
         WHERE ( (evntnot_evnttype_id=evnttype_id)
          AND (evntnot_warehous_id=NEW.itemsite_warehous_id)
          AND (NEW.itemsite_item_id=item_id)
          AND (NEW.itemsite_warehous_id=warehous_id)
-         AND (evnttype_name=''QOHBelowZero'') );
+         AND (evnttype_name='QOHBelowZero') );
       END IF;
     END IF;
   END IF;
 
+  IF (NEW.itemsite_qtyonhand < 0 AND NEW.itemsite_costmethod = 'A') THEN
+    RAISE EXCEPTION 'Itemsite (%) is setup to use average costing and is not allowed to have a negative quantity on hand.', NEW.itemsite_id;
+  END IF;
+
 --  Handle the ChangeLog
-  IF ( SELECT (metric_value=''t'')
+  IF ( SELECT (metric_value='t')
        FROM metric
-       WHERE (metric_name=''ItemSiteChangeLog'') ) THEN
+       WHERE (metric_name='ItemSiteChangeLog') ) THEN
 
 --  Cache the cmnttype_id for ChangeLog
     SELECT cmnttype_id INTO _cmnttypeid
     FROM cmnttype
-    WHERE (cmnttype_name=''ChangeLog'');
+    WHERE (cmnttype_name='ChangeLog');
     IF (FOUND) THEN
-      IF (TG_OP = ''INSERT'') THEN
-        PERFORM postComment(_cmnttypeid, ''IS'', NEW.itemsite_id, ''Created'');
+      IF (TG_OP = 'INSERT') THEN
+        PERFORM postComment(_cmnttypeid, 'IS', NEW.itemsite_id, 'Created');
 
-      ELSIF (TG_OP = ''UPDATE'') THEN
+      ELSIF (TG_OP = 'UPDATE') THEN
 
         IF (OLD.itemsite_plancode_id <> NEW.itemsite_plancode_id) THEN
-          PERFORM postComment( _cmnttypeid, ''IS'', NEW.itemsite_id,
-                               ( ''Planner Code Changed from "'' || oldplancode.plancode_code ||
-                                 ''" to "'' || newplancode.plancode_code || ''"'' ) )
+          PERFORM postComment( _cmnttypeid, 'IS', NEW.itemsite_id,
+                               ( 'Planner Code Changed from "' || oldplancode.plancode_code ||
+                                 '" to "' || newplancode.plancode_code || '"' ) )
           FROM plancode AS oldplancode, plancode AS newplancode
           WHERE ( (oldplancode.plancode_id=OLD.itemsite_plancode_id)
            AND (newplancode.plancode_id=NEW.itemsite_plancode_id) );
         END IF;
 
         IF (NEW.itemsite_reorderlevel <> OLD.itemsite_reorderlevel) THEN
-          PERFORM postComment( _cmnttypeid, ''IS'', NEW.itemsite_id,
-                               ( ''Reorder Level Changed from '' || formatQty(OLD.itemsite_reorderlevel) ||
-                                 '' to '' || formatQty(NEW.itemsite_reorderlevel ) ) );
+          PERFORM postComment( _cmnttypeid, 'IS', NEW.itemsite_id,
+                               ( 'Reorder Level Changed from ' || formatQty(OLD.itemsite_reorderlevel) ||
+                                 ' to ' || formatQty(NEW.itemsite_reorderlevel ) ) );
         END IF;
 
         IF (NEW.itemsite_ordertoqty <> OLD.itemsite_ordertoqty) THEN
-          PERFORM postComment( _cmnttypeid, ''IS'', NEW.itemsite_id,
-                               ( ''Order Up To Changed from '' || formatQty(OLD.itemsite_ordertoqty) ||
-                                 '' to '' || formatQty(NEW.itemsite_ordertoqty ) ) );
+          PERFORM postComment( _cmnttypeid, 'IS', NEW.itemsite_id,
+                               ( 'Order Up To Changed from ' || formatQty(OLD.itemsite_ordertoqty) ||
+                                 ' to ' || formatQty(NEW.itemsite_ordertoqty ) ) );
         END IF;
       END IF;
     END IF;
@@ -72,12 +76,12 @@ BEGIN
   RETURN NEW;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('trigger', 'itemsiteTrigger');
 CREATE TRIGGER itemsiteTrigger BEFORE INSERT OR UPDATE ON itemsite FOR EACH ROW EXECUTE PROCEDURE _itemsiteTrigger();
 
-CREATE OR REPLACE FUNCTION _itemsiteAfterTrigger () RETURNS TRIGGER AS '
+CREATE OR REPLACE FUNCTION _itemsiteAfterTrigger () RETURNS TRIGGER AS $$
 DECLARE
   _state INTEGER;
   _wasLocationControl BOOLEAN;
@@ -89,9 +93,9 @@ DECLARE
 
 BEGIN
 -- Check if we are doing maintenance
-  IF (TG_OP = ''INSERT'') THEN
+  IF (TG_OP = 'INSERT') THEN
     _maint := TRUE;
-  ELSIF (TG_OP = ''UPDATE'') THEN
+  ELSIF (TG_OP = 'UPDATE') THEN
     IF ((OLD.itemsite_item_id           != NEW.itemsite_item_id)
      OR (OLD.itemsite_warehous_id       != NEW.itemsite_warehous_id)
      OR (OLD.itemsite_reorderlevel      != NEW.itemsite_reorderlevel)
@@ -129,9 +133,9 @@ BEGIN
      OR (OLD.itemsite_warrpurc          != NEW.itemsite_warrpurc)
      OR (OLD.itemsite_autoreg           != NEW.itemsite_autoreg) ) THEN
       IF (OLD.itemsite_item_id != NEW.itemsite_item_id) THEN
-        RAISE EXCEPTION ''The item number on an itemsite may not be changed.'';
+        RAISE EXCEPTION 'The item number on an itemsite may not be changed.';
       ELSIF (OLD.itemsite_warehous_id != NEW.itemsite_warehous_id) THEN
-        RAISE EXCEPTION ''The warehouse code on an itemsite may not be changed.'';
+        RAISE EXCEPTION 'The warehouse code on an itemsite may not be changed.';
       END IF;
       _maint := TRUE;
     END IF;
@@ -141,8 +145,8 @@ BEGIN
 
   IF (_maint) THEN -- Begin Maintenance
 -- Privilege Checks
-    IF ( NOT checkPrivilege(''MaintainItemSites'') ) THEN
-       RAISE EXCEPTION ''You do not have privileges to maintain Item Sites.'';
+    IF ( NOT checkPrivilege('MaintainItemSites') ) THEN
+       RAISE EXCEPTION 'You do not have privileges to maintain Item Sites.';
     END IF;
     
 -- Override values to avoid invalid data combinations
@@ -153,7 +157,7 @@ BEGIN
       WHERE (itemsite_id=NEW.itemsite_id);
     END IF;
 
-    IF (NEW.itemsite_controlmethod NOT IN (''S'',''L'')) THEN
+    IF (NEW.itemsite_controlmethod NOT IN ('S','L')) THEN
       UPDATE itemsite SET
         itemsite_perishable = FALSE,
         itemsite_warrpurc = FALSE,
@@ -179,7 +183,7 @@ BEGIN
     END IF;
     
 -- Integrity check
-    IF (TG_OP = ''INSERT'') THEN
+    IF (TG_OP = 'INSERT') THEN
       -- Handle MLC logic
       IF ( (NEW.itemsite_loccntrl) AND (NEW.itemsite_warehous_id IS NOT NULL) ) THEN
         IF (SELECT count(*)=0
@@ -190,9 +194,9 @@ BEGIN
                 (location_id IN ( SELECT locitem_location_id
                                   FROM locitem
                                   WHERE (locitem_item_id=NEW.itemsite_item_id) ) ) ) ))) THEN
-          RAISE EXCEPTION ''You must first create at least one valid
+          RAISE EXCEPTION 'You must first create at least one valid
 	    		  Location for this Item Site before it may be
-	   	          multiply located.'';
+	   	          multiply located.';
         END IF;
       END IF;
 
@@ -200,22 +204,22 @@ BEGIN
       --for users with problematic legacy data over a relatively trivial problem for now,
       --so we will just check moving forword.
       IF (NEW.itemsite_stocked AND NEW.itemsite_reorderlevel<=0) THEN
-        RAISE EXCEPTION ''Stocked items must have postive reorder level specified.'';
+        RAISE EXCEPTION 'Stocked items must have postive reorder level specified.';
       END IF;
     END IF;
 
-    IF (TG_OP = ''UPDATE'') THEN
+    IF (TG_OP = 'UPDATE') THEN
       --This could be made a table constraint later, but do not want to create a big problem
       --for users with problematic legacy data over a relatively trivial problem for now,
       --so we will just check moving forword.
       IF ((NEW.itemsite_stocked)
         AND (NEW.itemsite_stocked != OLD.itemsite_stocked) --Avoid checking unless explicitly changed
         AND (NEW.itemsite_reorderlevel<=0)) THEN
-        RAISE EXCEPTION ''Stocked items must have postive reorder level specified.'';
+        RAISE EXCEPTION 'Stocked items must have postive reorder level specified.';
       END IF;
     END IF;
   
-    IF (TG_OP = ''UPDATE'') THEN
+    IF (TG_OP = 'UPDATE') THEN
   
 -- Integrity check
       IF (NOT OLD.itemsite_loccntrl AND NEW.itemsite_loccntrl) THEN
@@ -227,17 +231,17 @@ BEGIN
               (location_id IN ( SELECT locitem_location_id
                                 FROM locitem
                                 WHERE (locitem_item_id=NEW.itemsite_item_id) ) ) ) ))) THEN
-           RAISE EXCEPTION ''You must first create at least one valid
+           RAISE EXCEPTION 'You must first create at least one valid
 			  Location for this Item Site before it may be
-		          multiply located.'';
+		          multiply located.';
         END IF;
       END IF;
    
 -- Update detail records based on control method changes 
       _wasLocationControl := OLD.itemsite_loccntrl;
       _isLocationControl := NEW.itemsite_loccntrl;
-      _wasLotSerial := OLD.itemsite_controlmethod IN (''S'',''L'');
-      _isLotSerial := NEW.itemsite_controlmethod IN (''S'',''L''); 
+      _wasLotSerial := OLD.itemsite_controlmethod IN ('S','L');
+      _isLotSerial := NEW.itemsite_controlmethod IN ('S','L'); 
       _state := 0;
     
       IF ( (_wasLocationControl) AND (_isLocationControl) ) THEN
@@ -266,7 +270,7 @@ BEGIN
         PERFORM consolidateLocations(OLD.itemsite_id);
       ELSIF (_state IN (24, 42, 44)) THEN
 
-        RAISE NOTICE ''Deleting item site detail records,'';
+        RAISE NOTICE 'Deleting item site detail records,';
 
         SELECT SUM(itemloc_qty) INTO _qty
         FROM itemloc, location
@@ -310,13 +314,13 @@ BEGIN
                                     WHERE (locitem_item_id=NEW.itemsite_item_id) ) ) ) ))) THEN
            PERFORM initialDistribution(NEW.itemsite_id, NEW.itemsite_location_id);
           ELSE
-            RAISE EXCEPTION ''A valid default location must be selected to distribute existing inventory to.'';
+            RAISE EXCEPTION 'A valid default location must be selected to distribute existing inventory to.';
           END IF;
         END IF;
 
 --  Handle Lot/Serial distribution
         IF ( (_state = 13) OR (_state = 23) OR (_state = 33) OR (_state = 43) ) THEN
-          RAISE NOTICE ''You should now use the Reassign Lot/Serial # window to assign Lot/Serial #s.'';
+          RAISE NOTICE 'You should now use the Reassign Lot/Serial # window to assign Lot/Serial #s.';
         END IF;
       END IF;  
     END IF;
@@ -325,7 +329,7 @@ BEGIN
   RETURN NEW;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('trigger', 'itemsiteAfterTrigger');
 CREATE TRIGGER itemsiteAfterTrigger AFTER INSERT OR UPDATE ON itemsite FOR EACH ROW EXECUTE PROCEDURE _itemsiteAfterTrigger();
