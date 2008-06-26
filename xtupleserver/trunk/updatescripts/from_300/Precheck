@@ -28,6 +28,42 @@ SELECT COUNT(*) = 0
 FROM whsinfo LEFT OUTER JOIN cntct ON (cntct_id=warehous_cntct_id)
 WHERE (cntct_id IS NULL);
 
+-- make sure cashrcpt customer is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM cashrcpt LEFT OUTER JOIN cust ON (cust_id=cashrcpt_cust_id)
+WHERE (cust_id IS NULL);
+
+-- make sure cashrcpt bank account is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM cashrcpt LEFT OUTER JOIN bankaccnt ON (bankaccnt_id=cashrcpt_bankaccnt_id)
+WHERE (bankaccnt_id IS NULL);
+
+-- make sure cashrcptitem cashrcpt is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM cashrcptitem LEFT OUTER JOIN cashrcpt ON (cashrcpt_id=cashrcptitem_cashrcpt_id)
+WHERE (cashrcpt_id IS NULL);
+
+-- make sure cashrcptitem aropen is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM cashrcptitem LEFT OUTER JOIN aropen ON (aropen_id=cashrcptitem_aropen_id)
+WHERE (aropen_id IS NULL);
+
+-- make sure cashrcptmisc cashrcpt is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM cashrcptmisc LEFT OUTER JOIN cashrcpt ON (cashrcpt_id=cashrcptmisc_cashrcpt_id)
+WHERE (cashrcpt_id IS NULL);
+
+-- make sure cashrcptmisc accnt is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM cashrcptmisc LEFT OUTER JOIN accnt ON (accnt_id=cashrcptmisc_accnt_id)
+WHERE (accnt_id IS NULL);
+
 -- Check for custinfo to make sure all customer numbers are unique
 SELECT count(*) = 0
   FROM (SELECT cust_number, count(*)
