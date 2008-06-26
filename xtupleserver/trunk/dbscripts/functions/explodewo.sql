@@ -275,15 +275,18 @@ BEGIN
 --  Create W/Os for manufactured component items
   FOR newWo IN SELECT wo_number, nextWoSubnumber(wo_number) AS nextSubnumber,
                       itemsite_id, itemsite_leadtime, womatl_duedate,
-                      womatl_wo_id, womatl_qtyreq, wo_prj_id
-               FROM womatl, wo, itemsite
+                      womatl_wo_id, womatl_qtyreq, womatl_uom_id, wo_prj_id,
+                      item_id, item_inv_uom_id
+               FROM womatl, wo, itemsite, item
                WHERE ( (womatl_wo_id=wo_id)
                 AND (womatl_itemsite_id=itemsite_id)
                 AND (womatl_createwo)
                 AND (itemsite_supply)
+                AND (itemsite_item_id=item_id)
                 AND (wo_id=pWoid) ) LOOP
 
-    PERFORM createWo( newWo.wo_number, newWo.itemsite_id, 1, newWo.womatl_qtyreq,
+    PERFORM createWo( newWo.wo_number, newWo.itemsite_id, 1, 
+                     itemuomtouom(newWo.item_id,newWo.womatl_uom_id,newWo.item_inv_uom_id,newWo.womatl_qtyreq),
                       newWo.itemsite_leadtime, newWo.womatl_duedate, '''',
                       ''W'', newWo.womatl_wo_id, newWo.wo_prj_id );
 
