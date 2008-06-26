@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section521501">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>item sites</primary>
       <secondary>lead times in</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>Update Item Site Lead Times</title>
   <para>To update the Lead Times associated with Item Sites, select the "Item
   Site Lead Times" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/updateItemSiteLeadTimes.png"/>
+          <imagedata fileref="images/updateItemSiteLeadTimes.png" />
         </imageobject>
         <caption>Update Item Site Lead Times</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When updating Item Site Lead Times, you are presented with the
   following options:</para>
   <variablelist>
@@ -64,7 +62,39 @@
       <listitem>
         <para>Select a number using the arrow buttons, or manually enter a
         value up to a maximum of 99. Value entered specifies the number of
-        days you want to pad Item Site Lead times by.</para>
+        days you want to pad Item Site Lead times by. The following formulas
+        describe how Lead Times for different Item Types are handled:</para>
+        <itemizedlist>
+          <listitem>
+            <para><emphasis role="bold">Manufactured and Job Items:</emphasis>
+            The utility first scans the Bill of Materials for the Item and
+            finds the component Item having the longest lead time. It then
+            scans the Bill of Operations for the Item and finds the Operation
+            having the latest execution day. Finally it performs the following
+            calculation:</para>
+            <informalexample>
+              <para>Longest Component Item Lead Time + Execution Day + Pad
+              Days = New Item Site Lead Time</para>
+            </informalexample>
+          </listitem>
+          <listitem>
+            <para><emphasis role="bold">Purchased Items (with Item
+            Source):</emphasis> The utility scans any Item Sources and finds
+            the longest Lead Time. Then if performs the following
+            calculation:</para>
+            <informalexample>
+              <para>Longest Item Source Lead Time + Pad Days = New Item Site
+              Lead Time</para>
+            </informalexample>
+          </listitem>
+          <listitem>
+            <para><emphasis role="bold">All Others:</emphasis> The utility
+            does the following calculation:</para>
+            <informalexample>
+              <para>Pad Days = New Item Site Lead Time</para>
+            </informalexample>
+          </listitem>
+        </itemizedlist>
       </listitem>
     </varlistentry>
   </variablelist>
