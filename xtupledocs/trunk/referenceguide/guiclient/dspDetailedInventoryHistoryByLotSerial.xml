@@ -1,38 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section678441" role="standard">
   <title>Detailed Inventory History by Lot/Serial #</title>
+  <para>Some users need to be able to track warranty periods of Items from the
+  purchase of raw materials to the sale of finished goods. Such traceability
+  is possible by leveraging the Lot/Serial capability in xTuple ERP. Using
+  Lot/Serial trace, users have access to backwards and forwards tracking
+  through multiple levels of production of where used and warranty status of
+  Items.</para>
+  <para>For example, if a defective internal medical device came back because
+  of a defective spring, a user should be able to determine what Lot of
+  springs went into the device--even if the spring was issued to a subassembly
+  two levels down. Likewise, once the spring lot is determined the user should
+  be able to search forward and determine all goods where that lot of springs
+  were used and shipped so all customers may be notified of the defect. If the
+  spring was under warranty and is still eligible, the backward search should
+  indicate so.</para>
   <para>To view detailed Inventory history by Lot/Serial Number, select the
   "Detailed Inventory History by Lot/Serial #" option. The following screen
   will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspDetailedInventoryHistoryByLotSerial.png"/>
+          <imagedata fileref="images/dspDetailedInventoryHistoryByLotSerial.png" />
         </imageobject>
-        <caption>Detailed Inventory History by Lot/Serial
-        Number</caption>
+        <caption>Detailed Inventory History by Lot/Serial Number</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying detailed Inventory history by Lot/Serial Number, you
   are presented with the following options:</para>
   <variablelist>
     <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Lot/Serial #</term>
       <listitem>
-        <para>Enter the Lot/Serial Number of the Inventory whose detailed
-        Inventory history you want to display. This field supports regular
-        expressions.</para>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Selected</term>
+            <listitem>
+              <para>Enter the Lot/Serial Number of the Inventory whose
+              detailed Inventory history you want to display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Pattern</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>The "Lot/Serial #" field supports pattern matching with Regular
-    Expressions.</para>
-  </tip>
   <variablelist>
     <varlistentry>
       <term>Trans. Types</term>
@@ -88,19 +121,59 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Start Date</term>
+      <term>Date Range</term>
       <listitem>
-        <para>Inventory transactions conducted on and after this date will be
-        displayed. Start date and end date must be entered for calculation to
-        proceed.</para>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Inventory transactions conducted on and after this date
+              will be displayed. Start date and end date must be entered for
+              calculation to proceed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Inventory transactions conducted on and before this date
+              will be displayed. Start date and end date must be entered for
+              calculation to proceed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>End Date</term>
+      <term>All Warehouses</term>
       <listitem>
-        <para>Inventory transactions conducted on and before this date will be
-        displayed. Start date and end date must be entered for calculation to
-        proceed.</para>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Mult-Level Trace</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Forward</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Backward</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -141,12 +214,5 @@
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para>Right-clicking on a transaction without an assigned Order number in
-  the Inventory History list enables you to select from the following menu
-  options:</para>
-  <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/37)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>
