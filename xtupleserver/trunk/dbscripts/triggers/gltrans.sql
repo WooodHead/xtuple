@@ -15,7 +15,7 @@ BEGIN
   IF (_externalCompany) THEN
     RAISE EXCEPTION 'Transactions are not allowed for G/L Accounts with External Company segments.';
   END IF;
-  RAISE NOTICE '_gltransInsertTrigger(): company_external = %', _externalCompany;
+  -- RAISE NOTICE '_gltransInsertTrigger(): company_external = %', _externalCompany;
 
   SELECT metric_value='t'
     INTO _reqNotes
