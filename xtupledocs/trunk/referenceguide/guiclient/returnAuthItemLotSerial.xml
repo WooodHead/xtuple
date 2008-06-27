@@ -17,7 +17,7 @@
         <imageobject>
           <imagedata fileref="images/returnAuthItemLotSerial.png" />
         </imageobject>
-        <caption>Create New Return Authorization Line Item</caption>
+        <caption>Authorize Lot/Serial Quantity</caption>
       </mediaobject>
     </screenshot></para>
   <para>When authorizing specific Lot/Serial quantities, you are presented
@@ -34,13 +34,14 @@
     <varlistentry>
       <term>UOM</term>
       <listitem>
-        <para>Inventory Unit of Measure. </para>
+        <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Lot/Serial #</term>
       <listitem>
-        <para></para>
+        <para>Select a pre-existing Lot/Serial Number for the Item. Or create
+        a new Lot/Serial Number manually.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -48,8 +49,8 @@
     <varlistentry>
       <term>Qty. Auth.</term>
       <listitem>
-        <para>Enter the quantity of the specified Item you want to
-        authorize.</para>
+        <para>Enter the quantity of the specified Lot/Serial quantity you want
+        to authorize.</para>
         <note>
           <para>The quantity authorized is based on the quantity Unit of
           Measure.</para>
@@ -61,7 +62,9 @@
     <varlistentry>
       <term>Qty. Registered</term>
       <listitem>
-        <para></para>
+        <para>Displays the Lot/Serial quantity already registered. To learn
+        more about Lot/Serial registration, see the <xref
+        linkend="lotSerialRegistrationTitle" /> section.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -78,16 +81,16 @@
     <varlistentry>
       <term>CANCEL</term>
       <listitem>
-        <para>Closes the screen without creating a new Return Authorization
-        Line Item, returning you to the Return Authorization header.</para>
+        <para>Closes the screen without authorizing specific Lot/Serial
+        quantities, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
       <listitem>
-        <para>Creates the new Return Authorization Line Item and adds it to
-        the list of Return Authorization Line Items. If "Create Work Order" is
-        specified, the associated Work Order will also be created.</para>
+        <para>Creates the new Lot/Serial quantity authorizaton and adds it to
+        the list of Lot/Serial authorizations for the Return Authorization
+        Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
