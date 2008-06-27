@@ -5,15 +5,17 @@
 <section id="Section955847" role="standard">
   <title>Schedule Server Maintenance</title>
   <para>The server maintenance utility is designed to perform automated
-  maintenance on your server. Server maintenance should be performed on a
-  regular basis to ensure the smooth operation of your server.</para>
+  maintenance on xTuple databases running on older versions of PostgreSQL. If
+  you are running a newer version of PostgreSQL (i.e., version 8.2 and newer),
+  you should use PostgreSQL's native auto vacuum functionality instead of the
+  xTuple server maintenance utility.</para>
   <note>
-    <para>When server maintenance is performed, a VACUUM FULL ANALYZE
-    operation is run on your server, followed by a REINDEX. The user who
+    <para>When the server maintenance utility is run, a VACUUM FULL ANALYZE
+    operation is run on your database, followed by a REINDEX. The user who
     schedules server maintenance must be a superuser (i.e., have the ability
-    to create system users). For more information on the VACUUM, ANALYZE, and
-    REINDEX operations, visit the PostgreSQL website at <ulink
-    id="Hypertext956137"
+    to create system users). For more information on these operations and also
+    to learn more about the native auto vacuum feature found in newer versions
+    of PostgreSQL, visit the PostgreSQL website at <ulink id="Hypertext956137"
     url="http://www.postgresql.com">http://www.postgresql.com</ulink>.</para>
   </note>
   <para>To run the server maintenance utility, select the "Schedule Server
