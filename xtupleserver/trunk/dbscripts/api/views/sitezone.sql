@@ -2,9 +2,10 @@ BEGIN;
 
 -- Site Zone (aka Warehouse Zone) View
 
+DROP VIEW api.sitezone;
 CREATE OR REPLACE VIEW api.sitezone AS
   SELECT 
-    warehous_code::varchar(100) AS warehouse,
+    warehous_code::varchar(100) AS site,
     whsezone_name::varchar(100) AS name,
     whsezone_descrip AS description
     FROM whsezone
@@ -24,7 +25,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     whsezone_descrip
     )
   VALUES (
-    getWarehousId(NEW.warehouse, 'ACTIVE'),
+    getWarehousId(NEW.site, 'ACTIVE'),
     COALESCE(NEW.name,''),
     COALESCE(NEW.description, '')
     );
@@ -34,14 +35,14 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 
   UPDATE whsezone SET
     whsezone_descrip=NEW.description
-  WHERE ( (whsezone_warehous_id=getWarehousId(OLD.warehouse, 'ACTIVE')) AND
+  WHERE ( (whsezone_warehous_id=getWarehousId(OLD.site, 'ACTIVE')) AND
           (whsezone_name=OLD.name) );
            
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.sitezone DO INSTEAD
 
   DELETE FROM whsezone
-  WHERE ( (whsezone_warehous_id=getWarehousId(OLD.warehouse, 'ACTIVE')) AND
+  WHERE ( (whsezone_warehous_id=getWarehousId(OLD.site, 'ACTIVE')) AND
           (whsezone_name=OLD.name) );
 
 COMMIT;

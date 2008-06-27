@@ -2,9 +2,10 @@ BEGIN;
 
 -- Location View
 
+DROP VIEW api.location;
 CREATE OR REPLACE VIEW api.location AS
   SELECT
-    warehous_code::varchar(100) AS warehouse,
+    warehous_code::varchar(100) AS site,
     whsezone_name::varchar(100) AS zone,
     location_netable AS netable,
     location_restrict AS restricted,
@@ -37,12 +38,12 @@ CREATE OR REPLACE RULE "_INSERT" AS
     location_bin
     )
   VALUES (
-    getWarehousId(NEW.warehouse, 'ACTIVE'),
+    getWarehousId(NEW.site, 'ACTIVE'),
     COALESCE(NEW.location,''),
     COALESCE(NEW.description, ''),
     COALESCE(NEW.restricted, false),
     COALESCE(NEW.netable, true),
-    getWhseZoneId(NEW.warehouse, NEW.zone),
+    getWhseZoneId(NEW.site, NEW.zone),
     COALESCE(NEW.aisle, ''),
     COALESCE(NEW.rack, ''),
     COALESCE(NEW.bin, '')
@@ -56,18 +57,18 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     location_descrip=NEW.description,
     location_restrict=NEW.restricted,
     location_netable=NEW.netable,
-    location_whsezone_id=getWhseZoneId(NEW.warehouse, NEW.zone),
+    location_whsezone_id=getWhseZoneId(NEW.site, NEW.zone),
     location_aisle=NEW.aisle,
     location_rack=NEW.rack,
     location_bin=NEW.bin
-  WHERE ( (location_warehous_id=getWarehousId(OLD.warehouse, 'ACTIVE')) AND
+  WHERE ( (location_warehous_id=getWarehousId(OLD.site, 'ACTIVE')) AND
           (location_name=OLD.location) );
            
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.location DO INSTEAD
 
   DELETE FROM location
-  WHERE ( (location_warehous_id=getWarehousId(OLD.warehouse, 'ACTIVE')) AND
+  WHERE ( (location_warehous_id=getWarehousId(OLD.site, 'ACTIVE')) AND
           (location_name=OLD.location) );
 
 COMMIT;

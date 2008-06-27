@@ -7,12 +7,12 @@ CREATE VIEW api.itemsite
 AS 
    SELECT
      item_number::varchar(100) AS item_number,
-     warehous_code::varchar(100) AS warehouse,
+     warehous_code::varchar(100) AS site,
      itemsite_active AS active,
-     itemsite_supply AS supplied_at_warehouse,
+     itemsite_supply AS supplied_at_site,
      itemsite_createpr AS create_prs,
      itemsite_createwo AS create_wos,
-     itemsite_sold AS sold_from_warehouse,
+     itemsite_sold AS sold_from_site,
      itemsite_soldranking AS ranking,
      CASE
        WHEN itemsite_controlmethod = 'N' THEN
@@ -108,12 +108,12 @@ INSERT INTO itemsite (
      itemsite_freeze)
      VALUES (
        getItemId(NEW.item_number),
-       getWarehousId(NEW.warehouse,'ACTIVE'),
+       getWarehousId(NEW.site,'ACTIVE'),
        COALESCE(NEW.active,TRUE),
-       COALESCE(NEW.supplied_at_warehouse,TRUE),
+       COALESCE(NEW.supplied_at_site,TRUE),
        COALESCE(NEW.create_prs,FALSE),
        COALESCE(NEW.create_wos,FALSE),
-       COALESCE(NEW.sold_from_warehouse,TRUE),
+       COALESCE(NEW.sold_from_site,TRUE),
        COALESCE(NEW.ranking,1),
        CASE
          WHEN NEW.control_method = 'None' THEN
@@ -129,7 +129,7 @@ INSERT INTO itemsite (
        getPlanCodeId(NEW.planner_code),
        getCostCatId(NEW.cost_category),
        COALESCE(NEW.multiple_location_control,FALSE),
-       COALESCE(getLocationId(NEW.warehouse,NEW.location),-1),
+       COALESCE(getLocationId(NEW.site,NEW.location),-1),
        COALESCE(NEW.user_defined_location,''),
        COALESCE(NEW.location_comment,''),
        COALESCE(NEW.disallow_blank_wip_locations,FALSE),
@@ -160,10 +160,10 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 
 UPDATE itemsite SET 
      itemsite_active=NEW.active,
-     itemsite_supply=NEW.supplied_at_warehouse,
+     itemsite_supply=NEW.supplied_at_site,
      itemsite_createpr=NEW.create_prs,
      itemsite_createwo=NEW.create_wos,
-     itemsite_sold=NEW.sold_from_warehouse,
+     itemsite_sold=NEW.sold_from_site,
      itemsite_soldranking=NEW.ranking,
      itemsite_controlmethod=
        CASE
@@ -180,7 +180,7 @@ UPDATE itemsite SET
      itemsite_plancode_id=getPlanCodeId(NEW.planner_code),
      itemsite_costcat_id=getCostCatId(NEW.cost_category),
      itemsite_loccntrl=NEW.multiple_location_control,
-     itemsite_location_id=getLocationId(NEW.warehouse,NEW.location),
+     itemsite_location_id=getLocationId(NEW.site,NEW.location),
      itemsite_location=NEW.user_defined_location,
      itemsite_location_comments=NEW.user_defined_location,
      itemsite_disallowblankwip=NEW.disallow_blank_wip_locations,
@@ -203,11 +203,11 @@ UPDATE itemsite SET
      itemsite_notes=NEW.notes,
      itemsite_warrpurc=NEW.require_warranty,
      itemsite_autoreg=NEW.auto_register
-   WHERE (itemsite_id=getItemSiteId(OLD.warehouse,OLD.item_number));
+   WHERE (itemsite_id=getItemSiteId(OLD.site,OLD.item_number));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.itemsite DO INSTEAD
 
-   SELECT deleteitemsite(getItemSiteId(OLD.warehouse,OLD.item_number));
+   SELECT deleteitemsite(getItemSiteId(OLD.site,OLD.item_number));
 
 COMMIT;

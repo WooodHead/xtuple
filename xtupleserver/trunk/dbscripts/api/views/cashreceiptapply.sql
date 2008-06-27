@@ -1,5 +1,6 @@
 BEGIN;
 
+DROP VIEW api.cashreceiptapply;
 CREATE OR REPLACE VIEW api.cashreceiptapply AS
   SELECT
     cust_number AS customer_number,

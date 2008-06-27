@@ -2,6 +2,7 @@ BEGIN;
 
   --Site (aka Warehouse) View
 
+  DROP VIEW api.site;
   CREATE OR REPLACE VIEW api.site AS
  
   SELECT 
@@ -52,7 +53,7 @@ BEGIN;
       WHEN warehous_transit THEN
         false
       ELSE warehous_shipping
-    END AS shipping_warehouse,
+    END AS shipping_site,
     CASE
       WHEN warehous_transit THEN
         ''
@@ -275,7 +276,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     END,
     CASE
       WHEN NEW.inventory_type THEN
-        COALESCE(NEW.shipping_warehouse, false)
+        COALESCE(NEW.shipping_site, false)
       ELSE
         false
     END,
@@ -461,7 +462,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     warehous_shipping=
       CASE
         WHEN NEW.inventory_type THEN
-          NEW.shipping_warehouse
+          NEW.shipping_site
         ELSE
           NULL
       END,

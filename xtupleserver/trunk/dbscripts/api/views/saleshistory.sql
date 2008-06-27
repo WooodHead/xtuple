@@ -8,7 +8,7 @@ BEGIN;
   SELECT
     cust_number AS customer_number,
     item_number,
-    warehous_code AS warehouse_code,
+    warehous_code AS site_code,
     cohist_shipdate AS ship_date,
     cohist_shipvia AS ship_via,
     cohist_ordernumber AS order_number,
@@ -150,7 +150,7 @@ COMMENT ON VIEW api.saleshistory IS 'Sales History';
     cohist_tax_ratec)
   VALUES (
     getCustId(NEW.customer_number),
-    getItemsiteId(NEW.warehouse_code,NEW.item_number),
+    getItemsiteId(NEW.site_code,NEW.item_number),
     NEW.ship_date,
     NEW.ship_via,
     NEW.order_number,

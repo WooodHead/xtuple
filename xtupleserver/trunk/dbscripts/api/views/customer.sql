@@ -19,7 +19,7 @@ BEGIN;
     cust_partialship AS accepts_partial_shipments,
     cust_ffshipto AS allow_free_form_shipto,
     cust_ffbillto AS allow_free_form_billto,
-    warehous_code AS preferred_selling_whs,
+    warehous_code AS preferred_selling_site,
     taxauth_code AS default_tax_authority,
     terms_code AS default_terms,
     CASE 
@@ -244,7 +244,7 @@ INSERT INTO custinfo
         ELSE
           getEdiProfileId(NEW.invc_edi_profile)
         END,
-        COALESCE(getWarehousId(NEW.preferred_selling_whs,'ACTIVE'),-1),
+        COALESCE(getWarehousId(NEW.preferred_selling_site,'ACTIVE'),-1),
         COALESCE(getCurrId(NEW.default_currency),basecurrid()),
         COALESCE(getCurrID(NEW.credit_limit_currency),basecurrid()),
         saveCntct(
@@ -378,7 +378,7 @@ UPDATE custinfo SET
           ELSE
             getEdiProfileId(NEW.invc_edi_profile)
           END,
-        cust_preferred_warehous_id=COALESCE(getWarehousId(NEW.preferred_selling_whs,'ACTIVE'),-1),
+        cust_preferred_warehous_id=COALESCE(getWarehousId(NEW.preferred_selling_site,'ACTIVE'),-1),
         cust_curr_id=getCurrId(NEW.default_currency),
         cust_creditlmt_curr_id=getCurrId(NEW.credit_limit_currency),
         cust_cntct_id=saveCntct(

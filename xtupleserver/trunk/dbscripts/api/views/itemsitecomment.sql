@@ -7,7 +7,7 @@ CREATE VIEW api.itemsitecomment
 AS 
    SELECT 
      item_number,
-     warehous_code AS warehouse,
+     warehous_code AS site,
      cmnttype_name AS type,
      comment_date AS date,
      comment_user AS username,
@@ -38,7 +38,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   VALUES (
     COALESCE(NEW.date,now()),
     'IS',
-    getItemSiteId(NEW.warehouse,NEW.item_number),
+    getItemSiteId(NEW.site,NEW.item_number),
     COALESCE(NEW.username,current_user),
     getCmntTypeId(NEW.type),
     NEW.text);

@@ -10,7 +10,7 @@ AS
      l.item_number AS item_number,
      coitem_custpn AS customer_pn,
      s.item_number AS substitute_for,
-     warehous_code AS sold_from_whs,
+     warehous_code AS sold_from_site,
      coitem_status AS status,
      coitem_qtyord AS qty_ordered,
      q.uom_name AS qty_uom,
@@ -137,7 +137,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   AND (item_number=NEW.item_number)
   AND (warehous_active)
   AND (warehous_shipping)
-  AND (warehous_code=COALESCE(NEW.sold_from_whs,(
+  AND (warehous_code=COALESCE(NEW.sold_from_site,(
                                 SELECT warehous_code
                                 FROM usrpref,whsinfo
                                 WHERE ((usrpref_username=current_user)
@@ -165,7 +165,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
       WHEN (NOT OLD.create_order AND NEW.create_order AND (item_type = 'P')) THEN
         'R'     
     END,
-    coitem_substitute_item_id=getItemsiteId(NEW.sold_from_whs,NEW.item_number),
+    coitem_substitute_item_id=getItemsiteId(NEW.sold_from_site,NEW.item_number),
     coitem_prcost=NEW.overwrite_po_price,
     coitem_tax_id=getTaxId(NEW.tax_code),
     coitem_warranty=NEW.warranty,

@@ -2,6 +2,7 @@ BEGIN;
 
 -- Incident View
 
+DROP VIEW api.incident;
 CREATE OR REPLACE VIEW api.incident AS
   SELECT
     incdt_number AS incident_number,

@@ -7,7 +7,7 @@ CREATE VIEW api.quote
 AS
    SELECT 
      quhead_number AS quote_number,
-     warehous_code AS warehouse,
+     warehous_code AS site,
      quhead_quotedate AS quote_date,
      quhead_packdate AS pack_date,
      CASE
@@ -128,7 +128,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     getCustId(NEW.customer_number,true),
     NEW.cust_po_number,
     NEW.quote_date,
-    getWarehousId(NEW.warehouse,'SHIPPING'),
+    getWarehousId(NEW.site,'SHIPPING'),
     getShiptoId(NEW.customer_number,NEW.shipto_number),
     NEW.shipto_name,
     NEW.shipto_address1,
@@ -181,7 +181,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     quhead_cust_id=getCustId(NEW.customer_number,true),
     quhead_custponumber=NEW.cust_po_number,
     quhead_quotedate=NEW.quote_date,
-    quhead_warehous_id=getWarehousId(NEW.warehouse,'SHIPPING'),
+    quhead_warehous_id=getWarehousId(NEW.site,'SHIPPING'),
     quhead_shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number),
     quhead_shiptoname=NEW.shipto_name,
     quhead_shiptoaddress1=NEW.shipto_address1,

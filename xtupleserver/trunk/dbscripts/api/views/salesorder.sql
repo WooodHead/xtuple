@@ -6,7 +6,7 @@ CREATE VIEW api.salesorder
 AS
    SELECT 
      cohead_number AS order_number,
-     warehous_code AS warehouse,
+     warehous_code AS site,
      cohead_orderdate AS order_date,
      cohead_packdate AS pack_date,
      CASE
@@ -148,7 +148,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     getCustId(NEW.customer_number),
     NEW.cust_po_number,
     NEW.order_date,
-    getWarehousId(NEW.warehouse,'SHIPPING'),
+    getWarehousId(NEW.site,'SHIPPING'),
     getShiptoId(NEW.customer_number,NEW.shipto_number),
     NEW.shipto_name,
     NEW.shipto_address1,
@@ -213,7 +213,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     cohead_cust_id=getCustId(NEW.customer_number),
     cohead_custponumber=NEW.cust_po_number,
     cohead_orderdate=NEW.order_date,
-    cohead_warehous_id=getWarehousId(NEW.warehouse,'SHIPPING'),
+    cohead_warehous_id=getWarehousId(NEW.site,'SHIPPING'),
     cohead_shipto_id=getShiptoId(NEW.customer_number,NEW.shipto_number),
     cohead_shiptoname=NEW.shipto_name,
     cohead_shiptoaddress1=NEW.shipto_address1,

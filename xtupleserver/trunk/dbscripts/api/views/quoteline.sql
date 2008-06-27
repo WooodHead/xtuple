@@ -10,7 +10,7 @@ AS
      quitem_linenumber AS line_number,
      l.item_number AS item_number,
      quitem_custpn AS customer_pn,
-     i.warehous_code AS sold_from_whs,
+     i.warehous_code AS sold_from_site,
      quitem_qtyord AS qty_ordered,
      q.uom_name AS qty_uom,
      quitem_price AS net_unit_price,
@@ -30,7 +30,7 @@ AS
          CAST(ROUND(((1 - quitem_price / quitem_custprice) * 100),4) AS text)
      END AS discount_pct_from_list,
      quitem_createorder AS create_order,
-     s.warehous_code AS supplying_whs,
+     s.warehous_code AS supplying_site,
      quitem_prcost AS overwrite_po_price,
      quitem_memo AS notes
   FROM quhead, uom q, uom p, quitem
@@ -96,7 +96,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     true,
     NEW.customer_pn,
     COALESCE(NEW.create_order,false),
-    COALESCE(getWarehousId(NEW.supplying_whs,'SHIPPING'),itemsite_warehous_id),
+    COALESCE(getWarehousId(NEW.supplying_site,'SHIPPING'),itemsite_warehous_id),
     getItemId(NEW.item_number),
     COALESCE(NEW.overwrite_po_price,0),
     COALESCE(getTaxId(NEW.tax_code),getTaxSelection(quhead_taxauth_id,
@@ -113,7 +113,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   AND (item_number=NEW.item_number)
   AND (warehous_active)
   AND (warehous_shipping)
-  AND (warehous_code=COALESCE(NEW.sold_from_whs,(
+  AND (warehous_code=COALESCE(NEW.sold_from_site,(
                                 SELECT warehous_code
                                 FROM usrpref,whsinfo
                                 WHERE ((usrpref_username=current_user)
@@ -133,7 +133,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     quitem_price_invuomratio=itemuomtouomratio(item_id,COALESCE(getUomId(NEW.price_uom),item_inv_uom_id),item_inv_uom_id),
     quitem_memo=NEW.notes,
     quitem_createorder=NEW.create_order,
-    quitem_order_warehous_id=getWarehousId(NEW.supplying_whs,'SHIPPING'),
+    quitem_order_warehous_id=getWarehousId(NEW.supplying_site,'SHIPPING'),
     quitem_prcost=NEW.overwrite_po_price,
     quitem_tax_id=getTaxId(NEW.tax_code)
    FROM item

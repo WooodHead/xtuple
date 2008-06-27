@@ -2,6 +2,7 @@ BEGIN;
 
 -- To-Do List View
 
+DROP VIEW api.todo;
 CREATE OR REPLACE VIEW api.todo AS
   SELECT
     todoitem_id AS task_number,
