@@ -24,12 +24,9 @@ BEGIN
     _row.bomitem_expires:=_r.bomitem_expires;
     _row.bomitem_createwo:=_r.bomitem_createwo;
     _row.bomitem_issuemethod:=_r.bomitem_issuemethod;
-    _row.bomitem_configtype:=_r.bomitem_configtype;
-    _row.bomitem_configid:=_r.bomitem_configid;
     _row.bomitem_schedatwooper:=_r.bomitem_schedatwooper;
     _row.bomitem_ecn:=_r.bomitem_ecn;
     _row.bomitem_moddate:=_r.bomitem_moddate;
-    _row.bomitem_configflag:=_r.bomitem_configflag;
     _row.bomitem_subtype:=_r.bomitem_subtype;
     _row.bomitem_uom_id:=_r.bomitem_uom_id;
     _row.bomitem_rev_id:=_r.bomitem_rev_id;
@@ -68,12 +65,9 @@ BEGIN
     _row.bomitem_expires:=_r.bomitem_expires;
     _row.bomitem_createwo:=_r.bomitem_createwo;
     _row.bomitem_issuemethod:=_r.bomitem_issuemethod;
-    _row.bomitem_configtype:=_r.bomitem_configtype;
-    _row.bomitem_configid:=_r.bomitem_configid;
     _row.bomitem_schedatwooper:=_r.bomitem_schedatwooper;
     _row.bomitem_ecn:=_r.bomitem_ecn;
     _row.bomitem_moddate:=_r.bomitem_moddate;
-    _row.bomitem_configflag:=_r.bomitem_configflag;
     _row.bomitem_subtype:=_r.bomitem_subtype;
     _row.bomitem_uom_id:=_r.bomitem_uom_id;
     _row.bomitem_rev_id:=_r.bomitem_rev_id;
