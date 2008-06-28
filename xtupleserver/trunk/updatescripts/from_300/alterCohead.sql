@@ -22,4 +22,6 @@ ALTER TABLE cohead ALTER COLUMN cohead_shipform_id SET NOT NULL;
 ALTER TABLE cohead ALTER COLUMN cohead_terms_id SET NOT NULL;
 ALTER TABLE cohead ENABLE TRIGGER soheadtrigger;   
 
+--Take out some trash
+ALTER TABLE cohead DROP COLUMN cohead_tax_id;
 COMMIT;

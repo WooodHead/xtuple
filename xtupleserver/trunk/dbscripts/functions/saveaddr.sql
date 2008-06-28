@@ -1,17 +1,3 @@
-CREATE OR REPLACE FUNCTION saveAddr(int4, text, text, text, text, text, text, text, boolean, text, text)
-  RETURNS integer AS '
-BEGIN
-  RAISE EXCEPTION ''This function is deprecated.  Address now requires an address number.  Use saveAddr(int4, text, text, text, text, text, text, text, text, boolean, text, text)'';
-END;
-' LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION saveAddr(int4, text, text, text, text, text, text, text, text)
-  RETURNS integer AS '
-BEGIN
-  RAISE EXCEPTION ''This function is deprecated.  Address now requires an address number.  Use saveAddr(int4, text, text, text, text, text, text, text, text, text)'';
-END;
-' LANGUAGE 'plpgsql';
-
 CREATE OR REPLACE FUNCTION saveAddr(int4, text, text, text, text, text, text, text, text, boolean, text, text)
   RETURNS integer AS '
 DECLARE

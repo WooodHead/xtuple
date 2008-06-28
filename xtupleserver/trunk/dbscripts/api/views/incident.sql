@@ -40,7 +40,6 @@ CREATE OR REPLACE VIEW api.incident AS
     (''::TEXT) AS contact_change,
     incdt_descrip AS notes,
     item_number AS item_number,
-    item_invuom AS uom,
     incdt_lotserial AS lot_serial_number
     FROM incdt
        LEFT OUTER JOIN incdtcat ON (incdtcat_id=incdt_incdtcat_id)

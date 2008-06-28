@@ -105,12 +105,6 @@ BEGIN
                                  ''" to "'' || NEW.item_descrip2 || ''"'' ) );
         END IF;
 
-        IF (OLD.item_invuom <> NEW.item_invuom) THEN
-          PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''Inventory UOM Changed from "'' || OLD.item_invuom ||
-                                 ''" to "'' || NEW.item_invuom || ''"'' ) );
-        END IF;
-
         IF (OLD.item_inv_uom_id <> NEW.item_inv_uom_id) THEN
           PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
                                ( ''Inventory UOM Changed from "'' ||
@@ -149,34 +143,11 @@ BEGIN
         END IF;
 
 -- Add New stuff
-        IF (OLD.item_capuom <> NEW.item_capuom) THEN
-          PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''Capacity UOM Changed from "'' || OLD.item_capuom ||
-                                 ''" to "'' || NEW.item_capuom || ''"'' ) );
-        END IF;
-
-        IF (OLD.item_altcapuom <> NEW.item_altcapuom) THEN
-          PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''Alt. Capacity UOM Changed from "'' || OLD.item_altcapuom ||
-                                 ''" to "'' || NEW.item_altcapuom || ''"'' ) );
-        END IF;
-
-        IF (OLD.item_shipuom <> NEW.item_shipuom) THEN
-          PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''Shipping UOM Changed from "'' || OLD.item_shipuom ||
-                                 ''" to "'' || NEW.item_shipuom || ''"'' ) );
-        END IF;
 
         IF (OLD.item_type <> NEW.item_type) THEN
           PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
                                ( ''Type Changed from "'' || OLD.item_type ||
                                  ''" to "'' || NEW.item_type || ''"'' ) );
-        END IF;
-
-        IF (OLD.item_priceuom <> NEW.item_priceuom) THEN
-          PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''Price UOM Changed from "'' || OLD.item_priceuom ||
-                                 ''" to "'' || NEW.item_priceuom || ''"'' ) );
         END IF;
 
         IF (OLD.item_price_uom_id <> NEW.item_price_uom_id) THEN
@@ -205,30 +176,6 @@ BEGIN
           PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
                                ( ''Packaging Weight Changed from "'' || OLD.item_packweight ||
                                  ''" to "'' || NEW.item_packweight || ''"'' ) );
-        END IF;
-
-        IF (OLD.item_invpricerat <> NEW.item_invpricerat) THEN
-          PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''Inventory/Price UOM Ratio Changed from "'' || OLD.item_invpricerat ||
-                                 ''" to "'' || NEW.item_invpricerat || ''"'' ) );
-        END IF;
-
-        IF (OLD.item_capinvrat <> NEW.item_capinvrat) THEN
-          PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''Capacity/Inventory UOM Ratio Changed from "'' || OLD.item_capinvrat ||
-                                 ''" to "'' || NEW.item_capinvrat || ''"'' ) );
-        END IF;
-
-        IF (OLD.item_altcapinvrat <> NEW.item_altcapinvrat) THEN
-          PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''Alt. Capacity/Inventory UOM Ratio Changed from "'' || OLD.item_altcapinvrat ||
-                                 ''" to "'' || NEW.item_altcapinvrat || ''"'' ) );
-        END IF;
-
-        IF (OLD.item_shipinvrat <> NEW.item_shipinvrat) THEN
-          PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''Shipping/Inventory UOM Ratio Changed from "'' || OLD.item_shipinvrat ||
-                                 ''" to "'' || NEW.item_shipinvrat || ''"'' ) );
         END IF;
 
         IF (OLD.item_maxcost <> NEW.item_maxcost) THEN

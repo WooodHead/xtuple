@@ -69,25 +69,6 @@ WHERE ( (cobmisc_cohead_id=cohead_id)
  AND (NOT cobmisc_posted)
  AND (cobmisc_misc <> 0) )
 
-UNION SELECT cohead_id AS orderid, -1 AS itemid,
-             '' AS documentnumber,
-             '' AS cust_number, '' AS billtoname,
-             cohead_number::TEXT AS ordernumber, -1 AS linenumber,
-             'Sales Tax' AS item, tax_descrip AS itemdescrip, '' AS iteminvuom,
-             NULL AS qtytobill, '' AS f_qtytobill,
-             cobmisc_tax AS price, formatMoney(cobmisc_tax) AS f_price,
-             cobmisc_tax AS extprice, formatMoney(cobmisc_tax) AS f_extprice,
-             'Credit' AS sence,
-             COALESCE( ( SELECT formatGLAccountLong(accnt_id)
-                         FROM accnt
-                         WHERE (accnt_id=tax_sales_accnt_id) ), 'Not Assigned' ) AS account,
-             cobmisc_tax_curr_id AS curr_id
-FROM cobmisc, cohead, tax
-WHERE ( (cobmisc_cohead_id=cohead_id)
- AND (cohead_tax_id=tax_id)
- AND (NOT cobmisc_posted)
- AND (cobmisc_tax <> 0) )
-
 UNION SELECT cohead_id AS orderid, coitem_id AS itemid,
              '' AS documentnumber,
              '' AS cust_number,

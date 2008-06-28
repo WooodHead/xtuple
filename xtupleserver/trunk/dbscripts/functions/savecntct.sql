@@ -1,23 +1,3 @@
-CREATE OR REPLACE FUNCTION saveCntct(int,int,int,text,text,text,text,bool,text,text,text,text,text,text,text) RETURNS INTEGER AS '
-BEGIN
-  RAISE EXCEPTION ''This function is deprecated.  Contact now requires a contact number. Use saveCntct(int,text,int,int,text,text,text,text,bool,text,text,text,text,text,text,text,text)'';
-END;
-' LANGUAGE 'plpgsql';
-
-COMMENT ON FUNCTION saveCntct(int,int,int,text,text,text,text,bool,text,text,text,text,text,text,text) IS 'Deprecated';
-
-CREATE OR REPLACE FUNCTION saveCntct(int,int,text,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
-BEGIN
-  
-  RAISE EXCEPTION ''This function is deprecated. Contact now requires a contact number. Use saveCntct(int,text,int,text,text,text,text,text,text,text,text,text,text)'';
-  
-  RETURN _returnVal;
-
-END;
-' LANGUAGE 'plpgsql';
-
-COMMENT ON FUNCTION saveCntct(int,int,text,text,text,text,text,text,text,text,text) IS 'Deprecated';
-
 CREATE OR REPLACE FUNCTION saveCntct(int,text,int,int,text,text,text,text,bool,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
 DECLARE
   pCntctId ALIAS FOR $1;

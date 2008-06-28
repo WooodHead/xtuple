@@ -102,11 +102,6 @@ BEGIN
   DELETE FROM itemsub
   WHERE (itemsub_sub_item_id=pItemid);
 
-  DELETE FROM itematr
-  WHERE (itematr_itemopn_id IN (SELECT itemopn_id FROM itemopn WHERE (itemopn_item_id=pItemid)));
-  DELETE FROM itemopn
-  WHERE (itemopn_item_id=pItemid);
-
   DELETE FROM itemsrcp
   WHERE (itemsrcp_itemsrc_id IN (SELECT itemsrc_id FROM itemsrc WHERE (itemsrc_item_id=pItemid)));
   DELETE FROM itemsrc
