@@ -7,6 +7,7 @@ BEGIN;
  
   SELECT 
     warehous_code::VARCHAR(100) AS code,
+    st.sitetype_name AS type,
     warehous_active AS active,
     warehous_descrip AS description,
     m.addr_number AS address_number,
@@ -198,6 +199,7 @@ BEGIN;
       LEFT OUTER JOIN shipvia s ON (warehous_shipvia_id=s.shipvia_id)
       LEFT OUTER JOIN shipform f ON (warehous_shipform_id=f.shipform_id)
       LEFT OUTER JOIN costcat cc ON (warehous_costcat_id=cc.costcat_id)
+      LEFT OUTER JOIN sitetype st ON (warehous_sitetype_id=st.sitetype_id)
   ORDER BY warehous_code;
 
 GRANT ALL ON TABLE api.site TO openmfg;
@@ -238,7 +240,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
     warehous_shipform_id,
     warehous_shipvia_id,
     warehous_shipcomments,
-    warehous_costcat_id
+    warehous_costcat_id,
+    warehous_sitetype_id
     )
   VALUES (
     COALESCE(NEW.code, ''),
@@ -415,7 +418,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
         COALESCE(getCostCatId(NEW.default_cost_category), -1)
       ELSE
         NULL
-    END
+    END,
+    COALESCE(getSiteTypeId(NEW.type), -1)
     );
 
 CREATE OR REPLACE RULE "_UPDATE" AS
@@ -621,7 +625,8 @@ CREATE OR REPLACE RULE "_UPDATE" AS
           getCostCatId(NEW.default_cost_category)
         ELSE
           NULL
-      END
+      END,
+    warehous_sitetype_id=getSiteTypeId(NEW.type)
   WHERE  (warehous_id=getWarehousId(OLD.code, 'ALL'));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
