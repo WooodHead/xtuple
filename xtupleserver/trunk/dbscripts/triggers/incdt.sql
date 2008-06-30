@@ -1,3 +1,65 @@
+CREATE OR REPLACE FUNCTION _incdtBeforeTrigger() RETURNS "trigger" AS '
+DECLARE
+  _check        BOOLEAN;
+  _crmacct      INTEGER;
+
+BEGIN
+
+  --  Checks
+  -- Start with privileges
+  IF (TG_OP = ''INSERT'') THEN
+    SELECT checkPrivilege(''AddIncidents'') INTO _check;
+    IF NOT (_check) THEN
+      RAISE EXCEPTION ''You do not have privileges to add new Incidents.'';
+    END IF;
+  ELSE
+    SELECT checkPrivilege(''MaintainIncidents'') INTO _check;
+    IF NOT (_check) THEN
+      RAISE EXCEPTION ''You do not have privileges to alter an Incident.'';
+    END IF;
+  END IF;
+
+  -- Set the incident number if blank
+  IF (TG_OP = ''INSERT'') THEN
+    IF (NEW.incdt_number IS NULL) THEN
+      SELECT fetchIncidentNumber() INTO NEW.incdt_number;
+    END IF;
+  END IF;
+
+  -- Description is required
+  IF (LENGTH(COALESCE(NEW.incdt_summary,''''))=0) THEN
+    RAISE EXCEPTION ''You must supply a valid Incident Description.'';
+  END IF;
+  
+  -- CRM Account is required
+  IF (NEW.incdt_crmacct_id IS NULL) THEN
+    RAISE EXCEPTION ''You must supply a valid CRM Account.'';
+  END IF;
+
+  -- Contact is required
+  IF (NEW.incdt_cntct_id IS NULL) THEN
+    RAISE EXCEPTION ''You must supply a valid Contact.'';
+  END IF;
+
+  -- Make sure Contact is associated with CRM Account
+  SELECT COALESCE(cntct_crmacct_id, -1) INTO _crmacct
+  FROM cntct
+  WHERE (cntct_id=NEW.incdt_cntct_id);
+  IF (_crmacct != NEW.incdt_crmacct_id) THEN
+    RAISE EXCEPTION ''This Contact is affiliated with a different CRM Account.'';
+  END IF;
+
+  RETURN NEW;
+END;
+' LANGUAGE 'plpgsql';
+  
+DROP TRIGGER incdtbeforetrigger ON incdt;
+CREATE TRIGGER incdtbeforetrigger
+  BEFORE INSERT OR UPDATE
+  ON incdt
+  FOR EACH ROW
+  EXECUTE PROCEDURE _incdtBeforeTrigger();
+
 CREATE OR REPLACE FUNCTION _incdttrigger() RETURNS "trigger" AS '
 DECLARE
   _r		RECORD;
