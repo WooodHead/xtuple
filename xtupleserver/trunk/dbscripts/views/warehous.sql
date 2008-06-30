@@ -8,6 +8,7 @@ CREATE OR REPLACE VIEW warehous AS
     m.addr_city         AS warehous_addr4,
     warehous_fob,
     warehous_active,
+    warehous_sitetype_id,
     warehous_counttag_prefix,
     warehous_counttag_number,
     warehous_bol_prefix,
