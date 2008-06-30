@@ -17,7 +17,8 @@ BEGIN
               AND COALESCE(cntct_webaddr, '''') = ''''
               AND COALESCE(cntct_initials, '''') = ''''
               AND COALESCE(cntct_notes, '''') = ''''
-              AND COALESCE(cntct_title, '''') = '''' LOOP
+              AND COALESCE(cntct_title, '''') = ''''
+              AND cntct_addr_id IS NULL LOOP
 
     UPDATE crmAcct SET crmacct_cntct_id_1 = NULL
       WHERE crmacct_cntct_id_1=_r.cntct_id;
