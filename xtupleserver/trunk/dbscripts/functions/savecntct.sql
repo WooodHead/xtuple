@@ -1,22 +1,24 @@
-CREATE OR REPLACE FUNCTION saveCntct(int,text,int,int,text,text,text,text,bool,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION saveCntct(int,text,int,int,text,text,text,text,text,text,bool,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
 DECLARE
   pCntctId ALIAS FOR $1;
   pContactNumber ALIAS FOR $2;
   pCrmAcctId ALIAS FOR $3;
   pAddrId ALIAS FOR $4;
-  pFirstName ALIAS FOR $5;
-  pLastName ALIAS FOR $6;
-  pHonorific ALIAS FOR $7;
-  pInitials ALIAS FOR $8;
-  pActive ALIAS FOR $9;
-  pPhone ALIAS FOR $10;
-  pPhone2 ALIAS FOR $11;
-  pFax ALIAS FOR $12;
-  pEmail ALIAS FOR $13;
-  pWebAddr ALIAS FOR $14;
-  pNotes ALIAS FOR $15;
-  pTitle ALIAS FOR $16;
-  pFlag ALIAS FOR $17;
+  pHonorific ALIAS FOR $5;
+  pFirstName ALIAS FOR $6;
+  pMiddleName ALIAS FOR $7;
+  pLastName ALIAS FOR $8;
+  pSuffix ALIAS FOR $9;
+  pInitials ALIAS FOR $10;
+  pActive ALIAS FOR $11;
+  pPhone ALIAS FOR $12;
+  pPhone2 ALIAS FOR $13;
+  pFax ALIAS FOR $14;
+  pEmail ALIAS FOR $15;
+  pWebAddr ALIAS FOR $16;
+  pNotes ALIAS FOR $17;
+  pTitle ALIAS FOR $18;
+  pFlag ALIAS FOR $19;
   _cntctId INTEGER;
   _cntctNumber TEXT;
   _isNew BOOLEAN;
@@ -39,7 +41,9 @@ BEGIN
   IF ( (pCntctId IS NULL OR pCntctId = -1)
 	AND (pAddrId IS NULL)
 	AND (COALESCE(pFirstName, '''') = '''')
+	AND (COALESCE(pMiddleName, '''') = '''')
 	AND (COALESCE(pLastName, '''') = '''')
+	AND (COALESCE(pSuffix, '''') = '''')
 	AND (COALESCE(pHonorific, '''') = '''')
 	AND (COALESCE(pInitials, '''') = '''')
 	AND (COALESCE(pPhone, '''') = '''')
@@ -94,11 +98,12 @@ BEGIN
       cntct_last_name,cntct_honorific,cntct_initials,
       cntct_active,cntct_phone,cntct_phone2,
       cntct_fax,cntct_email,cntct_webaddr,
-      cntct_notes,cntct_title ) VALUES (
+      cntct_notes,cntct_title,cntct_middle,cntct_suffix ) 
+    VALUES (
       _cntctId,_cntctNumber,pCrmAcctId,pAddrId,
       pFirstName,pLastName,pHonorific,
       pInitials,COALESCE(pActive,true),pPhone,pPhone2,pFax,
-      pEmail,pWebAddr,pNotes,pTitle );
+      pEmail,pWebAddr,pNotes,pTitle,pMiddleName,pSuffix );
 
     RETURN _cntctId;
 
@@ -118,7 +123,9 @@ BEGIN
       cntct_email=COALESCE(pEmail,cntct_email),
       cntct_webaddr=COALESCE(pWebAddr,cntct_webaddr),
       cntct_notes=COALESCE(pNotes,cntct_notes),
-      cntct_title=COALESCE(pTitle,cntct_title)
+      cntct_title=COALESCE(pTitle,cntct_title),
+      cntct_middle=COALESCE(pMiddleName,cntct_middle),
+      cntct_suffix=COALESCE(pSuffix,cntct_suffix)
     WHERE (cntct_id=pCntctId);
     
     RETURN pCntctId;
@@ -127,14 +134,16 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION saveCntct(int,text,int,text,text,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION saveCntct(int,text,int,text,text,text,text,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
 DECLARE
   pCntctId ALIAS FOR $1;
   pContactNumber ALIAS FOR $2;
   pAddrId ALIAS FOR $3;
-  pFirstName ALIAS FOR $4;
-  pLastName ALIAS FOR $5;
-  pHonorific ALIAS FOR $6;
+  pHonorific ALIAS FOR $4;
+  pFirstName ALIAS FOR $5;
+  pMiddleName ALIAS FOR $6;
+  pLastName ALIAS FOR $7;
+  pSuffix ALIAS FOR $8;
   pPhone ALIAS FOR $7;
   pPhone2 ALIAS FOR $8;
   pFax ALIAS FOR $9;
@@ -146,7 +155,7 @@ DECLARE
 
 BEGIN
   
-  SELECT saveCntct(pCntctId,pContactNumber,NULL,pAddrId,pFirstName,pLastName,pHonorific,NULL,NULL,pPhone,pPhone2,pFax,pEmail,pWebAddr,NULL,pTitle,pFlag) INTO _returnVal;
+  SELECT saveCntct(pCntctId,pContactNumber,NULL,pAddrId,pHonorific,pFirstName,pMiddleName,pLastName,pSuffix,NULL,NULL,pPhone,pPhone2,pFax,pEmail,pWebAddr,NULL,pTitle,pFlag) INTO _returnVal;
   
   RETURN _returnVal;
 

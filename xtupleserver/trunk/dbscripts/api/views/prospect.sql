@@ -2,7 +2,7 @@ BEGIN;
 
   --Prospect View
 
-  --DROP VIEW api.prospect;
+  SELECT dropIfExists('VIEW', 'prospect', 'api');
   CREATE OR REPLACE VIEW api.prospect AS
  
   SELECT 
@@ -17,7 +17,9 @@ BEGIN;
     cntct_number AS contact_number,
     cntct_honorific AS contact_honorific,
     cntct_first_name AS contact_first,
+    cntct_middle AS contact_middle,
     cntct_last_name AS contact_last,
+    cntct_suffix AS contact_suffix,
     cntct_title AS contact_job_title,
     cntct_phone AS contact_voice,
     cntct_phone2 AS contact_alternate,
@@ -78,9 +80,11 @@ INSERT INTO prospect
             NEW.contact_postalcode,
             NEW.contact_country,
             NEW.contact_address_change),
-          NEW.contact_first,
-          NEW.contact_last,
           NEW.contact_honorific,
+          NEW.contact_first,
+          NEW.contact_middle,
+          NEW.contact_last,
+          NEW.contact_suffix,
           NEW.contact_voice,
           NEW.contact_alternate,
           NEW.contact_fax,
@@ -115,9 +119,11 @@ UPDATE prospect SET
             NEW.contact_postalcode,
             NEW.contact_country,
             NEW.contact_address_change),
-          NEW.contact_first,
-          NEW.contact_last,
           NEW.contact_honorific,
+          NEW.contact_first,
+          NEW.contact_middle,
+          NEW.contact_last,
+          NEW.contact_suffix,
           NEW.contact_voice,
           NEW.contact_alternate,
           NEW.contact_fax,
