@@ -2,14 +2,22 @@ CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
                                          TEXT, TEXT, TEXT, TEXT, TEXT,
                                          INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
 BEGIN
-  RETURN postInvTrans($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, CURRENT_TIMESTAMP);
+  RETURN postInvTrans($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, CURRENT_TIMESTAMP, NULL);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
+                                         TEXT, TEXT, TEXT, TEXT, TEXT,
+                                         INTEGER, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+BEGIN
+  RETURN postInvTrans($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, NULL);
 END;
 $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
                                          TEXT, TEXT, TEXT, TEXT, TEXT,
-                                         INTEGER, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+                                         INTEGER, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE, NUMERIC) RETURNS INTEGER AS $$
 DECLARE
   pItemsiteid	ALIAS FOR $1;
   pTransType	ALIAS FOR $2;
@@ -22,6 +30,8 @@ DECLARE
   pDebitid	ALIAS FOR $9;
   pCreditid	ALIAS FOR $10;
   pItemlocSeries ALIAS FOR $11;
+  _timestamp    TIMESTAMP WITH TIME ZONE := $12;
+  pCostOvrld    ALIAS FOR $13;
   _creditid	 INTEGER;
   _debitid	 INTEGER;
   _glreturn	 INTEGER;
@@ -29,14 +39,14 @@ DECLARE
   _r		 RECORD;
   _sense	 INTEGER;	-- direction in which to adjust inventory QOH
   _t		 RECORD;
-  _timestamp	 TIMESTAMP WITH TIME ZONE := $12;
   _xferwhsid	 INTEGER;
 
 BEGIN
 
-  SELECT CASE WHEN(itemsite_costmethod='A') THEN COALESCE(NULL, avgcost(itemsite_id))
+  SELECT CASE WHEN(itemsite_costmethod='A') THEN COALESCE((pCostOvrld / pQty), avgcost(itemsite_id))
               ELSE stdCost(itemsite_item_id)
          END AS cost,
+         itemsite_costmethod,
 	 itemsite_warehous_id,
          ( (item_type IN ('R','J')) OR (itemsite_controlmethod = 'N') ) AS nocontrol,
          (itemsite_controlmethod IN ('L', 'S')) AS lotserial,
@@ -102,6 +112,11 @@ BEGIN
       _sense := 1;
     END IF;
 
+    IF((_r.itemsite_costmethod='A') AND (_r.itemsite_qtyonhand + (_sense * pQty)) < 0) THEN
+      -- Can not let average costed itemsites go negative
+      RETURN -2;
+    END IF;
+
     INSERT INTO invhist
     ( invhist_id, invhist_itemsite_id, invhist_transtype, invhist_transdate,
       invhist_invqty, invhist_qoh_before,
@@ -115,7 +130,7 @@ BEGIN
       (itemsite_qtyonhand + (_sense * pQty)),
       itemsite_costmethod, itemsite_value, itemsite_value + (_r.cost * _sense * pQty),
       pOrderType, pOrderNumber, pDocNumber, pComments,
-      uom_name, stdCost(item_id), _xferwhsid, FALSE
+      uom_name, _r.cost, _xferwhsid, FALSE
     FROM itemsite, item, uom
     WHERE ( (itemsite_item_id=item_id)
      AND (item_inv_uom_id=uom_id)

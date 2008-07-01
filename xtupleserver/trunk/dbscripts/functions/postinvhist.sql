@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION postInvHist( INTEGER ) RETURNS BOOLEAN AS '
+CREATE OR REPLACE FUNCTION postInvHist( INTEGER ) RETURNS BOOLEAN AS $$
 DECLARE
   pInvhistId ALIAS FOR $1;
 
@@ -6,12 +6,18 @@ BEGIN
 
     --Update itemsite qoh and change posted flag
     UPDATE itemsite SET 
-      itemsite_qtyonhand = (itemsite_qtyonhand + invhist_invqty *
-        (CASE WHEN invhist_transtype IN (''IM'', ''IB'', ''IT'', ''SH'', ''SI'', ''EX'') THEN
+      itemsite_qtyonhand = (itemsite_qtyonhand + (invhist_invqty *
+        (CASE WHEN invhist_transtype IN ('IM', 'IB', 'IT', 'SH', 'SI', 'EX') THEN
           -1
         ELSE
            1
-        END))
+        END))),
+      itemsite_value = (itemsite_value + (invhist_invqty * invhist_unitcost *
+        (CASE WHEN invhist_transtype IN ('IM', 'IB', 'IT', 'SH', 'SI', 'EX') THEN
+          -1
+        ELSE
+           1
+        END)))
     FROM invhist
     WHERE ( (itemsite_id=invhist_itemsite_id)
     AND (invhist_id=pInvhistId)
@@ -26,4 +32,4 @@ BEGIN
 RETURN TRUE;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
