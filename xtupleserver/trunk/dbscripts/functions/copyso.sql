@@ -11,7 +11,7 @@ BEGIN
   INSERT INTO cohead
   ( cohead_id, cohead_number, cohead_cust_id, cohead_prj_id,
     cohead_orderdate, cohead_packdate, cohead_origin, cohead_fob,
-    cohead_warehous_id, cohead_tax_id, cohead_terms_id, cohead_salesrep_id,
+    cohead_warehous_id, cohead_terms_id, cohead_salesrep_id,
     cohead_custponumber, cohead_shipvia, cohead_shipchrg_id, cohead_shipform_id, cohead_holdtype,
     cohead_shipto_id, cohead_shiptoname, cohead_shiptoaddress1, cohead_shiptoaddress2, cohead_shiptoaddress3,
     cohead_shiptocity, cohead_shiptostate, cohead_shiptozipcode, cohead_shiptophone,
@@ -22,7 +22,7 @@ BEGIN
     cohead_imported, cohead_curr_id, cohead_taxauth_id )
   SELECT _soheadid, fetchSoNumber(), cohead_cust_id, cohead_prj_id,
          CURRENT_DATE, cohead_packdate, cohead_origin, cohead_fob,
-         cohead_warehous_id, cohead_tax_id, cohead_terms_id, cohead_salesrep_id,
+         cohead_warehous_id, cohead_terms_id, cohead_salesrep_id,
          cohead_custponumber, cohead_shipvia, cohead_shipchrg_id, cohead_shipform_id, cohead_holdtype,
          cohead_shipto_id, cohead_shiptoname, cohead_shiptoaddress1, cohead_shiptoaddress2, cohead_shiptoaddress3,
          cohead_shiptocity, cohead_shiptostate, cohead_shiptozipcode, cohead_shiptophone,
