@@ -3,33 +3,33 @@ BEGIN;
 DROP VIEW api.cashreceiptapplymisc;
 CREATE OR REPLACE VIEW api.cashreceiptapplymisc AS
   SELECT
-    cust_number AS customer_number,
-    cust_name AS customer_name,
-    cust_address1 AS customer_address,
-    cashrcpt_docnumber AS check_document_number,
+    cust_number::VARCHAR(100) AS customer_number,
     CASE
       WHEN cashrcpt_fundstype='C' THEN
-        'Check'
+        'Check'::VARCHAR(100)
       WHEN cashrcpt_fundstype='T' THEN
-        'Certified Check'
+        'Certified Check'::VARCHAR(100)
       WHEN cashrcpt_fundstype='M' THEN
-        'Master Card'
+        'Master Card'::VARCHAR(100)
       WHEN cashrcpt_fundstype='V' THEN
-        'Visa'
+        'Visa'::VARCHAR(100)
       WHEN cashrcpt_fundstype='A' THEN
-        'American Express'
+        'American Express'::VARCHAR(100)
       WHEN cashrcpt_fundstype='D' THEN
-        'Discover Card'
+        'Discover Card'::VARCHAR(100)
       WHEN cashrcpt_fundstype='R' THEN
-        'Other Credit Card'
+        'Other Credit Card'::VARCHAR(100)
       WHEN cashrcpt_fundstype='K' THEN
-        'Cash'
+        'Cash'::VARCHAR(100)
       WHEN cashrcpt_fundstype='W' THEN
-        'Wire Transfer'
+        'Wire Transfer'::VARCHAR(100)
       WHEN cashrcpt_fundstype='O' THEN
-        'Other'
+        'Other'::VARCHAR(100)
     END AS funds_type,
-    formatGLAccount(accnt_id) AS account,
+    cashrcpt_docnumber::VARCHAR(100) AS check_document_number,
+    formatGLAccount(accnt_id)::VARCHAR(100) AS account,
+    cust_name AS customer_name,
+    cust_address1 AS customer_address,
     accnt_descrip AS account_description,
     curr_abbr AS currency,
     cashrcptmisc_amount AS amount_to_distribute,

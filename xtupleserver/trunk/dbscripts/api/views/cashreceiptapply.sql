@@ -3,34 +3,34 @@ BEGIN;
 DROP VIEW api.cashreceiptapply;
 CREATE OR REPLACE VIEW api.cashreceiptapply AS
   SELECT
-    cust_number AS customer_number,
-    cust_name AS customer_name,
-    cust_address1 AS customer_address,
-    cashrcpt_docnumber AS check_document_number,
+    cust_number::VARCHAR(100) AS customer_number,
     CASE
       WHEN cashrcpt_fundstype='C' THEN
-        'Check'
+        'Check'::VARCHAR(100)
       WHEN cashrcpt_fundstype='T' THEN
-        'Certified Check'
+        'Certified Check'::VARCHAR(100)
       WHEN cashrcpt_fundstype='M' THEN
-        'Master Card'
+        'Master Card'::VARCHAR(100)
       WHEN cashrcpt_fundstype='V' THEN
-        'Visa'
+        'Visa'::VARCHAR(100)
       WHEN cashrcpt_fundstype='A' THEN
-        'American Express'
+        'American Express'::VARCHAR(100)
       WHEN cashrcpt_fundstype='D' THEN
-        'Discover Card'
+        'Discover Card'::VARCHAR(100)
       WHEN cashrcpt_fundstype='R' THEN
-        'Other Credit Card'
+        'Other Credit Card'::VARCHAR(100)
       WHEN cashrcpt_fundstype='K' THEN
-        'Cash'
+        'Cash'::VARCHAR(100)
       WHEN cashrcpt_fundstype='W' THEN
-        'Wire Transfer'
+        'Wire Transfer'::VARCHAR(100)
       WHEN cashrcpt_fundstype='O' THEN
-        'Other'
+        'Other'::VARCHAR(100)
     END AS funds_type,
-    aropen_docnumber AS doc_number,
-    aropen_doctype AS doc_type,
+    cashrcpt_docnumber::VARCHAR(100) AS check_document_number,
+    aropen_doctype::VARCHAR(100) AS doc_type,
+    aropen_docnumber::VARCHAR(100) AS doc_number,
+    cust_name AS customer_name,
+    cust_address1 AS customer_address,
     formatDate(aropen_docdate) AS doc_date,
     formatDate(aropen_duedate) AS due_date,
     curr_abbr AS currency,
