@@ -19,17 +19,13 @@ BEGIN
   END IF;
 
   -- Account is required
-  IF (TG_OP = ''INSERT'') THEN
-    IF (NEW.cashrcptmisc_accnt_id IS NULL) THEN
-      RAISE EXCEPTION ''You must supply a valid GL Account.'';
-    END IF;
+  IF (NEW.cashrcptmisc_accnt_id IS NULL) THEN
+    RAISE EXCEPTION ''You must supply a valid GL Account.'';
   END IF;
 
   -- Amount is required
-  IF (TG_OP = ''INSERT'') THEN
-    IF (COALESCE(NEW.cashrcptmisc_amount, 0) <= 0) THEN
-      RAISE EXCEPTION ''You must supply a valid Amount.'';
-    END IF;
+  IF (COALESCE(NEW.cashrcptmisc_amount, 0) <= 0) THEN
+    RAISE EXCEPTION ''You must supply a valid Amount.'';
   END IF;
 
   RETURN NEW;

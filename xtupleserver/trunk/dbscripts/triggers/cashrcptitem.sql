@@ -20,19 +20,11 @@ BEGIN
   END IF;
 
   -- Over Application
-  IF (TG_OP = ''INSERT'') THEN
-    SELECT currToCurr(aropen_curr_id, cashrcpt_curr_id,
-                      aropen_amount - aropen_paid, aropen_docdate) INTO _openAmount
-    FROM aropen, cashrcpt
-    WHERE ( (aropen_id=NEW.cashrcptitem_aropen_id)
-      AND   (cashrcpt_id=NEW.cashrcptitem_cashrcpt_id) );
-  ELSE
-    SELECT currToCurr(aropen_curr_id, cashrcpt_curr_id,
-                      aropen_amount - aropen_paid, aropen_docdate) INTO _openAmount
-    FROM aropen, cashrcpt
-    WHERE ( (aropen_id=COALESCE(NEW.cashrcptitem_aropen_id, OLD.cashrcptitem_aropen_id))
-      AND   (cashrcpt_id=COALESCE(NEW.cashrcptitem_cashrcpt_id, OLD.cashrcptitem_cashrcpt_id)) );
-  END IF;
+  SELECT currToCurr(aropen_curr_id, cashrcpt_curr_id,
+                    aropen_amount - aropen_paid, aropen_docdate) INTO _openAmount
+  FROM aropen, cashrcpt
+  WHERE ( (aropen_id=NEW.cashrcptitem_aropen_id)
+    AND   (cashrcpt_id=NEW.cashrcptitem_cashrcpt_id) );
   IF (NEW.cashrcptitem_amount > _openAmount) THEN
     RAISE EXCEPTION ''You may not apply more than the balance of this item.'';
   END IF;

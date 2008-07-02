@@ -24,15 +24,12 @@ BEGIN
   -- Currency must be same as Bank Currency
   IF (TG_OP = ''INSERT'') THEN
     _currId = COALESCE(NEW.cashrcpt_curr_id, basecurrid());
-    SELECT bankaccnt_curr_id INTO _bankCurrId
-    FROM bankaccnt
-    WHERE (bankaccnt_id=NEW.cashrcpt_bankaccnt_id);
   ELSE
-    _currId = COALESCE(NEW.cashrcpt_curr_id, OLD.cashrcpt_curr_id);
-    SELECT bankaccnt_curr_id INTO _bankCurrId
-    FROM bankaccnt
-    WHERE (bankaccnt_id=COALESCE(NEW.cashrcpt_bankaccnt_id, OLD.cashrcpt_bankaccnt_id));
+    _currId = NEW.cashrcpt_curr_id;
   END IF;
+  SELECT bankaccnt_curr_id INTO _bankCurrId
+  FROM bankaccnt
+  WHERE (bankaccnt_id=NEW.cashrcpt_bankaccnt_id);
   IF (_currId<>_bankCurrId) THEN
     RAISE EXCEPTION ''Currency supplied does not match Bank Currency.'';
   END IF;
