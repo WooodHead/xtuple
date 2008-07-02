@@ -15,13 +15,13 @@
  * the License for the specific language governing rights and limitations 
  * under the License. 
  * 
- * The Original Code is PostBooks Accounting, ERP, and CRM Suite. 
+ * The Original Code is xTuple ERP: PostBooks Edition
  * 
  * The Original Developer is not the Initial Developer and is __________. 
  * If left blank, the Original Developer is the Initial Developer. 
  * The Initial Developer of the Original Code is OpenMFG, LLC, 
  * d/b/a xTuple. All portions of the code written by xTuple are Copyright 
- * (c) 1999-2007 OpenMFG, LLC, d/b/a xTuple. All Rights Reserved. 
+ * (c) 1999-2008 OpenMFG, LLC, d/b/a xTuple. All Rights Reserved. 
  * 
  * Contributor(s): ______________________.
  * 
@@ -39,10 +39,10 @@
  * EXHIBIT B.  Attribution Information
  * 
  * Attribution Copyright Notice: 
- * Copyright (c) 1999-2007 by OpenMFG, LLC, d/b/a xTuple
+ * Copyright (c) 1999-2008 by OpenMFG, LLC, d/b/a xTuple
  * 
  * Attribution Phrase: 
- * Powered by PostBooks, an open source solution from xTuple
+ * Powered by xTuple ERP: PostBooks Edition
  * 
  * Attribution URL: www.xtuple.org 
  * (to be included in the "Community" menu of the application if possible)
@@ -57,16 +57,15 @@
 
 #include "packagewindow.h"
 
-#include <QList>
-#include <QTextStream>
+#include <QApplication>
+#include <QDomDocument>
 #include <QFileDialog>
+#include <QLineEdit>
+#include <QList>
+#include <QMessageBox>
+#include <QTextStream>
+#include <QVariant>
 
-#include <qvariant.h>
-#include <qmessagebox.h>
-#include <q3filedialog.h>
-#include <qlineedit.h>
-#include <qapplication.h>
-#include <qdom.h>
 #include "texteditdialog.h"
 #include "newprereqdialog.h"
 #include "providerdialog.h"
