@@ -77,7 +77,6 @@ public slots:
     virtual void fileNew();
     virtual void fileOpen();
     virtual void fileExit();
-    virtual void helpIndex();
     virtual void helpContents();
     virtual void helpAbout();
 
@@ -87,6 +86,7 @@ protected:
     Package * _package;
     TarFile * _files;
 
+    virtual void launchBrowser(QWidget *w, const QString &url);
     virtual void timerEvent( QTimerEvent * e );
 
 protected slots:

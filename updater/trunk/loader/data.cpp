@@ -57,7 +57,7 @@
 
 #include "data.h"
 
-#include <qobject.h>
+#include <QObject>
 
 #if defined Q_WS_WIN
 QString _name = QObject::tr("Update Manager for Windows");
@@ -71,7 +71,7 @@ QString _name = QObject::tr("Update Manager");
 
 
 QString _copyright = QObject::tr("Copyright (c) 2004-2008, OpenMFG, LLC");
-QString _version = QObject::tr("1.1");
+QString _version = QObject::tr("1.2dev");
 
 QString _user;
 int     _usrid;

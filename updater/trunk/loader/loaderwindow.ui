@@ -129,7 +129,6 @@
      <string>&amp;Help</string>
     </property>
     <addaction name="helpContentsAction" />
-    <addaction name="helpIndexAction" />
     <addaction name="separator" />
     <addaction name="helpAboutAction" />
    </widget>
@@ -192,20 +191,6 @@
     <string>helpContentsAction</string>
    </property>
   </action>
-  <action name="helpIndexAction" >
-   <property name="text" >
-    <string>&amp;Index...</string>
-   </property>
-   <property name="iconText" >
-    <string>Index</string>
-   </property>
-   <property name="shortcut" >
-    <string/>
-   </property>
-   <property name="name" stdset="0" >
-    <string>helpIndexAction</string>
-   </property>
-  </action>
   <action name="helpAboutAction" >
    <property name="text" >
     <string>&amp;About</string>
@@ -261,22 +246,6 @@
    <signal>activated()</signal>
    <receiver>LoaderWindow</receiver>
    <slot>fileExit()</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>helpIndexAction</sender>
-   <signal>activated()</signal>
-   <receiver>LoaderWindow</receiver>
-   <slot>helpIndex()</slot>
    <hints>
     <hint type="sourcelabel" >
      <x>-1</x>

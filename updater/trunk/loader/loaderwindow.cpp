@@ -57,27 +57,23 @@
 
 #include "loaderwindow.h"
 
-#include <QVariant>
 #include <QApplication>
-#include <QMessageBox>
-#include <QFileDialog>
-#include <QSqlDatabase>
 #include <QDomDocument>
-#include <QRegExp>
-#include <QTimerEvent>
+#include <QFileDialog>
 #include <QList>
-#include <QSqlQuery>
+#include <QMessageBox>
+#include <QProcess>
+#include <QRegExp>
+#include <QSqlDatabase>
 #include <QSqlError>
-#include <xsqlquery.h>
-#include <tarfile.h>
+#include <QSqlQuery>
+#include <QTimerEvent>
+
 #include <gunzip.h>
 #include <package.h>
+#include <tarfile.h>
+#include <xsqlquery.h>
 
-/*
- *  Constructs a LoaderWindow as a child of 'parent', with the
- *  name 'name' and widget flags set to 'f'.
- *
- */
 LoaderWindow::LoaderWindow(QWidget* parent, const char* name, Qt::WindowFlags fl)
     : QMainWindow(parent, fl)
 {
@@ -94,18 +90,11 @@ LoaderWindow::LoaderWindow(QWidget* parent, const char* name, Qt::WindowFlags fl
   fileNew();
 }
 
-/*
- *  Destroys the object and frees any allocated resources
- */
 LoaderWindow::~LoaderWindow()
 {
   // no need to delete child widgets, Qt does it all for us
 }
 
-/*
- *  Sets the strings of the subwidgets using the current
- *  language.
- */
 void LoaderWindow::languageChange()
 {
   retranslateUi(this);
@@ -154,14 +143,20 @@ void LoaderWindow::fileOpen()
   QByteArray data = gunzipFile(filename);
   if(data.isEmpty())
   {
-    QMessageBox::warning(this, tr("Error Opening file"), tr("There was an error opening the file you selected."));
+    QMessageBox::warning(this, tr("Error Opening File"),
+                         tr("<p>The file %1 appears to be empty or it is not "
+                            "compressed in the expected format.")
+                         .arg(filename));
     return;
   }
 
   _files = new TarFile(data);
   if(!_files->isValid())
   {
-    QMessageBox::warning(this, tr("Error Opening file"), tr("There was an error parsing the file you selected."));
+    QMessageBox::warning(this, tr("Error Opening file"),
+                         tr("<p>The file %1 does not appear to contain a valid "
+                            "update package (not a valid TAR file?).")
+                         .arg(filename));
     delete _files;
     _files = 0;
     return;
@@ -177,7 +172,11 @@ void LoaderWindow::fileOpen()
     {
       if(!contentFile.isNull())
       {
-        QMessageBox::warning(this, tr("Error Opening file"), tr("Multiple content files found.\nCurrently only packages containing a single content file are supported."));
+        QMessageBox::warning(this, tr("Error Opening file"),
+                             tr("<p>Multiple content.xml files found in %1. "
+                                "Currently only packages containing a single "
+                                "content.xml file are supported.")
+                             .arg(filename));
         delete _files;
         _files = 0;
         return;
@@ -188,7 +187,9 @@ void LoaderWindow::fileOpen()
 
   if(contentFile.isNull())
   {
-    QMessageBox::warning(this, tr("Error Opening file"), tr("No content file was found in this package."));
+    QMessageBox::warning(this, tr("Error Opening file"),
+                         tr("<p>No contents.xml file was found in package %1.")
+                         .arg(filename));
     delete _files;
     _files = 0;
     return;
@@ -200,7 +201,10 @@ void LoaderWindow::fileOpen()
   int errLine, errCol;
   if(!doc.setContent(docData, &errMsg, &errLine, &errCol))
   {
-    QMessageBox::warning(this, tr("Error Opening file"), tr("There was a problem reading the content file in this package.\n%1\nLine %2, Column %3").arg(errMsg).arg(errLine).arg(errCol));
+    QMessageBox::warning(this, tr("Error Opening file"),
+                         tr("<p>There was a problem reading the contents.xml "
+                            "file in this package.<br>%1<br>Line %2, "
+                            "Column %3").arg(errMsg).arg(errLine).arg(errCol));
     delete _files;
     _files = 0;
     return;
@@ -264,7 +268,10 @@ void LoaderWindow::fileOpen()
         }
         break;
       default:
-        QMessageBox::warning(this, tr("Unhandled Prerequisite"), tr("Encountered an unknown Prerequisite type. Prerequisite %1 has not been validated.").arg(p.name()));
+        QMessageBox::warning(this, tr("Unhandled Prerequisite"),
+                             tr("<p>Encountered an unknown Prerequisite type. "
+                                "Prerequisite '%1' has not been validated.")
+                             .arg(p.name()));
     }
   }
 
@@ -317,15 +324,58 @@ void LoaderWindow::fileExit()
 }
 
 
-void LoaderWindow::helpIndex()
-{
-  QMessageBox::information(this, tr("Not yet implimented"), tr("This feature has not yet been implimented."));
-}
-
-
 void LoaderWindow::helpContents()
 {
-  QMessageBox::information(this, tr("Not yet implimented"), tr("This feature has not yet been implimented."));
+  launchBrowser(this, "http://wiki.xtuple.org/UpdaterDoc");
+}
+
+// copied from xtuple/guiclient/guiclient.cpp and made independent of Qt3Support
+// TODO: put in a generic place and use by both from there or use WebKit instead
+void LoaderWindow::launchBrowser(QWidget * w, const QString & url)
+{
+#if defined(Q_OS_WIN32)
+  // Windows - let the OS do the work
+  QT_WA( {
+      ShellExecute(w->winId(), 0, (TCHAR*)url.ucs2(), 0, 0, SW_SHOWNORMAL );
+    } , {
+      ShellExecuteA( w->winId(), 0, url.local8Bit(), 0, 0, SW_SHOWNORMAL );
+    } );
+#else
+  QString b(getenv("BROWSER"));
+  QStringList browser;
+  if (! b.isEmpty())
+    browser = b.split(':');
+
+#if defined(Q_OS_MACX)
+  browser.append("/usr/bin/open");
+#else
+  // append this on linux just as a good guess
+  browser.append("/usr/bin/firefox");
+  browser.append("/usr/bin/mozilla");
+#endif
+  for(QStringList::const_iterator cit=browser.begin(); cit!=browser.end(); ++cit) {
+    QString app = *cit;
+    if(app.contains("%s")) {
+      app.replace("%s", url);
+    } else {
+      app += " " + url;
+    }
+    app.replace("%%", "%");
+    QProcess *proc = new QProcess(w);
+    QStringList args = app.split(QRegExp(" +"));
+    QString appname = args.takeFirst();
+
+    proc->start(appname, args);
+    if (proc->waitForStarted() &&
+        proc->waitForFinished())
+      return;
+
+    QMessageBox::warning(w, tr("Failed to open URL"),
+                         tr("<p>Before you can run a web browser you must "
+                            "set the environment variable BROWSER to point "
+                            "to the browser executable.") );
+  }
+#endif  // if not windows
 }
 
 
@@ -333,7 +383,8 @@ void LoaderWindow::helpAbout()
 {
   QMessageBox::about(this, tr("Update Manager"),
     tr("<p>Apply update packages to your xTuple ERP database."
-       "<p>Copyright (c) 2004-2008 OpenMFG, LLC., d/b/a xTuple. All Rights Reserved"));
+       "<p>Copyright (c) 2004-2008 OpenMFG, LLC., d/b/a xTuple. "
+       "All Rights Reserved"));
 }
 
 
@@ -379,7 +430,9 @@ void LoaderWindow::sStart()
     QByteArray scriptData = _files->_list[prefix + script.name()];
     if(scriptData.isEmpty())
     {
-      QMessageBox::warning(this, tr("File Missing"), tr("The file %1 is missing from this package.").arg(script.name()));
+      QMessageBox::warning(this, tr("File Missing"),
+                           tr("<p>The file %1 is missing from this package.")
+                           .arg(script.name()));
       continue;
     }
 
@@ -457,7 +510,9 @@ void LoaderWindow::sStart()
     QByteArray reportData = _files->_list[prefix + report.name()];
     if(reportData.isEmpty())
     {
-      QMessageBox::warning(this, tr("File Missing"), tr("The file %1 is missing from this package.").arg(report.name()));
+      QMessageBox::warning(this, tr("File Missing"),
+                           tr("<p>The file %1 is missing from this package.").
+                           arg(report.name()));
       continue;
     }
 
