@@ -47,6 +47,7 @@ BEGIN
               ELSE stdCost(itemsite_item_id)
          END AS cost,
          itemsite_costmethod,
+         itemsite_qtyonhand,
 	 itemsite_warehous_id,
          ( (item_type IN ('R','J')) OR (itemsite_controlmethod = 'N') ) AS nocontrol,
          (itemsite_controlmethod IN ('L', 'S')) AS lotserial,
