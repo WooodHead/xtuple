@@ -42,15 +42,29 @@ CREATE OR REPLACE VIEW api.incident AS
     (''::TEXT) AS contact_change,
     incdt_descrip AS notes,
     item_number AS item_number,
-    incdt_lotserial AS lot_serial_number
-    FROM incdt
-       LEFT OUTER JOIN incdtcat ON (incdtcat_id=incdt_incdtcat_id)
-       LEFT OUTER JOIN crmacct ON (crmacct_id=incdt_crmacct_id)
-       LEFT OUTER JOIN incdtseverity ON (incdtseverity_id=incdt_incdtseverity_id)
-       LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=incdt_incdtpriority_id)
-       LEFT OUTER JOIN incdtresolution ON (incdtresolution_id=incdt_incdtresolution_id)
-       LEFT OUTER JOIN cntct ON (cntct_id=incdt_cntct_id)
-       LEFT OUTER JOIN item ON (item_id=incdt_item_id);
+    incdt_lotserial AS lot_serial_number,
+    CASE
+      WHEN aropen_doctype='C' THEN
+        'C/M'
+      WHEN aropen_doctype='D' THEN
+        'D/M'
+      WHEN aropen_doctype='I' THEN
+        'Invoice'
+      WHEN aropen_doctype='R' THEN
+        'C/D'
+      ELSE
+        ''
+    END AS ar_doc_type,
+    aropen_docnumber AS ar_doc_number
+  FROM incdt
+     LEFT OUTER JOIN incdtcat ON (incdtcat_id=incdt_incdtcat_id)
+     LEFT OUTER JOIN crmacct ON (crmacct_id=incdt_crmacct_id)
+     LEFT OUTER JOIN incdtseverity ON (incdtseverity_id=incdt_incdtseverity_id)
+     LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=incdt_incdtpriority_id)
+     LEFT OUTER JOIN incdtresolution ON (incdtresolution_id=incdt_incdtresolution_id)
+     LEFT OUTER JOIN cntct ON (cntct_id=incdt_cntct_id)
+     LEFT OUTER JOIN item ON (item_id=incdt_item_id)
+     LEFT OUTER JOIN aropen ON (aropen_id=incdt_aropen_id);
 
 GRANT ALL ON TABLE api.incident TO openmfg;
 COMMENT ON VIEW api.incident IS 'Incident';
