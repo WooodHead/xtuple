@@ -777,7 +777,12 @@
       <term>Requires Warranty when Purchased</term>
       <listitem>
         <para>Select to require users to enter a warranty expiration date when
-        they are receiving Items into the Item site.</para>
+        they are receiving Items into the Item site. Effectively, this flag
+        indicates the Item Site requires a purchased warranty.</para>
+        <tip>
+          <para>The purchased warranty should not be confused with the sold
+          warranty, which is defined on the Item master.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
