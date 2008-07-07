@@ -31,10 +31,10 @@
       </indexterm>Inventory Transaction Types</title>
     <para>Inventory transactions are associated with Inventory transaction
     types. These transaction types appear in various displays throughout the
-    application&mdash;most notably in the Inventory Management (I/M) Module. The
-    following table identifies the Inventory transaction types and provides
-    additional information about the relationship between these types and
-    their corresponding <indexterm significance="normal">
+    application&mdash;most notably in the Inventory Management (I/M) Module.
+    The following table identifies the Inventory transaction types and
+    provides additional information about the relationship between these types
+    and their corresponding <indexterm significance="normal">
         <primary>general ledger</primary>
         <secondary>inventory transaction types and</secondary>
       </indexterm>General Ledger (G/L) transactions.</para>
@@ -105,6 +105,11 @@
             <entry><para>RP</para></entry>
             <entry><para>Receive Inventory from Purchasing</para></entry>
             <entry><para>Yes</para></entry>
+          </row>
+          <row>
+            <entry>RR</entry>
+            <entry>Return Authorization Return</entry>
+            <entry>Yes</entry>
           </row>
           <row>
             <entry><para>RS</para></entry>
@@ -246,9 +251,9 @@
         <secondary>complete list of</secondary>
       </indexterm>System-Defined Events</title>
     <para>The following table identifies the complete list of system-defined
-    Events. The table includes the name that xTuple ERP assigns to the Event, a
-    brief description of the Event, and the name of the Module where the Event
-    originates.</para>
+    Events. The table includes the name that xTuple ERP assigns to the Event,
+    a brief description of the Event, and the name of the Module where the
+    Event originates.</para>
     <table id="Table462070">
       <title>System-Defined Events</title>
       <tgroup cols="3">

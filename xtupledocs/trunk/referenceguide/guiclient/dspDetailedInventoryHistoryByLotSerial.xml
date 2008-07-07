@@ -8,16 +8,16 @@
   purchase of raw materials to the sale of finished goods. Such traceability
   is possible by leveraging the Lot/Serial capability in xTuple ERP. Using
   Lot/Serial trace, users have access to backwards and forwards tracking
-  through multiple levels of production of where used and warranty status of
-  Items.</para>
+  through multiple levels of production--including the where used and warranty
+  status of Items.</para>
   <para>For example, if a defective internal medical device came back because
   of a defective spring, a user should be able to determine what Lot of
   springs went into the device--even if the spring was issued to a subassembly
-  two levels down. Likewise, once the spring lot is determined the user should
-  be able to search forward and determine all goods where that lot of springs
-  were used and shipped so all customers may be notified of the defect. If the
-  spring was under warranty and is still eligible, the backward search should
-  indicate so.</para>
+  two levels down. Likewise, once the spring Lot is determined, the user
+  should be able to search forward and determine all goods where that Lot of
+  springs was used and shipped so all Customers may be notified of the defect.
+  If the spring was under warranty and is still eligible, the backward search
+  should indicate so.</para>
   <para>To view detailed Inventory history by Lot/Serial Number, select the
   "Detailed Inventory History by Lot/Serial #" option. The following screen
   will appear:</para>
@@ -35,7 +35,8 @@
     <varlistentry>
       <term>Item Number</term>
       <listitem>
-        <para></para>
+        <para>Enter the Item Number of the Item whose detailed Inventory
+        history by Lot/Serial Number you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -47,7 +48,8 @@
     <varlistentry>
       <term>Lot/Serial #</term>
       <listitem>
-        <para></para>
+        <para>Specify one of the following Lot/Serial Number selection
+        criteria:</para>
         <variablelist>
           <varlistentry>
             <term>Selected</term>
@@ -59,7 +61,8 @@
           <varlistentry>
             <term>Pattern</term>
             <listitem>
-              <para></para>
+              <para>Enter a Lot/Serial Number pattern to select a range of
+              Product CategorieLot/Serial Numbers.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -123,7 +126,8 @@
     <varlistentry>
       <term>Date Range</term>
       <listitem>
-        <para></para>
+        <para>Select if you want to use specific date range parameters. If not
+        selected, the query will search for all time.</para>
         <variablelist>
           <varlistentry>
             <term>Start Date</term>
@@ -147,30 +151,40 @@
     <varlistentry>
       <term>All Warehouses</term>
       <listitem>
-        <para></para>
+        <para>Select to display detailed Inventory history by Lot/Serial
+        Number for all Warehouses. </para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Selected</term>
       <listitem>
-        <para></para>
+        <para>Specify Warehouse whose detailed Inventory history by Lot/Serial
+        Number you want to display. </para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Mult-Level Trace</term>
+      <term>Multi-Level Trace</term>
       <listitem>
-        <para></para>
+        <para>Select if you want the query to include one of the following
+        trace options:</para>
         <variablelist>
           <varlistentry>
             <term>Forward</term>
             <listitem>
-              <para></para>
+              <para>Select to view transaction activity of Lot/Serial goods
+              through multiple levels showing where they were used. For
+              example, we can see where a purchased Item was used in a Work
+              Order and subsequently shipped against a Sales Order.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Backward</term>
             <listitem>
-              <para></para>
+              <para>Select to view transaction activity of Lot/Serial goods
+              though multiple levels showing what serialized Items went into
+              them. For example, we can look at a finished goods shipped to a
+              Customer and determine what purchased Items went into the
+              good.</para>
             </listitem>
           </varlistentry>
         </variablelist>
