@@ -10,6 +10,7 @@ DECLARE
   _timestamp    TIMESTAMP;
   _o		RECORD;
   _recvid	INTEGER;
+  _warehouseid 	INTEGER;
 
 BEGIN
   IF(precvdate IS NULL OR precvdate = CURRENT_DATE) THEN
@@ -53,6 +54,24 @@ BEGIN
 	   poitem ON (orderitem_orderhead_type='PO' AND orderitem_id=poitem_id)
         WHERE ((orderhead_id=orderitem_orderhead_id)
           AND  (orderhead_type=orderitem_orderhead_type));
+
+        --Make sure user has site privileges
+        IF ((FOUND) AND (
+            SELECT (count(usrpref_id)=1) 
+            FROM usrpref 
+            WHERE ((usrpref_name='selectedSites')
+            AND (usrpref_username=current_user)
+            AND (usrpref_value='t')))) THEN
+          SELECT usrsite_warehous_id INTO _warehouseid
+          FROM usrsite,itemsite
+          WHERE ((itemsite_id=_o.itemsite_id)
+          AND (usrsite_warehous_id=itemsite_warehous_id)
+          AND (usrsite_username=current_user));
+          
+          IF (NOT FOUND) THEN
+            RETURN 0;
+          END IF;
+        END IF;
     ELSE
      SELECT orderhead_number,
 	   orderitem_id,
