@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519273">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>count slips</primary>
       <secondary>entering of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -14,21 +14,19 @@
   unposted Count Tags. Unlike Count Tags, however, Count Slips do not have to
   be created before they can be entered. To enter a Count Slip, select the
   "Enter Count Slip" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/countSlip.png"/>
+          <imagedata fileref="images/countSlip.png" />
         </imageobject>
         <caption>Enter Count Slip</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When entering a Count Slip, you are presented with the following
   options:</para>
   <tip>
     <para>Restrictions may be imposed on the creation of Count Slips. To learn
-    more, see <xref linkend="Anchor19758"/>.</para>
+    more, see <xref linkend="Anchor19758" />.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -68,7 +66,7 @@
       <listitem>
         <para>Enter a Count Slip Number to identify the Count Slip. Some
         restrictions may apply. To learn more about Count Slip numbering
-        restrictions, see the <xref linkend="Anchor19758"/>.</para>
+        restrictions, see the <xref linkend="Anchor19758" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -96,8 +94,16 @@
       <term>Lot Expiration</term>
       <listitem>
         <para>If a Lot-controlled Item Site is also perishable, you will have
-        the option to enter an expiration date for the counted
+        the option to enter a perishability expiration date for the counted
         quantity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warranty Expiration</term>
+      <listitem>
+        <para>If a Lot/Serial Item is marked to require a warranty when
+        purchased, then you will have the option to enter a warranty
+        expiration date for the counted quantity.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

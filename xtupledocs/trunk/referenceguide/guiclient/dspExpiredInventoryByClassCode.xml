@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section570821">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>expiration</primary>
       <secondary>of inventory</secondary>
     </indexterm> <indexterm significance="normal">
@@ -15,16 +15,14 @@
   Sites. If such Inventory has expired, you may view Inventory details using
   this display. To view expired Inventory, select the "Expired Inventory"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspExpiredInventoryByClassCode.png"/>
+          <imagedata fileref="images/dspExpiredInventoryByClassCode.png" />
         </imageobject>
         <caption>Expired Inventory</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>Expired Inventory will be displayed in red type, to alert users to
     the expired status of the Item. This typographical feature appears in
@@ -53,18 +51,6 @@
         Refine your search using Regular Expressions.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Threshold Days</term>
-      <listitem>
-        <para>Select a number using the arrow buttons, or manually enter a
-        value between 999 and -999. Specify which expired Items to include in
-        the display using the threshold parameter. Threshold days are measured
-        from the current day. To view all currently expired Inventory, set the
-        parameter to "0". To display Inventory due to expire in the future,
-        enter a positive value. Enter a negative value to display Inventory
-        that expired prior to the current day.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry role="standard">
       <term>All Warehouses</term>
       <listitem>
@@ -76,6 +62,29 @@
       <listitem>
         <para>Specify Warehouse whose expired Inventory you want to
         display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expired By</term>
+      <listitem>
+        <para>Specify one of the following expiration types to include in the
+        display:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Perishability</term>
+            <listitem>
+              <para>Select if you want to include Inventory which expired
+              because its perishable date passed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Warranty</term>
+            <listitem>
+              <para>Select if you want to include Inventory which expired
+              because its warranty date passed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -125,6 +134,18 @@
             </listitem>
           </varlistentry>
         </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Threshold Days</term>
+      <listitem>
+        <para>Select a number using the arrow buttons, or manually enter a
+        value between 999 and -999. Specify which expired Items to include in
+        the display using the threshold parameter. Threshold days are measured
+        from the current day. To view all currently expired Inventory, set the
+        parameter to "0". To display Inventory due to expire in the future,
+        enter a positive value. Enter a negative value to display Inventory
+        that expired prior to the current day.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
