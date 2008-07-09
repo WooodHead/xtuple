@@ -597,4 +597,75 @@
         <caption>CRM Account Opportunities</caption>
       </mediaobject>
     </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Opportunities</term>
+      <listitem>
+        <para>Display lists Opportunities associated with the CRM
+        Account</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>You have the ability to track Lot/Serial registrations by CRM Account.
+  In most cases, registrations must be manually entered. However, in the case
+  of Items sold to Customers, the system can be configured to automatically
+  track warranty registrations for you.</para>
+  <tip>
+    <para>If you select the "Auto Register Lot/Serial at Shipping" option on
+    the Item Site for an Item, then the system will automatically track
+    registrations (by Customer) whenever the Item is shipped. This applies
+    only to sold Items which are Lot/Serial controlled.</para>
+  </tip>
+  <para>To view a list of Lot/Serial registrations associated with the CRM
+  Account, select the "Registrations" tab. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/crmaccount_registrationsTab.png" />
+        </imageobject>
+        <caption>CRM Account Registrations</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing Lot/Serial registrations associated with the CRM Account,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Registrations</term>
+      <listitem>
+        <para>Display lists Lot/Serial registrations associated with the CRM
+        Account</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Lot/Serial registration. The
+        process for creating a new Lot/Serial registration is described in the
+        <xref linkend="lotSerialRegistrationTitle" /> section.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Lot/Serial registrations. The
+        edit screen is the same as that for creating a new Lot/Serial
+        registration&mdash;except that when editing, the fields will contain
+        Lot/Serial registration information. Double-clicking on a Lot/Serial
+        registration will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Lot/Serial registration and then select this button
+        to remove the association between the Lot/Serial registration and the
+        CRM Account.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
