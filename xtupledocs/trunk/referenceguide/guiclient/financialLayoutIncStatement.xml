@@ -36,33 +36,34 @@
   custom report you were creating, you would be able to add/remove Account
   Groups and Account Numbers to meet your specific needs.</para>
   <tip>
-    <para>To build row layouts for the three standard report types&mdash;Income
-    Statement, Balance Sheet, and Cash Flow&mdash;use the same techniques as when
-    building Ad Hoc report row layouts. The only difference is you won"t need
-    to specify which balances to calculate (e.g., beginning, ending, etc.).
-    The system determines which calculations will be done for the standard
-    statement formats.</para>
+    <para>To build row layouts for the three standard report
+    types&mdash;Income Statement, Balance Sheet, and Cash Flow&mdash;use the
+    same techniques as when building Ad Hoc report row layouts. The only
+    difference is you won"t need to specify which balances to calculate (e.g.,
+    beginning, ending, etc.). The system determines which calculations will be
+    done for the standard statement formats.</para>
   </tip>
   <para>When viewing row layouts for the basic Income Statement, you are
   presented with the following columns:</para>
   <itemizedlist>
     <listitem>
-      <para>Group/Account Name: Lists the Account Groups and Account Types
-      used in the report. The two main groups are REVENUE and EXPENSES. All
-      Accounts having Type=Revenue are included in the REVENUE group. And
-      within the EXPENSES group all Accounts having Type=Expense are
-      included.</para>
+      <para><emphasis role="bold">Group/Account Name</emphasis>: Lists the
+      Account Groups and Account Types used in the report. The two main groups
+      are REVENUE and EXPENSES. All Accounts having Type=Revenue are included
+      in the REVENUE group. And within the EXPENSES group all Accounts having
+      Type=Expense are included.</para>
     </listitem>
     <listitem>
-      <para>Sub./Summ.: Indicates whether group information will be presented
-      as a subtotal or summary line when the report is run. In the basic
-      Income Statement, all Account Groups are subtotaled.</para>
+      <para><emphasis role="bold">Sub./Summ.</emphasis>: Indicates whether
+      group information will be presented as a subtotal or summary line when
+      the report is run. In the basic Income Statement, all Account Groups are
+      subtotaled.</para>
     </listitem>
     <listitem>
-      <para>Oper.: Specifies whether a group will be added to ("+") or
-      subtracted from ("-") the group total. In the basic Income Statement,
-      REVENUE is added to and EXPENSES are subtracted from the INCOME
-      group.</para>
+      <para><emphasis role="bold">Oper.</emphasis>: Specifies whether a group
+      will be added to ("+") or subtracted from ("-") the group total. In the
+      basic Income Statement, REVENUE is added to and EXPENSES are subtracted
+      from the INCOME group.</para>
     </listitem>
   </itemizedlist>
   <note>
@@ -94,93 +95,101 @@
       </mediaobject>
     </screenshot></para>
   <para>When viewing column layouts for the basic Income Statement, you are
-  presented with the following column definitions&mdash;each of which defines a
-  different time bucket available for viewing Income Statement
+  presented with the following column definitions&mdash;each of which defines
+  a different time bucket available for viewing Income Statement
   information:</para>
   <itemizedlist>
     <listitem>
-      <para>Month: Displays data for the current month (i.e., Accounting
-      Period). The month used as the basis for the reporting is specified when
-      the report is run. Uses the "FinancialReportMonth" report
+      <para><emphasis role="bold">Month</emphasis>: Displays data for the
+      current month (i.e., Accounting Period). The month used as the basis for
+      the reporting is specified when the report is run. Uses the
+      "FinancialReportMonth" report definition.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Month, Budget</emphasis>: Displays data for
+      the current month, compared to Budget information for the current month.
+      The month used as the basis for the reporting is specified when the
+      report is run. Uses the "FinancialReportMonthBudget" report
       definition.</para>
     </listitem>
     <listitem>
-      <para>Month, Budget: Displays data for the current month, compared to
-      Budget information for the current month. The month used as the basis
-      for the reporting is specified when the report is run. Uses the
-      "FinancialReportMonthBudget" report definition.</para>
-    </listitem>
-    <listitem>
-      <para>Month, Prior Month: Displays data for the current month, compared
-      to the prior month. The month used as the basis for the reporting is
-      specified when the report is run. Uses the
-      "FinancialReportMonthPriorMonth" report definition.</para>
-    </listitem>
-    <listitem>
-      <para>Month, Prior Year Month: Displays data for the current month,
-      compared to the same month in the prior Fiscal Year. The month used as
+      <para><emphasis role="bold">Month, Prior Month</emphasis>: Displays data
+      for the current month, compared to the prior month. The month used as
       the basis for the reporting is specified when the report is run. Uses
       the "FinancialReportMonthPriorMonth" report definition.</para>
     </listitem>
     <listitem>
-      <para>Month, QTD: Displays data for the current month, compared to the
+      <para><emphasis role="bold">Month, Prior Year Month</emphasis>: Displays
+      data for the current month, compared to the same month in the prior
+      Fiscal Year. The month used as the basis for the reporting is specified
+      when the report is run. Uses the "FinancialReportMonthPriorMonth" report
+      definition.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Month, QTD</emphasis>: Displays data for the
+      current month, compared to the current Quarter to-date. The month used
+      as the basis for the reporting is specified when the report is run. Uses
+      the "FinancialReportMonthQuarter" report definition.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Month, YTD</emphasis>: Displays data for the
+      current month, compared to the current Fiscal Year to-date. The month
+      used as the basis for the reporting is specified when the report is run.
+      Uses the "FinancialReportMonthYear" report definition.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">QTD</emphasis>: Displays data for the
       current Quarter to-date. The month used as the basis for the reporting
-      is specified when the report is run. Uses the
-      "FinancialReportMonthQuarter" report definition.</para>
+      is specified when the report is run. Uses the "FinancialReportQuarter"
+      report definition.</para>
     </listitem>
     <listitem>
-      <para>Month, YTD: Displays data for the current month, compared to the
-      current Fiscal Year to-date. The month used as the basis for the
-      reporting is specified when the report is run. Uses the
-      "FinancialReportMonthYear" report definition.</para>
+      <para><emphasis role="bold">QTD, Budget</emphasis>: Displays data for
+      the current Quarter to-date, compared to Budget information for the
+      current Quarter. The month used as the basis for the reporting is
+      specified when the report is run. Uses the
+      "FinancialReportQuarterBudget" report definition.</para>
     </listitem>
     <listitem>
-      <para>QTD: Displays data for the current Quarter to-date. The month used
-      as the basis for the reporting is specified when the report is run. Uses
-      the "FinancialReportQuarter" report definition.</para>
-    </listitem>
-    <listitem>
-      <para>QTD, Budget: Displays data for the current Quarter to-date,
-      compared to Budget information for the current Quarter. The month used
-      as the basis for the reporting is specified when the report is run. Uses
-      the "FinancialReportQuarterBudget" report definition.</para>
-    </listitem>
-    <listitem>
-      <para>QTD, Prior Quarter: Displays data for the current Quarter to-date,
-      compared to the prior Quarter. The month used as the basis for the
-      reporting is specified when the report is run. Uses the
-      "FinancialReportQuarterPriorQuarter" report definition.</para>
-    </listitem>
-    <listitem>
-      <para>QTD, Prior Year Quarter: Displays data for the current Quarter
-      to-date, compared to the same Quarter in the prior Fiscal Year. The
+      <para><emphasis role="bold">QTD, Prior Quarter</emphasis>: Displays data
+      for the current Quarter to-date, compared to the prior Quarter. The
       month used as the basis for the reporting is specified when the report
       is run. Uses the "FinancialReportQuarterPriorQuarter" report
       definition.</para>
     </listitem>
     <listitem>
-      <para>YTD: Displays data for the current Fiscal Year to-date. The month
-      used as the basis for the reporting is specified when the report is run.
-      Uses the "FinancialReportYear" report definition.</para>
+      <para><emphasis role="bold">QTD, Prior Year Quarter</emphasis>: Displays
+      data for the current Quarter to-date, compared to the same Quarter in
+      the prior Fiscal Year. The month used as the basis for the reporting is
+      specified when the report is run. Uses the
+      "FinancialReportQuarterPriorQuarter" report definition.</para>
     </listitem>
     <listitem>
-      <para>YTD, Budget: Displays data for the current Fiscal Year to-date,
-      compared to Budget information for the current Fiscal Year to-date. The
-      month used as the basis for the reporting is specified when the report
-      is run. Uses the "FinancialReportYearBudget" report definition.</para>
+      <para><emphasis role="bold">YTD</emphasis>: Displays data for the
+      current Fiscal Year to-date. The month used as the basis for the
+      reporting is specified when the report is run. Uses the
+      "FinancialReportYear" report definition.</para>
     </listitem>
     <listitem>
-      <para>YTD, Prior Full Year: Displays data for the current Fiscal Year
-      to-date, compared to information for the entire prior Fiscal Year. The
-      month used as the basis for the reporting is specified when the report
-      is run. Uses the "FinancialReportYearPriorYear" report
+      <para><emphasis role="bold">YTD, Budget</emphasis>: Displays data for
+      the current Fiscal Year to-date, compared to Budget information for the
+      current Fiscal Year to-date. The month used as the basis for the
+      reporting is specified when the report is run. Uses the
+      "FinancialReportYearBudget" report definition.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">YTD, Prior Full Year</emphasis>: Displays
+      data for the current Fiscal Year to-date, compared to information for
+      the entire prior Fiscal Year. The month used as the basis for the
+      reporting is specified when the report is run. Uses the
+      "FinancialReportYearPriorYear" report definition.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">YTD, Prior Year YTD</emphasis>: Displays
+      data for the current Fiscal Year to-date, compared to the prior Fiscal
+      Year to-date. The month used as the basis for the reporting is specified
+      when the report is run. Uses the "FinancialReportYearPriorYear" report
       definition.</para>
-    </listitem>
-    <listitem>
-      <para>YTD, Prior Year YTD: Displays data for the current Fiscal Year
-      to-date, compared to the prior Fiscal Year to-date. The month used as
-      the basis for the reporting is specified when the report is run. Uses
-      the "FinancialReportYearPriorYear" report definition.</para>
     </listitem>
   </itemizedlist>
   <note>

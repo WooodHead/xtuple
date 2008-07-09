@@ -36,35 +36,36 @@
   custom report you were creating, you would be able to add/remove Account
   Groups and Account Numbers to meet your specific needs.</para>
   <tip>
-    <para>To build row layouts for the three standard report types&mdash;Income
-    Statement, Balance Sheet, and Cash Flow&mdash;use the same techniques as when
-    building Ad Hoc report row layouts. The only difference is you won"t need
-    to specify which balances to calculate (e.g., beginning, ending, etc.).
-    The system determines which calculations will be done for the standard
-    statement formats.</para>
+    <para>To build row layouts for the three standard report
+    types&mdash;Income Statement, Balance Sheet, and Cash Flow&mdash;use the
+    same techniques as when building Ad Hoc report row layouts. The only
+    difference is you won"t need to specify which balances to calculate (e.g.,
+    beginning, ending, etc.). The system determines which calculations will be
+    done for the standard statement formats.</para>
   </tip>
   <para>When viewing row layouts for the basic Balance Sheet, you are
   presented with the following columns:</para>
   <itemizedlist>
     <listitem>
-      <para>Group/Account Name: Lists the Account Groups and Account Types
-      used in the report. The two main groups are ASSETS and LIABILITIES AND
-      OWNERS EQUITY. All Accounts having Type=Asset are included in the ASSETS
-      group. And within the LIABILITIES AND OWNERS EQUITY group all Accounts
-      having Type=Liability, Type=Equity, and also Net Income are
-      included.</para>
+      <para><emphasis role="bold">Group/Account Name</emphasis>: Lists the
+      Account Groups and Account Types used in the report. The two main groups
+      are ASSETS and LIABILITIES AND OWNERS EQUITY. All Accounts having
+      Type=Asset are included in the ASSETS group. And within the LIABILITIES
+      AND OWNERS EQUITY group all Accounts having Type=Liability, Type=Equity,
+      and also Net Income are included.</para>
     </listitem>
     <listitem>
-      <para>Sub./Summ.: Indicates whether group information will be presented
-      as a subtotal or summary line when the report is run. In the basic
-      Balance Sheet, all Account Groups are subtotaled&mdash;except for the Net
-      Income group, which is summarized.</para>
+      <para><emphasis role="bold">Sub./Summ.</emphasis>: Indicates whether
+      group information will be presented as a subtotal or summary line when
+      the report is run. In the basic Balance Sheet, all Account Groups are
+      subtotaled&mdash;except for the Net Income group, which is
+      summarized.</para>
     </listitem>
     <listitem>
-      <para>Oper.: Specifies whether a group will be added to ("+") or
-      subtracted from ("-") the group total. In the basic Income Statement,
-      LIABILITIES AND OWNERS EQUITY are subtracted from the ASSETS
-      group.</para>
+      <para><emphasis role="bold">Oper.</emphasis>: Specifies whether a group
+      will be added to ("+") or subtracted from ("-") the group total. In the
+      basic Income Statement, LIABILITIES AND OWNERS EQUITY are subtracted
+      from the ASSETS group.</para>
     </listitem>
   </itemizedlist>
   <note>
@@ -96,45 +97,48 @@
       </mediaobject>
     </screenshot></para>
   <para>When viewing column layouts for the basic Balance Sheet, you are
-  presented with the following column definitions&mdash;each of which defines a
-  different time bucket available for viewing Balance Sheet
+  presented with the following column definitions&mdash;each of which defines
+  a different time bucket available for viewing Balance Sheet
   information:</para>
   <itemizedlist>
     <listitem>
-      <para>Current: Displays data for the current month (i.e., Accounting
-      Period). The month used as the basis for the reporting is specified when
-      the report is run. Uses the "FinancialReportMonth" report
+      <para><emphasis role="bold">Current</emphasis>: Displays data for the
+      current month (i.e., Accounting Period). The month used as the basis for
+      the reporting is specified when the report is run. Uses the
+      "FinancialReportMonth" report definition.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Current, Budget</emphasis>: Displays data
+      for the current month, compared to Budget information for the current
+      month. The month used as the basis for the reporting is specified when
+      the report is run. Uses the "FinancialReportMonthBudget" report
       definition.</para>
     </listitem>
     <listitem>
-      <para>Current, Budget: Displays data for the current month, compared to
-      Budget information for the current month. The month used as the basis
-      for the reporting is specified when the report is run. Uses the
-      "FinancialReportMonthBudget" report definition.</para>
+      <para><emphasis role="bold">Current, Prior Month</emphasis>: Displays
+      data for the current month, compared to the prior month end. The month
+      used as the basis for the reporting is specified when the report is run.
+      Uses the "FinancialReportMonthPriorMonth" report definition.</para>
     </listitem>
     <listitem>
-      <para>Current, Prior Month: Displays data for the current month,
-      compared to the prior month end. The month used as the basis for the
-      reporting is specified when the report is run. Uses the
-      "FinancialReportMonthPriorMonth" report definition.</para>
+      <para><emphasis role="bold">Current, Prior Quarter</emphasis>: Displays
+      data for the current month, compared to the prior Quarter end. The month
+      used as the basis for the reporting is specified when the report is run.
+      Uses the "FinancialReportMonthPriorQuarter" report definition.</para>
     </listitem>
     <listitem>
-      <para>Current, Prior Quarter: Displays data for the current month,
-      compared to the prior Quarter end. The month used as the basis for the
-      reporting is specified when the report is run. Uses the
-      "FinancialReportMonthPriorQuarter" report definition.</para>
+      <para><emphasis role="bold">Current, Prior Year</emphasis>: Displays
+      data for the current month, compared to the Prior Fiscal Year end. The
+      month used as the basis for the reporting is specified when the report
+      is run. Uses the "FinancialReportMonthPriorYear" report
+      definition.</para>
     </listitem>
     <listitem>
-      <para>Current, Prior Year: Displays data for the current month, compared
-      to the Prior Fiscal Year end. The month used as the basis for the
-      reporting is specified when the report is run. Uses the
-      "FinancialReportMonthPriorYear" report definition.</para>
-    </listitem>
-    <listitem>
-      <para>Current, Year Ago: Displays data for the current month, compared
-      to the same month in the prior Fiscal Year. The month used as the basis
-      for the reporting is specified when the report is run. Uses the
-      "FinancialReportMonthPriorMonth" report definition.</para>
+      <para><emphasis role="bold">Current, Year Ago</emphasis>: Displays data
+      for the current month, compared to the same month in the prior Fiscal
+      Year. The month used as the basis for the reporting is specified when
+      the report is run. Uses the "FinancialReportMonthPriorMonth" report
+      definition.</para>
     </listitem>
   </itemizedlist>
   <note>

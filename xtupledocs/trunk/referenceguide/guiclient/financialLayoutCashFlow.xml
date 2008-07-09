@@ -27,12 +27,12 @@
   standard statement formats, the system determines which calculations will be
   done.</para>
   <tip>
-    <para>To build row layouts for the three standard report types&mdash;Income
-    Statement, Balance Sheet, and Cash Flow&mdash;use the same techniques as when
-    building Ad Hoc report row layouts. The only difference is you won"t need
-    to specify which balances to calculate (e.g., beginning, ending, etc.).
-    The system determines which calculations will be done for the standard
-    statement formats.</para>
+    <para>To build row layouts for the three standard report
+    types&mdash;Income Statement, Balance Sheet, and Cash Flow&mdash;use the
+    same techniques as when building Ad Hoc report row layouts. The only
+    difference is you won"t need to specify which balances to calculate (e.g.,
+    beginning, ending, etc.). The system determines which calculations will be
+    done for the standard statement formats.</para>
   </tip>
   <para>In addition to row layouts, you may also define column layouts for
   your Cash Flow report. Column layouts are used to specify the time buckets
@@ -88,8 +88,8 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted column layouts. The edit screen
-        is the same as that for creating a new column layout&mdash;except that when
-        editing, the fields will contain column layout information.
+        is the same as that for creating a new column layout&mdash;except that
+        when editing, the fields will contain column layout information.
         Double-clicking on a column layout will also bring you to the editing
         screen.</para>
       </listitem>
@@ -164,28 +164,56 @@
       <listitem>
         <para>Select the time period(s) you want to have included in the
         column layout:</para>
-        <para>Month: Select to have the current month included as one of the
-        columns in the layout. The month used as the basis for the reporting
-        is specified when the report is run. If selected, you will also have
-        the option to include the prior month in the layout.</para>
-        <para>Quarter: Select to have the current Quarter included as one of
-        the columns in the layout. The month used as the basis for the
-        reporting is specified when the report is run. If selected, you will
-        also have the option to include the prior Quarter in the
-        layout.</para>
-        <para>Year: Select to have the current Fiscal Year-to-Date included as
-        one of the columns in the layout. The month used as the basis for the
-        reporting is specified when the report is run. If selected, you will
-        also have the option to include the prior Fiscal Year in the
-        layout.</para>
-        <para>Show Debits and Credits: Select to have Debits and Credits
-        included as columns for each of the time periods (month, Quarter,
-        Year) specified for the layout.</para>
-        <para>% of Group Total: Select to have the percentage of group total
-        included as a column for each of the time periods (month, Quarter,
-        Year) specified for the layout. This information will only be shown
-        for groups and Accounts whose row definition specifies "Show % of
-        Group Total."</para>
+        <variablelist>
+          <varlistentry>
+            <term>Month</term>
+            <listitem>
+              <para>Select to have the current month included as one of the
+              columns in the layout. The month used as the basis for the
+              reporting is specified when the report is run. If selected, you
+              will also have the option to include the prior month in the
+              layout.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Quarter</term>
+            <listitem>
+              <para>Select to have the current Quarter included as one of the
+              columns in the layout. The month used as the basis for the
+              reporting is specified when the report is run. If selected, you
+              will also have the option to include the prior Quarter in the
+              layout.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Year</term>
+            <listitem>
+              <para>Select to have the current Fiscal Year-to-Date included as
+              one of the columns in the layout. The month used as the basis
+              for the reporting is specified when the report is run. If
+              selected, you will also have the option to include the prior
+              Fiscal Year in the layout.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Show Debits and Credits</term>
+            <listitem>
+              <para>Select to have Debits and Credits included as columns for
+              each of the time periods (month, Quarter, Year) specified for
+              the layout.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>% of Group Total</term>
+            <listitem>
+              <para>Select to have the percentage of group total included as a
+              column for each of the time periods (month, Quarter, Year)
+              specified for the layout. This information will only be shown
+              for groups and Accounts whose row definition specifies "Show %
+              of Group Total."</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -200,79 +228,107 @@
       <listitem>
         <para>Select to include prior time period information in the column
         layout by selecting from the following options:</para>
-        <para>Period: Will include information for the Accounting Period
-        immediately prior to the Period specified when the Financial Report is
-        run. You must also select at least one of the time-period check boxes
-        below ("Full Month" or "Full Quarter") for prior information to be
-        included.</para>
-        <para>Year: Will include information for the Fiscal Year immediately
-        prior to the current Year specified when the Financial Report is run.
-        You must also select at least one of the time-period check boxes below
-        ("Full Month," "Full Quarter," etc.) for prior information to be
-        included.</para>
-        <para>Full Month: If selected, a full month's worth of information
-        will be included when the report is run&mdash;depending on the prior time
-        period specified above. If the "Period" option is specified, then the
-        month immediately prior to the selected Accounting Period will be
-        included. If the "Year" option is specified, then the selected month
-        in the prior Fiscal Year will be included.</para>
-        <para>Full Quarter: If selected, a full Quarter's worth of information
-        will be included when the report is run&mdash;depending on the prior time
-        period specified above. If the "Period" option is specified, then the
-        Quarter immediately prior to the selected Accounting Period's Quarter
-        will be included. If the "Year" option is specified, then the selected
-        Quarter in the prior Fiscal Year will be included.</para>
+        <itemizedlist>
+          <listitem>
+            <para>Period: Will include information for the Accounting Period
+            immediately prior to the Period specified when the Financial
+            Report is run. You must also select at least one of the
+            time-period check boxes below ("Full Month" or "Full Quarter") for
+            prior information to be included.</para>
+          </listitem>
+          <listitem>
+            <para>Year: Will include information for the Fiscal Year
+            immediately prior to the current Year specified when the Financial
+            Report is run. You must also select at least one of the
+            time-period check boxes below ("Full Month," "Full Quarter," etc.)
+            for prior information to be included.</para>
+          </listitem>
+          <listitem>
+            <para>Full Month: If selected, a full month's worth of information
+            will be included when the report is run&mdash;depending on the
+            prior time period specified above. If the "Period" option is
+            specified, then the month immediately prior to the selected
+            Accounting Period will be included. If the "Year" option is
+            specified, then the selected month in the prior Fiscal Year will
+            be included.</para>
+          </listitem>
+          <listitem>
+            <para>Full Quarter: If selected, a full Quarter's worth of
+            information will be included when the report is
+            run&mdash;depending on the prior time period specified above. If
+            the "Period" option is specified, then the Quarter immediately
+            prior to the selected Accounting Period's Quarter will be
+            included. If the "Year" option is specified, then the selected
+            Quarter in the prior Fiscal Year will be included.</para>
+          </listitem>
+          <listitem>
+            <para>Full Year: If selected, the full prior Fiscal Year's worth
+            of information will be included when the report is run.</para>
+            <tip>
+              <para>The "Full Year" and "Year To Date" check boxes are not
+              affected by the "Period" or "Year" selections.</para>
+            </tip>
+          </listitem>
+          <listitem>
+            <para>Year To Date: If selected, the current Fiscal Year to Date's
+            worth of information will be included when the report is
+            run.</para>
+          </listitem>
+          <listitem>
+            <para>% of Group Total: If selected, the percentage of the group
+            total for the prior time period will be included when the report
+            is run. This information will only be shown for groups and
+            Accounts whose row definition specifies "Show % of Group
+            Total."</para>
+          </listitem>
+          <listitem>
+            <para>Difference: If selected, the amount of difference between
+            the selected Accounting Period and the prior time period will be
+            included when the report is run.</para>
+          </listitem>
+          <listitem>
+            <para>% of Difference: If selected, the percentage difference
+            between the selected Accounting Period and the prior time period
+            will be included when the report is run.</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Budget</term>
+      <listitem>
+        <para>Select to include Budget information in the column layout. If
+        selected, the following additional options will be available:</para>
+        <variablelist>
+          <varlistentry>
+            <term>% of Group Total</term>
+            <listitem>
+              <para>If selected, the Budget percentage of the group total will
+              be included when the report is run. This information will only
+              be shown for groups and Accounts whose row definition specifies
+              "Show % of Group Total."</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Difference</term>
+            <listitem>
+              <para>If selected, the amount of difference between the selected
+              Accounting Period and the Budget for the Period will be included
+              when the report is run.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>% of Difference</term>
+            <listitem>
+              <para>If selected, the percentage difference between the
+              selected Accounting Period and the Budget for the Period will be
+              included when the report is run.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>The "Full Year" and "Year To Date" check boxes are not affected by
-    the "Period" or "Year" selections.</para>
-  </tip>
-  <itemizedlist>
-    <listitem>
-      <para>Full Year: If selected, the full prior Fiscal Year's worth of
-      information will be included when the report is run.</para>
-    </listitem>
-    <listitem>
-      <para>Year To Date: If selected, the current Fiscal Year to Date's worth
-      of information will be included when the report is run.</para>
-    </listitem>
-    <listitem>
-      <para>% of Group Total: If selected, the percentage of the group total
-      for the prior time period will be included when the report is run. This
-      information will only be shown for groups and Accounts whose row
-      definition specifies "Show % of Group Total."</para>
-    </listitem>
-    <listitem>
-      <para>Difference: If selected, the amount of difference between the
-      selected Accounting Period and the prior time period will be included
-      when the report is run.</para>
-    </listitem>
-    <listitem>
-      <para>% of Difference: If selected, the percentage difference between
-      the selected Accounting Period and the prior time period will be
-      included when the report is run.</para>
-      <para>Budget: Select to include Budget information in the column layout.
-      If selected, the following additional options will be available:</para>
-    </listitem>
-    <listitem>
-      <para>% of Group Total: If selected, the Budget percentage of the group
-      total will be included when the report is run. This information will
-      only be shown for groups and Accounts whose row definition specifies
-      "Show % of Group Total."</para>
-    </listitem>
-    <listitem>
-      <para>Difference: If selected, the amount of difference between the
-      selected Accounting Period and the Budget for the Period will be
-      included when the report is run.</para>
-    </listitem>
-    <listitem>
-      <para>% of Difference: If selected, the percentage difference between
-      the selected Accounting Period and the Budget for the Period will be
-      included when the report is run.</para>
-    </listitem>
-  </itemizedlist>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
@@ -318,18 +374,40 @@
         <para>You have the option to substitute alternate text for the
         following column headers or row labels when viewing or printing your
         Financial Report:</para>
-        <para>Alternate Debits: Specify an alternate label to use as the
-        header text for the Debits column. If not specified, the default text
-        will be used.</para>
-        <para>Alternate Credits: Specify an alternate label to use as the
-        header text for the Credits column. If not specified, the default text
-        will be used.</para>
-        <para>Alternate Budget: Specify an alternate label to use as the
-        header text for the Budget column. If not specified, the default text
-        will be used.</para>
-        <para>Alternate Grand Total: Specify an alternate label to use as the
-        text for the Grand Total row. If not specified, the default text will
-        be used.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Alternate Debits</term>
+            <listitem>
+              <para>Specify an alternate label to use as the header text for
+              the Debits column. If not specified, the default text will be
+              used.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Alternate Credits</term>
+            <listitem>
+              <para>Specify an alternate label to use as the header text for
+              the Credits column. If not specified, the default text will be
+              used.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Alternate Budget</term>
+            <listitem>
+              <para>Specify an alternate label to use as the header text for
+              the Budget column. If not specified, the default text will be
+              used.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Alternate Grand Total</term>
+            <listitem>
+              <para>Specify an alternate label to use as the text for the
+              Grand Total row. If not specified, the default text will be
+              used.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
