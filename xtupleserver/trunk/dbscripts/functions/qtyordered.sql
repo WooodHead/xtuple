@@ -44,28 +44,13 @@ BEGIN
 	FROM metric
 	WHERE ((metric_name = ''MultiWhs'')
 	AND (metric_value = ''t''))) THEN
-    IF (_itemType IN (''P'', ''O'')) THEN
-      RETURN orderedByPo(pItemsiteid, pStartDate, pEndDate) +
-	     orderedByTo(pItemsiteid, pStartDate, pEndDate);
-
-    ELSIF (_itemType IN (''M'', ''C'', ''B'', ''J'')) THEN
-      RETURN orderedByWo(pItemsiteid, pStartDate, pEndDate) +
-	     orderedByTo(pItemsiteid, pStartDate, pEndDate);
-
-    ELSE
-      RETURN 0 +
-	     orderedByTo(pItemsiteid, pStartDate, pEndDate);
-    END IF;
+    RETURN orderedByPo(pItemsiteid, pStartDate, pEndDate) +
+           orderedByWo(pItemsiteid, pStartDate, pEndDate) +
+           orderedByTo(pItemsiteid, pStartDate, pEndDate);
   ELSE
-    IF (_itemType IN (''P'', ''O'')) THEN
-      RETURN orderedByPo(pItemsiteid, pStartDate, pEndDate);
+    RETURN orderedByPo(pItemsiteid, pStartDate, pEndDate) +
+           orderedByWo(pItemsiteid, pStartDate, pEndDate);
 
-    ELSIF (_itemType IN (''M'', ''C'', ''B'', ''J'')) THEN
-      RETURN orderedByWo(pItemsiteid, pStartDate, pEndDate);
-
-    ELSE
-      RETURN 0;
-    END IF;
   END IF;
 
 END;
