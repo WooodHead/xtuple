@@ -128,62 +128,29 @@
         <para>Manually enter Contact information in the fields below&mdash;or
         use the browse button to select pre-existing Contact
         information.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Title</term>
-            <listitem>
-              <para>Select a Title from the list of available Titles.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>First</term>
-            <listitem>
-              <para>Enter the Contact's first name.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Last</term>
-            <listitem>
-              <para>Enter the Contact's last name.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Job Title</term>
-            <listitem>
-              <para>Enter the Contact's job title.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Voice</term>
-            <listitem>
-              <para>Enter the Contact's phone number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Fax</term>
-            <listitem>
-              <para>Enter the Contact's fax number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>E-Mail</term>
-            <listitem>
-              <para>Enter the Contact's e-mail address.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
       <listitem>
-        <para></para>
-        <para></para>
-        <para></para>
-        <para></para>
-        <para></para>
+        <para>This is a scrolling text field with word-wrapping for entering
+        general Notes related to the Incident.</para>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <para>To link an Incident to a specific Item or Lot/Serial Number, select
+  the "Item Info" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident_itemTab.png" />
+        </imageobject>
+        <caption>Incident Item Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When linking an Incident to a specific Item or Lot/Serial Number, you
+  are presented with the following options:</para>
+  <variablelist>
     <varlistentry>
       <term>Item Number</term>
       <listitem>
@@ -200,51 +167,43 @@
     <varlistentry role="standard">
       <term>Lot/Serial #</term>
       <listitem>
-        <para>Enter a Lot or Serial Number (if any) for the selected Item. The
-        date the Lot/Serial Number was created will also be displayed. Select
-        the "?" button to learn more about a selected Lot/Serial
-        Number.</para>
+        <para>Manually enter a Lot/Serial Number (if any) to associate with
+        the Item&mdash;or use the browse button to select pre-existing
+        Lot/Serial Number information.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Summary</term>
-      <listitem>
-        <para>Enter a short line of text to describe the Incident.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Description</term>
-      <listitem>
-        <para>This is a scrolling text field with word-wrapping for entering
-        an extended description&mdash;or general notes&mdash;related to the
-        Incident.</para>
-      </listitem>
-    </varlistentry>
+  </variablelist>
+  <para>To view or associate To-Dos with an Incident, select the "To-Do List
+  Items" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident_todoTab.png" />
+        </imageobject>
+        <caption>Incident To-Dos</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
     <varlistentry>
       <term>To-Do List Items</term>
       <listitem>
-        <para>Display lists To-Do List items associated with the
+        <para>Display lists To-Do List Items associated with the
         Incident.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para></para>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-      <listitem>
+      <listitem id="incidentNEW">
         <para>Opens screen for creating a new To-Do List item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem>
+      <listitem id="incidentEDIT">
         <para>Enables you to edit highlighted To-Do List items. The edit
         screen is the same as that for creating a new To-Do List
         item&mdash;except that when editing, the fields will contain To-Do
@@ -254,42 +213,47 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem>
+      <listitem id="incidentVIEW">
         <para>Highlight a To-Do List item and then select this button to reach
         a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem>
+      <listitem id="incidentDELETE">
         <para>Highlight a To-Do List item and then select this button to
         remove the association between the To-Do List item and the
         Incident.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/incident_itemTab.png" />
-        </imageobject>
-        <caption>Incident Item Information</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para></para>
-  <para></para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/incident_todoTab.png" />
-        </imageobject>
-        <caption>Incident To-Dos</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para></para>
-  <para></para>
-  <para></para>
+  <para>Right-clicking on a To-Do item in the list enables you to select from
+  the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>New</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(incidentNEW)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Edit</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(incidentEDIT)" />
+    </varlistentry>
+    <varlistentry>
+      <term>View</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(incidentVIEW)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Delete</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(incidentDELETE)" />
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
   <para>To view the history associated with an Incident, select the "History"
   tab. The following screen will appear:</para>
   <para><screenshot>
@@ -302,9 +266,10 @@
     </screenshot></para>
   <para>The "History" screen displays information related to the Incident,
   including username of Incident creator, created date, status, and
-  description. </para>
-  <para>To add Comments to an Incident, select the "Comments" tab at the
-  bottom of the "Incident" screen. The following screen will appear:</para>
+  description.</para>
+  <para>To view system-generated Comments associated with an Incident&mdash;or
+  to add new Comments of your own&mdash;select the "Comments" tab. The
+  following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -313,59 +278,51 @@
         <caption>Incident Comments</caption>
       </mediaobject>
     </screenshot></para>
-  <para>The "Comments" screen displays information related to Incident Notes,
-  including sequence number, username of Note creator, created date, and Note
-  content.</para>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>Display lists the date Comment entered, Comment Type, user who
+        entered Comment, and a content preview.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
     <varlistentry>
       <term>NEW</term>
       <listitem>
-        <para>Opens screen for creating a new Incident Comments.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem>
-        <para>Enables you to edit highlighted Incident Comments. The edit
-        screen is the same as that for creating a new Incident
-        Comments&mdash;except that when editing, the fields will contain
-        Incident Comment information. Double-clicking on an Incident Note will
-        also bring you to the editing screen.</para>
+        <para>Opens screen for creating a new Comment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
       <listitem>
-        <para>Highlight an Incident Note and then select this button to reach
-        a read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>DELETE</term>
-      <listitem>
-        <para>Highlight an Incident Note and then select this button to remove
-        the Incident Note from the list.</para>
+        <para>Highlight a Comment and then select this button to reach a
+        read-only view of the Comment.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To enter a new Incident Note, select the NEW button. The following
-  screen will appear:</para>
+  <para>To create a new Comment, select the NEW button. The following screen
+  will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_IM_incidCommNote.png" />
+          <imagedata fileref="images/CommentNew.png" />
         </imageobject>
-        <caption>Create New Incident Note</caption>
+        <caption>Create New Comment</caption>
       </mediaobject>
     </screenshot></para>
   <variablelist>
     <varlistentry>
-      <term>Incident Note</term>
+      <term>Comment Type</term>
       <listitem>
-        <para>This is a scrolling text field with word-wrapping for entering a
-        Note related to the Incident.</para>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -375,15 +332,14 @@
     <varlistentry>
       <term>CANCEL</term>
       <listitem>
-        <para>Closes the screen without creating the Incident Note, returning
-        you to the previous screen.</para>
+        <para>Closes the screen without creating the Comment, returning you to
+        the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
       <listitem>
-        <para>Creates the Note and adds it to the list of Incident
-        Notes.</para>
+        <para>Creates the Comment and adds it to the list of Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
