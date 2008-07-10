@@ -60,7 +60,12 @@
 #include <QDomDocument>
 #include <QList>
 #include <QMessageBox>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QVariant>
 
+#include "loadappscript.h"
+#include "loadappui.h"
 #include "loadreport.h"
 #include "prerequisite.h"
 #include "script.h"
@@ -74,6 +79,10 @@ Package::Package(const QDomElement & elem)
   : _majVersion(-1), _minVersion(-1)
 {
   _id = elem.attribute("id");
+  _name = elem.attribute("name");
+  _developer = elem.attribute("developer");
+  _descrip = elem.attribute("descrip");
+
   QString version = elem.attribute("version");
   if(!version.isEmpty())
   {
@@ -112,13 +121,26 @@ Package::Package(const QDomElement & elem)
       LoadReport report(elemThis);
       _reports.append(report);
     }
+    else if(elemThis.tagName() == "loadappui")
+    {
+      LoadAppUI appui(elemThis);
+      _appuis.append(appui);
+    }
+    else if(elemThis.tagName() == "loadappscript")
+    {
+      LoadAppScript appscript(elemThis);
+      _appscripts.append(appscript);
+    }
+    else if (elemThis.tagName() == "pkgnotes")
+    {
+      _notes += elemThis.text();
+    }
     else if (! reportedErrorTags.contains(elemThis.tagName()))
     {
       QMessageBox::warning(0, QObject::tr("Unknown Package Element"),
-                           QObject::tr("This package contains reference to an "
-                                       "element '%1'. The application does not "
-                                       "know how to process and so it will be "
-                                       "ignored.")
+                           QObject::tr("This package contains an element '%1'. "
+                                       "The application does not know how to "
+                                       "process it and so it will be ignored.")
                            .arg(elemThis.tagName()));
       reportedErrorTags << elemThis.tagName();
     }
@@ -183,3 +205,91 @@ bool Package::containsPrerequisite(const QString & prereqname) const
   return false;
 }
 
+bool Package::containsAppScript(const QString &pname) const
+{
+  QList<LoadAppScript>::const_iterator it = _appscripts.begin();
+  for(; it != _appscripts.end(); ++it)
+  {
+    if((*it).name() == pname)
+      return true;
+  }
+  return false;
+}
+
+bool Package::containsAppUI(const QString &pname) const
+{
+  QList<LoadAppUI>::const_iterator it = _appuis.begin();
+  for(; it != _appuis.end(); ++it)
+  {
+    if((*it).name() == pname)
+      return true;
+  }
+  return false;
+}
+
+int Package::writeToDB(QString &errMsg)
+{
+  QSqlQuery select;
+  QSqlQuery upsert;
+  QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
+                                  "encountered while trying to import %1 into "
+                                  "the database:<br>%2<br>%3</font>");
+
+  if (_name.isEmpty())
+    return 0;   // if there's no name then there's no package to create
+
+  int pkgheadid = -1;
+  select.prepare("SELECT pkghead_id FROM pkghead WHERE (pkghead_name=:name);");
+  select.bindValue(":name", _name);
+  select.exec();
+  if (select.first())
+  {
+    pkgheadid = select.value(0).toInt();
+    upsert.prepare("UPDATE pkghead "
+                   "   SET pkghead_name=:name,"
+                   "       pkghead_descrip=:descrip,"
+                   "       pkghead_version=:version,"
+                   "       pkghead_developer=:developer,"
+                   "       pkghead_notes=:notes "
+                   "WHERE (pkghead_id=:id);");
+  }
+  else if (select.lastError().type() != QSqlError::NoError)
+  {
+    QSqlError err = select.lastError();
+    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    return -1;
+  }
+  else
+  {
+    upsert.prepare("SELECT NEXTVAL('pkghead_pkghead_id_seq');");
+    upsert.exec();
+    if (upsert.first())
+      pkgheadid = upsert.value(0).toInt();
+    else if (upsert.lastError().type() != QSqlError::NoError)
+    {
+      QSqlError err = upsert.lastError();
+      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      return -2;
+    }
+    upsert.prepare("INSERT INTO pkghead ("
+                   "       pkghead_id, pkghead_name, pkghead_descrip,"
+                   "       pkghead_version, pkghead_developer, pkghead_notes"
+                   ") VALUES ("
+                   "     :id, :name, :descrip, :version, :developer, :notes);");
+  } 
+  upsert.bindValue(":id",        pkgheadid);
+  upsert.bindValue(":name",      _name);
+  upsert.bindValue(":descrip",   _descrip);
+  upsert.bindValue(":version",   QString::number(_majVersion) + "." +
+                                 QString::number(_minVersion));
+  upsert.bindValue(":developer", _developer);
+  upsert.bindValue(":notes",     _notes);
+  if (!upsert.exec())
+  {
+    QSqlError err = upsert.lastError();
+    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    return -3;
+  }
+
+  return pkgheadid;
+}

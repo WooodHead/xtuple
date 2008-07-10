@@ -70,9 +70,16 @@
 #include <QTimerEvent>
 
 #include <gunzip.h>
+#include <loadappscript.h>
+#include <loadappui.h>
+#include <loadreport.h>
 #include <package.h>
+#include <prerequisite.h>
+#include <script.h>
 #include <tarfile.h>
 #include <xsqlquery.h>
+
+#include "data.h"
 
 LoaderWindow::LoaderWindow(QWidget* parent, const char* name, Qt::WindowFlags fl)
     : QMainWindow(parent, fl)
@@ -117,7 +124,7 @@ void LoaderWindow::fileNew()
     _files = 0;
   }
 
-  _name->setText(tr("No Package is currently loaded."));
+  _pkgname->setText(tr("No Package is currently loaded."));
 
   _status->clear();
   _status->setEnabled(false);
@@ -211,7 +218,7 @@ void LoaderWindow::fileOpen()
   }
 
   _package = new Package(doc.documentElement());
-  _name->setText(tr("Package %1 (%2)").arg(_package->id()).arg(filename));
+  _pkgname->setText(tr("Package %1 (%2)").arg(_package->id()).arg(filename));
 
   _progress->setValue(0);
   _progress->setMaximum(_files->_list.count() - 1);
@@ -378,15 +385,15 @@ void LoaderWindow::launchBrowser(QWidget * w, const QString & url)
 #endif  // if not windows
 }
 
-
 void LoaderWindow::helpAbout()
 {
-  QMessageBox::about(this, tr("Update Manager"),
+  QMessageBox::about(this, _name,
     tr("<p>Apply update packages to your xTuple ERP database."
-       "<p>Copyright (c) 2004-2008 OpenMFG, LLC., d/b/a xTuple. "
-       "All Rights Reserved"));
+       "<p>Version %1</p>"
+       "<p>%2</p>"
+       "All Rights Reserved")
+    .arg(_version).arg(_copyright));
 }
-
 
 void LoaderWindow::timerEvent( QTimerEvent * e )
 {
@@ -408,6 +415,10 @@ void LoaderWindow::timerEvent( QTimerEvent * e )
  */
 void LoaderWindow::sStart()
 {
+  QString rollbackMsg(tr("<p><font color=red>The upgrade has been aborted due "
+                         "to an error and your database was rolled back to the "
+                         "state it was in when the upgrade was initiated."
+                         "</font><br>"));
   _start->setEnabled(false);
 
   QString prefix = QString::null;
@@ -417,6 +428,25 @@ void LoaderWindow::sStart()
   QSqlQuery qry;
   if(!_multitrans && !_premultitransfile)
     qry.exec("begin;");
+
+  QString errMsg;
+  int pkgid = -1;
+  if (! _package->name().isEmpty())
+  {
+    pkgid = _package->writeToDB(errMsg);
+    if (pkgid >= 0)
+      _text->append(tr("Saving Package Header was successful."));
+    else
+    {
+      _text->append(errMsg);
+      qry.exec("rollback;");
+      if(!_multitrans && !_premultitransfile)
+      {
+        _text->append(rollbackMsg);
+        return;
+      }
+    }
+  }
 
   // update scripts here
   _status->setText(tr("<p><b>Updating Schema</b></p>"));
@@ -461,8 +491,7 @@ void LoaderWindow::sStart()
         qry.exec("rollback;");
         if(!_multitrans && !_premultitransfile)
         {
-          _text->append(tr("<p>"));
-          _text->append(tr("<font color=red>The upgrade has been aborted due to an error and your database was rolled back to the state it was in when the upgrade was initiated.</font><br>"));
+          _text->append(rollbackMsg);
           return;
         }
         switch(script.onError())
@@ -499,114 +528,96 @@ void LoaderWindow::sStart()
     _progress->setValue(_progress->value() + 1);
   }
 
-  // load reports here
   _status->setText(tr("<p><b>Updating Report Definitions</b></p>"));
   _text->append(tr("<p>Loading new report definitions...</p>"));
   QList<LoadReport>::iterator rit = _package->_reports.begin();
-  LoadReport report;
   for(; rit != _package->_reports.end(); ++rit)
   {
-    report = *rit;
+    LoadReport report = *rit;
     QByteArray reportData = _files->_list[prefix + report.name()];
     if(reportData.isEmpty())
     {
       QMessageBox::warning(this, tr("File Missing"),
-                           tr("<p>The file %1 is missing from this package.").
+                           tr("<p>The file %1 in this package is empty.").
                            arg(report.name()));
       continue;
     }
-
-    QString report_name = QString::null;
-    QString report_desc = QString::null;
-    QString report_src  = QString::null;
-    int     report_grade = report.grade();
-
-    QDomDocument doc;
-    QString errMsg;
-    int errLine, errCol;
-    if(doc.setContent(reportData, &errMsg, &errLine, &errCol))
-    {
-      QDomElement root = doc.documentElement();
-      if(root.tagName() == "report")
-      {
-        for(QDomNode n = root.firstChild();
-              !n.isNull(); n = n.nextSibling())
-        {
-          if(n.nodeName() == "name")
-            report_name = n.firstChild().nodeValue();
-          else if(n.nodeName() == "description")
-            report_desc = n.firstChild().nodeValue();
-        }
-        report_src = doc.toString();
-
-        if(!report_name.isEmpty())
-        {
-          QSqlQuery query;
-
-          QString sql("SELECT report_id "
-                      "  FROM report "
-                      " WHERE ((report_name=:rptname) "
-                      "   AND (report_grade=:rptgrade) );");
-          qry.prepare(sql);
-          qry.bindValue(":rptname",  report_name);
-          qry.bindValue(":rptgrade", report_grade);
-          qry.exec();
-          if(qry.first())
-          {
-            // update
-            sql = QString("UPDATE report "
-                          "   SET report_descrip=:rptdescr, "
-                          "       report_source=:rptsrc "
-                          " where report_id=:rptid "
-                          "   and report_name=:rptname;");
-            query.prepare(sql);
-            query.bindValue(":rptdescr", report_desc);
-            query.bindValue(":rptsrc",   report_src);
-            query.bindValue(":rptid",    qry.value(0).toInt());
-            query.bindValue(":rptname",  report_name);
-          }
-          else
-         {
-            // insert
-            sql = QString("INSERT INTO report "
-                          "       (report_name, report_descrip, report_source, report_grade) "
-                          "VALUES (:rptname, :rptdescr, :rptsrc, :rptgrade);");
-            query.prepare(sql);
-            query.bindValue(":rptname",  report_name);
-            query.bindValue(":rptdescr", report_desc);
-            query.bindValue(":rptsrc",   report_src);
-            query.bindValue(":rptgrade", report_grade);
-          }
-
-          if(!query.exec())
-          {
-            QSqlError err = query.lastError();
-            _text->append(tr("<font color=red>The following error was encountered while"
-                             " trying to import %1 into the database:\n"
-                             "\t%2\n\t%3</font>")
-                          .arg(report.name())
-                          .arg(err.driverText())
-                          .arg(err.databaseText()));
-          }
-          else
-            _text->append(tr("Import successful of %1").arg(report.name()));
-        }
-        else
-          _text->append(tr("<font color=orange>The document %1 does not have"
-                           " a report name defined</font>")
-                        .arg(report.name()));
-      }
-      else
-        _text->append(tr("<font color=red>XML Document %1 does not have root"
-                         " node of report</font>")
-                      .arg(report.name()));
-    }
+    if (report.writeToDB(reportData, _package->name(), errMsg) >= 0)
+      _text->append(tr("Import of %1 was successful.").arg(report.name()));
     else
-      _text->append(tr("<font color=red>Error parsing file %1: %2 on line %3 column %4</font>")
-                    .arg(report.name()).arg(errMsg).arg(errLine).arg(errCol));
+    {
+      _text->append(errMsg);
+      qry.exec("rollback;");
+      if(!_multitrans && !_premultitransfile)
+      {
+        _text->append(rollbackMsg);
+        return;
+      }
+    }
     _progress->setValue(_progress->value() + 1);
   }
   _text->append(tr("<p>Completed importing new report definitions.</p>"));
+
+  _status->setText(tr("<p><b>Updating User Interface Definitions</b></p>"));
+  _text->append(tr("<p>Loading User Interface definitions...</p>"));
+  QList<LoadAppUI>::iterator uit = _package->_appuis.begin();
+  for(; uit != _package->_appuis.end(); ++uit)
+  {
+    LoadAppUI appui = *uit;
+    QByteArray appuiData = _files->_list[prefix + appui.name()];
+    if(appuiData.isEmpty())
+    {
+      QMessageBox::warning(this, tr("File Missing"),
+                           tr("<p>The file %1 in this package is empty.").
+                           arg(appui.name()));
+      continue;
+    }
+    if (appui.writeToDB(appuiData, _package->name(), errMsg) >= 0)
+      _text->append(tr("Import of %1 was successful.").arg(appui.name()));
+    else
+    {
+      _text->append(errMsg);
+      qry.exec("rollback;");
+      if(!_multitrans && !_premultitransfile)
+      {
+        _text->append(rollbackMsg);
+        return;
+      }
+    }
+    _progress->setValue(_progress->value() + 1);
+  }
+  _text->append(tr("<p>Completed importing User Interface definitions.</p>"));
+
+  _status->setText(tr("<p><b>Updating Application Script Definitions</b></p>"));
+  _text->append(tr("<p>Loading Application Script definitions...</p>"));
+  QList<LoadAppScript>::iterator asit = _package->_appscripts.begin();
+  for(; asit != _package->_appscripts.end(); ++asit)
+  {
+    LoadAppScript appscript = *asit;
+    QByteArray appscriptData = _files->_list[prefix + appscript.name()];
+    if(appscriptData.isEmpty())
+    {
+      QMessageBox::warning(this, tr("File Missing"),
+                           tr("<p>The file %1 in this package is empty.").
+                           arg(appscript.name()));
+      continue;
+    }
+    if (appscript.writeToDB(appscriptData, _package->name(), errMsg) >= 0)
+      _text->append(tr("Import of %1 was successful.").arg(appscript.name()));
+    else
+    {
+      _text->append(errMsg);
+      qry.exec("rollback;");
+      if(!_multitrans && !_premultitransfile)
+      {
+        _text->append(rollbackMsg);
+        return;
+      }
+    }
+    _progress->setValue(_progress->value() + 1);
+  }
+  _text->append(tr("<p>Completed importing Application Script definitions.</p>"));
+
 
   _progress->setValue(_progress->value() + 1);
 
@@ -620,4 +631,3 @@ void LoaderWindow::setMultipleTransactions(bool mt)
 {
   _multitrans = mt;
 }
-

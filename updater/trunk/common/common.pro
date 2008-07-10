@@ -70,15 +70,21 @@ UI_SOURCES_DIR = tmp
 
 HEADERS = package.h \
           script.h \
+          loadable.h \
+          loadappscript.h \
+          loadappui.h \
           loadreport.h \
           prerequisite.h \
           tarfile.h \
           gunzip.h
 SOURCES = package.cpp \
           script.cpp \
+          loadable.cpp \
+          loadappscript.cpp \
+          loadappui.cpp \
           loadreport.cpp \
           prerequisite.cpp \
           tarfile.cpp \
           gunzip.cpp
 
-QT += xml
+QT += xml sql

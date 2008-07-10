@@ -55,60 +55,48 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#ifndef __PACKAGE_H__
-#define __PACKAGE_H__
+#ifndef __LOADABLE_H__
+#define __LOADABLE_H__
 
 #include <QString>
-#include <QList>
 
 class QDomDocument;
 class QDomElement;
 
-class LoadAppScript;
-class LoadAppUI;
-class LoadReport;
-class Prerequisite;
-class Script;
-
-class Package
+class Loadable
 {
   public:
-    Package(const QString & id = QString::null);
-    Package(const QDomElement &);
+    Loadable(const QString &nodename, const QString &name,
+             const int grade = 0, const bool system = true,
+             const QString &comment = QString::null);
+    Loadable(const QDomElement &);
 
-    virtual ~Package();
+    virtual ~Loadable();
 
-    QDomElement createElement(QDomDocument &); 
-    int writeToDB(QString &errMsg);
+    virtual QDomElement createElement(QDomDocument &doc);
 
-    QString id() const { return _id; }
-    void setId(const QString & id) { _id = id; }
-
-    int versionMajor() const { return _majVersion; }
-    int versionMinor() const { return _minVersion; }
+    QString comment()  const { return _comment; }
+    int     grade()    const { return _grade; }
+    bool    isValid()  const { return !_nodename.isEmpty() && !_name.isEmpty();}
     QString name()     const { return _name; }
+    QString nodename() const { return _nodename; }
+    void    setComment(const QString & comment) { _comment = comment; }
+    void    setGrade(int grade)                 { _grade = grade; }
+    void    setName(const QString & name)       { _name = name; }
 
-    QList<LoadAppScript> _appscripts;
-    QList<LoadAppUI>     _appuis;
-    QList<Prerequisite>  _prerequisites;
-    QList<Script>        _scripts;
-    QList<LoadReport>    _reports;
-
-    bool containsAppScript(const QString &name)     const;
-    bool containsAppUI(const QString &name)         const;
-    bool containsReport(const QString & reportname) const;
-    bool containsScript(const QString & scriptname) const;
-    bool containsPrerequisite(const QString & prereqname) const;
+    virtual int writeToDB(const QByteArray &data, const QString pkgname, QString &errMsg) = 0;
 
   protected:
-    QString     _developer;
-    QString     _descrip;
-    QString     _id;
-    int         _majVersion;
-    int         _minVersion;
-    QString     _name;
-    QString     _notes;
+    int     _grade;
+    QString _name;
+    QString _comment;
+    QString _nodename;
+    bool    _system;
+
+    virtual int upsertPkgItem(int &pkgitemid, const int pkghead, const QString type, const int itemid, const QString name, const QString comment, QString &errMsg);
+
+    static QRegExp trueRegExp;
+    static QRegExp falseRegExp;
 };
 
 #endif
-

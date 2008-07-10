@@ -60,6 +60,7 @@ include( ../global.pri )
 TEMPLATE = app
 CONFIG += qt warn_on
 INCLUDEPATH += ../common ../$${OPENRPT_DIR}/common ../$${XTUPLE_DIR}/common
+DEPENDPATH  += ../common
 
 TARGET = updater
 OBJECTS_DIR = tmp
@@ -68,6 +69,7 @@ UI_DIR      = tmp
 
 LIBS += -L../$${OPENRPT_DIR}/lib -L../$${XTUPLE_DIR}/lib -lxtuplecommon -L../lib -lcommon -lupdatercommon
 macx: LIBS += -lz
+macx: PRE_TARGETDEPS += ../lib/libupdatercommon.a
 
 DESTDIR = ../bin
 

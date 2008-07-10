@@ -57,7 +57,7 @@
 
 #include "script.h"
 
-#include <qdom.h>
+#include <QDomDocument>
 
 Script::Script(const QString & name, OnError onError, const QString & comment)
   : _name(name), _comment(comment), _onError(onError)

@@ -57,32 +57,247 @@
 
 #include "loadreport.h"
 
-#include <qdom.h>
+#include <QDomDocument>
+#include <QMessageBox>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QVariant>     // used by QSqlQuery::bindValue()
 
-LoadReport::LoadReport(const QString & name, int grade, const QString & comment)
-  : _name(name), _comment(comment), _grade(grade)
+LoadReport::LoadReport(const QString &name, const int grade, const bool system,
+                       const QString &comment)
+  : Loadable("loadreport", name, grade, system, comment)
 {
 }
 
 LoadReport::LoadReport(const QDomElement & elem)
+  : Loadable(elem)
 {
-  _name = elem.attribute("name");
-  _grade = elem.attribute("grade").toInt();
-  _comment = elem.text();
+  if (elem.nodeName() != "loadreport")
+    QMessageBox::warning(0, "Improper call to LoadReport(QDomElement)",
+                         QString("Creating a LoadAppReport element from a %1 node.")
+                         .arg(elem.nodeName()));
 }
 
-LoadReport::~LoadReport()
+int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
 {
-}
+  QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
+                                  "encountered while trying to import %1 into "
+                                  "the database:<br>%2<br>%3</font>");
+  int errLine = 0;
+  int errCol  = 0;
+  QDomDocument doc;
+  if (! doc.setContent(pdata, &errMsg, &errLine, &errCol))
+  {
+    errMsg = (QObject::tr("<font color=red>Error parsing file %1: %2 on "
+                          "line %3 column %4</font>")
+                          .arg(name()).arg(errMsg).arg(errLine).arg(errCol));
+    return -1;
+  }
 
-QDomElement LoadReport::createElement(QDomDocument & doc)
-{
-  QDomElement elem = doc.createElement("loadreport");
-  elem.setAttribute("name", _name);
-  elem.setAttribute("grade", _grade);
+  QDomElement root = doc.documentElement();
+  if(root.tagName() != "report")
+  {
+    errMsg = QObject::tr("<font color=red>XML Document %1 does not have root"
+                         " node of report</font>")
+                         .arg(name());
+    return -2;
+  }
 
-  if(!_comment.isEmpty())
-    elem.appendChild(doc.createTextNode(_comment));
+  for(QDomNode n = root.firstChild(); !n.isNull(); n = n.nextSibling())
+  {
+    if(n.nodeName() == "name")
+      _name = n.firstChild().nodeValue();
+    else if(n.nodeName() == "description")
+      _comment = n.firstChild().nodeValue();
+  }
+  QString report_src = doc.toString();
 
-  return elem;
+  if(_name.isEmpty())
+  {
+    errMsg = QObject::tr("<font color=orange>The document %1 does not have"
+                         " a report name defined</font>")
+                         .arg(name());
+    return -3;
+  }
+
+  if (_grade == INT_MIN)
+  {
+    QSqlQuery minOrder;
+    minOrder.prepare("SELECT MIN(report_grade) AS min "
+                     "FROM report "
+                     "WHERE (report_name=:name);");
+    minOrder.bindValue(":name", _name);
+    minOrder.exec();
+    if (minOrder.first())
+      _grade = minOrder.value(0).toInt();
+    else if (minOrder.lastError().type() != QSqlError::NoError)
+    {
+      QSqlError err = minOrder.lastError();
+      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      return -4;
+    }
+    else
+      _grade = 0;
+  }
+  else if (_grade == INT_MAX)
+  {
+    QSqlQuery maxOrder;
+    maxOrder.prepare("SELECT MAX(report_grade) AS max "
+                     "FROM report "
+                     "WHERE (report_name=:name);");
+    maxOrder.bindValue(":name", _name);
+    maxOrder.exec();
+    if (maxOrder.first())
+      _grade = maxOrder.value(0).toInt();
+    else if (maxOrder.lastError().type() != QSqlError::NoError)
+    {
+      QSqlError err = maxOrder.lastError();
+      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      return -5;
+    }
+    else
+      _grade = 0;
+  }
+
+  QSqlQuery select;
+  QSqlQuery upsert;
+
+  int reportid  = -1;
+  int pkgheadid = -1;
+  int pkgitemid = -1;
+
+  /* The following ugliness exists to avoid
+      ERROR:  duplicate key violates unique constraint "report_name_grade_idx"
+   */
+  QString pkgselect("SELECT COALESCE(pkgitem_item_id, -1), pkghead_id,"
+                    "       COALESCE(pkgitem_id,      -1) "
+                    "  FROM pkghead LEFT OUTER JOIN"
+                    "       pkgitem ON ((pkgitem_pkghead_id=pkghead_id)"
+                    "               AND (pkgitem_type='R')"
+                    "               AND (pkgitem_name=:name))"
+                    " WHERE (pkghead_name=:pkgname)");
+  QString rptselect("SELECT report_id, -1, -1"
+                    "  FROM report "
+                    " WHERE ((report_name=:name) "
+                    "    AND (report_grade=:grade) );");
+
+  if (pkgname.isEmpty())
+  {
+    select.prepare(rptselect);
+    select.bindValue(":name",    _name);
+    select.bindValue(":grade",   _grade);
+    select.exec();
+    if(select.first())
+      reportid = select.value(0).toInt();
+    else if (select.lastError().type() != QSqlError::NoError)
+    {
+      QSqlError err = select.lastError();
+      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      return -6;
+    }
+  }
+  else 
+  {
+    select.prepare(pkgselect);
+    select.bindValue(":name",    _name);
+    select.bindValue(":pkgname", pkgname);
+    select.bindValue(":grade",   _grade);
+    select.exec();
+    if(select.first())
+    {
+      reportid  = select.value(0).toInt();
+      pkgheadid = select.value(1).toInt();
+      pkgitemid = select.value(2).toInt();
+    }
+    else if (select.lastError().type() != QSqlError::NoError)
+    {
+      QSqlError err = select.lastError();
+      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      return -7;
+    }
+    if (reportid < 0)   // select told us there's no report *in* the package
+    {
+      // if there's a version of the report that's not part of the package
+      select.prepare(rptselect);
+      select.bindValue(":name",    _name);
+      select.bindValue(":grade",   _grade);
+      select.exec();
+      if(select.first())
+      {
+        // then insert a new one with a higher grade
+        QSqlQuery next;
+        next.prepare("SELECT MIN(sequence_value) AS next "
+                         "FROM sequence "
+                         "WHERE ((sequence_value NOT IN ("
+                         "      SELECT report_grade"
+                         "      FROM report"
+                         "      WHERE (report_name=:name)))"
+                         "  AND (sequence_value>=:grade));");
+        next.bindValue(":name", _name);
+        next.bindValue(":grade",   _grade);
+        next.exec();
+        if (next.first())
+          _grade = next.value(0).toInt();
+        else if (next.lastError().type() != QSqlError::NoError)
+        {
+          QSqlError err = next.lastError();
+          errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+          return -8;
+        }
+      }
+      else if (select.lastError().type() != QSqlError::NoError)
+      {
+        QSqlError err = select.lastError();
+        errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+        return -9;
+      }
+    }
+  }
+
+  if (reportid >= 0)
+    upsert.prepare("UPDATE report "
+                   "   SET report_descrip=:rptdescr, "
+                   "       report_source=:rptsrc "
+                   " WHERE (report_id=:rptid);");
+  else
+  {
+    upsert.prepare("SELECT NEXTVAL('report_report_id_seq');");
+    upsert.exec();
+    if (upsert.first())
+      reportid = upsert.value(0).toInt();
+    else if (upsert.lastError().type() != QSqlError::NoError)
+    {
+      QSqlError err = upsert.lastError();
+      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      return -10;
+    }
+
+    upsert.prepare("INSERT INTO report "
+                   "       (report_id, report_name, report_grade, "
+                   "        report_source, report_descrip)"
+                   "VALUES (:id, :name, :grade, :source, :notes);");
+  }
+
+  upsert.bindValue(":id",      reportid);
+  upsert.bindValue(":grade",   _grade);
+  upsert.bindValue(":source",  report_src);
+  upsert.bindValue(":notes",   _comment);
+  upsert.bindValue(":name",    _name);
+
+  if (!upsert.exec())
+  {
+    QSqlError err = upsert.lastError();
+    errMsg = sqlerrtxt.arg(name()).arg(err.driverText()).arg(err.databaseText());
+    return -11;
+  }
+
+  if (pkgheadid >= 0)
+  {
+    int tmp = upsertPkgItem(pkgitemid, pkgheadid, "R", reportid, _name,
+                            _comment, errMsg);
+    if (tmp < 0)
+      return tmp;
+  }
+
+  return 0;
 }

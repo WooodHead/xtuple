@@ -66,6 +66,10 @@
 #include <QTextStream>
 #include <QVariant>
 
+#include <loadreport.h>
+#include <prerequisite.h>
+#include <script.h>
+
 #include "texteditdialog.h"
 #include "newprereqdialog.h"
 #include "providerdialog.h"

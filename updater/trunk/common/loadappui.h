@@ -55,60 +55,23 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#ifndef __PACKAGE_H__
-#define __PACKAGE_H__
+#ifndef __LOADAPPUI_H__
+#define __LOADAPPUI_H__
 
-#include <QString>
-#include <QList>
+#include "loadable.h"
 
-class QDomDocument;
-class QDomElement;
-
-class LoadAppScript;
-class LoadAppUI;
-class LoadReport;
-class Prerequisite;
-class Script;
-
-class Package
+class LoadAppUI : public Loadable
 {
   public:
-    Package(const QString & id = QString::null);
-    Package(const QDomElement &);
+    LoadAppUI(const QString & name, const int order = 0,
+              const bool system = true, const bool enabled = true,
+              const QString & comment = QString::null);
+    LoadAppUI(const QDomElement &);
 
-    virtual ~Package();
-
-    QDomElement createElement(QDomDocument &); 
-    int writeToDB(QString &errMsg);
-
-    QString id() const { return _id; }
-    void setId(const QString & id) { _id = id; }
-
-    int versionMajor() const { return _majVersion; }
-    int versionMinor() const { return _minVersion; }
-    QString name()     const { return _name; }
-
-    QList<LoadAppScript> _appscripts;
-    QList<LoadAppUI>     _appuis;
-    QList<Prerequisite>  _prerequisites;
-    QList<Script>        _scripts;
-    QList<LoadReport>    _reports;
-
-    bool containsAppScript(const QString &name)     const;
-    bool containsAppUI(const QString &name)         const;
-    bool containsReport(const QString & reportname) const;
-    bool containsScript(const QString & scriptname) const;
-    bool containsPrerequisite(const QString & prereqname) const;
+    virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);
 
   protected:
-    QString     _developer;
-    QString     _descrip;
-    QString     _id;
-    int         _majVersion;
-    int         _minVersion;
-    QString     _name;
-    QString     _notes;
+    bool _enabled;
 };
 
 #endif
-

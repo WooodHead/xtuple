@@ -15,7 +15,7 @@
  * the License for the specific language governing rights and limitations 
  * under the License. 
  * 
- * The Original Code is xTuple ERP: PostBooks Edition
+ * The Original Code is xTuple ERP: PostBooks Edition 
  * 
  * The Original Developer is not the Initial Developer and is __________. 
  * If left blank, the Original Developer is the Initial Developer. 
@@ -55,60 +55,35 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#ifndef __PACKAGE_H__
-#define __PACKAGE_H__
+#ifndef PACKAGES_H
+#define PACKAGES_H
 
-#include <QString>
-#include <QList>
+#include "guiclient.h"
+#include "xmainwindow.h"
+#include <parameter.h>
+#include "ui_packages.h"
 
-class QDomDocument;
-class QDomElement;
-
-class LoadAppScript;
-class LoadAppUI;
-class LoadReport;
-class Prerequisite;
-class Script;
-
-class Package
+class packages : public XMainWindow, public Ui::packages
 {
-  public:
-    Package(const QString & id = QString::null);
-    Package(const QDomElement &);
+    Q_OBJECT
 
-    virtual ~Package();
+public:
+    packages(QWidget* parent = 0, const char* name = 0, Qt::WFlags fl = Qt::WType_TopLevel);
+    ~packages();
 
-    QDomElement createElement(QDomDocument &); 
-    int writeToDB(QString &errMsg);
+public slots:
+    virtual void sFillList();
+    virtual void sDelete();
+    virtual void sEdit();
+    virtual void sLoad();
+    virtual void sNew();
+    virtual void sView();
+    virtual void sPopulateMenu( QMenu * );
+    virtual void sPrint();
 
-    QString id() const { return _id; }
-    void setId(const QString & id) { _id = id; }
+protected slots:
+    virtual void languageChange();
 
-    int versionMajor() const { return _majVersion; }
-    int versionMinor() const { return _minVersion; }
-    QString name()     const { return _name; }
-
-    QList<LoadAppScript> _appscripts;
-    QList<LoadAppUI>     _appuis;
-    QList<Prerequisite>  _prerequisites;
-    QList<Script>        _scripts;
-    QList<LoadReport>    _reports;
-
-    bool containsAppScript(const QString &name)     const;
-    bool containsAppUI(const QString &name)         const;
-    bool containsReport(const QString & reportname) const;
-    bool containsScript(const QString & scriptname) const;
-    bool containsPrerequisite(const QString & prereqname) const;
-
-  protected:
-    QString     _developer;
-    QString     _descrip;
-    QString     _id;
-    int         _majVersion;
-    int         _minVersion;
-    QString     _name;
-    QString     _notes;
 };
 
-#endif
-
+#endif // PACKAGES_H

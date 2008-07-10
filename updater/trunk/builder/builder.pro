@@ -64,6 +64,7 @@ DESTDIR = ../bin
 
 INCLUDEPATH += ../common
 LIBS += -L../lib -lupdatercommon
+macx: PRE_TARGETDEPS += ../lib/libupdatercommon.a
 
 MOC_DIR = tmp
 UI_DIR = tmp

@@ -58,7 +58,7 @@
 #ifndef __LOADER_DATA_H__
 #define __LOADER_DATA_H__
 
-#include <qstring.h>
+#include <QString>
 
 extern QString _name;
 extern QString _copyright;

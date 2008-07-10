@@ -58,39 +58,20 @@
 #ifndef __LOADREPORT_H__
 #define __LOADREPORT_H__
 
-#include <qstring.h>
+#include "loadable.h"
 
-class QDomDocument;
-class QDomElement;
-
-class LoadReport
+class LoadReport : public Loadable
 {
   public:
-    LoadReport(const QString & name = QString::null, int grade = 0,
-               const QString & comment = QString::null);
+    LoadReport(const QString &name, const int grade = 0,
+               const bool system = true,
+               const QString &comment = QString::null);
     LoadReport(const QDomElement &);
 
-    virtual ~LoadReport();
-
-    QDomElement createElement(QDomDocument &);
-
-    bool isValid() const { return !_name.isEmpty(); }
-
-    QString name() const { return _name; }
-    void setName(const QString & name) { _name = name; }
-
-    int grade() const { return _grade; }
-    void setGrade(int grade) { _grade = grade; }
-
-    QString comment() const { return _comment; }
-    void setComment(const QString & comment) { _comment = comment; }
+    virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);
 
   protected:
-    QString _name;
-    QString _comment;
-
-    int _grade;
+    bool        _system;
 };
 
 #endif
-
