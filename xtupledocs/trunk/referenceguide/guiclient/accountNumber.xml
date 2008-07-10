@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="accountNumber">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>general ledger</primary>
       <secondary>adding new accounts to</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,29 +12,26 @@
     </indexterm>Account Number</title>
   <para>To add a new G/L Account Number, select the NEW button. The following
   screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/accountNumber.png"/>
+          <imagedata fileref="images/accountNumber.png" />
         </imageobject>
         <caption>Create New G/L Account Number</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When creating a new G/L Account Number, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
       <term>Number</term>
       <listitem>
-        <para>Enter an Account Number for the Account.</para>
-        <para>Depending on how your system is configured, you may add the
-        following segments to an Account Number in the following order:
-        Company segment (optional), Profit Center segment (optional), main
-        segment (required), and Subaccount Number (optional). Once a main
-        segment number has been entered and saved, it may not be
-        edited.</para>
+        <para>Enter an Account Number for the Account. Depending on how your
+        system is configured, you may add the following segments to an Account
+        Number in the following order: Company segment (optional), Profit
+        Center segment (optional), main segment (required), and Subaccount
+        Number (optional). Once a main segment number has been entered and
+        saved, it may not be edited.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -53,8 +50,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>account types</primary>
           <secondary>assignment of</secondary>
         </indexterm> <indexterm significance="normal">
@@ -63,14 +59,12 @@
         </indexterm>Type</term>
       <listitem>
         <para>Specify the Account Type you want to assign the Account Number
-        to.</para>
-        <para>The following selections are available: Asset, Liability,
-        Expense, Revenue, and Equity.</para>
+        to. The following selections are available: Asset, Liability, Expense,
+        Revenue, and Equity.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>subaccount types</primary>
           <secondary>assignment of</secondary>
         </indexterm> <indexterm significance="normal">
@@ -79,13 +73,11 @@
         </indexterm>Sub Type</term>
       <listitem>
         <para>Specify the Subaccount Type you want to assign the Account
-        Number to.</para>
-        <para>This is an optional selection.</para>
+        Number to. This is an optional selection.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>general ledger</primary>
           <secondary>options for posting to</secondary>
         </indexterm> <indexterm significance="normal">
@@ -95,12 +87,12 @@
       <listitem>
         <para>Select to allow transactions involving the Account to update the
         Account's Trial Balance even if the transactions are posted into
-        closed Accounting Periods.</para>
-        <para>Not selecting this option means users will be prevented from
-        posting transactions into closed Accounting Periods when the Account
-        is used. To correct a situation where transaction posting is being
-        prevented for this reason, either open the Accounting Period in
-        question or change the distribution date of the transaction.</para>
+        closed Accounting Periods. Not selecting this option means users will
+        be prevented from posting transactions into closed Accounting Periods
+        when the Account is used. To correct a situation where transaction
+        posting is being prevented for this reason, either open the Accounting
+        Period in question or change the distribution date of the
+        transaction.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -111,8 +103,7 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>general ledger</primary>
           <secondary>trial balances and</secondary>
         </indexterm> <indexterm significance="normal">
@@ -128,8 +119,7 @@
       <listitem>
         <para>Select to automatically forward-update Trial Balances for the
         Account whenever transaction activity is posted into an Accounting
-        Period.</para>
-        <para>Forward-updating carries the ending balance for an Accounting
+        Period. Forward-updating carries the ending balance for an Accounting
         Period forward through to the current Accounting Period. Balances
         cannot be forward-updated into future Periods. Selecting this option
         causes forward-updating to occur automatically. If not selected, Trial
