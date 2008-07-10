@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title id="externalCCTransactionTitle"><indexterm significance="normal">
+      <primary>credit cards</primary>
+      <secondary>external transactions and</secondary>
+    </indexterm>External Credit Card Transaction</title>
+  <para>If you are using an external Credit Card processing mechanism to
+  record information about xTuple ERP Credit Card transactions, the following
+  screen will be used when these transactions are recorded:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/externalCCTransaction.png" />
+        </imageobject>
+        <caption>External Credit Card Transaction</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When entering details related to an external Credit Card transaction,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer</term>
+      <listitem>
+        <para>Displays the name of the Customer you are entering a Credit Card
+        transaction for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Card Number</term>
+      <listitem>
+        <para>Displays the selected Credit Card for the specified
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Transaction Type</term>
+      <listitem>
+        <para>Displays the transaction type (i.e., Charge).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Amount</term>
+      <listitem>
+        <para>Displays the amount of the transaction.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order</term>
+      <listitem>
+        <para>Displays the number of the Order (e.g., Sales Order, Cash
+        Receipt, etc.) which the selected Credit Card is being charged
+        for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Approval Status</term>
+      <listitem>
+        <para>Specify the status of the external Credit Card transaction. The
+        following options are available: Approved, Declined, Error, and Held
+        for Review.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Approval Code</term>
+      <listitem>
+        <para>Enter the approval code you received from the external Credit
+        Card processor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Transaction ID</term>
+      <listitem>
+        <para>Enter the transaction identifier you received from the external
+        Credit Card processor. By default, this value will be the same as the
+        Order Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Passed Address Verification</term>
+      <listitem>
+        <para>Select if the external transaction passed the address
+        verification.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Passed Card Verification</term>
+      <listitem>
+        <para>Select if the external transaction passed the card
+        verification.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without processing details of the external
+        Credit Card transaction, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the record of the external Credit Card transaction and
+        stores this information in the database.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

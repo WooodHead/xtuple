@@ -73,7 +73,7 @@
           <secondary>selecting verification service</secondary>
         </indexterm>Verification Service</term>
       <listitem>
-        <para>Specify the Credit Card payment gateway you will be
+        <para>Specify the Credit Card verification service you will be
         using:</para>
         <variablelist>
           <varlistentry>
@@ -91,6 +91,19 @@
               <para>Select if you will be using the YourPay payment gateway
               for handling Credit Card transactions. Specific YourPay options
               will be enabled on the screen if you select this service.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>External</term>
+            <listitem>
+              <para>Select if you will be using tools outside of xTuple ERP to
+              communicate with your Credit Card company. If selected, you may
+              still process Credit Card transactions in xTuple ERP--and this
+              information will be stored in your xTuple database. However, no
+              information will be sent to outside Credit Card processors. You
+              can learn more about the interface used to collect external
+              Credit Card transactions in the <xref
+              linkend="externalCCTransactionTitle" /> section.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -837,4 +850,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <xi:include href="externalCCTransaction.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
