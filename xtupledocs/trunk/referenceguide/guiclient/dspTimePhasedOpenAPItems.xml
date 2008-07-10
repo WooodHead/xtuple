@@ -42,7 +42,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_Disp_apAging.png" />
+          <imagedata fileref="images/dspTimePhasedOpenAPItems.png" />
         </imageobject>
         <caption>A/P Aging</caption>
       </mediaobject>
@@ -98,6 +98,20 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Use Doc. Date</term>
+      <listitem>
+        <para>Select if you want to display A/P open items relative to the
+        Document sate.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use G/L Dist. Date</term>
+      <listitem>
+        <para>Select if you want to display A/P open items relative to the G/L
+        distribution date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>A/P Open Items</term>
       <listitem>
         <para>Display lists aging A/P open items, using the specified
@@ -116,7 +130,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_Disp_apAgingCalendar.png" />
+          <imagedata fileref="images/dspTimePhasedOpenAPItems_custom.png" />
         </imageobject>
         <caption>Custom A/P Aging Calendar</caption>
       </mediaobject>
