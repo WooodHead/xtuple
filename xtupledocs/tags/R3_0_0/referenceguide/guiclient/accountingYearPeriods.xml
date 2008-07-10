@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section559969">
+  <title>
+<indexterm significance="normal">
+      <primary>fiscal years</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm>Fiscal Years</title>
+
+  <para>To access the master list of Fiscal Years, select the "Fiscal Years"
+  option. The following screen will appear:</para>
+
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/accountingYearPeriods.png"/>
+        </imageobject>
+
+        <caption>Fiscal Years Master List</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+
+  <tip>
+    <para>The system will automatically reset the beginning balances for
+    Revenue and Expense Accounts to $0 at the start of a new Fiscal
+    Year.</para>
+  </tip>
+
+  <para>The "Fiscal Years" screen displays information on all existing Fiscal
+  Years, including Fiscal Year start date, Fiscal Year end date, and closed
+  status.</para>
+
+  <para>To the far right of the list, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>PRINT</term>
+
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>NEW</term>
+
+      <listitem>
+        <para>Opens screen for creating a new Fiscal Year.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>EDIT</term>
+
+      <listitem id="accountingYearPeriodsEDIT">
+        <para>Enables you to edit highlighted Fiscal Years. The edit screen is
+        the same as that for creating a new Fiscal Year&mdash;except that when
+        editing, the fields will contain Fiscal Year information.
+        Double-clicking on a Fiscal Year will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>VIEW</term>
+
+      <listitem id="accountingYearPeriodsVIEW">
+        <para>Highlight a Fiscal Year and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>CLOSE YEAR</term>
+
+      <listitem id="accountingYearPeriodsCLOSEYEAR">
+        <para>Highlight a Fiscal Year and then select this button to close the
+        Fiscal Year. The act of closing a Fiscal Year causes prompts the
+        system to calculate retained earnings for the year&mdash;and then transfer
+        that balance to the Year End Equity Account defined at the system
+        level. You should be careful not to close a Fiscal Year until you are
+        certain you are ready to do so.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>DELETE</term>
+
+      <listitem id="accountingYearPeriodsDELETE">
+        <para>Highlight a Fiscal Year and then select this button to remove
+        the Fiscal Year from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>Right-clicking on a Fiscal Year enables you to select from the
+  following menu options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>Edit</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(accountingYearPeriodsEDIT)"/>
+    </varlistentry>
+
+    <varlistentry>
+      <term>View</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(accountingYearPeriodsVIEW)"/>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Delete</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(accountingYearPeriodsDELETE)"/>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Close</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(accountingYearPeriodsCLOSEYEAR)"/>
+    </varlistentry>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="accountingYearPeriod.xml" xpointer="element(/1)"/>
+</section>

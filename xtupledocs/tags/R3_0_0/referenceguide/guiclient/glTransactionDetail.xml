@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+   <title>
+   G/L Transaction Detail
+  </title>
+   <subtitle>glTransactionDetail : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/glTransactionDetail.png"/>
+            </imageobject>
+            <caption>
+   G/L Transaction Detail
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Transaction Date:</guilabel>
+               </entry>
+               <entry>_dateLbl</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Source:</guilabel>
+               </entry>
+               <entry>_sourceLbl</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Document:</guilabel>
+               </entry>
+               <entry>_documentLbl</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Journal Number:</guilabel>
+               </entry>
+               <entry>_journalnumberLbl</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Account:</guilabel>
+               </entry>
+               <entry>_accntLbl</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Amount:</guilabel>
+               </entry>
+               <entry>_amountLbl</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Username:</guilabel>
+               </entry>
+               <entry>_usernameLbl</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Created:</guilabel>
+               </entry>
+               <entry>_createdLbl</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Posted:</guilabel>
+               </entry>
+               <entry>_postedLbl</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">_date</guilabel>
+               </entry>
+               <entry>_date</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">_source</guilabel>
+               </entry>
+               <entry>_source</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">_document</guilabel>
+               </entry>
+               <entry>_document</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">_journalnumber</guilabel>
+               </entry>
+               <entry>_journalnumber</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">_accnt</guilabel>
+               </entry>
+               <entry>_accnt</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">_amount</guilabel>
+               </entry>
+               <entry>_amount</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">_username</guilabel>
+               </entry>
+               <entry>_username</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">_created</guilabel>
+               </entry>
+               <entry>_created</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">_posted</guilabel>
+               </entry>
+               <entry>_posted</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Notes:</guilabel>
+               </entry>
+               <entry>_notesLbl</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_notes</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section539772">
+  <title><indexterm significance="normal">
+      <primary>debit memos</primary>
+      <secondary>entering new</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>entering debit memos for</secondary>
+    </indexterm>Enter Miscellaneous Debit Memo</title>
+  <para>A miscellaneous Debit Memo is like a Voucher&mdash;the main difference
+  being that a miscellaneous Debit Memo is not necessarily linked to a
+  Purchase Order. To enter a miscellaneous Debit Memo, select the "Enter Misc.
+  Debit Memo" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/apOpenItemDebit.png" />
+        </imageobject>
+        <caption>Enter Miscellaneous Debit Memo</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When entering a miscellaneous Debit Memo, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Vendor #</term>
+      <listitem>
+        <para>Enter the Vendor number of the Vendor you want to enter a
+        miscellaneous Debit Memo for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Document Date</term>
+      <listitem>
+        <para>Specify a date to associate with the miscellaneous Debit
+        Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Displays the due date for the miscellaneous Debit Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Document Type</term>
+      <listitem>
+        <para>Displays the Document Type, namely "Debit Memo."</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Number</term>
+      <listitem>
+        <para>Displays the next available miscellaneous Debit Memo
+        Number.</para>
+        <para>The value for the next available Debit Memo Number can be
+        configured at the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>P/O #</term>
+      <listitem>
+        <para>Enter a Purchase Order Number to associate with the Credit Memo.
+        You may leave this field blank if you do not want to enter an
+        associated Purchase Order Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Journal #</term>
+      <listitem>
+        <para>Displays the Journal number if any amount has been
+        applied.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Terms</term>
+      <listitem>
+        <para>By default, the Terms defined on the Vendor master for the
+        specified Vendor will be used here.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Amount</term>
+      <listitem>
+        <para>Specify the amount of the miscellaneous Debit Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Paid</term>
+      <listitem>
+        <para>Displays the amount applied to date for the miscellaneous Debit
+        Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Balance</term>
+      <listitem>
+        <para>Displays the remaining amount still available to apply for the
+        miscellaneous Debit Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Alternate Prepaid Account</term>
+      <listitem>
+        <para>Select one of the following optional prepaid Accounts:</para>
+        <para>Alternate Prepaid Account: Specify an alternate prepaid Account
+        to use instead of the default prepaid Account.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If an alternate prepaid Account is not specified, the system will
+    use the default prepaid Account specified for the Vendor Type under A/P
+    Account Assignments.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the miscellaneous Debit Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Applications</term>
+      <listitem>
+        <para>Display lists the history of applications related to the
+        miscellaneous Debit Memo, if any.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without entering a miscellaneous Debit Memo,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Posts the miscellaneous Debit Memo, using the amount
+        specified.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

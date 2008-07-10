@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+   <title>
+   Warranty Status by Customer
+  </title>
+   <subtitle>Dialog : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/dspWarrantyStatusByParameter.png"/>
+            </imageobject>
+            <caption>
+   Warranty Status by Customer
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_shipdate</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">End:</guilabel>
+               </entry>
+               <entry>_endLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Start:</guilabel>
+               </entry>
+               <entry>_startLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_start</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_end</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Close</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Query</guilabel>
+               </entry>
+               <entry>_query</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Print</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Show Expired</guilabel>
+               </entry>
+               <entry>_expired</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Show Active</guilabel>
+               </entry>
+               <entry>_active</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_status</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_parameter</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

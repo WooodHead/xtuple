@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519499">
+  <title>
+<indexterm significance="normal">
+      <primary>item sites</primary>
+      <secondary>freezing of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>freezing</primary>
+      <secondary>of item sites</secondary>
+    </indexterm>Frozen Item Sites</title>
+  <para>To display a list of Item Sites that have been frozen, select the
+  "Frozen Item Sites" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspFrozenItemSites.png"/>
+        </imageobject>
+        <caption>Frozen Item Sites</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When displaying frozen Item Sites, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry role="standard">
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to display frozen Item Sites for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose frozen Item Sites you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Count Tags</term>
+      <listitem>
+        <para>Display lists frozen Item Sites, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item Site in the frozen Item Sites list enables
+  you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickThaw)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

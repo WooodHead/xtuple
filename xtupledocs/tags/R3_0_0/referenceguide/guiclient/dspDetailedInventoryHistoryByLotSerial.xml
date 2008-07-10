@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section678441" role="standard">
+  <title>Detailed Inventory History by Lot/Serial #</title>
+  <para>Some users need to be able to track warranty periods of Items from the
+  purchase of raw materials to the sale of finished goods. Such traceability
+  is possible by leveraging the Lot/Serial capability in xTuple ERP. Using
+  Lot/Serial trace, users have access to backwards and forwards tracking
+  through multiple levels of production--including the where used and warranty
+  status of Items.</para>
+  <para>For example, if a defective internal medical device came back because
+  of a defective spring, a user should be able to determine what Lot of
+  springs went into the device--even if the spring was issued to a subassembly
+  two levels down. Likewise, once the spring Lot is determined, the user
+  should be able to search forward and determine all goods where that Lot of
+  springs was used and shipped so all Customers may be notified of the defect.
+  If the spring was under warranty and is still eligible, the backward search
+  should indicate so.</para>
+  <para>To view detailed Inventory history by Lot/Serial Number, select the
+  "Detailed Inventory History by Lot/Serial #" option. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspDetailedInventoryHistoryByLotSerial.png" />
+        </imageobject>
+        <caption>Detailed Inventory History by Lot/Serial Number</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying detailed Inventory history by Lot/Serial Number, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose detailed Inventory
+        history by Lot/Serial Number you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Lot/Serial #</term>
+      <listitem>
+        <para>Specify one of the following Lot/Serial Number selection
+        criteria:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Selected</term>
+            <listitem>
+              <para>Enter the Lot/Serial Number of the Inventory whose
+              detailed Inventory history you want to display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Pattern</term>
+            <listitem>
+              <para>Enter a Lot/Serial Number pattern to select a range of
+              Product CategorieLot/Serial Numbers.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Trans. Types</term>
+      <listitem>
+        <para>Select one of the following transaction types from the drop-down
+        menu.</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Transactions</term>
+            <listitem>
+              <para>Displays all Inventory transactions.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Receipts</term>
+            <listitem>
+              <para>Displays receipts into Inventory from Manufacturing,
+              purchases, or miscellaneous receipts.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Issues</term>
+            <listitem>
+              <para>Displays issues from Inventory to Manufacturing.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipments</term>
+            <listitem>
+              <para>Displays shipments to customers.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Adjustments and Counts</term>
+            <listitem>
+              <para>Displays Inventory adjustments and counts.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Transfers</term>
+            <listitem>
+              <para>Displays Inter-Warehouse Transfers and Location and
+              Lot/Serial Number reassignments.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Scraps</term>
+            <listitem>
+              <para>Displays Scrap transfer from Inventory.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Date Range</term>
+      <listitem>
+        <para>Select if you want to use specific date range parameters. If not
+        selected, the query will search for all time.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Inventory transactions conducted on and after this date
+              will be displayed. Start date and end date must be entered for
+              calculation to proceed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Inventory transactions conducted on and before this date
+              will be displayed. Start date and end date must be entered for
+              calculation to proceed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to display detailed Inventory history by Lot/Serial
+        Number for all Warehouses. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose detailed Inventory history by Lot/Serial
+        Number you want to display. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Multi-Level Trace</term>
+      <listitem>
+        <para>Select if you want the query to include one of the following
+        trace options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Forward</term>
+            <listitem>
+              <para>Select to view transaction activity of Lot/Serial goods
+              through multiple levels showing where they were used. For
+              example, we can see where a purchased Item was used in a Work
+              Order and subsequently shipped against a Sales Order.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Backward</term>
+            <listitem>
+              <para>Select to view transaction activity of Lot/Serial goods
+              though multiple levels showing what serialized Items went into
+              them. For example, we can look at a finished goods shipped to a
+              Customer and determine what purchased Items went into the
+              good.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Inventory History</term>
+      <listitem>
+        <para>Display lists detailed Inventory history by Lot/Serial Number,
+        using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The system prefixes Order Numbers with letters indicating the Order
+    type. For example, Work Orders are prefixed with "WO", Purchase Orders
+    with "PO", and Sales Orders with "SO". These letters are for display
+    purposes only and are not considered part of the Order Number.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified parameters.
+        Start date and end date must be entered for calculation to proceed.
+        Results will be displayed in the "Inventory History" list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

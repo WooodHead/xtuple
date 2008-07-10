@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="enterPoitemReceipt">
+  <title>Enter Receipt Item</title>
+  <para>To enter Receipt details, highlight a Line Item and select the ENTER
+  RECEIPT button. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/enterPoitemReceipt.png"/>
+        </imageobject>
+        <caption>Enter Purchase Order Item
+        Receipt</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When entering Receipt details, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>P/O Number</term>
+      <listitem>
+        <para>Displays the Purchase Order Number specified on the previous
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Line #</term>
+      <listitem>
+        <para>Displays the line number for the specified Purchase Order
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays the Item Number for the Purchase Order Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vend. Item Number</term>
+      <listitem>
+        <para>Displays the Vendor's Item number for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor Item Description</term>
+      <listitem>
+        <para>Displays Vendor's description of specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor UOM</term>
+      <listitem>
+        <para>Displays the Vendor's Item UOM for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Inv./Vendor UOM Ratio</term>
+      <listitem>
+        <para>Displays the ratio between Inventory and Vendor Units of
+        Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Date Received</term>
+      <listitem>
+        <para>Enter the date you want the receiving transaction to be posted
+        to the General Ledger. By default, receipts will be posted on the
+        current day. However, this feature gives you the option to post
+        transactions on an alternate date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Displays the date the Item is due to be received.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Ordered</term>
+      <listitem>
+        <para>Displays the quantity ordered of the specified Item</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Received</term>
+      <listitem>
+        <para>Displays the quantity received of the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. to Receive</term>
+      <listitem>
+        <para>Specify the Line Item quantity you want to receive into
+        Inventory. Depending on how your system is configured, you may or may
+        not be allowed to receive more than the quantity ordered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Freight</term>
+      <listitem>
+        <para>If Line Item freight charges were specified when the Line Item
+        was created, then those charges will automatically appear here. If you
+        receive a partial quantity and decrease the Freight amount
+        accordingly, the system will automatically show the remaining Freight
+        balance due when you go to receive the remaining quantity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related Items being received into Inventory.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without receiving any of the Line Item
+        quantity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>RECEIVE</term>
+      <listitem>
+        <para>Select to receive the specified Line Item quantity.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

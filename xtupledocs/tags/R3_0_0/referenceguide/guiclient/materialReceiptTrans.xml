@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519010">
+  <title><indexterm significance="normal">
+      <primary>material receipts</primary>
+      <secondary>as inventory transaction</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>inventory transactions</primary>
+      <secondary>receiving materials</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>receiving</primary>
+      <secondary>as inventory transaction</secondary>
+    </indexterm>Material Receipt</title>
+  <para>To record the receipt of materials into Inventory, select the
+  "Material Receipt" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/materialReceiptTrans.png" />
+        </imageobject>
+        <caption>Enter Material Receipt</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>If an Item is Lot/Serial Number controlled, you will be given the
+    opportunity to assign a Lot/Serial Number to incoming material during the
+    receiving process.</para>
+  </note>
+  <para>When entering a Material Receipt, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Transaction Date</term>
+      <listitem>
+        <para>Specify the date you want the transaction to be posted to the
+        General Ledger. The current day's date will display by default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the material you are receiving into
+        Inventory.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warehouse</term>
+      <listitem>
+        <para>Specify Warehouse where material is being received.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Receipt Qty.</term>
+      <listitem>
+        <para>Record the quantity of the Item being received. The Item's
+        Quantity on Hand before and after the material receipt will also be
+        displayed. Non-netable Quantity on Hand is not included in these
+        values. If the material is issued directly to a Work Order, the before
+        and after display will be bypassed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Immediate Issue to Work Order</term>
+      <listitem>
+        <para>Check to issue material immediately to a Work Order. Any Work
+        Order Material Requirements having an issue method of either "Mixed"
+        or "Push" may be issued to a Work Order using this option. Because
+        "Pull" Items are issued to Work Orders using a material backflush,
+        they may not be issued from this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The full quantity being received will be issued to the Work Order if
+    the "Immediate Issue" option is selected. This means the quantity issued
+    may exceed or fall short of the Work Order Material Requirement quantity.
+    In such cases, adjustments at the Work Order level may have to be made to
+    bring the issued quantity into alignment with the required quantity. To
+    avoid having to manage discrepancies, do not select this option. Instead,
+    consider issuing materials manually.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Work Order #</term>
+      <listitem>
+        <para>Enter the Work Order Number of the Work Order you want to issue
+        the received materials to. The browse button located to the right of
+        the field leads to a searchable Work Orders list. The list will
+        include Work Orders whose supplying Warehouse matches the Warehouse
+        the materials are being received into.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Whs.</term>
+      <listitem>
+        <para>Specifies supplying Warehouse for the Work Order's parent
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays Item Number for the Work Order's parent Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Displays the Status of the selected Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Document #</term>
+      <listitem>
+        <para>Creates a user-defined reference for the Material Receipt. The
+        Document reference will be posted with the General Ledger (G/L)
+        transaction record when the Material Receipt is generated. This field
+        may be used for internal tracking and auditing purposes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Comments related to the Material Receipt.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without posting and crediting the Material
+        Receipt, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Posts and credits the Material Receipt. Additional steps will be
+        necessary if the specified Item is stored in multiple
+        Locations.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

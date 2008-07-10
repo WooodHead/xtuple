@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>screens</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Screens</title>
+  <para>Custom Screens are screens you can design, using QtDesigner, and then
+  run within your xTuple ERP application. Essentially, a screen is a UI form
+  which specifies widgets and layout information. Just like scripts, screens
+  are stored in your xTuple database using the functionality described in this
+  section. To take advantage of this functionality, you should have a basic
+  understanding of how to program using <ulink
+  url="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMAScript</ulink>
+  and create UI screens using <ulink
+  url="http://trolltech.com/products/qt/features/tools/designer">QtDesigner</ulink>.</para>
+  <para><tip>
+      <para>You can read more about creating custom screens and scripting in
+      the Development Zone of our wiki at <ulink
+      url="http://www.xtuple.org">www.xtuple.org</ulink>.</para>
+    </tip>When creating a new screen, the first thing to do is give it a name.
+  This name is then used to find matching scripts. Screens can be enabled or
+  disabled--as well as have an order. You may have several screens with the
+  same name; however, only the lowest enabled screen is used. In addition, you
+  must export or import the UI file (i.e., you cannot edit the UI file
+  directly on the database). And, creating a screen does not automatically
+  make it available to users. You must first create a <xref
+  linkend="customCommandTitle" /> to makes sure the screen is added to the
+  menu structure.</para>
+  <note>
+    <para>Because screens are very limited in what they can be made to do
+    without code or scripting, it will almost always be necessary to write one
+    or more scripts for a screen.</para>
+  </note>
+  <para>To view the master list of available custom screens, select the
+  "Screens" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/uiforms.png" />
+        </imageobject>
+        <caption>Screens Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The screens master list displays information on all custom screens,
+  including screen name, description, order, and enabled status.</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the window, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens window for adding a new custom screen to the screens
+        master list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted custom screens. The edit window
+        is the same as that for creating a new custom screen&mdash;except that
+        when editing, the fields will contain screen information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a custom screen and then select this button to remove
+        the custom screen from the master list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>TEST</term>
+      <listitem>
+        <para>Highlight a custom screen and then select this button to launch
+        the screen in the xTuple ERP application. If successful, the
+        highlighted screen will appear within the xTuple framework (e.g., on
+        the desktop). If the screen does not appear, then check your
+        settings--and be sure you have imported your source UI file into the
+        database.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="uiform.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

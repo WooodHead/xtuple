@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section543196">
+  <title><indexterm significance="normal">
+      <primary>work orders</primary>
+      <secondary>releasing by planner code</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>planner codes</primary>
+      <secondary>releasing work orders by</secondary>
+    </indexterm>Release Work Orders by Planner Code</title>
+  <para>If multiple Work Orders within a Planner Code have been exploded, you
+  have the option of releasing them simultaneously. To release Work Orders by
+  Planner Code, select the "Release Work Orders by Planner Code" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/releaseWorkOrdersByPlannerCode.png" />
+        </imageobject>
+        <caption>Release Work Orders by Planner Code</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>Once an Order has been released, the system considers the ordered
+    quantity to be available at 00:00:01 of the due date of the Order in
+    question.</para>
+  </note>
+  <para>When releasing Work Orders by Planner Code, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Planner Codes</term>
+      <listitem>
+        <para>Select to release Work Orders for all Planner Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Planner Code whose exploded Work Orders you want to
+        release.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Planner Code pattern to select a range of Planner Codes.
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cutoff Date</term>
+      <listitem>
+        <para>All relevant Work Orders exploded prior to the date entered will
+        be released.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>by Start Date</term>
+      <listitem>
+        <para>Select to make cutoff date effective as of Work Order start
+        date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>by Due Date</term>
+      <listitem>
+        <para>Select to make cutoff date effective as of Work Order due
+        date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to release Work Orders by Planner Code from all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose exploded Work Orders by Planner Code you
+        want to release.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Documents</term>
+      <listitem>
+        <para>Select which of the following documents you want to print when
+        releasing the specified Work Orders:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Print Pick List</term>
+            <listitem>
+              <para>Select to print Pick Lists for the specified Work
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry role="openmfg">
+            <term>Print Routing</term>
+            <listitem>
+              <para>Select to print Routings for the specified Work
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Print Packing List</term>
+            <listitem>
+              <para>Select to print Packing Lists for the specified Work
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Print Work Order Label</term>
+            <listitem>
+              <para>Select to print Work Order Labels for the specified Work
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without releasing Work Orders by Planner Code,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>RELEASE</term>
+      <listitem>
+        <para>Releases Work Orders by Planner Code, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

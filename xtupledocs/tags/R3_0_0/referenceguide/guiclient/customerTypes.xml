@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section572501">
+  <title><indexterm>
+      <primary>customer types</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Customer Types</title>
+  <para id="Para573422">The system gives you the ability to categorize
+  Customers according to Customer Type. To access the Customer Types master
+  list, select the "Customer Types" option. The following screen will
+  appear:</para>
+  <para id="Para573426"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customerTypes.png"
+                     />
+        </imageobject>
+        <caption>Customer Types Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para573428">The Customer Types master list displays all existing
+  Customer Types codes and descriptions.</para>
+  <para id="Para573429">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para573430">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para573431">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para573432">NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Customer Type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para573433">EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Customer Type. The edit screen
+        is the same as that for creating a new Customer Type&mdash;except that when
+        editing, the fields will contain Customer Type information.
+        Double-clicking on a Customer Type will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para573434">DELETE</term>
+      <listitem>
+        <para>Highlight a Customer Type and then select this button to remove
+        it from the master list of Customer Types.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="customerType.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

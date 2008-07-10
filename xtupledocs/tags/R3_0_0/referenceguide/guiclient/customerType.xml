@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>customer types</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Customer Type</title>
+  <para id="Para573436">To create a new Customer Type, select the NEW button.
+  The following screen will appear:</para>
+  <para id="Para573440"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customerType.png" />
+        </imageobject>
+        <caption>Create New Customer Type</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para id="Para573443">Create your Customer Types using a logical,
+    hierarchical structure. This will make it easier to retrieve Customer Type
+    information in the future.</para>
+  </tip>
+  <para id="Para573447">When creating a new Customer Type, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para573448">Code</term>
+      <listitem>
+        <para>Enter a code number to identify the Customer Type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para573449">Description</term>
+      <listitem>
+        <para>Enter a description to identify the Customer Type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Enable Characteristics Profile</term>
+      <listitem>
+        <para>Select to enforce the use of a Characteristics template for any
+        Customer assigned to the specified Customer Type. If Characteristics
+        Profiles are used, the full slate of Characteristics and corresponding
+        Values will be presented in the Characteristics Tab of the Customer
+        master for every Customer assigned to the Customer Type. If not
+        selected, the template approach will not be used&mdash;and users will have
+        the ability to create ad hoc Characteristics for Customers.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para573450">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para573451">CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a Customer Type, returning
+        you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para573452">SAVE</term>
+      <listitem>
+        <para>Creates the Customer Type and adds it to the master list of
+        Customer Types.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Customer Characteristic to be
+        added to the Profile.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Customer Characteristics. The
+        edit screen is the same as that for creating a new Customer
+        Characteristic&mdash;except that when editing, the fields will contain
+        Customer Characteristic information. Double-clicking on a Customer
+        Characteristic will also bring you to the editing screen. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Customer Characteristic and then select this button
+        to remove the Characteristic from the list. </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Customer Characteristic, select the NEW button. The
+  following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/characteristicAssignmentCustomer.png" />
+      </imageobject>
+      <caption><para>Create New Customer Characteristic</para></caption>
+    </mediaobject>
+  </screenshot>
+  <para>When creating a new Customer Characteristic, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristic</term>
+      <listitem>
+        <para>Select a Characteristic from the list of Characteristics
+        designated as being available for use as Customer
+        Characteristics.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Enter a description of the Customer Characteristic.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Customer Characteristic,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Customer Characteristic and adds it to the list of
+        Customer Characteristics.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

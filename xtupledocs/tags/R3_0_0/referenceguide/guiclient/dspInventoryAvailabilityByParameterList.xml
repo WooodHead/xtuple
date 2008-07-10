@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+   <title>
+   Inventory Availability by Parameter List
+  </title>
+   <subtitle>dspInventoryAvailabilityByParameterList : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/dspInventoryAvailabilityByParameterList.png"/>
+            </imageobject>
+            <caption>
+   Inventory Availability by Parameter List
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_parameter</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_showByGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel moreinfo="none">Item Site Lead Time</guilabel>
+               </entry>
+               <entry>_byLeadTime</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel moreinfo="none">Look Ahead Days:</guilabel>
+               </entry>
+               <entry>_byDays</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                  <row>
+               <entry/>
+               <entry>_days</entry>
+               <entry>QSpinBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel moreinfo="none">Cutoff Date:</guilabel>
+               </entry>
+               <entry>_byDate</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                  <row>
+               <entry/>
+               <entry>_date</entry>
+               <entry>DLineEdit</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel moreinfo="none">Dates:</guilabel>
+               </entry>
+               <entry>_byDates</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                  <row>
+               <entry/>
+               <entry>_startDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel moreinfo="none">to</guilabel>
+               </entry>
+               <entry>_toLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                  <row>
+               <entry/>
+               <entry>_endDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel moreinfo="none">Show Reorder Exceptions</guilabel>
+               </entry>
+               <entry>_showReorder</entry>
+               <entry>XCheckBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel moreinfo="none">Ignore Reorder at 0</guilabel>
+               </entry>
+               <entry>_ignoreReorderAtZero</entry>
+               <entry>XCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel moreinfo="none">Show Shortages</guilabel>
+               </entry>
+               <entry>_showShortages</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WarehouseGroup</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>Q</accel>uery</guilabel>
+               </entry>
+               <entry>_query</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel moreinfo="none">
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel moreinfo="none">Availability:</guilabel>
+               </entry>
+               <entry>_availabilityLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_availability</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section569933" role="standard">
+  <title>Production Time Clock by Work Order</title>
+  <para>To view Time Clock information by Work Order, select the "Production
+  Time Clock by Work Order" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspWoEffortByWorkOrder.png"/>
+        </imageobject>
+        <caption>Production Time Clock by Work
+        Order</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When displaying Time Clock information by Work Order, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Work Order #</term>
+      <listitem>
+        <para>Enter the Work Order Number of the Work Order whose Time Clock
+        information you want to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Whs.</term>
+      <listitem>
+        <para>Displays Warehouse code automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays Item Number automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Users</term>
+      <listitem>
+        <para>Display lists users who have clocked-in to the specified Work
+        Order. If the totals row displays in red, this means the sum of total
+        setup and run times does not equal the total effort.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the Operations list enables you to select
+  from the following menu options:</para>
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickNew)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEdit)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickView)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickDelete)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519898">
+  <title><indexterm>
+      <primary>actual costs</primary>
+      <secondary>posting to standard by item</secondary>
+    </indexterm> <indexterm>
+      <primary>items</primary>
+      <secondary>posting actual costs to standard for</secondary>
+    </indexterm> <indexterm>
+      <primary>costing</primary>
+      <secondary>posting actual to standard</secondary>
+    </indexterm>Post Actual Costs by Item</title>
+  <para id="Para627665">The Standard Cost for an Item is the Cost used for
+  posting General Ledger transactions. Standard Cost is distinguished from
+  Actual Cost in the sense that Standard Cost is fixed, whereas Actual Cost is
+  subject to fluctuations arising from material or production changes. The two
+  Costs may diverge. However, they can be brought back into alignment by
+  posting Actual Cost to Standard. To post Actual Costs to Standard Cost
+  individually by Item, select the "Post Actual Costs by Item" option. The
+  following screen will appear:</para>
+  <para id="Para519903"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/postCostsByItem.png"
+                     />
+        </imageobject>
+        <caption>Post Actual Costs by Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para id="Para552031">The Costing Elements that are selected for posting
+    must correspond to the Costing Elements selected during the update
+    process. If the elements don"t correspond, there may not be any associated
+    Costs available for posting.</para>
+  </note>
+  <para id="Para519911">When posting Actual Costs by Item, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519912">Item Number</term>
+      <listitem>
+        <para id="Para">Enter the Item Number of the Item whose Actual Costs
+        you want to post.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para663275">UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para627831">For manufactured Items, rolling up Standard Costs
+    ensures that lower level Costs are reflected in the Cost for the parent
+    Item.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519916"><anchor id="Anchor616592" role="Index"
+      xreflabel="standard costs:rolling up of" /> <indexterm
+          significance="normal" zone="Anchor616592">
+          <primary>standard costs</primary>
+          <secondary>rolling up of</secondary>
+        </indexterm>Roll Up Standard Costs</term>
+      <listitem>
+        <para>Select to roll up Standard Costs. When this option is specified,
+        all selected Costs will be added together to establish a revised total
+        Standard Cost for the Item. This revised total goes into effect after
+        the POST button is selected. If all Costs are selected, all Costs will
+        be rolled up. If a subset of all Costs is selected, only the subset
+        will be rolled up. If the Roll Up Standard Costs option is not
+        specified, the selected Cost postings will not be valid above their
+        current level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519918"><anchor id="Anchor628450" role="Index"
+      xreflabel="material costs:posting of;costing:posting of material costs;standard costs:material costs posted to" />
+      <indexterm significance="normal" zone="Anchor628450">
+          <primary>material costs</primary>
+          <secondary>posting of</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor628450">
+          <primary>costing</primary>
+          <secondary>posting of material costs</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor628450">
+          <primary>standard costs</primary>
+          <secondary>material costs posted to</secondary>
+        </indexterm>Post Material Costs</term>
+      <listitem>
+        <para>Select to post material Costs. Not selecting means material
+        Costs will not be posted to the Standard Cost for the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519920">Post Lower Level Material Costs</term>
+      <listitem>
+        <para>Select to post lower level material Costs. Not selecting means
+        lower level material Costs will not be posted to the Standard Cost for
+        the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para519922">Post Direct Labor Cost</term>
+      <listitem>
+        <para>Select to post direct labor Cost. Not selecting means the direct
+        labor Cost will not be posted to the Standard Cost for the
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para519924">Post Lower Level Direct Labor Cost</term>
+      <listitem>
+        <para>Select to post lower level direct labor Cost. Not selecting
+        means the lower level direct labor Cost will not be posted to the
+        Standard Cost for the Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para627883">You have the flexibility of updating all or only a
+    subset of the listed Costs. Updating a subset might be desirable if only
+    Material or User Costs have changed, for example.</para>
+  </note>
+  <variablelist>
+    <varlistentry role="openmfg">
+      <term id="Para519926">Post Overhead Cost</term>
+      <listitem>
+        <para>Select to post overhead Cost. Not selecting means the overhead
+        Cost will not be posted to the Standard Cost for the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para519928">Post Lower Level Overhead Cost</term>
+      <listitem>
+        <para>Select to post lower level overhead Cost. Not selecting means
+        the lower level overhead Cost will not be posted to the Standard Cost
+        for the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para519930">Post Machine Overhead</term>
+      <listitem>
+        <para>Select to post machine overhead Cost. This option is selected by
+        default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para519932">Post Lower Machine Overhead</term>
+      <listitem>
+        <para>Select to post lower level machine overhead Cost. This option is
+        selected by default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519934"><anchor id="Anchor631517" role="Index"
+      xreflabel="user costs:posting of;costing:posting of user costs;standard costs:user costs posted to" />
+      <indexterm significance="normal" zone="Anchor631517">
+          <primary>user costs</primary>
+          <secondary>posting of</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor631517">
+          <primary>costing</primary>
+          <secondary>posting of user costs</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor631517">
+          <primary>standard costs</primary>
+          <secondary>user costs posted to</secondary>
+        </indexterm>Post User Costs</term>
+      <listitem>
+        <para>Select to post user Costs. Not selecting means user Costs will
+        not be posted to the Standard Cost for the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519936">Post Lower Level User Costs</term>
+      <listitem>
+        <para>Select to post lower level user Costs. Not selecting means lower
+        level user Costs will not be posted to the Standard Cost for the
+        Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para519938">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para628085">CANCEL</term>
+      <listitem>
+        <para>Closes the screen without posting selected Costs, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para628086">POST</term>
+      <listitem>
+        <para>Posts all selected Actual Costs by Item to Standard Cost. If the
+        option "Roll Up Standard Costs" has been selected, the total Standard
+        Cost for the specified Item will be updated.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para627441">Actual Costs may also be posted to Standard Cost on
+    an Item-by-Item basis using the right-click menu found on the Maintain
+    Item Costs screen.</para>
+  </tip>
+  <variablelist>
+    <varlistentry role="standard">
+      <term id="Para641220">SUBMIT</term>
+      <listitem>
+        <para>Select to submit requested action to the Batch Manager for
+        processing.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para627433">SELECT ALL COSTS</term>
+      <listitem>
+        <para>Selects all Costs for updating. Use this option to save time
+        when selecting all Costs for updating. The option "Roll Up Standard
+        Costs" must be selected separately if you want to include a rolled up
+        total for the parent Item in the Cost update.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

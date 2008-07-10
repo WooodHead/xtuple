@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section role="standard">
+  <title id="lotSerialRegistrationTitle"><indexterm significance="normal">
+      <primary>registrations</primary>
+      <secondary>creating new</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>registrations</primary>
+      <secondary>for lot/serial</secondary>
+    </indexterm>Lot/Serial Registration</title>
+  <para>Lot/Serial Items may be registered for Warranty tracking or other
+  purposes. To register a Lot/Serial Item, select the NEW button on the
+  Lot/Serial screen. The following screen will appear.</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/lotSerialRegistration.png" />
+        </imageobject>
+        <caption>Create New Lot/Serial Registration</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a registration, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Registration #</term>
+      <listitem>
+        <para>Displays the system-defined registration number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Specify the type of registration by selecting one of the
+        following options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>E-Mail</term>
+            <listitem>
+              <para>Select if the registration was submitted by email.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Internet</term>
+            <listitem>
+              <para>Select if the registration was submitted over the
+              internet.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Mail</term>
+            <listitem>
+              <para>Select if the registration was mailed in.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Other</term>
+            <listitem>
+              <para>Select if the registration was submitted by some other
+              method.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Phone</term>
+            <listitem>
+              <para>Select if the registration was phoned in.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipment</term>
+            <listitem>
+              <para>Select if the registration was made automatically when the
+              specified Lot/Serial quantity was shipped. This feature is
+              triggered by a setting on the Item Site screen. For Lot/Serial
+              Items, you have the option on the Item Site screen to auto
+              register quantity at Shipping.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays the Item Number of the Lot/Serial Item specified on the
+        previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Displays the Inventory Unit of Measure for the specified
+        Lot/Serial Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Lot/Serial #</term>
+      <listitem>
+        <para>Displays the Lot/Serial Number specified on the previous
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty</term>
+      <listitem>
+        <para>Specify the quantity of the Lot/Serial Item covered by the
+        current registration.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CRM Account</term>
+      <listitem>
+        <para>Specify the CRM Account associated with the registration.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Register Date</term>
+      <listitem>
+        <para>Specify the date when the registration was received. This date
+        will default to the shipment date for auto registrations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sold Date</term>
+      <listitem>
+        <para>Specify the date when the Lot/Serial quantity was sold. The sold
+        date marks the beginning of the warranty period for warranty Items.
+        This date will default to the Sales Order date for auto
+        registrations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expire Date</term>
+      <listitem>
+        <para>Specify the expiration date for the Lot/Serial quantity. For
+        warranty Items, the expiration date is based on the sold date plus the
+        number of warranty days specified on the Item master. This date will
+        default to the Sales Order date plus the warranty days for auto
+        registrations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Order #</term>
+      <listitem>
+        <para>Specify the Sales Order (if any) associated with the
+        registration. This information will be added automatically by auto
+        registrations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipment #</term>
+      <listitem>
+        <para>Specify the shipmnet number (if any) associated with the
+        registration. This information will be added automatically by auto
+        registrations.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>When defining a Contact for the registration, you are presented with
+  the following options:</para>
+  <tip>
+    <para>For Contacts, you have two options:</para>
+    <orderedlist>
+      <listitem>
+        <para>Attach an existing Contact to the Account</para>
+      </listitem>
+      <listitem>
+        <para>Enter new Contact information</para>
+      </listitem>
+    </orderedlist>
+    <para>If a new Contact is entered, that Contact will be added
+    automatically to the master list of Contacts.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Contact</term>
+      <listitem>
+        <para>Specify the details for the registrationContact. You can
+        manually enter Contact information in the fields shown&mdash;or use
+        the browse button to select pre-existing Contact information. If the
+        registration is created automatically from the shipment of a Sales
+        Order, the name of the Customer billing Contact will be used.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Registration Characteristics are user-defined definitions of an
+  Account which may be used to provide additional layers of description. To
+  enter <indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>registrations having</secondary>
+    </indexterm>Characteristics associated with a registration, select the
+  "Characteristics" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/lotSerialRegistration_characteristicsTab.png" />
+        </imageobject>
+        <caption>Registration Characteristics</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When associating Characteristics with a registration, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristics</term>
+      <listitem>
+        <para>Displays the Characteristics related to the registration.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new registration
+        Characteristic.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted registration Characteristics.
+        The edit screen is the same as that for creating a new registration
+        Characteristic&mdash;except that when editing, the fields will contain
+        registration Characteristic information. Double-clicking on a
+        registration Characteristic will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a registration Characteristic and then select this
+        button to remove the registration Characteristic from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new registration Characteristic, select the NEW button.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/characteristicAssignmentRegistration.png" />
+        </imageobject>
+        <caption>Create New Registration Characteristic</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new registration Characteristic, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristic</term>
+      <listitem>
+        <para>Select a Characteristic from the list of Characteristics
+        designated as being available for use as registration
+        Characteristics.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Enter a value to associate with the registration
+        Characteristic.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the registration
+        Characteristic, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the registration Characteristic and adds it to the list
+        of registration Characteristics.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Notes to the registration, select the "Notes" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/lotSerialRegistration_notesTab.png" />
+        </imageobject>
+        <caption>Registration Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Notes to a registration, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the registration. Any Notes entered on this screen
+        are for internal purposes only.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

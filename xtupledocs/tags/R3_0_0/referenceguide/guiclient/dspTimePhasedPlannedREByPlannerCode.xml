@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518925" role="openmfg">
+  <title>Time-Phased Planned Revenue/Expenses by Planner Code</title>
+  <para>To view time-phased planned Revenue/Expenses by Planner Code, select
+  the "Time-Phased Planned Revenue/Expenses by Planner Code" option. The
+  following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspTimePhasedPlannedREByPlannerCode.png"/>
+        </imageobject>
+        <caption>Time-Phased Planned Revenue/Expenses by
+        Planner Code</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When displaying time-phased planned Revenue/Expenses by Planner Code,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Planner Codes</term>
+      <listitem>
+        <para>Select to display time-phased planned Revenue/Expenses for all
+        Planner Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Planner Code whose time-phased planned Revenue/Expenses
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Planner Code pattern to select a range of Planner Codes.
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to display time-phased planned Revenue/Expenses by
+        Planner Code for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose time-phased planned Revenue/Expenses by
+        Planner Code you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Costs</term>
+      <listitem>
+        <para>Sort the information using one of the following costing
+        parameters:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use Standard Cost</term>
+            <listitem>
+              <para>Select to display Standard Cost.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Actual Cost</term>
+            <listitem>
+              <para>Select to display Actual Cost.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Price</term>
+      <listitem>
+        <para>Sort the information using one of the following pricing
+        parameters:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use List Price</term>
+            <listitem>
+              <para>Select to display the List Price.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Average Price</term>
+            <listitem>
+              <para>Select to display Average Price. Average Price is based on
+              the Item's average selling Price.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Start Evaluation Date</term>
+            <listitem>
+              <para>Specify date to start evaluating average Price. This is a
+              required field.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Evaluation Date</term>
+            <listitem>
+              <para>Specify date to stop evaluating average Price. This is a
+              required field.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Calendar</term>
+      <listitem>
+        <para>Select the Calendar you want to use for the report. Associated
+        Calendar periods will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name/Selected Periods</term>
+      <listitem>
+        <para>Select as many periods as you want to display. Selected periods
+        correspond to Calendar specified in the "Calendar" field. Select
+        individual periods or groups of periods together. To select an
+        individual period, highlight the period using your mouse button. The
+        period is now selected. To select a sequence of periods, highlight the
+        first in the sequence using your mouse button. Then, holding down the
+        SHIFT key on your keyboard, highlight the last period in the sequence.
+        The entire sequence is now selected. To select periods that are out of
+        sequence (e.g., January, April, July, October), highlight the first
+        period in the group. Then, holding down the CTRL key on your keyboard,
+        highlight the next period you want to select. Continue highlighting
+        periods with the CTRL key depressed until all desired periods are
+        selected. The entire group is now selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Planned Revenue and Expenses</term>
+      <listitem>
+        <para>Display lists time-phased planned Revenue/Expenses by Planner
+        Code, using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified parameters.
+        Start date and end date must be entered for calculation to proceed.
+        Results will be displayed in the "Planned Orders" display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

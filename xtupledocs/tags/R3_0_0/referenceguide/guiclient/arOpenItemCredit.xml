@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section524413">
+  <title>
+<indexterm significance="normal">
+      <primary>credit memos</primary>
+      <secondary>entering for receivables</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>debit memos</primary>
+      <secondary>entering new</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>entering credit memos for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>entering debit memos for</secondary>
+    </indexterm>New Misc. Credit Memo</title>
+  <para>To enter a miscellaneous Credit Memo, select the "Enter Misc. Credit
+  Memo" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/arOpenItemCredit.png"/>
+        </imageobject>
+        <caption>Enter Miscellaneous Credit Memo</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>Miscellaneous A/R Credit Memos can be applied to Invoices or
+    miscellaneous A/R Debit Memos.</para>
+  </note>
+  <para>When entering a miscellaneous Credit Memo, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>Enter the Customer Number of the Customer you want to enter a
+        miscellaneous Credit Memo for. The browse button located to the right
+        of the field leads to a searchable Customers list. You may also access
+        this list using the keyboard shortcut "CTRL + L". Once a Customer
+        Number is entered, the Customer name and billing address will display.
+        Select the "?" or "$" symbol next to the browse button to view
+        Customer information for the specified Customer. If a Customer's
+        credit is "In Good Standing," the button will feature a black question
+        mark ("?") icon. If the icon turns to an orange dollar sign ("$"), the
+        Customer's credit Status is "On Credit Warning." A red dollar sign
+        ("$") indicates the Customer's credit Status is "On Credit
+        Hold."</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Document Date</term>
+      <listitem>
+        <para>Specify a date to associate with the miscellaneous Credit
+        Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Displays the due date for the miscellaneous Credit Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Document Type</term>
+      <listitem>
+        <para>Displays the Document Type, namely "Credit Memo."</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Number</term>
+      <listitem>
+        <para>Displays the next available miscellaneous Credit Memo Number.
+        The value for the next available Credit Memo Number is configured at
+        the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order #</term>
+      <listitem>
+        <para>Enter the Order Number you want to associate with the Credit
+        Memo. You may leave this field blank if you do not want to enter an
+        associated Order Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Journal #</term>
+      <listitem>
+        <para>Displays the Journal number if any amount has been
+        applied.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Terms</term>
+      <listitem>
+        <para>Displays Invoice Terms if any amount has been applied to an
+        Invoice.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Rep.</term>
+      <listitem>
+        <para>Displays the Sales Representative associated with the Invoice if
+        any amount has been applied to an Invoice.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commission Due</term>
+      <listitem>
+        <para>Displays the amount of the commission due to the associated
+        Sales Representative.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commission Paid</term>
+      <listitem>
+        <para>Displays the amount of the commission paid to the associated
+        Sales Representative.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Amount</term>
+      <listitem>
+        <para>Specify the amount of the miscellaneous Credit Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Paid</term>
+      <listitem>
+        <para>Displays the amount applied to date for the miscellaneous Credit
+        Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Balance</term>
+      <listitem>
+        <para>Displays the remaining amount still available to apply for the
+        miscellaneous Credit Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reason Code</term>
+      <listitem>
+        <para>Specify the reason for the Credit Memo. Reason codes are used to
+        explain why an adjustment is being made to a Customer's
+        account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Alternate Prepaid Account</term>
+      <listitem>
+        <para>Select one of the following optional Prepaid Accounts:</para>
+        <variablelist>
+          <varlistentry>
+            <term>From Sales Category</term>
+            <listitem>
+              <para>Specify a Sales Category whose Prepaid Account option you
+              want to use instead of the default Prepaid Account.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Account Number</term>
+            <listitem>
+              <para>Specify an alternate Account Number to use for the
+              transaction.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If an alternate Prepaid Account is not specified, the system will
+    use the default Prepaid Account specified for the Customer Type under A/R
+    Account Assignments.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the miscellaneous Credit Memo. Notes entered on this
+        screen will follow the Credit Memo through the billing process. For
+        example, you may view notes associated with a posted Credit Memo
+        within the Customer History report.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Applications</term>
+      <listitem>
+        <para>Display lists the history of applications related to the
+        miscellaneous Credit Memo, if any.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without entering a miscellaneous Credit Memo,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Posts the miscellaneous Credit Memo, using the amount
+        specified.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

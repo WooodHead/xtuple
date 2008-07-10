@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section605037">
+  <title><indexterm significance="normal">
+      <primary>sales orders</primary>
+      <secondary>list open</secondary>
+    </indexterm>List Open Sales Orders</title>
+  <para>A Sales Order appears on the List Open Sales Orders screen if one or
+  more of its Line Items remains open. Once all Line Items for a Sales Order
+  have been closed, the Sales Order will no longer appear on the list.
+  Typically, Sales Order Line Items are closed when the Order is selected for
+  billing. To display open Sales Orders by Warehouse, select the "Open Sales
+  Orders" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/openSalesOrders.png" />
+        </imageobject>
+        <caption>Open Sales Orders Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying open Sales Orders, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry role="standard">
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to display a list of open Sales Orders for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose open Sales Orders you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Orders</term>
+      <listitem>
+        <para>Display lists open Sales Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Automatically Update</term>
+      <listitem>
+        <para>Select to automatically update the display every five
+        minutes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Sales Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="openSalesOrdersVIEW">
+        <para>Highlight a Sales Order and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>COPY</term>
+      <listitem id="openSalesOrdersCOPY">
+        <para>Highlight a Sales Order and then select this button to create a
+        new Sales Order which duplicates the source Sales Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="openSalesOrdersEDIT">
+        <para>Enables you to edit highlighted Sales Order. The edit screen is
+        the same as that for creating a new Sales Order&mdash;except that when
+        editing, the fields will contain Sales Order information.
+        Double-clicking on a Sales Order will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="openSalesOrdersDELETE">
+        <para>Highlight a Sales Order and then select this button to remove
+        the Sales Order from the master list</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Order in the Sales Orders list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Edit</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openSalesOrdersEDIT)" />
+    </varlistentry>
+    <varlistentry>
+      <term>View</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openSalesOrdersVIEW)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Copy</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openSalesOrdersCOPY)" />
+    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReschedule)" />
+    <varlistentry>
+      <term>Delete</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openSalesOrdersDELETE)" />
+    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPrintPackingList)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickAddtoPackingListBatch)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickScheduleSOforEmailDelivery)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPrintSalesOrderForm)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+</section>

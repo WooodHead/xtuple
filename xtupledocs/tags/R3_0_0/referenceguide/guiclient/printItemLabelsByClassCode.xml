@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section665468">
+  <title>Print Item Labels by Class Code</title>
+  <para>To print Item Labels by Class Code, select the "Print Item Labels by
+  Class Code" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/printItemLabelsByClassCode.png"/>
+        </imageobject>
+        <caption>Print Item Labels by Class Code</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When printing Item Labels by Class Code, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Class Codes</term>
+      <listitem>
+        <para>Select to print Item Labels for all Class Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Class Code you want to print Item Labels for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Class Code pattern to select a range of Class Codes.
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to print Item Labels for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse you want to print Item Labels for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Report Name</term>
+      <listitem>
+        <para>Specify the Report you want to use for printing Item Labels.
+        Menu will list available Label Form definitions.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without printing Item Labels, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

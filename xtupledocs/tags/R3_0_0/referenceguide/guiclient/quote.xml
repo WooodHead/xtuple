@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section528866">
+  <title id="Anchor51214"><indexterm significance="normal">
+      <primary>quotes</primary>
+      <secondary>creating new</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>sales quotes</primary>
+      <see>quotes</see>
+    </indexterm> New Quote</title>
+  <para>A Quote is a statement issued to a Customer or Prospect indicating
+  pricing and sales Terms for specified quantities of sold Items. Quotes are
+  often precursors to Sales Orders. To create a Quote, select the "New Quote"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/quote.png" />
+        </imageobject>
+        <caption>Create New Quote</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>Be sure to close all Sales Order windows before exiting the system.
+    This will prevent the creation of orphan Sales Order records.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Order #</term>
+      <listitem>
+        <para>Next available Quote Number will automatically display, unless
+        your system requires you to enter Quote Numbers manually. Default
+        values and input parameters for Quote Numbers are configurable at the
+        system level.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>By default, the Quote Number will be assumed by the Sales Order when
+    a Quote is converted to a Sales Order.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Order Date</term>
+      <listitem>
+        <para>Displays current day's date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Scheduled Date</term>
+      <listitem>
+        <para>Displays the Quote's earliest scheduled date. The scheduled date
+        corresponds to the earliest scheduled date for an included Quote Item.
+        Because Quotes may contain multiple Quote Items, the scheduled date
+        indicates the most recent scheduled date. No scheduled date will
+        display in the "Scheduled Date" field until a Quote Line Item has been
+        created and a scheduled date assigned to it.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>pack dates</primary>
+          <secondary>for quotes</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>quotes</primary>
+          <secondary>pack dates for</secondary>
+        </indexterm>Pack Date</term>
+      <listitem>
+        <para>The pack date is the same date as the ship date. Because the
+        field can be edited, you have the ability to change the pack date and
+        make it different from the ship date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales representatives</primary>
+          <secondary>commissions for</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>quotes</primary>
+          <secondary>commissions on</secondary>
+        </indexterm>Sales Rep.</term>
+      <listitem>
+        <para>Specify the Sales Representative associated with the Order.
+        Sales Representatives are linked to a Customer on the Customer
+        master&mdash;either by a default setting or through the assignment of
+        Ship-To Addresses. Each Ship-To Address may have a different Sales
+        Representative associated with it. Consequently, the name of the Sales
+        Representative appearing on the Sales Order header will be the same as
+        specified for the Ship-To Address being used.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commission</term>
+      <listitem>
+        <para>By default, the commission percentage recorded on the Customer
+        master will be automatically entered in this field. If for some reason
+        you select a non-default Sales Representative at Order entry, the
+        commission rate will not change. To adjust the commission rate, you
+        must make the change manually.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>tax authorities</primary>
+          <secondary>for quotes</secondary>
+        </indexterm>Tax Authority</term>
+      <listitem>
+        <para>Specify the Tax Authority associated with the Quote. The Tax
+        Authority for the specified Ship-To Address will be entered here by
+        default. Otherwise, the primary Tax Authority for the Customer will be
+        entered. Ultimately, Tax is applied at the Line Item level&mdash;so
+        the Tax Authority associated with an Item's Tax Type will be
+        used.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>quotes</primary>
+          <secondary>setting terms for</secondary>
+        </indexterm>Terms</term>
+      <listitem>
+        <para>Specify the billing Terms associated with the Order. By default,
+        the Customer's standard billing Terms will appear in the field.
+        Customer billing.</para>
+        <note>
+          <para>The option to associate a Project with a Quote will only be
+          visible if your site is configured to use Projects.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warehouse</term>
+      <listitem>
+        <para>Specify the shipping Warehouse associated with the Quote. This
+        Warehouse selection is for informational purposes only. A Warehouse
+        may be designated as a shipping Warehouse on the Warehouse
+        master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expire</term>
+      <listitem>
+        <para>Specify the date when the Quote expires, if applicable.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Originated By</term>
+      <listitem>
+        <para>Specify the origin of the Order using the available
+        options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Customer</term>
+            <listitem>
+              <para>Indicates the Order was originated by the Customer.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Internet</term>
+            <listitem>
+              <para>Indicates the Order was originated by an Internet
+              lead.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Sales Rep.</term>
+            <listitem>
+              <para>Indicates the Order was originated by the Sales
+              Representative.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Quotes may not be entered for Customers whose credit status is
+    either "On Credit Warning" or "On Credit Hold." Only users with special
+    privileges may override these credit settings.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Project #</term>
+      <listitem>
+        <para>Select a Project Number to associate with the Quote. If a Sales
+        Order is created from a converted Quote&mdash;and the Quote had a
+        Project Number associated with it&mdash;then the Project Number from
+        the originating Quote will automatically be entered here. Once a
+        Project Number is associated with a Sales Order, any Work Orders or
+        Purchase Orders created by the Sales Order demand will automatically
+        be linked to the same Project Number as the Sales Order. In this way,
+        Sales Orders, Work Orders, and Purchase Orders may be linked to the
+        same Project.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If your site is configured to create Projects automatically whenever
+    new Sales Orders or Quotes are entered, the Projects generated in this way
+    will assume the number of the Sales Order or Quote which caused their
+    creation.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>Enter the Customer Number of the Customer (or Prospect) you want
+        to create a Quote for. The browse button located to the right of the
+        field leads to a searchable Customers list. You may also access this
+        list using the keyboard shortcut "CTRL + L". Once a Customer Number is
+        entered, the Customer name and billing address will display. Select
+        the "?" or "$" symbol next to the browse button to view Customer
+        information for the specified Customer. If a Customer's credit is "In
+        Good Standing," the button will feature a black question mark ("?")
+        icon. If the icon turns to an orange dollar sign ("$"), the Customer's
+        credit Status is "On Credit Warning." A red dollar sign ("$")
+        indicates the Customer's credit Status is "On Credit Hold."</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>A valid Customer Number or Prospect Number must be entered in the
+    "Customer #" field before Line Items can be added to a Quote. If no valid
+    Number is entered, you will not be able to add Line Items to the Quote.
+    Additionally, Quotes may only be entered for active Customers and
+    Prospects.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Cust. Type</term>
+      <listitem>
+        <para>Displays the Customer Type for the specified Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>quotes</primary>
+          <secondary>billing information for</secondary>
+        </indexterm>Bill-To Name</term>
+      <listitem>
+        <para>Displays the Customer's Bill-To name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bill-To Phone</term>
+      <listitem>
+        <para>Displays the Customer's Bill-To phone number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Address</term>
+      <listitem>
+        <para>Displays the Customer's Bill-To Address. You may manually
+        override the displayed Address information in the fields
+        below&mdash;or use the browse button to select another Address.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>The Customer's Bill-To street Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>The Customer's Bill-To city.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>The Customer's Bill-To state.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>The Customer's Bill-To Postal Code.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>The Customer's Bill-To country.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Copy to Ship-to</term>
+      <listitem>
+        <para>Select to copy contents of billing address into Ship-To address
+        field. This option is enabled if the Customer master for the specified
+        Customer indicates that free-form Ship-To's are allowed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship-To #</term>
+      <listitem>
+        <para>Enter the number of the preferred Ship-To Address. Customers may
+        maintain multiple Ship-To Addresses. If the Customer master for the
+        specified Customer indicates that free-form Ship-To's are allowed,
+        then any address may be entered. If free-form Ship-To's are not
+        allowed, then the Ship-To Address must be entered using the browse
+        button located to the right of the field. The browse button leads to a
+        searchable Ship-To Addresses list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>quotes</primary>
+          <secondary>ship-to details for</secondary>
+        </indexterm>Ship-To Name</term>
+      <listitem>
+        <para>Displays the name for the specified Ship-To.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship-To Phone</term>
+      <listitem>
+        <para>Displays the phone number for the specified Ship-To.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Address</term>
+      <listitem>
+        <para>Displays the specified Ship-To Address. You may manually
+        override the displayed Address information in the fields
+        below&mdash;or use the browse button to select another Address.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>The specified Ship-To street Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>The specified Ship-To city.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>The specified Ship-To state.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>The specified Ship-To Postal Code.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>The specified Ship-To country.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>F.O.B.</term>
+      <listitem>
+        <para>Enter free on board (FOB) Terms for the Order. By default,
+        F.O.B. Terms entered on the Shipping Warehouse master will appear in
+        this field. The default Terms may be changed during Order
+        entry&mdash;and also at later stages during the billing cycle.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cust. PO #</term>
+      <listitem>
+        <para>PO #: Enter a Customer Purchase Order Number, as needed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>You will be required to enter a Customer Purchase Order Number for
+    Customers who require them. If required, duplicate numbers will only be
+    allowed if the Customer uses blanket Purchase Orders. All Customer
+    requirements are specified on the Customer master.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Ship Via</term>
+      <listitem>
+        <para>The preferred Ship Via method for the Customer will appear in
+        the field. You may change the default Ship Via using the list. You may
+        also enter a free-form Ship Via simply by typing the name of the Ship
+        Via into the field.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>The system supports up-to-date shipment tracking with links to the
+    websites of many leading shipping companies ((i.e., "Ship Vias").</para>
+  </tip>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the new Quote and saves the Quote information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Quote, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>quotes</primary>
+      <secondary>creating line items for</secondary>
+    </indexterm>To create or modify Quote Line Items, select the "Line Items"
+  tab at the top of the "New Quote" screen. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/quote_lineItemsPage.png" />
+        </imageobject>
+        <caption>Quote Line Items</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>The system will allow you to enter Quotes for Items which do not
+    have Item Sites. However, Item Sites must be defined before a Quote can be
+    converted to a Sales Order.</para>
+  </tip>
+  <para>When creating or modifying Quote Line Items, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Line Items</term>
+      <listitem>
+        <para>Display lists Line Items for this Quote. A valid Customer Number
+        must be entered in the "Customer #" field before Line Items can be
+        added to the Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>$ Margin</term>
+      <listitem>
+        <para>Displays the total profit margin for the Quote. The profit
+        margin is based on the following formula:</para>
+        <para>Quote Subtotal - Total Standard Costs for all Line Items</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Subtotal</term>
+      <listitem>
+        <para>Displays the subtotal for the Quote Line Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>Displays the amount of Tax that will be added to the Sales
+        Order, as defined by the specified Tax Code. To get a detailed view of
+        the Tax calculation, click on the Tax link using your mouse.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Misc. Charge Amount</term>
+      <listitem>
+        <para>Enter the amount of any miscellaneous charge. Examples of
+        miscellaneous charges include palletization costs, co-op refund, etc.
+        Before entering a miscellaneous charge amount, you must first assign
+        the charge to a Sales Account and also enter a description of the
+        charge.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If you do not use Miscellaneous Charges at your site, you can hide
+    these fields so they are not visible when entering Sales Orders. To do so,
+    simply select the "Hide Misc. Charges" option in the system-level
+    configuration.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Misc. Charge Description</term>
+      <listitem>
+        <para>Enter a description to identify the miscellaneous charge.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Misc. Charge Sales Account</term>
+      <listitem>
+        <para>Enter a Sales Account to assign the miscellaneous charge
+        to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Freight Weight</term>
+      <listitem>
+        <para>Displays the combined weight of all Quote Line Items. Freight
+        weight represents the sum of an Item's product weight and packaging
+        weight, both of which are defined on the Item master. The per unit
+        freight weight multiplied by the quantity per gives you the Line Item
+        freight weight. The sum of all Line Item freight weights is the
+        combined weight for the Quote.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>freight</primary>
+          <secondary>on sales orders</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>freight charges on</secondary>
+        </indexterm>Freight</term>
+      <listitem>
+        <para>Enter the amount of freight charge to be added to the specified
+        Order. Freight charges may be entered during the creation or
+        modification of a Quote&mdash;or at the time of shipment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total</term>
+      <listitem>
+        <para>Displays the total amount of the Quote.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Any Quote Line Item may be shipped&mdash;even if the Item or Item
+    Site in question becomes inactive after the Quote has been created.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the Quote Line Item information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Quote, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Quote Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Quote Line Items. The edit
+        screen is the same as that for creating a new Quote Line
+        Item&mdash;except that when editing, the fields will contain Quote
+        Line Item information. Double-clicking on a Quote Line Item will also
+        bring you to the editing screen.</para>
+        <para>Mac users may use COMMAND + E to edit an existing Line
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Quote Line Item and then select this button to
+        remove the Quote Line Item from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Order Notes added to a Quote are used for internal purposes only. To
+  add Order Notes to a Quote, select the "Order Notes" tab at the top of the
+  "New Quote" screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/quote_orderCommentsPage.png" />
+        </imageobject>
+        <caption>Order Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Order Notes to a Quote, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Order Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        general Notes related to the Quote. These Notes are for internal use
+        only.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the Order Note.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating an Order Note, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Comments related to a Quote, select the "Comments" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/quote_orderComments.png" />
+        </imageobject>
+        <caption>Quote Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Comments related to a Quote, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>Display lists Comments for the specified Quote.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Comment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Comment and then select this button to reach a
+        read-only view of the Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a Quote Comment, select the NEW button. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CommentNew.png" />
+        </imageobject>
+        <caption>Create New Comment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General.</para>
+        <para>Comment Types are used to categorize Comments. Once you have
+        specified a Comment Type, you may type your Comment in the main text
+        area. The text area features word-wrapping and scroll-bar support for
+        longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Comment, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Comment and adds it to the list of Quote
+        Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Shipping Notes are drawn from the Customer master&mdash;specifically
+  from the "Shipping Notes" tab on the Ship-To Address master. The Notes may
+  vary depending on the Ship-To Address specified for the Quote. These Notes
+  provide a mechanism for transferring shipping information from the Customer
+  master to the Quote. To add Shipping Notes to a Quote, select the "Shipping
+  Notes" tab at the top of the "New Quote" screen. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/quote_shippingComments.png" />
+        </imageobject>
+        <caption>Quote Shipping Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding shipping Notes to a Quote, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Shipping Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        shipping Notes related to the Quote. These Notes are for internal use
+        only.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the Shipping Notes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating Shipping Notes, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="quoteItem.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

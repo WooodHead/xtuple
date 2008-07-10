@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519942">
+  <title><indexterm>
+      <primary>actual costs</primary>
+      <secondary>posting to standard by class code</secondary>
+    </indexterm> <indexterm>
+      <primary>class codes</primary>
+      <secondary>posting actual costs to standard for</secondary>
+    </indexterm> <indexterm>
+      <primary>costing</primary>
+      <secondary>posting actual to standard</secondary>
+    </indexterm>Post Actual Costs by Class Code</title>
+  <para id="Para519943">In addition to posting Actual Costs to Standard Cost
+  individually by Item, you may also post Actual Costs by Class Code. To post
+  Actual Costs by Class Code, select the "Post Actual Costs by Item" option.
+  The following screen will appear:</para>
+  <tip>
+    <para id="Para645935">For best performance, you should run this utility by
+    All Class Codes. This will also ensure your Costs are updated properly for
+    any Items which cross Class Code lines.</para>
+  </tip>
+  <para id="Para519947"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/postCostsByClassCode.png"
+                     />
+        </imageobject>
+        <caption>Post Actual Costs by Class Code</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para id="Para628118">The Costing Elements that are selected for posting
+    must correspond to the Costing Elements selected during the update
+    process. If the elements don"t correspond, there may not be any associated
+    Costs available for posting.</para>
+  </note>
+  <para id="Para519949">When posting Actual Costs by Class Code, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para616958">All Class Codes</term>
+      <listitem>
+        <para>Select to post Actual Costs for all Class Codes. Running the
+        utility by all Class Codes is the preferred method.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519950">Selected</term>
+      <listitem>
+        <para>Specify Class Code whose Actual Costs you want to post.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para593252">Pattern</term>
+      <listitem>
+        <para>Enter a Class Code pattern to select a range of Class Codes.
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para627992">For manufactured Items, rolling up Standard Costs
+    ensures that lower level Costs are reflected in the Cost for the parent
+    Item.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term id="Para627994"><anchor id="Anchor627993" role="Index"
+      xreflabel="standard costs:rolling up of" /> <indexterm
+          significance="normal" zone="Anchor627993">
+          <primary>standard costs</primary>
+          <secondary>rolling up of</secondary>
+        </indexterm>Roll Up Standard Costs</term>
+      <listitem>
+        <para>Select to roll up Standard Costs. When this option is specified,
+        all selected Costs will be added together to establish a revised total
+        Standard Cost for the Item. This revised total goes into effect after
+        the POST button is selected. If all Costs are selected, all Costs will
+        be rolled up. If a subset of all Costs is selected, only the subset
+        will be rolled up. If the Roll Up Standard Costs option is not
+        specified, the selected Cost postings will not be valid above their
+        current level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para627996"><anchor id="Anchor630918" role="Index"
+      xreflabel="material costs:posting of;costing:posting of material costs;standard costs:material costs posted to" />
+      <indexterm significance="normal" zone="Anchor630918">
+          <primary>material costs</primary>
+          <secondary>posting of</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor630918">
+          <primary>costing</primary>
+          <secondary>posting of material costs</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor630918">
+          <primary>standard costs</primary>
+          <secondary>material costs posted to</secondary>
+        </indexterm>Post Material Costs</term>
+      <listitem>
+        <para>Select to post material Costs. Not selecting means material
+        Costs will not be posted to the Standard Cost for the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para627998">Post Lower Level Material Costs</term>
+      <listitem>
+        <para>Select to post lower level material Costs. Not selecting means
+        lower level material Costs will not be posted to the Standard Cost for
+        the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para628000">Post Direct Labor Cost</term>
+      <listitem>
+        <para>Select to post direct labor Cost. Not selecting means the direct
+        labor Cost will not be posted to the Standard Cost for the
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para628002">Post Lower Level Direct Labor Cost</term>
+      <listitem>
+        <para>Select to post lower level direct labor Cost. Not selecting
+        means the lower level direct labor Cost will not be posted to the
+        Standard Cost for the Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para628005">You have the flexibility of updating all or only a
+    subset of the listed Costs. Updating a subset might be desirable if only
+    Material or User Costs have changed, for example.</para>
+  </note>
+  <variablelist>
+    <varlistentry role="openmfg">
+      <term id="Para628007">Post Overhead Cost</term>
+      <listitem>
+        <para>Select to post overhead Cost. Not selecting means the overhead
+        Cost will not be posted to the Standard Cost for the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para628009">Post Lower Level Overhead Cost</term>
+      <listitem>
+        <para>Select to post lower level overhead Cost. Not selecting means
+        the lower level overhead Cost will not be posted to the Standard Cost
+        for the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para628011">Post Machine Overhead</term>
+      <listitem>
+        <para>Select to post machine overhead Cost. This option is selected by
+        default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para628013">Post Lower Machine Overhead</term>
+      <listitem>
+        <para>Select to post lower level machine overhead Cost. This option is
+        selected by default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para628015"><anchor id="Anchor631528" role="Index"
+      xreflabel="user costs:posting of;costing:posting of user costs;standard costs:user costs posted to" />
+      <indexterm significance="normal" zone="Anchor631528">
+          <primary>user costs</primary>
+          <secondary>posting of</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor631528">
+          <primary>costing</primary>
+          <secondary>posting of user costs</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor631528">
+          <primary>standard costs</primary>
+          <secondary>user costs posted to</secondary>
+        </indexterm>Post User Costs</term>
+      <listitem>
+        <para>Select to post user Costs. Not selecting means user Costs will
+        not be posted to the Standard Cost for the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para628017">Post Lower Level User Costs</term>
+      <listitem>
+        <para>Select to post lower level user Costs. Not selecting means lower
+        level user Costs will not be posted to the Standard Cost for the
+        Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para628019">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para628020">CANCEL</term>
+      <listitem>
+        <para>Closes the screen without posting selected Costs, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para628021">POST</term>
+      <listitem>
+        <para>Posts all selected Actual Costs by Item to Standard Cost. If the
+        option "Roll Up Standard Costs" has been selected, the total Standard
+        Cost for the specified Item will be updated.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term id="Para628047">SUBMIT</term>
+      <listitem>
+        <para>Select to submit requested action to the Batch Manager for
+        processing.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para628023">Actual Costs may also be posted to Standard Cost on
+    an Item-by-Item basis using the right-click menu found on the Maintain
+    Item Costs screen.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term id="Para628024">SELECT ALL COSTS</term>
+      <listitem>
+        <para>Selects all Costs for updating. Use this option to save time
+        when selecting all Costs for updating. The option "Roll Up Standard
+        Costs" must be selected separately if you want to include a rolled up
+        total for the parent Item in the Cost update.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

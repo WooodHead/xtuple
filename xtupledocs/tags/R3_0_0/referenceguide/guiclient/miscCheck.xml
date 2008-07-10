@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section541038">
+  <title><indexterm significance="normal">
+      <primary>checks</primary>
+      <secondary>creating miscellaneous</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>miscellaneous checks</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Create Miscellaneous Check</title>
+  <para>For payments related to non-Inventory goods or services, you have the
+  ability to create miscellaneous A/P Checks. You can write Checks to Vendors,
+  Customers, or Tax Authorities. To create a miscellaneous Check, select the
+  "Create Miscellaneous Check" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/miscCheck.png" />
+        </imageobject>
+        <caption>Miscellaneous Check</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a miscellaneous Check, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Write Check To:</term>
+      <listitem>
+        <para>Specify which type of recipient you want to write the
+        miscellaneous Check to. Your options will vary depending on which type
+        you select.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Vendor</term>
+            <listitem>
+              <para>Select if you want to write a Check to a Vendor. Once
+              selected, you must also specify the Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Customer</term>
+            <listitem>
+              <para>Select if you want to write a Check to a Customer. Once
+              selected, you must also specify the Customer.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Tax Authority</term>
+            <listitem>
+              <para>Select if you want to write a Check to a Tax Authority.
+              Once selected, you must also specify the Tax Authority.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Charge To:</term>
+      <listitem>
+        <para>Specify how you want to handle the accounting for the
+        miscellaneous Check. Your options will vary depending on the recipient
+        type you choose.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Expense Category</term>
+            <listitem>
+              <para>Specify the Expense Category you want to distribute the
+              payment to. This option is available for all recipient
+              types.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Apply to Credit Memo</term>
+            <listitem>
+              <para>This option is available only for Checks to Customers. If
+              selected, you can choose a Credit Memo from the Customer's open
+              balance. Then, when the miscellaneous Check is posted, the open
+              Credit Memo will automatically be closed. Use this feature for
+              paying off and closing open Customer balances.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Create Credit Memo</term>
+            <listitem>
+              <para>This option is available only for Checks to Vendors. Once
+              the miscellaneous Check is posted, a Credit Memo in the Check
+              amount will be created. This Credit Memo will offset your
+              Accounts Payable for the specified Vendor. You would use this
+              option, for example, to handle prepayments made to
+              Vendors.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Create Debit Memo</term>
+            <listitem>
+              <para>This option is available only for Checks to Customers. You
+              would use this in the case where you lent a Customer money, with
+              the expectation of billing them later.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Date</term>
+      <listitem>
+        <para>Specify the date to appear on the miscellaneous Check.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Amount</term>
+      <listitem>
+        <para>Specify the amount of the miscellaneous Check.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Memo</term>
+      <listitem>
+        <para>Enter a Memo line to be included on the bottom portion of the
+        printed miscellaneous Check.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bank Account</term>
+      <listitem>
+        <para>Specify the Bank Account you want to use for the miscellaneous
+        Check.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Check Number</term>
+      <listitem>
+        <para>Displays the next available Check Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the miscellaneous Check.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a miscellaneous Check,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CREATE</term>
+      <listitem>
+        <para>Creates the miscellaneous Check, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

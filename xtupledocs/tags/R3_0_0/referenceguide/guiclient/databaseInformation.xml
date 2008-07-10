@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518504">
+  <title><indexterm significance="normal">
+      <primary>databases</primary>
+      <secondary>information about</secondary>
+    </indexterm>Database Information</title>
+  <para>To enter information about your database, select the "Database
+  Information" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/databaseInformation.png" />
+        </imageobject>
+        <caption>Database Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When entering Database information, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>databases</primary>
+          <secondary>description of</secondary>
+        </indexterm>Database Description</term>
+      <listitem>
+        <para>The description entered here will be displayed in the Title Bar
+        of the main window. This field is typically used to store company
+        names and/or the particular name of the server where the server
+        software is running (e.g., "ABC Manufacturing - Production
+        Server").</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Application</term>
+      <listitem>
+        <para>Displays the xTuple ERP edition of the database running on your
+        server.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>servers</primary>
+          <secondary>addresses for</secondary>
+        </indexterm>Server Address</term>
+      <listitem>
+        <para>Displays the unique network address assigned to the server. This
+        will typically show a TCP/IP Address or Network Host Name.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The network address for the server is set using the OPTIONS button
+    found on the login screen you see when logging into the application. The
+    server address initially assigned to a user will display in the "Server
+    Address" field. If the server address is ever changed, you will need to
+    notify all users to update their login options.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Database Name</term>
+      <listitem>
+        <para>Displays the default name of the database running on your
+        server.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If you ever change or rename your database, you will need to notify
+    all users to update their login options.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Database Version</term>
+      <listitem>
+        <para>Displays the version of the database running on your
+        server.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Patch</term>
+      <listitem>
+        <para>This field will show the contents, if any, of the metric field
+        ServerPatchVersion so users can tell what if any patches have been
+        applied to the database.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Default Batch Email Address</term>
+      <listitem>
+        <para>Enter an email address to be used as the default "From" address
+        in situations when no other "From" address is specified. For example,
+        this feature would apply if when scheduling an Invoice for email
+        delivery no email address is entered in the "From" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Enable Batch Manager</term>
+      <listitem>
+        <para>Select to enable the Batch Manager for the current database. If
+        selected, any jobs submitted to the Batch Manager will be processed.
+        If not selected, jobs submitted to the Batch Manager will not be
+        processed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Purge Batch Jobs after</term>
+      <listitem>
+        <para>Specify how frequently (in days) you want to purge
+        already-completed Batch Manager jobs.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Auto Update Signal Interval</term>
+      <listitem>
+        <para>Many screens in the application have an Auto Update option.
+        Specify how frequently you want the auto update signal to be
+        refreshed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Comments related to your database.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Number of Database Users</term>
+      <listitem>
+        <para>Displays the number of concurrent Database users.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Number of Server Users</term>
+      <listitem>
+        <para>Displays the number of concurrent server users.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Number of Server Licenses</term>
+      <listitem>
+        <para>Displays the number of licenses available for your
+        server.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Only users with the appropriate privileges will be permitted to
+    change Database information. For all other users, this screen will be
+    view-only.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the specified Database information, returning you to the
+        application desktop.</para>
+        <para>This button will not appear if you have not been assigned the
+        appropriate privileges.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

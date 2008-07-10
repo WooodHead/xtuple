@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section546362">
+  <title><indexterm significance="normal">
+      <primary>inventory availability</primary>
+      <secondary>by source vendor</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>item sources</primary>
+      <secondary>inventory availability for</secondary>
+    </indexterm>Inventory Availability by Source Vendor</title>
+  <para>To view Inventory Availability by source Vendor, select the "Inventory
+  Availability by Source Vendor" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspInventoryAvailabilityBySourceVendor.png" />
+        </imageobject>
+        <caption>Inventory Availability by Source Vendor</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Inventory Availability by source Vendor, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Vendors</term>
+      <listitem>
+        <para>Select to display Inventory Availability for all Vendors.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected Vendor</term>
+      <listitem>
+        <para>Enter the Vendor Number of the Vendor whose Inventory
+        Availability you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected Vendor Type</term>
+      <listitem>
+        <para>Specify Vendor Type whose Inventory Availability you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor Type Pattern</term>
+      <listitem>
+        <para>Enter a Vendor Type pattern to select a range of Vendor Types.
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Availability as of</term>
+      <listitem>
+        <para>Show Availability using one of the following criteria:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item Site Lead Time</term>
+            <listitem>
+              <para>Select to show projected Availability based on the Lead
+              Time specified in the Item Site master.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Look Ahead Days</term>
+            <listitem>
+              <para>Select a number using the arrow buttons, or manually enter
+              a value up to a maximum of 1000. Future Availability for the
+              specified Item will be displayed based on the value entered
+              here.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Cutoff Date</term>
+            <listitem>
+              <para>Display will show projected Inventory Availability as of
+              date entered up to a maximum of 1000 days.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Dates</term>
+            <listitem>
+              <para>Display will show projected Inventory Availability for the
+              date range entered.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Reorder Exceptions</term>
+      <listitem>
+        <para>Select to show Reorder Exceptions in display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ignore Reorder at 0</term>
+      <listitem>
+        <para>Select to ignore reorder at 0 in display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Shortages</term>
+      <listitem>
+        <para>Select to only show Inventory shortages in display. Shortages
+        are always shown in the report, if they exist. However, using this
+        option simply separates shortages out so you can see only them. A
+        shortage exists if Availability is less than zero, as in</para>
+        <informalexample>
+          <para>QOH - Allocated + Ordered &lt; 0</para>
+        </informalexample>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to display Inventory Availability by source Vendor for
+        all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose Inventory Availability by source Vendor
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Availability</term>
+      <listitem>
+        <para>Display lists Inventory Availability by source Vendor, using the
+        specified parameters.</para>
+        <para>If Planned Availability displays in the color orange, this means
+        the actual or projected Quantity on Hand is at or below the Reorder
+        Level. If the color is red, the current or projected Quantity on Hand
+        is below 0.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>When quantity appears in the "On Order" column, this refers to
+    quantity that is on order through either a Work Order or Purchase Order.
+    In the case of Purchase Orders, the quantity will always be represented in
+    the Inventory Unit of Measure (UOM)--regardless of the Vendor UOM used on
+    the Purchase Order.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the Availability list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewInventoryHistory)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAllocations)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewOrders)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickRunningAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreatePR)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreatePO)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewSubstituteAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueCountTag)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+</section>

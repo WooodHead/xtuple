@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="accountNumber">
+  <title><indexterm significance="normal">
+      <primary>general ledger</primary>
+      <secondary>adding new accounts to</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>account numbers</primary>
+      <secondary>adding new to g/l</secondary>
+    </indexterm>Account Number</title>
+  <para>To add a new G/L Account Number, select the NEW button. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/accountNumber.png" />
+        </imageobject>
+        <caption>Create New G/L Account Number</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new G/L Account Number, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Number</term>
+      <listitem>
+        <para>Enter an Account Number for the Account. Depending on how your
+        system is configured, you may add the following segments to an Account
+        Number in the following order: Company segment (optional), Profit
+        Center segment (optional), main segment (required), and Subaccount
+        Number (optional). Once a main segment number has been entered and
+        saved, it may not be edited.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a brief description of the Account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ext. Reference</term>
+      <listitem>
+        <para>Enter an optional external reference to associate with the
+        Account Number. Typically this field is left blank. However, this
+        field is useful during a data conversion when the Account Number is
+        reformatted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>account types</primary>
+          <secondary>assignment of</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>account numbers</primary>
+          <secondary>assigning types to</secondary>
+        </indexterm>Type</term>
+      <listitem>
+        <para>Specify the Account Type you want to assign the Account Number
+        to. The following selections are available: Asset, Liability, Expense,
+        Revenue, and Equity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>subaccount types</primary>
+          <secondary>assignment of</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>account numbers</primary>
+          <secondary>subaccount types and</secondary>
+        </indexterm>Sub Type</term>
+      <listitem>
+        <para>Specify the Subaccount Type you want to assign the Account
+        Number to. This is an optional selection.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>general ledger</primary>
+          <secondary>options for posting to</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>account numbers</primary>
+          <secondary>posting options for</secondary>
+        </indexterm>Allow Posting into Closed Periods</term>
+      <listitem>
+        <para>Select to allow transactions involving the Account to update the
+        Account's Trial Balance even if the transactions are posted into
+        closed Accounting Periods. Not selecting this option means users will
+        be prevented from posting transactions into closed Accounting Periods
+        when the Account is used. To correct a situation where transaction
+        posting is being prevented for this reason, either open the Accounting
+        Period in question or change the distribution date of the
+        transaction.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The "Allow Posting into Closed Periods" option applies only to Trial
+    Balances. Account activity is always posted to the General Ledger (G/L)
+    regardless of whether Accounting Periods are open or closed.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>general ledger</primary>
+          <secondary>trial balances and</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>trial balances</primary>
+          <secondary>forward-updating of</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>account numbers</primary>
+          <secondary>forward-updating and</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>forward-updating</primary>
+          <secondary>performed automatically</secondary>
+        </indexterm>Automatically Forward Update Trial Balances</term>
+      <listitem>
+        <para>Select to automatically forward-update Trial Balances for the
+        Account whenever transaction activity is posted into an Accounting
+        Period. Forward-updating carries the ending balance for an Accounting
+        Period forward through to the current Accounting Period. Balances
+        cannot be forward-updated into future Periods. Selecting this option
+        causes forward-updating to occur automatically. If not selected, Trial
+        Balances for the Account will have to be forward-updated either
+        manually or when the Account Period is closed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The Trial Balances for an Accounting Period will automatically
+    forward-update at the moment when the Accounting Period is closed.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Comments related to the Account Number.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating an Account Number, returning
+        you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Account Number and adds it to the master list of
+        Account Numbers.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
