@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION postMiscProduction(INTEGER, NUMERIC, BOOL, TEXT, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postMiscProduction(INTEGER, NUMERIC, BOOL, TEXT, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pQty ALIAS FOR $2;
@@ -36,10 +36,10 @@ BEGIN
     RETURN -1;
   END IF;
 
-  SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
-  SELECT postInvTrans( pItemsiteid, ''RM'', _parentQty,
-                       ''W/O'', ''WO'', ''Misc.'', pDocNumber,
-                       (''Receive from Misc. Production for Item Number '' || _p.item_number || ''\n'' || pComments),
+  SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
+  SELECT postInvTrans( pItemsiteid, 'RM', _parentQty,
+                       'W/O', 'WO', 'Misc.', pDocNumber,
+                       ('Receive from Misc. Production for Item Number ' || _p.item_number || '\n' || pComments),
                        costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries ) INTO _invhistid
   FROM itemsite, costcat
   WHERE ( (itemsite_costcat_id=costcat_id)
@@ -56,7 +56,7 @@ BEGIN
               WHERE ((cs.itemsite_item_id=item_id)
                AND (ps.itemsite_item_id=bomitem_parent_item_id)
                AND (bomitem_item_id=item_id)
-               AND (bomitem_rev_id=getActiveRevId(''BOM'',bomitem_parent_item_id))
+               AND (bomitem_rev_id=getActiveRevId('BOM',bomitem_parent_item_id))
                AND (ps.itemsite_warehous_id=cs.itemsite_warehous_id)
                AND (ps.itemsite_id=pItemsiteid)
                AND (CURRENT_DATE BETWEEN bomitem_effective AND bomitem_expires))
@@ -68,21 +68,21 @@ BEGIN
     END LOOP;
   END IF;
 
-  IF (fetchMetricBool(''Routings'')) THEN
+  IF (fetchMetricBool('Routings')) THEN
     _laborAndOverheadCost := (directLaborCost(_p.item_id) + overheadCost(_p.item_id)) * _parentQty;
 
-    PERFORM insertGLTransaction(''W/O'', ''WO'', ''Misc.'',
-	      (''Direct Labor And Overhead Costs of Post to Misc. Production for Item Number '' || _p.item_number),
+    PERFORM insertGLTransaction('W/O', 'WO', 'Misc.',
+	      ('Direct Labor And Overhead Costs of Post to Misc. Production for Item Number ' || _p.item_number),
 	      costcat_laboroverhead_accnt_id, costcat_wip_accnt_id, _invhistid,
 	      _laborAndOverheadCost, CURRENT_DATE)
     FROM itemsite, costcat
     WHERE ((itemsite_costcat_id=costcat_id)
       AND  (itemsite_id=pItemsiteid));
 
-    IF fetchmetrictext(''TrackMachineOverhead'') = ''M'' THEN
+    IF fetchmetrictext('TrackMachineOverhead') = 'M' THEN
       _machineOverheadCost := machineoverheadCost(_p.item_id) * _parentQty;
-      PERFORM insertGLTransaction(''W/O'', ''WO'', ''Misc.'',
-	      (''Machine Overhead Costs of Post to Misc. Production for Item Number '' || _p.item_number),
+      PERFORM insertGLTransaction('W/O', 'WO', 'Misc.',
+	      ('Machine Overhead Costs of Post to Misc. Production for Item Number ' || _p.item_number),
 	      costcat_laboroverhead_accnt_id, costcat_wip_accnt_id, _invhistid,
 	      _machineOverheadCost, CURRENT_DATE)
       FROM itemsite, costcat
@@ -97,8 +97,8 @@ BEGIN
   END IF;
 
 --  Distribute to G/L - create Cost Variance, debit WIP
-  PERFORM insertGLTransaction( ''W/O'', ''WO'', ''Misc.'',
-                               (''Cost Variance of Post to Misc. Production for Item Number '' || _p.item_number),
+  PERFORM insertGLTransaction( 'W/O', 'WO', 'Misc.',
+                               ('Cost Variance of Post to Misc. Production for Item Number ' || _p.item_number),
                                costcat_invcost_accnt_id, costcat_wip_accnt_id, _invhistid,
 			       stdcost(_p.item_id) * _parentQty - _laborAndOverheadCost - _machineOverheadCost - _componentCost,
                                CURRENT_DATE )
@@ -108,5 +108,5 @@ BEGIN
 
   RETURN _itemlocSeries;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

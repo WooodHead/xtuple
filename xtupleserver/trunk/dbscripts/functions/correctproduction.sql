@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION correctProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION correctProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pWoid ALIAS FOR $1;
   pQty ALIAS FOR $2;
@@ -10,10 +10,10 @@ BEGIN
   RETURN  correctProduction(pWoid, pQty, pBackflush, pBackflushOperations, 0);
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION correctProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION correctProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pWoid ALIAS FOR $1;
   pQty ALIAS FOR $2;
@@ -32,13 +32,13 @@ DECLARE
 
 BEGIN
 
-  IF ( ( SELECT (NOT (wo_status=''I''))
+  IF ( ( SELECT (NOT (wo_status='I'))
          FROM wo
          WHERE (wo_id=pWoid) ) ) THEN
     RETURN -1;
   END IF;
 
-  IF ( ( SELECT (item_type IN (''B'',''J''))
+  IF ( ( SELECT (item_type IN ('B','J'))
          FROM wo, itemsite, item
          WHERE ( (wo_itemsite_id=itemsite_id)
           AND (itemsite_item_id=item_id)
@@ -53,14 +53,16 @@ BEGIN
    AND (wo_id=pWoid) );
 
   IF (pItemlocSeries = 0) THEN
-    SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
+    SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
   ELSE
     _itemlocSeries := pItemlocSeries;
   END IF;
 
-  SELECT postInvTrans( itemsite_id, ''RM'', (_parentQty * -1),
-                       ''W/O'', ''WO'', formatwonumber(pWoid), '''', ''Correct Receive from Manufacturing'',
-                       costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries ) INTO _invhistid
+  SELECT postInvTrans( itemsite_id, 'RM', (_parentQty * -1),
+                       'W/O', 'WO', formatwonumber(pWoid), '', 'Correct Receive from Manufacturing',
+                       costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, CURRENT_DATE,
+                       ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) * _parentQty -- only used when cost is average
+                       ) INTO _invhistid
   FROM wo, itemsite, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)
    AND (itemsite_costcat_id=costcat_id)
@@ -73,11 +75,11 @@ BEGIN
    AND (itemsite_costcat_id=costcat_id)
    AND (wo_id=pWoid) );
  
---  Decrease this W/O''s qty. received and increase its WIP value
+--  Decrease this W/O's qty. received and increase its WIP value
   UPDATE wo
   SET wo_qtyrcv = (wo_qtyrcv - _parentQty),
-      wo_wipvalue = (wo_wipvalue + (stdcost(itemsite_item_id) * _parentQty)),
-      wo_postedvalue = (wo_postedvalue + (stdcost(itemsite_item_id) * _parentQty))
+      wo_wipvalue = (wo_wipvalue + (CASE WHEN(itemsite_costmethod='A') THEN ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) ELSE stdcost(itemsite_item_id) END * _parentQty)),
+      wo_postedvalue = (wo_postedvalue + (CASE WHEN(itemsite_costmethod='A') THEN ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) ELSE stdcost(itemsite_item_id) END * _parentQty))
   FROM itemsite, item
   WHERE ( (wo_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)
@@ -93,7 +95,7 @@ BEGIN
                WHERE ( (womatl_wo_id=wo_id)
                 AND (womatl_itemsite_id=itemsite_id)
                 AND (itemsite_item_id=item_id)
-                AND (womatl_issuemethod = ''L'')
+                AND (womatl_issuemethod = 'L')
                 AND (wo_id=pWoid) ) FOR UPDATE LOOP
 
 --  Cache the qty to be issued
@@ -101,17 +103,17 @@ BEGIN
       _invqty = itemuomtouom(_r.item_id, _r.womatl_uom_id, NULL, (_parentQty * _r.womatl_qtyper * (1 + _r.womatl_scrap)));
 
       IF (_itemlocSeries = 0) THEN
-        SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
+        SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
       END IF;
 
-      SELECT postInvTrans( itemsite_id, ''IM'', (_invqty * -1),
-                           ''W/O'', ''WO'', formatwonumber(pWoid), '''', ''Correct Receive from Manufacturing'',
+      SELECT postInvTrans( itemsite_id, 'IM', (_invqty * -1),
+                           'W/O', 'WO', formatwonumber(pWoid), '', 'Correct Receive from Manufacturing',
                            _parentWIPAccntid, costcat_asset_accnt_id, _itemlocSeries ) INTO _invhistid
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_r.itemsite_id) );
 
---  Decrease the parent W/O''s WIP value by the value of the returned components
+--  Decrease the parent W/O's WIP value by the value of the returned components
       UPDATE wo
       SET wo_wipvalue = (wo_wipvalue - ((stdcost(_r.item_id) * _invqty))),
           wo_postedvalue = (wo_postedvalue - ((stdcost(_r.item_id) * _invqty)))
@@ -161,4 +163,4 @@ BEGIN
   RETURN _itemlocSeries;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

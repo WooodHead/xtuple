@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pWomatlid ALIAS FOR $1;
   pQty ALIAS FOR $2;
@@ -33,13 +33,15 @@ BEGIN
   WHERE (womatl_id=pWomatlid);
 
   IF (pItemlocSeries = 0) THEN
-    SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
+    SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
   ELSE
     _itemlocSeries = pItemlocSeries;
   END IF;
-  SELECT postInvTrans( ci.itemsite_id, ''IM'', (_qty * -1), 
-                       ''W/O'', ''WO'', _woNumber, '''', ''Return Material from Work Order'',
-                       pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries ) INTO _invhistid
+  SELECT postInvTrans( ci.itemsite_id, 'IM', (_qty * -1), 
+                       'W/O', 'WO', _woNumber, '', 'Return Material from Work Order',
+                       pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries, CURRENT_DATE,
+                      (SELECT (SUM(invhist_value_before - invhist_value_after) / CASE WHEN(SUM(invhist_qoh_before - invhist_qoh_after)) THEN SUM(invhist_qoh_before - invhist_qoh_after) ELSE NULL END) FROM invhist, womatlpost WHERE((womatlpost_womatl_id=womatl_id) AND (womatlpost_invhist_id=invhist_id))) * _qty
+                     ) INTO _invhistid
     FROM womatl, wo,
          itemsite AS ci, costcat AS cc,
          itemsite AS pi, costcat AS pc
@@ -56,7 +58,7 @@ BEGIN
                 VALUES (pWomatlid,_invhistid);
   END IF;
 
---  Decrease the parent W/O''s WIP value by the value of the returned components
+--  Decrease the parent W/O's WIP value by the value of the returned components
   UPDATE wo
   SET wo_wipvalue = (wo_wipvalue - (stdcost(itemsite_item_id) * _qty)),
       wo_postedvalue = (wo_postedvalue - (stdcost(itemsite_item_id) * _qty))
@@ -73,10 +75,10 @@ BEGIN
   RETURN _itemlocSeries;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC) RETURNS INTEGER AS $$
 DECLARE
   pWomatlid ALIAS FOR $1;
   pQty ALIAS FOR $2;
@@ -84,8 +86,8 @@ DECLARE
 
 BEGIN
 
-  SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
+  SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
   RETURN returnWoMaterial(pWomatlid, pQty, _itemlocSeries);
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
