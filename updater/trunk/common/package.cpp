@@ -66,6 +66,7 @@
 
 #include "loadappscript.h"
 #include "loadappui.h"
+#include "loadimage.h"
 #include "loadreport.h"
 #include "prerequisite.h"
 #include "script.h"
@@ -131,6 +132,11 @@ Package::Package(const QDomElement & elem)
       LoadAppScript appscript(elemThis);
       _appscripts.append(appscript);
     }
+    else if(elemThis.tagName() == "loadimage")
+    {
+      LoadImage image(elemThis);
+      _images.append(image);
+    }
     else if (elemThis.tagName() == "pkgnotes")
     {
       _notes += elemThis.text();
@@ -157,17 +163,26 @@ QDomElement Package::createElement(QDomDocument & doc)
   elem.setAttribute("id", _id);
   elem.setAttribute("version", "1.0");
 
-  QList<Prerequisite>::iterator pit = _prerequisites.begin();
-  for(; pit != _prerequisites.end(); ++pit)
-    elem.appendChild((*pit).createElement(doc));
+  for(QList<Prerequisite>::iterator i = _prerequisites.begin();
+      i != _prerequisites.end(); ++i)
+    elem.appendChild((*i).createElement(doc));
 
-  QList<Script>::iterator sit = _scripts.begin();
-  for(; sit != _scripts.end(); ++sit)
-    elem.appendChild((*sit).createElement(doc));
+  for(QList<Script>::iterator i = _scripts.begin(); i != _scripts.end(); ++i)
+    elem.appendChild((*i).createElement(doc));
 
-  QList<LoadReport>::iterator rit = _reports.begin();
-  for(; rit != _reports.end(); ++rit)
-    elem.appendChild((*rit).createElement(doc));
+  for(QList<LoadReport>::iterator i = _reports.begin();
+      i != _reports.end(); ++i)
+    elem.appendChild((*i).createElement(doc));
+
+  for(QList<LoadAppUI>::iterator i = _appuis.begin(); i != _appuis.end(); ++i)
+    elem.appendChild((*i).createElement(doc));
+
+  for(QList<LoadAppScript>::iterator i = _appscripts.begin();
+      i != _appscripts.end(); ++i)
+    elem.appendChild((*i).createElement(doc));
+
+  for (QList<LoadImage>::iterator i = _images.begin(); i != _images.end(); ++i)
+    elem.appendChild((*i).createElement(doc));
 
   return elem;
 }
@@ -220,6 +235,17 @@ bool Package::containsAppUI(const QString &pname) const
 {
   QList<LoadAppUI>::const_iterator it = _appuis.begin();
   for(; it != _appuis.end(); ++it)
+  {
+    if((*it).name() == pname)
+      return true;
+  }
+  return false;
+}
+
+bool Package::containsImage(const QString &pname) const
+{
+  QList<LoadImage>::const_iterator it = _images.begin();
+  for(; it != _images.end(); ++it)
   {
     if((*it).name() == pname)
       return true;

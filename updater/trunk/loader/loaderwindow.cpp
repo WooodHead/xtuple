@@ -72,6 +72,7 @@
 #include <gunzip.h>
 #include <loadappscript.h>
 #include <loadappui.h>
+#include <loadimage.h>
 #include <loadreport.h>
 #include <package.h>
 #include <prerequisite.h>
@@ -232,14 +233,14 @@ void LoaderWindow::fileOpen()
   _text->setText("<p><b>Prerequisites</b>:</p>");
   bool allOk = true;
   // check prereqs
-  QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
   QString str;
   QStringList strlist;
   QStringList::Iterator slit;
   QSqlQuery qry;
-  for(; it != _package->_prerequisites.end(); ++it)
+  for(QList<Prerequisite>::iterator i = _package->_prerequisites.begin();
+      i != _package->_prerequisites.end(); ++i)
   {
-    Prerequisite p = *it;
+    Prerequisite p = *i;
     bool passed = false;
     _status->setText(tr("<p><b>Checking Prerequisites!</b></p><p>%1...</p>").arg(p.name()));
     _text->append(tr("<p>%1</p>").arg(p.name()));
@@ -360,8 +361,8 @@ void LoaderWindow::launchBrowser(QWidget * w, const QString & url)
   browser.append("/usr/bin/firefox");
   browser.append("/usr/bin/mozilla");
 #endif
-  for(QStringList::const_iterator cit=browser.begin(); cit!=browser.end(); ++cit) {
-    QString app = *cit;
+  for(QStringList::const_iterator i=browser.begin(); i!=browser.end(); ++i) {
+    QString app = *i;
     if(app.contains("%s")) {
       app.replace("%s", url);
     } else {
@@ -451,11 +452,11 @@ void LoaderWindow::sStart()
   // update scripts here
   _status->setText(tr("<p><b>Updating Schema</b></p>"));
   _text->setText(tr("<p>Applying database change files...</p>"));
-  QList<Script>::iterator sit = _package->_scripts.begin();
   Script script;
-  for(; sit != _package->_scripts.end(); ++sit)
+  for(QList<Script>::iterator i = _package->_scripts.begin();
+      i != _package->_scripts.end(); ++i)
   {
-    script = *sit;
+    script = *i;
 
     QByteArray scriptData = _files->_list[prefix + script.name()];
     if(scriptData.isEmpty())
@@ -530,10 +531,10 @@ void LoaderWindow::sStart()
 
   _status->setText(tr("<p><b>Updating Report Definitions</b></p>"));
   _text->append(tr("<p>Loading new report definitions...</p>"));
-  QList<LoadReport>::iterator rit = _package->_reports.begin();
-  for(; rit != _package->_reports.end(); ++rit)
+  for(QList<LoadReport>::iterator i = _package->_reports.begin();
+      i != _package->_reports.end(); ++i)
   {
-    LoadReport report = *rit;
+    LoadReport report = *i;
     QByteArray reportData = _files->_list[prefix + report.name()];
     if(reportData.isEmpty())
     {
@@ -560,10 +561,10 @@ void LoaderWindow::sStart()
 
   _status->setText(tr("<p><b>Updating User Interface Definitions</b></p>"));
   _text->append(tr("<p>Loading User Interface definitions...</p>"));
-  QList<LoadAppUI>::iterator uit = _package->_appuis.begin();
-  for(; uit != _package->_appuis.end(); ++uit)
+  for(QList<LoadAppUI>::iterator i = _package->_appuis.begin();
+      i != _package->_appuis.end(); ++i)
   {
-    LoadAppUI appui = *uit;
+    LoadAppUI appui = *i;
     QByteArray appuiData = _files->_list[prefix + appui.name()];
     if(appuiData.isEmpty())
     {
@@ -590,10 +591,10 @@ void LoaderWindow::sStart()
 
   _status->setText(tr("<p><b>Updating Application Script Definitions</b></p>"));
   _text->append(tr("<p>Loading Application Script definitions...</p>"));
-  QList<LoadAppScript>::iterator asit = _package->_appscripts.begin();
-  for(; asit != _package->_appscripts.end(); ++asit)
+  for(QList<LoadAppScript>::iterator i = _package->_appscripts.begin();
+      i != _package->_appscripts.end(); ++i)
   {
-    LoadAppScript appscript = *asit;
+    LoadAppScript appscript = *i;
     QByteArray appscriptData = _files->_list[prefix + appscript.name()];
     if(appscriptData.isEmpty())
     {
@@ -618,6 +619,35 @@ void LoaderWindow::sStart()
   }
   _text->append(tr("<p>Completed importing Application Script definitions.</p>"));
 
+  _status->setText(tr("<p><b>Updating Image Definitions</b></p>"));
+  _text->append(tr("<p>Loading Image definitions...</p>"));
+  for(QList<LoadImage>::iterator i = _package->_images.begin();
+      i != _package->_images.end(); ++i)
+  {
+    LoadImage image = *i;
+    QByteArray imageData = _files->_list[prefix + image.name()];
+    if(imageData.isEmpty())
+    {
+      QMessageBox::warning(this, tr("File Missing"),
+                           tr("<p>The file %1 in this package is empty.").
+                           arg(image.name()));
+      continue;
+    }
+    if (image.writeToDB(imageData, _package->name(), errMsg) >= 0)
+      _text->append(tr("Import of %1 was successful.").arg(image.name()));
+    else
+    {
+      _text->append(errMsg);
+      qry.exec("rollback;");
+      if(!_multitrans && !_premultitransfile)
+      {
+        _text->append(rollbackMsg);
+        return;
+      }
+    }
+    _progress->setValue(_progress->value() + 1);
+  }
+  _text->append(tr("<p>Completed importing Image definitions.</p>"));
 
   _progress->setValue(_progress->value() + 1);
 

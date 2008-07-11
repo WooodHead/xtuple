@@ -60,7 +60,7 @@ include( ../global.pri )
 TEMPLATE = lib
 CONFIG += qt warn_on thread staticlib
 
-INCLUDEPATH += $(QTDIR)/src/3rdparty/zlib
+INCLUDEPATH += $(QTDIR)/src/3rdparty/zlib ../$${OPENRPT_DIR}/common
 
 TARGET = updatercommon
 DESTDIR = ../lib
@@ -73,6 +73,7 @@ HEADERS = package.h \
           loadable.h \
           loadappscript.h \
           loadappui.h \
+          loadimage.h \
           loadreport.h \
           prerequisite.h \
           tarfile.h \
@@ -82,6 +83,7 @@ SOURCES = package.cpp \
           loadable.cpp \
           loadappscript.cpp \
           loadappui.cpp \
+          loadimage.cpp \
           loadreport.cpp \
           prerequisite.cpp \
           tarfile.cpp \

@@ -25,7 +25,13 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
       ELSIF (NEW.pkgitem_type = ''G'') THEN
         RAISE EXCEPTION ''Triggers are not yet supported pkgitems.'';
       ELSIF (NEW.pkgitem_type = ''I'') THEN
-        RAISE EXCEPTION ''Images are not yet supported pkgitems.'';
+        IF (NOT EXISTS(SELECT image_id
+                       FROM image
+                       WHERE ((image_id=NEW.pkgitem_item_id)
+                          AND (image_name=NEW.pkgitem_name)))) THEN
+          RAISE EXCEPTION ''Cannot create Image % as a Package Item without a corresponding cmd record.'',
+            NEW.pkgitem_name;
+        END IF;
       ELSIF (NEW.pkgitem_type = ''M'') THEN
         RAISE EXCEPTION ''Menus are not yet supported pkgitems.'';
       ELSIF (NEW.pkgitem_type = ''P'') THEN
@@ -71,7 +77,8 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
       ELSIF (OLD.pkgitem_type = ''G'') THEN
         RAISE EXCEPTION ''Triggers are not yet supported pkgitems.'';
       ELSIF (OLD.pkgitem_type = ''I'') THEN
-        RAISE EXCEPTION ''Images are not yet supported pkgitems.'';
+        DELETE FROM image WHERE ((image_id=OLD.pkgitem_item_id)
+                             AND (image_name=OLD.pkgitem_name));
       ELSIF (OLD.pkgitem_type = ''M'') THEN
         RAISE EXCEPTION ''Menus are not yet supported pkgitems.'';
       ELSIF (OLD.pkgitem_type = ''P'') THEN
