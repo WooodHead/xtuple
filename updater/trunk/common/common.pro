@@ -70,6 +70,7 @@ UI_SOURCES_DIR = tmp
 
 HEADERS = package.h \
           script.h \
+          createpriv.h \
           loadable.h \
           loadappscript.h \
           loadappui.h \
@@ -80,6 +81,7 @@ HEADERS = package.h \
           gunzip.h
 SOURCES = package.cpp \
           script.cpp \
+          createpriv.cpp \
           loadable.cpp \
           loadappscript.cpp \
           loadappui.cpp \

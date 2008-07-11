@@ -55,50 +55,28 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#ifndef __LOADABLE_H__
-#define __LOADABLE_H__
+#ifndef __CREATEPRIV_H__
+#define __CREATEPRIV_H__
 
-#include <QString>
+#include "loadable.h"
 
-class QDomDocument;
-class QDomElement;
-
-class Loadable
+class CreatePriv : public Loadable
 {
   public:
-    Loadable(const QString &nodename, const QString &name,
-             const int grade = 0, const bool system = true,
-             const QString &comment = QString::null);
-    Loadable(const QDomElement &);
-
-    virtual ~Loadable();
+    CreatePriv(const QString &nodename,
+               const QString &name, const QString &module,
+               const bool system = false, const QString &descrip = QString::null);
+    CreatePriv(const QDomElement &);
 
     virtual QDomElement createElement(QDomDocument &doc);
 
-    virtual QString comment()  const { return _comment; }
-    virtual int     grade()    const { return _grade; }
-    virtual bool    isValid()  const { return !_nodename.isEmpty() && !_name.isEmpty();}
-    virtual QString name()     const { return _name; }
-    virtual QString nodename() const { return _nodename; }
-    virtual void    setComment(const QString & comment) { _comment = comment; }
-    virtual void    setGrade(int grade)                 { _grade = grade; }
-    virtual void    setName(const QString & name)       { _name = name; }
-    virtual void    setSystem(const bool p)             { _system = p; }
-    virtual bool    system()   const { return _system; }
+    virtual bool isValid()  const { return !_name.isEmpty() && !_module.isEmpty(); }
 
-    virtual int     writeToDB(const QByteArray &data, const QString pkgname, QString &errMsg) = 0;
-
-    static QRegExp trueRegExp;
-    static QRegExp falseRegExp;
+    virtual int writeToDB(const QByteArray &, const QString pkgname, QString &errMsg) { return writeToDB(pkgname, errMsg); }
+    virtual int writeToDB(const QString pkgname, QString &errMsg);
 
   protected:
-    int     _grade;
-    QString _name;
-    QString _comment;
-    QString _nodename;
-    bool    _system;
-
-    virtual int upsertPkgItem(int &pkgitemid, const int pkghead, const QString type, const int itemid, const QString name, const QString comment, QString &errMsg);
+    QString _module;
 };
 
 #endif

@@ -55,74 +55,45 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#include "loadable.h"
+#include "createpriv.h"
 
 #include <QDomDocument>
 #include <QMessageBox>
-#include <QRegExp>
 #include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>
+#include <QVariant>     // used by QSqlQuery::bindValue()
 
-QRegExp Loadable::trueRegExp("^t(rue)?$",   Qt::CaseInsensitive);
-QRegExp Loadable::falseRegExp("^f(alse)?$", Qt::CaseInsensitive);
+#include "loadable.h"
 
-Loadable::Loadable(const QString &nodename, const QString &name,
-                   const int grade, const bool system, const QString &comment)
+CreatePriv::CreatePriv(const QString &nodename,
+                       const QString &name, const QString &module,
+                       const bool system, const QString &comment)
+  : Loadable(nodename, name, 0, system, comment)
 {
-  _nodename = nodename;
-  _name     = name;
-  _grade    = grade;
-  _system   = system;
-  _comment  = comment;
+  _module  = module;
 }
 
-Loadable::Loadable(const QDomElement & elem)
+CreatePriv::CreatePriv(const QDomElement &elem)
+  : Loadable(elem)
 {
-  _nodename = elem.nodeName();
-  _name     = elem.attribute("name");
-  if (elem.hasAttribute("grade"))
+  if (! elem.hasAttribute("module"))
   {
-    if (elem.attribute("grade").contains("highest", Qt::CaseInsensitive))
-      _grade = INT_MAX;
-    else if (elem.attribute("grade").contains("lowest", Qt::CaseInsensitive))
-      _grade = INT_MIN;
-    else
-      _grade = elem.attribute("grade").toInt();
+    QMessageBox::warning(0, "Improper call to CreatePriv(QDomElement)",
+                         QString("Node %1 '%2' does not specify a module. "
+                                 "This privilege will be created but will not "
+                                 "be assignable through Maintain Users.")
+                         .arg(elem.nodeName()).arg(elem.attribute("name")));
   }
-
-  if (elem.hasAttribute("system"))
-  {
-    if (elem.attribute("system").contains(Loadable::trueRegExp))
-      _system = true;
-    else if (elem.attribute("system").contains(Loadable::falseRegExp))
-      _system = false;
-    else
-    {
-      _system = false;
-      QMessageBox::warning(0, "Improper call to CreatePriv(QDomElement)",
-                           QString("Node %1 '%2' has an improper value for the "
-                                   "'system' attribute (%3). Defaulting to "
-                                   "false.")
-                           .arg(elem.nodeName()).arg(elem.attribute("name"))
-                           .arg(elem.attribute("system")));
-    }
-  }
-
-  _comment  = elem.text();
+  else
+    _module = elem.attribute("module");
 }
 
-Loadable::~Loadable()
+QDomElement CreatePriv::createElement(QDomDocument &doc)
 {
-}
-
-QDomElement Loadable::createElement(QDomDocument & doc)
-{
-  QDomElement elem = doc.createElement(_nodename);
+  QDomElement elem = doc.createElement("createpriv");
   elem.setAttribute("name", _name);
-  elem.setAttribute("grade", _grade);
-  if (_system)
-    elem.setAttribute("system", _system);
+  elem.setAttribute("module", _module);
+  elem.setAttribute("system", _system);
 
   if(!_comment.isEmpty())
     elem.appendChild(doc.createTextNode(_comment));
@@ -130,56 +101,102 @@ QDomElement Loadable::createElement(QDomDocument & doc)
   return elem;
 }
 
-int Loadable::upsertPkgItem(int &pkgitemid, const int pkgheadid,
-                            const QString type, const int itemid,
-                            const QString name, const QString comment,
-                            QString &errMsg)
+int CreatePriv::writeToDB(const QString pkgname, QString &errMsg)
 {
   QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
                                   "encountered while trying to import %1 into "
                                   "the database:<br>%2<br>%3</font>");
-  if (pkgheadid < 0)
-    return 0;
+  if (_name.isEmpty())
+  {
+    errMsg = QObject::tr("<font color=orange>The Privilege does not have"
+                         " a name.</font>")
+                         .arg(_name);
+    return -1;
+  }
+
+  if (_module.isEmpty())
+  {
+    errMsg = QObject::tr("<font color=orange>The Privilege %1 has not been "
+                         "assigned to a module and so may not be assignable "
+                         ".</font>")
+                         .arg(_name);
+  }
 
   QSqlQuery select;
   QSqlQuery upsert;
 
-  if (pkgitemid >= 0)
-    upsert.prepare("UPDATE pkgitem SET pkgitem_descrip=:descrip "
-                   "WHERE (pkgitem_id=:id);");
+  int privid    = -1;
+  int pkgheadid = -1;
+  int pkgitemid = -1;
+  if (pkgname.isEmpty())
+    select.prepare("SELECT priv_id, -1, -1"
+                   "  FROM priv "
+                   " WHERE (priv_name=:name);");
+  else
+    select.prepare("SELECT COALESCE(pkgitem_item_id, -1), pkghead_id,"
+                   "       COALESCE(pkgitem_id,      -1) "
+                   "  FROM pkghead LEFT OUTER JOIN"
+                   "       pkgitem ON ((pkgitem_pkghead_id=pkghead_id)"
+                   "               AND (pkgitem_type='P')"
+                   "               AND (pkgitem_name=:name))"
+                   " WHERE (pkghead_name=:pkgname)");
+  select.bindValue(":name",    _name);
+  select.bindValue(":pkgname", pkgname);
+  select.exec();
+  if(select.first())
+  {
+    privid    = select.value(0).toInt();
+    pkgheadid = select.value(1).toInt();
+    pkgitemid = select.value(2).toInt();
+  }
+  else if (select.lastError().type() != QSqlError::NoError)
+  {
+    QSqlError err = select.lastError();
+    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    return -5;
+  }
+
+  if (privid >= 0)
+    upsert.prepare("UPDATE priv "
+                   "   SET priv_module=:module, "
+                   "       priv_descrip=:comment "
+                   " WHERE (priv_id=:id); ");
   else
   {
-    upsert.prepare("SELECT NEXTVAL('pkgitem_pkgitem_id_seq');");
+    upsert.prepare("SELECT NEXTVAL('priv_priv_id_seq');");
     upsert.exec();
     if (upsert.first())
-      pkgitemid = upsert.value(0).toInt();
+      privid = upsert.value(0).toInt();
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
       errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
-      return -20;
+      return -6;
     }
-    upsert.prepare("INSERT INTO pkgitem ("
-                   "    pkgitem_id, pkgitem_pkghead_id, pkgitem_type,"
-                   "    pkgitem_item_id, pkgitem_name, pkgitem_descrip"
-                   ") VALUES ("
-                   "    :id, :headid, :type,"
-                   "    :itemid, :name, :descrip);");
+    upsert.prepare("INSERT INTO priv ("
+                   "       priv_id, priv_module, priv_name, priv_descrip "
+                   ") VALUES (:id, :module, :name, :comment);");
   }
 
-  upsert.bindValue(":id",      pkgitemid);
-  upsert.bindValue(":headid",  pkgheadid);
-  upsert.bindValue(":type",    type);
-  upsert.bindValue(":itemid",  itemid);
-  upsert.bindValue(":name",    name);
-  upsert.bindValue(":descrip", comment);
+  upsert.bindValue(":id",      privid);
+  upsert.bindValue(":module",  _module);
+  upsert.bindValue(":name",    _name);
+  upsert.bindValue(":comment", _comment);
 
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
     errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
-    return -21;
+    return -7;
   }
 
-  return pkgitemid;
+  if (pkgheadid >= 0)
+  {
+    int tmp = upsertPkgItem(pkgitemid, pkgheadid, "P", privid, _name,
+                            _comment, errMsg);
+    if (tmp < 0)
+      return tmp;
+  }
+
+  return privid;
 }

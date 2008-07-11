@@ -35,7 +35,13 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
       ELSIF (NEW.pkgitem_type = ''M'') THEN
         RAISE EXCEPTION ''Menus are not yet supported pkgitems.'';
       ELSIF (NEW.pkgitem_type = ''P'') THEN
-        RAISE EXCEPTION ''Privileges are not yet supported pkgitems.'';
+        IF (NOT EXISTS(SELECT priv_id
+                       FROM priv
+                       WHERE ((priv_id=NEW.pkgitem_item_id)
+                          AND (priv_name=NEW.pkgitem_name)))) THEN
+          RAISE EXCEPTION ''Cannot create Privilege % as a Package Item without a corresponding priv record.'',
+            NEW.pkgitem_name;
+        END IF;
       ELSIF (NEW.pkgitem_type = ''R'') THEN
         IF (NOT EXISTS(SELECT report_id
                        FROM report
@@ -64,7 +70,7 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
       END IF;
 
     ELSIF (TG_OP = ''DELETE'') THEN
-    RAISE NOTICE ''Deleting % % %'', OLD.pkgitem_item_id, OLD.pkgitem_name, OLD.pkgitem_type;
+      RAISE NOTICE ''Deleting % % %'', OLD.pkgitem_item_id, OLD.pkgitem_name, OLD.pkgitem_type;
       IF (OLD.pkgitem_type = ''C'') THEN
         DELETE FROM script WHERE ((script_id=OLD.pkgitem_item_id)
                               AND (script_name=OLD.pkgitem_name));
@@ -82,7 +88,8 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
       ELSIF (OLD.pkgitem_type = ''M'') THEN
         RAISE EXCEPTION ''Menus are not yet supported pkgitems.'';
       ELSIF (OLD.pkgitem_type = ''P'') THEN
-        RAISE EXCEPTION ''Privileges are not yet supported pkgitems.'';
+        DELETE FROM priv WHERE ((priv_id=OLD.pkgitem_item_id)
+                            AND (priv_name=OLD.pkgitem_name));
       ELSIF (OLD.pkgitem_type = ''R'') THEN
         DELETE FROM report
         WHERE ((report_id=OLD.pkgitem_item_id)

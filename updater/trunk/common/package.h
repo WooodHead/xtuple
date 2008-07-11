@@ -64,6 +64,7 @@
 class QDomDocument;
 class QDomElement;
 
+class CreatePriv;
 class LoadAppScript;
 class LoadAppUI;
 class LoadImage;
@@ -92,6 +93,7 @@ class Package
     QList<LoadAppScript> _appscripts;
     QList<LoadAppUI>     _appuis;
     QList<LoadImage>     _images;
+    QList<CreatePriv>    _privs;
     QList<Prerequisite>  _prerequisites;
     QList<Script>        _scripts;
     QList<LoadReport>    _reports;
@@ -99,9 +101,10 @@ class Package
     bool containsAppScript(const QString &name)     const;
     bool containsAppUI(const QString &name)         const;
     bool containsImage(const QString &name)         const;
-    bool containsReport(const QString & reportname) const;
-    bool containsScript(const QString & scriptname) const;
-    bool containsPrerequisite(const QString & prereqname) const;
+    bool containsPriv(const QString & name)         const;
+    bool containsReport(const QString & name)       const;
+    bool containsScript(const QString & name)       const;
+    bool containsPrerequisite(const QString & name) const;
 
   protected:
     QString     _developer;
@@ -114,4 +117,3 @@ class Package
 };
 
 #endif
-

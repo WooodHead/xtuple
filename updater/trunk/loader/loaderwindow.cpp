@@ -70,6 +70,7 @@
 #include <QTimerEvent>
 
 #include <gunzip.h>
+#include <createpriv.h>
 #include <loadappscript.h>
 #include <loadappui.h>
 #include <loadimage.h>
@@ -338,7 +339,7 @@ void LoaderWindow::helpContents()
 }
 
 // copied from xtuple/guiclient/guiclient.cpp and made independent of Qt3Support
-// TODO: put in a generic place and use by both from there or use WebKit instead
+// TODO: put in a generic place and use both from there or use WebKit instead
 void LoaderWindow::launchBrowser(QWidget * w, const QString & url)
 {
 #if defined(Q_OS_WIN32)
@@ -421,6 +422,7 @@ void LoaderWindow::sStart()
                          "state it was in when the upgrade was initiated."
                          "</font><br>"));
   _start->setEnabled(false);
+  _text->setText("<p></p>");
 
   QString prefix = QString::null;
   if(!_package->id().isEmpty())
@@ -449,9 +451,31 @@ void LoaderWindow::sStart()
     }
   }
 
+  _status->setText(tr("<p><b>Updating Privileges</b></p>"));
+  _text->append(tr("<p>Loading new Privileges...</p>"));
+  for(QList<CreatePriv>::iterator i = _package->_privs.begin();
+      i != _package->_privs.end(); ++i)
+  {
+    CreatePriv priv = *i;
+    if (priv.writeToDB(_package->name(), errMsg) >= 0)
+      _text->append(tr("Import of %1 was successful.").arg(priv.name()));
+    else
+    {
+      _text->append(errMsg);
+      qry.exec("rollback;");
+      if(!_multitrans && !_premultitransfile)
+      {
+        _text->append(rollbackMsg);
+        return;
+      }
+    }
+    _progress->setValue(_progress->value() + 1);
+  }
+  _text->append(tr("<p>Completed importing new Privileges.</p>"));
+
   // update scripts here
   _status->setText(tr("<p><b>Updating Schema</b></p>"));
-  _text->setText(tr("<p>Applying database change files...</p>"));
+  _text->append(tr("<p>Applying database change files...</p>"));
   Script script;
   for(QList<Script>::iterator i = _package->_scripts.begin();
       i != _package->_scripts.end(); ++i)
@@ -535,15 +559,15 @@ void LoaderWindow::sStart()
       i != _package->_reports.end(); ++i)
   {
     LoadReport report = *i;
-    QByteArray reportData = _files->_list[prefix + report.name()];
-    if(reportData.isEmpty())
+    QByteArray data = _files->_list[prefix + report.name()];
+    if(data.isEmpty())
     {
       QMessageBox::warning(this, tr("File Missing"),
                            tr("<p>The file %1 in this package is empty.").
                            arg(report.name()));
       continue;
     }
-    if (report.writeToDB(reportData, _package->name(), errMsg) >= 0)
+    if (report.writeToDB(data, _package->name(), errMsg) >= 0)
       _text->append(tr("Import of %1 was successful.").arg(report.name()));
     else
     {
@@ -565,15 +589,15 @@ void LoaderWindow::sStart()
       i != _package->_appuis.end(); ++i)
   {
     LoadAppUI appui = *i;
-    QByteArray appuiData = _files->_list[prefix + appui.name()];
-    if(appuiData.isEmpty())
+    QByteArray data = _files->_list[prefix + appui.name()];
+    if(data.isEmpty())
     {
       QMessageBox::warning(this, tr("File Missing"),
                            tr("<p>The file %1 in this package is empty.").
                            arg(appui.name()));
       continue;
     }
-    if (appui.writeToDB(appuiData, _package->name(), errMsg) >= 0)
+    if (appui.writeToDB(data, _package->name(), errMsg) >= 0)
       _text->append(tr("Import of %1 was successful.").arg(appui.name()));
     else
     {
@@ -595,15 +619,15 @@ void LoaderWindow::sStart()
       i != _package->_appscripts.end(); ++i)
   {
     LoadAppScript appscript = *i;
-    QByteArray appscriptData = _files->_list[prefix + appscript.name()];
-    if(appscriptData.isEmpty())
+    QByteArray data = _files->_list[prefix + appscript.name()];
+    if(data.isEmpty())
     {
       QMessageBox::warning(this, tr("File Missing"),
                            tr("<p>The file %1 in this package is empty.").
                            arg(appscript.name()));
       continue;
     }
-    if (appscript.writeToDB(appscriptData, _package->name(), errMsg) >= 0)
+    if (appscript.writeToDB(data, _package->name(), errMsg) >= 0)
       _text->append(tr("Import of %1 was successful.").arg(appscript.name()));
     else
     {
@@ -625,15 +649,15 @@ void LoaderWindow::sStart()
       i != _package->_images.end(); ++i)
   {
     LoadImage image = *i;
-    QByteArray imageData = _files->_list[prefix + image.name()];
-    if(imageData.isEmpty())
+    QByteArray data = _files->_list[prefix + image.name()];
+    if(data.isEmpty())
     {
       QMessageBox::warning(this, tr("File Missing"),
                            tr("<p>The file %1 in this package is empty.").
                            arg(image.name()));
       continue;
     }
-    if (image.writeToDB(imageData, _package->name(), errMsg) >= 0)
+    if (image.writeToDB(data, _package->name(), errMsg) >= 0)
       _text->append(tr("Import of %1 was successful.").arg(image.name()));
     else
     {
