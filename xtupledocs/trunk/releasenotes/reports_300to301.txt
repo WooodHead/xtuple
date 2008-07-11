@@ -92,8 +92,6 @@ PickListWOShowLocations
  ORDER BY coitem_scheddate, cohead_number, coitem_linenumber;
  --------------------------------------------------------------------
    
-\ No newline at end of file
- 
  ====================================================================
  REPORT: BacklogByParameterList
  QUERY: head
@@ -220,36 +218,8 @@ PickListWOShowLocations
  ORDER BY coitem_scheddate, cohead_number, coitem_linenumber;
  --------------------------------------------------------------------
    
- QUERY: total
- SELECT now()
-  WHERE 't' =
- <? if exists("showPrices") ?>
-   't'
- <? else ?>
-   'f'
- <? endif ?>
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
  ====================================================================
  REPORT: PickListWOShowLocations
- QUERY: Head
- SELECT formatWoNumber(wo_id) AS wonumber, wo_prodnotes,
-                 item_number, uom_name, item_descrip1, item_descrip2,
-                 warehous_code, formatQty(wo_qtyord) AS qtyord,
-                 formatQty(wo_qtyrcv) AS qtyrcv,
-                 formatDate(wo_startdate) AS startdate,
-                 formatDate(wo_duedate) AS duedate
-          FROM wo, itemsite, item, warehous, uom
-          WHERE ((wo_itemsite_id=itemsite_id)
-           AND (itemsite_item_id=item_id)
-           AND (item_inv_uom_id=uom_id)
-           AND (itemsite_warehous_id=warehous_id)
-           AND (wo_id=%1))
-     
- --------------------------------------------------------------------
-   
  QUERY: Detail
  select 
       warehous_code, 
@@ -316,6 +286,3 @@ PickListWOShowLocations
       and
       wo_id = <? value("wo_id") ?>
  order by wo_number, womatl_id, item_number, itemloc_expiration, location_name;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
