@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION correctReceipt(INTEGER, NUMERIC, NUMERIC, INTEGER, INTEGER, DATE) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION correctReceipt(INTEGER, NUMERIC, NUMERIC, INTEGER, INTEGER, DATE) RETURNS INTEGER AS $$
 DECLARE
   precvid		ALIAS FOR $1;
   pQty			ALIAS FOR $2;
@@ -32,7 +32,7 @@ BEGIN
     RETURN _itemlocSeries;
   END IF;
 
-  IF (NOT _r.recv_order_type IN (''PO'', ''RA'', ''TO'')) THEN
+  IF (NOT _r.recv_order_type IN ('PO', 'RA', 'TO')) THEN
     RETURN -11;
   END IF;
 
@@ -60,9 +60,9 @@ BEGIN
     _qty := (pQty - _r.recv_qty);
     IF (_qty <> 0) THEN
       IF (_r.itemsiteid = -1) THEN
-	PERFORM insertGLTransaction( ''S/R'', _r.recv_order_type,
+	PERFORM insertGLTransaction( 'S/R', _r.recv_order_type,
 				      _o.orderhead_number,
-				      ''Receive Non-Inventory from '' ||
+				      'Receive Non-Inventory from ' ||
 							    _r.recv_order_type,
 				      expcat_liability_accnt_id,
 				      expcat_exp_accnt_id, -1,
@@ -71,7 +71,7 @@ BEGIN
 	FROM poitem, expcat
 	WHERE ((poitem_expcat_id=expcat_id)
 	  AND  (poitem_id=_r.recv_orderitem_id)
-	  AND  (_o.orderitem_orderhead_type=''PO''));
+	  AND  (_o.orderitem_orderhead_type='PO'));
 
 	UPDATE recv
 	SET recv_qty=pQty,
@@ -80,17 +80,19 @@ BEGIN
 
       ELSE
 	IF (_itemlocSeries = 0 OR _itemlocSeries IS NULL) THEN
-	  _itemlocSeries := NEXTVAL(''itemloc_series_seq'');
+	  _itemlocSeries := NEXTVAL('itemloc_series_seq');
 	END IF;
 
-	SELECT postInvTrans( itemsite_id, ''RP'',
+	SELECT postInvTrans( itemsite_id, 'RP',
 			     (_qty * _o.orderitem_qty_invuomratio),
-			     ''S/R'', _r.recv_order_type,
-			     _o.orderhead_number, '''',
-			     ''Receive Inventory from '' || _r.recv_order_type,
+			     'S/R', _r.recv_order_type,
+			     _o.orderhead_number, '',
+			     'Receive Inventory from ' || _r.recv_order_type,
 			     costcat_asset_accnt_id,
 			     costcat_liability_accnt_id,
-			     _itemlocSeries, pEffective ) INTO _invhistid
+			     _itemlocSeries, pEffective,
+                             ROUND(_o.unitprice_base * _qty, 2) -- alway passing since it is ignored if not average costed item
+                           ) INTO _invhistid
 	FROM itemsite, costcat
 	WHERE ((itemsite_costcat_id=costcat_id)
 	  AND  (itemsite_id=_r.itemsiteid) );
@@ -102,15 +104,15 @@ BEGIN
 
       END IF;
 
-      IF (_r.recv_order_type = ''PO'') THEN
+      IF (_r.recv_order_type = 'PO') THEN
 	UPDATE poitem
 	SET poitem_qty_received=(poitem_qty_received + _qty)
 	WHERE (poitem_id=_r.recv_orderitem_id);
-      ELSIF (_r.recv_order_type = ''RA'' AND fetchMetricBool(''EnableReturnAuth'')) THEN
+      ELSIF (_r.recv_order_type = 'RA' AND fetchMetricBool('EnableReturnAuth')) THEN
 	UPDATE raitem
 	SET raitem_qtyreceived=(raitem_qtyreceived + _qty)
 	WHERE (raitem_id=_r.recv_orderitem_id);
-      ELSIF (_r.recv_order_type = ''TO'' AND fetchMetricBool(''MultiWhs'')) THEN
+      ELSIF (_r.recv_order_type = 'TO' AND fetchMetricBool('MultiWhs')) THEN
 	UPDATE toitem
 	SET toitem_qty_received=(toitem_qty_received + _qty)
 	WHERE (toitem_id=_r.recv_orderitem_id);
@@ -122,9 +124,9 @@ BEGIN
     IF (_freight <> 0) THEN
 
       IF (_r.itemsiteid = -1) THEN
-	PERFORM insertGLTransaction( ''S/R'', _r.recv_order_type,
+	PERFORM insertGLTransaction( 'S/R', _r.recv_order_type,
 				     _o.orderhead_number,
-				    ''Receive Non-Inventory Freight from '' || _r.recv_order_type,
+				    'Receive Non-Inventory Freight from ' || _r.recv_order_type,
 				     expcat_liability_accnt_id, expcat_freight_accnt_id, -1,
 				      ROUND(currToBase(_currid, _freight,
 						    pEffective), 2),
@@ -132,11 +134,11 @@ BEGIN
 	FROM poitem, expcat
 	WHERE ((poitem_expcat_id=expcat_id)
 	  AND  (poitem_id=_r.recv_orderitem_id)
-	  AND  (_r.recv_order_type=''PO''));
+	  AND  (_r.recv_order_type='PO'));
       ELSE
-	PERFORM insertGLTransaction(''S/R'', _r.recv_order_type,
+	PERFORM insertGLTransaction('S/R', _r.recv_order_type,
 				    _o.orderhead_number, 
-				    ''Receive Non-Inventory Freight from '' ||
+				    'Receive Non-Inventory Freight from ' ||
 							    _r.recv_order_type,
 				   costcat_liability_accnt_id,
 				   costcat_freight_accnt_id, -1,
@@ -148,7 +150,7 @@ BEGIN
 	  AND   (itemsite_id=_r.itemsiteid) );
       END IF;
 
-      IF (_r.recv_order_type = ''PO'') THEN
+      IF (_r.recv_order_type = 'PO') THEN
 	UPDATE poitem
 	SET poitem_freight_received=(poitem_freight_received +
 				   currToCurr(_currid, _o.freight_curr_id,
@@ -157,7 +159,7 @@ BEGIN
 
       -- raitem does not track freight
 
-      ELSEIF (_r.recv_order_type = ''TO'' AND fetchMetricBool(''MultiWhs'')) THEN
+      ELSEIF (_r.recv_order_type = 'TO' AND fetchMetricBool('MultiWhs')) THEN
 	UPDATE toitem
 	SET toitem_freight_received=(toitem_freight_received +
 				   currToCurr(_currid, _o.freight_curr_id,
@@ -181,4 +183,4 @@ BEGIN
 RETURN _itemlocSeries;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

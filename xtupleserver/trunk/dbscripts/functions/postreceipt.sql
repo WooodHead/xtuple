@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION postReceipt(INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postReceipt(INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   precvid		ALIAS FOR $1;
   _itemlocSeries	INTEGER := COALESCE($2, 0);
@@ -35,14 +35,14 @@ BEGIN
   ELSEIF (_r.recv_qty <= 0) THEN
     RETURN -11;
 
-  ELSIF (_r.recv_order_type =''PO'') THEN
-    _ordertypeabbr := ''P/O'';
-  ELSIF (_r.recv_order_type =''RA'') THEN
-    _ordertypeabbr := ''R/A'';
-  ELSIF (_r.recv_order_type =''TO'') THEN
-    _ordertypeabbr := ''T/O'';
+  ELSIF (_r.recv_order_type ='PO') THEN
+    _ordertypeabbr := 'P/O';
+  ELSIF (_r.recv_order_type ='RA') THEN
+    _ordertypeabbr := 'R/A';
+  ELSIF (_r.recv_order_type ='TO') THEN
+    _ordertypeabbr := 'T/O';
   ELSE
-    RETURN -13;	-- don''t know how to handle this order type
+    RETURN -13;	-- don't know how to handle this order type
   END IF;
 
   SELECT orderhead_number, orderitem_id,
@@ -66,7 +66,7 @@ BEGIN
   END IF;
 
   IF (_itemlocSeries = 0) THEN
-    _itemlocSeries := NEXTVAL(''itemloc_series_seq'');
+    _itemlocSeries := NEXTVAL('itemloc_series_seq');
   ELSEIF (_itemlocSeries < 0) THEN
     RETURN _itemlocSeries;
   END IF;
@@ -74,12 +74,12 @@ BEGIN
   _glDate := COALESCE(_r.recv_gldistdate, _r.recv_date);
 
   IF (_r.itemsite_id = -1 OR _r.itemsite_id IS NULL) THEN
-    IF (_r.recv_order_type != ''PO'') THEN
+    IF (_r.recv_order_type != 'PO') THEN
       RETURN -14;	-- otherwise how to we get the accounts?
     END IF;
 
-    SELECT insertGLTransaction( ''S/R'', _r.recv_order_type, _o.orderhead_number,
-				''Receive Non-Inventory from '' || _ordertypeabbr,
+    SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+				'Receive Non-Inventory from ' || _ordertypeabbr,
 				 expcat_liability_accnt_id,
 				 expcat_exp_accnt_id, -1,
 				 round((_o.item_unitprice_base * _r.recv_qty),2),
@@ -92,8 +92,8 @@ BEGIN
       RETURN _tmp;
     END IF;
 
-    SELECT insertGLTransaction( ''S/R'', _r.recv_order_type, _o.orderhead_number,
-				''Receive Non-Inventory Freight from '' || _ordertypeabbr,
+    SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+				'Receive Non-Inventory Freight from ' || _ordertypeabbr,
 				 expcat_liability_accnt_id,
 				 expcat_freight_accnt_id, -1,
 				 _r.recv_freight_base,
@@ -115,22 +115,23 @@ BEGIN
     WHERE (poitem_id=_o.orderitem_id);
 
   ELSE	-- not ELSIF: some code is shared between diff order types
-    IF (_r.recv_order_type = ''PO'') THEN
-      SELECT postInvTrans( itemsite_id, ''RP''::TEXT,
+    IF (_r.recv_order_type = 'PO') THEN
+      SELECT postInvTrans( itemsite_id, 'RP'::TEXT,
 			   (_r.recv_qty * _o.invvenduomratio),
-			   ''S/R''::TEXT,
+			   'S/R'::TEXT,
 			   _r.recv_order_type::TEXT, _o.orderhead_number::TEXT,
-			   ''''::TEXT,
-			   ''Receive Inventory from '' || _ordertypeabbr,
+			   ''::TEXT,
+			   'Receive Inventory from ' || _ordertypeabbr,
 			   costcat_asset_accnt_id, costcat_liability_accnt_id,
 			   _itemlocSeries,
-			   _glDate
+			   _glDate,
+                           round((_o.item_unitprice_base * _r.recv_qty),2) -- always passing this in since it is ignored if it is not average costed item
 			   ) INTO _tmp
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_r.itemsite_id) );
       IF (NOT FOUND) THEN
-	RAISE EXCEPTION ''Could not post inventory transaction: no cost category found for itemsite_id %'',
+	RAISE EXCEPTION 'Could not post inventory transaction: no cost category found for itemsite_id %',
 	  _r.itemsite_id;
       ELSIF (_tmp < -1) THEN -- less than -1 because -1 means it is a none controlled item
 	IF(_tmp = -3) THEN
@@ -139,8 +140,8 @@ BEGIN
 	RETURN _tmp;
       END IF;
 
-      SELECT insertGLTransaction( ''S/R'', _r.recv_order_type, _o.orderhead_number,
-				  ''Receive Inventory Freight from '' || _o.orderhead_number,
+      SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+				  'Receive Inventory Freight from ' || _o.orderhead_number,
 				   costcat_liability_accnt_id,
 				   costcat_freight_accnt_id, -1,
 				   _r.recv_freight_base,
@@ -150,7 +151,7 @@ BEGIN
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_r.itemsite_id) );
       IF (NOT FOUND) THEN
-	RAISE EXCEPTION ''Could not insert G/L transaction: no cost category found for itemsite_id %'',
+	RAISE EXCEPTION 'Could not insert G/L transaction: no cost category found for itemsite_id %',
 	  _r.itemsite_id;
       ELSIF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
 	RETURN _tmp;
@@ -161,18 +162,18 @@ BEGIN
 	  poitem_freight_received = (poitem_freight_received + _r.recv_freight_base)
       WHERE (poitem_id=_o.orderitem_id);
 
-    ELSIF (_r.recv_order_type = ''RA'') THEN
+    ELSIF (_r.recv_order_type = 'RA') THEN
       SELECT rahead.*, raitem.* INTO _ra
 	FROM rahead, raitem
       WHERE ((rahead_id=raitem_rahead_id)
         AND  (raitem_id=_r.recv_orderitem_id));
 
-      SELECT postInvTrans(_r.itemsite_id, ''RR'',
+      SELECT postInvTrans(_r.itemsite_id, 'RR',
 			  (_r.recv_qty * _o.invvenduomratio),
-			  ''S/R'',
+			  'S/R',
 			  _r.recv_order_type, _o.orderhead_number::TEXT,
-			  _ra.rahead_number::TEXT || ''-'' || _ra.raitem_linenumber::TEXT,
-			  ''Receive Inventory from '' || _ordertypeabbr,
+			  _ra.rahead_number::TEXT || '-' || _ra.raitem_linenumber::TEXT,
+			  'Receive Inventory from ' || _ordertypeabbr,
 			  costcat_asset_accnt_id,
 			  CASE WHEN (_ra.raitem_warranty) THEN
 			    resolveCOWAccount(_r.itemsite_id,_ra.rahead_cust_id)
@@ -185,7 +186,7 @@ BEGIN
        AND (itemsite_id=_r.itemsite_id) );
 
       IF (NOT FOUND) THEN
-	RAISE EXCEPTION ''Could not post inventory transaction: no cost category found for itemsite_id %'',
+	RAISE EXCEPTION 'Could not post inventory transaction: no cost category found for itemsite_id %',
 	  _r.itemsite_id;
       ELSIF (_tmp < -1) THEN -- less than -1 because -1 means it is a none controlled item
 	IF(_tmp = -3) THEN
@@ -199,13 +200,13 @@ BEGIN
 			  rahist_qty, rahist_uom_id,
 			  rahist_source, rahist_source_id, rahist_rahead_id
 	) VALUES (_r.itemsite_id, _glDate,
-		  ''Receive Inventory from '' || _ordertypeabbr,
+		  'Receive Inventory from ' || _ordertypeabbr,
 		  _r.recv_qty * _o.invvenduomratio, _r.item_inv_uom_id,
-		  ''RR'', _r.recv_id, _ra.rahead_id
+		  'RR', _r.recv_id, _ra.rahead_id
 	);
 
-      SELECT insertGLTransaction( ''S/R'', _r.recv_order_type, _o.orderhead_number,
-				  ''Receive Inventory Freight from '' || _o.orderhead_number,
+      SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+				  'Receive Inventory Freight from ' || _o.orderhead_number,
 				   costcat_liability_accnt_id,
 				   costcat_freight_accnt_id, -1,
 				   _r.recv_freight_base,
@@ -222,8 +223,8 @@ BEGIN
 			  rahist_source, rahist_source_id,
 			  rahist_curr_id, rahist_amount,
 			  rahist_rahead_id
-	) VALUES (_glDate, ''Receive Inventory Freight from '' || _ordertypeabbr,
-		  ''RR'', _r.recv_id, _r.recv_freight_curr_id, _r.recv_freight,
+	) VALUES (_glDate, 'Receive Inventory Freight from ' || _ordertypeabbr,
+		  'RR', _r.recv_id, _r.recv_freight_curr_id, _r.recv_freight,
 		  _ra.rahead_id
 	);
 
@@ -231,7 +232,7 @@ BEGIN
       SET raitem_qtyreceived = (raitem_qtyreceived + _r.recv_qty)
       WHERE (raitem_id=_o.orderitem_id);
 
-    ELSIF (_r.recv_order_type = ''TO'' AND fetchMetricBool(''MultiWhs'')) THEN
+    ELSIF (_r.recv_order_type = 'TO' AND fetchMetricBool('MultiWhs')) THEN
       SELECT tohead.* INTO _to
 	FROM tohead, toitem
        WHERE ((tohead_id=toitem_tohead_id)
@@ -241,10 +242,10 @@ BEGIN
       FROM toitem
       WHERE (toitem_id=_r.recv_orderitem_id);
 
-      SELECT postInvTrans(si.itemsite_id, ''TS'', _r.recv_qty, ''I/M'',
+      SELECT postInvTrans(si.itemsite_id, 'TS', _r.recv_qty, 'I/M',
 			  _r.recv_order_type, _to.tohead_number,
 			  _to.tohead_number,
-			  ''Receive from Transit To Dest Warehouse'',
+			  'Receive from Transit To Dest Warehouse',
 			  tc.costcat_asset_accnt_id,
 			  sc.costcat_asset_accnt_id,
 			  _itemlocSeries, _glDate) INTO _tmp
@@ -263,10 +264,10 @@ BEGIN
 
       -- record inventory history and qoh changes at dest warehouse but
       -- there is only one g/l account to touch
-      SELECT postInvTrans(ti.itemsite_id, ''TR'', _r.recv_qty, ''I/M'',
+      SELECT postInvTrans(ti.itemsite_id, 'TR', _r.recv_qty, 'I/M',
 			  _r.recv_order_type, _to.tohead_number,
 			  _to.tohead_number,
-			  ''Receive from Transit To Dest Warehouse'',
+			  'Receive from Transit To Dest Warehouse',
 			  tc.costcat_asset_accnt_id,
 			  tc.costcat_asset_accnt_id,
 			  _itemlocSeries, _glDate) INTO _tmp
@@ -283,8 +284,8 @@ BEGIN
 	RETURN _tmp;
       END IF;
 
-      SELECT insertGLTransaction( ''S/R'', _r.recv_order_type, _o.orderhead_number,
-				  ''Receive Inventory Freight from '' || _o.orderhead_number,
+      SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+				  'Receive Inventory Freight from ' || _o.orderhead_number,
 				   costcat_toliability_accnt_id,
 				   costcat_freight_accnt_id, -1,
 				   _r.recv_freight_base,
@@ -317,4 +318,4 @@ BEGIN
   RETURN _itemlocSeries;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

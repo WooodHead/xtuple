@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION postPoReturns(INTEGER, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postPoReturns(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pPoheadid ALIAS FOR $1;
   pCreateMemo ALIAS FOR $2;
@@ -30,7 +30,7 @@ BEGIN
                     itemsite_item_id LOOP
 
     IF (_p.itemsiteid = -1) THEN
-        SELECT insertGLTransaction( ''S/R'', ''PO'', _p.pohead_number, ''Return Non-Inventory to P/O'',
+        SELECT insertGLTransaction( 'S/R', 'PO', _p.pohead_number, 'Return Non-Inventory to P/O',
                                      expcat_liability_accnt_id, expcat_exp_accnt_id, -1,
                                      round(_p.poitem_unitprice_base * _p.totalqty * -1, 2),
 				     CURRENT_DATE ) INTO _returnval
@@ -43,12 +43,12 @@ BEGIN
 
     ELSE
       IF (_itemlocSeries = 0) THEN
-        SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
+        SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
       END IF;
 
-      SELECT postInvTrans( itemsite_id, ''RP'', (_p.totalqty * _p.poitem_invvenduomratio * -1),
-                           ''S/R'', ''PO'', _p.pohead_number, '''', ''Return Inventory to P/O'',
-                           costcat_asset_accnt_id, costcat_liability_accnt_id, _itemlocSeries ) INTO _returnval
+      SELECT postInvTrans( itemsite_id, 'RP', (_p.totalqty * _p.poitem_invvenduomratio * -1),
+                           'S/R', 'PO', _p.pohead_number, '', 'Return Inventory to P/O',
+                           costcat_asset_accnt_id, costcat_liability_accnt_id, _itemlocSeries, CURRENT_TIMESTAMP, round(_p.poitem_unitprice_base * _p.totalqty * -1, 2) ) INTO _returnval
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_p.itemsiteid) );
@@ -66,7 +66,7 @@ BEGIN
 
     UPDATE poitem
     SET poitem_qty_returned=(poitem_qty_returned + _p.totalqty),
-	poitem_status=''O''
+	poitem_status='O'
     WHERE (poitem_id=_p.poitem_id);
 
     IF (pCreateMemo) THEN
@@ -82,9 +82,9 @@ BEGIN
   RETURN _itemlocSeries;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION postPoReturns(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postPoReturns(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pPoheadid ALIAS FOR $1;
   _itemlocSeries INTEGER;
@@ -100,5 +100,5 @@ BEGIN
   RETURN _itemlocSeries;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
