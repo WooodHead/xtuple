@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION updateStdCost(INTEGER, NUMERIC, NUMERIC, TEXT, TEXT) RETURNS BOOLEAN AS '
+CREATE OR REPLACE FUNCTION updateStdCost(INTEGER, NUMERIC, NUMERIC, TEXT, TEXT) RETURNS BOOLEAN AS $$
 DECLARE
     pItemcostid	ALIAS FOR $1;
     pNewcost	ALIAS FOR $2;
@@ -35,12 +35,13 @@ BEGIN
             FROM itemcost, itemsite, costcat
             WHERE ( (itemsite_item_id=itemcost_item_id)
              AND (itemsite_costcat_id=costcat_id)
+             AND (itemsite_costmethod != 'A')
              AND ((itemsite_qtyonhand + itemsite_nnqoh) > 0)
              AND (itemcost_id=pItemcostid) ) LOOP
 --    IF (_newcost <> _oldcost) THEN
---      RAISE NOTICE ''itemcost_id = %, Qty = %, Old Cost = %, New Cost = %'', pItemcostid, _r.totalQty, _oldcost, _newcost;
+--      RAISE NOTICE 'itemcost_id = %, Qty = %, Old Cost = %, New Cost = %', pItemcostid, _r.totalQty, _oldcost, _newcost;
 --    END IF;
-    PERFORM insertGLTransaction( ''P/D'', '''', pDocNumber, pNotes,
+    PERFORM insertGLTransaction( 'P/D', '', pDocNumber, pNotes,
                                  _r.costcat_invcost_accnt_id, _r.costcat_asset_accnt_id, _r.itemsite_id,
                                  ((_newcost - _oldcost) * _r.totalQty),
                                  CURRENT_DATE );
@@ -56,10 +57,10 @@ BEGIN
   RETURN TRUE;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION updateStdCost(INTEGER, TEXT, BOOLEAN, NUMERIC) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION updateStdCost(INTEGER, TEXT, BOOLEAN, NUMERIC) RETURNS INTEGER AS $$
 DECLARE
     pItemid	ALIAS FOR $1;
     pCostType	ALIAS FOR $2;
@@ -86,12 +87,12 @@ BEGIN
       AND  (item_id=pItemid)
       AND  (itemcost_lowlevel=pLevel)
       AND  (costelem_type=pCosttype));
---    RAISE NOTICE ''updateStdCost(%, %, %, %) has itemcost_id % and stdcost %'',
+--    RAISE NOTICE 'updateStdCost(%, %, %, %) has itemcost_id % and stdcost %',
 --    				pItemid, pCostType, plevel, _newCost, _itemcostid, _oldCost;
 
     IF (NOT FOUND) AND (_newCost > 0) THEN
-	SELECT NEXTVAL(''itemcost_itemcost_id_seq'') INTO _itemcostid;
-	RAISE NOTICE ''updateStdCost() inserting itemcost_id %'', _itemcostid;
+	SELECT NEXTVAL('itemcost_itemcost_id_seq') INTO _itemcostid;
+	RAISE NOTICE 'updateStdCost() inserting itemcost_id %', _itemcostid;
 	INSERT INTO itemcost
 	    (itemcost_id, itemcost_item_id, itemcost_costelem_id,
 	     itemcost_lowlevel, itemcost_stdcost, itemcost_posted,
@@ -105,8 +106,8 @@ BEGIN
     END IF;
 
     IF (_itemcostid IS NOT NULL) THEN
-	SELECT updateStdCost(_itemcostid, _newCost, _oldCost, ''Post Cost'',
-               (''Set Standard Cost - '' || pCosttype || '' for item '' || _itemNumber)) INTO _updateRet;
+	SELECT updateStdCost(_itemcostid, _newCost, _oldCost, 'Post Cost',
+               ('Set Standard Cost - ' || pCosttype || ' for item ' || _itemNumber)) INTO _updateRet;
 	IF (_updateRet) THEN
 	    RETURN _itemcostid;
 	END IF;
@@ -114,4 +115,4 @@ BEGIN
 
     RETURN -1;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

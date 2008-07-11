@@ -90,6 +90,8 @@ DECLARE
   _isLotSerial BOOLEAN;
   _qty NUMERIC;
   _maint BOOLEAN;
+  _cost NUMERIC;
+  _variance NUMERIC;
 
 BEGIN
 -- Check if we are doing maintenance
@@ -131,6 +133,7 @@ BEGIN
      OR (OLD.itemsite_mps_timefence     != NEW.itemsite_mps_timefence)
      OR (OLD.itemsite_createwo          != NEW.itemsite_createwo)
      OR (OLD.itemsite_warrpurc          != NEW.itemsite_warrpurc)
+     OR (OLD.itemsite_costmethod        != NEW.itemsite_costmethod)
      OR (OLD.itemsite_autoreg           != NEW.itemsite_autoreg) ) THEN
       IF (OLD.itemsite_item_id != NEW.itemsite_item_id) THEN
         RAISE EXCEPTION 'The item number on an itemsite may not be changed.';
@@ -323,6 +326,20 @@ BEGIN
           RAISE NOTICE 'You should now use the Reassign Lot/Serial # window to assign Lot/Serial #s.';
         END IF;
       END IF;  
+      IF (OLD.itemsite_costmethod='A' AND NEW.itemsite_costmethod='S') THEN
+        -- TODO: Average costing cost method change
+        SELECT stdcost(NEW.itemsite_item_id) * NEW.itemsite_qtyonhand
+          INTO _cost;
+        _variance := _cost - NEW.itemsite_value;
+        NEW.itemsite_value := _cost;
+        IF(_variance <> 0.0) THEN
+          PERFORM insertGLTransaction( 'P/D', '', '', 'Itemsite converted from Average to Standard cost.',
+                                       costcat_invcost_accnt_id, costcat_asset_accnt_id, NEW.itemsite_id,
+                                      _variance, CURRENT_DATE )
+             FROM costcat
+            WHERE(costcat_id=NEW.itemsite_costcat_id);
+        END IF;
+      END IF;
     END IF;
   END IF;  -- End Maintenance
 
