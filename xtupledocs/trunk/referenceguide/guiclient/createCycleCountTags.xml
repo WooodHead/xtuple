@@ -12,15 +12,15 @@
     </indexterm> <indexterm significance="normal">
       <primary>physical inventory</primary>
       <secondary>creating cycle count tags</secondary>
-    </indexterm>Create Cycle Count Tags by Warehouse</title>
+    </indexterm>Create Cycle Count Tags by Site</title>
   <para>Cycle Count Tags are used to count Inventory on a frequent basis, with
   the rate of frequency defined in the Item Site master. The following
   criteria are used to determine the order in which Cycle Count Tags will be
-  created for a specified Warehouse(s):</para>
+  created for a specified Site(s):</para>
   <orderedlist continuation="restarts" inheritnum="ignore">
     <listitem>
       <para>The system scans the Item Site masters in the specified
-      Warehouse(s), specifically targeting Cycle Count frequency
+      Site(s), specifically targeting Cycle Count frequency
       settings.</para>
     </listitem>
     <listitem>
@@ -54,8 +54,8 @@
     etc. The Last Counted date represents the date a Count Tag was last posted
     (not simply issued) for the Item Site.</para>
   </tip>
-  <para>To create Cycle Count Tags by Warehouse, select the "Create Cycle
-  Count Tags by Warehouse" option. The following screen will appear:</para>
+  <para>To create Cycle Count Tags by Site, select the "Create Cycle
+  Count Tags by Site" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -63,16 +63,16 @@
                      />
         </imageobject>
         <caption>Create Cycle Count Tags by
-        Warehouse</caption>
+        Site</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When creating Cycle Count Tags by Warehouse, you are presented with
+  <para>When creating Cycle Count Tags by Site, you are presented with
   the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Warehouse</term>
+      <term>Site</term>
       <listitem>
-        <para>Specify Warehouse where Cycle Count will be conducted.</para>
+        <para>Specify Site where Cycle Count will be conducted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -106,7 +106,7 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>When an Item Site is frozen, any Warehouse activity entered against
+    <para>When an Item Site is frozen, any Site activity entered against
     that Item Site&mdash;including Work Orders&mdash;will use the Quantity on Hand shown
     at the time of freezing.</para>
   </note>
@@ -153,10 +153,10 @@
       <term>Only for Specified Location</term>
       <listitem>
         <para>Select if you want to create Count Tags for an individual
-        Warehouse Location. If selected, you will have the option to specify
-        which Warehouse Location you want to have Count Tags created for. This
-        option enables you to count individual Warehouse Locations separately,
-        without having to post counts for an entire Warehouse all at
+        Site Location. If selected, you will have the option to specify
+        which Site Location you want to have Count Tags created for. This
+        option enables you to count individual Site Locations separately,
+        without having to post counts for an entire Site all at
         once.</para>
       </listitem>
     </varlistentry>

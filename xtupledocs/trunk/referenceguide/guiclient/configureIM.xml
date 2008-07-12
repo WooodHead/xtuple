@@ -48,26 +48,26 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Post Warehouse Changes to the Change Log</term>
+      <term>Post Site Changes to the Change Log</term>
       <listitem>
-        <para>Select to post to the Change Log any changes made to Warehouse
+        <para>Select to post to the Change Log any changes made to Site
         masters.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
-      <term>Enable Multiple Warehouses</term>
+      <term>Enable Multiple Sites</term>
       <listitem>
-        <para>Select to allow more than one Warehouse to be entered in the
-        system. If multiple Warehouses are not enabled, your system will be
-        single Warehouse only. Users will be prevented from creating more than
-        one Warehouse. If your system has multiple Warehouses defined, this
+        <para>Select to allow more than one Site to be entered in the
+        system. If multiple Sites are not enabled, your system will be
+        single Site only. Users will be prevented from creating more than
+        one Site. If your system has multiple Sites defined, this
         option will be hidden.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
       <term>Transfer Order # Generation</term>
       <listitem>
-        <para>If multiple Warehouses are enabled, select one of the available
+        <para>If multiple Sites are enabled, select one of the available
         Transfer Order Number generation methods:</para>
         <variablelist>
           <varlistentry>
@@ -110,10 +110,10 @@
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
-      <term>Default Transit Warehouse</term>
+      <term>Default Transit Site</term>
       <listitem>
-        <para>If multiple Warehouses are enabled, specify the default Transit
-        Warehouse. The specified Warehouse will be pre-selected by default
+        <para>If multiple Sites are enabled, specify the default Transit
+        Site. The specified Site will be pre-selected by default
         whenever Transfer Orders are entered.</para>
       </listitem>
     </varlistentry>
@@ -185,33 +185,33 @@
           </varlistentry>
           <varlistentry>
             <term>Disallow Unposted Slip # Duplications within a
-            Warehouse</term>
+            Site</term>
             <listitem>
               <para>Prevents duplicate "Unposted" Count Slip numbers from
-              existing within a given Warehouse. However, duplicate "Unposted"
-              Count Slip numbers may exist within multiple Warehouses.</para>
+              existing within a given Site. However, duplicate "Unposted"
+              Count Slip numbers may exist within multiple Sites.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Disallow All Unposted Slip # Duplications</term>
             <listitem>
               <para>Prevents duplicate "Unposted" Count Slip numbers from
-              existing within multiple Warehouses.</para>
+              existing within multiple Sites.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Disallow All Slip # Duplications within a Warehouse</term>
+            <term>Disallow All Slip # Duplications within a Site</term>
             <listitem>
               <para>Prevents duplicate Count Slip numbers from existing within
-              a given Warehouse. However, duplicate Count Slip numbers may
-              exist within multiple Warehouses.</para>
+              a given Site. However, duplicate Count Slip numbers may
+              exist within multiple Sites.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Disallow All Slip # Duplications</term>
             <listitem>
               <para>Prevents duplicate Count Slip Numbers from existing within
-              multiple Warehouses.</para>
+              multiple Sites.</para>
             </listitem>
           </varlistentry>
         </variablelist>

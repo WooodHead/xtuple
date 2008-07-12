@@ -36,21 +36,21 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Receiving Whse.</term>
+      <term>Receiving Site</term>
       <listitem>
-        <para>Specify the Warehouse where materials from the Purchase Order
-        will be received. By default, all active Warehouses are available for
-        selection as Receiving Warehouses. No special designation needs to be
-        made in the Warehouse master or elsewhere to indicate that a Warehouse
+        <para>Specify the Site where materials from the Purchase Order
+        will be received. By default, all active Sites are available for
+        selection as Receiving Sites. No special designation needs to be
+        made in the Site master or elsewhere to indicate that a Site
         may be used for receiving purposes.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>The receiving Warehouse may differ from the supplying Warehouse(s)
+    <para>The receiving Site may differ from the supplying Site(s)
     for some Purchase Order Line Items. To update your Inventory records to
     indicate that Items have been moved from the receiving to the supplied
-    from Warehouse, perform an Inter-Warehouse Transfer.</para>
+    from Site, perform an Inter-Site Transfer.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -120,7 +120,7 @@
       <term>F.O.B.</term>
       <listitem>
         <para>Enter the Free On Board (F.O.B.) location for the shipping
-        Warehouse.</para>
+        Site.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -379,10 +379,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Supplying Whs.</term>
+      <term>Supplying Site</term>
       <listitem>
-        <para>Select a Supplying Warehouse from the list of available options.
-        By default, the user's preferred Warehouse will be presented
+        <para>Select a Supplying Site from the list of available options.
+        By default, the user's preferred Site will be presented
         first.</para>
       </listitem>
     </varlistentry>

@@ -12,11 +12,11 @@
     </indexterm> <indexterm significance="normal">
       <primary>class codes</primary>
       <secondary>count tags created by</secondary>
-    </indexterm>Create Count Tags by Class Code/Warehouse</title>
+    </indexterm>Create Count Tags by Class Code/Site</title>
   <para>Count Tags are used to spearhead Inventory counts. They are created
   manually and on-demand, and they are not tied to any particular cycle or
   frequency, as Cycle Count Tags are. To create Count Tags by Class Code and
-  Warehouse, select the "Create Count Tags by Class Code/Warehouse" option.
+  Site, select the "Create Count Tags by Class Code/Site" option.
   The following screen will appear:</para>
   <para>
 <screenshot>
@@ -25,11 +25,11 @@
           <imagedata fileref="images/createCountTagsByClassCode.png"/>
         </imageobject>
         <caption>Create Count Tags by Class
-        Code/Warehouse</caption>
+        Code/Site</caption>
       </mediaobject>
     </screenshot>
 </para>
-  <para>When creating Count Tags by Class Code and Warehouse, you are
+  <para>When creating Count Tags by Class Code and Site, you are
   presented with the following options:</para>
   <tip>
     <para>By default, the system allows only one unposted Count Tag per Item
@@ -58,9 +58,9 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Warehouse</term>
+      <term>Site</term>
       <listitem>
-        <para>Specify Warehouse the Count Tags are to be created for.</para>
+        <para>Specify Site the Count Tags are to be created for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -109,10 +109,10 @@
       <term>Only for Specified Location</term>
       <listitem>
         <para>Select if you want to create Count Tags for an individual
-        Warehouse Location. If selected, you will have the option to specify
-        which Warehouse Location you want to have Count Tags created for. This
-        option enables you to count individual Warehouse Locations separately,
-        without having to post counts for an entire Warehouse all at
+        Site Location. If selected, you will have the option to specify
+        which Site Location you want to have Count Tags created for. This
+        option enables you to count individual Site Locations separately,
+        without having to post counts for an entire Site all at
         once.</para>
       </listitem>
     </varlistentry>

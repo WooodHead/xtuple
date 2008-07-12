@@ -46,14 +46,14 @@
     <varlistentry role="standard">
       <term>From</term>
       <listitem>
-        <para>Displays the Source Warehouse if a Transfer Order is
+        <para>Displays the Source Site if a Transfer Order is
         selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
       <term>To</term>
       <listitem>
-        <para>Displays the Destination Warehouse if a Transfer Order is
+        <para>Displays the Destination Site if a Transfer Order is
         selected.</para>
       </listitem>
     </varlistentry>
@@ -92,18 +92,18 @@
       <term>Receive Immediately</term>
       <listitem>
         <para>Select if you want the Transfer Order to be received
-        automatically at the Destination Warehouse as soon as the Order is
+        automatically at the Destination Site as soon as the Order is
         shipped. If this option is not used, Transfer Order Items must be
-        received manually at the Destination Warehouse. This option will be
+        received manually at the Destination Site. This option will be
         disabled if a Sales Order is specified.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
     <para>The system will move Transfer Order Items to the specified Transit
-    Warehouse when the Order is shipped. If the Order is marked to be received
+    Site when the Order is shipped. If the Order is marked to be received
     immediately, the system will then receive Inventory at the Destination
-    Warehouse.</para>
+    Site.</para>
   </tip>
   <variablelist>
     <varlistentry>

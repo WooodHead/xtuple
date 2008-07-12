@@ -14,7 +14,7 @@
 <indexterm significance="normal">
       <primary>warehouses</primary>
       <secondary>zeroing uncounted count tags in</secondary>
-    </indexterm>Zero Uncounted Count Tags by Warehouse</title>
+    </indexterm>Zero Uncounted Count Tags by Site</title>
   <para>
 <indexterm significance="normal">
       <primary>physical inventory</primary>
@@ -27,32 +27,32 @@
   a quantity of zero ("0"). Entering a non-null value of zero makes it
   possible to process and post the Count Tags. To reset the counted values of
   uncounted Count Tags to zero, select the "Zero Uncounted Count Tags by
-  Warehouse" option. The following screen will appear:</para>
+  Site" option. The following screen will appear:</para>
   <para>
 <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/zeroUncountedCountTagsByWarehouse.png"/>
+          <imagedata fileref="images/zeroUncountedCountTagsBySite.png"/>
         </imageobject>
         <caption>Zero Uncounted Count Tags by
-        Warehouse</caption>
+        Site</caption>
       </mediaobject>
     </screenshot>
 </para>
-  <para>When zeroing uncounted Count Tags by Warehouse, you
+  <para>When zeroing uncounted Count Tags by Site, you
   are presented with the following options:</para>
   <variablelist>
     <varlistentry role="standard">
-      <term>All Warehouses</term>
+      <term>All Sites</term>
       <listitem>
         <para>Select to reset uncounted Count Tags to zero for all
-        Warehouses.</para>
+        Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Warehouse where uncounted Count Tags are to be
+        <para>Specify Site where uncounted Count Tags are to be
         zeroed.</para>
       </listitem>
     </varlistentry>

@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520010">
-    <title>Material Usage Variance by Warehouse</title>
+    <title>Material Usage Variance by Site</title>
 
     <para>To view material usage variances by Item, select the
     "Material Usage Variance by Item" option. The following screen will
@@ -12,25 +12,25 @@
       <screenshot>
         <mediaobject>
             <imageobject>
-               <imagedata fileref="images/dspMaterialUsageVarianceByWarehouse.png"/>
+               <imagedata fileref="images/dspMaterialUsageVarianceBySite.png"/>
             </imageobject>
 
             <caption>Material Usage Variance by
-          Warehouse</caption>
+          Site</caption>
         </mediaobject>
       </screenshot>
    </para>
 
-    <para>When viewing material usage variances by Warehouse,
+    <para>When viewing material usage variances by Site,
     you are presented with the following options:</para>
 
     <variablelist>
       <varlistentry role="standard">
-        <term>All Warehouses</term>
+        <term>All Sites</term>
 
         <listitem>
             <para>Select to display material usage variances for all
-          Warehouses.</para>
+          Sites.</para>
         </listitem>
       </varlistentry>
 
@@ -38,7 +38,7 @@
         <term>Selected</term>
 
         <listitem>
-            <para>Specify Warehouse whose material usage variances you want to
+            <para>Specify Site whose material usage variances you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -65,7 +65,7 @@
         <term>Material Usage Variance</term>
 
         <listitem>
-            <para>Display lists material usage variances by Warehouse, using the
+            <para>Display lists material usage variances by Site, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>

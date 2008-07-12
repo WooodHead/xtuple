@@ -9,31 +9,31 @@
     </indexterm> <indexterm significance="normal">
       <primary>warehouses</primary>
       <secondary>backlog summarized by</secondary>
-    </indexterm>Summarized Backlog by Warehouse</title>
-  <para>To view summarized Backlog by Warehouse, select the "Summarized
-  Backlog by Warehouse" option. The following screen will appear:</para>
+    </indexterm>Summarized Backlog by Site</title>
+  <para>To view summarized Backlog by Site, select the "Summarized
+  Backlog by Site" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspSummarizedBacklogByWarehouse.png" />
+          <imagedata fileref="images/dspSummarizedBacklogBySite.png" />
         </imageobject>
-        <caption>Summarized Backlog by Warehouse</caption>
+        <caption>Summarized Backlog by Site</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying summarized Backlog by Warehouse, you are presented
+  <para>When displaying summarized Backlog by Site, you are presented
   with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Customer Types</term>
       <listitem>
-        <para>Select to display summarized Backlog by Warehouse for all
+        <para>Select to display summarized Backlog by Site for all
         Customer Types.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Selected</term>
       <listitem>
-        <para>Specify Customer Type whose Backlog by Warehouse you want to
+        <para>Specify Customer Type whose Backlog by Site you want to
         display.</para>
       </listitem>
     </varlistentry>
@@ -47,14 +47,14 @@
     <varlistentry>
       <term>Start Date</term>
       <listitem>
-        <para>Summarized Backlog by Warehouse entered on and after this date
+        <para>Summarized Backlog by Site entered on and after this date
         will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem>
-        <para>Summarized Backlog by Warehouse entered on and before this date
+        <para>Summarized Backlog by Site entered on and before this date
         will be displayed.</para>
       </listitem>
     </varlistentry>
@@ -66,15 +66,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>All Warehouses</term>
+      <term>All Sites</term>
       <listitem>
-        <para>Select to display summarized Backlog for all Warehouses.</para>
+        <para>Select to display summarized Backlog for all Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Selected</term>
       <listitem>
-        <para>Specify Warehouse whose summarized Backlog you want to
+        <para>Specify Site whose summarized Backlog you want to
         display.</para>
       </listitem>
     </varlistentry>
@@ -108,7 +108,7 @@
     <varlistentry>
       <term>Backlog</term>
       <listitem>
-        <para>Display lists summarized Backlog by Warehouse, using the
+        <para>Display lists summarized Backlog by Site, using the
         specified parameters. The display is a nested list, with a plus ("+")
         sign located to the far left of the screen next to each line that may
         be expanded to lower levels. By clicking your mouse on a plus sign,
@@ -119,7 +119,7 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>The Summarized Backlog by Warehouse display is color-coded for ease
+    <para>The Summarized Backlog by Site display is color-coded for ease
     of use. The following colors are used to describe the backlog status of
     Sales Order Line Items:</para>
     <variablelist>

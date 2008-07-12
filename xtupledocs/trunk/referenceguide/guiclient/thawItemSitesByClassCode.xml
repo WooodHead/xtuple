@@ -15,9 +15,9 @@
     </indexterm> <indexterm significance="normal">
       <primary>physical inventory</primary>
       <secondary>thawing item sites</secondary>
-    </indexterm>Thaw Item Sites by Class Code/Warehouse</title>
-  <para>To thaw previously frozen Item Sites by Class Code and Warehouse,
-  select the "Thaw Item Sites by Class Code Warehouse" option. The following
+    </indexterm>Thaw Item Sites by Class Code/Site</title>
+  <para>To thaw previously frozen Item Sites by Class Code and Site,
+  select the "Thaw Item Sites by Class Code Site" option. The following
   screen will appear:</para>
   <para>
 <screenshot>
@@ -26,24 +26,24 @@
           <imagedata fileref="images/thawItemSitesByClassCode.png"/>
         </imageobject>
         <caption>Thaw Item Sites by Class
-        Code/Warehouse</caption>
+        Code/Site</caption>
       </mediaobject>
     </screenshot>
 </para>
-  <para>When thawing previously frozen Item Sites by Class Code and Warehouse,
+  <para>When thawing previously frozen Item Sites by Class Code and Site,
   you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Class Codes</term>
       <listitem>
-        <para>Select to thaw Item Sites by Warehouse for all Class
+        <para>Select to thaw Item Sites by Site for all Class
         Codes.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Selected</term>
       <listitem>
-        <para>Specify Class Code whose Item Sites by Warehouse you want to
+        <para>Specify Class Code whose Item Sites by Site you want to
         thaw.</para>
       </listitem>
     </varlistentry>
@@ -55,9 +55,9 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Warehouse</term>
+      <term>Site</term>
       <listitem>
-        <para>Specify Warehouse whose Item Sites are to be thawed.</para>
+        <para>Specify Site whose Item Sites are to be thawed.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -75,7 +75,7 @@
       <term>THAW</term>
       <listitem>
         <para>Thaws previously frozen Item Sites by specified Class Code(s)
-        and Warehouse.</para>
+        and Site.</para>
       </listitem>
     </varlistentry>
   </variablelist>

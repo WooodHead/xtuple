@@ -49,12 +49,12 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Supplying Whse.</term>
+            <term>Supplying Site</term>
             <listitem>
-              <para>Specify the Warehouse the Item will be supplied from. The
-              supplying Warehouse is the Warehouse that supplies the Item in
-              question to the shipping Warehouse for shipment to Customers.
-              Warehouses may be designated as supplying Warehouses in the Item
+              <para>Specify the Site the Item will be supplied from. The
+              supplying Site is the Site that supplies the Item in
+              question to the shipping Site for shipment to Customers.
+              Sites may be designated as supplying Sites in the Item
               Site definition.</para>
             </listitem>
           </varlistentry>
@@ -63,10 +63,10 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>The supplying Warehouse may differ from the receiving Warehouse(s)
+    <para>The supplying Site may differ from the receiving Site(s)
     for some Purchase Order Line Items. To update your Inventory records to
     indicate that Items have been moved from the receiving to the supplied
-    from Warehouse, perform an Inter-Warehouse Transfer.</para>
+    from Site, perform an Inter-Site Transfer.</para>
   </tip>
   <variablelist>
     <varlistentry>

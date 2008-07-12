@@ -15,18 +15,18 @@
     </indexterm> <indexterm significance="normal">
       <primary>warehouse locations</primary>
       <secondary>See also locations[warehouse locations</secondary>
-    </indexterm>Warehouse Locations</title>
-  <para>Warehouse Locations&mdash;also known as Locations&mdash;are the specific, unique
+    </indexterm>Site Locations</title>
+  <para>Site Locations&mdash;also known as Locations&mdash;are the specific, unique
   material sites where <indexterm significance="normal">
       <primary>inventory</primary>
       <secondary>warehouse locations and</secondary>
-    </indexterm>Inventory is located inside a Warehouse. If the ARBL naming
-  convention is being enforced within a Warehouse, Locations may be identified
+    </indexterm>Inventory is located inside a Site. If the ARBL naming
+  convention is being enforced within a Site, Locations may be identified
   by aisle, rack, bin, and Location number. Locations may also exist within
-  Warehouse Zones, if Zones are defined for the specified Warehouse. In most
+  Site Zones, if Zones are defined for the specified Site. In most
   cases, related Items will be stored near to each other to simplify picking
-  and Inventory counting. To access a master list of Warehouse Locations,
-  select the "Warehouse Locations" option. The following screen will
+  and Inventory counting. To access a master list of Site Locations,
+  select the "Site Locations" option. The following screen will
   appear:</para>
   <para>
 <screenshot>
@@ -34,26 +34,26 @@
         <imageobject>
           <imagedata fileref="images/locations.png"/>
         </imageobject>
-        <caption>Warehouse Locations Master List</caption>
+        <caption>Site Locations Master List</caption>
       </mediaobject>
     </screenshot>
 </para>
-  <para>The "Warehouse Locations" screen displays information on all existing
-  Warehouse Locations, including Warehouse code, Location name, Location
+  <para>The "Site Locations" screen displays information on all existing
+  Site Locations, including Site code, Location name, Location
   description, and whether the Location is netable or restricted. When
-  displaying available Warehouse Locations, you are presented with the
+  displaying available Site Locations, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry role="standard">
-      <term>All Warehouses</term>
+      <term>All Sites</term>
       <listitem>
-        <para>Select to display Warehouse Locations for all Warehouses.</para>
+        <para>Select to display Site Locations for all Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Warehouse whose Locations you want to display.</para>
+        <para>Specify Site whose Locations you want to display.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -76,30 +76,30 @@
     <varlistentry>
       <term>NEW</term>
       <listitem>
-        <para>Opens screen for creating a new Warehouse Location.</para>
+        <para>Opens screen for creating a new Site Location.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
       <listitem>
-        <para>Enables you to edit highlighted Warehouse Locations. The edit
-        screen is the same as that for creating a new Warehouse
-        Location&mdash;except that when editing, the fields will contain Warehouse
-        Location information. Double-clicking on a Warehouse Location also
+        <para>Enables you to edit highlighted Site Locations. The edit
+        screen is the same as that for creating a new Site
+        Location&mdash;except that when editing, the fields will contain Site
+        Location information. Double-clicking on a Site Location also
         bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
       <listitem>
-        <para>Highlight a Warehouse Location and then select this button to
+        <para>Highlight a Site Location and then select this button to
         reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
       <listitem>
-        <para>Highlight a Warehouse Location and then select this button to
+        <para>Highlight a Site Location and then select this button to
         remove the Location from the list.</para>
       </listitem>
     </varlistentry>

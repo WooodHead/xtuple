@@ -6,25 +6,25 @@
   <title><indexterm significance="normal">
       <primary>warehouse locations</primary>
       <secondary>creating new</secondary>
-    </indexterm>Warehouse Location</title>
-  <para>To create a new Warehouse Location, select the NEW button. The
+    </indexterm>Site Location</title>
+  <para>To create a new Site Location, select the NEW button. The
   following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/location.png" />
         </imageobject>
-        <caption id="NewWarehouseLocation">Create New Warehouse
+        <caption id="NewSiteLocation">Create New Site
         Location</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When creating a new Warehouse Location, you are presented with the
+  <para>When creating a new Site Location, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Warehouse</term>
+      <term>Site</term>
       <listitem>
-        <para>Specify Warehouse for the Warehouse Location.</para>
+        <para>Specify Site for the Site Location.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -69,7 +69,7 @@
       <listitem>
         <para>Select if only a restricted set of Items may be placed in this
         Location. Not selecting means any Item that exists in the same
-        Warehouse as this Location may be placed into it.</para>
+        Site as this Location may be placed into it.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -81,16 +81,16 @@
           <secondary>within zones</secondary>
         </indexterm>Zone</term>
       <listitem>
-        <para>Specify the Warehouse Zone you want to associate with the
-        Location, if any. Zone selection will be activated only if Warehouse
-        Zones have been defined for the specified Warehouse.</para>
+        <para>Specify the Site Zone you want to associate with the
+        Location, if any. Zone selection will be activated only if Site
+        Zones have been defined for the specified Site.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Name</term>
       <listitem>
         <para>Enter a name to identify the Location. The name of the Location
-        will vary, depending on whether the specified Warehouse enforces the
+        will vary, depending on whether the specified Site enforces the
         aisle, rack, bin, Location (ARBL) naming convention. If the convention
         is enforced, then the name for the Location may also include aisle,
         rack, or bin information. If ARBL is not enforced, then the Location
@@ -100,7 +100,7 @@
   </variablelist>
   <note>
     <para>The parameters for the ARBL naming convention are set within a
-    Warehouse master. These parameters include the maximum length allowed for
+    Site master. These parameters include the maximum length allowed for
     names and whether alpha characters or numeric only may be used.</para>
   </note>
   <variablelist>
@@ -132,15 +132,15 @@
     <varlistentry>
       <term>CANCEL</term>
       <listitem>
-        <para>Closes the screen without creating the Warehouse Location,
+        <para>Closes the screen without creating the Site Location,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
       <listitem>
-        <para>Creates the Warehouse Location and adds it to the master list of
-        Warehouse Locations.</para>
+        <para>Creates the Site Location and adds it to the master list of
+        Site Locations.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

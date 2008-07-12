@@ -76,26 +76,26 @@
         </indexterm> <indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>selling warehouses for</secondary>
-        </indexterm>Whs.</term>
+        </indexterm>Site</term>
       <listitem>
-        <para>Specify the Warehouse the Sales Order Item is sold from. Items
+        <para>Specify the Site the Sales Order Item is sold from. Items
         may be supplied to Sales Orders from multiple Item Sites. After an
         Item Number is entered above, the system checks for available Item
         Sites for the Item. Any Item Sites having the "Sold from" flag set on
-        them will be selectable from this Warehouse list. By default, the Item
+        them will be selectable from this Site list. By default, the Item
         Site having the highest Ranking will be selected as the first
-        available Warehouse. If more than one Item Site share a Ranking of
-        "1," the Warehouses will be sorted in alphabetical order. Item Site
+        available Site. If more than one Item Site share a Ranking of
+        "1," the Sites will be sorted in alphabetical order. Item Site
         Rankings are set on the Item Site master.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>If a preferred Selling Warehouse is specified for the Customer, then
-    that Warehouse will be selected here by default. If the preferred Selling
-    Warehouse is not selected&mdash;and you think it should be&mdash;verify that the
+    <para>If a preferred Selling Site is specified for the Customer, then
+    that Site will be selected here by default. If the preferred Selling
+    Site is not selected&mdash;and you think it should be&mdash;verify that the
     Item Site master for the Line Item in question is marked as a "Sold from"
-    Warehouse.</para>
+    Site.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -316,13 +316,13 @@
         </indexterm> <indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>supplying warehouses and</secondary>
-        </indexterm>Supplying Whs.</term>
+        </indexterm>Supplying Site</term>
       <listitem>
-        <para>Specify the Warehouse a corresponding Work Order would be
+        <para>Specify the Site a corresponding Work Order would be
         supplied from. Work Orders may only be created for manufactured Items
-        having a supplying Warehouse. Warehouses designated as "Supplied at"
-        Warehouses in the Item Site master for an Item are considered
-        supplying Warehouses. If no supplying Warehouse exists for an Item, a
+        having a supplying Site. Sites designated as "Supplied at"
+        Sites in the Item Site master for an Item are considered
+        supplying Sites. If no supplying Site exists for an Item, a
         Work Order may not be created for the Item.</para>
       </listitem>
     </varlistentry>

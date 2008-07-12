@@ -10,7 +10,7 @@
       <primary>class codes</primary>
       <secondary>creating item sites for</secondary>
     </indexterm>Create Item Sites by Class Code</title>
-  <para>When setting up a new Warehouse, you have the ability to create
+  <para>When setting up a new Site, you have the ability to create
   batches of Item Sites&mdash;rather than having to create them one-at-a-time.
   To create Item Sites by Class Code, select the "Create Item Sites by Class
   Code" option. The following screen will appear:</para>
@@ -24,16 +24,16 @@
     </screenshot></para>
   <tip>
     <para>Use the Create Item Sites by Class Code utility when setting up a
-    new Warehouse.</para>
+    new Site.</para>
   </tip>
   <para>When creating Item Sites by Class Code, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Warehouse</term>
+      <term>Site</term>
       <listitem>
-        <para>Specify Warehouse where Item Site is located.</para>
-        <para>Use this selection in conjunction with the additional Warehouse
+        <para>Specify Site where Item Site is located.</para>
+        <para>Use this selection in conjunction with the additional Site
         settings found on the Item Site screen.</para>
       </listitem>
     </varlistentry>
@@ -331,12 +331,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Supplied at this Warehouse</term>
+      <term>Supplied at this Site</term>
       <listitem>
-        <para>Select if Item is supplied at specified Warehouse. If selected,
+        <para>Select if Item is supplied at specified Site. If selected,
         "Supplied at" means that Purchase Orders may be issued for this Item
-        in this Warehouse if the Item is a purchased Item, and Work Orders may
-        be issued for this Item in this Warehouse if the Item is a
+        in this Site if the Item is a purchased Item, and Work Orders may
+        be issued for this Item in this Site if the Item is a
         manufactured Item. These rules apply also to Planned Orders generated
         when Material Requirements Planning (MRP) is run. Planned Orders may
         only be released to "Supplied at" Item Sites.</para>
@@ -385,13 +385,13 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term>Sold from this Warehouse</term>
+      <term>Sold from this Site</term>
       <listitem>
-        <para>Select if Item is sold from specified Warehouse. If selected,
+        <para>Select if Item is sold from specified Site. If selected,
         "Sold from" means that Sales Orders Line Items may request to Ship
-        from the Warehouse. When adding Sales Order Line Items to a Sales
-        Order, a "Sold from" Warehouse appears as the "Supplying
-        Warehouse."</para>
+        from the Site. When adding Sales Order Line Items to a Sales
+        Order, a "Sold from" Site appears as the "Supplying
+        Site."</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -410,7 +410,7 @@
         value up to a maximum of 10. Value entered specifies the order in
         which Item Sites will be chosen during Sales Order and Sales Quote
         creation. If an Item is located in more than one "Sold from"
-        Warehouse, the Item Site with the highest ranking will be chosen
+        Site, the Item Site with the highest ranking will be chosen
         first. If two Item Sites happen to share the same ranking, selection
         will be based on alphabetical order. The highest ranking an Item Site
         can have is one (1).</para>
@@ -419,7 +419,7 @@
     <varlistentry>
       <term>Stocked</term>
       <listitem>
-        <para>Select if the Item is stocked at the specified Warehouse. This
+        <para>Select if the Item is stocked at the specified Site. This
         setting is used to drive the constraint management system. As a
         result, to avoid inaccurate results when running that system, an Item
         Site must also have a Reorder Level defined to use this option.</para>
@@ -491,7 +491,7 @@
         </indexterm>Multiple Location Control</term>
       <listitem>
         <para>Select if the specified Item is to be stored in multiple
-        Locations within a single Warehouse. Items designated as Multiple
+        Locations within a single Site. Items designated as Multiple
         Location Control (MLC) Items require special processing whenever Item
         quantities are distributed.</para>
       </listitem>
@@ -508,7 +508,7 @@
         </indexterm>Use Default Location</term>
       <listitem>
         <para>Default Location: Select to designate one Location within a
-        Warehouse as the default Location for the specified Item. This option
+        Site as the default Location for the specified Item. This option
         may be used for single Location and Multiple Location Control (MLC)
         Items alike. You may find that Inventory distributions for MLC Items
         are greatly simplified if you designate a default Location.</para>
@@ -517,8 +517,8 @@
     <varlistentry>
       <term>Location</term>
       <listitem>
-        <para>Specify the Warehouse Location to be used as the default
-        Location. The list will show all valid Warehouse Locations for the
+        <para>Specify the Site Location to be used as the default
+        Location. The list will show all valid Site Locations for the
         specified Item.</para>
       </listitem>
     </varlistentry>
@@ -526,13 +526,13 @@
       <term>User-Defined</term>
       <listitem>
         <para>This is a free-form field for describing storage areas with a
-        Warehouse not specifically designated as Warehouse Locations.</para>
+        Site not specifically designated as Site Locations.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Location Comment</term>
       <listitem>
-        <para>Enter any free-form Comment related to the Warehouse Location.
+        <para>Enter any free-form Comment related to the Site Location.
         This is additional information which may be placed on a Pick List or a
         Pack List.</para>
       </listitem>

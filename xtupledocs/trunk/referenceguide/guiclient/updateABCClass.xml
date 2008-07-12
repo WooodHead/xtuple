@@ -12,7 +12,7 @@
   specified period by the Item Costs for the Item. Those Items having the
   greatest transaction value are considered Class "A" Items. Those Items
   having the least transaction value are considered Class "C" Items. Items may
-  be grouped into ABC classes on a Warehouse-by-Warehouse basis, using any
+  be grouped into ABC classes on a Site-by-Site basis, using any
   percentages you want.</para>
   <para>For example, let\qs say you want to do a 70-20-10 split&mdash;where A = 70%
   of the value for a period, B = 20%, and C = 10%. In this scenario, you would
@@ -52,7 +52,7 @@
   <para>The remaining Items having the lowest percentage of the value (20%)
   would be assigned to the Class "C." </para>
   <para>To update the ABC classification for Item Sites within a given
-  Warehouse and Class Code, select the "ABC Class" option. The following
+  Site and Class Code, select the "ABC Class" option. The following
   screen will appear:</para>
   <para>
 <screenshot>
@@ -65,25 +65,25 @@
     </screenshot>
 </para>
   <note>
-    <para>Updating ABC Class values across multiple Warehouses simultaneously
+    <para>Updating ABC Class values across multiple Sites simultaneously
     can lead to inaccuracies in your data&mdash;especially if ABC values are
-    calculated differently in different Warehouses. For this reason, it may
-    make more sense to update ABC Classes on a Warehouse-by-Warehouse
+    calculated differently in different Sites. For this reason, it may
+    make more sense to update ABC Classes on a Site-by-Site
     basis.</para>
   </note>
-  <para>When calculating the ABC class of Item Sites within a given Warehouse
+  <para>When calculating the ABC class of Item Sites within a given Site
   and Class Code, you are presented with the following options:</para>
   <variablelist>
     <varlistentry role="standard">
-      <term>All Warehouses</term>
+      <term>All Sites</term>
       <listitem>
-        <para>Select to update ABC Classes in all Warehouses.</para>
+        <para>Select to update ABC Classes in all Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Warehouse where ABC Classes are to be updated.</para>
+        <para>Specify Site where ABC Classes are to be updated.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

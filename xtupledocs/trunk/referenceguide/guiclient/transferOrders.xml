@@ -3,10 +3,10 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section658623" role="standard">
   <title>List Transfer Orders</title>
-  <para>Transfer Orders are used to move Inventory between Warehouses. They
-  are distinct from Inter-Warehouse Transfers in three primary ways: 1) you
+  <para>Transfer Orders are used to move Inventory between Sites. They
+  are distinct from Inter-Site Transfers in three primary ways: 1) you
   can add multiple Items to a single Transfer Order and transfer all the Items
-  at once; 2) all Transfer Order transfers involve a Transit Warehouse, for
+  at once; 2) all Transfer Order transfers involve a Transit Site, for
   tracking Inventory while it is "in transit"; and 3) there are reports (i.e.,
   paperwork) associated with Transfer Orders. To access the master list of
   Transfer Orders, select the "List Transfer Orders" option. The following
@@ -25,22 +25,22 @@
   with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Source Warehouse</term>
+      <term>Source Site</term>
       <listitem>
-        <para>Specify the source Warehouse(s) you want to display in the
+        <para>Specify the source Site(s) you want to display in the
         list:</para>
         <variablelist>
           <varlistentry>
-            <term>All Warehouses</term>
+            <term>All Sites</term>
             <listitem>
               <para>Select to display Transfer Orders for all source
-              Warehouses.</para>
+              Sites.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Selected</term>
             <listitem>
-              <para>Specify source Warehouse whose Transfer Orders you want to
+              <para>Specify source Site whose Transfer Orders you want to
               display.</para>
             </listitem>
           </varlistentry>
@@ -48,22 +48,22 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Destination Warehouse</term>
+      <term>Destination Site</term>
       <listitem>
-        <para>Specify the destination Warehouse(s) you want to display in the
+        <para>Specify the destination Site(s) you want to display in the
         list:</para>
         <variablelist>
           <varlistentry>
-            <term>All Warehouses</term>
+            <term>All Sites</term>
             <listitem>
               <para>Select to display Transfer Orders for all destination
-              Warehouses.</para>
+              Sites.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Selected</term>
             <listitem>
-              <para>Specify destination Warehouse whose Transfer Orders you
+              <para>Specify destination Site whose Transfer Orders you
               want to display.</para>
             </listitem>
           </varlistentry>
@@ -74,7 +74,7 @@
       <term>Transfer Orders</term>
       <listitem>
         <para>Display lists Transfer Orders for the specified
-        Warehouse(s).</para>
+        Site(s).</para>
       </listitem>
     </varlistentry>
   </variablelist>

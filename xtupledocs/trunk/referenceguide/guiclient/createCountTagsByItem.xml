@@ -46,11 +46,11 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Warehouse</term>
+      <term>Site</term>
       <listitem>
-        <para>Specify the Warehouse you want the Count Tag created for. This
+        <para>Specify the Site you want the Count Tag created for. This
         field will remain blank until you enter an Item Number into the "Item
-        Number" field. Once that is entered, the Warehouse(s) where the Item
+        Number" field. Once that is entered, the Site(s) where the Item
         is located will display in the list.</para>
       </listitem>
     </varlistentry>
@@ -82,7 +82,7 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>When an Item Site is frozen, any Warehouse activity entered against
+    <para>When an Item Site is frozen, any Site activity entered against
     that Item Site&mdash;including Work Orders&mdash;will use the Quantity on Hand shown
     at the time of freezing.</para>
   </note>
@@ -91,10 +91,10 @@
       <term>Only for Specified Location</term>
       <listitem>
         <para>Select if you want to create Count Tags for an individual
-        Warehouse Location. If selected, you will have the option to specify
-        which Warehouse Location you want to have Count Tags created for. This
-        option enables you to count individual Warehouse Locations separately,
-        without having to post counts for an entire Warehouse all at
+        Site Location. If selected, you will have the option to specify
+        which Site Location you want to have Count Tags created for. This
+        option enables you to count individual Site Locations separately,
+        without having to post counts for an entire Site all at
         once.</para>
       </listitem>
     </varlistentry>

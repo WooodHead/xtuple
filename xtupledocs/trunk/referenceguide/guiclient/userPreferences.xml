@@ -221,28 +221,28 @@
       <term><indexterm significance="normal">
           <primary>users</primary>
           <secondary>preferred warehouses for</secondary>
-        </indexterm>Preferred Warehouse</term>
+        </indexterm>Preferred Site</term>
       <listitem>
-        <para>Select one of the following default Warehouse
+        <para>Select one of the following default Site
         preferences:</para>
         <variablelist>
           <varlistentry>
             <term>None</term>
             <listitem>
               <para>Select if the user does not have a preferred
-              Warehouse.</para>
+              Site.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Warehouse</term>
+            <term>Site</term>
             <listitem>
-              <para>Specify the preferred Warehouse. Warehouses designated as
-              preferred will appear at the top of Warehouse list by
+              <para>Specify the preferred Site. Sites designated as
+              preferred will appear at the top of Site list by
               default&mdash;eliminating the need to search the menu for the
-              desired Warehouse code. The user may access other Warehouses in
-              these lists in the normal way. Assigning a preferred Warehouse
+              desired Site code. The user may access other Sites in
+              these lists in the normal way. Assigning a preferred Site
               is simply a time-saving feature and does not affect user access
-              to Warehouse data.</para>
+              to Site data.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -487,14 +487,14 @@
       <term>Event</term>
       <listitem>
         <para>Displays the complete list of system-defined Events.Highlight an
-        Event and then double-click a Warehouse in the adjacent Warehouse
+        Event and then double-click a Site in the adjacent Site
         column to set the user's Event notification preference for that
-        Warehouse. Selecting "Yes" means the user will be notified if the
-        specified event occurs in the specified Warehouse. Selecting "No"
+        Site. Selecting "Yes" means the user will be notified if the
+        specified event occurs in the specified Site. Selecting "No"
         means the user will not be notified about the Event if it occurs in
-        that Warehouse. To globally affect the settings for all Warehouses,
+        that Site. To globally affect the settings for all Sites,
         double-click on an Event. Double-clicking on an Event causes the
-        Warehouse settings to toggle back-and-forth between "Yes" and
+        Site settings to toggle back-and-forth between "Yes" and
         "No."</para>
       </listitem>
     </varlistentry>
@@ -507,16 +507,16 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term>Warehouses</term>
+      <term>Sites</term>
       <listitem>
-        <para>Displays the complete list of Warehouses. Highlight an Event in
-        the adjacent Event column and then double-click a Warehouse to set the
-        user's Event notification preference for that Warehouse. Selecting
+        <para>Displays the complete list of Sites. Highlight an Event in
+        the adjacent Event column and then double-click a Site to set the
+        user's Event notification preference for that Site. Selecting
         "Yes" means the user will be notified if the specified event occurs in
-        the specified Warehouse. Selecting "No" means the user will not be
-        notified about the Event if it occurs in that Warehouse. To globally
-        affect the settings for all Warehouses, double-click on an Event.
-        Double-clicking on an Event causes the Warehouse settings to toggle
+        the specified Site. Selecting "No" means the user will not be
+        notified about the Event if it occurs in that Site. To globally
+        affect the settings for all Sites, double-click on an Event.
+        Double-clicking on an Event causes the Site settings to toggle
         back-and-forth between "Yes" and "No."</para>
       </listitem>
     </varlistentry>

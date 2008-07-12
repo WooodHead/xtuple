@@ -21,9 +21,9 @@
   the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Warehouse</term>
+      <term>Site</term>
       <listitem>
-        <para>Specify Warehouse to be associated with the Account
+        <para>Specify Site to be associated with the Account
         assignment.</para>
       </listitem>
     </varlistentry>
@@ -32,7 +32,7 @@
     <para>In the case of conflicts between Sales Account assignments, the
     system by default selects specific assignments before all-inclusive ones.
     For example, if there were a choice between an assignment featuring
-    "WHSE-1" as the supplying Warehouse and another featuring "ANY" Warehouse,
+    "WHSE-1" as the supplying Site and another featuring "ANY" Site,
     the more-specific "WHSE-1" would be selected.</para>
   </note>
   <variablelist>

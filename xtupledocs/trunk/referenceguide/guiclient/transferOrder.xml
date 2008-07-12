@@ -7,10 +7,10 @@
       <primary>transfer orders</primary>
       <secondary>creating new</secondary>
     </indexterm>New Transfer Order</title>
-  <para>Transfer Orders are used to move Inventory between Warehouses. They
-  are distinct from Inter-Warehouse Transfers in three primary ways: 1) you
+  <para>Transfer Orders are used to move Inventory between Sites. They
+  are distinct from Inter-Site Transfers in three primary ways: 1) you
   can add multiple Items to a single Transfer Order and transfer all the Items
-  at once; 2) all Transfer Order transfers involve a Transit Warehouse, for
+  at once; 2) all Transfer Order transfers involve a Transit Site, for
   tracking Inventory while it is "in transit"; and 3) there are reports (i.e.,
   paperwork) associated with Transfer Orders. To enter a new Transfer Order,
   select the "New Transfer Order" option. The following screen will
@@ -101,15 +101,15 @@
         </indexterm>Tax Authority</term>
       <listitem>
         <para>Specify the Tax Authority associated with the Transfer Order.
-        The Tax Authority associated with the Destination Warehouse will be
+        The Tax Authority associated with the Destination Site will be
         entered here by default.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>From Warehouse</term>
+      <term>From Site</term>
       <listitem>
-        <para>Select a Source Warehouse from the available options. If the
-        following Contact and Address information is defined on the Warehouse
+        <para>Select a Source Site from the available options. If the
+        following Contact and Address information is defined on the Site
         master, then it will be entered automatically; otherwise you may enter
         that information manually:</para>
         <variablelist>
@@ -117,7 +117,7 @@
             <term>Name</term>
             <listitem>
               <para>The name of the primary Contact at the Source
-              Warehouse.</para>
+              Site.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -147,49 +147,49 @@
           <varlistentry>
             <term>Street Address</term>
             <listitem>
-              <para>The street Address for the Source Warehouse.</para>
+              <para>The street Address for the Source Site.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>City</term>
             <listitem>
-              <para>The city the Source Warehouse is located in.</para>
+              <para>The city the Source Site is located in.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>State</term>
             <listitem>
-              <para>The state the Source Warehouse is located in.</para>
+              <para>The state the Source Site is located in.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Postal Code</term>
             <listitem>
-              <para>The Postal Code for the Source Warehouse</para>
+              <para>The Postal Code for the Source Site</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Country</term>
             <listitem>
-              <para>The country the Source Warehouse is located in.</para>
+              <para>The country the Source Site is located in.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>To Warehouse</term>
+      <term>To Site</term>
       <listitem>
-        <para>Select a Destination Warehouse from the available options. If
+        <para>Select a Destination Site from the available options. If
         the following Contact and Address information is defined on the
-        Warehouse master, then it will be entered automatically; otherwise you
+        Site master, then it will be entered automatically; otherwise you
         may enter that information manually:</para>
         <variablelist>
           <varlistentry>
             <term>Name</term>
             <listitem>
               <para>The name of the primary Contact at the Destination
-              Warehouse.</para>
+              Site.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -219,31 +219,31 @@
           <varlistentry>
             <term>Street Address</term>
             <listitem>
-              <para>The street Address for the Destination Warehouse.</para>
+              <para>The street Address for the Destination Site.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>City</term>
             <listitem>
-              <para>The city the Destination Warehouse is located in.</para>
+              <para>The city the Destination Site is located in.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>State</term>
             <listitem>
-              <para>The state the Destination Warehouse is located in.</para>
+              <para>The state the Destination Site is located in.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Postal Code</term>
             <listitem>
-              <para>The Postal Code for the Destination Warehouse.</para>
+              <para>The Postal Code for the Destination Site.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Country</term>
             <listitem>
-              <para>The country the Destination Warehouse is located
+              <para>The country the Destination Site is located
               in.</para>
             </listitem>
           </varlistentry>
@@ -642,9 +642,9 @@
     </varlistentry>
   </variablelist>
   <para>Shipping Notes are drawn from the Shipping Comments (if any)
-  associated with Transit Warehouses. The Notes may vary depending on the
-  Transit Warehouse being used. These Notes provide a mechanism for
-  transferring information about Transit Warehouses to the Transfer Order. To
+  associated with Transit Sites. The Notes may vary depending on the
+  Transit Site being used. These Notes provide a mechanism for
+  transferring information about Transit Sites to the Transfer Order. To
   view Transfer Order Shipping Notes, select the "Shipping Notes" tab at the
   top of the "Transfer Order" screen. The following screen will appear:</para>
   <para><screenshot>
@@ -663,7 +663,7 @@
       <term>Shipping Notes</term>
       <listitem>
         <para>While the content for Shipping Notes may originate from the
-        Transit Warehouse master, you can edit the Notes to fit the
+        Transit Site master, you can edit the Notes to fit the
         requirements of an Order. This is a scrolling text field with
         word-wrapping.</para>
       </listitem>

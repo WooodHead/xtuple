@@ -136,7 +136,7 @@
       </indexterm>allowable part</glossterm>
     <glossdef>
       <para>Designation given to an Item that may be stored in a restricted
-      Warehouse Location.</para>
+      Site Location.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -168,7 +168,7 @@
       </indexterm>ARBL</glossterm>
     <glossdef>
       <para>A naming convention designed to maximize specificity in the naming
-      of Warehouse Locations. The acronym stands for aisle, rack, bin,
+      of Site Locations. The acronym stands for aisle, rack, bin,
       Location.</para>
     </glossdef>
   </glossentry>
@@ -1084,7 +1084,7 @@
       </indexterm>Item Site</glossterm>
     <glossdef>
       <para>An Item Site identifies and defines the methods and controls used
-      when maintaining a given Item within a given Warehouse.</para>
+      when maintaining a given Item within a given Site.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -1211,8 +1211,8 @@
         <secondary>defined</secondary>
       </indexterm>Location</glossterm>
     <glossdef>
-      <para>A physical location within a Warehouse for example, a bin, shelf,
-      aisle, etc. Also known as "Warehouse Location."</para>
+      <para>A physical location within a Site for example, a bin, shelf,
+      aisle, etc. Also known as "Site Location."</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -1367,7 +1367,7 @@
       </indexterm>Multiple Location Control (MLC)</glossterm>
     <glossdef>
       <para>A setting defined at the Item Site level which indicates that Item
-      quantities for an Item may be maintained in more than a single Warehouse
+      quantities for an Item may be maintained in more than a single Site
       Location.</para>
     </glossdef>
   </glossentry>
@@ -1377,7 +1377,7 @@
         <secondary>defined</secondary>
       </indexterm>netable</glossterm>
     <glossdef>
-      <para>A term used to describe Warehouse Locations. If a Location is
+      <para>A term used to describe Site Locations. If a Location is
       netable, Items stored in the Location are included in Quantity on Hand
       and Availability calculations.</para>
     </glossdef>
@@ -1388,7 +1388,7 @@
         <secondary>defined</secondary>
       </indexterm>non-netable</glossterm>
     <glossdef>
-      <para>A term used to describe Warehouse Locations. If a Location is
+      <para>A term used to describe Site Locations. If a Location is
       non-netable, Items stored in the Location are not included in Quantity
       on Hand and Availability calculations.</para>
     </glossdef>
@@ -1929,10 +1929,10 @@
         <secondary>defined</secondary>
       </indexterm>restricted</glossterm>
     <glossdef>
-      <para>A term used to describe Warehouse Locations. If a Location is
+      <para>A term used to describe Site Locations. If a Location is
       restricted, only Items specifically assigned to the Location may be
       stored there. If a Location is not restricted, it will accept any Items
-      from the same Warehouse.</para>
+      from the same Site.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -2105,7 +2105,7 @@
       </indexterm>shipping contents</glossterm>
     <glossdef>
       <para>The Inventory contained in the Shipping WIP for a given
-      Warehouse.</para>
+      Site.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -2367,7 +2367,7 @@
       work weekends, then the time buffer for that shop would typically be 15
       working days. The xTuple ERP Constraint Management system looks at the
       start and finish dates of a discrete Purchase Order or Work Order,
-      removes non-working days for the Order\qs Warehouse, and then calculates
+      removes non-working days for the Order\qs Site, and then calculates
       the time buffer.</para>
     </glossdef>
   </glossentry>
@@ -2440,9 +2440,9 @@
       </indexterm> <indexterm significance="normal">
         <primary>warehouses</primary>
         <secondary>transit defined</secondary>
-      </indexterm>Transit Warehouse</glossterm>
+      </indexterm>Transit Site</glossterm>
     <glossdef>
-      <para>A special Warehouse used by Transfer Orders used to account for
+      <para>A special Site used by Transfer Orders used to account for
       in-transit Inventory.</para>
     </glossdef>
   </glossentry>
@@ -2565,7 +2565,7 @@
     <glossterm><indexterm significance="normal">
         <primary>warehouses</primary>
         <secondary>defined</secondary>
-      </indexterm>Warehouse</glossterm>
+      </indexterm>Site</glossterm>
     <glossdef>
       <para>A physical production or storage facility.</para>
     </glossdef>
@@ -2574,9 +2574,9 @@
     <glossterm><indexterm significance="normal">
         <primary>warehouse locations</primary>
         <secondary>defined</secondary>
-      </indexterm>Warehouse Location</glossterm>
+      </indexterm>Site Location</glossterm>
     <glossdef>
-      <para>A physical location within a Warehouse for example, a bin, shelf,
+      <para>A physical location within a Site for example, a bin, shelf,
       aisle, etc. Also known as a "Location."</para>
     </glossdef>
   </glossentry>
@@ -2584,10 +2584,10 @@
     <glossterm><indexterm significance="normal">
         <primary>warehouse zones</primary>
         <secondary>defined</secondary>
-      </indexterm>Warehouse Zone</glossterm>
+      </indexterm>Site Zone</glossterm>
     <glossdef>
-      <para>A defined section or area within a Warehouse. For example,
-      separate Warehouse Zones might be designated to define areas where
+      <para>A defined section or area within a Site. For example,
+      separate Site Zones might be designated to define areas where
       Orders are selected, Picked, and Packed.</para>
     </glossdef>
   </glossentry>
@@ -2615,7 +2615,7 @@
       when building a manufactured Item. Work Centers are used by Bills of
       Operations to determine the amount of available and required
       manufacturing Capacity to produce the manufactured Item. Work Centers
-      also determine per-minute run and setup time Costs. A single Warehouse
+      also determine per-minute run and setup time Costs. A single Site
       may contain multiple Work Centers.</para>
     </glossdef>
   </glossentry>
@@ -2676,8 +2676,8 @@
         <secondary>defined</secondary>
       </indexterm>zone</glossterm>
     <glossdef>
-      <para>A defined geographic region or specific Warehouse area. See
-      Shipping Zone or Warehouse Zone.</para>
+      <para>A defined geographic region or specific Site area. See
+      Shipping Zone or Site Zone.</para>
     </glossdef>
   </glossentry>
   <!--

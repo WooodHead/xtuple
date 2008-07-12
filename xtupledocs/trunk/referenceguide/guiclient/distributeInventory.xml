@@ -3,7 +3,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
-   Distribute Stock To/From Warehouse Locations
+   Distribute Stock To/From Site Locations
   </title>
    <subtitle>distributeInventory : QDialog</subtitle>
    <para>
@@ -17,7 +17,7 @@
                <imagedata fileref="images/distributeInventory.png"/>
             </imageobject>
             <caption>
-   Distribute Stock To/From Warehouse Locations
+   Distribute Stock To/From Site Locations
   </caption>
          </mediaobject>
       </screenshot>
@@ -42,7 +42,7 @@
             </row>
               <row>
                <entry>
-                  <guilabel moreinfo="none">Warehouse:</guilabel>
+                  <guilabel moreinfo="none">Site:</guilabel>
                </entry>
                <entry>_warehouseLit</entry>
                <entry>QLabel</entry>

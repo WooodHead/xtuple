@@ -3,28 +3,28 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section600879" role="standard">
-  <title>Inter-Warehouse Transfer</title>
-  <para>To transfer quantity of an Item from one Warehouse to another, select
-  the "Inter-Warehouse Transfer" option. The following screen will
+  <title>Inter-Site Transfer</title>
+  <para>To transfer quantity of an Item from one Site to another, select
+  the "Inter-Site Transfer" option. The following screen will
   appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/transferTrans.png" />
         </imageobject>
-        <caption>Enter Inter-Warehouse Transfer</caption>
+        <caption>Enter Inter-Site Transfer</caption>
       </mediaobject>
     </screenshot></para>
   <tip>
-    <para>An Inter-Warehouse Transfer can only be executed if the specified
-    Item is located in more than one Warehouse. To add an additional Warehouse
+    <para>An Inter-Site Transfer can only be executed if the specified
+    Item is located in more than one Site. To add an additional Site
     for an Item, go to the Enter Item Sites section of the Item Sites menu.
     Locate the desired Item Number using the Item Number lookup feature. Then
-    select a new Warehouse in the "Warehouse" field. Enter all other required
+    select a new Site in the "Site" field. Enter all other required
     fields and save your results. The Item will now also be located in the
-    additional Warehouse. Repeat as often as necessary.</para>
+    additional Site. Repeat as often as necessary.</para>
   </tip>
-  <para>When creating an Inter-Warehouse Transfer, you are presented with the
+  <para>When creating an Inter-Site Transfer, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
@@ -38,7 +38,7 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item you want to transfer from one
-        Warehouse to another.</para>
+        Site to another.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -48,20 +48,20 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>From Whse</term>
+      <term>From Site</term>
       <listitem>
-        <para>Specify the source Warehouse for the transaction. If an Item is
-        located in more than one Warehouse, be sure to specify the correct
-        Warehouse you want to transfer the Item from. The "Before" column
+        <para>Specify the source Site for the transaction. If an Item is
+        located in more than one Site, be sure to specify the correct
+        Site you want to transfer the Item from. The "Before" column
         displays current Quantity on Hand for the Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>To Whse.</term>
+      <term>To Site</term>
       <listitem>
-        <para>: Specify the destination Warehouse for the transaction. If an
-        Item is located in more than one Warehouse, be sure to specify the
-        correct Warehouse you want to transfer the Item to. The "Before"
+        <para>: Specify the destination Site for the transaction. If an
+        Item is located in more than one Site, be sure to specify the
+        correct Site you want to transfer the Item to. The "Before"
         column displays current Quantity on Hand for the Item</para>
       </listitem>
     </varlistentry>
@@ -69,7 +69,7 @@
       <term>Transferred Qty.</term>
       <listitem>
         <para>The number entered will adjust the Item's Quantity on Hand in
-        both the "From" and "To" Warehouses. The values displayed in the
+        both the "From" and "To" Sites. The values displayed in the
         "After" column represent the new Quantity on Hand in each Location.
         Non-netable Quantity on Hand is not included in these values.</para>
       </listitem>
@@ -77,9 +77,9 @@
     <varlistentry>
       <term>Document #</term>
       <listitem>
-        <para>Creates a user-defined reference for the Inter-Warehouse
+        <para>Creates a user-defined reference for the Inter-Site
         Transfer. The Document reference will be posted with the General
-        Ledger (G/L) transaction record when the Inter-Warehouse Transfer is
+        Ledger (G/L) transaction record when the Inter-Site Transfer is
         generated. This field may be used for internal tracking and auditing
         purposes.</para>
       </listitem>
@@ -98,16 +98,16 @@
     <varlistentry>
       <term>CANCEL</term>
       <listitem>
-        <para>Closes the screen without posting an Inter-Warehouse Transfer,
+        <para>Closes the screen without posting an Inter-Site Transfer,
         returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>POST</term>
       <listitem>
-        <para>Posts the Inter-Warehouse Transfer. Creates two transactions,
-        one at each affected Warehouse. The Warehouse receiving Inventory is
-        credited with the new Inventory amount, while the Warehouse being
+        <para>Posts the Inter-Site Transfer. Creates two transactions,
+        one at each affected Site. The Site receiving Inventory is
+        credited with the new Inventory amount, while the Site being
         relieved of Inventory is debited. Additional steps will be necessary
         if the specified Item is stored in multiple Locations.</para>
       </listitem>
