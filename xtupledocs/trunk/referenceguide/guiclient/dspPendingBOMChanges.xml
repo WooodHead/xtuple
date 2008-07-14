@@ -35,6 +35,27 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Revision</term>
+      <listitem>
+        <para>If Revision Control is enabled at your site, specify the Bill of
+        Materials Revision Number you want to view. If none exists, simply
+        enter a value to create one. The status of the Revision will also be
+        displayed. The following statuses apply to Revisions:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Active</term>
+            <listitem>
+              <para>This is the current, default Revision used for costing and
+              Material Requirements Planning (MRP). Only one Revision can be
+              active at the same time. Active Revisions may be modified.
+              However, once a Revision becomes inactive, it may no longer be
+              changed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Cutoff Date</term>
       <listitem>
         <para>Indicates the last event date to display.</para>
@@ -70,7 +91,7 @@
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditBOM)" />
+                xpointer="element(rightclickEditBOMItem)" />
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickViewBOMItem)" />

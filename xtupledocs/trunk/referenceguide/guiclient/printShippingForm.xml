@@ -16,8 +16,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SR_Forms_printShpForm.png"
-                     />
+          <imagedata fileref="images/printShippingForm.png" />
         </imageobject>
         <caption>Print Shipping Form</caption>
       </mediaobject>
@@ -29,11 +28,10 @@
       <term>Sales Order #</term>
       <listitem>
         <para>Enter the Sales Order Number of the Sales Order whose Shipping
-        Form you want to print.</para>
-        <para>The browse button located to the right of the field leads to a
-        searchable list of Sales Orders with quantities at Shipping. Only
-        Sales Orders with quantities at Shipping will appear in the
-        list.</para>
+        Form you want to print. The browse button located to the right of the
+        field leads to a searchable list of Sales Orders with quantities at
+        Shipping. Only Sales Orders with quantities at Shipping will appear in
+        the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -43,6 +41,37 @@
     print a Shipping Form for it.</para>
   </note>
   <variablelist>
+    <varlistentry>
+      <term>Transfer Order #</term>
+      <listitem>
+        <para>Enter the Transfer Order Number of the Transfer Order whose
+        Shipping Form you want to print.</para>
+        <variablelist>
+          <varlistentry>
+            <term>From</term>
+            <listitem>
+              <para>Displays the source Site for the transfer.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>To</term>
+            <listitem>
+              <para>Displays the destination Site for the transfer.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipment #</term>
+      <listitem>
+        <para>Specify the Shipment Number you want to print a Packing List
+        for. Shipment Numbers are assigned to Orders when Line Item quantity
+        is issued to Shipping. A single Order may have multiple Shipments
+        associated with it. If no stock has ever been issued to Shipping for
+        an Order, then no Shipment Number will be associated with it.</para>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>Ship To</term>
       <listitem>
@@ -54,6 +83,12 @@
       <term>Shipping Form</term>
       <listitem>
         <para>Specify the name of the Shipping Form you want to print.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipping Charges</term>
+      <listitem>
+        <para></para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -97,8 +132,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_addWatermark.png"
-                     />
+          <imagedata fileref="images/SO_Bill_addWatermark.png" />
         </imageobject>
         <caption>Add Watermark</caption>
       </mediaobject>

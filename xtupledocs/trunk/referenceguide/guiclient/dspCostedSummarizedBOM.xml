@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section636366">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>costing</primary>
       <secondary>for summarized BOMs</secondary>
     </indexterm> <indexterm significance="normal">
@@ -15,17 +15,14 @@
   however, the top-level subassemblies themselves are excluded. To view a
   Costed summarized Bill of Materials, select the "Costed Summarized BOM"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspCostedSummarizedBOM.png"/>
+          <imagedata fileref="images/dspCostedSummarizedBOM.png" />
         </imageobject>
-        <caption>Costed Summarized Bill of
-        Materials</caption>
+        <caption>Costed Summarized Bill of Materials</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying a Costed summarized Bill of Materials, you are
   presented with the following options:</para>
   <variablelist>
@@ -43,19 +40,42 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Revision</term>
+      <listitem>
+        <para>If Revision Control is enabled at your site, specify the Bill of
+        Materials Revision Number you want to view. If none exists, simply
+        enter a value to create one. The status of the Revision will also be
+        displayed. The following statuses apply to Revisions:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Active</term>
+            <listitem>
+              <para>This is the current, default Revision used for costing and
+              Material Requirements Planning (MRP). Only one Revision can be
+              active at the same time. Active Revisions may be modified.
+              However, once a Revision becomes inactive, it may no longer be
+              changed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Show Expired Components</term>
       <listitem>
         <para>Select to cause expired components to be listed in the "Bill of
         Materials" display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Threshold Days</term>
-      <listitem>
-        <para>Select a number using the arrow buttons, or manually enter a
-        value up to a maximum of 999. Components that have been expired from
-        the Bill of Materials within the specified number of days will be
-        included in the display.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Threshold Days</term>
+            <listitem>
+              <para>Select a number using the arrow buttons, or manually enter
+              a value up to a maximum of 999. Components that have been
+              expired from the Bill of Materials within the specified number
+              of days will be included in the display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -63,15 +83,17 @@
       <listitem>
         <para>Select to cause future components to be listed in the "Bill of
         Materials" display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Threshold Days</term>
-      <listitem>
-        <para>Select a number using the arrow buttons, or manually enter a
-        value up to a maximum of 999. Components that will be added in future
-        to the Bill of Materials within the specified number of days will be
-        included in the display.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Threshold Days</term>
+            <listitem>
+              <para>Select a number using the arrow buttons, or manually enter
+              a value up to a maximum of 999. Components that will be added in
+              future to the Bill of Materials within the specified number of
+              days will be included in the display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -84,11 +106,11 @@
   <tip>
     <para>When Labor and Overhead are posted to the General Ledger, they are
     posted using their Actual Cost. This is a departure from the rule which
-    governs materials&mdash;namely, that materials are always posted using their
-    Standard Cost. Differences between Actual and Standard Labor and Overhead
-    Costs will be reflected in Inventory Cost Variances when Work Order
-    Production or Operations are posted. You can address these variances if
-    and when they occur by posting your Actual Costs to Standard.</para>
+    governs materials&mdash;namely, that materials are always posted using
+    their Standard Cost. Differences between Actual and Standard Labor and
+    Overhead Costs will be reflected in Inventory Cost Variances when Work
+    Order Production or Operations are posted. You can address these variances
+    if and when they occur by posting your Actual Costs to Standard.</para>
   </tip>
   <variablelist>
     <varlistentry>

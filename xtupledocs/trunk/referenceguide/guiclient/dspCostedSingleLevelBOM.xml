@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519987">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>costing</primary>
       <secondary>for single level BOMs</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,17 +12,14 @@
     </indexterm>Costed Single Level BOM</title>
   <para>To view Costs for a single level Bill of Materials, select the "Costed
   Single Level BOM" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspCostedSingleLevelBOM.png"/>
+          <imagedata fileref="images/dspCostedSingleLevelBOM.png" />
         </imageobject>
-        <caption>Costed Single Level Bill of
-        Materials</caption>
+        <caption>Costed Single Level Bill of Materials</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Costs for a single level Bill of Materials, you are
   presented with the following options:</para>
   <variablelist>
@@ -41,23 +38,44 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Revision</term>
+      <listitem>
+        <para>If Revision Control is enabled at your site, specify the Bill of
+        Materials Revision Number you want to view. If none exists, simply
+        enter a value to create one. The status of the Revision will also be
+        displayed. The following statuses apply to Revisions:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Active</term>
+            <listitem>
+              <para>This is the current, default Revision used for costing and
+              Material Requirements Planning (MRP). Only one Revision can be
+              active at the same time. Active Revisions may be modified.
+              However, once a Revision becomes inactive, it may no longer be
+              changed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Use Standard Costs</term>
       <listitem>
         <para>Select to display Standard Costs for the specified Item. Both
         the Unit Cost and Extended Cost for each component Item, expressed in
-        terms of Standard Cost, will display&mdash;assuming Standard Costs have
-        been defined for each component Item.</para>
+        terms of Standard Cost, will display&mdash;assuming Standard Costs
+        have been defined for each component Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
     <para>When Labor and Overhead are posted to the General Ledger, they are
     posted using their Actual Cost. This is a departure from the rule which
-    governs materials&mdash;namely, that materials are always posted using their
-    Standard Cost. Differences between Actual and Standard Labor and Overhead
-    Costs will be reflected in Inventory Cost Variances when Work Order
-    Production or Operations are posted. You can address these variances if
-    and when they occur by posting your Actual Costs to Standard.</para>
+    governs materials&mdash;namely, that materials are always posted using
+    their Standard Cost. Differences between Actual and Standard Labor and
+    Overhead Costs will be reflected in Inventory Cost Variances when Work
+    Order Production or Operations are posted. You can address these variances
+    if and when they occur by posting your Actual Costs to Standard.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -65,8 +83,8 @@
       <listitem>
         <para>Select to display Actual Costs for the specified Item. Both the
         Unit Cost and Extended Cost for each component Item, expressed in
-        terms of Actual Cost, will display&mdash;assuming Actual Costs have been
-        defined for each component Item.</para>
+        terms of Actual Cost, will display&mdash;assuming Actual Costs have
+        been defined for each component Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -127,8 +145,14 @@
   <para>Right-clicking on a component in the Costed Bill of Materials list
   enables you to select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickMaintainItemCosts)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewItemCosting)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickMaintainItemCosts)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewItemCosting)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>
