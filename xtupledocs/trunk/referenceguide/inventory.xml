@@ -79,7 +79,7 @@
     <xi:include href="guiclient/enterMiscCount.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <xi:include href="guiclient/zeroUncountedCountTagsBySite.xml"
+    <xi:include href="guiclient/zeroUncountedCountTagsByWarehouse.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
     <xi:include href="guiclient/thawItemSitesByClassCode.xml"
@@ -110,7 +110,7 @@
       <xi:include href="guiclient/dspCountTagEditList.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
-      <xi:include href="guiclient/dspCountSlipsBySite.xml"
+      <xi:include href="guiclient/dspCountSlipsByWarehouse.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
       <section>
@@ -119,7 +119,7 @@
         <xi:include href="guiclient/dspCountTagsByItem.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1)" />
-        <xi:include href="guiclient/dspCountTagsBySite.xml"
+        <xi:include href="guiclient/dspCountTagsByWarehouse.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1)" />
         <xi:include href="guiclient/dspCountTagsByClassCode.xml"
@@ -223,7 +223,7 @@
                     xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1)" />
       </section>
-      <xi:include href="guiclient/dspSummarizedBacklogBySite.xml"
+      <xi:include href="guiclient/dspSummarizedBacklogByWarehouse.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
       <section>
@@ -393,7 +393,7 @@
     <section>
       <title>Usage Statistics</title>
       <para>Usage statistics Reports section.</para>
-      <xi:include href="guiclient/dspUsageStatisticsBySite.xml"
+      <xi:include href="guiclient/dspUsageStatisticsByWarehouse.xml"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(/1)" />
       <xi:include href="guiclient/dspUsageStatisticsByClassCode.xml"
@@ -437,7 +437,7 @@
   <section id="Section652128" role="standard">
     <title>Lot/Serial Control</title>
     <para>Section contains information on Items whose Item Site control method
-    is either Lot or Serial. </para>
+    is either Lot or Serial.</para>
     <xi:include href="guiclient/dspInventoryLocator.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />

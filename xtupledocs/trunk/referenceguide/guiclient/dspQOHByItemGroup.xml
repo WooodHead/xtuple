@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section614864">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>quantity on hand</primary>
       <secondary>by class code</secondary>
     </indexterm> <indexterm significance="normal">
@@ -15,16 +15,14 @@
     </indexterm>Quantities on Hand by Item Group</title>
   <para>To view Quantities on Hand by Item Group, select the "Quantities on
   Hand by Item Group" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspQOHByItemGroup.png"/>
+          <imagedata fileref="images/dspQOHByItemGroup.png" />
         </imageobject>
         <caption>Quantities on Hand by Item Group</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Quantities on Hand by Item Group, you are presented
   with the following options:</para>
   <variablelist>
@@ -58,8 +56,8 @@
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Site whose Quantities on Hand by Item Group you
-        want to display.</para>
+        <para>Specify Site whose Quantities on Hand by Item Group you want to
+        display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -163,11 +161,23 @@
   <para>Right-clicking on an Item in the Quantities on Hand list enables you
   to select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickTransfertoanotherSite)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickAdjustthisQOH)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickResetthisQOHto0)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditMisc.Count)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickIssueCountTag)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickTransfertoanotherWarehouse)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickAdjustthisQOH)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickResetthisQOHto0)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditMisc.Count)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueCountTag)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>
