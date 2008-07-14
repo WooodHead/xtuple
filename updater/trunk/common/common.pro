@@ -73,6 +73,7 @@ HEADERS = package.h \
           loadable.h \
           loadappscript.h \
           loadappui.h \
+          loadcmd.h \
           loadimage.h \
           loadpriv.h \
           loadreport.h \
@@ -84,6 +85,7 @@ SOURCES = package.cpp \
           loadable.cpp \
           loadappscript.cpp \
           loadappui.cpp \
+          loadcmd.cpp \
           loadimage.cpp \
           loadpriv.cpp \
           loadreport.cpp \

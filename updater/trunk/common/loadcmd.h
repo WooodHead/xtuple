@@ -55,28 +55,38 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#ifndef __LOADPRIV_H__
-#define __LOADPRIV_H__
+#ifndef __LOADCMD_H__
+#define __LOADCMD_H__
 
+#include <QStringList>
 #include "loadable.h"
 
-class LoadPriv : public Loadable
+class LoadCmd : public Loadable
 {
   public:
-    LoadPriv(const QString &nodename,
-             const QString &name, const QString &module = "Custom",
-             const bool system = false, const QString &descrip = QString::null);
-    LoadPriv(const QDomElement &);
+    LoadCmd(const QString &nodename, const QString &name,
+            const QString &module, const QString &title,
+            const QString &privname, const QString &executable,
+            const QStringList &args = QStringList(),
+            const QString &descrip = QString::null);
+    LoadCmd(const QDomElement &);
 
     virtual QDomElement createElement(QDomDocument &doc);
 
-    virtual bool isValid()  const { return !_name.isEmpty() && !_module.isEmpty(); }
+    virtual bool isValid()  const { return !_name.isEmpty()
+                                        && !_title.isEmpty()
+                                        && !_executable.isEmpty(); }
 
-    virtual int writeToDB(const QByteArray &, const QString pkgname, QString &errMsg) { return writeToDB(pkgname, errMsg); }
+    virtual int writeToDB(const QByteArray &, const QString pkgname,
+                          QString &errMsg) { return writeToDB(pkgname, errMsg); }
     virtual int writeToDB(const QString pkgname, QString &errMsg);
 
   protected:
-    QString _module;
+    QStringList _args;
+    QString     _executable;
+    QString     _module;
+    QString     _privname;
+    QString     _title;
 };
 
 #endif

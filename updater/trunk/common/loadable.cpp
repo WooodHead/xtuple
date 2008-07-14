@@ -109,7 +109,7 @@ Loadable::Loadable(const QDomElement & elem)
     }
   }
 
-  _comment  = elem.text();
+  _comment = elem.text().trimmed();
 }
 
 Loadable::~Loadable()

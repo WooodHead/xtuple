@@ -66,6 +66,7 @@ class QDomElement;
 
 class LoadAppScript;
 class LoadAppUI;
+class LoadCmd;
 class LoadImage;
 class LoadPriv;
 class LoadReport;
@@ -92,6 +93,7 @@ class Package
 
     QList<LoadAppScript> _appscripts;
     QList<LoadAppUI>     _appuis;
+    QList<LoadCmd>       _cmds;
     QList<LoadImage>     _images;
     QList<LoadPriv>      _privs;
     QList<Prerequisite>  _prerequisites;
@@ -100,6 +102,7 @@ class Package
 
     bool containsAppScript(const QString &name)     const;
     bool containsAppUI(const QString &name)         const;
+    bool containsCmd(const QString & name)          const;
     bool containsImage(const QString &name)         const;
     bool containsPriv(const QString & name)         const;
     bool containsReport(const QString & name)       const;

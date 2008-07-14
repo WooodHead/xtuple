@@ -66,26 +66,22 @@
 #include "loadable.h"
 
 LoadPriv::LoadPriv(const QString &nodename,
-                       const QString &name, const QString &module,
-                       const bool system, const QString &comment)
+                   const QString &name, const QString &module,
+                   const bool system, const QString &comment)
   : Loadable(nodename, name, 0, system, comment)
 {
-  _module  = module;
+  _module = module;
+  if (_module == "Custom" && ! _name.startsWith("Custom"))
+    _name = "Custom" + _name;
 }
 
 LoadPriv::LoadPriv(const QDomElement &elem)
   : Loadable(elem)
 {
-  if (! elem.hasAttribute("module"))
-  {
-    QMessageBox::warning(0, "Improper call to LoadPriv(QDomElement)",
-                         QString("Node %1 '%2' does not specify a module. "
-                                 "This privilege will be created but will not "
-                                 "be assignable through Maintain Users.")
-                         .arg(elem.nodeName()).arg(elem.attribute("name")));
-  }
-  else
+  if (elem.hasAttribute("module"))
     _module = elem.attribute("module");
+  else
+    _module = "Custom";
 }
 
 QDomElement LoadPriv::createElement(QDomDocument &doc)

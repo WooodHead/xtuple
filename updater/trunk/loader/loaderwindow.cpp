@@ -72,6 +72,7 @@
 #include <gunzip.h>
 #include <loadappscript.h>
 #include <loadappui.h>
+#include <loadcmd.h>
 #include <loadimage.h>
 #include <loadpriv.h>
 #include <loadreport.h>
@@ -650,6 +651,28 @@ void LoaderWindow::sStart()
     _progress->setValue(_progress->value() + 1);
   }
   _text->append(tr("<p>Completed importing Application Script definitions.</p>"));
+
+  _status->setText(tr("<p><b>Updating Custom Commands</b></p>"));
+  _text->append(tr("<p>Loading new Custom Commands...</p>"));
+  for(QList<LoadCmd>::iterator i = _package->_cmds.begin();
+      i != _package->_cmds.end(); ++i)
+  {
+    LoadCmd cmd = *i;
+    if (cmd.writeToDB(_package->name(), errMsg) >= 0)
+      _text->append(tr("Import of %1 was successful.").arg(cmd.name()));
+    else
+    {
+      _text->append(errMsg);
+      qry.exec("rollback;");
+      if(!_multitrans && !_premultitransfile)
+      {
+        _text->append(rollbackMsg);
+        return;
+      }
+    }
+    _progress->setValue(_progress->value() + 1);
+  }
+  _text->append(tr("<p>Completed importing new Custom Commands.</p>"));
 
   _status->setText(tr("<p><b>Updating Image Definitions</b></p>"));
   _text->append(tr("<p>Loading Image definitions...</p>"));

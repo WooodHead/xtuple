@@ -64,10 +64,11 @@
 #include <QSqlQuery>
 #include <QVariant>
 
-#include "loadpriv.h"
+#include "loadcmd.h"
 #include "loadappscript.h"
 #include "loadappui.h"
 #include "loadimage.h"
+#include "loadpriv.h"
 #include "loadreport.h"
 #include "prerequisite.h"
 #include "script.h"
@@ -138,6 +139,11 @@ Package::Package(const QDomElement & elem)
       LoadAppScript appscript(elemThis);
       _appscripts.append(appscript);
     }
+    else if(elemThis.tagName() == "loadcmd")
+    {
+      LoadCmd cmd(elemThis);
+      _cmds.append(cmd);
+    }
     else if(elemThis.tagName() == "loadimage")
     {
       LoadImage image(elemThis);
@@ -188,6 +194,9 @@ QDomElement Package::createElement(QDomDocument & doc)
 
   for(QList<LoadAppScript>::iterator i = _appscripts.begin();
       i != _appscripts.end(); ++i)
+    elem.appendChild((*i).createElement(doc));
+
+  for(QList<LoadCmd>::iterator i = _cmds.begin(); i != _cmds.end(); ++i)
     elem.appendChild((*i).createElement(doc));
 
   for (QList<LoadImage>::iterator i = _images.begin(); i != _images.end(); ++i)
@@ -255,6 +264,17 @@ bool Package::containsImage(const QString &pname) const
 {
   QList<LoadImage>::const_iterator it = _images.begin();
   for(; it != _images.end(); ++it)
+  {
+    if((*it).name() == pname)
+      return true;
+  }
+  return false;
+}
+
+bool Package::containsCmd(const QString &pname) const
+{
+  QList<LoadCmd>::const_iterator it = _cmds.begin();
+  for(; it != _cmds.end(); ++it)
   {
     if((*it).name() == pname)
       return true;
