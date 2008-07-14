@@ -23,7 +23,7 @@ BEGIN
                    cohead_billtozipcode, cust_phone,
                    cohead_billtocountry,
                    cohead_salesrep_id, cohead_commission,
-                   cohead_tax_id, cohead_terms_id,
+                   cohead_terms_id,
                    cobmisc_misc_accnt_id,
                    cohead_prj_id, cobmisc_curr_id,
                    cobmisc_taxauth_id, cobmisc_tax_curr_id,
@@ -60,7 +60,7 @@ BEGIN
                    cohead_billtozipcode, cust_phone,
                    cohead_billtocountry,
                    cohead_salesrep_id, cohead_commission,
-                   cohead_tax_id, cohead_terms_id,
+                   cohead_terms_id,
                    cobmisc_misc_accnt_id,
                    cohead_prj_id, cobmisc_curr_id,
                    cobmisc_taxauth_id, cobmisc_tax_curr_id,
@@ -152,7 +152,6 @@ BEGIN
                  AND (COALESCE(cohead_billtocountry,'')      = COALESCE(_c.cohead_billtocountry,''))
                  AND (COALESCE(cohead_salesrep_id, 0)        = COALESCE(_c.cohead_salesrep_id, 0))
                  AND (COALESCE(cohead_commission, 0)         = COALESCE(_c.cohead_commission, 0))
-                 AND (COALESCE(cohead_tax_id, 0)             = COALESCE(_c.cohead_tax_id, 0))
                  AND (COALESCE(cohead_terms_id, 0)           = COALESCE(_c.cohead_terms_id, 0))
                  AND (COALESCE(cobmisc_misc_accnt_id, 0)     = COALESCE(_c.cobmisc_misc_accnt_id, 0))
                  AND (COALESCE(cohead_prj_id, 0)             = COALESCE(_c.cohead_prj_id, 0))
