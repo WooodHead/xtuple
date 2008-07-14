@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section537828" role="openmfg">
   <title>Run MRP by Item</title>
   <para>When you run MRP by Item, you are running the Material Requirements
@@ -8,8 +9,8 @@
   meet existing Sales Order and Work Order demand. Replenishment Orders will
   be created whenever a Planned Availability for an Item Site falls below its
   Reorder Level. The quantity of the Replenishment Order will be enough to
-  restore Planned Availability back to the Reorder Level&mdash;or to the Order Up
-  To (OUT) Level, if the OUT Level is greater.</para>
+  restore Planned Availability back to the Reorder Level&mdash;or to the Order
+  Up To (OUT) Level, if the OUT Level is greater.</para>
   <tip>
     <para>When running MRP by Item for manufactured Items, the system
     generates Planned Work Orders only. If you want to also generate Planned
@@ -18,16 +19,14 @@
   </tip>
   <para>To run MRP for an individual Item, select the "Run MRP by Item"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/createPlannedOrdersByItem.png"/>
+          <imagedata fileref="images/createPlannedOrdersByItem.png" />
         </imageobject>
         <caption>Run MRP by Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>The system deletes any non-firmed Planned Orders when MRP is run. If
     demand for the deleted Planned Orders still exists, the Orders will be
@@ -66,19 +65,24 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term>Explode Children</term>
+      <listitem>
+        <para>Select to explode any child Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
           <primary>firmed orders</primary>
           <secondary>deletion of</secondary>
         </indexterm>Delete Existing Firmed MRP Orders</term>
       <listitem>
-        <para>Firmed MRP Orders: Select to delete existing Firmed Orders. A
-        firm Planned Order is a Planned Order that has been solidified in the
-        schedule. By default, firm Planned Orders are not deleted when MRP is
-        run. Selecting this option overrides that default behavior. If firm
-        Planned Orders are deleted when MRP is run, they will automatically be
-        replaced by soft (i.e., non-firmed) Planned Orders, assuming the
-        demand for the requirements still exists.</para>
+        <para>Select to delete existing Firmed Orders. A firm Planned Order is
+        a Planned Order that has been solidified in the schedule. By default,
+        firm Planned Orders are not deleted when MRP is run. Selecting this
+        option overrides that default behavior. If firm Planned Orders are
+        deleted when MRP is run, they will automatically be replaced by soft
+        (i.e., non-firmed) Planned Orders, assuming the demand for the
+        requirements still exists.</para>
       </listitem>
     </varlistentry>
   </variablelist>

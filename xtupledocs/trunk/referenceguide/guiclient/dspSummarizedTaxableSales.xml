@@ -1,82 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section545195">
-      <title>
-          
-         <indexterm significance="normal">
-            <primary>sales</primary>
-            <secondary>taxable summarized</secondary>
-         </indexterm>Summarized Taxable Sales</title>
-      <para>The Summarized Taxable Sales display enables you to
-    determine the amount of sales Tax you have billed over a given period of
-    time. To view a summary of taxable sales, select the "Summarized Taxable
-    Sales" option from the "Displays" menu. The following screen will
-    appear:</para>
-      <para>
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/dspSummarizedTaxableSales.png"/>
-               </imageobject>
-               <caption>Summarized Taxable Sales</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para>When displaying summarized taxable sales, you are
-    presented with the following options:</para>
-      <variablelist>
-         <varlistentry>
-            <term>All Tax Codes</term>
-            <listitem>
-               <para>Select to display summarized taxable Sales for all Tax
-          Codes.</para>
-            </listitem>
-         </varlistentry>
-         <varlistentry>
-            <term>Selected</term>
-            <listitem>
-               <para>Specify Tax Code whose summarized taxable Sales you want to
-          display.</para>
-            </listitem>
-         </varlistentry>
-         <varlistentry>
-            <term>Start Ship Date</term>
-            <listitem>
-               <para>Taxable sales transactions occurring on or after this date
-          will display.</para>
-            </listitem>
-         </varlistentry>
-         <varlistentry>
-            <term>End Ship Date</term>
-            <listitem>
-               <para>Taxable sales transactions occurring on or before this date
-          will display.</para>
-            </listitem>
-         </varlistentry>
-         <varlistentry>
-            <term>Summarized Sales</term>
-            <listitem>
-               <para>Display lists summarized sales using the specified
-          parameters.</para>
-            </listitem>
-         </varlistentry>
-      </variablelist>
-      <para>To the far right of the screen, the following
-    buttons are available:</para>
-      <variablelist>
-         <varlistentry>
-            <term>CLOSE</term>
-            <listitem>
-               <para>Closes the screen, returning you to the application
-          desktop.</para>
-            </listitem>
-         </varlistentry>
-         <varlistentry>
-            <term>PRINT</term>
-            <listitem>
-               <para>Runs the report associated with this screen.</para>
-            </listitem>
-         </varlistentry>
-      </variablelist>
-   </section>
+  <title><indexterm significance="normal">
+      <primary>sales</primary>
+      <secondary>taxable summarized</secondary>
+    </indexterm>Summarized Taxable Sales</title>
+  <para>The Summarized Taxable Sales display enables you to determine the
+  amount of sales Tax you have billed over a given period of time. To view a
+  summary of taxable sales, select the "Summarized Taxable Sales" option from
+  the "Displays" menu. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspSummarizedTaxableSales.png" />
+        </imageobject>
+        <caption>Summarized Taxable Sales</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying summarized taxable sales, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Tax Codes</term>
+      <listitem>
+        <para>Select to display summarized taxable Sales for all Tax
+        Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Tax Code whose summarized taxable Sales you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Ship Date</term>
+      <listitem>
+        <para>Taxable sales transactions occurring on or after this date will
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Ship Date</term>
+      <listitem>
+        <para>Taxable sales transactions occurring on or before this date will
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Summarized Sales</term>
+      <listitem>
+        <para>Display lists summarized sales using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified parameters.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

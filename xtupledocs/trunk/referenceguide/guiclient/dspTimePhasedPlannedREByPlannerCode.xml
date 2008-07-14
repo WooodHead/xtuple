@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518925" role="openmfg">
   <title>Time-Phased Planned Revenue/Expenses by Planner Code</title>
   <para>To view time-phased planned Revenue/Expenses by Planner Code, select
   the "Time-Phased Planned Revenue/Expenses by Planner Code" option. The
   following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspTimePhasedPlannedREByPlannerCode.png"/>
+          <imagedata fileref="images/dspTimePhasedPlannedREByPlannerCode.png" />
         </imageobject>
-        <caption>Time-Phased Planned Revenue/Expenses by
-        Planner Code</caption>
+        <caption>Time-Phased Planned Revenue/Expenses by Planner
+        Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying time-phased planned Revenue/Expenses by Planner Code,
   you are presented with the following options:</para>
   <variablelist>
@@ -42,20 +41,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>All Sites</term>
-      <listitem>
-        <para>Select to display time-phased planned Revenue/Expenses by
-        Planner Code for all Sites.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected</term>
-      <listitem>
-        <para>Specify Site whose time-phased planned Revenue/Expenses by
-        Planner Code you want to display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Costs</term>
       <listitem>
         <para>Sort the information using one of the following costing
@@ -77,6 +62,20 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display time-phased planned Revenue/Expenses by
+        Planner Code for all Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose time-phased planned Revenue/Expenses by
+        Planner Code you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Sales Price</term>
       <listitem>
         <para>Sort the information using one of the following pricing
@@ -93,20 +92,22 @@
             <listitem>
               <para>Select to display Average Price. Average Price is based on
               the Item's average selling Price.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Start Evaluation Date</term>
-            <listitem>
-              <para>Specify date to start evaluating average Price. This is a
-              required field.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>End Evaluation Date</term>
-            <listitem>
-              <para>Specify date to stop evaluating average Price. This is a
-              required field.</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Start Evaluation Date</term>
+                  <listitem>
+                    <para>Specify date to start evaluating average Price. This
+                    is a required field.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>End Evaluation Date</term>
+                  <listitem>
+                    <para>Specify date to stop evaluating average Price. This
+                    is a required field.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
             </listitem>
           </varlistentry>
         </variablelist>
