@@ -72,7 +72,7 @@ BEGIN
     cohead_shiptocity, cohead_shiptostate, cohead_shiptozipcode,
     cohead_shiptocountry,
     cohead_salesrep_id, cohead_commission,
-    cohead_tax_id, cohead_terms_id, cohead_shipchrg_id, cohead_shipform_id,
+    cohead_terms_id, cohead_shipchrg_id, cohead_shipform_id,
     cohead_fob, cohead_shipvia,
     cohead_ordercomments, cohead_shipcomments,
     cohead_freight, cohead_misc, cohead_misc_accnt_id, cohead_misc_descrip,
@@ -90,7 +90,7 @@ BEGIN
          quhead_shiptocity, quhead_shiptostate, quhead_shiptozipcode,
          quhead_shiptocountry,
          quhead_salesrep_id, quhead_commission,
-         quhead_tax_id, quhead_terms_id, cust_shipchrg_id, cust_shipform_id,
+         quhead_terms_id, cust_shipchrg_id, cust_shipform_id,
          quhead_fob, quhead_shipvia,
          quhead_ordercomments, quhead_shipcomments,
          quhead_freight, quhead_misc, quhead_misc_accnt_id, quhead_misc_descrip,
@@ -102,7 +102,7 @@ BEGIN
 
   FOR _r IN SELECT quitem.*,
                    quhead_number, quhead_prj_id,
-                   itemsite_leadtime, item_type
+                   itemsite_item_id, itemsite_leadtime, item_type
             FROM quhead, quitem, itemsite, item
             WHERE ( (quitem_quhead_id=quhead_id)
              AND (quitem_itemsite_id=itemsite_id)
@@ -147,7 +147,7 @@ BEGIN
       coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
       coitem_qty_uom_id, coitem_qty_invuomratio,
       coitem_price_uom_id, coitem_price_invuomratio,
-      coitem_order_type, coitem_order_id,
+      coitem_order_type, coitem_order_id, coitem_unitcost,
       coitem_custpn, coitem_memo, coitem_prcost, coitem_tax_id )
     VALUES
     ( _soitemid, _soheadid, _r.quitem_linenumber, _r.quitem_itemsite_id,
@@ -156,7 +156,7 @@ BEGIN
       _r.quitem_qtyord, 0, 0,
       _r.quitem_qty_uom_id, _r.quitem_qty_invuomratio,
       _r.quitem_price_uom_id, _r.quitem_price_invuomratio,
-      _ordertype, _orderid,
+      _ordertype, _orderid, stdcost(_r.itemsite_item_id),
       _r.quitem_custpn, _r.quitem_memo, _r.quitem_prcost, _r.quitem_tax_id );
 
     INSERT INTO charass
