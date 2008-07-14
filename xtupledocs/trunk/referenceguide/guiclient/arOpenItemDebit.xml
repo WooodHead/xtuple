@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section543516">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>debit memos</primary>
       <secondary>entering new</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>accounts receivable</primary>
       <secondary>entering debit memos for</secondary>
     </indexterm>New Misc. Debit Memo</title>
-  <para>A miscellaneous Debit Memo is like an Invoice&mdash;the main difference
-  being that a miscellaneous Debit Memo is not necessarily linked to a Sales
-  Order. To enter a miscellaneous Debit Memo, select the "Enter Misc. Debit
-  Memo" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>A miscellaneous Debit Memo is like an Invoice&mdash;the main
+  difference being that a miscellaneous Debit Memo is not necessarily linked
+  to a Sales Order. To enter a miscellaneous Debit Memo, select the "Enter
+  Misc. Debit Memo" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/arOpenItemDebit.png"/>
+          <imagedata fileref="images/arOpenItemDebit.png" />
         </imageobject>
         <caption>Enter Miscellaneous Debit Memo</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When entering a miscellaneous Debit Memo, you are presented with the
   following options:</para>
   <variablelist>
@@ -101,20 +99,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Commission Due</term>
-      <listitem>
-        <para>Displays the amount of the commission due to the associated
-        Sales Representative.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Commission Paid</term>
-      <listitem>
-        <para>Displays the amount of the commission paid to the associated
-        Sales Representative.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Amount</term>
       <listitem>
         <para>Specify the amount of the miscellaneous Debit Memo.</para>
@@ -132,6 +116,20 @@
       <listitem>
         <para>Displays the remaining amount still available to apply for the
         miscellaneous Debit Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commission Due</term>
+      <listitem>
+        <para>Displays the amount of the commission due to the associated
+        Sales Representative.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commission Paid</term>
+      <listitem>
+        <para>Displays the amount of the commission paid to the associated
+        Sales Representative.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

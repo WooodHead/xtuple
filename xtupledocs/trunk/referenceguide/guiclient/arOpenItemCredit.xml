@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524413">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>credit memos</primary>
       <secondary>entering for receivables</secondary>
     </indexterm> <indexterm significance="normal">
@@ -18,16 +18,14 @@
     </indexterm>New Misc. Credit Memo</title>
   <para>To enter a miscellaneous Credit Memo, select the "Enter Misc. Credit
   Memo" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/arOpenItemCredit.png"/>
+          <imagedata fileref="images/arOpenItemCredit.png" />
         </imageobject>
         <caption>Enter Miscellaneous Credit Memo</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>Miscellaneous A/R Credit Memos can be applied to Invoices or
     miscellaneous A/R Debit Memos.</para>
@@ -109,20 +107,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Commission Due</term>
-      <listitem>
-        <para>Displays the amount of the commission due to the associated
-        Sales Representative.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Commission Paid</term>
-      <listitem>
-        <para>Displays the amount of the commission paid to the associated
-        Sales Representative.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Amount</term>
       <listitem>
         <para>Specify the amount of the miscellaneous Credit Memo.</para>
@@ -140,6 +124,20 @@
       <listitem>
         <para>Displays the remaining amount still available to apply for the
         miscellaneous Credit Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commission Due</term>
+      <listitem>
+        <para>Displays the amount of the commission due to the associated
+        Sales Representative.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commission Paid</term>
+      <listitem>
+        <para>Displays the amount of the commission paid to the associated
+        Sales Representative.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
