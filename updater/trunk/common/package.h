@@ -64,10 +64,10 @@
 class QDomDocument;
 class QDomElement;
 
-class CreatePriv;
 class LoadAppScript;
 class LoadAppUI;
 class LoadImage;
+class LoadPriv;
 class LoadReport;
 class Prerequisite;
 class Script;
@@ -93,7 +93,7 @@ class Package
     QList<LoadAppScript> _appscripts;
     QList<LoadAppUI>     _appuis;
     QList<LoadImage>     _images;
-    QList<CreatePriv>    _privs;
+    QList<LoadPriv>      _privs;
     QList<Prerequisite>  _prerequisites;
     QList<Script>        _scripts;
     QList<LoadReport>    _reports;

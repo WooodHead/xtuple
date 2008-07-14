@@ -55,18 +55,18 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#ifndef __CREATEPRIV_H__
-#define __CREATEPRIV_H__
+#ifndef __LOADPRIV_H__
+#define __LOADPRIV_H__
 
 #include "loadable.h"
 
-class CreatePriv : public Loadable
+class LoadPriv : public Loadable
 {
   public:
-    CreatePriv(const QString &nodename,
-               const QString &name, const QString &module,
-               const bool system = false, const QString &descrip = QString::null);
-    CreatePriv(const QDomElement &);
+    LoadPriv(const QString &nodename,
+             const QString &name, const QString &module,
+             const bool system = false, const QString &descrip = QString::null);
+    LoadPriv(const QDomElement &);
 
     virtual QDomElement createElement(QDomDocument &doc);
 

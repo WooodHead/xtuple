@@ -100,7 +100,7 @@ Loadable::Loadable(const QDomElement & elem)
     else
     {
       _system = false;
-      QMessageBox::warning(0, "Improper call to CreatePriv(QDomElement)",
+      QMessageBox::warning(0, "Improper call to Loadable(QDomElement)",
                            QString("Node %1 '%2' has an improper value for the "
                                    "'system' attribute (%3). Defaulting to "
                                    "false.")

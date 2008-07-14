@@ -64,7 +64,7 @@
 #include <QSqlQuery>
 #include <QVariant>
 
-#include "createpriv.h"
+#include "loadpriv.h"
 #include "loadappscript.h"
 #include "loadappui.h"
 #include "loadimage.h"
@@ -113,9 +113,9 @@ Package::Package(const QDomElement & elem)
       Prerequisite prereq(elemThis);
       _prerequisites.append(prereq);
     }
-    else if(elemThis.tagName() == "createpriv")
+    else if(elemThis.tagName() == "loadpriv")
     {
-      CreatePriv priv(elemThis);
+      LoadPriv priv(elemThis);
       _privs.append(priv);
     }
     else if(elemThis.tagName() == "script")
@@ -173,7 +173,7 @@ QDomElement Package::createElement(QDomDocument & doc)
       i != _prerequisites.end(); ++i)
     elem.appendChild((*i).createElement(doc));
 
-  for(QList<CreatePriv>::iterator i = _privs.begin(); i != _privs.end(); ++i)
+  for(QList<LoadPriv>::iterator i = _privs.begin(); i != _privs.end(); ++i)
     elem.appendChild((*i).createElement(doc));
 
   for(QList<Script>::iterator i = _scripts.begin(); i != _scripts.end(); ++i)
@@ -264,7 +264,7 @@ bool Package::containsImage(const QString &pname) const
 
 bool Package::containsPriv(const QString &pname) const
 {
-  QList<CreatePriv>::const_iterator it = _privs.begin();
+  QList<LoadPriv>::const_iterator it = _privs.begin();
   for(; it != _privs.end(); ++it)
   {
     if((*it).name() == pname)

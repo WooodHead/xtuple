@@ -55,7 +55,7 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#include "createpriv.h"
+#include "loadpriv.h"
 
 #include <QDomDocument>
 #include <QMessageBox>
@@ -65,7 +65,7 @@
 
 #include "loadable.h"
 
-CreatePriv::CreatePriv(const QString &nodename,
+LoadPriv::LoadPriv(const QString &nodename,
                        const QString &name, const QString &module,
                        const bool system, const QString &comment)
   : Loadable(nodename, name, 0, system, comment)
@@ -73,12 +73,12 @@ CreatePriv::CreatePriv(const QString &nodename,
   _module  = module;
 }
 
-CreatePriv::CreatePriv(const QDomElement &elem)
+LoadPriv::LoadPriv(const QDomElement &elem)
   : Loadable(elem)
 {
   if (! elem.hasAttribute("module"))
   {
-    QMessageBox::warning(0, "Improper call to CreatePriv(QDomElement)",
+    QMessageBox::warning(0, "Improper call to LoadPriv(QDomElement)",
                          QString("Node %1 '%2' does not specify a module. "
                                  "This privilege will be created but will not "
                                  "be assignable through Maintain Users.")
@@ -88,9 +88,9 @@ CreatePriv::CreatePriv(const QDomElement &elem)
     _module = elem.attribute("module");
 }
 
-QDomElement CreatePriv::createElement(QDomDocument &doc)
+QDomElement LoadPriv::createElement(QDomDocument &doc)
 {
-  QDomElement elem = doc.createElement("createpriv");
+  QDomElement elem = doc.createElement("loadpriv");
   elem.setAttribute("name", _name);
   elem.setAttribute("module", _module);
   elem.setAttribute("system", _system);
@@ -101,7 +101,7 @@ QDomElement CreatePriv::createElement(QDomDocument &doc)
   return elem;
 }
 
-int CreatePriv::writeToDB(const QString pkgname, QString &errMsg)
+int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
 {
   QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
                                   "encountered while trying to import %1 into "

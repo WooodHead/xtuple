@@ -70,10 +70,10 @@
 #include <QTimerEvent>
 
 #include <gunzip.h>
-#include <createpriv.h>
 #include <loadappscript.h>
 #include <loadappui.h>
 #include <loadimage.h>
+#include <loadpriv.h>
 #include <loadreport.h>
 #include <package.h>
 #include <prerequisite.h>
@@ -82,6 +82,8 @@
 #include <xsqlquery.h>
 
 #include "data.h"
+
+#define DEBUG false
 
 LoaderWindow::LoaderWindow(QWidget* parent, const char* name, Qt::WindowFlags fl)
     : QMainWindow(parent, fl)
@@ -311,17 +313,23 @@ void LoaderWindow::fileOpen()
 			       "to"
 			       "[1-9][0-9][0-9]((alpha|beta|rc)[1-9])?.gz$")))
   {
-    qDebug("%s", destver.toAscii().data());
+    if (DEBUG)
+      qDebug("%s", destver.toAscii().data());
     destver.remove(QRegExp(".*/?[12][0123][0-9]((alpha|beta|rc)[1-9])?to"));
-    qDebug("%s", destver.toAscii().data());
+    if (DEBUG)
+      qDebug("%s", destver.toAscii().data());
     destver.remove(QRegExp("((alpha|beta|rc)[1-9])?.gz$"));
-    qDebug("%s", destver.toAscii().data());
+    if (DEBUG)
+      qDebug("%s", destver.toAscii().data());
     // now destver is just the destination release #
     if (destver.toInt() < 230)
       _premultitransfile = true;
   }
   else
-    qDebug("not one of our old files");
+  {
+    if (DEBUG)
+      qDebug("not one of our old files");
+  }
 
   _start->setEnabled(true);
 }
@@ -453,10 +461,10 @@ void LoaderWindow::sStart()
 
   _status->setText(tr("<p><b>Updating Privileges</b></p>"));
   _text->append(tr("<p>Loading new Privileges...</p>"));
-  for(QList<CreatePriv>::iterator i = _package->_privs.begin();
+  for(QList<LoadPriv>::iterator i = _package->_privs.begin();
       i != _package->_privs.end(); ++i)
   {
-    CreatePriv priv = *i;
+    LoadPriv priv = *i;
     if (priv.writeToDB(_package->name(), errMsg) >= 0)
       _text->append(tr("Import of %1 was successful.").arg(priv.name()));
     else
