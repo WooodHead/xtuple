@@ -1,7 +1,7 @@
 BEGIN;
 
 -- Sales Order Line
-DROP VIEW api.salesline;
+SELECT dropIfExists('VIEW', 'salesline', 'api');
 CREATE VIEW api.salesline
 AS 
   SELECT 

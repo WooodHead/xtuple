@@ -2,7 +2,7 @@ BEGIN;
 
 -- Quote
 
-DROP VIEW api.quote;
+SELECT dropIfExists('VIEW', 'quote', 'api');
 CREATE VIEW api.quote
 AS
    SELECT 

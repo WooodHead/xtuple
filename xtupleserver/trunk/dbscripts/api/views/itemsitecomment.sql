@@ -2,7 +2,7 @@ BEGIN;
 
 -- Item Site Comment
 
-DROP VIEW api.itemsitecomment;
+SELECT dropIfExists('VIEW', 'itemsitecomment', 'api');
 CREATE VIEW api.itemsitecomment
 AS 
    SELECT 

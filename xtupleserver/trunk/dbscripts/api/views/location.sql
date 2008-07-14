@@ -2,7 +2,7 @@ BEGIN;
 
 -- Location View
 
-DROP VIEW api.location;
+SELECT dropIfExists('VIEW', 'location', 'api');
 CREATE OR REPLACE VIEW api.location AS
   SELECT
     warehous_code::varchar(100) AS site,

@@ -2,7 +2,7 @@ BEGIN;
 
 -- To-Do List View
 
-DROP VIEW api.todo;
+SELECT dropIfExists('VIEW', 'todo', 'api');
 CREATE OR REPLACE VIEW api.todo AS
   SELECT
     todoitem_id AS task_number,

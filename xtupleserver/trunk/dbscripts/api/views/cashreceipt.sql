@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP VIEW api.cashreceipt;
+SELECT dropIfExists('VIEW', 'cashreceipt', 'api');
 CREATE OR REPLACE VIEW api.cashreceipt AS
   SELECT
     cust_number::VARCHAR(100) AS customer_number,

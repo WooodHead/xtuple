@@ -2,7 +2,7 @@ BEGIN;
 
   --Sales History View
 
-  DROP VIEW api.saleshistory;
+  SELECT dropIfExists('VIEW', 'saleshistory', 'api');
   CREATE OR REPLACE VIEW api.saleshistory AS
 
   SELECT

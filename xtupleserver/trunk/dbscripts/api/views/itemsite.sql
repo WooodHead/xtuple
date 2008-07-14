@@ -2,7 +2,7 @@ BEGIN;
 
 -- Item Site
 
-DROP VIEW api.itemsite;
+SELECT dropIfExists('VIEW', 'itemsite', 'api');
 CREATE VIEW api.itemsite
 AS 
    SELECT

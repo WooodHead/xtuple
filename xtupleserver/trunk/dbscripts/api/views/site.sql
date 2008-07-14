@@ -2,7 +2,7 @@ BEGIN;
 
   --Site (aka Warehouse) View
 
-  DROP VIEW api.site;
+  SELECT dropIfExists('VIEW', 'site', 'api');
   CREATE OR REPLACE VIEW api.site AS
  
   SELECT 
