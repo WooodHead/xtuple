@@ -47,12 +47,13 @@ BEGIN
          coitem_id, coitem_price,
          coitem_price_invuomratio AS invpricerat, coitem_qty_invuomratio, item_id
     INTO _r
-    FROM cobmisc, coitem, itemsite, item
+    FROM cobmisc, coitem, itemsite, item, site()
    WHERE ( (cobmisc_cohead_id=coitem_cohead_id)
      AND   (NOT cobmisc_posted)
      AND   (coitem_itemsite_id=itemsite_id)
      AND   (itemsite_item_id=item_id)
-     AND   (coitem_id=pSoitemid) )
+     AND   (coitem_id=pSoitemid)
+     AND   (itemsite_warehous_id=warehous_id) )
    LIMIT 1;
 
 -- check to make sure the qty to bill for is not less than

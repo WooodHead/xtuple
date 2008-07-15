@@ -56,17 +56,11 @@ BEGIN
           AND  (orderhead_type=orderitem_orderhead_type));
 
         --Make sure user has site privileges
-        IF ((FOUND) AND (
-            SELECT (count(usrpref_id)=1) 
-            FROM usrpref 
-            WHERE ((usrpref_name='selectedSites')
-            AND (usrpref_username=current_user)
-            AND (usrpref_value='t')))) THEN
-          SELECT usrsite_warehous_id INTO _warehouseid
-          FROM usrsite,itemsite
+        IF (FOUND) THEN
+          SELECT warehous_id INTO _warehouseid
+          FROM itemsite,site()
           WHERE ((itemsite_id=_o.itemsite_id)
-          AND (usrsite_warehous_id=itemsite_warehous_id)
-          AND (usrsite_username=current_user));
+          AND (warehous_id=itemsite_warehous_id));
           
           IF (NOT FOUND) THEN
             RETURN 0;

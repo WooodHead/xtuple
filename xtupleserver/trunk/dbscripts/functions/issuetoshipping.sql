@@ -27,8 +27,10 @@ DECLARE
   _p                    RECORD;
   _m                    RECORD;
   _value                NUMERIC;
+  _warehouseid		 INTEGER;
 
 BEGIN
+
   IF (_timestamp IS NULL) THEN
     _timestamp := CURRENT_TIMESTAMP;
   END IF;
@@ -38,6 +40,18 @@ BEGIN
   END IF;
 
   IF (pordertype = ''SO'') THEN
+
+    -- Check site security
+    SELECT warehous_id INTO _warehouseid
+    FROM coitem,itemsite,site()
+    WHERE ((coitem_id=pitemid)
+    AND (itemsite_id=coitem_itemsite_id)
+    AND (warehous_id=itemsite_warehous_id));
+          
+    IF (NOT FOUND) THEN
+      RETURN 0;
+    END IF;
+  
     SELECT shiphead_id INTO _shipheadid
     FROM shiphead, coitem
     WHERE ((shiphead_order_id=coitem_cohead_id)
@@ -214,6 +228,26 @@ BEGIN
      WHERE(coitem_id=pitemid);
 
   ELSEIF (pordertype = ''TO'') THEN
+
+    -- Check site security
+    IF (SELECT (count(usrpref_id)=1) 
+            FROM usrpref 
+            WHERE ((usrpref_name=''selectedSites'')
+            AND (usrpref_username=current_user)
+            AND (usrpref_value=''t''))) THEN
+          SELECT usrsite_warehous_id INTO _warehouseid
+          FROM tohead,toitem,usrsite s, usrsite t
+          WHERE ((toitem_id=pitemid)
+          AND (toitem_tohead_id=tohead_id)
+          AND (tohead_src_warehous_id=s.usrsite_warehous_id)
+          AND (tohead_trns_warehous_id=t.usrsite_warehous_id)
+          AND (s.usrsite_username=current_user)
+          AND (t.usrsite_username=current_user));
+          
+      IF (NOT FOUND) THEN
+        RETURN 0;
+      END IF;
+    END IF;
 
     SELECT postInvTrans( itemsite_id, ''SH'', pQty, ''S/R'',
 			 pordertype, CAST(tohead_number AS text), '''', ''Issue to Shipping'',

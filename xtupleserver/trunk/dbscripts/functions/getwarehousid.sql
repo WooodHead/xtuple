@@ -14,20 +14,9 @@ BEGIN
     	RAISE EXCEPTION ''Warehouse lookip type % not valid. Valid types are ALL, ACTIVE and SHIPPING'', pType;
   END IF;
 
-  IF (SELECT COUNT(usrpref_value)=1 
-	FROM usrpref 
-	WHERE ((usrpref_username=current_user)
-	AND (usrpref_name = ''selectedSites'')
-	AND (usrpref_value = ''t''))) THEN
-    SELECT warehous_id, warehous_active, warehous_shipping INTO _returnVal, _active, _shipping
-    FROM whsinfo JOIN usrsite ON (warehous_id=usrsite_warehous_id)
-    WHERE (warehous_code=UPPER(pWarehousCode)
-    AND (usrsite_username=current_user));
-  ELSE
-    SELECT warehous_id, warehous_active, warehous_shipping INTO _returnVal, _active, _shipping
-    FROM whsinfo
-    WHERE (warehous_code=UPPER(pWarehousCode));
-  END IF;
+  SELECT warehous_id, warehous_active, warehous_shipping INTO _returnVal, _active, _shipping
+  FROM site()
+  WHERE (warehous_code=UPPER(pWarehousCode));
 
   IF (_returnVal IS NULL) THEN
     RAISE EXCEPTION ''Warehouse Code % not found.'', pWarehousCode;
