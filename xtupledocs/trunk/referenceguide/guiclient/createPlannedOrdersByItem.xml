@@ -60,14 +60,18 @@
     <varlistentry>
       <term>Cutoff Date</term>
       <listitem>
-        <para>Specify how far into the future the MPS run should look for
+        <para>Specify how far into the future the MRP run should look for
         demand.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Explode Children</term>
       <listitem>
-        <para>Select to explode any child Orders.</para>
+        <para>Select to perform a multi-level explosion to identify dependent
+        demand for the specified Item. This functionality will create Planned
+        Orders for any child demand, if necessary. The functionality mirrors
+        the same feature available at the Planner Code level, which is
+        available when running MRP by Planner Code.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
