@@ -1377,9 +1377,9 @@
         <secondary>defined</secondary>
       </indexterm>netable</glossterm>
     <glossdef>
-      <para>A term used to describe Site Locations. If a Location is
-      netable, Items stored in the Location are included in Quantity on Hand
-      and Availability calculations.</para>
+      <para>A term used to describe Site Locations. If a Location is netable,
+      Items stored in the Location are included in Quantity on Hand and
+      Availability calculations.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -2100,6 +2100,36 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
+        <primary>sites</primary>
+        <secondary>defined</secondary>
+      </indexterm>Site</glossterm>
+    <glossdef>
+      <para>A physical production or storage facility.</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
+    <glossterm><indexterm significance="normal">
+        <primary>site locations</primary>
+        <secondary>defined</secondary>
+      </indexterm>Site Location</glossterm>
+    <glossdef>
+      <para>A physical location within a Site for example, a bin, shelf,
+      aisle, etc. Also known as a "Location."</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
+    <glossterm><indexterm significance="normal">
+        <primary>site zones</primary>
+        <secondary>defined</secondary>
+      </indexterm>Site Zone</glossterm>
+    <glossdef>
+      <para>A defined section or area within a Site. For example, separate
+      Site Zones might be designated to define areas where Orders are
+      selected, Picked, and Packed.</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
+    <glossterm><indexterm significance="normal">
         <primary>shipping contents</primary>
         <secondary>defined</secondary>
       </indexterm>shipping contents</glossterm>
@@ -2367,8 +2397,8 @@
       work weekends, then the time buffer for that shop would typically be 15
       working days. The xTuple ERP Constraint Management system looks at the
       start and finish dates of a discrete Purchase Order or Work Order,
-      removes non-working days for the Order\qs Site, and then calculates
-      the time buffer.</para>
+      removes non-working days for the Order\qs Site, and then calculates the
+      time buffer.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -2435,10 +2465,10 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
-        <primary>transit warehouses</primary>
+        <primary>transit sites</primary>
         <secondary>defined</secondary>
       </indexterm> <indexterm significance="normal">
-        <primary>warehouses</primary>
+        <primary>sites</primary>
         <secondary>transit defined</secondary>
       </indexterm>Transit Site</glossterm>
     <glossdef>
@@ -2563,7 +2593,7 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
-        <primary>warehouses</primary>
+        <primary>sites</primary>
         <secondary>defined</secondary>
       </indexterm>Site</glossterm>
     <glossdef>
@@ -2572,7 +2602,7 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
-        <primary>warehouse locations</primary>
+        <primary>site locations</primary>
         <secondary>defined</secondary>
       </indexterm>Site Location</glossterm>
     <glossdef>
@@ -2582,13 +2612,13 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
-        <primary>warehouse zones</primary>
+        <primary>site zones</primary>
         <secondary>defined</secondary>
       </indexterm>Site Zone</glossterm>
     <glossdef>
-      <para>A defined section or area within a Site. For example,
-      separate Site Zones might be designated to define areas where
-      Orders are selected, Picked, and Packed.</para>
+      <para>A defined section or area within a Site. For example, separate
+      Site Zones might be designated to define areas where Orders are
+      selected, Picked, and Packed.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -2615,8 +2645,8 @@
       when building a manufactured Item. Work Centers are used by Bills of
       Operations to determine the amount of available and required
       manufacturing Capacity to produce the manufactured Item. Work Centers
-      also determine per-minute run and setup time Costs. A single Site
-      may contain multiple Work Centers.</para>
+      also determine per-minute run and setup time Costs. A single Site may
+      contain multiple Work Centers.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -2676,8 +2706,8 @@
         <secondary>defined</secondary>
       </indexterm>zone</glossterm>
     <glossdef>
-      <para>A defined geographic region or specific Site area. See
-      Shipping Zone or Site Zone.</para>
+      <para>A defined geographic region or specific Site area. See Shipping
+      Zone or Site Zone.</para>
     </glossdef>
   </glossentry>
   <!--
