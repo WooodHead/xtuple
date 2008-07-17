@@ -21,7 +21,9 @@ BEGIN
                              p.itemlocdist_invhist_id AS invhistid,
                              p.itemlocdist_ls_id AS lotserialid,
                              p.itemlocdist_expiration AS expiration,
-                             p.itemlocdist_warranty AS warranty
+                             p.itemlocdist_warranty AS warranty,
+                             p.itemlocdist_order_type AS ordertype,
+                             p.itemlocdist_order_id AS orderid
                       FROM itemlocdist AS c, itemlocdist AS p, itemsite
                       WHERE ( (c.itemlocdist_itemlocdist_id=p.itemlocdist_id)
                        AND (p.itemlocdist_source_type=''O'')
@@ -85,6 +87,22 @@ BEGIN
       WHERE (itemloc_id=_itemlocid);
 
       PERFORM postInvHist(_itemlocdist.invhistid);
+
+--  Update the itemloc reservation
+      IF ( (SELECT fetchMetricBool(''EnableSOReservationsByLocation'')) AND
+           (_itemlocdist.qty < 0) ) THEN
+        UPDATE itemlocrsrv
+        SET itemlocrsrv_qty = (itemlocrsrv_qty + _itemlocdist.qty)
+        WHERE ( (itemlocrsrv_itemloc_id=_itemlocid)
+          AND   (itemlocrsrv_source=_itemlocdist.ordertype)
+          AND   (itemlocrsrv_source_id=_itemlocdist.orderid) );
+--  Delete reservation if fully distributed
+        DELETE FROM itemlocrsrv
+        WHERE ( (itemlocrsrv_itemloc_id=_itemlocid)
+          AND   (itemlocrsrv_source=_itemlocdist.ordertype)
+          AND   (itemlocrsrv_source_id=_itemlocdist.orderid)
+          AND   (itemlocrsrv_qty=0) );
+      END IF;
     END IF;
 
 --  Adjust QOH if this itemlocdist is to/from a non-netable location

@@ -177,13 +177,15 @@ BEGIN
         itemlocdist_distlotserial,
         itemlocdist_expiration,
         itemlocdist_qty,
-        itemlocdist_series, itemlocdist_invhist_id )
+        itemlocdist_series, itemlocdist_invhist_id,
+        itemlocdist_order_type, itemlocdist_order_id )
       SELECT pItemsiteid, 'O',
              (((pQty * _sense) > 0)  AND _r.lotserial),
 	     ((pQty * _sense) < 0),
              endOfTime(),
              (_sense * pQty),
-             pItemlocSeries, _invhistid;
+             pItemlocSeries, _invhistid,
+             pOrderType, getSalesLineItemId(pOrderNumber);
 
     -- These records will be used for posting G/L transactions to trial balance after records committed.
     -- If we try to do it now concurrency locking prevents any transacitons while

@@ -1,3 +1,20 @@
+CREATE OR REPLACE FUNCTION getSalesLineItemId(text) RETURNS INTEGER AS '
+DECLARE
+  pSalesOrderItem ALIAS FOR $1;
+  _delpos INTEGER = 0;
+BEGIN
+  IF (pSalesOrderItem IS NULL) THEN
+    RETURN NULL;
+  END IF;
+  _delpos = STRPOS(pSalesOrderItem, ''-'');
+  IF (_delpos > 0) THEN
+    RETURN getSalesLineItemId( SUBSTR(pSalesOrderItem, 1, (_delpos - 1)),
+                               CAST(SUBSTR(pSalesOrderItem, (_delpos + 1), 2) AS INTEGER) );
+  END IF;
+  RETURN 0;
+END;
+' LANGUAGE 'plpgsql';
+
 CREATE OR REPLACE FUNCTION getSalesLineItemId(text,integer) RETURNS INTEGER AS '
 DECLARE
   pSalesOrderNumber ALIAS FOR $1;
