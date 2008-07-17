@@ -63,10 +63,10 @@
       <term>Next #</term>
       <listitem>
         <para>The next sequentially available Sales Order Number will display
-        here. You may change the number&mdash;creating a new basis for the
-        next Sales Order Number&mdash;by typing the new number into this
-        field. Any changes you make here will be reflected the next time a new
-        Sales Order is created in the S/O module.</para>
+        here. You may change the number—creating a new basis for the next
+        Sales Order Number—by typing the new number into this field. Any
+        changes you make here will be reflected the next time a new Sales
+        Order is created in the S/O module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -119,10 +119,10 @@
       <term>Next #</term>
       <listitem>
         <para>The next sequentially available Quote Number will display here.
-        You may change the number&mdash;creating a new basis for the next
-        Quote Number&mdash;by typing the new number into this field. Any
-        changes you make here will be reflected the next time a new Quote is
-        created in the S/O module.</para>
+        You may change the number—creating a new basis for the next Quote
+        Number—by typing the new number into this field. Any changes you make
+        here will be reflected the next time a new Quote is created in the S/O
+        module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -214,10 +214,10 @@
       <term>Next #</term>
       <listitem>
         <para>The next sequentially available Credit Memo Number will display
-        here. You may change the number&mdash;creating a new basis for the
-        next Credit Memo Number&mdash;by typing the new number into this
-        field. Any changes you make here will be reflected the next time you
-        issue a new Credit Memo within the S/O module.</para>
+        here. You may change the number—creating a new basis for the next
+        Credit Memo Number—by typing the new number into this field. Any
+        changes you make here will be reflected the next time you issue a new
+        Credit Memo within the S/O module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -234,10 +234,10 @@
       <term>Next #</term>
       <listitem>
         <para>The next sequentially available Invoice Number will display
-        here. You may change the number&mdash;creating a new basis for the
-        next Invoice Number&mdash;by typing the new number into this field.
-        Any changes you make here will be reflected the next time you create a
-        new Invoice within the S/O module.</para>
+        here. You may change the number—creating a new basis for the next
+        Invoice Number—by typing the new number into this field. Any changes
+        you make here will be reflected the next time you create a new Invoice
+        within the S/O module.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -322,22 +322,22 @@
         functionality helps reduce Customer credit balances by ensuring that
         Customer credits are consumed when new Sales Orders are entered. Any
         available, open Credit Memos are eligible for allocation. The
-        allocation of available Credit Memos occurs only once&mdash;when a
-        Sales Order is saved for the first time. Subsequent saves will not
-        result in additional allocations. Credit Memos which have been
-        allocated to a Sales Order are applied at the point when the Invoice
-        resulting from the Sales Order is posted. Once the full balance of a
-        Credit Memo has been applied, the Credit Memo is then closed. The
-        printed Invoice the Customer receives will indicate whether Credit
-        Memos have been applied. In addition, the total due from the Customer
-        will be automatically adjusted to reflect any applied credits.</para>
+        allocation of available Credit Memos occurs only once—when a Sales
+        Order is saved for the first time. Subsequent saves will not result in
+        additional allocations. Credit Memos which have been allocated to a
+        Sales Order are applied at the point when the Invoice resulting from
+        the Sales Order is posted. Once the full balance of a Credit Memo has
+        been applied, the Credit Memo is then closed. The printed Invoice the
+        Customer receives will indicate whether Credit Memos have been
+        applied. In addition, the total due from the Customer will be
+        automatically adjusted to reflect any applied credits.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>The allocation of available Credit Memos occurs only once&mdash;when
-    a Sales Order is saved for the first time. Subsequent saves will not
-    result in additional allocations.</para>
+    <para>The allocation of available Credit Memos occurs only once—when a
+    Sales Order is saved for the first time. Subsequent saves will not result
+    in additional allocations.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -366,6 +366,22 @@
         system-wide. This feature allows for the hard allocation of quantity
         to Sales Orders. If not selected, the Sales Order reservation options
         will be hidden from view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reserve by Location</term>
+      <listitem>
+        <para>Select to set S/O Reservations for discrete locations and lots.
+        The hard allocation of quantity will be for a particular location and
+        will prevent other orders from issuing reserved inventory. The S/O
+        Pick List will print the reserved location to expedite inventory
+        picking. You may choose the order of precedence for selecting
+        locations; Lowest Quantity First, Highest Quantity First, or Alpha by
+        Location Name.</para>
+        <note>
+          <para>The change from a state of enabled to disabled will remove all
+          location reservations.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -426,8 +442,8 @@
             <term>Do not Update Price on Line Edit</term>
             <listitem>
               <para>If selected, the Net Unit Price will not be changed when
-              Line Item quantity is changed on EDIT&mdash;and users will not
-              be prompted to consider changing the Price.</para>
+              Line Item quantity is changed on EDIT—and users will not be
+              prompted to consider changing the Price.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -643,9 +659,9 @@
       <listitem>
         <para>Select to enable the system's Return Authorizations capability.
         If not selected, users will be prevented from performing any tasks
-        related to Return Authorizations&mdash;and related functionality will
-        be hidden from view. For systems where Return Authorizations are
-        enabled, this option will be hidden.</para>
+        related to Return Authorizations—and related functionality will be
+        hidden from view. For systems where Return Authorizations are enabled,
+        this option will be hidden.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

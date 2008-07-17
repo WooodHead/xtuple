@@ -97,24 +97,23 @@
           <secondary>selling sites for</secondary>
         </indexterm>Site</term>
       <listitem>
-        <para>Specify the Site the Sales Order Item is sold from. Items
-        may be supplied to Sales Orders from multiple Item Sites. After an
-        Item Number is entered above, the system checks for available Item
-        Sites for the Item. Any Item Sites having the "Sold from" flag set on
-        them will be selectable from this Site list. By default, the Item
-        Site having the highest Ranking will be selected as the first
-        available Site. If more than one Item Site share a Ranking of
-        "1," the Sites will be sorted in alphabetical order. Item Site
-        Rankings are set on the Item Site master.</para>
+        <para>Specify the Site the Sales Order Item is sold from. Items may be
+        supplied to Sales Orders from multiple Item Sites. After an Item
+        Number is entered above, the system checks for available Item Sites
+        for the Item. Any Item Sites having the "Sold from" flag set on them
+        will be selectable from this Site list. By default, the Item Site
+        having the highest Ranking will be selected as the first available
+        Site. If more than one Item Site share a Ranking of "1," the Sites
+        will be sorted in alphabetical order. Item Site Rankings are set on
+        the Item Site master.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>If a preferred Selling Site is specified for the Customer, then
-    that Site will be selected here by default. If the preferred Selling
-    Site is not selected&mdash;and you think it should be&mdash;verify
-    that the Item Site master for the Line Item in question is marked as a
-    "Sold from" Site.</para>
+    <para>If a preferred Selling Site is specified for the Customer, then that
+    Site will be selected here by default. If the preferred Selling Site is
+    not selected—and you think it should be—verify that the Item Site master
+    for the Line Item in question is marked as a "Sold from" Site.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -125,8 +124,9 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>The quantity ordered is based on the quantity Unit of
-    Measure.</para>
+    <para>The quantity ordered is based on the quantity Unit of Measure. If
+    the Sales Order Item is being edited and the quantity ordered is reduced
+    then all reservations for the line item will be removed.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -262,12 +262,12 @@
               <para>Displays the quantity allocated to current Sales Orders
               and/or Work Orders in the system. An Item is considered
               allocated to a Sales Order if a Sales Order Line Item exists for
-              the Item&mdash;and that Line Item has not yet been issued to
-              Shipping. An Item is considered allocated to a Work Order if the
-              Item is a material requirement&mdash;and the material has not
-              yet been issued to the Work Order. Once the current Sales Order
-              Line Item is saved, the "Allocated" value will increase by the
-              quantity ordered.</para>
+              the Item—and that Line Item has not yet been issued to Shipping.
+              An Item is considered allocated to a Work Order if the Item is a
+              material requirement—and the material has not yet been issued to
+              the Work Order. Once the current Sales Order Line Item is saved,
+              the "Allocated" value will increase by the quantity
+              ordered.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -334,8 +334,8 @@
         as make-to-order if the "Stocked at" flag on the Item Site master is
         not selected. A Work Order created automatically from a Sales Order
         Line Item will assume the same Order Number as the Sales Order the
-        Line Item is associated with&mdash;even if that Order Number has
-        already been used by a previous Work Order.</para>
+        Line Item is associated with—even if that Order Number has already
+        been used by a previous Work Order.</para>
         <note>
           <para>For purchased Items, the option "Create Purchase Request" will
           appear instead. The displayed fields will resemble the fields shown
@@ -372,12 +372,12 @@
           <secondary>supplying sites and</secondary>
         </indexterm>Supplying Site</term>
       <listitem>
-        <para>Specify the Site a corresponding Work Order would be
-        supplied from. Work Orders may only be created for manufactured Items
-        having a supplying Site. Sites designated as "Supplied at"
-        Sites in the Item Site master for an Item are considered
-        supplying Sites. If no supplying Site exists for an Item, a
-        Work Order may not be created for the Item.</para>
+        <para>Specify the Site a corresponding Work Order would be supplied
+        from. Work Orders may only be created for manufactured Items having a
+        supplying Site. Sites designated as "Supplied at" Sites in the Item
+        Site master for an Item are considered supplying Sites. If no
+        supplying Site exists for an Item, a Work Order may not be created for
+        the Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -483,7 +483,7 @@
         List Prices associated with them. As a result, when Characteristics
         are added to a Sales Order Item, the overall Price of the Item may
         increase. The Base Price shows the Price before any Characteristic
-        List Prices have been added to the Net Unit Price. </para>
+        List Prices have been added to the Net Unit Price.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -561,7 +561,7 @@
               matrix must have an entry which matches both the Item's Tax Type
               definition and the Tax Authority specified on the Sales Order
               header. If no Tax Selection match exists, then no Tax Code will
-              be used&mdash;meaning no Tax will be charged.</para>
+              be used—meaning no Tax will be charged.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -728,8 +728,8 @@
         <para>Displays Pending Availability for component Items associated
         with sold manufactured Items. If you choose the "Show Pending
         Availability as Indented BOM" option, the information will be
-        displayed in a nested list&mdash;with a plus ("+") sign located to the
-        far left of the screen next to each line that may be expanded to lower
+        displayed in a nested list—with a plus ("+") sign located to the far
+        left of the screen next to each line that may be expanded to lower
         levels. By clicking your mouse on a plus sign, you reveal lower levels
         of information related to the Line Item.</para>
       </listitem>
@@ -738,7 +738,7 @@
   <tip>
     <para>Keep in mind that Pending Availability in this case is not the same
     as Available to Promise. This view to Pending Availability reflects
-    current Inventory Levels&mdash;it is not a time-phased view of
+    current Inventory Levels—it is not a time-phased view of
     Availability.</para>
   </tip>
   <para>To define an alternate Cost of Sales Account for a Sales Order Line

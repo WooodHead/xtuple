@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520086">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>quantity on hand</primary>
       <secondary>by location</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>Quantities on Hand by Location</title>
   <para>To view Quantities on Hand by Location, select the "Quantities on Hand
   by Location" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspQOHByLocation.png"/>
+          <imagedata fileref="images/dspQOHByLocation.png" />
         </imageobject>
         <caption>Quantities on Hand by Location</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Quantities on Hand by Location, you are presented with
   the following options:</para>
   <variablelist>
@@ -34,8 +32,8 @@
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Site whose Quantities on Hand by Location you want
-        to display.</para>
+        <para>Specify Site whose Quantities on Hand by Location you want to
+        display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -61,7 +59,9 @@
       <term>Quantities on Hand</term>
       <listitem>
         <para>Display lists Quantities on Hand by Location, using the
-        specified parameters.</para>
+        specified parameters. If S/O Reservations by Location has been
+        enabled, then reservation quantities will be displayed by Sales
+        Order.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -92,6 +92,8 @@
   <para>Right-clicking on an Item in the Quantities on Hand list enables you
   to select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>
