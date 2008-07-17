@@ -84,7 +84,7 @@
 
 #include "data.h"
 
-#define DEBUG false
+#define DEBUG true
 
 LoaderWindow::LoaderWindow(QWidget* parent, const char* name, Qt::WindowFlags fl)
     : QMainWindow(parent, fl)
@@ -222,19 +222,46 @@ void LoaderWindow::fileOpen()
     return;
   }
 
-  _package = new Package(doc.documentElement());
+  _text->clear();
+  _text->setEnabled(true);
+
+  QStringList msgList;
+  QList<bool> fatalList;
+  QString delayedWarning;
+  _package = new Package(doc.documentElement(), msgList, fatalList);
+  if (msgList.size() > 0)
+  {
+    bool fatal = false;
+    for (int i = 0; i < msgList.size(); i++)
+    {
+      _text->append(QString("<p><font color=%1>%2</font></p>")
+                    .arg(fatalList.at(i) ? "red" : "orange")
+                    .arg(msgList.at(i)));
+      fatal = fatal || fatalList.at(i);
+    }
+    if (fatal)
+    {
+      _text->append(tr("<p><font color=\"red\">The contents.xml file appears "
+                       "to be invalid.</font></p>"));
+      return;
+    }
+    else
+      delayedWarning = tr("<p><font color=\"orange\">The contents.xml file "
+                          "seems to have problems. You should contact %1 "
+                          "before proceeding.</font></p>")
+                      .arg(_package->developer().isEmpty() ?
+                           tr("the package developer") : _package->developer());
+  }
+
   _pkgname->setText(tr("Package %1 (%2)").arg(_package->id()).arg(filename));
 
   _progress->setValue(0);
   _progress->setMaximum(_files->_list.count() - 1);
   _progress->setEnabled(true);
 
-  _text->clear();
-  _text->setEnabled(true);
-
   _status->setEnabled(true);
   _status->setText(tr("<p><b>Checking Prerequisites!</b></p>"));
-  _text->setText("<p><b>Prerequisites</b>:</p>");
+  _text->append("<p><b>Prerequisites</b>:</p>");
   bool allOk = true;
   // check prereqs
   QString str;
@@ -294,7 +321,13 @@ void LoaderWindow::fileOpen()
   }
 
   _status->setText(tr("<p><b>Checking Prerequisites!</b></p><p>Check completed.</p>"));
-  _text->append(tr("<p><b><font color=\"green\">Ready to Start update!</font></b></p>"));
+  if (delayedWarning.isEmpty())
+    _text->append(tr("<p><b><font color=\"green\">Ready to Start update!</font></b></p>"));
+  else
+  {
+    _text->append(tr("<p><b>Ready to Start update!</b></p>"));
+    _text->append(delayedWarning);
+  }
   _text->append(tr("<p><b>NOTE</b>: Have you backed up your database? If not, you should "
                    "backup your database now. It is good practice to backup a database "
                    "before updating it.</p>"));
@@ -490,13 +523,16 @@ void LoaderWindow::sStart()
       i != _package->_scripts.end(); ++i)
   {
     script = *i;
+    if (DEBUG)
+      qDebug("LoaderWindow::sStart() - running script %s in file %s",
+             qPrintable(script.name()), qPrintable(script.filename()));
 
-    QByteArray scriptData = _files->_list[prefix + script.name()];
+    QByteArray scriptData = _files->_list[prefix + script.filename()];
     if(scriptData.isEmpty())
     {
       QMessageBox::warning(this, tr("File Missing"),
                            tr("<p>The file %1 is missing from this package.")
-                           .arg(script.name()));
+                           .arg(script.filename()));
       continue;
     }
 
@@ -514,7 +550,7 @@ void LoaderWindow::sStart()
         QString message = tr("The following error was encountered while "
                              "trying to import %1 into the database:<br>\n"
                              "\t%2<br>\n\t%3")
-                      .arg(script.name())
+                      .arg(script.filename())
                       .arg(err.driverText())
                       .arg(err.databaseText());
         _text->append(tr("<p>"));
@@ -533,7 +569,7 @@ void LoaderWindow::sStart()
           case Script::Ignore:
             _text->append(tr("<font color=orange><b>IGNORING</b> the above "
                              "errors and skipping script %1.</font><br>")
-                            .arg(script.name()));
+                            .arg(script.filename()));
             break;
           case Script::Stop:
           case Script::Prompt:
@@ -551,7 +587,7 @@ void LoaderWindow::sStart()
             else if(r == 1)
               _text->append(tr("<font color=orange><b>IGNORING</b> the above errors at user "
                                "request and skipping script %1.</font><br>")
-                              .arg(script.name()) );
+                              .arg(script.filename()) );
             else
               if(r == 2) return;
         }
@@ -568,16 +604,16 @@ void LoaderWindow::sStart()
       i != _package->_reports.end(); ++i)
   {
     LoadReport report = *i;
-    QByteArray data = _files->_list[prefix + report.name()];
+    QByteArray data = _files->_list[prefix + report.filename()];
     if(data.isEmpty())
     {
       QMessageBox::warning(this, tr("File Missing"),
                            tr("<p>The file %1 in this package is empty.").
-                           arg(report.name()));
+                           arg(report.filename()));
       continue;
     }
     if (report.writeToDB(data, _package->name(), errMsg) >= 0)
-      _text->append(tr("Import of %1 was successful.").arg(report.name()));
+      _text->append(tr("Import of %1 was successful.").arg(report.filename()));
     else
     {
       _text->append(errMsg);
@@ -598,16 +634,19 @@ void LoaderWindow::sStart()
       i != _package->_appuis.end(); ++i)
   {
     LoadAppUI appui = *i;
-    QByteArray data = _files->_list[prefix + appui.name()];
+    if (DEBUG)
+      qDebug("LoaderWindow::sStart() - loading ui %s in file %s",
+             qPrintable(appui.name()), qPrintable(appui.filename()));
+    QByteArray data = _files->_list[prefix + appui.filename()];
     if(data.isEmpty())
     {
       QMessageBox::warning(this, tr("File Missing"),
                            tr("<p>The file %1 in this package is empty.").
-                           arg(appui.name()));
+                           arg(appui.filename()));
       continue;
     }
     if (appui.writeToDB(data, _package->name(), errMsg) >= 0)
-      _text->append(tr("Import of %1 was successful.").arg(appui.name()));
+      _text->append(tr("Import of %1 was successful.").arg(appui.filename()));
     else
     {
       _text->append(errMsg);
@@ -628,16 +667,19 @@ void LoaderWindow::sStart()
       i != _package->_appscripts.end(); ++i)
   {
     LoadAppScript appscript = *i;
-    QByteArray data = _files->_list[prefix + appscript.name()];
+    if (DEBUG)
+      qDebug("LoaderWindow::sStart() - loading appscript %s in file %s",
+             qPrintable(appscript.name()), qPrintable(appscript.filename()));
+    QByteArray data = _files->_list[prefix + appscript.filename()];
     if(data.isEmpty())
     {
       QMessageBox::warning(this, tr("File Missing"),
                            tr("<p>The file %1 in this package is empty.").
-                           arg(appscript.name()));
+                           arg(appscript.filename()));
       continue;
     }
     if (appscript.writeToDB(data, _package->name(), errMsg) >= 0)
-      _text->append(tr("Import of %1 was successful.").arg(appscript.name()));
+      _text->append(tr("Import of %1 was successful.").arg(appscript.filename()));
     else
     {
       _text->append(errMsg);
@@ -658,6 +700,8 @@ void LoaderWindow::sStart()
       i != _package->_cmds.end(); ++i)
   {
     LoadCmd cmd = *i;
+    if (DEBUG)
+      qDebug("LoaderWindow::sStart() - loading cmd %s", qPrintable(cmd.name()));
     if (cmd.writeToDB(_package->name(), errMsg) >= 0)
       _text->append(tr("Import of %1 was successful.").arg(cmd.name()));
     else
@@ -680,16 +724,19 @@ void LoaderWindow::sStart()
       i != _package->_images.end(); ++i)
   {
     LoadImage image = *i;
-    QByteArray data = _files->_list[prefix + image.name()];
+    if (DEBUG)
+      qDebug("LoaderWindow::sStart() - loading image %s in file %s",
+             qPrintable(image.name()), qPrintable(image.filename()));
+    QByteArray data = _files->_list[prefix + image.filename()];
     if(data.isEmpty())
     {
       QMessageBox::warning(this, tr("File Missing"),
                            tr("<p>The file %1 in this package is empty.").
-                           arg(image.name()));
+                           arg(image.filename()));
       continue;
     }
     if (image.writeToDB(data, _package->name(), errMsg) >= 0)
-      _text->append(tr("Import of %1 was successful.").arg(image.name()));
+      _text->append(tr("Import of %1 was successful.").arg(image.filename()));
     else
     {
       _text->append(errMsg);

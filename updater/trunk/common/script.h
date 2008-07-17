@@ -58,8 +58,8 @@
 #ifndef __SCRIPT_H__
 #define __SCRIPT_H__
 
-#include <qstring.h>
-#include <qstringlist.h>
+#include <QString>
+#include <QStringList>
 
 class QDomDocument;
 class QDomElement;
@@ -76,13 +76,15 @@ class Script
 
     Script(const QString & name = QString::null, OnError onError = Default,
            const QString & comment = QString::null);
-    Script(const QDomElement &);
+    Script(const QDomElement &, QStringList &msg, QList<bool> &fatal);
 
     virtual ~Script();
 
     QDomElement createElement(QDomDocument &);
 
     bool isValid() const { return !_name.isEmpty(); }
+
+    QString filename() const;
 
     QString name() const { return _name; }
     void setName(const QString & name) { _name = name; }

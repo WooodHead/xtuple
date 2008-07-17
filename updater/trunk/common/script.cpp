@@ -64,15 +64,28 @@ Script::Script(const QString & name, OnError onError, const QString & comment)
 {
 }
 
-Script::Script(const QDomElement & elem)
+Script::Script(const QDomElement & elem, QStringList &msg, QList<bool> &fatal)
 {
   _name = elem.attribute("name");
+  if (elem.hasAttribute("file"))
+    _name = elem.attribute("file");
   _onError = nameToOnError(elem.attribute("onerror"));
   _comment = elem.text();
+
+  if (_name.isEmpty())
+  {
+    msg.append(QObject::tr("This script does not have a name."));
+    fatal.append(true);
+  }
 }
 
 Script::~Script()
 {
+}
+
+QString Script::filename() const
+{
+  return _name; // _name and _filename are interchangable
 }
 
 QDomElement Script::createElement(QDomDocument & doc)
@@ -80,6 +93,7 @@ QDomElement Script::createElement(QDomDocument & doc)
   QDomElement elem = doc.createElement("script");
 
   elem.setAttribute("name", _name);
+  elem.setAttribute("file", _name);
   elem.setAttribute("onerror", onErrorToName(_onError));
 
   if(!_comment.isEmpty())

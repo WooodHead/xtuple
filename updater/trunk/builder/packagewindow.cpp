@@ -150,7 +150,9 @@ void PackageWindow::fileOpen()
       delete _package;
       _package = 0;
     }
-    _package = new Package(doc.documentElement());
+    QStringList msgList;
+    QList<bool> fatalList;
+    _package = new Package(doc.documentElement(), msgList, fatalList);
 
     _prereqs->clear();
     sPrereqSelectionChanged();

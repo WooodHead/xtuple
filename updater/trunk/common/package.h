@@ -77,7 +77,7 @@ class Package
 {
   public:
     Package(const QString & id = QString::null);
-    Package(const QDomElement &);
+    Package(const QDomElement &, QStringList &, QList<bool> &);
 
     virtual ~Package();
 
@@ -87,9 +87,10 @@ class Package
     QString id() const { return _id; }
     void setId(const QString & id) { _id = id; }
 
-    int versionMajor() const { return _majVersion; }
-    int versionMinor() const { return _minVersion; }
-    QString name()     const { return _name; }
+    QString developer() const { return _developer; }
+    QString name()      const { return _name; }
+    int versionMajor()  const { return _majVersion; }
+    int versionMinor()  const { return _minVersion; }
 
     QList<LoadAppScript> _appscripts;
     QList<LoadAppUI>     _appuis;

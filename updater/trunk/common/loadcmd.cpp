@@ -66,7 +66,7 @@
 
 #include "loadable.h"
 
-#define DEBUG false
+#define DEBUG true
 
 LoadCmd::LoadCmd(const QString &nodename, const QString &name,
                  const QString &module, const QString &title,
@@ -81,51 +81,63 @@ LoadCmd::LoadCmd(const QString &nodename, const QString &name,
   _title      = title;
 }
 
-LoadCmd::LoadCmd(const QDomElement &elem)
-  : Loadable(elem)
+LoadCmd::LoadCmd(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
+  : Loadable(elem, msg, fatal)
 {
-  if (! elem.hasAttribute("title"))
-    QMessageBox::warning(0, "Improper call to LoadCmd(QDomElement)",
-                         QString("Node %1 '%2' does not have a title. The menu "
-                                 "item for it will be blank.")
-                         .arg(elem.nodeName()).arg(elem.attribute("name")));
-  else
+  if (_name.isEmpty())
+  {
+    msg.append(QObject::tr("This custom command has no name!"));
+    fatal.append(true);
+  }
+
+  if (elem.hasAttribute("title"))
     _title = elem.attribute("title");
-
-  if (! elem.hasAttribute("module"))
-    QMessageBox::warning(0, "Improper call to LoadCmd(QDomElement)",
-                         QString("Node %1 '%2' does not name a module. "
-                                 "The Custom Command will not have a "
-                                 "corresponding menu item.")
-                         .arg(elem.nodeName()).arg(elem.attribute("name")));
   else
+  {
+    msg.append(QObject::tr("Node %1 '%2' does not have a title. Its menu item "
+                           "will be blank.")
+                         .arg(elem.nodeName()).arg(elem.attribute("name")));
+    fatal.append(true);
+  }
+
+  if (elem.hasAttribute("module"))
     _module = elem.attribute("module");
-
-  if (! elem.hasAttribute("executable"))
-    QMessageBox::warning(0, "Improper call to LoadCmd(QDomElement)",
-                         QString("Node %1 '%2' does not name an executable. "
-                                 "Nothing will be done when a user selects "
-                                 "the menu item.")
-                         .arg(elem.nodeName()).arg(elem.attribute("name")));
   else
+  {
+    msg.append(QObject::tr("Node %1 '%2' does not name a module. The Custom "
+                           "Command will not have a corresponding menu item.")
+                       .arg(elem.nodeName()).arg(elem.attribute("name")));
+    fatal.append(true);
+  }
+
+  if (elem.hasAttribute("executable"))
     _executable = elem.attribute("executable");
+  else
+  {
+    msg.append(QObject::tr("Node %1 '%2' does not name an executable. Nothing "
+                           "will be done when the user selects the menu item.")
+                       .arg(elem.nodeName()).arg(elem.attribute("name")));
+    fatal.append(true);
+  }
 
   if (elem.hasAttribute("privname"))
     _privname = elem.attribute("privname");
 
   if (elem.hasAttribute("grade"))
-    QMessageBox::warning(0, "Improper call to LoadCmd(QDomElement)",
-                         QString("Node %1 '%2' has a 'grade' attribute but "
-                                 "Custom Commands are not graded. This will "
-                                 "be ignored.")
-                         .arg(elem.nodeName()).arg(elem.attribute("name")));
+  {
+    msg.append(QObject::tr("Node %1 '%2' has a 'grade' attribute but Custom "
+                      "Commands are not graded. This will be ignored.")
+                       .arg(elem.nodeName()).arg(elem.attribute("name")));
+    fatal.append(false);
+  }
 
   if (elem.hasAttribute("system"))
-    QMessageBox::warning(0, "Improper call to LoadCmd(QDomElement)",
-                         QString("Node %1 '%2' has a 'system' attribute but "
-                                 "Custom Commands are by definition not system "
-                                 "elements. This will be ignored.")
-                         .arg(elem.nodeName()).arg(elem.attribute("name")));
+  {
+    msg.append(QObject::tr("Node %1 '%2' has a 'system' attribute but Custom "
+                      "Commands are not system elements. This will be ignored.")
+                     .arg(elem.nodeName()).arg(elem.attribute("name")));
+    fatal.append(false);
+  }
 
   for (QDomElement childElem = elem.firstChildElement("arg");
        ! childElem.isNull();
@@ -134,18 +146,16 @@ LoadCmd::LoadCmd(const QDomElement &elem)
     if (childElem.hasAttribute("value"))
       _args.append(childElem.attribute("value").trimmed());
     else
-      QMessageBox::warning(0, "Improper call to LoadCmd(QDomElement)",
-                           QString("Node %1 '%2' has an 'arg' with no 'value' "
-                                   "attribute.")
-                           .arg(elem.nodeName()).arg(elem.attribute("name")));
+    {
+      msg.append(QObject::tr("Node %1 '%2' has an 'arg' with no 'value' attribute.")
+                         .arg(elem.nodeName()).arg(elem.attribute("name")));
+      fatal.append(false);
+    }
   }
 
   if (DEBUG)
-    qDebug("LoadCmd(QDomElement): %s %s",
-           qPrintable(_executable), qPrintable(_args.join(" ")));
-
-  if (DEBUG)
-    qDebug("LoadCmd(QDomElement): _comment=%s",
+    qDebug("LoadCmd(QDomElement): %s %s, comment %s",
+           qPrintable(_executable), qPrintable(_args.join(" ")),
            qPrintable(_comment));
 }
 
@@ -179,35 +189,6 @@ int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
   QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
                                   "encountered while trying to import %1 into "
                                   "the database:<br>%2<br>%3</font>");
-  if (_name.isEmpty())
-  {
-    errMsg = QObject::tr("<font color=red>The Custom Command does not have"
-                         " a name.</font>")
-                         .arg(_name);
-    return -1;
-  }
-
-  if (_executable.isEmpty())
-  {
-    errMsg = QObject::tr("<font color=red>The Custom Command does not have"
-                         " an executable.</font>")
-                         .arg(_name);
-    return -2;
-  }
-
-  if (_module.isEmpty())
-    errMsg = QObject::tr("<font color=orange>The Custom Command %1 does not "
-                         "have a module. There will be no menu item for it."
-                         "</font>")
-                         .arg(_name);
-
-  if (_title.isEmpty())
-    errMsg = QObject::tr("<font color=orange>The Custom Command %1 does not "
-                         "have a title. The menu item for it will be blank."
-                         "</font>")
-                         .arg(_name);
-
-
   QSqlQuery select;
   QSqlQuery upsert;
 

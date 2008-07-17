@@ -68,37 +68,46 @@ class Loadable
   public:
     Loadable(const QString &nodename, const QString &name,
              const int grade = 0, const bool system = true,
-             const QString &comment = QString::null);
-    Loadable(const QDomElement &);
+             const QString &comment = QString::null,
+             const QString &filename = QString::null);
+    Loadable(const QDomElement &, QStringList &, QList<bool> &);
 
     virtual ~Loadable();
 
     virtual QDomElement createElement(QDomDocument &doc);
 
     virtual QString comment()  const { return _comment; }
+    virtual QString filename() const { return _filename; }
     virtual int     grade()    const { return _grade; }
-    virtual bool    isValid()  const { return !_nodename.isEmpty() && !_name.isEmpty();}
+    virtual bool    isValid()  const { return !_nodename.isEmpty() &&
+                                              !_name.isEmpty();}
     virtual QString name()     const { return _name; }
     virtual QString nodename() const { return _nodename; }
-    virtual void    setComment(const QString & comment) { _comment = comment; }
+    virtual void    setComment(const QString & comment) { _comment  = comment; }
+    virtual void    setFilename(const QString &filename){ _filename = filename;}
     virtual void    setGrade(int grade)                 { _grade = grade; }
     virtual void    setName(const QString & name)       { _name = name; }
     virtual void    setSystem(const bool p)             { _system = p; }
     virtual bool    system()   const { return _system; }
 
-    virtual int     writeToDB(const QByteArray &data, const QString pkgname, QString &errMsg) = 0;
+    virtual int     writeToDB(const QByteArray &data, const QString pkgname,
+                              QString &errMsg) = 0;
 
     static QRegExp trueRegExp;
     static QRegExp falseRegExp;
 
   protected:
     int     _grade;
+    QString _filename;
     QString _name;
     QString _comment;
     QString _nodename;
     bool    _system;
 
-    virtual int upsertPkgItem(int &pkgitemid, const int pkghead, const QString type, const int itemid, const QString name, const QString comment, QString &errMsg);
+    virtual int upsertPkgItem(int &pkgitemid, const int pkghead,
+                              const QString type, const int itemid,
+                              const QString name, const QString comment,
+                              QString &errMsg);
 };
 
 #endif

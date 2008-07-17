@@ -64,18 +64,20 @@
 #include <QVariant>     // used by QSqlQuery::bindValue()
 
 LoadReport::LoadReport(const QString &name, const int grade, const bool system,
-                       const QString &comment)
-  : Loadable("loadreport", name, grade, system, comment)
+                       const QString &comment, const QString &filename)
+  : Loadable("loadreport", name, grade, system, comment, filename)
 {
 }
 
-LoadReport::LoadReport(const QDomElement & elem)
-  : Loadable(elem)
+LoadReport::LoadReport(const QDomElement & elem, QStringList &msg, QList<bool> &fatal)
+  : Loadable(elem, msg, fatal)
 {
   if (elem.nodeName() != "loadreport")
-    QMessageBox::warning(0, "Improper call to LoadReport(QDomElement)",
-                         QString("Creating a LoadAppReport element from a %1 node.")
-                         .arg(elem.nodeName()));
+  {
+    msg.append(QObject::tr("Creating a LoadAppReport element from a %1 node.")
+                       .arg(elem.nodeName()));
+    fatal.append(false);
+  }
 }
 
 int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
@@ -90,7 +92,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
   {
     errMsg = (QObject::tr("<font color=red>Error parsing file %1: %2 on "
                           "line %3 column %4</font>")
-                          .arg(name()).arg(errMsg).arg(errLine).arg(errCol));
+                          .arg(_filename).arg(errMsg).arg(errLine).arg(errCol));
     return -1;
   }
 
@@ -99,7 +101,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
   {
     errMsg = QObject::tr("<font color=red>XML Document %1 does not have root"
                          " node of report</font>")
-                         .arg(name());
+                         .arg(_filename);
     return -2;
   }
 
@@ -112,11 +114,11 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
   }
   QString report_src = doc.toString();
 
-  if(_name.isEmpty())
+  if(_filename.isEmpty())
   {
     errMsg = QObject::tr("<font color=orange>The document %1 does not have"
                          " a report name defined</font>")
-                         .arg(name());
+                         .arg(_filename);
     return -3;
   }
 
@@ -133,7 +135,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
     else if (minOrder.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = minOrder.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -4;
     }
     else
@@ -152,7 +154,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
     else if (maxOrder.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = maxOrder.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -5;
     }
     else
@@ -192,7 +194,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
     else if (select.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = select.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -6;
     }
   }
@@ -212,7 +214,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
     else if (select.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = select.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -7;
     }
     if (reportid < 0)   // select told us there's no report *in* the package
@@ -241,14 +243,14 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
         else if (next.lastError().type() != QSqlError::NoError)
         {
           QSqlError err = next.lastError();
-          errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+          errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
           return -8;
         }
       }
       else if (select.lastError().type() != QSqlError::NoError)
       {
         QSqlError err = select.lastError();
-        errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+        errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
         return -9;
       }
     }
@@ -268,7 +270,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -10;
     }
 
@@ -287,7 +289,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
-    errMsg = sqlerrtxt.arg(name()).arg(err.driverText()).arg(err.databaseText());
+    errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
     return -11;
   }
 

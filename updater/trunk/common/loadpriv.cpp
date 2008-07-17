@@ -75,13 +75,25 @@ LoadPriv::LoadPriv(const QString &nodename,
     _name = "Custom" + _name;
 }
 
-LoadPriv::LoadPriv(const QDomElement &elem)
-  : Loadable(elem)
+LoadPriv::LoadPriv(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
+  : Loadable(elem, msg, fatal)
 {
+  if (_name.isEmpty())
+  {
+    msg.append(QObject::tr("A Privilege %1 does not have a name."));
+    fatal.append(true);
+  }
+
   if (elem.hasAttribute("module"))
     _module = elem.attribute("module");
   else
+  {
     _module = "Custom";
+    msg.append(QObject::tr("The Privilege %1 has not been assigned to a "
+                           "module. It will default to '%2'.")
+                .arg(_name).arg(_module));
+    fatal.append(false);
+  }
 }
 
 QDomElement LoadPriv::createElement(QDomDocument &doc)

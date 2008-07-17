@@ -68,19 +68,24 @@ QRegExp Loadable::trueRegExp("^t(rue)?$",   Qt::CaseInsensitive);
 QRegExp Loadable::falseRegExp("^f(alse)?$", Qt::CaseInsensitive);
 
 Loadable::Loadable(const QString &nodename, const QString &name,
-                   const int grade, const bool system, const QString &comment)
+                   const int grade, const bool system, const QString &comment,
+                   const QString &filename)
 {
   _nodename = nodename;
   _name     = name;
   _grade    = grade;
   _system   = system;
   _comment  = comment;
+  _filename = (filename.isEmpty() ? name : filename);
 }
 
-Loadable::Loadable(const QDomElement & elem)
+Loadable::Loadable(const QDomElement & elem, QStringList &msg, QList<bool> &fatal)
 {
   _nodename = elem.nodeName();
-  _name     = elem.attribute("name");
+
+  if (elem.hasAttribute("name"))
+    _name   = elem.attribute("name");
+
   if (elem.hasAttribute("grade"))
   {
     if (elem.attribute("grade").contains("highest", Qt::CaseInsensitive))
@@ -100,14 +105,18 @@ Loadable::Loadable(const QDomElement & elem)
     else
     {
       _system = false;
-      QMessageBox::warning(0, "Improper call to Loadable(QDomElement)",
-                           QString("Node %1 '%2' has an improper value for the "
-                                   "'system' attribute (%3). Defaulting to "
-                                   "false.")
-                           .arg(elem.nodeName()).arg(elem.attribute("name"))
-                           .arg(elem.attribute("system")));
+      msg.append(QObject::tr("Node %1 '%2' has an improper value for the 'system' "
+                        "attribute (%3). Defaulting to false.")
+                         .arg(elem.nodeName()).arg(elem.attribute("name"))
+                         .arg(elem.attribute("system")));
+      fatal.append(false);
     }
   }
+
+  if (elem.hasAttribute("file"))
+    _filename = elem.attribute("file");
+  else
+    _filename = _name;
 
   _comment = elem.text().trimmed();
 }
@@ -121,6 +130,8 @@ QDomElement Loadable::createElement(QDomDocument & doc)
   QDomElement elem = doc.createElement(_nodename);
   elem.setAttribute("name", _name);
   elem.setAttribute("grade", _grade);
+  elem.setAttribute("file", _filename);
+
   if (_system)
     elem.setAttribute("system", _system);
 

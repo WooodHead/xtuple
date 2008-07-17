@@ -65,25 +65,36 @@
 
 LoadAppScript::LoadAppScript(const QString &name, const int order,
                              const bool system, const bool enabled,
-                             const QString &comment)
-  : Loadable("loadappscript", name, order, system, comment)
+                             const QString &comment, const QString &filename)
+  : Loadable("loadappscript", name, order, system, comment, filename)
 {
   _enabled = enabled;
 }
 
-LoadAppScript::LoadAppScript(const QDomElement &elem)
-  : Loadable(elem)
+LoadAppScript::LoadAppScript(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
+  : Loadable(elem, msg, fatal)
 {
+  if (_name.isEmpty())
+  {
+    msg.append(QObject::tr("The script in %1 does not have a name.")
+                         .arg(_filename));
+    fatal.append(true);
+  }
+
   if (elem.nodeName() != "loadappscript")
-    QMessageBox::warning(0, "Improper call to LoadAppScript(QDomElement)",
-                         QString("Creating a LoadAppScript element from a %1 node.")
-                         .arg(elem.nodeName()));
+  {
+    msg.append(QObject::tr("Creating a LoadAppScript element from a %1 node.")
+           .arg(elem.nodeName()));
+    fatal.append(false);
+  }
 
   if (elem.hasAttribute("grade"))
-    QMessageBox::warning(0, "Improper call to LoadAppScript(QDomElement)",
-                         QString("Node %1 '%2' has a 'grade' attribute but "
-                                 "should use 'order' instead.")
-                         .arg(elem.nodeName()).arg(elem.attribute("name")));
+  {
+    msg.append(QObject::tr("Node %1 '%2' has a 'grade' attribute but should use "
+                      "'order' instead.")
+                   .arg(elem.nodeName()).arg(elem.attribute("name")));
+    fatal.append(false);
+  }
 
   if (elem.hasAttribute("order"))
   {
@@ -94,8 +105,23 @@ LoadAppScript::LoadAppScript(const QDomElement &elem)
     else
       _grade = elem.attribute("order").toInt();
   }
+
+  _enabled = true;
   if (elem.hasAttribute("enabled"))
-    _enabled = elem.attribute("enabled").contains(trueRegExp);
+  {
+    if (elem.attribute("enabled").contains(trueRegExp))
+      _enabled = true;
+    else if (elem.attribute("enabled").contains(falseRegExp))
+      _enabled = false;
+    else
+    {
+      msg.append(QObject::tr("Node %1 '%2' has an 'enabled' attribute that is "
+                        "neither 'true' nor 'false'. Using '%3'.")
+                         .arg(elem.nodeName()).arg(elem.attribute("name"))
+                         .arg(_enabled ? "true" : "false"));
+      fatal.append(false);
+    }
+  }
 }
 
 int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
@@ -106,15 +132,14 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
   if (_name.isEmpty())
   {
     errMsg = QObject::tr("<font color=orange>The script does not have"
-                         " a name.</font>")
-                         .arg(_name);
+                         " a name.</font>");
     return -1;
   }
 
   if (pdata.isEmpty())
   {
     errMsg = QObject::tr("<font color=orange>The script %1 is empty.</font>")
-                         .arg(_name);
+                         .arg(_filename);
     return -2;
   }
 
@@ -131,7 +156,7 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
     else if (minOrder.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = minOrder.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -3;
     }
     else
@@ -150,7 +175,7 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
     else if (maxOrder.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = maxOrder.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -4;
     }
     else
@@ -189,7 +214,7 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
   else if (select.lastError().type() != QSqlError::NoError)
   {
     QSqlError err = select.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
     return -5;
   }
 
@@ -209,7 +234,7 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -6;
     }
 
@@ -222,14 +247,14 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
   upsert.bindValue(":id",      scriptid);
   upsert.bindValue(":grade",   _grade);
   upsert.bindValue(":enabled", _enabled);
-  upsert.bindValue(":source",  pdata);
+  upsert.bindValue(":source",  QString(pdata));
   upsert.bindValue(":notes",   _comment);
   upsert.bindValue(":name",    _name);
 
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
     return -7;
   }
 

@@ -65,8 +65,9 @@ class LoadAppUI : public Loadable
   public:
     LoadAppUI(const QString & name, const int order = 0,
               const bool system = true, const bool enabled = true,
-              const QString & comment = QString::null);
-    LoadAppUI(const QDomElement &);
+              const QString & comment = QString::null,
+              const QString &filename = QString::null);
+    LoadAppUI(const QDomElement &, QStringList &, QList<bool> &);
 
     virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);
 

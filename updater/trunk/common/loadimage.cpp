@@ -68,40 +68,55 @@
 
 #include <quuencode.h>
 
-#define DEBUG true
+#define DEBUG false
 
 LoadImage::LoadImage(const QString &name, const int order,
-                             const bool system, const bool /*enabled*/,
-                             const QString &comment)
-  : Loadable("loadimage", name, order, system, comment)
+                     const bool system, const bool /*enabled*/,
+                     const QString &comment, const QString &filename)
+  : Loadable("loadimage", name, order, system, comment, filename)
 {
 }
 
-LoadImage::LoadImage(const QDomElement &elem)
-  : Loadable(elem)
+LoadImage::LoadImage(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
+  : Loadable(elem, msg, fatal)
 {
+  if (_name.isEmpty())
+  {
+    msg.append(QObject::tr("The image in %1 does not have a name.")
+                       .arg(_filename));
+    fatal.append(true);
+  }
+
   if (elem.nodeName() != "loadimage")
-    QMessageBox::warning(0, "Improper call to LoadImage(QDomElement)",
-                         QString("Creating a LoadImage element from a %1 node.")
-                         .arg(elem.nodeName()));
+  {
+    msg.append(QObject::tr("Creating a LoadImage element from a %1 node.")
+              .arg(elem.nodeName()));
+    fatal.append(false);
+  }
 
   if (elem.hasAttribute("grade") || elem.hasAttribute("order"))
-    QMessageBox::warning(0, "Improper call to LoadImage(QDomElement)",
-                         QString("Node %1 '%2' has a 'grade' or 'order' "
-                                 "attribute but these are ignored for images.")
-                         .arg(elem.nodeName()).arg(elem.attribute("name")));
+  {
+    msg.append(QObject::tr("Node %1 '%2' has a 'grade' or 'order' attribute "
+                           "but these are ignored for images.")
+                           .arg(elem.nodeName()).arg(elem.attribute("name")));
+    fatal.append(false);
+  }
 
   if (elem.hasAttribute("enabled"))
-    QMessageBox::warning(0, "Improper call to LoadImage(QDomElement)",
-                         QString("Node %1 '%2' has an 'enabled' attribute "
-                                 "but this is ignored for images.")
-                         .arg(elem.nodeName()).arg(elem.attribute("name")));
+  {
+    msg.append(QObject::tr("Node %1 '%2' has an 'enabled' "
+                           "attribute which is ignored for images.")
+                       .arg(elem.nodeName()).arg(elem.attribute("name")));
+    fatal.append(false);
+  }
 
   if (elem.hasAttribute("system"))
-    QMessageBox::warning(0, "Improper call to LoadImage(QDomElement)",
-                         QString("Node %1 '%2' has a 'system' attribute "
-                                 "but this is ignored for images.")
-                         .arg(elem.nodeName()).arg(elem.attribute("name")));
+  {
+    msg.append(QObject::tr("Node %1 '%2' has a 'system' attribute "
+                           "which is ignored for images.")
+                       .arg(elem.nodeName()).arg(elem.attribute("name")));
+    fatal.append(false);
+  }
 }
 
 int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
@@ -109,13 +124,6 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
                                   "encountered while trying to import %1 into "
                                   "the database:<br>%2<br>%3</font>");
-  if (_name.isEmpty())
-  {
-    errMsg = QObject::tr("<font color=orange>The image does not have"
-                         " a name.</font>")
-                         .arg(_name);
-    return -1;
-  }
 
   if (pdata.isEmpty())
   {
@@ -141,8 +149,8 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
 
     imageBuffer.open(QIODevice::ReadWrite);
     imageIo.setDevice(&imageBuffer);
-    imageIo.setFormat(_name.right(_name.size() -
-                                  _name.lastIndexOf(".") - 1).toAscii());
+    imageIo.setFormat(_filename.right(_filename.size() -
+                                      _filename.lastIndexOf(".") - 1).toAscii());
     if (DEBUG)
       qDebug("LoadImage::writeToDB() image has format %s",
              imageIo.format().data());
@@ -193,7 +201,7 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   else if (select.lastError().type() != QSqlError::NoError)
   {
     QSqlError err = select.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
     return -5;
   }
 
@@ -211,7 +219,7 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -6;
     }
 
@@ -228,7 +236,7 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
     return -7;
   }
 

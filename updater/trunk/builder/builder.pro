@@ -63,6 +63,7 @@ CONFIG += qt warn_on thread
 DESTDIR = ../bin
 
 INCLUDEPATH += ../common
+DEPENDPATH  += ../common
 LIBS += -L../lib -lupdatercommon -L../$${OPENRPT_DIR}/lib -lcommon
 macx: PRE_TARGETDEPS += ../lib/libupdatercommon.a
 

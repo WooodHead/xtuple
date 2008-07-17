@@ -73,12 +73,15 @@
 #include "prerequisite.h"
 #include "script.h"
 
+#define DEBUG true
+
 Package::Package(const QString & id)
   : _id(id), _majVersion(-1), _minVersion(-1)
 {
 }
 
-Package::Package(const QDomElement & elem)
+Package::Package(const QDomElement & elem, QStringList &msgList,
+                 QList<bool> &fatalList)
   : _majVersion(-1), _minVersion(-1)
 {
   _id = elem.attribute("id");
@@ -116,37 +119,37 @@ Package::Package(const QDomElement & elem)
     }
     else if(elemThis.tagName() == "loadpriv")
     {
-      LoadPriv priv(elemThis);
+      LoadPriv priv(elemThis, msgList, fatalList);
       _privs.append(priv);
     }
     else if(elemThis.tagName() == "script")
     {
-      Script script(elemThis);
+      Script script(elemThis, msgList, fatalList);
       _scripts.append(script);
     }
     else if(elemThis.tagName() == "loadreport")
     {
-      LoadReport report(elemThis);
+      LoadReport report(elemThis, msgList, fatalList);
       _reports.append(report);
     }
     else if(elemThis.tagName() == "loadappui")
     {
-      LoadAppUI appui(elemThis);
+      LoadAppUI appui(elemThis, msgList, fatalList);
       _appuis.append(appui);
     }
     else if(elemThis.tagName() == "loadappscript")
     {
-      LoadAppScript appscript(elemThis);
+      LoadAppScript appscript(elemThis, msgList, fatalList);
       _appscripts.append(appscript);
     }
     else if(elemThis.tagName() == "loadcmd")
     {
-      LoadCmd cmd(elemThis);
+      LoadCmd cmd(elemThis, msgList, fatalList);
       _cmds.append(cmd);
     }
     else if(elemThis.tagName() == "loadimage")
     {
-      LoadImage image(elemThis);
+      LoadImage image(elemThis, msgList, fatalList);
       _images.append(image);
     }
     else if (elemThis.tagName() == "pkgnotes")
@@ -163,6 +166,10 @@ Package::Package(const QDomElement & elem)
       reportedErrorTags << elemThis.tagName();
     }
   }
+
+  if (DEBUG)
+    qDebug("Package::Package(QDomElement) msgList & fatalList at %d and %d",
+           msgList.size(), fatalList.size());
 }
 
 Package::~Package()

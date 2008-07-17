@@ -63,27 +63,33 @@
 #include <QSqlError>
 #include <QVariant>     // used by QSqlQuery::bindValue()
 
+#define DEBUG true
+
 LoadAppUI::LoadAppUI(const QString &name, const int order,
                      const bool system, const bool enabled,
-                     const QString & comment)
-  : Loadable("loadappui", name, order, system, comment)
+                     const QString & comment, const QString &filename)
+  : Loadable("loadappui", name, order, system, comment, filename)
 {
   _enabled = enabled;
 }
 
-LoadAppUI::LoadAppUI(const QDomElement &elem)
-  : Loadable(elem)
+LoadAppUI::LoadAppUI(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
+  : Loadable(elem, msg, fatal)
 {
   if (elem.nodeName() != "loadappui")
-    QMessageBox::warning(0, "Improper call to LoadAppUI(QDomElement)",
-                         QString("Creating a LoadAppUI element from a %1 node.")
+  {
+    msg.append(QObject::tr("Creating a LoadAppUI element from a %1 node.")
                          .arg(elem.nodeName()));
+    fatal.append(false);
+  }
 
   if (elem.hasAttribute("grade"))
-    QMessageBox::warning(0, "Improper call to LoadAppUI(QDomElement)",
-                         QString("Node %1 '%2' has a 'grade' attribute but "
-                                 "should use 'order' instead.")
-                         .arg(elem.nodeName()).arg(elem.attribute("name")));
+  {
+    msg.append(QObject::tr("Node %1 '%2' has a 'grade' attribute but "
+                      "should use 'order' instead.")
+                     .arg(elem.nodeName()).arg(elem.attribute("name")));
+    fatal.append(false);
+  }
 
   if (elem.hasAttribute("order"))
   {
@@ -94,8 +100,23 @@ LoadAppUI::LoadAppUI(const QDomElement &elem)
     else
       _grade = elem.attribute("order").toInt();
   }
+
+  _enabled = true;
   if (elem.hasAttribute("enabled"))
-    _enabled = elem.attribute("enabled").contains(trueRegExp);
+  {
+    if (elem.attribute("enabled").contains(trueRegExp))
+      _enabled = true;
+    else if (elem.attribute("enabled").contains(falseRegExp))
+      _enabled = false;
+    else
+    {
+      msg.append(QObject::tr("Node %1 '%2' has an 'enabled' attribute that is "
+                        "neither 'true' nor 'false'. Using '%3'.")
+                         .arg(elem.nodeName()).arg(elem.attribute("name"))
+                         .arg(_enabled ? "true" : "false"));
+      fatal.append(false);
+    }
+  }
 }
 
 int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
@@ -103,20 +124,42 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
                                   "encountered while trying to import %1 into "
                                   "the database:<br>%2<br>%3</font>");
-  if (_name.isEmpty())
+
+  int errLine = 0;
+  int errCol = 0;
+  QDomDocument doc;
+  if (! doc.setContent(pdata, &errMsg, &errLine, &errCol))
   {
-    errMsg = QObject::tr("<font color=orange>The UI Form does not have"
-                         " a name.</font>")
-                         .arg(_name);
+    errMsg = (QObject::tr("<font color=red>Error parsing file %1: %2 on "
+                          "line %3 column %4</font>")
+                          .arg(_filename).arg(errMsg).arg(errLine).arg(errCol));
     return -1;
   }
 
-  if (pdata.isEmpty())
+  QDomElement root = doc.documentElement();
+  if (root.tagName() != "ui")
   {
-    errMsg = QObject::tr("<font color=orange>The form %1 is empty.</font>")
-                         .arg(_name);
+    errMsg = QObject::tr("<font color=red>XML Document %1 does not have root"
+                         " node of 'ui'</font>")
+                         .arg(_filename);
     return -2;
   }
+
+  if (DEBUG)
+    qDebug("LoadAppUI::writeToDB() name before looking for class node: %s",
+           qPrintable(_name));
+  QDomElement n = root.firstChildElement("class");
+  if (n.isNull())
+  {
+    errMsg = QObject::tr("<font color=red>XML Document %1 does not name its "
+                          "class and is not a valid UI Form.")
+                          .arg(_filename);
+    return -3;
+  }
+  _name = n.text();
+  if (DEBUG)
+    qDebug("LoadAppUI::writeToDB() name after looking for class node: %s",
+           qPrintable(_name));
 
   if (_grade == INT_MIN)
   {
@@ -131,7 +174,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
     else if (minOrder.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = minOrder.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -3;
     }
     else
@@ -150,7 +193,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
     else if (maxOrder.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = maxOrder.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -4;
     }
     else
@@ -189,7 +232,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   else if (select.lastError().type() != QSqlError::NoError)
   {
     QSqlError err = select.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
     return -5;
   }
 
@@ -209,7 +252,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -6;
     }
     upsert.prepare("INSERT INTO uiform ("
@@ -221,14 +264,14 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   upsert.bindValue(":id",      formid);
   upsert.bindValue(":grade",   _grade);
   upsert.bindValue(":enabled", _enabled);
-  upsert.bindValue(":source",  pdata);
+  upsert.bindValue(":source",  QString(pdata));
   upsert.bindValue(":notes",   _comment);
   upsert.bindValue(":name",    _name);
 
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
     return -7;
   }
 
