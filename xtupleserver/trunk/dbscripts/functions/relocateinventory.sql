@@ -52,12 +52,17 @@ BEGIN
     invhist_transtype, invhist_invqty,
     invhist_qoh_before, invhist_qoh_after,
     invhist_comments,   invhist_transdate,
-    invhist_invuom, invhist_unitcost ) 
+    invhist_invuom, invhist_unitcost, invhist_costmethod,
+    invhist_value_before, invhist_value_after) 
   SELECT _invhistid, itemsite_id,
          ''RL'', 0,
          itemsite_qtyonhand, itemsite_qtyonhand,
          pComments, _GlDistTS,
-         uom_name, stdCost(item_id)
+         uom_name,
+         CASE WHEN (itemsite_costmethod=''A'') THEN avgcost(itemsite_id)
+              ELSE stdCost(item_id)
+         END, itemsite_costmethod,
+         itemsite_value, itemsite_value
   FROM item, itemsite, uom
   WHERE ((itemsite_item_id=item_id)
    AND (item_inv_uom_id=uom_id)
@@ -90,9 +95,9 @@ BEGIN
 --  Check to see if any of the current Lot/Serial #/Expiration exists at the target location
   SELECT itemloc_id INTO _targetItemlocid
   FROM itemloc 
-  WHERE ( (itemloc_ls_id=_p.itemloc_ls_id)
+  WHERE ( (COALESCE(itemloc_ls_id, -1)=COALESCE(_p.itemloc_ls_id,-1))
    AND (itemloc_expiration=_p.itemloc_expiration)
-   AND (itemloc_warrpurc=_p.itemloc_warrpurc)
+   AND (COALESCE(itemloc_warrpurc,endOfTime())=COALESCE(_p.itemloc_warrpurc,endOfTime()))
    AND (itemloc_itemsite_id=pItemsiteid)
    AND (itemloc_location_id=pTargetLocationid) );
 
