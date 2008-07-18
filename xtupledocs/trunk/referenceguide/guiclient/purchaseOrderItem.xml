@@ -45,17 +45,18 @@
             <term>Item Number</term>
             <listitem>
               <para>Enter the Item Number of the Item you want to add to the
-              Purchase Order.</para>
+              Purchase Order. You may also manufactured items that you
+              normally manufacture, but you occasionally purchase. </para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Supplying Site</term>
             <listitem>
               <para>Specify the Site the Item will be supplied from. The
-              supplying Site is the Site that supplies the Item in
-              question to the shipping Site for shipment to Customers.
-              Sites may be designated as supplying Sites in the Item
-              Site definition.</para>
+              supplying Site is the Site that supplies the Item in question to
+              the shipping Site for shipment to Customers. Sites may be
+              designated as supplying Sites in the Item Site
+              definition.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -63,10 +64,10 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>The supplying Site may differ from the receiving Site(s)
-    for some Purchase Order Line Items. To update your Inventory records to
-    indicate that Items have been moved from the receiving to the supplied
-    from Site, perform an Inter-Site Transfer.</para>
+    <para>The supplying Site may differ from the receiving Site(s) for some
+    Purchase Order Line Items. To update your Inventory records to indicate
+    that Items have been moved from the receiving to the supplied from Site,
+    perform an Inter-Site Transfer.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -100,7 +101,7 @@
     <varlistentry>
       <term>Unit Price</term>
       <listitem>
-        <para>Enter the Unit Price for the specified Item. </para>
+        <para>Enter the Unit Price for the specified Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -132,7 +133,7 @@
     <varlistentry>
       <term>Due Date</term>
       <listitem>
-        <para> Specify date when Order is expected to be received.</para>
+        <para>Specify date when Order is expected to be received.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -140,8 +141,8 @@
       <listitem>
         <para>Select a Project Number to associate with the Purchase Order
         Line Item. If the Purchase Order Line Item is being created from a
-        Purchase Request driven by Sales Order demand&mdash;and the parent Sales
-        Order had a Project Number associated with it&mdash;then the Project Number
+        Purchase Request driven by Sales Order demand—and the parent Sales
+        Order had a Project Number associated with it—then the Project Number
         from the parent Sales Order will automatically be entered here. In
         this way, Sales Orders and Purchase Order Line Items may be linked to
         the same Project.</para>
@@ -301,13 +302,13 @@
         pre-defined Value; 3) manually enter a new Value in place of the
         pre-defined Value; or 4) make no selection. Making no selection means
         the Characteristics will not be associated with the Purchase Order
-        Item&mdash;except in the case of Characteristics inherited from Sales
+        Item—except in the case of Characteristics inherited from Sales
         Orders, by way of Purchase Requests.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Comments to a Purchase Order Line Item&mdash;or to view
-  system-generated Comments&mdash;select the "Comments" tab at the bottom of the
+  <para>To add Comments to a Purchase Order Line Item—or to view
+  system-generated Comments—select the "Comments" tab at the bottom of the
   screen. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -386,11 +387,11 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para role="standard">When ordering purchased Items, you have the option to specify which
-  Revision of the Item's Bill of Materials and Bill of Operations you want to
-  buy. By default, the active Revision will be used. To specify Revision
-  information for a Purchase Order Item, select the "Revision" tab. The
-  following screen will appear:</para>
+  <para role="standard">When ordering purchased Items, you have the option to
+  specify which Revision of the Item's Bill of Materials and Bill of
+  Operations you want to buy. By default, the active Revision will be used. To
+  specify Revision information for a Purchase Order Item, select the
+  "Revision" tab. The following screen will appear:</para>
   <screenshot role="standard">
     <mediaobject>
       <imageobject>
@@ -400,10 +401,11 @@
     </mediaobject>
   </screenshot>
   <note>
-    <para role="standard">You may create Purchase Order Items for pending Revisions. For
-    Purchase Order purposes, a pending Revision is considered to be the same
-    as an inactive Revision. The Revision status of a pending Revision will
-    not be changed if a Purchase Order Item is created for it.</para>
+    <para role="standard">You may create Purchase Order Items for pending
+    Revisions. For Purchase Order purposes, a pending Revision is considered
+    to be the same as an inactive Revision. The Revision status of a pending
+    Revision will not be changed if a Purchase Order Item is created for
+    it.</para>
   </note>
   <para role="standard">When specifying Revision information for a Purchase
   Order Item, you are presented with the following options:</para>
