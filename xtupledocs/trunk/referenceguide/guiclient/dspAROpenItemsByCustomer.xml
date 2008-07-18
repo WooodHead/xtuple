@@ -107,6 +107,9 @@
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickView)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateIncident)" />
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
@@ -117,5 +120,30 @@
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1/11/2/10)" />
+  </variablelist>
+  <para>To view Incidents that are associated with A/R open items, expand the selected item. The following
+  information will appear:</para>
+
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspAROpenItems.png"/>
+        </imageobject>
+
+        <caption>A/R Open Items</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+
+  <para>Right-clicking on an Incident in the A/R open items list enables you to
+  select from the following menu options:</para>
+
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditIncident)"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewIncident)"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

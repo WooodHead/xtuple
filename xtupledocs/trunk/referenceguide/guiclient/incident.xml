@@ -173,6 +173,44 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>Incidents may be linked to a specific A/R Open Item from the A/R Open Items
+  and A/R Open Items by Customer displays.  To view the associated A/R Open Item
+  select the "A/R Info" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident_itemTab.png" />
+        </imageobject>
+        <caption>Incident A/R Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When an Incident is linked to a specific A/R Open Item, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Document Type</term>
+      <listitem>
+        <para>The type of document associated with the Incident.  Document types
+		would include Credit Memo, Debit Memo, Invoice, and Cash Deposit.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Document #</term>
+      <listitem>
+        <para>The identifying number of the Document.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following button is
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="incidentVIEWAR">
+        <para>Select this button to view the details of the A/R Open Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To view or associate To-Dos with an Incident, select the "To-Do List
   Items" tab. The following screen will appear:</para>
   <para><screenshot>
