@@ -90,9 +90,9 @@ BEGIN
 --  Check to see if any of the current Lot/Serial #/Expiration exists at the target location
   SELECT itemloc_id INTO _targetItemlocid
   FROM itemloc 
-  WHERE ( (itemloc_ls_id=_p.itemloc_ls_id)
+  WHERE ( (COALESCE(itemloc_ls_id, -1)=COALESCE(_p.itemloc_ls_id,-1))
    AND (itemloc_expiration=_p.itemloc_expiration)
-   AND (itemloc_warrpurc=_p.itemloc_warrpurc)
+   AND (COALESCE(itemloc_warrpurc,endOfTime())=COALESCE(_p.itemloc_warrpurc,endOfTime()))
    AND (itemloc_itemsite_id=pItemsiteid)
    AND (itemloc_location_id=pTargetLocationid) );
 
