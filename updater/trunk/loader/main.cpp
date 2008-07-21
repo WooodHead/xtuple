@@ -217,12 +217,17 @@ int main(int argc, char* argv[])
                                 QMessageBox::No | QMessageBox::Default) == QMessageBox::No)
         return -2;
     }
-    else if (su.lastError().type() != QSqlError::NoError)
-    {
-      QMessageBox::critical(0, QObject::tr("System Error"),
-                            su.lastError().databaseText());
+    else if (su.lastError().type() != QSqlError::NoError &&
+             QMessageBox::question(0, QObject::tr("System Error"),
+                            QObject::tr("<p>The application received a database "
+                                        "error while trying to check the user "
+                                        "status of %1. Would you like to try to "
+                                        "update anyway?<br><pre>%2")
+                            .arg(_user)
+                            .arg(su.lastError().databaseText()),
+                            QMessageBox::Yes,
+                            QMessageBox::No | QMessageBox::Default) == QMessageBox::No)
       return -3;
-    }
   }
 
   LoaderWindow * mainwin = new LoaderWindow();
@@ -231,4 +236,3 @@ int main(int argc, char* argv[])
 
   return app.exec();
 }
-
