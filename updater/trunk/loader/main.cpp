@@ -57,20 +57,20 @@
 
 #include <QApplication>
 #include <QMainWindow>
-#include <QWindowsStyle>
-#include <QSqlDatabase>
-#include <QStyleFactory>
 #include <QMessageBox>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QStyleFactory>
+#include <QWindowsStyle>
 
 #ifdef Q_WS_MACX
-#include <qmacstyle_mac.h>
+#include <QMacStyle>
 #endif
 
-#include <xsqlquery.h>
 #include <dbtools.h>
 #include <login2.h>
-
 #include <parameter.h>
+#include <xsqlquery.h>
 
 #include "data.h"
 
@@ -199,6 +199,29 @@ int main(int argc, char* argv[])
       _usrid = newdlg._userid;
       _user = newdlg._user;
       _loggedIn = TRUE;
+    }
+
+    QSqlQuery su;
+    su.prepare("SELECT rolsuper FROM pg_roles WHERE (rolname=:user);");
+    su.bindValue(":user", _user);
+    su.exec();
+    if (su.first())
+    {
+      if (! su.value(0).toBool() &&
+          QMessageBox::question(0, QObject::tr("Not Super User"),
+                                QObject::tr("You are not logged in as a "
+                                            "database super user. The update "
+                                            "may fail. Are you sure you want "
+                                            "to continue?"),
+                                QMessageBox::Yes,
+                                QMessageBox::No | QMessageBox::Default) == QMessageBox::No)
+        return -2;
+    }
+    else if (su.lastError().type() != QSqlError::NoError)
+    {
+      QMessageBox::critical(0, QObject::tr("System Error"),
+                            su.lastError().databaseText());
+      return -3;
     }
   }
 
