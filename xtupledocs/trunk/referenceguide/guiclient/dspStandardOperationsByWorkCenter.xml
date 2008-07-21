@@ -28,8 +28,8 @@
     <varlistentry>
       <term>Site</term>
       <listitem>
-        <para>The Site code for the Site where the Work Center is
-        located will display once a Work Center has been selected.</para>
+        <para>The Site code for the Site where the Work Center is located will
+        display once a Work Center has been selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -62,10 +62,16 @@
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewStdOperation)" />
+                xpointer="element(rightclickViewBOOOperation)" />
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditStdOperation)" />
+                xpointer="element(rightclickViewBillofOperations)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditBOOItem)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditBillOfOperations)" />
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />

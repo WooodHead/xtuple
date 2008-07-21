@@ -106,18 +106,32 @@
         <para>Select to include the Inventory value of Quantities on Hand by
         Item Group in the display. Specify whether to display Inventory value
         using Standard Costs or Actual Costs.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Use Standard Costs</term>
-      <listitem>
-        <para>Select to show Inventory value based on Standard Costs.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Use Actual Costs</term>
-      <listitem>
-        <para>Select to show Inventory value based on Actual Costs.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use Posted Costs</term>
+            <listitem>
+              <para>Select to show Inventory value based on the costing method
+              defined for the Item Site. Item Sites may use the following
+              costing methods, depending on the Item Type: Standard, Average,
+              Job (i.e., Job Items), and None (i.e., Reference Items and any
+              Items having a control method = None).</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Standard Costs</term>
+            <listitem>
+              <para>Select to show Inventory value based on Standard
+              Costs.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Actual Costs</term>
+            <listitem>
+              <para>Select to show Inventory value based on Actual
+              Costs.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
