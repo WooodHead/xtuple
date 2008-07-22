@@ -12,8 +12,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/MS_Plan_prodPlanNew.png"
-                     />
+          <imagedata fileref="images/plannedSchedule.png" />
         </imageobject>
         <caption>Create New Production Plan</caption>
       </mediaobject>
@@ -36,10 +35,9 @@
     <varlistentry>
       <term>Site</term>
       <listitem>
-        <para>Specify the Site where the forecasted quantity would be
-        located. By specifying a Site you indicate the specific Item Site
-        which the MPS planning system should create Planned Orders for, if
-        required.</para>
+        <para>Specify the Site where the forecasted quantity would be located.
+        By specifying a Site you indicate the specific Item Site which the MPS
+        planning system should create Planned Orders for, if required.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -80,8 +78,8 @@
         situation where load leveling or continuous production is desired.
         With this setting, MPS may release more, but never less, than the
         quantity dictated in a Cumulative MPS Schedule. Inside the Demand Time
-        Fence, Cumulative Schedules are ignored&mdash;and only actual demand is
-        considered. Outside the Demand Time Fence, Planned Orders for
+        Fence, Cumulative Schedules are ignored&mdash;and only actual demand
+        is considered. Outside the Demand Time Fence, Planned Orders for
         Cumulative Schedules are created per the greater of schedule quantity
         or net actual demand. The system interprets "net actual demand" to
         mean that it will use, for a given period, the larger of A) Cumulative
@@ -158,9 +156,9 @@
       <listitem>
         <para>Enables you to edit highlighted Production Plan Items. The edit
         screen is the same as that for creating a new Production Plan
-        Item&mdash;except that when editing, the fields will contain Production
-        Plan Item information. Double-clicking on a Production Plan Item will
-        also bring you to the editing screen.</para>
+        Item&mdash;except that when editing, the fields will contain
+        Production Plan Item information. Double-clicking on a Production Plan
+        Item will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -186,8 +184,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/MS_Plan_prodPlanItem.png"
-                     />
+          <imagedata fileref="images/plannedScheduleItem.png" />
         </imageobject>
         <caption>New Production Plan Item</caption>
       </mediaobject>
@@ -196,10 +193,10 @@
     <para>You can reduce clutter (and simplify) your Production Plans by
     taking advantage of the Planning Item Type. A Planning Item is an Item
     whose Bill of Materials (BOM) groups together other Items so that a
-    Production Plan may be defined for the Planning Item&mdash;and then exploded
-    down to the lower level Items during a Master Production Scheduling (MPS)
-    run. Planning Items are frequently used to group together product families
-    or product lines of MPS Items.</para>
+    Production Plan may be defined for the Planning Item&mdash;and then
+    exploded down to the lower level Items during a Master Production
+    Scheduling (MPS) run. Planning Items are frequently used to group together
+    product families or product lines of MPS Items.</para>
   </tip>
   <para>When creating a new Production Plan Item, you are presented with the
   following options:</para>
