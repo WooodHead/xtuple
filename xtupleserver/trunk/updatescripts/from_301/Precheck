@@ -1,3 +1,49 @@
+-- make sure vendor number is unique so we can create a unique index
+SELECT COUNT(*) = 0
+FROM vendinfo a, vendinfo b
+WHERE ((a.vend_number=b.vend_number)
+   AND (a.vend_id!=b.vend_id));
+
+-- make sure item source is unique so we can create a unique index
+SELECT count(*) = 0
+  FROM (SELECT count(*)
+          FROM itemsrc
+         GROUP BY itemsrc_item_id,itemsrc_vend_id
+        HAVING count(*) > 1) AS data;
+
+-- make sure item source uom is not null
+SELECT count(*) = 0
+  FROM itemsrc
+  WHERE (itemsrc_vend_uom IS NULL);
+
+-- make sure item source item id is not null
+SELECT count(*) = 0
+  FROM itemsrc
+  WHERE (itemsrc_vend_uom IS NULL);
+
+-- make sure item source vend uom ratio is not null
+SELECT count(*) = 0
+  FROM itemsrc
+  WHERE (itemsrc_invvendoruomratio IS NULL);
+
+-- make sure item source vendor is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM itemsrc LEFT OUTER JOIN vendinfo ON (vend_id=itemsrc_vend_id)
+WHERE (vend_id IS NULL);
+
+-- make sure item source item is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM itemsrc LEFT OUTER JOIN item ON (item_id=itemsrc_item_id)
+WHERE (item_id IS NULL);
+
+-- make sure item source is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM itemsrcp LEFT OUTER JOIN itemsrc ON (itemsrc_id=itemsrcp_itemsrc_id)
+WHERE (itemsrc_id IS NULL);
+
 -- make sure company number is unique so we can create a unique index
 SELECT COUNT(*) = 0
 FROM company a, company b
