@@ -12,7 +12,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_newPO.png" />
+          <imagedata fileref="images/purchaseOrder.png" />
         </imageobject>
         <caption>Enter New Purchase Order</caption>
       </mediaobject>
@@ -38,19 +38,19 @@
     <varlistentry>
       <term>Receiving Site</term>
       <listitem>
-        <para>Specify the Site where materials from the Purchase Order
-        will be received. By default, all active Sites are available for
-        selection as Receiving Sites. No special designation needs to be
-        made in the Site master or elsewhere to indicate that a Site
-        may be used for receiving purposes.</para>
+        <para>Specify the Site where materials from the Purchase Order will be
+        received. By default, all active Sites are available for selection as
+        Receiving Sites. No special designation needs to be made in the Site
+        master or elsewhere to indicate that a Site may be used for receiving
+        purposes.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>The receiving Site may differ from the supplying Site(s)
-    for some Purchase Order Line Items. To update your Inventory records to
-    indicate that Items have been moved from the receiving to the supplied
-    from Site, perform an Inter-Site Transfer.</para>
+    <para>The receiving Site may differ from the supplying Site(s) for some
+    Purchase Order Line Items. To update your Inventory records to indicate
+    that Items have been moved from the receiving to the supplied from Site,
+    perform an Inter-Site Transfer.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -81,8 +81,8 @@
       <listitem>
         <para>Specify the name of the agent assigned to the Order. By default,
         the name of the logged-in user will be entered as Purchasing
-        Agent&mdash;assuming that user is designated as a Purchasing Agent. If the
-        user is not a Purchasing Agent, the first alphabetical name in the
+        Agent&mdash;assuming that user is designated as a Purchasing Agent. If
+        the user is not a Purchasing Agent, the first alphabetical name in the
         list of Purchasing Agents will be entered.</para>
       </listitem>
     </varlistentry>
@@ -153,7 +153,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_POLineItems.png" />
+          <imagedata fileref="images/purchaseOrder_lineItemsPage.png" />
         </imageobject>
         <caption>Purchase Order Line Items</caption>
       </mediaobject>
@@ -236,9 +236,9 @@
       <listitem>
         <para>Enables you to edit highlighted Purchase Order Line Items. The
         edit screen is the same as that for creating a new Purchase Order Line
-        Item&mdash;except that when editing, the fields will contain Purchase Order
-        Line Item information. Double-clicking on a Purchase Order Line Item
-        will also bring you to the editing screen.</para>
+        Item&mdash;except that when editing, the fields will contain Purchase
+        Order Line Item information. Double-clicking on a Purchase Order Line
+        Item will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -254,7 +254,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_PONotes.png" />
+          <imagedata fileref="images/purchaseOrder_notesPage.png" />
         </imageobject>
         <caption>Add Notes to Purchase Order</caption>
       </mediaobject>
@@ -276,7 +276,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_POComments.png" />
+          <imagedata fileref="images/purchaseOrder_TabPage.png" />
         </imageobject>
         <caption>Add Comments to Purchase Order</caption>
       </mediaobject>
@@ -357,7 +357,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_POQuick.png" />
+          <imagedata fileref="images/purchaseOrder_quickEntryTab.png" />
         </imageobject>
         <caption>Purchase Order Quick Entry</caption>
       </mediaobject>
@@ -381,9 +381,8 @@
     <varlistentry>
       <term>Supplying Site</term>
       <listitem>
-        <para>Select a Supplying Site from the list of available options.
-        By default, the user's preferred Site will be presented
-        first.</para>
+        <para>Select a Supplying Site from the list of available options. By
+        default, the user's preferred Site will be presented first.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
