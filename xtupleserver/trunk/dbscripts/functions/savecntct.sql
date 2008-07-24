@@ -27,6 +27,7 @@ DECLARE
 
 BEGIN
   --Validate
+  RAISE NOTICE ''flag = %'',pFlag;
   IF ((pFlag IS NULL) OR (pFlag = '''') OR (pFlag = ''CHECK'') OR (pFlag = ''CHANGEONE'') OR (pFlag = ''CHANGEALL'')) THEN
     IF (pFlag='''') THEN
       _flag := ''CHECK'';
@@ -144,13 +145,13 @@ DECLARE
   pMiddleName ALIAS FOR $6;
   pLastName ALIAS FOR $7;
   pSuffix ALIAS FOR $8;
-  pPhone ALIAS FOR $7;
-  pPhone2 ALIAS FOR $8;
-  pFax ALIAS FOR $9;
-  pEmail ALIAS FOR $10;
-  pWebAddr ALIAS FOR $11;
-  pTitle ALIAS FOR $12;
-  pFlag ALIAS FOR $13;
+  pPhone ALIAS FOR $9;
+  pPhone2 ALIAS FOR $10;
+  pFax ALIAS FOR $11;
+  pEmail ALIAS FOR $12;
+  pWebAddr ALIAS FOR $13;
+  pTitle ALIAS FOR $14;
+  pFlag ALIAS FOR $15;
   _returnVal INTEGER;
 
 BEGIN
