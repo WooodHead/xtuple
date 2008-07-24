@@ -12,11 +12,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdItemNew.png"
-                     />
+          <imagedata fileref="images/transferOrderItem.png" />
         </imageobject>
-        <caption>Create New Transfer Order Line
-        Item</caption>
+        <caption>Create New Transfer Order Line Item</caption>
       </mediaobject>
     </screenshot></para>
   <para>When creating a new Transfer Order Line Item, you are presented with
@@ -52,8 +50,8 @@
           <secondary>selling sites for</secondary>
         </indexterm>From Site</term>
       <listitem>
-        <para>Displays the Source Site specified on the Transfer Order
-        header screen.</para>
+        <para>Displays the Source Site specified on the Transfer Order header
+        screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -100,12 +98,12 @@
               <para>Displays the quantity allocated to current Sales Orders,
               Transfer Orders, and/or Work Orders in the system. An Item is
               considered allocated to a Sales Order/Transfer Order if a
-              Transfer Order Line Item exists for the Item&mdash;and that Line Item
-              has not yet been issued to Shipping. An Item is considered
+              Transfer Order Line Item exists for the Item&mdash;and that Line
+              Item has not yet been issued to Shipping. An Item is considered
               allocated to a Work Order if the Item is a material
-              requirement&mdash;and the material has not yet been issued to the
-              Work Order. Once the current Transfer Order Line Item is saved,
-              the "Allocated" value will increase by the quantity
+              requirement&mdash;and the material has not yet been issued to
+              the Work Order. Once the current Transfer Order Line Item is
+              saved, the "Allocated" value will increase by the quantity
               ordered.</para>
             </listitem>
           </varlistentry>
@@ -216,11 +214,11 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>If there is no Item Site for the Item in the Destination Site,
-    you will automatically be presented with an Item Site screen. Simply enter
-    the required information to create an Item Site in the Destination
-    Site. An Item Site must exist in the Destination Site before
-    material can be received successfully.</para>
+    <para>If there is no Item Site for the Item in the Destination Site, you
+    will automatically be presented with an Item Site screen. Simply enter the
+    required information to create an Item Site in the Destination Site. An
+    Item Site must exist in the Destination Site before material can be
+    received successfully.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -252,8 +250,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdItemNotes.png"
-                     />
+          <imagedata fileref="images/transferOrder_notesTab.png" />
         </imageobject>
         <caption>Transfer Order Line Item Notes</caption>
       </mediaobject>
@@ -274,11 +271,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdItemComm.png"
-                     />
+          <imagedata fileref="images/transferOrder_commentsTab.png" />
         </imageobject>
-        <caption>Transfer Order Line Item
-        Comments</caption>
+        <caption>Transfer Order Line Item Comments</caption>
       </mediaobject>
     </screenshot></para>
   <note>
@@ -362,11 +357,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdItemPend.png"
-                     />
+          <imagedata fileref="images/transferOrder_availabilityTab.png" />
         </imageobject>
-        <caption>Pending Availability for Component
-        Items</caption>
+        <caption>Pending Availability for Component Items</caption>
       </mediaobject>
     </screenshot></para>
   <para>When displaying Pending Availability for Transfer Order component
@@ -391,8 +384,8 @@
         <para>Displays Pending Availability for component Items associated
         with sold manufactured Items. If you choose the "Show Pending
         Availability as Indented BOM" option, the information will be
-        displayed in a nested list&mdash;with a plus ("+") sign located to the far
-        left of the screen next to each line that may be expanded to lower
+        displayed in a nested list&mdash;with a plus ("+") sign located to the
+        far left of the screen next to each line that may be expanded to lower
         levels. By clicking your mouse on a plus sign, you reveal lower levels
         of information related to the Line Item.</para>
       </listitem>

@@ -7,19 +7,18 @@
       <primary>transfer orders</primary>
       <secondary>creating new</secondary>
     </indexterm>New Transfer Order</title>
-  <para>Transfer Orders are used to move Inventory between Sites. They
-  are distinct from Inter-Site Transfers in three primary ways: 1) you
-  can add multiple Items to a single Transfer Order and transfer all the Items
-  at once; 2) all Transfer Order transfers involve a Transit Site, for
-  tracking Inventory while it is "in transit"; and 3) there are reports (i.e.,
+  <para>Transfer Orders are used to move Inventory between Sites. They are
+  distinct from Inter-Site Transfers in three primary ways: 1) you can add
+  multiple Items to a single Transfer Order and transfer all the Items at
+  once; 2) all Transfer Order transfers involve a Transit Site, for tracking
+  Inventory while it is "in transit"; and 3) there are reports (i.e.,
   paperwork) associated with Transfer Orders. To enter a new Transfer Order,
   select the "New Transfer Order" option. The following screen will
   appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdNew.png"
-                     />
+          <imagedata fileref="images/transferOrder.png" />
         </imageobject>
         <caption>Create New Transfer Order</caption>
       </mediaobject>
@@ -101,8 +100,8 @@
         </indexterm>Tax Authority</term>
       <listitem>
         <para>Specify the Tax Authority associated with the Transfer Order.
-        The Tax Authority associated with the Destination Site will be
-        entered here by default.</para>
+        The Tax Authority associated with the Destination Site will be entered
+        here by default.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -116,8 +115,7 @@
           <varlistentry>
             <term>Name</term>
             <listitem>
-              <para>The name of the primary Contact at the Source
-              Site.</para>
+              <para>The name of the primary Contact at the Source Site.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -180,10 +178,10 @@
     <varlistentry>
       <term>To Site</term>
       <listitem>
-        <para>Select a Destination Site from the available options. If
-        the following Contact and Address information is defined on the
-        Site master, then it will be entered automatically; otherwise you
-        may enter that information manually:</para>
+        <para>Select a Destination Site from the available options. If the
+        following Contact and Address information is defined on the Site
+        master, then it will be entered automatically; otherwise you may enter
+        that information manually:</para>
         <variablelist>
           <varlistentry>
             <term>Name</term>
@@ -243,8 +241,7 @@
           <varlistentry>
             <term>Country</term>
             <listitem>
-              <para>The country the Destination Site is located
-              in.</para>
+              <para>The country the Destination Site is located in.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -312,8 +309,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdLines.png"
-                     />
+          <imagedata fileref="images/transferOrder_lineItemsPage.png" />
         </imageobject>
         <caption>Transfer Order Line Items</caption>
       </mediaobject>
@@ -398,8 +394,8 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>Any Transfer Order Line Item may be shipped&mdash;even if the Item or
-    Item Site in question becomes inactive after the Sales Order has been
+    <para>Any Transfer Order Line Item may be shipped&mdash;even if the Item
+    or Item Site in question becomes inactive after the Sales Order has been
     created.</para>
   </note>
   <para>At the top of and to the far right of the screen, the following
@@ -444,10 +440,10 @@
       <listitem id="transferOrderEDIT">
         <para>Enables you to edit highlighted Transfer Order Line Items. The
         edit screen is the same as that for creating a new Transfer Order Line
-        Item&mdash;except that when editing, the fields will contain Transfer Order
-        Line Item information. Double-clicking on a Transfer Order Line Item
-        will also bring you to the editing screen. Mac users may use COMMAND +
-        E to edit an existing Line Item.</para>
+        Item&mdash;except that when editing, the fields will contain Transfer
+        Order Line Item information. Double-clicking on a Transfer Order Line
+        Item will also bring you to the editing screen. Mac users may use
+        COMMAND + E to edit an existing Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -479,8 +475,8 @@
   </variablelist>
   <tip>
     <para>You may select multiple Line Items for issuing to Shipping by
-    highlighting them using your mouse&mdash;or a combination of your mouse and
-    either the SHIFT or CTRL keys.</para>
+    highlighting them using your mouse&mdash;or a combination of your mouse
+    and either the SHIFT or CTRL keys.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -528,8 +524,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdNotes.png"
-                     />
+          <imagedata fileref="images/transferOrder_orderCommentsPage.png" />
         </imageobject>
         <caption>Transfer Order Notes</caption>
       </mediaobject>
@@ -568,8 +563,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdComm.png"
-                     />
+          <imagedata fileref="images/transferOrder_comments.png" />
         </imageobject>
         <caption>Transfer Order Comments</caption>
       </mediaobject>
@@ -642,16 +636,15 @@
     </varlistentry>
   </variablelist>
   <para>Shipping Notes are drawn from the Shipping Comments (if any)
-  associated with Transit Sites. The Notes may vary depending on the
-  Transit Site being used. These Notes provide a mechanism for
-  transferring information about Transit Sites to the Transfer Order. To
-  view Transfer Order Shipping Notes, select the "Shipping Notes" tab at the
-  top of the "Transfer Order" screen. The following screen will appear:</para>
+  associated with Transit Sites. The Notes may vary depending on the Transit
+  Site being used. These Notes provide a mechanism for transferring
+  information about Transit Sites to the Transfer Order. To view Transfer
+  Order Shipping Notes, select the "Shipping Notes" tab at the top of the
+  "Transfer Order" screen. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdShNtes.png"
-                     />
+          <imagedata fileref="images/transferOrder_shippingCommentsPage.png" />
         </imageobject>
         <caption>Transfer Order Shipping Notes</caption>
       </mediaobject>
@@ -663,9 +656,8 @@
       <term>Shipping Notes</term>
       <listitem>
         <para>While the content for Shipping Notes may originate from the
-        Transit Site master, you can edit the Notes to fit the
-        requirements of an Order. This is a scrolling text field with
-        word-wrapping.</para>
+        Transit Site master, you can edit the Notes to fit the requirements of
+        an Order. This is a scrolling text field with word-wrapping.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -695,8 +687,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdQEntry.png"
-                     />
+          <imagedata fileref="images/transferOrder_qeTab.png" />
         </imageobject>
         <caption>Transfer Order Quick Entry</caption>
       </mediaobject>
