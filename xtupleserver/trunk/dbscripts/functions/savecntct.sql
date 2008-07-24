@@ -27,7 +27,6 @@ DECLARE
 
 BEGIN
   --Validate
-  RAISE NOTICE ''flag = %'',pFlag;
   IF ((pFlag IS NULL) OR (pFlag = '''') OR (pFlag = ''CHECK'') OR (pFlag = ''CHANGEONE'') OR (pFlag = ''CHANGEALL'')) THEN
     IF (pFlag='''') THEN
       _flag := ''CHECK'';
