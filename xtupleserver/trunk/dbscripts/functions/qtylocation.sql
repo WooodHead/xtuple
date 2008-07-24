@@ -1,9 +1,10 @@
-CREATE OR REPLACE FUNCTION qtyLocation(INTEGER, INTEGER, TEXT, INTEGER) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION qtyLocation(INTEGER, INTEGER, INTEGER, TEXT, INTEGER) RETURNS NUMERIC AS '
 DECLARE
   pLocationId  ALIAS FOR $1;
-  pItemsiteId  ALIAS FOR $2;
-  pOrderType   ALIAS FOR $3;
-  pOrderId     ALIAS FOR $4;
+  pLsId        ALIAS FOR $2;
+  pItemsiteId  ALIAS FOR $3;
+  pOrderType   ALIAS FOR $4;
+  pOrderId     ALIAS FOR $5;
   _qty         NUMERIC = 0.0;
   _qtyReserved NUMERIC = 0.0;
 
@@ -12,6 +13,7 @@ BEGIN
   SELECT COALESCE(SUM(itemloc_qty), 0) INTO _qty
     FROM itemloc
    WHERE ( (itemloc_location_id=pLocationId)
+     AND   (COALESCE(itemloc_ls_id, -1)=COALESCE(pLsId, -1))
      AND   (itemloc_itemsite_id=pItemsiteId) );
 
 -- Summarize itemlocrsrv qty for this location/itemsite
@@ -24,6 +26,7 @@ BEGIN
                                     AND  ((itemlocrsrv_source <> pOrderType) OR
                                           (itemlocrsrv_source_id <> pOrderId)) )
      WHERE ( (itemloc_location_id=pLocationId)
+       AND   (COALESCE(itemloc_ls_id, -1)=COALESCE(pLsId, -1))
        AND   (itemloc_itemsite_id=pItemsiteId) );
   END IF;
 
