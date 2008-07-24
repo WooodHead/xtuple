@@ -23,12 +23,14 @@ BEGIN
     PERFORM postInvoice(invchead_id, _journalNumber)
     FROM invchead
     WHERE ( (NOT invchead_posted)
+     AND (checkInvoiceSitePrivs(invchead_id))
      AND (pPostUnprinted OR invchead_printed) );
 
   ELSE
     PERFORM postInvoice(invchead_id, _journalNumber)
        FROM invchead LEFT OUTER JOIN invcitem ON (invchead_id=invcitem_invchead_id) LEFT OUTER JOIN item ON (invcitem_item_id=item_id)  
       WHERE((NOT invchead_posted)
+        AND (checkInvoiceSitePrivs(invchead_id))
         AND (pPostUnprinted OR invchead_printed))
       GROUP BY invchead_id, invchead_freight, invchead_tax, invchead_misc_amount
      HAVING (COALESCE(SUM(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price /  
