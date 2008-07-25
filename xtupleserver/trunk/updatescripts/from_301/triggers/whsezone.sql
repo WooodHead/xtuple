@@ -34,5 +34,5 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-DROP TRIGGER whseZoneTrigger ON whsezone;
+SELECT dropIfExists('TRIGGER', 'whseZoneTrigger');
 CREATE TRIGGER whseZoneTrigger BEFORE INSERT OR UPDATE ON whsezone FOR EACH ROW EXECUTE PROCEDURE _whseZoneTrigger();

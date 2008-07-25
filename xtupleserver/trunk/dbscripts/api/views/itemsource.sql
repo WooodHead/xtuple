@@ -2,7 +2,7 @@ BEGIN;
 
 -- Item Source
 
-DROP VIEW api.itemsource;
+SELECT dropIfExists('VIEW', 'itemsource', 'api');
 
 CREATE VIEW api.itemsource AS
   SELECT item.item_number::VARCHAR(100) AS item_number,

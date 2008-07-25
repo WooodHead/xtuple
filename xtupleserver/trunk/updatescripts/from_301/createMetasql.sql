@@ -8,7 +8,7 @@ CREATE TABLE metasql(
   metasql_query text,
   metasql_pkgitem_id integer REFERENCES pkgitem (pkgitem_id) ON DELETE CASCADE
 );
-COMMENT ON TABLE metasql IS ''MetaSQL Table'';
+COMMENT ON TABLE metasql IS 'MetaSQL Table';
 GRANT ALL ON metasql TO openmfg;
 
 ALTER TABLE metasql ADD UNIQUE (metasql_group,metasql_name);

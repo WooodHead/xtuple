@@ -2,7 +2,7 @@ BEGIN;
 
 -- Customer Type Characteristic
 
-DROP VIEW api.customertypechar;
+SELECT dropIfExists('VIEW', 'customertypechar', 'api');
 CREATE VIEW api.customertypechar
 AS 
    SELECT 

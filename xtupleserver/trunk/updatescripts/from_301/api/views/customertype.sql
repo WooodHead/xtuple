@@ -2,7 +2,7 @@ BEGIN;
 
   --Customer Type View
 
-  DROP VIEW api.customertype;
+  SELECT dropIfExists('VIEW', 'customertype', 'api');
   CREATE OR REPLACE VIEW api.customertype AS
 
   SELECT

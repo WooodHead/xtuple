@@ -53,7 +53,7 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
   
-DROP TRIGGER incdtbeforetrigger ON incdt;
+SELECT dropIfExists('TRIGGER', 'incdtbeforetrigger');
 CREATE TRIGGER incdtbeforetrigger
   BEFORE INSERT OR UPDATE
   ON incdt
@@ -266,7 +266,7 @@ BEGIN
   END;
 ' LANGUAGE 'plpgsql';
 
-DROP TRIGGER incdttrigger ON incdt;
+SELECT dropIfExists('TRIGGER', 'incdttrigger');
 CREATE TRIGGER incdttrigger
   AFTER INSERT OR UPDATE OR DELETE
   ON incdt

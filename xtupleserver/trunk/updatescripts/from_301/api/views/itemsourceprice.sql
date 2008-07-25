@@ -2,7 +2,7 @@ BEGIN;
 
 -- Item Source Price
 
-DROP VIEW api.itemsourceprice;
+SELECT dropIfExists('VIEW', 'itemsourceprice', 'api');
 
 CREATE VIEW api.itemsourceprice AS
   SELECT item.item_number::VARCHAR(100) AS item_number, 
@@ -57,11 +57,3 @@ CREATE OR REPLACE RULE "_DELETE" AS
   AND (itemsrcp_qtybreak=old.qty_break));
 
 COMMIT;
-
-
-
-
-
-
-
-

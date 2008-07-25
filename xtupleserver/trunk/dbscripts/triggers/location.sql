@@ -50,5 +50,5 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-DROP TRIGGER locationTrigger ON location;
+SELECT dropIfExists('TRIGGER', 'locationTrigger');
 CREATE TRIGGER locationTrigger BEFORE INSERT OR UPDATE ON location FOR EACH ROW EXECUTE PROCEDURE _locationTrigger();

@@ -34,7 +34,7 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-DROP TRIGGER cashRcptItemTrigger ON cashrcptitem;
+SELECT dropIfExists('TRIGGER', 'cashRcptItemTrigger');
 CREATE TRIGGER cashRcptItemTrigger BEFORE INSERT OR UPDATE ON cashrcptitem FOR EACH ROW EXECUTE PROCEDURE _cashRcptItemTrigger();
 
 CREATE OR REPLACE FUNCTION _cashRcptItemAfterTrigger () RETURNS TRIGGER AS '
@@ -58,5 +58,5 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-DROP TRIGGER cashRcptItemAfterTrigger ON cashrcptitem;
+SELECT dropIfExists('TRIGGER', 'cashRcptItemAfterTrigger');
 CREATE TRIGGER cashRcptItemAfterTrigger AFTER INSERT OR UPDATE ON cashrcptitem FOR EACH ROW EXECUTE PROCEDURE _cashRcptItemAfterTrigger();

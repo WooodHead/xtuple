@@ -33,5 +33,5 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-DROP TRIGGER cashRcptMiscTrigger ON cashrcptmisc;
+SELECT dropIfExists('TRIGGER', 'cashRcptMiscTrigger');
 CREATE TRIGGER cashRcptMiscTrigger BEFORE INSERT OR UPDATE ON cashrcptmisc FOR EACH ROW EXECUTE PROCEDURE _cashRcptMiscTrigger();
