@@ -72,6 +72,8 @@ BEGIN
       RAISE NOTICE ''No constraint % to drop'', pObject;
       RETURN 0;
     END IF;
+    _query = ''ALTER TABLE '' || quote_ident(LOWER(pSchema)) || ''.'' || quote_ident(LOWER(_table))
+             || '' DROP CONSTRAINT '' || quote_ident(LOWER(pObject));
     BEGIN
       RAISE NOTICE ''%'', _query;
       EXECUTE _query;
