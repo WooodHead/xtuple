@@ -63,10 +63,10 @@
       <term>Next #</term>
       <listitem>
         <para>The next sequentially available Sales Order Number will display
-        here. You may change the number—creating a new basis for the next
-        Sales Order Number—by typing the new number into this field. Any
-        changes you make here will be reflected the next time a new Sales
-        Order is created in the S/O module.</para>
+        here. You may change the number&mdash;creating a new basis for the
+        next Sales Order Number&mdash;by typing the new number into this
+        field. Any changes you make here will be reflected the next time a new
+        Sales Order is created in the S/O module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -119,10 +119,10 @@
       <term>Next #</term>
       <listitem>
         <para>The next sequentially available Quote Number will display here.
-        You may change the number—creating a new basis for the next Quote
-        Number—by typing the new number into this field. Any changes you make
-        here will be reflected the next time a new Quote is created in the S/O
-        module.</para>
+        You may change the number&mdash;creating a new basis for the next
+        Quote Number&mdash;by typing the new number into this field. Any
+        changes you make here will be reflected the next time a new Quote is
+        created in the S/O module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -214,10 +214,10 @@
       <term>Next #</term>
       <listitem>
         <para>The next sequentially available Credit Memo Number will display
-        here. You may change the number—creating a new basis for the next
-        Credit Memo Number—by typing the new number into this field. Any
-        changes you make here will be reflected the next time you issue a new
-        Credit Memo within the S/O module.</para>
+        here. You may change the number&mdash;creating a new basis for the
+        next Credit Memo Number&mdash;by typing the new number into this
+        field. Any changes you make here will be reflected the next time you
+        issue a new Credit Memo within the S/O module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -234,10 +234,10 @@
       <term>Next #</term>
       <listitem>
         <para>The next sequentially available Invoice Number will display
-        here. You may change the number—creating a new basis for the next
-        Invoice Number—by typing the new number into this field. Any changes
-        you make here will be reflected the next time you create a new Invoice
-        within the S/O module.</para>
+        here. You may change the number&mdash;creating a new basis for the
+        next Invoice Number&mdash;by typing the new number into this field.
+        Any changes you make here will be reflected the next time you create a
+        new Invoice within the S/O module.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -245,147 +245,7 @@
   tab. The following options will appear:</para>
   <variablelist>
     <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>sales orders</primary>
-          <secondary>discount defaults for</secondary>
-        </indexterm>Allow Price Discounts</term>
-      <listitem>
-        <para>Check this option to allow pricing discounts for select
-        customers. This option instructs the system to verify whether any
-        Pricing Discounts have been established for a Customer, prior to
-        calculating the Line Item Price for of an Item within a Sales Order.
-        If this option is unchecked, then the system will apply the full List
-        Price for an Item within a Sales Order.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Allow ASAP Schedule Dates</term>
-      <listitem>
-        <para>Selecting this option will cause Sales Order Line Items to
-        become immediately past due if no schedule date is entered.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Restrict Credit Memos to Items that appear on their Apply-To
-      Document</term>
-      <listitem>
-        <para>Select if you want to restrict Credit Memo Items to their
-        Apply-To Document. Selecting this option narrows the Credit Memo Item
-        selection process to only those Items which appeared on the Invoice
-        the Credit Memo is being applied to. If not selected, a sold Item
-        master list will appear instead when selecting Credit Memo Items for
-        Credit Memos applied to a specific Invoice. This setting has no
-        bearing on unapplied Credit Memos.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Automatically check "Select for Billing" option on Ship Order
-      screen</term>
-      <listitem>
-        <para>Select if you want the "Select for Billing" option to be
-        selected by default whenever you ship Sales Order Line Items.
-        Selecting this option reduces steps in the billing process.
-        Specifically, if an Order is selected for billing when it is shipped,
-        you do not then have to take the extra step of independently selecting
-        the Order for billing. This can save time and also ensure your shipped
-        Orders are selected for billing at the time of shipment.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Always show "Save and Add to Packing List" button on Sales Order
-      screen</term>
-      <listitem>
-        <para>Select if you want the SAVE AND ADD TO PACKING LIST button to
-        always be displayed on the Sales Order header screen. If this option
-        is not selected, the SAVE AND ADD TO PACKING LIST button will only be
-        displayed for newly-entered Sales Orders which have not yet been
-        saved.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Disallow Override of Sales Price on Sales Order Entry</term>
-      <listitem>
-        <para>Select to prevent all users from overriding the Sales Price when
-        entering Sales Order Line Items. This is a system-wide setting,
-        affecting all users. Do not select this option if you want to
-        selectively prevent users from overriding Sales Prices. Individual
-        users may be granted the ability to override Sales Prices, use the S/O
-        module's OverridePrice privilege.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Automatically Allocate Credit Memos to New Sales Order on
-      Save</term>
-      <listitem>
-        <para>Select to have open Credit Memos for a Customer automatically
-        allocated to any new Sales Orders entered for that Customer. This
-        functionality helps reduce Customer credit balances by ensuring that
-        Customer credits are consumed when new Sales Orders are entered. Any
-        available, open Credit Memos are eligible for allocation. The
-        allocation of available Credit Memos occurs only once—when a Sales
-        Order is saved for the first time. Subsequent saves will not result in
-        additional allocations. Credit Memos which have been allocated to a
-        Sales Order are applied at the point when the Invoice resulting from
-        the Sales Order is posted. Once the full balance of a Credit Memo has
-        been applied, the Credit Memo is then closed. The printed Invoice the
-        Customer receives will indicate whether Credit Memos have been
-        applied. In addition, the total due from the Customer will be
-        automatically adjusted to reflect any applied credits.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note>
-    <para>The allocation of available Credit Memos occurs only once—when a
-    Sales Order is saved for the first time. Subsequent saves will not result
-    in additional allocations.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
-      <term>Hide Misc. Charges on Sales Order screen</term>
-      <listitem>
-        <para>Select to hide all fields related to Miscellaneous Charges on
-        the Sales Order Line Item tab. If your site does not use Misc. Charges
-        when entering Sales Orders, it may make sense to hide this
-        functionality to avoid confusion.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Enable Shipping interface from Sales Order screen</term>
-      <listitem>
-        <para>Select to enable the performance of limited Shipping
-        functionality from the Sales Order header. If selected, users will be
-        able to issue Stock to Shipping and also return Stock from Shipping
-        directly from the Sales Order header. If not selected, these Shipping
-        options will not be available on the Sales Order header.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Enable S/O Reservations</term>
-      <listitem>
-        <para>Select to enable the Sales Order Reservations functionality
-        system-wide. This feature allows for the hard allocation of quantity
-        to Sales Orders. If not selected, the Sales Order reservation options
-        will be hidden from view.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Reserve by Location</term>
-      <listitem>
-        <para>Select to set S/O Reservations for discrete locations and lots.
-        The hard allocation of quantity will be for a particular location and
-        will prevent other orders from issuing reserved inventory. The S/O
-        Pick List will print the reserved location to expedite inventory
-        picking. You may choose the order of precedence for selecting
-        locations; Lowest Quantity First, Highest Quantity First, or Alpha by
-        Location Name.</para>
-        <note>
-          <para>The change from a state of enabled to disabled will remove all
-          location reservations.</para>
-        </note>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Check Print S/O on Save by Default</term>
+      <term>Check Print Sales Order on Save by Default</term>
       <listitem>
         <para>Select to prompt users to print Sales Orders whenever Sales
         Orders are saved. If selected, users will be presented with a Sales
@@ -393,26 +253,137 @@
         feature, do not select this option.</para>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <variablelist>
     <varlistentry>
-      <term>Enable Promise Dates</term>
+      <term>Credit Control</term>
       <listitem>
-        <para>Select to display a Promised Date field on the Sales Order Line
-        Item screen, by default. If not selected, there will be no Promised
-        Date field shown on that screen.</para>
+        <para>Select from the following credit control options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Restrict Credit Memos to Items that appear on their Apply-To
+            Document</term>
+            <listitem>
+              <para>Select if you want to restrict Credit Memo Items to their
+              Apply-To Document. Selecting this option narrows the Credit Memo
+              Item selection process to only those Items which appeared on the
+              Invoice the Credit Memo is being applied to. If not selected, a
+              sold Item master list will appear instead when selecting Credit
+              Memo Items for Credit Memos applied to a specific Invoice. This
+              setting has no bearing on unapplied Credit Memos.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatically Allocate Credit Memos to New Sales Order on
+            Save</term>
+            <listitem>
+              <para>Select to have open Credit Memos for a Customer
+              automatically allocated to any new Sales Orders entered for that
+              Customer. This functionality helps reduce Customer credit
+              balances by ensuring that Customer credits are consumed when new
+              Sales Orders are entered. Any available, open Credit Memos are
+              eligible for allocation. The allocation of available Credit
+              Memos occurs only once&mdash;when a Sales Order is saved for the
+              first time. Subsequent saves will not result in additional
+              allocations. Credit Memos which have been allocated to a Sales
+              Order are applied at the point when the Invoice resulting from
+              the Sales Order is posted. Once the full balance of a Credit
+              Memo has been applied, the Credit Memo is then closed. The
+              printed Invoice the Customer receives will indicate whether
+              Credit Memos have been applied. In addition, the total due from
+              the Customer will be automatically adjusted to reflect any
+              applied credits.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Post Customer Changes to the Change Log</term>
+      <term>Ship Control</term>
       <listitem>
-        <para>Select to post to the Change Log any changes made to Customer
-        masters.</para>
+        <para>Select from the following ship control options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Always show "Save and Add to Packing List" button on Sales
+            Order screen</term>
+            <listitem>
+              <para>Select if you want the SAVE AND ADD TO PACKING LIST button
+              to always be displayed on the Sales Order header screen. If this
+              option is not selected, the SAVE AND ADD TO PACKING LIST button
+              will only be displayed for newly-entered Sales Orders which have
+              not yet been saved.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Enable Shipping interface from Sales Order screen</term>
+            <listitem>
+              <para>Select to enable the performance of limited Shipping
+              functionality from the Sales Order header. If selected, users
+              will be able to issue Stock to Shipping and also return Stock
+              from Shipping directly from the Sales Order header. If not
+              selected, these Shipping options will not be available on the
+              Sales Order header.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatically check "Select for Billing" option on Ship
+            Order screen</term>
+            <listitem>
+              <para>Select if you want the "Select for Billing" option to be
+              selected by default whenever you ship Sales Order Line Items.
+              Selecting this option reduces steps in the billing process.
+              Specifically, if an Order is selected for billing when it is
+              shipped, you do not then have to take the extra step of
+              independently selecting the Order for billing. This can save
+              time and also ensure your shipped Orders are selected for
+              billing at the time of shipment.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Post Sales Order Changes to the Change Log</term>
+      <term>Price Control</term>
       <listitem>
-        <para>Select to post to the Change Log any changes made to Sales
-        Orders.</para>
+        <para>Select from the following price control options:</para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>sales orders</primary>
+                <secondary>discount defaults for</secondary>
+              </indexterm>Allow Price Discounts</term>
+            <listitem>
+              <para>Check this option to allow pricing discounts for select
+              customers. This option instructs the system to verify whether
+              any Pricing Discounts have been established for a Customer,
+              prior to calculating the Line Item Price for of an Item within a
+              Sales Order. If this option is unchecked, then the system will
+              apply the full List Price for an Item within a Sales
+              Order.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Disallow Override of Sales Price on Sales Order Entry</term>
+            <listitem>
+              <para>Select to prevent all users from overriding the Sales
+              Price when entering Sales Order Line Items. This is a
+              system-wide setting, affecting all users. Do not select this
+              option if you want to selectively prevent users from overriding
+              Sales Prices. Individual users may be granted the ability to
+              override Sales Prices, use the S/O module's OverridePrice
+              privilege.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Hide Misc. Charges on Sales Order screen</term>
+            <listitem>
+              <para>Select to hide all fields related to Miscellaneous Charges
+              on the Sales Order Line Item tab. If your site does not use
+              Misc. Charges when entering Sales Orders, it may make sense to
+              hide this functionality to avoid confusion.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -442,18 +413,117 @@
             <term>Do not Update Price on Line Edit</term>
             <listitem>
               <para>If selected, the Net Unit Price will not be changed when
-              Line Item quantity is changed on EDIT—and users will not be
-              prompted to consider changing the Price.</para>
+              Line Item quantity is changed on EDIT&mdash;and users will not
+              be prompted to consider changing the Price.</para>
+              <note>
+                <para>The Sales Order Line Item pricing options apply only
+                when editing Line Item quantity.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Change Log</term>
+      <listitem>
+        <para>Select from the following change log options</para>
+        <variablelist>
+          <varlistentry>
+            <term>Post Customer Changes to the Change Log</term>
+            <listitem>
+              <para>Select to post to the Change Log any changes made to
+              Customer masters.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Post Sales Order Changes to the Change Log</term>
+            <listitem>
+              <para>Select to post to the Change Log any changes made to Sales
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Date Control</term>
+      <listitem>
+        <para>Select from the following date control options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Allow ASAP Schedule Dates</term>
+            <listitem>
+              <para>Selecting this option will cause Sales Order Line Items to
+              become immediately past due if no schedule date is
+              entered.</para>
+              <note>
+                <para>The allocation of available Credit Memos occurs only
+                once&mdash;when a Sales Order is saved for the first time.
+                Subsequent saves will not result in additional
+                allocations.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Enable Promise Dates</term>
+            <listitem>
+              <para>Select to display a Promised Date field on the Sales Order
+              Line Item screen, by default. If not selected, there will be no
+              Promised Date field shown on that screen.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>The Sales Order Line Item pricing options apply only when editing
-    Line Item quantity.</para>
-  </note>
+  <variablelist>
+    <varlistentry role="standard">
+      <term>Enable S/O Reservations</term>
+      <listitem>
+        <para>Select to enable the Sales Order Reservations functionality
+        system-wide. This feature allows for the hard allocation of quantity
+        to Sales Orders. If not selected, the Sales Order reservation options
+        will be hidden from view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reserve by Location</term>
+      <listitem>
+        <para>Select to set S/O Reservations for discrete locations and lots.
+        The hard allocation of quantity will be for a particular location and
+        will prevent other orders from issuing reserved inventory. The S/O
+        Pick List will print the reserved location to expedite inventory
+        picking. You may choose the order of precedence for selecting
+        locations; Lowest Quantity First, Highest Quantity First, or Alpha by
+        Location Name.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Lowest Quantity First</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Highest Quantity First</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Alpha by Location Name</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <note>
+          <para>The change from a state of enabled to disabled will remove all
+          location reservations.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
@@ -659,9 +729,9 @@
       <listitem>
         <para>Select to enable the system's Return Authorizations capability.
         If not selected, users will be prevented from performing any tasks
-        related to Return Authorizations—and related functionality will be
-        hidden from view. For systems where Return Authorizations are enabled,
-        this option will be hidden.</para>
+        related to Return Authorizations&mdash;and related functionality will
+        be hidden from view. For systems where Return Authorizations are
+        enabled, this option will be hidden.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
