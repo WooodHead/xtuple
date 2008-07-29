@@ -55,56 +55,76 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#include "loadpriv.h"
+#include "createdbobj.h"
 
 #include <QDomDocument>
 #include <QMessageBox>
+#include <QRegExp>
 #include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>     // used by QSqlQuery::bindValue()
+#include <QVariant>
 
-#include "loadable.h"
-
-LoadPriv::LoadPriv(const QString &nodename,
-                   const QString &name, const QString &module,
-                   const bool system, const QString &comment)
-  : Loadable(nodename, name, 0, system, comment)
+CreateDBObj::CreateDBObj(const QString &nodename, const QString &filename,
+                         const QString &schema,   const QString &name,
+                         const QString &comment)
 {
-  _module = module;
-  if (_module == "Custom" && ! _name.startsWith("Custom"))
-    _name = "Custom" + _name;
-  _pkgitemtype = "P";
+  _comment  = comment;
+  _filename = filename;
+  _name     = name;
+  _nodename = nodename;
+  _schema   = schema;
 }
 
-LoadPriv::LoadPriv(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
-  : Loadable(elem, msg, fatal)
+CreateDBObj::CreateDBObj(const QDomElement & elem, QStringList &msg, QList<bool> &fatal)
 {
-  _pkgitemtype = "P";
+  _nodename = elem.nodeName();
 
-  if (_name.isEmpty())
+  if (elem.hasAttribute("name"))
+    _name = elem.attribute("name");
+  else
   {
-    msg.append(QObject::tr("A Privilege %1 does not have a name."));
+    msg.append(QObject::tr("The contents.xml must name the object for %1.")
+               .arg(_nodename));
+    fatal.append("false");
+  }
+
+  if (elem.hasAttribute("file"))
+    _filename = elem.attribute("file");
+  else
+  {
+    msg.append(QObject::tr("The contents.xml must name the file for %1.")
+               .arg(_nodename));
     fatal.append(true);
   }
 
-  if (elem.hasAttribute("module"))
-    _module = elem.attribute("module");
+  if (elem.hasAttribute("schema"))
+    _schema = elem.attribute("schema");
   else
   {
-    _module = "Custom";
-    msg.append(QObject::tr("The Privilege %1 has not been assigned to a "
-                           "module. It will default to '%2'.")
-                .arg(_name).arg(_module));
+    _schema = "public";
+    msg.append(QObject::tr("No explicit schema for %1; defaulting to %2.")
+               .arg(_nodename).arg(_schema));
     fatal.append(false);
   }
+
+  _comment = elem.text().trimmed();
 }
 
-QDomElement LoadPriv::createElement(QDomDocument &doc)
+CreateDBObj::~CreateDBObj()
 {
-  QDomElement elem = doc.createElement("loadpriv");
-  elem.setAttribute("name", _name);
-  elem.setAttribute("module", _module);
-  elem.setAttribute("system", _system);
+}
+
+QDomElement CreateDBObj::createElement(QDomDocument & doc)
+{
+  QDomElement elem = doc.createElement(_nodename);
+
+  elem.setAttribute("file", _filename);
+
+  if (! _name.isEmpty())
+    elem.setAttribute("name", _name);
+
+  if (! _schema.isEmpty())
+    elem.setAttribute("schema", _schema);
 
   if(!_comment.isEmpty())
     elem.appendChild(doc.createTextNode(_comment));
@@ -112,101 +132,77 @@ QDomElement LoadPriv::createElement(QDomDocument &doc)
   return elem;
 }
 
-int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
+// this differs from the version it was copied from in loadable.cpp
+int CreateDBObj::upsertPkgItem(const int pkgheadid, const int itemid,
+                               QString &errMsg)
 {
   QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
                                   "encountered while trying to import %1 into "
                                   "the database:<br>%2<br>%3</font>");
-  if (_name.isEmpty())
-  {
-    errMsg = QObject::tr("<font color=orange>The Privilege does not have"
-                         " a name.</font>")
-                         .arg(_name);
-    return -1;
-  }
+  if (pkgheadid < 0)
+    return 0;
 
-  if (_module.isEmpty())
-  {
-    errMsg = QObject::tr("<font color=orange>The Privilege %1 has not been "
-                         "assigned to a module and so may not be assignable "
-                         ".</font>")
-                         .arg(_name);
-  }
+  int pkgitemid = -1;
 
   QSqlQuery select;
+  select.prepare("SELECT pkgitem_id "
+                 "FROM pkgitem "
+                 "WHERE ((pkgitem_pkghead_id=:headid)"
+                 "  AND  (pkgitem_type=:type)"
+                 "  AND  (pkgitem_name=:name));");
+  select.bindValue(":headid", pkgheadid);
+  select.bindValue(":type",  _pkgitemtype);
+  select.bindValue(":name",  _schema + "." + _name);
+  select.exec();
+  if (select.first())
+    pkgitemid = select.value(0).toInt();
+  if (select.lastError().type() != QSqlError::NoError)
+  {
+    errMsg = sqlerrtxt.arg(_filename)
+                      .arg(select.lastError().databaseText())
+                      .arg(select.lastError().driverText());
+    return -20;
+  }
+
   QSqlQuery upsert;
 
-  int privid    = -1;
-  int pkgheadid = -1;
-  int pkgitemid = -1;
-  if (pkgname.isEmpty())
-    select.prepare("SELECT priv_id, -1, -1"
-                   "  FROM priv "
-                   " WHERE (priv_name=:name);");
-  else
-    select.prepare("SELECT COALESCE(pkgitem_item_id, -1), pkghead_id,"
-                   "       COALESCE(pkgitem_id,      -1) "
-                   "  FROM pkghead LEFT OUTER JOIN"
-                   "       pkgitem ON ((pkgitem_pkghead_id=pkghead_id)"
-                   "               AND (pkgitem_type='P')"
-                   "               AND (pkgitem_name=:name))"
-                   " WHERE (pkghead_name=:pkgname)");
-  select.bindValue(":name",    _name);
-  select.bindValue(":pkgname", pkgname);
-  select.exec();
-  if(select.first())
-  {
-    privid    = select.value(0).toInt();
-    pkgheadid = select.value(1).toInt();
-    pkgitemid = select.value(2).toInt();
-  }
-  else if (select.lastError().type() != QSqlError::NoError)
-  {
-    QSqlError err = select.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
-    return -5;
-  }
-
-  if (privid >= 0)
-    upsert.prepare("UPDATE priv "
-                   "   SET priv_module=:module, "
-                   "       priv_descrip=:comment "
-                   " WHERE (priv_id=:id); ");
+  if (pkgitemid >= 0)
+    upsert.prepare("UPDATE pkgitem SET pkgitem_descrip=:descrip,"
+                   "       pkgitem_item_id=:itemid "
+                   "WHERE (pkgitem_id=:id);");
   else
   {
-    upsert.prepare("SELECT NEXTVAL('priv_priv_id_seq');");
+    upsert.prepare("SELECT NEXTVAL('pkgitem_pkgitem_id_seq');");
     upsert.exec();
     if (upsert.first())
-      privid = upsert.value(0).toInt();
+      pkgitemid = upsert.value(0).toInt();
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
       errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
-      return -6;
+      return -21;
     }
-    upsert.prepare("INSERT INTO priv ("
-                   "       priv_id, priv_module, priv_name, priv_descrip "
-                   ") VALUES (:id, :module, :name, :comment);");
+    upsert.prepare("INSERT INTO pkgitem ("
+                   "    pkgitem_id, pkgitem_pkghead_id, pkgitem_type,"
+                   "    pkgitem_item_id, pkgitem_name, pkgitem_descrip"
+                   ") VALUES ("
+                   "    :id, :headid, :type,"
+                   "    :itemid, :name, :descrip);");
   }
 
-  upsert.bindValue(":id",      privid);
-  upsert.bindValue(":module",  _module);
-  upsert.bindValue(":name",    _name);
-  upsert.bindValue(":comment", _comment);
+  upsert.bindValue(":id",      pkgitemid);
+  upsert.bindValue(":headid",  pkgheadid);
+  upsert.bindValue(":type",    _pkgitemtype);
+  upsert.bindValue(":itemid",  itemid);
+  upsert.bindValue(":name",    _schema + "." + _name);
+  upsert.bindValue(":descrip", _comment);
 
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
     errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
-    return -7;
+    return -22;
   }
 
-  if (pkgheadid >= 0)
-  {
-    int tmp = upsertPkgItem(pkgitemid, pkgheadid, privid, errMsg);
-    if (tmp < 0)
-      return tmp;
-  }
-
-  return privid;
+  return pkgitemid;
 }

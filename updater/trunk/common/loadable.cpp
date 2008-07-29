@@ -142,9 +142,7 @@ QDomElement Loadable::createElement(QDomDocument & doc)
 }
 
 int Loadable::upsertPkgItem(int &pkgitemid, const int pkgheadid,
-                            const QString type, const int itemid,
-                            const QString name, const QString comment,
-                            QString &errMsg)
+                            const int itemid, QString &errMsg)
 {
   QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
                                   "encountered while trying to import %1 into "
@@ -180,10 +178,10 @@ int Loadable::upsertPkgItem(int &pkgitemid, const int pkgheadid,
 
   upsert.bindValue(":id",      pkgitemid);
   upsert.bindValue(":headid",  pkgheadid);
-  upsert.bindValue(":type",    type);
+  upsert.bindValue(":type",    _pkgitemtype);
   upsert.bindValue(":itemid",  itemid);
-  upsert.bindValue(":name",    name);
-  upsert.bindValue(":descrip", comment);
+  upsert.bindValue(":name",    _name);
+  upsert.bindValue(":descrip", _comment);
 
   if (!upsert.exec())
   {

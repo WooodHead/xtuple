@@ -79,11 +79,14 @@ LoadCmd::LoadCmd(const QString &nodename, const QString &name,
   _module     = module;
   _privname   = privname;
   _title      = title;
+  _pkgitemtype= "D";
 }
 
 LoadCmd::LoadCmd(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
   : Loadable(elem, msg, fatal)
 {
+  _pkgitemtype= "D";
+
   if (_name.isEmpty())
   {
     msg.append(QObject::tr("This custom command has no name!"));
@@ -296,8 +299,7 @@ int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
 
   if (pkgheadid >= 0)
   {
-    int tmp = upsertPkgItem(pkgitemid, pkgheadid, "D", cmdid, _name,
-                            _comment, errMsg);
+    int tmp = upsertPkgItem(pkgitemid, pkgheadid, cmdid, errMsg);
     if (tmp < 0)
       return tmp;
   }

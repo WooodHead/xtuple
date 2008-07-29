@@ -67,11 +67,14 @@ LoadReport::LoadReport(const QString &name, const int grade, const bool system,
                        const QString &comment, const QString &filename)
   : Loadable("loadreport", name, grade, system, comment, filename)
 {
+  _pkgitemtype = "R";
 }
 
 LoadReport::LoadReport(const QDomElement & elem, QStringList &msg, QList<bool> &fatal)
   : Loadable(elem, msg, fatal)
 {
+  _pkgitemtype = "R";
+
   if (elem.nodeName() != "loadreport")
   {
     msg.append(QObject::tr("Creating a LoadAppReport element from a %1 node.")
@@ -295,8 +298,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
 
   if (pkgheadid >= 0)
   {
-    int tmp = upsertPkgItem(pkgitemid, pkgheadid, "R", reportid, _name,
-                            _comment, errMsg);
+    int tmp = upsertPkgItem(pkgitemid, pkgheadid, reportid, errMsg);
     if (tmp < 0)
       return tmp;
   }

@@ -69,6 +69,8 @@ MOC_DIR = tmp
 UI_SOURCES_DIR = tmp
 
 HEADERS = package.h \
+          createdbobj.h \
+          createtable.h \
           script.h \
           loadable.h \
           loadappscript.h \
@@ -81,6 +83,8 @@ HEADERS = package.h \
           tarfile.h \
           gunzip.h
 SOURCES = package.cpp \
+          createdbobj.cpp \
+          createtable.cpp \
           script.cpp \
           loadable.cpp \
           loadappscript.cpp \

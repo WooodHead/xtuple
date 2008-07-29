@@ -64,6 +64,7 @@
 #include <QSqlQuery>
 #include <QVariant>
 
+#include "createtable.h"
 #include "loadcmd.h"
 #include "loadappscript.h"
 #include "loadappui.h"
@@ -112,20 +113,15 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
   for(int n = 0; n < nList.count(); ++n)
   {
     QDomElement elemThis = nList.item(n).toElement();
-    if(elemThis.tagName() == "prerequisite")
+    if (elemThis.tagName() == "createtable")
     {
-      Prerequisite prereq(elemThis);
-      _prerequisites.append(prereq);
+      CreateTable table(elemThis, msgList, fatalList);
+      _tables.append(table);
     }
     else if(elemThis.tagName() == "loadpriv")
     {
       LoadPriv priv(elemThis, msgList, fatalList);
       _privs.append(priv);
-    }
-    else if(elemThis.tagName() == "script")
-    {
-      Script script(elemThis, msgList, fatalList);
-      _scripts.append(script);
     }
     else if(elemThis.tagName() == "loadreport")
     {
@@ -155,6 +151,16 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
     else if (elemThis.tagName() == "pkgnotes")
     {
       _notes += elemThis.text();
+    }
+    else if(elemThis.tagName() == "prerequisite")
+    {
+      Prerequisite prereq(elemThis);
+      _prerequisites.append(prereq);
+    }
+    else if(elemThis.tagName() == "script")
+    {
+      Script script(elemThis, msgList, fatalList);
+      _scripts.append(script);
     }
     else if (! reportedErrorTags.contains(elemThis.tagName()))
     {
@@ -293,6 +299,17 @@ bool Package::containsPriv(const QString &pname) const
 {
   QList<LoadPriv>::const_iterator it = _privs.begin();
   for(; it != _privs.end(); ++it)
+  {
+    if((*it).name() == pname)
+      return true;
+  }
+  return false;
+}
+
+bool Package::containsTable(const QString &pname) const
+{
+  QList<CreateTable>::const_iterator it = _tables.begin();
+  for(; it != _tables.end(); ++it)
   {
     if((*it).name() == pname)
       return true;

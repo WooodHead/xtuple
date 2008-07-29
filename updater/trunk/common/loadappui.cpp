@@ -71,11 +71,14 @@ LoadAppUI::LoadAppUI(const QString &name, const int order,
   : Loadable("loadappui", name, order, system, comment, filename)
 {
   _enabled = enabled;
+  _pkgitemtype = "U";
 }
 
 LoadAppUI::LoadAppUI(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
   : Loadable(elem, msg, fatal)
 {
+  _pkgitemtype = "U";
+
   if (elem.nodeName() != "loadappui")
   {
     msg.append(QObject::tr("Creating a LoadAppUI element from a %1 node.")
@@ -277,8 +280,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
 
   if (pkgheadid >= 0)
   {
-    int tmp = upsertPkgItem(pkgitemid, pkgheadid, "U", formid, _name,
-                            _comment, errMsg);
+    int tmp = upsertPkgItem(pkgitemid, pkgheadid, formid, errMsg);
     if (tmp < 0)
       return tmp;
   }

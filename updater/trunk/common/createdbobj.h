@@ -55,72 +55,48 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#ifndef __PACKAGE_H__
-#define __PACKAGE_H__
+#ifndef __CREATEDBOBJ_H__
+#define __CREATEDBOBJ_H__
 
 #include <QString>
-#include <QList>
 
 class QDomDocument;
 class QDomElement;
 
-class CreateTable;
-class LoadAppScript;
-class LoadAppUI;
-class LoadCmd;
-class LoadImage;
-class LoadPriv;
-class LoadReport;
-class Prerequisite;
-class Script;
-
-class Package
+class CreateDBObj
 {
   public:
-    Package(const QString & id = QString::null);
-    Package(const QDomElement &, QStringList &, QList<bool> &);
+    CreateDBObj(const QString &nodename, const QString &filename,
+                const QString &schema = "public",
+                const QString &name = QString::null,
+                const QString &comment = QString::null);
+    CreateDBObj(const QDomElement &, QStringList &, QList<bool> &);
 
-    virtual ~Package();
+    virtual ~CreateDBObj();
 
-    QDomElement createElement(QDomDocument &); 
-    int writeToDB(QString &errMsg);
+    virtual QDomElement createElement(QDomDocument &doc);
 
-    QString id() const { return _id; }
-    void setId(const QString & id) { _id = id; }
+    virtual QString comment()  const { return _comment; }
+    virtual QString filename() const { return _filename; }
+    virtual bool    isValid()  const { return !_nodename.isEmpty() &&
+                                              !_name.isEmpty() &&
+                                              !_schema.isEmpty() &&
+                                              !_filename.isEmpty(); }
+    virtual QString name()     const { return _name; }
 
-    QString developer() const { return _developer; }
-    QString name()      const { return _name; }
-    int versionMajor()  const { return _majVersion; }
-    int versionMinor()  const { return _minVersion; }
-
-    QList<CreateTable>   _tables;
-    QList<LoadAppScript> _appscripts;
-    QList<LoadAppUI>     _appuis;
-    QList<LoadCmd>       _cmds;
-    QList<LoadImage>     _images;
-    QList<LoadPriv>      _privs;
-    QList<Prerequisite>  _prerequisites;
-    QList<Script>        _scripts;
-    QList<LoadReport>    _reports;
-
-    bool containsAppScript(const QString &name)    const;
-    bool containsAppUI(const QString &name)        const;
-    bool containsCmd(const QString &name)          const;
-    bool containsImage(const QString &name)        const;
-    bool containsPrerequisite(const QString &name) const;
-    bool containsPriv(const QString &name)         const;
-    bool containsReport(const QString &name)       const;
-    bool containsScript(const QString &name)       const;
-    bool containsTable(const QString &name)        const;
+    virtual int     writeToDB(const QByteArray &data, const QString pkgname,
+                              QString &errMsg) = 0;
 
   protected:
-    QString     _developer;
-    QString     _descrip;
-    QString     _id;
-    int         _majVersion;
-    int         _minVersion;
-    QString     _name;
-    QString     _notes;
+    QString _comment;
+    QString _filename;
+    QString _name;
+    QString _nodename;
+    QString _pkgitemtype;
+    QString _schema;
+
+    virtual int upsertPkgItem(const int pkghead, const int itemid,
+                              QString &errMsg);
 };
 
 #endif

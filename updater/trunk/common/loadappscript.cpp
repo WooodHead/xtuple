@@ -69,11 +69,14 @@ LoadAppScript::LoadAppScript(const QString &name, const int order,
   : Loadable("loadappscript", name, order, system, comment, filename)
 {
   _enabled = enabled;
+  _pkgitemtype = "C";
 }
 
 LoadAppScript::LoadAppScript(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
   : Loadable(elem, msg, fatal)
 {
+  _pkgitemtype = "C";
+
   if (_name.isEmpty())
   {
     msg.append(QObject::tr("The script in %1 does not have a name.")
@@ -260,8 +263,7 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
 
   if (pkgheadid >= 0)
   {
-    int tmp = upsertPkgItem(pkgitemid, pkgheadid, "C", scriptid, _name,
-                            _comment, errMsg);
+    int tmp = upsertPkgItem(pkgitemid, pkgheadid, scriptid, errMsg);
     if (tmp < 0)
       return tmp;
   }

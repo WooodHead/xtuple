@@ -97,17 +97,16 @@ class Loadable
     static QRegExp falseRegExp;
 
   protected:
-    int     _grade;
-    QString _filename;
-    QString _name;
     QString _comment;
+    QString _filename;
+    int     _grade;
+    QString _name;
     QString _nodename;
+    QString _pkgitemtype;
     bool    _system;
 
     virtual int upsertPkgItem(int &pkgitemid, const int pkghead,
-                              const QString type, const int itemid,
-                              const QString name, const QString comment,
-                              QString &errMsg);
+                              const int itemid, QString &errMsg);
 };
 
 #endif

@@ -70,6 +70,7 @@
 #include <QTimerEvent>
 
 #include <gunzip.h>
+#include <createtable.h>
 #include <loadappscript.h>
 #include <loadappui.h>
 #include <loadcmd.h>
@@ -232,12 +233,17 @@ void LoaderWindow::fileOpen()
   if (msgList.size() > 0)
   {
     bool fatal = false;
+    if (DEBUG)
+      qDebug("LoaderWindow::fileOpen()  i fatal msg");
     for (int i = 0; i < msgList.size(); i++)
     {
       _text->append(QString("<p><font color=%1>%2</font></p>")
                     .arg(fatalList.at(i) ? "red" : "orange")
                     .arg(msgList.at(i)));
       fatal = fatal || fatalList.at(i);
+      if (DEBUG)
+        qDebug("LoaderWindow::fileOpen() %2d %5d %s",
+               i, fatalList.at(i), qPrintable(msgList.at(i)));
     }
     if (fatal)
     {
@@ -597,6 +603,35 @@ void LoaderWindow::sStart()
       qry.exec("commit;");
     _progress->setValue(_progress->value() + 1);
   }
+
+  _status->setText(tr("<p><b>Updating Table Definitions</b></p>"));
+  _text->append(tr("<p>Loading new Table definitions...</p>"));
+  for(QList<CreateTable>::iterator i = _package->_tables.begin();
+      i != _package->_tables.end(); ++i)
+  {
+    QByteArray data = _files->_list[prefix + (*i).filename()];
+    if(data.isEmpty())
+    {
+      QMessageBox::warning(this, tr("File Missing"),
+                           tr("<p>The file %1 in this package is empty.").
+                           arg((*i).filename()));
+      continue;
+    }
+    if ((*i).writeToDB(data, _package->name(), errMsg) >= 0)
+      _text->append(tr("Import of %1 was successful.").arg((*i).filename()));
+    else
+    {
+      _text->append(errMsg);
+      qry.exec("rollback;");
+      if(!_multitrans && !_premultitransfile)
+      {
+        _text->append(rollbackMsg);
+        return;
+      }
+    }
+    _progress->setValue(_progress->value() + 1);
+  }
+  _text->append(tr("<p>Completed importing new table definitions.</p>"));
 
   _status->setText(tr("<p><b>Updating Report Definitions</b></p>"));
   _text->append(tr("<p>Loading new report definitions...</p>"));

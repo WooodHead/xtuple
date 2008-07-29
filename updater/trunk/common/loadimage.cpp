@@ -75,11 +75,14 @@ LoadImage::LoadImage(const QString &name, const int order,
                      const QString &comment, const QString &filename)
   : Loadable("loadimage", name, order, system, comment, filename)
 {
+  _pkgitemtype = "I";
 }
 
 LoadImage::LoadImage(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
   : Loadable(elem, msg, fatal)
 {
+  _pkgitemtype = "I";
+
   if (_name.isEmpty())
   {
     msg.append(QObject::tr("The image in %1 does not have a name.")
@@ -242,8 +245,7 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
 
   if (pkgheadid >= 0)
   {
-    int tmp = upsertPkgItem(pkgitemid, pkgheadid, "I", imageid, _name,
-                            _comment, errMsg);
+    int tmp = upsertPkgItem(pkgitemid, pkgheadid, imageid, errMsg);
     if (tmp < 0)
       return tmp;
   }

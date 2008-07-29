@@ -1,9 +1,10 @@
 SELECT dropIfExists('TRIGGER', 'pkgitembeforetrigger');
 CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
+  DECLARE
+    _object     TEXT;
+    _schema     TEXT;
   BEGIN
-    IF (TG_OP = ''UPDATE'') THEN
-
-    ELSIF (TG_OP = ''INSERT'') THEN
+    IF (TG_OP = ''INSERT'' OR TG_OP = ''UPDATE'') THEN
       IF (NEW.pkgitem_type = ''C'') THEN
         IF (NOT EXISTS(SELECT script_id
                        FROM script
@@ -29,7 +30,7 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
                        FROM image
                        WHERE ((image_id=NEW.pkgitem_item_id)
                           AND (image_name=NEW.pkgitem_name)))) THEN
-          RAISE EXCEPTION ''Cannot create Image % as a Package Item without a corresponding cmd record.'',
+          RAISE EXCEPTION ''Cannot create Image % as a Package Item without a corresponding image record.'',
             NEW.pkgitem_name;
         END IF;
       ELSIF (NEW.pkgitem_type = ''M'') THEN
@@ -53,7 +54,21 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
       ELSIF (NEW.pkgitem_type = ''S'') THEN
         RAISE EXCEPTION ''Schemas are not yet supported pkgitems.'';
       ELSIF (NEW.pkgitem_type = ''T'') THEN
-        RAISE EXCEPTION ''Tables are not yet supported pkgitems.'';
+        IF (POSITION(''.'' IN NEW.pkgitem_name) > 0) THEN
+          _schema = SPLIT_PART(NEW.pkgitem_name, ''.'', 1);
+          _object = SPLIT_PART(NEW.pkgitem_name, ''.'', 2);
+        ELSE
+          _schema = ''public'';
+          _object = NEW.pgitem_name;
+        END IF;
+        IF (NOT EXISTS(SELECT pg_class.oid
+                     FROM pg_class, pg_namespace
+                     WHERE ((relname=_object)
+                        AND (relnamespace=pg_namespace.oid)
+                        AND (nspname=_schema)))) THEN
+          RAISE EXCEPTION ''Cannot create Table % as a Package Item without a corresponding table in the database.'',
+            NEW.pkgitem_name;
+        END IF;
       ELSIF (NEW.pkgitem_type = ''U'') THEN
         IF (NOT EXISTS(SELECT uiform_id
                        FROM uiform
@@ -97,7 +112,16 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
       ELSIF (OLD.pkgitem_type = ''S'') THEN
         RAISE EXCEPTION ''Schemas are not yet supported pkgitems.'';
       ELSIF (OLD.pkgitem_type = ''T'') THEN
-        RAISE EXCEPTION ''Tables are not yet supported pkgitems.'';
+        IF (POSITION(''.'' IN OLD.pkgitem_name) > 0) THEN
+          _schema = SPLIT_PART(OLD.pkgitem_name, ''.'', 1);
+          _object = SPLIT_PART(OLD.pkgitem_name, ''.'', 2);
+        ELSE
+          _schema = ''public'';
+          _object = OLD.pgitem_name;
+        END IF;
+        RAISE NOTICE ''dropIfExists(TABLE, %, %)'', _object, _schema;
+        --PERFORM dropIfExists(''TABLE'', _object, _schema);
+        EXECUTE ''DROP TABLE '' || _schema || ''.'' || _object ;
       ELSIF (OLD.pkgitem_type = ''U'') THEN
         DELETE FROM uiform
         WHERE ((uiform_id=OLD.pkgitem_item_id)
