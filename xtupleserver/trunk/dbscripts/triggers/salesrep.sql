@@ -1,9 +1,20 @@
 CREATE OR REPLACE FUNCTION _salesrepBeforeTrigger () RETURNS TRIGGER AS '
 DECLARE
+  _code         TEXT;
   _empcode      TEXT;
   _empid        INTEGER;
   _empusrid     INTEGER;
 BEGIN
+  IF (TG_OP = ''INSERT'') THEN
+    SELECT salesrep_number INTO _code
+    FROM salesrep
+    WHERE ( (UPPER(salesrep_number)=UPPER(NEW.salesrep_number))
+      AND (salesrep_id<>NEW.salesrep_id) );
+    IF (FOUND) THEN
+      RAISE EXCEPTION ''The Salesrep Number entered cannot be used as it is in use.'';
+    END IF;
+  END IF;
+
   SELECT emp_id INTO _empid
   FROM emp
   WHERE (emp_code=NEW.salesrep_number);
