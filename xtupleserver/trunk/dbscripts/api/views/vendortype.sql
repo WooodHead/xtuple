@@ -37,6 +37,6 @@ UPDATE vendtype SET
 CREATE OR REPLACE RULE "_DELETE" AS
 ON DELETE TO api.vendortype DO INSTEAD
 
-DELETE FROM vendtype WHERE (vendtype_code=OLD.code);
+SELECT deleteVendorType(getVendTypeId(OLD.code));
 
 COMMIT;
