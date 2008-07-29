@@ -254,6 +254,13 @@
     Events. The table includes the name that xTuple ERP assigns to the Event,
     a brief description of the Event, and the name of the Module where the
     Event originates.</para>
+    <note>
+      <para>The system will also alert users whenever a database error is
+      detected. While not technically Events, these error log messages are
+      presented to the user in a manner similar to Event notifications. An
+      exclamation point will be shown, and, when selected, the user will see
+      the content of the Database Log.</para>
+    </note>
     <table id="Table462070">
       <title>System-Defined Events</title>
       <tgroup cols="3">
