@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION balanceItemsite(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION balanceItemsite(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pItemsiteid ALIAS FOR $1;
   _itemlocseries INTEGER;
@@ -9,10 +9,16 @@ DECLARE
 BEGIN
 
 --  Make sure that that passed Itemsite is MLC or Lot/Serial controlled
-  IF ( ( SELECT (NOT ( (itemsite_loccntrl) OR (itemsite_controlmethod IN (''L'', ''S'')) ))
+  IF ( ( SELECT (NOT ( (itemsite_loccntrl) OR (itemsite_controlmethod IN ('L', 'S')) ))
          FROM itemsite
          WHERE (itemsite_id=pItemsiteid) ) ) THEN
     RETURN 0;
+  END IF;
+
+  IF ( ( SELECT itemsite_freeze
+           FROM itemsite
+          WHERE(itemsite_id=pItemsiteid) ) ) THEN
+    RETURN -1;
   END IF;
 
 --  Calculate the Netable portion
@@ -23,9 +29,14 @@ BEGIN
 
 --  Post an AD Transaction for the Netable portion
   SELECT invAdjustment( itemsite_id, (_balanced - itemsite_qtyonhand),
-                        ''Balance'', ''Inventory Balance'' ) INTO _itemlocseries
+                        'Balance', 'Inventory Balance' ) INTO _itemlocseries
   FROM itemsite
   WHERE (itemsite_id=pItemsiteid);
+
+--  Post the invtrans records associated with the itemlocdist records
+  PERFORM postInvhist(itemlocdist_invhist_id)
+     FROM itemlocdist
+    WHERE(itemlocdist_series=_itemlocseries);
 
 --  Kill the resultant distribution records
   DELETE FROM itemlocdist
@@ -45,4 +56,4 @@ BEGIN
   RETURN 1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
