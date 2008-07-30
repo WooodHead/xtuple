@@ -224,6 +224,12 @@
           <para>You can dramatically speed up the process of adding new users
           by adding privileges by user group.</para>
         </tip>
+        <note>
+          <para>If individual user privileges appear to be disabled, that
+          means the user is assigned to a user group. The only way to change
+          individual privileges in this case is to remove the user from the
+          group.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -367,11 +373,72 @@
       <listitem>
         <para>Closes the screen without saving any changes, returning you to
         the previous screen.</para>
+        <tip>
+          <para>Remember to select the ADD button when you have finished
+          entering a user's information.</para>
+        </tip>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>Remember to select the ADD button when you have finished entering a
-    user's information.</para>
-  </tip>
+  <para><remark>findme: Add intro content </remark>To add user site security
+  to a user profile, select the "Sites" tab, as shown in the following
+  screen:</para>
+  <para><mediaobject>
+      <imageobject>
+        <imagedata fileref="images/user_siteTab.png" />
+      </imageobject>
+      <caption>User Site Security</caption>
+    </mediaobject>When adding user site security to a user profile, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Grant Access to all Sites</term>
+      <listitem>
+        <para><remark>findme</remark></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Grand Access only to Selected Sites</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Available Sites</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Granted Sites</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are located between the Available Sites and
+  Granted Sites columns:</para>
+  <variablelist>
+    <varlistentry>
+      <term>ADD-&gt;</term>
+      <listitem>
+        <para>Highlight a specific Site in the available Sites column, then
+        select this button to transfer the Site to the granted Sites column.
+        Double-clicking on an available Site will also transfer it to the
+        granted Sites column.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>&lt;-REVOKE</term>
+      <listitem>
+        <para>Highlight a specific Site in the granted Sites column, then
+        select this button to remove the Site from the granted Sites column.
+        Double-clicking on a granted Site will also remove it from the granted
+        Sites column.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para></para>
+  <para></para>
+  <para></para>
 </section>
