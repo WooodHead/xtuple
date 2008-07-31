@@ -13,9 +13,10 @@ BEGIN
 
   FOR _cmhead IN SELECT cmhead_id
                  FROM cmhead
-                 WHERE ((NOT cmhead_posted)
-                  AND (NOT cmhead_hold)
-                  AND ((pPostUnprinted) OR (cmhead_printed))) LOOP
+                 WHERE ( (NOT cmhead_posted)
+                   AND   (NOT cmhead_hold)
+                   AND   (checkCreditMemoSitePrivs(cmhead_id))
+                   AND   ((pPostUnprinted) OR (cmhead_printed)) ) LOOP
 
     SELECT postCreditMemo(_cmhead.cmhead_id, _itemlocSeries) INTO _result;
     IF (_result < _return) THEN
@@ -42,9 +43,10 @@ BEGIN
 
   FOR _r IN SELECT cmhead_id
             FROM cmhead
-            WHERE ((NOT cmhead_posted)
-             AND (NOT cmhead_hold)
-             AND ((pPostUnprinted) OR (cmhead_printed))) LOOP
+            WHERE ( (NOT cmhead_posted)
+              AND   (NOT cmhead_hold)
+              AND   (checkCreditMemoSitePrivs(cmhead_id))
+              AND   ((pPostUnprinted) OR (cmhead_printed)) ) LOOP
 
     SELECT postCreditMemo(_r.cmhead_id, pJournalNumber, _itemlocSeries) INTO _itemlocSeries;
 
