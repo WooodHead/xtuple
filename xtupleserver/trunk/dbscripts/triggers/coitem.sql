@@ -2,8 +2,11 @@ CREATE OR REPLACE FUNCTION _soitemTrigger() RETURNS TRIGGER AS $$
 DECLARE
   _cmnttypeid INTEGER;
   _check BOOLEAN;
+  _kit BOOLEAN;
+  _shipped BOOLEAN;
   _atShipping NUMERIC;
-
+  _tmp INTEGER;
+  _rec RECORD;
 BEGIN
   -- Check
   SELECT checkPrivilege('MaintainSalesOrders') OR checkPrivilege('ShipOrders') OR checkPrivilege('IssueStockToShipping') INTO _check;
@@ -14,6 +17,33 @@ BEGIN
   IF (TG_OP IN ('INSERT','UPDATE')) THEN
     IF (NEW.coitem_scheddate IS NULL) THEN
       RAISE EXCEPTION 'A schedule date is required.';
+    END IF;
+  END IF;
+
+  IF(TG_OP = 'DELETE') THEN
+    _rec := OLD;
+  ELSE
+    _rec := NEW;
+  END IF;
+  SELECT COALESCE(item_type,'')='K'
+    INTO _kit
+    FROM itemsite, item
+   WHERE((itemsite_item_id=item_id)
+     AND (itemsite_id=_rec.coitem_itemsite_id));
+  _kit := COALESCE(_kit, false);
+  _shipped := false;
+  IF(_kit) THEN
+    SELECT coitem_id
+      INTO _tmp
+      FROM coitem LEFT OUTER JOIN coship ON (coship_coitem_id=coitem_id)
+     WHERE((coitem_cohead_id=_rec.coitem_cohead_id)
+       AND (coitem_linenumber=_rec.coitem_linenumber)
+       AND (coitem_subnumber > 0))
+     GROUP BY coitem_id
+    HAVING (SUM(coship_qty) > 0)
+     LIMIT 1;
+    IF (FOUND) THEN
+      _shipped := true;
     END IF;
   END IF;
   
@@ -75,6 +105,16 @@ BEGIN
 
   ELSIF (TG_OP = 'DELETE') THEN
 
+      IF(_kit) THEN
+        IF(_shipped) THEN
+          RAISE EXCEPTION 'You can not delete this Sales Order Line as it has several sub components that have already been shipped.';
+        END IF;
+        DELETE FROM coitem
+         WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
+           AND (coitem_linenumber=OLD.coitem_linenumber)
+           AND (coitem_subnumber > 0));
+      END IF;
+
       DELETE FROM comment
       WHERE ( (comment_source='SI')
        AND (comment_source_id=OLD.coitem_id) );
@@ -112,6 +152,16 @@ BEGIN
   ELSIF (TG_OP = 'UPDATE') THEN
 
     IF (NEW.coitem_qtyord <> OLD.coitem_qtyord) THEN
+      IF(_kit) THEN
+        IF(_shipped) THEN
+          RAISE EXCEPTION 'You can not change the qty ordered for a Kit item when one or more of its components have shipped inventory.';
+        END IF;
+        DELETE FROM coitem
+         WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
+           AND (coitem_linenumber=OLD.coitem_linenumber)
+           AND (coitem_subnumber > 0));
+        PERFORM explodeKit(OLD.coitem_cohead_id, OLD.coitem_linenumber, 0, NEW.coitem_itemsite_id, NEW.coitem_qtyord);
+      END IF;
       INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
 			    evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number,
 			    evntlog_oldvalue, evntlog_newvalue )
@@ -162,6 +212,14 @@ BEGIN
     END IF;
 
     IF ((NEW.coitem_status = 'C') AND (OLD.coitem_status <> 'C')) THEN
+      IF(_kit) THEN
+        UPDATE coitem
+           SET coitem_status='C'
+         WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
+           AND (coitem_linenumber=OLD.coitem_linenumber)
+           AND (coitem_status='O')
+           AND (coitem_subnumber > 0));
+      END IF;
       NEW.coitem_closedate = CURRENT_TIMESTAMP;
       NEW.coitem_close_username = CURRENT_USER;
       NEW.coitem_qtyreserved := 0;
@@ -172,6 +230,14 @@ BEGIN
     END IF;
 
     IF ((NEW.coitem_status = 'X') AND (OLD.coitem_status <> 'X')) THEN
+      IF(_kit) THEN
+        UPDATE coitem
+           SET coitem_status='X'
+         WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
+           AND (coitem_linenumber=OLD.coitem_linenumber)
+           AND (coitem_status='O')
+           AND (coitem_subnumber > 0));
+      END IF;
       NEW.coitem_qtyreserved := 0;
 
       IF (_cmnttypeid <> -1) THEN
@@ -195,6 +261,17 @@ BEGIN
        AND (OLD.coitem_scheddate <= (CURRENT_DATE + itemsite_eventfence))
        AND (evnttype_name='SoitemCancelled') );
 
+    END IF;
+
+    IF(NEW.coitem_status = 'O' AND OLD.coitem_status <> 'O') THEN
+      IF(_kit) THEN
+        UPDATE coitem
+           SET coitem_status='O'
+         WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
+           AND (coitem_linenumber=OLD.coitem_linenumber)
+           AND ((coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) > 0)
+           AND (coitem_subnumber > 0));
+      END IF;
     END IF;
 
     IF ((NEW.coitem_qtyreserved <> OLD.coitem_qtyreserved) AND (_cmnttypeid <> -1)) THEN
@@ -222,9 +299,20 @@ DECLARE
   _check NUMERIC;
   _itemNumber TEXT;
   _r RECORD;
+  _kit RECORD;
 BEGIN
   -- If this is imported, go ahead and insert default characteristics
    IF ((TG_OP = 'INSERT') AND NEW.coitem_imported) THEN
+    SELECT COALESCE(item_type,'')='K'
+      INTO _kit
+      FROM itemsite, item
+     WHERE((itemsite_item_id=item_id)
+       AND (itemsite_id=NEW.coitem_itemsite_id));
+    _kit := COALESCE(_kit, false);
+    IF(_kit) THEN
+      PERFORM explodeKit(NEW.coitem_cohead_id, NEW.coitem_linenumber, 0, NEW.coitem_itemsite_id, NEW.coitem_qtyord);
+    END IF;
+
      INSERT INTO charass (charass_target_type, charass_target_id, charass_char_id, charass_value, charass_price)
      SELECT 'SI', NEW.coitem_id, char_id, charass_value,
      itemcharprice(item_id,char_id,charass_value,cohead_cust_id,cohead_shipto_id,NEW.coitem_qtyord,cohead_curr_id,cohead_orderdate) 
