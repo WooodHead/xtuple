@@ -52,7 +52,12 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
             NEW.pkgitem_name;
         END IF;
       ELSIF (NEW.pkgitem_type = ''S'') THEN
-        RAISE EXCEPTION ''Schemas are not yet supported pkgitems.'';
+        IF (NOT EXISTS(SELECT oid
+                       FROM pg_namespace
+                       WHERE (nspname=NEW.pkgitem_name))) THEN
+          RAISE EXCEPTION ''Cannot create Schema % as a Package Item without a corresponding schema in the database.'',
+            NEW.pkgitem_name;
+        END IF;
       ELSIF (NEW.pkgitem_type = ''T'') THEN
         IF (POSITION(''.'' IN NEW.pkgitem_name) > 0) THEN
           _schema = SPLIT_PART(NEW.pkgitem_name, ''.'', 1);
@@ -110,7 +115,7 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
         WHERE ((report_id=OLD.pkgitem_item_id)
            AND (report_name=OLD.pkgitem_name));
       ELSIF (OLD.pkgitem_type = ''S'') THEN
-        RAISE EXCEPTION ''Schemas are not yet supported pkgitems.'';
+        PERFORM dropIfExists(''SCHEMA'', OLD.pkgitem_name, OLD.pkgitem_name);
       ELSIF (OLD.pkgitem_type = ''T'') THEN
         IF (POSITION(''.'' IN OLD.pkgitem_name) > 0) THEN
           _schema = SPLIT_PART(OLD.pkgitem_name, ''.'', 1);
@@ -119,9 +124,7 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
           _schema = ''public'';
           _object = OLD.pgitem_name;
         END IF;
-        RAISE NOTICE ''dropIfExists(TABLE, %, %)'', _object, _schema;
-        --PERFORM dropIfExists(''TABLE'', _object, _schema);
-        EXECUTE ''DROP TABLE '' || _schema || ''.'' || _object ;
+        PERFORM dropIfExists(''TABLE'', _object, _schema);
       ELSIF (OLD.pkgitem_type = ''U'') THEN
         DELETE FROM uiform
         WHERE ((uiform_id=OLD.pkgitem_item_id)

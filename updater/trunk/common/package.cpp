@@ -64,6 +64,7 @@
 #include <QSqlQuery>
 #include <QVariant>
 
+#include "createschema.h"
 #include "createtable.h"
 #include "loadcmd.h"
 #include "loadappscript.h"
@@ -113,7 +114,12 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
   for(int n = 0; n < nList.count(); ++n)
   {
     QDomElement elemThis = nList.item(n).toElement();
-    if (elemThis.tagName() == "createtable")
+    if (elemThis.tagName() == "createschema")
+    {
+      CreateSchema schema(elemThis, msgList, fatalList);
+      _schemas.append(schema);
+    }
+    else if (elemThis.tagName() == "createtable")
     {
       CreateTable table(elemThis, msgList, fatalList);
       _tables.append(table);
@@ -299,6 +305,17 @@ bool Package::containsPriv(const QString &pname) const
 {
   QList<LoadPriv>::const_iterator it = _privs.begin();
   for(; it != _privs.end(); ++it)
+  {
+    if((*it).name() == pname)
+      return true;
+  }
+  return false;
+}
+
+bool Package::containsSchema(const QString &pname) const
+{
+  QList<CreateSchema>::const_iterator it = _schemas.begin();
+  for(; it != _schemas.end(); ++it)
   {
     if((*it).name() == pname)
       return true;

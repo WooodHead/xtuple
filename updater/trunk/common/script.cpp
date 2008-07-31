@@ -58,6 +58,14 @@
 #include "script.h"
 
 #include <QDomDocument>
+#include <QSqlError>
+#include <QSqlQuery>
+
+#define DEBUG true
+
+QString Script::_sqlerrtxt = QObject::tr("The following error was encountered "
+                                         "while trying to import %1 into the "
+                                         "database:<br>%2<br>%3");
 
 Script::Script(const QString & name, OnError onError, const QString & comment)
   : _name(name), _comment(comment), _onError(onError)
@@ -136,3 +144,27 @@ QStringList Script::onErrorList(bool includeDefault)
   return list;
 }
 
+int Script::writeToDB(const QByteArray &pdata, const QString annotation, QString &errMsg)
+{
+  if (DEBUG)
+    qDebug("Script::writeToDb(%s, %s, &errMsg) with onError %d",
+           pdata.data(), qPrintable(annotation), _onError);
+  if (pdata.isEmpty())
+  {
+    errMsg = QObject::tr("The file %1 is empty.").arg(filename());
+    return -1;
+  }
+
+  QSqlQuery create;
+  create.prepare(QString(pdata));
+  create.exec();
+  if (create.lastError().type() != QSqlError::NoError)
+  {
+    errMsg = _sqlerrtxt.arg(filename())
+                       .arg(create.lastError().databaseText())
+                       .arg(create.lastError().driverText());
+    return -3;
+  }
+
+  return 0;
+}

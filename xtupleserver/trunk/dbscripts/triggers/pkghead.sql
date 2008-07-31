@@ -7,6 +7,25 @@ CREATE OR REPLACE FUNCTION _pkgheadbeforetrigger() RETURNS "trigger" AS '
     ELSIF (TG_OP = ''INSERT'') THEN
       NEW.pkghead_created := CURRENT_TIMESTAMP;
       NEW.pkghead_updated := NEW.pkghead_created;
+    ELSIF (TG_OP = ''DELETE'') THEN
+      -- enforce an order here to avoid dependency errors
+      DELETE FROM pkgitem
+      WHERE ((pkgitem_pkghead_id=OLD.pkghead_id)
+        AND  (pkgitem_type=''V''));
+      DELETE FROM pkgitem
+      WHERE ((pkgitem_pkghead_id=OLD.pkghead_id)
+        AND  (pkgitem_type=''G''));
+      DELETE FROM pkgitem
+      WHERE ((pkgitem_pkghead_id=OLD.pkghead_id)
+        AND  (pkgitem_type=''T''));
+      DELETE FROM pkgitem
+      WHERE ((pkgitem_pkghead_id=OLD.pkghead_id)
+        AND  (pkgitem_type=''F''));
+      DELETE FROM pkgitem
+      WHERE ((pkgitem_pkghead_id=OLD.pkghead_id)
+        AND  (pkgitem_type=''S''));
+
+      RETURN OLD;
     END IF;
 
     RETURN NEW;
@@ -15,7 +34,8 @@ CREATE OR REPLACE FUNCTION _pkgheadbeforetrigger() RETURNS "trigger" AS '
 
 CREATE TRIGGER pkgheadbeforetrigger
   BEFORE  INSERT OR
-	  UPDATE -- OR DELETE
+	  UPDATE OR
+          DELETE
   ON pkghead
   FOR EACH ROW
   EXECUTE PROCEDURE _pkgheadbeforetrigger();

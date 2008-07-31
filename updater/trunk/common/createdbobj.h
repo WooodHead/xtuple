@@ -60,41 +60,38 @@
 
 #include <QString>
 
+#include "script.h"
+
 class QDomDocument;
 class QDomElement;
 
-class CreateDBObj
+class CreateDBObj : public Script
 {
   public:
     CreateDBObj(const QString &nodename, const QString &filename,
                 const QString &schema = "public",
                 const QString &name = QString::null,
-                const QString &comment = QString::null);
+                const QString &comment = QString::null,
+                const OnError onError = Default);
     CreateDBObj(const QDomElement &, QStringList &, QList<bool> &);
 
     virtual ~CreateDBObj();
 
     virtual QDomElement createElement(QDomDocument &doc);
 
-    virtual QString comment()  const { return _comment; }
     virtual QString filename() const { return _filename; }
     virtual bool    isValid()  const { return !_nodename.isEmpty() &&
                                               !_name.isEmpty() &&
                                               !_schema.isEmpty() &&
                                               !_filename.isEmpty(); }
-    virtual QString name()     const { return _name; }
-
-    virtual int     writeToDB(const QByteArray &data, const QString pkgname,
-                              QString &errMsg) = 0;
 
   protected:
-    QString _comment;
     QString _filename;
-    QString _name;
     QString _nodename;
     QString _pkgitemtype;
     QString _schema;
 
+    CreateDBObj();
     virtual int upsertPkgItem(const int pkghead, const int itemid,
                               QString &errMsg);
 };

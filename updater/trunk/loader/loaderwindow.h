@@ -60,6 +60,7 @@
 
 class Package;
 class TarFile;
+class Script;
 
 #include <QMainWindow>
 
@@ -86,12 +87,14 @@ protected:
     Package * _package;
     TarFile * _files;
 
+    virtual int  applySql(Script &, const QByteArray);
     virtual void launchBrowser(QWidget *w, const QString &url);
     virtual void timerEvent( QTimerEvent * e );
 
+    static QString _rollbackMsg;
+
 protected slots:
     virtual void languageChange();
-
     virtual void sStart();
 
 

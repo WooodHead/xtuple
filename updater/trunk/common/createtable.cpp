@@ -57,18 +57,13 @@
 
 #include "createtable.h"
 
-#include <QBuffer>
 #include <QDomDocument>
-#include <QImage>
-#include <QImageWriter>
 #include <QMessageBox>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QVariant>     // used by QSqlQuery::bindValue()
 
-#include <quuencode.h>
-
-#define DEBUG true
+#define DEBUG false
 
 CreateTable::CreateTable(const QString &filename, const QString &schema,
                          const QString &name, const QString &comment)
@@ -109,6 +104,34 @@ int CreateTable::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
     return -1;
   }
 
+  QString oldschema;
+  QSqlQuery schemaq;
+  schemaq.prepare("SELECT CURRENT_SCHEMA();");
+  schemaq.exec();
+  if (schemaq.first())
+    oldschema = schemaq.value(0).toString();
+  else if (schemaq.lastError().type() != QSqlError::NoError)
+  {
+    errMsg = sqlerrtxt.arg(_filename)
+                      .arg(schemaq.lastError().databaseText())
+                      .arg(schemaq.lastError().driverText());
+    return -2;
+  }
+  if (oldschema.isEmpty())
+    oldschema = "public";
+
+  schemaq.prepare("SET SEARCH_PATH TO :schema,:oldpath;");
+  schemaq.bindValue(":schema", _schema);
+  schemaq.bindValue(":oldpath", oldschema);
+  schemaq.exec();
+  if (schemaq.lastError().type() != QSqlError::NoError)
+  {
+    errMsg = sqlerrtxt.arg(_filename)
+                      .arg(schemaq.lastError().databaseText())
+                      .arg(schemaq.lastError().driverText());
+    return -3;
+  }
+
   QSqlQuery create;
   create.prepare(QString(pdata));
   create.exec();
@@ -117,7 +140,18 @@ int CreateTable::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
     errMsg = sqlerrtxt.arg(_filename)
                       .arg(create.lastError().databaseText())
                       .arg(create.lastError().driverText());
-    return -3;
+    return -4;
+  }
+
+  schemaq.prepare("SET SEARCH_PATH TO :oldpath;");
+  schemaq.bindValue(":oldpath", oldschema);
+  schemaq.exec();
+  if (schemaq.lastError().type() != QSqlError::NoError)
+  {
+    errMsg = sqlerrtxt.arg(_filename)
+                      .arg(schemaq.lastError().databaseText())
+                      .arg(schemaq.lastError().driverText());
+    return -5;
   }
 
   if (! pkgname.isEmpty())
@@ -134,7 +168,7 @@ int CreateTable::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
       errMsg = sqlerrtxt.arg(_filename)
                         .arg(select.lastError().databaseText())
                         .arg(select.lastError().driverText());
-      return -4;
+      return -6;
     }
 
     select.prepare("SELECT pg_class.oid AS oid "
@@ -156,7 +190,7 @@ int CreateTable::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
       errMsg = sqlerrtxt.arg(_filename)
                         .arg(select.lastError().databaseText())
                         .arg(select.lastError().driverText());
-      return -5;
+      return -7;
     }
     else // not found
     {
@@ -164,7 +198,7 @@ int CreateTable::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
                            "script %2 does not match the contents.xml "
                            "description.")
                 .arg(_name).arg(_filename);
-      return -6;
+      return -8;
     }
   }
 

@@ -55,40 +55,52 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#include "createdbobj.h"
+#include "createschema.h"
 
 #include <QDomDocument>
 #include <QMessageBox>
-#include <QRegExp>
 #include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>
+#include <QVariant>     // used by QSqlQuery::bindValue()
 
-CreateDBObj::CreateDBObj()
+#define DEBUG true
+
+CreateSchema::CreateSchema(const QString &filename, 
+                           const QString &name, const QString &comment)
+  : CreateDBObj("createschema", filename, name, name, comment)
 {
+  _pkgitemtype = "S";
 }
 
-CreateDBObj::CreateDBObj(const QString &nodename, const QString &filename,
-                         const QString &schema,   const QString &name,
-                         const QString &comment,  OnError onError)
+CreateSchema::CreateSchema(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
 {
-  _comment  = comment;
-  _filename = filename;
-  _name     = name;
-  _nodename = nodename;
-  _onError  = onError;
-  _schema   = schema;
-}
+  _pkgitemtype = "S";
 
-CreateDBObj::CreateDBObj(const QDomElement & elem, QStringList &msg, QList<bool> &fatal)
-{
+  if (elem.nodeName() != "createschema")
+  {
+    msg.append(QObject::tr("Creating a CreateSchema element from a %1 node.")
+              .arg(elem.nodeName()));
+    fatal.append(false);
+  }
   _nodename = elem.nodeName();
 
-  if (elem.hasAttribute("name"))
+
+  if (elem.hasAttribute("name") && elem.hasAttribute("schema"))
+  {
+    msg.append(QObject::tr("The %1 node has both name and schema attributes. "
+                           "The value of the schema attribute (%2) will be "
+                           "used and the name (%3) will be ignored.")
+               .arg(_nodename).arg(_schema).arg(_name));
+    fatal.append(false);
+    _name = elem.attribute("schema");
+  }
+  else if (elem.hasAttribute("schema"))
+    _name = elem.attribute("schema");
+  else if (elem.hasAttribute("name"))
     _name = elem.attribute("name");
   else
   {
-    msg.append(QObject::tr("The contents.xml must name the object for %1.")
+    msg.append(QObject::tr("The contents.xml must name the schema for %1.")
                .arg(_nodename));
     fatal.append("false");
   }
@@ -102,51 +114,73 @@ CreateDBObj::CreateDBObj(const QDomElement & elem, QStringList &msg, QList<bool>
     fatal.append(true);
   }
 
-  if (elem.hasAttribute("schema"))
-    _schema = elem.attribute("schema");
-  else
-  {
-    _schema = "public";
-    msg.append(QObject::tr("No explicit schema for %1; defaulting to %2.")
-               .arg(_nodename).arg(_schema));
-    fatal.append(false);
-  }
-
-  if (elem.hasAttribute("onerror"))
-    _onError = nameToOnError(elem.attribute("onerror"));
+  _onError = nameToOnError(elem.attribute("onerror"));
 
   _comment = elem.text().trimmed();
 }
 
-CreateDBObj::~CreateDBObj()
+int CreateSchema::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
 {
+  if (DEBUG)
+    qDebug("CreateSchema::writeToDb(%s, %s, &errMsg)",
+           pdata.data(), qPrintable(pkgname));
+
+  int returnVal = Script::writeToDB(pdata, pkgname, errMsg);
+  if (returnVal < 0)
+    return returnVal;
+
+  if (! pkgname.isEmpty())
+  {
+    QSqlQuery select;
+    int pkgheadid = -1;
+    select.prepare("SELECT pkghead_id FROM pkghead WHERE (pkghead_name=:name);");
+    select.bindValue(":name", pkgname);
+    select.exec();
+    if (select.first())
+      pkgheadid = select.value(0).toInt();
+    else if (select.lastError().type() != QSqlError::NoError)
+    {
+      errMsg = _sqlerrtxt.arg(_filename)
+                        .arg(select.lastError().databaseText())
+                        .arg(select.lastError().driverText());
+      return -4;
+    }
+
+    select.prepare("SELECT oid "
+                   "FROM pg_namespace "
+                   "WHERE (nspname=:name);");
+    select.bindValue(":name",   _name);
+    select.exec();
+    if (select.first())
+    {
+      int tmp = upsertPkgItem(pkgheadid, select.value(0).toInt(), errMsg);
+      if (tmp < 0)
+        return tmp;
+    }
+    else if (select.lastError().type() != QSqlError::NoError)
+    {
+      errMsg = _sqlerrtxt.arg(_filename)
+                        .arg(select.lastError().databaseText())
+                        .arg(select.lastError().driverText());
+      return -5;
+    }
+    else // not found
+    {
+      errMsg = QObject::tr("Could not find schema %1 in the database. The "
+                           "script %2 does not match the contents.xml "
+                           "description.")
+                .arg(_name).arg(_filename);
+      return -6;
+    }
+  }
+
+  return 0;
 }
 
-QDomElement CreateDBObj::createElement(QDomDocument & doc)
-{
-  QDomElement elem = doc.createElement(_nodename);
-
-  elem.setAttribute("file", _filename);
-
-  if (! _name.isEmpty())
-    elem.setAttribute("name", _name);
-
-  if (! _schema.isEmpty())
-    elem.setAttribute("schema", _schema);
-
-  if(!_comment.isEmpty())
-    elem.appendChild(doc.createTextNode(_comment));
-
-  return elem;
-}
-
-// this differs from the version it was copied from in loadable.cpp
-int CreateDBObj::upsertPkgItem(const int pkgheadid, const int itemid,
+// the value of pkgitem_name differs from the version in createdbobj.cpp
+int CreateSchema::upsertPkgItem(const int pkgheadid, const int itemid,
                                QString &errMsg)
 {
-  QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
-                                  "encountered while trying to import %1 into "
-                                  "the database:<br>%2<br>%3</font>");
   if (pkgheadid < 0)
     return 0;
 
@@ -166,7 +200,7 @@ int CreateDBObj::upsertPkgItem(const int pkgheadid, const int itemid,
     pkgitemid = select.value(0).toInt();
   if (select.lastError().type() != QSqlError::NoError)
   {
-    errMsg = sqlerrtxt.arg(_filename)
+    errMsg = _sqlerrtxt.arg(_filename)
                       .arg(select.lastError().databaseText())
                       .arg(select.lastError().driverText());
     return -20;
@@ -187,7 +221,7 @@ int CreateDBObj::upsertPkgItem(const int pkgheadid, const int itemid,
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
       return -21;
     }
     upsert.prepare("INSERT INTO pkgitem ("
@@ -202,13 +236,13 @@ int CreateDBObj::upsertPkgItem(const int pkgheadid, const int itemid,
   upsert.bindValue(":headid",  pkgheadid);
   upsert.bindValue(":type",    _pkgitemtype);
   upsert.bindValue(":itemid",  itemid);
-  upsert.bindValue(":name",    _schema + "." + _name);
+  upsert.bindValue(":name",    _name);
   upsert.bindValue(":descrip", _comment);
 
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
     return -22;
   }
 

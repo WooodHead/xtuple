@@ -80,20 +80,22 @@ class Script
 
     virtual ~Script();
 
-    QDomElement createElement(QDomDocument &);
+    virtual QDomElement createElement(QDomDocument &);
 
-    bool isValid() const { return !_name.isEmpty(); }
+    virtual bool isValid() const { return !_name.isEmpty(); }
 
-    QString filename() const;
+    virtual QString filename() const;
 
-    QString name() const { return _name; }
-    void setName(const QString & name) { _name = name; }
+    virtual QString name() const { return _name; }
+    virtual void setName(const QString & name) { _name = name; }
 
-    OnError onError() const { return _onError; }
-    void setOnError(OnError onError) { _onError = onError; }
+    virtual OnError onError() const { return _onError; }
+    virtual void setOnError(OnError onError) { _onError = onError; }
 
-    QString comment() const { return _comment; }
-    void setComment(const QString & comment) { _comment = comment; }
+    virtual QString comment() const { return _comment; }
+    virtual void setComment(const QString & comment) { _comment = comment; }
+
+    virtual int writeToDB(const QByteArray &data, const QString annotation, QString &errMsg);
 
     static QString onErrorToName(OnError);
     static OnError nameToOnError(const QString &);
@@ -102,8 +104,8 @@ class Script
   protected:
     QString _name;
     QString _comment;
-
     OnError _onError;
+    static QString _sqlerrtxt;
 };
 
 #endif

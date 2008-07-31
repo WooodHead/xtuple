@@ -70,6 +70,7 @@
 #include <QTimerEvent>
 
 #include <gunzip.h>
+#include <createschema.h>
 #include <createtable.h>
 #include <loadappscript.h>
 #include <loadappui.h>
@@ -86,6 +87,12 @@
 #include "data.h"
 
 #define DEBUG true
+
+QString LoaderWindow::_rollbackMsg(tr("<p><font color=red>The upgrade has "
+                                      "been aborted due to an error and your "
+                                      "database was rolled back to the state "
+                                      "it was in when the upgrade was "
+                                      "initiated.</font><br>"));
 
 LoaderWindow::LoaderWindow(QWidget* parent, const char* name, Qt::WindowFlags fl)
     : QMainWindow(parent, fl)
@@ -465,10 +472,6 @@ void LoaderWindow::timerEvent( QTimerEvent * e )
  */
 void LoaderWindow::sStart()
 {
-  QString rollbackMsg(tr("<p><font color=red>The upgrade has been aborted due "
-                         "to an error and your database was rolled back to the "
-                         "state it was in when the upgrade was initiated."
-                         "</font><br>"));
   _start->setEnabled(false);
   _text->setText("<p></p>");
 
@@ -493,7 +496,7 @@ void LoaderWindow::sStart()
       qry.exec("rollback;");
       if(!_multitrans && !_premultitransfile)
       {
-        _text->append(rollbackMsg);
+        _text->append(_rollbackMsg);
         return;
       }
     }
@@ -513,7 +516,7 @@ void LoaderWindow::sStart()
       qry.exec("rollback;");
       if(!_multitrans && !_premultitransfile)
       {
-        _text->append(rollbackMsg);
+        _text->append(_rollbackMsg);
         return;
       }
     }
@@ -528,108 +531,27 @@ void LoaderWindow::sStart()
   for(QList<Script>::iterator i = _package->_scripts.begin();
       i != _package->_scripts.end(); ++i)
   {
-    script = *i;
-    if (DEBUG)
-      qDebug("LoaderWindow::sStart() - running script %s in file %s",
-             qPrintable(script.name()), qPrintable(script.filename()));
-
-    QByteArray scriptData = _files->_list[prefix + script.filename()];
-    if(scriptData.isEmpty())
-    {
-      QMessageBox::warning(this, tr("File Missing"),
-                           tr("<p>The file %1 is missing from this package.")
-                           .arg(script.filename()));
-      continue;
-    }
-
-    QString sql(scriptData);
-
-    bool again = true;
-    int r = 0;
-    while(again) {
-      again = false;
-      if(_multitrans || _premultitransfile)
-        qry.exec("begin;");
-      if(!qry.exec(sql))
-      {
-        QSqlError err = qry.lastError();
-        QString message = tr("The following error was encountered while "
-                             "trying to import %1 into the database:<br>\n"
-                             "\t%2<br>\n\t%3")
-                      .arg(script.filename())
-                      .arg(err.driverText())
-                      .arg(err.databaseText());
-        _text->append(tr("<p>"));
-        if((_multitrans || _premultitransfile) && script.onError() == Script::Ignore)
-          _text->append(tr("<font color=orange>%1</font><br>").arg(message));
-        else
-          _text->append(tr("<font color=red>%1</font><br>").arg(message));
-        qry.exec("rollback;");
-        if(!_multitrans && !_premultitransfile)
-        {
-          _text->append(rollbackMsg);
-          return;
-        }
-        switch(script.onError())
-        {
-          case Script::Ignore:
-            _text->append(tr("<font color=orange><b>IGNORING</b> the above "
-                             "errors and skipping script %1.</font><br>")
-                            .arg(script.filename()));
-            break;
-          case Script::Stop:
-          case Script::Prompt:
-          case Script::Default:
-          default:
-            r = QMessageBox::question(this, tr("Encountered an Error"),
-                  tr("%1.\n"
-                     "Please select the action that you would like to take.").arg(message),
-                  tr("Retry"), tr("Ignore"), tr("Abort"), 0, 0 );
-            if(r == 0)
-            {
-              _text->append(tr("RETRYING..."));
-              again = true;
-            }
-            else if(r == 1)
-              _text->append(tr("<font color=orange><b>IGNORING</b> the above errors at user "
-                               "request and skipping script %1.</font><br>")
-                              .arg(script.filename()) );
-            else
-              if(r == 2) return;
-        }
-      }
-    }
-    if(_multitrans || _premultitransfile)
-      qry.exec("commit;");
-    _progress->setValue(_progress->value() + 1);
+    if (applySql((*i), _files->_list[prefix + (*i).filename()]) < 0)
+      return;
   }
+
+  _status->setText(tr("<p><b>Updating Schema Definitions</b></p>"));
+  _text->append(tr("<p>Loading new Schema definitions...</p>"));
+  for(QList<CreateSchema>::iterator i = _package->_schemas.begin();
+      i != _package->_schemas.end(); ++i)
+  {
+    if (applySql((*i), _files->_list[prefix + (*i).filename()]) < 0)
+      return;
+  }
+  _text->append(tr("<p>Completed importing new schema definitions.</p>"));
 
   _status->setText(tr("<p><b>Updating Table Definitions</b></p>"));
   _text->append(tr("<p>Loading new Table definitions...</p>"));
   for(QList<CreateTable>::iterator i = _package->_tables.begin();
       i != _package->_tables.end(); ++i)
   {
-    QByteArray data = _files->_list[prefix + (*i).filename()];
-    if(data.isEmpty())
-    {
-      QMessageBox::warning(this, tr("File Missing"),
-                           tr("<p>The file %1 in this package is empty.").
-                           arg((*i).filename()));
-      continue;
-    }
-    if ((*i).writeToDB(data, _package->name(), errMsg) >= 0)
-      _text->append(tr("Import of %1 was successful.").arg((*i).filename()));
-    else
-    {
-      _text->append(errMsg);
-      qry.exec("rollback;");
-      if(!_multitrans && !_premultitransfile)
-      {
-        _text->append(rollbackMsg);
-        return;
-      }
-    }
-    _progress->setValue(_progress->value() + 1);
+    if (applySql((*i), _files->_list[prefix + (*i).filename()]) < 0)
+      return;
   }
   _text->append(tr("<p>Completed importing new table definitions.</p>"));
 
@@ -655,7 +577,7 @@ void LoaderWindow::sStart()
       qry.exec("rollback;");
       if(!_multitrans && !_premultitransfile)
       {
-        _text->append(rollbackMsg);
+        _text->append(_rollbackMsg);
         return;
       }
     }
@@ -688,7 +610,7 @@ void LoaderWindow::sStart()
       qry.exec("rollback;");
       if(!_multitrans && !_premultitransfile)
       {
-        _text->append(rollbackMsg);
+        _text->append(_rollbackMsg);
         return;
       }
     }
@@ -721,7 +643,7 @@ void LoaderWindow::sStart()
       qry.exec("rollback;");
       if(!_multitrans && !_premultitransfile)
       {
-        _text->append(rollbackMsg);
+        _text->append(_rollbackMsg);
         return;
       }
     }
@@ -745,7 +667,7 @@ void LoaderWindow::sStart()
       qry.exec("rollback;");
       if(!_multitrans && !_premultitransfile)
       {
-        _text->append(rollbackMsg);
+        _text->append(_rollbackMsg);
         return;
       }
     }
@@ -778,7 +700,7 @@ void LoaderWindow::sStart()
       qry.exec("rollback;");
       if(!_multitrans && !_premultitransfile)
       {
-        _text->append(rollbackMsg);
+        _text->append(_rollbackMsg);
         return;
       }
     }
@@ -797,4 +719,112 @@ void LoaderWindow::sStart()
 void LoaderWindow::setMultipleTransactions(bool mt)
 {
   _multitrans = mt;
+}
+
+int LoaderWindow::applySql(Script &pscript, const QByteArray psql)
+{
+  if (DEBUG)
+    qDebug("LoaderWindow::applySql() - running script %s in file %s",
+           qPrintable(pscript.name()), qPrintable(pscript.filename()));
+
+  QSqlQuery qry;
+  bool again = true;
+  int  r     = 0;
+  while (again)
+  {
+    QString message;
+    again      = false;
+    bool fatal = true;
+
+    if(_multitrans || _premultitransfile)
+    {
+      qry.exec("begin;");
+      if (pscript.onError() == Script::Default)
+        pscript.setOnError(Script::Prompt);
+    }
+    else
+    {
+      qry.exec("SAVEPOINT updaterFile;");
+      if (pscript.onError() == Script::Default)
+        pscript.setOnError(Script::Stop);
+    }
+
+    int returnVal = pscript.writeToDB(psql, _package->name(), message);
+    if (returnVal == -1)
+    {
+      _text->append(tr("<font color=%1>%2</font><br>")
+                    .arg("orange")
+                    .arg(message));
+    }
+    else if (returnVal < 0)
+    {
+      if ((_multitrans || _premultitransfile) &&
+          pscript.onError() == Script::Ignore)
+        fatal = false;
+
+      _text->append(tr("<p>"));
+      _text->append(tr("<font color=%1>%2</font><br>")
+                    .arg(fatal ? "red" : "orange")
+                    .arg(message));
+      if(_multitrans || _premultitransfile)
+        qry.exec("rollback;");
+      else
+        qry.exec("ROLLBACK TO updaterFile;");
+
+      switch (pscript.onError())
+      {
+        case Script::Stop:
+          if (DEBUG)
+            qDebug("LoaderWindow::applySql() taking Script::Stop branch");
+          qry.exec("rollback;");
+          _text->append(_rollbackMsg);
+          return returnVal;
+          break;
+
+        case Script::Ignore:
+          if (DEBUG)
+            qDebug("LoaderWindow::applySql() taking Script::Ignore branch");
+          _text->append(tr("<font color=orange><b>IGNORING</b> the above "
+                           "errors and skipping script %1.</font><br>")
+                          .arg(pscript.filename()));
+          break;
+
+        case Script::Prompt:
+          if (DEBUG)
+            qDebug("LoaderWindow::applySql() taking Script::Prompt branch");
+        default:
+          if (DEBUG)
+            qDebug("LoaderWindow::applySql() taking default branch");
+          r = QMessageBox::question(this, tr("Encountered an Error"),
+                tr("<pre>%1.</pre><p>Please select the action "
+                   "that you would like to take.").arg(message),
+                tr("Retry"), tr("Ignore"), tr("Abort"), 0, 0 );
+          if(r == 0)
+          {
+            _text->append(tr("RETRYING..."));
+            again = true;
+          }
+          else if(r == 1)
+            _text->append(tr("<font color=orange><b>IGNORING</b> the "
+                             "above errors at user request and "
+                             "skipping script %1.</font><br>")
+                            .arg(pscript.filename()) );
+          else if(r == 2)
+          {
+            qry.exec("rollback;");
+            return returnVal;
+          }
+      }
+    }
+    else
+      _text->append(tr("Import of %1 was successful.").arg(pscript.filename()));
+  }
+  if(_multitrans || _premultitransfile)
+    qry.exec("commit;");
+  else
+    qry.exec("RELEASE SAVEPOINT updaterFile;");
+
+  _progress->setValue(_progress->value() + 1);
+
+  return 0;
 }

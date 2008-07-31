@@ -55,75 +55,22 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#ifndef __PACKAGE_H__
-#define __PACKAGE_H__
+#ifndef __CREATESCHEMA_H__
+#define __CREATESCHEMA_H__
 
-#include <QString>
-#include <QList>
+#include "createdbobj.h"
 
-class QDomDocument;
-class QDomElement;
-
-class CreateSchema;
-class CreateTable;
-class LoadAppScript;
-class LoadAppUI;
-class LoadCmd;
-class LoadImage;
-class LoadPriv;
-class LoadReport;
-class Prerequisite;
-class Script;
-
-class Package
+class CreateSchema : public CreateDBObj
 {
   public:
-    Package(const QString & id = QString::null);
-    Package(const QDomElement &, QStringList &, QList<bool> &);
+    CreateSchema(const QString &filename,
+                 const QString &name, const QString &comment = QString::null);
+    CreateSchema(const QDomElement &, QStringList &, QList<bool> &);
 
-    virtual ~Package();
-
-    QDomElement createElement(QDomDocument &); 
-    int writeToDB(QString &errMsg);
-
-    QString id() const { return _id; }
-    void setId(const QString & id) { _id = id; }
-
-    QString developer() const { return _developer; }
-    QString name()      const { return _name; }
-    int versionMajor()  const { return _majVersion; }
-    int versionMinor()  const { return _minVersion; }
-
-    QList<CreateSchema>  _schemas;
-    QList<CreateTable>   _tables;
-    QList<LoadAppScript> _appscripts;
-    QList<LoadAppUI>     _appuis;
-    QList<LoadCmd>       _cmds;
-    QList<LoadImage>     _images;
-    QList<LoadPriv>      _privs;
-    QList<Prerequisite>  _prerequisites;
-    QList<Script>        _scripts;
-    QList<LoadReport>    _reports;
-
-    bool containsAppScript(const QString &name)    const;
-    bool containsAppUI(const QString &name)        const;
-    bool containsCmd(const QString &name)          const;
-    bool containsImage(const QString &name)        const;
-    bool containsPrerequisite(const QString &name) const;
-    bool containsPriv(const QString &name)         const;
-    bool containsReport(const QString &name)       const;
-    bool containsSchema(const QString &name)       const;
-    bool containsScript(const QString &name)       const;
-    bool containsTable(const QString &name)        const;
+    virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);
 
   protected:
-    QString     _developer;
-    QString     _descrip;
-    QString     _id;
-    int         _majVersion;
-    int         _minVersion;
-    QString     _name;
-    QString     _notes;
+    virtual int upsertPkgItem(const int, const int, QString&);
 };
 
 #endif

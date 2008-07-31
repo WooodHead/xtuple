@@ -70,6 +70,7 @@ UI_SOURCES_DIR = tmp
 
 HEADERS = package.h \
           createdbobj.h \
+          createschema.h \
           createtable.h \
           script.h \
           loadable.h \
@@ -84,6 +85,7 @@ HEADERS = package.h \
           gunzip.h
 SOURCES = package.cpp \
           createdbobj.cpp \
+          createschema.cpp \
           createtable.cpp \
           script.cpp \
           loadable.cpp \
