@@ -19,10 +19,10 @@ BEGIN
 
 --  Handle type P terms
   ELSIF (_p.terms_type = ''P'') THEN
-    IF (date_part(''day'', CURRENT_DATE) <= _p.terms_cutoffday) THEN
-      _dueDate := (DATE(date_trunc(''month'', CURRENT_DATE)) + (_p.terms_duedays - 1));
+    IF (date_part(''day'', pSourceDate) <= _p.terms_cutoffday) THEN
+      _dueDate := (DATE(date_trunc(''month'', pSourceDate)) + (_p.terms_duedays - 1));
     ELSE
-      _dueDate := (DATE(date_trunc(''month'', CURRENT_DATE)) + (_p.terms_duedays - 1) + INTERVAL ''1 month'');
+      _dueDate := (DATE(date_trunc(''month'', pSourceDate)) + (_p.terms_duedays - 1) + INTERVAL ''1 month'');
     END IF;
 
 --  Handle unknown terms
