@@ -64,8 +64,11 @@
 class QDomDocument;
 class QDomElement;
 
+class CreateFunction;
 class CreateSchema;
 class CreateTable;
+class CreateTrigger;
+class CreateView;
 class LoadAppScript;
 class LoadAppUI;
 class LoadCmd;
@@ -94,20 +97,24 @@ class Package
     int versionMajor()  const { return _majVersion; }
     int versionMinor()  const { return _minVersion; }
 
-    QList<CreateSchema>  _schemas;
-    QList<CreateTable>   _tables;
-    QList<LoadAppScript> _appscripts;
-    QList<LoadAppUI>     _appuis;
-    QList<LoadCmd>       _cmds;
-    QList<LoadImage>     _images;
-    QList<LoadPriv>      _privs;
-    QList<Prerequisite>  _prerequisites;
-    QList<Script>        _scripts;
-    QList<LoadReport>    _reports;
+    QList<CreateFunction> _functions;
+    QList<CreateSchema>   _schemas;
+    QList<CreateTable>    _tables;
+    QList<CreateTrigger>  _triggers;
+    QList<CreateView>     _views;
+    QList<LoadAppScript>  _appscripts;
+    QList<LoadAppUI>      _appuis;
+    QList<LoadCmd>        _cmds;
+    QList<LoadImage>      _images;
+    QList<LoadPriv>       _privs;
+    QList<Prerequisite>   _prerequisites;
+    QList<Script>         _scripts;
+    QList<LoadReport>     _reports;
 
     bool containsAppScript(const QString &name)    const;
     bool containsAppUI(const QString &name)        const;
     bool containsCmd(const QString &name)          const;
+    bool containsFunction(const QString &name)     const;
     bool containsImage(const QString &name)        const;
     bool containsPrerequisite(const QString &name) const;
     bool containsPriv(const QString &name)         const;
@@ -115,6 +122,8 @@ class Package
     bool containsSchema(const QString &name)       const;
     bool containsScript(const QString &name)       const;
     bool containsTable(const QString &name)        const;
+    bool containsTrigger(const QString &name)      const;
+    bool containsView(const QString &name)         const;
 
   protected:
     QString     _developer;

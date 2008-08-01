@@ -55,7 +55,7 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#include "createtable.h"
+#include "createtrigger.h"
 
 #include <QDomDocument>
 #include <QMessageBox>
@@ -65,40 +65,31 @@
 
 #define DEBUG false
 
-CreateTable::CreateTable(const QString &filename, const QString &schema,
+CreateTrigger::CreateTrigger(const QString &filename, const QString &schema,
                          const QString &name, const QString &comment)
-  : CreateDBObj("createtable", filename, schema, name, comment)
+  : CreateDBObj("createtrigger", filename, schema, name, comment)
 {
-  _pkgitemtype = "T";
-  _relkind     = "r";   // pg_class.relkind 'r' => relation (ordinary table)
+  _pkgitemtype = "G";
 }
 
-CreateTable::CreateTable(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
+CreateTrigger::CreateTrigger(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
   : CreateDBObj(elem, msg, fatal)
 {
-  _pkgitemtype = "T";
-  _relkind     = "r";   // pg_class.relkind 'r' => relation (ordinary table)
+  _pkgitemtype = "G";
 
-  if (elem.nodeName() != "createtable")
+  if (elem.nodeName() != "createtrigger")
   {
-    msg.append(QObject::tr("Creating a CreateTable element from a %1 node.")
+    msg.append(QObject::tr("Creating a CreateTrigger element from a %1 node.")
               .arg(elem.nodeName()));
     fatal.append(false);
   }
 }
 
-int CreateTable::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
+int CreateTrigger::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
 {
   if (DEBUG)
-    qDebug("CreateTable::writeToDb(%s, %s, &errMsg)",
+    qDebug("CreateTrigger::writeToDb(%s, %s, &errMsg)",
            pdata.data(), qPrintable(pkgname));
-
-  if (pdata.isEmpty())
-  {
-    errMsg = QObject::tr("<font color=orange>The file %1 is empty.</font>")
-                         .arg(_filename);
-    return -1;
-  }
 
   QString oldschema;
   QSqlQuery schemaq;
@@ -160,15 +151,14 @@ int CreateTable::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
       return -6;
     }
 
-    select.prepare("SELECT pg_class.oid AS oid "
-                   "FROM pg_class, pg_namespace "
-                   "WHERE ((relname=:name)"
-                   "  AND  (relkind=:relkind)"
+    select.prepare("SELECT pg_trigger.oid AS oid "
+                   "FROM pg_trigger, pg_class, pg_namespace "
+                   "WHERE ((tgname=:name)"
+                   "  AND  (tgrelid=pg_class.oid)"
                    "  AND  (relnamespace=pg_namespace.oid)"
                    "  AND  (nspname=:schema));");
     select.bindValue(":name",   _name);
     select.bindValue(":schema", _schema);
-    select.bindValue(":relkind",_relkind);
     select.exec();
     if (select.first())
     {
@@ -185,7 +175,7 @@ int CreateTable::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
     }
     else // not found
     {
-      errMsg = QObject::tr("Could not find table %1 in the database. The "
+      errMsg = QObject::tr("Could not find trigger %1 in the database. The "
                            "script %2 does not match the contents.xml "
                            "description.")
                 .arg(_name).arg(_filename);

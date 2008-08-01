@@ -63,7 +63,7 @@
 #include <QSqlError>
 #include <QVariant>     // used by QSqlQuery::bindValue()
 
-#define DEBUG true
+#define DEBUG false
 
 LoadAppUI::LoadAppUI(const QString &name, const int order,
                      const bool system, const bool enabled,

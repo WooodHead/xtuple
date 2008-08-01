@@ -17,7 +17,7 @@ BEGIN
     _query = ''DROP TABLE '' || quote_ident(LOWER(pSchema)) || ''.'' || quote_ident(LOWER(pObject));
     BEGIN
       EXECUTE _query;
-    EXCEPTION WHEN undefined_table THEN
+    EXCEPTION WHEN undefined_table OR invalid_schema_name THEN
 		RAISE NOTICE ''No table % to drop'', pObject;
 		RETURN 0;
 	      WHEN OTHERS THEN RAISE EXCEPTION ''% %'', SQLSTATE, SQLERRM;
@@ -27,7 +27,7 @@ BEGIN
     _query = ''DROP VIEW '' || quote_ident(LOWER(pSchema)) || ''.'' || quote_ident(LOWER(pObject));
     BEGIN
       EXECUTE _query;
-    EXCEPTION WHEN undefined_table THEN
+    EXCEPTION WHEN undefined_table OR invalid_schema_name THEN
 		RAISE NOTICE ''No view % to drop'', pObject;
 		RETURN 0;
 	      WHEN OTHERS THEN RAISE EXCEPTION ''% %'', SQLSTATE, SQLERRM;
@@ -49,8 +49,20 @@ BEGIN
     EXCEPTION WHEN undefined_object THEN
 		RAISE NOTICE ''%'', SQLERRM;
 		RETURN 0;
-	      WHEN undefined_table THEN
+	      WHEN undefined_table OR invalid_schema_name THEN
 		RAISE NOTICE ''Table % for trigger % does not exist'', _table, pObject;
+		RETURN 0;
+	      WHEN OTHERS THEN RAISE EXCEPTION ''% %'', SQLSTATE, SQLERRM;
+    END;
+
+  ELSIF (UPPER(pType) = ''FUNCTION'') THEN
+    _query = ''DROP FUNCTION '' || (LOWER(pSchema)) || ''.'' ||
+                                   (LOWER(pObject));
+RAISE NOTICE ''%'', _query;
+    BEGIN
+      EXECUTE _query;
+    EXCEPTION WHEN undefined_function THEN
+		RAISE NOTICE ''%'', SQLERRM;
 		RETURN 0;
 	      WHEN OTHERS THEN RAISE EXCEPTION ''% %'', SQLSTATE, SQLERRM;
     END;
@@ -70,7 +82,7 @@ BEGIN
              || '' DROP CONSTRAINT '' || quote_ident(LOWER(pObject));
     BEGIN
       EXECUTE _query;
-    EXCEPTION WHEN undefined_table THEN
+    EXCEPTION WHEN undefined_table OR invalid_schema_name THEN
 		RAISE NOTICE ''No table % to alter'', _table;
 		RETURN 0;
 	      WHEN OTHERS THEN RAISE EXCEPTION ''% %'', SQLSTATE, SQLERRM;

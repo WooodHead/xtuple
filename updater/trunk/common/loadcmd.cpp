@@ -66,7 +66,7 @@
 
 #include "loadable.h"
 
-#define DEBUG true
+#define DEBUG false
 
 LoadCmd::LoadCmd(const QString &nodename, const QString &name,
                  const QString &module, const QString &title,

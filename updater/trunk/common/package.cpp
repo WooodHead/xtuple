@@ -64,8 +64,11 @@
 #include <QSqlQuery>
 #include <QVariant>
 
+#include "createfunction.h"
 #include "createschema.h"
 #include "createtable.h"
+#include "createtrigger.h"
+#include "createview.h"
 #include "loadcmd.h"
 #include "loadappscript.h"
 #include "loadappui.h"
@@ -75,7 +78,7 @@
 #include "prerequisite.h"
 #include "script.h"
 
-#define DEBUG true
+#define DEBUG false
 
 Package::Package(const QString & id)
   : _id(id), _majVersion(-1), _minVersion(-1)
@@ -114,7 +117,12 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
   for(int n = 0; n < nList.count(); ++n)
   {
     QDomElement elemThis = nList.item(n).toElement();
-    if (elemThis.tagName() == "createschema")
+    if (elemThis.tagName() == "createfunction")
+    {
+      CreateFunction function(elemThis, msgList, fatalList);
+      _functions.append(function);
+    }
+    else if (elemThis.tagName() == "createschema")
     {
       CreateSchema schema(elemThis, msgList, fatalList);
       _schemas.append(schema);
@@ -123,6 +131,16 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
     {
       CreateTable table(elemThis, msgList, fatalList);
       _tables.append(table);
+    }
+    else if (elemThis.tagName() == "createtrigger")
+    {
+      CreateTrigger trigger(elemThis, msgList, fatalList);
+      _triggers.append(trigger);
+    }
+    else if (elemThis.tagName() == "createview")
+    {
+      CreateView view(elemThis, msgList, fatalList);
+      _views.append(view);
     }
     else if(elemThis.tagName() == "loadpriv")
     {
@@ -301,6 +319,17 @@ bool Package::containsCmd(const QString &pname) const
   return false;
 }
 
+bool Package::containsFunction(const QString &pname) const
+{
+  QList<CreateFunction>::const_iterator it = _functions.begin();
+  for(; it != _functions.end(); ++it)
+  {
+    if((*it).name() == pname)
+      return true;
+  }
+  return false;
+}
+
 bool Package::containsPriv(const QString &pname) const
 {
   QList<LoadPriv>::const_iterator it = _privs.begin();
@@ -327,6 +356,28 @@ bool Package::containsTable(const QString &pname) const
 {
   QList<CreateTable>::const_iterator it = _tables.begin();
   for(; it != _tables.end(); ++it)
+  {
+    if((*it).name() == pname)
+      return true;
+  }
+  return false;
+}
+
+bool Package::containsTrigger(const QString &pname) const
+{
+  QList<CreateTrigger>::const_iterator it = _triggers.begin();
+  for(; it != _triggers.end(); ++it)
+  {
+    if((*it).name() == pname)
+      return true;
+  }
+  return false;
+}
+
+bool Package::containsView(const QString &pname) const
+{
+  QList<CreateView>::const_iterator it = _views.begin();
+  for(; it != _views.end(); ++it)
   {
     if((*it).name() == pname)
       return true;

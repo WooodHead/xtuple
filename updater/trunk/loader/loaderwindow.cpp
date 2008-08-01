@@ -70,8 +70,11 @@
 #include <QTimerEvent>
 
 #include <gunzip.h>
+#include <createfunction.h>
 #include <createschema.h>
 #include <createtable.h>
+#include <createtrigger.h>
+#include <createview.h>
 #include <loadappscript.h>
 #include <loadappui.h>
 #include <loadcmd.h>
@@ -86,7 +89,7 @@
 
 #include "data.h"
 
-#define DEBUG true
+#define DEBUG false
 
 QString LoaderWindow::_rollbackMsg(tr("<p><font color=red>The upgrade has "
                                       "been aborted due to an error and your "
@@ -545,6 +548,16 @@ void LoaderWindow::sStart()
   }
   _text->append(tr("<p>Completed importing new schema definitions.</p>"));
 
+  _status->setText(tr("<p><b>Updating Function Definitions</b></p>"));
+  _text->append(tr("<p>Loading new Function definitions...</p>"));
+  for(QList<CreateFunction>::iterator i = _package->_functions.begin();
+      i != _package->_functions.end(); ++i)
+  {
+    if (applySql((*i), _files->_list[prefix + (*i).filename()]) < 0)
+      return;
+  }
+  _text->append(tr("<p>Completed importing new function definitions.</p>"));
+
   _status->setText(tr("<p><b>Updating Table Definitions</b></p>"));
   _text->append(tr("<p>Loading new Table definitions...</p>"));
   for(QList<CreateTable>::iterator i = _package->_tables.begin();
@@ -554,6 +567,26 @@ void LoaderWindow::sStart()
       return;
   }
   _text->append(tr("<p>Completed importing new table definitions.</p>"));
+
+  _status->setText(tr("<p><b>Updating Trigger Definitions</b></p>"));
+  _text->append(tr("<p>Loading new Trigger definitions...</p>"));
+  for(QList<CreateTrigger>::iterator i = _package->_triggers.begin();
+      i != _package->_triggers.end(); ++i)
+  {
+    if (applySql((*i), _files->_list[prefix + (*i).filename()]) < 0)
+      return;
+  }
+  _text->append(tr("<p>Completed importing new trigger definitions.</p>"));
+
+  _status->setText(tr("<p><b>Updating View Definitions</b></p>"));
+  _text->append(tr("<p>Loading new View definitions...</p>"));
+  for(QList<CreateView>::iterator i = _package->_views.begin();
+      i != _package->_views.end(); ++i)
+  {
+    if (applySql((*i), _files->_list[prefix + (*i).filename()]) < 0)
+      return;
+  }
+  _text->append(tr("<p>Completed importing new view definitions.</p>"));
 
   _status->setText(tr("<p><b>Updating Report Definitions</b></p>"));
   _text->append(tr("<p>Loading new report definitions...</p>"));

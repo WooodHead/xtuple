@@ -70,7 +70,7 @@ class CreateTable : public CreateDBObj
     virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);
 
   protected:
-    QString _reltype;
+    QString _relkind;
 };
 
 #endif

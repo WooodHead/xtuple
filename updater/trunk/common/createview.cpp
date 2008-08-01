@@ -55,7 +55,7 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#include "createtable.h"
+#include "createview.h"
 
 #include <QDomDocument>
 #include <QMessageBox>
@@ -65,32 +65,32 @@
 
 #define DEBUG false
 
-CreateTable::CreateTable(const QString &filename, const QString &schema,
+CreateView::CreateView(const QString &filename, const QString &schema,
                          const QString &name, const QString &comment)
-  : CreateDBObj("createtable", filename, schema, name, comment)
+  : CreateDBObj("createview", filename, schema, name, comment)
 {
-  _pkgitemtype = "T";
-  _relkind     = "r";   // pg_class.relkind 'r' => relation (ordinary table)
+  _pkgitemtype = "V";
+  _relkind     = "v";
 }
 
-CreateTable::CreateTable(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
+CreateView::CreateView(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
   : CreateDBObj(elem, msg, fatal)
 {
-  _pkgitemtype = "T";
-  _relkind     = "r";   // pg_class.relkind 'r' => relation (ordinary table)
+  _pkgitemtype = "V";
+  _relkind     = "v";
 
-  if (elem.nodeName() != "createtable")
+  if (elem.nodeName() != "createview")
   {
-    msg.append(QObject::tr("Creating a CreateTable element from a %1 node.")
+    msg.append(QObject::tr("Creating a CreateView element from a %1 node.")
               .arg(elem.nodeName()));
     fatal.append(false);
   }
 }
 
-int CreateTable::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
+int CreateView::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
 {
   if (DEBUG)
-    qDebug("CreateTable::writeToDb(%s, %s, &errMsg)",
+    qDebug("CreateView::writeToDb(%s, %s, &errMsg)",
            pdata.data(), qPrintable(pkgname));
 
   if (pdata.isEmpty())
@@ -185,7 +185,7 @@ int CreateTable::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
     }
     else // not found
     {
-      errMsg = QObject::tr("Could not find table %1 in the database. The "
+      errMsg = QObject::tr("Could not find view %1 in the database. The "
                            "script %2 does not match the contents.xml "
                            "description.")
                 .arg(_name).arg(_filename);

@@ -55,7 +55,7 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#include "createschema.h"
+#include "createfunction.h"
 
 #include <QDomDocument>
 #include <QMessageBox>
@@ -65,69 +65,92 @@
 
 #define DEBUG false
 
-CreateSchema::CreateSchema(const QString &filename, 
+CreateFunction::CreateFunction(const QString &filename, 
                            const QString &name, const QString &comment)
-  : CreateDBObj("createschema", filename, name, name, comment)
+  : CreateDBObj("createfunction", filename, name, name, comment)
 {
-  _pkgitemtype = "S";
+  _pkgitemtype = "F";
 }
 
-CreateSchema::CreateSchema(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
+CreateFunction::CreateFunction(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
+  : CreateDBObj(elem, msg, fatal)
 {
-  _pkgitemtype = "S";
+  _pkgitemtype = "F";
 
-  if (elem.nodeName() != "createschema")
+  if (elem.nodeName() != "createfunction")
   {
-    msg.append(QObject::tr("Creating a CreateSchema element from a %1 node.")
+    msg.append(QObject::tr("Creating a CreateFunction element from a %1 node.")
               .arg(elem.nodeName()));
     fatal.append(false);
   }
-  _nodename = elem.nodeName();
-
-
-  if (elem.hasAttribute("name") && elem.hasAttribute("schema"))
-  {
-    msg.append(QObject::tr("The %1 node has both name and schema attributes. "
-                           "The value of the schema attribute (%2) will be "
-                           "used and the name (%3) will be ignored.")
-               .arg(_nodename).arg(_schema).arg(_name));
-    fatal.append(false);
-    _name = elem.attribute("schema");
-  }
-  else if (elem.hasAttribute("schema"))
-    _name = elem.attribute("schema");
-  else if (elem.hasAttribute("name"))
-    _name = elem.attribute("name");
-  else
-  {
-    msg.append(QObject::tr("The contents.xml must name the schema for %1.")
-               .arg(_nodename));
-    fatal.append("false");
-  }
-
-  if (elem.hasAttribute("file"))
-    _filename = elem.attribute("file");
-  else
-  {
-    msg.append(QObject::tr("The contents.xml must name the file for %1.")
-               .arg(_nodename));
-    fatal.append(true);
-  }
-
-  _onError = nameToOnError(elem.attribute("onerror"));
-
-  _comment = elem.text().trimmed();
 }
 
-int CreateSchema::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
+int CreateFunction::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
 {
   if (DEBUG)
-    qDebug("CreateSchema::writeToDb(%s, %s, &errMsg)",
+    qDebug("CreateFunction::writeToDb(%s, %s, &errMsg)",
            pdata.data(), qPrintable(pkgname));
+
+  QString oldschema;
+  QSqlQuery schemaq;
+  schemaq.prepare("SELECT CURRENT_SCHEMA();");
+  schemaq.exec();
+  if (schemaq.first())
+    oldschema = schemaq.value(0).toString();
+  else if (schemaq.lastError().type() != QSqlError::NoError)
+  {
+    errMsg = _sqlerrtxt.arg(_filename)
+                      .arg(schemaq.lastError().databaseText())
+                      .arg(schemaq.lastError().driverText());
+    return -2;
+  }
+  if (oldschema.isEmpty())
+    oldschema = "public";
+
+  schemaq.prepare("SET SEARCH_PATH TO :schema,:oldpath;");
+  schemaq.bindValue(":schema", _schema);
+  schemaq.bindValue(":oldpath", oldschema);
+  schemaq.exec();
+  if (schemaq.lastError().type() != QSqlError::NoError)
+  {
+    errMsg = _sqlerrtxt.arg(_filename)
+                      .arg(schemaq.lastError().databaseText())
+                      .arg(schemaq.lastError().driverText());
+    return -3;
+  }
+
+  QList<int> functionoids;
+  if (! pkgname.isEmpty())
+  {
+    QSqlQuery select;
+    select.prepare("SELECT oid FROM pg_proc WHERE (proname=:name);");
+    select.bindValue(":name", _name);
+    select.exec();
+    while (select.next())
+      functionoids.append(select.value(0).toInt());
+    if (select.lastError().type() != QSqlError::NoError)
+    {
+      errMsg = _sqlerrtxt.arg(_filename)
+                        .arg(select.lastError().databaseText())
+                        .arg(select.lastError().driverText());
+      return -1;
+    }
+  }
 
   int returnVal = Script::writeToDB(pdata, pkgname, errMsg);
   if (returnVal < 0)
     return returnVal;
+
+  schemaq.prepare("SET SEARCH_PATH TO :oldpath;");
+  schemaq.bindValue(":oldpath", oldschema);
+  schemaq.exec();
+  if (schemaq.lastError().type() != QSqlError::NoError)
+  {
+    errMsg = _sqlerrtxt.arg(_filename)
+                      .arg(schemaq.lastError().databaseText())
+                      .arg(schemaq.lastError().driverText());
+    return -5;
+  }
 
   if (! pkgname.isEmpty())
   {
@@ -146,27 +169,35 @@ int CreateSchema::writeToDB(const QByteArray &pdata, const QString pkgname, QStr
       return -4;
     }
 
-    select.prepare("SELECT oid "
-                   "FROM pg_namespace "
-                   "WHERE (nspname=:name);");
+    QString sql("SELECT oid "
+                "FROM pg_proc "
+                "WHERE ((proname=:name)"
+                "  AND  (oid NOT IN (");
+    for (int i = 0; i < functionoids.size(); i++)
+      sql += QString::number(functionoids.at(i)) + ",";
+    sql += "-1)) );";      // ensure NOT IN isn't empty and doesn't end with ','
+
+    select.prepare(sql);
     select.bindValue(":name",   _name);
     select.exec();
-    if (select.first())
+    int count = 0;
+    while (select.next())
     {
       int tmp = upsertPkgItem(pkgheadid, select.value(0).toInt(), errMsg);
       if (tmp < 0)
         return tmp;
+      count++;
     }
-    else if (select.lastError().type() != QSqlError::NoError)
+    if (select.lastError().type() != QSqlError::NoError)
     {
       errMsg = _sqlerrtxt.arg(_filename)
                         .arg(select.lastError().databaseText())
                         .arg(select.lastError().driverText());
       return -5;
     }
-    else // not found
+    if (count == 0)
     {
-      errMsg = QObject::tr("Could not find schema %1 in the database. The "
+      errMsg = QObject::tr("Could not find function %1 in the database. The "
                            "script %2 does not match the contents.xml "
                            "description.")
                 .arg(_name).arg(_filename);
@@ -178,7 +209,7 @@ int CreateSchema::writeToDB(const QByteArray &pdata, const QString pkgname, QStr
 }
 
 // the value of pkgitem_name differs from the version in createdbobj.cpp
-int CreateSchema::upsertPkgItem(const int pkgheadid, const int itemid,
+int CreateFunction::upsertPkgItem(const int pkgheadid, const int itemid,
                                QString &errMsg)
 {
   if (pkgheadid < 0)
@@ -236,7 +267,7 @@ int CreateSchema::upsertPkgItem(const int pkgheadid, const int itemid,
   upsert.bindValue(":headid",  pkgheadid);
   upsert.bindValue(":type",    _pkgitemtype);
   upsert.bindValue(":itemid",  itemid);
-  upsert.bindValue(":name",    _name);
+  upsert.bindValue(":name",    _schema + "." + _name);
   upsert.bindValue(":descrip", _comment);
 
   if (!upsert.exec())
