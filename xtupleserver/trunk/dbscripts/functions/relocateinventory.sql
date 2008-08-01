@@ -19,6 +19,10 @@ DECLARE
 
 BEGIN
 
+    IF ((_GlDistTS IS NULL) OR (CAST(_GlDistTS AS date)=CURRENT_DATE)) THEN
+      _GlDistTS := CURRENT_TIMESTAMP;
+    END IF;
+
 --  Make sure the passed itemsite points to a real item
   IF ( ( SELECT (item_type IN (''R'', ''F'', ''J''))
          FROM itemsite, item
