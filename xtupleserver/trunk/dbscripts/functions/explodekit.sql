@@ -11,17 +11,7 @@ DECLARE
   _itemid INTEGER;
   _warehousid INTEGER;
   _item RECORD;
-  _kit RECORD;
 BEGIN
-  SELECT *
-    INTO _kit
-    FROM coitem
-   WHERE((coitem_cohead_id=pSoheadid)
-     AND (coitem_linenumber=pLinenumber)
-     AND (coitem_subnumber=0));
-  IF(NOT FOUND) THEN
-    RAISE EXCEPTION 'No Kit item on sales order was found.';
-  END IF;
 
   SELECT getActiveRevId('BOM',itemsite_item_id), itemsite_warehous_id, itemsite_item_id
     INTO _revid, _warehousid, _itemid
@@ -69,7 +59,7 @@ BEGIN
       VALUES(pSoheadid,
              pLinenumber, _subnumber,
              _item.itemsite_id, 'O',
-             _kit.coitem_scheddate, _kit.coitem_promdate,
+             CURRENT_DATE, NULL,
              _item.qty, _item.bomitem_uom_id, _item.invuomratio,
              0, 0,
              stdCost(_item.item_id), 0,

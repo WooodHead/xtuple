@@ -1,10 +1,10 @@
-CREATE OR REPLACE FUNCTION issueAllBalanceToShipping(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION issueAllBalanceToShipping(INTEGER) RETURNS INTEGER AS $$
 BEGIN
-  RETURN issueAllBalanceToShipping(''SO'', $1, 0, NULL);
+  RETURN issueAllBalanceToShipping('SO', $1, 0, NULL);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION issueAllBalanceToShipping(TEXT, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION issueAllBalanceToShipping(TEXT, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 DECLARE
   pordertype		ALIAS FOR $1;
   pheadid		ALIAS FOR $2;
@@ -13,7 +13,7 @@ DECLARE
   _s			RECORD;
 
 BEGIN
-  IF (pordertype = ''SO'') THEN
+  IF (pordertype = 'SO') THEN
     FOR _s IN SELECT coitem_id,
 		     noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned -
 			   ( SELECT COALESCE(SUM(shipitem_qty), 0)
@@ -22,8 +22,9 @@ BEGIN
 			      AND (shipitem_shiphead_id=shiphead_id)
 			      AND (NOT shiphead_shipped)
 			      AND (shiphead_order_type=pordertype) ) ) ) AS balance
-	      FROM coitem
-	      WHERE ( (coitem_status NOT IN (''C'',''X''))
+	      FROM coitem LEFT OUTER JOIN (itemsite JOIN item ON (itemsite_item_id=item_id)) ON (coitem_itemsite_id=itemsite_id)
+	      WHERE ( (coitem_status NOT IN ('C','X'))
+                AND (item_type != 'K')
 	       AND (coitem_cohead_id=pheadid) ) LOOP
 
       IF (_s.balance <> 0) THEN
@@ -34,7 +35,7 @@ BEGIN
       END IF;
     END LOOP;
 
-  ELSEIF (pordertype = ''TO'') THEN
+  ELSEIF (pordertype = 'TO') THEN
     FOR _s IN SELECT toitem_id,
 		     noNeg( toitem_qty_ordered - toitem_qty_shipped -
 			   ( SELECT COALESCE(SUM(shipitem_qty), 0)
@@ -44,7 +45,7 @@ BEGIN
 			      AND (NOT shiphead_shipped)
 			      AND (shiphead_order_type=pordertype) ) ) ) AS balance
 	      FROM toitem
-	      WHERE ( (toitem_status NOT IN (''C'',''X''))
+	      WHERE ( (toitem_status NOT IN ('C','X'))
 	       AND (toitem_tohead_id=pheadid) ) LOOP
 
       IF (_s.balance <> 0) THEN
@@ -62,4 +63,4 @@ BEGIN
   RETURN _itemlocSeries;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

@@ -35,7 +35,7 @@ BEGIN
   WHERE (cohead_id=pSoheadid);
 
   INSERT INTO coitem
-  ( coitem_cohead_id, coitem_linenumber, coitem_itemsite_id, coitem_status,
+  ( coitem_cohead_id, coitem_linenumber, coitem_subnumber, coitem_itemsite_id, coitem_status,
     coitem_scheddate,
     coitem_promdate,
     coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
@@ -45,7 +45,7 @@ BEGIN
     coitem_order_type, coitem_order_id,
     coitem_memo, coitem_custpn,
     coitem_imported, coitem_tax_id )
-  SELECT _soheadid, coitem_linenumber, coitem_itemsite_id, 'O',
+  SELECT _soheadid, coitem_linenumber, coitem_subnumber coitem_itemsite_id, 'O',
          COALESCE(pSchedDate, coitem_scheddate),
          coitem_promdate,
          coitem_qtyord, 0, 0,
@@ -70,7 +70,8 @@ BEGIN
      AND  (charass_target_id=a.coitem_id)
      AND  (a.coitem_cohead_id=pSoheadid)
      AND  (b.coitem_cohead_id=_soheadid)
-     AND  (a.coitem_linenumber=b.coitem_linenumber));
+     AND  (a.coitem_linenumber=b.coitem_linenumber)
+     AND  (a.coitem_subnumber=b.coitem_subnumber));
 
   RETURN _soheadid;
 

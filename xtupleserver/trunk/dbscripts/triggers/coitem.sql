@@ -161,6 +161,11 @@ BEGIN
            AND (coitem_linenumber=OLD.coitem_linenumber)
            AND (coitem_subnumber > 0));
         PERFORM explodeKit(OLD.coitem_cohead_id, OLD.coitem_linenumber, 0, NEW.coitem_itemsite_id, NEW.coitem_qtyord);
+        UPDATE coitem
+           SET coitem_scheddate = NEW.coitem_scheddate,
+               coitem_promdate = NEW.coitem_promdate
+         WHERE((coitem_linenumber = OLD.coitem_linenumber)
+           AND (coitem_subnumber > 0));
       END IF;
       INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
 			    evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number,
@@ -299,7 +304,7 @@ DECLARE
   _check NUMERIC;
   _itemNumber TEXT;
   _r RECORD;
-  _kit RECORD;
+  _kit BOOLEAN;
 BEGIN
   -- If this is imported, go ahead and insert default characteristics
   IF (TG_OP = 'INSERT') THEN
@@ -311,6 +316,11 @@ BEGIN
     _kit := COALESCE(_kit, false);
     IF(_kit) THEN
       PERFORM explodeKit(NEW.coitem_cohead_id, NEW.coitem_linenumber, 0, NEW.coitem_itemsite_id, NEW.coitem_qtyord);
+        UPDATE coitem
+           SET coitem_scheddate = NEW.coitem_scheddate,
+               coitem_promdate = NEW.coitem_promdate
+         WHERE((coitem_linenumber = NEW.coitem_linenumber)
+           AND (coitem_subnumber > 0));
     END IF;
 
     IF (NEW.coitem_imported) THEN

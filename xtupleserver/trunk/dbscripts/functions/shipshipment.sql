@@ -60,10 +60,11 @@ BEGIN
       FOR _c IN SELECT (coitem_qtyord -
 			(COALESCE(SUM(shipitem_qty),0) +
 			 (coitem_qtyshipped - coitem_qtyreturned))) AS remain
-		  FROM coitem LEFT OUTER JOIN
+		  FROM (coitem LEFT OUTER JOIN (itemsite JOIN item ON (itemsite_item_id=item_id)) ON (coitem_itemsite_id=itemsite_id)) LEFT OUTER JOIN
 		       shipitem ON (shipitem_orderitem_id=coitem_id
 		                AND shipitem_shiphead_id=pshipheadid)
 		 WHERE ((coitem_status<>'X')
+                   AND  (item_type != 'K')
 		   AND  (coitem_cohead_id=_shiphead.shiphead_order_id))
 	      GROUP BY coitem_id, coitem_qtyshipped, coitem_qtyord,
 		       coitem_qtyreturned LOOP

@@ -90,7 +90,7 @@ BEGIN
    AND (cobmisc_id=pCobmiscid) );
 
 --  Create the Invoice items
-  FOR _r IN SELECT coitem_id, coitem_linenumber, coitem_custpn,
+  FOR _r IN SELECT coitem_id, coitem_linenumber, coitem_subnumber, coitem_conumber, coitem_custpn,
                    coitem_qtyord, cobill_qty,
                    coitem_qty_uom_id, coitem_qty_invuomratio,
                    coitem_custprice, coitem_price,
@@ -139,7 +139,7 @@ BEGIN
                                FROM coitem, cohead, invhist, invdetail
                               WHERE ((coitem_cohead_id=cohead_id)
                                 AND  (invdetail_invhist_id=invhist_id)
-                                AND  (invhist_ordnumber = text(cohead_number||''-''||coitem_linenumber))
+                                AND  (invhist_ordnumber = text(cohead_number||''-''||formatSoLineNumber(coitem_id)))
                                 AND  (invdetail_invcitem_id IS NULL)
                                 AND  (coitem_id=_r.coitem_id)) ) );
 

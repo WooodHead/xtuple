@@ -224,7 +224,7 @@ BEGIN
                                      FROM coitem, cohead, invhist, invdetail
                                     WHERE ((coitem_cohead_id=cohead_id)
                                       AND  (invdetail_invhist_id=invhist_id)
-                                      AND  (invhist_ordnumber = text(cohead_number||'-'||coitem_linenumber))
+                                      AND  (invhist_ordnumber = text(cohead_number||'-'||formatSoLineNumber(coitem_id)))
                                       AND  (invdetail_invcitem_id IS NULL)
                                       AND  (coitem_id=_r.coitem_id)) ) );
       
