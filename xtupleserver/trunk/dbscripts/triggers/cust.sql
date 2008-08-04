@@ -142,11 +142,6 @@ BEGIN
   FROM crmacct
   WHERE crmacct_cust_id = NEW.cust_id;
 
-  IF (crmAcctNumberUsed(NEW.cust_number, _crmacctid)) THEN
-    RAISE EXCEPTION ''Customer Number % is already in use by another CRM entity'',
-      NEW.cust_number;
-  END IF;
-
   IF (TG_OP = ''INSERT'') THEN
     SELECT crmacct_id INTO _crmacctid
     FROM crmacct
