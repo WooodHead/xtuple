@@ -302,7 +302,7 @@ DECLARE
   _kit RECORD;
 BEGIN
   -- If this is imported, go ahead and insert default characteristics
-   IF ((TG_OP = 'INSERT') AND NEW.coitem_imported) THEN
+  IF (TG_OP = 'INSERT') THEN
     SELECT COALESCE(item_type,'')='K'
       INTO _kit
       FROM itemsite, item
@@ -313,21 +313,23 @@ BEGIN
       PERFORM explodeKit(NEW.coitem_cohead_id, NEW.coitem_linenumber, 0, NEW.coitem_itemsite_id, NEW.coitem_qtyord);
     END IF;
 
-     INSERT INTO charass (charass_target_type, charass_target_id, charass_char_id, charass_value, charass_price)
-     SELECT 'SI', NEW.coitem_id, char_id, charass_value,
-     itemcharprice(item_id,char_id,charass_value,cohead_cust_id,cohead_shipto_id,NEW.coitem_qtyord,cohead_curr_id,cohead_orderdate) 
-     FROM (
-       SELECT DISTINCT char_id, char_name, charass_value, item_id, cohead_cust_id, cohead_shipto_id, cohead_curr_id, cohead_orderdate
-       FROM cohead, charass, char, itemsite, item
-       WHERE ((itemsite_id=NEW.coitem_itemsite_id)
-       AND (itemsite_item_id=item_id)
-       AND (charass_target_type='I') 
-       AND (charass_target_id=item_id)
-       AND (charass_default)
-       AND (char_id=charass_char_id)
-       AND (cohead_id=NEW.coitem_cohead_id))
-       ORDER BY char_name) AS data;
-   END IF;
+    IF (NEW.coitem_imported) THEN
+      INSERT INTO charass (charass_target_type, charass_target_id, charass_char_id, charass_value, charass_price)
+      SELECT 'SI', NEW.coitem_id, char_id, charass_value,
+             itemcharprice(item_id,char_id,charass_value,cohead_cust_id,cohead_shipto_id,NEW.coitem_qtyord,cohead_curr_id,cohead_orderdate) 
+        FROM (
+           SELECT DISTINCT char_id, char_name, charass_value, item_id, cohead_cust_id, cohead_shipto_id, cohead_curr_id, cohead_orderdate
+             FROM cohead, charass, char, itemsite, item
+            WHERE((itemsite_id=NEW.coitem_itemsite_id)
+              AND (itemsite_item_id=item_id)
+              AND (charass_target_type='I') 
+              AND (charass_target_id=item_id)
+              AND (charass_default)
+              AND (char_id=charass_char_id)
+              AND (cohead_id=NEW.coitem_cohead_id))
+           ORDER BY char_name) AS data;
+    END IF;
+  END IF;
 
   -- Create work order and process if flagged to do so
   IF ((NEW.coitem_order_type='W') AND (NEW.coitem_order_id=-1)) THEN
