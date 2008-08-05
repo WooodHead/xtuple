@@ -175,7 +175,7 @@ BEGIN
          WHERE(cobmisc_id=_i.cobmisc_id);
       
     --  Create the Invoice items
-        FOR _r IN SELECT coitem_id, coitem_linenumber, coitem_custpn,
+        FOR _r IN SELECT coitem_id, coitem_linenumber, coitem_subnumber, coitem_custpn,
                          coitem_qtyord, cobill_qty,
                          coitem_qty_uom_id, coitem_qty_invuomratio,
                          coitem_custprice, coitem_price,
@@ -206,7 +206,8 @@ BEGIN
             invcitem_coitem_id )
           VALUES
           ( _invcitemid, _invcheadid,
-            _lastlinenumber + _r.coitem_linenumber, _r.itemsite_item_id, _r.itemsite_warehous_id,
+            _lastlinenumber + CASE WHEN(_r.coitem_subnumber > 0) THEN (_r.coitem_linenumber * 1000) + _r.coitem_subnumber ELSE _r.coitem_linenumber END,
+            _r.itemsite_item_id, _r.itemsite_warehous_id,
             _r.coitem_custpn, '', '',
             _r.coitem_qtyord, _r.cobill_qty,
             _r.coitem_qty_uom_id, _r.coitem_qty_invuomratio,
@@ -254,7 +255,7 @@ BEGIN
         UPDATE cobill SET cobill_invcnum=cobmisc_invcnumber,
 		          cobill_invcitem_id=invcitem_id
         FROM invcitem, coitem, cobmisc
-        WHERE ((invcitem_linenumber=(_lastlinenumber + coitem_linenumber))
+        WHERE ((invcitem_linenumber=(_lastlinenumber + CASE WHEN(_r.coitem_subnumber > 0) THEN (_r.coitem_linenumber * 1000) + _r.coitem_subnumber ELSE _r.coitem_linenumber END))
           AND  (coitem_id=cobill_coitem_id)
           AND  (cobmisc_id=cobill_cobmisc_id)
           AND  (cobill_cobmisc_id=_i.cobmisc_id)

@@ -121,7 +121,8 @@ BEGIN
       invcitem_coitem_id )
     VALUES
     ( _invcitemid, _invcheadid,
-      _r.coitem_linenumber, _r.itemsite_item_id, _r.itemsite_warehous_id,
+      CASE WHEN(_r.coitem_subnumber > 0) THEN (_r.coitem_linenumber * 1000) + _r.coitem_subnumber ELSE _r.coitem_linenumber END,
+      _r.itemsite_item_id, _r.itemsite_warehous_id,
       _r.coitem_custpn, '''', '''',
       _r.coitem_qtyord, _r.cobill_qty,
       _r.coitem_qty_uom_id, _r.coitem_qty_invuomratio,
@@ -169,7 +170,7 @@ BEGIN
   UPDATE cobill SET cobill_invcnum=cobmisc_invcnumber,
 		    cobill_invcitem_id=invcitem_id
   FROM invcitem, coitem, cobmisc
-  WHERE ((invcitem_linenumber=coitem_linenumber)
+  WHERE ((invcitem_linenumber=CASE WHEN(coitem_subnumber > 0) THEN (coitem_linenumber * 1000) + coitem_subnumber ELSE coitem_linenumber END)
     AND  (coitem_id=cobill_coitem_id)
     AND  (cobmisc_id=cobill_cobmisc_id)
     AND  (cobill_cobmisc_id=pCobmiscid)
