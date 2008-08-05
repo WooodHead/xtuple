@@ -22,7 +22,8 @@ BEGIN
          itemsite_qtyonhand,
          itemsite_loccntrl, itemsite_location_id,
          stdcost(itemsite_item_id) AS cost,
-         itemsite_controlmethod INTO _p
+         itemsite_controlmethod INTO _p,
+         itemsite_value
   FROM invcnt, itemsite, item
   WHERE ( (invcnt_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)
@@ -192,17 +193,21 @@ BEGIN
     WHERE (invcnt_id=pInvcntid);
 
 --  Create the CC transaction
+--  All counts are posted using Standard Cost method
     INSERT INTO invhist
      ( invhist_id, invhist_itemsite_id,
        invhist_transdate, invhist_transtype, invhist_invqty,
        invhist_qoh_before, invhist_qoh_after,
        invhist_docnumber, invhist_comments,
-       invhist_invuom, invhist_unitcost, invhist_hasdetail )
+       invhist_invuom, invhist_unitcost, invhist_hasdetail,
+       invhist_costmethod, invhist_value_before, invhist_value_after )
     SELECT _invhistid, itemsite_id,
            _postDate, ''CC'', (invcnt_qoh_after - invcnt_qoh_before),
            invcnt_qoh_before, invcnt_qoh_after,
            invcnt_tagnumber, invcnt_comments,
-           uom_name, stdCost(item_id), _hasDetail
+           uom_name, _p.cost, _hasDetail,
+           ''S'', _p.itemsite_value, 
+           _p.itemsite_value + (_p.cost * (invcnt_qoh_after - invcnt_qoh_before))
     FROM itemsite, invcnt, item, uom
     WHERE ( (invcnt_itemsite_id=itemsite_id)
      AND (itemsite_item_id=item_id)
