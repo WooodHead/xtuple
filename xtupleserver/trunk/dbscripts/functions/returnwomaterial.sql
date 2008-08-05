@@ -40,7 +40,7 @@ BEGIN
   SELECT postInvTrans( ci.itemsite_id, 'IM', (_qty * -1), 
                        'W/O', 'WO', _woNumber, '', 'Return Material from Work Order',
                        pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries, CURRENT_DATE,
-                      (SELECT (SUM(invhist_value_before - invhist_value_after) / CASE WHEN(SUM(invhist_qoh_before - invhist_qoh_after)) THEN SUM(invhist_qoh_before - invhist_qoh_after) ELSE NULL END) FROM invhist, womatlpost WHERE((womatlpost_womatl_id=womatl_id) AND (womatlpost_invhist_id=invhist_id))) * _qty
+                      (SELECT (SUM(invhist_value_before - invhist_value_after) / CASE WHEN(SUM(invhist_qoh_before - invhist_qoh_after) > 0) THEN SUM(invhist_qoh_before - invhist_qoh_after) ELSE NULL END) FROM invhist, womatlpost WHERE((womatlpost_womatl_id=womatl_id) AND (womatlpost_invhist_id=invhist_id))) * _qty
                      ) INTO _invhistid
     FROM womatl, wo,
          itemsite AS ci, costcat AS cc,
