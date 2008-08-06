@@ -180,7 +180,13 @@ UPDATE itemsite SET
      itemsite_plancode_id=getPlanCodeId(NEW.planner_code),
      itemsite_costcat_id=getCostCatId(NEW.cost_category),
      itemsite_loccntrl=NEW.multiple_location_control,
-     itemsite_location_id=getLocationId(NEW.site,NEW.location),
+     itemsite_location_id=
+     CASE
+       WHEN (NEW.location = 'N/A') THEN
+         -1
+       ELSE
+         getLocationId(NEW.site,NEW.location)
+     END,
      itemsite_location=NEW.user_defined_location,
      itemsite_location_comments=NEW.user_defined_location,
      itemsite_disallowblankwip=NEW.disallow_blank_wip_locations,
