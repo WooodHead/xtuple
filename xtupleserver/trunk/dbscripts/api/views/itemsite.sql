@@ -15,6 +15,16 @@ AS
      itemsite_sold AS sold_from_site,
      itemsite_soldranking AS ranking,
      CASE
+       WHEN itemsite_costmethod = 'N' THEN
+         'None'
+       WHEN itemsite_costmethod = 'A' THEN
+         'Average'
+       WHEN itemsite_costmethod = 'S' THEN
+         'Standard'
+       WHEN itemsite_costmethod = 'J' THEN
+         'Job'
+     END AS cost_method,     
+     CASE
        WHEN itemsite_controlmethod = 'N' THEN
          'None'
        WHEN itemsite_controlmethod = 'R' THEN
@@ -76,6 +86,7 @@ INSERT INTO itemsite (
      itemsite_createwo,
      itemsite_sold,
      itemsite_soldranking,
+     itemsite_costmethod,
      itemsite_controlmethod,
      itemsite_perishable,
      itemsite_plancode_id,
@@ -105,7 +116,8 @@ INSERT INTO itemsite (
      itemsite_qtyonhand,
      itemsite_warrpurc,
      itemsite_autoreg,
-     itemsite_freeze)
+     itemsite_freeze,
+     itemsite_value)
      VALUES (
        getItemId(NEW.item_number),
        getWarehousId(NEW.site,'ACTIVE'),
@@ -115,6 +127,16 @@ INSERT INTO itemsite (
        COALESCE(NEW.create_wos,FALSE),
        COALESCE(NEW.sold_from_site,TRUE),
        COALESCE(NEW.ranking,1),
+       CASE
+         WHEN NEW.cost_method = 'None' THEN
+           'N'
+         WHEN NEW.cost_method = 'Average' THEN
+           'A'
+         WHEN NEW.cost_method = 'Standard' THEN
+           'S'
+         WHEN NEW.cost_method = 'Job' THEN
+           'J'
+       END,
        CASE
          WHEN NEW.control_method = 'None' THEN
            'N'
@@ -153,7 +175,8 @@ INSERT INTO itemsite (
        0,
        COALESCE(NEW.require_warranty,FALSE),
        COALESCE(NEW.auto_register,FALSE),
-       false);
+       false,
+       0);
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.itemsite DO INSTEAD
@@ -165,6 +188,17 @@ UPDATE itemsite SET
      itemsite_createwo=NEW.create_wos,
      itemsite_sold=NEW.sold_from_site,
      itemsite_soldranking=NEW.ranking,
+     itemsite_costmethod=
+       CASE
+         WHEN NEW.cost_method = 'None' THEN
+           'N'
+         WHEN NEW.cost_method = 'Average' THEN
+           'A'
+         WHEN NEW.cost_method = 'Standard' THEN
+           'S'
+         WHEN NEW.cost_method = 'Job' THEN
+           'J'
+       END,
      itemsite_controlmethod=
        CASE
          WHEN NEW.control_method = 'None' THEN
