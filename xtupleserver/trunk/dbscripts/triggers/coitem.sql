@@ -16,7 +16,11 @@ BEGIN
 
   IF (TG_OP IN ('INSERT','UPDATE')) THEN
     IF (NEW.coitem_scheddate IS NULL) THEN
-      RAISE EXCEPTION 'A schedule date is required.';
+      IF (fetchmetricbool('AllowASAPShipSchedules')) THEN
+        NEW.coitem_scheddate := current_date;
+      ELSE
+        RAISE EXCEPTION 'A schedule date is required.';
+      END IF;
     END IF;
   END IF;
 
@@ -306,23 +310,28 @@ DECLARE
   _r RECORD;
   _kit BOOLEAN;
 BEGIN
-  -- If this is imported, go ahead and insert default characteristics
+
+  --Determine if this is a kit for later processing
+  SELECT COALESCE(item_type,'')='K'
+  INTO _kit
+  FROM itemsite, item
+  WHERE((itemsite_item_id=item_id)
+  AND (itemsite_id=NEW.coitem_itemsite_id));
+  _kit := COALESCE(_kit, false);
+  
   IF (TG_OP = 'INSERT') THEN
-    SELECT COALESCE(item_type,'')='K'
-      INTO _kit
-      FROM itemsite, item
-     WHERE((itemsite_item_id=item_id)
-       AND (itemsite_id=NEW.coitem_itemsite_id));
-    _kit := COALESCE(_kit, false);
+
     IF(_kit) THEN
       PERFORM explodeKit(NEW.coitem_cohead_id, NEW.coitem_linenumber, 0, NEW.coitem_itemsite_id, NEW.coitem_qtyord);
-        UPDATE coitem
-           SET coitem_scheddate = NEW.coitem_scheddate,
-               coitem_promdate = NEW.coitem_promdate
-         WHERE((coitem_linenumber = NEW.coitem_linenumber)
-           AND (coitem_subnumber > 0));
+      UPDATE coitem
+      SET coitem_scheddate = NEW.coitem_scheddate,
+          coitem_promdate = NEW.coitem_promdate
+      WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
+        AND (coitem_linenumber = NEW.coitem_linenumber)
+        AND (coitem_subnumber > 0));
     END IF;
 
+    -- If this is imported, go ahead and insert default characteristics
     IF (NEW.coitem_imported) THEN
       INSERT INTO charass (charass_target_type, charass_target_id, charass_char_id, charass_value, charass_price)
       SELECT 'SI', NEW.coitem_id, char_id, charass_value,
@@ -368,6 +377,18 @@ BEGIN
   END IF;
 
   IF (TG_OP = 'UPDATE') THEN
+--  Update kit line item dates
+    IF (_kit
+	AND (NEW.coitem_scheddate <> OLD.coitem_scheddate
+	OR  NEW.coitem_promdate <> OLD.coitem_promdate)) THEN
+      UPDATE coitem
+      SET coitem_scheddate = NEW.coitem_scheddate,
+          coitem_promdate = NEW.coitem_promdate
+      WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
+        AND (coitem_linenumber = NEW.coitem_linenumber)
+        AND (coitem_subnumber > 0));
+    END IF;
+           
 --  If closing or cancelling and there is a job item work order, then close job and distribute remaining costs
     IF ((NEW.coitem_status = 'C' AND OLD.coitem_status <> 'C')
      OR (NEW.coitem_status = 'X' AND OLD.coitem_status <> 'X'))

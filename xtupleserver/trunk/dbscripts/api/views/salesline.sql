@@ -5,8 +5,13 @@ SELECT dropIfExists('VIEW', 'salesline', 'api');
 CREATE VIEW api.salesline
 AS 
   SELECT 
-     cohead_number AS order_number,
-     coitem_linenumber AS line_number,
+     cohead_number::VARCHAR(100) AS order_number,
+     CASE 
+       WHEN (coitem_subnumber=0) THEN
+         coitem_linenumber::VARCHAR(100)
+       ELSE 
+         coitem_linenumber::VARCHAR(100) || '.'::VARCHAR(100) || coitem_subnumber::VARCHAR(100)
+     END AS line_number,
      l.item_number AS item_number,
      coitem_custpn AS customer_pn,
      s.item_number AS substitute_for,
@@ -56,7 +61,7 @@ AS
   AND (il.itemsite_warehous_id=warehous_id)
   AND (coitem_qty_uom_id=q.uom_id)
   AND (coitem_price_uom_id=p.uom_id))
-ORDER BY cohead_number,coitem_linenumber;
+ORDER BY cohead_number,coitem_linenumber,coitem_subnumber;
     
 GRANT ALL ON TABLE api.salesline TO openmfg;
 COMMENT ON VIEW api.salesline IS 'Sales Order Line Item';
@@ -95,7 +100,9 @@ CREATE OR REPLACE RULE "_INSERT" AS
     coitem_cos_accnt_id)
   SELECT
     cohead_id,
-    NEW.line_number,
+    COALESCE(NEW.line_number::INTEGER,(SELECT (COALESCE(MAX(coitem_linenumber), 0) + 1)
+                                      FROM coitem
+                                      WHERE (coitem_cohead_id=cohead_id))),
     itemsite_id,
     NEW.status,
     NEW.scheduled_date,
@@ -167,19 +174,26 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     END,
     coitem_substitute_item_id=getItemsiteId(NEW.sold_from_site,NEW.item_number),
     coitem_prcost=NEW.overwrite_po_price,
-    coitem_tax_id=getTaxId(NEW.tax_code),
+    coitem_tax_id=
+    CASE
+      WHEN (NEW.tax_code='None') THEN
+        NULL
+      ELSE getTaxId(NEW.tax_code)
+    END,
     coitem_warranty=NEW.warranty,
     coitem_cos_accnt_id=getGlAccntId(NEW.alternate_cos_account)
    FROM item
    WHERE ((item_number=OLD.item_number)
    AND (coitem_cohead_id=getCoheadId(OLD.order_number))
-   AND (coitem_linenumber=OLD.line_number));
+   AND (coitem_id=getCoitemId(OLD.order_number,OLD.line_number))
+   AND (coitem_subnumber=0));
 
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.salesline DO INSTEAD
 
   DELETE FROM coitem
   WHERE ((coitem_cohead_id=getCoheadId(OLD.order_number))
-  AND (coitem_linenumber=OLD.line_number));
+  AND (coitem_id=getCoitemId(OLD.order_number,OLD.line_number))
+  AND (coitem_subnumber=0));
 
 COMMIT;
