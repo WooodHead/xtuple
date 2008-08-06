@@ -24,7 +24,7 @@ BEGIN
   END IF;
 
   -- Amount is required
-  IF (COALESCE(NEW.cashrcptmisc_amount, 0) <= 0) THEN
+  IF (COALESCE(NEW.cashrcptmisc_amount, 0) = 0) THEN
     RAISE EXCEPTION ''You must supply a valid Amount.'';
   END IF;
 
