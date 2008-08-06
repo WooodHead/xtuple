@@ -45,7 +45,7 @@ BEGIN
     coitem_order_type, coitem_order_id,
     coitem_memo, coitem_custpn,
     coitem_imported, coitem_tax_id )
-  SELECT _soheadid, coitem_linenumber, coitem_subnumber coitem_itemsite_id, 'O',
+  SELECT _soheadid, coitem_linenumber, coitem_subnumber, coitem_itemsite_id, 'O',
          COALESCE(pSchedDate, coitem_scheddate),
          coitem_promdate,
          coitem_qtyord, 0, 0,

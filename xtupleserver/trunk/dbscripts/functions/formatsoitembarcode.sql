@@ -5,7 +5,7 @@ DECLARE
   _barcode TEXT;
 BEGIN
 
-  SELECT ( '\138SOLI' ||
+  SELECT ( E'\138SOLI' ||
            LENGTH(TEXT(cohead_number)) || LENGTH(formatsolinenumber(coitem_id)) ||
            TEXT(cohead_number) || formatsolinenumber(coitem_id) ) INTO _barcode
   FROM cohead, coitem
