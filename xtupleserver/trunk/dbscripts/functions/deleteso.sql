@@ -73,7 +73,7 @@ BEGIN
   DELETE FROM aropenco
   WHERE (aropenco_cohead_id=pSoheadid);
 
-  IF (pSonumber IS NOT NULL) THEN
+  IF (COALESCE(pSonumber,'''') != '''') THEN
     IF (NOT releaseSoNumber(CAST(pSonumber AS INTEGER))) THEN
       RETURN 0; -- change to -3 when releaseSoNumber returns INTEGER
     END IF;
