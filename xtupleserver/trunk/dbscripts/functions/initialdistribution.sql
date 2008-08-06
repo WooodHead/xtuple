@@ -33,12 +33,14 @@ BEGIN
         invhist_transtype, invhist_invqty,
         invhist_qoh_before, invhist_qoh_after,
         invhist_comments,
-        invhist_invuom, invhist_unitcost, invhist_hasdetail ) 
+        invhist_invuom, invhist_unitcost, invhist_hasdetail,
+        invhist_costmethod, invhist_value_before, invhist_value_after ) 
       SELECT _invhistid, itemsite_id,
              ''RL'', 0,
              _r.itemloc_qty, _r.itemloc_qty,
              ''Initial Distribution'',
-             uom_name, stdCost(item_id), TRUE
+             uom_name, stdCost(item_id), TRUE,
+             itemsite_costmethod, itemsite_value, itemsite_value
       FROM item, itemsite, uom
       WHERE ( (itemsite_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
@@ -68,12 +70,14 @@ BEGIN
           invhist_transtype, invhist_invqty,
           invhist_qoh_before, invhist_qoh_after,
           invhist_comments,
-          invhist_invuom, invhist_unitcost ) 
+          invhist_invuom, invhist_unitcost,
+          invhist_costmethod, invhist_value_before, invhist_value_after  ) 
         SELECT itemsite_id,
                ''NN'', (_r.itemloc_qty * -1),
                _r.itemloc_qty, 0,
                ''Initial Distribution'',
-               uom_name, stdCost(item_id)
+               uom_name, stdCost(item_id),
+               itemsite_costmethod, itemsite_value, itemsite_value
         FROM itemsite, item, uom
         WHERE ( (itemsite_item_id=item_id)
          AND (item_inv_uom_id=uom_id)
@@ -102,12 +106,14 @@ BEGIN
       invhist_transtype, invhist_invqty,
       invhist_qoh_before, invhist_qoh_after,
       invhist_comments,
-      invhist_invuom, invhist_unitcost, invhist_hasdetail ) 
+      invhist_invuom, invhist_unitcost, invhist_hasdetail,
+      invhist_costmethod, invhist_value_before, invhist_value_after  ) 
     SELECT _invhistid, itemsite_id,
            ''RL'', 0,
            itemsite_qtyonhand, itemsite_qtyonhand,
            ''Initial Distribution'',
-           uom_name, stdCost(item_id), TRUE
+           uom_name, stdCost(item_id), TRUE,
+           itemsite_costmethod, itemsite_value, itemsite_value
     FROM item, itemsite, uom
     WHERE ( (itemsite_item_id=item_id)
      AND (item_inv_uom_id=uom_id)
@@ -143,12 +149,14 @@ BEGIN
         invhist_transtype, invhist_invqty,
         invhist_qoh_before, invhist_qoh_after,
         invhist_comments,
-        invhist_invuom, invhist_unitcost ) 
+        invhist_invuom, invhist_unitcost,
+        invhist_costmethod, invhist_value_before, invhist_value_after  ) 
       SELECT itemsite_id,
              ''NN'', (itemloc_qty * -1),
              itemloc_qty, 0,
              ''Initial Distribution'',
-             uom_name, stdCost(item_id)
+             uom_name, stdCost(item_id),
+             itemsite_costmethod, itemsite_value, itemsite_value
       FROM itemloc, itemsite, item, uom
       WHERE ( (itemsite_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
