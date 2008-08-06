@@ -26,7 +26,8 @@ CREATE OR REPLACE FUNCTION currToBase (integer, numeric, date) RETURNS NUMERIC A
 		WHERE curr_id = pId
 		  AND _date BETWEEN curr_effective AND curr_expires;
 	    IF (_output IS NULL OR NOT FOUND) THEN
-	      RAISE EXCEPTION ''No exchange rate for % on %'', pId, _date;
+	      RAISE NOTICE ''No exchange rate for % on %'', pId, _date;
+              _output := (pValue * -1);
 	    END IF;
 	END IF;
 	RETURN _output;
