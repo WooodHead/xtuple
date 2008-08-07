@@ -55,26 +55,16 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#include "data.h"
+#include <QDialog>
 
-#include <QObject>
+#include "ui_licensewindow.h"
 
-#if defined Q_WS_WIN
-QString _name = QObject::tr("Update Manager for Windows");
-#elif defined Q_WS_X11
-QString _name = QObject::tr("Update Manager for Linux");
-#elif defined Q_WS_MAC
-QString _name = QObject::tr("Update Manager for Mac");
-#else
-QString _name = QObject::tr("Update Manager");
-#endif
-
-
-QString _copyright = QObject::tr("Copyright (c) 2004-2008 OpenMFG, LLC., d/b/a xTuple.");
-QString _version = QObject::tr("1.2dev");
-
-QString _user;
-int     _usrid;
-
-bool _evaluation = FALSE;
-bool _loggedIn = FALSE;
+class LicenseWindow : public QDialog, public Ui::LicenseWindow
+{
+  public:
+    LicenseWindow(QString text) : QDialog()
+    {
+      setupUi(this);
+      _license->setText(text);
+    };
+};

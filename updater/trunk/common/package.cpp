@@ -69,6 +69,7 @@
 #include "createtable.h"
 #include "createtrigger.h"
 #include "createview.h"
+#include "data.h"
 #include "loadcmd.h"
 #include "loadappscript.h"
 #include "loadappui.h"
@@ -78,6 +79,7 @@
 #include "prerequisite.h"
 #include "script.h"
 
+#define TR(a) QObject::tr(a)
 #define DEBUG false
 
 Package::Package(const QString & id)
@@ -89,6 +91,77 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
                  QList<bool> &fatalList)
   : _majVersion(-1), _minVersion(-1)
 {
+  if (elem.tagName() != "package")
+  {
+    msgList << TR("The root tag must be 'package' but this package has a root "
+                  "tag named '%1'").arg(elem.tagName());
+    fatalList << true;
+  }
+
+  if (elem.hasAttribute("updater"))
+  {
+    QStringList suffixes;
+    suffixes << "wip" << "alpha" << "beta" << "rc";
+    QRegExp relregex("^(\\d+)\\.(\\d+)\\.(\\d+)(?:(" + suffixes.join("|") + ")(\\d?)?)?");
+
+    // _version = updater/builder application global
+    if (relregex.indexIn(_version.toLower()) == -1)
+    {
+      msgList << TR("Could not parse the application's version string %1")
+                  .arg(_version);
+      fatalList << true;
+      return;
+    }
+
+    int appmajor = relregex.cap(1).toInt();
+    int appminor = relregex.cap(2).toInt();
+    int apppoint = relregex.cap(3).toInt();
+    int appsuffix= relregex.cap(4).isEmpty() ? suffixes.size() :
+                                      suffixes.indexOf(relregex.cap(4));
+    int appsub   = relregex.cap(5).isEmpty() ? 0 : relregex.cap(5).toInt();
+
+    if (relregex.indexIn(elem.attribute("updater").toLower()) == -1)
+    {
+      if (DEBUG)
+        qDebug("Package::Package() could not parse %s with %s",
+               qPrintable(elem.attribute("updater").toLower()),
+               qPrintable(relregex.pattern()));
+      msgList << TR("Could not parse the updater version string %1 required "
+                    "by the package") .arg(elem.attribute("updater"));
+      fatalList << true;
+      return;
+    }
+
+    int pkgmajor = relregex.cap(1).toInt();
+    int pkgminor = relregex.cap(2).toInt();
+    int pkgpoint = relregex.cap(3).toInt();
+    int pkgsuffix= relregex.cap(4).isEmpty() ? suffixes.size() :
+                                      suffixes.indexOf(relregex.cap(4));
+    int pkgsub   = relregex.cap(5).isEmpty() ? 0 : relregex.cap(5).toInt();
+
+    if ((appmajor <  pkgmajor) ||
+        (appmajor == pkgmajor && appminor <  pkgminor) ||
+        (appmajor == pkgmajor && appminor == pkgminor && apppoint < pkgpoint) ||
+        (appmajor == pkgmajor && appminor == pkgminor && apppoint== pkgpoint &&
+         appsuffix < pkgsuffix) ||
+        (appmajor == pkgmajor && appminor == pkgminor && apppoint== pkgpoint &&
+         appsuffix== pkgsuffix && appsub  <  pkgsub)
+       )
+    {
+      if (DEBUG)
+        qDebug("Package::Package() looking for\n%d %d %d %d %d but found\n"
+               "%d %d %d %d %d",
+               appmajor, appminor, apppoint, appsuffix, appsub,
+               pkgmajor, pkgminor, pkgpoint, pkgsuffix, pkgsub);
+
+      msgList << TR("This package requires a newer version of the updater "
+                    "(%1) than you are currently running (%2). Please get "
+                    "a newer updater.")
+                  .arg(elem.attribute("updater")).arg(_version);
+      fatalList << true;
+    }
+  }
+
   _id = elem.attribute("id");
   _name = elem.attribute("name");
   _developer = elem.attribute("developer");
@@ -188,18 +261,33 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
     }
     else if (! reportedErrorTags.contains(elemThis.tagName()))
     {
-      QMessageBox::warning(0, QObject::tr("Unknown Package Element"),
-                           QObject::tr("This package contains an element '%1'. "
-                                       "The application does not know how to "
-                                       "process it and so it will be ignored.")
+      QMessageBox::warning(0, TR("Unknown Package Element"),
+                           TR("This package contains an element '%1'. "
+                              "The application does not know how to "
+                              "process it and so it will be ignored.")
                            .arg(elemThis.tagName()));
       reportedErrorTags << elemThis.tagName();
     }
   }
 
   if (DEBUG)
+  {
     qDebug("Package::Package(QDomElement) msgList & fatalList at %d and %d",
            msgList.size(), fatalList.size());
+    qDebug("_functions:     %d", _functions.size());
+    qDebug("_tables:        %d", _tables.size());
+    qDebug("_schemas:       %d", _schemas.size());
+    qDebug("_triggers:      %d", _triggers.size());
+    qDebug("_views:         %d", _views.size());
+    qDebug("_privs:         %d", _privs.size());
+    qDebug("_reports:       %d", _reports.size());
+    qDebug("_appuis:        %d", _appuis.size());
+    qDebug("_appscripts:    %d", _appscripts.size());
+    qDebug("_cmds:          %d", _cmds.size());
+    qDebug("_images:        %d", _images.size());
+    qDebug("_prerequisites: %d", _prerequisites.size());
+    qDebug("_scripts:       %d", _scripts.size());
+  }
 }
 
 Package::~Package()
@@ -389,9 +477,9 @@ int Package::writeToDB(QString &errMsg)
 {
   QSqlQuery select;
   QSqlQuery upsert;
-  QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
-                                  "encountered while trying to import %1 into "
-                                  "the database:<br>%2<br>%3</font>");
+  QString sqlerrtxt = TR("<font color=red>The following error was "
+                         "encountered while trying to import %1 into "
+                         "the database:<br>%2<br>%3</font>");
 
   if (_name.isEmpty())
     return 0;   // if there's no name then there's no package to create

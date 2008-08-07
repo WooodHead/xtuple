@@ -74,10 +74,8 @@ macx: PRE_TARGETDEPS += ../lib/libupdatercommon.a
 DESTDIR = ../bin
 
 FORMS   += loaderwindow.ui
-HEADERS += data.h \
-           loaderwindow.h
-SOURCES += data.cpp \
-           loaderwindow.cpp \
+HEADERS += loaderwindow.h
+SOURCES += loaderwindow.cpp \
            main.cpp
 
 QT += xml sql

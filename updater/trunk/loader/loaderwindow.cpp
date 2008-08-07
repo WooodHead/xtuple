@@ -188,34 +188,50 @@ void LoaderWindow::fileOpen()
   // find the content file
   QStringList list = _files->_list.keys();
   QString contentFile = QString::null;
-  QRegExp re(".*contents.xml$");
-  for(QStringList::Iterator mit = list.begin(); mit != list.end(); ++mit)
+  QStringList contentsnames;
+  contentsnames << "package.xml" << "contents.xml";
+  for (int i = 0; i < contentsnames.size() && contentFile.isNull(); i++)
   {
-    if(re.exactMatch(*mit))
+    QRegExp re(".*" + contentsnames.at(i) + "$");
+    for(QStringList::Iterator mit = list.begin(); mit != list.end(); ++mit)
     {
-      if(!contentFile.isNull())
+      if(re.exactMatch(*mit))
       {
-        QMessageBox::warning(this, tr("Error Opening file"),
-                             tr("<p>Multiple content.xml files found in %1. "
-                                "Currently only packages containing a single "
-                                "content.xml file are supported.")
-                             .arg(filename));
-        delete _files;
-        _files = 0;
-        return;
+        if(!contentFile.isNull())
+        {
+          QMessageBox::warning(this, tr("Error Opening file"),
+                               tr("<p>Multiple %1 files found in %2. "
+                                  "Currently only packages containing a single "
+                                  "content.xml file are supported.")
+                               .arg(contentsnames.at(i)).arg(filename));
+          delete _files;
+          _files = 0;
+          return;
+        }
+        contentFile = *mit;
       }
-      contentFile = *mit;
     }
   }
+
+  QStringList msgList;
+  QList<bool> fatalList;
 
   if(contentFile.isNull())
   {
     QMessageBox::warning(this, tr("Error Opening file"),
-                         tr("<p>No contents.xml file was found in package %1.")
-                         .arg(filename));
+                         tr("<p>No %1 file was found in package %2.")
+                         .arg(contentsnames.join(" or ")).arg(filename));
     delete _files;
     _files = 0;
     return;
+  }
+  else if (! contentFile.endsWith(contentsnames.at(0)))
+  {
+    msgList << tr("Deprecated Package Format: Packages for this version of "
+                  "the Updater should have their contents described by a file "
+                  "named %1. The current package being loaded uses an outdated "
+                  "file name %2.") .arg(contentsnames.at(0)).arg(contentFile);
+    fatalList << false;
   }
 
   QByteArray docData = _files->_list[contentFile];
@@ -225,9 +241,10 @@ void LoaderWindow::fileOpen()
   if(!doc.setContent(docData, &errMsg, &errLine, &errCol))
   {
     QMessageBox::warning(this, tr("Error Opening file"),
-                         tr("<p>There was a problem reading the contents.xml "
-                            "file in this package.<br>%1<br>Line %2, "
-                            "Column %3").arg(errMsg).arg(errLine).arg(errCol));
+                         tr("<p>There was a problem reading the %1 file in "
+                            "this package.<br>%2<br>Line %3, Column %4")
+                         .arg(contentFile).arg(errMsg)
+                         .arg(errLine).arg(errCol));
     delete _files;
     _files = 0;
     return;
@@ -236,8 +253,6 @@ void LoaderWindow::fileOpen()
   _text->clear();
   _text->setEnabled(true);
 
-  QStringList msgList;
-  QList<bool> fatalList;
   QString delayedWarning;
   _package = new Package(doc.documentElement(), msgList, fatalList);
   if (msgList.size() > 0)
@@ -257,14 +272,15 @@ void LoaderWindow::fileOpen()
     }
     if (fatal)
     {
-      _text->append(tr("<p><font color=\"red\">The contents.xml file appears "
-                       "to be invalid.</font></p>"));
+      _text->append(tr("<p><font color=\"red\">The %1 file appears "
+                       "to be invalid.</font></p>").arg(contentFile));
       return;
     }
     else
-      delayedWarning = tr("<p><font color=\"orange\">The contents.xml file "
-                          "seems to have problems. You should contact %1 "
+      delayedWarning = tr("<p><font color=\"orange\">The %1 file "
+                          "seems to have problems. You should contact %2 "
                           "before proceeding.</font></p>")
+                      .arg(contentFile)
                       .arg(_package->developer().isEmpty() ?
                            tr("the package developer") : _package->developer());
   }
@@ -287,46 +303,30 @@ void LoaderWindow::fileOpen()
   for(QList<Prerequisite>::iterator i = _package->_prerequisites.begin();
       i != _package->_prerequisites.end(); ++i)
   {
-    Prerequisite p = *i;
-    bool passed = false;
-    _status->setText(tr("<p><b>Checking Prerequisites!</b></p><p>%1...</p>").arg(p.name()));
-    _text->append(tr("<p>%1</p>").arg(p.name()));
-    switch(p.type())
+    _status->setText(tr("<p><b>Checking Prerequisites!</b></p><p>%1...</p>")
+                       .arg((*i).name()));
+    _text->append(tr("<p>%1</p>").arg((*i).name()));
+    if (! (*i).met(errMsg))
     {
-      case Prerequisite::Query:
-        qry.exec(p.query());
-        passed = false;
-        if(qry.first())
-          passed = qry.value(0).toBool();
+      allOk = false;
+      str = QString("<blockquote><font size=\"+1\" color=\"red\"><b>%1</b></font><br/>").arg(tr("Failed"));
+      if (! errMsg.isEmpty())
+       str += tr("<p>%1</p>").arg(errMsg);
 
-        if(!passed)
-        {
-          allOk = false;
-          //QMessageBox::warning(this, tr("Prerequisite Not Met"), tr("The prerequisite %1 was not met.").arg(p.name()));
-
-          str = tr("<p><blockquote><font size=\"+1\" color=\"red\"><b>Failed</b></font><br />");
-          if(!p.message().isEmpty())
-           str += tr("<p>%1</p>").arg(p.message());
-
-          strlist = p.providerList();
-          if(strlist.count() > 0)
-          {
-            str += tr("<b>Requires:</b><br />");
-            str += tr("<ul>");
-            for(slit = strlist.begin(); slit != strlist.end(); ++slit)
-              str += tr("<li>%1: %2</li>").arg(p.provider(*slit).package()).arg(p.provider(*slit).info());
-            str += tr("</ul>");
-          }
-          
-          str += tr("</blockquote></blockquote></p>");
-          _text->append(str);
-        }
-        break;
-      default:
-        QMessageBox::warning(this, tr("Unhandled Prerequisite"),
-                             tr("<p>Encountered an unknown Prerequisite type. "
-                                "Prerequisite '%1' has not been validated.")
-                             .arg(p.name()));
+      strlist = (*i).providerList();
+      if(strlist.count() > 0)
+      {
+        str += tr("<b>Requires:</b><br />");
+        str += tr("<ul>");
+        for(slit = strlist.begin(); slit != strlist.end(); ++slit)
+          str += tr("<li>%1: %2</li>").arg((*i).provider(*slit).package()).arg((*i).provider(*slit).info());
+        str += tr("</ul>");
+      }
+      
+      str += tr("</blockquote>");
+      _text->append(str);
+      if (DEBUG)
+        qDebug("%s", qPrintable(str));
     }
   }
 
@@ -505,6 +505,8 @@ void LoaderWindow::sStart()
     }
   }
 
+  if (_package->_privs.size() > 0)
+  {
   _status->setText(tr("<p><b>Updating Privileges</b></p>"));
   _text->append(tr("<p>Loading new Privileges...</p>"));
   for(QList<LoadPriv>::iterator i = _package->_privs.begin();
@@ -526,8 +528,11 @@ void LoaderWindow::sStart()
     _progress->setValue(_progress->value() + 1);
   }
   _text->append(tr("<p>Completed importing new Privileges.</p>"));
+  }
 
   // update scripts here
+  if (_package->_scripts.size() > 0)
+  {
   _status->setText(tr("<p><b>Updating Schema</b></p>"));
   _text->append(tr("<p>Applying database change files...</p>"));
   Script script;
@@ -537,7 +542,10 @@ void LoaderWindow::sStart()
     if (applySql((*i), _files->_list[prefix + (*i).filename()]) < 0)
       return;
   }
+  }
 
+  if (_package->_schemas.size() > 0)
+  {
   _status->setText(tr("<p><b>Updating Schema Definitions</b></p>"));
   _text->append(tr("<p>Loading new Schema definitions...</p>"));
   for(QList<CreateSchema>::iterator i = _package->_schemas.begin();
@@ -547,7 +555,10 @@ void LoaderWindow::sStart()
       return;
   }
   _text->append(tr("<p>Completed importing new schema definitions.</p>"));
+  }
 
+  if (_package->_functions.size() > 0)
+  {
   _status->setText(tr("<p><b>Updating Function Definitions</b></p>"));
   _text->append(tr("<p>Loading new Function definitions...</p>"));
   for(QList<CreateFunction>::iterator i = _package->_functions.begin();
@@ -557,7 +568,10 @@ void LoaderWindow::sStart()
       return;
   }
   _text->append(tr("<p>Completed importing new function definitions.</p>"));
+  }
 
+  if (_package->_tables.size() > 0)
+  {
   _status->setText(tr("<p><b>Updating Table Definitions</b></p>"));
   _text->append(tr("<p>Loading new Table definitions...</p>"));
   for(QList<CreateTable>::iterator i = _package->_tables.begin();
@@ -567,7 +581,10 @@ void LoaderWindow::sStart()
       return;
   }
   _text->append(tr("<p>Completed importing new table definitions.</p>"));
+  }
 
+  if (_package->_triggers.size() > 0)
+  {
   _status->setText(tr("<p><b>Updating Trigger Definitions</b></p>"));
   _text->append(tr("<p>Loading new Trigger definitions...</p>"));
   for(QList<CreateTrigger>::iterator i = _package->_triggers.begin();
@@ -577,7 +594,10 @@ void LoaderWindow::sStart()
       return;
   }
   _text->append(tr("<p>Completed importing new trigger definitions.</p>"));
+  }
 
+  if (_package->_views.size() > 0)
+  {
   _status->setText(tr("<p><b>Updating View Definitions</b></p>"));
   _text->append(tr("<p>Loading new View definitions...</p>"));
   for(QList<CreateView>::iterator i = _package->_views.begin();
@@ -587,7 +607,10 @@ void LoaderWindow::sStart()
       return;
   }
   _text->append(tr("<p>Completed importing new view definitions.</p>"));
+  }
 
+  if (_package->_reports.size() > 0)
+  {
   _status->setText(tr("<p><b>Updating Report Definitions</b></p>"));
   _text->append(tr("<p>Loading new report definitions...</p>"));
   for(QList<LoadReport>::iterator i = _package->_reports.begin();
@@ -617,7 +640,10 @@ void LoaderWindow::sStart()
     _progress->setValue(_progress->value() + 1);
   }
   _text->append(tr("<p>Completed importing new report definitions.</p>"));
+  }
 
+  if (_package->_appuis.size() > 0)
+  {
   _status->setText(tr("<p><b>Updating User Interface Definitions</b></p>"));
   _text->append(tr("<p>Loading User Interface definitions...</p>"));
   for(QList<LoadAppUI>::iterator i = _package->_appuis.begin();
@@ -650,7 +676,10 @@ void LoaderWindow::sStart()
     _progress->setValue(_progress->value() + 1);
   }
   _text->append(tr("<p>Completed importing User Interface definitions.</p>"));
+  }
 
+  if (_package->_appscripts.size() > 0)
+  {
   _status->setText(tr("<p><b>Updating Application Script Definitions</b></p>"));
   _text->append(tr("<p>Loading Application Script definitions...</p>"));
   for(QList<LoadAppScript>::iterator i = _package->_appscripts.begin();
@@ -683,7 +712,10 @@ void LoaderWindow::sStart()
     _progress->setValue(_progress->value() + 1);
   }
   _text->append(tr("<p>Completed importing Application Script definitions.</p>"));
+  }
 
+  if (_package->_cmds.size() > 0)
+  {
   _status->setText(tr("<p><b>Updating Custom Commands</b></p>"));
   _text->append(tr("<p>Loading new Custom Commands...</p>"));
   for(QList<LoadCmd>::iterator i = _package->_cmds.begin();
@@ -707,7 +739,10 @@ void LoaderWindow::sStart()
     _progress->setValue(_progress->value() + 1);
   }
   _text->append(tr("<p>Completed importing new Custom Commands.</p>"));
+  }
 
+  if (_package->_images.size() > 0)
+  {
   _status->setText(tr("<p><b>Updating Image Definitions</b></p>"));
   _text->append(tr("<p>Loading Image definitions...</p>"));
   for(QList<LoadImage>::iterator i = _package->_images.begin();
@@ -740,6 +775,38 @@ void LoaderWindow::sStart()
     _progress->setValue(_progress->value() + 1);
   }
   _text->append(tr("<p>Completed importing Image definitions.</p>"));
+  }
+
+  if (_package->_prerequisites.size() > 0)
+  {
+  _status->setText(tr("<p><b>Updating Package Dependencies</b></p>"));
+  _text->append(tr("<p>Loading Package Dependencies...</p>"));
+  for(QList<Prerequisite>::iterator i = _package->_prerequisites.begin();
+      i != _package->_prerequisites.end(); ++i)
+  {
+    if ((*i).type() == Prerequisite::Dependency)
+    {
+      if (DEBUG)
+        qDebug("LoaderWindow::sStart() - saving dependency %s",
+               qPrintable((*i).name()));
+      if ((*i).writeToDB(_package->name(), errMsg) >= 0)
+        _text->append(tr("Saving dependency %1 was successful.")
+                      .arg((*i).name()));
+      else
+      {
+        _text->append(errMsg);
+        qry.exec("rollback;");
+        if(!_multitrans && !_premultitransfile)
+        {
+          _text->append(_rollbackMsg);
+          return;
+        }
+      }
+    }
+    _progress->setValue(_progress->value() + 1);
+  }
+  _text->append(tr("<p>Completed updating dependencies.</p>"));
+  }
 
   _progress->setValue(_progress->value() + 1);
 

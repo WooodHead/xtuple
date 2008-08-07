@@ -59,6 +59,17 @@
 
 #include <QDomDocument>
 #include <QList>
+#include <QSqlError>
+#include <QSqlQuery>
+
+#include "licensewindow.h"
+
+#define DEBUG false
+
+QString Prerequisite::_sqlerrtxt = QObject::tr("The following error was "
+                                               "encountered while trying to "
+                                               "check the prerequisite %1:"
+                                               "<br>%2<br>%3");
 
 PrerequisiteProvider::PrerequisiteProvider(const QString & package, const QString & info)
   : _package(package), _info(info)
@@ -86,15 +97,36 @@ QDomElement PrerequisiteProvider::createElement(QDomDocument & doc)
 }
 
 Prerequisite::Prerequisite()
-  : _name(QString::null), _type(None), _message(QString::null), _query(QString::null)
 {
+  _dependency = 0;
+  _message    = QString::null;
+  _name       = QString::null;
+  _query      = QString::null;
+  _type       = None;
+}
+
+Prerequisite::Prerequisite(const Prerequisite &p)
+{
+  if (p._dependency)
+    _dependency = new DependsOn(p._dependency->name(),
+                                p._dependency->version(),
+                                p._dependency->developer());
+  else
+    _dependency = 0;
+
+  _message    = p._message;
+  _name       = p._name;
+  _query      = p._query;
+  _type       = p._type;
 }
 
 Prerequisite::Prerequisite(const QDomElement & elem)
-  : _message(QString::null), _query(QString::null)
 {
-  _name = elem.attribute("name");
-  _type = nameToType(elem.attribute("type"));
+  _dependency = 0;
+  _message    = QString::null;
+  _name       = elem.attribute("name");
+  _query      = QString::null;
+  _type       = nameToType(elem.attribute("type"));
 
   QDomNodeList nList = elem.childNodes();
   for(int n = 0; n < nList.count(); ++n)
@@ -110,15 +142,37 @@ Prerequisite::Prerequisite(const QDomElement & elem)
       if(provider.isValid())
         _providers.append(provider);
     }
+    else if (elemThis.tagName() == "dependson")
+      _dependency = new DependsOn(elemThis.attribute("name"),
+                                  elemThis.attribute("version"),
+                                  elemThis.attribute("developer"));
     else
     {
       // ERROR?
     }
   }
+  if (DEBUG)
+    qDebug("Prerequisite(QDomElement&): name %s, type %d (%s), message %s, "
+           "dependency %p (%s %s %s), query %s",
+           qPrintable(_name), _type, qPrintable(typeToName(_type)),
+           qPrintable(_message), _dependency,
+           qPrintable(_dependency ? _dependency->name()     : QString()),
+           qPrintable(_dependency ? _dependency->version()  : QString()),
+           qPrintable(_dependency ? _dependency->developer(): QString()),
+           qPrintable(_query));
 }
 
 Prerequisite::~Prerequisite()
 {
+  if (DEBUG)
+    qDebug("Prerequisite::~Prerequisite(): name %s, type %d (%s), message %s",
+           qPrintable(_name), _type, qPrintable(typeToName(_type)),
+           qPrintable(_message));
+  if (_dependency)
+  {
+    delete _dependency;
+    _dependency = 0;
+  }
 }
 
 QDomElement Prerequisite::createElement(QDomDocument & doc)
@@ -129,14 +183,31 @@ QDomElement Prerequisite::createElement(QDomDocument & doc)
   elem.setAttribute("name", _name);
   elem.setAttribute("type", typeToName(_type));
 
-  if(Query == _type)
+  switch (_type)
   {
-    elemThis = doc.createElement("query");
-    elemThis.appendChild(doc.createTextNode(_query));
-    elem.appendChild(elemThis);
+    case Query:
+      elemThis = doc.createElement("query");
+      elemThis.appendChild(doc.createTextNode(_query));
+      elem.appendChild(elemThis);
+      break;
+
+    case License:
+      break;
+
+    case Dependency:
+      elemThis = doc.createElement("dependson");
+      elemThis.setAttribute("name", _dependency->name());
+      if (! _dependency->developer().isEmpty())
+        elemThis.setAttribute("developer", _dependency->developer());
+      if (! _dependency->version().isEmpty())
+        elemThis.setAttribute("version", _dependency->version());
+      break;
+
+    default:
+      break;
   }
 
-  if(!_message.isEmpty())
+  if (! _message.isEmpty())
   {
     elemThis = doc.createElement("message");
     elemThis.appendChild(doc.createTextNode(_message));
@@ -203,15 +274,25 @@ QStringList Prerequisite::providerList() const
 QString Prerequisite::typeToName(Type type)
 {
   QString str = "None";
-  if(type == Query)
-    str = "Query";
+  switch (type)
+  {
+    case Query:      str = "Query";      break;
+    case License:    str = "License";    break;
+    case Dependency: str = "Dependency"; break;
+    case None: break;
+    default:   break;
+  }
   return str;
 }
 
 Prerequisite::Type Prerequisite::nameToType(const QString & name)
 {
-  if("Query" == name)
+  if ("query" == name.toLower())
     return Query;
+  else if ("license" == name.toLower())
+    return License;
+  else if ("dependency" == name.toLower())
+    return Dependency;
   return None;
 }
 
@@ -221,5 +302,209 @@ QStringList Prerequisite::typeList(bool includeNone)
   if(includeNone)
     list << "None";
   list << "Query";
+  list << "License";
+  list << "Dependency";
   return list;
+}
+
+bool Prerequisite::met(QString &errMsg)
+{
+  if (DEBUG)
+    qDebug("Prerequisite::met() name %s, type %d (%s), message %s, "
+           "dependency %p (%s %s %s), query %s",
+           qPrintable(_name), _type, qPrintable(typeToName(_type)),
+           qPrintable(_message), _dependency,
+           qPrintable(/*_dependency ? _dependency->name()     :*/ QString()),
+           qPrintable(/*_dependency ? _dependency->version()  :*/ QString()),
+           qPrintable(/*_dependency ? _dependency->developer():*/ QString()),
+           qPrintable(_query));
+
+  bool returnVal = false;
+
+  switch (_type)
+  {
+    case Query:
+      {
+      QSqlQuery query;
+      query.exec(_query);
+      if (query.first())
+      {
+        returnVal = query.value(0).toBool();
+        errMsg    = _message;
+      }
+      else if (query.lastError().type() != QSqlError::NoError)
+        errMsg = _sqlerrtxt.arg(_name).arg(query.lastError().databaseText())
+                           .arg(query.lastError().driverText());
+      else
+        errMsg = QObject::tr("The prerequisite %1 did not return a value. "
+                             "Check with the package provider to see if there "
+                             "is an updated version of this package.");
+      break;
+      }
+
+    case License:
+      {
+      LicenseWindow newdlg(_message);
+      returnVal = (newdlg.exec() == QDialog::Accepted);
+      if (! returnVal)
+        errMsg = QObject::tr("The user declined to accept the usage license.");
+      break;
+      }
+
+    case Dependency:
+      {
+      QString sql = "SELECT * FROM pkghead WHERE ((pkghead_name=:name) ";
+      if (! _dependency->version().isEmpty())
+        sql += "AND (pkghead_version=:version) ";
+      if (! _dependency->developer().isEmpty())
+        sql += "AND (pkghead_developer=:developer) ";
+      sql += ");";
+
+      QSqlQuery query;
+      query.prepare(sql);
+      query.bindValue(":name",      _dependency->name());
+      query.bindValue(":version",   _dependency->version());
+      query.bindValue(":developer", _dependency->developer());
+      query.exec();
+      if (query.first())
+        returnVal = true;
+      else if (query.lastError().type() != QSqlError::NoError)
+        errMsg = _sqlerrtxt.arg(_name).arg(query.lastError().databaseText())
+                           .arg(query.lastError().driverText());
+      else
+        errMsg = QObject::tr("%1<br>The prerequisite %2 has not been met. It "
+                             "requires that the package %3 (version %4, "
+                             "developer %5) be installed first.")
+                    .arg(_message).arg(_name).arg(_dependency->name())
+                    .arg(_dependency->version().isEmpty() ?
+                         QObject::tr("Unspecified") : _dependency->version())
+                    .arg(_dependency->developer().isEmpty() ?
+                         QObject::tr("Unspecified") : _dependency->developer());
+      break;
+      }
+
+    default:
+      errMsg = QObject::tr("Encountered an unknown Prerequisite type. "
+                           "Prerequisite '%1' has not been validated.")
+                        .arg(_name);
+      break;
+  }
+
+  return returnVal;
+}
+
+int Prerequisite::writeToDB(const QString pkgname, QString &errMsg)
+{
+  if (DEBUG)
+    qDebug("Prerequisite::writeToDB(%s, &errMsg)", qPrintable(pkgname));
+
+  if (! pkgname.isEmpty() && _dependency)
+  {
+    QSqlQuery select;
+    int pkgheadid = -1;
+    select.prepare("SELECT pkghead_id FROM pkghead WHERE (pkghead_name=:name);");
+    select.bindValue(":name", pkgname);
+    select.exec();
+    if (select.first())
+      pkgheadid = select.value(0).toInt();
+    else if (select.lastError().type() != QSqlError::NoError)
+    {
+      errMsg = _sqlerrtxt.arg(_name)
+                         .arg(select.lastError().databaseText())
+                         .arg(select.lastError().driverText());
+      return -1;
+    }
+
+    int parentid = -1;
+    QString sql = "SELECT * FROM pkghead WHERE ((pkghead_name=:name) ";
+    if (! _dependency->version().isEmpty())
+      sql += "AND (pkghead_version=:version) ";
+    if (! _dependency->developer().isEmpty())
+      sql += "AND (pkghead_developer=:developer) ";
+    sql += ") ORDER BY pkghead_version DESC LIMIT 1;";
+
+    select.prepare(sql);
+    select.bindValue(":name",      _dependency->name());
+    select.bindValue(":version",   _dependency->version());
+    select.bindValue(":developer", _dependency->developer());
+    select.exec();
+    if (select.first())
+      parentid = select.value(0).toInt();
+    else if (select.lastError().type() != QSqlError::NoError)
+    {
+      errMsg = _sqlerrtxt.arg(_name)
+                         .arg(select.lastError().databaseText())
+                         .arg(select.lastError().driverText());
+      return -2;
+    }
+    else
+    {
+      errMsg = QObject::tr("Could not record the dependency %1 of package %2 "
+                           "on package %3 (version %4, developer %5) because "
+                           "the record for %6 was not found.")
+                    .arg(_name).arg(pkgname).arg(_dependency->name())
+                    .arg(_dependency->version().isEmpty() ?
+                         QObject::tr("Unspecified") : _dependency->version())
+                    .arg(_dependency->developer().isEmpty() ?
+                         QObject::tr("Unspecified") : _dependency->developer())
+                    .arg(_dependency->name());
+      return -3;
+    }
+
+    int pkgdepid = -1;
+    select.prepare("SELECT * FROM pkgdep "
+                   "WHERE ((pkgdep_pkghead_id=:pkgheadid)"
+                   "  AND  (pkgdep_parent_pkghead_id=:parentid));");
+    select.bindValue(":pkgheadid", pkgheadid);
+    select.bindValue(":parentid",  parentid);
+    select.exec();
+    if (select.first())
+      pkgdepid=select.value(0).toInt();
+    else if (select.lastError().type() != QSqlError::NoError)
+    {
+      errMsg = _sqlerrtxt.arg(_name)
+                         .arg(select.lastError().databaseText())
+                         .arg(select.lastError().driverText());
+      return -4;
+    }
+
+    QSqlQuery upsert;
+    if (pkgdepid > 0)
+      upsert.prepare("UPDATE pkgdep "
+                     "SET pkgdep_pkghead_id=:pkgheadid,"
+                     "    pkgdep_parent_pkghead_id=:parentid "
+                     "WHERE (pkgdep_id=:pkgdepid);");
+    else
+    {
+      upsert.prepare("SELECT NEXTVAL('pkgdep_pkgdep_id_seq');");
+      upsert.exec();
+      if (upsert.first())
+        pkgdepid = upsert.value(0).toInt();
+      else if (upsert.lastError().type() != QSqlError::NoError)
+      {
+        QSqlError err = upsert.lastError();
+        errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+        return -5;
+      }
+      upsert.prepare("INSERT INTO pkgdep ("
+                     "   pkgdep_id, pkgdep_pkghead_id, pkgdep_parent_pkghead_id"
+                     ") VALUES ("
+                     "    :pkgdepid, :pkgheadid, :parentid);");
+    }
+
+    upsert.bindValue(":pkgdepid",   pkgdepid);
+    upsert.bindValue(":pkgheadid",  pkgheadid);
+    upsert.bindValue(":parentid",   parentid);
+
+    if (! upsert.exec())
+    {
+      QSqlError err = upsert.lastError();
+      errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      return -6;
+    }
+
+    return pkgdepid;
+  }
+
+  return 0;
 }

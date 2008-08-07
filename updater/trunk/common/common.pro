@@ -68,7 +68,10 @@ OBJECTS_DIR = tmp
 MOC_DIR = tmp
 UI_SOURCES_DIR = tmp
 
-HEADERS = package.h \
+FORMS   = licensewindow.ui
+
+HEADERS = data.h \
+          package.h \
           createdbobj.h \
           createfunction.h \
           createschema.h \
@@ -76,6 +79,7 @@ HEADERS = package.h \
           createtrigger.h \
           createview.h \
           script.h \
+          licensewindow.h \
           loadable.h \
           loadappscript.h \
           loadappui.h \
@@ -86,7 +90,8 @@ HEADERS = package.h \
           prerequisite.h \
           tarfile.h \
           gunzip.h
-SOURCES = package.cpp \
+SOURCES = data.cpp \
+          package.cpp \
           createdbobj.cpp \
           createfunction.cpp \
           createschema.cpp \
