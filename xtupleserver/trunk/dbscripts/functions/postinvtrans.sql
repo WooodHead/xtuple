@@ -171,6 +171,7 @@ BEGIN
     --  Distribute this if this itemsite is controlled
     IF ( (_r.lotserial OR _r.loccntrl)
         AND (pItemlocSeries > 0) ) THEN
+
       INSERT INTO itemlocdist
       ( itemlocdist_itemsite_id, itemlocdist_source_type,
         itemlocdist_reqlotserial,
@@ -185,7 +186,12 @@ BEGIN
              endOfTime(),
              (_sense * pQty),
              pItemlocSeries, _invhistid,
-             pOrderType, getSalesLineItemId(pOrderNumber);
+             pOrderType, 
+             CASE 
+               WHEN pOrderType='SO' THEN
+                 getSalesLineItemId(pOrderNumber)
+               ELSE NULL
+             END;
 
     -- These records will be used for posting G/L transactions to trial balance after records committed.
     -- If we try to do it now concurrency locking prevents any transacitons while
