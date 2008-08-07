@@ -338,7 +338,7 @@ bool Prerequisite::met(QString &errMsg)
       else
         errMsg = QObject::tr("The prerequisite %1 did not return a value. "
                              "Check with the package provider to see if there "
-                             "is an updated version of this package.");
+                             "is an updated version of this package.").arg(_name);
       break;
       }
 
