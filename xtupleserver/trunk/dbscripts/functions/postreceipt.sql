@@ -18,7 +18,7 @@ BEGIN
 	 round(currToBase(recv_freight_curr_id, recv_freight, recv_date::DATE),
 	       2) AS recv_freight_base,
 	 recv_freight, recv_freight_curr_id, recv_date, recv_gldistdate,
-	 itemsite_id, itemsite_item_id, item_inv_uom_id
+	 itemsite_id, itemsite_item_id, item_inv_uom_id, itemsite_costmethod
 	 INTO _r
   FROM recv LEFT OUTER JOIN
        itemsite ON (recv_itemsite_id=itemsite_id) LEFT OUTER JOIN
@@ -308,7 +308,11 @@ BEGIN
 
     END IF;
 
-    _recvvalue := ROUND(stdcost(_r.itemsite_item_id) * _r.recv_qty * _o.invvenduomratio, 2);
+    IF(_r.itemsite_costmethod='A') THEN
+      _recvvalue := ROUND(_o.item_unitprice_base * _r.recv_qty * _o.invvenduomratio, 2);
+    ELSE
+      _recvvalue := ROUND(stdcost(_r.itemsite_item_id) * _r.recv_qty * _o.invvenduomratio, 2);
+    END IF;
   END IF;
 
   UPDATE recv

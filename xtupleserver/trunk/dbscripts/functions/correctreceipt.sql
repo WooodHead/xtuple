@@ -20,7 +20,7 @@ BEGIN
          recv_freight, recv_date::DATE),2) AS recv_freight,
          recv_posted, recv_order_type,
          COALESCE(itemsite_id, -1) AS itemsiteid,
-	 itemsite_item_id,
+	 itemsite_item_id, itemsite_costmethod,
 	 (recv_splitfrom_id IS NOT NULL
 	 OR (SELECT (count(*) > 0) 
 	     FROM recv
@@ -97,10 +97,17 @@ BEGIN
 	WHERE ((itemsite_costcat_id=costcat_id)
 	  AND  (itemsite_id=_r.itemsiteid) );
 
-	UPDATE recv
-	SET recv_qty=pQty,
-	    recv_value=(recv_value + stdcost(_r.itemsite_item_id) * _qty * _o.orderitem_qty_invuomratio)
-	WHERE (recv_id=precvid);
+        IF(_r.itemsite_costmethod='A') THEN
+	  UPDATE recv
+	     SET recv_qty=pQty,
+	         recv_value=(recv_value + o.unitprice_base * _qty * _o.orderitem_qty_invuomratio)
+	   WHERE(recv_id=precvid);
+        ELSE
+	  UPDATE recv
+	     SET recv_qty=pQty,
+	         recv_value=(recv_value + stdcost(_r.itemsite_item_id) * _qty * _o.orderitem_qty_invuomratio)
+	   WHERE(recv_id=precvid);
+        END IF;
 
       END IF;
 
