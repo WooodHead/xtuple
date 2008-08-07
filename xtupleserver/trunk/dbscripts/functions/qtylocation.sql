@@ -18,13 +18,11 @@ BEGIN
 
 -- Summarize itemlocrsrv qty for this location/itemsite
 -- that is reserved for a different order
-  IF ( (fetchMetricBool(''EnableSOReservationsByLocation'')) AND
-       (pOrderType IS NOT NULL) AND
-       (pOrderId IS NOT NULL) ) THEN
+  IF (fetchMetricBool(''EnableSOReservationsByLocation'')) THEN
     SELECT COALESCE(SUM(itemlocrsrv_qty), 0) INTO _qtyReserved
       FROM itemloc JOIN itemlocrsrv ON ( (itemlocrsrv_itemloc_id=itemloc_id)
-                                    AND  ((itemlocrsrv_source <> pOrderType) OR
-                                          (itemlocrsrv_source_id <> pOrderId)) )
+                                    AND  ((itemlocrsrv_source <> COALESCE(pOrderType, '''')) OR
+                                          (itemlocrsrv_source_id <> COALESCE(pOrderId, -1))) )
      WHERE ( (itemloc_location_id=pLocationId)
        AND   (COALESCE(itemloc_ls_id, -1)=COALESCE(pLsId, -1))
        AND   (itemloc_itemsite_id=pItemsiteId) );
