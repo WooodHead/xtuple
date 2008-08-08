@@ -1,0 +1,260 @@
+Release Notes
+xTuple ERP
+OpenMFG/Standard Edition/PostBooks
+Version 3.1.0Beta
+August 08, 2008 (i.e., 08/08/08)
+==================================
+
+This is the Beta release of version 3.1.0. Thanks to all in the
+community who contributed valuable patches and feedback during the
+Alpha cycle! Please keep up the effort on this Beta. We are eager
+to hear from as many of you as possible. 
+
+
+==================================
+The following features and bug fixes have been added to the applications 
+since the release of version 3.0.1Alpha. Additional detail for each item 
+listed below may be found on our community website (www.xtuple.org). 
+Simply go to the Issue Tracker and select the Changelog option.
+
+
+New Features:
+
+* [Accounting] Created API view for Incident
+* [Accounting] Added the ability to assign a Credit Memo or Cash Deposit 
+to a Sales Order
+* [Purchase] Created API view for Vendor
+* [Sales] Create Kit Item Type
+* [System] Added support for Site (i.e, Warehouse) level security
+
+
+Bug Fixes:
+
+* [A/P] Fixed issue with Document Numbers not displaying in the Billing 
+Selections screen
+* [A/P] Fixed error received when vouchering a PO having a Return 
+* [A/P] Renamed columns in Expense Categories selection window to have 
+correct values
+* [A/P] Fixed issue with Check Numbers not incrementing correctly when 
+creating new miscellaneous Checks
+* [A/P] Added drill-down detail in G/L Transaction screen for 
+miscellaneous distributions entered on Vouchers
+* [A/R] Added $0 invoices to Customer History screen
+* [Accounting] Enabled billing Terms to remain with Document records 
+even after Terms themselves are disabled at master information level
+* [Accounting] Removed text box displaying Check Number on Prepare Check 
+Run screen because it enabled duplicate Check Numbers and was unnecessary
+* [Accounting] Enabled entry of negative miscellaneous distributions on 
+Cash Receipt screen
+* [Accounting] Fixed screen resizing problem on Check Register screen
+* [Accounting] Fixed issue preventing issuance of Credit Memos for P/O 
+Returns
+* [CRM] Fixed issue where CRM Addresses were not being handled correctly 
+if shared by more than one CRM Account Contact
+* [CRM] Enabled Customer to be merged with existing CRM Account
+* [CRM] Fixed CRM Account fill list so pre-existing CRM Account Numbers 
+are recognized better
+* [I/M] Disabled DISTRIBUTE button on inventory distribution screen 
+unless a line item is selected for distribution first
+* [S/R] Fixed issue where $ value was not saved when editing RMA Line 
+Items
+* [Inventory] Fixed issue leading to error when printing Packing List 
+from Summarized Backlog screen
+* [Inventory] Fixed error received when reassigning Lot/Serial quantity
+* [Inventory] Fixed screen resizing issue on Slow Moving Inventory By 
+Class Code screen
+* [Inventory] Fixed screen resizing issue on Substitute Availability By 
+Item screen
+* [Inventory] Moved data which was displaying in wrong columns on Enter 
+PO Receipt screen
+* [Inventory] Fixed issue with Unbalanced QOH utility not working 
+properly
+* [Inventory] Changed Packing List print screen to accept SO and TO in 
+same widget
+* [Inventory] Fixed issue preventing reassignment of Lot/Serial qty. for 
+Item Site changed from regular control method to Lot control method
+* [Inventory] Added timestamp for relocate Inventory transactions
+* [Inventory] Added timestamp for Site Transfer transactions
+* [Inventory] Fixed issue leading to error when posting Count Tags
+* [Inventory] Updated Item Site to show “None” as disabled control method 
+for Reference and Job Item Types
+* [Inventory] Changed External Shipping maintenance screen to look, feel, 
+and work like other screens
+* [Inventory] Allowed Location to be selected from list when default is 
+checked and MLC is not on Item Site screen
+* [Inventory] Fixed ability to view document number for Inventory 
+transfers in Inventory history screens
+* [Inventory] Fixed combo boxes so data available for selection on Transit 
+Site masters
+* [Manufacture] Fixed issue where some materials were not being issued to 
+Work Orders
+* [Manufacture] Fixed issue leading to error when correcting Operations 
+posting
+* [Manufacture] Fixed issue causing qty. values not to be updated 
+correctly when posting Operations corrections
+* [Products] Fixed PRINT button on View Costing Detail screen
+* [Products] Fixed screen resizing issue on Standard Operations By Work 
+Center screen
+* [Products] Fixed multiple Product reports which were printing with no 
+data
+* [Products] Updated SO Item screen to update Price UOM whenever Qty. 
+UOM is changed
+* [Purchase] Fixed issue leading to error when adding Item Source Price 
+for “make” Items
+* [Purchase] Fixed misnamed column header in PO Item displays
+* [Purchase] Updated Voucher due date calculation for proximo terms to 
+be based on Invoice Date instead of system date
+* [Sales] Updated Billing Selections screen to perform subtotaling using 
+correct input values
+* [Sales] Fixed issue leading to error when selecting “X” button in the 
+empty Sales Order screen
+* [Sales] Included Misc. Invoice items in tax calculation on Summarized 
+Taxable Sales report
+* [Sales] Fixed issue leading to error when selecting to create a Quote 
+using a Prospect as a Customer
+* [Sales] Fixed issue preventing display and saving of Characteristics on 
+Quote Item screen
+* [Sales] Fixed RMA numbers to increment correctly
+* [Sales] Fixed screen resizing problem on Customer Information Workbench
+* [System] Moved several security privileges from Sales Module to 
+Accounting Module, including MaintainTerms, PostARDocuments, and 
+PrintInvoices
+* [System] Standardized all stock reports to use only Arial or Helvetica 
+fonts
+* [System] Removed duplicate EnableBatchManager values in PostBooks 
+metric table
+
+
+==================================
+Release Notes
+xTuple ERP
+OpenMFG/Standard Edition/PostBooks
+Version 3.1.0Alpha
+July 25, 2008
+==================================
+
+This is the Alpha release of version 3.1.0. We are especially eager 
+to hear feedback from alpha testers on the following new areas of 
+functionality: 
+
+Multi-Company Financial Consolidation
+  * Full spec: http://wiki.xtuple.org/MultiCompanyConsolidation
+
+Average Costing
+  * Full spec: http://wiki.xtuple.org/AverageCosting
+
+Package Manager
+  * Full spec: http://wiki.xtuple.org/PackageManager
+
+Sales Order Reservations by Location 
+  * Full spec: http://wiki.xtuple.org/SalesReservationsByLocation
+
+Purchase of Manufactured Items
+  * Manufactured Items may now be purchased
+
+Warehouse Changed to "Site"
+  * Makes solution more accessible for retailers and other types of 
+    businesses
+  * Use new "Site Types" to define Sites as Store, Warehouse, etc.
+
+==================================
+
+The following features and bug fixes have been added to the applications 
+since the release of version 3.0.1. Additional detail for each item 
+listed below may be found on our community website (www.xtuple.org). 
+Simply go to the Issue Tracker and select the Changelog option.
+
+
+New Features:
+
+* [All] Disallow users from using wrong GUI version on database 
+* [All] Database API View "api.itemsite" and itemsite_freeze column 
+* [Accounting] Spell out A/E/L/Q/R and show sub-type in COA display 
+* [Accounting] Display Sub-Acct Code & Sub-Acct Code Description in 
+display of ACCOUNTING - ACCOUNT - CHRT ACCTS
+* [Accounting] Add additional parameters to the Check Register
+* [Accounting] Add ability to have the default billing date the 
+current date
+* [Accounting] Create API view for Cash Receipt 
+* [Accounting] Create an API view for Incident 
+* [Accounting] Print Credit Card Receipts
+* [Accounting] Multi-Database Financial Report Engine Consolidation 
+* [A/R] POST button needed on Cash Receipt 
+* [CRM] Add button/link from right click on To-Do list to customer 
+workbench (if applicable)
+* [CRM] The system shall allow revenue to be reconciled, and 
+disputed
+* [CRM] Add middle initial and suffix to contact 
+* [Inventory] Allow sales reservations to be made at the location 
+level
+* [Inventory] Add average costing as a cost method
+* [Inventory] Create API view for Site (Warehouse) 
+* [Products] Transformations between Manufactured Type Item and 
+Job Type Item
+* [Purchase] Permit Purchase of Manufactured Items 
+* [Sales] Add information about To-Do data to customer workbench
+* [Sales] Add Customer Type API view
+* [Sales] Add the ability to print a customer statement from the 
+Customer Information Workbench
+* [Sales] Add columns to Summarized Backlog
+* [Sales] Create API view for Sales History  
+* [Schedule] Allow planned work orders to be changed to planned 
+purchase orders and vice versa 
+* [System] Change "Warehouse" nomenclature to "Site"
+* [System] Allow access to Hotkeys independent of preferences
+* [System] Event Created When Database Log Generated 
+
+Bug Fixes:
+
+* [All] api.itemsrc and api.itemscrp View Rules Attached
+* [Accounting] Changing the company code does not change chart of 
+accounts 
+* [Accounting] List views center align "Category" column. Should 
+be Left Justified
+* [Accounting] Funds Type no longer includes credit card in Cash 
+Receipts 
+* [Accounting] Can't edit Misc Checks after creation 
+* [A/R] Customer History incomplete 
+* [A/R] Araging function is miscalculating the formatted current 
+amount
+* [G/L] Duplicate Company Numbers are Possible 
+* [Inventory] Serial number quantities show total for the location 
+when distributing 
+* [Inventory] 8.3 typecast error
+* [Inventory] Serialized items can not receive qty greater than 2 
+at a time
+* [Inventory] Job and reference items allowed in Inv Trans lookups
+* [Inventory] Update Lead Time functionality doesn't work 
+* [Inventory] Document number does not show up in inventory 
+transaction screen
+* [Inventory] Cannot distribute qtys from MLC warehouse 
+* [Inventory] Lot/Serial info not displaying in Inventory History
+* [Inventory] Items may only be purchased or manufactured or 
+Breeder 
+* [Inventory] Upgrade Script Does Not Set itemloc_ls_id 
+* [Inventory] Lot/Serial info not displaying in multiple inventory 
+screens 
+* [I/M] TW trans allowed for NONE Item Site
+* [Manufacture] Disassembly production entries w/ immediate 
+transfer to warehouse
+* [Manufacture] Work Order Explosion does do UOM conversion for 
+child work orders
+* [Products] Selecting to view inventory History displays an 
+irrelevant date selection dialog
+* [Products] When creating a lot/serial registration, SQL error 
+returned if no account selected
+* [P/O] "Average Cost" Posting when Vouchering 
+* [Sales] Selecting to convert multiple quotes causes the 
+application to crash
+* [Sales] On deleting RA's from the list gives an SQL error
+* [Sales] Creating Sales Orders with API view slow on a large 
+database
+* [S/O] Duplicate Shipform names may be entered 
+* [S/O] Credit Card - Delete Charged SO - No Warning or Credit
+* [System] Use QTextBrowser object to define e-mail text body 
+* [System] Std. Edition gives error boohead error 
+* [System] Duplicate Characteristics may be entered
+* [System] Duplicate Comment Types may be entered. 
+* [System] Hard Code "mfgadmin" As the Logon User in Updater
+* [System] Duplicate users by using New Employee function 
+* [System] User details not saved while defining employee as User 
