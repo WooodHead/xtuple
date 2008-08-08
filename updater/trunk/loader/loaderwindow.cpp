@@ -91,6 +91,16 @@
 
 #define DEBUG false
 
+#if defined(Q_OS_WIN32)
+#define NOCRYPT
+#include <windows.h>
+#undef LoadImage
+#else
+#if defined(Q_OS_MACX)
+#include <stdlib.h>
+#endif
+#endif
+
 QString LoaderWindow::_rollbackMsg(tr("<p><font color=red>The upgrade has "
                                       "been aborted due to an error and your "
                                       "database was rolled back to the state "
@@ -403,9 +413,9 @@ void LoaderWindow::launchBrowser(QWidget * w, const QString & url)
 #if defined(Q_OS_WIN32)
   // Windows - let the OS do the work
   QT_WA( {
-      ShellExecute(w->winId(), 0, (TCHAR*)url.ucs2(), 0, 0, SW_SHOWNORMAL );
+      ShellExecute(w->winId(), 0, (TCHAR*)url.utf16(), 0, 0, SW_SHOWNORMAL );
     } , {
-      ShellExecuteA( w->winId(), 0, url.local8Bit(), 0, 0, SW_SHOWNORMAL );
+      ShellExecuteA( w->winId(), 0, url.toLocal8Bit(), 0, 0, SW_SHOWNORMAL );
     } );
 #else
   QString b(getenv("BROWSER"));
