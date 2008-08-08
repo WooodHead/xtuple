@@ -8,7 +8,35 @@ August 08, 2008 (i.e., 08/08/08)
 This is the Beta release of version 3.1.0. Thanks to all in the
 community who contributed valuable patches and feedback during the
 Alpha cycle! Please keep up the effort on this Beta. We are eager
-to hear from as many of you as possible. 
+to hear from as many of you as possible.
+
+In addition to the functionality highlighted for special testing
+in the 3.1.0Alpha Release Notes, we are also interested in feedback 
+on the following feature which appears for the first time in this
+Beta release:
+
+Kit Item Type
+  * Full spec: http://wiki.xtuple.org/SalesOrderKitting
+
+Once again, here are the areas of new functionality we added for
+the Alpha release. If you have not tested these new features
+yet, please do so and send us any feedback you have:
+
+Multi-Company Financial Consolidation
+  * Full spec: http://wiki.xtuple.org/MultiCompanyConsolidation
+
+Average Costing
+  * Full spec: http://wiki.xtuple.org/AverageCosting
+
+Package Manager
+  * Full spec: http://wiki.xtuple.org/PackageManager
+  * NOTE: Must use the 2.0.0Beta updater, not the old 1.0/1.1 updater
+
+Sales Order Reservations by Location 
+  * Full spec: http://wiki.xtuple.org/SalesReservationsByLocation
+
+Purchase of Manufactured Items
+  * Manufactured Items may now be purchased
 
 
 ==================================
@@ -21,8 +49,6 @@ Simply go to the Issue Tracker and select the Changelog option.
 New Features:
 
 * [Accounting] Created API view for Incident
-* [Accounting] Added the ability to assign a Credit Memo or Cash Deposit 
-to a Sales Order
 * [Purchase] Created API view for Vendor
 * [Sales] Create Kit Item Type
 * [System] Added support for Site (i.e, Warehouse) level security
