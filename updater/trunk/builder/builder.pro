@@ -88,5 +88,5 @@ SOURCES += main.cpp \
            queryeditor.cpp \
            newprereqdialog.cpp
 
-QT += xml qt3support 
+QT += xml qt3support sql
 
