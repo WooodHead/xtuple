@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section548225">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales history</primary>
       <secondary>by ship-to address</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>ship-to addresses</primary>
       <secondary>sales history for</secondary>
     </indexterm>Sales History by Ship-To</title>
   <para>To view Sales history by Ship-To, select the "Sales History by
   Ship-To" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspSalesHistoryByShipTo.png"/>
+          <imagedata fileref="images/dspSalesHistoryByShipTo.png" />
         </imageobject>
         <caption>Sales History by Ship-To</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>This display returns results only for Sales Orders where a specific
     Ship-To Address number was entered on the Sales Order header. Data will
@@ -59,8 +56,7 @@
     <varlistentry role="standard">
       <term>All Sites</term>
       <listitem>
-        <para>Select to display Sales history by Ship-To for all
-        Sites.</para>
+        <para>Select to display Sales history by Ship-To for all Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -121,7 +117,8 @@
       <term>Sales History</term>
       <listitem>
         <para>Display lists Sales history by Ship-To, using the specified
-        parameters.</para>
+        parameters. Prices are normalized to the Base Currency using the
+        Currency Exchange Rate effective on the Invoice Date.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -152,8 +149,14 @@
   <para>Right-clicking on an Order in the Sales history list enables you to
   select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEdit)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickView)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEdit)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickView)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

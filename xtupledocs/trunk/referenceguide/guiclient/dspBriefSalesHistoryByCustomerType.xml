@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section530292">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales history</primary>
       <secondary>brief by customer type</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,17 +12,14 @@
     </indexterm>Brief Sales History by Customer Type</title>
   <para>To view brief Sales history by Customer Type, select the "Brief Sales
   History by Customer Type" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspBriefSalesHistoryByCustomerType.png"/>
+          <imagedata fileref="images/dspBriefSalesHistoryByCustomerType.png" />
         </imageobject>
-        <caption>Brief Sales History by Customer
-        Type</caption>
+        <caption>Brief Sales History by Customer Type</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying brief Sales history by Customer Type, you are
   presented with the following options:</para>
   <variablelist>
@@ -57,8 +54,8 @@
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Site whose brief Sales history by Customer Type you
-        want to display.</para>
+        <para>Specify Site whose brief Sales history by Customer Type you want
+        to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -79,7 +76,8 @@
       <term>Sales History</term>
       <listitem>
         <para>Display lists brief Sales history by Customer Type, using the
-        specified parameters.</para>
+        specified parameters. Prices are normalized to the Base Currency using
+        the Currency Exchange Rate effective on the Invoice Date.</para>
       </listitem>
     </varlistentry>
   </variablelist>

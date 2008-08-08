@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="dspBookingsBySalesRep">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>bookings</primary>
       <secondary>by sales representative</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>sales representatives</primary>
       <secondary>booking details for</secondary>
     </indexterm>Bookings by Sales Rep</title>
-  <para>
-<indexterm significance="normal">
+  <para><indexterm significance="normal">
       <primary>sales rep</primary>
       <see>sales representatives</see>
     </indexterm>To view Bookings by Sales Representative, select the "Bookings
   by Sales Rep" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspBookingsBySalesRep.png"/>
+          <imagedata fileref="images/dspBookingsBySalesRep.png" />
         </imageobject>
-        <caption>Bookings by Sales
-        Representative</caption>
+        <caption>Bookings by Sales Representative</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Bookings by Sales Representative, you are presented
   with the following options:</para>
   <variablelist>
@@ -47,8 +43,8 @@
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Site whose Bookings by Sales Representative you
-        want to display.</para>
+        <para>Specify Site whose Bookings by Sales Representative you want to
+        display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -90,7 +86,8 @@
       <term>Bookings</term>
       <listitem>
         <para>Display lists Bookings by Sales Representative, using the
-        specified parameters.</para>
+        specified parameters. Prices are normalized to the Base Currency using
+        the Currency Exchange Rate effective on the Order Date.</para>
       </listitem>
     </varlistentry>
   </variablelist>

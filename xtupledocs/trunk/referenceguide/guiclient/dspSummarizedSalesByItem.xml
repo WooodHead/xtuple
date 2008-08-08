@@ -15,8 +15,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspSummarizedSalesByItem.png"
-                     />
+          <imagedata fileref="images/dspSummarizedSalesByItem.png" />
         </imageobject>
         <caption>Summarized Sales History by Item</caption>
       </mediaobject>
@@ -90,8 +89,8 @@
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Site whose summarized Sales history by Item you
-        want to display.</para>
+        <para>Specify Site whose summarized Sales history by Item you want to
+        display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -125,7 +124,8 @@
       <term>Sales History</term>
       <listitem>
         <para>Display lists summarized Sales history by Item, using the
-        specified parameters.</para>
+        specified parameters. Prices are normalized to the Base Currency using
+        the Currency Exchange Rate effective on the Invoice Date.</para>
       </listitem>
     </varlistentry>
   </variablelist>

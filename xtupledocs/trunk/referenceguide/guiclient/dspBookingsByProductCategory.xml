@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518792">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>bookings</primary>
       <secondary>by product category</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>Bookings by Product Category</title>
   <para>To view Bookings by Product Category, select the "Bookings by Product
   Category" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspBookingsByProductCategory.png"/>
+          <imagedata fileref="images/dspBookingsByProductCategory.png" />
         </imageobject>
         <caption>Bookings by Product Category</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Bookings by Product Category, you are presented with
   the following options:</para>
   <variablelist>
@@ -77,7 +75,8 @@
       <term>Bookings</term>
       <listitem>
         <para>Display lists Bookings by Product Category, using the specified
-        parameters.</para>
+        parameters. Prices are normalized to the Base Currency using the
+        Currency Exchange Rate effective on the Order Date.</para>
       </listitem>
     </varlistentry>
   </variablelist>

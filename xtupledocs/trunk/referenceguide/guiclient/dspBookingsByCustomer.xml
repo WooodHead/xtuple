@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518683">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>bookings</primary>
       <secondary>by customer</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>Bookings by Customer</title>
   <para>To view Bookings by Customer, select the "Bookings by Customer"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspBookingsByCustomer.png"/>
+          <imagedata fileref="images/dspBookingsByCustomer.png" />
         </imageobject>
         <caption>Bookings by Customer</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Bookings by Customer, you are presented with the
   following options:</para>
   <variablelist>
@@ -44,8 +42,7 @@
     <varlistentry role="standard">
       <term>All Sites</term>
       <listitem>
-        <para>Select to display Bookings by Customer for all
-        Sites.</para>
+        <para>Select to display Bookings by Customer for all Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -94,7 +91,8 @@
       <term>Bookings</term>
       <listitem>
         <para>Display lists Bookings by Customer, using the specified
-        parameters.</para>
+        parameters. Prices are normalized to the Base Currency using the
+        Currency Exchange Rate effective on the Order Date.</para>
       </listitem>
     </varlistentry>
   </variablelist>

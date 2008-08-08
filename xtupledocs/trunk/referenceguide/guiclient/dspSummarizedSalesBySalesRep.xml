@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518962">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales history</primary>
       <secondary>summarized by sales representative</secondary>
     </indexterm> <indexterm significance="normal">
@@ -13,17 +13,14 @@
   <para>To view summarized Sales history by Sales Representative, select the
   "Summarized Sales History by Sales Rep" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspSummarizedSalesBySalesRep.png"/>
+          <imagedata fileref="images/dspSummarizedSalesBySalesRep.png" />
         </imageobject>
-        <caption>Summarized Sales History by Sales
-        Representative</caption>
+        <caption>Summarized Sales History by Sales Representative</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying summarized Sales history by Sales Representative, you
   are presented with the following options:</para>
   <variablelist>
@@ -80,7 +77,9 @@
       <term>Sales History</term>
       <listitem>
         <para>Display lists summarized Sales history by Sales Representative,
-        using the specified parameters.</para>
+        using the specified parameters. Prices are normalized to the Base
+        Currency using the Currency Exchange Rate effective on the Invoice
+        Date.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -111,7 +110,11 @@
   <para>Right-clicking on a Sales Representative in the Sales history list
   enables you to select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewSalesDetail)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewSalesDetail)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518755">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>bookings</primary>
       <secondary>by item</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>items</primary>
       <secondary>bookings for</secondary>
     </indexterm>Bookings by Item</title>
-  <para>To view Bookings by Item, select the "Bookings by
-  Item" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To view Bookings by Item, select the "Bookings by Item" option. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspBookingsByItem.png"/>
+          <imagedata fileref="images/dspBookingsByItem.png" />
         </imageobject>
         <caption>Bookings by Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying Bookings by Item, you are presented
-  with the following options:</para>
+    </screenshot></para>
+  <para>When displaying Bookings by Item, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Item Number</term>
@@ -48,8 +45,7 @@
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Site whose Bookings by Item you want to
-        display.</para>
+        <para>Specify Site whose Bookings by Item you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -69,13 +65,14 @@
     <varlistentry>
       <term>Bookings</term>
       <listitem>
-        <para>Display lists Bookings by Item, using the specified
-        parameters.</para>
+        <para>Display lists Bookings by Item, using the specified parameters.
+        Prices are normalized to the Base Currency using the Currency Exchange
+        Rate effective on the Order Date.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>

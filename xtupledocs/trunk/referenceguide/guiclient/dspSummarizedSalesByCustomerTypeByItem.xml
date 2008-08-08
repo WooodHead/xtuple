@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section530353">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales history</primary>
       <secondary>summarized by customer type by item</secondary>
     </indexterm> <indexterm significance="normal">
@@ -16,17 +16,14 @@
   <para>To view summarized Sales history by Customer Type by Item, select the
   "Summarized Sales History by Customer Type by Item" option. The following
   screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspSummarizedSalesByCustomerTypeByItem.png"/>
+          <imagedata fileref="images/dspSummarizedSalesByCustomerTypeByItem.png" />
         </imageobject>
-        <caption>Summarized Sales History by Customer Type
-        by Item</caption>
+        <caption>Summarized Sales History by Customer Type by Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying summarized Sales history by Customer Type by Item, you
   are presented with the following options:</para>
   <variablelist>
@@ -75,15 +72,17 @@
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Site whose summarized Sales history by Customer
-        Type by Item you want to display.</para>
+        <para>Specify Site whose summarized Sales history by Customer Type by
+        Item you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Sales History</term>
       <listitem>
         <para>Display lists summarized Sales history by Customer Type by Item,
-        using the specified parameters.</para>
+        using the specified parameters. Prices are normalized to the Base
+        Currency using the Currency Exchange Rate effective on the Invoice
+        Date.</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section523823">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales history</primary>
       <secondary>by product category</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,17 +12,14 @@
     </indexterm>Sales History by Product Category</title>
   <para>To view Sales history by Product Category, select the "Sales History
   by Product Category" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspSalesHistoryByProductCategory.png"/>
+          <imagedata fileref="images/dspSalesHistoryByProductCategory.png" />
         </imageobject>
-        <caption>Sales History by Product
-        Category</caption>
+        <caption>Sales History by Product Category</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Sales history by Product Category, you are presented
   with the following options:</para>
   <variablelist>
@@ -57,8 +54,8 @@
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Site whose Sales history by Product Category you
-        want to display.</para>
+        <para>Specify Site whose Sales history by Product Category you want to
+        display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -91,7 +88,8 @@
       <term>Sales History</term>
       <listitem>
         <para>Display lists Sales history by Product Category, using the
-        specified parameters.</para>
+        specified parameters. Prices are normalized to the Base Currency using
+        the Currency Exchange Rate effective on the Invoice Date.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -122,8 +120,14 @@
   <para>Right-clicking on an Order in the Sales history list enables you to
   select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEdit)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickView)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEdit)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickView)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

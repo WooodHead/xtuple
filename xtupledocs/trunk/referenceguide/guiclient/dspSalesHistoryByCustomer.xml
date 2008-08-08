@@ -15,8 +15,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspSalesHistoryByCustomer.png"
-                     />
+          <imagedata fileref="images/dspSalesHistoryByCustomer.png" />
         </imageobject>
         <caption>Sales History by Customer</caption>
       </mediaobject>
@@ -105,7 +104,8 @@
       <term>Sales History</term>
       <listitem>
         <para>Display lists Sales history by Customer, using the specified
-        parameters.</para>
+        parameters. Prices are normalized to the Base Currency using the
+        Currency Exchange Rate effective on the Invoice Date.</para>
       </listitem>
     </varlistentry>
   </variablelist>
