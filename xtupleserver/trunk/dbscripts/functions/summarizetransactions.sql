@@ -18,8 +18,6 @@ BEGIN
     AND (item_inv_uom_id=uom_id)
     AND (itemsite_id=pItemsiteid));
 
-  _transCounter := 0;
-
 --  Can''t summarize into the future...
   IF (pEndDate > CURRENT_DATE) THEN
     _endDate := CURRENT_DATE;
@@ -34,11 +32,32 @@ BEGIN
     _startDate := pStartDate;
   END IF;
 
-  FOR _invhist IN SELECT invhist_transtype, SUM(invhist_invqty) AS qty
+--  Verify that history is not referenced elsewhere
+  SELECT invhist_id INTO _transCounter
+  FROM invhist JOIN womatlpost ON (womatlpost_invhist_id=invhist_id)
+  WHERE ((invhist_itemsite_id=pItemsiteid)
+    AND (invhist_transdate::DATE BETWEEN _startDate AND _endDate))
+  LIMIT 1;
+  IF (FOUND) THEN
+    RETURN 0;
+  END IF;
+
+  SELECT invhist_id INTO _transCounter
+  FROM invhist JOIN shipitem ON (shipitem_invhist_id=invhist_id)
+  WHERE ((invhist_itemsite_id=pItemsiteid)
+    AND (invhist_transdate::DATE BETWEEN _startDate AND _endDate))
+  LIMIT 1;
+  IF (FOUND) THEN
+    RETURN 0;
+  END IF;
+
+  _transCounter := 0;
+
+  FOR _invhist IN SELECT invhist_transtype, invhist_costmethod, SUM(invhist_invqty) AS qty
                   FROM invhist
                   WHERE ((invhist_itemsite_id=pItemsiteid)
                    AND (invhist_transdate::DATE BETWEEN _startDate AND _endDate))
-                  GROUP BY invhist_transtype LOOP
+                  GROUP BY invhist_transtype, invhist_costmethod LOOP
 
     DELETE FROM invhist
     WHERE ((invhist_transdate::DATE BETWEEN _startDate AND _endDate)
@@ -48,11 +67,13 @@ BEGIN
     INSERT INTO invhist
     ( invhist_itemsite_id, invhist_transdate, invhist_transtype,
       invhist_invqty, invhist_qoh_before, invhist_qoh_after,
-      invhist_invuom, invhist_user, invhist_ordnumber )
+      invhist_invuom, invhist_user, invhist_ordnumber,
+      invhist_costmethod, invhist_value_before, invhist_value_after )
     VALUES
     ( pItemsiteid, _endDate, _invhist.invhist_transtype,
       _invhist.qty, 0, 0,
-      _itemuom, CURRENT_USER, ''Summary'' );
+      _itemuom, CURRENT_USER, ''Summary'',
+      _invhist.invhist_costmethod, 0, 0 );
 
     _transCounter := (_transCounter + 1);
 
