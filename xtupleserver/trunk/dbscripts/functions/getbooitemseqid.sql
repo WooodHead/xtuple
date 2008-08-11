@@ -15,7 +15,7 @@ BEGIN
   ELSE
     SELECT booitem_seq_id INTO _returnVal
     FROM booitem(getItemId(pItemNumber))
-    WHERE (booitem_seqnumber=pSeqNumber);
+    WHERE (booitem_seqnumber=CAST(pSeqNumber AS integer));
   END IF;
     
   IF (_returnVal IS NULL) THEN
