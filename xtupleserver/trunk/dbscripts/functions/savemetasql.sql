@@ -25,7 +25,7 @@ BEGIN
       WHERE (metasql_id=_metasqlid);
   ELSE
     --Create a new Record
-    _metasqlid := NEXTVAL(''metasql_metasql_seq_id'');
+    _metasqlid := NEXTVAL(''metasql_metasql_id_seq'');
 
     INSERT INTO metasql 
     VALUES (_metasqlid,pGroup,pName,pNotes,pQuery);

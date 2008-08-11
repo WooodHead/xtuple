@@ -18,8 +18,19 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
         IF (NEW.pkgitem_type = ''F'') THEN
           _object := SPLIT_PART(_object, ''('', 1);
         END IF;
+        IF _debug THEN
+          RAISE NOTICE ''_schema % and _object %'', _schema, _object;
+        END IF;
+
+      ELSIF (NEW.pkgitem_type = ''M'') THEN
+        IF (POSITION(''-'' IN NEW.pkgitem_name) > 0) THEN
+          _schema := SPLIT_PART(NEW.pkgitem_name, ''-'', 1);
+          _object := SPLIT_PART(NEW.pkgitem_name, ''-'', 2);
+        ELSE
+          _schema := '''';
+          _object := NEW.pkgitem_name;
+        END IF;
       END IF;
-      IF _debug THEN RAISE NOTICE ''_schema % and _object %'', _schema, _object; END IF;
 
       IF (NEW.pkgitem_type = ''C'') THEN
         IF (NOT EXISTS(SELECT script_id
@@ -75,7 +86,14 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
         END IF;
 
       ELSIF (NEW.pkgitem_type = ''M'') THEN
-        RAISE EXCEPTION ''Menus are not yet supported pkgitems.'';
+        IF (NOT EXISTS(SELECT metasql_id
+                       FROM metasql
+                       WHERE ((metasql_id=NEW.pkgitem_item_id)
+                          AND (metasql_group=_schema)
+                          AND (metasql_name=_object)))) THEN
+          RAISE EXCEPTION ''Cannot create MetaSQL statement % as a Package Item without a corresponding metasql record.'',
+            NEW.pkgitem_name;
+        END IF;
 
       ELSIF (NEW.pkgitem_type = ''P'') THEN
         IF (NOT EXISTS(SELECT priv_id
@@ -150,6 +168,14 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
           _schema = ''public'';
           _object = OLD.pkgitem_name;
         END IF;
+      ELSIF (OLD.pkgitem_type = ''M'') THEN
+        IF (POSITION(''-'' IN OLD.pkgitem_name) > 0) THEN
+          _schema := SPLIT_PART(OLD.pkgitem_name, ''-'', 1);
+          _object := SPLIT_PART(OLD.pkgitem_name, ''-'', 2);
+        ELSE
+          _schema := '''';
+          _object := OLD.pkgitem_name;
+        END IF;
       END IF;
 
       IF (OLD.pkgitem_type = ''C'') THEN
@@ -178,7 +204,9 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
                              AND (image_name=OLD.pkgitem_name));
 
       ELSIF (OLD.pkgitem_type = ''M'') THEN
-        RAISE EXCEPTION ''Menus are not yet supported pkgitems.'';
+        DELETE FROM metasql WHERE ((metasql_id=OLD.pkgitem_item_id)
+                               AND (metasql_group=_schema)
+                               AND (metasql_name=_object));
 
       ELSIF (OLD.pkgitem_type = ''P'') THEN
         DELETE FROM priv WHERE ((priv_id=OLD.pkgitem_item_id)
