@@ -64,6 +64,8 @@
 class QDomDocument;
 class QDomElement;
 
+#define TR(a) QObject::tr(a)
+
 class Script
 {
   public:

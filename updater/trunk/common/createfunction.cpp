@@ -79,7 +79,7 @@ CreateFunction::CreateFunction(const QDomElement &elem, QStringList &msg, QList<
 
   if (elem.nodeName() != "createfunction")
   {
-    msg.append(QObject::tr("Creating a CreateFunction element from a %1 node.")
+    msg.append(TR("Creating a CreateFunction element from a %1 node.")
               .arg(elem.nodeName()));
     fatal.append(false);
   }
@@ -197,7 +197,7 @@ int CreateFunction::writeToDB(const QByteArray &pdata, const QString pkgname, QS
     }
     if (count == 0)
     {
-      errMsg = QObject::tr("Could not find function %1 in the database. The "
+      errMsg = TR("Could not find function %1 in the database. The "
                            "script %2 does not match the contents.xml "
                            "description.")
                 .arg(_name).arg(_filename);

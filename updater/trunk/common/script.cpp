@@ -63,7 +63,7 @@
 
 #define DEBUG false
 
-QString Script::_sqlerrtxt = QObject::tr("The following error was encountered "
+QString Script::_sqlerrtxt = TR("The following error was encountered "
                                          "while trying to import %1 into the "
                                          "database:<br>%2<br>%3");
 
@@ -82,7 +82,7 @@ Script::Script(const QDomElement & elem, QStringList &msg, QList<bool> &fatal)
 
   if (_name.isEmpty())
   {
-    msg.append(QObject::tr("This script does not have a name."));
+    msg.append(TR("This script does not have a name."));
     fatal.append(true);
   }
 }
@@ -151,7 +151,7 @@ int Script::writeToDB(const QByteArray &pdata, const QString annotation, QString
            pdata.data(), qPrintable(annotation), _onError);
   if (pdata.isEmpty())
   {
-    errMsg = QObject::tr("The file %1 is empty.").arg(filename());
+    errMsg = TR("The file %1 is empty.").arg(filename());
     return -1;
   }
 

@@ -79,7 +79,7 @@ CreateTrigger::CreateTrigger(const QDomElement &elem, QStringList &msg, QList<bo
 
   if (elem.nodeName() != "createtrigger")
   {
-    msg.append(QObject::tr("Creating a CreateTrigger element from a %1 node.")
+    msg.append(TR("Creating a CreateTrigger element from a %1 node.")
               .arg(elem.nodeName()));
     fatal.append(false);
   }
@@ -175,7 +175,7 @@ int CreateTrigger::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
     }
     else // not found
     {
-      errMsg = QObject::tr("Could not find trigger %1 in the database. The "
+      errMsg = TR("Could not find trigger %1 in the database. The "
                            "script %2 does not match the contents.xml "
                            "description.")
                 .arg(_name).arg(_filename);

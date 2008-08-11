@@ -58,7 +58,6 @@
 #include "loadpriv.h"
 
 #include <QDomDocument>
-#include <QMessageBox>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QVariant>     // used by QSqlQuery::bindValue()
@@ -83,7 +82,7 @@ LoadPriv::LoadPriv(const QDomElement &elem, QStringList &msg, QList<bool> &fatal
 
   if (_name.isEmpty())
   {
-    msg.append(QObject::tr("A Privilege %1 does not have a name."));
+    msg.append(TR("A Privilege %1 does not have a name."));
     fatal.append(true);
   }
 
@@ -92,7 +91,7 @@ LoadPriv::LoadPriv(const QDomElement &elem, QStringList &msg, QList<bool> &fatal
   else
   {
     _module = "Custom";
-    msg.append(QObject::tr("The Privilege %1 has not been assigned to a "
+    msg.append(TR("The Privilege %1 has not been assigned to a "
                            "module. It will default to '%2'.")
                 .arg(_name).arg(_module));
     fatal.append(false);
@@ -114,23 +113,18 @@ QDomElement LoadPriv::createElement(QDomDocument &doc)
 
 int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
 {
-  QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
-                                  "encountered while trying to import %1 into "
-                                  "the database:<br>%2<br>%3</font>");
   if (_name.isEmpty())
   {
-    errMsg = QObject::tr("<font color=orange>The Privilege does not have"
-                         " a name.</font>")
-                         .arg(_name);
+    errMsg = TR("<font color=orange>The Privilege does not have a name.</font>")
+               .arg(_name);
     return -1;
   }
 
   if (_module.isEmpty())
   {
-    errMsg = QObject::tr("<font color=orange>The Privilege %1 has not been "
-                         "assigned to a module and so may not be assignable "
-                         ".</font>")
-                         .arg(_name);
+    errMsg = TR("<font color=orange>The Privilege %1 has not been "
+                 "assigned to a module and so may not be assignable.</font>")
+               .arg(_name);
   }
 
   QSqlQuery select;
@@ -144,15 +138,10 @@ int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
                    "  FROM priv "
                    " WHERE (priv_name=:name);");
   else
-    select.prepare("SELECT COALESCE(pkgitem_item_id, -1), pkghead_id,"
-                   "       COALESCE(pkgitem_id,      -1) "
-                   "  FROM pkghead LEFT OUTER JOIN"
-                   "       pkgitem ON ((pkgitem_pkghead_id=pkghead_id)"
-                   "               AND (pkgitem_type='P')"
-                   "               AND (pkgitem_name=:name))"
-                   " WHERE (pkghead_name=:pkgname)");
+    select.prepare(_pkgitemQueryStr);
   select.bindValue(":name",    _name);
   select.bindValue(":pkgname", pkgname);
+  select.bindValue(":type",    _pkgitemtype);
   select.exec();
   if(select.first())
   {
@@ -163,7 +152,7 @@ int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
   else if (select.lastError().type() != QSqlError::NoError)
   {
     QSqlError err = select.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
     return -5;
   }
 
@@ -181,7 +170,7 @@ int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
       return -6;
     }
     upsert.prepare("INSERT INTO priv ("
@@ -197,7 +186,7 @@ int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
     return -7;
   }
 

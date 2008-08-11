@@ -73,6 +73,7 @@ class LoadAppScript;
 class LoadAppUI;
 class LoadCmd;
 class LoadImage;
+class LoadMetasql;
 class LoadPriv;
 class LoadReport;
 class Prerequisite;
@@ -106,6 +107,7 @@ class Package
     QList<LoadAppUI>      _appuis;
     QList<LoadCmd>        _cmds;
     QList<LoadImage>      _images;
+    QList<LoadMetasql>    _metasqls;
     QList<LoadPriv>       _privs;
     QList<Prerequisite>   _prerequisites;
     QList<Script>         _scripts;
@@ -117,6 +119,7 @@ class Package
     bool containsFunction(const QString &name)     const;
     bool containsImage(const QString &name)        const;
     bool containsPrerequisite(const QString &name) const;
+    bool containsMetasql(const QString &name)      const;
     bool containsPriv(const QString &name)         const;
     bool containsReport(const QString &name)       const;
     bool containsSchema(const QString &name)       const;

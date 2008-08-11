@@ -77,7 +77,7 @@ LoadReport::LoadReport(const QDomElement & elem, QStringList &msg, QList<bool> &
 
   if (elem.nodeName() != "loadreport")
   {
-    msg.append(QObject::tr("Creating a LoadAppReport element from a %1 node.")
+    msg.append(TR("Creating a LoadAppReport element from a %1 node.")
                        .arg(elem.nodeName()));
     fatal.append(false);
   }
@@ -85,15 +85,12 @@ LoadReport::LoadReport(const QDomElement & elem, QStringList &msg, QList<bool> &
 
 int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
 {
-  QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
-                                  "encountered while trying to import %1 into "
-                                  "the database:<br>%2<br>%3</font>");
   int errLine = 0;
   int errCol  = 0;
   QDomDocument doc;
   if (! doc.setContent(pdata, &errMsg, &errLine, &errCol))
   {
-    errMsg = (QObject::tr("<font color=red>Error parsing file %1: %2 on "
+    errMsg = (TR("<font color=red>Error parsing file %1: %2 on "
                           "line %3 column %4</font>")
                           .arg(_filename).arg(errMsg).arg(errLine).arg(errCol));
     return -1;
@@ -102,7 +99,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
   QDomElement root = doc.documentElement();
   if(root.tagName() != "report")
   {
-    errMsg = QObject::tr("<font color=red>XML Document %1 does not have root"
+    errMsg = TR("<font color=red>XML Document %1 does not have root"
                          " node of report</font>")
                          .arg(_filename);
     return -2;
@@ -119,7 +116,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
 
   if(_filename.isEmpty())
   {
-    errMsg = QObject::tr("<font color=orange>The document %1 does not have"
+    errMsg = TR("<font color=orange>The document %1 does not have"
                          " a report name defined</font>")
                          .arg(_filename);
     return -3;
@@ -138,7 +135,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
     else if (minOrder.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = minOrder.lastError();
-      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -4;
     }
     else
@@ -157,7 +154,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
     else if (maxOrder.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = maxOrder.lastError();
-      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -5;
     }
     else
@@ -174,13 +171,6 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
   /* The following ugliness exists to avoid
       ERROR:  duplicate key violates unique constraint "report_name_grade_idx"
    */
-  QString pkgselect("SELECT COALESCE(pkgitem_item_id, -1), pkghead_id,"
-                    "       COALESCE(pkgitem_id,      -1) "
-                    "  FROM pkghead LEFT OUTER JOIN"
-                    "       pkgitem ON ((pkgitem_pkghead_id=pkghead_id)"
-                    "               AND (pkgitem_type='R')"
-                    "               AND (pkgitem_name=:name))"
-                    " WHERE (pkghead_name=:pkgname)");
   QString rptselect("SELECT report_id, -1, -1"
                     "  FROM report "
                     " WHERE ((report_name=:name) "
@@ -197,16 +187,17 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
     else if (select.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = select.lastError();
-      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -6;
     }
   }
   else 
   {
-    select.prepare(pkgselect);
+    select.prepare(_pkgitemQueryStr);
     select.bindValue(":name",    _name);
     select.bindValue(":pkgname", pkgname);
     select.bindValue(":grade",   _grade);
+    select.bindValue(":type",    _pkgitemtype);
     select.exec();
     if(select.first())
     {
@@ -217,7 +208,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
     else if (select.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = select.lastError();
-      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -7;
     }
     if (reportid < 0)   // select told us there's no report *in* the package
@@ -246,14 +237,14 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
         else if (next.lastError().type() != QSqlError::NoError)
         {
           QSqlError err = next.lastError();
-          errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+          errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
           return -8;
         }
       }
       else if (select.lastError().type() != QSqlError::NoError)
       {
         QSqlError err = select.lastError();
-        errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+        errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
         return -9;
       }
     }
@@ -273,7 +264,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
-      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -10;
     }
 
@@ -292,7 +283,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
-    errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
     return -11;
   }
 

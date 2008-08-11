@@ -78,7 +78,7 @@ CreateSchema::CreateSchema(const QDomElement &elem, QStringList &msg, QList<bool
 
   if (elem.nodeName() != "createschema")
   {
-    msg.append(QObject::tr("Creating a CreateSchema element from a %1 node.")
+    msg.append(TR("Creating a CreateSchema element from a %1 node.")
               .arg(elem.nodeName()));
     fatal.append(false);
   }
@@ -87,7 +87,7 @@ CreateSchema::CreateSchema(const QDomElement &elem, QStringList &msg, QList<bool
 
   if (elem.hasAttribute("name") && elem.hasAttribute("schema"))
   {
-    msg.append(QObject::tr("The %1 node has both name and schema attributes. "
+    msg.append(TR("The %1 node has both name and schema attributes. "
                            "The value of the schema attribute (%2) will be "
                            "used and the name (%3) will be ignored.")
                .arg(_nodename).arg(_schema).arg(_name));
@@ -100,7 +100,7 @@ CreateSchema::CreateSchema(const QDomElement &elem, QStringList &msg, QList<bool
     _name = elem.attribute("name");
   else
   {
-    msg.append(QObject::tr("The contents.xml must name the schema for %1.")
+    msg.append(TR("The contents.xml must name the schema for %1.")
                .arg(_nodename));
     fatal.append("false");
   }
@@ -109,7 +109,7 @@ CreateSchema::CreateSchema(const QDomElement &elem, QStringList &msg, QList<bool
     _filename = elem.attribute("file");
   else
   {
-    msg.append(QObject::tr("The contents.xml must name the file for %1.")
+    msg.append(TR("The contents.xml must name the file for %1.")
                .arg(_nodename));
     fatal.append(true);
   }
@@ -166,7 +166,7 @@ int CreateSchema::writeToDB(const QByteArray &pdata, const QString pkgname, QStr
     }
     else // not found
     {
-      errMsg = QObject::tr("Could not find schema %1 in the database. The "
+      errMsg = TR("Could not find schema %1 in the database. The "
                            "script %2 does not match the contents.xml "
                            "description.")
                 .arg(_name).arg(_filename);

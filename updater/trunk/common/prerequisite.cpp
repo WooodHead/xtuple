@@ -64,12 +64,14 @@
 
 #include "licensewindow.h"
 
+#define TR(a) QObject::tr(a)
+
 #define DEBUG false
 
-QString Prerequisite::_sqlerrtxt = QObject::tr("The following error was "
-                                               "encountered while trying to "
-                                               "check the prerequisite %1:"
-                                               "<br>%2<br>%3");
+QString Prerequisite::_sqlerrtxt = TR("The following error was "
+                                      "encountered while trying to "
+                                      "check the prerequisite %1:"
+                                      "<br>%2<br>%3");
 
 PrerequisiteProvider::PrerequisiteProvider(const QString & package, const QString & info)
   : _package(package), _info(info)
@@ -336,9 +338,9 @@ bool Prerequisite::met(QString &errMsg)
         errMsg = _sqlerrtxt.arg(_name).arg(query.lastError().databaseText())
                            .arg(query.lastError().driverText());
       else
-        errMsg = QObject::tr("The prerequisite %1 did not return a value. "
-                             "Check with the package provider to see if there "
-                             "is an updated version of this package.").arg(_name);
+        errMsg = TR("The prerequisite %1 did not return a value. "
+                    "Check with the package provider to see if there "
+                    "is an updated version of this package.").arg(_name);
       break;
       }
 
@@ -347,7 +349,7 @@ bool Prerequisite::met(QString &errMsg)
       LicenseWindow newdlg(_message);
       returnVal = (newdlg.exec() == QDialog::Accepted);
       if (! returnVal)
-        errMsg = QObject::tr("The user declined to accept the usage license.");
+        errMsg = TR("The user declined to accept the usage license.");
       break;
       }
 
@@ -372,19 +374,19 @@ bool Prerequisite::met(QString &errMsg)
         errMsg = _sqlerrtxt.arg(_name).arg(query.lastError().databaseText())
                            .arg(query.lastError().driverText());
       else
-        errMsg = QObject::tr("%1<br>The prerequisite %2 has not been met. It "
+        errMsg = TR("%1<br>The prerequisite %2 has not been met. It "
                              "requires that the package %3 (version %4, "
                              "developer %5) be installed first.")
                     .arg(_message).arg(_name).arg(_dependency->name())
                     .arg(_dependency->version().isEmpty() ?
-                         QObject::tr("Unspecified") : _dependency->version())
+                         TR("Unspecified") : _dependency->version())
                     .arg(_dependency->developer().isEmpty() ?
-                         QObject::tr("Unspecified") : _dependency->developer());
+                         TR("Unspecified") : _dependency->developer());
       break;
       }
 
     default:
-      errMsg = QObject::tr("Encountered an unknown Prerequisite type. "
+      errMsg = TR("Encountered an unknown Prerequisite type. "
                            "Prerequisite '%1' has not been validated.")
                         .arg(_name);
       break;
@@ -439,14 +441,14 @@ int Prerequisite::writeToDB(const QString pkgname, QString &errMsg)
     }
     else
     {
-      errMsg = QObject::tr("Could not record the dependency %1 of package %2 "
+      errMsg = TR("Could not record the dependency %1 of package %2 "
                            "on package %3 (version %4, developer %5) because "
                            "the record for %6 was not found.")
                     .arg(_name).arg(pkgname).arg(_dependency->name())
                     .arg(_dependency->version().isEmpty() ?
-                         QObject::tr("Unspecified") : _dependency->version())
+                         TR("Unspecified") : _dependency->version())
                     .arg(_dependency->developer().isEmpty() ?
-                         QObject::tr("Unspecified") : _dependency->developer())
+                         TR("Unspecified") : _dependency->developer())
                     .arg(_dependency->name());
       return -3;
     }

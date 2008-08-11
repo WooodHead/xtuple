@@ -85,6 +85,7 @@ HEADERS = data.h \
           loadappui.h \
           loadcmd.h \
           loadimage.h \
+          loadmetasql.h \
           loadpriv.h \
           loadreport.h \
           prerequisite.h \
@@ -104,6 +105,7 @@ SOURCES = data.cpp \
           loadappui.cpp \
           loadcmd.cpp \
           loadimage.cpp \
+          loadmetasql.cpp \
           loadpriv.cpp \
           loadreport.cpp \
           prerequisite.cpp \

@@ -58,7 +58,6 @@
 #include "loadcmd.h"
 
 #include <QDomDocument>
-#include <QMessageBox>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QStringList>
@@ -89,7 +88,7 @@ LoadCmd::LoadCmd(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
 
   if (_name.isEmpty())
   {
-    msg.append(QObject::tr("This custom command has no name!"));
+    msg.append(TR("This custom command has no name!"));
     fatal.append(true);
   }
 
@@ -97,7 +96,7 @@ LoadCmd::LoadCmd(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
     _title = elem.attribute("title");
   else
   {
-    msg.append(QObject::tr("Node %1 '%2' does not have a title. Its menu item "
+    msg.append(TR("Node %1 '%2' does not have a title. Its menu item "
                            "will be blank.")
                          .arg(elem.nodeName()).arg(elem.attribute("name")));
     fatal.append(true);
@@ -107,7 +106,7 @@ LoadCmd::LoadCmd(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
     _module = elem.attribute("module");
   else
   {
-    msg.append(QObject::tr("Node %1 '%2' does not name a module. The Custom "
+    msg.append(TR("Node %1 '%2' does not name a module. The Custom "
                            "Command will not have a corresponding menu item.")
                        .arg(elem.nodeName()).arg(elem.attribute("name")));
     fatal.append(true);
@@ -117,7 +116,7 @@ LoadCmd::LoadCmd(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
     _executable = elem.attribute("executable");
   else
   {
-    msg.append(QObject::tr("Node %1 '%2' does not name an executable. Nothing "
+    msg.append(TR("Node %1 '%2' does not name an executable. Nothing "
                            "will be done when the user selects the menu item.")
                        .arg(elem.nodeName()).arg(elem.attribute("name")));
     fatal.append(true);
@@ -128,7 +127,7 @@ LoadCmd::LoadCmd(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
 
   if (elem.hasAttribute("grade"))
   {
-    msg.append(QObject::tr("Node %1 '%2' has a 'grade' attribute but Custom "
+    msg.append(TR("Node %1 '%2' has a 'grade' attribute but Custom "
                       "Commands are not graded. This will be ignored.")
                        .arg(elem.nodeName()).arg(elem.attribute("name")));
     fatal.append(false);
@@ -136,7 +135,7 @@ LoadCmd::LoadCmd(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
 
   if (elem.hasAttribute("system"))
   {
-    msg.append(QObject::tr("Node %1 '%2' has a 'system' attribute but Custom "
+    msg.append(TR("Node %1 '%2' has a 'system' attribute but Custom "
                       "Commands are not system elements. This will be ignored.")
                      .arg(elem.nodeName()).arg(elem.attribute("name")));
     fatal.append(false);
@@ -150,7 +149,7 @@ LoadCmd::LoadCmd(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
       _args.append(childElem.attribute("value").trimmed());
     else
     {
-      msg.append(QObject::tr("Node %1 '%2' has an 'arg' with no 'value' attribute.")
+      msg.append(TR("Node %1 '%2' has an 'arg' with no 'value' attribute.")
                          .arg(elem.nodeName()).arg(elem.attribute("name")));
       fatal.append(false);
     }
@@ -189,9 +188,6 @@ QDomElement LoadCmd::createElement(QDomDocument &doc)
 
 int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
 {
-  QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
-                                  "encountered while trying to import %1 into "
-                                  "the database:<br>%2<br>%3</font>");
   QSqlQuery select;
   QSqlQuery upsert;
 
@@ -203,15 +199,10 @@ int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
                    "  FROM cmd "
                    " WHERE (cmd_name=:name);");
   else
-    select.prepare("SELECT COALESCE(pkgitem_item_id, -1), pkghead_id,"
-                   "       COALESCE(pkgitem_id,      -1) "
-                   "  FROM pkghead LEFT OUTER JOIN"
-                   "       pkgitem ON ((pkgitem_pkghead_id=pkghead_id)"
-                   "               AND (pkgitem_type='D')"
-                   "               AND (pkgitem_name=:name))"
-                   " WHERE (pkghead_name=:pkgname)");
+    select.prepare(_pkgitemQueryStr);
   select.bindValue(":name",    _name);
   select.bindValue(":pkgname", pkgname);
+  select.bindValue(":type",    _pkgitemtype);
   select.exec();
   if(select.first())
   {
@@ -222,7 +213,7 @@ int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
   else if (select.lastError().type() != QSqlError::NoError)
   {
     QSqlError err = select.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
     return -5;
   }
 
@@ -243,7 +234,7 @@ int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
       return -6;
     }
     upsert.prepare("INSERT INTO cmd ("
@@ -264,7 +255,7 @@ int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
     return -7;
   }
 
@@ -274,7 +265,7 @@ int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
   if (! delargs.exec())
   {
     QSqlError err = delargs.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
     return -8;
   }
 
@@ -291,7 +282,7 @@ int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
       if (! insargs.exec())
       {
         QSqlError err = insargs.lastError();
-        errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+        errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
         return -9;
       }
     }

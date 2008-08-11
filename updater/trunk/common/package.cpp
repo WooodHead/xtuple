@@ -74,12 +74,12 @@
 #include "loadappscript.h"
 #include "loadappui.h"
 #include "loadimage.h"
+#include "loadmetasql.h"
 #include "loadpriv.h"
 #include "loadreport.h"
 #include "prerequisite.h"
 #include "script.h"
 
-#define TR(a) QObject::tr(a)
 #define DEBUG false
 
 Package::Package(const QString & id)
@@ -215,6 +215,11 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
       CreateView view(elemThis, msgList, fatalList);
       _views.append(view);
     }
+    else if(elemThis.tagName() == "loadmetasql")
+    {
+      LoadMetasql metasql(elemThis, msgList, fatalList);
+      _metasqls.append(metasql);
+    }
     else if(elemThis.tagName() == "loadpriv")
     {
       LoadPriv priv(elemThis, msgList, fatalList);
@@ -279,6 +284,7 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
     qDebug("_schemas:       %d", _schemas.size());
     qDebug("_triggers:      %d", _triggers.size());
     qDebug("_views:         %d", _views.size());
+    qDebug("_metasqls:      %d", _metasqls.size());
     qDebug("_privs:         %d", _privs.size());
     qDebug("_reports:       %d", _reports.size());
     qDebug("_appuis:        %d", _appuis.size());
@@ -305,6 +311,9 @@ QDomElement Package::createElement(QDomDocument & doc)
     elem.appendChild((*i).createElement(doc));
 
   for(QList<LoadPriv>::iterator i = _privs.begin(); i != _privs.end(); ++i)
+    elem.appendChild((*i).createElement(doc));
+
+  for(QList<LoadMetasql>::iterator i = _metasqls.begin(); i != _metasqls.end(); ++i)
     elem.appendChild((*i).createElement(doc));
 
   for(QList<Script>::iterator i = _scripts.begin(); i != _scripts.end(); ++i)
@@ -411,6 +420,17 @@ bool Package::containsFunction(const QString &pname) const
 {
   QList<CreateFunction>::const_iterator it = _functions.begin();
   for(; it != _functions.end(); ++it)
+  {
+    if((*it).name() == pname)
+      return true;
+  }
+  return false;
+}
+
+bool Package::containsMetasql(const QString &pname) const
+{
+  QList<LoadMetasql>::const_iterator it = _metasqls.begin();
+  for(; it != _metasqls.end(); ++it)
   {
     if((*it).name() == pname)
       return true;

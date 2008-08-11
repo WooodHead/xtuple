@@ -58,7 +58,6 @@
 #include "loadappui.h"
 
 #include <QDomDocument>
-#include <QMessageBox>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QVariant>     // used by QSqlQuery::bindValue()
@@ -81,14 +80,14 @@ LoadAppUI::LoadAppUI(const QDomElement &elem, QStringList &msg, QList<bool> &fat
 
   if (elem.nodeName() != "loadappui")
   {
-    msg.append(QObject::tr("Creating a LoadAppUI element from a %1 node.")
+    msg.append(TR("Creating a LoadAppUI element from a %1 node.")
                          .arg(elem.nodeName()));
     fatal.append(false);
   }
 
   if (elem.hasAttribute("grade"))
   {
-    msg.append(QObject::tr("Node %1 '%2' has a 'grade' attribute but "
+    msg.append(TR("Node %1 '%2' has a 'grade' attribute but "
                       "should use 'order' instead.")
                      .arg(elem.nodeName()).arg(elem.attribute("name")));
     fatal.append(false);
@@ -113,7 +112,7 @@ LoadAppUI::LoadAppUI(const QDomElement &elem, QStringList &msg, QList<bool> &fat
       _enabled = false;
     else
     {
-      msg.append(QObject::tr("Node %1 '%2' has an 'enabled' attribute that is "
+      msg.append(TR("Node %1 '%2' has an 'enabled' attribute that is "
                         "neither 'true' nor 'false'. Using '%3'.")
                          .arg(elem.nodeName()).arg(elem.attribute("name"))
                          .arg(_enabled ? "true" : "false"));
@@ -124,16 +123,12 @@ LoadAppUI::LoadAppUI(const QDomElement &elem, QStringList &msg, QList<bool> &fat
 
 int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
 {
-  QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
-                                  "encountered while trying to import %1 into "
-                                  "the database:<br>%2<br>%3</font>");
-
   int errLine = 0;
   int errCol = 0;
   QDomDocument doc;
   if (! doc.setContent(pdata, &errMsg, &errLine, &errCol))
   {
-    errMsg = (QObject::tr("<font color=red>Error parsing file %1: %2 on "
+    errMsg = (TR("<font color=red>Error parsing file %1: %2 on "
                           "line %3 column %4</font>")
                           .arg(_filename).arg(errMsg).arg(errLine).arg(errCol));
     return -1;
@@ -142,7 +137,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   QDomElement root = doc.documentElement();
   if (root.tagName() != "ui")
   {
-    errMsg = QObject::tr("<font color=red>XML Document %1 does not have root"
+    errMsg = TR("<font color=red>XML Document %1 does not have root"
                          " node of 'ui'</font>")
                          .arg(_filename);
     return -2;
@@ -154,7 +149,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   QDomElement n = root.firstChildElement("class");
   if (n.isNull())
   {
-    errMsg = QObject::tr("<font color=red>XML Document %1 does not name its "
+    errMsg = TR("<font color=red>XML Document %1 does not name its "
                           "class and is not a valid UI Form.")
                           .arg(_filename);
     return -3;
@@ -177,7 +172,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
     else if (minOrder.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = minOrder.lastError();
-      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -3;
     }
     else
@@ -196,7 +191,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
     else if (maxOrder.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = maxOrder.lastError();
-      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -4;
     }
     else
@@ -215,16 +210,11 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
                    " WHERE ((uiform_name=:name)"
                    "   AND  (uiform_order=:grade));");
   else
-    select.prepare("SELECT COALESCE(pkgitem_item_id, -1), pkghead_id,"
-                   "       COALESCE(pkgitem_id,      -1) "
-                   "  FROM pkghead LEFT OUTER JOIN"
-                   "       pkgitem ON ((pkgitem_pkghead_id=pkghead_id)"
-                   "               AND (pkgitem_type='U')"
-                   "               AND (pkgitem_name=:name))"
-                   " WHERE (pkghead_name=:pkgname)");
+    select.prepare(_pkgitemQueryStr);
   select.bindValue(":name",    _name);
   select.bindValue(":grade",   _grade);
   select.bindValue(":pkgname", pkgname);
+  select.bindValue(":type",    _pkgitemtype);
   select.exec();
   if(select.first())
   {
@@ -235,7 +225,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   else if (select.lastError().type() != QSqlError::NoError)
   {
     QSqlError err = select.lastError();
-    errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
     return -5;
   }
 
@@ -255,7 +245,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
-      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -6;
     }
     upsert.prepare("INSERT INTO uiform ("
@@ -274,7 +264,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
-    errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
     return -7;
   }
 

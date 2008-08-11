@@ -58,10 +58,9 @@
 #include "loadimage.h"
 
 #include <QBuffer>
-#include <QDomDocument>
+#include <QDomElement>
 #include <QImage>
 #include <QImageWriter>
-#include <QMessageBox>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QVariant>     // used by QSqlQuery::bindValue()
@@ -85,21 +84,21 @@ LoadImage::LoadImage(const QDomElement &elem, QStringList &msg, QList<bool> &fat
 
   if (_name.isEmpty())
   {
-    msg.append(QObject::tr("The image in %1 does not have a name.")
+    msg.append(TR("The image in %1 does not have a name.")
                        .arg(_filename));
     fatal.append(true);
   }
 
   if (elem.nodeName() != "loadimage")
   {
-    msg.append(QObject::tr("Creating a LoadImage element from a %1 node.")
+    msg.append(TR("Creating a LoadImage element from a %1 node.")
               .arg(elem.nodeName()));
     fatal.append(false);
   }
 
   if (elem.hasAttribute("grade") || elem.hasAttribute("order"))
   {
-    msg.append(QObject::tr("Node %1 '%2' has a 'grade' or 'order' attribute "
+    msg.append(TR("Node %1 '%2' has a 'grade' or 'order' attribute "
                            "but these are ignored for images.")
                            .arg(elem.nodeName()).arg(elem.attribute("name")));
     fatal.append(false);
@@ -107,7 +106,7 @@ LoadImage::LoadImage(const QDomElement &elem, QStringList &msg, QList<bool> &fat
 
   if (elem.hasAttribute("enabled"))
   {
-    msg.append(QObject::tr("Node %1 '%2' has an 'enabled' "
+    msg.append(TR("Node %1 '%2' has an 'enabled' "
                            "attribute which is ignored for images.")
                        .arg(elem.nodeName()).arg(elem.attribute("name")));
     fatal.append(false);
@@ -115,7 +114,7 @@ LoadImage::LoadImage(const QDomElement &elem, QStringList &msg, QList<bool> &fat
 
   if (elem.hasAttribute("system"))
   {
-    msg.append(QObject::tr("Node %1 '%2' has a 'system' attribute "
+    msg.append(TR("Node %1 '%2' has a 'system' attribute "
                            "which is ignored for images.")
                        .arg(elem.nodeName()).arg(elem.attribute("name")));
     fatal.append(false);
@@ -124,13 +123,9 @@ LoadImage::LoadImage(const QDomElement &elem, QStringList &msg, QList<bool> &fat
 
 int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
 {
-  QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
-                                  "encountered while trying to import %1 into "
-                                  "the database:<br>%2<br>%3</font>");
-
   if (pdata.isEmpty())
   {
-    errMsg = QObject::tr("<font color=orange>The image %1 is empty.</font>")
+    errMsg = TR("<font color=orange>The image %1 is empty.</font>")
                          .arg(_name);
     return -2;
   }
@@ -161,7 +156,7 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
     image.loadFromData(pdata);
     if (!imageIo.write(image))
     {
-      errMsg = QObject::tr("<font color=orange>Error processing image %1: "
+      errMsg = TR("<font color=orange>Error processing image %1: "
                            "<br>%2</font>")
                 .arg(_name).arg(imageIo.errorString());
       return -3;
@@ -184,16 +179,11 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
                    "  FROM image "
                    " WHERE (image_name=:name);");
   else
-    select.prepare("SELECT COALESCE(pkgitem_item_id, -1), pkghead_id,"
-                   "       COALESCE(pkgitem_id,      -1) "
-                   "  FROM pkghead LEFT OUTER JOIN"
-                   "       pkgitem ON ((pkgitem_pkghead_id=pkghead_id)"
-                   "               AND (pkgitem_type='I')"
-                   "               AND (pkgitem_name=:name))"
-                   " WHERE (pkghead_name=:pkgname)");
+    select.prepare(_pkgitemQueryStr);
   select.bindValue(":name",    _name);
   select.bindValue(":pkgname", pkgname);
   select.bindValue(":grade",   _grade);
+  select.bindValue(":type",    _pkgitemtype);
   select.exec();
   if(select.first())
   {
@@ -204,7 +194,7 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   else if (select.lastError().type() != QSqlError::NoError)
   {
     QSqlError err = select.lastError();
-    errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
     return -5;
   }
 
@@ -222,7 +212,7 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
-      errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -6;
     }
 
@@ -239,7 +229,7 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
-    errMsg = sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
     return -7;
   }
 

@@ -88,7 +88,7 @@ CreateDBObj::CreateDBObj(const QDomElement & elem, QStringList &msg, QList<bool>
     _name = elem.attribute("name");
   else
   {
-    msg.append(QObject::tr("The contents.xml must name the object for %1.")
+    msg.append(TR("The contents.xml must name the object for %1.")
                .arg(_nodename));
     fatal.append("false");
   }
@@ -97,7 +97,7 @@ CreateDBObj::CreateDBObj(const QDomElement & elem, QStringList &msg, QList<bool>
     _filename = elem.attribute("file");
   else
   {
-    msg.append(QObject::tr("The contents.xml must name the file for %1.")
+    msg.append(TR("The contents.xml must name the file for %1.")
                .arg(_nodename));
     fatal.append(true);
   }
@@ -107,7 +107,7 @@ CreateDBObj::CreateDBObj(const QDomElement & elem, QStringList &msg, QList<bool>
   else
   {
     _schema = "public";
-    msg.append(QObject::tr("No explicit schema for %1; defaulting to %2.")
+    msg.append(TR("No explicit schema for %1; defaulting to %2.")
                .arg(_nodename).arg(_schema));
     fatal.append(false);
   }
@@ -144,7 +144,7 @@ QDomElement CreateDBObj::createElement(QDomDocument & doc)
 int CreateDBObj::upsertPkgItem(const int pkgheadid, const int itemid,
                                QString &errMsg)
 {
-  QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
+  QString sqlerrtxt = TR("<font color=red>The following error was "
                                   "encountered while trying to import %1 into "
                                   "the database:<br>%2<br>%3</font>");
   if (pkgheadid < 0)

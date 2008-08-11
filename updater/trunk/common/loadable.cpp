@@ -58,14 +58,25 @@
 #include "loadable.h"
 
 #include <QDomDocument>
-#include <QMessageBox>
 #include <QRegExp>
 #include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>
+#include <QVariant>     // used by QSqlQuery::value()
 
 QRegExp Loadable::trueRegExp("^t(rue)?$",   Qt::CaseInsensitive);
 QRegExp Loadable::falseRegExp("^f(alse)?$", Qt::CaseInsensitive);
+
+QString Loadable::_sqlerrtxt = TR("<font color=red>The following error was "
+                                  "encountered while trying to import %1 into "
+                                  "the database:<br>%2<br>%3</font>");
+QString Loadable::_pkgitemQueryStr("SELECT COALESCE(pkgitem_item_id, -1),"
+                                   "       pkghead_id,"
+                                   "       COALESCE(pkgitem_id,      -1) "
+                                   "  FROM pkghead LEFT OUTER JOIN"
+                                   "       pkgitem ON ((pkgitem_pkghead_id=pkghead_id)"
+                                   "               AND (pkgitem_type=:type)"
+                                   "               AND (pkgitem_name=:name))"
+                                   " WHERE (pkghead_name=:pkgname)");
 
 Loadable::Loadable(const QString &nodename, const QString &name,
                    const int grade, const bool system, const QString &comment,
@@ -105,7 +116,7 @@ Loadable::Loadable(const QDomElement & elem, QStringList &msg, QList<bool> &fata
     else
     {
       _system = false;
-      msg.append(QObject::tr("Node %1 '%2' has an improper value for the 'system' "
+      msg.append(TR("Node %1 '%2' has an improper value for the 'system' "
                         "attribute (%3). Defaulting to false.")
                          .arg(elem.nodeName()).arg(elem.attribute("name"))
                          .arg(elem.attribute("system")));
@@ -144,9 +155,6 @@ QDomElement Loadable::createElement(QDomDocument & doc)
 int Loadable::upsertPkgItem(int &pkgitemid, const int pkgheadid,
                             const int itemid, QString &errMsg)
 {
-  QString sqlerrtxt = QObject::tr("<font color=red>The following error was "
-                                  "encountered while trying to import %1 into "
-                                  "the database:<br>%2<br>%3</font>");
   if (pkgheadid < 0)
     return 0;
 
@@ -165,7 +173,7 @@ int Loadable::upsertPkgItem(int &pkgitemid, const int pkgheadid,
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
       return -20;
     }
     upsert.prepare("INSERT INTO pkgitem ("
@@ -186,7 +194,7 @@ int Loadable::upsertPkgItem(int &pkgitemid, const int pkgheadid,
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
     return -21;
   }
 

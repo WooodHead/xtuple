@@ -81,7 +81,7 @@ CreateTable::CreateTable(const QDomElement &elem, QStringList &msg, QList<bool> 
 
   if (elem.nodeName() != "createtable")
   {
-    msg.append(QObject::tr("Creating a CreateTable element from a %1 node.")
+    msg.append(TR("Creating a CreateTable element from a %1 node.")
               .arg(elem.nodeName()));
     fatal.append(false);
   }
@@ -95,7 +95,7 @@ int CreateTable::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
 
   if (pdata.isEmpty())
   {
-    errMsg = QObject::tr("<font color=orange>The file %1 is empty.</font>")
+    errMsg = TR("<font color=orange>The file %1 is empty.</font>")
                          .arg(_filename);
     return -1;
   }
@@ -185,7 +185,7 @@ int CreateTable::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
     }
     else // not found
     {
-      errMsg = QObject::tr("Could not find table %1 in the database. The "
+      errMsg = TR("Could not find table %1 in the database. The "
                            "script %2 does not match the contents.xml "
                            "description.")
                 .arg(_name).arg(_filename);

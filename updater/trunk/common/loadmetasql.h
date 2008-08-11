@@ -55,64 +55,30 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#ifndef __LOADABLE_H__
-#define __LOADABLE_H__
+#ifndef __LOADMETASQL_H__
+#define __LOADMETASQL_H__
 
-#include <QString>
-#include <QStringList>
+#include "loadable.h"
 
-class QDomDocument;
-class QDomElement;
-
-#define TR(a) QObject::tr(a)
-
-class Loadable
+class LoadMetasql : public Loadable
 {
   public:
-    Loadable(const QString &nodename, const QString &name,
-             const int grade = 0, const bool system = true,
-             const QString &comment = QString::null,
-             const QString &filename = QString::null);
-    Loadable(const QDomElement &, QStringList &, QList<bool> &);
+    LoadMetasql(const QString & name, const QString &group,
+                  const bool system = true,
+                  const QString & comment = QString::null,
+                  const QString &filename = QString::null);
+    LoadMetasql(const QDomElement &, QStringList &, QList<bool> &);
 
-    virtual ~Loadable();
+    virtual QString group()   const { return _group; }
+    virtual bool    isValid() const { return !_nodename.isEmpty() &&
+                                             !_name.isEmpty() &&
+                                             !_group.isEmpty(); }
+    virtual void    setGroup(const QString &group) { _group = group; }
 
-    virtual QDomElement createElement(QDomDocument &doc);
-
-    virtual QString comment()  const { return _comment; }
-    virtual QString filename() const { return _filename; }
-    virtual int     grade()    const { return _grade; }
-    virtual bool    isValid()  const { return !_nodename.isEmpty() &&
-                                              !_name.isEmpty();}
-    virtual QString name()     const { return _name; }
-    virtual QString nodename() const { return _nodename; }
-    virtual void    setComment(const QString & comment) { _comment  = comment; }
-    virtual void    setFilename(const QString &filename){ _filename = filename;}
-    virtual void    setGrade(int grade)                 { _grade = grade; }
-    virtual void    setName(const QString & name)       { _name = name; }
-    virtual void    setSystem(const bool p)             { _system = p; }
-    virtual bool    system()   const { return _system; }
-
-    virtual int     writeToDB(const QByteArray &data, const QString pkgname,
-                              QString &errMsg) = 0;
-
-    static QRegExp trueRegExp;
-    static QRegExp falseRegExp;
+    virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);
 
   protected:
-    QString _comment;
-    QString _filename;
-    int     _grade;
-    QString _name;
-    QString _nodename;
-    QString _pkgitemtype;
-    bool    _system;
-
-    virtual int upsertPkgItem(int &pkgitemid, const int pkghead,
-                              const int itemid, QString &errMsg);
-
-    static QString _sqlerrtxt;
-    static QString _pkgitemQueryStr;
+    QString _group;
 };
 
 #endif
