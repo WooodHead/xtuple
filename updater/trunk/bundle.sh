@@ -1,5 +1,5 @@
 PROG=`basename $0`
-VERFILE=loader/data.cpp
+VERFILE=common/data.cpp
 BUILD=false
 DEMO=false
 BASEDIR=`pwd`
