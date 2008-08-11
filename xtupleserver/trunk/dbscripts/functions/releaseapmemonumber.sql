@@ -9,7 +9,7 @@ BEGIN
   SELECT apopen_id INTO _test
   FROM apopen
   WHERE ( (apopen_doctype IN (''D'', ''C''))
-   AND (apopen_docnumber=pNumber) );
+   AND (apopen_docnumber=CAST(pNumber AS TEXT)) );
 
   IF (FOUND) THEN
     RETURN FALSE;
