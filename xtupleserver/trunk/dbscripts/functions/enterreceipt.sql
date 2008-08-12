@@ -56,7 +56,7 @@ BEGIN
           AND  (orderhead_type=orderitem_orderhead_type));
 
         --Make sure user has site privileges
-        IF (FOUND) THEN
+        IF ((FOUND) AND (_o.itemsite_id IS NOT NULL)) THEN
           SELECT warehous_id INTO _warehouseid
           FROM itemsite,site()
           WHERE ((itemsite_id=_o.itemsite_id)
