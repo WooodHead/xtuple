@@ -15,19 +15,19 @@ BEGIN
     RETURN FALSE;
   END IF;
 
---  Check to see if IncdentNumber orderseq has been incremented past the passed Number
+--  Check to see if IncidentNumber orderseq has been incremented past the passed Number
   SELECT orderseq_number INTO _test
     FROM orderseq
-   WHERE (orderseq_name=''IncdentNumber'');
+   WHERE (orderseq_name=''IncidentNumber'');
 
   IF ((_test - 1) <> pNumber) THEN
     RETURN FALSE;
   END IF;
 
---  Decrement the IncdentNumber orderseq, releasing the passed Incdent Number
+--  Decrement the IncidentNumber orderseq, releasing the passed Incdent Number
   UPDATE orderseq
      SET orderseq_number = (orderseq_number - 1)
-   WHERE (orderseq_name=''IncdentNumber'');
+   WHERE (orderseq_name=''IncidentNumber'');
 
   RETURN TRUE;
 
