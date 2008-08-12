@@ -82,7 +82,7 @@ DECLARE
   pCommissiondue ALIAS FOR $13;
   pCurrId ALIAS FOR $14;
 BEGIN
-  RETURN createARDebitMemo(pCustid, fetchJournalNumber(''AR-MISC''), pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, baseCurrId() );
+  RETURN createARDebitMemo(pCustid, fetchJournalNumber(''AR-MISC''), pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, pCurrId );
 END;
 ' LANGUAGE 'plpgsql';
 
