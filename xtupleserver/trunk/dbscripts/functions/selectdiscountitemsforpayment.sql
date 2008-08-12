@@ -3,9 +3,14 @@ CREATE OR REPLACE FUNCTION selectDiscountItemsForPayment(INTEGER, INTEGER) RETUR
 DECLARE
   pVendid ALIAS FOR $1;
   pBankaccntid ALIAS FOR $2;
+  _currid INTEGER;
   _r RECORD;
 
 BEGIN
+
+  SELECT bankaccnt_curr_id INTO _currid
+  FROM bankaccnt
+  WHERE (bankaccnt_id=pBankaccntid);
 
   FOR _r IN SELECT apopen_id
               FROM apopen, terms
@@ -14,7 +19,8 @@ BEGIN
                AND (apopen_terms_id=terms_id)
                AND (apopen_open)
                AND (apopen_doctype IN (''V'', ''D''))
-               AND (apopen_vend_id=pVendid) ) LOOP
+               AND (apopen_vend_id=pVendid)
+               AND (apopen_curr_id=_currid) ) LOOP
     PERFORM selectPayment(_r.apopen_id, pBankaccntid);
   END LOOP;
 
