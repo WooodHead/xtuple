@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="selectPayments">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>payments</primary>
       <secondary>selection of</secondary>
     </indexterm>Select Payments</title>
@@ -12,16 +12,14 @@
   posting of Vouchers and miscellaneous A/P Debit Memos. To select an A/P open
   item for payment, choose the "Select Payments" option. The following screen
   will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/selectPayments.png"/>
+          <imagedata fileref="images/selectPayments.png" />
         </imageobject>
         <caption>Select Payments</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>You may select multiple Vouchers for payment by using the SHIFT or
     CTRL keys and your mouse.</para>
@@ -122,9 +120,11 @@
       <term>Use default Bank Account</term>
       <listitem>
         <para>Specify the default Bank Account to be used whenever an A/P open
-        item is selected for payment during the current session. If you do not
-        use this default option, you must specify a Bank Account each time you
-        select an A/P open item for payment.</para>
+        item is selected for payment during the current session. If you select
+        a Bank Account then only the A/P open items with the same Currency as
+        the Bank Account's Currency are displayed. If you do not use this
+        default option, you must specify a Bank Account each time you select
+        an A/P open item for payment.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -173,15 +173,17 @@
       <term>SELECT ALL DUE</term>
       <listitem>
         <para>Select this button to select for payment all A/P open items
-        whose payment date is due or past due.</para>
+        whose Payment Date is due or past due and whose Currency is the same
+        as the Bank Account's Currency.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SELECT ALL DISCOUNTS</term>
       <listitem>
         <para>Select this option to automatically select all A/P open items
-        which are eligible for a Terms Discount. The Terms Discount will be
-        applied automatically to all selected open items.</para>
+        which are eligible for a Terms Discount and whose Currency is the same
+        as the Bank Account's Currency. The Terms Discount will be applied
+        automatically to all selected open items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -193,6 +195,10 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="selectBankAccount.xml" xpointer="element(/1)"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="selectPayment.xml" xpointer="element(/1)"/>
+  <xi:include href="selectBankAccount.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="selectPayment.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
