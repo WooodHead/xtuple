@@ -100,7 +100,7 @@ BEGIN
         IF(_r.itemsite_costmethod='A') THEN
 	  UPDATE recv
 	     SET recv_qty=pQty,
-	         recv_value=(recv_value + o.unitprice_base * _qty * _o.orderitem_qty_invuomratio)
+	         recv_value=(recv_value + _o.unitprice_base * _qty * _o.orderitem_qty_invuomratio)
 	   WHERE(recv_id=precvid);
         ELSE
 	  UPDATE recv
