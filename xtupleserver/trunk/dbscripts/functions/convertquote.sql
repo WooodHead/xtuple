@@ -8,6 +8,7 @@ DECLARE
   _creditstatus	TEXT;
   _prospectid	INTEGER;
   _r RECORD;
+  _soNum INTEGER;
 
 BEGIN
 
@@ -58,6 +59,19 @@ BEGIN
     RETURN -5;
   END IF;
 
+  PERFORM quhead_number, cohead_id 
+  FROM quhead, cohead 
+  WHERE quhead_id = pQuheadid
+  AND cohead_number = CAST(quhead_number AS text);
+
+  IF (FOUND) THEN
+    SELECT fetchSoNumber() INTO _soNum;
+  ELSE
+    SELECT quhead_number INTO _soNum
+    FROM quhead
+    WHERE quhead_id = pQuheadid;
+  END IF;
+
   SELECT NEXTVAL('cohead_cohead_id_seq') INTO _soheadid;
   INSERT INTO cohead
   ( cohead_id, cohead_number, cohead_cust_id,
@@ -78,7 +92,7 @@ BEGIN
     cohead_freight, cohead_misc, cohead_misc_accnt_id, cohead_misc_descrip,
     cohead_holdtype, cohead_wasquote, cohead_quote_number, cohead_prj_id,
     cohead_curr_id, cohead_taxauth_id )
-  SELECT _soheadid, quhead_number, quhead_cust_id,
+  SELECT _soheadid, _soNum, quhead_cust_id,
          CURRENT_DATE, quhead_packdate,
          quhead_custponumber, quhead_warehous_id,
          quhead_billtoname, quhead_billtoaddress1,
@@ -98,7 +112,7 @@ BEGIN
 	 quhead_curr_id, quhead_taxauth_id
   FROM quhead, cust
   WHERE ( (quhead_cust_id=cust_id)
-   AND (quhead_id=pQuheadid) );
+  AND (quhead_id=pQuheadid) );
 
   FOR _r IN SELECT quitem.*,
                    quhead_number, quhead_prj_id,
