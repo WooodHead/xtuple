@@ -6,7 +6,7 @@ CREATE VIEW orderitem AS
 	 poitem_linenumber	AS orderitem_linenumber,
 	 poitem_status		AS orderitem_status,
 	 poitem_itemsite_id	AS orderitem_itemsite_id,
-	 poitem_date_promise	AS orderitem_scheddate,
+	 poitem_duedate		AS orderitem_scheddate,
 	 poitem_qty_ordered	AS orderitem_qty_ordered,
 	 poitem_qty_returned	AS orderitem_qty_shipped,
 	 poitem_qty_received	AS orderitem_qty_received,
