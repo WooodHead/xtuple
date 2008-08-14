@@ -1,6 +1,7 @@
 CREATE OR REPLACE FUNCTION _bomitemTrigger() RETURNS TRIGGER AS '
 DECLARE
   _cmnttypeid INTEGER;
+  _parentType CHAR(1);
 BEGIN
 
 -- Privilege Checks
@@ -70,12 +71,25 @@ BEGIN
       END IF;
     END IF;
 
+   SELECT item_type INTO _parentType
+   FROM item
+   WHERE (item_id=NEW.bomitem_parent_item_id);
+         
 -- Disallow configuration parameters if parent is not a job item
    IF (NEW.bomitem_char_id IS NOT NULL) THEN
-     IF (SELECT item_type != ''J''
-         FROM item
-         WHERE (item_id=NEW.bomitem_parent_item_id)) THEN
+     IF (_parentType != ''J'') THEN
        RAISE EXCEPTION ''Configuration characteristics may only be defined for Job Items'';
+     END IF;
+   END IF;
+
+-- Kit items must be sold and not kits themselves
+   IF (_parentType = ''K'') THEN
+     IF (SELECT (COUNT(item_id) = 0)
+         FROM item
+         WHERE ((item_id=NEW.bomitem_item_id)
+         AND (item_sold)
+         AND (item_type != ''K''))) THEN
+       RAISE EXCEPTION ''Bill of Material Items for kits must be sold and not kits themselves'';
      END IF;
    END IF;
 
