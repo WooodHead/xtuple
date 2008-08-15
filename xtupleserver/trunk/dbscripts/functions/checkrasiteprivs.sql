@@ -5,6 +5,11 @@ DECLARE
   _result   INTEGER;
 
 BEGIN
+
+  IF (NOT fetchMetricBool(''MultiWhs'')) THEN
+    RETURN true;
+  END IF;
+
   SELECT COALESCE(COUNT(*), 0) INTO _result
     FROM ( SELECT raitem_id
              FROM raitem, itemsite

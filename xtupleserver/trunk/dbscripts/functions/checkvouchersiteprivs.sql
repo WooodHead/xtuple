@@ -6,6 +6,10 @@ DECLARE
 
 BEGIN
 
+  IF (NOT fetchMetricBool(''MultiWhs'')) THEN
+    RETURN true;
+  END IF;
+
   SELECT COALESCE(usrpref_value::BOOLEAN, false) INTO _check
     FROM usrpref
    WHERE ( (usrpref_username=current_user)

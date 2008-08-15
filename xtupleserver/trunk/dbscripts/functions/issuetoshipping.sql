@@ -230,19 +230,12 @@ BEGIN
   ELSEIF (pordertype = ''TO'') THEN
 
     -- Check site security
-    IF (SELECT (count(usrpref_id)=1) 
-            FROM usrpref 
-            WHERE ((usrpref_name=''selectedSites'')
-            AND (usrpref_username=current_user)
-            AND (usrpref_value=''t''))) THEN
-          SELECT usrsite_warehous_id INTO _warehouseid
-          FROM tohead,toitem,usrsite s, usrsite t
-          WHERE ((toitem_id=pitemid)
-          AND (toitem_tohead_id=tohead_id)
-          AND (tohead_src_warehous_id=s.usrsite_warehous_id)
-          AND (tohead_trns_warehous_id=t.usrsite_warehous_id)
-          AND (s.usrsite_username=current_user)
-          AND (t.usrsite_username=current_user));
+    IF (fetchMetricBool(''MultiWhs'')) THEN
+      SELECT warehous_id INTO _warehouseid
+      FROM toitem, tohead, site()
+      WHERE ( (toitem_id=pitemid)
+        AND   (tohead_id=toitem_tohead_id)
+        AND   (warehous_id=tohead_src_warehous_id) );
           
       IF (NOT FOUND) THEN
         RETURN 0;

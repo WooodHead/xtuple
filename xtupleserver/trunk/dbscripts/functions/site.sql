@@ -5,11 +5,12 @@ DECLARE
 
 BEGIN
 
-  IF (SELECT (COUNT(usrpref_id)=1)
-      FROM usrpref
-      WHERE ((usrpref_name=''selectedSites'')
-      AND (usrpref_value=''t'')
-      AND (usrpref_username=current_user))) THEN
+  IF ( (fetchMetricBool(''MultiWhs'')) AND
+       (SELECT (COUNT(usrpref_id)=1)
+        FROM usrpref
+        WHERE ((usrpref_name=''selectedSites'')
+        AND (usrpref_value=''t'')
+        AND (usrpref_username=current_user))) ) THEN
 
     FOR _r IN SELECT *
             FROM whsinfo,usrsite
