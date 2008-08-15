@@ -117,12 +117,17 @@ BEGIN
         invhist_transtype, invhist_invqty,
         invhist_qoh_before, invhist_qoh_after,
         invhist_docnumber, invhist_comments,
-        invhist_invuom, invhist_unitcost ) 
+        invhist_invuom, invhist_unitcost,
+        invhist_costmethod, invhist_value_before, invhist_value_after )
       SELECT itemsite_id,
              ''NN'', (_itemlocdist.qty * -1),
              itemsite_qtyonhand, (itemsite_qtyonhand - _itemlocdist.qty),
              invhist_docnumber, invhist_comments,
-             uom_name, stdCost(item_id)
+             uom_name, stdCost(item_id),
+             itemsite_costmethod, itemsite_value,
+             (itemsite_value + (_itemlocdist.qty * -1 * CASE WHEN(itemsite_costmethod=''A'') THEN avgcost(itemsite_id)
+                                                             ELSE stdCost(itemsite_item_id)
+                                                        END))
       FROM item, itemsite, invhist, uom
       WHERE ( (itemsite_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
