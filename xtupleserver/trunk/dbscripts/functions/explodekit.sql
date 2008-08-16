@@ -26,6 +26,7 @@ BEGIN
          itemsite_id,
          itemsite_warehous_id,
          COALESCE((itemsite_active AND item_active), false) AS active,
+         COALESCE((itemsite_sold AND item_sold), false) AS sold,
          item_id,
          item_type,
          item_price_uom_id,
@@ -37,11 +38,13 @@ BEGIN
      AND (bomitem_item_id=item_id)
      AND (bomitem_rev_id=_revid)
      AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1))) LOOP
-    IF (_item.item_type='F') THEN
+    IF (NOT _item.active) THEN
+      RAISE EXCEPTION 'One or more of the components for the kit is inactive for the selected item site.';
+    ELSIF (NOT _item.sold) THEN
+      RAISE EXCEPTION 'One or more of the components for the kit is not sold for the selected item site.';
+    ELSIF (_item.item_type='F') THEN
       SELECT explodeKit(pSoheadid, pLinenumber, _subnumber, _item.itemsite_id, _item.qty)
         INTO _subnumber;
-    ELSIF (NOT _item.active) THEN
-      RAISE EXCEPTION 'One of the components for the kit is inactive for the selected item site.';
     ELSE
       _subnumber := _subnumber + 1;
       INSERT INTO coitem
