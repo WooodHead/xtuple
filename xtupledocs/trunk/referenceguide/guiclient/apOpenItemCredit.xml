@@ -21,9 +21,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/apOpenItemCredit.png" />
+          <imagedata fileref="images/apOpenItemCreditNotes.png" />
         </imageobject>
-        <caption>Enter Miscellaneous Credit Memo</caption>
+        <caption>Enter Miscellaneous Credit Memo Notes</caption>
       </mediaobject>
     </screenshot></para>
   <para>When entering a miscellaneous Credit Memo, you are presented with the
@@ -106,27 +106,48 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Use Alternate Prepaid Account</term>
-      <listitem>
-        <para>Select one of the following optional prepaid Accounts:</para>
-        <para>Alternate Prepaid Account: Specify an alternate prepaid Account
-        to use instead of the default prepaid Account.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note>
-    <para>If an alternate prepaid Account is not specified, the system will
-    use the default prepaid Account specified for the Vendor Type under A/P
-    Account Assignments.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
       <term>Notes</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the miscellaneous Credit Memo.</para>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <para>To assign an alternate prepaid Account, select the "Account" tab at
+  the bottom of the screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/apOpenItemCreditAccount.png" />
+        </imageobject>
+        <caption>Enter Miscellaneous Credit Memo Account</caption>
+      </mediaobject>
+    </screenshot><variablelist>
+      <varlistentry>
+        <term>Use Alternate Prepaid Account</term>
+        <listitem>
+          <para>Select one of the following optional prepaid Accounts:</para>
+          <para>Alternate Prepaid Account: Specify an alternate prepaid
+          Account to use instead of the default prepaid Account.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
+  <note>
+    <para>If an alternate prepaid Account is not specified, the system will
+    use the default prepaid Account specified for the Vendor Type under A/P
+    Account Assignments.</para>
+  </note>
+  <para>To view Applications, select the "Applications" tab at the bottom of
+  the screen. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/apOpenItemCreditApplications.png" />
+      </imageobject>
+      <caption>Enter Miscellaneous Credit Memo Applications</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
     <varlistentry>
       <term>Applications</term>
       <listitem>

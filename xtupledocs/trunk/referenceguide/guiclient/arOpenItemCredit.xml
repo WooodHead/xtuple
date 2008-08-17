@@ -21,9 +21,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/arOpenItemCredit.png" />
+          <imagedata fileref="images/arOpenItemCreditNotes.png" />
         </imageobject>
-        <caption>Enter Miscellaneous Credit Memo</caption>
+        <caption>Enter Miscellaneous Credit Memo Notes</caption>
       </mediaobject>
     </screenshot></para>
   <note>
@@ -148,6 +148,35 @@
         account.</para>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <note>
+    <para>If an alternate Prepaid Account is not specified, the system will
+    use the default Prepaid Account specified for the Customer Type under A/R
+    Account Assignments.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the miscellaneous Credit Memo. Notes entered on this
+        screen will follow the Credit Memo through the billing process. For
+        example, you may view notes associated with a posted Credit Memo
+        within the Customer History report.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To assign an alternate prepaid Account, select the "Account" tab at
+  the bottom of the screen. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/arOpenItemCreditAccount.png" />
+      </imageobject>
+      <caption>Enter Miscellaneous Credit Memo Account</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
     <varlistentry>
       <term>Use Alternate Prepaid Account</term>
       <listitem>
@@ -176,17 +205,17 @@
     use the default Prepaid Account specified for the Customer Type under A/R
     Account Assignments.</para>
   </note>
+  <para>To view Applications, select the "Applications" tab at the bottom of
+  the screen. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/arOpenItemCreditApplications.png" />
+      </imageobject>
+      <caption>Enter Miscellaneous Credit Memo Applications</caption>
+    </mediaobject>
+  </screenshot>
   <variablelist>
-    <varlistentry>
-      <term>Notes</term>
-      <listitem>
-        <para>This is a scrolling text field with word-wrapping for entering
-        Notes related to the miscellaneous Credit Memo. Notes entered on this
-        screen will follow the Credit Memo through the billing process. For
-        example, you may view notes associated with a posted Credit Memo
-        within the Customer History report.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>Applications</term>
       <listitem>

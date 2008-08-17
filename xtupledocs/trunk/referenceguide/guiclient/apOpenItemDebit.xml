@@ -10,16 +10,16 @@
       <primary>accounts receivable</primary>
       <secondary>entering debit memos for</secondary>
     </indexterm>Enter Miscellaneous Debit Memo</title>
-  <para>A miscellaneous Debit Memo is like a Voucher&mdash;the main difference
-  being that a miscellaneous Debit Memo is not necessarily linked to a
-  Purchase Order. To enter a miscellaneous Debit Memo, select the "Enter Misc.
-  Debit Memo" option. The following screen will appear:</para>
+  <para>A miscellaneous Debit Memo is like a Voucher—the main difference being
+  that a miscellaneous Debit Memo is not necessarily linked to a Purchase
+  Order. To enter a miscellaneous Debit Memo, select the "Enter Misc. Debit
+  Memo" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/apOpenItemDebit.png" />
+          <imagedata fileref="images/apOpenItemDebitNotes.png" />
         </imageobject>
-        <caption>Enter Miscellaneous Debit Memo</caption>
+        <caption>Enter Miscellaneous Debit Memo Notes</caption>
       </mediaobject>
     </screenshot></para>
   <para>When entering a miscellaneous Debit Memo, you are presented with the
@@ -102,6 +102,27 @@
         miscellaneous Debit Memo.</para>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the miscellaneous Debit Memo.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To assign an alternate prepaid Account, select the "Account" tab at
+  the bottom of the screen. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/apOpenItemDebitAccount.png" />
+      </imageobject>
+      <caption>Enter Miscellaneous Debit Memo Account</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
     <varlistentry>
       <term>Use Alternate Prepaid Account</term>
       <listitem>
@@ -116,14 +137,17 @@
     use the default prepaid Account specified for the Vendor Type under A/P
     Account Assignments.</para>
   </note>
+  <para>To view Applications, select the "Applications" tab at the bottom of
+  the screen. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/apOpenItemDebitApplications.png" />
+      </imageobject>
+      <caption>Enter Miscellaneous Debit Memo Applications</caption>
+    </mediaobject>
+  </screenshot>
   <variablelist>
-    <varlistentry>
-      <term>Notes</term>
-      <listitem>
-        <para>This is a scrolling text field with word-wrapping for entering
-        Notes related to the miscellaneous Debit Memo.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>Applications</term>
       <listitem>
