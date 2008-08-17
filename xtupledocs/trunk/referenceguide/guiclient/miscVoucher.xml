@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972204">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>creating new miscellaneous</secondary>
     </indexterm> <indexterm significance="normal">
@@ -15,19 +15,17 @@
   example, to authorize payment for Utility bills or other non-Inventory
   expenses. To enter a Miscellaneous Voucher, select the "Enter New
   Miscellaneous Voucher" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/miscVoucher.png"/>
+          <imagedata fileref="images/miscVoucher.png" />
         </imageobject>
         <caption>Enter Miscellaneous Voucher</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>A Voucher posts to the General Ledger effective on the Invoice Date
-    entered on the Voucher&mdash;not on the date it is posted, as might be
+    entered on the Voucher—not on the date it is posted, as might be
     assumed.</para>
   </note>
   <para>When entering a new Voucher, you are presented with the following
@@ -50,8 +48,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>vouchers</primary>
           <secondary>distributing quantities to</secondary>
         </indexterm>Amount to Distribute</term>
@@ -72,12 +69,6 @@
       <listitem>
         <para>Displays the difference between amount to distribute and amount
         distributed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Flag for 1099</term>
-      <listitem>
-        <para>Select to flag transaction for Form 1099 Tax reporting.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -123,6 +114,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Flag for 1099</term>
+      <listitem>
+        <para>Select to flag transaction for Form 1099 Tax reporting.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Miscellaneous Distributions</term>
       <listitem>
         <para>Display lists miscellaneous Cost distributions related to the
@@ -157,7 +154,7 @@
       <listitem>
         <para>Enables you to edit highlighted miscellaneous distributions. The
         edit screen is the same as that for creating a new miscellaneous
-        distribution&mdash;except that when editing, the fields will contain
+        distribution—except that when editing, the fields will contain
         miscellaneous distribution information. Double-clicking on a
         miscellaneous distribution will also bring you to the editing
         screen.</para>
@@ -171,5 +168,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="voucherMiscDistrib.xml" xpointer="element(/1)"/>
+  <xi:include href="voucherMiscDistrib.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
