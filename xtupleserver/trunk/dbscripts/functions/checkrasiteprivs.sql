@@ -10,6 +10,10 @@ BEGIN
     RETURN true;
   END IF;
 
+  IF (NOT fetchUsrPrefBool(''selectedSites'')) THEN
+    RETURN true;
+  END IF;
+
   SELECT COALESCE(COUNT(*), 0) INTO _result
     FROM ( SELECT raitem_id
              FROM raitem, itemsite

@@ -10,11 +10,7 @@ BEGIN
     RETURN true;
   END IF;
 
-  SELECT COALESCE(usrpref_value::BOOLEAN, false) INTO _check
-    FROM usrpref
-   WHERE ( (usrpref_username=current_user)
-     AND   (usrpref_name=''selectedSites'') );
-  IF (NOT _check) THEN
+  IF (NOT fetchUsrPrefBool(''selectedSites'')) THEN
     RETURN true;
   END IF;
 
