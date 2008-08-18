@@ -21,6 +21,11 @@ BEGIN
     IF NOT (_check) THEN
       RAISE EXCEPTION 'You do not have privileges to create a Sales Order.';
     END IF;
+  ELSIF (TG_OP = 'UPDATE') THEN
+    IF ( (NOT checkPrivilege('MaintainSalesOrders')) AND
+         (NEW.cohead_holdtype = OLD.cohead_holdtype) ) THEN
+      RAISE EXCEPTION 'You do not have privileges to alter a Sales Order.';
+    END IF;
   ELSE
     SELECT checkPrivilege('MaintainSalesOrders') INTO _check;
     IF NOT (_check) THEN
