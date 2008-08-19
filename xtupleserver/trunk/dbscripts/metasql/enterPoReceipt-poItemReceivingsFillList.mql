@@ -32,9 +32,9 @@ ORDER BY poitem_linenumber;
 <? elseif exists("rahead_id") ?>
 SELECT raitem_id, raitem_linenumber,
        formatDate(rahead_expiredate),
-       warehous_code,
        COALESCE(item_number, <? value("nonInventory") ?>),
        COALESCE(iu.uom_name, <? value("na") ?>),
+       warehous_code,
        '''' AS vend_item_number,
        ru.uom_name,
        formatQty(raitem_qtyauthorized),
@@ -63,9 +63,9 @@ ORDER BY raitem_linenumber;
 <? elseif exists("tohead_id") ?>
 SELECT toitem_id, toitem_linenumber,
        formatDate(toitem_duedate),
-       warehous_code,
        COALESCE(item_number, <? value("nonInventory") ?>),
        COALESCE(uom_name, <? value("na") ?>),
+       warehous_code,
        '''',
        toitem_uom,
        formatQty(toitem_qty_ordered),
