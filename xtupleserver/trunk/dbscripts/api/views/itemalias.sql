@@ -6,7 +6,7 @@ DROP VIEW api.itemalias;
 CREATE VIEW api.itemalias
 AS 
    SELECT 
-     item_number::varchar(100) AS item_number,
+     item_number::varchar AS item_number,
      itemalias_number AS alias_number,
      itemalias_usedescrip AS use_description,
      itemalias_descrip1 AS description1,

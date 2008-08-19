@@ -6,7 +6,7 @@ DROP VIEW api.itemfile;
 CREATE VIEW api.itemfile
 AS 
    SELECT 
-     item_number::varchar(100) AS item_number,
+     item_number::varchar AS item_number,
      itemfile_title AS title,
      itemfile_url AS url
    FROM item, itemfile

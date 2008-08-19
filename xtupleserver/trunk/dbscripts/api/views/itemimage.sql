@@ -6,7 +6,7 @@ DROP VIEW api.itemimage;
 CREATE VIEW api.itemimage
 AS 
    SELECT 
-     item_number::varchar(100) AS item_number,
+     item_number::varchar AS item_number,
      CASE
        WHEN itemimage_purpose = 'P' THEN
         'Product Description'

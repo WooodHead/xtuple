@@ -6,12 +6,12 @@ DROP VIEW api.itemtaxtype;
 CREATE VIEW api.itemtaxtype
 AS 
    SELECT 
-     item_number::varchar(100) AS item_number,
+     item_number::varchar AS item_number,
      CASE
        WHEN (taxauth_id IS NULL) THEN
-         'Any'::varchar(100)
+         'Any'::varchar
        ELSE
-         taxauth_code::varchar(100)
+         taxauth_code::varchar
      END AS tax_authority,
      taxtype_name AS tax_type
    FROM item, itemtax

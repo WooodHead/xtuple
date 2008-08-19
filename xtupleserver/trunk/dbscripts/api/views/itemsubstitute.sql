@@ -6,8 +6,8 @@ DROP VIEW api.itemsubstitute;
 CREATE VIEW api.itemsubstitute
 AS 
    SELECT 
-     p.item_number::varchar(100) AS root_item_number,
-     s.item_number::varchar(100) AS substitute_item_number,
+     p.item_number::varchar AS root_item_number,
+     s.item_number::varchar AS substitute_item_number,
      itemsub_uomratio AS sub_parent_uom_ratio,
      itemsub_rank AS ranking
    FROM item p, item s, itemsub

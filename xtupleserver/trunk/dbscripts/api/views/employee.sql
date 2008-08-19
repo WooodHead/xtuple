@@ -4,8 +4,8 @@ BEGIN;
   CREATE OR REPLACE VIEW api.employee AS
  
   SELECT 
-    e.emp_code          AS code,
-    e.emp_number        AS number,
+    e.emp_code::varchar          AS code,
+    e.emp_number::varchar        AS number,
     e.emp_active        AS active,
 
     cntct_number        AS contact_number,

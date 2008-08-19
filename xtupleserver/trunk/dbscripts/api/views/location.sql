@@ -5,11 +5,11 @@ BEGIN;
 SELECT dropIfExists('VIEW', 'location', 'api');
 CREATE OR REPLACE VIEW api.location AS
   SELECT
-    warehous_code::varchar(100) AS site,
-    location_aisle::varchar(100) AS aisle,
-    location_rack::varchar(100) AS rack,
-    location_bin::varchar(100) AS bin,
-    location_name::varchar(100) AS location,
+    warehous_code::VARCHAR AS site,
+    location_aisle::VARCHAR AS aisle,
+    location_rack::VARCHAR AS rack,
+    location_bin::VARCHAR AS bin,
+    location_name::VARCHAR AS location,
     whsezone_name AS zone,
     location_netable AS netable,
     location_restrict AS restricted,

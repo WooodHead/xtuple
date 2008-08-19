@@ -6,8 +6,8 @@ SELECT dropIfExists('VIEW', 'itemsitecomment', 'api');
 CREATE VIEW api.itemsitecomment
 AS 
    SELECT 
-     item_number,
-     warehous_code AS site,
+     item_number::varchar,
+     warehous_code::varchar AS site,
      cmnttype_name AS type,
      comment_date AS date,
      comment_user AS username,

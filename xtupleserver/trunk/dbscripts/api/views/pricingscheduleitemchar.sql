@@ -6,13 +6,13 @@ DROP VIEW api.pricingscheduleitemchar;
 CREATE VIEW api.pricingscheduleitemchar
 AS 
    SELECT 
-     ipshead_name::varchar(100) AS pricing_schedule,
-     item_number::varchar(100) AS item_number,
+     ipshead_name::VARCHAR AS pricing_schedule,
+     item_number::VARCHAR AS item_number,
      ipsitem_qtybreak AS qty_break,
-     qtyuom.uom_name::varchar(100) AS qty_uom,
-     priceuom.uom_name::varchar(100) AS price_uom,
-     char_name::varchar(100) AS characteristic,
-     ipsitemchar_value::varchar(100) AS value,
+     qtyuom.uom_name::VARCHAR AS qty_uom,
+     priceuom.uom_name::VARCHAR AS price_uom,
+     char_name::VARCHAR AS characteristic,
+     ipsitemchar_value::VARCHAR AS value,
      ipsitemchar_price AS price
    FROM ipshead, ipsitem, ipsitemchar, item, char, uom qtyuom, uom priceuom
    WHERE ((ipshead_id=ipsitem_ipshead_id)

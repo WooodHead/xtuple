@@ -6,8 +6,8 @@ BEGIN;
   CREATE OR REPLACE VIEW api.bom AS
 
   SELECT
-    item_number::varchar(100) AS item_number,
-    bomhead_revision::varchar(100) AS revision,
+    item_number::varchar AS item_number,
+    bomhead_revision::varchar AS revision,
     bomhead_docnum AS document_number,
     bomhead_revisiondate AS revision_date,
     bomhead_batchsize AS batch_size,

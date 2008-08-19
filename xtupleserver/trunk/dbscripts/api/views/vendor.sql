@@ -6,7 +6,7 @@ SELECT dropIfExists('VIEW', 'vendor', 'api');
 CREATE OR REPLACE VIEW api.vendor AS
  
 SELECT 
-  vend_number::varchar(100) AS vendor_number,
+  vend_number::varchar AS vendor_number,
   vendtype_code AS vendor_type,
   vend_name AS vendor_name,
   vend_active AS active,

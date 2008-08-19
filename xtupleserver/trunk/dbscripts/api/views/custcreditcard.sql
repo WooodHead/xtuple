@@ -6,7 +6,7 @@ DROP VIEW api.custcreditcard;
 CREATE VIEW api.custcreditcard
 AS 
    SELECT 
-     cust_number::varchar(100) AS customer_number,
+     cust_number::varchar AS customer_number,
      CASE
        WHEN ccard_type = 'V' THEN
          'Visa'

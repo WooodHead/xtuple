@@ -6,10 +6,10 @@ SELECT dropIfExists('VIEW', 'glaccount', 'api');
 CREATE OR REPLACE VIEW api.glaccount AS
  
 SELECT 
-  accnt_company::varchar(100) AS company,
-  accnt_profit::varchar(100) AS profit_center,
-  accnt_number::varchar(100) AS account_number,
-  accnt_sub::varchar(100) AS sub_account,
+  accnt_company::varchar AS company,
+  accnt_profit::varchar AS profit_center,
+  accnt_number::varchar AS account_number,
+  accnt_sub::varchar AS sub_account,
   accnt_descrip AS description,
   accnt_extref AS ext_reference,
   CASE

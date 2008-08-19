@@ -5,8 +5,8 @@ BEGIN;
 SELECT dropIfExists('VIEW', 'itemsourceprice', 'api');
 
 CREATE VIEW api.itemsourceprice AS
-  SELECT item.item_number::VARCHAR(100) AS item_number, 
-	 vendinfo.vend_number::VARCHAR(100) AS vendor, 
+  SELECT item.item_number::VARCHAR AS item_number, 
+	 vendinfo.vend_number::VARCHAR AS vendor, 
          itemsrcp.itemsrcp_qtybreak AS qty_break, 
          itemsrcp.itemsrcp_price AS price_per_unit,  
          curr_symbol.curr_abbr AS currency

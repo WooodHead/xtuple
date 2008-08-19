@@ -6,8 +6,8 @@ SELECT dropIfExists('VIEW', 'customertaxreg', 'api');
 CREATE OR REPLACE VIEW api.customertaxreg AS
 
 SELECT
-  cust_number AS customer_number,
-  taxauth_code AS tax_authority,
+  cust_number::varchar AS customer_number,
+  taxauth_code::varchar AS tax_authority,
   taxreg_number AS registration_number
 FROM taxreg
      LEFT OUTER JOIN custinfo ON (cust_id=taxreg_rel_id)

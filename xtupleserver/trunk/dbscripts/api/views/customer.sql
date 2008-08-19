@@ -6,7 +6,7 @@ BEGIN;
   CREATE OR REPLACE VIEW api.customer AS
  
   SELECT 
-    cust_number::varchar(100) AS customer_number,
+    cust_number::varchar AS customer_number,
     custtype_code AS customer_type,
     cust_name AS customer_name,
     cust_active AS active,

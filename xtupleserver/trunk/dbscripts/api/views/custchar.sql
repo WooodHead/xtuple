@@ -6,8 +6,8 @@ DROP VIEW api.custchar;
 CREATE VIEW api.custchar
 AS 
    SELECT 
-     cust_number::varchar(100) AS customer_number,
-     char_name::varchar(100) AS characteristic,
+     cust_number::varchar AS customer_number,
+     char_name::varchar AS characteristic,
      charass_value AS value
    FROM custinfo, char, charass
    WHERE (('C'=charass_target_type)

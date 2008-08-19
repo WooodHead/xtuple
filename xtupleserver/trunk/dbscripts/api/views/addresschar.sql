@@ -6,8 +6,8 @@ DROP VIEW api.addresschar;
 CREATE VIEW api.addresschar
 AS 
    SELECT 
-     addr_id AS address_number,
-     char_name::varchar(100) AS characteristic,
+     addr_number::varchar AS address_number,
+     char_name::varchar AS characteristic,
      charass_value AS value
    FROM addr, char, charass
    WHERE (('ADDR'=charass_target_type)
@@ -31,7 +31,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     )
   VALUES (
     'ADDR',
-    NEW.address_number,
+    getAddrId(NEW.address_number),
     getCharId(NEW.characteristic,'ADDR'),
     NEW.value,
     false);
@@ -42,7 +42,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
   UPDATE charass SET
     charass_value=NEW.value
   WHERE ((charass_target_type='ADDR')
-  AND (charass_target_id=OLD.address_number)
+  AND (charass_target_id=getAddrId(OLD.address_number))
   AND (charass_char_id=getCharId(OLD.characteristic,'ADDR')));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
@@ -50,7 +50,7 @@ CREATE OR REPLACE RULE "_DELETE" AS
 
   DELETE FROM charass
   WHERE ((charass_target_type='ADDR')
-  AND (charass_target_id=OLD.address_number)
+  AND (charass_target_id=getAddrId(OLD.address_number))
   AND (charass_char_id=getCharId(OLD.characteristic,'ADDR')));
 
 COMMIT;

@@ -6,7 +6,7 @@ SELECT dropIfExists('VIEW', 'vendortype', 'api');
 CREATE OR REPLACE VIEW api.vendortype AS
 
 SELECT
-  vendtype_code AS code,
+  vendtype_code::VARCHAR AS code,
   vendtype_descrip AS description
 FROM vendtype
 ORDER BY vendtype_code;

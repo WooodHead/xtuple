@@ -41,7 +41,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   VALUES (
     COALESCE(NEW.date,now()),
     'BMI',
-    getBomItemId(NEW.bom_item_number,NEW.bom_revision,NEW.sequence_number),
+    getBomItemId(NEW.bom_item_number::text,NEW.bom_revision::text,NEW.sequence_number::text),
     COALESCE(NEW.username,current_user),
     getCmntTypeId(NEW.type),
     NEW.text);

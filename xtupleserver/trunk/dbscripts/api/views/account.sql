@@ -6,7 +6,7 @@ BEGIN;
   CREATE OR REPLACE VIEW api.account AS
  
   SELECT 
-    c.crmacct_number::varchar(100) AS account_number,
+    c.crmacct_number::varchar AS account_number,
     p.crmacct_number AS parent_account,
     c.crmacct_name AS account_name,
     c.crmacct_active AS active,

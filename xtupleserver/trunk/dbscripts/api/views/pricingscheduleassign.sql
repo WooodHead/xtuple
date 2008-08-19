@@ -6,12 +6,12 @@ DROP VIEW api.pricingscheduleassign;
 CREATE OR REPLACE VIEW api.pricingscheduleassign 
 AS 
   SELECT 
-    COALESCE(cust_number,'Any')::varchar(100) AS customer_number,
-    COALESCE(shipto_num, 'Any')::varchar(100) AS customer_shipto,
-    COALESCE(ipsass_shipto_pattern,'N/A')::varchar(100) AS customer_shipto_pattern,
-    COALESCE(custtype_code,'N/A')::varchar(100) AS customer_type,
-    COALESCE(ipsass_custtype_pattern,'N/A')::varchar(100) AS customer_type_pattern,
-    ipshead_name::varchar(100) AS pricing_schedule
+    COALESCE(cust_number,'Any')::VARCHAR AS customer_number,
+    COALESCE(shipto_num, 'Any')::VARCHAR AS customer_shipto,
+    COALESCE(ipsass_shipto_pattern,'N/A')::VARCHAR AS customer_shipto_pattern,
+    COALESCE(custtype_code,'N/A')::VARCHAR AS customer_type,
+    COALESCE(ipsass_custtype_pattern,'N/A')::VARCHAR AS customer_type_pattern,
+    ipshead_name::VARCHAR AS pricing_schedule
   FROM ipshead JOIN ipsass ON (ipshead_id=ipsass_ipshead_id)
     LEFT OUTER JOIN custinfo ON (ipsass_cust_id=cust_id)
     LEFT OUTER JOIN custtype ON (ipsass_custtype_id=custtype_id)

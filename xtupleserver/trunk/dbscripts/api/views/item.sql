@@ -6,7 +6,7 @@ BEGIN;
   CREATE OR REPLACE VIEW api.item AS
 
   SELECT
-    item_number::varchar(100) AS item_number,
+    item_number::varchar AS item_number,
     item_active AS active,
     item_descrip1 AS description1,
     item_descrip2 AS description2,

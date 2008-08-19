@@ -6,8 +6,8 @@ BEGIN;
   CREATE OR REPLACE VIEW api.bomitem AS
 
   SELECT
-    p.item_number::varchar(100) AS bom_item_number,
-    bomhead_revision::varchar(100) AS bom_revision,
+    p.item_number::varchar AS bom_item_number,
+    bomhead_revision::varchar AS bom_revision,
     bomitem_seqnumber AS sequence_number,
     i.item_number AS item_number,
     CASE WHEN

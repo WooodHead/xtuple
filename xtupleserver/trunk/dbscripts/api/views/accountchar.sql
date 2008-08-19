@@ -6,8 +6,8 @@ DROP VIEW api.accountchar;
 CREATE VIEW api.accountchar
 AS 
    SELECT 
-     crmacct_number::varchar(100) AS account_number,
-     char_name::varchar(100) AS characteristic,
+     crmacct_number::varchar AS account_number,
+     char_name::varchar AS characteristic,
      charass_value AS value
    FROM crmacct, char, charass
    WHERE (('CRMACCT'=charass_target_type)

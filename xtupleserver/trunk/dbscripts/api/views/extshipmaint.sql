@@ -7,10 +7,10 @@ BEGIN;
   CREATE OR REPLACE VIEW api.extshipmaint AS
 
   SELECT
-    shipdata_cohead_number::VARCHAR(100) AS so_number,
-    shipdata_shiphead_number::VARCHAR(100) AS shipment_number,
-    shipdata_shipper::VARCHAR(100) AS shipper,
-    shipdata_cosmisc_packnum_tracknum::VARCHAR(100) AS package_tracking_number,
+    shipdata_cohead_number::VARCHAR AS so_number,
+    shipdata_shiphead_number::VARCHAR AS shipment_number,
+    shipdata_shipper::VARCHAR AS shipper,
+    shipdata_cosmisc_packnum_tracknum::VARCHAR AS package_tracking_number,
     shipdata_void_ind AS void,
     shipdata_billing_option AS billing_option,
     shipdata_weight AS weight,

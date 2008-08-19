@@ -5,13 +5,13 @@ BEGIN;
 DROP VIEW api.pricingscheduleitem;
 CREATE OR REPLACE VIEW api.pricingscheduleitem AS 
  SELECT 
-   ipshead_name::varchar(100) AS pricing_schedule, 
-   'Item'::varchar(100) AS type,
-   item_number::varchar(100),
-   ''::varchar(100) AS product_category,
+   ipshead_name::VARCHAR AS pricing_schedule, 
+   'Item'::VARCHAR AS type,
+   item_number::VARCHAR,
+   ''::VARCHAR AS product_category,
    ipsitem_qtybreak AS qty_break, 
-   qtyuom.uom_name::varchar(100) AS qty_uom, 
-   priceuom.uom_name::varchar(100) AS price_uom,
+   qtyuom.uom_name::VARCHAR AS qty_uom, 
+   priceuom.uom_name::VARCHAR AS price_uom,
    ipsitem_price AS price,
    0 AS discount_percent
  FROM ipsitem
@@ -21,10 +21,10 @@ CREATE OR REPLACE VIEW api.pricingscheduleitem AS
    JOIN uom priceuom ON (ipsitem_price_uom_id = priceuom.uom_id)
  UNION
  SELECT
-   ipshead.ipshead_name::varchar(100) AS pricing_schedule,
-   'Product Category'::varchar(100) AS type,
-   ''::varchar(100) AS item_number,
-   prodcat_code::varchar(100),
+   ipshead.ipshead_name::VARCHAR AS pricing_schedule,
+   'Product Category'::VARCHAR AS type,
+   ''::VARCHAR AS item_number,
+   prodcat_code::VARCHAR,
    ipsprodcat_qtybreak,
    NULL AS qty_uom,
    NULL AS price_uom,

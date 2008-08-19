@@ -6,7 +6,7 @@ DROP VIEW api.contactcomment;
 CREATE VIEW api.contactcomment
 AS 
    SELECT 
-     cntct_id AS contact_number,
+     cntct_number AS contact_number,
      cmnttype_name AS type,
      comment_date AS date,
      comment_user AS username,
@@ -35,7 +35,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   VALUES (
     COALESCE(NEW.date,now()),
     'T',
-    NEW.contact_number,
+    getCntctId(NEW.contact_number),
     COALESCE(NEW.username,current_user),
     getCmntTypeId(NEW.type),
     NEW.text);

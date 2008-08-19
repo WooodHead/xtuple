@@ -3,30 +3,30 @@ BEGIN;
 SELECT dropIfExists('VIEW', 'cashreceipt', 'api');
 CREATE OR REPLACE VIEW api.cashreceipt AS
   SELECT
-    cust_number::VARCHAR(100) AS customer_number,
+    cust_number::VARCHAR AS customer_number,
     CASE
       WHEN cashrcpt_fundstype='C' THEN
-        'Check'::VARCHAR(100)
+        'Check'::VARCHAR
       WHEN cashrcpt_fundstype='T' THEN
-        'Certified Check'::VARCHAR(100)
+        'Certified Check'::VARCHAR
       WHEN cashrcpt_fundstype='M' THEN
-        'Master Card'::VARCHAR(100)
+        'Master Card'::VARCHAR
       WHEN cashrcpt_fundstype='V' THEN
-        'Visa'::VARCHAR(100)
+        'Visa'::VARCHAR
       WHEN cashrcpt_fundstype='A' THEN
-        'American Express'::VARCHAR(100)
+        'American Express'::VARCHAR
       WHEN cashrcpt_fundstype='D' THEN
-        'Discover Card'::VARCHAR(100)
+        'Discover Card'::VARCHAR
       WHEN cashrcpt_fundstype='R' THEN
-        'Other Credit Card'::VARCHAR(100)
+        'Other Credit Card'::VARCHAR
       WHEN cashrcpt_fundstype='K' THEN
-        'Cash'::VARCHAR(100)
+        'Cash'::VARCHAR
       WHEN cashrcpt_fundstype='W' THEN
-        'Wire Transfer'::VARCHAR(100)
+        'Wire Transfer'::VARCHAR
       WHEN cashrcpt_fundstype='O' THEN
-        'Other'::VARCHAR(100)
+        'Other'::VARCHAR
     END AS funds_type,
-    cashrcpt_docnumber::VARCHAR(100) AS check_document_number,
+    cashrcpt_docnumber::VARCHAR AS check_document_number,
     cust_name AS customer_name,
     cust_address1 AS customer_address,
     curr_abbr AS currency,

@@ -5,8 +5,13 @@ DROP VIEW api.saleslinecomment;
 CREATE VIEW api.saleslinecomment
 AS 
    SELECT 
-     cohead_number AS order_number,
-     coitem_linenumber AS line_number,
+     cohead_number::VARCHAR AS order_number,
+     CASE 
+       WHEN (coitem_subnumber=0) THEN
+         coitem_linenumber::VARCHAR
+       ELSE 
+         coitem_linenumber::VARCHAR || '.'::VARCHAR || coitem_subnumber::VARCHAR
+     END AS line_number,
      cmnttype_name AS type,
      comment_date AS date,
      comment_user AS username,
@@ -37,7 +42,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   VALUES (
     COALESCE(NEW.date,current_date),
     'SI',
-    getSalesLineItemId(NEW.order_number,NEW.line_number),
+    getCoitemId(NEW.order_number,NEW.line_number),
     COALESCE(NEW.username,current_user),
     getCmntTypeId(NEW.type),
     NEW.text);

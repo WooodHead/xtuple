@@ -6,7 +6,7 @@ BEGIN;
   CREATE OR REPLACE VIEW api.customertype AS
 
   SELECT
-    custtype_code AS code,
+    custtype_code::varchar AS code,
     custtype_descrip AS description,
     custtype_char AS enable_characteristics_profile
   FROM custtype

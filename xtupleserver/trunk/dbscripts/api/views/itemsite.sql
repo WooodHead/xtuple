@@ -6,8 +6,8 @@ SELECT dropIfExists('VIEW', 'itemsite', 'api');
 CREATE VIEW api.itemsite
 AS 
    SELECT
-     item_number::varchar(100) AS item_number,
-     warehous_code::varchar(100) AS site,
+     item_number::varchar AS item_number,
+     warehous_code::varchar AS site,
      itemsite_active AS active,
      itemsite_supply AS supplied_at_site,
      itemsite_createpr AS create_prs,

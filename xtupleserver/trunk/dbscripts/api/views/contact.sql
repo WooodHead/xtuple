@@ -6,7 +6,7 @@ BEGIN;
   CREATE OR REPLACE VIEW api.contact AS
  
   SELECT 
-    cntct_number AS contact_number,
+    cntct_number::varchar AS contact_number,
     cntct_honorific AS honorific,
     cntct_first_name AS first,
     cntct_middle AS middle,

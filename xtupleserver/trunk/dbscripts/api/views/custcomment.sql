@@ -6,7 +6,7 @@ DROP VIEW api.custcomment;
 CREATE VIEW api.custcomment
 AS 
    SELECT 
-     cust_number::varchar(100) AS customer_number,
+     cust_number::varchar AS customer_number,
      cmnttype_name AS type,
      comment_date AS date,
      comment_user AS username,

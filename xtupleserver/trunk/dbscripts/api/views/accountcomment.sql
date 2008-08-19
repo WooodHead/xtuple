@@ -6,7 +6,7 @@ DROP VIEW api.accountcomment;
 CREATE VIEW api.accountcomment
 AS 
    SELECT 
-     crmacct_number::varchar(100) AS account_number,
+     crmacct_number::varchar AS account_number,
      cmnttype_name AS type,
      comment_date AS date,
      comment_user AS username,

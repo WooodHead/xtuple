@@ -6,8 +6,8 @@ SELECT dropIfExists('VIEW', 'customertypechar', 'api');
 CREATE VIEW api.customertypechar
 AS 
    SELECT 
-     custtype_code::varchar(100) AS customer_type,
-     char_name::varchar(100) AS characteristic,
+     custtype_code::varchar AS customer_type,
+     char_name::varchar AS characteristic,
      charass_value AS value
    FROM custtype, char, charass
    WHERE (('CT'=charass_target_type)

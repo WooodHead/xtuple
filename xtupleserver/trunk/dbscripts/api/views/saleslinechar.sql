@@ -5,7 +5,7 @@ DROP VIEW api.saleslinechar;
 CREATE VIEW api.saleslinechar
 AS 
 SELECT 
-  order_number,
+  order_number::VARCHAR,
   line_number,
   characteristic,
   COALESCE(si.charass_value,i3.charass_value) AS value,
@@ -22,7 +22,12 @@ FROM
     char_id,
     item_id,
     cohead_number AS order_number, 
-    coitem_linenumber AS line_number,
+    CASE 
+      WHEN (coitem_subnumber=0) THEN
+        coitem_linenumber::VARCHAR
+      ELSE 
+        coitem_linenumber::VARCHAR || '.'::VARCHAR || coitem_subnumber::VARCHAR
+    END AS line_number,
     char_name AS characteristic
    FROM cohead, coitem, itemsite, item, charass, char
    WHERE ( (cohead_id=coitem_cohead_id)
@@ -55,7 +60,7 @@ itemcharprice(item_id,char_id,NEW.value,cohead_cust_id,cohead_shipto_id,coitem_q
 FROM cohead, coitem, itemsite, item, charass, char
 WHERE ((cohead_number=NEW.order_number)
 AND (cohead_id=coitem_cohead_id)
-AND (coitem_linenumber=NEW.line_number)
+AND (coitem_id=getCoitemId(NEW.order_number,NEW.line_number))
 AND (coitem_itemsite_id=itemsite_id)
 AND (item_id=itemsite_item_id)
 AND (charass_target_type='I')
@@ -71,7 +76,7 @@ itemcharprice(item_id,char_id,NEW.value,cohead_cust_id,cohead_shipto_id,coitem_q
 FROM cohead, coitem, itemsite, item, charass, char
 WHERE ((cohead_number=OLD.order_number)
 AND (cohead_id=coitem_cohead_id)
-AND (coitem_linenumber=OLD.line_number)
+AND (coitem_id=getCoitemId(OLD.order_number,OLD.line_number))
 AND (coitem_itemsite_id=itemsite_id)
 AND (item_id=itemsite_item_id)
 AND (charass_target_type='I')

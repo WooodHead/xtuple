@@ -5,7 +5,7 @@ DROP VIEW api.salesordercomment;
 CREATE VIEW api.salesordercomment
 AS 
    SELECT 
-     cohead_number AS order_number,
+     cohead_number::VARCHAR AS order_number,
      cmnttype_name AS type,
      comment_date AS date,
      comment_user AS username,

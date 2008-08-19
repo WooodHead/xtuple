@@ -6,10 +6,10 @@ DROP VIEW api.bomitemsubstitute;
 CREATE VIEW api.bomitemsubstitute
 AS 
    SELECT 
-     p.item_number::varchar(100) AS bom_item_number,
-     bomhead_revision::varchar(100) AS bom_revision,
+     p.item_number::varchar AS bom_item_number,
+     bomhead_revision::varchar AS bom_revision,
      bomitem_seqnumber AS sequence_number,
-     s.item_number::varchar(100) AS substitute_item_number,
+     s.item_number::varchar AS substitute_item_number,
      bomitemsub_uomratio AS sub_parent_uom_ratio,
      bomitemsub_rank AS ranking
    FROM item p, item s, bomitem
@@ -34,7 +34,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     bomitemsub_uomratio,
     bomitemsub_rank)
   VALUES (
-    getBomItemId(NEW.bom_item_number,NEW.bom_revision,NEW.sequence_number),
+    getBomItemId(NEW.bom_item_number::text,NEW.bom_revision::text,NEW.sequence_number::text),
     getItemId(NEW.substitute_item_number),
     COALESCE(NEW.sub_parent_uom_ratio,1),
     COALESCE(NEW.ranking,1));
@@ -45,14 +45,14 @@ CREATE OR REPLACE RULE "_UPDATE" AS
   UPDATE bomitemsub SET
     bomitemsub_uomratio=NEW.sub_parent_uom_ratio,
     bomitemsub_rank=NEW.ranking
-  WHERE  ((bomitemsub_bomitem_id=getBomItemId(OLD.bom_item_number,OLD.bom_revision,OLD.sequence_number))
+  WHERE  ((bomitemsub_bomitem_id=getBomItemId(OLD.bom_item_number::text,OLD.bom_revision::text,OLD.sequence_number::text))
   AND (bomitemsub_item_id=getItemId(OLD.substitute_item_number)));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.bomitemsubstitute DO INSTEAD
 
   DELETE FROM bomitemsub
-  WHERE  ((bomitemsub_bomitem_id=getBomItemId(OLD.bom_item_number,OLD.bom_revision,OLD.sequence_number))
+  WHERE  ((bomitemsub_bomitem_id=getBomItemId(OLD.bom_item_number::text,OLD.bom_revision::text,OLD.sequence_number::text))
   AND (bomitemsub_item_id=getItemId(OLD.substitute_item_number)));
 
 COMMIT;

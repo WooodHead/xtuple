@@ -6,8 +6,8 @@ DROP VIEW api.custtax;
 CREATE VIEW api.custtax
 AS 
    SELECT 
-     cust_number::varchar(100) AS customer_number,
-     taxauth_code::varchar(100) AS tax_authority,
+     cust_number::varchar AS customer_number,
+     taxauth_code::varchar AS tax_authority,
      taxreg_number AS registration_number
    FROM custinfo, taxauth, taxreg
    WHERE ((taxreg_rel_type='C')

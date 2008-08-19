@@ -6,7 +6,7 @@ BEGIN;
   CREATE OR REPLACE VIEW api.prospect AS
  
   SELECT 
-    prospect_number::varchar(100) AS prospect_number,
+    prospect_number::VARCHAR AS prospect_number,
     prospect_name AS prospect_name,
     prospect_active AS active,
     salesrep_number AS sales_rep,

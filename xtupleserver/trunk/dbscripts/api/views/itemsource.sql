@@ -5,8 +5,8 @@ BEGIN;
 SELECT dropIfExists('VIEW', 'itemsource', 'api');
 
 CREATE VIEW api.itemsource AS
-  SELECT item.item_number::VARCHAR(100) AS item_number,
-       vendinfo.vend_number::VARCHAR(100) AS vendor, 
+  SELECT item.item_number::VARCHAR AS item_number,
+       vendinfo.vend_number::VARCHAR AS vendor, 
        itemsrc.itemsrc_vend_item_number AS vendor_item_number, 
        itemsrc.itemsrc_active AS active,
        itemsrc.itemsrc_vend_uom AS vendor_uom, 

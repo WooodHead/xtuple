@@ -4,8 +4,8 @@ SELECT dropIfExists('VIEW', 'employeecomment', 'api');
 CREATE VIEW api.employeecomment
 AS 
    SELECT 
-     emp_code AS code,
-     cmnttype_name AS type,
+     emp_code::varchar AS code,
+     cmnttype_name::varchar AS type,
      comment_date AS date,
      comment_user AS username,
      comment_text AS text

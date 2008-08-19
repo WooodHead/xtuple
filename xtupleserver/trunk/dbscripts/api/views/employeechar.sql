@@ -4,8 +4,8 @@ SELECT dropIfExists('VIEW', 'employeechar', 'api');
 CREATE VIEW api.employeechar
 AS
    SELECT
-     emp_code AS employee_code,
-     char_name::varchar(100) AS characteristic,
+     emp_code::varchar AS employee_code,
+     char_name::varchar AS characteristic,
      charass_value AS value
    FROM emp, char, charass
    WHERE (('EMP'=charass_target_type)

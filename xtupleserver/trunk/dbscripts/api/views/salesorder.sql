@@ -5,7 +5,7 @@ SELECT dropIfExists('VIEW', 'salesorder', 'api');
 CREATE VIEW api.salesorder
 AS
    SELECT 
-     cohead_number AS order_number,
+     cohead_number::varchar AS order_number,
      warehous_code AS site,
      cohead_orderdate AS order_date,
      cohead_packdate AS pack_date,

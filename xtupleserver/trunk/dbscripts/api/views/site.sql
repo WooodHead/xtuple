@@ -6,7 +6,7 @@ BEGIN;
   CREATE OR REPLACE VIEW api.site AS
  
   SELECT 
-    warehous_code::VARCHAR(100) AS code,
+    warehous_code::VARCHAR AS code,
     st.sitetype_name AS type,
     warehous_active AS active,
     warehous_descrip AS description,

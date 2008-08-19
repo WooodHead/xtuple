@@ -6,9 +6,9 @@ SELECT dropIfExists('VIEW', 'vendoraddress', 'api');
 CREATE OR REPLACE VIEW api.vendoraddress AS
  
 SELECT 
-  vend_number::varchar(100) AS vendor_number,
+  vend_number::VARCHAR AS vendor_number,
   vend_name AS vendor_name,
-  vendaddr_code::varchar(100) AS vendor_address_number,
+  vendaddr_code::VARCHAR AS vendor_address_number,
   vendaddr_name AS vendor_address_name,
   addr_number AS address_number,
   addr_line1 AS address1,

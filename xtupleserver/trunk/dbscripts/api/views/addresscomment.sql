@@ -6,7 +6,7 @@ DROP VIEW api.addresscomment;
 CREATE VIEW api.addresscomment
 AS 
    SELECT 
-     addr_id AS Address_number,
+     addr_number::varchar AS Address_number,
      cmnttype_name AS type,
      comment_date AS date,
      comment_user AS username,
@@ -35,7 +35,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   VALUES (
     COALESCE(NEW.date,now()),
     'ADDR',
-    NEW.Address_number,
+    getAddrId(NEW.Address_number),
     COALESCE(NEW.username,current_user),
     getCmntTypeId(NEW.type),
     NEW.text);

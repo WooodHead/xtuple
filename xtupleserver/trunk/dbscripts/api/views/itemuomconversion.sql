@@ -6,8 +6,8 @@ DROP VIEW api.itemuomconversion;
 CREATE VIEW api.itemuomconversion
 AS 
    SELECT 
-     item_number::varchar(100) AS item_number,
-     f.uom_name::varchar(100) AS uom,
+     item_number::varchar AS item_number,
+     f.uom_name::varchar AS uom,
      itemuomconv_from_value AS uom_value,
      p.uom_name AS per_uom,
      itemuomconv_to_value AS per_uom_value,

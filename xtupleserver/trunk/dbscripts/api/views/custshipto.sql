@@ -6,8 +6,8 @@ DROP VIEW api.custshipto;
 CREATE VIEW api.custshipto
 AS 
    SELECT 
-     cust_number::varchar(100) AS customer_number,
-     shipto_num::varchar(100) AS shipto_number,
+     cust_number::varchar AS customer_number,
+     shipto_num::varchar AS shipto_number,
      shipto_active AS active,
      shipto_name AS name,
      shipto_default AS default_flag,

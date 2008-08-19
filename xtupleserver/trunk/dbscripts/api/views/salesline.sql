@@ -5,12 +5,12 @@ SELECT dropIfExists('VIEW', 'salesline', 'api');
 CREATE VIEW api.salesline
 AS 
   SELECT 
-     cohead_number::VARCHAR(100) AS order_number,
+     cohead_number::VARCHAR AS order_number,
      CASE 
        WHEN (coitem_subnumber=0) THEN
-         coitem_linenumber::VARCHAR(100)
+         coitem_linenumber::VARCHAR
        ELSE 
-         coitem_linenumber::VARCHAR(100) || '.'::VARCHAR(100) || coitem_subnumber::VARCHAR(100)
+         coitem_linenumber::VARCHAR || '.'::VARCHAR || coitem_subnumber::VARCHAR
      END AS line_number,
      l.item_number AS item_number,
      coitem_custpn AS customer_pn,

@@ -1,12 +1,12 @@
 BEGIN;
 
---Vendor Type View
+--Sales Rep View
 
 SELECT dropIfExists('VIEW', 'salesrep', 'api');
 CREATE OR REPLACE VIEW api.salesrep AS
 
 SELECT
-  salesrep_number AS number,
+  salesrep_number::VARCHAR AS number,
   salesrep_active AS active,
   salesrep_name AS name,
   salesrep_commission * 100 AS commission_percent,

@@ -6,7 +6,7 @@ BEGIN;
   CREATE OR REPLACE VIEW api.address AS
  
   SELECT 
-    addr_number AS address_number,
+    addr_number::varchar AS address_number,
     addr_line1 AS address1,
     addr_line2 AS address2,
     addr_line3 AS address3,

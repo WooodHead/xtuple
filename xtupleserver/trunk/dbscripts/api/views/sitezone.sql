@@ -5,8 +5,8 @@ BEGIN;
 SELECT dropIfExists('VIEW', 'sitezone', 'api');
 CREATE OR REPLACE VIEW api.sitezone AS
   SELECT 
-    warehous_code::varchar(100) AS site,
-    whsezone_name::varchar(100) AS name,
+    warehous_code::VARCHAR AS site,
+    whsezone_name::VARCHAR AS name,
     whsezone_descrip AS description
     FROM whsezone
        LEFT OUTER JOIN whsinfo ON (warehous_id=whsezone_warehous_id);
