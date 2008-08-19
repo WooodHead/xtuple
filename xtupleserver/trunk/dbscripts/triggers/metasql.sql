@@ -3,7 +3,7 @@ BEGIN
 
 -- Update status info
   NEW.metasql_lastuser 		:= current_user;
-  NEW.metasql_lastupdated 	:= current_date;
+  NEW.metasql_lastupdate 	:= current_date;
   RETURN NEW;
 
 END;
