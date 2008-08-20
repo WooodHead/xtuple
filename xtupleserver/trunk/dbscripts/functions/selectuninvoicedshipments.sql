@@ -8,7 +8,7 @@ BEGIN
 
 --  Grab all of the uninvoiced coship records
   FOR _r IN SELECT DISTINCT cosmisc_id
-            FROM cosmisc, coship, coitem, itemsite, item
+            FROM cosmisc, coship, coitem, itemsite
             WHERE ( (coship_cosmisc_id=cosmisc_id)
              AND (coship_coitem_id=coitem_id)
              AND (coitem_itemsite_id=itemsite_id)
@@ -44,7 +44,7 @@ BEGIN
 
 --  Grab all of the uninvoiced coship records
   FOR _r IN SELECT DISTINCT cosmisc_id
-            FROM cosmisc, coship, coitem, itemsite, item, cohead, cust
+            FROM cosmisc, coship, coitem, itemsite, cohead, cust
             WHERE ( (coship_cosmisc_id=cosmisc_id)
              AND (coship_coitem_id=coitem_id)
              AND (coitem_itemsite_id=itemsite_id)
@@ -83,7 +83,7 @@ BEGIN
 
 --  Grab all of the uninvoiced coship records
   FOR _r IN SELECT DISTINCT cosmisc_id
-            FROM cosmisc, coship, coitem, itemsite, item, cohead, cust, custtype
+            FROM cosmisc, coship, coitem, itemsite, cohead, cust, custtype
             WHERE ( (coship_cosmisc_id=cosmisc_id)
              AND (coship_coitem_id=coitem_id)
              AND (coitem_itemsite_id=itemsite_id)
