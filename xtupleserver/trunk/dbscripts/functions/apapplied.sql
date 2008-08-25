@@ -6,8 +6,8 @@ DECLARE
 
 BEGIN
 
-  -- Return amount applied to an apopen in base currency item as of the parameter date
-  SELECT SUM(currtobase(apapply_curr_id,apapply_amount,pDate)) INTO _amount
+  -- Return amount applied to an apopen in base currency as of apapply_postdate
+  SELECT SUM(currtobase(apapply_curr_id,apapply_amount,apapply_postdate)) INTO _amount
   FROM apapply
   WHERE (((apapply_target_apopen_id = pApopenid) OR (apapply_source_apopen_id = pApopenid))
   AND (((apapply_journalnumber=0) AND (apapply_postdate <= pDate))

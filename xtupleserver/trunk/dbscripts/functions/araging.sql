@@ -12,7 +12,7 @@ BEGIN
   FOR _x IN
         SELECT
 
-        --report uses currtobase to convert all amounts to base based on the relDate provided by the user are run time
+        --report uses currtobase to convert all amounts to base based on aropen_docdate and arapply_postdate
 
         --today and greater base:
         formatMoney(CASE WHEN((aropen_duedate >= DATE(_asOfDate))) THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
