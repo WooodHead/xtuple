@@ -1,0 +1,36 @@
+BEGIN;
+DROP TYPE apaging CASCADE;
+CREATE TYPE apaging AS
+   (apaging_docdate DATE,
+    apaging_duedate DATE,
+    apaging_ponumber TEXT,
+    apaging_reference TEXT,
+    apaging_invcnumber TEXT,
+    apaging_docnumber TEXT,
+    apaging_doctype TEXT,
+    apaging_vend_id INTEGER,
+    apaging_vend_number TEXT,
+    apaging_vend_name TEXT,
+    apaging_vend_vendtype_id INTEGER,
+    apaging_vendtype_code TEXT,
+    apaging_terms_descrip TEXT,
+    apaging_apopen_amount TEXT,
+    apaging_cur_amt TEXT,
+    apaging_cur_val NUMERIC,
+    apaging_thirty_amt TEXT,
+    apaging_thirty_val NUMERIC,
+    apaging_sixty_amt TEXT,
+    apaging_sixty_val NUMERIC,
+    apaging_ninety_amt TEXT,
+    apaging_ninety_val NUMERIC,
+    apaging_plus_amt TEXT,
+    apaging_plus_val NUMERIC,
+    apaging_total_amt TEXT,
+    apaging_total_val NUMERIC,
+    apaging_discdate DATE,
+    apaging_disc_amt TEXT,
+    apaging_disc_val NUMERIC,
+    apaging_discdays NUMERIC,
+    apaging_discprcnt NUMERIC);
+
+COMMIT;
