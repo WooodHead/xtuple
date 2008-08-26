@@ -49,6 +49,14 @@ BEGIN
     RETURN -5;
   END IF;
 
+  SELECT raitem_id INTO _test
+  FROM raitem, coitem
+  WHERE ( (raitem_new_coitem_id=coitem_id)
+   AND (coitem_cohead_id=pSoheadid) );
+  IF (FOUND) THEN
+    RETURN -6;
+  END IF;
+
   UPDATE pr SET pr_prj_id=-1
   FROM coitem
   WHERE ((coitem_cohead_id=pSoheadid)
