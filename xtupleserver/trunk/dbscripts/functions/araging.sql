@@ -11,75 +11,44 @@ BEGIN
 
   FOR _x IN
         SELECT
-
         --report uses currtobase to convert all amounts to base based on aropen_docdate and arapply_postdate
 
         --today and greater base:
-        formatMoney(CASE WHEN((aropen_duedate >= DATE(_asOfDate))) THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
-        currtobase(aropen_curr_id,aropen_paid,aropen_docdate)+SUM(currtobase(arapply_curr_id,arapply_applied,arapply_postdate))) *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END) AS cur_amt,
-
-                    CASE WHEN((aropen_duedate >= DATE(_asOfDate))) THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
+        CASE WHEN((aropen_duedate >= DATE(_asOfDate))) THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
         currtobase(aropen_curr_id,aropen_paid,aropen_docdate)+SUM(currtobase(arapply_curr_id,arapply_applied,arapply_postdate))) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS cur_val,
 
         --0 to 30 base
-        formatMoney(CASE WHEN((aropen_duedate >= DATE(_asOfDate)-30) AND (aropen_duedate < DATE(_asOfDate)))
-        THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
-        currtobase(aropen_curr_id,aropen_paid,aropen_docdate)+SUM(currtobase(arapply_curr_id,arapply_applied,arapply_postdate))) *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END) AS thirty_amt,
-
         CASE WHEN((aropen_duedate >= DATE(_asOfDate)-30) AND (aropen_duedate < DATE(_asOfDate)))
         THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
         currtobase(aropen_curr_id,aropen_paid,aropen_docdate)+SUM(currtobase(arapply_curr_id,arapply_applied,arapply_postdate))) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS thirty_val,
 
         --30-60 base
-        formatMoney(CASE WHEN((aropen_duedate >= DATE(_asOfDate)-60) AND (aropen_duedate < DATE(_asOfDate) - 30 ))
-        THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
-        currtobase(aropen_curr_id,aropen_paid,aropen_docdate)+SUM(currtobase(arapply_curr_id,arapply_applied,arapply_postdate))) *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END) AS sixty_amt,
-
         CASE WHEN((aropen_duedate >= DATE(_asOfDate)-60) AND (aropen_duedate < DATE(_asOfDate) - 30 ))
         THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
         currtobase(aropen_curr_id,aropen_paid,aropen_docdate)+SUM(currtobase(arapply_curr_id,arapply_applied,arapply_postdate))) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS sixty_val,
 
         --60-90 base
-        formatMoney(CASE WHEN((aropen_duedate >= DATE(_asOfDate)-90) AND (aropen_duedate < DATE(_asOfDate) - 60))
-        THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
-        currtobase(aropen_curr_id,aropen_paid,aropen_docdate)+SUM(currtobase(arapply_curr_id,arapply_applied,arapply_postdate))) *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END) AS ninety_amt,
-
         CASE WHEN((aropen_duedate >= DATE(_asOfDate)-90) AND (aropen_duedate < DATE(_asOfDate) - 60))
         THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
         currtobase(aropen_curr_id,aropen_paid,aropen_docdate)+SUM(currtobase(arapply_curr_id,arapply_applied,arapply_postdate))) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS ninety_val,
 
         --greater than 90 base:
-        formatMoney(CASE WHEN((aropen_duedate > DATE(_asOfDate)-10000) AND (aropen_duedate < DATE(_asOfDate) - 90))
-        THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
-        currtobase(aropen_curr_id,aropen_paid,aropen_docdate)+SUM(currtobase(arapply_curr_id,arapply_applied,arapply_postdate))) *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END) AS plus_amt,
-
         CASE WHEN((aropen_duedate > DATE(_asOfDate)-10000) AND (aropen_duedate < DATE(_asOfDate) - 90))
         THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
         currtobase(aropen_curr_id,aropen_paid,aropen_docdate)+SUM(currtobase(arapply_curr_id,arapply_applied,arapply_postdate))) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS plus_val,
 
         --total amount base:
-
-        formatMoney(CASE WHEN((aropen_duedate > DATE(_asOfDate)-10000)) THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
-        currtobase(aropen_curr_id,aropen_paid,aropen_docdate)+SUM(currtobase(arapply_curr_id,arapply_applied,arapply_postdate))) *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END) AS total_amt,
-
         CASE WHEN((aropen_duedate > DATE(_asOfDate)-10000)) THEN ((currtobase(aropen_curr_id,aropen_amount,aropen_docdate)-
         currtobase(aropen_curr_id,aropen_paid,aropen_docdate)+SUM(currtobase(arapply_curr_id,arapply_applied,arapply_postdate))) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS total_val,
 
         --AR Open Amount base
-
-        formatMoney(CASE WHEN aropen_doctype IN ('C', 'R') THEN currtobase(aropen_curr_id,(aropen_amount * -1),aropen_docdate) ELSE currtobase(aropen_curr_id,(aropen_amount),aropen_docdate) END) AS f_aropen_amount,
+        CASE WHEN aropen_doctype IN ('C', 'R') THEN currtobase(aropen_curr_id,(aropen_amount * -1),aropen_docdate) ELSE currtobase(aropen_curr_id,(aropen_amount),aropen_docdate) END AS aropen_amount,
 
         aropen_docdate,
         aropen_duedate,
@@ -117,22 +86,15 @@ BEGIN
         _row.araging_cust_custtype_id := _x.cust_custtype_id;
         _row.araging_custtype_code := _x.custtype_code;
         _row.araging_terms_descrip := _x.terms_descrip;
-        _row.araging_aropen_amount := _x.f_aropen_amount;
-        _row.araging_cur_amt := _x.cur_amt;
+        _row.araging_aropen_amount := _x.aropen_amount;
         _row.araging_cur_val := _x.cur_val;
-        _row.araging_thirty_amt := _x.thirty_amt;
         _row.araging_thirty_val := _x.thirty_val;
-        _row.araging_sixty_amt := _x.sixty_amt;
         _row.araging_sixty_val := _x.sixty_val;
-        _row.araging_ninety_amt := _x.ninety_amt;
         _row.araging_ninety_val := _x.ninety_val;
-        _row.araging_plus_amt := _x.plus_amt;
         _row.araging_plus_val := _x.plus_val;
-        _row.araging_total_amt := _x.total_amt;
         _row.araging_total_val := _x.total_val;
         RETURN NEXT _row;
   END LOOP;
   RETURN;
 END;
 $$ LANGUAGE 'plpgsql';
-

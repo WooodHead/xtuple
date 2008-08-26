@@ -32,9 +32,12 @@ BEGIN
 --  Step through all of the components of the passed pItemid
   FOR _r IN SELECT bomitem_seqnumber,
                    item_id, bomitem_createwo,
-                   itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper, bomitem_scrap, bomitem_issuemethod,
+                   itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
+                                bomitem_qtyper) AS qtyper,
+                   bomitem_scrap, bomitem_issuemethod,
                    bomitem_effective, bomitem_expires,
-                   stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost,
+                   stdcost(item_id) AS standardcost,
+                   actcost(item_id) AS actualcost,
                    bomitem_char_id, bomitem_value
   FROM bomitem(pItemId, pRevisionid), item
   WHERE ( (bomitem_item_id=item_id) ) LOOP
@@ -106,22 +109,15 @@ BEGIN
                bomwork_seqnumber, item_id, item_number, uom_name,
                item_descrip1, item_descrip2,
                (item_descrip1 || '' '' || item_descrip2) AS itemdescription,
-               formatQtyPer(bomwork_qtyper) AS f_qtyper,
-               formatScrap(bomwork_scrap) AS f_scrap,
-       formatBoolYN(bomwork_createwo) as createchild,
+               bomwork_qtyper, bomwork_scrap, bomwork_createwo,
        CASE WHEN (bomwork_issuemethod=''S'') THEN ''Push''
             WHEN (bomwork_issuemethod=''L'') THEN ''Pull''
             WHEN (bomwork_issuemethod=''M'') THEN ''Mixed''
             ELSE ''Special''
        END AS issuemethod,
-       formatDate(bomwork_effective, ''Always'') AS f_effective,
-       formatDate(bomwork_expires,''Never'') AS f_expires,
-       CASE WHEN (bomwork_expires <= CURRENT_DATE) THEN TRUE
-         ELSE FALSE
-       END AS expired,
-       CASE WHEN (bomwork_effective > CURRENT_DATE) THEN TRUE
-         ELSE FALSE
-       END AS future,
+       bomwork_effective, bomwork_expires,
+       (bomwork_expires <= CURRENT_DATE) AS expired,
+       (bomwork_effective > CURRENT_DATE) AS future,
        bomwork_actunitcost AS actunitcost,
        bomwork_stdunitcost AS stdunitcost,
        bomwork_qtyper * (1 + bomwork_scrap) * bomwork_actunitcost AS actextendedcost,
@@ -136,8 +132,12 @@ BEGIN
        AND (bomwork_effective <= (CURRENT_DATE + pFutureDays))
        UNION
        SELECT -1, -1, 1,''0'',
-              NULL,-1, costelem_type AS bomdata_item_number, '''','''', '''', '''',
-              '''', '''', '''', '''', '''', '''',false,false,
+              NULL,-1, costelem_type AS bomdata_item_number, '''',
+              '''', '''', '''',
+              NULL, NULL, NULL,
+              '''',
+              NULL, NULL,
+              false,false,
               currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE) AS actunitcost,
               itemcost_stdcost AS stdunitcost,
               currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE) AS actextendedcost,
@@ -159,12 +159,12 @@ BEGIN
         _row.bomdata_item_descrip1 := _x.item_descrip1;
         _row.bomdata_item_descrip2 := _x.item_descrip2;
         _row.bomdata_itemdescription := _x.itemdescription;
-        _row.bomdata_qtyper := _x.f_qtyper;
-        _row.bomdata_scrap := _x.f_scrap;
-        _row.bomdata_createchild := _x.createchild;
+        _row.bomdata_qtyper := _x.bomwork_qtyper;
+        _row.bomdata_scrap := _x.bomwork_scrap;
+        _row.bomdata_createchild := _x.bomwork_createwo;
         _row.bomdata_issuemethod := _x.issuemethod;
-        _row.bomdata_effective := _x.f_effective;
-        _row.bomdata_expires := _x.f_expires;
+        _row.bomdata_effective := _x.bomwork_effective;
+        _row.bomdata_expires := _x.bomwork_expires;
         _row.bomdata_expired := _x.expired;
         _row.bomdata_future := _x.future;
         _row.bomdata_actunitcost := _x.actunitcost;
@@ -187,22 +187,18 @@ BEGIN
                bomhist_seqnumber, item_id, item_number, uom_name,
                item_descrip1, item_descrip2,
                (item_descrip1 || '' '' || item_descrip2) AS itemdescription,
-               formatQtyPer(bomhist_qtyper) AS f_qtyper,
-               formatScrap(bomhist_scrap) AS f_scrap,
-       formatBoolYN(bomhist_createwo) as createchild,
+               bomhist_qtyper,
+               bomhist_scrap,
+               bomhist_createwo,
        CASE WHEN (bomhist_issuemethod=''S'') THEN ''Push''
             WHEN (bomhist_issuemethod=''L'') THEN ''Pull''
             WHEN (bomhist_issuemethod=''M'') THEN ''Mixed''
             ELSE ''Special''
        END AS issuemethod,
-       formatDate(bomhist_effective, ''Always'') AS f_effective,
-       formatDate(bomhist_expires,''Never'') AS f_expires,
-       CASE WHEN (bomhist_expires <= CURRENT_DATE) THEN TRUE
-         ELSE FALSE
-       END AS expired,
-       CASE WHEN (bomhist_effective > CURRENT_DATE) THEN TRUE
-         ELSE FALSE
-       END AS future,
+       bomhist_effective,
+       bomhist_expires,
+       (bomhist_expires <= CURRENT_DATE) AS expired,
+       (bomhist_effective > CURRENT_DATE) AS future,
        bomhist_actunitcost AS actunitcost,
        bomhist_stdunitcost AS stdunitcost,
        bomhist_qtyper * (1 + bomhist_scrap) * bomhist_actunitcost AS actextendedcost,
@@ -239,12 +235,12 @@ BEGIN
         _row.bomdata_item_descrip1 := _x.item_descrip1;
         _row.bomdata_item_descrip2 := _x.item_descrip2;
         _row.bomdata_itemdescription := _x.itemdescription;
-        _row.bomdata_qtyper := _x.f_qtyper;
-        _row.bomdata_scrap := _x.f_scrap;
-        _row.bomdata_createchild := _x.createchild;
+        _row.bomdata_qtyper := _x.bomhist_qtyper;
+        _row.bomdata_scrap := _x.bomhist_scrap;
+        _row.bomdata_createchild := _x.bomhist_createwo;
         _row.bomdata_issuemethod := _x.issuemethod;
-        _row.bomdata_effective := _x.f_effective;
-        _row.bomdata_expires := _x.f_expires;
+        _row.bomdata_effective := _x.bomhist_effective;
+        _row.bomdata_expires := _x.bomhist_expires;
         _row.bomdata_expired := _x.expired;
         _row.bomdata_future := _x.future;
         _row.bomdata_actunitcost := _x.actunitcost;
@@ -260,5 +256,3 @@ BEGIN
   RETURN;
 END;
 ' LANGUAGE 'plpgsql';
-
-

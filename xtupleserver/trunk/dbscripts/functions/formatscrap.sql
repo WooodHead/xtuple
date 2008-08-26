@@ -1,5 +1,3 @@
-
 CREATE OR REPLACE FUNCTION formatScrap(NUMERIC) RETURNS TEXT IMMUTABLE AS '
-SELECT LTRIM(TO_CHAR(($1 * 100), ''99999990D00''), '' '') AS result
+  SELECT formatNumeric(($1 * 100), ''percent'') AS result
 ' LANGUAGE 'sql';
-

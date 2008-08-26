@@ -58,7 +58,6 @@ BEGIN
   ELSIF (UPPER(pType) = ''FUNCTION'') THEN
     _query = ''DROP FUNCTION '' || (LOWER(pSchema)) || ''.'' ||
                                    (LOWER(pObject));
-RAISE NOTICE ''%'', _query;
     BEGIN
       EXECUTE _query;
     EXCEPTION WHEN undefined_function THEN
@@ -94,6 +93,17 @@ RAISE NOTICE ''%'', _query;
       EXECUTE _query;
     EXCEPTION WHEN invalid_schema_name THEN
                 RAISE NOTICE ''No table % to alter'', _table;
+                RETURN 0;
+              WHEN OTHERS THEN RAISE EXCEPTION ''% %'', SQLSTATE, SQLERRM;
+    END;
+
+  ELSIF (UPPER(pType) = ''TYPE'') THEN
+    _query = ''DROP TYPE '' || quote_ident(LOWER(pSchema)) || ''.'' ||
+                               quote_ident(LOWER(pObject));
+    BEGIN
+      EXECUTE _query;
+    EXCEPTION WHEN undefined_object THEN
+                RAISE NOTICE ''No type %.% to alter'', pSchema, pObject;
                 RETURN 0;
               WHEN OTHERS THEN RAISE EXCEPTION ''% %'', SQLSTATE, SQLERRM;
     END;

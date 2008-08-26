@@ -1,5 +1,3 @@
-
 CREATE OR REPLACE FUNCTION formatWeight(NUMERIC) RETURNS TEXT IMMUTABLE AS '
-SELECT LTRIM(TO_CHAR($1, ''9999999D00''), '' '') AS result
+SELECT formatNumeric($1, ''weight'') AS result
 ' LANGUAGE 'sql';
-
