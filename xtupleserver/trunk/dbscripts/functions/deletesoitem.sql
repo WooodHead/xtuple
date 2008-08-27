@@ -42,7 +42,7 @@ BEGIN
   AND  (coitem_order_type=''W''));
 
   DELETE FROM coitem
-  WHERE (coitem_cohead_id=pSoheadid);
+  WHERE (coitem_id=pSoitemid);
 
   RETURN 0;
 
