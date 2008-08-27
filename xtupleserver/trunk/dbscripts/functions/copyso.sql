@@ -58,7 +58,8 @@ BEGIN
   FROM coitem, itemsite
   WHERE ( (coitem_itemsite_id=itemsite_id)
    AND (coitem_status <> 'X')
-   AND (coitem_cohead_id=pSoheadid) );
+   AND (coitem_cohead_id=pSoheadid)
+   AND (coitem_subnumber = 0) );
 
   INSERT INTO charass
         (charass_target_type, charass_target_id,
