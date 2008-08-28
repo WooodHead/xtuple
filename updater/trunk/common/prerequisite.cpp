@@ -338,9 +338,10 @@ bool Prerequisite::met(QString &errMsg)
         errMsg = _sqlerrtxt.arg(_name).arg(query.lastError().databaseText())
                            .arg(query.lastError().driverText());
       else
-        errMsg = TR("The prerequisite %1 did not return a value. "
-                    "Check with the package provider to see if there "
-                    "is an updated version of this package.").arg(_name);
+      {
+        returnVal = false;
+        errMsg    = _message;
+      }
       break;
       }
 
