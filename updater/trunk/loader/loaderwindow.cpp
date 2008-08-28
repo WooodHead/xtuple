@@ -556,31 +556,6 @@ void LoaderWindow::sStart()
   _text->append(tr("<p>Completed importing new Privileges.</p>"));
   }
 
-  if (_package->_metasqls.size() > 0)
-  {
-  _status->setText(tr("<p><b>Updating MetaSQL Statements</b></p>"));
-  _text->append(tr("<p>Loading new MetaSQL Statements...</p>"));
-  for(QList<LoadMetasql>::iterator i = _package->_metasqls.begin();
-      i != _package->_metasqls.end(); ++i)
-  {
-    if ((*i).writeToDB(_files->_list[prefix + (*i).filename()],
-                          _package->name(), errMsg) >= 0)
-      _text->append(tr("Import of %1 was successful.").arg((*i).name()));
-    else
-    {
-      _text->append(errMsg);
-      qry.exec("rollback;");
-      if(!_multitrans && !_premultitransfile)
-      {
-        _text->append(_rollbackMsg);
-        return;
-      }
-    }
-    _progress->setValue(_progress->value() + 1);
-  }
-  _text->append(tr("<p>Completed importing new MetaSQL Statements.</p>"));
-  }
-
   // update scripts here
   if (_package->_scripts.size() > 0)
   {
@@ -645,6 +620,31 @@ void LoaderWindow::sStart()
       return;
   }
   _text->append(tr("<p>Completed importing new view definitions.</p>"));
+  }
+
+  if (_package->_metasqls.size() > 0)
+  {
+  _status->setText(tr("<p><b>Updating MetaSQL Statements</b></p>"));
+  _text->append(tr("<p>Loading new MetaSQL Statements...</p>"));
+  for(QList<LoadMetasql>::iterator i = _package->_metasqls.begin();
+      i != _package->_metasqls.end(); ++i)
+  {
+    if ((*i).writeToDB(_files->_list[prefix + (*i).filename()],
+                          _package->name(), errMsg) >= 0)
+      _text->append(tr("Import of %1 was successful.").arg((*i).name()));
+    else
+    {
+      _text->append(errMsg);
+      qry.exec("rollback;");
+      if(!_multitrans && !_premultitransfile)
+      {
+        _text->append(_rollbackMsg);
+        return;
+      }
+    }
+    _progress->setValue(_progress->value() + 1);
+  }
+  _text->append(tr("<p>Completed importing new MetaSQL Statements.</p>"));
   }
 
   if (_package->_reports.size() > 0)
