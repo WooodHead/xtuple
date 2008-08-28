@@ -625,6 +625,11 @@ void LoaderWindow::sStart()
   if (_package->_metasqls.size() > 0)
   {
   _status->setText(tr("<p><b>Updating MetaSQL Statements</b></p>"));
+  if(!qry.exec("ALTER TABLE metasql DISABLE TRIGGER metasqlaltertrigger;"))
+  {
+    _text->append(_rollbackMsg);
+    return;
+  }
   _text->append(tr("<p>Loading new MetaSQL Statements...</p>"));
   for(QList<LoadMetasql>::iterator i = _package->_metasqls.begin();
       i != _package->_metasqls.end(); ++i)
@@ -643,6 +648,11 @@ void LoaderWindow::sStart()
       }
     }
     _progress->setValue(_progress->value() + 1);
+  }
+  if(!qry.exec("ALTER TABLE metasql ENABLE TRIGGER metasqlaltertrigger;"))
+  {
+    _text->append(_rollbackMsg);
+    return;
   }
   _text->append(tr("<p>Completed importing new MetaSQL Statements.</p>"));
   }
