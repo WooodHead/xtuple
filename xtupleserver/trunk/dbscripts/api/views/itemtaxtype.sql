@@ -34,14 +34,25 @@ CREATE OR REPLACE RULE "_INSERT" AS
     itemtax_taxtype_id)
   VALUES (
     getItemId(NEW.item_number),
-    getTaxAuthId(NEW.tax_authority),
+    CASE
+      WHEN (NEW.tax_authority = 'Any') THEN
+        NULL
+      ELSE
+        getTaxAuthId(NEW.tax_authority)
+    END,
     getTaxTypeId(NEW.tax_type));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.itemtaxtype DO INSTEAD
 
   UPDATE itemtax SET
-    itemtax_taxauth_id=getTaxAuthId(NEW.tax_authority),
+    itemtax_taxauth_id=
+    CASE
+      WHEN (NEW.tax_authority = 'Any') THEN
+        NULL
+      ELSE
+        getTaxAuthId(NEW.tax_authority)
+    END,
     itemtax_taxtype_id=getTaxTypeId(NEW.tax_type)
   WHERE  ((itemtax_item_id=getItemId(OLD.item_number))
   AND (itemtax_taxauth_id=getTaxAuthId(OLD.tax_authority))
