@@ -64,15 +64,13 @@ class LoadReport : public Loadable
 {
   public:
     LoadReport(const QString &name, const int grade = 0,
-               const bool system = true,
+               const bool system = false,
                const QString &comment = QString::null,
                const QString &filename = QString::null);
-    LoadReport(const QDomElement &, QStringList &, QList<bool> &);
+    LoadReport(const QDomElement &, const bool system,
+               QStringList &, QList<bool> &);
 
     virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);
-
-  protected:
-    bool        _system;
 };
 
 #endif

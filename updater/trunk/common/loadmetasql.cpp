@@ -62,7 +62,7 @@
 #include <QSqlError>
 #include <QVariant>     // used by QSqlQuery::bindValue()
 
-#define DEBUG true
+#define DEBUG false
 
 LoadMetasql::LoadMetasql(const QString &name, const QString &group,
                          const bool system,
@@ -73,8 +73,9 @@ LoadMetasql::LoadMetasql(const QString &name, const QString &group,
   _group = group;
 }
 
-LoadMetasql::LoadMetasql(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
-  : Loadable(elem, msg, fatal)
+LoadMetasql::LoadMetasql(const QDomElement &elem, const bool system,
+                         QStringList &msg, QList<bool> &fatal)
+  : Loadable(elem, system, msg, fatal)
 {
   if (DEBUG)
     qDebug("LoadMetasql::LoadMetasql(QDomElement) entered");
@@ -114,13 +115,6 @@ LoadMetasql::LoadMetasql(const QDomElement &elem, QStringList &msg, QList<bool> 
     fatal.append(false);
   }
 
-  if (elem.hasAttribute("system"))
-  {
-    msg.append(TR("Node %1 '%2' has a 'system' attribute "
-                           "which is ignored for MetaSQL statements.")
-                       .arg(elem.nodeName()).arg(elem.attribute("name")));
-    fatal.append(false);
-  }
 }
 
 int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
@@ -174,11 +168,12 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
   QSqlQuery upsert;
   int metasqlid = -1;
 
-  upsert.prepare("SELECT saveMetasql(:group, :name, :notes, :query) AS result;");
+  upsert.prepare("SELECT saveMetasql(:group, :name, :notes, :query, :system) AS result;");
   upsert.bindValue(":group", _group);
   upsert.bindValue(":name",  _name);
   upsert.bindValue(":notes", _comment);
   upsert.bindValue(":query", metasqlStr);
+  upsert.bindValue(":system",_system);
   upsert.exec();
   if (upsert.first())
   {

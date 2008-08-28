@@ -73,8 +73,9 @@ LoadAppUI::LoadAppUI(const QString &name, const int order,
   _pkgitemtype = "U";
 }
 
-LoadAppUI::LoadAppUI(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
-  : Loadable(elem, msg, fatal)
+LoadAppUI::LoadAppUI(const QDomElement &elem, const bool system,
+                     QStringList &msg, QList<bool> &fatal)
+  : Loadable(elem, system, msg, fatal)
 {
   _pkgitemtype = "U";
 
@@ -205,10 +206,11 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   int pkgheadid = -1;
   int pkgitemid = -1;
   if (pkgname.isEmpty())
-    select.prepare("SELECT uiform_id, -1, -1"
-                   "  FROM uiform "
-                   " WHERE ((uiform_name=:name)"
-                   "   AND  (uiform_order=:grade));");
+    select.prepare(QString("SELECT uiform_id, -1, -1"
+                           "  FROM uiform "
+                           " WHERE ((uiform_name=:name)"
+                           "   AND  (uiform_order=:grade));")
+                        .arg(_system ? "" : "pkg"));
   else
     select.prepare(_pkgitemQueryStr);
   select.bindValue(":name",    _name);
@@ -230,12 +232,13 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   }
 
   if (formid >= 0)
-    upsert.prepare("UPDATE uiform "
-                   "   SET uiform_order=:grade, "
-                   "       uiform_enabled=:enabled,"
-                   "       uiform_source=:source,"
-                   "       uiform_notes=:notes "
-                   " WHERE (uiform_id=:id); ");
+    upsert.prepare(QString("UPDATE %1uiform "
+                           "   SET uiform_order=:grade, "
+                           "       uiform_enabled=:enabled,"
+                           "       uiform_source=:source,"
+                           "       uiform_notes=:notes "
+                           " WHERE (uiform_id=:id); ")
+                          .arg(_system ? "" : "pkg"));
   else
   {
     upsert.prepare("SELECT NEXTVAL('uiform_uiform_id_seq');");
@@ -248,10 +251,12 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
       errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
       return -6;
     }
-    upsert.prepare("INSERT INTO uiform ("
-                   "       uiform_id, uiform_name, uiform_order, "
-                   "       uiform_enabled, uiform_source, uiform_notes) "
-                   "VALUES (:id, :name, :grade, :enabled, :source, :notes);");
+    upsert.prepare(QString("INSERT INTO %1uiform ("
+                           "       uiform_id, uiform_name, uiform_order, "
+                           "       uiform_enabled, uiform_source, uiform_notes) "
+                           "VALUES (:id, :name, :grade,"
+                           "       :enabled, :source, :notes);")
+                          .arg(_system ? "" : "pkg"));
   }
 
   upsert.bindValue(":id",      formid);

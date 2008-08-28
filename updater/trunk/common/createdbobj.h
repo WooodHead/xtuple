@@ -71,7 +71,6 @@ class CreateDBObj : public Script
 {
   public:
     CreateDBObj(const QString &nodename, const QString &filename,
-                const QString &schema = "public",
                 const QString &name = QString::null,
                 const QString &comment = QString::null,
                 const OnError onError = Default);
@@ -84,14 +83,12 @@ class CreateDBObj : public Script
     virtual QString filename() const { return _filename; }
     virtual bool    isValid()  const { return !_nodename.isEmpty() &&
                                               !_name.isEmpty() &&
-                                              !_schema.isEmpty() &&
                                               !_filename.isEmpty(); }
 
   protected:
     QString _filename;
     QString _nodename;
     QString _pkgitemtype;
-    QString _schema;
 
     CreateDBObj();
     virtual int upsertPkgItem(const int pkghead, const int itemid,

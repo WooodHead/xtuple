@@ -77,8 +77,9 @@ LoadImage::LoadImage(const QString &name, const int order,
   _pkgitemtype = "I";
 }
 
-LoadImage::LoadImage(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
-  : Loadable(elem, msg, fatal)
+LoadImage::LoadImage(const QDomElement &elem, const bool system,
+                     QStringList &msg, QList<bool> &fatal)
+  : Loadable(elem, system, msg, fatal)
 {
   _pkgitemtype = "I";
 
@@ -112,13 +113,6 @@ LoadImage::LoadImage(const QDomElement &elem, QStringList &msg, QList<bool> &fat
     fatal.append(false);
   }
 
-  if (elem.hasAttribute("system"))
-  {
-    msg.append(TR("Node %1 '%2' has a 'system' attribute "
-                           "which is ignored for images.")
-                       .arg(elem.nodeName()).arg(elem.attribute("name")));
-    fatal.append(false);
-  }
 }
 
 int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
@@ -175,9 +169,10 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   int pkgheadid = -1;
   int pkgitemid = -1;
   if (pkgname.isEmpty())
-    select.prepare("SELECT image_id, -1, -1"
-                   "  FROM image "
-                   " WHERE (image_name=:name);");
+    select.prepare(QString("SELECT image_id, -1, -1"
+                           "  FROM %1image "
+                           " WHERE (image_name=:name);")
+                          .arg(_system ? "" : "pkg"));
   else
     select.prepare(_pkgitemQueryStr);
   select.bindValue(":name",    _name);
@@ -199,10 +194,11 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   }
 
   if (imageid >= 0)
-    upsert.prepare("UPDATE image "
-                   "   SET image_data=:source,"
-                   "       image_descrip=:notes "
-                   " WHERE (image_id=:id); ");
+    upsert.prepare(QString("UPDATE %1image "
+                           "   SET image_data=:source,"
+                           "       image_descrip=:notes "
+                           " WHERE (image_id=:id); ")
+                          .arg(_system ? "" : "pkg"));
   else
   {
     upsert.prepare("SELECT NEXTVAL('image_image_id_seq');");
@@ -216,9 +212,10 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
       return -6;
     }
 
-    upsert.prepare("INSERT INTO image "
-                   "       (image_id, image_name, image_data, image_descrip) "
-                   "VALUES (:id, :name, :source, :notes);");
+    upsert.prepare(QString("INSERT INTO %1image "
+                           "(image_id, image_name, image_data, image_descrip) "
+                           "VALUES (:id, :name, :source, :notes);")
+                          .arg(_system ? "" : "pkg"));
   }
 
   upsert.bindValue(":id",      imageid);

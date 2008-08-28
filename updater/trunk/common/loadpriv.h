@@ -66,7 +66,8 @@ class LoadPriv : public Loadable
     LoadPriv(const QString &nodename,
              const QString &name, const QString &module = "Custom",
              const bool system = false, const QString &descrip = QString::null);
-    LoadPriv(const QDomElement &, QStringList &, QList<bool> &);
+    LoadPriv(const QDomElement &, const bool system,
+             QStringList &, QList<bool> &);
 
     virtual QDomElement createElement(QDomDocument &doc);
 

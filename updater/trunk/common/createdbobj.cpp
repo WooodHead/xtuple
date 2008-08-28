@@ -69,7 +69,7 @@ CreateDBObj::CreateDBObj()
 }
 
 CreateDBObj::CreateDBObj(const QString &nodename, const QString &filename,
-                         const QString &schema,   const QString &name,
+                         const QString &name,
                          const QString &comment,  OnError onError)
 {
   _comment  = comment;
@@ -77,7 +77,6 @@ CreateDBObj::CreateDBObj(const QString &nodename, const QString &filename,
   _name     = name;
   _nodename = nodename;
   _onError  = onError;
-  _schema   = schema;
 }
 
 CreateDBObj::CreateDBObj(const QDomElement & elem, QStringList &msg, QList<bool> &fatal)
@@ -102,16 +101,6 @@ CreateDBObj::CreateDBObj(const QDomElement & elem, QStringList &msg, QList<bool>
     fatal.append(true);
   }
 
-  if (elem.hasAttribute("schema"))
-    _schema = elem.attribute("schema");
-  else
-  {
-    _schema = "public";
-    msg.append(TR("No explicit schema for %1; defaulting to %2.")
-               .arg(_nodename).arg(_schema));
-    fatal.append(false);
-  }
-
   if (elem.hasAttribute("onerror"))
     _onError = nameToOnError(elem.attribute("onerror"));
 
@@ -130,9 +119,6 @@ QDomElement CreateDBObj::createElement(QDomDocument & doc)
 
   if (! _name.isEmpty())
     elem.setAttribute("name", _name);
-
-  if (! _schema.isEmpty())
-    elem.setAttribute("schema", _schema);
 
   if(!_comment.isEmpty())
     elem.appendChild(doc.createTextNode(_comment));
@@ -160,7 +146,7 @@ int CreateDBObj::upsertPkgItem(const int pkgheadid, const int itemid,
                  "  AND  (pkgitem_name=:name));");
   select.bindValue(":headid", pkgheadid);
   select.bindValue(":type",  _pkgitemtype);
-  select.bindValue(":name",  _schema + "." + _name);
+  select.bindValue(":name",  _name);
   select.exec();
   if (select.first())
     pkgitemid = select.value(0).toInt();
@@ -202,7 +188,7 @@ int CreateDBObj::upsertPkgItem(const int pkgheadid, const int itemid,
   upsert.bindValue(":headid",  pkgheadid);
   upsert.bindValue(":type",    _pkgitemtype);
   upsert.bindValue(":itemid",  itemid);
-  upsert.bindValue(":name",    _schema + "." + _name);
+  upsert.bindValue(":name",    _name);
   upsert.bindValue(":descrip", _comment);
 
   if (!upsert.exec())

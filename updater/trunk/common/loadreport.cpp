@@ -70,8 +70,9 @@ LoadReport::LoadReport(const QString &name, const int grade, const bool system,
   _pkgitemtype = "R";
 }
 
-LoadReport::LoadReport(const QDomElement & elem, QStringList &msg, QList<bool> &fatal)
-  : Loadable(elem, msg, fatal)
+LoadReport::LoadReport(const QDomElement & elem, const bool system,
+                       QStringList &msg, QList<bool> &fatal)
+  : Loadable(elem, system, msg, fatal)
 {
   _pkgitemtype = "R";
 
@@ -251,10 +252,11 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
   }
 
   if (reportid >= 0)
-    upsert.prepare("UPDATE report "
-                   "   SET report_descrip=:rptdescr, "
-                   "       report_source=:rptsrc "
-                   " WHERE (report_id=:rptid);");
+    upsert.prepare(QString("UPDATE %1report "
+                           "   SET report_descrip=:notes, "
+                           "       report_source=:source "
+                           " WHERE (report_id=:id);")
+                          .arg(_system ? "" : "pkg"));
   else
   {
     upsert.prepare("SELECT NEXTVAL('report_report_id_seq');");
@@ -268,10 +270,11 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
       return -10;
     }
 
-    upsert.prepare("INSERT INTO report "
-                   "       (report_id, report_name, report_grade, "
-                   "        report_source, report_descrip)"
-                   "VALUES (:id, :name, :grade, :source, :notes);");
+    upsert.prepare(QString("INSERT INTO %1report "
+                           "       (report_id, report_name, report_grade, "
+                           "        report_source, report_descrip)"
+                           "VALUES (:id, :name, :grade, :source, :notes);")
+                          .arg(_system ? "" : "pkg"));
   }
 
   upsert.bindValue(":id",      reportid);

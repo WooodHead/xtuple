@@ -63,7 +63,7 @@
 class CreateView : public CreateDBObj
 {
   public:
-    CreateView(const QString &filename, const QString &schema,
+    CreateView(const QString &filename,
                const QString &name, const QString &comment = QString::null);
     CreateView(const QDomElement &, QStringList &, QList<bool> &);
 

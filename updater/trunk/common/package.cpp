@@ -65,7 +65,6 @@
 #include <QVariant>
 
 #include "createfunction.h"
-#include "createschema.h"
 #include "createtable.h"
 #include "createtrigger.h"
 #include "createview.h"
@@ -185,6 +184,10 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
   }
 
   QStringList reportedErrorTags;
+  bool system = _name.isEmpty() && (_developer == "xTuple" || _developer.isEmpty());
+  if (DEBUG)
+    qDebug("Package::Package() - _name '%s', _developer '%s' => system %d",
+           qPrintable(_name), qPrintable(_developer), system);
 
   QDomNodeList nList = elem.childNodes();
   for(int n = 0; n < nList.count(); ++n)
@@ -194,11 +197,6 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
     {
       CreateFunction function(elemThis, msgList, fatalList);
       _functions.append(function);
-    }
-    else if (elemThis.tagName() == "createschema")
-    {
-      CreateSchema schema(elemThis, msgList, fatalList);
-      _schemas.append(schema);
     }
     else if (elemThis.tagName() == "createtable")
     {
@@ -217,37 +215,37 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
     }
     else if(elemThis.tagName() == "loadmetasql")
     {
-      LoadMetasql metasql(elemThis, msgList, fatalList);
+      LoadMetasql metasql(elemThis, system, msgList, fatalList);
       _metasqls.append(metasql);
     }
     else if(elemThis.tagName() == "loadpriv")
     {
-      LoadPriv priv(elemThis, msgList, fatalList);
+      LoadPriv priv(elemThis, system, msgList, fatalList);
       _privs.append(priv);
     }
     else if(elemThis.tagName() == "loadreport")
     {
-      LoadReport report(elemThis, msgList, fatalList);
+      LoadReport report(elemThis, system, msgList, fatalList);
       _reports.append(report);
     }
     else if(elemThis.tagName() == "loadappui")
     {
-      LoadAppUI appui(elemThis, msgList, fatalList);
+      LoadAppUI appui(elemThis, system, msgList, fatalList);
       _appuis.append(appui);
     }
     else if(elemThis.tagName() == "loadappscript")
     {
-      LoadAppScript appscript(elemThis, msgList, fatalList);
+      LoadAppScript appscript(elemThis, system, msgList, fatalList);
       _appscripts.append(appscript);
     }
     else if(elemThis.tagName() == "loadcmd")
     {
-      LoadCmd cmd(elemThis, msgList, fatalList);
+      LoadCmd cmd(elemThis, system, msgList, fatalList);
       _cmds.append(cmd);
     }
     else if(elemThis.tagName() == "loadimage")
     {
-      LoadImage image(elemThis, msgList, fatalList);
+      LoadImage image(elemThis, system, msgList, fatalList);
       _images.append(image);
     }
     else if (elemThis.tagName() == "pkgnotes")
@@ -281,7 +279,6 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
            msgList.size(), fatalList.size());
     qDebug("_functions:     %d", _functions.size());
     qDebug("_tables:        %d", _tables.size());
-    qDebug("_schemas:       %d", _schemas.size());
     qDebug("_triggers:      %d", _triggers.size());
     qDebug("_views:         %d", _views.size());
     qDebug("_metasqls:      %d", _metasqls.size());
@@ -442,17 +439,6 @@ bool Package::containsPriv(const QString &pname) const
 {
   QList<LoadPriv>::const_iterator it = _privs.begin();
   for(; it != _privs.end(); ++it)
-  {
-    if((*it).name() == pname)
-      return true;
-  }
-  return false;
-}
-
-bool Package::containsSchema(const QString &pname) const
-{
-  QList<CreateSchema>::const_iterator it = _schemas.begin();
-  for(; it != _schemas.end(); ++it)
   {
     if((*it).name() == pname)
       return true;

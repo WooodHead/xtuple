@@ -71,7 +71,6 @@
 
 #include <gunzip.h>
 #include <createfunction.h>
-#include <createschema.h>
 #include <createtable.h>
 #include <createtrigger.h>
 #include <createview.h>
@@ -83,6 +82,7 @@
 #include <loadpriv.h>
 #include <loadreport.h>
 #include <package.h>
+#include <pkgschema.h>
 #include <prerequisite.h>
 #include <script.h>
 #include <tarfile.h>
@@ -238,11 +238,11 @@ void LoaderWindow::fileOpen()
   }
   else if (! contentFile.endsWith(contentsnames.at(0)))
   {
-    msgList << tr("Deprecated Package Format: Packages for this version of "
-                  "the Updater should have their contents described by a file "
-                  "named %1. The current package being loaded uses an outdated "
-                  "file name %2.") .arg(contentsnames.at(0)).arg(contentFile);
-    fatalList << false;
+    qDebug("Deprecated Package Format: Packages for this version of "
+           "the Updater should have their contents described by a file "
+           "named %s. The current package being loaded uses an outdated "
+           "file name %s.",
+           qPrintable(contentsnames.at(0)), qPrintable(contentFile));
   }
 
   QByteArray docData = _files->_list[contentFile];
@@ -497,6 +497,8 @@ void LoaderWindow::sStart()
   if(!_multitrans && !_premultitransfile)
     qry.exec("begin;");
 
+  PkgSchema schema(_package->name(),
+                   tr("Schema to hold contents of %1").arg(_package->name()));
   QString errMsg;
   int pkgid = -1;
   if (! _package->name().isEmpty())
@@ -504,6 +506,19 @@ void LoaderWindow::sStart()
     pkgid = _package->writeToDB(errMsg);
     if (pkgid >= 0)
       _text->append(tr("Saving Package Header was successful."));
+    else
+    {
+      _text->append(errMsg);
+      qry.exec("rollback;");
+      if(!_multitrans && !_premultitransfile)
+      {
+        _text->append(_rollbackMsg);
+        return;
+      }
+    }
+
+    if (schema.create(errMsg) >= 0 && schema.setPath(errMsg) >= 0)
+      _text->append(tr("Saving Schema for Package was successful."));
     else
     {
       _text->append(errMsg);
@@ -578,19 +593,6 @@ void LoaderWindow::sStart()
     if (applySql((*i), _files->_list[prefix + (*i).filename()]) < 0)
       return;
   }
-  }
-
-  if (_package->_schemas.size() > 0)
-  {
-  _status->setText(tr("<p><b>Updating Schema Definitions</b></p>"));
-  _text->append(tr("<p>Loading new Schema definitions...</p>"));
-  for(QList<CreateSchema>::iterator i = _package->_schemas.begin();
-      i != _package->_schemas.end(); ++i)
-  {
-    if (applySql((*i), _files->_list[prefix + (*i).filename()]) < 0)
-      return;
-  }
-  _text->append(tr("<p>Completed importing new schema definitions.</p>"));
   }
 
   if (_package->_functions.size() > 0)
@@ -849,6 +851,16 @@ void LoaderWindow::sStart()
     qry.exec("commit;");
 
   _text->append(tr("<p>The Update is now complete!</p>"));
+
+  if (! _package->name().isEmpty() && schema.clearPath(errMsg) < 0)
+  {
+    _text->append(tr("<p><font color=\"orange\">The update completed "
+                     "successfully but there was an error resetting "
+                     "the schema path:</font></p><pre>%1</pre>"
+                     "<p>Quit the updater and start it "
+                     "again if you want to apply another update.</p>"));
+
+  }
 }
 
 void LoaderWindow::setMultipleTransactions(bool mt)

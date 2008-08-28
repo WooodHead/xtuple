@@ -64,10 +64,11 @@ class LoadImage : public Loadable
 {
   public:
     LoadImage(const QString & name, const int order = 0,
-                  const bool system = true, const bool enabled = true,
+                  const bool system = false, const bool enabled = true,
                   const QString & comment = QString::null,
                   const QString &filename = QString::null);
-    LoadImage(const QDomElement &, QStringList &, QList<bool> &);
+    LoadImage(const QDomElement &, const bool system,
+              QStringList &, QList<bool> &);
 
     virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);
 };

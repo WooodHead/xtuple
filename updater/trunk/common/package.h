@@ -65,7 +65,6 @@ class QDomDocument;
 class QDomElement;
 
 class CreateFunction;
-class CreateSchema;
 class CreateTable;
 class CreateTrigger;
 class CreateView;
@@ -99,7 +98,6 @@ class Package
     int versionMinor()  const { return _minVersion; }
 
     QList<CreateFunction> _functions;
-    QList<CreateSchema>   _schemas;
     QList<CreateTable>    _tables;
     QList<CreateTrigger>  _triggers;
     QList<CreateView>     _views;
@@ -122,7 +120,6 @@ class Package
     bool containsMetasql(const QString &name)      const;
     bool containsPriv(const QString &name)         const;
     bool containsReport(const QString &name)       const;
-    bool containsSchema(const QString &name)       const;
     bool containsScript(const QString &name)       const;
     bool containsTable(const QString &name)        const;
     bool containsTrigger(const QString &name)      const;

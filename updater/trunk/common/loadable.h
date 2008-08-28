@@ -70,10 +70,10 @@ class Loadable
 {
   public:
     Loadable(const QString &nodename, const QString &name,
-             const int grade = 0, const bool system = true,
+             const int grade = 0, const bool system = false,
              const QString &comment = QString::null,
              const QString &filename = QString::null);
-    Loadable(const QDomElement &, QStringList &, QList<bool> &);
+    Loadable(const QDomElement &, const bool system, QStringList &, QList<bool> &);
 
     virtual ~Loadable();
 
@@ -103,6 +103,7 @@ class Loadable
     QString _comment;
     QString _filename;
     int     _grade;
+    bool    _inpackage;
     QString _name;
     QString _nodename;
     QString _pkgitemtype;

@@ -63,7 +63,7 @@
 class CreateTable : public CreateDBObj
 {
   public:
-    CreateTable(const QString &filename, const QString &schema,
+    CreateTable(const QString &filename,
                 const QString &name, const QString &comment = QString::null);
     CreateTable(const QDomElement &, QStringList &, QList<bool> &);
 

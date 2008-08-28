@@ -64,10 +64,11 @@ class LoadAppScript : public Loadable
 {
   public:
     LoadAppScript(const QString & name, const int order = 0,
-                  const bool system = true, const bool enabled = true,
+                  const bool system = false, const bool enabled = true,
                   const QString & comment = QString::null,
                   const QString &filename = QString::null);
-    LoadAppScript(const QDomElement &, QStringList &, QList<bool> &);
+    LoadAppScript(const QDomElement &, const bool system,
+                  QStringList &, QList<bool> &);
 
     virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);
 

@@ -64,10 +64,11 @@ class LoadMetasql : public Loadable
 {
   public:
     LoadMetasql(const QString & name, const QString &group,
-                  const bool system = true,
+                  const bool system = false,
                   const QString & comment = QString::null,
                   const QString &filename = QString::null);
-    LoadMetasql(const QDomElement &, QStringList &, QList<bool> &);
+    LoadMetasql(const QDomElement &, const bool system,
+                QStringList &, QList<bool> &);
 
     virtual QString group()   const { return _group; }
     virtual bool    isValid() const { return !_nodename.isEmpty() &&

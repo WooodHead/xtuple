@@ -75,8 +75,9 @@ LoadPriv::LoadPriv(const QString &nodename,
   _pkgitemtype = "P";
 }
 
-LoadPriv::LoadPriv(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
-  : Loadable(elem, msg, fatal)
+LoadPriv::LoadPriv(const QDomElement &elem, const bool system,
+                   QStringList &msg, QList<bool> &fatal)
+  : Loadable(elem, system, msg, fatal)
 {
   _pkgitemtype = "P";
 
@@ -103,7 +104,6 @@ QDomElement LoadPriv::createElement(QDomDocument &doc)
   QDomElement elem = doc.createElement("loadpriv");
   elem.setAttribute("name", _name);
   elem.setAttribute("module", _module);
-  elem.setAttribute("system", _system);
 
   if(!_comment.isEmpty())
     elem.appendChild(doc.createTextNode(_comment));
@@ -134,9 +134,10 @@ int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
   int pkgheadid = -1;
   int pkgitemid = -1;
   if (pkgname.isEmpty())
-    select.prepare("SELECT priv_id, -1, -1"
-                   "  FROM priv "
-                   " WHERE (priv_name=:name);");
+    select.prepare(QString("SELECT priv_id, -1, -1"
+                           "  FROM %1priv "
+                           " WHERE (priv_name=:name);")
+                      .arg(_system ? "" : "pkg"));
   else
     select.prepare(_pkgitemQueryStr);
   select.bindValue(":name",    _name);
@@ -157,10 +158,11 @@ int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
   }
 
   if (privid >= 0)
-    upsert.prepare("UPDATE priv "
-                   "   SET priv_module=:module, "
-                   "       priv_descrip=:comment "
-                   " WHERE (priv_id=:id); ");
+    upsert.prepare(QString("UPDATE %1priv "
+                           "   SET priv_module=:module, "
+                           "       priv_descrip=:comment "
+                           " WHERE (priv_id=:id); ")
+              .arg(_system ? "" : "pkg"));
   else
   {
     upsert.prepare("SELECT NEXTVAL('priv_priv_id_seq');");
@@ -173,9 +175,10 @@ int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
       errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
       return -6;
     }
-    upsert.prepare("INSERT INTO priv ("
-                   "       priv_id, priv_module, priv_name, priv_descrip "
-                   ") VALUES (:id, :module, :name, :comment);");
+    upsert.prepare(QString("INSERT INTO %1priv ("
+                           "       priv_id, priv_module, priv_name, priv_descrip "
+                           ") VALUES (:id, :module, :name, :comment);")
+              .arg(_system ? "" : "pkg"));
   }
 
   upsert.bindValue(":id",      privid);

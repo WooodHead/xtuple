@@ -90,8 +90,10 @@ Loadable::Loadable(const QString &nodename, const QString &name,
   _filename = (filename.isEmpty() ? name : filename);
 }
 
-Loadable::Loadable(const QDomElement & elem, QStringList &msg, QList<bool> &fatal)
+Loadable::Loadable(const QDomElement & elem, const bool system,
+                   QStringList &/*msg*/, QList<bool> &/*fatal*/)
 {
+  _system = system;
   _nodename = elem.nodeName();
 
   if (elem.hasAttribute("name"))
@@ -105,23 +107,6 @@ Loadable::Loadable(const QDomElement & elem, QStringList &msg, QList<bool> &fata
       _grade = INT_MIN;
     else
       _grade = elem.attribute("grade").toInt();
-  }
-
-  if (elem.hasAttribute("system"))
-  {
-    if (elem.attribute("system").contains(Loadable::trueRegExp))
-      _system = true;
-    else if (elem.attribute("system").contains(Loadable::falseRegExp))
-      _system = false;
-    else
-    {
-      _system = false;
-      msg.append(TR("Node %1 '%2' has an improper value for the 'system' "
-                        "attribute (%3). Defaulting to false.")
-                         .arg(elem.nodeName()).arg(elem.attribute("name"))
-                         .arg(elem.attribute("system")));
-      fatal.append(false);
-    }
   }
 
   if (elem.hasAttribute("file"))
@@ -142,9 +127,6 @@ QDomElement Loadable::createElement(QDomDocument & doc)
   elem.setAttribute("name", _name);
   elem.setAttribute("grade", _grade);
   elem.setAttribute("file", _filename);
-
-  if (_system)
-    elem.setAttribute("system", _system);
 
   if(!_comment.isEmpty())
     elem.appendChild(doc.createTextNode(_comment));

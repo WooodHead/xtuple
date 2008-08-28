@@ -55,22 +55,29 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#ifndef __CREATESCHEMA_H__
-#define __CREATESCHEMA_H__
+#ifndef __PKGSCHEMA_H__
+#define __PKGSCHEMA_H__
 
-#include "createdbobj.h"
+#include <QString>
 
-class CreateSchema : public CreateDBObj
+class PkgSchema
 {
   public:
-    CreateSchema(const QString &filename,
-                 const QString &name, const QString &comment = QString::null);
-    CreateSchema(const QDomElement &, QStringList &, QList<bool> &);
+    PkgSchema(const QString &name, const QString &comment = QString::null);
+    virtual ~PkgSchema();
 
-    virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);
+    virtual int create(QString &errMsg);
+    virtual int clearPath(QString &errMsg);
+    virtual int getPath(QString &path, QString &errMsg);
+    virtual int setPath(QString &errMsg);
 
   protected:
-    virtual int upsertPkgItem(const int, const int, QString&);
+    virtual int upsertPkgItem(const int itemid, QString&);
+
+    QString _name;
+    QString _comment;
+
+    static QString _sqlerrtxt;
 };
 
 #endif

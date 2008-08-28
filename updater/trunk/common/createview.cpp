@@ -65,9 +65,9 @@
 
 #define DEBUG false
 
-CreateView::CreateView(const QString &filename, const QString &schema,
+CreateView::CreateView(const QString &filename,
                          const QString &name, const QString &comment)
-  : CreateDBObj("createview", filename, schema, name, comment)
+  : CreateDBObj("createview", filename, name, comment)
 {
   _pkgitemtype = "V";
   _relkind     = "v";
@@ -100,48 +100,9 @@ int CreateView::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
     return -1;
   }
 
-  QString oldschema;
-  QSqlQuery schemaq;
-  schemaq.prepare("SELECT CURRENT_SCHEMA();");
-  schemaq.exec();
-  if (schemaq.first())
-    oldschema = schemaq.value(0).toString();
-  else if (schemaq.lastError().type() != QSqlError::NoError)
-  {
-    errMsg = _sqlerrtxt.arg(_filename)
-                      .arg(schemaq.lastError().databaseText())
-                      .arg(schemaq.lastError().driverText());
-    return -2;
-  }
-  if (oldschema.isEmpty())
-    oldschema = "public";
-
-  schemaq.prepare("SET SEARCH_PATH TO :schema,:oldpath;");
-  schemaq.bindValue(":schema", _schema);
-  schemaq.bindValue(":oldpath", oldschema);
-  schemaq.exec();
-  if (schemaq.lastError().type() != QSqlError::NoError)
-  {
-    errMsg = _sqlerrtxt.arg(_filename)
-                      .arg(schemaq.lastError().databaseText())
-                      .arg(schemaq.lastError().driverText());
-    return -3;
-  }
-
   int returnVal = Script::writeToDB(pdata, pkgname, errMsg);
   if (returnVal < 0)
     return returnVal;
-
-  schemaq.prepare("SET SEARCH_PATH TO :oldpath;");
-  schemaq.bindValue(":oldpath", oldschema);
-  schemaq.exec();
-  if (schemaq.lastError().type() != QSqlError::NoError)
-  {
-    errMsg = _sqlerrtxt.arg(_filename)
-                      .arg(schemaq.lastError().databaseText())
-                      .arg(schemaq.lastError().driverText());
-    return -5;
-  }
 
   if (! pkgname.isEmpty())
   {
@@ -167,7 +128,7 @@ int CreateView::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
                    "  AND  (relnamespace=pg_namespace.oid)"
                    "  AND  (nspname=:schema));");
     select.bindValue(":name",   _name);
-    select.bindValue(":schema", _schema);
+    select.bindValue(":schema", pkgname);
     select.bindValue(":relkind",_relkind);
     select.exec();
     if (select.first())

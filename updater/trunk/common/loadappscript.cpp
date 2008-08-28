@@ -71,8 +71,9 @@ LoadAppScript::LoadAppScript(const QString &name, const int order,
   _pkgitemtype = "C";
 }
 
-LoadAppScript::LoadAppScript(const QDomElement &elem, QStringList &msg, QList<bool> &fatal)
-  : Loadable(elem, msg, fatal)
+LoadAppScript::LoadAppScript(const QDomElement &elem, const bool system,
+                             QStringList &msg, QList<bool> &fatal)
+  : Loadable(elem, system, msg, fatal)
 {
   _pkgitemtype = "C";
 
@@ -188,10 +189,11 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
   int pkgheadid = -1;
   int pkgitemid = -1;
   if (pkgname.isEmpty())
-    select.prepare("SELECT script_id, -1, -1"
-                   "  FROM script "
-                   " WHERE ((script_name=:name)"
-                   "   AND  (script_order=:grade));");
+    select.prepare(QString("SELECT script_id, -1, -1"
+                         "  FROM %1script "
+                         " WHERE ((script_name=:name)"
+                         "   AND  (script_order=:grade));")
+                       .arg(_system ? "" : "pkg"));
   else
     select.prepare(_pkgitemQueryStr);
   select.bindValue(":name",    _name);
@@ -213,12 +215,13 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
   }
 
   if (scriptid >= 0)
-    upsert.prepare("UPDATE script "
-                   "   SET script_order=:grade, "
-                   "       script_enabled=:enabled,"
-                   "       script_source=:source,"
-                   "       script_notes=:notes "
-                   " WHERE (script_id=:id); ");
+  upsert.prepare(QString("UPDATE %1script "
+                         "   SET script_order=:grade, "
+                         "       script_enabled=:enabled,"
+                         "       script_source=:source,"
+                         "       script_notes=:notes "
+                         " WHERE (script_id=:id); ")
+                       .arg(_system ? "" : "pkg"));
   else
   {
     upsert.prepare("SELECT NEXTVAL('script_script_id_seq');");
@@ -232,10 +235,12 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
       return -6;
     }
 
-    upsert.prepare("INSERT INTO script "
-                   "       (script_id, script_name, script_order, "
-                   "        script_enabled, script_source, script_notes) "
-                   "VALUES (:id, :name, :grade, :enabled, :source, :notes);");
+    upsert.prepare(QString("INSERT INTO %1script "
+                           "       (script_id, script_name, script_order, "
+                           "        script_enabled, script_source, script_notes) "
+                           "VALUES (:id, :name, :grade, "
+                           "        :enabled, :source, :notes);")
+                        .arg(_system ? "" : "pkg"));
   }
 
   upsert.bindValue(":id",      scriptid);

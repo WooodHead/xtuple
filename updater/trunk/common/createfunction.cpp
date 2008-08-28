@@ -66,8 +66,8 @@
 #define DEBUG false
 
 CreateFunction::CreateFunction(const QString &filename, 
-                           const QString &name, const QString &comment)
-  : CreateDBObj("createfunction", filename, name, name, comment)
+                               const QString &name, const QString &comment)
+  : CreateDBObj("createfunction", filename, name, comment)
 {
   _pkgitemtype = "F";
 }
@@ -91,66 +91,9 @@ int CreateFunction::writeToDB(const QByteArray &pdata, const QString pkgname, QS
     qDebug("CreateFunction::writeToDb(%s, %s, &errMsg)",
            pdata.data(), qPrintable(pkgname));
 
-  QString oldschema;
-  QSqlQuery schemaq;
-  schemaq.prepare("SELECT CURRENT_SCHEMA();");
-  schemaq.exec();
-  if (schemaq.first())
-    oldschema = schemaq.value(0).toString();
-  else if (schemaq.lastError().type() != QSqlError::NoError)
-  {
-    errMsg = _sqlerrtxt.arg(_filename)
-                      .arg(schemaq.lastError().databaseText())
-                      .arg(schemaq.lastError().driverText());
-    return -2;
-  }
-  if (oldschema.isEmpty())
-    oldschema = "public";
-
-  schemaq.prepare("SET SEARCH_PATH TO :schema,:oldpath;");
-  schemaq.bindValue(":schema", _schema);
-  schemaq.bindValue(":oldpath", oldschema);
-  schemaq.exec();
-  if (schemaq.lastError().type() != QSqlError::NoError)
-  {
-    errMsg = _sqlerrtxt.arg(_filename)
-                      .arg(schemaq.lastError().databaseText())
-                      .arg(schemaq.lastError().driverText());
-    return -3;
-  }
-
-  QList<int> functionoids;
-  if (! pkgname.isEmpty())
-  {
-    QSqlQuery select;
-    select.prepare("SELECT oid FROM pg_proc WHERE (proname=:name);");
-    select.bindValue(":name", _name);
-    select.exec();
-    while (select.next())
-      functionoids.append(select.value(0).toInt());
-    if (select.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_filename)
-                        .arg(select.lastError().databaseText())
-                        .arg(select.lastError().driverText());
-      return -1;
-    }
-  }
-
   int returnVal = Script::writeToDB(pdata, pkgname, errMsg);
   if (returnVal < 0)
     return returnVal;
-
-  schemaq.prepare("SET SEARCH_PATH TO :oldpath;");
-  schemaq.bindValue(":oldpath", oldschema);
-  schemaq.exec();
-  if (schemaq.lastError().type() != QSqlError::NoError)
-  {
-    errMsg = _sqlerrtxt.arg(_filename)
-                      .arg(schemaq.lastError().databaseText())
-                      .arg(schemaq.lastError().driverText());
-    return -5;
-  }
 
   if (! pkgname.isEmpty())
   {
@@ -158,6 +101,7 @@ int CreateFunction::writeToDB(const QByteArray &pdata, const QString pkgname, QS
     int pkgheadid = -1;
     select.prepare("SELECT pkghead_id FROM pkghead WHERE (pkghead_name=:name);");
     select.bindValue(":name", pkgname);
+    select.bindValue(":schema", pkgname);
     select.exec();
     if (select.first())
       pkgheadid = select.value(0).toInt();
@@ -169,16 +113,15 @@ int CreateFunction::writeToDB(const QByteArray &pdata, const QString pkgname, QS
       return -4;
     }
 
-    QString sql("SELECT oid "
-                "FROM pg_proc "
-                "WHERE ((proname=:name)"
-                "  AND  (oid NOT IN (");
-    for (int i = 0; i < functionoids.size(); i++)
-      sql += QString::number(functionoids.at(i)) + ",";
-    sql += "-1)) );";      // ensure NOT IN isn't empty and doesn't end with ','
+    QString sql("SELECT pg_proc.oid "
+                "FROM pg_proc, pg_namespace "
+                "WHERE ((pg_namespace.oid=pronamespace)"
+                "  AND  (proname=:name)"
+                "  AND  (nspname=:schema));");
 
     select.prepare(sql);
     select.bindValue(":name",   _name);
+    select.bindValue(":schema", pkgname);
     select.exec();
     int count = 0;
     while (select.next())
@@ -197,10 +140,9 @@ int CreateFunction::writeToDB(const QByteArray &pdata, const QString pkgname, QS
     }
     if (count == 0)
     {
-      errMsg = TR("Could not find function %1 in the database. The "
-                           "script %2 does not match the contents.xml "
-                           "description.")
-                .arg(_name).arg(_filename);
+      errMsg = TR("Could not find function %1 in the database for package %2. "
+                  "The script %3 does not match the contents.xml description.")
+                .arg(_name).arg(pkgname).arg(_filename);
       return -6;
     }
   }
@@ -225,7 +167,7 @@ int CreateFunction::upsertPkgItem(const int pkgheadid, const int itemid,
                  "  AND  (pkgitem_name=:name));");
   select.bindValue(":headid", pkgheadid);
   select.bindValue(":type",  _pkgitemtype);
-  select.bindValue(":name",  _schema + "." + _name);
+  select.bindValue(":name",  _name);
   select.exec();
   if (select.first())
     pkgitemid = select.value(0).toInt();
@@ -267,7 +209,7 @@ int CreateFunction::upsertPkgItem(const int pkgheadid, const int itemid,
   upsert.bindValue(":headid",  pkgheadid);
   upsert.bindValue(":type",    _pkgitemtype);
   upsert.bindValue(":itemid",  itemid);
-  upsert.bindValue(":name",    _schema + "." + _name);
+  upsert.bindValue(":name",    _name);
   upsert.bindValue(":descrip", _comment);
 
   if (!upsert.exec())

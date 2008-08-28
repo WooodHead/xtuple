@@ -74,7 +74,6 @@ HEADERS = data.h \
           package.h \
           createdbobj.h \
           createfunction.h \
-          createschema.h \
           createtable.h \
           createtrigger.h \
           createview.h \
@@ -88,6 +87,7 @@ HEADERS = data.h \
           loadmetasql.h \
           loadpriv.h \
           loadreport.h \
+          pkgschema.h \
           prerequisite.h \
           tarfile.h \
           gunzip.h
@@ -95,7 +95,6 @@ SOURCES = data.cpp \
           package.cpp \
           createdbobj.cpp \
           createfunction.cpp \
-          createschema.cpp \
           createtable.cpp \
           createtrigger.cpp \
           createview.cpp \
@@ -108,6 +107,7 @@ SOURCES = data.cpp \
           loadmetasql.cpp \
           loadpriv.cpp \
           loadreport.cpp \
+          pkgschema.cpp \
           prerequisite.cpp \
           tarfile.cpp \
           gunzip.cpp

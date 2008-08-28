@@ -69,7 +69,8 @@ class LoadCmd : public Loadable
             const QString &privname, const QString &executable,
             const QStringList &args = QStringList(),
             const QString &descrip = QString::null);
-    LoadCmd(const QDomElement &, QStringList &, QList<bool> &);
+    LoadCmd(const QDomElement &, const bool system,
+            QStringList &, QList<bool> &);
 
     virtual QDomElement createElement(QDomDocument &doc);
 

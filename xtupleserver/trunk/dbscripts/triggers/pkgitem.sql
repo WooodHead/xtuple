@@ -1,35 +1,30 @@
-SELECT dropIfExists('TRIGGER', 'pkgitembeforetrigger');
+SELECT dropIfExists('TRIGGER', 'pkgitembeforetrigger', 'public');
 CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
   DECLARE
     _functionargs TEXT;
+    _group        TEXT;
     _object       TEXT;
     _schema       TEXT;
     _debug        BOOL := true;
   BEGIN
     IF (TG_OP = ''INSERT'' OR TG_OP = ''UPDATE'') THEN
-      IF (NEW.pkgitem_type IN (''F'', ''G'', ''T'', ''V'')) THEN
-        IF (POSITION(''.'' IN NEW.pkgitem_name) > 0) THEN
-          _schema := SPLIT_PART(NEW.pkgitem_name, ''.'', 1);
-          _object := SPLIT_PART(NEW.pkgitem_name, ''.'', 2);
-        ELSE
-          _schema := CURRENT_SCHEMA();
-          _object := NEW.pkgitem_name;
-        END IF;
-        IF (NEW.pkgitem_type = ''F'') THEN
-          _object := SPLIT_PART(_object, ''('', 1);
-        END IF;
-        IF _debug THEN
-          RAISE NOTICE ''_schema % and _object %'', _schema, _object;
-        END IF;
+      _object = NEW.pkgitem_name;
 
+      SELECT pkghead_name INTO _schema
+      FROM pkghead
+      WHERE (pkghead_id=NEW.pkgitem_pkghead_id);
+      IF (NOT FOUND) THEN
+        _schema := ''public'';
+      END IF;
+
+      IF (NEW.pkgitem_type = ''F'') THEN
+        _object := SPLIT_PART(_object, ''('', 1);
       ELSIF (NEW.pkgitem_type = ''M'') THEN
-        IF (POSITION(''-'' IN NEW.pkgitem_name) > 0) THEN
-          _schema := SPLIT_PART(NEW.pkgitem_name, ''-'', 1);
-          _object := SPLIT_PART(NEW.pkgitem_name, ''-'', 2);
-        ELSE
-          _schema := '''';
-          _object := NEW.pkgitem_name;
-        END IF;
+        _group  := SPLIT_PART(_object, ''-'', 1);
+        _object := SPLIT_PART(_object, ''-'', 2);
+      END IF;
+      IF _debug THEN
+        RAISE NOTICE ''_schema % and _object %'', _schema, _object;
       END IF;
 
       IF (NEW.pkgitem_type = ''C'') THEN
@@ -62,7 +57,7 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
             NEW.pkgitem_name, NEW.pkgitem_item_id;
         END IF;
 
-        NEW.pkgitem_name := _schema || ''.'' || _object || ''('' || _functionargs || '')'';
+        NEW.pkgitem_name := _object || ''('' || _functionargs || '')'';
         IF _debug THEN RAISE NOTICE ''changed pkgitem_name to %'', NEW.pkgitem_name; END IF;
 
       ELSIF (NEW.pkgitem_type = ''G'') THEN
@@ -89,7 +84,7 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
         IF (NOT EXISTS(SELECT metasql_id
                        FROM metasql
                        WHERE ((metasql_id=NEW.pkgitem_item_id)
-                          AND (metasql_group=_schema)
+                          AND (metasql_group=_group)
                           AND (metasql_name=_object)))) THEN
           RAISE EXCEPTION ''Cannot create MetaSQL statement % as a Package Item without a corresponding metasql record.'',
             NEW.pkgitem_name;
@@ -160,22 +155,23 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
     ELSIF (TG_OP = ''DELETE'') THEN
       IF _debug THEN RAISE NOTICE ''Deleting % % %'', OLD.pkgitem_item_id, OLD.pkgitem_name, OLD.pkgitem_type; END IF;
 
-      IF (OLD.pkgitem_type IN (''F'', ''G'', ''T'', ''V'')) THEN
-        IF (POSITION(''.'' IN OLD.pkgitem_name) > 0) THEN
-          _schema = SPLIT_PART(OLD.pkgitem_name, ''.'', 1);
-          _object = SPLIT_PART(OLD.pkgitem_name, ''.'', 2);
-        ELSE
-          _schema = ''public'';
-          _object = OLD.pkgitem_name;
-        END IF;
+      _object = OLD.pkgitem_name;
+
+      SELECT pkghead_name INTO _schema
+      FROM pkghead
+      WHERE (pkghead_id=OLD.pkgitem_pkghead_id);
+      IF (NOT FOUND) THEN
+        _schema := ''public'';
+      END IF;
+
+      IF (OLD.pkgitem_type = ''F'') THEN
+        _object := SPLIT_PART(_object, ''('', 1);
       ELSIF (OLD.pkgitem_type = ''M'') THEN
-        IF (POSITION(''-'' IN OLD.pkgitem_name) > 0) THEN
-          _schema := SPLIT_PART(OLD.pkgitem_name, ''-'', 1);
-          _object := SPLIT_PART(OLD.pkgitem_name, ''-'', 2);
-        ELSE
-          _schema := '''';
-          _object := OLD.pkgitem_name;
-        END IF;
+        _group  := SPLIT_PART(_object, ''-'', 1);
+        _object := SPLIT_PART(_object, ''-'', 2);
+      END IF;
+      IF _debug THEN
+        RAISE NOTICE ''_schema % and _object %'', _schema, _object;
       END IF;
 
       IF (OLD.pkgitem_type = ''C'') THEN
@@ -205,7 +201,7 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
 
       ELSIF (OLD.pkgitem_type = ''M'') THEN
         DELETE FROM metasql WHERE ((metasql_id=OLD.pkgitem_item_id)
-                               AND (metasql_group=_schema)
+                               AND (metasql_group=_group)
                                AND (metasql_name=_object));
 
       ELSIF (OLD.pkgitem_type = ''P'') THEN
