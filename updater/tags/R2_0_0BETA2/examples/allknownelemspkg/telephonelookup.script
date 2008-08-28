@@ -1,0 +1,37 @@
+function getParams()
+{
+  var params = new Object;
+  params.search = mywindow.findChild("_search").text;
+}
+
+function query()
+{
+  var params = getParams();
+
+  var metasql = toolbox.loadmql("telephonelookup", "select");
+  var qry = toolbox.executeQuery(metasql, params);
+  if(!qry.first())
+  {
+    mywindow.findChild("_firstname").text = "n/a";
+    mywindow.findChild("_lastname").text = "n/a";
+    mywindow.findChild("_number").text = "n/a";
+    mywindow.findChild("_alternate").text = "n/a";
+
+    toolbox.messageBox("warning", mywindow, "No Results", "No results were found matching your criteria.");
+    return;
+  }
+
+  mywindow.findChild("_firstname").text = qry.value("cntct_first_name");
+  mywindow.findChild("_lastname").text = qry.value("cntct_last_name");
+  mywindow.findChild("_number").text = qry.value("cntct_phone");
+  mywindow.findChild("_alternate").text = qry.value("cntct_phone2");
+}
+
+function print()
+{
+  toolbox.printReport("telephonelookup", getParams());
+}
+
+mywindow.findChild("_close").clicked.connect(mywindow, "close");
+mywindow.findChild("_query").clicked.connect(query);
+mywindow.findChild("_print").clicked.connect(print);
