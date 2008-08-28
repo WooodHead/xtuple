@@ -61,6 +61,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QVariant>     // used by QSqlQuery::bindValue()
+#include <limits.h>
 
 #define DEBUG false
 

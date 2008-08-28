@@ -62,6 +62,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QVariant>     // used by QSqlQuery::bindValue()
+#include <limits.h>
 
 LoadReport::LoadReport(const QString &name, const int grade, const bool system,
                        const QString &comment, const QString &filename)

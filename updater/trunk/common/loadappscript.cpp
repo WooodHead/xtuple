@@ -61,6 +61,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QVariant>     // used by QSqlQuery::bindValue()
+#include <limits.h>
 
 LoadAppScript::LoadAppScript(const QString &name, const int order,
                              const bool system, const bool enabled,

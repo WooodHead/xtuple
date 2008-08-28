@@ -62,6 +62,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QVariant>     // used by QSqlQuery::value()
+#include <limits.h>
 
 QRegExp Loadable::trueRegExp("^t(rue)?$",   Qt::CaseInsensitive);
 QRegExp Loadable::falseRegExp("^f(alse)?$", Qt::CaseInsensitive);
