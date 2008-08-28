@@ -70,7 +70,7 @@ class CreateFunction : public CreateDBObj
     virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);
 
   protected:
-    virtual int upsertPkgItem(const int, const int, QString&);
+    virtual int upsertPkgItem(const int, const QMap<QString,int>, const QString, const int, QString&);
 };
 
 #endif
