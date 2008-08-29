@@ -41,12 +41,12 @@ Register
 * [Inventory] Added Warehouse Code to Order select widget and Enter 
 Receipts screen
 * [P/D] Added colors to BOM
-* [Products] Added “Only show Items where Actual and Standard Costs are 
-different” to Item Cost by Class Code display 
+* [Products] Added "Only show Items where Actual and Standard Costs are 
+different" to Item Cost by Class Code display 
 * [Sales] Added Customer Name to List Pricing Schedule Assignments
 * [System] Added the ability to store and run metaSQL queries from the 
 database
-* [System] Created Screen Control widget that allows for “codeless” 
+* [System] Created Screen Control widget that allows for "codeless" 
 screens to be created 
 
 
@@ -67,10 +67,10 @@ screen
 * [A/P] Fixed issue preventing correct receiving of inventory Items
 * [A/P] Fixed issue leading to error when selecting to cancel creation 
 of Misc Credit/Debit Memos
-* [A/P] Fixed issue where “error” was displaying as document when 
+* [A/P] Fixed issue where "error" was displaying as document when 
 selecting to print an Invoice against which a Cash Deposit was applied
-* [A/R] Modified A/R Aging printed report comment to read “base amounts 
-calculated from document date”
+* [A/R] Modified A/R Aging printed report comment to read "base amounts 
+calculated from document date"
  * [A/R] Changed the araging function so now 1) the aropen_amount is 
 normalized to base Currency using the aropen_docdate and 2) since 
 aropen_paid was not being normalized, changed it to use aropen_curr_id 
@@ -155,13 +155,13 @@ posting Operations corrections
 * [Manufacture] Fixed issue leading to error when printing BOO
 * [Manufacture] Fixed issue leading to error when printing Labor 
 Variance by BOO items screen
-* [Manufacture] Updated Lot/Serial assignment screen to display “N/A” 
+* [Manufacture] Updated Lot/Serial assignment screen to display "N/A" 
 instead of 01/01/1970 if the Item does not expire or has no waranty
 * [Products] Fixed issue preventing creation of aliases for 
 newly-created Items
 * [Products] Changed the indented, sequenced, single, and summarized 
 BOM reports to disable Revision widget until a valid Item is entered
-* [Products] Changed Item look up list to use terms “Make” and “Buy”
+* [Products] Changed Item look up list to use terms "Make" and "Buy"
 * [Products] Changed BOO List to work the same as BOM List—namely, 
 DELETE button is enabled/disabled based on revision control
 * [Products] Fixed screen sizing problem on Operations By Work 
@@ -223,7 +223,7 @@ and 2) cannot already be in use
 * [Sales] Prevented users from overriding prices on Sales Orders if 
 they don't have the  privilege
 * [Sales] Changed Sales Order and Sales Order Item to disable all 
-widgets when in View mode to preclude unnecessary “Save” message
+widgets when in View mode to preclude unnecessary "Save" message
 * [Sales] Fixed issue leading to error when printing Billing Edit 
 list
 * [Sales] Allowed assignment to future Pricing Schedule Assignments; 
