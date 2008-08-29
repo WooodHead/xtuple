@@ -43,7 +43,7 @@
   </variablelist>
   <tip>
     <para>If you receive an overpayment from a Customer, you can go ahead and
-    apply the full Payment to an Invoice&mdash;even if the amount exceeds the
+    apply the full Payment to an Invoice—even if the amount exceeds the
     Invoice amount. In these cases, the system will automatically generate an
     unapplied Credit Memo for the Customer, in the overpayment amount.</para>
   </tip>
@@ -81,8 +81,8 @@
         Funds Types: Check, Certified Check, Cash, Wire Transfer, and Other.
         If you are using xTuple's Credit Card processing functionality at your
         site, the following additional Funds Types options will be available:
-        Master Card, Visa, American Express, Discover Card, Other Credit Card.
-        </para>
+        Master Card, Visa, American Express, Discover Card, Other Credit
+        Card.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -192,16 +192,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Open Items</term>
+      <term>Applications</term>
       <listitem>
         <para>Display lists A/R open items (i.e., Invoices and Debit Memos)
         for the specified Customer.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Misc. Applications</term>
-      <listitem>
-        <para>Display lists miscellaneous distributions.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -226,8 +220,8 @@
   </variablelist>
   <tip>
     <para>You may select multiple open Items simultaneously by highlighting
-    them using your mouse&mdash;or a combination of your mouse and either the
-    SHIFT or CTRL keys.</para>
+    them using your mouse—or a combination of your mouse and either the SHIFT
+    or CTRL keys.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -265,6 +259,15 @@
     wish, by selecting the appropriate option in the system-level
     configuration.</para>
   </tip>
+  <para>If you need to distribute all or some portion of the amount to a
+  miscellaneous General Ledger account click on the Misc. Distributions and
+  the following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/AR_CashR_enterMiscDist.png" />
+    </imageobject>
+    <caption>Enter Misc. Distributions for Cash Receipt</caption>
+  </mediaobject>
   <variablelist>
     <varlistentry>
       <term>ADD</term>
@@ -277,7 +280,7 @@
       <listitem>
         <para>Enables you to edit highlighted miscellaneous distributions. The
         edit screen is the same as that for creating a new miscellaneous
-        distribution&mdash;except that when editing, the fields will contain
+        distribution—except that when editing, the fields will contain
         miscellaneous distribution information. Double-clicking on a
         miscellaneous distribution will also bring you to the editing
         screen.</para>
@@ -332,9 +335,8 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Credit Cards. The edit screen is
-        the same as that for entering new Credit Card information&mdash;except
-        that when editing, the fields will contain Credit Card
-        information.</para>
+        the same as that for entering new Credit Card information—except that
+        when editing, the fields will contain Credit Card information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
