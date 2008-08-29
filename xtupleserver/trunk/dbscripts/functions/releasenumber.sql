@@ -35,10 +35,17 @@ BEGIN
     RETURN 0;
   END IF;
 
+  PERFORM *
+  FROM metric
+  WHERE metric_value = ''M''
+  AND metric_name = ''TONumberGeneration'';
+
   -- release the given order number for reuse
-  UPDATE orderseq
-  SET orderseq_number = (orderseq_number - 1)
-  WHERE (orderseq_name=psequence);
+  IF (NOT FOUND) THEN
+    UPDATE orderseq
+    SET orderseq_number = (orderseq_number - 1)
+    WHERE (orderseq_name=psequence);
+  END IF;
 
   RETURN 1;
 
