@@ -32,7 +32,7 @@
  </prerequisite>
 
  <script         file="initUpgrade" onerror="Ignore" />
- <createtable    file="pkgtest.sql" name="pkgtest" />
+ <createtable    file="pkgtest.sql" name="pkgtest" onerror="Ignore" />
  <createfunction file="pkgtesttriggerfunction.sql" name="_pkgtestbefore" />
  <createfunction file="dropifexists.sql" name="dropifexists" />
  <createtrigger  file="pkgtesttrigger.sql" name="pkgtestbefore" />

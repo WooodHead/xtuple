@@ -87,11 +87,7 @@ LoadCmd::LoadCmd(const QDomElement &elem, const bool system,
 {
   _pkgitemtype= "D";
 
-  if (_name.isEmpty())
-  {
-    msg.append(TR("This custom command has no name!"));
-    fatal.append(true);
-  }
+  // name isn't required, at least according to the db and guiclient
 
   if (elem.hasAttribute("title"))
     _title = elem.attribute("title");

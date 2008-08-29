@@ -10,7 +10,7 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
     IF (TG_OP = ''INSERT'' OR TG_OP = ''UPDATE'') THEN
       _object = NEW.pkgitem_name;
 
-      SELECT pkghead_name INTO _schema
+      SELECT LOWER(pkghead_name) INTO _schema
       FROM pkghead
       WHERE (pkghead_id=NEW.pkgitem_pkghead_id);
       IF (NOT FOUND) THEN
@@ -46,19 +46,15 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
         END IF;
 
       ELSIF (NEW.pkgitem_type = ''F'') THEN
-        SELECT oidvectortypes(proargtypes) INTO _functionargs
-        FROM pg_proc, pg_namespace
-        WHERE ((pg_proc.oid=NEW.pkgitem_item_id)
-           AND (proname=_object)
-           AND (pronamespace=pg_namespace.oid)
-           AND (nspname=_schema));
-        IF (NOT FOUND) THEN
+        IF (NOT EXISTS(SELECT pg_proc.oid
+                       FROM pg_proc, pg_namespace
+                       WHERE ((pg_proc.oid=NEW.pkgitem_item_id)
+                          AND (proname = (_object))
+                          AND (pronamespace=pg_namespace.oid)
+                          AND (nspname=_schema)) )) THEN
           RAISE EXCEPTION ''Cannot create Function % (oid %) as a Package Item without a corresponding function in the database.'',
-            NEW.pkgitem_name, NEW.pkgitem_item_id;
+                          NEW.pkgitem_name, NEW.pkgitem_item_id;
         END IF;
-
-        NEW.pkgitem_name := _object || ''('' || _functionargs || '')'';
-        IF _debug THEN RAISE NOTICE ''changed pkgitem_name to %'', NEW.pkgitem_name; END IF;
 
       ELSIF (NEW.pkgitem_type = ''G'') THEN
         IF (NOT EXISTS(SELECT pg_class.oid
@@ -111,7 +107,7 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS '
       ELSIF (NEW.pkgitem_type = ''S'') THEN
         IF (NOT EXISTS(SELECT oid
                        FROM pg_namespace
-                       WHERE (nspname=NEW.pkgitem_name))) THEN
+                       WHERE (LOWER(nspname)=LOWER(NEW.pkgitem_name)))) THEN
           RAISE EXCEPTION ''Cannot create Schema % as a Package Item without a corresponding schema in the database.'',
             NEW.pkgitem_name;
         END IF;

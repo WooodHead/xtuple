@@ -95,7 +95,9 @@ int PkgSchema::create(QString &errMsg)
   int i = 0;
   do {
     QSqlQuery select;
-    select.prepare("SELECT oid FROM pg_namespace WHERE (nspname=:name);");
+    select.prepare("SELECT oid "
+                   "FROM pg_namespace "
+                   "WHERE (LOWER(nspname)=LOWER(:name));");
     select.bindValue(":name", _name);
     select.exec();
     if (select.first())
@@ -110,7 +112,7 @@ int PkgSchema::create(QString &errMsg)
     else
     {
       QSqlQuery create;
-      create.exec(QString("CREATE SCHEMA %1;").arg(_name));
+      create.exec(QString("CREATE SCHEMA %1;").arg(_name.toLower()));
       if (create.lastError().type() != QSqlError::NoError)
       {
         errMsg = _sqlerrtxt.arg(_name)
@@ -118,7 +120,8 @@ int PkgSchema::create(QString &errMsg)
                           .arg(create.lastError().driverText());
         return -3;
       }
-      create.exec(QString("GRANT ALL ON SCHEMA %1 TO GROUP openmfg;").arg(_name));
+      create.exec(QString("GRANT ALL ON SCHEMA %1 TO GROUP openmfg;")
+                    .arg(_name.toLower()));
       if (create.lastError().type() != QSqlError::NoError)
       {
         errMsg = _sqlerrtxt.arg(_name)
@@ -282,7 +285,8 @@ int PkgSchema::setPath(QString &errMsg)
     return result;
 
   QSqlQuery schemaq;
-  schemaq.exec(QString("SET SEARCH_PATH TO %1,%2;").arg(_name).arg(path));
+  schemaq.exec(QString("SET SEARCH_PATH TO %1,%2;")
+                 .arg(_name.toLower()).arg(path));
   if (schemaq.lastError().type() != QSqlError::NoError)
   {
     errMsg = _sqlerrtxt.arg(_name)
@@ -301,7 +305,7 @@ int PkgSchema::clearPath(QString &errMsg)
   if (result < 0)
     return result;
 
-  path.remove(QRegExp("\\s*" + _name + ","));
+  path.remove(QRegExp("\\s*" + _name + ",", Qt::CaseInsensitive));
 
   QSqlQuery schemaq;
   schemaq.exec(QString("SET SEARCH_PATH TO %1;").arg(path));
@@ -328,7 +332,7 @@ int PkgSchema::upsertPkgItem(const int itemid,
                  "     pkgitem ON ((pkgitem_name=pkghead_name)"
                  "             AND (pkgitem_pkghead_id=pkghead_id)"
                  "             AND (pkgitem_type='S'))"
-                 "WHERE (pkghead_name=:name);");
+                 "WHERE (LOWER(pkghead_name)=LOWER(:name));");
   select.bindValue(":name",  _name);
   select.exec();
   if (select.first())
@@ -364,7 +368,8 @@ int PkgSchema::upsertPkgItem(const int itemid,
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
-      errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_name)
+                        .arg(err.driverText()).arg(err.databaseText());
       return -22;
     }
     upsert.prepare("INSERT INTO pkgitem ("
@@ -384,7 +389,8 @@ int PkgSchema::upsertPkgItem(const int itemid,
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
-    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_name)
+                      .arg(err.driverText()).arg(err.databaseText());
     return -23;
   }
 

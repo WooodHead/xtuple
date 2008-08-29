@@ -61,6 +61,8 @@
 #include <QString>
 #include <QStringList>
 
+#include "script.h"
+
 class QDomDocument;
 class QDomElement;
 
@@ -86,10 +88,12 @@ class Loadable
                                               !_name.isEmpty();}
     virtual QString name()     const { return _name; }
     virtual QString nodename() const { return _nodename; }
+    virtual Script::OnError onError() const { return _onError; }
     virtual void    setComment(const QString & comment) { _comment  = comment; }
     virtual void    setFilename(const QString &filename){ _filename = filename;}
     virtual void    setGrade(int grade)                 { _grade = grade; }
     virtual void    setName(const QString & name)       { _name = name; }
+    virtual void    setOnError(Script::OnError onError) { _onError = onError; }
     virtual void    setSystem(const bool p)             { _system = p; }
     virtual bool    system()   const { return _system; }
 
@@ -106,6 +110,7 @@ class Loadable
     bool    _inpackage;
     QString _name;
     QString _nodename;
+    Script::OnError _onError;
     QString _pkgitemtype;
     bool    _system;
 

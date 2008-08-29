@@ -58,9 +58,10 @@
 #ifndef LOADERWINDOW_H
 #define LOADERWINDOW_H
 
+class Loadable;
 class Package;
-class TarFile;
 class Script;
+class TarFile;
 
 #include <QMainWindow>
 
@@ -88,6 +89,7 @@ protected:
     TarFile * _files;
 
     virtual int  applySql(Script &, const QByteArray);
+    virtual int  applyLoadable(Loadable &, const QByteArray);
     virtual void launchBrowser(QWidget *w, const QString &url);
     virtual void timerEvent( QTimerEvent * e );
 

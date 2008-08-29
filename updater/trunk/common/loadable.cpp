@@ -115,6 +115,11 @@ Loadable::Loadable(const QDomElement & elem, const bool system,
   else
     _filename = _name;
 
+  if (elem.hasAttribute("onerror"))
+    _onError = Script::nameToOnError(elem.attribute("onerror"));
+  else
+    _onError = Script::nameToOnError("Stop");
+
   _comment = elem.text().trimmed();
 }
 

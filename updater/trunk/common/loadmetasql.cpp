@@ -82,13 +82,6 @@ LoadMetasql::LoadMetasql(const QDomElement &elem, const bool system,
 
   _pkgitemtype = "M";
 
-  if (_name.isEmpty())
-  {
-    msg.append(TR("The MetaSQL statement in %1 does not have a name.")
-                       .arg(_filename));
-    fatal.append(true);
-  }
-
   if (elem.nodeName() != "loadmetasql")
   {
     msg.append(TR("Creating a LoadMetasql element from a %1 node.")
