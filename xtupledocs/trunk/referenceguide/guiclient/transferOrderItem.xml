@@ -62,79 +62,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Scheduled Date</term>
+      <term>Qty. Shipped</term>
       <listitem>
-        <para>The scheduled date is the date when the Line Item should be
-        Shipped. The user who enters the Line Item is responsible for
-        determining the scheduled date. After entering the scheduled date, hit
-        the TAB key on your keyboard to display values in the remaining
-        display only fields.</para>
+        <para>Shipped to Date: Displays the total quantity shipped of the
+        specified Line Item to date.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>The Transfer Order Item having the earliest scheduled date will
-    determine the ship date for the Transfer Order.</para>
-  </note>
   <variablelist>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>sales orders</primary>
-          <secondary>availability of items for</secondary>
-        </indexterm>Show Availability</term>
-      <listitem>
-        <para>Select to display Availability information for the Transfer
-        Order Item in the following categories:</para>
-        <variablelist>
-          <varlistentry>
-            <term>On Hand</term>
-            <listitem>
-              <para>Displays the current Quantity on Hand value.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Allocated</term>
-            <listitem>
-              <para>Displays the quantity allocated to current Sales Orders,
-              Transfer Orders, and/or Work Orders in the system. An Item is
-              considered allocated to a Sales Order/Transfer Order if a
-              Transfer Order Line Item exists for the Item&mdash;and that Line
-              Item has not yet been issued to Shipping. An Item is considered
-              allocated to a Work Order if the Item is a material
-              requirement&mdash;and the material has not yet been issued to
-              the Work Order. Once the current Transfer Order Line Item is
-              saved, the "Allocated" value will increase by the quantity
-              ordered.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Unallocated</term>
-            <listitem>
-              <para>Displays the Quantity on Hand remaining after allocations
-              have been accounted for, as in: QOH - Allocated Qty. =
-              Unallocated Qty.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>On Order</term>
-            <listitem>
-              <para>If the Transfer Order Item is a manufactured Item, the
-              quantity ordered by current Work Orders will be displayed. If
-              the Transfer Order Item is a purchased Item, the quantity
-              ordered by current Purchase Orders will be displayed.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Available</term>
-            <listitem>
-              <para>Displays the available quantity. Available quantity is
-              determined using the following formula: Unallocated Qty. + On
-              Order Qty. = Available Qty.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>Standard Cost</term>
       <listitem>
@@ -158,40 +93,26 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Qty. Shipped to Date</term>
+      <term>Scheduled Date</term>
       <listitem>
-        <para>Shipped to Date: Displays the total quantity shipped of the
-        specified Line Item to date.</para>
+        <para>The scheduled date is the date when the Line Item should be
+        Shipped. The user who enters the Line Item is responsible for
+        determining the scheduled date. After entering the scheduled date, hit
+        the TAB key on your keyboard to display values in the remaining
+        display only fields.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>You can link Characteristics and Values to an Item by using the Item
-    master. Once entered, these Characteristics and Values will be available
-    to users entering Transfer Order Line Items.</para>
-  </tip>
-  <para>When selecting or editing Characteristics for a Transfer Order Line
-  Item, you are presented with the following options:</para>
+  <note>
+    <para>The Transfer Order Item having the earliest scheduled date will
+    determine the ship date for the Transfer Order.</para>
+  </note>
   <variablelist>
     <varlistentry>
-      <term>Name</term>
+      <term>Promise Date</term>
       <listitem>
-        <para>Displays the name of any Item Characteristics associated with
-        the Item. Characteristics defined as Item Characteristics may be
-        associated with Items on the Item master.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Value</term>
-      <listitem>
-        <para>Displays the default Value associated with an Item
-        Characteristic, but permits you to specify an alternate Value. When
-        associating Characteristic Values with a Transfer Order Line Item, you
-        have four options: 1) Select the default Value; 2) select an alternate
-        pre-defined Value from the list; 3) manually enter a new Value in
-        place of the pre-defined Value; or 4) make no selection. Making no
-        selection means the Characteristics will not be associated with the
-        Transfer Order Line Item.</para>
+        <para>An additional informational date that can be used for a user
+        defined purpose.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -244,7 +165,100 @@
         Items tab.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>availability of items for</secondary>
+        </indexterm>Show Availability</term>
+      <listitem>
+        <para>Select to display Availability Supply information for the
+        Transfer Order Item in the following categories:</para>
+        <variablelist>
+          <varlistentry>
+            <term>On Hand</term>
+            <listitem>
+              <para>Displays the current Quantity on Hand value.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Allocated</term>
+            <listitem>
+              <para>Displays the quantity allocated to current Sales Orders,
+              Transfer Orders, and/or Work Orders in the system. An Item is
+              considered allocated to a Sales Order/Transfer Order if a
+              Transfer Order Line Item exists for the Item—and that Line Item
+              has not yet been issued to Shipping. An Item is considered
+              allocated to a Work Order if the Item is a material
+              requirement—and the material has not yet been issued to the Work
+              Order. Once the current Transfer Order Line Item is saved, the
+              "Allocated" value will increase by the quantity ordered.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Unallocated</term>
+            <listitem>
+              <para>Displays the Quantity on Hand remaining after allocations
+              have been accounted for, as in: QOH - Allocated Qty. =
+              Unallocated Qty.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>On Order</term>
+            <listitem>
+              <para>If the Transfer Order Item is a manufactured Item, the
+              quantity ordered by current Work Orders will be displayed. If
+              the Transfer Order Item is a purchased Item, the quantity
+              ordered by current Purchase Orders will be displayed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Available</term>
+            <listitem>
+              <para>Displays the available quantity. Available quantity is
+              determined using the following formula: Unallocated Qty. + On
+              Order Qty. = Available Qty.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
   </variablelist>
+  <para>When selecting or editing Characteristics for a Transfer Order Line
+  Item, you are presented with the following options:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/transferOrderItem_charTab.png" />
+        </imageobject>
+        <caption>Transfer Order Line Item Characteristics</caption>
+      </mediaobject>
+    </screenshot><variablelist>
+      <varlistentry>
+        <term>Name</term>
+        <listitem>
+          <para>Displays the name of any Item Characteristics associated with
+          the Item. Characteristics defined as Item Characteristics may be
+          associated with Items on the Item master.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Value</term>
+        <listitem>
+          <para>Displays the default Value associated with an Item
+          Characteristic, but permits you to specify an alternate Value. When
+          associating Characteristic Values with a Transfer Order Line Item,
+          you have four options: 1) Select the default Value; 2) select an
+          alternate pre-defined Value from the list; 3) manually enter a new
+          Value in place of the pre-defined Value; or 4) make no selection.
+          Making no selection means the Characteristics will not be associated
+          with the Transfer Order Line Item.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist><tip>
+      <para>You can link Characteristics and Values to an Item by using the
+      Item master. Once entered, these Characteristics and Values will be
+      available to users entering Transfer Order Line Items.</para>
+    </tip></para>
   <para>To enter Notes related to a Transfer Order Line Item, select the
   "Notes" tab at the bottom of the screen, as shown below:</para>
   <para><screenshot>
@@ -384,8 +398,8 @@
         <para>Displays Pending Availability for component Items associated
         with sold manufactured Items. If you choose the "Show Pending
         Availability as Indented BOM" option, the information will be
-        displayed in a nested list&mdash;with a plus ("+") sign located to the
-        far left of the screen next to each line that may be expanded to lower
+        displayed in a nested list—with a plus ("+") sign located to the far
+        left of the screen next to each line that may be expanded to lower
         levels. By clicking your mouse on a plus sign, you reveal lower levels
         of information related to the Line Item.</para>
       </listitem>
@@ -394,7 +408,7 @@
   <tip>
     <para>Keep in mind that Pending Availability in this case is not the same
     as Available to Promise. This view to Pending Availability reflects
-    current Inventory Levels&mdash;it is not a time-phased view of
+    current Inventory Levels—it is not a time-phased view of
     Availability.</para>
   </tip>
 </section>

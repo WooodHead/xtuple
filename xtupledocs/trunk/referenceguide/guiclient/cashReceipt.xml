@@ -75,6 +75,34 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Apply Balance As</term>
+      <listitem>
+        <para>If your system is configured to enable Customer Deposits, you
+        may select one of the following options for applying any unapplied
+        Cash Receipt balance:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Credit Memo</term>
+            <listitem>
+              <para>Select to treat the unapplied balance as a miscellaneous
+              Credit Memo, which may be applied to A/R open items at a later
+              time.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Customer Deposit</term>
+            <listitem>
+              <para>Select to treat the unapplied balance as a Customer
+              Deposit. The Deferred Revenue Account specified on the A/R
+              Account Assignments screen will be used. A Credit Memo will also
+              be created, allowing the Customer Deposit to be applied to A/R
+              open items at a later time.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Funds Type</term>
       <listitem>
         <para>Specify the type of the Cash Receipt. Choose from following
@@ -129,34 +157,6 @@
       <listitem>
         <para>Specify the date of the Cash distribution. By default, the
         current day's date will appear.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Apply Balance As</term>
-      <listitem>
-        <para>If your system is configured to enable Customer Deposits, you
-        may select one of the following options for applying any unapplied
-        Cash Receipt balance:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Credit Memo</term>
-            <listitem>
-              <para>Select to treat the unapplied balance as a miscellaneous
-              Credit Memo, which may be applied to A/R open items at a later
-              time.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Customer Deposit</term>
-            <listitem>
-              <para>Select to treat the unapplied balance as a Customer
-              Deposit. The Deferred Revenue Account specified on the A/R
-              Account Assignments screen will be used. A Credit Memo will also
-              be created, allowing the Customer Deposit to be applied to A/R
-              open items at a later time.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
