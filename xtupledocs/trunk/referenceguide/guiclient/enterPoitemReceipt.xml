@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="enterPoitemReceipt">
   <title>Enter Receipt Item</title>
   <para>To enter Receipt details, highlight a Line Item and select the ENTER
   RECEIPT button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/enterPoitemReceipt.png"/>
+          <imagedata fileref="images/enterPoitemReceipt.png" />
         </imageobject>
-        <caption>Enter Purchase Order Item
-        Receipt</caption>
+        <caption>Enter Purchase Order Item Receipt</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When entering Receipt details, you are presented with the following
   options:</para>
   <variablelist>
     <varlistentry>
-      <term>P/O Number</term>
+      <term>Order Type</term>
+      <listitem>
+        <para>Displays whether receipts is for a Purchase Order (P/O),
+        Transfer Order (T/O) or Return (R/A).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Number</term>
       <listitem>
         <para>Displays the Purchase Order Number specified on the previous
         screen.</para>
@@ -71,18 +76,11 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Date Received</term>
+      <term>Qty. to Receive</term>
       <listitem>
-        <para>Enter the date you want the receiving transaction to be posted
-        to the General Ledger. By default, receipts will be posted on the
-        current day. However, this feature gives you the option to post
-        transactions on an alternate date.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Due Date</term>
-      <listitem>
-        <para>Displays the date the Item is due to be received.</para>
+        <para>Specify the Line Item quantity you want to receive into
+        Inventory. Depending on how your system is configured, you may or may
+        not be allowed to receive more than the quantity ordered.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -98,14 +96,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Qty. to Receive</term>
-      <listitem>
-        <para>Specify the Line Item quantity you want to receive into
-        Inventory. Depending on how your system is configured, you may or may
-        not be allowed to receive more than the quantity ordered.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Freight</term>
       <listitem>
         <para>If Line Item freight charges were specified when the Line Item
@@ -113,6 +103,21 @@
         receive a partial quantity and decrease the Freight amount
         accordingly, the system will automatically show the remaining Freight
         balance due when you go to receive the remaining quantity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Displays the date the Item is due to be received.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Date Received</term>
+      <listitem>
+        <para>Enter the date you want the receiving transaction to be posted
+        to the General Ledger. By default, receipts will be posted on the
+        current day. However, this feature gives you the option to post
+        transactions on an alternate date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
