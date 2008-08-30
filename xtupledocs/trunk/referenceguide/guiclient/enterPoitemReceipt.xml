@@ -63,12 +63,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Vendor UOM</term>
-      <listitem>
-        <para>Displays the Vendor's Item UOM for the specified Item.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Inv./Vendor UOM Ratio</term>
       <listitem>
         <para>Displays the ratio between Inventory and Vendor Units of
@@ -81,6 +75,17 @@
         <para>Specify the Line Item quantity you want to receive into
         Inventory. Depending on how your system is configured, you may or may
         not be allowed to receive more than the quantity ordered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor UOM</term>
+      <listitem>
+        <para>Displays the Vendor's Item UOM for the specified Item.</para>
+        <note>
+          <para>This is the unit of measure the items should be received in.
+          They will be converted to the inventory unit of measure based on the
+          ration displayed beside Inv./Vendor UOM Ratio.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
