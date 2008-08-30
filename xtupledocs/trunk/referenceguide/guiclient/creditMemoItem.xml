@@ -40,7 +40,7 @@
         <para>Enter the Item Number of the Item you want to add to the Credit
         Memo. If the Credit Memo is being applied to an Invoice, only those
         Line Items which appeared on the Invoice will be available for
-        selection&mdash;that is, if the appropriate setting is selected at the
+        selection—that is, if the appropriate setting is selected at the
         system level. Invoices are selected for application by a Credit Memo
         using the "Apply To" feature on the Credit Memo header screen.</para>
       </listitem>
@@ -64,9 +64,26 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Qty. Shipped</term>
+      <term>Receiving Site</term>
       <listitem>
-        <para>Displays the quantity of the Item shipped to date.</para>
+        <para>Specify the Site returned Inventory will be received into. Items
+        designated as Multiple Location Control Items may be received into
+        multiple Sites. If this is the case, be sure to specify the correct
+        receiving Site when entering a Credit Memo Line Item. The receiving
+        Site will not necessarily be the same Site as the Site the Item was
+        shipped from.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reason Code</term>
+      <listitem>
+        <para>Specify the reason why an adjustment is being made to a
+        Customer's account.</para>
+        <para><note>
+            <para>By default, the Reason Code on the Credit Memo header will
+            be used at the Line Item level. However, you may change the Reason
+            Code for individual Line Items.</para>
+          </note></para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -93,6 +110,26 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Qty UOM</term>
+      <listitem>
+        <para>The unit of measure being returned and credited in.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Shipped</term>
+      <listitem>
+        <para>Displays the quantity of the Item shipped to date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discount % from Sale</term>
+      <listitem>
+        <para>Specify a percentage to reduce the credited amount by. The
+        discount will be deducted from the sale Price, thereby reducing the
+        amount of the credit by the specified percentage.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term><indexterm significance="normal">
           <primary>credit memos</primary>
           <secondary>pricing of</secondary>
@@ -115,75 +152,17 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term>Extended Price</term>
-      <listitem>
-        <para>Displays the Extended Price. The Extended Price for a Credit
-        Memo Item is based on the quantity credited multiplied by the
-        Price.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Tax Type</term>
-      <listitem>
-        <para>Specify the Tax Type for the Credit Memo Item. By default, the
-        Item's Tax Type corresponding to the Credit Memo's Tax Authority will
-        be presented here. The link between Tax Types and Tax Authorities is
-        made on the Item master. If the Item master does not have a Tax Type
-        for the Credit Memo's Tax Authority, then no Tax will be
-        charged.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Tax Code</term>
-      <listitem>
-        <para>Specify the Tax Code to be applied to the Credit Memo Item. By
-        default, the Tax Code specified in the Tax Selection matrix will be
-        displayed here. For a Tax Code to be used, the matrix must have an
-        entry which matches both the Item's Tax Type definition and the Tax
-        Authority specified on the Credit Memo header. If no Tax Selection
-        match exists, then no Tax Code will be used&mdash;meaning no Tax will be
-        charged.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>The relationship between Tax Authorities, Tax Types, and Tax Codes
-    is established in the Tax Selection matrix.</para>
-  </tip>
-  <variablelist>
-    <varlistentry>
-      <term>Tax</term>
-      <listitem>
-        <para>Displays the amount of Tax to be charged for the Credit Memo
-        Line Item quantity. Sales Tax is calculated at the Credit Memo Line
-        Item level. To get a detailed view of the Tax calculation, click on
-        the Tax link using your mouse.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Reason Code</term>
-      <listitem>
-        <para>Specify the reason why an adjustment is being made to a
-        Customer's account.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note>
-    <para>By default, the Reason Code on the Credit Memo header will be used
-    at the Line Item level. However, you may change the Reason Code for
-    individual Line Items.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
       <term>Pricing UOM</term>
       <listitem>
         <para>Displays the Item's Price UOM.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Ratio</term>
+      <term>Extended Price</term>
       <listitem>
-        <para>Displays the Item's Price/Inventory UOM ratio.</para>
+        <para>Displays the Extended Price. The Extended Price for a Credit
+        Memo Item is based on the quantity credited multiplied by the
+        Price.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -205,6 +184,46 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Tax Type</term>
+      <listitem>
+        <para>Specify the Tax Type for the Credit Memo Item. By default, the
+        Item's Tax Type corresponding to the Credit Memo's Tax Authority will
+        be presented here. The link between Tax Types and Tax Authorities is
+        made on the Item master. If the Item master does not have a Tax Type
+        for the Credit Memo's Tax Authority, then no Tax will be
+        charged.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax Code</term>
+      <listitem>
+        <para>Specify the Tax Code to be applied to the Credit Memo Item. By
+        default, the Tax Code specified in the Tax Selection matrix will be
+        displayed here. For a Tax Code to be used, the matrix must have an
+        entry which matches both the Item's Tax Type definition and the Tax
+        Authority specified on the Credit Memo header. If no Tax Selection
+        match exists, then no Tax Code will be used—meaning no Tax will be
+        charged.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>The relationship between Tax Authorities, Tax Types, and Tax Codes
+    is established in the Tax Selection matrix.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>Displays the amount of Tax to be charged for the Credit Memo
+        Line Item quantity. Sales Tax is calculated at the Credit Memo Line
+        Item level. To get a detailed view of the Tax calculation, click on
+        the Tax link using your mouse.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
       <term><indexterm significance="normal">
           <primary>credit memos</primary>
           <secondary>discount pricing for</secondary>
@@ -213,32 +232,6 @@
         <para>The default Customer discount (if any) will display here.
         Default Customer discount percentages are defined in the Customer
         master.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Discount % from Sale</term>
-      <listitem>
-        <para>Specify a percentage to reduce the credited amount by. The
-        discount will be deducted from the sale Price, thereby reducing the
-        amount of the credit by the specified percentage.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Receiving Site</term>
-      <listitem>
-        <para>Specify the Site returned Inventory will be received into.
-        Items designated as Multiple Location Control Items may be received
-        into multiple Sites. If this is the case, be sure to specify the
-        correct receiving Site when entering a Credit Memo Line Item. The
-        receiving Site will not necessarily be the same Site as the
-        Site the Item was shipped from.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Notes</term>
-      <listitem>
-        <para>This is a scrolling text field with word-wrapping for entering
-        Notes related to the Credit Memo Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -257,6 +250,25 @@
       <listitem>
         <para>Creates the new Credit Memo Item and adds it to the list of
         Credit Memo Line Items.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Click on the notes tab to enter notes and you will be presented with
+  the following screen:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/creditMemoItem_notes.png" />
+      </imageobject>
+      <caption>Create New Credit Memo Line Item Notes</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Credit Memo Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>

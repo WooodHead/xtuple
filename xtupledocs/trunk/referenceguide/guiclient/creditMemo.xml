@@ -12,8 +12,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_creditMemoNew.png"
-                     />
+          <imagedata fileref="images/SO_Bill_creditMemoNew.png" />
         </imageobject>
         <caption>Create New Credit Memo</caption>
       </mediaobject>
@@ -30,11 +29,29 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Apply To</term>
+      <listitem>
+        <para>Specify the Invoice Number of the Invoice you want to apply the
+        Credit Memo to, using the browse button located to the right of the
+        field. The list will include Invoices for the specified Customer. If a
+        Credit Memo is applied to a specific Invoice, the Credit Memo may only
+        credit Items which appeared on the chosen Invoice. If for some reason
+        the Credit Memo is applied to a closed Invoice, the Credit Memo will
+        be listed as an unapplied Credit Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Memo Date</term>
       <listitem>
         <para>Enter a date representing the date when you want the Credit Memo
         to be distributed. When a Credit Memo is posted, it is posted
         effective as of the Memo date.</para>
+        <para><note>
+            <para>You are not required to apply a Credit Memo to a specific
+            Invoice. If a Credit Memo is applied to an Invoice, any Credit
+            Memo Items will be returned to Inventory when the Credit Memo is
+            posted.</para>
+          </note></para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -50,6 +67,61 @@
     this feature, most of the fields in the Credit Memo screen will
     automatically populate with the needed Customer information.</para>
   </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Sales Rep.</term>
+      <listitem>
+        <para>Specify the Sales Representative associated with the Order. By
+        default, the Customer's designated Sales Representative will appear in
+        the field—except if you have selected an Invoice to apply the Credit
+        Memo to. In that case, the Sales Representative credited with the
+        Invoice will be selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>tax authorities</primary>
+          <secondary>for credit memos</secondary>
+        </indexterm>Tax Authority</term>
+      <listitem>
+        <para>Specify the Tax Authority associated with the Credit Memo. The
+        Tax Authority for the specified Ship-To Address will be entered here
+        by default. Otherwise, the primary Tax Authority for the Customer will
+        be entered. Ultimately, Tax is applied at the Line Item level—so the
+        Tax Authority associated with an Item's Tax Type will be used.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commission</term>
+      <listitem>
+        <para>By default, the commission percentage recorded on the Customer
+        master will be automatically entered in this field. If for some reason
+        you select a non-default Sales Representative at Credit Memo entry,
+        the commission rate will not change. To adjust the commission rate,
+        you must make the change manually.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reason Code</term>
+      <listitem>
+        <para>Specify the reason why an adjustment is being made to a
+        Customer's account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>credit memos</primary>
+          <secondary>hold options for</secondary>
+        </indexterm>Place on Hold</term>
+      <listitem>
+        <para>Select to place Credit Memo on hold. If a Credit Memo is placed
+        on hold, it cannot be posted. You would place a Credit Memo on hold,
+        for example, to allow time for producing and processing a Return
+        Material Authorization (RMA) document. To remove a hold and allow
+        posting of a Credit Memo, de-select this option.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
@@ -86,16 +158,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Bill-To Phone</term>
-      <listitem>
-        <para>Displays the Customer's Bill-To phone number.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Address</term>
       <listitem>
         <para>Displays the Customer's Bill-To Address. You may manually
-        override the displayed Address information in the fields below&mdash;or use
+        override the displayed Address information in the fields below—or use
         the browse button to select another Address.</para>
         <variablelist>
           <varlistentry>
@@ -161,16 +227,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Ship-To Phone</term>
-      <listitem>
-        <para>Displays the phone number for the specified Ship-To.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Address</term>
       <listitem>
         <para>Displays the specified Ship-To Address. You may manually
-        override the displayed Address information in the fields below&mdash;or use
+        override the displayed Address information in the fields below—or use
         the browse button to select another Address.</para>
         <variablelist>
           <varlistentry>
@@ -206,58 +266,8 @@
         </variablelist>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Apply To</term>
-      <listitem>
-        <para>Specify the Invoice Number of the Invoice you want to apply the
-        Credit Memo to, using the browse button located to the right of the
-        field. The list will include Invoices for the specified Customer. If a
-        Credit Memo is applied to a specific Invoice, the Credit Memo may only
-        credit Items which appeared on the chosen Invoice. If for some reason
-        the Credit Memo is applied to a closed Invoice, the Credit Memo will
-        be listed as an unapplied Credit Memo.</para>
-      </listitem>
-    </varlistentry>
   </variablelist>
-  <note>
-    <para>You are not required to apply a Credit Memo to a specific Invoice.
-    If a Credit Memo is applied to an Invoice, any Credit Memo Items will be
-    returned to Inventory when the Credit Memo is posted.</para>
-  </note>
   <variablelist>
-    <varlistentry>
-      <term>Sales Rep.</term>
-      <listitem>
-        <para>Specify the Sales Representative associated with the Order. By
-        default, the Customer's designated Sales Representative will appear in
-        the field&mdash;except if you have selected an Invoice to apply the Credit
-        Memo to. In that case, the Sales Representative credited with the
-        Invoice will be selected.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Commission</term>
-      <listitem>
-        <para>By default, the commission percentage recorded on the Customer
-        master will be automatically entered in this field. If for some reason
-        you select a non-default Sales Representative at Credit Memo entry,
-        the commission rate will not change. To adjust the commission rate,
-        you must make the change manually.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>tax authorities</primary>
-          <secondary>for credit memos</secondary>
-        </indexterm>Tax Authority</term>
-      <listitem>
-        <para>Specify the Tax Authority associated with the Credit Memo. The
-        Tax Authority for the specified Ship-To Address will be entered here
-        by default. Otherwise, the primary Tax Authority for the Customer will
-        be entered. Ultimately, Tax is applied at the Line Item level&mdash;so the
-        Tax Authority associated with an Item's Tax Type will be used.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>Ship-To #</term>
       <listitem>
@@ -282,30 +292,10 @@
       <listitem>
         <para>By default, the Customer Purchase Order Number associated with
         the Invoice being credited will display here. If no Customer Purchase
-        Order Number was entered at the time of the original Sales Order&mdash;or
-        if the Credit Memo is not being applied to a specific Invoice&mdash;the
-        field will remain blank. Enter or edit a Customer Purchase Order
-        Number as necessary.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Reason Code</term>
-      <listitem>
-        <para>Specify the reason why an adjustment is being made to a
-        Customer's account.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>credit memos</primary>
-          <secondary>hold options for</secondary>
-        </indexterm>Place on Hold</term>
-      <listitem>
-        <para>Select to place Credit Memo on hold. If a Credit Memo is placed
-        on hold, it cannot be posted. You would place a Credit Memo on hold,
-        for example, to allow time for producing and processing a Return
-        Material Authorization (RMA) document. To remove a hold and allow
-        posting of a Credit Memo, de-select this option.</para>
+        Order Number was entered at the time of the original Sales Order—or if
+        the Credit Memo is not being applied to a specific Invoice—the field
+        will remain blank. Enter or edit a Customer Purchase Order Number as
+        necessary.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -336,8 +326,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_credMemLineItems.png"
-                     />
+          <imagedata fileref="images/SO_Bill_credMemLineItems.png" />
         </imageobject>
         <caption>Credit Memo Line Items</caption>
       </mediaobject>
@@ -395,7 +384,7 @@
       <listitem>
         <para>Enter the amount of freight charge to be added to the specified
         Order. The freight charge may be entered during the creation or
-        modification of a Credit Memo&mdash;or at the time of shipment.</para>
+        modification of a Credit Memo—or at the time of shipment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -444,7 +433,7 @@
       <listitem>
         <para>Enables you to edit highlighted Credit Memo Line Item. The edit
         screen is the same as that for creating a new Credit Memo Line
-        Item&mdash;except that when editing, the fields will contain Line Item
+        Item—except that when editing, the fields will contain Line Item
         information. Double-clicking on a Line Item will also bring you to the
         editing screen.</para>
       </listitem>
@@ -462,8 +451,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_credMemNotes.png"
-                     />
+          <imagedata fileref="images/SO_Bill_credMemNotes.png" />
         </imageobject>
         <caption>Credit Memo Notes</caption>
       </mediaobject>
