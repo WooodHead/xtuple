@@ -25,7 +25,7 @@
         <imageobject>
           <imagedata fileref="images/arWorkBench.png" />
         </imageobject>
-        <caption>Receivables Workbench Open Items</caption>
+        <caption>Receivables Workbench Receivables</caption>
       </mediaobject>
     </screenshot></para>
   <para>When viewing the Receivables Workbench, you are presented with the
@@ -60,14 +60,14 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>The Open Items tab provides the following options:</para>
+  <para>The Receivables tab provides the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Open Items</term>
+      <term>Receivables</term>
       <listitem>
-        <para>Displays the current list of A/R open items for the specified
-        Customer. This is the same information as displayed in the A/R Display
-        "Open Items by Customer."</para>
+        <para>Displays the current list of receivable open items for the
+        specified Customer. This is the same information as displayed in the
+        Display "Open Items by Customer."</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -77,15 +77,15 @@
     <varlistentry>
       <term>EDIT</term>
       <listitem>
-        <para>Enables you to edit highlighted A/R open items. Double-clicking
-        on an A/R open item will also bring you to the editing screen.</para>
+        <para>Enables you to edit highlighted receivables. Double-clicking on
+        an item will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
       <listitem>
-        <para>Highlight an A/R open item and then select this button to reach
-        a read-only view of the "Edit" screen.</para>
+        <para>Highlight an item and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -165,17 +165,17 @@
   <variablelist>
     <varlistentry>
       <term>Apply Credit Memo</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(arWorkBenchAPPLYCM1)" />
     </varlistentry>
     <varlistentry>
       <term>Edit Credit Memo</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(arWorkBenchEDITCM1)" />
     </varlistentry>
     <varlistentry>
       <term>View Credit Memo</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(arWorkBenchVIEWCM1)" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
