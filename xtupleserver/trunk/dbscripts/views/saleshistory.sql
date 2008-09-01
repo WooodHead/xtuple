@@ -4,8 +4,8 @@ SELECT cohist.*,
        CASE WHEN (cohist_invcnumber='-1') THEN 'Credit'
             ELSE cohist_invcnumber
        END AS invoicenumber,
-       cust_number, cust_name, cust_curr_id, cust_custtype_id, custtype_code,
-       salesrep_number, salesrep_name,
+       cust_id, cust_number, cust_name, cust_curr_id, cust_custtype_id, custtype_code,
+       salesrep_number, salesrep_name, shipzone_id, shipzone_name,
        itemsite_warehous_id, itemsite_item_id,
        item_number, item_descrip1, (item_descrip1 || ' ' || item_descrip2) AS itemdescription,
        item_prodcat_id, warehous_code,
@@ -39,7 +39,9 @@ FROM cohist JOIN cust ON (cust_id=cohist_cust_id)
             JOIN salesrep ON (salesrep_id=cohist_salesrep_id)
             JOIN itemsite ON (itemsite_id=cohist_itemsite_id)
             JOIN site() ON (warehous_id=itemsite_warehous_id)
-            JOIN item ON (item_id=itemsite_item_id);
+            JOIN item ON (item_id=itemsite_item_id)
+            LEFT OUTER JOIN shipto ON (shipto_id=cohist_shipto_id)
+            LEFT OUTER JOIN shipzone ON (shipzone_id=shipto_shipzone_id);
 
 REVOKE ALL ON TABLE saleshistory FROM PUBLIC;
 GRANT  ALL ON TABLE saleshistory TO GROUP openmfg;
