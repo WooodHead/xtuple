@@ -12,7 +12,7 @@ DECLARE
   _decimal      TEXT;
   _group        TEXT;
   _string       TEXT;
-  _debug        BOOL := true;
+  _debug        BOOL := false;
   _r            RECORD;
 
 BEGIN
