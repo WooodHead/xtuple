@@ -133,36 +133,6 @@ BEGIN
           END IF;
       END IF;
       
-      IF (NEW.quhead_imported) THEN
-        -- Check for required Purchase Order
-          IF (_p.cust_usespos AND ((NEW.quhead_custponumber IS NULL) OR (TRIM(BOTH FROM NEW.quhead_custponumber)=''''))) THEN
-            RAISE EXCEPTION ''You must enter a Customer P/O for this Quote.'';
-          END IF;
-    
-        -- Check for duplicate Purchase Orders if not allowed
-        IF (_p.cust_usespos AND NOT (_p.cust_blanketpos)) THEN
-            SELECT quhead_id INTO _a
-            FROM quhead
-            WHERE ((quhead_cust_id=NEW.quhead_cust_id)
-            AND  (quhead_id<>NEW.quhead_id)
-            AND  (UPPER(quhead_custponumber) = UPPER(NEW.quhead_custponumber)) )
-            UNION
-            SELECT quhead_id
-            FROM quhead
-            WHERE ((quhead_cust_id=NEW.quhead_cust_id)
-            AND  (quhead_id<>NEW.quhead_id)
-            AND  (UPPER(quhead_custponumber) = UPPER(NEW.quhead_custponumber)) );
-          IF (FOUND) THEN
-	    RAISE EXCEPTION ''This Customer does not use Blanket P/O
-                            Numbers and the P/O Number you entered has 
-                            already been used for another Sales Order or Quote.
-                            Please verify the P/O Number and either
-                            enter a new P/O Number or add to the
-                            existing Sales Order or Quote.'';
-          END IF;
-        END IF;
-      END IF;
-
       --Auto create project if applicable
       IF ((TG_OP = ''INSERT'') AND (NEW.quhead_prj_id=-1)) THEN
         SELECT fetchMetricBool(''AutoCreateProjectsForOrders'') INTO _check;
