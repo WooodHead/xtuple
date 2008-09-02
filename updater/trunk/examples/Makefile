@@ -3,6 +3,7 @@ all:    allknownelemspkg.gz	\
         badcontentsxml.gz	\
         dependency1.gz		\
         dependency2.gz		\
+        duplicates.gz           \
         empty.gz		\
         missingfile.gz		\
         multiplecontents.gz	\
@@ -29,7 +30,7 @@ allknownelemspkg.gz:  allknownelemspkg			\
                       allknownelemspkg/telephonelookup.script	\
                       allknownelemspkg/telephonelookup.ui	\
                       allknownelemspkg/telephonelookup.xml
-	tar czf $@ $<
+	tar czf $@ --exclude .svn $<
 
 allknownwarnings.gz:  allknownwarnings			\
                       allknownwarnings/contents.xml	\
@@ -40,43 +41,51 @@ allknownwarnings.gz:  allknownwarnings			\
                       allknownwarnings/telephonelookup.script	\
                       allknownwarnings/telephonelookup.ui	\
                       allknownwarnings/telephonelookup.xml
-	tar czf $@ $<
+	tar czf $@ --exclude .svn $<
 
 badcontentsxml.gz: badcontentsxml	\
                    badcontentsxml/contents.xml
-	tar czf $@ $<
+	tar czf $@ --exclude .svn $<
 
 dependency1.gz: dependency1			\
                 dependency1/contents.xml	\
                 dependency1/telephone.jpeg
-	tar czf $@ $<
+	tar czf $@ --exclude .svn $<
 
 dependency2.gz: dependency2			\
                 dependency2/contents.xml	\
                 dependency2/telephone.png
-	tar czf $@ $<
+	tar czf $@ --exclude .svn $<
+duplicates.gz:  duplicates                      \
+                duplicates/package.xml          \
+                duplicates/loadimage.png        \
+                duplicates/loadmetasql.mql      \
+                duplicates/loadreport.xml       \
+                duplicates/sampledisplay.script \
+                duplicates/sampledisplay.ui
+	tar czf $@ --exclude .svn $<
 
 empty.gz:
 	touch empty.gz
 
 missingfile.gz: missingfile			\
                 missingfile/contents.xml
-	tar czf $@ $<
+	tar czf $@ --exclude .svn $<
 
 multiplecontents.gz:  multiplecontents	\
                       multiplecontents/a_contents.xml	\
                       multiplecontents/b_contents.xml
-	tar czf $@ $<
+	tar czf $@ --exclude .svn $<
 
 nocontents.gz: nocontents nocontents/a
-	tar czf $@ $<
+	tar czf $@ --exclude .svn $<
 
 unknownelem.gz: unknownelem			\
                 unknownelem/contents.xml	\
                 unknownelem/initUpgrade		\
                 unknownelem/setVersion.sql
-	tar czf $@ $<
+	tar czf $@ --exclude .svn $<
 
 unsupportedprereq.gz: unsupportedprereq			\
                       unsupportedprereq/contents.xml
-	tar czf $@ $<
+	tar czf $@ --exclude .svn $<
