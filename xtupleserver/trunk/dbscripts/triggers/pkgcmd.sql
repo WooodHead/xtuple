@@ -1,33 +1,35 @@
+-- NO create trigger statements here. the updater will create them.
+
 SELECT dropIfExists('TRIGGER', 'pkgcmdbeforetrigger');
-CREATE OR REPLACE FUNCTION _pkgcmdbeforetrigger() RETURNS "trigger" AS '
+CREATE OR REPLACE FUNCTION _pkgcmdbeforetrigger() RETURNS "trigger" AS $$
 DECLARE
   _cmdid       INTEGER;
-  _debug        BOOL := true;
+  _debug        BOOL := false;
 
 BEGIN
-    IF (TG_OP = ''UPDATE'') THEN
+    IF (TG_OP = 'UPDATE') THEN
       IF (_debug) THEN
-        RAISE NOTICE ''OLD.cmd_name %, NEW.cmd_name %'',
+        RAISE NOTICE 'OLD.cmd_name %, NEW.cmd_name %',
                      OLD.cmd_name, NEW.cmd_name;
       END IF;
 
       IF (NEW.cmd_name != OLD.cmd_name) THEN
         SELECT cmd_id INTO _cmdid FROM cmd WHERE cmd_name=NEW.cmd_name;
         IF (FOUND) THEN
-          RAISE EXCEPTION ''Cannot change command name % because another command with that name already exists.'', NEW.cmd_name;
+          RAISE EXCEPTION 'Cannot change command name % because another command with that name already exists.', NEW.cmd_name;
         END IF;
       END IF;
 
-    ELSIF (TG_OP = ''INSERT'') THEN
+    ELSIF (TG_OP = 'INSERT') THEN
       IF (_debug) THEN
-        RAISE NOTICE ''inserting NEW.cmd_name %'', NEW.cmd_name;
+        RAISE NOTICE 'inserting NEW.cmd_name %', NEW.cmd_name;
       END IF;
       SELECT cmd_id INTO _cmdid FROM cmd WHERE cmd_name=NEW.cmd_name;
       IF (FOUND) THEN
-        RAISE EXCEPTION ''Cannot create new command % because another command with that name already exists.'', NEW.cmd_name;
+        RAISE EXCEPTION 'Cannot create new command % because another command with that name already exists.', NEW.cmd_name;
       END IF;
 
-    ELSIF (TG_OP = ''DELETE'') THEN
+    ELSIF (TG_OP = 'DELETE') THEN
       DELETE FROM pkgcmdarg WHERE cmdarg_cmd_id=OLD.cmd_id;
 
       RETURN OLD;
@@ -35,7 +37,22 @@ BEGIN
 
     RETURN NEW;
   END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
--- NO create trigger statement
--- triggers will be created that use the trigger function by the updater
+CREATE OR REPLACE FUNCTION _pkgcmdalterTrigger() RETURNS TRIGGER AS $$
+BEGIN
+  IF (TG_OP = 'INSERT') THEN
+    RAISE EXCEPTION 'You may not create custom commands in packages except using the xTuple Updater utility';
+
+  ELSIF (TG_OP = 'UPDATE') THEN
+    RAISE EXCEPTION 'You may not alter custom commands in packages except using the xTuple Updater utility';
+
+  ELSIF (TG_OP = 'DELETE') THEN
+    RAISE EXCEPTION 'You may not delete custom commands from packages. Try deleting or disabling the package.';
+
+  END IF;
+
+  RETURN NEW;
+END;
+
+$$ LANGUAGE 'plpgsql';

@@ -242,6 +242,25 @@ int PkgSchema::create(QString &errMsg)
                         .arg(triggerq.lastError().driverText());
       return -9;
     }
+
+    triggerq.exec(QString(
+                  "SELECT dropIfExists('TRIGGER', 'pkg%1altertrigger', '%2');"
+                  "CREATE TRIGGER pkg%3altertrigger "
+                  "BEFORE INSERT OR UPDATE OR DELETE "
+                  "ON pkg%4 FOR EACH ROW "
+                  "EXECUTE PROCEDURE _pkg%5altertrigger();")
+                  .arg(childTable.at(i)) .arg(childTable.at(i))
+                  .arg(childTable.at(i)) .arg(childTable.at(i))
+                  .arg(childTable.at(i))
+                  );
+    if (triggerq.lastError().type() != QSqlError::NoError)
+    {
+      errMsg = _sqlerrtxt.arg(_name)
+                        .arg(triggerq.lastError().databaseText())
+                        .arg(triggerq.lastError().driverText());
+      return -10;
+    }
+
   }
 
   int tmp = upsertPkgItem(namespaceoid, errMsg);

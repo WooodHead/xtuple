@@ -541,6 +541,12 @@ void LoaderWindow::sStart()
   {
     _status->setText(tr("<p><b>Updating Privileges</b></p>"));
     _text->append(tr("<p>Loading new Privileges...</p>"));
+    if(!qry.exec("ALTER TABLE pkgpriv DISABLE TRIGGER pkgprivaltertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
+    }
     for(QList<LoadPriv>::iterator i = _package->_privs.begin();
         i != _package->_privs.end(); ++i)
     {
@@ -551,6 +557,12 @@ void LoaderWindow::sStart()
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
+    }
+    if(!qry.exec("ALTER TABLE pkgpriv ENABLE TRIGGER pkgprivaltertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
     }
     _text->append(tr("<p>Completed importing new Privileges.</p>"));
   }
@@ -642,6 +654,13 @@ void LoaderWindow::sStart()
     _status->setText(tr("<p><b>Updating MetaSQL Statements</b></p>"));
     if(!qry.exec("ALTER TABLE metasql DISABLE TRIGGER metasqlaltertrigger;"))
     {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
+    }
+    if(!qry.exec("ALTER TABLE pkgmetasql DISABLE TRIGGER pkgmetasqlaltertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
       _text->append(_rollbackMsg);
       return;
     }
@@ -656,8 +675,15 @@ void LoaderWindow::sStart()
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
     }
+    if(!qry.exec("ALTER TABLE pkgmetasql ENABLE TRIGGER pkgmetasqlaltertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
+    }
     if(!qry.exec("ALTER TABLE metasql ENABLE TRIGGER metasqlaltertrigger;"))
     {
+      qry.exec("ROLLBACK;");
       _text->append(_rollbackMsg);
       return;
     }
@@ -671,6 +697,12 @@ void LoaderWindow::sStart()
   {
     _status->setText(tr("<p><b>Updating Report Definitions</b></p>"));
     _text->append(tr("<p>Loading new report definitions...</p>"));
+    if(!qry.exec("ALTER TABLE pkgreport DISABLE TRIGGER pkgreportaltertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
+    }
     for(QList<LoadReport>::iterator i = _package->_reports.begin();
         i != _package->_reports.end(); ++i)
     {
@@ -680,6 +712,12 @@ void LoaderWindow::sStart()
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
+    }
+    if(!qry.exec("ALTER TABLE pkgreport ENABLE TRIGGER pkgreportaltertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
     }
     _text->append(tr("<p>Completed importing new report definitions.</p>"));
   }
@@ -691,6 +729,12 @@ void LoaderWindow::sStart()
   {
     _status->setText(tr("<p><b>Updating User Interface Definitions</b></p>"));
     _text->append(tr("<p>Loading User Interface definitions...</p>"));
+    if(!qry.exec("ALTER TABLE pkguiform DISABLE TRIGGER pkguiformaltertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
+    }
     for(QList<LoadAppUI>::iterator i = _package->_appuis.begin();
         i != _package->_appuis.end(); ++i)
     {
@@ -704,6 +748,12 @@ void LoaderWindow::sStart()
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
     }
+    if(!qry.exec("ALTER TABLE pkguiform ENABLE TRIGGER pkguiformaltertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
+    }
     _text->append(tr("<p>Completed importing User Interface definitions.</p>"));
   }
   if (DEBUG)
@@ -714,6 +764,12 @@ void LoaderWindow::sStart()
   {
     _status->setText(tr("<p><b>Updating Application Script Definitions</b></p>"));
     _text->append(tr("<p>Loading Application Script definitions...</p>"));
+    if(!qry.exec("ALTER TABLE pkgscript DISABLE TRIGGER pkgscriptaltertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
+    }
     for(QList<LoadAppScript>::iterator i = _package->_appscripts.begin();
         i != _package->_appscripts.end(); ++i)
     {
@@ -727,6 +783,12 @@ void LoaderWindow::sStart()
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
     }
+    if(!qry.exec("ALTER TABLE pkgscript ENABLE TRIGGER pkgscriptaltertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
+    }
     _text->append(tr("<p>Completed importing Application Script definitions.</p>"));
   }
   if (DEBUG)
@@ -737,6 +799,13 @@ void LoaderWindow::sStart()
   {
     _status->setText(tr("<p><b>Updating Custom Commands</b></p>"));
     _text->append(tr("<p>Loading new Custom Commands...</p>"));
+    if(!qry.exec("ALTER TABLE pkgcmd DISABLE TRIGGER pkgcmdaltertrigger;") ||
+       !qry.exec("ALTER TABLE pkgcmdarg DISABLE TRIGGER pkgcmdargaltertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
+    }
     for(QList<LoadCmd>::iterator i = _package->_cmds.begin();
         i != _package->_cmds.end(); ++i)
     {
@@ -749,6 +818,13 @@ void LoaderWindow::sStart()
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
     }
+    if(!qry.exec("ALTER TABLE pkgcmdarg ENABLE TRIGGER pkgcmdargaltertrigger;") ||
+       !qry.exec("ALTER TABLE pkgcmd ENABLE TRIGGER pkgcmdaltertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
+    }
     _text->append(tr("<p>Completed importing new Custom Commands.</p>"));
   }
   if (DEBUG)
@@ -759,6 +835,12 @@ void LoaderWindow::sStart()
   {
     _status->setText(tr("<p><b>Updating Image Definitions</b></p>"));
     _text->append(tr("<p>Loading Image definitions...</p>"));
+    if(!qry.exec("ALTER TABLE pkgimage DISABLE TRIGGER pkgimagealtertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
+    }
     for(QList<LoadImage>::iterator i = _package->_images.begin();
         i != _package->_images.end(); ++i)
     {
@@ -771,6 +853,12 @@ void LoaderWindow::sStart()
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
+    }
+    if(!qry.exec("ALTER TABLE pkgimage ENABLE TRIGGER pkgimagealtertrigger;"))
+    {
+      qry.exec("ROLLBACK;");
+      _text->append(_rollbackMsg);
+      return;
     }
     _text->append(tr("<p>Completed importing Image definitions.</p>"));
   }

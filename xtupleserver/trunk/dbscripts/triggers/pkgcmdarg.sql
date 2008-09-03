@@ -1,23 +1,40 @@
+-- NO create trigger statements. the updater will create them.
+
 SELECT dropIfExists('TRIGGER', 'pkgcmdargbeforetrigger');
-CREATE OR REPLACE FUNCTION _pkgcmdargbeforetrigger() RETURNS "trigger" AS '
+CREATE OR REPLACE FUNCTION _pkgcmdargbeforetrigger() RETURNS "trigger" AS $$
 DECLARE
-  _cmdargid       INTEGER;
-  _debug        BOOL := true;
+  _cmdargid     INTEGER;
+  _debug        BOOL := false;
 
 BEGIN
-    IF (TG_OP = ''UPDATE'') THEN
-      RETURN NEW;
-
-    ELSIF (TG_OP = ''INSERT'') THEN
-      RETURN NEW;
-
-    ELSIF (TG_OP = ''DELETE'') THEN
-      RETURN OLD;
-    END IF;
-
+  IF (TG_OP = 'UPDATE') THEN
     RETURN NEW;
-  END;
-' LANGUAGE 'plpgsql';
 
--- NO create trigger statement
--- triggers will be created that use the trigger function by the updater
+  ELSIF (TG_OP = 'INSERT') THEN
+    RETURN NEW;
+
+  ELSIF (TG_OP = 'DELETE') THEN
+    RETURN OLD;
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION _pkgcmdargalterTrigger() RETURNS TRIGGER AS $$
+BEGIN
+  IF (TG_OP = 'INSERT') THEN
+    RAISE EXCEPTION 'You may not create command arguments in packages except using the xTuple Updater utility';
+
+  ELSIF (TG_OP = 'UPDATE') THEN
+    RAISE EXCEPTION 'You may not alter command arguments in packages except using the xTuple Updater utility';
+
+  ELSIF (TG_OP = 'DELETE') THEN
+    RAISE EXCEPTION 'You may not delete command arguments from packages. Try deleting or disabling the package.';
+
+  END IF;
+
+  RETURN NEW;
+END;
+
+$$ LANGUAGE 'plpgsql';
