@@ -12,14 +12,13 @@ DECLARE
   pQuery	ALIAS FOR $4;
   pSystem       ALIAS FOR $5;
   _metasqlid	INTEGER;
-  _tableoid     INTEGER;
   _schema       TEXT;
   _debug        BOOL    := true;
   
 BEGIN
 
   --See if Query already exists
-  SELECT tableoid, metasql_id INTO _metasqlid, _tableoid
+  SELECT metasql_id INTO _metasqlid
   FROM metasql
   WHERE ((metasql_group=pGroup)
      AND (metasql_name=pName));
