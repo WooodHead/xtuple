@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT, CHAR, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT, CHAR, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -15,10 +15,10 @@ BEGIN
                   (pDueDate - pLeadTime), pDueDate, pProductionNotes,
                   pParentType, pParentId, -1);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT, CHAR, INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT, CHAR, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -36,9 +36,9 @@ BEGIN
                   (pDueDate - pLeadTime), pDueDate, pProductionNotes,
                   pParentType, pParentId, pProjectId);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT, CHAR, INTEGER, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT, CHAR, INTEGER, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -58,10 +58,10 @@ BEGIN
                   (pDueDate - pLeadTime), pDueDate, pProductionNotes,
                   pParentType, pParentId, pProjectId, pBomRevId, pBooRevId);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT, CHAR, INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT, CHAR, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -81,11 +81,11 @@ DECLARE
 
 BEGIN
 
-  SELECT getActiveRevId(''BOM'',itemsite_item_id) INTO _bomrevid
+  SELECT getActiveRevId('BOM',itemsite_item_id) INTO _bomrevid
   FROM itemsite
   WHERE (itemsite_id=pItemsiteid);
 
-  SELECT getActiveRevId(''BOO'',itemsite_item_id) INTO _boorevid
+  SELECT getActiveRevId('BOO',itemsite_item_id) INTO _boorevid
   FROM itemsite
   WHERE (itemsite_id=pItemsiteid);
   
@@ -94,9 +94,9 @@ BEGIN
                   pParentType, pParentId, pProjectId, _bomrevid, _boorevid);
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT, CHAR, INTEGER, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT, CHAR, INTEGER, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -118,7 +118,7 @@ DECLARE
 BEGIN
 
   IF (pParentType IS NULL) THEN
-    _parentType := '' '';
+    _parentType := ' ';
   ELSE
     _parentType := pParentType;
   END IF;
@@ -131,19 +131,24 @@ BEGIN
   END IF;
 
 --  Check to make sure if this is a job item that it is tied to a sales order
-  IF (SELECT (item_type = ''J'')
+--  Or if it is just an avarage costed item
+  IF (SELECT (item_type = 'J')
        FROM itemsite, item
        WHERE ((itemsite_id = pItemsiteid)
        AND (itemsite_item_id = item_id))) THEN
-    IF (_parentType != ''S'') THEN
-      RAISE EXCEPTION ''Work Orders for item type Job must be created from a sales order'';
+    IF (_parentType != 'S') THEN
+      RAISE EXCEPTION 'Work Orders for item type Job must be created from a sales order';
     ELSE
-      _cosmethod := COALESCE(fetchmetrictext(''JobItemCosDefault''),''D'');
+      _cosmethod := COALESCE(fetchmetrictext('JobItemCosDefault'),'D');
     END IF;
+  ELSIF (SELECT (itemsite_costmethod = 'A')
+           FROM itemsite
+          WHERE (itemsite_id = pItemsiteid)) THEN
+    _cosmethod := COALESCE(fetchmetrictext('JobItemCosDefault'),'D');
   END IF;
 
 --  Grab the next wo_id
-  SELECT NEXTVAL(''wo_wo_id_seq'') INTO _woid;
+  SELECT NEXTVAL('wo_wo_id_seq') INTO _woid;
 
 --  Create the W/O
   INSERT INTO wo
@@ -154,7 +159,7 @@ BEGIN
     wo_bom_rev_id, wo_boo_rev_id, wo_cosmethod )
   SELECT _woid, pWoNumber, nextWoSubnumber(pWoNumber), itemsite_id,
          pPriority, _parentType, pParentId,
-         ''O'', pStartDate, pDueDate,
+         'O', pStartDate, pDueDate,
          roundQty(item_fractional, pQtyOrdered), 0, pProductionNotes, pProjectId, 
          pBomRevid, pBooRevid, _cosmethod
   FROM itemsite, item
@@ -162,12 +167,12 @@ BEGIN
    AND (itemsite_id=pItemsiteid));
 
 --  Explode the newly created W/O according to metrics
-  IF ( ( SELECT (metric_value=''t'')
+  IF ( ( SELECT (metric_value='t')
          FROM metric
-         WHERE (metric_name=''AutoExplodeWO'') ) ) THEN
-    SELECT explodeWo( _woid, ( SELECT (metric_value = ''M'')
+         WHERE (metric_name='AutoExplodeWO') ) ) THEN
+    SELECT explodeWo( _woid, ( SELECT (metric_value = 'M')
                                FROM metric
-                               WHERE (metric_name=''WOExplosionLevel'') ) ) INTO _result;
+                               WHERE (metric_name='WOExplosionLevel') ) ) INTO _result;
   ELSE
     _result := _woid;
   END IF;
@@ -175,9 +180,9 @@ BEGIN
   RETURN _result;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -191,10 +196,10 @@ BEGIN
                    (pDueDate - pLeadTime), pDueDate,
                    pProductionNotes, NULL, NULL, -1 ); 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT, CHAR, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT, CHAR, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -210,10 +215,10 @@ BEGIN
                    (pDueDate - pLeadTime), pDueDate,
                    pProductionNotes, pParentType, pParentId, -1 ); 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -226,4 +231,4 @@ BEGIN
   RETURN createWo( pWoNumber, pItemsiteid, 1, pQtyOrdered,
                    pStartDate, pDueDate, pProductionNotes, NULL, NULL, -1);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
