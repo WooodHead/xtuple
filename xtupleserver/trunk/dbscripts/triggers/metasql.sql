@@ -20,6 +20,7 @@ BEGIN
    IF (TG_OP = ''UPDATE'' OR TG_OP = ''DELETE'') THEN
      RAISE EXCEPTION ''You may not alter metasql queries except using the xTuple Updater utility'';
    END IF;
+   RETURN NEW;
 END;
 
 ' LANGUAGE 'plpgsql';
