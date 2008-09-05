@@ -56,7 +56,7 @@ DECLARE
 BEGIN
   RETURN createWo(pWoNumber, pItemsiteid, pPriority, pQtyOrdered,
                   (pDueDate - pLeadTime), pDueDate, pProductionNotes,
-                  pParentType, pParentId, pProjectId, pBomRevId, pBooRevId);
+                  pParentType, pParentId, pProjectId, pBomRevId, pBooRevId, NULL);
 END;
 $$ LANGUAGE 'plpgsql';
 
@@ -91,7 +91,7 @@ BEGIN
   
   RETURN createWo(pWoNumber, pItemsiteid, pPriority, pQtyOrdered,
                   pStartDate, pDueDate, pProductionNotes,
-                  pParentType, pParentId, pProjectId, _bomrevid, _boorevid);
+                  pParentType, pParentId, pProjectId, _bomrevid, _boorevid, NULL);
 
 END;
 $$ LANGUAGE 'plpgsql';
@@ -110,6 +110,28 @@ DECLARE
   pProjectId ALIAS FOR $10;
   pBomRevId ALIAS FOR $11;
   pBooRevId ALIAS FOR $12;
+BEGIN
+  RETURN createWo(pWoNumber, pItemsiteid, pPriority, pQtyOrdered,
+                  pStartDate, pDueDate, pProductionNotes,
+                  pParentType, pParentId, pProjectId, pBomRevId, pBooRevId, NULL);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT, CHAR, INTEGER, INTEGER, INTEGER, INTEGER, TEXT) RETURNS INTEGER AS $$
+DECLARE
+  pWoNumber ALIAS FOR $1;
+  pItemsiteid ALIAS FOR $2;
+  pPriority ALIAS FOR $3;
+  pQtyOrdered ALIAS FOR $4;
+  pStartDate ALIAS FOR $5;
+  pDueDate ALIAS FOR $6;
+  pProductionNotes ALIAS FOR $7;
+  pParentType ALIAS FOR $8;
+  pParentId ALIAS FOR $9;
+  pProjectId ALIAS FOR $10;
+  pBomRevId ALIAS FOR $11;
+  pBooRevId ALIAS FOR $12;
+  pCosMethod ALIAS FOR $13;
   _woid INTEGER;
   _result INTEGER;
   _parentType char(1);
@@ -132,19 +154,23 @@ BEGIN
 
 --  Check to make sure if this is a job item that it is tied to a sales order
 --  Or if it is just an avarage costed item
-  IF (SELECT (item_type = 'J')
-       FROM itemsite, item
-       WHERE ((itemsite_id = pItemsiteid)
-       AND (itemsite_item_id = item_id))) THEN
-    IF (_parentType != 'S') THEN
-      RAISE EXCEPTION 'Work Orders for item type Job must be created from a sales order';
-    ELSE
+  IF (pCosMethod IN ('D', 'P')) THEN
+    _cosmethod := pCosMethod;
+  ELSE
+    IF (SELECT (item_type = 'J')
+         FROM itemsite, item
+         WHERE ((itemsite_id = pItemsiteid)
+         AND (itemsite_item_id = item_id))) THEN
+      IF (_parentType != 'S') THEN
+        RAISE EXCEPTION 'Work Orders for item type Job must be created from a sales order';
+      ELSE
+        _cosmethod := COALESCE(fetchmetrictext('JobItemCosDefault'),'D');
+      END IF;
+    ELSIF (SELECT (itemsite_costmethod = 'A')
+             FROM itemsite
+            WHERE (itemsite_id = pItemsiteid)) THEN
       _cosmethod := COALESCE(fetchmetrictext('JobItemCosDefault'),'D');
     END IF;
-  ELSIF (SELECT (itemsite_costmethod = 'A')
-           FROM itemsite
-          WHERE (itemsite_id = pItemsiteid)) THEN
-    _cosmethod := COALESCE(fetchmetrictext('JobItemCosDefault'),'D');
   END IF;
 
 --  Grab the next wo_id
