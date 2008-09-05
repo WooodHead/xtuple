@@ -40,7 +40,7 @@ BEGIN
   SELECT postInvTrans( ci.itemsite_id, 'IM', (_qty * -1), 
                        'W/O', 'WO', _woNumber, '', 'Return Material from Work Order',
                        pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries, CURRENT_DATE,
-                      (SELECT (SUM(invhist_value_before - invhist_value_after) / CASE WHEN(SUM(invhist_qoh_before - invhist_qoh_after) > 0) THEN SUM(invhist_qoh_before - invhist_qoh_after) ELSE NULL END) FROM invhist, womatlpost WHERE((womatlpost_womatl_id=womatl_id) AND (womatlpost_invhist_id=invhist_id))) * _qty
+                      (SELECT (SUM(invhist_value_before - invhist_value_after) / SUM(invhist_qoh_before - invhist_qoh_after) ) FROM invhist, womatlpost WHERE((womatlpost_womatl_id=womatl_id) AND (womatlpost_invhist_id=invhist_id) and (invhist_qoh_before > invhist_qoh_after))) * _qty
                      ) INTO _invhistid
     FROM womatl, wo,
          itemsite AS ci, costcat AS cc,
@@ -60,8 +60,8 @@ BEGIN
 
 --  Decrease the parent W/O's WIP value by the value of the returned components
   UPDATE wo
-  SET wo_wipvalue = (wo_wipvalue - (stdcost(itemsite_item_id) * _qty)),
-      wo_postedvalue = (wo_postedvalue - (stdcost(itemsite_item_id) * _qty))
+  SET wo_wipvalue = (wo_wipvalue - (CASE WHEN(itemsite_costmethod='A') THEN avgcost(itemsite_id) ELSE stdcost(itemsite_item_id) END * _qty)),
+      wo_postedvalue = (wo_postedvalue - (CASE WHEN(itemsite_costmethod='A') THEN avgcost(itemsite_id) ELSE stdcost(itemsite_item_id) END * _qty))
   FROM womatl, itemsite
   WHERE ( (wo_id=womatl_wo_id)
    AND (womatl_itemsite_id=itemsite_id)

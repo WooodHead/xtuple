@@ -58,16 +58,6 @@ BEGIN
     _itemlocSeries := pItemlocSeries;
   END IF;
 
-  SELECT postInvTrans( itemsite_id, 'RM', (_parentQty * -1),
-                       'W/O', 'WO', formatwonumber(pWoid), '', 'Correct Receive from Manufacturing',
-                       costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, CURRENT_DATE,
-                       ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) * _parentQty -- only used when cost is average
-                       ) INTO _invhistid
-  FROM wo, itemsite, costcat
-  WHERE ( (wo_itemsite_id=itemsite_id)
-   AND (itemsite_costcat_id=costcat_id)
-   AND (wo_id=pWoid) );
-
 --  Cache the parent WIP account (No SELECT ... INTO x, ... INTO x;!)
   SELECT costcat_wip_accnt_id INTO _parentWIPAccntid
   FROM wo, itemsite, costcat
@@ -75,16 +65,6 @@ BEGIN
    AND (itemsite_costcat_id=costcat_id)
    AND (wo_id=pWoid) );
  
---  Decrease this W/O's qty. received and increase its WIP value
-  UPDATE wo
-  SET wo_qtyrcv = (wo_qtyrcv - _parentQty),
-      wo_wipvalue = (wo_wipvalue + (CASE WHEN(itemsite_costmethod='A') THEN ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) ELSE stdcost(itemsite_item_id) END * _parentQty)),
-      wo_postedvalue = (wo_postedvalue + (CASE WHEN(itemsite_costmethod='A') THEN ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) ELSE stdcost(itemsite_item_id) END * _parentQty))
-  FROM itemsite, item
-  WHERE ( (wo_itemsite_id=itemsite_id)
-   AND (itemsite_item_id=item_id)
-   AND (wo_id=pWoid) );
-
   IF (pBackflush) THEN
     FOR _r IN SELECT item_id, item_fractional,
                       itemsite_id, itemsite_warehous_id,
@@ -159,6 +139,27 @@ BEGIN
     END LOOP;
 
   END IF;
+
+--  Post the inventory transaction
+  SELECT postInvTrans( itemsite_id, 'RM', (_parentQty * -1),
+                       'W/O', 'WO', formatwonumber(pWoid), '', 'Correct Receive from Manufacturing',
+                       costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, CURRENT_DATE,
+                       ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) * _parentQty -- only used when cost is average
+                       ) INTO _invhistid
+  FROM wo, itemsite, costcat
+  WHERE ( (wo_itemsite_id=itemsite_id)
+   AND (itemsite_costcat_id=costcat_id)
+   AND (wo_id=pWoid) );
+
+--  Decrease this W/O's qty. received and increase its WIP value
+  UPDATE wo
+  SET wo_qtyrcv = (wo_qtyrcv - _parentQty),
+      wo_wipvalue = (wo_wipvalue + (CASE WHEN(itemsite_costmethod='A') THEN ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) ELSE stdcost(itemsite_item_id) END * _parentQty)),
+      wo_postedvalue = (wo_postedvalue + (CASE WHEN(itemsite_costmethod='A') THEN ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) ELSE stdcost(itemsite_item_id) END * _parentQty))
+  FROM itemsite, item
+  WHERE ( (wo_itemsite_id=itemsite_id)
+   AND (itemsite_item_id=item_id)
+   AND (wo_id=pWoid) );
 
   RETURN _itemlocSeries;
 

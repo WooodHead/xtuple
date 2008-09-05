@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC, INTEGER, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC, INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pWomatlid ALIAS FOR $1;
   pQty ALIAS FOR $2;
@@ -12,18 +12,18 @@ BEGIN
 
   IF (pMarkPush) THEN
     UPDATE womatl
-    SET womatl_issuemethod=''S''
-    WHERE ((womatl_issuemethod=''M'')
+    SET womatl_issuemethod='S'
+    WHERE ((womatl_issuemethod='M')
      AND (womatl_id=pWomatlid));
   END IF;
 
   RETURN _itemlocSeries;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC) RETURNS INTEGER AS $$
 DECLARE
   pWomatlid ALIAS FOR $1;
   pQty ALIAS FOR $2;
@@ -31,14 +31,14 @@ DECLARE
 
 BEGIN
 
-  SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
+  SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
   RETURN issueWoMaterial(pWomatlid, pQty, _itemlocSeries);
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
   
 
-CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pWomatlid ALIAS FOR $1;
   pQty ALIAS FOR $2;
@@ -60,6 +60,7 @@ BEGIN
          womatl_wo_id,
          roundQty(item_fractional, itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)) AS qty,
          formatWoNumber(wo_id) AS woNumber,
+         CASE WHEN(itemsite_costmethod='A') THEN avgcost(itemsite_id) ELSE stdcost(itemsite_item_id) END AS cost,
          womatl_issuemethod AS issueMethod INTO _p
   FROM wo, womatl, itemsite, item
   WHERE ( (womatl_wo_id=wo_id)
@@ -71,10 +72,10 @@ BEGIN
   IF (pItemlocSeries <> 0) THEN
     _itemlocSeries := pItemlocSeries;
   ELSE
-    SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
+    SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
   END IF;
-  SELECT postInvTrans( ci.itemsite_id, ''IM'', _p.qty,
-                      ''W/O'', ''WO'', _p.woNumber, '''', ''Material Issue to Work Order'',
+  SELECT postInvTrans( ci.itemsite_id, 'IM', _p.qty,
+                      'W/O', 'WO', _p.woNumber, '', 'Material Issue to Work Order',
                       pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries ) INTO _invhistid
   FROM itemsite AS ci, itemsite AS pi,
        costcat AS cc, costcat AS pc
@@ -89,10 +90,10 @@ BEGIN
                 VALUES (pWomatlid,_invhistid);
   END IF;
 
---  Increase the parent W/O''s WIP value by the value of the issued components
+--  Increase the parent W/O's WIP value by the value of the issued components
   UPDATE wo
-  SET wo_wipvalue = (wo_wipvalue + (stdcost(_p.item_id) * _p.qty)),
-      wo_postedvalue = (wo_postedvalue + (stdcost(_p.item_id) * _p.qty))
+  SET wo_wipvalue = (wo_wipvalue + (_p.cost * _p.qty)),
+      wo_postedvalue = (wo_postedvalue + (_p.cost * _p.qty))
   WHERE (wo_id=_p.womatl_wo_id);
 
   UPDATE womatl
@@ -101,17 +102,17 @@ BEGIN
   WHERE (womatl_id=pWomatlid);
 
   UPDATE wo
-  SET wo_status=''I''
-  WHERE ( (wo_status <> ''I'')
+  SET wo_status='I'
+  WHERE ( (wo_status <> 'I')
    AND (wo_id=_p.womatl_wo_id) );
 
   RETURN _itemlocSeries;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
   
 
-CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pWomatlid ALIAS FOR $1;
   pQty ALIAS FOR $2;
@@ -127,12 +128,12 @@ BEGIN
 
   IF (pMarkPush) THEN
     UPDATE womatl
-    SET womatl_issuemethod=''S''
-    WHERE ((womatl_issuemethod=''M'')
+    SET womatl_issuemethod='S'
+    WHERE ((womatl_issuemethod='M')
      AND (womatl_id=pWomatlid));
   END IF;
 
   RETURN _itemlocSeries;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

@@ -43,7 +43,7 @@ DECLARE
 
 BEGIN
 
-  SELECT CASE WHEN(itemsite_costmethod='A') THEN COALESCE((pCostOvrld / pQty), avgcost(itemsite_id))
+  SELECT CASE WHEN(itemsite_costmethod='A') THEN COALESCE(abs(pCostOvrld / pQty), avgcost(itemsite_id))
               ELSE stdCost(itemsite_item_id)
          END AS cost,
          itemsite_costmethod,
@@ -115,6 +115,7 @@ BEGIN
 
     IF((_r.itemsite_costmethod='A') AND (_r.itemsite_qtyonhand + (_sense * pQty)) < 0) THEN
       -- Can not let average costed itemsites go negative
+      RAISE EXCEPTION 'This transaction will cause an Average Costed item to go negative which is not allowed.';
       RETURN -2;
     END IF;
 

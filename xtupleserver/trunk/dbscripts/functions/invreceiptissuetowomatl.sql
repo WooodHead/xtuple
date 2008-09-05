@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION invReceiptIssueToWomatl(INTEGER, NUMERIC, TEXT, INTEGER, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION invReceiptIssueToWomatl(INTEGER, NUMERIC, TEXT, INTEGER, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pQty ALIAS FOR $2;
@@ -11,7 +11,7 @@ DECLARE
 BEGIN
 
 --  Make sure the passed itemsite points to a real item
-  IF ( ( SELECT (item_type IN (''R'', ''F'', ''J''))
+  IF ( ( SELECT (item_type IN ('R', 'F', 'J'))
          FROM itemsite, item
          WHERE ( (itemsite_item_id=item_id)
           AND (itemsite_id=pItemsiteid) ) ) ) THEN
@@ -29,8 +29,8 @@ BEGIN
   END IF;
 
 --  Post the Receipt
-  SELECT postInvTrans( itemsite_id, ''RX'', pQty,
-                       ''I/M'', ''WO'', formatWoNumber(womatl_wo_id), pDocumentNumber, pComments,
+  SELECT postInvTrans( itemsite_id, 'RX', pQty,
+                       'I/M', 'WO', formatWoNumber(womatl_wo_id), pDocumentNumber, pComments,
                        costcat_asset_accnt_id, costcat_liability_accnt_id, 0 ) INTO _invhistid
   FROM womatl, itemsite, costcat
   WHERE ( (itemsite_costcat_id=costcat_id)
@@ -38,8 +38,8 @@ BEGIN
    AND (womatl_id=pWomatlid) );
 
 --  Post the Issue
-  SELECT postInvTrans( ci.itemsite_id, ''IM'', pQty,
-                       ''I/M'', ''WO'', formatWoNumber(wo_id), pDocumentNumber, pComments,
+  SELECT postInvTrans( ci.itemsite_id, 'IM', pQty,
+                       'I/M', 'WO', formatWoNumber(wo_id), pDocumentNumber, pComments,
                        pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, 0 ) INTO _invhistid
   FROM itemsite AS ci, itemsite AS pi,
        costcat AS cc, costcat AS pc,
@@ -51,10 +51,10 @@ BEGIN
    AND (wo_itemsite_id=pi.itemsite_id)
    AND (womatl_id=pWomatlid) );
 
---  Increase the parent W/O''s WIP value by the value of the issued components
+--  Increase the parent W/O's WIP value by the value of the issued components
   UPDATE wo
-  SET wo_wipvalue = (wo_wipvalue + (stdcost(itemsite_item_id) * pQty)),
-      wo_postedvalue = (wo_postedvalue + (stdcost(itemsite_item_id) * pQty))
+  SET wo_wipvalue = (wo_wipvalue + (CASE WHEN(itemsite_costmethod='A') THEN avgcost(itemsite_id) ELSE stdcost(itemsite_item_id) END * pQty)),
+      wo_postedvalue = (wo_postedvalue + (CASE WHEN(itemsite_costmethod='A') THEN avgcost(itemsite_id) ELSE stdcost(itemsite_item_id) END * pQty))
   FROM itemsite, womatl
   WHERE ( (womatl_itemsite_id=itemsite_id)
    AND (womatl_wo_id=wo_id)
@@ -68,13 +68,13 @@ BEGIN
      AND (womatl_itemsite_id=itemsite_id));
 
   UPDATE wo
-  SET wo_status=''I''
+  SET wo_status='I'
   FROM womatl
   WHERE ( (womatl_wo_id=wo_id)
-   AND (wo_status <> ''I'')
+   AND (wo_status <> 'I')
    AND (wo_id=pWomatlid) );
 
   RETURN 0;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
