@@ -49,7 +49,7 @@ BEGIN
     RETURN -5;
   END IF;
 
-  IF (fetchMetricBool(''MultiWhs'')) THEN
+  IF (fetchmetricbool(''EnableReturnAuth'')) THEN
     SELECT raitem_id INTO _test
     FROM raitem, coitem
     WHERE ( (raitem_new_coitem_id=coitem_id)
@@ -58,7 +58,7 @@ BEGIN
       RETURN -6;
     END IF;
   END IF;
-
+  
   UPDATE pr SET pr_prj_id=-1
   FROM coitem
   WHERE ((coitem_cohead_id=pSoheadid)
