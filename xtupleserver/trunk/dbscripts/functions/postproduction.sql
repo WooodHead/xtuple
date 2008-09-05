@@ -52,7 +52,7 @@ DECLARE
   _suTime NUMERIC;
   _rnTime NUMERIC;
   _check CHAR;
-
+  
 BEGIN
 
   IF (pQty <= 0) THEN
@@ -172,7 +172,7 @@ BEGIN
                        costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, CURRENT_DATE,
                        -- the following is only actually used when the item is average costed
                        CASE WHEN (wo_cosmethod = 'D') THEN wo_wipvalue
-                            ELSE round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord - wo_qtyrcv - pQty))),2) -- this line does not appear to work right when backflush is done???
+                            ELSE round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord - wo_qtyrcv - pQty))),2)
                        END ) INTO _invhistid
   FROM wo, itemsite, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)
