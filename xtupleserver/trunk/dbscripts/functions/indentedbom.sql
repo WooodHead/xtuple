@@ -213,8 +213,8 @@ BEGIN
        AND (bomhist_effective <= (CURRENT_DATE + pFutureDays))
        UNION
        SELECT -1, -1, 1,''0'',
-              NULL,-1, costelem_type AS bomdata_item_number, '''','''', '''', '''',
-              '''', '''', '''', '''', '''', '''',false,false,
+              NULL,-1, costelem_type AS bomdata_item_number, '''', '''', '''', '''',
+              NULL, NULL, false, '''', NULL, NULL,false,false,
               bomhist_actunitcost AS actunitcost,
               bomhist_stdunitcost AS stdunitcost,
               bomhist_actunitcost AS actextendedcost,
@@ -247,8 +247,8 @@ BEGIN
         _row.bomdata_stdunitcost := _x.stdunitcost;
         _row.bomdata_actextendedcost := _x.actextendedcost;
         _row.bomdata_stdextendedcost := _x.stdextendedcost;
-        _row.bomdata_char_id := _x.char_id;
-        _row.bomdata_value := _x.value;
+        _row.bomdata_char_id := _x.bomhist_char_id;
+        _row.bomdata_value := _x.bomhist_value;
         RETURN NEXT _row;
     END LOOP;
   END IF;   
