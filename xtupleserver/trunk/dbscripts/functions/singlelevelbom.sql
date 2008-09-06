@@ -27,7 +27,8 @@ BEGIN
  
   IF NOT (_inactive) THEN
     FOR _x IN
-        SELECT bomitem_id, bomitem_seqnumber, item_id, item_number, uom_name,
+        SELECT bomitem_id, bomitem_seqnumber, bomitem_seqnumber AS f_bomitem_seqnumber,
+               item_id, item_number, uom_name,
                item_descrip1, item_descrip2,
                (item_descrip1 || '' '' || item_descrip2) AS itemdescription,
                itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
@@ -56,7 +57,7 @@ BEGIN
        AND (bomitem_expires > (CURRENT_DATE - pExpiredDays))
        AND (bomitem_effective <= (CURRENT_DATE + pFutureDays)) )
        UNION
-       SELECT -1, -1, -1, costelem_type AS bomdata_item_number, '''',
+       SELECT -1, -1, NULL, -1, costelem_type AS bomdata_item_number, '''',
               '''', '''',
               '''',
               NULL,
@@ -76,7 +77,7 @@ BEGIN
        ORDER BY bomitem_seqnumber, bomitem_effective, item_number
     LOOP
         _row.bomdata_bomitem_id := _x.bomitem_id;
-        _row.bomdata_bomwork_seqnumber := _x.bomitem_seqnumber;
+        _row.bomdata_bomwork_seqnumber := _x.f_bomitem_seqnumber;
         _row.bomdata_item_id := _x.item_id;
         _row.bomdata_item_number := _x.item_number;
         _row.bomdata_uom_name := _x.uom_name;
@@ -104,7 +105,8 @@ BEGIN
 
 -- Use historical snapshot for inactive revisions
     FOR _x IN
-        SELECT bomitem_id, bomitem_seqnumber, item_id, item_number, uom_name,
+        SELECT bomitem_id, bomitem_seqnumber, bomitem_seqnumber AS f_bomitem_seqnumber,
+               item_id, item_number, uom_name,
                item_descrip1, item_descrip2,
                (item_descrip1 || '' '' || item_descrip2) AS itemdescription,
                itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper,
@@ -132,7 +134,7 @@ BEGIN
        AND (bomitem_expires > (CURRENT_DATE - pExpiredDays))
        AND (bomitem_effective <= (CURRENT_DATE + pFutureDays)) )
        UNION
-       SELECT -1, -1, -1, costelem_type AS bomdata_item_number, '''',
+       SELECT -1, -1, NULL, -1, costelem_type AS bomdata_item_number, '''',
               '''', '''',
               '''',
               NULL,
@@ -152,7 +154,7 @@ BEGIN
        ORDER BY bomitem_seqnumber, bomitem_effective, item_number
     LOOP
         _row.bomdata_bomitem_id := _x.bomitem_id;
-        _row.bomdata_bomwork_seqnumber := _x.bomitem_seqnumber;
+        _row.bomdata_bomwork_seqnumber := _x.f_bomitem_seqnumber;
         _row.bomdata_item_id := _x.item_id;
         _row.bomdata_item_number := _x.item_number;
         _row.bomdata_uom_name := _x.uom_name;
