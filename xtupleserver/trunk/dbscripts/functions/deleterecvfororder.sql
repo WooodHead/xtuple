@@ -12,10 +12,6 @@ BEGIN
     AND  (orderitem_orderhead_id=porderid)
     AND  (orderitem_orderhead_type=pordertype));
 
-  IF (NOT FOUND) THEN
-    RETURN -11;
-  END IF;
-
   RETURN 0;
 
 END;
