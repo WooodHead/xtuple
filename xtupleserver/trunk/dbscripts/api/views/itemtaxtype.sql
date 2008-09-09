@@ -55,7 +55,10 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     END,
     itemtax_taxtype_id=getTaxTypeId(NEW.tax_type)
   WHERE  ((itemtax_item_id=getItemId(OLD.item_number))
-  AND (itemtax_taxauth_id=getTaxAuthId(OLD.tax_authority))
+  AND (CASE WHEN (OLD.tax_authority = 'Any') THEN
+              itemtax_taxauth_id IS NULL
+            ELSE
+              itemtax_taxauth_id=getTaxAuthId(OLD.tax_authority) END)
   AND (itemtax_taxtype_id=getTaxTypeId(OLD.tax_type)));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
@@ -63,7 +66,10 @@ CREATE OR REPLACE RULE "_DELETE" AS
 
   DELETE FROM itemtax
   WHERE  ((itemtax_item_id=getItemId(OLD.item_number))
-  AND (itemtax_taxauth_id=getTaxAuthId(OLD.tax_authority))
+  AND (CASE WHEN (OLD.tax_authority = 'Any') THEN
+              itemtax_taxauth_id IS NULL
+            ELSE
+              itemtax_taxauth_id=getTaxAuthId(OLD.tax_authority) END)
   AND (itemtax_taxtype_id=getTaxTypeId(OLD.tax_type)));
 
 COMMIT;
