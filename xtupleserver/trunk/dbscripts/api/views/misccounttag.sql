@@ -19,7 +19,13 @@ CREATE OR REPLACE RULE "_INSERT" AS
     ON INSERT TO api.misccounttag DO INSTEAD
 
 SELECT postMiscCount( 
-  getItemsiteId(NEW.site,NEW.item_number),
+  getItemsiteId(
+  COALESCE(NEW.site,
+		(SELECT warehous_code
+		 FROM usrpref,whsinfo
+		 WHERE (usrpref_username=current_user)
+		 AND (usrpref_name='PreferredWarehouse')
+		 AND (warehous_id=CAST(usrpref_value AS INTEGER)))), NEW.item_number),
   NEW.quantity,
   NEW.comment
      );
