@@ -23,6 +23,7 @@ DECLARE
   _invhistid		INTEGER;
   _shipheadid		INTEGER;
   _shipnumber		INTEGER;
+  _cntctid              INTEGER;
   _r                    RECORD;
   _p                    RECORD;
   _m                    RECORD;
@@ -51,6 +52,19 @@ BEGIN
     IF (NOT FOUND) THEN
       RETURN 0;
     END IF;
+
+    -- Check auto registration
+    IF ( SELECT COALESCE(itemsite_autoreg, FALSE)
+         FROM coitem JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
+         WHERE (coitem_id=pitemid) ) THEN
+      SELECT COALESCE(crmacct_cntct_id_1, -1) INTO _cntctid
+      FROM coitem JOIN cohead ON (cohead_id=coitem_cohead_id)
+                  JOIN crmacct ON (crmacct_cust_id=cohead_cust_id)
+      WHERE (coitem_id=pitemid);
+      IF (_cntctid = -1) THEN
+        RETURN -15;
+      END IF;
+    END IF; 
   
     SELECT shiphead_id INTO _shipheadid
     FROM shiphead, coitem
