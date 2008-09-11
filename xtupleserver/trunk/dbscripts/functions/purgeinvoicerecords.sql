@@ -4,6 +4,16 @@ DECLARE
 
 BEGIN
 
+-- Remove the shipitem records
+  DELETE FROM shipitem
+  WHERE (shipitem_invcitem_id IN (SELECT invcitem_id 
+                                  FROM invcitem 
+                                  WHERE invcitem_invchead_id IN ( SELECT invchead_id
+                                     FROM invchead
+                                     WHERE ( (invchead_invcdate <= pCutoffDate)
+                                     AND   (checkInvoiceSitePrivs(invchead_id))
+                                     AND   (invchead_posted) ) ) ) );
+
 -- Remove the cobill and cobmisc records
   DELETE FROM cobill
   WHERE (cobill_cobmisc_id IN ( SELECT cobmisc_id
