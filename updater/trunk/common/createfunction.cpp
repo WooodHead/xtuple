@@ -66,8 +66,9 @@
 #define DEBUG false
 
 CreateFunction::CreateFunction(const QString &filename, 
-                               const QString &name, const QString &comment)
-  : CreateDBObj("createfunction", filename, name, comment)
+                               const QString &name, const QString &comment,
+                               const OnError onError)
+  : CreateDBObj("createfunction", filename, name, comment, onError)
 {
   _pkgitemtype = "F";
 }

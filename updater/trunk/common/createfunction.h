@@ -63,8 +63,9 @@
 class CreateFunction : public CreateDBObj
 {
   public:
-    CreateFunction(const QString &filename,
-                 const QString &name, const QString &comment = QString::null);
+    CreateFunction(const QString &filename, const QString &name,
+                   const QString &comment = QString::null,
+                   const OnError onError = Default);
     CreateFunction(const QDomElement &, QStringList &, QList<bool> &);
 
     virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);

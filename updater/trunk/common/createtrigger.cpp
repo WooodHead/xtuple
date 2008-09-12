@@ -66,8 +66,9 @@
 #define DEBUG false
 
 CreateTrigger::CreateTrigger(const QString &filename,
-                         const QString &name, const QString &comment)
-  : CreateDBObj("createtrigger", filename, name, comment)
+                             const QString &name, const QString &comment,
+                             const OnError onError)
+  : CreateDBObj("createtrigger", filename, name, comment, onError)
 {
   _pkgitemtype = "G";
 }

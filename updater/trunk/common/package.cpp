@@ -301,7 +301,9 @@ QDomElement Package::createElement(QDomDocument & doc)
 {
   QDomElement elem = doc.createElement("package");
   elem.setAttribute("id", _id);
-  elem.setAttribute("version", "1.0");
+  elem.setAttribute("version", QString("%1.%2")
+                                .arg(_majVersion > 0 ? _majVersion : 0)
+                                .arg(_minVersion > 0 ? _minVersion : 0));
 
   for(QList<Prerequisite>::iterator i = _prerequisites.begin();
       i != _prerequisites.end(); ++i)

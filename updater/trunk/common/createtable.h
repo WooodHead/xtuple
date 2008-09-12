@@ -63,8 +63,9 @@
 class CreateTable : public CreateDBObj
 {
   public:
-    CreateTable(const QString &filename,
-                const QString &name, const QString &comment = QString::null);
+    CreateTable(const QString &filename, const QString &name,
+                const QString &comment = QString::null,
+                const OnError onError = Default);
     CreateTable(const QDomElement &, QStringList &, QList<bool> &);
 
     virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);

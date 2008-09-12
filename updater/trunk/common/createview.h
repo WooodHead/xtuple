@@ -63,8 +63,9 @@
 class CreateView : public CreateDBObj
 {
   public:
-    CreateView(const QString &filename,
-               const QString &name, const QString &comment = QString::null);
+    CreateView(const QString &filename, const QString &name,
+               const QString &comment = QString::null,
+               const OnError onError = Default);
     CreateView(const QDomElement &, QStringList &, QList<bool> &);
 
     virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);

@@ -66,8 +66,9 @@
 #define DEBUG false
 
 CreateView::CreateView(const QString &filename,
-                         const QString &name, const QString &comment)
-  : CreateDBObj("createview", filename, name, comment)
+                       const QString &name, const QString &comment,
+                       const OnError onError)
+  : CreateDBObj("createview", filename, name, comment, onError)
 {
   _pkgitemtype = "V";
   _relkind     = "v";

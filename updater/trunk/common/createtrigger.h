@@ -63,8 +63,9 @@
 class CreateTrigger : public CreateDBObj
 {
   public:
-    CreateTrigger(const QString &filename,
-                  const QString &name, const QString &comment = QString::null);
+    CreateTrigger(const QString &filename, const QString &name,
+                  const QString &comment = QString::null,
+                  const OnError onError = Default);
     CreateTrigger(const QDomElement &, QStringList &, QList<bool> &);
 
     virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);

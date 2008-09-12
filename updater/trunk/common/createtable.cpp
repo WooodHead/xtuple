@@ -66,8 +66,9 @@
 #define DEBUG false
 
 CreateTable::CreateTable(const QString &filename,
-                         const QString &name, const QString &comment)
-  : CreateDBObj("createtable", filename, name, comment)
+                         const QString &name, const QString &comment,
+                         const OnError onError)
+  : CreateDBObj("createtable", filename, name, comment, onError)
 {
   _pkgitemtype = "T";
   _relkind     = "r";   // pg_class.relkind 'r' => relation (ordinary table)
