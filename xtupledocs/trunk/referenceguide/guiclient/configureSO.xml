@@ -256,93 +256,6 @@
   </variablelist>
   <variablelist>
     <varlistentry>
-      <term>Credit Control</term>
-      <listitem>
-        <para>Select from the following credit control options:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Restrict Credit Memos to Items that appear on their Apply-To
-            Document</term>
-            <listitem>
-              <para>Select if you want to restrict Credit Memo Items to their
-              Apply-To Document. Selecting this option narrows the Credit Memo
-              Item selection process to only those Items which appeared on the
-              Invoice the Credit Memo is being applied to. If not selected, a
-              sold Item master list will appear instead when selecting Credit
-              Memo Items for Credit Memos applied to a specific Invoice. This
-              setting has no bearing on unapplied Credit Memos.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Automatically Allocate Credit Memos to New Sales Order on
-            Save</term>
-            <listitem>
-              <para>Select to have open Credit Memos for a Customer
-              automatically allocated to any new Sales Orders entered for that
-              Customer. This functionality helps reduce Customer credit
-              balances by ensuring that Customer credits are consumed when new
-              Sales Orders are entered. Any available, open Credit Memos are
-              eligible for allocation. The allocation of available Credit
-              Memos occurs only once—when a Sales Order is saved for the first
-              time. Subsequent saves will not result in additional
-              allocations. Credit Memos which have been allocated to a Sales
-              Order are applied at the point when the Invoice resulting from
-              the Sales Order is posted. Once the full balance of a Credit
-              Memo has been applied, the Credit Memo is then closed. The
-              printed Invoice the Customer receives will indicate whether
-              Credit Memos have been applied. In addition, the total due from
-              the Customer will be automatically adjusted to reflect any
-              applied credits.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Ship Control</term>
-      <listitem>
-        <para>Select from the following ship control options:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Always show "Save and Add to Packing List" button on Sales
-            Order screen</term>
-            <listitem>
-              <para>Select if you want the SAVE AND ADD TO PACKING LIST button
-              to always be displayed on the Sales Order header screen. If this
-              option is not selected, the SAVE AND ADD TO PACKING LIST button
-              will only be displayed for newly-entered Sales Orders which have
-              not yet been saved.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Enable Shipping interface from Sales Order screen</term>
-            <listitem>
-              <para>Select to enable the performance of limited Shipping
-              functionality from the Sales Order header. If selected, users
-              will be able to issue Stock to Shipping and also return Stock
-              from Shipping directly from the Sales Order header. If not
-              selected, these Shipping options will not be available on the
-              Sales Order header.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Automatically check "Select for Billing" option on Ship
-            Order screen</term>
-            <listitem>
-              <para>Select if you want the "Select for Billing" option to be
-              selected by default whenever you ship Sales Order Line Items.
-              Selecting this option reduces steps in the billing process.
-              Specifically, if an Order is selected for billing when it is
-              shipped, you do not then have to take the extra step of
-              independently selecting the Order for billing. This can save
-              time and also ensure your shipped Orders are selected for
-              billing at the time of shipment.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Price Control</term>
       <listitem>
         <para>Select from the following price control options:</para>
@@ -425,28 +338,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Change Log</term>
-      <listitem>
-        <para>Select from the following change log options</para>
-        <variablelist>
-          <varlistentry>
-            <term>Post Customer Changes to the Change Log</term>
-            <listitem>
-              <para>Select to post to the Change Log any changes made to
-              Customer masters.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Post Sales Order Changes to the Change Log</term>
-            <listitem>
-              <para>Select to post to the Change Log any changes made to Sales
-              Orders.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Date Control</term>
       <listitem>
         <para>Select from the following date control options:</para>
@@ -455,7 +346,7 @@
             <term>Allow ASAP Schedule Dates</term>
             <listitem>
               <para>Selecting this option will cause Sales Order Line Items to
-              become immediately past due if no schedule date is
+              default to the current date if no schedule date is
               entered.</para>
               <note>
                 <para>The allocation of available Credit Memos occurs only
@@ -476,8 +367,6 @@
         </variablelist>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry role="standard">
       <term>Enable S/O Reservations</term>
       <listitem>
@@ -522,8 +411,8 @@
               <para>Locations for the Item will be sorted ascending
               alphabetically by the Location Name. Reservations will start
               with the first Location and continue until the quantity required
-              is fully reserved or there is insufficient quantity on hand.
-              </para>
+              is fully reserved or there is insufficient quantity on
+              hand.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -531,6 +420,115 @@
           <para>The change of Reserve by Location from a state of enabled to
           disabled will remove all location reservations.</para>
         </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Control</term>
+      <listitem>
+        <para>Select from the following ship control options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Always show "Save and Add to Packing List" button on Sales
+            Order screen</term>
+            <listitem>
+              <para>Select if you want the SAVE AND ADD TO PACKING LIST button
+              to always be displayed on the Sales Order header screen. If this
+              option is not selected, the SAVE AND ADD TO PACKING LIST button
+              will only be displayed for newly-entered Sales Orders which have
+              not yet been saved.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Enable Shipping interface from Sales Order screen</term>
+            <listitem>
+              <para>Select to enable the performance of limited Shipping
+              functionality from the Sales Order header. If selected, users
+              will be able to issue Stock to Shipping and also return Stock
+              from Shipping directly from the Sales Order header. If not
+              selected, these Shipping options will not be available on the
+              Sales Order header.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatically check "Select for Billing" option on Ship
+            Order screen</term>
+            <listitem>
+              <para>Select if you want the "Select for Billing" option to be
+              selected by default whenever you ship Sales Order Line Items.
+              Selecting this option reduces steps in the billing process.
+              Specifically, if an Order is selected for billing when it is
+              shipped, you do not then have to take the extra step of
+              independently selecting the Order for billing. This can save
+              time and also ensure your shipped Orders are selected for
+              billing at the time of shipment.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Change Log</term>
+      <listitem>
+        <para>Select from the following change log options</para>
+        <variablelist>
+          <varlistentry>
+            <term>Post Customer Changes to the Change Log</term>
+            <listitem>
+              <para>Select to post to the Change Log any changes made to
+              Customer masters.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Post Sales Order Changes to the Change Log</term>
+            <listitem>
+              <para>Select to post to the Change Log any changes made to Sales
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Control</term>
+      <listitem>
+        <para>Select from the following credit control options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Restrict Credit Memos to Items that appear on their Apply-To
+            Document</term>
+            <listitem>
+              <para>Select if you want to restrict Credit Memo Items to their
+              Apply-To Document. Selecting this option narrows the Credit Memo
+              Item selection process to only those Items which appeared on the
+              Invoice the Credit Memo is being applied to. If not selected, a
+              sold Item master list will appear instead when selecting Credit
+              Memo Items for Credit Memos applied to a specific Invoice. This
+              setting has no bearing on unapplied Credit Memos.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatically Allocate Credit Memos to New Sales Order on
+            Save</term>
+            <listitem>
+              <para>Select to have open Credit Memos for a Customer
+              automatically allocated to any new Sales Orders entered for that
+              Customer. This functionality helps reduce Customer credit
+              balances by ensuring that Customer credits are consumed when new
+              Sales Orders are entered. Any available, open Credit Memos are
+              eligible for allocation. The allocation of available Credit
+              Memos occurs only once—when a Sales Order is saved for the first
+              time. Subsequent saves will not result in additional
+              allocations. Credit Memos which have been allocated to a Sales
+              Order are applied at the point when the Invoice resulting from
+              the Sales Order is posted. Once the full balance of a Credit
+              Memo has been applied, the Credit Memo is then closed. The
+              printed Invoice the Customer receives will indicate whether
+              Credit Memos have been applied. In addition, the total due from
+              the Customer will be automatically adjusted to reflect any
+              applied credits.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
