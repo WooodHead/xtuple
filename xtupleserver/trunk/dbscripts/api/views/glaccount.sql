@@ -54,15 +54,14 @@ VALUES (
   COALESCE(NEW.notes, ''),
   COALESCE(NEW.profit_center, '1'),
   COALESCE(NEW.sub_account, '1'),
-  NEW.type,
---  CASE
---    WHEN NEW.type='Asset' THEN 'A'
---    WHEN NEW.type='Liability' THEN 'L'
---    WHEN NEW.type='Expense' THEN 'E'
---    WHEN NEW.type='Revenue' THEN 'R'
---    WHEN NEW.type='Equity' THEN 'Q'
---    ELSE NULL
---  END,
+  CASE
+    WHEN NEW.type='Asset' THEN 'A'
+    WHEN NEW.type='Liability' THEN 'L'
+    WHEN NEW.type='Expense' THEN 'E'
+    WHEN NEW.type='Revenue' THEN 'R'
+    WHEN NEW.type='Equity' THEN 'Q'
+    ELSE NULL
+  END,
   COALESCE(NEW.ext_reference, ''),
   COALESCE(NEW.company, ''),
   COALESCE(NEW.allow_posting_to_closed_periods, false),
