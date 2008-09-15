@@ -55,87 +55,49 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#ifndef __PACKAGE_H__
-#define __PACKAGE_H__
+#include "finalscript.h"
 
-#include <QString>
-#include <QList>
+#include <QDomDocument>
+#include <QSqlError>
+#include <QSqlQuery>
 
-class QDomDocument;
-class QDomElement;
+#define DEBUG false
 
-class CreateFunction;
-class CreateTable;
-class CreateTrigger;
-class CreateView;
-class LoadAppScript;
-class LoadAppUI;
-class LoadCmd;
-class LoadImage;
-class LoadMetasql;
-class LoadPriv;
-class LoadReport;
-class Prerequisite;
-class Script;
-class FinalScript;
-
-class Package
+FinalScript::FinalScript(const QString & name, OnError onError, const QString & comment)
+  : Script(name, onError, comment)
 {
-  public:
-    Package(const QString & id = QString::null);
-    Package(const QDomElement &, QStringList &, QList<bool> &);
+  _nodename = "finalscript";
+}
 
-    virtual ~Package();
+FinalScript::FinalScript(const QDomElement & elem, QStringList &msg, QList<bool> &fatal)
+{
+  _nodename = "finalscript";
+  _name = elem.attribute("name");
+  if (elem.hasAttribute("file"))
+    _name = elem.attribute("file");
+  _onError = nameToOnError(elem.attribute("onerror"));
+  _comment = elem.text();
 
-    QDomElement createElement(QDomDocument &); 
-    int writeToDB(QString &errMsg);
+  if (_name.isEmpty())
+  {
+    msg.append(TR("This finalscript does not have a file or name attribute."));
+    fatal.append(true);
+  }
+}
 
-    QString id() const { return _id; }
-    void setId(const QString & id) { _id = id; }
+FinalScript::~FinalScript()
+{
+}
 
-    QString developer() const { return _developer; }
-    QString name()      const { return _name; }
-    int versionMajor()  const { return _majVersion; }
-    int versionMinor()  const { return _minVersion; }
+QDomElement FinalScript::createElement(QDomDocument & doc)
+{
+  QDomElement elem = doc.createElement(_nodename);
 
-    QList<CreateFunction> _functions;
-    QList<CreateTable>    _tables;
-    QList<CreateTrigger>  _triggers;
-    QList<CreateView>     _views;
-    QList<LoadAppScript>  _appscripts;
-    QList<LoadAppUI>      _appuis;
-    QList<LoadCmd>        _cmds;
-    QList<LoadImage>      _images;
-    QList<LoadMetasql>    _metasqls;
-    QList<LoadPriv>       _privs;
-    QList<Prerequisite>   _prerequisites;
-    QList<Script>         _scripts;
-    QList<FinalScript>    _finalscripts;
-    QList<LoadReport>     _reports;
+  elem.setAttribute("file", _name);
+  elem.setAttribute("onerror", onErrorToName(_onError));
 
-    bool containsAppScript(const QString &name)    const;
-    bool containsAppUI(const QString &name)        const;
-    bool containsCmd(const QString &name)          const;
-    bool containsFunction(const QString &name)     const;
-    bool containsImage(const QString &name)        const;
-    bool containsPrerequisite(const QString &name) const;
-    bool containsMetasql(const QString &name)      const;
-    bool containsPriv(const QString &name)         const;
-    bool containsReport(const QString &name)       const;
-    bool containsScript(const QString &name)       const;
-    bool containsFinalScript(const QString &name)  const;
-    bool containsTable(const QString &name)        const;
-    bool containsTrigger(const QString &name)      const;
-    bool containsView(const QString &name)         const;
+  if(!_comment.isEmpty())
+    elem.appendChild(doc.createTextNode(_comment));
 
-  protected:
-    QString     _developer;
-    QString     _descrip;
-    QString     _id;
-    int         _majVersion;
-    int         _minVersion;
-    QString     _name;
-    QString     _notes;
-};
-
-#endif
+  return elem;
+}

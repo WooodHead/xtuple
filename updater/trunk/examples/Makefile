@@ -29,7 +29,8 @@ allknownelemspkg.gz:  allknownelemspkg			\
                       allknownelemspkg/telephonelookup.mql	\
                       allknownelemspkg/telephonelookup.script	\
                       allknownelemspkg/telephonelookup.ui	\
-                      allknownelemspkg/telephonelookup.xml
+                      allknownelemspkg/telephonelookup.xml      \
+                      allknownelemspkg/finalize.sql
 	tar czf $@ --exclude .svn $<
 
 allknownwarnings.gz:  allknownwarnings			\

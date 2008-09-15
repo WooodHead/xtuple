@@ -32,12 +32,13 @@
  </prerequisite>
 
  <script         file="initUpgrade" onerror="Ignore" />
+ <finalscript    file="finalize.sql" />
  <createtable    file="pkgtest.sql" name="pkgtest" onerror="Ignore" />
  <createfunction file="pkgtesttriggerfunction.sql" name="_pkgtestbefore" />
  <createfunction file="dropifexists.sql" name="dropifexists" />
  <createtrigger  file="pkgtesttrigger.sql" name="pkgtestbefore" />
  <createview     file="pkgtestview.sql" name="pkgtestview" />
- <loadmetasql    file="telephonelookup.mql" name="select" group="telephonelookup">
+ <loadmetasql    file="telephonelookup.mql" >
   comment on metasql
  </loadmetasql>
  <loadreport     grade="0" file="telephonelookup.xml" />

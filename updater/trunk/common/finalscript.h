@@ -55,87 +55,25 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#ifndef __PACKAGE_H__
-#define __PACKAGE_H__
+#ifndef __FINALSCRIPT_H__
+#define __FINALSCRIPT_H__
 
-#include <QString>
-#include <QList>
+#include "script.h"
 
-class QDomDocument;
-class QDomElement;
-
-class CreateFunction;
-class CreateTable;
-class CreateTrigger;
-class CreateView;
-class LoadAppScript;
-class LoadAppUI;
-class LoadCmd;
-class LoadImage;
-class LoadMetasql;
-class LoadPriv;
-class LoadReport;
-class Prerequisite;
-class Script;
-class FinalScript;
-
-class Package
+class FinalScript : public Script
 {
   public:
-    Package(const QString & id = QString::null);
-    Package(const QDomElement &, QStringList &, QList<bool> &);
+    FinalScript(const QString & name = QString::null, OnError onError = Default,
+           const QString & comment = QString::null);
+    FinalScript(const QDomElement &, QStringList &msg, QList<bool> &fatal);
 
-    virtual ~Package();
+    virtual ~FinalScript();
 
-    QDomElement createElement(QDomDocument &); 
-    int writeToDB(QString &errMsg);
-
-    QString id() const { return _id; }
-    void setId(const QString & id) { _id = id; }
-
-    QString developer() const { return _developer; }
-    QString name()      const { return _name; }
-    int versionMajor()  const { return _majVersion; }
-    int versionMinor()  const { return _minVersion; }
-
-    QList<CreateFunction> _functions;
-    QList<CreateTable>    _tables;
-    QList<CreateTrigger>  _triggers;
-    QList<CreateView>     _views;
-    QList<LoadAppScript>  _appscripts;
-    QList<LoadAppUI>      _appuis;
-    QList<LoadCmd>        _cmds;
-    QList<LoadImage>      _images;
-    QList<LoadMetasql>    _metasqls;
-    QList<LoadPriv>       _privs;
-    QList<Prerequisite>   _prerequisites;
-    QList<Script>         _scripts;
-    QList<FinalScript>    _finalscripts;
-    QList<LoadReport>     _reports;
-
-    bool containsAppScript(const QString &name)    const;
-    bool containsAppUI(const QString &name)        const;
-    bool containsCmd(const QString &name)          const;
-    bool containsFunction(const QString &name)     const;
-    bool containsImage(const QString &name)        const;
-    bool containsPrerequisite(const QString &name) const;
-    bool containsMetasql(const QString &name)      const;
-    bool containsPriv(const QString &name)         const;
-    bool containsReport(const QString &name)       const;
-    bool containsScript(const QString &name)       const;
-    bool containsFinalScript(const QString &name)  const;
-    bool containsTable(const QString &name)        const;
-    bool containsTrigger(const QString &name)      const;
-    bool containsView(const QString &name)         const;
+    virtual QDomElement createElement(QDomDocument &);
 
   protected:
-    QString     _developer;
-    QString     _descrip;
-    QString     _id;
-    int         _majVersion;
-    int         _minVersion;
-    QString     _name;
-    QString     _notes;
+    QString _nodename;
 };
 
 #endif
+

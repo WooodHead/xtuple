@@ -77,6 +77,7 @@ HEADERS = data.h \
           createtable.h \
           createtrigger.h \
           createview.h \
+          finalscript.h \
           script.h \
           licensewindow.h \
           loadable.h \
@@ -98,6 +99,7 @@ SOURCES = data.cpp \
           createtable.cpp \
           createtrigger.cpp \
           createview.cpp \
+          finalscript.cpp \
           script.cpp \
           loadable.cpp \
           loadappscript.cpp \

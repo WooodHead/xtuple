@@ -74,6 +74,7 @@
 #include <createtable.h>
 #include <createtrigger.h>
 #include <createview.h>
+#include <finalscript.h>
 #include <loadappscript.h>
 #include <loadappui.h>
 #include <loadcmd.h>
@@ -898,6 +899,24 @@ void LoaderWindow::sStart()
   }
   if (DEBUG)
     qDebug("LoaderWindow::sStart() progress %d out of %d after dependencies",
+           _progress->value(), _progress->maximum());
+
+  if (_package->_finalscripts.size() > 0)
+  {
+    _status->setText(tr("<p><b>Running Final Cleanup</b></p>"));
+    _text->append(tr("<p>Applying final cleanup scripts...</p>"));
+    for(QList<FinalScript>::iterator i = _package->_finalscripts.begin();
+        i != _package->_finalscripts.end(); ++i)
+    {
+      tmpReturn = applySql((*i), _files->_list[prefix + (*i).filename()]);
+      if (tmpReturn < 0)
+        return;
+      else
+        ignoredErrCnt += tmpReturn;
+    }
+  }
+  if (DEBUG)
+    qDebug("LoaderWindow::sStart() progress %d out of %d after final cleanup",
            _progress->value(), _progress->maximum());
 
   _progress->setValue(_progress->value() + 1);
