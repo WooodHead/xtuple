@@ -231,7 +231,7 @@ int PkgSchema::create(QString &errMsg)
                   "BEFORE INSERT OR UPDATE OR DELETE "
                   "ON pkg%4 FOR EACH ROW "
                   "EXECUTE PROCEDURE _pkg%5beforetrigger();")
-                  .arg(childTable.at(i)) .arg(childTable.at(i))
+                  .arg(childTable.at(i)) .arg(_name)
                   .arg(childTable.at(i)) .arg(childTable.at(i))
                   .arg(childTable.at(i))
                   );
@@ -249,7 +249,7 @@ int PkgSchema::create(QString &errMsg)
                   "BEFORE INSERT OR UPDATE OR DELETE "
                   "ON pkg%4 FOR EACH ROW "
                   "EXECUTE PROCEDURE _pkg%5altertrigger();")
-                  .arg(childTable.at(i)) .arg(childTable.at(i))
+                  .arg(childTable.at(i)) .arg(_name)
                   .arg(childTable.at(i)) .arg(childTable.at(i))
                   .arg(childTable.at(i))
                   );
