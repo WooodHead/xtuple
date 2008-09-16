@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="syncCompanies">
+  <title><indexterm significance="normal">
+      <primary>companies, synchronizing of</primary>
+    </indexterm>Synchronize Companies</title>
+  <para>To Synchronize Companies, select Synchronize Companies from the menu.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/syncCompanies.png" />
+        </imageobject>
+        <caption>Synchronize Companies</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When synchronizing companies, you are presented with the following
+  lists:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Periods</term>
+      <listitem>
+        <para>Select one or more financial periods to synchronize.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Companies</term>
+      <listitem>
+        <para>Select one or more external companies to synchronize.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Below the lists the following buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SELECT ALL</term>
+      <listitem>
+        <para>Selects all the contents of the list above the button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLEAR SELECTION</term>
+      <listitem>
+        <para>Deselects all the contents of the list above the button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>On the right of the screen the following buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the window.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SYNCHRONIZE</term>
+      <listitem>
+        <para>Executes the company synchronization process.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To learn about using multi-company consolidation, read the associated
+  wiki topic <ulink
+  url="http://wiki.xtuple.org/MultiCompanyConsolidationTopic">here.</ulink></para>
+</section>

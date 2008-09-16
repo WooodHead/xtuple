@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="company">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>companies</primary>
       <secondary>adding new</secondary>
     </indexterm>Company</title>
-  <para>To add a new Company, select the NEW button. The
-  following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To add a new Company, select the NEW button. The following screen will
+  appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/company.png"/>
+          <imagedata fileref="images/company.png" />
         </imageobject>
         <caption>Create New Company</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Company, you are presented with
-  the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Company, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Number</term>
@@ -34,9 +32,43 @@
         <para>Enter a brief description of the Company.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>External Company</term>
+      <listitem>
+        <para>Click to designate company as a pointer to a company on another
+        database. Only visible when Enable External Company Consolidation is
+        enabled. To learn more read the associated wiki topic <ulink
+        url="http://wiki.xtuple.org/MultiCompanyConsolidationTopic">here</ulink>.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Server</term>
+      <listitem>
+        <para>Enter the server address of the external company.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Port</term>
+      <listitem>
+        <para>Enter the port used by the external company server.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Database</term>
+      <listitem>
+        <para>Entere the database used bythe external company.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>TEST</term>
+      <listitem>
+        <para>Click the test button to confirm connection and external company
+        compatibility criteria.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
