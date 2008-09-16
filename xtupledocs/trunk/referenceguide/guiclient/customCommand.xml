@@ -213,6 +213,31 @@
           its work is done.</para><para><emphasis
           role="bold">Example</emphasis>:</para><para><code>-close</code></para></entry>
         </row>
+        <row>
+          <entry><para>-noAuth</para></entry>
+          <entry><para>This argument tell RPTrender that not all login fields, if any, are required and it will attempt to login to the specified database without presenting the login screen.</para><para><emphasis
+          role="bold">Example</emphasis>:</para><para><code>-noAuth</code></para></entry>
+        </row>
+        <row>
+          <entry><para>-loadfromdb=</para></entry>
+          <entry><para>This argument specifies the name a report definition to load from the database that is being connected to.</para><para><emphasis
+          role="bold">Example</emphasis>:</para><para><code>-loadfromdb=SomeReportName</code></para></entry>
+        </row>
+        <row>
+          <entry><para>-printerName=</para></entry>
+          <entry><para>This argument specified the printer to print to by it's name. Names vary from system to system and you must determine the correct name for this option.</para><para><emphasis
+          role="bold">Example</emphasis>:</para><para><code>-printerName=default</code></para></entry>
+        </row>
+        <row>
+          <entry><para>-pdf</para></entry>
+          <entry><para>This argument specifies that you want the output to be in .pdf format.</para><para><emphasis
+          role="bold">Example</emphasis>:</para><para><code>-pdf</code></para></entry>
+        </row>
+        <row>
+          <entry><para>-outpdf=</para></entry>
+          <entry><para>This argument specifies the name you want pdf output to be sent to.</para><para><emphasis
+          role="bold">Example</emphasis>:</para><para><code>-outpdf=myreport.pdf</code></para></entry>
+        </row>
       </tbody>
     </tgroup>
   </table>
