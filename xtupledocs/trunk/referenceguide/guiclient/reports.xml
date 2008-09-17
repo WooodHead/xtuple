@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518603">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>reports</primary>
       <secondary>master list of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,21 @@
     </indexterm>Reports</title>
   <para>To view the master list of available report definitions, select the
   "Reports" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/reports.png"/>
+          <imagedata fileref="images/reports.png" />
         </imageobject>
         <caption>Report Definitions Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
+  <note>
+    <para>The stock xTuple ERP reports are written using Arial and Helvetica
+    fonts. We chose these fonts to try and prevent unpredictable behavior
+    caused when xTuple reports are printed on different operating systems. Of
+    course, you are free to use other fonts when writing report definitions
+    for your own environment.</para>
+  </note>
   <para>The report definitions master list displays information on all stored
   reports, including report name, report grade, and report description.</para>
   <tip>
@@ -60,8 +65,8 @@
       <listitem>
         <para>Enables you to edit highlighted report definitions. The edit
         screen is the same as that for creating a new report
-        definition&mdash;except that when editing, the fields will contain report
-        information.</para>
+        definition&mdash;except that when editing, the fields will contain
+        report information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -72,5 +77,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="report.xml" xpointer="element(/1)"/>
+  <xi:include href="report.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
