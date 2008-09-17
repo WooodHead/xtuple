@@ -62,13 +62,10 @@ BEGIN
                 ELSE
                         FOR _i IN 1.._count
                         LOOP
-                                SELECT (EXTRACT(year from py.yearperiod_end)||'''') INTO _t
-                                FROM period cp, period pp, yearperiod cy, yearperiod py
-                                WHERE ((cp.period_id=pPeriodIds[_i])
-                                AND (cp.period_yearperiod_id=cy.yearperiod_id)
-                                AND (pp.period_yearperiod_id=py.yearperiod_id)
-                                AND (cy.yearperiod_start > py.yearperiod_start))
-                                ORDER BY pp.period_start DESC LIMIT 1;
+                                SELECT (EXTRACT(year from yearperiod_end)||'''') INTO _t
+                                FROM period, yearperiod
+                                WHERE ((period_id=pPeriodIds[_i])
+                                AND (period_yearperiod_id=yearperiod_id));
 
                                 _fld[_i] := _t;
 
