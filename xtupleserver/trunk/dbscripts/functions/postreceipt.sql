@@ -242,7 +242,7 @@ BEGIN
       FROM toitem
       WHERE (toitem_id=_r.recv_orderitem_id);
 
-      SELECT postInvTrans(si.itemsite_id, 'TS', (_r.recv_qty * -1), 'I/M',
+      SELECT postInvTrans(si.itemsite_id, 'TS', _r.recv_qty, 'I/M',
 			  _r.recv_order_type, _to.tohead_number,
 			  _to.tohead_number,
 			  'Receive from Transit To Dest Warehouse',
