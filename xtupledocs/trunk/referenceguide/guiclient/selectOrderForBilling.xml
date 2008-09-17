@@ -67,12 +67,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Cust. Phone</term>
-      <listitem>
-        <para>Phone: Displays Customer's phone number.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>P/O Number</term>
       <listitem>
         <para>Displays purchase for the specified Sales Order. Indicates the
@@ -87,10 +81,43 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>tax authorities</primary>
+          <secondary>for sales orders</secondary>
+        </indexterm>Tax Authority</term>
+      <listitem>
+        <para>Specify the Tax Authority associated with the Sales Order. The
+        Tax Authority for the specified Ship-To Address will be entered here
+        by default. Otherwise, the primary Tax Authority for the Customer will
+        be entered. Ultimately, Tax is applied at the Line Item level—so the
+        Tax Authority associated with an Item's Tax Type will be used.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Via</term>
+      <listitem>
+        <para>By default, the preferred Ship Via method for specified Customer
+        will appear in the field. You may enter a free-form Ship Via simply by
+        typing the name of the Ship Via into the field. Default Ship Vias may
+        be defined at the system level.</para>
+        <para><tip>
+            <para>The system supports up-to-date shipment tracking with links
+            to the websites of many leading shipping companies (i.e., "Ship
+            Vias").</para>
+          </tip></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Show Closed Line Items</term>
       <listitem>
         <para>Select to show closed Line Items in the "Line Items"
         display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Close all Open Items</term>
+      <listitem>
+        <para>Select to close all open Sales Order Line Items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -100,8 +127,8 @@
         </indexterm>Line Items</term>
       <listitem>
         <para>Displays the Sales Order Line Items selected for billing.
-        Double-clicking on a Line Item&mdash;or highlighting it and selecting the
-        EDIT SELECTION button&mdash;enables you to select a billing quantity for
+        Double-clicking on a Line Item—or highlighting it and selecting the
+        EDIT SELECTION button—enables you to select a billing quantity for
         that Item.</para>
       </listitem>
     </varlistentry>
@@ -113,27 +140,6 @@
     shipped, then no quantity will appear as uninvoiced.</para>
   </note>
   <variablelist>
-    <varlistentry>
-      <term>Ship Via</term>
-      <listitem>
-        <para>By default, the preferred Ship Via method for specified Customer
-        will appear in the field. You may enter a free-form Ship Via simply by
-        typing the name of the Ship Via into the field. Default Ship Vias may
-        be defined at the system level.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>The system supports up-to-date shipment tracking with links to the
-    websites of many leading shipping companies (i.e., "Ship Vias").</para>
-  </tip>
-  <variablelist>
-    <varlistentry>
-      <term>Close all Open Items</term>
-      <listitem>
-        <para>Select to close all open Sales Order Line Items.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>Subtotal</term>
       <listitem>
@@ -177,7 +183,7 @@
       <listitem>
         <para>Enter the amount of freight charge to be added to the specified
         Order. The freight charge may be entered during the creation or
-        modification of a Sales Order&mdash;or at the time of shipment.</para>
+        modification of a Sales Order—or at the time of shipment.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -201,16 +207,6 @@
         <para>Enter the amount of payment received against the specified Sales
         Order, if any. This amount will appear on any resulting Invoice, but
         will not be posted as a credit against the Invoice.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Notes</term>
-      <listitem>
-        <para>This is a scrolling text field with word-wrapping for entering
-        Notes related to the Sales Order selected for billing. Notes entered
-        on this screen will follow the Order through the billing process. For
-        example, you may view notes associated with a posted Invoice within
-        the Invoice Information report.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -240,7 +236,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>EDIT SELECTION</term>
+      <term>EDIT</term>
       <listitem>
         <para>Enables you to specify or edit the billing quantity for the
         highlighted Line Item. Double-clicking on a Line Item will also bring
@@ -248,7 +244,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>CANCEL SELECTION</term>
+      <term>CANCEL</term>
       <listitem>
         <para>Removes previously entered billing quantity from a selected Line
         Item.</para>
@@ -259,6 +255,28 @@
       <listitem>
         <para>Highlight a Line Item, then select this button to transfer the
         full balance to Billing.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>When the Notes tab is clicked, the screen will appear as
+  follows:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/selectOrderForBilling_notes.png" />
+      </imageobject>
+      <caption>Select Order for Billing Notes</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Sales Order selected for billing. Notes entered
+        on this screen will follow the Order through the billing process. For
+        example, you may view notes associated with a posted Invoice within
+        the Invoice Information report.</para>
       </listitem>
     </varlistentry>
   </variablelist>
