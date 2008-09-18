@@ -235,6 +235,7 @@ BEGIN
 
       --We do not need to distribute lot/serial info for transit, post trans and discard dist detail
       PERFORM postIntoTrialBalance(itemlocpost_glseq) FROM itemlocpost WHERE (itemlocpost_itemlocseries=_itemlocSeries);
+      PERFORM postInvHist(_invhistid);
       DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
       DELETE FROM itemlocpost WHERE (itemlocpost_itemlocSeries=_itemlocSeries);
 
