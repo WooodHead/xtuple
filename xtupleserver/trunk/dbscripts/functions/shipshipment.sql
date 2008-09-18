@@ -217,21 +217,21 @@ BEGIN
 	END IF;
       END IF;
 
---      SELECT postInvTrans(si.itemsite_id, 'TS', _ti.qty, 'I/M',
---			  _shiphead.shiphead_order_type, _to.tohead_number,
---			  _to.tohead_number,
---			  'Ship from Src to Transit Warehouse',
---			  tc.costcat_asset_accnt_id,
---			  sc.costcat_shipasset_accnt_id,
---			  _itemlocSeries, _timestamp) INTO _invhistid
---      FROM itemsite AS ti, costcat AS tc,
---	   itemsite AS si, costcat AS sc
---      WHERE ( (ti.itemsite_costcat_id=tc.costcat_id)
---        AND  (si.itemsite_costcat_id=sc.costcat_id)
---        AND  (ti.itemsite_item_id=_ti.toitem_item_id)
---        AND  (si.itemsite_item_id=_ti.toitem_item_id)
---        AND  (ti.itemsite_warehous_id=_to.tohead_trns_warehous_id)
---        AND  (si.itemsite_warehous_id=_to.tohead_src_warehous_id) );
+      SELECT postInvTrans(si.itemsite_id, 'TS', _ti.qty, 'I/M',
+			  _shiphead.shiphead_order_type, _to.tohead_number,
+			  _to.tohead_number,
+			  'Ship from Src to Transit Warehouse',
+			  tc.costcat_asset_accnt_id,
+			  sc.costcat_shipasset_accnt_id,
+			  _itemlocSeries, _timestamp) INTO _invhistid
+      FROM itemsite AS ti, costcat AS tc,
+	   itemsite AS si, costcat AS sc
+      WHERE ( (ti.itemsite_costcat_id=tc.costcat_id)
+        AND  (si.itemsite_costcat_id=sc.costcat_id)
+        AND  (ti.itemsite_item_id=_ti.toitem_item_id)
+        AND  (si.itemsite_item_id=_ti.toitem_item_id)
+        AND  (ti.itemsite_warehous_id=_to.tohead_trns_warehous_id)
+        AND  (si.itemsite_warehous_id=_to.tohead_src_warehous_id) );
 
       --We do not need to distribute lot/serial info for transit, post trans and discard dist detail
       PERFORM postIntoTrialBalance(itemlocpost_glseq) FROM itemlocpost WHERE (itemlocpost_itemlocseries=_itemlocSeries);

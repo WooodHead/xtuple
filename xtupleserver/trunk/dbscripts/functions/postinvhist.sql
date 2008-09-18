@@ -7,13 +7,13 @@ BEGIN
     --Update itemsite qoh and change posted flag
     UPDATE itemsite SET 
       itemsite_qtyonhand = (itemsite_qtyonhand + (invhist_invqty *
-        (CASE WHEN invhist_transtype IN ('IM', 'IB', 'IT', 'SH', 'SI', 'EX', 'TS') THEN
+        (CASE WHEN invhist_transtype IN ('IM', 'IB', 'IT', 'SH', 'SI', 'EX') THEN
           -1
         ELSE
            1
         END))),
       itemsite_value = (itemsite_value + (invhist_invqty * invhist_unitcost *
-        (CASE WHEN invhist_transtype IN ('IM', 'IB', 'IT', 'SH', 'SI', 'EX', 'TS') THEN
+        (CASE WHEN invhist_transtype IN ('IM', 'IB', 'IT', 'SH', 'SI', 'EX') THEN
           -1
         ELSE
            1
