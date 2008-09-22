@@ -24,12 +24,10 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER,
     pstatus     ALIAS FOR  $9;
     passigned   ALIAS FOR $10;
     pcompleted  ALIAS FOR $11;
-    pseq        ALIAS FOR $12;
+    priority    ALIAS FOR $12;
     pnotes      ALIAS FOR $13;
 
-    _seq        INTEGER         := pseq;
-    _curr       INTEGER; -- todoitem_id for this user with same seq value
-    _max        INTEGER;
+    _priority   INTEGER         := ppriority;
     _status     CHARACTER(1)    := pstatus;
     _incdtid    INTEGER         := pincdtid;
     _crmacctid  INTEGER         := pcrmacctid;
@@ -70,30 +68,12 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER,
       _opheadid := NULL;
     END IF;
 
+    IF (_priority <= 0) THEN
+      _priority := NULL;
+    END IF;
+
     IF (_assigned IS NULL) THEN
       _assigned := CURRENT_DATE;
-    END IF;
-
-    IF (_seq IS NULL) THEN
-      SELECT max(todoitem_seq) INTO _max
-      FROM todoitem
-      WHERE (todoitem_usr_id=pusrid);
-      IF (_max IS NULL) THEN
-        _seq := 1;
-      ELSE
-        _seq := _max + 1;
-      END IF;
-    END IF;
-    IF (_seq < 1) THEN
-      _seq := 1;
-    END IF;
-
-    SELECT todoitem_id INTO _curr
-    FROM todoitem
-    WHERE ((todoitem_usr_id=pusrid)
-      AND  (todoitem_seq=_seq));
-    IF FOUND THEN
-      PERFORM todoitemMove(_curr, 1);
     END IF;
 
     INSERT INTO todoitem ( todoitem_usr_id, todoitem_name,
@@ -101,7 +81,7 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER,
                            todoitem_creator_username, todoitem_status,
                            todoitem_active, todoitem_start_date,
                            todoitem_due_date, todoitem_assigned_date,
-                           todoitem_completed_date, todoitem_seq,
+                           todoitem_completed_date, todoitem_priority_id,
                            todoitem_notes, todoitem_crmacct_id,
                            todoitem_ophead_id
                 ) VALUES ( pusrid, pname,
@@ -109,7 +89,7 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER,
                            CURRENT_USER, _status,
                            TRUE, pstarted,
                            pdue, _assigned,
-                           pcompleted, _seq, pnotes, _crmacctid, _opheadid );
+                           pcompleted, _priority, pnotes, _crmacctid, _opheadid );
 
     RETURN CURRVAL(''todoitem_todoitem_id_seq'');
   END;

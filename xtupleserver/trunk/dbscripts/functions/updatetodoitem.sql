@@ -25,13 +25,11 @@ CREATE OR REPLACE FUNCTION updateTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER,
     pstatus     ALIAS FOR $10;
     passigned   ALIAS FOR $11;
     pcompleted  ALIAS FOR $12;
-    pseq        ALIAS FOR $13;
+    ppriority   ALIAS FOR $13;
     pnotes      ALIAS FOR $14;
     pactive     ALIAS FOR $15;
 
-    _seq        INTEGER         := pseq;
-    _curr       INTEGER; -- todoitem_id for this user with same seq value
-    _max        INTEGER;
+    _priority   INTEGER         := ppriority;
     _status     CHARACTER(1)    := pstatus;
     _incdtid    INTEGER         := pincdtid;
     _crmacctid  INTEGER         := pcrmacctid;
@@ -77,30 +75,12 @@ CREATE OR REPLACE FUNCTION updateTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER,
       _opheadid := NULL;
     END IF;
 
+    IF (_priority <= 0) THEN
+      _priority := NULL;
+    END IF;
+
     IF (_assigned IS NULL) THEN
       _assigned := CURRENT_DATE;
-    END IF;
-
-    IF (_seq IS NULL) THEN
-      SELECT max(todoitem_seq) INTO _max
-      FROM todoitem
-      WHERE (todoitem_usr_id=pusrid);
-      IF (_max IS NULL) THEN
-        _seq := 1;
-      ELSE
-        _seq := _max + 1;
-      END IF;
-    END IF;
-    IF (_seq < 1) THEN
-      _seq := 1;
-    END IF;
-
-    SELECT todoitem_id INTO _curr
-    FROM todoitem
-    WHERE ((todoitem_usr_id=pusrid)
-      AND  (todoitem_seq=_seq));
-    IF FOUND THEN
-      PERFORM todoitemMove(_curr, 1);
     END IF;
 
     IF (_active IS NULL) THEN
@@ -112,7 +92,7 @@ CREATE OR REPLACE FUNCTION updateTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER,
         todoitem_incdt_id=_incdtid, todoitem_status=_status,
         todoitem_active=_active, todoitem_start_date=pstarted,
         todoitem_due_date=pdue, todoitem_assigned_date=_assigned,
-        todoitem_completed_date=pcompleted, todoitem_seq=_seq,
+        todoitem_completed_date=pcompleted, todoitem_priority_id=_priority,
         todoitem_notes=pnotes, todoitem_crmacct_id=_crmacctid,
         todoitem_ophead_id=_opheadid
     WHERE (todoitem_id=ptodoitemid);
