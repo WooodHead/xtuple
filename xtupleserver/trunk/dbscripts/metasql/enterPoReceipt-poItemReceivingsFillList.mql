@@ -3,16 +3,19 @@
 -- Notes:
 
 <? if exists("pohead_id") ?>
-SELECT poitem_id, poitem_linenumber,
-       formatDate(poitem_duedate),
-       COALESCE(item_number, <? value("nonInventory") ?>),
-       COALESCE(uom_name, <? value("na") ?>),
+SELECT poitem_id, poitem_linenumber AS linenumber,
+       poitem_duedate AS duedate,
+       COALESCE(item_number, <? value("nonInventory") ?>) AS item_number,
+       COALESCE(uom_name, <? value("na") ?>) AS inv_uom,
        warehous_code,
-       poitem_vend_item_number,
-       poitem_vend_uom,
-       formatQty(poitem_qty_ordered),
-       formatQty(poitem_qty_received),
-       formatQty(qtyToReceive(<? value("ordertype") ?>, poitem_id))
+       poitem_vend_item_number AS vend_item_number,
+       poitem_vend_uom AS vend_uom,
+       poitem_qty_ordered AS qty_ordered,
+       poitem_qty_received AS qty_received,
+       qtyToReceive(<? value("ordertype") ?>, poitem_id) AS qty_toreceive,
+       'qty' AS qty_ordered_xtnumericrole,
+       'qty' AS qty_receieved_xtnumericrole,
+       'qty' AS qty_toreceive_xtnumericrole
 FROM poitem 
   LEFT OUTER JOIN 
      ( itemsite 
@@ -30,16 +33,20 @@ WHERE ( (poitem_status <> 'C')
  AND (poitem_pohead_id=<? value("pohead_id") ?>) )
 ORDER BY poitem_linenumber;
 <? elseif exists("rahead_id") ?>
-SELECT raitem_id, raitem_linenumber,
-       formatDate(rahead_expiredate),
-       COALESCE(item_number, <? value("nonInventory") ?>),
-       COALESCE(iu.uom_name, <? value("na") ?>),
+SELECT raitem_id, raitem_linenumber AS linenumber,
+       rahead_expiredate AS duedate,
+       COALESCE(item_number, <? value("nonInventory") ?>) AS item_number,
+       COALESCE(iu.uom_name, <? value("na") ?>) AS inv_uom,
        warehous_code,
        '' AS vend_item_number,
-       ru.uom_name,
-       formatQty(raitem_qtyauthorized),
-       formatQty(raitem_qtyreceived),
-       formatQty(qtyToReceive(<? value("ordertype") ?>, raitem_id))
+       ru.uom_name AS vend_uom,
+       raitem_qtyauthorized AS qty_ordered,
+       raitem_qtyreceived AS qty_received,
+       qtyToReceive(<? value("ordertype") ?>, raitem_id) AS qty_toreceive,
+       'qty' AS qty_ordered_xtnumericrole,
+       'qty' AS qty_receieved_xtnumericrole,
+       'qty' AS qty_toreceive_xtnumericrole
+
 FROM rahead, raitem 
   LEFT OUTER JOIN 
      ( itemsite 
@@ -61,16 +68,19 @@ WHERE ( (raitem_status <> 'C')
  AND (rahead_id=<? value("rahead_id") ?>) )
 ORDER BY raitem_linenumber;
 <? elseif exists("tohead_id") ?>
-SELECT toitem_id, toitem_linenumber,
-       formatDate(toitem_duedate),
-       COALESCE(item_number, <? value("nonInventory") ?>),
-       COALESCE(uom_name, <? value("na") ?>),
+SELECT toitem_id, toitem_linenumber AS linenumber,
+       toitem_duedate AS duedate,
+       COALESCE(item_number, <? value("nonInventory") ?>) AS item_number,
+       COALESCE(uom_name, <? value("na") ?>) AS inv_uom,
        warehous_code,
-       '',
-       toitem_uom,
-       formatQty(toitem_qty_ordered),
-       formatQty(toitem_qty_received),
-       formatQty(qtyToReceive(<? value("ordertype") ?>, toitem_id))
+       ''  AS vend_item_number,
+       toitem_uom AS vend_uom,
+       toitem_qty_ordered AS qty_ordered,
+       toitem_qty_received AS qty_received,
+       qtyToReceive(<? value("ordertype") ?>, toitem_id) AS qty_toreceive,
+       'qty' AS qty_ordered_xtnumericrole,
+       'qty' AS qty_receieved_xtnumericrole,
+       'qty' AS qty_toreceive_xtnumericrole
 FROM tohead, itemsite
 <? if exists("selectedOnly") ?>
        JOIN usrsite ON (itemsite_warehous_id=usrsite_warehous_id) 
