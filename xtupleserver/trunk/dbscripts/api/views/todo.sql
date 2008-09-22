@@ -8,7 +8,7 @@ CREATE OR REPLACE VIEW api.todo AS
     todoitem_id AS task_number,
     usr_username AS assigned_to,
     todoitem_name AS task_name,
-    todoitem_seq AS sequence_number,
+    incdtpriority_name AS priority,
     incdt_number AS incident,
     ophead_name AS opportunity,
     crmacct_number AS account,
@@ -31,7 +31,8 @@ CREATE OR REPLACE VIEW api.todo AS
        LEFT OUTER JOIN usr ON (usr_id=todoitem_usr_id)
        LEFT OUTER JOIN incdt ON (incdt_id=todoitem_incdt_id)
        LEFT OUTER JOIN ophead ON (ophead_id=todoitem_ophead_id)
-       LEFT OUTER JOIN crmacct ON (crmacct_id=todoitem_crmacct_id);
+       LEFT OUTER JOIN crmacct ON (crmacct_id=todoitem_crmacct_id)
+       LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=todoitem_priority_id);
 
 GRANT ALL ON TABLE api.todo TO openmfg;
 COMMENT ON VIEW api.todo IS 'To-Do List';
@@ -80,7 +81,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
       ELSE
         NULL
     END,
-    NEW.sequence_number,
+    getIncdtPriorityId(NEW.priority),
     COALESCE(NEW.notes, '')
     );
 
@@ -129,7 +130,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
       ELSE
         NULL
     END,
-    OLD.sequence_number,
+    getIncdtPriorityId(NEW.priority),
     NEW.notes,
     NEW.active
     );
