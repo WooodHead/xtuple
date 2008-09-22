@@ -189,19 +189,19 @@
     <varlistentry>
       <term>Preferred Selling Site</term>
       <listitem>
-        <para>Specify the preferred selling Site, if any. This is an
-        optional setting. If a preferred Site is selected, then this
-        Site will be used when entering Sales Orders for the Customer. At
-        Sales Order entry, the preferred Site will be the default
-        Shipping Site for the Sales Order&mdash;as well as the default
-        selling Site for Sales Order Items.</para>
+        <para>Specify the preferred selling Site, if any. This is an optional
+        setting. If a preferred Site is selected, then this Site will be used
+        when entering Sales Orders for the Customer. At Sales Order entry, the
+        preferred Site will be the default Shipping Site for the Sales
+        Order&mdash;as well as the default selling Site for Sales Order
+        Items.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>If there are no Item Sites matching the preferred Site at the
-    point of Sales Order Line Item entry, the highest-ranked selling Site
-    will be used instead.</para>
+    <para>If there are no Item Sites matching the preferred Site at the point
+    of Sales Order Line Item entry, the highest-ranked selling Site will be
+    used instead.</para>
   </note>
   <para>To the far right of the screen, the following buttons are
   available:</para>
@@ -588,6 +588,10 @@
         <para>Manually enter billing Contact information in the fields
         below&mdash;or use the browse button to select pre-existing Contact
         information.</para>
+        <note>
+          <para>If a new Contact is manually entered here, that Contact will
+          be added automatically to the master list of Contacts.</para>
+        </note>
         <variablelist>
           <varlistentry>
             <term>Title</term>
@@ -628,17 +632,25 @@
           <varlistentry>
             <term>E-Mail</term>
             <listitem>
-              <para>Enter the Contact's e-mail address.</para>
+              <para>Enter the Contact's e-mail address. To send email to the
+              Contact, simply double-click on the Contact's email address.
+              This will launch your default mail application with the
+              Contact's email address in the To: field.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Web</term>
+            <listitem>
+              <para>Enter the Contact's website address. To access the
+              website, simply double-click on the Contact's website address.
+              This will launch your default web browser, with the Contact's
+              website address in the URL field.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>If a new Contact is manually entered here, that Contact will be
-    added automatically to the master list of Contacts.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term>Address</term>
@@ -646,6 +658,10 @@
         <para>Manually enter billing Address information in the fields
         below&mdash;or use the browse button to select pre-existing Address
         information.</para>
+        <note>
+          <para>If a new Address is manually entered here, that Address will
+          be added automatically to the master list of Addresses.</para>
+        </note>
         <variablelist>
           <varlistentry>
             <term>Street Address</term>
@@ -675,11 +691,6 @@
             <term>Country</term>
             <listitem>
               <para>Enter the country where the Contact is located.</para>
-              <note>
-                <para>If a new Address is manually entered here, that Address
-                will be added automatically to the master list of
-                Addresses.</para>
-              </note>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -733,7 +744,19 @@
           <varlistentry>
             <term>E-Mail</term>
             <listitem>
-              <para>Enter the Contact's e-mail address.</para>
+              <para>Enter the Contact's e-mail address. To send email to the
+              Contact, simply double-click on the Contact's email address.
+              This will launch your default mail application with the
+              Contact's email address in the To: field.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Web</term>
+            <listitem>
+              <para>Enter the Contact's website address. To access the
+              website, simply double-click on the Contact's website address.
+              This will launch your default web browser, with the Contact's
+              website address in the URL field.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -1481,6 +1504,13 @@
         "Custom Email" EDI Profile option is selected.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Send Email as HTML</term>
+      <listitem>
+        <para>Select if you want the body of the Email to be sent as HTML. If
+        not selected, the Email will be sent as plain text.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
   <para>To the far right of the screen, the following buttons are
   available:</para>
@@ -1600,6 +1630,13 @@
         <para>Use this text field to enter the default message that will
         accompany any Invoices sent to the Customer. Only applies when the
         "Custom Email" EDI Profile option is selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Send Email as HTML</term>
+      <listitem>
+        <para>Select if you want the body of the Email to be sent as HTML. If
+        not selected, the Email will be sent as plain text.</para>
       </listitem>
     </varlistentry>
   </variablelist>
