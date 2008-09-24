@@ -252,6 +252,20 @@
               Characteristic is selected at Sales Order entry.</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term>Kit</term>
+            <listitem>
+              <para>Kit items added to a sales order automatically "explode"
+              to their constituent line items # A Sub line number is added to
+              the sales order; kit children are sub line items of the parent #
+              Kit sub components are displayed as an indented tree on the
+              sales order # Kit sub components are view-only on the sales
+              order # Kit sub components appear on the sales order pick list #
+              Kit sub components may be issued to shipping, the parent item
+              may not # The automatic "Select for Billing" option takes effect
+              for kit items when all kit items are shipped </para>
+            </listitem>
+          </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
