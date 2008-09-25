@@ -24,7 +24,7 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER,
     pstatus     ALIAS FOR  $9;
     passigned   ALIAS FOR $10;
     pcompleted  ALIAS FOR $11;
-    priority    ALIAS FOR $12;
+    ppriority   ALIAS FOR $12;
     pnotes      ALIAS FOR $13;
     powner      ALIAS FOR $14;
 
@@ -90,7 +90,7 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER,
                            CURRENT_USER, _status,
                            TRUE, pstarted,
                            pdue, _assigned,
-                           pcompleted, _seq, pnotes, _crmacctid, _opheadid, powner );
+                           pcompleted, _priority, pnotes, _crmacctid, _opheadid, powner );
 
     RETURN CURRVAL(''todoitem_todoitem_id_seq'');
   END;
