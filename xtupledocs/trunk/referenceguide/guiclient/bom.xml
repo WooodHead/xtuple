@@ -17,6 +17,16 @@
         <caption>Create New Bill of Materials</caption>
       </mediaobject>
     </screenshot></para>
+  <para>Note that manufactured items are emphasized in green text, see example
+  below</para>
+  <screenshot>
+    <screeninfo>Emphasis on Manufactured Items</screeninfo>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/bomcolor.png" />
+      </imageobject>
+    </mediaobject>
+  </screenshot>
   <para>When creating a new Bill of Materials, you are presented with the
   following options:</para>
   <variablelist>
@@ -91,8 +101,8 @@
               changed.</para>
               <tip>
                 <para>The active Revision becomes inactive when a pending
-                Revision is activated. Inactive Revisions cannot be modified.
-                </para>
+                Revision is activated. Inactive Revisions cannot be
+                modified.</para>
               </tip>
             </listitem>
           </varlistentry>
@@ -111,7 +121,7 @@
             <term>Inactive</term>
             <listitem>
               <para>This is a formerly active Revision. Inactive Revisions
-              cannot be modified&mdash;only viewed. They are stored to provide
+              cannot be modified—only viewed. They are stored to provide
               historical, point-in-time build information, which may be used
               for various purposes throughout the application. For example,
               privileged users may select inactive Revisions when processing
@@ -195,9 +205,8 @@
       <listitem>
         <para>Displays the maximum desired Cost for the component Items. The
         maximum desired Cost is defined on the Item master. It provides a
-        visual guide to help determine whether component Item
-        Costs&mdash;either Standard or Actual&mdash;have exceeded the maximum
-        desired Cost.</para>
+        visual guide to help determine whether component Item Costs—either
+        Standard or Actual—have exceeded the maximum desired Cost.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -257,7 +266,7 @@
       <term>EDIT</term>
       <listitem id="bomEDIT">
         <para>Enables you to edit highlighted components. The edit screen is
-        the same as that for creating a new component&mdash;except that when
+        the same as that for creating a new component—except that when
         editing, the fields will contain component information.
         Double-clicking on a component will also bring you to the editing
         screen.</para>
@@ -299,36 +308,36 @@
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomVIEW)" />
+      <xi:include href="" xpointer="element(bomVIEW)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomEDIT)" />
+      <xi:include href="" xpointer="element(bomEDIT)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <varlistentry>
       <term>Expire</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomEXPIRE)" />
+      <xi:include href="" xpointer="element(bomEXPIRE)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReplace)" />
+                xpointer="element(rightclickReplace)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <varlistentry>
       <term>Move Up</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomMOVEUP)" />
+      <xi:include href="" xpointer="element(bomMOVEUP)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <varlistentry>
       <term>Move Down</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomMOVEDOWN)" />
+      <xi:include href="" xpointer="element(bomMOVEDOWN)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
-  <xi:include href="bomItem.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="bomItem.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
