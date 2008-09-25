@@ -11,7 +11,7 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, TEXT) RETURNS INTEGER AS '
   DECLARE
     pusrid      ALIAS FOR  $1;
     pname       ALIAS FOR  $2;
@@ -26,6 +26,7 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER,
     pcompleted  ALIAS FOR $11;
     priority    ALIAS FOR $12;
     pnotes      ALIAS FOR $13;
+    powner      ALIAS FOR $14;
 
     _priority   INTEGER         := ppriority;
     _status     CHARACTER(1)    := pstatus;
@@ -83,13 +84,13 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER,
                            todoitem_due_date, todoitem_assigned_date,
                            todoitem_completed_date, todoitem_priority_id,
                            todoitem_notes, todoitem_crmacct_id,
-                           todoitem_ophead_id
+                           todoitem_ophead_id, todoitem_owner_username 
                 ) VALUES ( pusrid, pname,
                            pdesc, _incdtid,
                            CURRENT_USER, _status,
                            TRUE, pstarted,
                            pdue, _assigned,
-                           pcompleted, _priority, pnotes, _crmacctid, _opheadid );
+                           pcompleted, _seq, pnotes, _crmacctid, _opheadid, powner );
 
     RETURN CURRVAL(''todoitem_todoitem_id_seq'');
   END;

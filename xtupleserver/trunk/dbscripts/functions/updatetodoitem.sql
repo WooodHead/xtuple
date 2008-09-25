@@ -11,7 +11,7 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION updateTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION updateTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, BOOLEAN, TEXT) RETURNS INTEGER AS '
   DECLARE
     ptodoitemid ALIAS FOR  $1;
     pusrid      ALIAS FOR  $2;
@@ -28,6 +28,7 @@ CREATE OR REPLACE FUNCTION updateTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER,
     ppriority   ALIAS FOR $13;
     pnotes      ALIAS FOR $14;
     pactive     ALIAS FOR $15;
+    powner	ALIAS FOR $16;
 
     _priority   INTEGER         := ppriority;
     _status     CHARACTER(1)    := pstatus;
@@ -94,7 +95,7 @@ CREATE OR REPLACE FUNCTION updateTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER,
         todoitem_due_date=pdue, todoitem_assigned_date=_assigned,
         todoitem_completed_date=pcompleted, todoitem_priority_id=_priority,
         todoitem_notes=pnotes, todoitem_crmacct_id=_crmacctid,
-        todoitem_ophead_id=_opheadid
+        todoitem_ophead_id=_opheadid, todoitem_owner_username=powner 
     WHERE (todoitem_id=ptodoitemid);
 
     RETURN ptodoitemid;
