@@ -8,8 +8,8 @@
       <secondary>creating new</secondary>
     </indexterm>Pricing Schedule</title>
   <para>A single Pricing Schedule may contain multiple Items or Product
-  Categories&mdash;and multiple Quantity Breaks. To create a new Pricing Schedule,
-  select the NEW button. The following screen will appear:</para>
+  Categories&mdash;and multiple Quantity Breaks. To create a new Pricing
+  Schedule, select the NEW button. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -44,6 +44,13 @@
       <listitem>
         <para>Enter the date when the Pricing Schedule becomes
         effective.</para>
+        <note>
+          <para>The effectivity and expiration dates for Pricing Schedules
+          correspond to the created date for Sales Orders. Changes to Line
+          Item quantities or scheduled dates for already-created Sales Orders
+          can also cause Pricing Schedule effectivity to be recalculated as of
+          the date the changes occur.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
