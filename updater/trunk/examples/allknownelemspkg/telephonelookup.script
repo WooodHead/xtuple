@@ -40,7 +40,7 @@ function query()
 
 function print()
 {
-  toolbox.printReport("telephonelookup", getParams());
+  toolbox.printReport("TelephoneLookup", getParams());
 }
 
 mywindow.findChild("_close").clicked.connect(mywindow, "close");

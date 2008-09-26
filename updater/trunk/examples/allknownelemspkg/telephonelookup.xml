@@ -3,6 +3,9 @@
  <title>Reverse Directory Lookup</title>
  <name>TelephoneLookup</name>
  <description></description>
+ <parameter default="703-456-1231" active="true" listtype="static" type="string" name="search" >
+  <description></description>
+ </parameter>
  <size>Letter</size>
  <portrait/>
  <topmargin>100</topmargin>
@@ -18,15 +21,15 @@ WHERE ((cntct_phone = &lt;? value("search") ?>)
    OR  (cntct_phone2 = &lt;? value("search") ?>));</sql>
  </querysource>
  <section>
-  <name>unnamed</name>
+  <name>detail</name>
   <detail>
    <key>
-    <query></query>
+    <query>detail</query>
    </key>
    <height>21</height>
    <field>
     <rect>
-     <x>430</x>
+     <x>0</x>
      <y>0</y>
      <width>100</width>
      <height>12</height>
@@ -36,11 +39,11 @@ WHERE ((cntct_phone = &lt;? value("search") ?>)
      <size>8</size>
      <weight>normal</weight>
     </font>
-    <left/>
+    <hcenter/>
     <vcenter/>
     <data>
      <query>detail</query>
-     <column>cntct_phone2</column>
+     <column>cntct_first_name</column>
     </data>
    </field>
    <field>
@@ -64,7 +67,7 @@ WHERE ((cntct_phone = &lt;? value("search") ?>)
    </field>
    <field>
     <rect>
-     <x>0</x>
+     <x>430</x>
      <y>0</y>
      <width>100</width>
      <height>12</height>
@@ -74,11 +77,11 @@ WHERE ((cntct_phone = &lt;? value("search") ?>)
      <size>8</size>
      <weight>normal</weight>
     </font>
-    <right/>
+    <left/>
     <vcenter/>
     <data>
      <query>detail</query>
-     <column>cntct_first_name</column>
+     <column>cntct_phone2</column>
     </data>
    </field>
    <field>
