@@ -8,9 +8,9 @@
       <secondary>creating new</secondary>
     </indexterm>Enter Item Site</title>
   <para>An Item Site identifies and defines the methods and controls used when
-  maintaining a given Item within a given Site. To enter a new Item Site
-  into your system, select the "Enter Item Site" option. The following screen
-  will appear:</para>
+  maintaining a given Item within a given Site. To enter a new Item Site into
+  your system, select the "Enter Item Site" option. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -47,9 +47,9 @@
     <varlistentry>
       <term>Site</term>
       <listitem>
-        <para>Specify Site where Item Site is located. Use this selection
-        in conjunction with the additional Site settings found on the
-        Item Site screen.</para>
+        <para>Specify Site where Item Site is located. Use this selection in
+        conjunction with the additional Site settings found on the Item Site
+        screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -59,11 +59,11 @@
       <listitem>
         <para>Select if Item is supplied at specified Site. If selected,
         "Supplied at" means that Purchase Orders may be issued for this Item
-        in this Site if the Item is a purchased Item, and Work Orders may
-        be issued for this Item in this Site if the Item is a
-        manufactured Item. These rules apply also to Planned Orders generated
-        when Material Requirements Planning (MRP) is run. Planned Orders may
-        only be released to "Supplied at" Item Sites.</para>
+        in this Site if the Item is a purchased Item, and Work Orders may be
+        issued for this Item in this Site if the Item is a manufactured Item.
+        These rules apply also to Planned Orders generated when Material
+        Requirements Planning (MRP) is run. Planned Orders may only be
+        released to "Supplied at" Item Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -84,8 +84,8 @@
   <note>
     <para>Purchase Requests created, as specified above, to meet Sales Order
     and Work Order demands will be created regardless of an Item's
-    Availability&mdash;and also regardless of whether Material Requirements
-    Planning (MRP) is being run in parallel.</para>
+    Availability—and also regardless of whether Material Requirements Planning
+    (MRP) is being run in parallel.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -103,19 +103,18 @@
   </variablelist>
   <note>
     <para>Work Orders created, as specified above, to meet Sales Order demand
-    will be created regardless of an Item's Availability&mdash;and also
-    regardless of whether Material Requirements Planning (MRP) is being run in
+    will be created regardless of an Item's Availability—and also regardless
+    of whether Material Requirements Planning (MRP) is being run in
     parallel.</para>
   </note>
   <variablelist>
     <varlistentry>
       <term>Sold from this Site</term>
       <listitem>
-        <para>Select if Item is sold from specified Site. If selected,
-        "Sold from" means that Sales Orders Line Items may request to Ship
-        from the Site. When adding Sales Order Line Items to a Sales
-        Order, a "Sold from" Site appears as the "Supplying
-        Site."</para>
+        <para>Select if Item is sold from specified Site. If selected, "Sold
+        from" means that Sales Orders Line Items may request to Ship from the
+        Site. When adding Sales Order Line Items to a Sales Order, a "Sold
+        from" Site appears as the "Supplying Site."</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -133,11 +132,11 @@
         <para>Select a number using the arrow buttons, or manually enter a
         value up to a maximum of 10. Value entered specifies the order in
         which Item Sites will be chosen during Sales Order and Sales Quote
-        creation. If an Item is located in more than one "Sold from"
-        Site, the Item Site with the highest ranking will be chosen
-        first. If two Item Sites happen to share the same ranking, selection
-        will be based on alphabetical order. The highest ranking an Item Site
-        can have is one (1).</para>
+        creation. If an Item is located in more than one "Sold from" Site, the
+        Item Site with the highest ranking will be chosen first. If two Item
+        Sites happen to share the same ranking, selection will be based on
+        alphabetical order. The highest ranking an Item Site can have is one
+        (1).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -217,8 +216,8 @@
         </indexterm>Multiple Location Control</term>
       <listitem>
         <para>Select if the specified Item is to be stored in multiple
-        Locations within a single Site. Items designated as Multiple
-        Location Control (MLC) Items require special processing whenever Item
+        Locations within a single Site. Items designated as Multiple Location
+        Control (MLC) Items require special processing whenever Item
         quantities are distributed.</para>
       </listitem>
     </varlistentry>
@@ -242,12 +241,11 @@
           <secondary>setting default locations in</secondary>
         </indexterm>Use Default Location</term>
       <listitem>
-        <para>Use with the MLC option to designate one Location within a
-        Site as the default Location for the specified Item. MLC
-        Inventory will be placed here by default when distributing MLC
-        quantities. This option may also be used to specify a user-defined
-        location. User-defined locations are non-transactional; however, they
-        may be used for reporting purposes.</para>
+        <para>Designate one Location within a Site as the default Location for
+        the specified Item. MLC Inventory will be placed here by default when
+        distributing MLC quantities. This option may also be used to specify a
+        user-defined location. User-defined locations are non-transactional;
+        however, they may be used for reporting purposes.</para>
         <variablelist>
           <varlistentry>
             <term>Location</term>
@@ -263,17 +261,17 @@
       <term>User-Defined</term>
       <listitem>
         <para>This is a free-form field for describing storage areas with a
-        Site not specifically designated as Site Locations. A
-        user-defined location is non-transactional, but may be used for
-        reporting purposes.</para>
+        Site not specifically designated as Site Locations. A user-defined
+        location is non-transactional, but may be used for reporting
+        purposes.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Location Comment</term>
       <listitem>
-        <para>Enter any free-form Comment related to the Site Location.
-        This is additional information which may be placed on a Pick List or a
-        Pack List.</para>
+        <para>Enter any free-form Comment related to the Site Location. This
+        is additional information which may be placed on a Pick List or a Pack
+        List.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -409,9 +407,9 @@
   </variablelist>
   <note>
     <para>Running Material Requirements Planning (MRP) on your system consists
-    entirely of running the Create Planned Replenishment Orders
-    screens&mdash;either by Item or by Planner Code. As MRP runs, the Planned
-    Replenishment Orders are generated automatically.</para>
+    entirely of running the Create Planned Replenishment Orders screens—either
+    by Item or by Planner Code. As MRP runs, the Planned Replenishment Orders
+    are generated automatically.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -423,7 +421,7 @@
         will be created when Material Requirements Planning (MRP) is run. The
         Replenishment Order quantity will be equal to the quantity required to
         return Planned Availability to either the Reorder Level or the Order
-        Up To quantity&mdash;whichever is greater.</para>
+        Up To quantity—whichever is greater.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -470,10 +468,10 @@
         for Planned Replenishment Orders when MRP is run. The setting does not
         apply to manual Orders, but to Planned Orders only. When a maximum
         Order quantity is specified, MRP will ignore Order multiples and
-        minimum Order specifications&mdash;focusing instead solely on the
-        maximum Order setting. For example, if the maximum Order quantity is
-        set to 10 and there is demand for 17, then Planned Orders of 10 and 7
-        would be generated when MRP is run.</para>
+        minimum Order specifications—focusing instead solely on the maximum
+        Order setting. For example, if the maximum Order quantity is set to 10
+        and there is demand for 17, then Planned Orders of 10 and 7 would be
+        generated when MRP is run.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -509,17 +507,17 @@
     <varlistentry role="openmfg">
       <term>Group MPS/MRP Orders Every</term>
       <listitem>
-        <para>Specify the length of a period&mdash;measured in
-        days&mdash;within which MPS or MRP Planned Orders will be grouped
-        together (i.e, consolidated) to meet scheduled demand for the period.
-        This functionality serves to limit the total number of Planned Orders,
-        thereby simplifying order processing. For example, to consolidate
-        demand for an Item Site into 30-day buckets, set the value to "30."
-        When MRP is run, the system will automatically consolidate all demand
-        falling within the 30-day horizon into a single Planned Purchase Order
-        or Planned Work Order. The grouping of Planned Orders moves forward in
-        time, meaning the system will create as many buckets as will fit
-        within the cutoff date specified when MRP is run.</para>
+        <para>Specify the length of a period—measured in days—within which MPS
+        or MRP Planned Orders will be grouped together (i.e, consolidated) to
+        meet scheduled demand for the period. This functionality serves to
+        limit the total number of Planned Orders, thereby simplifying order
+        processing. For example, to consolidate demand for an Item Site into
+        30-day buckets, set the value to "30." When MRP is run, the system
+        will automatically consolidate all demand falling within the 30-day
+        horizon into a single Planned Purchase Order or Planned Work Order.
+        The grouping of Planned Orders moves forward in time, meaning the
+        system will create as many buckets as will fit within the cutoff date
+        specified when MRP is run.</para>
         <para>The initial grouping of Planned Orders is handled differently
         than subsequent buckets. The following formula specifies how the date
         range for the initial period is determined:</para>
@@ -731,8 +729,8 @@
     <varlistentry>
       <term>Restricted Locations</term>
       <listitem>
-        <para>Displays restricted Locations associated with the Site the
-        Item Site is located in.</para>
+        <para>Displays restricted Locations associated with the Site the Item
+        Site is located in.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -742,10 +740,10 @@
     <varlistentry>
       <term>TOGGLE</term>
       <listitem>
-        <para>Highlight a Site Location and then select this button to
-        change the allowed status for the Item. Any changes made on the Item
-        Site master related to an Item's allowed status will also be saved to
-        the Site Location master record.</para>
+        <para>Highlight a Site Location and then select this button to change
+        the allowed status for the Item. Any changes made on the Item Site
+        master related to an Item's allowed status will also be saved to the
+        Site Location master record.</para>
       </listitem>
     </varlistentry>
   </variablelist>
