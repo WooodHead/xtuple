@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section532837">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>customers</primary>
       <secondary>history for</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>Customer History</title>
   <para>To view Customer history, select the "Customer History" option. The
   following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspCustomerARHistory.png"/>
+          <imagedata fileref="images/dspCustomerARHistory.png" />
         </imageobject>
         <caption>Customer History</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Customer history, you are presented with the following
   options:</para>
   <variablelist>
@@ -35,8 +33,7 @@
     <varlistentry>
       <term>Start Date</term>
       <listitem>
-        <para>Documents having due dates on and after this date will be
-        displayed.</para>
+        <para>Date document opened.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -84,8 +81,14 @@
   <para>Right-clicking on a Document in the Customer History list enables you
   to select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEdit)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickView)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xpointer="element(rightclickEdit)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xpointer="element(rightclickView)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>
