@@ -2,14 +2,25 @@ function getParams()
 {
   var params = new Object;
   params.search = mywindow.findChild("_search").text;
+  return params;
 }
 
 function query()
 {
-  var params = getParams();
+  var metasqlqry = toolbox.executeQuery("SELECT metasql_query "
+                                      + "FROM metasql "
+                                      + "WHERE ((metasql_group='telephonelookup')"
+                                      + "  AND  (metasql_name='detail'));",
+                                      new Object);
+  if (! metasqlqry.first())
+  {
+    toolbox.messageBox("critical", mywindow, "Could Not Find Query",
+                       "Could not find the MetaSQL statement for this screen.");
+    return;
+  }
 
-  var metasql = toolbox.loadmql("telephonelookup", "select");
-  var qry = toolbox.executeQuery(metasql, params);
+  var qry = toolbox.executeQuery(metasqlqry.value("metasql_query"),
+                                 getParams());
   if(!qry.first())
   {
     mywindow.findChild("_firstname").text = "n/a";
