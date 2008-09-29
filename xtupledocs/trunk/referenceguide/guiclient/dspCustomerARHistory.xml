@@ -33,15 +33,15 @@
     <varlistentry>
       <term>Start Date</term>
       <listitem>
-        <para>Documents having document date on and following this date will
-        be displayed.</para>
+        <para>Documents whose document date falls on and following this date
+        will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem>
-        <para>Documents having due dates on and before this date will be
-        displayed.</para>
+        <para>Documents whose document date falls on and before this date will
+        be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -83,13 +83,13 @@
   to select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEdit)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEdit)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickView)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickView)" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>
