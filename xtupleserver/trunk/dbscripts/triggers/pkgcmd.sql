@@ -30,7 +30,7 @@ BEGIN
       END IF;
 
     ELSIF (TG_OP = 'DELETE') THEN
-      DELETE FROM pkgcmdarg WHERE cmdarg_cmd_id=OLD.cmd_id;
+      DELETE FROM cmdarg WHERE cmdarg_cmd_id=OLD.cmd_id;
 
       RETURN OLD;
     END IF;
