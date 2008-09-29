@@ -33,10 +33,10 @@
         <para>Select to indicate the system is configured to accept Credit
         Card Payments. If selected, the Credit Card processing functionality
         will be enabled throughout the system. For example, users will be able
-        to store Customer Credit Card information on the Customer
-        master&mdash;and receive Credit Card payments when processing Sales
-        Orders. If this option is not selected, Credit Card functionality will
-        be disabled.</para>
+        to store Customer Credit Card information on the Customer master—and
+        receive Credit Card payments when processing Sales Orders. If this
+        option is not selected, Credit Card functionality will be
+        disabled.</para>
         <tip>
           <para>Check to verify you have the cURL tool installed with your
           xTuple ERP executable to ensure Credit Card processing operates
@@ -198,6 +198,22 @@
       <listitem>
         <para>Specify the default Bank Account to be used for receiving Cash
         whenever a Customer Credit Card is charged.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>General</term>
+      <listitem>
+        <variablelist>
+          <varlistentry>
+            <term>Print Receipts</term>
+            <listitem>
+              <para>Select if you want the ability to print credit card
+              receipts. </para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -850,7 +866,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="externalCCTransaction.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="externalCCTransaction.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
