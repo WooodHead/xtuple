@@ -52,7 +52,7 @@ DECLARE
   _suTime NUMERIC;
   _rnTime NUMERIC;
   _check CHAR;
-  
+  _wipPost NUMERIC;
 BEGIN
 
   IF (pQty <= 0) THEN
@@ -167,13 +167,20 @@ BEGIN
 
   END IF;
 
+  SELECT CASE 
+           WHEN (wo_cosmethod = 'D') THEN 
+             wo_wipvalue
+           ELSE 
+             round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord - wo_qtyrcv - pQty))),2)
+         END INTO _wipPost
+  FROM wo 
+  WHERE (wo_id=pWoid);         
+
   SELECT postInvTrans( itemsite_id, 'RM', _parentQty, 
                        'W/O', 'WO', _woNumber, '', 'Receive Inventory from Manufacturing',
                        costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, CURRENT_DATE,
                        -- the following is only actually used when the item is average costed
-                       CASE WHEN (wo_cosmethod = 'D') THEN wo_wipvalue
-                            ELSE round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord - wo_qtyrcv - pQty))),2)
-                       END ) INTO _invhistid
+                       _wipPost ) INTO _invhistid
   FROM wo, itemsite, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)
    AND (itemsite_costcat_id=costcat_id)
@@ -182,7 +189,7 @@ BEGIN
 --  Increase this W/O's received qty decrease its WIP value
   UPDATE wo
   SET wo_qtyrcv = (wo_qtyrcv + _parentQty),
-      wo_wipvalue = (wo_wipvalue - (CASE WHEN (itemsite_costmethod='A') THEN avgcost(itemsite_id) ELSE stdcost(itemsite_item_id) END * _parentQty))
+      wo_wipvalue = (wo_wipvalue - (CASE WHEN (itemsite_costmethod='A') THEN _wipPost ELSE (stdcost(itemsite_item_id) * _parentQty)  END))
   FROM itemsite, item
   WHERE ((wo_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)
