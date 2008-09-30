@@ -27,7 +27,8 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item whose Quantity on Hand you
-        want to display.</para>
+        want to display. The browse button located to the right of the field
+        leads to a searchable list of make and buy items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -126,30 +127,30 @@
   to select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickTransfertoanotherWarehouse)" />
+                xpointer="element(rightclickTransfertoanotherWarehouse)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickAdjustthisQOH)" />
+                xpointer="element(rightclickAdjustthisQOH)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickResetthisQOHto0)" />
+                xpointer="element(rightclickResetthisQOHto0)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditMisc.Count)" />
+                xpointer="element(rightclickEditMisc.Count)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickIssueCountTag)" />
+                xpointer="element(rightclickIssueCountTag)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>If an Item has a Default Location defined, the following menu option
-  will also be available&mdash;in addition to those mentioned above&mdash;when
-  you right-click on the Item:</para>
+  will also be available—in addition to those mentioned above—when you
+  right-click on the Item:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickPrintPackingList)" />
+                xpointer="element(rightclickPrintPackingList)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>

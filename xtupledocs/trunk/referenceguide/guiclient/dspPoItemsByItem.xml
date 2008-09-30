@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518919">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>purchase orders</primary>
       <secondary>line items by item</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>P/O Items by Item</title>
   <para>To view Purchase Order Items by Item, select the "P/O Items by Item"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspPoItemsByItem.png"/>
+          <imagedata fileref="images/dspPoItemsByItem.png" />
         </imageobject>
         <caption>Purchase Order Items by Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>A Purchase Order will remain open if at least one of its Line Items
     is open. Once all Line Items are closed, the Purchase Order will also be
@@ -35,7 +33,8 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number whose Purchase Order Items you want to
-        view.</para>
+        view. The browse button located to the right of the field leads to a
+        searchable list of make and buy items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -129,17 +128,33 @@
   <para>Right-clicking on a Line Item in the Purchase Order list enables you
   to select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewPurchaseOrder)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickRunningAvailability)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewPOItem2)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickReschedulePO)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickChangeQty)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickCloseItem)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xpointer="element(rightclickViewPurchaseOrder)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xpointer="element(rightclickRunningAvailability)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xpointer="element(rightclickViewPOItem2)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xpointer="element(rightclickReschedulePO)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xpointer="element(rightclickChangeQty)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xpointer="element(rightclickCloseItem)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>If the Line Item is closed, the following option will be
   available:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickOpenItem)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xpointer="element(rightclickOpenItem)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>
