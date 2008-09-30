@@ -27,7 +27,8 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item whose Backlog you want to
-        view.</para>
+        view. The browse button located to the right of the field leads to a
+        searchable list of make and buy items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -100,22 +101,22 @@
   you to select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditOrder)" />
+                xpointer="element(rightclickEditOrder)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewSalesOrder)" />
+                xpointer="element(rightclickViewSalesOrder)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditItem)" />
+                xpointer="element(rightclickEditItem)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewItem)" />
+                xpointer="element(rightclickViewItem)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickPrintPackingList)" />
+                xpointer="element(rightclickPrintPackingList)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>
