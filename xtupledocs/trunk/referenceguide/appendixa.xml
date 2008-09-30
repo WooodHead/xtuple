@@ -167,7 +167,7 @@
       </indexterm> <indexterm significance="normal">
         <primary>transactions</primary>
         <secondary>listing of g/l types</secondary>
-      </indexterm>General Ledger Transactions</title>
+      </indexterm>G/L Document Types</title>
     <para>Many of the transactions which hit the General Ledger (G/L) are
     assigned a system-defined DocType. The following list details the various
     DocTypes used by the system to identify G/L transactions.</para>
@@ -184,6 +184,10 @@
           <row>
             <entry><para>AD</para></entry>
             <entry><para>Bank Adjustment</para></entry>
+          </row>
+          <row>
+            <entry>CD</entry>
+            <entry>Cash Deposit</entry>
           </row>
           <row>
             <entry><para>CK</para></entry>
@@ -222,6 +226,10 @@
             <entry><para>Purchase Order Receipt posted</para></entry>
           </row>
           <row>
+            <entry>RA</entry>
+            <entry>Return Authorization</entry>
+          </row>
+          <row>
             <entry><para>SO</para></entry>
             <entry><para>Issue Stock to Shipping posted; Ship Order
             posted</para></entry>
@@ -229,6 +237,10 @@
           <row>
             <entry><para>ST</para></entry>
             <entry><para>Standard Journal posted</para></entry>
+          </row>
+          <row>
+            <entry>TO</entry>
+            <entry>Transfer Order</entry>
           </row>
           <row>
             <entry><para>VO</para></entry>
