@@ -18,8 +18,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/createCountTagsByItem.png"
-                     />
+          <imagedata fileref="images/createCountTagsByItem.png" />
         </imageobject>
         <caption>Create Count Tag by Item</caption>
       </mediaobject>
@@ -36,7 +35,8 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item you want to create a Count Tag
-        for.</para>
+        for. The browse button located to the right of the field leads to a
+        searchable list of make and buy items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -48,10 +48,10 @@
     <varlistentry>
       <term>Site</term>
       <listitem>
-        <para>Specify the Site you want the Count Tag created for. This
-        field will remain blank until you enter an Item Number into the "Item
-        Number" field. Once that is entered, the Site(s) where the Item
-        is located will display in the list.</para>
+        <para>Specify the Site you want the Count Tag created for. This field
+        will remain blank until you enter an Item Number into the "Item
+        Number" field. Once that is entered, the Site(s) where the Item is
+        located will display in the list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -76,26 +76,25 @@
         <para>Select to freeze Inventory. The Quantity on Hand value is not
         updated when a transaction is posted against a frozen Item Site.
         Instead, Inventory transactions are pooled and then posted later when
-        the Item Site is unfrozen&mdash;or thawed. The Quantity on Hand is updated
+        the Item Site is unfrozen—or thawed. The Quantity on Hand is updated
         when the Item Site is thawed.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>When an Item Site is frozen, any Site activity entered against
-    that Item Site&mdash;including Work Orders&mdash;will use the Quantity on Hand shown
-    at the time of freezing.</para>
+    <para>When an Item Site is frozen, any Site activity entered against that
+    Item Site—including Work Orders—will use the Quantity on Hand shown at the
+    time of freezing.</para>
   </note>
   <variablelist>
     <varlistentry>
       <term>Only for Specified Location</term>
       <listitem>
-        <para>Select if you want to create Count Tags for an individual
-        Site Location. If selected, you will have the option to specify
-        which Site Location you want to have Count Tags created for. This
-        option enables you to count individual Site Locations separately,
-        without having to post counts for an entire Site all at
-        once.</para>
+        <para>Select if you want to create Count Tags for an individual Site
+        Location. If selected, you will have the option to specify which Site
+        Location you want to have Count Tags created for. This option enables
+        you to count individual Site Locations separately, without having to
+        post counts for an entire Site all at once.</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -9,8 +9,8 @@
   meet existing Sales Order and Work Order demand. Replenishment Orders will
   be created whenever a Planned Availability for an Item Site falls below its
   Reorder Level. The quantity of the Replenishment Order will be enough to
-  restore Planned Availability back to the Reorder Level&mdash;or to the Order
-  Up To (OUT) Level, if the OUT Level is greater.</para>
+  restore Planned Availability back to the Reorder Level—or to the Order Up To
+  (OUT) Level, if the OUT Level is greater.</para>
   <tip>
     <para>When running MRP by Item for manufactured Items, the system
     generates Planned Work Orders only. If you want to also generate Planned
@@ -41,7 +41,8 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item you want to create a Planned
-        Order for.</para>
+        Order for. The browse button located to the right of the field leads
+        to a searchable list of make and buy items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
