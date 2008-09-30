@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section534446">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>material requirements by component item in</secondary>
     </indexterm> <indexterm significance="normal">
@@ -16,17 +16,14 @@
   <para>To view Work Order Material Requirements by component Item, select the
   "W/O Material Requirements by Component Item" option. The following screen
   will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspWoMaterialsByItem.png"/>
+          <imagedata fileref="images/dspWoMaterialsByItem.png" />
         </imageobject>
-        <caption>Work Order Material Requirements by
-        Component Item</caption>
+        <caption>Work Order Material Requirements by Component Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Work Order Material Requirements by component Item,
   you are presented with the following options:</para>
   <variablelist>
@@ -34,7 +31,8 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item whose Work Order Material
-        Requirements you want to view.</para>
+        Requirements you want to view. The browse button located to the right
+        of the field leads to a searchable list of make and buy items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -53,8 +51,8 @@
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Site whose Work Order Material Requirements by
-        component Item you want to display.</para>
+        <para>Specify Site whose Work Order Material Requirements by component
+        Item you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

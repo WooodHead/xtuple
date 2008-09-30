@@ -28,7 +28,8 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item whose Work Order History you
-        want to view.</para>
+        want to view. The browse button located to the right of the field
+        leads to a searchable list of make and buy items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -126,13 +127,13 @@
   select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEdit)" />
+                xpointer="element(rightclickEdit)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickView)" />
+                xpointer="element(rightclickView)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>

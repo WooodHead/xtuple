@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520580">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>item usage statistics</primary>
       <secondary>by item</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>Item Usage Statistics by Item</title>
   <para>To view Item usage statistics by Item, select the "Item Usage
   Statistics by Item" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspUsageStatisticsByItem.png"/>
+          <imagedata fileref="images/dspUsageStatisticsByItem.png" />
         </imageobject>
         <caption>Item Usage Statistics by Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Item usage statistics by Item, you are presented with
   the following options:</para>
   <variablelist>
@@ -29,7 +27,8 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item whose usage statistics you
-        want to display.</para>
+        want to display. The browse button located to the right of the field
+        leads to a searchable list of make and buy items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -41,8 +40,7 @@
     <varlistentry role="standard">
       <term>All Sites</term>
       <listitem>
-        <para>Select to display Item usage Statistics for all
-        Sites.</para>
+        <para>Select to display Item usage Statistics for all Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -104,8 +102,12 @@
   <para>Right-clicking on an Item in the Inventory History list enables you to
   select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewAlltransactions)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xpointer="element(rightclickViewAlltransactions)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>To view details on Issue, Sold, Scrap, or Adjustment transactions,
   simply right-click in the corresponding columns.</para>
