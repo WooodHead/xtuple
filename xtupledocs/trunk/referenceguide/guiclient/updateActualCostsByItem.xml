@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519820">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>actual costs</primary>
       <secondary>updating by item</secondary>
     </indexterm> <indexterm significance="normal">
@@ -23,16 +23,14 @@
   Cost provides a current record of charges actually incurred by an Item. To
   update Actual Costs individually by Item, select the "Update Actual Costs by
   Item" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/updateActualCostsByItem.png"/>
+          <imagedata fileref="images/updateActualCostsByItem.png" />
         </imageobject>
         <caption>Update Actual Costs by Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When updating Actual Costs by Item, you are presented with the
   following options:</para>
   <variablelist>
@@ -40,7 +38,8 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item whose Actual Costs you want to
-        update.</para>
+        update. The browse button located to the right of the field leads to a
+        searchable list of make and buy items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -56,8 +55,7 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>actual costs</primary>
           <secondary>rolling up of</secondary>
         </indexterm>Roll Up Actual Costs</term>
@@ -73,8 +71,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>material costs</primary>
           <secondary>updating of</secondary>
         </indexterm> <indexterm significance="normal">
@@ -142,8 +139,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>user costs</primary>
           <secondary>updating of</secondary>
         </indexterm> <indexterm significance="normal">
