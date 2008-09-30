@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION saveCntct(int,text,int,int,text,text,text,text,text,text,bool,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION saveCntct(int,text,int,int,text,text,text,text,text,text,bool,text,text,text,text,text,text,text,text, text) RETURNS INTEGER AS '
 DECLARE
   pCntctId ALIAS FOR $1;
   pContactNumber ALIAS FOR $2;
@@ -19,6 +19,7 @@ DECLARE
   pNotes ALIAS FOR $17;
   pTitle ALIAS FOR $18;
   pFlag ALIAS FOR $19;
+  pOwnerUsername ALIAS FOR $20;
   _cntctId INTEGER;
   _cntctNumber TEXT;
   _isNew BOOLEAN;
@@ -98,12 +99,12 @@ BEGIN
       cntct_last_name,cntct_honorific,cntct_initials,
       cntct_active,cntct_phone,cntct_phone2,
       cntct_fax,cntct_email,cntct_webaddr,
-      cntct_notes,cntct_title,cntct_middle,cntct_suffix ) 
+      cntct_notes,cntct_title,cntct_middle,cntct_suffix, cntct_owner_username ) 
     VALUES (
       _cntctId,_cntctNumber,pCrmAcctId,pAddrId,
       pFirstName,pLastName,pHonorific,
       pInitials,COALESCE(pActive,true),pPhone,pPhone2,pFax,
-      pEmail,pWebAddr,pNotes,pTitle,pMiddleName,pSuffix );
+      pEmail,pWebAddr,pNotes,pTitle,pMiddleName,pSuffix,pOwnerUsername );
 
     RETURN _cntctId;
 
@@ -125,12 +126,45 @@ BEGIN
       cntct_notes=COALESCE(pNotes,cntct_notes),
       cntct_title=COALESCE(pTitle,cntct_title),
       cntct_middle=COALESCE(pMiddleName,cntct_middle),
-      cntct_suffix=COALESCE(pSuffix,cntct_suffix)
+      cntct_suffix=COALESCE(pSuffix,cntct_suffix),
+      cntct_owner_username=COALESCE(pOwnerUsername, cntct_owner_username) 
     WHERE (cntct_id=pCntctId);
     
     RETURN pCntctId;
 
   END IF;
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION saveCntct(int,text,int,int,text,text,text,text,text,text,bool,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
+DECLARE
+  pCntctId ALIAS FOR $1;
+  pContactNumber ALIAS FOR $2;
+  pCrmAcctId ALIAS FOR $3;
+  pAddrId ALIAS FOR $4;
+  pHonorific ALIAS FOR $5;
+  pFirstName ALIAS FOR $6;
+  pMiddleName ALIAS FOR $7;
+  pLastName ALIAS FOR $8;
+  pSuffix ALIAS FOR $9;
+  pInitials ALIAS FOR $10;
+  pActive ALIAS FOR $11;
+  pPhone ALIAS FOR $12;
+  pPhone2 ALIAS FOR $13;
+  pFax ALIAS FOR $14;
+  pEmail ALIAS FOR $15;
+  pWebAddr ALIAS FOR $16;
+  pNotes ALIAS FOR $17;
+  pTitle ALIAS FOR $18;
+  pFlag ALIAS FOR $19;
+  _returnVal INTEGER;
+
+BEGIN
+  
+  SELECT saveCntct( pCntctId, pContactNumber, pCrmAcctId, pAddrId, pHonorific, pFirstName, pMiddleName, pLastName, pSuffix, pInitials, 
+	pActive, pPhone, pPhone2, pFax, pEmail, pWebAddr, pNotes, pTitle, pFlag, NULL) INTO _returnVal;
+  RETURN _returnVal;
+
 END;
 ' LANGUAGE 'plpgsql';
 
