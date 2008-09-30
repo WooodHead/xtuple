@@ -39,20 +39,6 @@ BEGIN
             ' DISABLE TRIGGER pkg' || _tabs[_i] || 'altertrigger;';
   END LOOP;
 
-  -- drop all of the schemas that are part of this package, forcing the
-  -- main schema of the package to be last.
-  -- TODO: is this really necessary? the 2.0.0beta2 updater removed the
-  --       syntax for creating schemas
-  FOR _r IN SELECT *,
-                   CASE WHEN pkgitem_name=_pkgname THEN 1 ELSE 0 END AS seq
-            FROM pkgitem
-            WHERE ((pkgitem_type='S')
-               AND (pkgitem_pkghead_id=ppkgheadid))
-            ORDER BY seq LOOP
-    IF (_debug) THEN RAISE NOTICE 'dropping schema %', _r.pkgitem_name; END IF;
-    EXECUTE 'DROP SCHEMA ' || _r.pkgitem_name || ' CASCADE';
-  END LOOP;
-
   DELETE FROM pkghead WHERE pkghead_id=ppkgheadid;
 
   RETURN ppkgheadid;

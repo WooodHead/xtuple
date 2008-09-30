@@ -30,6 +30,7 @@ BEGIN
     END IF;
 
   ELSIF (TG_OP = 'DELETE') THEN
+    IF (_debug) THEN RAISE NOTICE 'deleting pkgpriv_id %', OLD.priv_id; END IF;
     DELETE FROM usrpriv WHERE usrpriv_priv_id=OLD.priv_id;
     DELETE FROM grppriv WHERE grppriv_priv_id=OLD.priv_id;
 
