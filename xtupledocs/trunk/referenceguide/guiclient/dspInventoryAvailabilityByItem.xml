@@ -27,7 +27,8 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item whose Inventory Availability
-        you want to display.</para>
+        you want to display. The browse button located to the right of the
+        field leads to a searchable list of make and buy items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -106,8 +107,7 @@
     <varlistentry>
       <term>All Sites</term>
       <listitem>
-        <para>Select to display Inventory Availability for all
-        Sites.</para>
+        <para>Select to display Inventory Availability for all Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -163,42 +163,42 @@
   select from the following context-sensitive menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewInventoryHistory)" />
+                xpointer="element(rightclickViewInventoryHistory)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewAllocations)" />
+                xpointer="element(rightclickViewAllocations)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewOrders)" />
+                xpointer="element(rightclickViewOrders)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickRunningAvailability)" />
+                xpointer="element(rightclickRunningAvailability)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickIssueCountTag)" />
+                xpointer="element(rightclickIssueCountTag)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickInvoiceInformation)" />
+                xpointer="element(rightclickInvoiceInformation)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>The following additional options are available for purchased
   Items:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCreatePR)" />
+                xpointer="element(rightclickCreatePR)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCreatePO)" />
+                xpointer="element(rightclickCreatePO)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>The following additional option is available for manufactured
   Items:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCreateWO)" />
+                xpointer="element(rightclickCreateWO)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>

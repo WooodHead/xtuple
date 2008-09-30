@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section678210">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>inventory history</primary>
       <secondary>by item</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>Inventory History by Item</title>
   <para>To view Inventory history by Item, select the "Inventory History by
   Item" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspInventoryHistoryByItem.png"/>
+          <imagedata fileref="images/dspInventoryHistoryByItem.png" />
         </imageobject>
         <caption>Inventory History by Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>If a line displays in orange, this means the Item Site in question
     is frozen. Accurate Quantity on Hand information will not be shown until
@@ -34,7 +32,8 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item whose Inventory history you
-        want to display.</para>
+        want to display. The browse button located to the right of the field
+        leads to a searchable list of make and buy items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -82,8 +81,8 @@
           <varlistentry>
             <term>Transfers</term>
             <listitem>
-              <para>Displays Inter-Site Transfers and Location and
-              Lot/Serial Number reassignments.</para>
+              <para>Displays Inter-Site Transfers and Location and Lot/Serial
+              Number reassignments.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -171,9 +170,15 @@
   <para>Right-clicking on a transaction in the Inventory History list enables
   you to select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewTransactionInformation)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditTransactionInfo)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xpointer="element(rightclickViewTransactionInformation)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xpointer="element(rightclickEditTransactionInfo)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>When editing transaction information, you may choose to exclude a
   transaction from Inventory analysis. Not including a transaction in this
@@ -183,6 +188,8 @@
   <para>If the Order Number is associated with a Work Order, the following
   additional menu option will also be available:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewWorkOrderInfo)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xpointer="element(rightclickViewWorkOrderInfo)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>
