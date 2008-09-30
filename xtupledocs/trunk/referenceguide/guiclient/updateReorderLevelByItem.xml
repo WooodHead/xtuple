@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section656225">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>reorder levels</primary>
       <secondary>updating by item</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>Update Reorder Level by Item</title>
   <para>To update Reorder Levels by Item, select the "Reorder Level by Item"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/updateReorderLevelByItem.png"/>
+          <imagedata fileref="images/updateReorderLevelByItem.png" />
         </imageobject>
         <caption>Update Reorder Levels by Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When updating Reorder Levels by Item, you are presented with the
   following options:</para>
   <variablelist>
@@ -29,7 +27,8 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item whose Reorder Level you want
-        to update.</para>
+        to update. The browse button located to the right of the field leads
+        to a searchable list of make and buy items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -41,8 +40,7 @@
     <varlistentry role="standard">
       <term>All Sites</term>
       <listitem>
-        <para>Select to update Reorder Levels by Item for all
-        Sites.</para>
+        <para>Select to update Reorder Levels by Item for all Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
