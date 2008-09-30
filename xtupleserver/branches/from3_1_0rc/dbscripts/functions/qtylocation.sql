@@ -1,9 +1,11 @@
+SELECT dropIfExists('FUNCTION', 'qtyLocation(integer,integer,integer,text,integer)', 'public');
+
 CREATE OR REPLACE FUNCTION qtyLocation(INTEGER, INTEGER, DATE, DATE, INTEGER, TEXT, INTEGER) RETURNS NUMERIC AS '
 DECLARE
   pLocationId  ALIAS FOR $1;
   pLsId        ALIAS FOR $2;
   pExpiration  ALIAS FOR $3;
-  pWarrancy    ALIAS FOR $4;
+  pWarranty    ALIAS FOR $4;
   pItemsiteId  ALIAS FOR $5;
   pOrderType   ALIAS FOR $6;
   pOrderId     ALIAS FOR $7;
@@ -14,9 +16,11 @@ BEGIN
 -- Summarize itemloc qty for this location/itemsite
   SELECT COALESCE(SUM(itemloc_qty), 0) INTO _qty
     FROM itemloc
-   WHERE ( (itemloc_location_id=pLocationId)
-     AND   (COALESCE(itemloc_ls_id, -1)=COALESCE(pLsId, -1))
-     AND   (itemloc_itemsite_id=pItemsiteId) );
+   WHERE ( (itemloc_itemsite_id=pItemsiteId)
+     AND (itemloc_location_id=pLocationId)
+     AND (COALESCE(itemloc_ls_id, -1)=COALESCE(pLsId, -1))
+     AND (itemloc_expiration=pExpiration)
+     AND (COALESCE(itemloc_warrpurc,endoftime())=COALESCE(pWarranty,endoftime())) );
 
 -- Summarize itemlocrsrv qty for this location/itemsite
 -- that is reserved for a different order
