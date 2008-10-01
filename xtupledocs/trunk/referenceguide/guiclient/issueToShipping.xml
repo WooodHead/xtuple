@@ -10,19 +10,27 @@
   <para>Once Sales Order (or Transfer Order) Line Items are ready to be
   shipped, they must be issued to Shipping. Shipping is a two-step process.
   Quantity is first issued to Shipping, and then it is shipped.</para>
-  <note>
-    <para><indexterm significance="normal">
-        <primary>job items</primary>
-        <secondary>posting production for</secondary>
-      </indexterm><indexterm significance="normal">
-        <primary>shipping</primary>
-        <secondary>job items and</secondary>
-      </indexterm>For Job Items linked to Sales Order Items, the act of
-    issuing to Shipping serves a dual purpose. On the one hand, quantity is
-    issued to Shipping. But at the same time, production for the linked Job
-    Item Work Order is also posted. Issuing to Shipping is the only way to
-    post production for a Job Item Work Order.</para>
-  </note>
+  <para><indexterm significance="normal">
+      <primary>job items</primary>
+      <secondary>posting production for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>shipping</primary>
+      <secondary>job items and</secondary>
+    </indexterm>For Job Items linked to Sales Order Items, the act of issuing
+  to Shipping serves a dual purpose. On the one hand, quantity is issued to
+  Shipping. But at the same time, production for the linked Job Item Work
+  Order is also posted. Issuing to Shipping is the only way to post production
+  for a Job Item Work Order.</para>
+  <para><indexterm significance="normal">
+      <primary>kits</primary>
+      <secondary>issuing to shipping</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>shipping</primary>
+      <secondary>kits and</secondary>
+    </indexterm>When Kit Items appear on a Sales Order, the Kit components may
+  be issued to Shipping. However, the parent Kit Item may not be. The
+  automatic "Select for Billing" option takes effect for Kit Items when all
+  Kit Items are shipped.</para>
   <para>To issue Stock to Shipping, select the "Issue to Shipping" option. The
   following screen will appear:</para>
   <para><screenshot>
@@ -34,11 +42,11 @@
         Shipping</caption>
       </mediaobject>
     </screenshot></para>
-  <note>
+  <tip>
     <para>Before a Sales Order can be shipped successfully, Sales Account and
     A/R Account Assignments for the specified Customer must be in
     place.</para>
-  </note>
+  </tip>
   <para>When issuing Stock to Shipping, you are presented with the following
   options:</para>
   <variablelist>
@@ -89,11 +97,11 @@
       <listitem>
         <para>This is an optional field which allows you to issue stock to
         Shipping using a Bar Code scanner. Enter a UPC Code for a Sales Order
-        Line Item using a Bar Code scanner—or manually enter the UPC Code. The
-        UPC Code for an Item is stored on the Item master. Once the code is
-        entered, specify a quantity and then select the FIND button to issue
-        the Line Item quantity to shipping. You may also hit the ENTER key on
-        your keyboard to select the FIND button.</para>
+        Line Item using a Bar Code scanner&mdash;or manually enter the UPC
+        Code. The UPC Code for an Item is stored on the Item master. Once the
+        code is entered, specify a quantity and then select the FIND button to
+        issue the Line Item quantity to shipping. You may also hit the ENTER
+        key on your keyboard to select the FIND button.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -117,7 +125,7 @@
       <listitem>
         <para>Specify the quantity of Line Items to be issued using a UPC
         Code. To issue the Line Item quantity to shipping, select the FIND
-        button—or hit the ENTER key on your keyboard to select the FIND
+        button&mdash;or hit the ENTER key on your keyboard to select the FIND
         button.</para>
       </listitem>
     </varlistentry>
@@ -186,8 +194,8 @@
   </variablelist>
   <tip>
     <para>If your site integrates UPS WorldShip with the system, you should
-    process Orders in WorldShip after they have been issued to Shipping—but
-    before they have been shipped.</para>
+    process Orders in WorldShip after they have been issued to
+    Shipping&mdash;but before they have been shipped.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -203,12 +211,12 @@
         <para>Compares the UPC Code entered in the "Issue Items Using Barcode"
         field with the UPC Codes for the listed Sales Order Line Items, then
         issues to Shipping the quantity specified in the "Qty." field. The
-        FIND button may be selected using your mouse—or by hitting the ENTER
-        key, which corresponds to the FIND button. Because the FIND button
-        corresponds to the ENTER key, you can scan in a UPC Code and then hit
-        ENTER to issue a quantity of one to Shipping. If you prefer, you can
-        scan in a UPC Code and then specify a different quantity before
-        hitting ENTER.</para>
+        FIND button may be selected using your mouse&mdash;or by hitting the
+        ENTER key, which corresponds to the FIND button. Because the FIND
+        button corresponds to the ENTER key, you can scan in a UPC Code and
+        then hit ENTER to issue a quantity of one to Shipping. If you prefer,
+        you can scan in a UPC Code and then specify a different quantity
+        before hitting ENTER.</para>
       </listitem>
     </varlistentry>
   </variablelist>

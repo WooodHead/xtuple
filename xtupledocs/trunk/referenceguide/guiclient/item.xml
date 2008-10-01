@@ -206,7 +206,10 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Outside Process</term>
+            <term><indexterm significance="normal">
+                <primary>outside processes</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Outside Process</term>
             <listitem>
               <para>Select if the Item is an external process or service that
               is performed by someone outside your company. Outside Process
@@ -217,7 +220,10 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Planning</term>
+            <term><indexterm significance="normal">
+                <primary>planning</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Planning</term>
             <listitem>
               <para>An Item whose Bill of Materials (BOM) groups together
               other Items so that a Production Plan may be defined for the
@@ -233,7 +239,10 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Job</term>
+            <term><indexterm significance="normal">
+                <primary>job items</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Job</term>
             <listitem>
               <para>Job Items are specifically for make-to-order scenarios
               where simplified production is required. Job Items cannot be
@@ -253,17 +262,21 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Kit</term>
+            <term><indexterm significance="normal">
+                <primary>kits</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Kit</term>
             <listitem>
-              <para>Kit items added to a sales order automatically "explode"
-              to their constituent line items # A Sub line number is added to
-              the sales order; kit children are sub line items of the parent #
-              Kit sub components are displayed as an indented tree on the
-              sales order # Kit sub components are view-only on the sales
-              order # Kit sub components appear on the sales order pick list #
-              Kit sub components may be issued to shipping, the parent item
-              may not # The automatic "Select for Billing" option takes effect
-              for kit items when all kit items are shipped </para>
+              <para>Kit Items automatically explode their Bill of Material
+              (BOM) components on to Sales Orders for shipping. When Kit Items
+              appear on Sales Orders, sub line numbers are generated for Kit
+              components because Kit children are sub line items of the parent
+              line item. Kit components are displayed as an indented tree on
+              the Sales Order--and they are view-only. Also, Kit components
+              will appear on the Sales Order Pick List. Kit components may be
+              issued to Shipping, whereas the parent Kit Item may not be. The
+              automatic "Select for Billing" option takes effect for Kit Items
+              when all Kit Items are shipped.</para>
             </listitem>
           </varlistentry>
         </variablelist>
