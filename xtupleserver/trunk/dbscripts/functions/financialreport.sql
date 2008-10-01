@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION financialreport(INTEGER, INTEGER) RETURNS bool AS '
+CREATE OR REPLACE FUNCTION financialreport(INTEGER, INTEGER) RETURNS bool AS $$
 DECLARE
   pFlheadid ALIAS FOR $1;
   pPeriodid ALIAS FOR $2;
@@ -7,14 +7,14 @@ DECLARE
 
 BEGIN
 
-  SELECT financialreport(pFlheadid,pPeriodid,''M'') INTO _result;
+  SELECT financialreport(pFlheadid,pPeriodid,'M') INTO _result;
 
   RETURN _result;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION financialreport(INTEGER, INTEGER, bpchar)
-  RETURNS bool AS '
+  RETURNS bool AS $$
 DECLARE
   pFlheadid ALIAS FOR $1;
   pPeriodid ALIAS FOR $2;
@@ -27,8 +27,8 @@ DECLARE
 BEGIN
 
 -- Validate Interval
-   IF pInterval <> ''M'' AND pInterval <> ''Q'' AND pInterval <> ''Y'' THEN
-     RAISE EXCEPTION ''Invalid Interval --> %'', pInterval;
+   IF pInterval <> 'M' AND pInterval <> 'Q' AND pInterval <> 'Y' THEN
+     RAISE EXCEPTION 'Invalid Interval --> %', pInterval;
    END IF;
 
 -- Get rid of any old reporting done by this user for the specified criteria
@@ -82,7 +82,7 @@ BEGIN
             flrpt_debits, flrpt_credits, flrpt_budget, flrpt_diff,
             flrpt_custom, flrpt_altname, flrpt_interval )
     VALUES (pFlheadid, pPeriodid, CURRENT_USER,
-            0, -1, ''G'', -1,
+            0, -1, 'G', -1,
             _r.beginning, _r.ending,
             _r.debits, _r.credits, _r.budget, _r.diff,
             _r.custom, _r.altname, pInterval );
@@ -98,7 +98,7 @@ BEGIN
                AND  (flrpt_period_id=pPeriodid)
                AND  (flrpt_interval=pInterval)
                AND  (flrpt_username=CURRENT_USER)
-               AND  (flrpt_type=''G'')
+               AND  (flrpt_type='G')
                AND  (flrpt_type_id=flgrp_id))
              UNION
             SELECT flrpt_order, CASE WHEN(flitem_prcnt_flgrp_id = -1) THEN flitem_flgrp_id ELSE flitem_prcnt_flgrp_id END AS flgrp_id
@@ -107,7 +107,7 @@ BEGIN
                AND  (flrpt_period_id=pPeriodid)
                AND  (flrpt_interval=pInterval)
                AND  (flrpt_username=CURRENT_USER)
-               AND  (flrpt_type=''I'')
+               AND  (flrpt_type='I')
                AND  (flrpt_type_id=flitem_id))
              UNION
             SELECT flrpt_order, CASE WHEN(flspec_prcnt_flgrp_id = -1) THEN flspec_flgrp_id ELSE flspec_prcnt_flgrp_id END AS flgrp_id
@@ -116,7 +116,7 @@ BEGIN
                AND  (flrpt_period_id=pPeriodid)
                AND  (flrpt_interval=pInterval)
                AND  (flrpt_username=CURRENT_USER)
-               AND  (flrpt_type=''S'')
+               AND  (flrpt_type='S')
                AND  (flrpt_type_id=flspec_id)) LOOP
 
     IF( (_t.flgrp_id=-1) OR (NOT (SELECT flgrp_summarize FROM flgrp WHERE flgrp_id=_t.flgrp_id)) ) THEN
@@ -132,7 +132,7 @@ BEGIN
          AND  (flrpt_period_id=pPeriodid)
          AND  (flrpt_interval=pInterval)
          AND  (flrpt_username=CURRENT_USER)
-         AND  (flrpt_type != ''T'')
+         AND  (flrpt_type != 'T')
          AND  (flrpt_parent_id=_t.flgrp_id));
     ELSE
       SELECT COALESCE(SUM(flrpt_beginning),0) AS beginningTotal,
@@ -147,7 +147,7 @@ BEGIN
          AND  (flrpt_period_id=pPeriodid)
          AND  (flrpt_interval=pInterval)
          AND  (flrpt_username=CURRENT_USER)
-         AND  (flrpt_type = ''G'')
+         AND  (flrpt_type = 'G')
          AND  (flrpt_type_id=_t.flgrp_id));
     END IF;
 
@@ -181,12 +181,12 @@ BEGIN
                AND  (a.flrpt_period_id=pPeriodid)
                AND  (a.flrpt_interval=pInterval)
                AND  (a.flrpt_username=CURRENT_USER)
-               AND  (a.flrpt_type=''T'')
+               AND  (a.flrpt_type='T')
                AND  (b.flrpt_flhead_id=a.flrpt_flhead_id)
                AND  (b.flrpt_period_id=a.flrpt_period_id)
                AND  (b.flrpt_interval=pInterval)
                AND  (b.flrpt_username=a.flrpt_username)
-               AND  (b.flrpt_type=''G'')
+               AND  (b.flrpt_type='G')
                AND  (b.flrpt_type_id=a.flrpt_parent_id)) LOOP
     UPDATE flrpt SET flrpt_beginningprcnt=flrpt_beginningprcnt + _t.flrpt_beginningprcnt,
                      flrpt_endingprcnt=flrpt_endingprcnt + _t.flrpt_endingprcnt,
@@ -214,23 +214,23 @@ BEGIN
                                       AND  (flrpt_username=CURRENT_USER))
                                   ), 0) + 1,
            flrpt_level = 0,
-           flrpt_type = ''T''
+           flrpt_type = 'T'
      WHERE ((flrpt_flhead_id=pFlheadid)
        AND  (flrpt_period_id=pPeriodid)
        AND  (flrpt_interval=pInterval)
        AND  (flrpt_username=CURRENT_USER)
        AND  (flrpt_order=0)
        AND  (flrpt_level = -1)
-       AND  (flrpt_type = ''G'')
+       AND  (flrpt_type = 'G')
        AND  (flrpt_type_id=-1));
   END IF;
 
   return TRUE;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION financialreport(INTEGER, INTEGER, bool, bool)
-  RETURNS SETOF flstmtitem AS '
+  RETURNS SETOF flstmtitem AS $$
 DECLARE
   pFlcolid ALIAS FOR $1;
   pPeriodid ALIAS FOR $2;
@@ -268,12 +268,12 @@ BEGIN
   WHERE ((flcol_id=pFlcolid)
   AND (flhead_id=flcol_flhead_id));
 
-  IF (_p.flhead_type=''B'') THEN
-    _qtrInterval := ''M'';
-    _yrInterval := ''M'';
+  IF (_p.flhead_type='B') THEN
+    _qtrInterval := 'M';
+    _yrInterval := 'M';
   ELSE
-    _qtrInterval := ''Q'';
-    _yrInterval := ''Y'';
+    _qtrInterval := 'Q';
+    _yrInterval := 'Y';
   END IF;
 
 --Delete old data from all periods
@@ -285,9 +285,9 @@ BEGIN
 --...for Month
         IF (_p.flcol_month) THEN
 
-        PERFORM financialreport(_p.flhead_id,pPeriodid,''M'');
+        PERFORM financialreport(_p.flhead_id,pPeriodid,'M');
 
-                IF ((_p.flcol_priortype = ''P'') AND (_p.flcol_priormonth)) THEN
+                IF ((_p.flcol_priortype = 'P') AND (_p.flcol_priormonth)) THEN
 
                         SELECT COALESCE(pp.period_id,-1) INTO _priorMoPeriodId
                         FROM period cp, period pp
@@ -296,19 +296,19 @@ BEGIN
                         ORDER BY pp.period_start DESC LIMIT 1;
 
                         IF (_priorMoPeriodId IS NOT NULL) THEN
-                                PERFORM financialreport(_p.flhead_id,_priorMoPeriodId,''M'');
+                                PERFORM financialreport(_p.flhead_id,_priorMoPeriodId,'M');
                         END IF;
 
-                        ELSE IF ((_p.flcol_priortype=''Y'')AND (_p.flcol_priormonth)) THEN
+                        ELSE IF ((_p.flcol_priortype='Y')AND (_p.flcol_priormonth)) THEN
 
                                 SELECT COALESCE(pp.period_id,-1) INTO _priorMoPeriodId
                                 FROM period cp, period pp
                                 WHERE ((cp.period_id=pPeriodId)
-                                AND ((cp.period_start - interval ''1 year'') >= pp.period_start))
+                                AND ((cp.period_start - interval '1 year') >= pp.period_start))
                                 ORDER BY pp.period_start DESC LIMIT 1;
 
                                 IF (_priorMoPeriodId IS NOT NULL) THEN
-                                        PERFORM financialreport(_p.flhead_id,_priorMoPeriodId,''M'');
+                                        PERFORM financialreport(_p.flhead_id,_priorMoPeriodId,'M');
                                 END IF;
 
                         END IF;
@@ -319,11 +319,11 @@ BEGIN
 --...for Quarter
         IF (_p.flcol_quarter) THEN
 
-        PERFORM financialreport(_p.flhead_id,pPeriodid,''Q'');
+        PERFORM financialreport(_p.flhead_id,pPeriodid,'Q');
 
         END IF;
 
-        IF ((_p.flcol_priortype=''P'') AND (_p.flcol_priorquarter)) THEN
+        IF ((_p.flcol_priortype='P') AND (_p.flcol_priorquarter)) THEN
 
                 SELECT COALESCE(pp.period_id,-1) INTO _priorQtPeriodId
                 FROM period cp, period pp
@@ -333,14 +333,14 @@ BEGIN
                         CASE WHEN cp.period_quarter > 1 THEN
                                 cp.period_quarter - 1
                         ELSE 4 END)
-                AND (pp.period_start >= cp.period_start - interval ''1 year''))
+                AND (pp.period_start >= cp.period_start - interval '1 year'))
                 ORDER BY pp.period_start DESC LIMIT 1;
 
                 IF (_priorQtPeriodId IS NOT NULL) THEN
-                        PERFORM financialreport(_p.flhead_id,_priorQtPeriodId,''Q'');
+                        PERFORM financialreport(_p.flhead_id,_priorQtPeriodId,'Q');
                 END IF;
 
-                ELSE IF ((_p.flcol_priortype=''Y'')AND (_p.flcol_priorquarter)) THEN
+                ELSE IF ((_p.flcol_priortype='Y')AND (_p.flcol_priorquarter)) THEN
 
                         SELECT pp.period_id INTO _priorQtPeriodId
                         FROM period cp, period pp, yearperiod cy, yearperiod py
@@ -352,7 +352,7 @@ BEGIN
                         ORDER BY py.yearperiod_start DESC, pp.period_start DESC LIMIT 1;
 
                         IF (_priorQtPeriodId IS NOT NULL) THEN
-                                PERFORM financialreport(_p.flhead_id,_priorQtPeriodId,''Q'');
+                                PERFORM financialreport(_p.flhead_id,_priorQtPeriodId,'Q');
                         END IF;
 
                 END IF;
@@ -361,23 +361,23 @@ BEGIN
 --...for Year
         IF (_p.flcol_year) THEN
 
-                PERFORM financialreport(_p.flhead_id,pPeriodid,''Y'');
+                PERFORM financialreport(_p.flhead_id,pPeriodid,'Y');
 
         END IF;
 
-        IF (_p.flcol_prioryear=''D'') THEN
+        IF (_p.flcol_prioryear='D') THEN
 
                 SELECT COALESCE(pp.period_id,-1) INTO _priorYrPeriodId
                 FROM period cp, period pp
                 WHERE ((cp.period_id=pPeriodId)
-                AND ((cp.period_start - interval ''1 year'') >= pp.period_start))
+                AND ((cp.period_start - interval '1 year') >= pp.period_start))
                 ORDER BY pp.period_start DESC LIMIT 1;
 
                 IF (_priorYrPeriodId IS NOT NULL) THEN
-                        PERFORM financialreport(_p.flhead_id,_priorYrPeriodId,''Y'');
+                        PERFORM financialreport(_p.flhead_id,_priorYrPeriodId,'Y');
                 END IF;
 
-                ELSE IF (_p.flcol_prioryear=''F'') THEN
+                ELSE IF (_p.flcol_prioryear='F') THEN
 
                         SELECT pp.period_id INTO _priorYrPeriodId
                         FROM period cp, period pp, yearperiod cy, yearperiod py
@@ -388,7 +388,7 @@ BEGIN
                         ORDER BY pp.period_start DESC LIMIT 1;
 
                         IF (_priorYrPeriodId IS NOT NULL) THEN
-                                PERFORM financialreport(_p.flhead_id,_priorYrPeriodId,''Y'');
+                                PERFORM financialreport(_p.flhead_id,_priorYrPeriodId,'Y');
                         END IF;
 
                 END IF;
@@ -412,241 +412,241 @@ BEGIN
                 ELSE flgrp.flgrp_name
         END AS flstmtitem_name,
         CASE
-                WHEN (flgrp_summarize AND (flhead_type IN (''I'',''C''))) THEN
-                        formatMoney(COALESCE(flrptmo.flrpt_diff,0))
-                WHEN (flgrp_summarize AND (flhead_type = ''B'')) THEN
-                        formatMoney(COALESCE(flrptmo.flrpt_ending,0))
+                WHEN (flgrp_summarize AND (flhead_type IN ('I','C'))) THEN
+                        (COALESCE(flrptmo.flrpt_diff,0))
+                WHEN (flgrp_summarize AND (flhead_type = 'B')) THEN
+                        (COALESCE(flrptmo.flrpt_ending,0))
                 ELSE NULL
         END AS flstmtitem_month,
         CASE
                 WHEN (flgrp_summarize) THEN
-                        formatMoney(COALESCE(flrptmo.flrpt_debits,0))
+                        (COALESCE(flrptmo.flrpt_debits,0))
                 ELSE NULL
         END AS flstmtitem_monthdb,
         CASE
                 WHEN (flgrp_summarize) THEN
-                        formatMoney(COALESCE(flrptmo.flrpt_credits,0))
+                        (COALESCE(flrptmo.flrpt_credits,0))
                 ELSE NULL
         END AS flstmtitem_monthcr,
         CASE
                 WHEN (flgrp_summarize AND flgrp_showdiffprcnt) THEN
-                        formatprcnt(COALESCE(flrptmo.flrpt_diffprcnt,0))
+                        (COALESCE(flrptmo.flrpt_diffprcnt,0))
                 WHEN (flgrp_summarize AND flgrp_showendprcnt) THEN
-                        formatprcnt(COALESCE(flrptmo.flrpt_endingprcnt,0))
+                        (COALESCE(flrptmo.flrpt_endingprcnt,0))
                 ELSE NULL
         END AS flstmtitem_monthprcnt,
         CASE
                 WHEN (flgrp_summarize) THEN
-                        formatMoney(flrptmo.flrpt_budget)
+                        (flrptmo.flrpt_budget)
                 ELSE NULL
         END AS flstmtitem_monthbudget,
         CASE
                 WHEN (flgrp_summarize) THEN
-                        formatprcnt(flrptmo.flrpt_budgetprcnt)
+                        (flrptmo.flrpt_budgetprcnt)
                 ELSE NULL
         END AS flstmtitem_monthbudgetprcnt,
         CASE
-                WHEN (flgrp_summarize AND flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE((flrptmo.flrpt_diff-flrptmo.flrpt_budget),0))
-                WHEN (flgrp_summarize AND flhead_type = ''B'') THEN
-                        formatMoney(COALESCE((flrptmo.flrpt_ending-flrptmo.flrpt_budget),0))
+                WHEN (flgrp_summarize AND flhead_type IN ('I','C')) THEN
+                        (COALESCE((flrptmo.flrpt_diff-flrptmo.flrpt_budget),0))
+                WHEN (flgrp_summarize AND flhead_type = 'B') THEN
+                        (COALESCE((flrptmo.flrpt_ending-flrptmo.flrpt_budget),0))
                 ELSE NULL
         END AS flstmtitem_monthbudgetdiff,
         CASE
-                WHEN (flgrp_summarize AND (flhead_type IN (''I'',''C'')) AND (flrptmo.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptmo.flrpt_diff-flrptmo.flrpt_budget)/flrptmo.flrpt_budget),0))
-                WHEN (flgrp_summarize AND (flhead_type=''B'') AND (flrptmo.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptmo.flrpt_ending-flrptmo.flrpt_budget)/flrptmo.flrpt_budget),0))
+                WHEN (flgrp_summarize AND (flhead_type IN ('I','C')) AND (flrptmo.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptmo.flrpt_diff-flrptmo.flrpt_budget)/flrptmo.flrpt_budget),0))
+                WHEN (flgrp_summarize AND (flhead_type='B') AND (flrptmo.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptmo.flrpt_ending-flrptmo.flrpt_budget)/flrptmo.flrpt_budget),0))
                 WHEN (flgrp_summarize AND (flrptmo.flrpt_budget = 0)) THEN
-                        ''-''
+                        NULL
                 ELSE NULL
         END AS flstmtitem_monthbudgetdiffprcnt,
         CASE
-                WHEN (flgrp_summarize AND flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptqt.flrpt_diff,0))
-                WHEN (flgrp_summarize AND flhead_type = ''B'') THEN
-                        formatMoney(COALESCE(flrptqt.flrpt_ending,0))
+                WHEN (flgrp_summarize AND flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptqt.flrpt_diff,0))
+                WHEN (flgrp_summarize AND flhead_type = 'B') THEN
+                        (COALESCE(flrptqt.flrpt_ending,0))
                 ELSE NULL
         END AS flstmtitem_qtr,
         CASE
                 WHEN (flgrp_summarize) THEN
-                        formatMoney(COALESCE(flrptqt.flrpt_debits,0))
+                        (COALESCE(flrptqt.flrpt_debits,0))
                 ELSE NULL
         END AS flstmtitem_qtrdb,
         CASE
                 WHEN (flgrp_summarize) THEN
-                        formatMoney(COALESCE(flrptqt.flrpt_credits,0))
+                        (COALESCE(flrptqt.flrpt_credits,0))
                 ELSE NULL
         END AS flstmtitem_qtrcr,
         CASE
                 WHEN (flgrp_summarize AND flgrp_showdiffprcnt) THEN
-                        formatprcnt(flrptqt.flrpt_diffprcnt)
+                        (flrptqt.flrpt_diffprcnt)
                 WHEN (flgrp_summarize AND flgrp_showendprcnt) THEN
-                        formatprcnt(flrptqt.flrpt_endingprcnt)
+                        (flrptqt.flrpt_endingprcnt)
                 ELSE NULL
         END AS flstmtitem_qtrprcnt,
         CASE
                 WHEN (flgrp_summarize) THEN
-                        formatMoney(COALESCE(flrptqt.flrpt_budget,0))
+                        (COALESCE(flrptqt.flrpt_budget,0))
                 ELSE NULL
         END AS flstmtitem_qtrbudget,
         CASE
                 WHEN (flgrp_summarize) THEN
-                        formatprcnt(flrptqt.flrpt_budgetprcnt)
+                        (flrptqt.flrpt_budgetprcnt)
                 ELSE NULL
         END AS flstmtitem_qtrbudgetprcnt,
         CASE
-                WHEN (flgrp_summarize AND flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE((flrptqt.flrpt_diff-flrptqt.flrpt_budget),0))
-                WHEN (flgrp_summarize AND flhead_type = ''B'') THEN
-                        formatMoney(COALESCE((flrptqt.flrpt_ending-flrptqt.flrpt_budget),0))
+                WHEN (flgrp_summarize AND flhead_type IN ('I','C')) THEN
+                        (COALESCE((flrptqt.flrpt_diff-flrptqt.flrpt_budget),0))
+                WHEN (flgrp_summarize AND flhead_type = 'B') THEN
+                        (COALESCE((flrptqt.flrpt_ending-flrptqt.flrpt_budget),0))
                 ELSE NULL
         END AS flstmtitem_qtrbudgetdiff,
         CASE
-                WHEN (flgrp_summarize AND (flhead_type IN (''I'',''C'')) AND (flrptqt.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptqt.flrpt_diff-flrptqt.flrpt_budget)/flrptqt.flrpt_budget),0))
-                WHEN (flgrp_summarize AND (flhead_type=''B'') AND (flrptqt.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptqt.flrpt_ending-flrptqt.flrpt_budget)/flrptqt.flrpt_budget),0))
-                ELSE ''-''
+                WHEN (flgrp_summarize AND (flhead_type IN ('I','C')) AND (flrptqt.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptqt.flrpt_diff-flrptqt.flrpt_budget)/flrptqt.flrpt_budget),0))
+                WHEN (flgrp_summarize AND (flhead_type='B') AND (flrptqt.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptqt.flrpt_ending-flrptqt.flrpt_budget)/flrptqt.flrpt_budget),0))
+                ELSE NULL
         END AS flstmtitem_qtrbudgetdiffprcnt,
         CASE
-                WHEN (flgrp_summarize AND flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptyr.flrpt_diff,0))
-                WHEN (flgrp_summarize AND flhead_type = ''B'') THEN
-                        formatMoney(COALESCE(flrptyr.flrpt_ending,0))
+                WHEN (flgrp_summarize AND flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptyr.flrpt_diff,0))
+                WHEN (flgrp_summarize AND flhead_type = 'B') THEN
+                        (COALESCE(flrptyr.flrpt_ending,0))
                 ELSE NULL
         END AS flstmtitem_year,
         CASE
                 WHEN (flgrp_summarize) THEN
-                        formatMoney(COALESCE(flrptyr.flrpt_debits,0))
+                        (COALESCE(flrptyr.flrpt_debits,0))
                 ELSE NULL
         END AS flstmtitem_yeardb,
         CASE
                 WHEN (flgrp_summarize) THEN
-                        formatMoney(COALESCE(flrptyr.flrpt_credits,0))
+                        (COALESCE(flrptyr.flrpt_credits,0))
                 ELSE NULL
         END AS flstmtitem_yearcr,
         CASE
                 WHEN (flgrp_summarize AND flgrp_showdiffprcnt) THEN
-                        formatprcnt(COALESCE(flrptyr.flrpt_diffprcnt,0))
+                        (COALESCE(flrptyr.flrpt_diffprcnt,0))
                 WHEN (flgrp_summarize AND flgrp_showendprcnt) THEN
-                        formatprcnt(COALESCE(flrptyr.flrpt_endingprcnt,0))
+                        (COALESCE(flrptyr.flrpt_endingprcnt,0))
                 ELSE NULL
         END AS flstmtitem_yearprcnt,
         CASE
                 WHEN (flgrp_summarize) THEN
-                        formatMoney(flrptyr.flrpt_budget)
+                        (flrptyr.flrpt_budget)
                 ELSE NULL
         END AS  flstmtitem_yearbudget,
         CASE
                 WHEN (flgrp_summarize) THEN
-                        formatprcnt(flrptyr.flrpt_budgetprcnt)
+                        (flrptyr.flrpt_budgetprcnt)
                 ELSE NULL
         END AS flstmtitem_yearbudgetprcnt,
         CASE
-                WHEN (flgrp_summarize AND flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE((flrptyr.flrpt_diff-flrptyr.flrpt_budget),0))
-                WHEN (flgrp_summarize AND flhead_type = ''B'') THEN
-                        formatMoney(COALESCE((flrptyr.flrpt_ending-flrptyr.flrpt_budget),0))
+                WHEN (flgrp_summarize AND flhead_type IN ('I','C')) THEN
+                        (COALESCE((flrptyr.flrpt_diff-flrptyr.flrpt_budget),0))
+                WHEN (flgrp_summarize AND flhead_type = 'B') THEN
+                        (COALESCE((flrptyr.flrpt_ending-flrptyr.flrpt_budget),0))
                 ELSE NULL
         END AS flstmtitem_yearbudgetdiff,
         CASE
-                WHEN (flgrp_summarize AND (flhead_type IN (''I'',''C'')) AND (flrptyr.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptyr.flrpt_diff-flrptyr.flrpt_budget)/flrptyr.flrpt_budget),0))
-                WHEN (flgrp_summarize AND (flhead_type = ''B'') AND (flrptyr.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptyr.flrpt_ending-flrptyr.flrpt_budget)/flrptyr.flrpt_budget),0))
+                WHEN (flgrp_summarize AND (flhead_type IN ('I','C')) AND (flrptyr.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptyr.flrpt_diff-flrptyr.flrpt_budget)/flrptyr.flrpt_budget),0))
+                WHEN (flgrp_summarize AND (flhead_type = 'B') AND (flrptyr.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptyr.flrpt_ending-flrptyr.flrpt_budget)/flrptyr.flrpt_budget),0))
                 WHEN (flgrp_summarize AND (flrptyr.flrpt_budget = 0)) THEN
-                        ''-''
+                        NULL
                 ELSE NULL
         END AS flstmtitem_yearbudgetdiffprcnt,
         CASE
-                WHEN (flgrp_summarize AND flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptprmo.flrpt_diff,0))
-                WHEN (flgrp_summarize AND flhead_type = ''B'') THEN
-                        formatMoney(COALESCE(flrptprmo.flrpt_ending,0))
+                WHEN (flgrp_summarize AND flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptprmo.flrpt_diff,0))
+                WHEN (flgrp_summarize AND flhead_type = 'B') THEN
+                        (COALESCE(flrptprmo.flrpt_ending,0))
                 ELSE NULL
         END AS flstmtitem_prmonth,
         CASE
                 WHEN (flgrp_summarize AND flgrp_showdiffprcnt) THEN
-                        formatprcnt(flrptprmo.flrpt_diffprcnt)
+                        (flrptprmo.flrpt_diffprcnt)
                 WHEN (flgrp_summarize AND flgrp_showendprcnt) THEN
-                        formatprcnt(flrptprmo.flrpt_endingprcnt)
+                        (flrptprmo.flrpt_endingprcnt)
                 ELSE NULL
         END AS flstmtitem_prmonthprcnt,
         CASE
-                WHEN (flgrp_summarize AND flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptmo.flrpt_diff-flrptprmo.flrpt_diff,0))
-                WHEN (flgrp_summarize AND flhead_type = ''B'') THEN
-                        formatMoney(COALESCE(flrptmo.flrpt_ending-flrptprmo.flrpt_ending,0))
+                WHEN (flgrp_summarize AND flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptmo.flrpt_diff-flrptprmo.flrpt_diff,0))
+                WHEN (flgrp_summarize AND flhead_type = 'B') THEN
+                        (COALESCE(flrptmo.flrpt_ending-flrptprmo.flrpt_ending,0))
                 ELSE NULL
         END AS flstmtitem_prmonthdiff,
         CASE
-                WHEN (flgrp_summarize AND (flhead_type IN (''I'',''C'')) AND (flrptprmo.flrpt_diff > 0)) THEN
-                        formatPrcnt(COALESCE((flrptmo.flrpt_diff-flrptprmo.flrpt_diff)/flrptprmo.flrpt_diff,0))
-                WHEN (flgrp_summarize AND (flhead_type = ''B'') AND (flrptprmo.flrpt_ending > 0)) THEN
-                        formatPrcnt(COALESCE((flrptmo.flrpt_ending-flrptprmo.flrpt_ending)/flrptprmo.flrpt_ending,0))
+                WHEN (flgrp_summarize AND (flhead_type IN ('I','C')) AND (flrptprmo.flrpt_diff > 0)) THEN
+                        (COALESCE((flrptmo.flrpt_diff-flrptprmo.flrpt_diff)/flrptprmo.flrpt_diff,0))
+                WHEN (flgrp_summarize AND (flhead_type = 'B') AND (flrptprmo.flrpt_ending > 0)) THEN
+                        (COALESCE((flrptmo.flrpt_ending-flrptprmo.flrpt_ending)/flrptprmo.flrpt_ending,0))
                 WHEN (flgrp_summarize AND (flrptprmo.flrpt_ending = 0)) THEN
-                        ''-''
+                        NULL
                 ELSE NULL
         END AS flstmtitem_prmonthdiffprcnt,
         CASE
-                WHEN (flgrp_summarize AND flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptprqt.flrpt_diff,0))
-                WHEN (flgrp_summarize AND flhead_type = ''B'') THEN
-                        formatMoney(COALESCE(flrptprqt.flrpt_ending,0))
+                WHEN (flgrp_summarize AND flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptprqt.flrpt_diff,0))
+                WHEN (flgrp_summarize AND flhead_type = 'B') THEN
+                        (COALESCE(flrptprqt.flrpt_ending,0))
                 ELSE NULL
         END AS flstmtitem_prqtr,
         CASE
                 WHEN (flgrp_summarize AND flgrp_showdiffprcnt) THEN
-                        formatprcnt(flrptprqt.flrpt_diffprcnt)
+                        (flrptprqt.flrpt_diffprcnt)
                 WHEN (flgrp_summarize AND flgrp_showendprcnt) THEN
-                        formatprcnt(flrptprqt.flrpt_endingprcnt)
+                        (flrptprqt.flrpt_endingprcnt)
                 ELSE NULL
         END AS flstmtitem_prqtrprcnt,
         CASE
-                WHEN (flgrp_summarize AND flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptqt.flrpt_diff-flrptprqt.flrpt_diff,0))
-                WHEN (flgrp_summarize AND flhead_type = ''B'') THEN
-                        formatMoney(COALESCE(flrptqt.flrpt_ending-flrptprqt.flrpt_ending,0))
+                WHEN (flgrp_summarize AND flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptqt.flrpt_diff-flrptprqt.flrpt_diff,0))
+                WHEN (flgrp_summarize AND flhead_type = 'B') THEN
+                        (COALESCE(flrptqt.flrpt_ending-flrptprqt.flrpt_ending,0))
                 ELSE NULL
         END AS flstmtitem_prqtrdiff,
         CASE
-                WHEN (flgrp_summarize AND (flhead_type IN (''I'',''C'')) AND (flrptprqt.flrpt_diff > 0)) THEN
-                        formatPrcnt(COALESCE((flrptqt.flrpt_diff-flrptprqt.flrpt_diff)/flrptprqt.flrpt_diff,0))
-                WHEN (flgrp_summarize AND (flhead_type = ''B'') AND (flrptprqt.flrpt_ending > 0)) THEN
-                        formatPrcnt(COALESCE((flrptqt.flrpt_ending-flrptprqt.flrpt_ending)/flrptprqt.flrpt_ending,0))
+                WHEN (flgrp_summarize AND (flhead_type IN ('I','C')) AND (flrptprqt.flrpt_diff > 0)) THEN
+                        (COALESCE((flrptqt.flrpt_diff-flrptprqt.flrpt_diff)/flrptprqt.flrpt_diff,0))
+                WHEN (flgrp_summarize AND (flhead_type = 'B') AND (flrptprqt.flrpt_ending > 0)) THEN
+                        (COALESCE((flrptqt.flrpt_ending-flrptprqt.flrpt_ending)/flrptprqt.flrpt_ending,0))
                 WHEN (flgrp_summarize AND (flrptprqt.flrpt_ending = 0)) THEN
-                        ''-''
+                        NULL
                 ELSE NULL
         END AS flstmtitem_prqtrdiffprcnt,
         CASE
-                WHEN (flgrp_summarize AND flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptpryr.flrpt_diff,0))
-                WHEN (flgrp_summarize AND flhead_type = ''B'') THEN
-                        formatMoney(COALESCE(flrptpryr.flrpt_ending,0))
+                WHEN (flgrp_summarize AND flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptpryr.flrpt_diff,0))
+                WHEN (flgrp_summarize AND flhead_type = 'B') THEN
+                        (COALESCE(flrptpryr.flrpt_ending,0))
                 ELSE NULL
         END AS flstmtitem_pryear,
         CASE
                 WHEN (flgrp_summarize AND flgrp_showdiffprcnt) THEN
-                        formatprcnt(flrptpryr.flrpt_diffprcnt)
+                        (flrptpryr.flrpt_diffprcnt)
                 WHEN (flgrp_summarize AND flgrp_showendprcnt) THEN
-                        formatprcnt(flrptpryr.flrpt_endingprcnt)
+                        (flrptpryr.flrpt_endingprcnt)
                 ELSE NULL
         END AS flstmtitem_pryearprcnt,
         CASE
-                WHEN (flgrp_summarize AND flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptyr.flrpt_diff-flrptpryr.flrpt_diff,0))
-                WHEN (flgrp_summarize AND flhead_type = ''B'') THEN
-                        formatMoney(COALESCE(flrptyr.flrpt_ending-flrptpryr.flrpt_ending,0))
+                WHEN (flgrp_summarize AND flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptyr.flrpt_diff-flrptpryr.flrpt_diff,0))
+                WHEN (flgrp_summarize AND flhead_type = 'B') THEN
+                        (COALESCE(flrptyr.flrpt_ending-flrptpryr.flrpt_ending,0))
                 ELSE NULL
         END AS flstmtitem_pryeardiff,
         CASE
-                WHEN (flgrp_summarize AND (flhead_type IN (''I'',''C'')) AND (flrptpryr.flrpt_diff > 0)) THEN
-                        formatprcnt(COALESCE((flrptyr.flrpt_diff-flrptpryr.flrpt_diff)/flrptpryr.flrpt_diff,0))
-                WHEN (flgrp_summarize AND (flhead_type = ''B'' ) AND (flrptpryr.flrpt_ending > 0)) THEN
-                        formatprcnt(COALESCE((flrptyr.flrpt_ending-flrptpryr.flrpt_ending)/flrptpryr.flrpt_ending,0))
+                WHEN (flgrp_summarize AND (flhead_type IN ('I','C')) AND (flrptpryr.flrpt_diff > 0)) THEN
+                        (COALESCE((flrptyr.flrpt_diff-flrptpryr.flrpt_diff)/flrptpryr.flrpt_diff,0))
+                WHEN (flgrp_summarize AND (flhead_type = 'B' ) AND (flrptpryr.flrpt_ending > 0)) THEN
+                        (COALESCE((flrptyr.flrpt_ending-flrptpryr.flrpt_ending)/flrptpryr.flrpt_ending,0))
                 WHEN (flgrp_summarize AND (flrptpryr.flrpt_ending = 0)) THEN
-                        ''-''
+                        NULL
                 ELSE NULL
         END AS flstmtitem_pryeardiffprcnt
         FROM flgrp,flhead,
@@ -660,7 +660,7 @@ BEGIN
                         flrpt_type_id,
                         flrpt_parent_id
                 FROM flrpt
-                WHERE ((flrpt_type=''G'')
+                WHERE ((flrpt_type='G')
                 AND (flrpt_flhead_id=_p.flhead_id)
                 AND (flrpt_period_id=pPeriodId)
                 AND (flrpt_username=CURRENT_USER))) AS flrpt
@@ -669,7 +669,7 @@ BEGIN
                                 AND (flrptmo.flrpt_type_id=flrpt.flrpt_type_id)
                                 AND (flrptmo.flrpt_flhead_id=flrpt.flrpt_flhead_id)
                                 AND (flrptmo.flrpt_period_id=flrpt.flrpt_period_id)
-                                AND (flrptmo.flrpt_interval=''M'')
+                                AND (flrptmo.flrpt_interval='M')
                                 AND (flrptmo.flrpt_username=flrpt.flrpt_username)
                                 AND (flrptmo.flrpt_order=flrpt.flrpt_order))
                         LEFT OUTER JOIN flrpt flrptqt
@@ -693,7 +693,7 @@ BEGIN
                                 AND (flrptprmo.flrpt_type_id=flrpt.flrpt_type_id)
                                 AND (flrptprmo.flrpt_flhead_id=flrpt.flrpt_flhead_id)
                                 AND (flrptprmo.flrpt_period_id=_priorMoPeriodId)
-                                AND (flrptprmo.flrpt_interval=''M'')
+                                AND (flrptprmo.flrpt_interval='M')
                                 AND (flrptprmo.flrpt_username=flrpt.flrpt_username)
                                 AND (flrptprmo.flrpt_order=flrpt.flrpt_order))
                         LEFT OUTER JOIN flrpt flrptprqt
@@ -701,7 +701,7 @@ BEGIN
                                 AND (flrptprqt.flrpt_type_id=flrpt.flrpt_type_id)
                                 AND (flrptprqt.flrpt_flhead_id=flrpt.flrpt_flhead_id)
                                 AND (flrptprqt.flrpt_period_id=_priorQtPeriodId)
-                                AND (flrptprqt.flrpt_interval=''Q'')
+                                AND (flrptprqt.flrpt_interval='Q')
                                 AND (flrptprqt.flrpt_username=flrpt.flrpt_username)
                                 AND (flrptprqt.flrpt_order=flrpt.flrpt_order))
                         LEFT OUTER JOIN flrpt flrptpryr
@@ -709,7 +709,7 @@ BEGIN
                                 AND (flrptpryr.flrpt_type_id=flrpt.flrpt_type_id)
                                 AND (flrptpryr.flrpt_flhead_id=flrpt.flrpt_flhead_id)
                                 AND (flrptpryr.flrpt_period_id=_priorYrPeriodId)
-                                AND (flrptpryr.flrpt_interval=''Y'')
+                                AND (flrptpryr.flrpt_interval='Y')
                                 AND (flrptpryr.flrpt_username=flrpt.flrpt_username)
                                 AND (flrptpryr.flrpt_order=flrpt.flrpt_order))
         WHERE ((flgrp_id = flrpt.flrpt_type_id)
@@ -731,160 +731,160 @@ BEGIN
                 ELSE flrpt.flrpt_name
         END AS flstmtitem_name,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptmo.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptmo.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptmo.flrpt_diff,0))
+                ELSE (COALESCE(flrptmo.flrpt_ending,0))
         END AS flstmtitem_month,
-        formatMoney(COALESCE(flrptmo.flrpt_debits,0)) AS flstmtitem_monthdb,
-        formatMoney(COALESCE(flrptmo.flrpt_credits,0)) AS flstmtitem_monthcr,
+        (COALESCE(flrptmo.flrpt_debits,0)) AS flstmtitem_monthdb,
+        (COALESCE(flrptmo.flrpt_credits,0)) AS flstmtitem_monthcr,
         CASE
                 WHEN (flitem_showdiffprcnt) THEN
-                        formatprcnt(flrptmo.flrpt_diffprcnt)
+                        (flrptmo.flrpt_diffprcnt)
                 WHEN (flitem_showendprcnt) THEN
-                        formatprcnt(flrptmo.flrpt_endingprcnt)
+                        (flrptmo.flrpt_endingprcnt)
                 ELSE NULL
         END AS flstmtitem_monthprcnt,
-        formatMoney(COALESCE(flrptmo.flrpt_budget,0)) AS flstmtitem_monthbudget,
-        formatprcnt(flrptmo.flrpt_budgetprcnt) AS flstmtitem_monthbudgetprcnt,
+        (COALESCE(flrptmo.flrpt_budget,0)) AS flstmtitem_monthbudget,
+        (flrptmo.flrpt_budgetprcnt) AS flstmtitem_monthbudgetprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE((flrptmo.flrpt_diff-flrptmo.flrpt_budget),0))
-                ELSE formatMoney(COALESCE((flrptmo.flrpt_ending-flrptmo.flrpt_budget),0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE((flrptmo.flrpt_diff-flrptmo.flrpt_budget),0))
+                ELSE (COALESCE((flrptmo.flrpt_ending-flrptmo.flrpt_budget),0))
         END AS flstmtitem_monthbudgetdiff,
         CASE
-                WHEN ((flhead_type IN (''I'',''C'')) AND (flrptmo.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptmo.flrpt_diff-flrptmo.flrpt_budget)/flrptmo.flrpt_budget),0))
-                WHEN ((flhead_type=''B'') AND (flrptmo.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptmo.flrpt_ending-flrptmo.flrpt_budget)/flrptmo.flrpt_budget),0))
-                ELSE ''-''
+                WHEN ((flhead_type IN ('I','C')) AND (flrptmo.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptmo.flrpt_diff-flrptmo.flrpt_budget)/flrptmo.flrpt_budget),0))
+                WHEN ((flhead_type='B') AND (flrptmo.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptmo.flrpt_ending-flrptmo.flrpt_budget)/flrptmo.flrpt_budget),0))
+                ELSE NULL
         END AS flstmtitem_monthbudgetdiffprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptqt.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptqt.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptqt.flrpt_diff,0))
+                ELSE (COALESCE(flrptqt.flrpt_ending,0))
         END AS flstmtitem_qtr,
-        formatMoney(COALESCE(flrptqt.flrpt_debits,0)) AS flstmtitem_qtrdb,
-        formatMoney(COALESCE(flrptqt.flrpt_credits,0)) AS flstmtitem_qtrcr,
+        (COALESCE(flrptqt.flrpt_debits,0)) AS flstmtitem_qtrdb,
+        (COALESCE(flrptqt.flrpt_credits,0)) AS flstmtitem_qtrcr,
         CASE
                 WHEN (flitem_showdiffprcnt) THEN
-                        formatprcnt(COALESCE(flrptqt.flrpt_diffprcnt,0))
+                        (COALESCE(flrptqt.flrpt_diffprcnt,0))
                 WHEN (flitem_showendprcnt) THEN
-                        formatprcnt(COALESCE(flrptqt.flrpt_endingprcnt,0))
+                        (COALESCE(flrptqt.flrpt_endingprcnt,0))
                 ELSE NULL
         END AS flstmtitem_qtrprcnt,
-        formatMoney(COALESCE(flrptqt.flrpt_budget,0)) AS flstmtitem_qtrbudget,
-        formatprcnt(flrptqt.flrpt_budgetprcnt) AS flstmtitem_qtrbudgetprcnt,
+        (COALESCE(flrptqt.flrpt_budget,0)) AS flstmtitem_qtrbudget,
+        (flrptqt.flrpt_budgetprcnt) AS flstmtitem_qtrbudgetprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE((flrptqt.flrpt_diff-flrptqt.flrpt_budget),0))
-                ELSE formatMoney(COALESCE((flrptqt.flrpt_ending-flrptqt.flrpt_budget),0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE((flrptqt.flrpt_diff-flrptqt.flrpt_budget),0))
+                ELSE (COALESCE((flrptqt.flrpt_ending-flrptqt.flrpt_budget),0))
         END AS flstmtitem_qtrbudgetdiff,
         CASE
-                WHEN ((flhead_type IN (''I'',''C'')) AND (flrptqt.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptqt.flrpt_diff-flrptqt.flrpt_budget)/flrptqt.flrpt_budget),0))
-                WHEN ((flhead_type=''B'') AND (flrptqt.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptqt.flrpt_ending-flrptqt.flrpt_budget)/flrptqt.flrpt_budget),0))
-                ELSE ''-''
+                WHEN ((flhead_type IN ('I','C')) AND (flrptqt.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptqt.flrpt_diff-flrptqt.flrpt_budget)/flrptqt.flrpt_budget),0))
+                WHEN ((flhead_type='B') AND (flrptqt.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptqt.flrpt_ending-flrptqt.flrpt_budget)/flrptqt.flrpt_budget),0))
+                ELSE NULL
         END AS flstmtitem_qtrbudgetdiffprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptyr.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptyr.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptyr.flrpt_diff,0))
+                ELSE (COALESCE(flrptyr.flrpt_ending,0))
         END AS flstmtitem_year,
-        formatMoney(COALESCE(flrptyr.flrpt_debits,0)) AS flstmtitem_yeardb,
-        formatMoney(COALESCE(flrptyr.flrpt_credits,0)) AS flstmtitem_yearcr,
+        (COALESCE(flrptyr.flrpt_debits,0)) AS flstmtitem_yeardb,
+        (COALESCE(flrptyr.flrpt_credits,0)) AS flstmtitem_yearcr,
         CASE
                 WHEN (flitem_showdiffprcnt) THEN
-                        formatprcnt(flrptyr.flrpt_diffprcnt)
+                        (flrptyr.flrpt_diffprcnt)
                 WHEN (flitem_showendprcnt) THEN
-                        formatprcnt(flrptyr.flrpt_endingprcnt)
+                        (flrptyr.flrpt_endingprcnt)
                 ELSE NULL
         END AS flstmtitem_yearprcnt,
-        formatMoney(COALESCE(flrptyr.flrpt_budget,0)) AS  flstmtitem_yearbudget,
-        formatprcnt(flrptyr.flrpt_budgetprcnt) AS flstmtitem_yearbudgetprcnt,
+        (COALESCE(flrptyr.flrpt_budget,0)) AS  flstmtitem_yearbudget,
+        (flrptyr.flrpt_budgetprcnt) AS flstmtitem_yearbudgetprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE((flrptyr.flrpt_diff-flrptyr.flrpt_budget),0))
-                ELSE formatMoney(COALESCE((flrptyr.flrpt_ending-flrptyr.flrpt_budget),0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE((flrptyr.flrpt_diff-flrptyr.flrpt_budget),0))
+                ELSE (COALESCE((flrptyr.flrpt_ending-flrptyr.flrpt_budget),0))
         END AS flstmtitem_yearbudgetdiff,
         CASE
-                WHEN ((flhead_type IN (''I'',''C'')) AND (flrptyr.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptyr.flrpt_diff-flrptyr.flrpt_budget)/flrptyr.flrpt_budget),0))
-                WHEN ((flhead_type = ''B'') AND (flrptyr.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptyr.flrpt_ending-flrptyr.flrpt_budget)/flrptyr.flrpt_budget),0))
-                ELSE ''-''
+                WHEN ((flhead_type IN ('I','C')) AND (flrptyr.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptyr.flrpt_diff-flrptyr.flrpt_budget)/flrptyr.flrpt_budget),0))
+                WHEN ((flhead_type = 'B') AND (flrptyr.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptyr.flrpt_ending-flrptyr.flrpt_budget)/flrptyr.flrpt_budget),0))
+                ELSE NULL
         END AS flstmtitem_yearbudgetdiffprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptprmo.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptprmo.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptprmo.flrpt_diff,0))
+                ELSE (COALESCE(flrptprmo.flrpt_ending,0))
         END AS flstmtitem_prmonth,
         CASE
                 WHEN (flitem_showdiffprcnt) THEN
-                        formatprcnt(flrptprmo.flrpt_diffprcnt)
+                        (flrptprmo.flrpt_diffprcnt)
                 WHEN (flitem_showendprcnt) THEN
-                        formatprcnt(flrptprmo.flrpt_endingprcnt)
+                        (flrptprmo.flrpt_endingprcnt)
                 ELSE NULL
         END AS flstmtitem_prmonthprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptmo.flrpt_diff-flrptprmo.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptmo.flrpt_ending-flrptprmo.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptmo.flrpt_diff-flrptprmo.flrpt_diff,0))
+                ELSE (COALESCE(flrptmo.flrpt_ending-flrptprmo.flrpt_ending,0))
         END AS flstmtitem_prmonthdiff,
         CASE
-                WHEN ((flhead_type IN (''I'',''C'')) AND (flrptprmo.flrpt_diff > 0)) THEN
-                        formatprcnt(COALESCE((flrptmo.flrpt_diff-flrptprmo.flrpt_diff)/flrptprmo.flrpt_diff,0))
-                WHEN ((flhead_type = ''B'') AND (flrptprmo.flrpt_ending > 0)) THEN
-                        formatprcnt(COALESCE((flrptmo.flrpt_ending-flrptprmo.flrpt_ending)/flrptprmo.flrpt_ending,0))
-                ELSE ''-''
+                WHEN ((flhead_type IN ('I','C')) AND (flrptprmo.flrpt_diff > 0)) THEN
+                        (COALESCE((flrptmo.flrpt_diff-flrptprmo.flrpt_diff)/flrptprmo.flrpt_diff,0))
+                WHEN ((flhead_type = 'B') AND (flrptprmo.flrpt_ending > 0)) THEN
+                        (COALESCE((flrptmo.flrpt_ending-flrptprmo.flrpt_ending)/flrptprmo.flrpt_ending,0))
+                ELSE NULL
         END AS flstmtitem_prmonthdiffprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptprqt.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptprqt.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptprqt.flrpt_diff,0))
+                ELSE (COALESCE(flrptprqt.flrpt_ending,0))
         END AS flstmtitem_prqtr,
         CASE
                 WHEN (flitem_showdiffprcnt) THEN
-                        formatprcnt(flrptprqt.flrpt_diffprcnt)
+                        (flrptprqt.flrpt_diffprcnt)
                 WHEN (flitem_showendprcnt) THEN
-                        formatprcnt(flrptprqt.flrpt_endingprcnt)
+                        (flrptprqt.flrpt_endingprcnt)
                 ELSE NULL
         END AS flstmtitem_prqtrprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptqt.flrpt_diff-flrptprqt.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptqt.flrpt_ending-flrptprqt.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptqt.flrpt_diff-flrptprqt.flrpt_diff,0))
+                ELSE (COALESCE(flrptqt.flrpt_ending-flrptprqt.flrpt_ending,0))
         END AS flstmtitem_prqtrdiff,
         CASE
-                WHEN ((flhead_type IN (''I'',''C'')) AND (flrptprqt.flrpt_diff > 0)) THEN
-                        formatprcnt(COALESCE((flrptqt.flrpt_diff-flrptprqt.flrpt_diff)/flrptprqt.flrpt_diff,0))
-                WHEN ((flhead_type = ''B'') AND (flrptprqt.flrpt_ending > 0)) THEN
-                        formatprcnt(COALESCE((flrptqt.flrpt_ending-flrptprqt.flrpt_ending)/flrptprqt.flrpt_ending,0))
-                ELSE ''-''
+                WHEN ((flhead_type IN ('I','C')) AND (flrptprqt.flrpt_diff > 0)) THEN
+                        (COALESCE((flrptqt.flrpt_diff-flrptprqt.flrpt_diff)/flrptprqt.flrpt_diff,0))
+                WHEN ((flhead_type = 'B') AND (flrptprqt.flrpt_ending > 0)) THEN
+                        (COALESCE((flrptqt.flrpt_ending-flrptprqt.flrpt_ending)/flrptprqt.flrpt_ending,0))
+                ELSE NULL
         END AS flstmtitem_prqtrdiffprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptpryr.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptpryr.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptpryr.flrpt_diff,0))
+                ELSE (COALESCE(flrptpryr.flrpt_ending,0))
         END AS flstmtitem_pryear,
         CASE
                 WHEN (flitem_showdiffprcnt) THEN
-                        formatprcnt(flrptpryr.flrpt_diffprcnt)
+                        (flrptpryr.flrpt_diffprcnt)
                 WHEN (flitem_showendprcnt) THEN
-                        formatprcnt(flrptpryr.flrpt_endingprcnt)
+                        (flrptpryr.flrpt_endingprcnt)
                 ELSE NULL
         END AS flstmtitem_pryearprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE((flrptyr.flrpt_diff-flrptpryr.flrpt_diff),0))
-                ELSE formatMoney(COALESCE((flrptyr.flrpt_ending-flrptpryr.flrpt_ending),0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE((flrptyr.flrpt_diff-flrptpryr.flrpt_diff),0))
+                ELSE (COALESCE((flrptyr.flrpt_ending-flrptpryr.flrpt_ending),0))
         END AS flstmtitem_pryeardiff,
         CASE
-                WHEN ((flhead_type IN (''I'',''C'')) AND (flrptpryr.flrpt_diff > 0)) THEN
-                        formatprcnt(COALESCE((flrptyr.flrpt_diff-flrptpryr.flrpt_diff)/flrptpryr.flrpt_diff,0))
-                WHEN ((flhead_type = ''B'' ) AND (flrptpryr.flrpt_ending > 0)) THEN
-                        formatprcnt(COALESCE((flrptyr.flrpt_ending-flrptpryr.flrpt_ending)/flrptpryr.flrpt_ending,0))
-                ELSE ''-''
+                WHEN ((flhead_type IN ('I','C')) AND (flrptpryr.flrpt_diff > 0)) THEN
+                        (COALESCE((flrptyr.flrpt_diff-flrptpryr.flrpt_diff)/flrptpryr.flrpt_diff,0))
+                WHEN ((flhead_type = 'B' ) AND (flrptpryr.flrpt_ending > 0)) THEN
+                        (COALESCE((flrptyr.flrpt_ending-flrptpryr.flrpt_ending)/flrptpryr.flrpt_ending,0))
+                ELSE NULL
         END AS flstmtitem_pryeardiffprcnt
         FROM flitem,flhead,
                 (SELECT DISTINCT
@@ -898,10 +898,10 @@ BEGIN
                         flrpt_parent_id,
                         accnt_id AS flrpt_accnt_id,
                         CASE WHEN (pShowNumbers) THEN
-                                (formatGLAccount(accnt_id) || ''-'' || accnt_descrip)
+                                (formatGLAccount(accnt_id) || '-' || accnt_descrip)
                         ELSE accnt_descrip END AS flrpt_name
                 FROM flrpt,accnt
-                WHERE ((flrpt_type=''I'')
+                WHERE ((flrpt_type='I')
                 AND (flrpt_flhead_id=_p.flhead_id)
                 AND (flrpt_period_id=pPeriodid)
                 AND (flrpt_username=CURRENT_USER)
@@ -911,7 +911,7 @@ BEGIN
                                 AND (flrptmo.flrpt_type_id=flrpt.flrpt_type_id)
                                 AND (flrptmo.flrpt_flhead_id=flrpt.flrpt_flhead_id)
                                 AND (flrptmo.flrpt_period_id=flrpt.flrpt_period_id)
-                                AND (flrptmo.flrpt_interval=''M'')
+                                AND (flrptmo.flrpt_interval='M')
                                 AND (flrptmo.flrpt_username=flrpt.flrpt_username)
                                 AND (flrptmo.flrpt_order=flrpt.flrpt_order))
                         LEFT OUTER JOIN flrpt flrptqt
@@ -935,7 +935,7 @@ BEGIN
                                 AND (flrptprmo.flrpt_type_id=flrpt.flrpt_type_id)
                                 AND (flrptprmo.flrpt_flhead_id=flrpt.flrpt_flhead_id)
                                 AND (flrptprmo.flrpt_period_id=_priorMoPeriodId)
-                                AND (flrptprmo.flrpt_interval=''M'')
+                                AND (flrptprmo.flrpt_interval='M')
                                 AND (flrptprmo.flrpt_username=flrpt.flrpt_username)
                                 AND (flrptprmo.flrpt_order=flrpt.flrpt_order))
                         LEFT OUTER JOIN flrpt flrptprqt
@@ -943,7 +943,7 @@ BEGIN
                                 AND (flrptprqt.flrpt_type_id=flrpt.flrpt_type_id)
                                 AND (flrptprqt.flrpt_flhead_id=flrpt.flrpt_flhead_id)
                                 AND (flrptprqt.flrpt_period_id=_priorQtPeriodId)
-                                AND (flrptprqt.flrpt_interval=''Q'')
+                                AND (flrptprqt.flrpt_interval='Q')
                                 AND (flrptprqt.flrpt_username=flrpt.flrpt_username)
                                 AND (flrptprqt.flrpt_order=flrpt.flrpt_order))
                         LEFT OUTER JOIN flrpt flrptpryr
@@ -951,7 +951,7 @@ BEGIN
                                 AND (flrptpryr.flrpt_type_id=flrpt.flrpt_type_id)
                                 AND (flrptpryr.flrpt_flhead_id=flrpt.flrpt_flhead_id)
                                 AND (flrptpryr.flrpt_period_id=_priorYrPeriodId)
-                                AND (flrptpryr.flrpt_interval=''Y'')
+                                AND (flrptpryr.flrpt_interval='Y')
                                 AND (flrptpryr.flrpt_username=flrpt.flrpt_username)
                                 AND (flrptpryr.flrpt_order=flrpt.flrpt_order) )
         WHERE ((flitem_id = flrpt.flrpt_type_id)
@@ -967,157 +967,157 @@ BEGIN
         flrpt.flrpt_type_id AS flstmtitem_type_id,
         flrpt.flrpt_parent_id AS flstmtitem_parent_id,
         NULL AS flstmtitem_accnt_id,
-        CASE WHEN(flrpt.flrpt_type=''T'' AND flrpt.flrpt_level=0) THEN
-                        COALESCE(flrpt.flrpt_altname, ''Total'')
-                WHEN(flrpt.flrpt_type=''T'') THEN
-                        formatindent(COALESCE(flrpt.flrpt_altname, ''Subtotal'') ,
+        CASE WHEN(flrpt.flrpt_type='T' AND flrpt.flrpt_level=0) THEN
+                        COALESCE(flrpt.flrpt_altname, 'Total')
+                WHEN(flrpt.flrpt_type='T') THEN
+                        formatindent(COALESCE(flrpt.flrpt_altname, 'Subtotal') ,
                         (CASE WHEN pIndentName THEN flrpt.flrpt_level ELSE 0 END))
-                ELSE formatindent((''Type '' || flrpt.flrpt_type || '' '' || text(flrpt.flrpt_type_id)),
+                ELSE formatindent(('Type ' || flrpt.flrpt_type || ' ' || text(flrpt.flrpt_type_id)),
                         (CASE WHEN pIndentName THEN flrpt.flrpt_level ELSE 0 END))
                 END AS flstmtitem_name,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptmo.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptmo.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptmo.flrpt_diff,0))
+                ELSE (COALESCE(flrptmo.flrpt_ending,0))
         END AS flstmtitem_month,
-        formatMoney(COALESCE(flrptmo.flrpt_debits,0)) AS flstmtitem_monthdb,
-        formatMoney(COALESCE(flrptmo.flrpt_credits,0)) AS flstmtitem_monthcr,
+        (COALESCE(flrptmo.flrpt_debits,0)) AS flstmtitem_monthdb,
+        (COALESCE(flrptmo.flrpt_credits,0)) AS flstmtitem_monthcr,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatprcnt(flrptmo.flrpt_diffprcnt)
-                ELSE formatprcnt(flrptmo.flrpt_endingprcnt)
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (flrptmo.flrpt_diffprcnt)
+                ELSE (flrptmo.flrpt_endingprcnt)
         END AS flstmtitem_monthprcnt,
-        formatMoney(COALESCE(flrptmo.flrpt_budget,0)) AS flstmtitem_monthbudget,
-        formatprcnt(flrptmo.flrpt_budgetprcnt) AS flstmtitem_monthbudgetprcnt,
+        (COALESCE(flrptmo.flrpt_budget,0)) AS flstmtitem_monthbudget,
+        (flrptmo.flrpt_budgetprcnt) AS flstmtitem_monthbudgetprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE((flrptmo.flrpt_diff-flrptmo.flrpt_budget),0))
-                ELSE formatMoney(COALESCE((flrptmo.flrpt_ending-flrptmo.flrpt_budget),0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE((flrptmo.flrpt_diff-flrptmo.flrpt_budget),0))
+                ELSE (COALESCE((flrptmo.flrpt_ending-flrptmo.flrpt_budget),0))
         END AS flstmtitem_monthbudgetdiff,
         CASE
-                WHEN ((flhead_type IN (''I'',''C'')) AND (flrptmo.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptmo.flrpt_diff-flrptmo.flrpt_budget)/flrptmo.flrpt_budget),0))
-                WHEN ((flhead_type=''B'') AND (flrptmo.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptmo.flrpt_ending-flrptmo.flrpt_budget)/flrptmo.flrpt_budget),0))
-                ELSE ''-''
+                WHEN ((flhead_type IN ('I','C')) AND (flrptmo.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptmo.flrpt_diff-flrptmo.flrpt_budget)/flrptmo.flrpt_budget),0))
+                WHEN ((flhead_type='B') AND (flrptmo.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptmo.flrpt_ending-flrptmo.flrpt_budget)/flrptmo.flrpt_budget),0))
+                ELSE NULL
         END AS flstmtitem_monthbudgetdiffprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptqt.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptqt.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptqt.flrpt_diff,0))
+                ELSE (COALESCE(flrptqt.flrpt_ending,0))
         END AS flstmtitem_qtr,
-        formatMoney(COALESCE(flrptqt.flrpt_debits,0)) AS flstmtitem_qtrdb,
-        formatMoney(COALESCE(flrptqt.flrpt_credits,0)) AS flstmtitem_qtrcr,
+        (COALESCE(flrptqt.flrpt_debits,0)) AS flstmtitem_qtrdb,
+        (COALESCE(flrptqt.flrpt_credits,0)) AS flstmtitem_qtrcr,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatprcnt(flrptqt.flrpt_diffprcnt)
-                ELSE formatprcnt(flrptqt.flrpt_endingprcnt)
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (flrptqt.flrpt_diffprcnt)
+                ELSE (flrptqt.flrpt_endingprcnt)
         END AS flstmtitem_qtrprcnt,
-        formatMoney(COALESCE(flrptqt.flrpt_budget,0)) AS flstmtitem_qtrbudget,
-        formatprcnt(flrptqt.flrpt_budgetprcnt) AS flstmtitem_qtrbudgetprcnt,
+        (COALESCE(flrptqt.flrpt_budget,0)) AS flstmtitem_qtrbudget,
+        (flrptqt.flrpt_budgetprcnt) AS flstmtitem_qtrbudgetprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE((flrptqt.flrpt_diff-flrptqt.flrpt_budget),0))
-                ELSE formatMoney(COALESCE((flrptqt.flrpt_ending-flrptqt.flrpt_budget),0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE((flrptqt.flrpt_diff-flrptqt.flrpt_budget),0))
+                ELSE (COALESCE((flrptqt.flrpt_ending-flrptqt.flrpt_budget),0))
         END AS flstmtitem_qtrbudgetdiff,
         CASE
-                WHEN ((flhead_type IN (''I'',''C'')) AND (flrptqt.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptqt.flrpt_diff-flrptqt.flrpt_budget)/flrptqt.flrpt_budget),0))
-                WHEN ((flhead_type=''B'') AND (flrptqt.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptqt.flrpt_ending-flrptqt.flrpt_budget)/flrptqt.flrpt_budget),0))
-                ELSE ''-''
+                WHEN ((flhead_type IN ('I','C')) AND (flrptqt.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptqt.flrpt_diff-flrptqt.flrpt_budget)/flrptqt.flrpt_budget),0))
+                WHEN ((flhead_type='B') AND (flrptqt.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptqt.flrpt_ending-flrptqt.flrpt_budget)/flrptqt.flrpt_budget),0))
+                ELSE NULL
         END AS flstmtitem_qtrbudgetdiffprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptyr.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptyr.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptyr.flrpt_diff,0))
+                ELSE (COALESCE(flrptyr.flrpt_ending,0))
         END AS flstmtitem_year,
-        formatMoney(COALESCE(flrptyr.flrpt_debits,0)) AS flstmtitem_yeardb,
-        formatMoney(COALESCE(flrptyr.flrpt_credits,0)) AS flstmtitem_yearcr,
+        (COALESCE(flrptyr.flrpt_debits,0)) AS flstmtitem_yeardb,
+        (COALESCE(flrptyr.flrpt_credits,0)) AS flstmtitem_yearcr,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatprcnt(flrptyr.flrpt_diffprcnt)
-                ELSE formatprcnt(flrptyr.flrpt_endingprcnt)
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (flrptyr.flrpt_diffprcnt)
+                ELSE (flrptyr.flrpt_endingprcnt)
         END AS flstmtitem_yearprcnt,
-        formatMoney(COALESCE(flrptyr.flrpt_budget,0)) AS  flstmtitem_yearbudget,
-        formatprcnt(flrptyr.flrpt_budgetprcnt) AS flstmtitem_yearbudgetprcnt,
+        (COALESCE(flrptyr.flrpt_budget,0)) AS  flstmtitem_yearbudget,
+        (flrptyr.flrpt_budgetprcnt) AS flstmtitem_yearbudgetprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE((flrptyr.flrpt_diff-flrptyr.flrpt_budget),0))
-                ELSE formatMoney(COALESCE((flrptyr.flrpt_ending-flrptyr.flrpt_budget),0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE((flrptyr.flrpt_diff-flrptyr.flrpt_budget),0))
+                ELSE (COALESCE((flrptyr.flrpt_ending-flrptyr.flrpt_budget),0))
         END AS flstmtitem_yearbudgetdiff,
         CASE
-                WHEN ((flhead_type IN (''I'',''C'')) AND (flrptyr.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptyr.flrpt_diff-flrptyr.flrpt_budget)/flrptyr.flrpt_budget),0))
-                WHEN ((flhead_type = ''B'') AND (flrptyr.flrpt_budget > 0)) THEN
-                        formatprcnt(COALESCE(((flrptyr.flrpt_ending-flrptyr.flrpt_budget)/flrptyr.flrpt_budget),0))
-                ELSE ''-''
+                WHEN ((flhead_type IN ('I','C')) AND (flrptyr.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptyr.flrpt_diff-flrptyr.flrpt_budget)/flrptyr.flrpt_budget),0))
+                WHEN ((flhead_type = 'B') AND (flrptyr.flrpt_budget > 0)) THEN
+                        (COALESCE(((flrptyr.flrpt_ending-flrptyr.flrpt_budget)/flrptyr.flrpt_budget),0))
+                ELSE NULL
         END AS flstmtitem_yearbudgetdiffprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptprmo.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptprmo.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptprmo.flrpt_diff,0))
+                ELSE (COALESCE(flrptprmo.flrpt_ending,0))
         END AS flstmtitem_prmonth,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatprcnt(flrptprmo.flrpt_diffprcnt)
-                ELSE formatprcnt(flrptprmo.flrpt_endingprcnt)
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (flrptprmo.flrpt_diffprcnt)
+                ELSE (flrptprmo.flrpt_endingprcnt)
         END AS flstmtitem_prmonthprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptmo.flrpt_diff-flrptprmo.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptmo.flrpt_ending-flrptprmo.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptmo.flrpt_diff-flrptprmo.flrpt_diff,0))
+                ELSE (COALESCE(flrptmo.flrpt_ending-flrptprmo.flrpt_ending,0))
         END AS flstmtitem_prmonthdiff,
         CASE
-                WHEN ((flhead_type IN (''I'',''C'')) AND (flrptprmo.flrpt_diff > 0)) THEN
-                        formatprcnt(COALESCE((flrptmo.flrpt_diff-flrptprmo.flrpt_diff)/flrptprmo.flrpt_diff,0))
-                WHEN ((flhead_type = ''B'') AND (flrptprmo.flrpt_ending > 0)) THEN
-                        formatprcnt(COALESCE((flrptmo.flrpt_ending-flrptprmo.flrpt_ending)/flrptprmo.flrpt_ending,0))
-                ELSE ''-''
+                WHEN ((flhead_type IN ('I','C')) AND (flrptprmo.flrpt_diff > 0)) THEN
+                        (COALESCE((flrptmo.flrpt_diff-flrptprmo.flrpt_diff)/flrptprmo.flrpt_diff,0))
+                WHEN ((flhead_type = 'B') AND (flrptprmo.flrpt_ending > 0)) THEN
+                        (COALESCE((flrptmo.flrpt_ending-flrptprmo.flrpt_ending)/flrptprmo.flrpt_ending,0))
+                ELSE NULL
         END AS flstmtitem_prmonthdiffprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptprqt.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptprqt.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptprqt.flrpt_diff,0))
+                ELSE (COALESCE(flrptprqt.flrpt_ending,0))
         END AS flstmtitem_prqtr,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatprcnt(flrptprqt.flrpt_diffprcnt)
-                ELSE formatprcnt(flrptprqt.flrpt_endingprcnt)
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (flrptprqt.flrpt_diffprcnt)
+                ELSE (flrptprqt.flrpt_endingprcnt)
         END AS flstmtitem_prqtrprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptqt.flrpt_diff-flrptprqt.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptqt.flrpt_ending-flrptprqt.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptqt.flrpt_diff-flrptprqt.flrpt_diff,0))
+                ELSE (COALESCE(flrptqt.flrpt_ending-flrptprqt.flrpt_ending,0))
         END AS flstmtitem_prqtrdiff,
         CASE
-                WHEN ((flhead_type IN (''I'',''C'')) AND (flrptprqt.flrpt_diff > 0)) THEN
-                        formatprcnt(COALESCE((flrptqt.flrpt_diff-flrptprqt.flrpt_diff)/flrptprqt.flrpt_diff,0))
-                WHEN ((flhead_type = ''B'') AND (flrptprqt.flrpt_ending > 0)) THEN
-                        formatprcnt(COALESCE((flrptqt.flrpt_ending-flrptprqt.flrpt_ending)/flrptprqt.flrpt_ending,0))
-                ELSE ''-''
+                WHEN ((flhead_type IN ('I','C')) AND (flrptprqt.flrpt_diff > 0)) THEN
+                        (COALESCE((flrptqt.flrpt_diff-flrptprqt.flrpt_diff)/flrptprqt.flrpt_diff,0))
+                WHEN ((flhead_type = 'B') AND (flrptprqt.flrpt_ending > 0)) THEN
+                        (COALESCE((flrptqt.flrpt_ending-flrptprqt.flrpt_ending)/flrptprqt.flrpt_ending,0))
+                ELSE NULL
         END AS flstmtitem_prqtrdiffprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptpryr.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptpryr.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptpryr.flrpt_diff,0))
+                ELSE (COALESCE(flrptpryr.flrpt_ending,0))
         END AS flstmtitem_pryear,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatprcnt(flrptpryr.flrpt_diffprcnt)
-                ELSE formatprcnt(flrptpryr.flrpt_endingprcnt)
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (flrptpryr.flrpt_diffprcnt)
+                ELSE (flrptpryr.flrpt_endingprcnt)
         END AS flstmtitem_pryearprcnt,
         CASE
-                WHEN (flhead_type IN (''I'',''C'')) THEN
-                        formatMoney(COALESCE(flrptyr.flrpt_diff-flrptpryr.flrpt_diff,0))
-                ELSE formatMoney(COALESCE(flrptyr.flrpt_ending-flrptpryr.flrpt_ending,0))
+                WHEN (flhead_type IN ('I','C')) THEN
+                        (COALESCE(flrptyr.flrpt_diff-flrptpryr.flrpt_diff,0))
+                ELSE (COALESCE(flrptyr.flrpt_ending-flrptpryr.flrpt_ending,0))
         END AS flstmtitem_pryeardiff,
         CASE
-                WHEN ((flhead_type IN (''I'',''C'')) AND (flrptpryr.flrpt_diff > 0)) THEN
-                        formatprcnt(COALESCE((flrptyr.flrpt_diff-flrptpryr.flrpt_diff)/flrptpryr.flrpt_diff,0))
-                WHEN ((flhead_type = ''B'' ) AND (flrptpryr.flrpt_ending > 0)) THEN
-                        formatprcnt(COALESCE((flrptyr.flrpt_ending-flrptpryr.flrpt_ending)/flrptpryr.flrpt_ending,0))
-                ELSE ''-''
+                WHEN ((flhead_type IN ('I','C')) AND (flrptpryr.flrpt_diff > 0)) THEN
+                        (COALESCE((flrptyr.flrpt_diff-flrptpryr.flrpt_diff)/flrptpryr.flrpt_diff,0))
+                WHEN ((flhead_type = 'B' ) AND (flrptpryr.flrpt_ending > 0)) THEN
+                        (COALESCE((flrptyr.flrpt_ending-flrptpryr.flrpt_ending)/flrptpryr.flrpt_ending,0))
+                ELSE NULL
         END AS flstmtitem_pryeardiffprcnt
         FROM flhead CROSS JOIN (SELECT DISTINCT
                         flrpt_flhead_id,
@@ -1130,7 +1130,7 @@ BEGIN
                         flrpt_parent_id,
                         flrpt_altname
                 FROM flrpt
-                WHERE ((NOT (flrpt_type IN (''G'',''I'',''S'')))
+                WHERE ((NOT (flrpt_type IN ('G','I','S')))
                 AND (flrpt_flhead_id=_p.flhead_id)
                 AND (flrpt_period_id=pPeriodId)
                 AND (flrpt_username=CURRENT_USER))) AS flrpt
@@ -1139,7 +1139,7 @@ BEGIN
                                 AND (flrptmo.flrpt_order=flrpt.flrpt_order)
                                 AND (flrptmo.flrpt_flhead_id=flrpt.flrpt_flhead_id)
                                 AND (flrptmo.flrpt_period_id=flrpt.flrpt_period_id)
-                                AND (flrptmo.flrpt_interval=''M'')
+                                AND (flrptmo.flrpt_interval='M')
                                 AND (flrptmo.flrpt_username=flrpt.flrpt_username))
                         LEFT OUTER JOIN flrpt flrptqt
                                 ON ((flrptqt.flrpt_type=flrpt.flrpt_type)
@@ -1160,21 +1160,21 @@ BEGIN
                                 AND (flrptprmo.flrpt_order=flrpt.flrpt_order)
                                 AND (flrptprmo.flrpt_flhead_id=flrpt.flrpt_flhead_id)
                                 AND (flrptprmo.flrpt_period_id=_priorMoPeriodId)
-                                AND (flrptprmo.flrpt_interval=''M'')
+                                AND (flrptprmo.flrpt_interval='M')
                                 AND (flrptprmo.flrpt_username=flrpt.flrpt_username))
                         LEFT OUTER JOIN flrpt flrptprqt
                                 ON ((flrptprqt.flrpt_type=flrpt.flrpt_type)
                                 AND (flrptprqt.flrpt_order=flrpt.flrpt_order)
                                 AND (flrptprqt.flrpt_flhead_id=flrpt.flrpt_flhead_id)
                                 AND (flrptprqt.flrpt_period_id=_priorQtPeriodId)
-                                AND (flrptprqt.flrpt_interval=''Q'')
+                                AND (flrptprqt.flrpt_interval='Q')
                                 AND (flrptprqt.flrpt_username=flrpt.flrpt_username))
                         LEFT OUTER JOIN flrpt flrptpryr
                                 ON ((flrptpryr.flrpt_type=flrpt.flrpt_type)
                                 AND (flrptpryr.flrpt_order=flrpt.flrpt_order)
                                 AND (flrptpryr.flrpt_flhead_id=flrpt.flrpt_flhead_id)
                                 AND (flrptpryr.flrpt_period_id=_priorYrPeriodId)
-                                AND (flrptpryr.flrpt_interval=''Y'')
+                                AND (flrptpryr.flrpt_interval='Y')
                                 AND (flrptpryr.flrpt_username=flrpt.flrpt_username))
         WHERE (flhead_id=flrpt.flrpt_flhead_id)
         ORDER BY flstmtitem_order
@@ -1243,10 +1243,10 @@ BEGIN
         _row.flstmtitem_subgrp := _subgrp + 1;
         RETURN NEXT _row;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION financialreport(INTEGER,_int4,bpchar,bool)
-  RETURNS SETOF fltrenditem AS '
+  RETURNS SETOF fltrenditem AS $$
 DECLARE
   pFlheadId ALIAS FOR $1;
   pPeriodIds ALIAS FOR $2;
@@ -1295,9 +1295,9 @@ BEGIN
                 flrpt_accnt_id,
                 formatindent(flgrp.flgrp_name,flrpt.flrpt_level) AS flrpt_name,
                 CASE
-                        WHEN (flgrp_summarize AND (_type IN (''I'',''C''))) THEN
+                        WHEN (flgrp_summarize AND (_type IN ('I','C'))) THEN
                                 (COALESCE(flrpt_diff,0))
-                        WHEN (flgrp_summarize AND (_type = ''B'')) THEN
+                        WHEN (flgrp_summarize AND (_type = 'B')) THEN
                                 (COALESCE(flrpt_ending,0))
                         ELSE NULL
                 END AS f_fld1,
@@ -1305,7 +1305,7 @@ BEGIN
         FROM flrpt,flgrp
         WHERE ((flrpt_flhead_id=pFlheadId)
         AND (flgrp_id=flrpt_type_id)
-        AND (flrpt_type=''G'')
+        AND (flrpt_type='G')
         AND (flrpt_period_id=pPeriodIds[1])
         AND (flrpt_interval=pInterval)
         AND (flrpt_username=CURRENT_USER))
@@ -1320,9 +1320,9 @@ BEGIN
                 flrpt_accnt_id,
                 formatindent(accnt_descrip,flrpt.flrpt_level) AS flrpt_name,
                 CASE
-                        WHEN (_type IN (''I'',''C'')) THEN
+                        WHEN (_type IN ('I','C')) THEN
                                 (COALESCE(flrpt_diff,0))
-                        WHEN (_type = ''B'') THEN
+                        WHEN (_type = 'B') THEN
                                 (COALESCE(flrpt_ending,0))
                         ELSE NULL
                 END AS f_fld1,
@@ -1331,7 +1331,7 @@ BEGIN
         WHERE ((flrpt_flhead_id=pFlheadId)
         AND (flrpt_accnt_id=accnt_id)
         AND (flitem_id=flrpt_type_id)
-        AND (flrpt_type=''I'')
+        AND (flrpt_type='I')
         AND (flrpt_period_id=pPeriodIds[1])
         AND (flrpt_interval=pInterval)
         AND (flrpt_username=CURRENT_USER))
@@ -1345,32 +1345,32 @@ BEGIN
                 flrpt_parent_id,
                 flrpt_accnt_id,
                 CASE
-                        WHEN (flrpt.flrpt_type=''T'' AND flrpt.flrpt_level=0) THEN
-                                COALESCE(flrpt.flrpt_altname, ''Total'')
-                        WHEN (flrpt.flrpt_type=''T'') THEN
-                                formatindent(COALESCE(flrpt.flrpt_altname, ''Subtotal'') ,flrpt.flrpt_level) 
+                        WHEN (flrpt.flrpt_type='T' AND flrpt.flrpt_level=0) THEN
+                                COALESCE(flrpt.flrpt_altname, 'Total')
+                        WHEN (flrpt.flrpt_type='T') THEN
+                                formatindent(COALESCE(flrpt.flrpt_altname, 'Subtotal') ,flrpt.flrpt_level) 
 
                         ELSE
-                                formatindent((''Type '' || flrpt.flrpt_type || '' '' || text(flrpt.flrpt_type_id)), flrpt.flrpt_level)
+                                formatindent(('Type ' || flrpt.flrpt_type || ' ' || text(flrpt.flrpt_type_id)), flrpt.flrpt_level)
                 END AS flstmtitem_name,
                 CASE
-                        WHEN (_type IN (''I'',''C'')) THEN
+                        WHEN (_type IN ('I','C')) THEN
                                 (COALESCE(flrpt_diff,0))
-                        WHEN (_type = ''B'') THEN
+                        WHEN (_type = 'B') THEN
                                 (COALESCE(flrpt_ending,0))
                         ELSE NULL
                 END AS f_fld1,
                 true AS display
         FROM flrpt
         WHERE ((flrpt_flhead_id=pFlheadId)
-        AND (flrpt_type NOT IN (''I'',''S'',''G''))
+        AND (flrpt_type NOT IN ('I','S','G'))
         AND (flrpt_period_id=pPeriodIds[1])
         AND (flrpt_interval=pInterval)
         AND (flrpt_username=CURRENT_USER))
         ORDER BY flrpt_order
         LOOP
 
-                IF _type IN (''I'',''C'') THEN
+                IF _type IN ('I','C') THEN
                         _grndttl := _p.f_fld1;
                 END IF;
 
@@ -1380,9 +1380,9 @@ BEGIN
                         LOOP
                                 SELECT
                                 CASE
-                                        WHEN (_type IN (''I'',''C'')) THEN
+                                        WHEN (_type IN ('I','C')) THEN
                                                 COALESCE(flrpt_diff,0)
-                                        WHEN (_type = ''B'') THEN
+                                        WHEN (_type = 'B') THEN
                                                 COALESCE(flrpt_ending,0)
                                         ELSE NULL
                                 END INTO _n
@@ -1393,7 +1393,7 @@ BEGIN
                                 AND (flrpt_username=CURRENT_USER)
                                 AND (flrpt_order=_p.flrpt_order));
                                 _fld[_i-1] := _n;
-                                IF _type IN (''I'',''C'') THEN
+                                IF _type IN ('I','C') THEN
                                         _grndttl := _grndttl+_n;
                                 END IF;
                         END LOOP;
@@ -1422,19 +1422,19 @@ BEGIN
                 _row.fltrenditem_accnt_id := _p.flrpt_accnt_id;
                 _row.fltrenditem_name := _p.flrpt_name;
                 IF (_p.display) THEN
-                        _row.fltrenditem_fld1 := formatMoney(_p.f_fld1);
-                        _row.fltrenditem_fld2 := formatMoney(_fld[1]);
-                        _row.fltrenditem_fld3 := formatMoney(_fld[2]);
-                        _row.fltrenditem_fld4 := formatMoney(_fld[3]);
-                        _row.fltrenditem_fld5 := formatMoney(_fld[4]);
-                        _row.fltrenditem_fld6 := formatMoney(_fld[5]);
-                        _row.fltrenditem_fld7 := formatMoney(_fld[6]);
-                        _row.fltrenditem_fld8 := formatMoney(_fld[7]);
-                        _row.fltrenditem_fld9 := formatMoney(_fld[8]);
-                        _row.fltrenditem_fld10 := formatMoney(_fld[9]);
-                        _row.fltrenditem_fld11 := formatMoney(_fld[10]);
-                        _row.fltrenditem_fld12 := formatMoney(_fld[11]);
-                        _row.fltrenditem_grndttl := formatMoney(_grndttl);
+                        _row.fltrenditem_fld1 := (_p.f_fld1);
+                        _row.fltrenditem_fld2 := (_fld[1]);
+                        _row.fltrenditem_fld3 := (_fld[2]);
+                        _row.fltrenditem_fld4 := (_fld[3]);
+                        _row.fltrenditem_fld5 := (_fld[4]);
+                        _row.fltrenditem_fld6 := (_fld[5]);
+                        _row.fltrenditem_fld7 := (_fld[6]);
+                        _row.fltrenditem_fld8 := (_fld[7]);
+                        _row.fltrenditem_fld9 := (_fld[8]);
+                        _row.fltrenditem_fld10 := (_fld[9]);
+                        _row.fltrenditem_fld11 := (_fld[10]);
+                        _row.fltrenditem_fld12 := (_fld[11]);
+                        _row.fltrenditem_grndttl := (_grndttl);
                 ELSE
                         _row.fltrenditem_fld1 := NULL;
                         _row.fltrenditem_fld2 := NULL;
@@ -1457,4 +1457,4 @@ BEGIN
         RETURN NEXT _row;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
