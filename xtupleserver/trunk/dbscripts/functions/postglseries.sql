@@ -31,7 +31,7 @@ BEGIN
     SELECT accnt_id INTO _discrepAccntid
       FROM accnt, metric
      WHERE ((metric_name=''GLSeriesDiscrepancyAccount'')
-       AND  (accnt_id=metric_value));
+       AND  (accnt_id=CAST(metric_value AS INTEGER)));
     IF (NOT FOUND) THEN
       RETURN -5;
     END IF;
