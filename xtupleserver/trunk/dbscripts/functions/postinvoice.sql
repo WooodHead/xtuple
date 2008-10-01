@@ -39,8 +39,14 @@ CREATE OR REPLACE FUNCTION addTaxToGLSeries(INTEGER, INTEGER, TEXT, TEXT, TEXT, 
     _count := 0;
     _returnVal := 0;
 
-    IF (pTaxId IS NULL) THEN	-- no tax id => not taxed
+    -- if there's no tax then there's nothing to add
+    IF (COALESCE(pAvalue,0) = 0
+        AND COALESCE(pBvalue,0) = 0
+        AND COALESCE(pCvalue,0) = 0) THEN
       RETURN 0;
+    -- if there IS tax but no tax_id to use for account lookup then fail
+    ELSIF (pTaxId IS NULL) THEN
+      RETURN NULL;
     END IF;
 
     FOR _t in SELECT tax_sales_accnt_id AS tax_accnt_id,
