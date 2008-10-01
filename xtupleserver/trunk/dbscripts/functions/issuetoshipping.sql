@@ -308,11 +308,12 @@ BEGIN
       shipitem_invhist_id )
     SELECT
       _shipheadid, pitemid, pQty,
-      _timestamp, CURRENT_USER, stdcost(item_id),
+      _timestamp, CURRENT_USER, invhist_invqty * invhist_unitcost,
       _invhistid
-    FROM toitem, item
+    FROM toitem, item, invhist
     WHERE ((toitem_id=pitemid)
-    AND (item_id=toitem_item_id));
+    AND (item_id=toitem_item_id)
+    AND (invhist_id=_invhistid));
 
   ELSE
     RETURN -11;
