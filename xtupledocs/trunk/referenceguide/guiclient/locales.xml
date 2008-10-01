@@ -13,11 +13,13 @@
   <para>Locales are associated with users and define the format for date,
   time, and numbers. Locales are also used to search for translation files and
   to specify decimal precision and some of the colors that the user sees on
-  the screen. Part of defining a Locale is setting the language and,
-  optionally, the Country. It is the combination of language and Country that
-  determines date and numeric formats and which translation file will be used.
-  For example, a Locale that references English and the United States will
-  display as follows:</para>
+  the screen. This is a powerful feature that allows each user to interact
+  with the application in their native language and formats.</para>
+  <para>Part of defining a Locale is setting the language and, optionally, the
+  Country. It is the combination of language and Country that determines date
+  and numeric formats and which translation file will be used. For example, a
+  Locale that references English and the United States will display as
+  follows:</para>
   <variablelist>
     <varlistentry>
       <term>Date</term>
@@ -79,8 +81,8 @@
   System &gt; Master Information &gt; Countries and observing the abbreviation
   column. If the xTuple client does not find a file that matches both Language
   and Country (<filename>xTuple.xx_yy.qm</filename>) it next looks for a file
-  that contains the Language only (e.g., <filename>xTuple.xx.qm</filename>).
-  </para>
+  that contains the Language only (e.g.,
+  <filename>xTuple.xx.qm</filename>).</para>
   <para>If no .qm translation file is found, the xTuple client will report the
   error and continue the logon. The user will be presented the screens in the
   default language, which is English. The conventions established for the
@@ -128,10 +130,10 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Locale definitions. The edit
-        screen is the same as that for creating a new Locale
-        definition&mdash;except that when editing, the fields will contain
-        Locale information. Double-clicking on a Locale master will also bring
-        you to the editing screen.</para>
+        screen is the same as that for creating a new Locale definition—except
+        that when editing, the fields will contain Locale information.
+        Double-clicking on a Locale master will also bring you to the editing
+        screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
