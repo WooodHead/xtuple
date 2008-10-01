@@ -57,11 +57,11 @@
     <varlistentry role="standard">
       <term>Enable Multiple Sites</term>
       <listitem>
-        <para>Select to allow more than one Site to be entered in the
-        system. If multiple Sites are not enabled, your system will be
-        single Site only. Users will be prevented from creating more than
-        one Site. If your system has multiple Sites defined, this
-        option will be hidden.</para>
+        <para>Select to allow more than one Site to be entered in the system.
+        If multiple Sites are not enabled, your system will be single Site
+        only. Users will be prevented from creating more than one Site. If
+        your system has multiple Sites defined, this option will be
+        hidden.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -103,8 +103,8 @@
       <term>Next #</term>
       <listitem>
         <para>The next sequentially available Transfer Order Number will
-        display here. You may change the number&mdash;creating a new basis for the
-        next Transfer Order Number&mdash;by typing the new number into this field.
+        display here. You may change the number—creating a new basis for the
+        next Transfer Order Number—by typing the new number into this field.
         Any changes you make here will be reflected the next time a new
         Transfer Order is created.</para>
       </listitem>
@@ -112,9 +112,9 @@
     <varlistentry role="standard">
       <term>Default Transit Site</term>
       <listitem>
-        <para>If multiple Sites are enabled, specify the default Transit
-        Site. The specified Site will be pre-selected by default
-        whenever Transfer Orders are entered.</para>
+        <para>If multiple Sites are enabled, specify the default Transit Site.
+        The specified Site will be pre-selected by default whenever Transfer
+        Orders are entered.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -126,6 +126,41 @@
         create Lot/Serial Item Sites, the Lot/Serial tracking capability is
         disabled. If your system has Lot/Serial Item Sites defined, this
         option will be hidden.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Costing Methods Allowed</term>
+      <listitem>
+        <para>Select any or all of the available methods to value inventory
+        transactions for an Item Site. If any Item Sites exist for a
+        particular Cost Method, that Cost Method is disabled to prevent
+        unselecting.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Average</term>
+            <listitem>
+              <para>Cost distributions for an Item Site is based on an average
+              of all costs accumulated for the Item Site. The Quantity on Hand
+              of Item Sites defined with this Cost Method will not be allowed
+              to go negative.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Standard</term>
+            <listitem>
+              <para>Cost distributions for an Item Site is based on the
+              Standard Cost posted for the Item.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Job</term>
+            <listitem>
+              <para>Cost distributions for an Item Site is based on actual
+              accumulation of costs on a Work Order. This Cost Method is used
+              exclusively by Items with Type of "Job".</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -184,8 +219,7 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Disallow Unposted Slip # Duplications within a
-            Site</term>
+            <term>Disallow Unposted Slip # Duplications within a Site</term>
             <listitem>
               <para>Prevents duplicate "Unposted" Count Slip numbers from
               existing within a given Site. However, duplicate "Unposted"
@@ -203,8 +237,8 @@
             <term>Disallow All Slip # Duplications within a Site</term>
             <listitem>
               <para>Prevents duplicate Count Slip numbers from existing within
-              a given Site. However, duplicate Count Slip numbers may
-              exist within multiple Sites.</para>
+              a given Site. However, duplicate Count Slip numbers may exist
+              within multiple Sites.</para>
             </listitem>
           </varlistentry>
           <varlistentry>

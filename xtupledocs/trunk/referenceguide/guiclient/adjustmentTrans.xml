@@ -25,9 +25,9 @@
     </screenshot></para>
   <note>
     <para>Use the Miscellaneous Adjustment utility to handle Inventory
-    adjustments not covered by another transaction type&mdash;for example,
-    Receipt from Purchasing, Receipt from Manufacturing, Scrap, etc. For a
-    complete list of Inventory transaction Types, see <xref
+    adjustments not covered by another transaction type—for example, Receipt
+    from Purchasing, Receipt from Manufacturing, Scrap, etc. For a complete
+    list of Inventory transaction Types, see <xref
     linkend="Anchor80421" />.</para>
   </note>
   <para>When creating a Miscellaneous Adjustment, you are presented with the
@@ -56,10 +56,9 @@
     <varlistentry>
       <term>Site</term>
       <listitem>
-        <para>Specify the Site where the Miscellaneous Adjustment should
-        be recorded. If an Item is located in more than one Site, be sure
-        to specify the correct Site for the Miscellaneous
-        Adjustment.</para>
+        <para>Specify the Site where the Miscellaneous Adjustment should be
+        recorded. If an Item is located in more than one Site, be sure to
+        specify the correct Site for the Miscellaneous Adjustment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -104,10 +103,36 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Comments</term>
+      <term>Adjust Value</term>
+      <listitem>
+        <para>The Cost tab will be visible only if Average Costing is enabled
+        on the Configure IM screen. The Cost tab will be enabled only if
+        Average Costing is the Cost Method selected for the Item Site being
+        adjusted. If Adjust Value is checked then the transaction will affect
+        the value of perpetual inventory using the following Costs:</para>
+      </listitem>
+      <variablelist>
+        <varlistentry>
+          <term>Calculated</term>
+          <listitem>
+            <para>Use the average cost calculation to determine perpetual
+            inventory value and distribute costs for this transaction.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Manual</term>
+          <listitem>
+            <para>Use the Total Cost entered to determine perpetual inventory
+            value and distribute costs for this transaction.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
-        Comments related to the adjustment.</para>
+        Notes related to the adjustment.</para>
       </listitem>
     </varlistentry>
   </variablelist>

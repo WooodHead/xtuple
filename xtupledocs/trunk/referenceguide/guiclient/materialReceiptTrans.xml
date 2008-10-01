@@ -94,8 +94,8 @@
         <para>Enter the Work Order Number of the Work Order you want to issue
         the received materials to. The browse button located to the right of
         the field leads to a searchable Work Orders list. The list will
-        include Work Orders whose supplying Site matches the Site
-        the materials are being received into.</para>
+        include Work Orders whose supplying Site matches the Site the
+        materials are being received into.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -133,10 +133,36 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Comments</term>
+      <term>Adjust Value</term>
+      <listitem>
+        <para>The Cost tab will be visible only if Average Costing is enabled
+        on the Configure IM screen. The Cost tab will be enabled only if
+        Average Costing is the Cost Method selected for the Item Site being
+        adjusted. If Adjust Value is checked then the transaction will affect
+        the value of perpetual inventory using the following Costs:</para>
+      </listitem>
+      <variablelist>
+        <varlistentry>
+          <term>Calculated</term>
+          <listitem>
+            <para>Use the average cost calculation to determine perpetual
+            inventory value and distribute costs for this transaction.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Manual</term>
+          <listitem>
+            <para>Use the Total Cost entered to determine perpetual inventory
+            value and distribute costs for this transaction.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
-        Comments related to the Material Receipt.</para>
+        Notes related to the Material Receipt.</para>
       </listitem>
     </varlistentry>
   </variablelist>

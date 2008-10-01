@@ -140,6 +140,47 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Costing Method</term>
+      <listitem>
+        <para>Specify the Item Site Costing Method by selecting one of the
+        available options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>None</term>
+            <listitem>
+              <para>This Cost Method is authomatically selected for the Item
+              Site if the Control Method is 'None' or the Item Type is
+              'Reference'.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Average</term>
+            <listitem>
+              <para>Cost distributions are based on an average of all costs
+              accumulated for the Item Site. The Quantity on Hand of Item
+              Sites defined with this Cost Method will not be allowed to go
+              negative.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Standard</term>
+            <listitem>
+              <para>Cost distributions are based on the Standard Cost posted
+              for the Item.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Job</term>
+            <listitem>
+              <para>Cost distributions are based on actual accumulation of
+              costs on a Work Order. This Cost Method is used exclusively by
+              Items with Type of "Job".</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term><indexterm significance="normal">
           <primary>control methods</primary>
           <secondary>at item site level</secondary>
