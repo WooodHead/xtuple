@@ -270,15 +270,16 @@ BEGIN
 			  'Receive from Transit To Dest Warehouse',
 			  tc.costcat_asset_accnt_id,
 			  tc.costcat_asset_accnt_id,
-			  _itemlocSeries, _glDate) INTO _tmp
+			  _itemlocSeries, _glDate, (invhist_invqty * invhist_unitcost)) INTO _tmp
       FROM itemsite AS ti, costcat AS tc,
-	   itemsite AS si, costcat AS sc
+	   itemsite AS si, costcat AS sc, invhist
       WHERE ((ti.itemsite_costcat_id=tc.costcat_id)
         AND  (si.itemsite_costcat_id=sc.costcat_id)
         AND  (ti.itemsite_item_id=_toitemitemid)
         AND  (si.itemsite_item_id=_toitemitemid)
 	AND  (ti.itemsite_warehous_id=_to.tohead_dest_warehous_id)
-	AND  (si.itemsite_warehous_id=_to.tohead_trns_warehous_id));
+	AND  (si.itemsite_warehous_id=_to.tohead_trns_warehous_id)
+	AND  (invhist_id=_tmp));
 
       IF (_tmp < 0) THEN
 	RETURN _tmp;
