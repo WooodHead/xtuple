@@ -10,7 +10,6 @@ DECLARE
   _ra			RECORD;
   _recvvalue		NUMERIC := 0;
   _tmp			INTEGER;
-  _to			RECORD;
   _toitemitemid		INTEGER;
 
 BEGIN
@@ -233,52 +232,12 @@ BEGIN
       WHERE (raitem_id=_o.orderitem_id);
 
     ELSIF (_r.recv_order_type = 'TO' AND fetchMetricBool('MultiWhs')) THEN
-      SELECT tohead.* INTO _to
-	FROM tohead, toitem
-       WHERE ((tohead_id=toitem_tohead_id)
-         AND  (toitem_id=_r.recv_orderitem_id));
-
-      SELECT toitem_item_id INTO _toitemitemid
-      FROM toitem
-      WHERE (toitem_id=_r.recv_orderitem_id);
-
-      SELECT postInvTrans(si.itemsite_id, 'TS', _r.recv_qty, 'I/M',
-			  _r.recv_order_type, _to.tohead_number,
-			  _to.tohead_number,
-			  'Receive from Transit To Dest Warehouse',
-			  tc.costcat_asset_accnt_id,
-			  sc.costcat_asset_accnt_id,
-			  _itemlocSeries, _glDate) INTO _tmp
-      FROM itemsite AS ti, costcat AS tc,
-	   itemsite AS si, costcat AS sc
-      WHERE ((ti.itemsite_costcat_id=tc.costcat_id)
-        AND  (si.itemsite_costcat_id=sc.costcat_id)
-        AND  (ti.itemsite_item_id=_toitemitemid)
-        AND  (si.itemsite_item_id=_toitemitemid)
-	AND  (ti.itemsite_warehous_id=_to.tohead_dest_warehous_id)
-	AND  (si.itemsite_warehous_id=_to.tohead_trns_warehous_id));
-
-      IF (_tmp < 0) THEN
-	RETURN _tmp;
-      END IF;
-
-      -- record inventory history and qoh changes at dest warehouse but
-      -- there is only one g/l account to touch
-      SELECT postInvTrans(ti.itemsite_id, 'TR', _r.recv_qty, 'I/M',
-			  _r.recv_order_type, _to.tohead_number,
-			  _to.tohead_number,
-			  'Receive from Transit To Dest Warehouse',
-			  tc.costcat_asset_accnt_id,
-			  tc.costcat_asset_accnt_id,
-			  _itemlocSeries, _glDate) INTO _tmp
-      FROM itemsite AS ti, costcat AS tc,
-	   itemsite AS si, costcat AS sc
-      WHERE ((ti.itemsite_costcat_id=tc.costcat_id)
-        AND  (si.itemsite_costcat_id=sc.costcat_id)
-        AND  (ti.itemsite_item_id=_toitemitemid)
-        AND  (si.itemsite_item_id=_toitemitemid)
-	AND  (ti.itemsite_warehous_id=_to.tohead_dest_warehous_id)
-	AND  (si.itemsite_warehous_id=_to.tohead_trns_warehous_id));
+      SELECT interWarehouseTransfer(toitem_item_id, tohead_trns_warehous_id,
+            tohead_dest_warehous_id, _r.recv_qty, 
+            'TR', tohead_number, 'Receive from Transit To Dest Warehouse', 0, _glDate ) INTO _tmp
+      FROM tohead, toitem
+      WHERE ((tohead_id=toitem_tohead_id)
+        AND  (toitem_id=_r.recv_orderitem_id));     
 
       IF (_tmp < 0) THEN
 	RETURN _tmp;

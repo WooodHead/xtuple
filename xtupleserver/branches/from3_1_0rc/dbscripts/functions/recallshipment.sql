@@ -157,11 +157,13 @@ BEGIN
 			  ''Recall Shipment from Transit To Src Warehouse'',
 			  tc.costcat_asset_accnt_id,
 			  tc.costcat_asset_accnt_id,
-			  _itemlocSeries, _timestamp) INTO _invhistid
-      FROM itemsite AS ti, costcat AS tc
+			  _itemlocSeries, _timestamp,
+			  (invhist_invqty * invhist_unitcost)) INTO _invhistid
+      FROM itemsite AS ti, costcat AS tc, invhist
       WHERE ((ti.itemsite_costcat_id=tc.costcat_id)
         AND  (ti.itemsite_item_id=_ti.toitem_item_id)
-        AND  (ti.itemsite_warehous_id=_to.tohead_src_warehous_id));
+        AND  (ti.itemsite_warehous_id=_to.tohead_src_warehous_id)
+        AND  (invhist_id=_invhistid));
 
       IF (_invhistid < 0) THEN
 	RETURN _invhistid;

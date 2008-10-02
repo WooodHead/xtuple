@@ -23,6 +23,7 @@ DECLARE
   _stdcost		NUMERIC;
   _ti			RECORD;
   _to			RECORD;
+  _variance           	NUMERIC;
 
 BEGIN
 
@@ -191,7 +192,7 @@ BEGIN
       END LOOP;
     END IF;
 
-    FOR _ti IN SELECT toitem_id, toitem_item_id, SUM(shipitem_qty) AS qty
+    FOR _ti IN SELECT toitem_id, toitem_item_id, SUM(shipitem_qty) AS qty, SUM(shipitem_value) AS value
 		FROM toitem, shipitem
 		WHERE ((toitem_tohead_id=_to.tohead_id)
 		  AND  (shipitem_orderitem_id=toitem_id)
@@ -223,7 +224,7 @@ BEGIN
 			  'Ship from Src to Transit Warehouse',
 			  tc.costcat_asset_accnt_id,
 			  sc.costcat_shipasset_accnt_id,
-			  _itemlocSeries, _timestamp) INTO _invhistid
+			  _itemlocSeries, _timestamp, _ti.value) INTO _invhistid
       FROM itemsite AS ti, costcat AS tc,
 	   itemsite AS si, costcat AS sc
       WHERE ( (ti.itemsite_costcat_id=tc.costcat_id)
@@ -251,11 +252,29 @@ BEGIN
 			  'Ship from Src to Transit Warehouse',
 			  tc.costcat_asset_accnt_id,
 			  tc.costcat_asset_accnt_id,
-			  _itemlocSeries, _timestamp) INTO _invhistid
+			  _itemlocSeries, _timestamp, 
+			  _ti.value) INTO _invhistid
       FROM itemsite AS ti, costcat AS tc
       WHERE ((ti.itemsite_costcat_id=tc.costcat_id)
         AND  (ti.itemsite_item_id=_ti.toitem_item_id)
         AND  (ti.itemsite_warehous_id=_to.tohead_trns_warehous_id));
+
+      --See if there was a change in values during the transfer, if so record the variance
+      SELECT (invhist_invqty * invhist_unitcost - _ti.value) INTO _variance
+      FROM invhist
+      WHERE (invhist_id=_invhistid);
+
+      IF (_variance > 0) THEN
+        PERFORM insertGLTransaction( 'S/R', _shiphead.shiphead_order_type, _to.tohead_number, 
+                                     'Transfer Order - Transfer Variance',
+                                     tc.costcat_invcost_accnt_id, tc.costcat_asset_accnt_id, _invhistid,
+                                     _variance,
+                                     CAST(_timestamp AS DATE) )
+        FROM itemsite AS ti, costcat AS tc
+        WHERE ( (ti.itemsite_costcat_id=tc.costcat_id)
+        AND  (ti.itemsite_item_id=_ti.toitem_item_id)
+        AND  (ti.itemsite_warehous_id=_to.tohead_trns_warehous_id) );
+      END IF;
 
       IF (_result < 0) THEN
 	RETURN _result;
