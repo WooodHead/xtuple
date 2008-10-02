@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>packages</primary>
+      <secondary>creating new</secondary>
+    </indexterm> Package</title>
+  <para>Enter content here. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/package.png" />
+        </imageobject>
+        <caption>Create New Package</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Package, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>First</term>
+      <listitem>
+        <para>Select a Title from the list of available Titles.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Package.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Comments to a Contact, select the "Comments" tab at the bottom
+  of the "Contact" screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/package_recordsTab.png" />
+        </imageobject>
+        <caption>Package Contents</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Comments to a Contact, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>Display lists Comments related to the Contact.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens the screen for creating a new Contact Comment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Opens a read-only view of the Contact Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Contact Characteristics are user-defined definitions of a Contact
+  which may be used to provide additional layers of description. To enter
+  <indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>creating new for contacts</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>contacts having</secondary>
+    </indexterm>Characteristics associated with a Contact, select the
+  "Characteristics" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/package_requirementsTab.png" />
+        </imageobject>
+        <caption>Package Requirements</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>Use Contact Characteristics, for example, to record and remember a
+    Contact's birthday&mdash;or similar personal information.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristics</term>
+      <listitem>
+        <para>Display lists the Characteristics related to the Contact.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Contact Characteristic.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Contact Characteristics. The
+        edit screen is the same as that for creating a new Contact
+        Characteristic&mdash;except that when editing, the fields will contain
+        Contact Characteristic information. Double-clicking on a Contact
+        Characteristic will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Contact Characteristic and then select this button
+        to remove the Contact Characteristic from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To locate where in the application the Contact is used, select the
+  "Uses of the Contact" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/package_dependenciesTab.png" />
+        </imageobject>
+        <caption>Package Dependencies</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Uses of the Contact" list displays information on all Contact
+  cross-references, including used-at reference, CRM Account Number, CRM
+  Account name, role, and active status.</para>
+  <para>To the far right of the list, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted used-at references.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a used-at reference and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
