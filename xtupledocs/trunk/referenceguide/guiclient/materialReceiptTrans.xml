@@ -140,23 +140,25 @@
         Average Costing is the Cost Method selected for the Item Site being
         adjusted. If Adjust Value is checked then the transaction will affect
         the value of perpetual inventory using the following Costs:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Calculated</term>
+            <listitem>
+              <para>Use the average cost calculation to determine perpetual
+              inventory value and distribute costs for this
+              transaction.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Manual</term>
+            <listitem>
+              <para>Use the Total Cost entered to determine perpetual
+              inventory value and distribute costs for this
+              transaction.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
-      <variablelist>
-        <varlistentry>
-          <term>Calculated</term>
-          <listitem>
-            <para>Use the average cost calculation to determine perpetual
-            inventory value and distribute costs for this transaction.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Manual</term>
-          <listitem>
-            <para>Use the Total Cost entered to determine perpetual inventory
-            value and distribute costs for this transaction.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
     </varlistentry>
     <varlistentry>
       <term>Notes</term>
