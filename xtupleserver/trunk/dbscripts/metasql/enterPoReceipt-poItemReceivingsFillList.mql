@@ -14,7 +14,7 @@ SELECT poitem_id, poitem_linenumber AS linenumber,
        poitem_qty_received AS qty_received,
        qtyToReceive(<? value("ordertype") ?>, poitem_id) AS qty_toreceive,
        'qty' AS qty_ordered_xtnumericrole,
-       'qty' AS qty_receieved_xtnumericrole,
+       'qty' AS qty_received_xtnumericrole,
        'qty' AS qty_toreceive_xtnumericrole
 FROM poitem 
   LEFT OUTER JOIN 
@@ -44,7 +44,7 @@ SELECT raitem_id, raitem_linenumber AS linenumber,
        raitem_qtyreceived AS qty_received,
        qtyToReceive(<? value("ordertype") ?>, raitem_id) AS qty_toreceive,
        'qty' AS qty_ordered_xtnumericrole,
-       'qty' AS qty_receieved_xtnumericrole,
+       'qty' AS qty_received_xtnumericrole,
        'qty' AS qty_toreceive_xtnumericrole
 
 FROM rahead, raitem 
@@ -79,7 +79,7 @@ SELECT toitem_id, toitem_linenumber AS linenumber,
        toitem_qty_received AS qty_received,
        qtyToReceive(<? value("ordertype") ?>, toitem_id) AS qty_toreceive,
        'qty' AS qty_ordered_xtnumericrole,
-       'qty' AS qty_receieved_xtnumericrole,
+       'qty' AS qty_received_xtnumericrole,
        'qty' AS qty_toreceive_xtnumericrole
 FROM tohead, itemsite
 <? if exists("selectedOnly") ?>
