@@ -8,11 +8,11 @@
       <secondary>creating new</secondary>
     </indexterm>Package</title>
   <para>Once a Package has been loaded into xTuple ERP, you have the ability
-  to review the Package's contents on the Package screen. You won't have the
-  ability to edit the Package, because the essential details about a Package
-  are defined at the Package level. However, it is helpful to be able to view
-  Package details for general information and debugging purposes. For
-  additional information, please see the <ulink
+  to review the Package's contents using the Package screen. You won't be able
+  to edit the Package, because Package details are defined at the Package
+  level. However, being able to view Package details is helpful for general
+  information and debugging purposes. For additional information, please see
+  the <ulink
   url="http://wiki.xtuple.org/CreateUpdaterPackages">CreateUpdaterPackages</ulink>
   wiki page.</para>
   <para>To view the details of a specific Package, select the VIEW button from
@@ -31,32 +31,36 @@
     <varlistentry>
       <term>Name</term>
       <listitem>
-        <para>Review name of package.</para>
+        <para>Displays the name of the Package, as defined in the
+        <code>package.xml</code> file.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Version</term>
       <listitem>
-        <para>Verify package version.</para>
+        <para>Displays the Package version, as defined in the
+        <code>package.xml</code> file.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Description</term>
       <listitem>
-        <para>Review description.</para>
+        <para>Displays the Package description, as defined in the
+        <code>package.xml</code> file.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Developer</term>
       <listitem>
-        <para>Review name of developer who created package. This could be the
-        name of an internal individual or company name.</para>
+        <para>Displays the name Package developer, as defined in the
+        <code>package.xml</code> file. The name used could be an individual or
+        a company name.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Enabled</term>
       <listitem>
-        <para>Verify whether the package is enabled.</para>
+        <para>Indicates whether the package is enabled or disabled.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -64,8 +68,8 @@
     <varlistentry>
       <term>Notes</term>
       <listitem>
-        <para>This is a scrolling text field with word-wrapping for entering
-        Notes related to the Package.</para>
+        <para>Displays any notes related to the Package, as defined in the
+        <code>package.xml</code> file.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -75,12 +79,14 @@
     <varlistentry>
       <term>CLOSE</term>
       <listitem>
-        <para>Closes the "Package" screen.</para>
+        <para>Closes the screen, returning you to the Packages master
+        list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To review Contents included in a Package, select the Contents tab at
-  the top of the "Package" screen. The following screen will appear:</para>
+  <para>To review the contents included in a Package, select the "Contents"
+  tab at the top of the "Package" screen. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -89,11 +95,29 @@
         <caption>Package Contents</caption>
       </mediaobject>
     </screenshot></para>
-  <para>Contents is a directory of script components contained in the package.
-  Information listed includes component Type, Name and Description.</para>
-  <para>To review packages required to load this package, select the
-  Requirements tab at the top of the "Package" screen. The following screen
-  will appear:</para>
+  <para>The contents screen displays a directory listing of all the components
+  contained in the Package. The following types of files may be included in a
+  Package:</para>
+  <itemizedlist>
+    <listitem>
+      <para>user interface forms</para>
+    </listitem>
+    <listitem>
+      <para>application scripts</para>
+    </listitem>
+    <listitem>
+      <para>images</para>
+    </listitem>
+    <listitem>
+      <para>report definitions</para>
+    </listitem>
+    <listitem>
+      <para>MetaSQL statements </para>
+    </listitem>
+  </itemizedlist>
+  <para>To review a list of any Packages required to load the Package, select
+  the "Requirements" tab at the top of the screen. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -103,10 +127,11 @@
       </mediaobject>
     </screenshot></para>
   <para>The "Requirements" list displays information on all packages required
-  to load the package including, package name, description, and
+  to load the Package, including Package name, description, and
   version.</para>
-  <para>To locate packages dependent on this package, select the
-  "Dependencies" tab. The following screen will appear:</para>
+  <para>To review a list of any Packages which depend on the Package, select
+  the "Dependencies" tab at the top of the screen. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -117,8 +142,4 @@
     </screenshot></para>
   <para>The "Dependencies" list displays information on all packages dependent
   on this package including, package name, description, and version.</para>
-  <para>For additional details regarding Packages topic please review the
-  following wiki page; <ulink
-  url="http://wiki.xtuple.org/CreateUpdaterPackages">
-  CreateUpdaterPackages</ulink></para>
 </section>
