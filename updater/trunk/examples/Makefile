@@ -11,6 +11,8 @@ all:    allknownelemspkg.gz	\
         unknownelem.gz		\
         unsupportedprereq.gz
 
+distclean: clean
+
 clean:
 	rm -f *.gz
 

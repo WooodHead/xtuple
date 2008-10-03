@@ -175,15 +175,15 @@ int main(int argc, char* argv[])
   {
     ParameterList params;
     params.append("name", _name);
-    params.append("copyright", _copyright);
-    params.append("version", _version);
-    params.append("build", QString("%1 %2").arg(__DATE__).arg(__TIME__));
+    params.append("copyright", _copyright.toAscii().data());
+    params.append("version",   _version.toAscii().data());
+    params.append("build", __DATE__ " " __TIME__); // use C++ string concat
 
     if (haveUsername)
       params.append("username", _user);
 
     if (haveDatabaseURL)
-      params.append("databaseURL", databaseURL);
+      params.append("databaseURL", databaseURL.toAscii().data());
 
     if (_evaluation)
       params.append("evaluation");
