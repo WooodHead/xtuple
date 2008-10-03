@@ -32,38 +32,48 @@
         <para>Enter a brief description of the Company.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>External Company</term>
       <listitem>
-        <para>Click to designate company as a pointer to a company on another
-        database. Only visible when Enable External Company Consolidation is
-        enabled. To learn more read the associated wiki topic <ulink
+        <para>Select to designate the Company as a pointer to a Company on
+        another database. This option will only be visible if external Company
+        consolidation is enabled in the system's Accounting configuration.
+        This option is also available only on xTuple ERP Standard Edition and
+        higher. To learn more read the associated wiki topic <ulink
         url="http://wiki.xtuple.org/MultiCompanyConsolidationTopic">here</ulink>.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Server</term>
-      <listitem>
-        <para>Enter the server address of the external company.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Port</term>
-      <listitem>
-        <para>Enter the port used by the external company server.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Database</term>
-      <listitem>
-        <para>Entere the database used bythe external company.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>TEST</term>
-      <listitem>
-        <para>Click the test button to confirm connection and external company
-        compatibility criteria.</para>
+        <tip>
+          <para>Once G/L Accounts have been created using a defined Company
+          segment, either manually or via synchronization, the "External
+          Company" option will no longer be editable.</para>
+        </tip>
+        <variablelist>
+          <varlistentry>
+            <term>Server</term>
+            <listitem>
+              <para>Enter the server address of the external Company.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Port</term>
+            <listitem>
+              <para>Enter the port used by the external Company server.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Database</term>
+            <listitem>
+              <para>Enter the database used by the external Company.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Test</term>
+            <listitem>
+              <para>Select to confirm the connection and external Company
+              compatibility criteria. This option will only be available once
+              the connection details have been entered.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

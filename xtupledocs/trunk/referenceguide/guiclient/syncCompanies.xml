@@ -2,11 +2,18 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="syncCompanies">
+<section id="syncCompanies" role="standard">
   <title><indexterm significance="normal">
       <primary>companies, synchronizing of</primary>
     </indexterm>Synchronize Companies</title>
-  <para>To Synchronize Companies, select Synchronize Companies from the menu.
+  <para>The synchronize Companies utility is designed to synchronize a parent
+  database with child databases for the purpose of consolidated financial
+  reporting. This utility will only be visible when external Company
+  consolidation is enabled--and then only when users have appropriate
+  permissions. To learn about using multi-Company consolidation, read the
+  associated wiki topic <ulink
+  url="http://wiki.xtuple.org/MultiCompanyConsolidationTopic">here</ulink>.</para>
+  <para>To synchronize Companies, select the "Synchronize Companies" option.
   The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -16,7 +23,7 @@
         <caption>Synchronize Companies</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When synchronizing companies, you are presented with the following
+  <para>When synchronizing Companies, you are presented with the following
   lists:</para>
   <variablelist>
     <varlistentry>
@@ -58,11 +65,8 @@
     <varlistentry>
       <term>SYNCHRONIZE</term>
       <listitem>
-        <para>Executes the company synchronization process.</para>
+        <para>Executes the Company synchronization process.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To learn about using multi-company consolidation, read the associated
-  wiki topic <ulink
-  url="http://wiki.xtuple.org/MultiCompanyConsolidationTopic">here.</ulink></para>
 </section>

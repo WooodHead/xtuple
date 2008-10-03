@@ -71,11 +71,11 @@
               Segment size value between 1 and 10.</para>
             </listitem>
           </varlistentry>
-          <varlistentry>
+          <varlistentry role="standard">
             <term>Enable External Company Consolidation</term>
             <listitem>
               <para>Check this setting to enable the ability associate a
-              company to another database that can be used to synchronize
+              Company to another database that can be used to synchronize
               trial balance information. To learn more read the associated
               wiki topic <ulink
               url="http://wiki.xtuple.org/MultiCompanyConsolidationTopic">here.</ulink></para>
@@ -189,13 +189,13 @@
       <term>Retained Earnings, Year End Account</term>
       <listitem>
         <para>Select a valid General Ledger Account. This is an Equity
-        Account. It will be credited if retained earnings are positive—and
-        debited if retained earnings are negative. The retained earnings
-        calculation occurs when a Fiscal Year is closed. Total Expenses for
-        the year are subtracted from total Revenues, and the balance is
-        transferred to the Year End Equity Account. The system then
-        automatically resets the beginning balances for Revenue and Expense
-        Accounts to $0 for the start of the new Fiscal Year.</para>
+        Account. It will be credited if retained earnings are
+        positive&mdash;and debited if retained earnings are negative. The
+        retained earnings calculation occurs when a Fiscal Year is closed.
+        Total Expenses for the year are subtracted from total Revenues, and
+        the balance is transferred to the Year End Equity Account. The system
+        then automatically resets the beginning balances for Revenue and
+        Expense Accounts to $0 for the start of the new Fiscal Year.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -287,9 +287,9 @@
       <term>Next A/P Memo #</term>
       <listitem>
         <para>The next sequentially available Accounts Payable Memo Number
-        will display here. You may change the number—creating a new basis for
-        the next A/P Memo Number—by typing the new number into this
-        field.</para>
+        will display here. You may change the number&mdash;creating a new
+        basis for the next A/P Memo Number&mdash;by typing the new number into
+        this field.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -310,9 +310,9 @@
       <term>Next A/R Memo #</term>
       <listitem>
         <para>The next sequentially available Accounts Receivable Memo Number
-        will display here. You may change the number—creating a new basis for
-        the next A/R Memo Number—by typing the new number into this
-        field.</para>
+        will display here. You may change the number&mdash;creating a new
+        basis for the next A/R Memo Number&mdash;by typing the new number into
+        this field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
