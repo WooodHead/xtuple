@@ -7,8 +7,22 @@
       <primary>packages</primary>
       <secondary>master list of</secondary>
     </indexterm>Packages</title>
-  <para>To load a new package, select the "packages" option. The following
-  screen will appear:</para>
+  <para>Packages are compressed files which may contain either a) custom
+  software designed to extend the functionality of xTuple ERP without touching
+  the core xTuple ERP source code or b) upgrade bundles designed to migrate
+  xTuple ERP databases from one version to the next. Using Packages,
+  third-party software developers can add features without needing C++
+  programming skills. And these features can be integrated seamlessly into
+  xTuple ERP independent of the release cycles and source code requirements
+  defined by xTuple. In short, Packages are flexible. And they make it easy
+  for software developers to add new features--or even just simple tweaks--to
+  customize and enhance the xTuple ERP experience. For additional information,
+  please see the <ulink
+  url="http://wiki.xtuple.org/CreateUpdaterPackages">CreateUpdaterPackages</ulink>
+  wiki page.</para>
+  <para>To view the complete list of Packages loaded into your xTuple ERP
+  system, select the "Packages" option. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -38,7 +52,8 @@
     <varlistentry>
       <term>LOAD</term>
       <listitem>
-        <para>Opens screen for loading a new Package.</para>
+        <para>Opens screen for loading a new Package. This option will only be
+        available to xTuple ERP administrators.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -51,13 +66,17 @@
     <varlistentry>
       <term>ENABLE</term>
       <listitem>
-        <para>Select to enable package.</para>
+        <para>Highlight a Package and then select this button to enable a
+        Package which has been disabled. This option will only be available to
+        xTuple ERP administrators.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DISABLE</term>
       <listitem>
-        <para>Select to disable package.</para>
+        <para>Highlight a Package and then select this button to disable a
+        Package which has been enabled. This option will only be available to
+        xTuple ERP administrators.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -70,11 +89,12 @@
     <varlistentry>
       <term>Automatically Update</term>
       <listitem>
-        <para>Select to allow for packages to automatically update.</para>
+        <para>Select to have the Packages master list automatically update
+        whenever there are changes to the information shown on the
+        screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>For additional details regarding this topic please review the
-  following wiki topic; <ulink
-  url="http://wiki.xtuple.org/CreateUpdaterPackages">CreateUpdaterPackages</ulink></para>
+  <xi:include href="package.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
