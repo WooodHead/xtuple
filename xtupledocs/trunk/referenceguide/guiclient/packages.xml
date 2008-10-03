@@ -7,7 +7,8 @@
       <primary>packages</primary>
       <secondary>master list of</secondary>
     </indexterm>List Packages</title>
-  <para>Enter content. The following screen will appear:</para>
+  <para>To load a new package, select the "packages" option. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -35,18 +36,9 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>NEW</term>
+      <term>LOAD</term>
       <listitem>
-        <para>Opens screen for creating a new Package.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem id="contactsEDIT">
-        <para>Enables you to edit highlighted Packages. The edit screen is the
-        same as that for creating a new Contact&mdash;except that when
-        editing, the fields will contain Package information. Double-clicking
-        on a Package will also bring you to the editing screen.</para>
+        <para>Opens screen for loading a new Package.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -57,11 +49,32 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>ENABLE</term>
+      <listitem>
+        <para>Select to enable package.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DISABLE</term>
+      <listitem>
+        <para>Select to disable package.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>DELETE</term>
       <listitem id="contactsDELETE">
         <para>Highlight a Package and then select this button to remove the
         Package from the list.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Automatically Update</term>
+      <listitem>
+        <para>Select to allow for packages to automatically update.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
+  <para>For additional details regarding this topic please review the
+  following wiki topic; <ulink
+  url="http://wiki.xtuple.org/CreateUpdaterPackages">CreateUpdaterPackages</ulink></para>
 </section>
