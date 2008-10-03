@@ -96,8 +96,7 @@
       </mediaobject>
     </screenshot></para>
   <para>The contents screen displays a directory listing of all the components
-  contained in the Package. The following types of files may be included in a
-  Package:</para>
+  contained in the Package. Packages may include any of the following:</para>
   <itemizedlist>
     <listitem>
       <para>user interface forms</para>
@@ -112,7 +111,22 @@
       <para>report definitions</para>
     </listitem>
     <listitem>
-      <para>MetaSQL statements </para>
+      <para>MetaSQL statements</para>
+    </listitem>
+    <listitem>
+      <para>tables</para>
+    </listitem>
+    <listitem>
+      <para>views</para>
+    </listitem>
+    <listitem>
+      <para>stored procedures</para>
+    </listitem>
+    <listitem>
+      <para>application privileges</para>
+    </listitem>
+    <listitem>
+      <para>custom commands</para>
     </listitem>
   </itemizedlist>
   <para>To review a list of any Packages required to load the Package, select
