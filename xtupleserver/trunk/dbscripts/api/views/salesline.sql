@@ -144,12 +144,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   AND (item_number=NEW.item_number)
   AND (warehous_active)
   AND (warehous_shipping)
-  AND (warehous_code=COALESCE(NEW.sold_from_site,(
-                                SELECT warehous_code
-                                FROM usrpref,whsinfo
-                                WHERE ((usrpref_username=current_user)
-                                AND (usrpref_name='PreferredWarehouse')
-                                AND (warehous_id=CAST(usrpref_value AS INTEGER))))))));
+  AND (warehous_id=COALESCE(getWarehousId(NEW.sold_from_site,'ALL'),fetchprefwarehousid()))));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.salesline DO INSTEAD
