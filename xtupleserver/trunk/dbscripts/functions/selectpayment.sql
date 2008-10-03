@@ -42,32 +42,35 @@ BEGIN
     RETURN -2;
   END IF;
 
+  IF (_amount > 0) THEN
+    SELECT apselect_id INTO _apselectid
+    FROM apselect
+    WHERE (apselect_apopen_id=pApopenid);
 
-  SELECT apselect_id INTO _apselectid
-  FROM apselect
-  WHERE (apselect_apopen_id=pApopenid);
+    IF (FOUND) THEN
+      UPDATE apselect
+         SET apselect_amount=_amount,
+             apselect_discount=_discount,
+             apselect_curr_id = _p.apopen_curr_id
+       WHERE(apselect_id=_apselectid);
+    ELSE
+      SELECT NEXTVAL(''apselect_apselect_id_seq'') INTO _apselectid;
 
-  IF (FOUND) THEN
-    UPDATE apselect
-       SET apselect_amount=_amount,
-           apselect_discount=_discount,
-           apselect_curr_id = _p.apopen_curr_id
-     WHERE(apselect_id=_apselectid);
+      INSERT INTO apselect
+      ( apselect_id, apselect_apopen_id,
+        apselect_amount, apselect_discount,
+        apselect_bankaccnt_id,
+        apselect_curr_id, apselect_date )
+      VALUES
+      ( _apselectid, pApopenid,
+        _amount, _discount,
+        pBankaccntid,
+        _p.apopen_curr_id, _p.apopen_docdate );
+    END IF;
   ELSE
-    SELECT NEXTVAL(''apselect_apselect_id_seq'') INTO _apselectid;
-
-    INSERT INTO apselect
-    ( apselect_id, apselect_apopen_id,
-      apselect_amount, apselect_discount,
-      apselect_bankaccnt_id,
-      apselect_curr_id, apselect_date )
-    VALUES
-    ( _apselectid, pApopenid,
-      _amount, _discount,
-      pBankaccntid,
-      _p.apopen_curr_id, _p.apopen_docdate );
+    _apselectid := 0;
   END IF;
-
+  
   RETURN _apselectid;
 
 END;
