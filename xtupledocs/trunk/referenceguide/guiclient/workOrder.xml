@@ -10,8 +10,8 @@
   <para>Work Orders define requirements for the production of manufactured
   Items. You may also create Work Orders for purchased items that you normally
   purchase, but you occasionally manufacture. These Items may have a Bill of
-  Materials (BOM)—or not. The system supports both BOM-based and
-  non-BOM-based Work Orders.</para>
+  Materials (BOM)—or not. The system supports both BOM-based and non-BOM-based
+  Work Orders.</para>
   <variablelist>
     <varlistentry>
       <term>BOM-based</term>
@@ -349,18 +349,21 @@
     <varlistentry>
       <term>Cost Recognition</term>
       <listitem>
-        <para><remark>findme</remark></para>
+        <para>Used by Work Orders for Job and Average Cost Items to determine
+        how and when costs are recognized:</para>
         <variablelist>
           <varlistentry>
             <term>To Date</term>
             <listitem>
-              <para></para>
+              <para>All of the costs accumulated against the Work Order will
+              be debited to Inventory and credited to WIP.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Proportional</term>
             <listitem>
-              <para></para>
+              <para>Costs are recognized in proportion to the total costs
+              posted and the total Items received to date.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -368,10 +371,9 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>If the Work Order is for a Job Item, additional options related to
-    the Cost of Sales recognition method will be shown. The default Cost of
-    Sales recognition method is defined at the system level; however, you may
-    change the setting manually at the Work Order level.</para>
+    <para>The default Cost Recognition method is defined at the system level;
+    however, you may change the setting manually at the Work Order
+    level.</para>
   </note>
   <para role="standard">When creating a Work Order, you have the option to
   specify which Revision of the Work Order Item's Bill of Materials and Bill
