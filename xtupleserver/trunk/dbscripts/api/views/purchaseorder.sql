@@ -8,7 +8,6 @@ BEGIN;
   SELECT
     pohead_number::varchar AS order_number,
     pohead_orderdate AS order_date,
-    pohead_status AS status,
     terms_code AS terms,
     warehous_code AS receiving_site,
     pohead_agent_username AS purchasing_agent,

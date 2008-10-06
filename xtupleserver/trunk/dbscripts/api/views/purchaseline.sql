@@ -1,0 +1,96 @@
+BEGIN;
+
+  --Purchase Order Line Item View
+
+  SELECT dropIfExists('VIEW', 'purchaseline', 'api');
+  CREATE OR REPLACE VIEW api.purchaseline AS
+
+  SELECT
+    pohead_number::varchar AS order_number,
+    poitem_linenumber AS line_number,
+    item_number,
+    warehous_code AS site,
+    expcat_code AS expense_category,
+    poitem_qty_ordered AS qty_ordered,
+    poitem_unitprice AS unit_price,
+    poitem_freight AS freight,
+    poitem_duedate AS due_date,
+    prj_number AS project_number,
+    poitem_vend_item_number AS vend_item_number,
+    poitem_vend_item_descrip AS vendor_description,
+    poitem_comments AS notes,
+    formatRevNumber('BOM',poitem_bom_rev_id) AS bill_of_materials_revision,
+    formatRevNumber('BOO',poitem_boo_rev_id) AS bill_of_operations_revision
+  FROM pohead
+    JOIN poitem ON (pohead_id=poitem_pohead_id)
+    LEFT OUTER JOIN prj ON (poitem_prj_id=prj_id)
+    LEFT OUTER JOIN expcat ON (poitem_expcat_id=expcat_id)
+    LEFT OUTER JOIN itemsite ON (poitem_itemsite_id=itemsite_id)
+    LEFT OUTER JOIN item ON (itemsite_item_id=item_id)
+    LEFT OUTER JOIN whsinfo ON (itemsite_warehous_id=warehous_id)
+  ORDER BY pohead_number,poitem_linenumber;
+--TODO add label to expense category
+GRANT ALL ON TABLE api.purchaseline TO openmfg;
+COMMENT ON VIEW api.purchaseline IS 'Purchase Order Line';
+
+  --Rules
+
+  CREATE OR REPLACE RULE "_INSERT" AS
+    ON INSERT TO api.purchaseline DO INSTEAD
+
+  INSERT INTO poitem (
+    poitem_pohead_id,
+    poitem_linenumber,
+    poitem_duedate,
+    poitem_itemsite_id,
+    poitem_vend_item_descrip,
+    poitem_qty_ordered,
+    poitem_unitprice,
+    poitem_vend_item_number,
+    poitem_comments,
+    poitem_expcat_id,
+    poitem_freight,
+    poitem_prj_id,
+    poitem_bom_rev_id,
+    poitem_boo_rev_id) 
+  VALUES (
+    getPoheadId(NEW.order_number),
+    NEW.line_number,
+    NEW.due_date,
+    getItemsiteId(COALESCE(NEW.site,(
+      SELECT warehous_code 
+      FROM whsinfo
+      WHERE (warehous_id=fetchPrefwarehousId())
+      )),NEW.item_number),
+    NEW.vendor_description,
+    NEW.qty_ordered,
+    NEW.unit_price,
+    NEW.vend_item_number,
+    NEW.notes,
+    getExpcatId(NEW.expense_category),
+    NEW.freight,
+    getPrjId(NEW.project_number),
+    getRevId('BOM',NEW.item_number,NEW.bill_of_materials_revision),
+    getRevId('BOO',NEW.item_number,NEW.bill_of_operations_revision));
+ 
+  CREATE OR REPLACE RULE "_UPDATE" AS
+  ON UPDATE TO api.purchaseline DO INSTEAD
+
+  UPDATE poitem SET
+    poitem_duedate=NEW.due_date,
+    poitem_qty_ordered=NEW.qty_ordered,
+    poitem_unitprice=NEW.unit_price,
+    poitem_comments=NEW.notes,
+    poitem_freight=NEW.freight,
+    poitem_prj_id=getPrjId(NEW.project_number),
+    poitem_bom_rev_id=getRevId('BOM',OLD.item_number,NEW.bill_of_materials_revision),
+    poitem_boo_rev_id=getRevId('BOO',OLD.item_number,NEW.bill_of_operations_revision)
+  WHERE (poitem_id=getPoitemId(OLD.order_number::text,OLD.line_number));
+
+  CREATE OR REPLACE RULE "_DELETE" AS
+  ON DELETE TO api.purchaseline DO INSTEAD
+
+  DELETE FROM poitem
+  WHERE (poitem_id=getPoitemId(OLD.order_number::text,OLD.line_number));
+
+COMMIT;

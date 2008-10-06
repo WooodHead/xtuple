@@ -6,12 +6,7 @@ CREATE VIEW api.salesline
 AS 
   SELECT 
      cohead_number::VARCHAR AS order_number,
-     CASE 
-       WHEN (coitem_subnumber=0) THEN
-         coitem_linenumber::VARCHAR
-       ELSE 
-         coitem_linenumber::VARCHAR || '.'::VARCHAR || coitem_subnumber::VARCHAR
-     END AS line_number,
+     formatsolinenumber(coitem_id)::VARCHAR AS line_number,
      l.item_number AS item_number,
      coitem_custpn AS customer_pn,
      s.item_number AS substitute_for,
