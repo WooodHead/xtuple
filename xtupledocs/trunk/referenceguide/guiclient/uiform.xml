@@ -36,7 +36,7 @@
       <term>Order</term>
       <listitem>
         <para>Specify the ranking of the screen. Having an order is useful
-        when you have more than one screen with the same name--as when testing
+        when you have more than one screen with the same name—as when testing
         different versions of the same screen, for example. The version of the
         screen having the lowest number will be used (e.g., 0 will be executed
         before 1). To switch between screen versions, simply give the screen
@@ -84,12 +84,12 @@
         they are imported using this option, they are stored in the database
         and associated with the specified screen definition. If you ever want
         or need to edit the UI file and do not have a copy stored locally, you
-        can simply export the UI file to your file system--and then re-import
+        can simply export the UI file to your file system—and then re-import
         it when you are done editing. Whenever you import a UI file, it
         automatically replaces whatever UI file was in place before it.</para>
         <warning>
           <para>Every time you import a UI file, the new UI file replaces
-          whatever UI file was imported previously--regardless of the name of
+          whatever UI file was imported previously—regardless of the name of
           the file(s).</para>
         </warning>
       </listitem>
@@ -100,7 +100,7 @@
         <para>Select to export the UI file associated with the screen. You
         would use this option if you need or want to edit the UI file and do
         not have a copy stored locally on your system. Once exported, the UI
-        can be edited using Qt Designer--and then re-imported into the
+        can be edited using Qt Designer—and then re-imported into the
         database using the import option. Whenever you import a UI file, it
         automatically replaces whatever UI file was in place before it.</para>
       </listitem>
