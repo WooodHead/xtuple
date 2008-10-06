@@ -10,10 +10,10 @@
       <primary>class codes</primary>
       <secondary>creating item sites for</secondary>
     </indexterm>Create Item Sites by Class Code</title>
-  <para>When setting up a new Site, you have the ability to create
-  batches of Item Sites&mdash;rather than having to create them one-at-a-time.
-  To create Item Sites by Class Code, select the "Create Item Sites by Class
-  Code" option. The following screen will appear:</para>
+  <para>When setting up a new Site, you have the ability to create batches of
+  Item Sites&mdash;rather than having to create them one-at-a-time. To create
+  Item Sites by Class Code, select the "Create Item Sites by Class Code"
+  option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -46,11 +46,11 @@
           <secondary>enforcing order parameters in</secondary>
         </indexterm>Enforce Order Parameters</term>
       <listitem>
-        <para>Order Parameters: Select to enforce Order Parameters.</para>
-        <para>If this option is selected, then Material Requirements Planning
-        (MRP) will follow the Order Parameters defined below when generating
-        Planned Replenishment Orders. If you want to enforce Order Parameters
-        on manual Orders as well, select the "on Manual Orders" option.</para>
+        <para>Order Parameters: Select to enforce Order Parameters. If this
+        option is selected, then Material Requirements Planning (MRP) will
+        follow the Order Parameters defined below when generating Planned
+        Replenishment Orders. If you want to enforce Order Parameters on
+        manual Orders as well, select the "on Manual Orders" option.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -335,11 +335,11 @@
       <listitem>
         <para>Select if Item is supplied at specified Site. If selected,
         "Supplied at" means that Purchase Orders may be issued for this Item
-        in this Site if the Item is a purchased Item, and Work Orders may
-        be issued for this Item in this Site if the Item is a
-        manufactured Item. These rules apply also to Planned Orders generated
-        when Material Requirements Planning (MRP) is run. Planned Orders may
-        only be released to "Supplied at" Item Sites.</para>
+        in this Site if the Item is a purchased Item, and Work Orders may be
+        issued for this Item in this Site if the Item is a manufactured Item.
+        These rules apply also to Planned Orders generated when Material
+        Requirements Planning (MRP) is run. Planned Orders may only be
+        released to "Supplied at" Item Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -387,11 +387,10 @@
     <varlistentry>
       <term>Sold from this Site</term>
       <listitem>
-        <para>Select if Item is sold from specified Site. If selected,
-        "Sold from" means that Sales Orders Line Items may request to Ship
-        from the Site. When adding Sales Order Line Items to a Sales
-        Order, a "Sold from" Site appears as the "Supplying
-        Site."</para>
+        <para>Select if Item is sold from specified Site. If selected, "Sold
+        from" means that Sales Orders Line Items may request to Ship from the
+        Site. When adding Sales Order Line Items to a Sales Order, a "Sold
+        from" Site appears as the "Supplying Site."</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -409,11 +408,11 @@
         <para>Select a number using the arrow buttons, or manually enter a
         value up to a maximum of 10. Value entered specifies the order in
         which Item Sites will be chosen during Sales Order and Sales Quote
-        creation. If an Item is located in more than one "Sold from"
-        Site, the Item Site with the highest ranking will be chosen
-        first. If two Item Sites happen to share the same ranking, selection
-        will be based on alphabetical order. The highest ranking an Item Site
-        can have is one (1).</para>
+        creation. If an Item is located in more than one "Sold from" Site, the
+        Item Site with the highest ranking will be chosen first. If two Item
+        Sites happen to share the same ranking, selection will be based on
+        alphabetical order. The highest ranking an Item Site can have is one
+        (1).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -491,8 +490,8 @@
         </indexterm>Multiple Location Control</term>
       <listitem>
         <para>Select if the specified Item is to be stored in multiple
-        Locations within a single Site. Items designated as Multiple
-        Location Control (MLC) Items require special processing whenever Item
+        Locations within a single Site. Items designated as Multiple Location
+        Control (MLC) Items require special processing whenever Item
         quantities are distributed.</para>
       </listitem>
     </varlistentry>
@@ -507,19 +506,19 @@
           <secondary>setting default locations in</secondary>
         </indexterm>Use Default Location</term>
       <listitem>
-        <para>Default Location: Select to designate one Location within a
-        Site as the default Location for the specified Item. This option
-        may be used for single Location and Multiple Location Control (MLC)
-        Items alike. You may find that Inventory distributions for MLC Items
-        are greatly simplified if you designate a default Location.</para>
+        <para>Default Location: Select to designate one Location within a Site
+        as the default Location for the specified Item. This option may be
+        used for single Location and Multiple Location Control (MLC) Items
+        alike. You may find that Inventory distributions for MLC Items are
+        greatly simplified if you designate a default Location.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Location</term>
       <listitem>
-        <para>Specify the Site Location to be used as the default
-        Location. The list will show all valid Site Locations for the
-        specified Item.</para>
+        <para>Specify the Site Location to be used as the default Location.
+        The list will show all valid Site Locations for the specified
+        Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -532,9 +531,9 @@
     <varlistentry>
       <term>Location Comment</term>
       <listitem>
-        <para>Enter any free-form Comment related to the Site Location.
-        This is additional information which may be placed on a Pick List or a
-        Pack List.</para>
+        <para>Enter any free-form Comment related to the Site Location. This
+        is additional information which may be placed on a Pick List or a Pack
+        List.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -546,9 +545,9 @@
           <varlistentry>
             <term>None</term>
             <listitem>
-              <para>This Cost Method is authomatically selected for the Item
-              Site if the Control Method is 'None' or the Item Type is
-              'Reference'.</para>
+              <para>This Cost Method is automatically selected for the Item
+              Site if the Control Method is "None" or the Item Type is
+              "Reference".</para>
             </listitem>
           </varlistentry>
           <varlistentry>
