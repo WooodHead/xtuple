@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="selectBillingQty">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>billing</primary>
       <secondary>controlling quantity for</secondary>
     </indexterm>Select Billing Quantity</title>
-  <para>To specify billing quantities for Line Items in the
-  "Select Order for Billing" screen, double-click on a Line Item in the "Line
-  Items" display&mdash;or highlight the Line Item and select the EDIT SELECTION
+  <para>To specify billing quantities for Line Items in the "Select Order for
+  Billing" screen, double-click on a Line Item in the "Line Items"
+  display&mdash;or highlight the Line Item and select the EDIT SELECTION
   button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/selectBillingQty.png"/>
+          <imagedata fileref="images/selectBillingQty.png" />
         </imageobject>
-        <caption>Select Billing Quantity for Line
-        Item</caption>
+        <caption>Select Billing Quantity for Line Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When selecting the billing quantity for a Line Item,
-  you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When selecting the billing quantity for a Line Item, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Sales Order #</term>
@@ -64,7 +61,7 @@
     <varlistentry>
       <term>Balance</term>
       <listitem>
-        <para>Displays remaining quantity to-be-shipped.</para>
+        <para>Displays remaining quantity to be shipped.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -87,13 +84,13 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>If you are shipping a partial quantity to a
-    Customer, be sure to leave the "Close this Line After Billing" option
-    unchecked. This will ensure the Sales Order Item remains open until the
-    full quantity has been shipped.</para>
+    <para>If you are shipping a partial quantity to a Customer, be sure to
+    leave the "Close this Line After Billing" option unchecked. This will
+    ensure the Sales Order Item remains open until the full quantity has been
+    shipped.</para>
   </tip>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

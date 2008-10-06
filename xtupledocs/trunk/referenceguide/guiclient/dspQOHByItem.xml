@@ -90,7 +90,7 @@
       <listitem>
         <para>Display lists Quantities on Hand by Item, using the specified
         parameters. If the "Show Inventory Value" box is selected, the display
-        will also show unit Cost, value, and non- netable value. Totals for
+        will also show unit Cost, value, and non-netable value. Totals for
         each column will be calculated at the bottom of the display. If a
         Quantity on Hand value displays in the color orange, this means the
         actual or projected Quantity on Hand is at or below the Reorder Level.
@@ -127,30 +127,30 @@
   to select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickTransfertoanotherWarehouse)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickTransfertoanotherWarehouse)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickAdjustthisQOH)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickAdjustthisQOH)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickResetthisQOHto0)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickResetthisQOHto0)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEditMisc.Count)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditMisc.Count)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickIssueCountTag)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueCountTag)" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>If an Item has a Default Location defined, the following menu option
-  will also be available—in addition to those mentioned above—when you
-  right-click on the Item:</para>
+  will also be available&mdash;in addition to those mentioned above&mdash;when
+  you right-click on the Item:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickPrintPackingList)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPrintPackingList)" />
   </variablelist>
 </section>
