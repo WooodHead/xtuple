@@ -19,7 +19,7 @@ BEGIN
    WHERE ( (itemloc_itemsite_id=pItemsiteId)
      AND (itemloc_location_id=pLocationId)
      AND (COALESCE(itemloc_ls_id, -1)=COALESCE(pLsId, -1))
-     AND (itemloc_expiration=pExpiration)
+     AND (COALESCE(itemloc_expiration,endoftime())=COALESCE(pExpiration,endoftime()))
      AND (COALESCE(itemloc_warrpurc,endoftime())=COALESCE(pWarranty,endoftime())) );
 
 -- Summarize itemlocrsrv qty for this location/itemsite
@@ -32,7 +32,7 @@ BEGIN
      WHERE ( (itemloc_itemsite_id=pItemsiteId)
        AND (itemloc_location_id=pLocationId)
        AND (COALESCE(itemloc_ls_id, -1)=COALESCE(pLsId, -1))
-       AND (itemloc_expiration=pExpiration)
+       AND (COALESCE(itemloc_expiration,endoftime())=COALESCE(pExpiration,endoftime()))
        AND (COALESCE(itemloc_warrpurc,endoftime())=COALESCE(pWarranty,endoftime())) );
   END IF;
 
