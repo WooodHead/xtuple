@@ -16,15 +16,17 @@ BEGIN
     SELECT pohead_status INTO _status
     FROM pohead
     WHERE (pohead_id=NEW.poitem_pohead_id);
-  END IF;
 
-  IF (TG_OP = 'INSERT') THEN
+    IF (NEW.poitem_itemsite_id=-1) THEN
+      NEW.poitem_itemsite_id := NULL;
+    END IF;
+    IF (NEW.poitem_expcat_id=-1) THEN
+      NEW.poitem_expcat_id := NULL;
+    END IF;
 
-    IF (_status='C') THEN
-      RAISE EXCEPTION 'New lines may not be inserted into a closed purchase order';
-    ELSIF (COALESCE(NEW.poitem_itemsite_id,-1) != -1 AND COALESCE(NEW.poitem_expcat_id,-1) != -1) THEN
+    IF (NEW.poitem_itemsite_id IS NOT NULL AND NEW.poitem_expcat_id IS NOT NULL) THEN
       RAISE EXCEPTION 'A purchase order line may not include both an inventory and non-inventory item';
-    ELSIF (COALESCE(NEW.poitem_itemsite_id,-1) = -1 AND COALESCE(NEW.poitem_expcat_id,-1) = -1) THEN
+    ELSIF (NEW.poitem_itemsite_id IS NULL AND NEW.poitem_expcat_id IS NULL) THEN
       RAISE EXCEPTION 'A purchase order line must specify either an inventory item or a non-inventory expense category';
     ELSIF (NEW.poitem_qty_ordered IS NULL) THEN
       RAISE EXCEPTION 'A purchase order line must specify a quantity';
@@ -37,6 +39,12 @@ BEGIN
       IF NOT (_check) THEN
         RAISE EXCEPTION 'The item is not a purchasable item type';
       END IF;
+    END IF;
+  END IF;
+
+  IF (TG_OP = 'INSERT') THEN
+    IF (_status='C') THEN
+      RAISE EXCEPTION 'New lines may not be inserted into a closed purchase order';
     END IF;
     
     --Fetch and apply default item source data if applicable    
@@ -165,8 +173,10 @@ BEGIN
   ELSE
     IF (TG_OP = 'UPDATE') THEN
 
-      IF (_status='C' OR (OLD.poitem_status = 'C' AND NEW.poitem_status='C')) THEN
-        RAISE EXCEPTION 'Status is closed, line items may not be updated.';
+      IF (NEW.poitem_itemsite_id != OLD.poitem_itemsite_id) THEN
+        RAISE EXCEPTION 'You may not change the item site for a line item.';
+      ELSIF (NEW.poitem_expcat_id != OLD.poitem_expcat_id) THEN
+        RAISE EXCEPTION 'You may not change the expense category for a line item.';
       END IF;
     
       IF (OLD.poitem_status <> NEW.poitem_status) THEN

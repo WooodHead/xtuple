@@ -31,18 +31,16 @@ BEGIN
   END IF;
 
   INSERT INTO pohead (pohead_status, pohead_number,
-		      pohead_orderdate, pohead_changedate,
-		      pohead_vend_id, pohead_fob, pohead_shipvia,
-		      pohead_ppdcol, pohead_specmsg,
+		      pohead_orderdate,
+		      pohead_fob, pohead_shipvia,
 		      pohead_freight, pohead_printed, pohead_tax,
 		      pohead_terms_id, pohead_warehous_id,
 		      pohead_vendaddr_id, pohead_agent_username,
 		      pohead_curr_id, pohead_saved
 	      ) VALUES (
 		      ''U'', fetchPoNumber(),
-		      _orderdate, CURRENT_DATE,
-		      pVendid, _head.pohead_fob, _head.pohead_shipvia,
-		      _head.pohead_ppdcol, _head.pohead_specmsg,
+		      _orderdate,
+		      _head.pohead_fob, _head.pohead_shipvia,
 		      _head.pohead_freight, false, _head.pohead_tax,
 		      _head.pohead_terms_id, _head.pohead_warehous_id,
 		      _head.pohead_vendaddr_id, _head.pohead_agent_username,
@@ -104,11 +102,11 @@ BEGIN
 
       INSERT INTO poitem (poitem_status, poitem_pohead_id, poitem_linenumber,
 			  poitem_duedate,
-			  poitem_itemsite_id, poitem_vend_id,
+			  poitem_itemsite_id,
 			  poitem_vend_item_descrip,
 			  poitem_vend_uom,
 			  poitem_invvenduomratio,
-			  poitem_qty_ordered, poitem_unitprice, poitem_nocharge,
+			  poitem_qty_ordered, poitem_unitprice,
 			  poitem_vend_item_number,
 			  poitem_comments, poitem_expcat_id,
 			  poitem_itemsrc_id,
@@ -117,13 +115,13 @@ BEGIN
 		    ) VALUES (
 			  ''U'', _tgtid, _lineitem.poitem_linenumber,
 			  _orderdate + COALESCE(_itemsrc.itemsrc_leadtime, 0),
-			  _lineitem.poitem_itemsite_id, pVendid,
+			  _lineitem.poitem_itemsite_id,
 			  COALESCE(_itemsrc.itemsrc_vend_item_descrip,
 				   _lineitem.poitem_vend_item_descrip),
 			  COALESCE(_itemsrc.itemsrc_vend_uom, _lineitem.poitem_vend_uom),
 			  COALESCE(_itemsrc.itemsrc_invvendoruomratio,
 				   _lineitem.poitem_invvenduomratio),
-			  _qty, _unitprice, _lineitem.poitem_nocharge,
+			  _qty, _unitprice,
 			  COALESCE(_itemsrc.itemsrc_vend_item_number,
 				   _lineitem.poitem_vend_item_number),
 			  _lineitem.poitem_comments, _lineitem.poitem_expcat_id,
@@ -135,7 +133,6 @@ BEGIN
   ELSE
     INSERT INTO poitem (poitem_status, poitem_pohead_id, poitem_linenumber,
 			poitem_duedate, poitem_itemsite_id,
-			poitem_vend_id,
 			poitem_vend_item_descrip, poitem_vend_uom,
 			poitem_invvenduomratio, poitem_qty_ordered,
 			poitem_unitprice,
@@ -144,7 +141,6 @@ BEGIN
 			poitem_stdcost
 		) SELECT ''U'', _tgtid, poitem_linenumber,
 			_orderdate + COALESCE(itemsrc_leadtime, 0), poitem_itemsite_id,
-			pVendid,
 			poitem_vend_item_descrip, poitem_vend_uom,
 			poitem_invvenduomratio, poitem_qty_ordered,
 			poitem_unitprice,
