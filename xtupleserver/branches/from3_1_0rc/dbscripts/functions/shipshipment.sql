@@ -258,6 +258,11 @@ BEGIN
       WHERE ((ti.itemsite_costcat_id=tc.costcat_id)
         AND  (ti.itemsite_item_id=_ti.toitem_item_id)
         AND  (ti.itemsite_warehous_id=_to.tohead_trns_warehous_id));
+      --We do not need to distribute lot/serial info for transit, post trans and discard dist detail
+      PERFORM postIntoTrialBalance(itemlocpost_glseq) FROM itemlocpost WHERE (itemlocpost_itemlocseries=_itemlocSeries);
+      PERFORM postInvHist(_invhistid);
+      DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
+      DELETE FROM itemlocpost WHERE (itemlocpost_itemlocSeries=_itemlocSeries);
 
       --See if there was a change in values during the transfer, if so record the variance
       SELECT (invhist_invqty * invhist_unitcost - _ti.value) INTO _variance
