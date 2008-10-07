@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518797">
+  <title><indexterm significance="normal">
+      <primary>work orders</primary>
+      <secondary>creating material requirements for</secondary>
+    </indexterm>Create W/O Material Requirement</title>
+  <para>To create a Work Order Material Requirement for an open ("O") Work
+  Order, select the "Create W/O Material Requirement" option. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/woMaterialItem.png" />
+        </imageobject>
+        <caption>Create Work Order Material Requirement</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a Work Order Material Requirement, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Work Order #</term>
+      <listitem>
+        <para>Enter the Work Order Number of the Work Order you want to create
+        a Material Requirement for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Displays Site code automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays Item Number automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Displays Work Order Status automatically when Work Order Number
+        is entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item you want to add to the parent
+        Item's Bill of Materials. This feature allows you to add Items to the
+        selected Work Order's list of Material Requirements on an ad hoc
+        basis.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Per</term>
+      <listitem>
+        <para>Enter the quantity of component Items required to produce one of
+        the Items manufactured by the selected Work Order. The component Item
+        is measured in its Inventory UOM. The Item manufactured by the Work
+        Order is measured in that Item's Inventory UOM.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Issue UOM</term>
+      <listitem>
+        <para>Specify the Unit of Measure (UOM) you want to use when issuing
+        Item quantity to the Work Order. Unless you specify an alternate UOM,
+        the Inventory UOM will be used by default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Scrap %</term>
+      <listitem>
+        <para>Enter the estimated Scrap percentage for the ad hoc
+        addition.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Required</term>
+      <listitem>
+        <para>Required: Displays the total quantity required, including
+        quantity per and Scrap allowance.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Issue Method</term>
+      <listitem>
+        <para>Select one of the available issue methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Push</term>
+            <listitem>
+              <para>Select if you want material for the Item to be issued to
+              the Work Order by a specific material issue transaction.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Pull</term>
+            <listitem>
+              <para>Select if you want material for the Item to be issued to
+              the Work Order by either a material backflush or an Operation
+              backflush.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Mixed</term>
+            <listitem>
+              <para>Select if you want the Item to take upon itself the issue
+              method applied to it initially&mdash;that is, either a pull or a
+              push.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Work Order Material
+        Requirement, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Work Order Material Requirement.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

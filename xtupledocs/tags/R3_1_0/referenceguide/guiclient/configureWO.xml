@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section923259">
+  <title><indexterm significance="normal">
+      <primary>configuration</primary>
+      <secondary>of manufacture module</secondary>
+    </indexterm>Configure Manufacture</title>
+  <para>To configure the Manufacture module, select the "Configure
+  Manufacture" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureWO.png" />
+        </imageobject>
+        <caption>Configure Manufacture Module</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When configuring the Manufacture module, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>work orders</primary>
+          <secondary>numbering of</secondary>
+        </indexterm>Next Work Order #</term>
+      <listitem>
+        <para>The next sequentially available Work Order Number will display
+        here. You may change the number&mdash;creating a new basis for the
+        next Work Order Number&mdash;by typing the new number into this field.
+        Any changes you make here will be reflected the next time a new Work
+        Order is created.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>W/O Number Creation</term>
+      <listitem>
+        <para>Select one of the available Work Order Number creation
+        methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Automatic</term>
+            <listitem>
+              <para>Work Order Numbers will be automatically incremented by 1
+              each time a new Work Order is created. These
+              automatically-generated numbers may not be edited. They are
+              read-only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Manual</term>
+            <listitem>
+              <para>Work Order Numbers must be entered manually whenever you
+              create a new Work Order.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Allow Override</term>
+            <listitem>
+              <para>Work Order Numbers will be automatically generated and
+              incremented, as under the "Automatic" option described above.
+              However, this option also allows you to manually override the
+              Work Order Number at the time of Work Order creation.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>work orders</primary>
+          <secondary>automatic explosion of</secondary>
+        </indexterm>Automatically Explode W/O's</term>
+      <listitem>
+        <para>Select if you want Work Orders to be exploded automatically.
+        Work Order explosion is the process whereby Work Order Material
+        Requirements and Work Order Operations are created for a Work Order.
+        If this option is selected, all parent Work Order Items will be
+        exploded by default. Child Work Orders will also be exploded by
+        default, if the Bill of Materials for the parent Item specifies that
+        child Work Orders should be created when the parent Work Order is
+        exploded. If this option is not selected, Work Orders will need to be
+        exploded manually.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>Auto fill Post Operation Qty. to Balance</term>
+      <listitem>
+        <para>Check this option if you want quantities to be automatically be
+        populated with the quantity balance due when posting
+        Operations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Work Order Changes to the Change Log</term>
+      <listitem>
+        <para>Select to post to the Change Log any changes made to Work
+        Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Explode W/O's Effective as of</term>
+      <listitem>
+        <para>Select one of the following Work Order explosion effectivity
+        dates:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Date of Explosion</term>
+            <listitem>
+              <para>Explode Work Orders effective on the date of explosion,
+              incorporating Bills of Materials and Bills of Operations
+              effective on that date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>W/O Start Date</term>
+            <listitem>
+              <para>Explode Work Orders effective on the scheduled start date,
+              incorporating Bills of Materials and Bills of Operations
+              effective on that date.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Pick a default explosion level if you have not configured the W/O
+    module to automatically explode Work Orders. If Work Orders are exploded
+    by default, the selection of an explosion level is not relevant.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>work orders</primary>
+          <secondary>default explosion levels for</secondary>
+        </indexterm>Default W/O Explosion Level</term>
+      <listitem>
+        <para>Select one of the following default explosion levels, if Work
+        Orders will not be exploded automatically by default:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Single Level</term>
+            <listitem>
+              <para>This option specifies that when Work Orders are exploded,
+              requirements should be created for the parent Work Order Items
+              only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Multiple Level</term>
+            <listitem>
+              <para>This option specifies that requirements should be created
+              for both parent and child Work Orders.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Performing a multiple level explosion does not create child Work
+    Orders. Child Work Orders must first be created before they can be
+    exploded. The easiest way to ensure that child Work Orders are created for
+    manufactured components is to select the "Create Child W/O at Parent W/O
+    Explosion" option found on the Bill of Materials.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>work orders</primary>
+          <secondary>default variance reporting for</secondary>
+        </indexterm>Inventory Item Cost Defaults</term>
+      <listitem>
+        <para>Specify preferences for the following defaults:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Post Material Usage Variances</term>
+            <listitem>
+              <para>Select to post material usage variances whenever Work
+              Order production is posted.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry role="openmfg">
+            <term>Post Labor Variances</term>
+            <listitem>
+              <para>Select to post labor variances whenever Work Order
+              Operations are posted.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Job Item COS Recognition Defaults</term>
+      <listitem>
+        <para>Select one of the following Cost of Sales recognition defaults
+        for Job Items:</para>
+        <note>
+          <para>The default method will be used when creating Work Orders for
+          Job Items. The method may be changed manually at the Work Order
+          header level.</para>
+        </note>
+        <variablelist>
+          <varlistentry>
+            <term>To Date</term>
+            <listitem>
+              <para>When Work Orders for Job items are shipped, all of the WIP
+              costs accumulated to date will be charged to Cost of
+              Sales.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Proportional</term>
+            <listitem>
+              <para>When Work Orders for Job items are shipped, a value up to
+              the proportional value of the total quantity shipped will be
+              charged to Cost of Sales. For example, if 3 Items are to be
+              shipped on a Job Work Order and all the material has been
+              issued&mdash;and if only 1 of the 3 is shipped&mdash;then 1/3 of
+              the value charged to WIP at that point will be charged to Cost
+              of Sales.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para role="openmfg">The appropriate reporting selections must be made in
+    the Bill of Operations to ensure that labor and overhead Costs associated
+    with setup and run time Operations are reported.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Shop Floor Workbench Posts</term>
+      <listitem>
+        <para>Select the Work Order processing method to be used by the Shop
+        Floor Workbench:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Production</term>
+            <listitem>
+              <para>Select to require a Production-posting approach on the
+              Shop Floor Workbench.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry role="openmfg">
+            <term>Operations</term>
+            <listitem>
+              <para>Select to require an Operations-posting approach on the
+              Shop Floor Workbench.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note role="openmfg">
+    <para>The Shop Floor Workbench cannot be used in a dual mode. The
+    Workbench must be configured to use either a Production-posting or an
+    Operations-posting approach.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Cancels any configuration settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the configuration settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

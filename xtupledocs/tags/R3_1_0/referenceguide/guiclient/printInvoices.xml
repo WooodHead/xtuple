@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657104">
+  <title><indexterm significance="normal">
+      <primary>invoices</primary>
+      <secondary>printing of</secondary>
+    </indexterm>Print Invoices</title>
+  <para>Although the system does not require you to print Invoices before
+  posting them individually (i.e., one-at-a-time), you are required to print
+  Invoices before posting them in batch mode. To print unposted Invoices,
+  select the "Print Invoices" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_Bill_printInvoices.png"
+                     />
+        </imageobject>
+        <caption>Print Invoices</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When printing Invoices, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>First Invoice #</term>
+      <listitem>
+        <para>The next Invoice Number in the automatic sequence of Invoice
+        Numbers will display here. Once this Invoice Number has been printed,
+        the next Invoice Number will appear. Default values for Invoice
+        Numbers are configurable at the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Invoices after Printing</term>
+      <listitem>
+        <para>Select to automatically post Invoices after they have been
+        printed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Invoices are posted effective on the date they are distributed, not
+    on the date they are posted&mdash;as might be assumed.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Invoice Copies</term>
+      <listitem>
+        <para>Specify details for the Invoice copies you want to print:</para>
+        <variablelist>
+          <varlistentry>
+            <term># of Copies</term>
+            <listitem>
+              <para>Indicate the number of copies you want to print.
+              Information about the specified copies will display below. To
+              add a Watermark, double-click on a copy line.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without printing Invoices, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If the Customer specified on the Invoice has an EDI Profile defined,
+    you may encounter an EDI processing interface when printing individual
+    Invoices.</para>
+  </tip>
+  <para>To add a Watermark to an Invoice, double-click on a copy line. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_Bill_addWatermark.png"
+                     />
+        </imageobject>
+        <caption>Add Watermark</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding a Watermark to an Invoice copy, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Watermark</term>
+      <listitem>
+        <para>Specify the name of the Watermark to be used for the selected
+        copy.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Prices</term>
+      <listitem>
+        <para>Select to show Prices in the selected copy.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without adding a Watermark, returning you to
+        the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the Watermark definition to the selected copy.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

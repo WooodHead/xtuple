@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section id="Section678017">
+  <title><indexterm>
+      <primary>availability</primary>
+      <secondary>by item</secondary>
+    </indexterm> <indexterm>
+      <primary>availability</primary>
+      <secondary>workbench for</secondary>
+    </indexterm> <indexterm>
+      <primary>workbenches</primary>
+      <secondary>for item availability</secondary>
+    </indexterm> <indexterm>
+      <primary>items</primary>
+      <secondary>availability workbench for</secondary>
+    </indexterm>Item Availability Workbench</title>
+  <para id="Para678018">The Item Availability Workbench is designed to
+  consolidate on one screen the functions performed by personnel who manage
+  and track Inventory. To access the Item Availability Workbench, select the
+  "Item Availability Workbench" option. The following screen will
+  appear:</para>
+  <para id="Para678022"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench.png" />
+        </imageobject>
+        <caption>Running Availability on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para678027">When displaying Running Availability, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678028">Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose Running Availability you
+        want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678029">UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para678031">When quantity appears in the "Ordered" column, this
+    refers to quantity that is on order through either a Work Order or
+    Purchase Order. In the case of Purchase Orders, the quantity will always
+    be represented in the Inventory Unit of Measure (UOM)—regardless of the
+    Vendor UOM used on the Purchase Order.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678032">Site</term>
+      <listitem>
+        <para>Specify Site whose Running Availability you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678033" role="openmfg">Show Planned Orders</term>
+      <listitem>
+        <para>Select to show Planned Orders in the display. Planned Orders
+        will display in blue type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678035">QOH</term>
+      <listitem>
+        <para>Displays Quantity on Hand for specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678036">Order Multiple</term>
+      <listitem>
+        <para>Displays Order Multiple specifying the increments the Item must
+        be ordered in. Order Multiple is maintained in the Item Site
+        master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678037">Reorder Level</term>
+      <listitem>
+        <para>Displays the Reorder Level specifying the minimum Quantity on
+        Hand allowed before an Item must be reordered. Reorder Level is
+        maintained in the Item Site master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678038">Order Up To Qty</term>
+      <listitem>
+        <para>Indicates the quantity level that MRP Planned Replenishment
+        Orders will order up to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678039">Running Availability</term>
+      <listitem>
+        <para>Display lists Running Availability for the selected Item, using
+        the specified parameters. Red lettering indicates the due date has
+        passed or Running Availability has dropped below 0.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678041">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678042">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678043">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678044">Right-clicking on a Work Order in the Running
+  Availability display enables you to select from the following
+  options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewWorkOrderDetails)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>If you right-click on a Planned Order, the following additional option
+  will also be available:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickFirmOrder)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReleaseOrder)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickDeleteOrder)" />
+  </variablelist>
+  <para id="Para678051">To view Inventory Availability for the specified Item,
+  select the "Inventory" tab. The following screen will appear:</para>
+  <para id="Para678055"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench_inventory.png" />
+        </imageobject>
+        <caption>Inventory Availability on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para678057">When displaying Inventory Availability by Item, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678058">Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose Inventory Availability
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678059">UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678060">Show Availability as of</term>
+      <listitem>
+        <para>Show Availability using one of the following criteria:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item Site Lead Time</term>
+            <listitem>
+              <para>Select to show projected Availability based on the Lead
+              Time specified in the Item Site master.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Look Ahead Days</term>
+            <listitem>
+              <para>Select a number using the arrow buttons, or manually enter
+              a value up to a maximum of 1000. Future Availability for the
+              specified Item will be displayed based on the value entered
+              here.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Cutoff Date</term>
+            <listitem>
+              <para>Display will show projected Inventory Availability as of
+              date entered up to a maximum of 1000 days.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Dates</term>
+            <listitem>
+              <para>Display will show projected Inventory Availability for the
+              date range entered.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678065">Show Reorder Exceptions</term>
+      <listitem>
+        <para>Select to show Reorder Exceptions in display. Reorder Exceptions
+        are an indication that an Item Site's projected Availability will drop
+        below the Reorder Level for the Item Site.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678066">Ignore Reorder at 0</term>
+      <listitem>
+        <para>Select to ignore Reorder Exceptions in cases where both the Item
+        Site Reorder Level and Planned Availability are equal to zero ("0").
+        If selected, Item Sites matching these criteria will not be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Shortages</term>
+      <listitem>
+        <para>Select to only show Inventory shortages in display. Shortages
+        are always shown in the report, if they exist. However, using this
+        option simply separates shortages out so you can see only them. A
+        shortage exists if Availability is less than zero, as in</para>
+        <informalexample>
+          <para>QOH - Allocated + Ordered &lt; 0</para>
+        </informalexample>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678068">All Sites</term>
+      <listitem>
+        <para>Select to display Inventory Availability for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678069">Selected</term>
+      <listitem>
+        <para>Specify Site whose Inventory Availability you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678070">Availability</term>
+      <listitem>
+        <para>Display lists Inventory Availability by Item, using the
+        specified parameters. If Planned Availability displays in the color
+        orange, this means the actual or projected Quantity on Hand is at or
+        below the Reorder Level. If the color is red, the current or projected
+        Quantity on Hand is below 0.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para678073">When quantity appears in the "On Order" column, this
+    refers to quantity that is on order through either a Work Order or
+    Purchase Order. In the case of Purchase Orders, the quantity will always
+    be represented in the Inventory Unit of Measure (UOM)—regardless of the
+    Vendor UOM used on the Purchase Order.</para>
+  </note>
+  <para id="Para678074">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678075">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678076">QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678077">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678078">Right-clicking on an Item in the Availability list
+  enables you to select from the following context-sensitive menu
+  options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewInventoryHistory)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAllocations)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewOrders)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickRunningAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueCountTag)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewSubstituteAvailability)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para id="Para678086">The following additional options are available for
+  purchased Items:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreatePR)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreatePO)" />
+  </variablelist>
+  <para id="Para678089">The following additional option is available for
+  manufactured Items:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateWO)" />
+  </variablelist>
+  <para id="Para678091">To view a Costed Indented Bill of Materials for the
+  specified Item, select the "Costed Indented BOM" tab. The following screen
+  will appear:</para>
+  <para id="Para678095"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench_costed.png" />
+        </imageobject>
+        <caption>Costed Indented BOM on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para id="Para678098">Costed Indented BOM information will be displayed
+    only if the specified Item is a manufactured Item.</para>
+  </tip>
+  <para id="Para678099">When displaying Costs for an indented Bill of
+  Materials, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678100">Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the manufactured Item whose associated
+        Costs you would like to view using an indented Bill of
+        Materials.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678101">UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678102">Use Standard Costs</term>
+      <listitem>
+        <para>Select to display Standard Costs for component Items in the
+        specified Item's Bill of Materials. Both the Unit Cost and Extended
+        Cost for each component Item, expressed in terms of Standard Cost,
+        will display&mdash;assuming Standard Costs have been defined for each
+        component Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678104">Use Actual Costs</term>
+      <listitem>
+        <para>Select to display Actual Costs for component Items in the
+        specified Item's Bill of Materials. Both the Unit Cost and Extended
+        Cost for each component Item, expressed in terms of Actual Cost, will
+        display&mdash;assuming Actual Costs have been defined for each
+        component Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para678107">In the Costed Indented Bill of Materials, the totals
+    displayed on the screen are derived as follows:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Total Cost</term>
+        <listitem>
+          <para>This total is pulled from the Extended Cost column. The total
+          may vary, depending on whether "Use Standard Costs" or "Use Actual
+          Costs" is selected.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Actual Cost</term>
+        <listitem>
+          <para>This value represents the Actual Cost for the parent Item
+          whose Costed Indented BOM is being displayed.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Standard Cost</term>
+        <listitem>
+          <para>This value represents the Standard Cost for the parent Item
+          whose Costed Indented BOM is being displayed.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678111">Costed Bill of Materials</term>
+      <listitem>
+        <para>Display lists Costed Indented Bill of Materials components,
+        using the specified parameters. The difference between the indented
+        view and the single level view is that the indented view displays all
+        subcomponents if there is a manufactured component listed on the Bill
+        of Materials. The Total Cost, Actual Cost, and Standard Cost will be
+        calculated automatically at the bottom of the display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678113">To the far right of the display are the following
+  buttons and display fields:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678114">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678115">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678116">Right-clicking on a component in the Costed Bill of
+  Materials list enables you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickMaintainItemCosts)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewItemCosting)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para id="Para678120">To view Inventory History for the specified Item,
+  select the "History" tab. The following screen will appear:</para>
+  <para id="Para678124"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench_history.png" />
+        </imageobject>
+        <caption>Inventory History on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para678126">When displaying Inventory history by Item, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678127">Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose Inventory history you
+        want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678128">UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678129">Trans. Types</term>
+      <listitem>
+        <para>Select one of the available transaction types:</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Transactions</term>
+            <listitem>
+              <para>Displays all Inventory transactions.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Receipts</term>
+            <listitem>
+              <para>Displays receipts into Inventory from Manufacturing,
+              purchases, or miscellaneous receipts.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Issues</term>
+            <listitem>
+              <para>Displays issues from Inventory to Manufacturing.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipments</term>
+            <listitem>
+              <para>Displays shipments to customers.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Adjustments and Counts</term>
+            <listitem>
+              <para>Displays Inventory adjustments and counts.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry role="standard">
+            <term>Transfers</term>
+            <listitem>
+              <para>Displays Inter-Site Transfers and Location and
+              Lot/Serial Number reassignments.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Scraps</term>
+            <listitem>
+              <para>Displays Scrap removed from Inventory.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para678141">The system prefixes Order Numbers with letters
+    indicating the Order type. For example, Work Orders are prefixed with
+    "WO", Purchase Orders with "PO", and Sales Orders with "SO". These letters
+    are for display purposes only and are not considered part of the Order
+    Number.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678142">All Sites</term>
+      <listitem>
+        <para>Select to display Inventory history by Item for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678143">Selected</term>
+      <listitem>
+        <para>Specify Site whose Inventory history by Item you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678144">Start Date</term>
+      <listitem>
+        <para>This is a required field. Inventory transactions conducted on
+        and after this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678146">End Date</term>
+      <listitem>
+        <para>This is a required field. Inventory transactions conducted on
+        and before this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678148">Inventory History</term>
+      <listitem>
+        <para>Display lists Inventory history by Item, using the specified
+        parameters. This display is a nested list, with a plus ("+") sign
+        located to the far left of the display next to each transaction that
+        may be expanded to lower levels. By clicking your mouse on a plus
+        sign, you reveal lower levels of information related to the Order. To
+        the far right of the screen, the following buttons are
+        available:</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678150">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678151">QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified parameters.
+        Start date and end date must be entered for calculation to proceed.
+        Results will be displayed in the "Inventory History" list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678153">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678154">Right-clicking on a transaction in the Inventory
+  History list enables you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewTransactionInformation)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditTransactionInfo)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para id="Para678158">When editing transaction information, you may choose
+  to exclude a transaction from Inventory analysis. Not including a
+  transaction in this manner means the following Inventory analyses will
+  ignore the transaction: Item Usage Statistics displays, Update Reorder
+  Levels, and Update Order Up To Levels.</para>
+  <para id="Para678159">If the Order Number is associated with a Work Order,
+  the following additional menu option will also be available:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewWorkOrderInfo)" />
+  </variablelist>
+  <para id="Para678164" role="standard">To view Lot/Serial and/or Location
+  information for the specified Item, select the "Inventory Detail" tab. The
+  following screen will appear:</para>
+  <para id="Para678168" role="standard"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench_lotserial.png" />
+        </imageobject>
+        <caption>Inventory Detail on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para678170" role="standard">When displaying detailed Inventory
+  information, you are presented with the following options:</para>
+  <variablelist role="standard">
+    <varlistentry>
+      <term id="Para678171">Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose detailed
+        Location/Lot/Serial Number information you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678172">UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678173">All Sites</term>
+      <listitem>
+        <para>Select to display detailed Location/Lot/Serial Number
+        information for all Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678174">Selected</term>
+      <listitem>
+        <para>Specify Site whose detailed Location/Lot/Serial Number
+        information you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678175">Locations</term>
+      <listitem>
+        <para>Display lists Location/Lot/Serial Number detail, using the
+        specified parameters. Items will display in red type if the quantity
+        in question has expired.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678177">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678178">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678179">QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678180">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678181">To view where the specified Item is used for
+  manufacturing, select the "Where Used" tab. The following screen will
+  appear:</para>
+  <para id="Para678185"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench_whereused.png" />
+        </imageobject>
+        <caption>Single Level Where Used on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para678187">When displaying a single level Bill of Materials, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678188">Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the manufactured Item you would like to
+        view a single level Bill of Materials for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678189">UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678190">Show Expired Components</term>
+      <listitem>
+        <para>Select to cause expired components to be listed in the "Bill of
+        Materials" display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678191">Threshold Days</term>
+      <listitem>
+        <para>Select a number using the arrow buttons, or manually enter a
+        value up to a maximum of 999. Components that have been expired from
+        the Bill of Materials within the specified number of days will be
+        included in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678193">Show Future Components</term>
+      <listitem>
+        <para>Select to cause future components to be listed in the "Bill of
+        Materials" display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678194">Threshold Days</term>
+      <listitem>
+        <para>Select a number using the arrow buttons, or manually enter a
+        value up to a maximum of 999. Components that will be added in future
+        to the Bill of Materials within the specified number of days will be
+        included in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678196">Bill of Materials</term>
+      <listitem>
+        <para>Display lists single level Bill of Materials components, using
+        the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678197">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678198">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678199">QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678200">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678201">Right-clicking on an Item in the Bill of Materials
+  Items list enables you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditBOM)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditBOO)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditItemMaster)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewItemInvHistory)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+</section>

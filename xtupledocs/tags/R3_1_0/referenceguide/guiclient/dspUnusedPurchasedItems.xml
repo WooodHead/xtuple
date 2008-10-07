@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520794">
+  <title>
+<indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>locating unused purchased</secondary>
+    </indexterm>Unused Purchased Items</title>
+  <para>The "Unused Purchased Items" utility displays information about
+  non-sold, purchased Items not currently in use in a Bill of Materials. Sold
+  Items will not be included in the display. Selecting the "Unused Purchased
+  Items" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspUnusedPurchasedItems.png"/>
+        </imageobject>
+        <caption>Unused Purchased Items</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <tip>
+    <para>This utility may run for a long period of time. We recommend running
+    it during off-peak hours whenever possible.</para>
+  </tip>
+  <para>When using this utility, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Class Codes</term>
+      <listitem>
+        <para>Select to display unused purchased Items from all Class
+        Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Class Code whose unused purchased Items you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Class Code pattern to select a range of Class Codes.
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Include Uncontrolled Items</term>
+      <listitem>
+        <para>Select to include uncontrolled Items in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Unused Purchased Items</term>
+      <listitem>
+        <para>Display lists unused purchased Items for the range of Class
+        Codes specified.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

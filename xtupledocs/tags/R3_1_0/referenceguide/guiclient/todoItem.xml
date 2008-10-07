@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560396">
+  <title><indexterm significance="normal">
+      <primary>to-do lists</primary>
+      <secondary>creating new to-dos</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customer relationship management</primary>
+      <secondary>creating to-dos for</secondary>
+    </indexterm>New To-Do List Item</title>
+  <para>To enter a new To-Do List item, select the "New To-Do List Item"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/todoItem.png" />
+        </imageobject>
+        <caption>To-Do List Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When entering a new To-Do List item, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Task Name</term>
+      <listitem>
+        <para>Enter a name to describe the Task. Duplicate Task Names are
+        allowed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Active</term>
+      <listitem>
+        <para>Select to indicate the To-Do List item is active.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a brief description of the To-Do List item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sequence #</term>
+      <listitem>
+        <para>Enter a sequence number to help you prioritize your To-Do List
+        items. Sequence numbers are manually entered and may be changed at any
+        point.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Assigned to</term>
+      <listitem>
+        <para>By default, a new To-Do List item is assigned to the user who
+        creates it. Once a To-Do List item has been created, it may be
+        reassigned to another user.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reassign to User</term>
+      <listitem>
+        <para>To reassign the To-Do List item to another user, use the browse
+        button located to the right of the field. By default, To-Do List items
+        are assigned originally to the user who creates them.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Date Due</term>
+      <listitem>
+        <para>Specify the date when the To-Do List item is due.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Date Assigned</term>
+      <listitem>
+        <para>Specify the date when the To-Do List item was assigned&mdash;or
+        reassigned.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Date Started</term>
+      <listitem>
+        <para>Specify the date when work on the To-Do List item was
+        started.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Date Completed</term>
+      <listitem>
+        <para>Specify the date when work on the To-Do List item was
+        completed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Specify one of the following statuses to assign to the To-Do
+        List item:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Pending Input</term>
+            <listitem>
+              <para>Select to indicate the To-Do List item is pending input.
+              To-Do List items having this status will display a "P" in the
+              status column when they appear on the To-Do List.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Deferred</term>
+            <listitem>
+              <para>Select to indicate the To-Do List item is deferred. To-Do
+              List items having this status will display a "D" in the status
+              column when they appear on the To-Do List.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Neither</term>
+            <listitem>
+              <para>Select to indicate the To-Do List item is neither pending
+              input nor deferred. To-Do List items having this status will
+              display an "I" in the status column when they appear on the
+              To-Do List.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a To-Do List item, returning
+        you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the To-Do List item and adds it to the To-Do
+        List.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To enter notes for a To-Do List Item, select the "Notes" tab at the
+  bottom of the screen, as shown below:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/todoItem_notes.png" />
+    </imageobject>
+    <caption>To-Do List Item Notes</caption>
+  </mediaobject>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the To-Do List item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create associations for a To-Do List Item to other records, select
+  the "Relationships" tab at the bottom of the screen, as shown below:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/todoItem_relationships.png" />
+    </imageobject>
+    <caption>To-Do List Item Relationships</caption>
+  </mediaobject>
+  <variablelist>
+    <varlistentry>
+      <term>Account</term>
+      <listitem>
+        <para>Specify the CRM Account the To-Do item is associated with (if
+        any).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Opportunity</term>
+      <listitem>
+        <para>Select an opportunity (if applicable) to associated with the
+        To-Do List item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Incident</term>
+      <listitem>
+        <para>Select an Incident (if applicable) to associate with the To-Do
+        List item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

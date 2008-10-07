@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section941111">
+  <title>Preferences</title>
+  <para>The Preferences section enables users to customize the look and feel
+  of their main application window. Users can also specify various application
+  defaults. While users have the ability to modify their own preferences, only
+  those users granted the "MaintainUsers" privilege can change another user's
+  preferences. To access the Preferences area, select the "Preferences"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/userPreferences.png" />
+        </imageobject>
+        <caption>User Preferences</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When establishing user preferences, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Current User</term>
+      <listitem>
+        <para>Select to edit user preferences for the current user. This is
+        the only option available to users who do not have the "MaintainUsers"
+        privilege.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected User</term>
+      <listitem>
+        <para>Select an individual user to view and/or edit preferences for
+        that user. This option is only available to system administrators and
+        others who have been granted the "MaintainUsers" privilege. Only users
+        who have been granted this privilege can edit the preferences of other
+        users. The usernames of all users who are registered on the current
+        Database will appear in the list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>images</primary>
+          <secondary>background</secondary>
+        </indexterm>Background Image</term>
+      <listitem>
+        <para>Select one of the following background image options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>None</term>
+            <listitem>
+              <para>Select if you do not want to add digital wall paper on the
+              main application work space.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Image</term>
+            <listitem>
+              <para>Specify an Image definition to create digital wall paper
+              on the main application work space.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Interface Options</term>
+      <listitem>
+        <para>Select one of the following default window behaviors:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show windows inside workspace</term>
+            <listitem>
+              <para>Select to make non-modal screens open within the main
+              desktop.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Show windows as free-floating</term>
+            <listitem>
+              <para>Select to allow all screens to be free-floating and not
+              constrained by the main desktop.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>For a complete list of available toolbar buttons, see <xref
+    linkend="Anchor51567" />.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>check boxes</primary>
+          <secondary>configure preference for</secondary>
+        </indexterm>Remember Check Box Settings</term>
+      <listitem>
+        <para>Select if you want check boxes in the system to remember their
+        settings (i.e., ON/OFF). Check boxes appear on many screens throughout
+        the applications. They are options used for filtering displayed
+        information. If your preference is to remember check box settings,
+        then a shaded bullet symbol will appear next to check boxes which
+        support the feature.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ignore Missing Translations</term>
+      <listitem>
+        <para>Select to bypass the warning message which may be presented at
+        log in to indicate that a translation file is missing. The warning may
+        be irrelevant in some cases. This User Preference option will be
+        useful in situations where the default language is acceptable, even
+        though the country designation on the user's Locale might indicate
+        otherwise. For example, in the United Kingdom (UK), the language may
+        be English and the country United Kingdom&mdash;allowing for date and
+        time localizations specific to the UK. However, because the default
+        English language translation is acceptable, there's no need for an
+        alternate translation file just for the UK (e.g.,
+        <filename>xTuple.en_uk.qm</filename>).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>users</primary>
+          <secondary>setting idle timeout for</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>idle timeout</primary>
+        </indexterm>Idle Timeout</term>
+      <listitem>
+        <para>Value entered dictates the number of minutes before the client
+        automatically shuts down. To turn the idle timeout feature off, simply
+        set the value = 0.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Defaults</term>
+      <listitem>
+        <para>Specify preferences for the following defaults:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use Fixed Width Fonts where Applicable</term>
+            <listitem>
+              <para>Select to view information in fixed width fonts wherever
+              applicable.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Show Only Released and In-Process Work Orders</term>
+            <listitem>
+              <para>Select to show only released and in-process Work Orders by
+              default. If selected, Work Order displays and reports will not
+              include Work Orders whose status is other than released or
+              in-process. For example, affected displays and reports will not
+              include open or exploded Work Orders if this option is
+              selected.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>List Numeric Item Numbers First</term>
+            <listitem>
+              <para>Select to list numeric Item Numbers before alphabetic Item
+              Numbers in displays featuring Item Numbers.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Show S/O Item Availability when Entering</term>
+            <listitem>
+              <para>Select to show Availability by Item by default when
+              viewing the Sales Order Line Item screen.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Default Ellipses Action</term>
+            <listitem>
+              <para>Specify whether you want to launch a List view or a Search
+              view after selecting a browse button to look up information. The
+              List view corresponds to the standard CTRL+L keyboard shortcut
+              functionality; whereas the Search view corresponds to CTRL+S
+              functionality.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>users</primary>
+          <secondary>preferred sites for</secondary>
+        </indexterm>Preferred Site</term>
+      <listitem>
+        <para>Select one of the following default Site preferences:</para>
+        <variablelist>
+          <varlistentry>
+            <term>None</term>
+            <listitem>
+              <para>Select if the user does not have a preferred Site.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Site</term>
+            <listitem>
+              <para>Specify the preferred Site. Sites designated as preferred
+              will appear at the top of Site list by default&mdash;eliminating
+              the need to search the menu for the desired Site code. The user
+              may access other Sites in these lists in the normal way.
+              Assigning a preferred Site is simply a time-saving feature and
+              does not affect user access to Site data.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without making any changes to the user's
+        preferences, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the user Preference settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>users</primary>
+      <secondary>module options for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>users</primary>
+      <secondary>toolbar options for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>toolbars</primary>
+      <secondary>user options for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>modules</primary>
+      <secondary>user options involving</secondary>
+    </indexterm>The system allows you to show only those menus which you want
+  to see. To define your menu preference, select the "Menu" tab. The following
+  screen will appear:</para>
+  <para><mediaobject>
+      <imageobject>
+        <imagedata fileref="images/userPreferences_menu.png" />
+      </imageobject>
+      <caption>Menu Preferences</caption>
+    </mediaobject></para>
+  <para>When specifying a preferred menu style, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Show Inventory Menu</term>
+      <listitem>
+        <para>Select to display the Inventory module menu on the user's main
+        application window.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show Inventory Toolbar</term>
+            <listitem>
+              <para>Select to display the Inventory module toolbar buttons on
+              the user's main application window.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Products Menu</term>
+      <listitem>
+        <para>Select to display the Products module menu on the user's main
+        application window.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show Products Toolbar</term>
+            <listitem>
+              <para>Select to display the Products module toolbar buttons on
+              the user's main application window.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Schedule Menu</term>
+      <listitem>
+        <para>Select to display the Schedule module menu on the user's main
+        application window.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show Schedule Toolbar</term>
+            <listitem>
+              <para>Select to display the Schedule module toolbar buttons on
+              the user's main application window.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Purchase Menu</term>
+      <listitem>
+        <para>Select to display the Purchase module menu on the user's main
+        application window.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show Purchase Toolbar</term>
+            <listitem>
+              <para>Select to display the Purchase module toolbar buttons on
+              the user's main application window.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Manufacture Menu</term>
+      <listitem>
+        <para>Select to display the Manufacture module menu on the user's main
+        application window.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show Manufacture Toolbar</term>
+            <listitem>
+              <para>Select to display the Manufacture module toolbar buttons
+              on the user's main application window.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show CRM Menu</term>
+      <listitem>
+        <para>Select to display the CRM module menu on the user's main
+        application window.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show CRM Toolbar</term>
+            <listitem>
+              <para>Select to display the CRM module toolbar buttons on the
+              user's main application window.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Sales Menu</term>
+      <listitem>
+        <para>Select to display the Sales module menu on the user's main
+        application window.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show Sales Toolbar</term>
+            <listitem>
+              <para>Select to display the Sales module toolbar buttons on the
+              user's main application window.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Accounting Menu</term>
+      <listitem>
+        <para>Select to display the Accounting module menu on the user's main
+        application window.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show Accounting Toolbar</term>
+            <listitem>
+              <para>Select to display the Accounting module toolbar buttons on
+              the user's main application window.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>hot keys</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Each user has the option of setting up custom keyboard
+  shortcuts, otherwise knows as Hot Keys. These Hot Keys make it possible to
+  launch individual screens using the keyboard. To set up user-defined Hot
+  Keys, select the "Hot Keys" tab. The following screen will appear:</para>
+  <para><mediaobject>
+      <imageobject>
+        <imagedata fileref="images/userPreferences_hotkeys.png" />
+      </imageobject>
+      <caption>Hot Keys</caption>
+    </mediaobject></para>
+  <para>The "Hot Keys" screen displays information on all existing Hot Keys,
+  including keyboard keystroke and related action.</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Hot Key.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Hot Key definitions. The edit
+        screen is the same as that for creating a new Hot Key
+        definition&mdash;except that when editing, the fields will contain Hot
+        Key information. Double-clicking on a Hot Key definition will also
+        bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Hot Key definition and then select this button to
+        remove the Hot Key from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>events</primary>
+      <secondary>user notification of</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>users</primary>
+      <secondary>event notification for</secondary>
+    </indexterm>To define or modify a user's Event notification preferences,
+  select the "Events" tab. The following screen will appear:</para>
+  <note>
+    <para>For a complete list of user-defined Events see <xref
+    linkend="Anchor80421" />.</para>
+  </note>
+  <para><mediaobject>
+      <imageobject>
+        <imagedata fileref="images/userPreferences_events.png" />
+      </imageobject>
+      <caption>Events</caption>
+    </mediaobject></para>
+  <para>When defining or modifying a user's Event notification preferences,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Event</term>
+      <listitem>
+        <para>Displays the complete list of system-defined Events. Highlight
+        an Event and then double-click a Site in the adjacent Site column to
+        set the user's Event notification preference for that Site. Selecting
+        "Yes" means the user will be notified if the specified event occurs in
+        the specified Site. Selecting "No" means the user will not be notified
+        about the Event if it occurs in that Site. To globally affect the
+        settings for all Sites, double-click on an Event. Double-clicking on
+        an Event causes the Site settings to toggle back-and-forth between
+        "Yes" and "No."</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>When an Event occurs, the Event notification button will appear in
+    the lower left-hand corner of the application desktop. This alerts the
+    user that one of the Events they subscribe to has occurred. Open the Event
+    Manager to view and respond to the Event.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Sites</term>
+      <listitem>
+        <para>Displays the complete list of Sites. Highlight an Event in the
+        adjacent Event column and then double-click a Site to set the user's
+        Event notification preference for that Site. Selecting "Yes" means the
+        user will be notified if the specified event occurs in the specified
+        Site. Selecting "No" means the user will not be notified about the
+        Event if it occurs in that Site. To globally affect the settings for
+        all Sites, double-click on an Event. Double-clicking on an Event
+        causes the Site settings to toggle back-and-forth between "Yes" and
+        "No."</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="hotkey.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

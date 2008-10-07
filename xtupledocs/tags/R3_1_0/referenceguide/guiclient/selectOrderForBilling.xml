@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519242">
+  <title><indexterm significance="normal">
+      <primary>billing</primary>
+      <secondary>select order for</secondary>
+    </indexterm>Select Order for Billing</title>
+  <para>This utility enables you to manually enter billing details for
+  individual Sales Order Line Items. Both shipped Orders and unshipped Line
+  Items may be selected for billing in this manner. This individualized
+  approach differs from the approach taken by the Select All Shipped Orders
+  for Billing utility, which by default selects for billing the full Line Item
+  quantities for all shipped Orders. To select an individual shipped Order for
+  billing, select the "Select Order for Billing" option. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/selectOrderForBilling.png" />
+        </imageobject>
+        <caption>Select Order for Billing</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>When you select an Order for billing, you are indicating that you
+    wish to create an Invoice for the Order. Invoice Numbers are assigned when
+    an Invoice is printed.</para>
+  </note>
+  <para>When selecting an Order for billing, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Sales Order #</term>
+      <listitem>
+        <para>Enter the Sales Order Number of the Sales Order you want to
+        select for billing.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Date</term>
+      <listitem>
+        <para>Displays the original Sales Order date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Date</term>
+      <listitem>
+        <para>By default, the most-recent ship date will appear in the field.
+        You may override the default value by entering ship date information
+        manually.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Invoice Date</term>
+      <listitem>
+        <para>By default, the current (today"s) date will appear in the field.
+        You may override the default value by entering Invoice date
+        information manually.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cust. Name</term>
+      <listitem>
+        <para>Name: Displays Customer's name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>P/O Number</term>
+      <listitem>
+        <para>Displays purchase for the specified Sales Order. Indicates the
+        Customer Purchase Order Number assigned to the specified Sales
+        Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship-To Name</term>
+      <listitem>
+        <para>Displays Ship-To name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>tax authorities</primary>
+          <secondary>for sales orders</secondary>
+        </indexterm>Tax Authority</term>
+      <listitem>
+        <para>Specify the Tax Authority associated with the Sales Order. The
+        Tax Authority for the specified Ship-To Address will be entered here
+        by default. Otherwise, the primary Tax Authority for the Customer will
+        be entered. Ultimately, Tax is applied at the Line Item level—so the
+        Tax Authority associated with an Item's Tax Type will be used.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Via</term>
+      <listitem>
+        <para>By default, the preferred Ship Via method for specified Customer
+        will appear in the field. You may enter a free-form Ship Via simply by
+        typing the name of the Ship Via into the field. Default Ship Vias may
+        be defined at the system level.</para>
+        <para><tip>
+            <para>The system supports up-to-date shipment tracking with links
+            to the websites of many leading shipping companies (i.e., "Ship
+            Vias").</para>
+          </tip></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Closed Line Items</term>
+      <listitem>
+        <para>Select to show closed Line Items in the "Line Items"
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Close all Open Items</term>
+      <listitem>
+        <para>Select to close all open Sales Order Line Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>billing</primary>
+          <secondary>at line item level</secondary>
+        </indexterm>Line Items</term>
+      <listitem>
+        <para>Displays the Sales Order Line Items selected for billing.
+        Double-clicking on a Line Item—or highlighting it and selecting the
+        EDIT SELECTION button—enables you to select a billing quantity for
+        that Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>In the Line Items display, the Uninvoiced column refers to quantity
+    that has been shipped but not yet invoiced. Quantity must have been
+    shipped to appear in the Uninvoiced column. If no quantity has been
+    shipped, then no quantity will appear as uninvoiced.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Subtotal</term>
+      <listitem>
+        <para>Displays the subtotal for the Sales Order Line Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Tax</term>
+      <listitem>
+        <para>Displays the amount of Tax that will be added to the Sales
+        Order, as defined by the specified Tax Code. To get a detailed view of
+        the Tax calculation, click on the Tax link using your mouse.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>billing</primary>
+          <secondary>related charges for</secondary>
+        </indexterm>Misc. Charge Amount</term>
+      <listitem>
+        <para>Enter the amount of the miscellaneous charge. Before entering a
+        miscellaneous charge amount, you must first assign the charge to a
+        Sales Account and also enter a description of the charge.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Misc. Charge Description</term>
+      <listitem>
+        <para>Enter a description to identify the miscellaneous charge.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Misc. Charge Sales Account</term>
+      <listitem>
+        <para>Enter a Sales Account to assign the miscellaneous charge
+        to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Freight</term>
+      <listitem>
+        <para>Enter the amount of freight charge to be added to the specified
+        Order. The freight charge may be entered during the creation or
+        modification of a Sales Order—or at the time of shipment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The Payment Received field is an optional field which may be used to
+    provide visibility into prepaid amounts. Because the field exists for
+    visual purposes only, entering an amount in this field will not affect the
+    amount due. The only way an Invoice may be offset is through the
+    application of a Cash Receipt or a Credit Memo.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Total</term>
+      <listitem>
+        <para>Displays the total amount of all uninvoiced Sales Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Payment Received</term>
+      <listitem>
+        <para>Enter the amount of payment received against the specified Sales
+        Order, if any. This amount will appear on any resulting Invoice, but
+        will not be posted as a credit against the Invoice.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen without selecting the Order for billing,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the information you specified in the screen and selects
+        the Order for billing, creating an Invoice in the process.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT ORDER</term>
+      <listitem>
+        <para>Brings you to the Sales Order screen, where you may edit the
+        specified Sales Order. The Sales Order screen is described at length
+        in <xref linkend="Anchor23923" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to specify or edit the billing quantity for the
+        highlighted Line Item. Double-clicking on a Line Item will also bring
+        you to the billing quantity edit screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Removes previously entered billing quantity from a selected Line
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SELECT BALANCE</term>
+      <listitem>
+        <para>Highlight a Line Item, then select this button to transfer the
+        full balance to Billing.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>When the Notes tab is clicked, the screen will appear as
+  follows:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/selectOrderForBilling_notes.png" />
+      </imageobject>
+      <caption>Select Order for Billing Notes</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Sales Order selected for billing. Notes entered
+        on this screen will follow the Order through the billing process. For
+        example, you may view notes associated with a posted Invoice within
+        the Invoice Information report.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="selectBillingQty.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

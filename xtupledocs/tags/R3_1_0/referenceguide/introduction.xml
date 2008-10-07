@@ -1,0 +1,1622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter id="Chapter464102">
+  <title><anchor id="Anchor23250" role="Cross-Ref"
+  xreflabel="23250: ChapterTitleNoNumber: Introduction" />Introduction</title>
+  <para>Welcome to the Reference Guide (formerly User Guide) for xTuple
+  Enterprise Resource Planning! This Reference Guide is designed as a
+  screen-by-screen reference for anyone using any of the following xTuple ERP
+  applications:</para>
+  <itemizedlist>
+    <listitem>
+      <para>xTuple ERP: PostBooks Free Edition <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="css/pbicon.jpg" />
+          </imageobject>
+        </inlinemediaobject></para>
+    </listitem>
+    <listitem>
+      <para>xTuple ERP: Standard Edition <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="css/stdicon.jpg" />
+          </imageobject>
+        </inlinemediaobject></para>
+    </listitem>
+    <listitem>
+      <para>xTuple ERP: OpenMFG Edition <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="css/omfgicon.jpg" />
+          </imageobject>
+        </inlinemediaobject></para>
+    </listitem>
+  </itemizedlist>
+  <note>
+    <para>If you are looking for more detailed user or developer
+    documentation, you can find that and more in the <ulink
+    url="http://wiki.xtuple.org/">xTuple wiki</ulink> featured on xTuple's
+    <ulink url="http://www.xtuple.org">community website</ulink>.</para>
+  </note>
+  <para>Since all three applications share a common code base, it makes sense
+  that they also share a Reference Guide. OpenMFG contains features Standard
+  Edition does not, and Standard Edition contains features that PostBooks does
+  not. To highlight these differences, we have placed indicators in the
+  Reference Guide. Whenever you see one of these markers, you'll know the
+  functionality you're reading about exists in OpenMFG or Standard Edition but
+  not in PostBooks.</para>
+  <para>For more information on the differences between the xTuple ERP,
+  including licensing options, please visit <ulink
+  url="http://www.xtuple.com/comparison">www.xtuple.com/comparison</ulink>.</para>
+  <section id="Section468080">
+    <title>Getting Started</title>
+    <para>The goal of this chapter is to orient you to some of the basic
+    features of xTuple ERP. As you will see, these fundamentals appear
+    throughout the application. We wanted to introduce them to you early so
+    you would be familiar with them as you work your way through the xTuple
+    Application modules.</para>
+    <note>
+      <para>The screenshots and examples used throughout this Reference Guide
+      are taken from the OpenMFG Client for Windows, running on Windows XP.
+      There is no functional difference between the Windows, Mac, or Linux
+      Clients. You will find only minor graphical user interface differences.
+      The same holds true for the xTuple ERP products.</para>
+    </note>
+    <para>The next sections describe the steps required to log in to and exit
+    xTuple ERP. In some cases, you may need to ask your system administrator
+    for information concerning site-specific settings.</para>
+    <section id="Section466744">
+      <title>Log In Options</title>
+      <para>To log in using a Windows client, you should double-click on the
+      xTuple ERP icon wherever it appears on your computer desktop. Likewise,
+      Macintosh users may click on the xTuple ERP icon from their desktop.
+      <indexterm significance="normal">
+          <primary>linux</primary>
+          <secondary>client log in procedure</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>windows</primary>
+          <secondary>client log in procedure</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>log in</primary>
+          <secondary>linux</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>log in</primary>
+          <secondary>windows</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>mac</primary>
+          <secondary>client log in procedure</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>log in</primary>
+          <secondary>mac</secondary>
+        </indexterm>Linux users should run the appropriate xTuple ERP .sh file
+      to launch the application. The following screen will appear:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_loginScreen.png" />
+            </imageobject>
+            <caption>Log In Screen</caption>
+          </mediaobject>
+        </screenshot></para>
+      <tip>
+        <para>You should always be sure to use a version of xTuple ERP which
+        matches the version of your xTuple Database. Using mis-matched
+        versions can lead to errors and loss of data integrity. The system
+        will issue a warning message whenever you attempt to log in to a
+        database whose version does not match the client version.</para>
+      </tip>
+      <para>When logging into xTuple ERP, you are presented with the following
+      options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Log in to registered xTuple demo account</term>
+          <listitem>
+            <para>Select this option if you are logging in to a demo database
+            hosted on an xTuple server. If selected, the OPTIONS button will
+            be disabled.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Log in to server I specify</term>
+          <listitem>
+            <para>Select this option if you are logging in to any database
+            other than an xTuple demo database. If selected, you can specify
+            your connection details using the OPTIONS button.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><indexterm significance="normal">
+              <primary>usernames</primary>
+              <secondary>required at log in</secondary>
+            </indexterm>Username</term>
+          <listitem>
+            <para>Enter your assigned username. Usernames are established by
+            your system administrator. The username is case-sensitive.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><indexterm significance="normal">
+              <primary>passwords</primary>
+              <secondary>at log in</secondary>
+            </indexterm>Password</term>
+          <listitem>
+            <para>Enter your assigned password. Passwords are established by
+            your system administrator. The password you type into this field
+            will not display on your screen, but will be represented by
+            asterisks (*) for security purposes.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Server</term>
+          <listitem>
+            <para>Displays the name of the server you will be connecting
+            to.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Database</term>
+          <listitem>
+            <para>Displays the name of the database you will be connecting
+            to.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>To the far right of the screen, the following buttons are
+      available:</para>
+      <variablelist>
+        <varlistentry>
+          <term>CANCEL</term>
+          <listitem>
+            <para>Closes the screen, returning you to your computer
+            desktop.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>LOGIN</term>
+          <listitem>
+            <para>Click to log in to the application.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>OPTIONS</term>
+          <listitem>
+            <para>Select to verify or change your connection settings. This
+            button will be disabled if logging in to an xTuple demo
+            database.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <note>
+        <para>Most users will not need to change their Login options. If you
+        have questions about your option settings, contact your system
+        administrator.</para>
+      </note>
+      <para>To verify or change your connection settings, select the OPTIONS
+      button. The following screen will appear:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_loginOptions.png" />
+            </imageobject>
+            <caption>Login Options</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>When viewing or changing your connection settings, you are
+      presented with the following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term><indexterm significance="normal">
+              <primary>servers</primary>
+              <secondary>identifying at log in</secondary>
+            </indexterm>Server</term>
+          <listitem>
+            <para>Enter the address of the server where your xTuple Database
+            is running. The address will consist of either a TCP/IP Address or
+            a Network Alias Name. If the network address for the xTuple Server
+            changes, you may need to change the address in this field.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><indexterm significance="normal">
+              <primary>databases</primary>
+              <secondary>identify at log in</secondary>
+            </indexterm>Database</term>
+          <listitem>
+            <para>Enter the name of the xTuple Database you want to connect
+            to. The application can be used to connect to multiple xTuple
+            databases. Be sure to enter the correct name of the database you
+            want to access.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><indexterm significance="normal">
+              <primary>ports</primary>
+              <secondary>for database access</secondary>
+            </indexterm>Port</term>
+          <listitem>
+            <para>Displays the default port. The default port for the xTuple
+            Database is 5432.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><indexterm significance="normal">
+              <primary>authentication</primary>
+              <secondary>enhanced</secondary>
+            </indexterm>Use Enhanced Authentication</term>
+          <listitem>
+            <para>Select if your site requires you to use enhanced
+            authentication. Enhanced authentication adds a layer to the
+            authentication process used to log in to xTuple ERP. When this
+            feature is turned on, user passwords are stored in the xTuple
+            Database in a modified form. The end result is that you may only
+            log in to an xTuple Database using xTuple ERP.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <tip>
+        <para>Do not select the enhanced authentication option if your site
+        does not use this method. You will find you cannot connect to the
+        database.</para>
+      </tip>
+      <variablelist>
+        <varlistentry>
+          <term><indexterm significance="normal">
+              <primary>authentication</primary>
+              <secondary>requiring SSL for</secondary>
+            </indexterm>Require SSL Connection</term>
+          <listitem>
+            <para>Select if your site requires you to use a Secure Sockets
+            Layer (SSL) connection. Selecting this option guarantees you will
+            connect to your xTuple Database with an SSL connection. If your
+            xTuple Database is not configured to support SSL, you will not be
+            able to connect if this option is selected. Using SSL for
+            client-server connections adds a layer of encryption to the
+            authentication process.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>To the far right of the screen, the following buttons are
+      available:</para>
+      <variablelist>
+        <varlistentry>
+          <term>CANCEL</term>
+          <listitem>
+            <para>Closes the screen, returning you to the previous
+            screen.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>SAVE</term>
+          <listitem>
+            <para>Saves your connection settings. Any settings you save will
+            become your default connection settings. To change your default
+            settings, update your Login options and then save them.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>Once your username and password have been successfully <indexterm
+          significance="normal">
+          <primary>authentication</primary>
+          <secondary>at log-in</secondary>
+        </indexterm>authenticated, the main application desktop will appear,
+      as shown below:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_appDesktop.png" />
+            </imageobject>
+            <caption>Main xTuple ERP Desktop</caption>
+          </mediaobject>
+        </screenshot></para>
+      <note>
+        <para>The main application desktop may vary from user to user,
+        depending on the user's granted privileges, preference settings, and
+        the xTuple ERP version used.</para>
+      </note>
+      <para>In general, each of the main menu options corresponds to a
+      different module. There are three exceptions to that rule:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Window</term>
+          <listitem>
+            <para>The following options appear under the "Window" menu:</para>
+            <variablelist>
+              <varlistentry>
+                <term>Cascade</term>
+                <listitem>
+                  <para>Select to arrange open screens in a cascading
+                  pattern.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Tile</term>
+                <listitem>
+                  <para>Select to arrange open screens in a tiled
+                  pattern.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Close Active Window</term>
+                <listitem>
+                  <para>Select to close the currently active screen.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Close All Windows</term>
+                <listitem>
+                  <para>Select to close all open screens.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Community</term>
+          <listitem>
+            <para>If you have an open Internet connection, the following
+            "Community" menu options will open in your default web
+            browser:</para>
+            <variablelist>
+              <varlistentry>
+                <term>xTuple.org Home</term>
+                <listitem>
+                  <para>Select to launch the xTuple.org home page.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry role="postbooks">
+                <term>Register</term>
+                <listitem>
+                  <para>PostBooks users are given the opportunity to register
+                  with xTuple using this menu option. Registration gives users
+                  access to additional resources not available to unregistered
+                  users—for example, extra documentation, videos, etc.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>New Account</term>
+                <listitem>
+                  <para>Select to create a new xTuple.org account.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Edit Account</term>
+                <listitem>
+                  <para>Select to edit your xTuple.org account.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Discussion Forums</term>
+                <listitem>
+                  <para>Select to browse the discussion forums on the
+                  xTuple.org site.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Blogs</term>
+                <listitem>
+                  <para>Select to browse the blogs on the xTuple.org
+                  site.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Bugs and Feature Requests</term>
+                <listitem>
+                  <para>Select to access the Issue Tracking system on the
+                  xTuple.org site.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Downloads</term>
+                <listitem>
+                  <para>Select to access the downloads page on the xTuple.org
+                  site.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Help</term>
+          <listitem>
+            <para>The following options appear under the "Help" menu:</para>
+            <variablelist>
+              <varlistentry>
+                <term>About</term>
+                <listitem>
+                  <para>Select to view version information.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Table of Contents</term>
+                <listitem>
+                  <para>Select to access xTuple ERP Help files. For this to
+                  work, the Help files must be installed on your
+                  system.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+    <section id="Section474320">
+      <title><indexterm significance="normal">
+          <primary>exiting</primary>
+          <secondary>how to</secondary>
+        </indexterm>Exit the Application</title>
+      <para>There are two ways to successfully exit xTuple ERP. Either use the
+      "X" symbol associated with the desktop window. Or use the System menu's
+      "Exit" option. Both work the same way and are equally valid methods for
+      exiting the application.</para>
+      <para>To exit the application using the System menu, select the "Exit"
+      option from the System module, as shown below:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Sys_Exit.png" />
+            </imageobject>
+            <caption>Exit xTuple Application</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>After selecting this option, the application will close, returning
+      you to your computer desktop</para>
+      <tip>
+        <para>Be sure to close all open screens before exiting xTuple ERP to
+        help prevent data loss.</para>
+      </tip>
+    </section>
+  </section>
+  <section id="Section482543">
+    <title><indexterm significance="normal">
+        <primary>application fundamentals</primary>
+      </indexterm>Application Fundamentals</title>
+    <para>xTuple ERPs contain a number of fundamental features designed to
+    simplify your use of the software. In this section, we describe those
+    fundamentals in an effort to familiarize you with their use.</para>
+    <para>Let's look first at a sample Bill of Materials screen, as shown
+    below. We will use this Bill of Materials screen to illustrate several of
+    the application fundamentals to be found throughout the application—across
+    multiple screens and modules.</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/INTRO_bomScreen.png" />
+          </imageobject>
+          <caption>Sample Bill of Materials</caption>
+        </mediaobject>
+      </screenshot></para>
+    <section id="Section456193">
+      <title><indexterm significance="normal">
+          <primary>browse button</primary>
+        </indexterm> <indexterm significance="normal">
+          <primary>lookup</primary>
+          <see>browse button</see>
+        </indexterm>Browse Button</title>
+      <para>Next to the "Item Number" field in the sample Bill of Materials
+      screen is a square box with an ellipsis in the center of it. That square
+      box is called a "browse button," and it looks like this:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_browseButton.png" />
+            </imageobject>
+            <caption>Browse Button</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>Whenever you see a browse button in the application, you have the
+      ability to locate information in an efficient manner. Using this feature
+      saves time because rather than having to remember detailed strings of
+      numbers or codes, you can look them up—browse for them—using the browse
+      button tool.</para>
+      <para><anchor id="Anchor12329" role="Cross-Ref"
+      xreflabel="12329: Figure: Figure 2.7:  Browse Button Detail" /><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_browseCallout.png" />
+            </imageobject>
+            <caption>Browse Button Detail</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>In the case of our Bill of Materials example, the browse button is
+      located next to the "Item Number" field. Obviously, you need to link an
+      Item to a Bill of Materials. If that Item happens to be a "Boys 27 Speed
+      Mountain Bike," you might not know the Item Number off the top of your
+      head. Simply select the browse button, and you will automatically be
+      brought to a searchable master list of Items. The master list shows not
+      only Item Numbers but also Item descriptions. The list is displayed in
+      ascending order by Item Number. If your master list of Items is
+      extensive, you can scroll through the list using the scroll bar to the
+      right of the screen. Or, simply begin typing the first letters or
+      numbers of the Item Number in the "Search" field. The list will
+      automatically begin scrolling toward your Item in sequential
+      order.</para>
+      <para>As noted above, the application contains numerous screens where
+      browse buttons are available. Browse buttons can be used to look up Item
+      Numbers—as in the Bill of Materials example—or use them to look up a
+      wide range of other references. The following list indicates a small
+      sampling of references you can access using the browse button:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Item Numbers</para>
+        </listitem>
+        <listitem>
+          <para>Item Aliases</para>
+        </listitem>
+        <listitem>
+          <para>Component Parts</para>
+        </listitem>
+        <listitem>
+          <para>Sites</para>
+        </listitem>
+        <listitem>
+          <para>Sales Orders</para>
+        </listitem>
+        <listitem>
+          <para>Customers</para>
+        </listitem>
+        <listitem>
+          <para>Purchase Orders</para>
+        </listitem>
+        <listitem>
+          <para>Vendors</para>
+        </listitem>
+        <listitem>
+          <para>And more....</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section id="Section456208">
+      <title><indexterm significance="normal">
+          <primary>right-click</primary>
+        </indexterm> <indexterm significance="normal">
+          <primary>mouse options</primary>
+        </indexterm>Right-Click Options</title>
+      <para>Going back to our Bill of Materials example, let's look at another
+      fundamental feature involving the right-click button on your computer
+      mouse.</para>
+      <note>
+        <para>For Macintosh users who don"t have a dual button mouse, use the
+        CTRL key on your keyboard when clicking on a record to reveal the
+        right-click options.</para>
+      </note>
+      <para>xTuple ERPs are full of displays similar to our sample Bill of
+      Materials example. Display screens feature parameter settings at the top
+      of the screen—and a main display area located toward the bottom of the
+      screen. Whenever you encounter a display like this, you can right-click
+      on a line in the display to reveal a host of additional options, as
+      shown in the following screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_bomRightClick.png" />
+            </imageobject>
+            <caption>Bill of Materials with Right-Click Detail</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see, right-clicking on a component Item in the Bill of
+      Materials screen gives you access to the following options:</para>
+      <itemizedlist>
+        <listitem>
+          <para>View: Gives you a read-only view of the Item</para>
+        </listitem>
+        <listitem>
+          <para>Edit: Enables you to edit the Item</para>
+        </listitem>
+        <listitem>
+          <para>Delete: Delete the Item</para>
+        </listitem>
+        <listitem>
+          <para>Replace: Replace one Item with another Item</para>
+        </listitem>
+        <listitem>
+          <para>Move Up: Move the Item up the Bill of Materials
+          sequence</para>
+        </listitem>
+        <listitem>
+          <para>Move Down: Move the Item down the Bill of Materials
+          sequence.</para>
+        </listitem>
+        <listitem>
+          <para>Export Contents: Export the data displayed on the screen into
+          a plain-text, TAB-delimited file. This file may subsequently be
+          imported into a spreadsheet or other office tool.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Right-click options will vary from screen to screen. In our sample
+      Bill of Materials example, the right-click options basically mirror the
+      functionality of buttons already available within the screen. This will
+      not always be the case, though. Often, the right-click feature reveals
+      important and useful functionality not to be found on the main display
+      screen.</para>
+    </section>
+    <section id="Section486620">
+      <title><indexterm significance="normal">
+          <primary>columns</primary>
+          <secondary>size remembered for</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>memory</primary>
+          <secondary>for columns</secondary>
+        </indexterm>Column Memory</title>
+      <para>The system gives you the ability to customize the column layout of
+      screens—and once customized, the columns will remember your preferences
+      the next time you visit. To customize the column layout of a screen
+      which supports this feature, simply right-click on any column header, as
+      shown below:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_colMemory.png" />
+            </imageobject>
+            <caption>Typical Report Screen With Column Memory
+            Options</caption>
+          </mediaobject>
+        </screenshot></para>
+      <note>
+        <para>The column configuration options will vary depending on the
+        current status of the screen. And of course, individual column names
+        will differ from screen to screen.</para>
+      </note>
+      <para>When right-clicking on a column header to configure the column
+      settings, you are presented with the following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Reset this Width</term>
+          <listitem>
+            <para>Select this option to reset the selected column to its
+            default, system-defined width. You will only see this option if
+            the width of column has been changed (i.e., made wider or
+            narrower).</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Reset all Widths</term>
+          <listitem>
+            <para>Select this option to reset all columns on the screen to the
+            default settings.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Do Not Remember Widths</term>
+          <listitem>
+            <para>Select this option if you do not want the screen to remember
+            column width changes made during active sessions.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Remember Widths</term>
+          <listitem>
+            <para>Select this option if you want the screen to remember column
+            width changes made during active sessions.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>Beneath the column width options, you will see a list of all the
+      column names in the screen. As a further customization, you may choose
+      to show or hide as many columns as you want. For example, if you do not
+      need the Username in the G/L Transactions screen, simply uncheck the
+      Username row in the list. The screen will only display columns which
+      have a check mark next to them in the column configuration list.</para>
+      <para>Another feature of lists is the ability to sort the list by any
+      column simply by clicking on the column header. The first click on the
+      column header will sort the list in ascending order by the contents of
+      the selected column. The second click will sort the list in descending
+      order. Dates and numbers are sorted correctly regardless of their locale
+      format. </para>
+    </section>
+    <section>
+      <title><indexterm significance="normal">
+          <primary>check boxes</primary>
+          <secondary>setting for remembered</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>memory</primary>
+          <secondary>for check boxes</secondary>
+        </indexterm>Check Box Memory</title>
+      <para>On many screens where there are check box options (i.e.,
+      parameters used for filtering data displayed on a screen), the system
+      will remember your preferred settings. An example of this functionality
+      is shown in the following screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_checkBoxMemory.png" />
+            </imageobject>
+            <caption>Check Box Memory</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>A shaded bullet symbol indicates whether a check box supports the
+      memory feature. In our example, the "Show All Unvouchered P/Os" check
+      box has a shaded bullet next to it. When you see a shaded bullet next to
+      a check box it means your preferences will be remembered by the system.
+      If you select the check box, then it will remain selected the next time
+      you open the screen. Conversely, if you don't select the check box, it
+      won't be selected when the screen is next used.</para>
+      <tip>
+        <para>The Check Box memory feature can be de-activated by de-selecting
+        the "Remember Check Box Settings" option on the user Preferences
+        screen. Turning this setting off will hide the shaded bullet symbols
+        from view.</para>
+      </tip>
+    </section>
+    <section>
+      <title><indexterm significance="normal">
+          <primary>screens</primary>
+          <secondary>size remembered for</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>memory</primary>
+          <secondary>for screen sizes</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>memory</primary>
+          <secondary>for screen position</secondary>
+        </indexterm>Screen Position/Size Memory</title>
+      <para>The system gives you the ability to specify a default screen size
+      and position on a screen-by-screen basis. This feature applies to all
+      Window screens, but not to Dialog screens. A Dialog screen is a screen
+      which holds the focus when it is open and prevents you from working on
+      other screens at the same time. The controls for the screen position and
+      size memory are located under the Windows menu, as shown in the
+      following screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_screenMemory.png" />
+            </imageobject>
+            <caption>Setting Screen Position/Size Memory</caption>
+          </mediaobject>
+        </screenshot></para>
+      <note>
+        <para>Unless you specify otherwise, the system will always remember
+        the size of all Window screens—and also the position where the screen
+        was located—when you last used it.</para>
+      </note>
+      <para>When opening the Windows menu to set your screen position or size,
+      you are presented with the following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Remember Position</term>
+          <listitem>
+            <para>Select to have the system remember the position of the
+            specified screen. If selected, the system will remember the
+            position of the screen where it was last located. Un-selecting
+            this option means the screen position will not be remembered—and
+            the default position will be used instead.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Remember Size</term>
+          <listitem>
+            <para>Select to have the system remember the size of the specified
+            screen. If selected, the system will remember the size of the
+            screen where it was last located. Un-selecting this option means
+            the screen size will not be remembered—and the default size will
+            be used instead.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+    <section id="Section483123">
+      <title><indexterm significance="normal">
+          <primary>keyboard shortcuts</primary>
+          <secondary>drag-and-drop</secondary>
+        </indexterm>Drag-and-Drop</title>
+      <para>The application supports drag-and-drop functionality for screens
+      which use the Item Number widget. Using this functionality, you have the
+      ability to drag an Item Number from one screen to another screen.</para>
+      <para>For example, let's say you have two xTuple ERP screens open on
+      your desktop at the same time: The Bill of Materials (BOM) for Item XYZ
+      and also the Quantity on Hand (QOH) by Item display. In this example,
+      the QOH display does not have an Item Number entered in it yet.</para>
+      <para>To drag Item Number XYZ from the BOM screen to the QOH display,
+      simply click your mouse on the Item Number in the BOM—and then drag the
+      Item Number over to the Item Number field on the QOH display. You may
+      now QUERY the display to get QOH information on Item XYZ.</para>
+    </section>
+    <section id="Section456222">
+      <title><indexterm significance="normal">
+          <primary>keyboard shortcuts</primary>
+          <secondary>using instead of mouse</secondary>
+        </indexterm>Keyboard Shortcuts</title>
+      <para>Many people prefer to use keyboard shortcuts—instead of a
+      mouse—when navigating within a software application. xTuple ERP features
+      a number of keyboard shortcuts designed just for this purpose.</para>
+      <section id="Section456225">
+        <title><indexterm significance="normal">
+            <primary>TAB key</primary>
+          </indexterm> <indexterm significance="normal">
+            <primary>keyboard shortcuts</primary>
+            <secondary>TAB key</secondary>
+          </indexterm>TAB Key</title>
+        <para>The TAB key on your keyboard may be used to move the cursor from
+        one field to the next within any given data-entry screen. Simply place
+        the cursor in the first field you want to enter data into—and when
+        you"re done entering data, hit the TAB key to move the cursor to the
+        next field.</para>
+        <para>Also use the TAB key as a shortcut for converting date field
+        entries to the proper format for your system. For example, in a "Start
+        Date" field you might enter the numbers "022503". Then, with the
+        cursor still blinking in the field, hit the TAB key. The date will be
+        converted to "02/25/03"—or whatever the proper date format is for
+        your system. For more information on keyboard shortcuts related to
+        dates, see the <xref linkend="Anchor73705" />.</para>
+        <note>
+          <para>Date formats are controlled by Locale settings.</para>
+        </note>
+      </section>
+      <section id="Section456228">
+        <title><indexterm significance="normal">
+            <primary>CTRL key</primary>
+          </indexterm> <indexterm significance="normal">
+            <primary>keyboard shortcuts</primary>
+            <secondary>CTRL key</secondary>
+          </indexterm>CTRL Key</title>
+        <para>Three keyboard shortcuts are available at several points
+        throughout the application when you place the cursor in an "Item
+        Number" field. You saw the "Item Number" field in the Bill of
+        Materials example above. The "Item Number" field appears frequently
+        throughout the application. Use the CTRL key—usually located on the
+        bottom left-hand corner of your keyboard—in combination with either
+        "L", "A", or "S" to reach the three screens shown in the following
+        examples:</para>
+        <tip>
+          <para>Macintosh users should substitute the APPLE key for the CTRL
+          key to achieve the results described in this section.</para>
+        </tip>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/INTRO_CTRL-L.png" />
+              </imageobject>
+              <caption>Item Lookup (CTRL + L)</caption>
+            </mediaobject>
+          </screenshot></para>
+        <variablelist>
+          <varlistentry>
+            <term>List (CTRL + L)</term>
+            <listitem>
+              <para>This is the same Item lookup you would reach if you
+              clicked your mouse on the browse button located next to the
+              "Item Number" field.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/INTRO_CTRL-A.png" />
+              </imageobject>
+              <caption>Item Alias Lookup (CTRL + A)</caption>
+            </mediaobject>
+          </screenshot></para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>item aliases</primary>
+                <secondary>keyboard shortcut for</secondary>
+              </indexterm>Aliases (CTRL + A)</term>
+            <listitem>
+              <para>Locate an Item using its Item Alias. Item Aliases may
+              correspond to a Customer Item Number—or some other
+              equivalence.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/INTRO_CTRL-S.png" />
+              </imageobject>
+              <caption>Searchable List (CTRL + S)</caption>
+            </mediaobject>
+          </screenshot></para>
+        <variablelist>
+          <varlistentry>
+            <term>Search (CTRL + S)</term>
+            <listitem>
+              <para>Search for Items using a variety of search criteria. This
+              shortcut enables you to look up Manufactured Items using partial
+              values. In the above example, the user selected all available
+              search options—except for the "Show Inactive Items" option—to
+              search for a match for "MB-B." In this case, the application
+              will search the master list of Items for any Item containing
+              "MB-B" in either the Item Number, the first line of the Item
+              description, and/or the second line of the Item
+              description.</para>
+              <para>You can also search for matches using any one or a
+              combination of these search options. For example, let's say you
+              are looking for any Manufactured Item containing the word "Bike"
+              in the first line of the Item description. To perform this
+              search, simply enter the word "Bike" in the "Search For" field,
+              then select the "Search through Description 1" option. Leave the
+              other options unchecked. Any Item containing the word "Bike" in
+              the first line of its Item description will display in the
+              results.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </section>
+      <section id="Section456240">
+        <title><indexterm significance="normal">
+            <primary>ALT key</primary>
+          </indexterm> <indexterm significance="normal">
+            <primary>keyboard shortcuts</primary>
+            <secondary>ALT key</secondary>
+          </indexterm>ALT Key</title>
+        <para>You will notice throughout the application that several
+        characters—or individual letters within words—are underlined. In the
+        sample Bill of Materials screen, for example, the SAVE button has the
+        first letter, "S", underlined. The first letter, "C", in the CANCEL
+        button is also underlined. Alternately, notice that the MOVE DOWN
+        button has the "W" underlined. The list could go on.</para>
+        <para>If you depress the ALT key on your keyboard in combination with
+        any of these underlined letters, the effect is the same as if you had
+        used the mouse to select that button or field. For example, the
+        following combination of keys will activate the PRINT button: ALT + P.
+        The following keyboard shortcut will cancel or close a screen: ALT +
+        C. Or, move a component Item down a notch in a Bill of Materials
+        display with the following shortcut: ALT + W.</para>
+      </section>
+      <section id="Section474757">
+        <title id="Anchor73705"><indexterm significance="normal">
+            <primary>formats</primary>
+            <secondary>related to dates</secondary>
+          </indexterm> <indexterm significance="normal">
+            <primary>dates</primary>
+            <secondary>formats for</secondary>
+          </indexterm> <indexterm significance="normal">
+            <primary>keyboard shortcuts</primary>
+            <secondary>for dates</secondary>
+          </indexterm>Date Shortcuts</title>
+        <para>xTuple ERP supports a number of keyboard shortcuts for dates.
+        These shortcuts are designed to save you time when entering dates in
+        date fields. Keep in mind, you are required to hit the TAB key after
+        entering a shortcut value in a date field. The TAB key is required to
+        complete all date shortcut entries. The following table describes
+        these date shortcuts in more detail:</para>
+        <note>
+          <para>xTuple ERP accepts a number of different "input" formats for
+          dates. Any of the following date formats will be accepted by the
+          application:</para>
+          <para>MM/DD/YY</para>
+          <para>MM/DD/YYYY</para>
+          <para>M or MM / D or DD / YY or YYYY</para>
+          <para>While date input formats may vary, the "output" format (i.e.,
+          how dates display on screen) is defined by your Locale
+          settings.</para>
+        </note>
+        <table>
+          <title>Date Shortcuts</title>
+          <tgroup cols="2">
+            <tbody>
+              <row>
+                <entry><para>0+TAB Key</para></entry>
+                <entry><para>Entering the number "0" followed by the TAB key
+                in an empty date field will automatically enter today's date
+                in the date field.</para></entry>
+              </row>
+              <row>
+                <entry><para>+num</para></entry>
+                <entry><para>The "+" symbol followed by a whole number will
+                enter the date occurring num number of days after today's
+                date:</para><para>Example:</para><para>Entering "+1" would
+                give you tomorrow's date, "+2" would give you the
+                day-after-tomorrow, etc.</para></entry>
+              </row>
+              <row>
+                <entry><para>-num</para></entry>
+                <entry><para>The "-" symbol followed by a whole number will
+                enter the date occurring num number of days before today's
+                date:</para><para>Example:</para><para>Entering "-1" would
+                give you yesterday's date, "-2" would give you the
+                day-before-yesterday, etc.</para></entry>
+              </row>
+              <row>
+                <entry><para>num</para></entry>
+                <entry><para>A standalone number will enter the day of the
+                current month represented by that
+                number.</para><para>Examples:</para><para>Entering "12" in the
+                month of March, 2003 would give you March 12, 2003. Similarly,
+                the number "23" would give you March 23, 2003,
+                etc.</para><para>Any number from 1 to 99 may be entered. If
+                the number entered is greater than the last day of the current
+                month, the date will automatically default to the last day of
+                the month. In other words, entering the numbers "99" or "75"
+                or "32" would automatically enter the last day of the current
+                month.</para></entry>
+              </row>
+              <row>
+                <entry><para>#num</para></entry>
+                <entry><para>The "#" symbol followed by a whole number will
+                enter the day of the current Julian calendar year represented
+                by that number.</para><para>Examples:</para><para>Entering
+                "#1" in the year 2003 would give you January 1, 2003.
+                Similarly, "#100" would give you April 10, 2003. Entering
+                "#365" would give you December 31, 2003.</para></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <tip>
+          <para>Some date fields support time-periods represented by
+          words—such as "Earliest" and "Latest". Keep in mind that these words
+          are case-sensitive. They will not work unless the first letter of
+          the word is capitalized.</para>
+        </tip>
+      </section>
+      <section>
+        <title>Calendars</title>
+        <para>In addition to the keyboard shortcuts for dates, you also have
+        the option of selecting the calendar button located to the far right
+        of every date field in the application. The calendar buttons are shown
+        in the following screen shot next to the Start Date and End Date
+        fields:</para>
+        <para><mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_calendars.png" />
+            </imageobject>
+            <caption>Calendar Widget</caption>
+          </mediaobject>The calendar functionality is simple to use. All you
+        do is open the calendar, then select the date you want to be entered
+        into the field. To change a date, simply reopen the calendar and
+        select a new date. You can easily navigate between months—and even
+        between years.</para>
+        <tip>
+          <para>The calendar can be used interchangeably with manually entered
+          dates and date shortcuts. You don't have to use one or the
+          other.</para>
+        </tip>
+      </section>
+      <section id="Section476479">
+        <title id="Anchor51567"><indexterm significance="normal">
+            <primary>keyboard shortcuts</primary>
+            <secondary>for toolbar buttons</secondary>
+          </indexterm>Toolbar Buttons</title>
+        <para>For users who prefer using buttons instead of drop-down menus,
+        the application offers a variety of toolbar button options. <indexterm
+            significance="normal">
+            <primary>toolbar buttons</primary>
+            <secondary>master list of</secondary>
+          </indexterm> <indexterm significance="normal">
+            <primary>toolbars</primary>
+            <secondary>buttons master list</secondary>
+          </indexterm>The following screen shows the application desktop with
+        all available toolbar buttons turned on:</para>
+        <note>
+          <para>You can control the display of toolbar buttons on your
+          desktop. Turn them on or off on a module-by-module basis, using the
+          settings available in the User Preferences section of the System
+          module. In addition, you may drag-and-drop toolbar buttons, allowing
+          them to float or attach to alternate locations on the application
+          desktop.</para>
+        </note>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/INTRO_toolbarMenu.png" />
+              </imageobject>
+              <caption>Toolbar Buttons</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>To access the function described by a button, simply select the
+        button using your mouse. Toolbar buttons function in the same way
+        drop-down menu selections do—they simply provide a convenient
+        shortcut. The complete list of available toolbar buttons is shown in
+        the following table:</para>
+        <table>
+          <title>Toolbar Buttons Master List</title>
+          <tgroup cols="3">
+            <thead>
+              <row>
+                <entry><para>Image</para></entry>
+                <entry><para>Function</para></entry>
+                <entry><para>Module</para></entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_itemSites.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>List Item Sites</para></entry>
+                <entry><para>I/M</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_dspInventoryAvailabilityByPlannerCode.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Inventory Availability by Planner
+                Code</para></entry>
+                <entry><para>I/M</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_itemAvailabilityWorkbench.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Item Availability Workbench</para></entry>
+                <entry><para>I/M</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_items.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>List Items</para></entry>
+                <entry><para>P/D</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_boms.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>List BOMs</para></entry>
+                <entry><para>P/D</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_boos.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>List BOOs</para></entry>
+                <entry><para>P/D</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_runMrpByPlannerCode.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Run MRP by Planner Code</para></entry>
+                <entry><para>M/S</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_dspPlannedOrdersByPlannerCode.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Planned Orders by Planner Code</para></entry>
+                <entry><para>M/S</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_shopFloorWorkbench.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Shop Floor Workbench</para></entry>
+                <entry><para>W/O</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_dspWoScheduleByPlannerCode.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>W/O Schedule by Planner Code</para></entry>
+                <entry><para>W/O</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_listUnpostedPo.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>List Unposted P/Os</para></entry>
+                <entry><para>P/O</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_dspPurchaseReqByPlannerCode.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Purchase Requests by Planner Code</para></entry>
+                <entry><para>P/O</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_customerInformationWorkbench.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Customer Information Workbench</para></entry>
+                <entry><para>S/O</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_listOpenSalesOrders.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>List Open Sales Orders</para></entry>
+                <entry><para>S/O</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_uninvoicedShipments.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Uninvoiced Shipments</para></entry>
+                <entry><para>S/O</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_billingSelections.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Billing Selections</para></entry>
+                <entry><para>S/O</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_dspSummarizedBacklogByWhse.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Summarized Backlog by Site</para></entry>
+                <entry><para>S/O</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_issueStockToShipping.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Issue Stock to Shipping</para></entry>
+                <entry><para>S/R</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_postReceipts.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>UnPosted Receipts</para></entry>
+                <entry><para>S/R</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_accounts.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>List Accounts</para></entry>
+                <entry><para>CRM</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_contacts.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>List Contacts</para></entry>
+                <entry><para>CRM</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_incidents.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Incident Workbench</para></entry>
+                <entry><para>CRM</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_toDoList.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>List To-Do"s</para></entry>
+                <entry><para>CRM</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_projects.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>List Projects</para></entry>
+                <entry><para>P/M</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_listUnpostedVouchers.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>List Unposted Vouchers</para></entry>
+                <entry><para>A/P</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_selectPayments.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Select Payments</para></entry>
+                <entry><para>A/P</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_prepareCheckRun.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Prepare Check Run</para></entry>
+                <entry><para>A/P</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_viewCheckRun.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>View Check Run</para></entry>
+                <entry><para>A/P</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_apAging.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>A/P Aging</para></entry>
+                <entry><para>A/P</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_unpostedInvoices.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>List Unposted Invoices</para></entry>
+                <entry><para>A/R</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_arWorkbench.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>A/R Workbench</para></entry>
+                <entry><para>A/R</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_editCashReceipts.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Cash Receipt Edit List</para></entry>
+                <entry><para>A/R</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_arAging.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>A/R Aging</para></entry>
+                <entry><para>A/R</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_journalEntries.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>List Unposted Journal Entries</para></entry>
+                <entry><para>G/L</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_bankReconciliation.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Reconcile Bank Account</para></entry>
+                <entry><para>G/L</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_viewFinancialReport.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>View Financial Report</para></entry>
+                <entry><para>G/L</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_viewTrialBalance.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>View Trial Balances</para></entry>
+                <entry><para>G/L</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/TOOLS_dspEvents.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry><para>Event Notification</para></entry>
+                <entry><para>System</para></entry>
+              </row>
+              <row>
+                <entry><para><screenshot>
+                    <mediaobject>
+                      <imageobject>
+                        <imagedata fileref="images/dspError.png" />
+                      </imageobject>
+                    </mediaobject>
+                  </screenshot></para></entry>
+                <entry>Database Error Notification</entry>
+                <entry>System</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <tip>
+          <para>If you hover your mouse above a toolbar button, the name of
+          the function associated with the button will appear. Use this
+          technique to quickly learn the identity of the toolbar
+          buttons.</para>
+        </tip>
+      </section>
+    </section>
+    <section id="Section456244">
+      <title><indexterm significance="normal">
+          <primary>common application buttons</primary>
+        </indexterm>Common Application Buttons</title>
+      <para>A set of common buttons appear throughout xTuple ERP. They are
+      usually located to the far right side of the screen. They can be
+      activated by a single mouse click, or by the use of associated keyboard
+      shortcuts. The following descriptions explain some of the more common
+      application buttons found within xTuple ERP:</para>
+      <variablelist>
+        <varlistentry>
+          <term>CLOSE</term>
+          <listitem>
+            <para>Closes the screen you are currently working on, without
+            saving any information you may have entered. Returns you to the
+            previous screen.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>CANCEL</term>
+          <listitem>
+            <para>Works the same way as the CLOSE button.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>SELECT</term>
+          <listitem>
+            <para>Inserts a highlighted list item into a requesting field. The
+            use of the SELECT button is illustrated in the example. In this
+            Bill of Materials example, you would highlight an Item in the
+            searchable master list of Items and then hit SELECT. The Item
+            would then be automatically entered into the "Item Number" field
+            on the Bill of Materials screen. You may bypass the SELECT button
+            by double-clicking on a highlighted list item.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>EDIT</term>
+          <listitem>
+            <para>Allows editing of information displayed on screen.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>VIEW</term>
+          <listitem>
+            <para>Opens a read-only view of information displayed on
+            screen.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>SAVE</term>
+          <listitem>
+            <para>Saves any information you have entered and stores it in the
+            xTuple Database.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>PRINT</term>
+          <listitem>
+            <para>Sends the contents of a screen or report to your default
+            printer, assuming you have a default printer assigned to your work
+            station.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+  </section>
+</chapter>

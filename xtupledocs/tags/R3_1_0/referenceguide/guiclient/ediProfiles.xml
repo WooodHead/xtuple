@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section959762" role="standard">
+  <title>EDI Profiles</title>
+  <para>The Electronic Data Interchange (EDI) system supports the export of
+  documents and files using either of the following two <indexterm
+      significance="normal">
+      <primary>electronic data interchange</primary>
+      <secondary>delivery methods for</secondary>
+    </indexterm>delivery methods:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Email</para>
+    </listitem>
+    <listitem>
+      <para>FTP</para>
+    </listitem>
+  </itemizedlist>
+  <para>EDI Profiles are the master records which contain specifications for
+  EDI recipients&mdash;whether those recipients are Customers, Suppliers, or
+  intermediaries such as VANs (Value-Added Networks). When creating an EDI
+  Profile, you specify recipient details, delivery method, and output format.
+  The following <indexterm significance="normal">
+      <primary>electronic data interchange</primary>
+      <secondary>supported formats</secondary>
+    </indexterm>output formats are available:</para>
+  <itemizedlist>
+    <listitem>
+      <para>xTuple Report (.PDF)</para>
+    </listitem>
+    <listitem>
+      <para>Comma Delimited (.TXT)</para>
+    </listitem>
+    <listitem>
+      <para>Tab Delimited (.TXT)</para>
+    </listitem>
+  </itemizedlist>
+  <para>Using different combinations of delivery methods and output formats,
+  you have the flexibility to create a wide range of unique EDI
+  Profiles.</para>
+  <tip>
+    <para>The EDI system exports files using the Batch Manager. The Batch
+    Manager must be installed and running at your site for EDI exports to be
+    successful.</para>
+  </tip>
+  <para><indexterm significance="normal">
+      <primary>profiles</primary>
+      <secondary>master list of</secondary>
+    </indexterm>To access the master list of EDI Profiles, select the "EDI
+  Profiles" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/ediProfiles.png" />
+        </imageobject>
+        <caption>EDI Profiles Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "EDI Profiles" screen displays information on all existing EDI
+  Profiles. To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new EDI Profile.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted EDI Profile definitions. The
+        edit screen is the same as that for creating a new EDI Profile
+        definition&mdash;except that when editing, the fields will contain EDI
+        Profile information. Double-clicking on an EDI Profile definition will
+        also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an EDI Profile definition and then select this button
+        to remove the EDI Profile from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="ediProfile.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

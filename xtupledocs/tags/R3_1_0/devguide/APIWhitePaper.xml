@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<article>
+  <title>White Paper for xTuple API</title>
+  <section>
+    <title>Overview</title>
+    <section>
+      <title>Goal</title>
+      <para>The goal of the xTuple Application Programmer Interface (API) is
+      to make importing data directly into the database much safer and easier
+      than it is going directly into the regular table structure. The specific
+      target audience is users such as solution providers and customers who
+      wish to integrate e-commerce solutions with xTuple Applications
+      (including the open source PostBooks and the commercial-license OpenMFG)
+      without having deep experience with xTuple business logic. Our appoach
+      is to allow users to create, access, and update xTuple documents using a
+      special database schema that closely mirrors the graphical user
+      interface (GUI).</para>
+    </section>
+    <section>
+      <title>Philosophy</title>
+      <para>The xTuple technology is built on a classic client/server
+      platform, where the client application is written in C++ using
+      Trolltech's Qt development library, and connects to a highly normalized
+      PostgreSQL database. Using the xTuple client requires little technical
+      expertise; however, loading data into the database using any other
+      interface can be challenging because users are required to know the
+      intracacies of the xTuple table schema, and perhaps even C++ programming
+      to access and change underlying data.</para>
+      <para>The traditional approach to this problem is to wrap the business
+      logic of an application like the xTuple client into a library that makes
+      it accessible to a particular method such as C++, Java, COM, .NET, or
+      Python. These tools allow developers to load business objects from the
+      application that can be viewed, altered and saved programatically. This
+      solves a general compatability problem between object oriented (OO)
+      programming and relational database structures, particularly in cases
+      where the business objects presented to users do not exactly match the
+      table structure within which they are stored. For example the Customer
+      window in PostBooks presents the user with primary and secondary contact
+      and address information that appears as though it is all stored as part
+      of the Customer record where that data is actually stored as 5 records
+      in 3 separate tables. An API library provides a programmer a way to
+      access the same data points available in the GUI without having to worry
+      about how or where it is stored. Furthermore, APIs solve the problem
+      where the database tables do not provide the level of checking and
+      defaults nor save field level data in the same form as presented in the
+      GUI, which saves developers from having to worry about data integrity
+      and translation as well.</para>
+      <para>Unfortunately an API library only satisfies a narrow audience
+      because it limits users to using the language and technology the API is
+      designed in. For example if the API is written to interface with Java,
+      this adds complexity and a potential obstacle to a .NET developer who
+      wants to leverage xTuple. Extending the flexibility of the API requires
+      additional wrappers, translations or bridges to be built. Second, API
+      libraries are almost completely inaccessible to casual users who would
+      like to simply map and import data from other GUI tools such as
+      Microsoft Excel or Access. Finally, any movement toward rewrapping
+      business logic in a 3rd tier will ultimately lead to a more complicated
+      application to maintain and operate for users and developers, which is
+      antithetical to our approach of keeping xTuple technology easy to
+      install, maintain and use.</para>
+      <para>What is needed is a technology-agnostic method of abstracting
+      business logic that makes external linking and mapping to xTuple
+      Applications easy and safe. We have settled on the strategy of
+      implementing database views in a separate schema as a mechanism to
+      accomplish this. This idea is predicated on the notion that all modern
+      languages have a means to attach to databases and manipulate records as
+      objects. By embedding all business logic in the database, developers can
+      use their technology of choice to manage xTuple records using familiar
+      tools. This also leaves the door open to users who would prefer to use
+      straight SQL statements or 3rd party GUI tools such as Microsoft Office
+      or Open Office to attach to and manipulate data. Finally, it provides a
+      safe and easy mechanism to integrate third party tools at the database
+      level using views, triggers and functions.</para>
+    </section>
+    <section>
+      <title>Prerequisites</title>
+      <para>This guide is targeted at developers and programmers who desire to
+      access xTuple Applications from 3rd party programs. Users reading this
+      document should have the following:</para>
+      <itemizedlist>
+        <listitem>
+          <para>An understanding of the PostgreSQL Database and how to execute
+          SQL statements.</para>
+        </listitem>
+        <listitem>
+          <para>A working installation of PostBooks 2.2.1 or higher.</para>
+        </listitem>
+        <listitem>
+          <para>A basic understanding of the xTuple Applications business
+          flows.</para>
+        </listitem>
+        <listitem>
+          <para>Access to a PostgreSQL database with a demo PostBooks database
+          loaded.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </section>
+  <section>
+    <title>Overview</title>
+    <section>
+      <title>Structure</title>
+      <para>All data records and business logic for xTuple Applications are
+      stored in a schema called "public." Schemas provide a way to logically
+      separate database objects from one another while still allowing them
+      reside in the same database and interact with one another. xTuple API
+      views are stored in a schema called "api". Using pgAdmin you can browse
+      to find the api schema and subordinate views in your database or you can
+      list them by running the following SQL statement:</para>
+      <para><programlisting>SELECT viewname FROM pg_views WHERE schemaname = 'api' ORDER BY viewname;
+
+viewname
+-----------------
+custchar
+custcomment
+custcreditcard
+customer
+custshipto
+custtax
+quote
+quotecomment
+quoteline
+quotelinechar
+quotelinecomment
+salesline
+saleslinechar
+saleslinecomment
+salesorder
+salesordercomment</programlisting>A list of field names for a particular view
+      may be queried as shown below where 'customer' may be replaced with the
+      name of any api view in the system:<programlisting>SELECT a.attname
+  FROM pg_class c, pg_namespace n, pg_attribute a, pg_type t
+ WHERE c.relname = 'customer'
+   AND n.nspname = 'api'
+   AND n.oid = c.relnamespace
+   AND a.attnum &gt; 0
+   AND a.attrelid = c.oid
+   AND a.atttypid = t.oid
+
+attname
+-----------------
+customer_number
+customer_type
+customer_name
+active
+sales_rep
+commission
+ship_via
+ship_form
+shipping_charges
+accepts_backorders...</programlisting>The nomenclature of the views is
+      designed to correspond closely with that found on the corresponding
+      window caption and list titles for the record. Field names match user
+      GUI labels as closely as possible.</para>
+      <screenshot>
+        <screeninfo>Example of api.customer field mappings to Customer
+        Window</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APIcustwindmap.png" width="" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </section>
+    <section>
+      <title>Using API Views</title>
+      <para>The API views may be manipulated using standard SQL query SELECT,
+      INSERT and UPDATE statements.</para>
+      <warning>
+        <para>You must prefix API views with "api.[table name]" or otherwise
+        risk selecting or altering data from the public schema
+        directly.</para>
+      </warning>
+      <para><emphasis role="bold">Selecting Records</emphasis></para>
+      <para><programlisting>SELECT * FROM api.customer;
+
+customer_number  customer_type  customer_name      
+"1010"           "NORMAL"       "SpectraWorks Inc."
+
+active  sales_rep  commission  ship_via
+t       "10"      0.0750     "UPS-Ground-UPS Ground"...</programlisting></para>
+      <para>Note that combo box fields in the GUI are shown with code values
+      in the view so developers querying and writing back to the database only
+      need to concern themselves with code names, not the underlying keys. The
+      field 'customer_type' for example shows the code selection
+      'NORMAL.'</para>
+      <para><emphasis role="bold">Inserting Records</emphasis></para>
+      <para>When inserting records the views will honor all the same business
+      logic supported by the GUI which means fields that would normally have
+      automatic defaults in the corresponding window, will automatically
+      default if not specified by an insert statement. This insert statement
+      works successfully even though it only specifies 7 of the 76 fields
+      associated with the api.customer view.</para>
+      <para><programlisting>INSERT INTO api.customer
+(customer_number,customer_name,customer_type,sales_rep,default_terms,
+billing_contact_first,billing_contact_last)
+VALUES
+('CE1','Chesapeake Electronics','NORMAL','10','2-10-NET-30',
+'Fred','McClure')</programlisting><important>
+          <para>API views will validate code names and user privilege
+          settings. If invalid data is passed, inserts and updates will fail
+          and an error will be returned.</para>
+        </important>Viewing the Customer record for Chesapeake Electronics
+      from the GUI should look like this:</para>
+      <screenshot>
+        <screeninfo>New Customer record for Chesapeake
+        Electronics</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APIce1.png" width="" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Note how values for commission, ship via, shipping form and
+      several check boxes are populated with defaults. Also note that a linked
+      CRM Account was automatically created for this customer with the
+      associated contact. Records were inserted into 3 tables and 7 tables
+      were referenced by the view to process this record.</para>
+      <para>An associated Ship-to Address for the customer would be created
+      like this:</para>
+      <para><programlisting>INSERT INTO api.custshipto
+(customer_number,name,default_flag,address1,city,state, postal_code,first,last,phone)
+VALUES
+('CE1','Chesapeake Elec. Warehouse',true,'878 Cedar Road','Chesapeake','VA','23322',
+'Jane','Boyd','757-555-5555')</programlisting>Which should appear on the
+      shipto window for Chesapeake Electronics as so:</para>
+      <screenshot>
+        <screeninfo>Ship to Address for Chesapeake Electronics</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APIce1shipto.png" width="" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Again notice that several fields were populated by default,
+      including the ship-to number. It is worth noting that this particular
+      record also spans 3 underlying tables: shipto_info, addr and cntct. The
+      view again took care of populating the appropriate tables as well as the
+      business logic.</para>
+      <para><emphasis role="bold">Updating Records</emphasis></para>
+      <para>Records may be updated using standard SQL statements. Here's an
+      example of a an update that would be very complex if attempted directly
+      to the tables because no less than 4 records in 3 tables are affected by
+      the change:</para>
+      <para><programlisting>UPDATE api.customer SET
+billing_contact_voice='757-555-1212',
+billing_contact_address1='877 Cedar Road',
+billing_contact_city='Chesapeake',
+billing_contact_state='VA',
+billing_contact_postalcode='23322',
+correspond_contact_first='Mary',
+correspond_contact_last='Olander',
+correspond_contact_voice='757-555-1212',
+correspond_contact_address1='877 Cedar Road',
+correspond_contact_city='Chesapeake',
+correspond_contact_state='VA',
+correspond_contact_postalcode='23322'
+WHERE customer_number='CE1'</programlisting></para>
+      <para>Go back and reopen the Chesapeake Electronics customer record and
+      see how your changes affected the Customer record. Now open the CRM
+      contact list. Note the phone number was updated for Fred McClure, and a
+      new contact was created for Mary Olander. Finally look at the address
+      list. Observe the two addresses on Cedar Road in Chesapeake. 878 is the
+      ship to address associated with Jane Boyd while the 877 address is for
+      Fred and Mary. The view was smart enough to recognize that Fred and Mary
+      share the same address and consequently only created the one record
+      which was assigned to both of them.</para>
+      <para><emphasis role="bold">Deleting Records</emphasis></para>
+      <para>Just as in the GUI, you will not be able to delete the Customer
+      record unless subordinate shipto records are deleted, so two statements
+      are required to delete this customer. Note how the delete query for the
+      shipto record needs to know two things: which customer and which
+      shipto.</para>
+      <programlisting>DELETE FROM api.custshipto WHERE customer_number = 'CE1' and shipto_number='1';
+DELETE FROM api.customer WHERE customer_number = 'CE1';</programlisting>
+      <para>As with the GUI interface, deleting the Customer still leaves the
+      CRM Account, Contact and Address records that were associated with it
+      intact.</para>
+    </section>
+  </section>
+  <section>
+    <title>Using CSVimp to import records</title>
+    <section>
+      <title>Overview</title>
+      <para>The CSVimp tool is designed to provide a graphical way to map and
+      import data stored in Comma Separated Value (CSV) format into a
+      PostgreSQL database. Any office spreadsheet application should be able
+      to save data in CSV format.</para>
+      <para>You must have version .3 of the CSV Imp tool or higher to import
+      into the API schema. The CSVimp tool may be downloaded from the download
+      section of <ulink
+      url="http://www.xtuple.org/?q=node/2077">www.xtuple.com</ulink>. The
+      basic steps to importing a CSV file with this tool are:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Create the CSV file</para>
+        </listitem>
+        <listitem>
+          <para>Define the Mappings</para>
+        </listitem>
+        <listitem>
+          <para>Load the CSV file into CSV Imp</para>
+        </listitem>
+        <listitem>
+          <para>Run the Import</para>
+          <warning>
+            <para>It is possible to import CSV data into any table in the
+            system. We highly recommend importing exclusively to api views as
+            importing directly to public tables may lead to data corruption
+            and serious data integrity problems.</para>
+          </warning>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section>
+      <title>Example: Importing a Customer using CSV Imp</title>
+      <para>In a Spreadsheet program create a list of customers with the
+      following attributes:</para>
+      <table>
+        <title>List of Customers</title>
+        <tgroup cols="8">
+          <tbody>
+            <row>
+              <entry>HDIST</entry>
+              <entry>Harkin Distribution</entry>
+              <entry>NORMAL</entry>
+              <entry>10</entry>
+              <entry>NET30</entry>
+              <entry>Karen</entry>
+              <entry>Harkins</entry>
+              <entry>555-123-4532</entry>
+            </row>
+            <row>
+              <entry>ZOGP</entry>
+              <entry>Herzog Partners</entry>
+              <entry>NORMAL</entry>
+              <entry>10</entry>
+              <entry>NET30</entry>
+              <entry>Eric</entry>
+              <entry>Herzog</entry>
+              <entry>555-322-3211</entry>
+            </row>
+            <row>
+              <entry>PENSG</entry>
+              <entry>Penny Lane Sales Group</entry>
+              <entry>NORMAL</entry>
+              <entry>10</entry>
+              <entry>2-10-NET-30</entry>
+              <entry>Frank</entry>
+              <entry>Murando</entry>
+              <entry>555-433-2133</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>Save the file as 'customers.csv'. This varies depending on the
+      application, but usually involves going to File &gt; Save As... typing
+      in the name of the file and selecting .CSV as the format.</para>
+      <para>Launch CSV Imp and go to Map &gt; Edit. Here we will create a map
+      from your new CSV file to the api.customer view. Click the 'Add'
+      button.</para>
+      <screenshot>
+        <screeninfo>Map Name Dialog</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APIcsvimp1.png" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Enter 'My Customers' as the map name. Click 'Ok.'</para>
+      <screenshot>
+        <screeninfo>Select table dialog</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APIcsvimp2.png" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Select the api.customer view as the table to map to. Click
+      'Ok.'</para>
+      <screenshot>
+        <screeninfo>Mapping the data</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APIcsvimp3.png" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Now you are ready to map the data. The mapping tool allows you to
+      map table or view fields to column numbers on your CSV file. Simply find
+      the data fields we populated in the CSV file on the column listing and
+      under the Use Value header select "UseColumn." Then select the
+      appropriate column number as pictured. The map should be as follows when
+      you are finished:</para>
+      <table>
+        <title>Column Mappings</title>
+        <tgroup cols="2">
+          <tbody>
+            <row>
+              <entry>Field</entry>
+              <entry>Column #</entry>
+            </row>
+            <row>
+              <entry>customer_number</entry>
+              <entry>1</entry>
+            </row>
+            <row>
+              <entry>customer_type</entry>
+              <entry>3</entry>
+            </row>
+            <row>
+              <entry>customer_name</entry>
+              <entry>2</entry>
+            </row>
+            <row>
+              <entry>sales_rep</entry>
+              <entry>4</entry>
+            </row>
+            <row>
+              <entry>default_terms</entry>
+              <entry>5</entry>
+            </row>
+            <row>
+              <entry>billing_contact_first</entry>
+              <entry>6</entry>
+            </row>
+            <row>
+              <entry>billing_contact_last</entry>
+              <entry>7</entry>
+            </row>
+            <row>
+              <entry>billing_contact_voice</entry>
+              <entry>8</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>After you have created your maps go to File &gt; Save and save the
+      file as 'My Atlas.' Then close the CVS Atlas window.</para>
+      <para>Now got to File &gt; Open CSV and select the 'customers.csv' file
+      you created earlier. You should see your spreadsheet data loaded in the
+      window.</para>
+      <para>Go to Import &gt; Start.</para>
+      <screenshot>
+        <screeninfo>Starting the Import</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APIcsvimp4.png" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>The 'My Customers' map should be the only available map. Click
+      Ok.</para>
+      <para>If all went well you should see a message that the import was
+      successful and be able to view the customers in your PostBooks
+      client.</para>
+      <screenshot>
+        <screeninfo>Customer list with imported Customers</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APIcsvimp5.png" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </section>
+    <section>
+      <title>Linking to API views with Microsoft Access</title>
+      <para>Microsoft Access is a favorite tool for developers, IT
+      administrators and other system users to run Ad Hoc queries against
+      databases. Normally this type of activity is potentially dangerous, but
+      with the xTuple embedded database API it is safe and easy. All that is
+      needed is an ODBC connection and Microsoft Access itself. Though any
+      version of Access will work, this example uses Access 2007. It also uses
+      the 8.02.04 version of the PostgreSQL ODBC driver. The ODBC driver
+      usually installs automatically with PostgreSQL for Windows, but MSI
+      packages for only the ODBC drivers are also available at <ulink
+      url="http://www.postgresql.org/ftp/odbc/versions/msi/">http://www.postgresql.org/ftp/odbc/versions/msi/</ulink>.</para>
+      <note>
+        <para>If your user name requires secure authentication, you will not
+        be able to access data using ODBC connections.</para>
+      </note>
+      <para>Launch Microsoft Access and select the option to create a "New
+      Blank Database." Give the database the name "xTupleLink." Click on the
+      "External Data" menu and select "More" on the Import tool bar
+      section.</para>
+      <screenshot>
+        <screeninfo>Select the "More" option form External Data Import circled
+        in the screen shot</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APImsa1.png" width="" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Select ODBC database</para>
+      <screenshot>
+        <screeninfo>ODBC Source Selection dialog</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APImsa2.png" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>When prompted by the ODBC Source Selection dialog, select the
+      "Link to the data source by creating linked table."</para>
+      <screenshot>
+        <screeninfo>Select Data Source Dialog</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APImsa3.png" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Select the Machine Data Source tab on the Select Data Source
+      Dialog and click the "New" button</para>
+      <note>
+        <para>If you are in Vista, you may be prompted that you do not have
+        administrative privileges to create a system DSN. This message may be
+        ignored.</para>
+      </note>
+      <para>Select User Defined data source. Click Next.</para>
+      <screenshot>
+        <screeninfo>Create New Data Source Dialog</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APImsa4.png" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Select the "PostgreSQL ANSI" ODBC driver. Click Next. Click
+      Finish.</para>
+      <screenshot>
+        <screeninfo>Driver Settings Dialog</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APImsa5.png" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Enter your database settings in the Setup dialog. The screen shot
+      is only an example, your setting will be specific to your environment.
+      If you don't know what they are, contact your administrator. Click the
+      "Test" button to make sure your settings work correct. Click
+      "Save."</para>
+      <screenshot>
+        <screeninfo>Select Data Source Dialog</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APImsa6.png" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>You should be taken back to the Select Data Source dialog. Click
+      "OK."</para>
+      <screenshot>
+        <screeninfo>Link Tables Dialog</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APImsa7.png" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Here we are prompted to select tables to link to. Note all the API
+      views show up at the top as tables. Select api.customer and
+      api.custshipto.</para>
+      <screenshot>
+        <screeninfo></screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APImsa8.png" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>You will be prompted to select a unique record identifier. This is
+      necessary for Access to know how to send the update query if you change
+      data. Select customer_number for api.customer, and customer_number and
+      shipto_number for api.custshipto.</para>
+      <screenshot>
+        <screeninfo>Access database linked to Customer records</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="supportFiles/APImsa9.png" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Congratulations, you're done! You may now select the api_customer
+      table and edit records directly. Access will commit any changes you make
+      as soon as you move off the record on to another or a new one.
+      Experiment by making changes and new records in Access, then see how the
+      result appears in your xTuple PostBooks or OpenMFG client. Also
+      experiment with Access tools such as queries, forms and reports.</para>
+      <para>Access is a great way to handle complex ad-hoc import queries and
+      reports where either the time or expertise is limited. Note you may also
+      add your access application to a Custom menu in the xTuple Application
+      client. See your xTuple Application client help files for more
+      information.</para>
+    </section>
+    <section>
+      <title>Using API in Excel VBA</title>
+      <para>Many a database administrator and ERP consultant has gnashed their
+      teeth over the love affair the business world has with Excel. End users
+      frustrated with the rigidity of highly structured database clients often
+      resort to keeping separate spreadsheets of identical information because
+      it allows them add formulas, highlights and other custom attributes at
+      will. No amount of features added to the ERP system will convince these
+      people to part with their beloved spreadsheets and rely solely on the
+      xTuple Application client. If we can not bring the spreadsheet to
+      xTuple, why don't we bring xTuple to the spreadsheet?</para>
+      <para>Below are a couple examples of quick-and-dirty Spreadsheet
+      applications using Visual Basic for Applications (VBA) macros to connect
+      to an xTuple database. Though they are fully functional, they are not
+      necessarily meant to be deployed in a production environment, but rather
+      to give ideas as to how the xTuple API can be used to integrate office
+      applications to PostBooks or OpenMFG.</para>
+      <section>
+        <title>Interactive Customer List</title>
+        <para>This Office 2003 spreadsheet will allow a user to load the list
+        of customers in our PostBooks demo database alter them or add new
+        ones, then save the information back to PostBooks. A copy should have
+        been included in the zip file you downloaded with this white paper. To
+        run it you must:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Change the credentials on the "Login" tab</para>
+          </listitem>
+          <listitem>
+            <para>Use ctrl+l to "Load" your customer data</para>
+          </listitem>
+          <listitem>
+            <para>Use ctrl+s to "Save" your changes back to the
+            database</para>
+          </listitem>
+        </itemizedlist>
+        <note>
+          <para>You will need to configure Microsoft Office to enable Macros
+          for this application to work correctly.</para>
+        </note>
+        <para>The examples shown below are built in an Office 2007
+        environment. To build this application from scratch, do the
+        following:</para>
+        <screenshot>
+          <screeninfo>Add Header fields to Customers page.</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="supportFiles/APIexcel1..png" width="" />
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>Open a new Excel spreadsheet workbook and change the name of the
+        first page to "Customers." Enter header titles on the first row as
+        shown.</para>
+        <screenshot>
+          <screeninfo>Add login credentials to Login page</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="supportFiles/APIexcel2.png" />
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>Change the name of the second page to "Login" and enter database
+        connection parameter names in column "A" as shown. The actual values
+        in column "B" should reflect your local database connection
+        parameters.</para>
+        <para>Now click on the "View" tab in Excel and select the macros drop
+        down as circled above and select "View Macros."</para>
+        <screenshot>
+          <screeninfo>Create the Load macro</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="supportFiles/APIexcel3.png" />
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>On the Marco name line type "Load" and click "Create."</para>
+        <screenshot>
+          <screeninfo>Add Reference to ADODB</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="supportFiles/APIexcel4.png" />
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>The VBA Editor should appear. Before we can add our macro code,
+        we need to include a reference use ActiveX data objects. Go to Tools
+        &gt; References to bring up the references dialog. Scroll down and
+        select the Microsoft ActiveX Data Objects 2.5 library. There will
+        likely be several versions. We used 2.5 library for this example so it
+        would also work on older installations of Office, but you should be
+        able to use the latest version available. Click "OK."</para>
+        <para>Now it's time to add code. This discussion assumes the user has
+        an understanding of Visual Basic and ActiveX data objects (ADODB).
+        These are very broad and deep topics that goes beyond the scope of
+        this paper, but for which thousands of articles and books have been
+        written. We have, however, included comments to help users new to
+        these technologies follow along on what's happening</para>
+        <para>First we'll need to add some global variables. We need to do
+        this so Excel can maintain the connection and data between the time
+        when we load our data, change it and send it back to the database.
+        Type or paste this code above the Load sub routine that was
+        created:</para>
+        <programlisting>  'Set up Global data objects
+  Public pbConn As New ADODB.Connection
+  Public custRcd As New ADODB.Recordset
+  Public strConn</programlisting>
+        <para>Next we'll type or paste in the code to get customer data into
+        our Load subroutine:</para>
+        <programlisting>Sub Load()
+
+    'Get Connection information from worksheet
+    If strConn = "" Then
+        strConn = "Driver=" &amp; Sheet2.Range("B1") &amp; ";" &amp; _
+                "Server=" &amp; Sheet2.Range("B2") &amp; ";" &amp; _
+                "Port=" &amp; Sheet2.Range("B3") &amp; ";" &amp; _
+                "Database=" &amp; Sheet2.Range("B4") &amp; ";" &amp; _
+                "Uid=" &amp; Sheet2.Range("B5") &amp; ";" &amp; _
+                "Pwd=" &amp; Sheet2.Range("B6") &amp; ";"
+              
+        'Pass connection parameters and Open the connection
+        pbConn.Open strConn
+    End If
+
+    'Get the data
+    custRcd.Open "SELECT * FROM api.customer ORDER BY customer_number", _
+                 pbConn, adOpenDynamic, adLockPessimistic
+
+    'Clear the worksheet
+    Range("A2", "I50000").ClearContents
+    
+    Dim intRow
+    intRow = 2
+    
+    'Now populate new data
+    Do While Not custRcd.EOF 'Start looping through the records until we reach 'End of File'
+    
+        Range("A" &amp; CStr(intRow)).Select
+        ActiveCell.Value = custRcd("customer_number")
+        
+        Range("B" &amp; CStr(intRow)).Select
+        ActiveCell.Value = custRcd("customer_name")
+        
+        Range("C" &amp; CStr(intRow)).Select
+        ActiveCell.Value = custRcd("customer_type")
+        
+        Range("D" &amp; CStr(intRow)).Select
+        ActiveCell.Value = custRcd("sales_rep")
+        
+        Range("E" &amp; CStr(intRow)).Select
+        ActiveCell.Value = custRcd("default_terms")
+        
+        Range("F" &amp; CStr(intRow)).Select
+        ActiveCell.Value = custRcd("ship_via")
+        
+        Range("G" &amp; CStr(intRow)).Select
+        ActiveCell.Value = custRcd("credit_limit")
+        
+        Range("H" &amp; CStr(intRow)).Select
+        ActiveCell.Value = custRcd("credit_rating")
+        
+        Range("I" &amp; CStr(intRow)).Select
+        ActiveCell.Value = custRcd("notes")
+        
+        intRow = intRow + 1
+        custRcd.MoveNext  'move on to the next customer
+    Loop
+    
+    'Move focus to top
+    Range("A2").Select
+    
+End Sub</programlisting>
+        <para>The result should look something like this:</para>
+        <screenshot>
+          <screeninfo>Visual Basic Editor</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="supportFiles/APIexcel5.png" />
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>Next let's go ahead and create the "Save" sub routine to upload
+        our changes. Type or paste this code after the end of the Load
+        procedure:</para>
+        <programlisting>Sub Save()
+  Dim intRow
+  intRow = 2
+
+  On Error GoTo ErrorHandler
+  
+  'Move back to the first customer record and loop through
+  'to update from changes made on Excel
+  Range("A" &amp; CStr(intRow)).Select      'Move focus to first cell
+  custRcd.MoveFirst                     'Move to first customer record in xTuple
+  Do While Not ActiveCell.Value = ""  'Loop through spreadsheet as long as we find something
+        
+    If custRcd.EOF Then                 'If no xTuple customers left, must be a new one
+      custRcd.AddNew
+    End If
+    
+    custRcd("customer_number") = ActiveCell.Value
+    
+    Range("B" &amp; CStr(intRow)).Select
+    custRcd("customer_name") = ActiveCell.Value
+    
+    Range("C" &amp; CStr(intRow)).Select
+    custRcd("customer_type") = ActiveCell.Value
+    
+    Range("D" &amp; CStr(intRow)).Select
+    custRcd("sales_rep") = ActiveCell.Value
+    
+    Range("E" &amp; CStr(intRow)).Select
+    custRcd("default_terms") = ActiveCell.Value
+
+    Range("F" &amp; CStr(intRow)).Select
+    If ActiveCell.Value &lt;&gt; "" Then        'Ignore blanks so we get default
+      custRcd("ship_via") = ActiveCell.Value
+    End If
+    
+    Range("G" &amp; CStr(intRow)).Select
+    If ActiveCell.Value &lt;&gt; "" Then        'Ignore blanks se we get default
+        custRcd("credit_limit") = ActiveCell.Value
+    End If
+    
+    Range("H" &amp; CStr(intRow)).Select
+    If ActiveCell.Value &lt;&gt; "" Then        'Ignore blanks se we get default
+        custRcd("credit_rating") = ActiveCell.Value
+    End If
+    
+    Range("I" &amp; CStr(intRow)).Select
+    custRcd("notes") = ActiveCell.Value
+    
+    intRow = intRow + 1                     'Increment row
+    Range("A" &amp; CStr(intRow)).Select        'Move focus back to first column for next loop
+    custRcd.MoveNext                        'Move on to the next xTuple customer
+  Loop                                      'Look Ma, No SQL!
+  
+  'Refresh the data
+  Load
+  
+  Exit Sub
+  
+ErrorHandler:
+  MsgBox Err &amp; ": " &amp; Error(Err)
+  custRcd.CancelUpdate
+  
+End Sub</programlisting>
+        <para>Save your changes and close the Visual Basic editor. From Excel,
+        go back to view the macros and run the Load macro. Your spreadsheet
+        should be populated with the list of customers from your
+        database!</para>
+        <para>To make things a bit easier, from the macro list highlight the
+        Load macro and select Options. Type "l" in for the shortcut key. Do
+        the same for the Save macro using "s."</para>
+        <para>Now with the quick ctrl+l keystroke you can refresh your
+        customer list. Try making changes to a customer name, then ctrl+s to
+        save them. Try entering an invalid customer type and save. What
+        happens? Enter a new customer line and save. Note the api has the same
+        validation rules as the UI, but none of that had to be dealt with
+        explicitly in the macro code. It's all taken care of by the xTuple API
+        and ActiveX objects.</para>
+      </section>
+      <section>
+        <title>Electronic Order Form</title>
+        <para>The electronic order entry form is a concept that could
+        potentially solve a couple of problems. One is a situation where users
+        don't want all the features in the standard client and simply want a
+        stripped down order entry screen. With some improved security
+        measures, this idea could also be the beginning of a solution where
+        customers could fill out this form and email it to customer service
+        where it could be uploaded into an xTuple database with only a
+        keystroke. To use it simply do the following:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Change the credentials on the login tab to point to your
+            local environment</para>
+          </listitem>
+          <listitem>
+            <para>Back on the order form tab, enter the required order
+            information.</para>
+          </listitem>
+          <listitem>
+            <para>Hit ctrl+s keys to save.</para>
+          </listitem>
+        </itemizedlist>
+        <para>We won't bother walking through the steps of setting up this
+        application as it is pretty much the same as the customer list above.
+        You can review the comments in the macro code to see how it works.
+        However there is an important configuration change in PostBooks that
+        needs to be made to allow this application to work:.</para>
+        <screenshot>
+          <screeninfo>Sales Configuration</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="supportFiles/APIexcel6.png" />
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>In PostBooks or OpenMFG, go to System &gt; Configure Modules
+        &gt; Sales and make sure Sales Order# Generation is set to "Automatic,
+        Allow Override." This will allow the Excel application to assign an
+        order number.</para>
+        <screenshot>
+          <screeninfo>Electronic Order Form</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="supportFiles/APIexcel7.png" />
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>Some interesting things to note about this form are that first
+        if a customer number is not specified, or one is but is not found,
+        both the customer and the order are created together on save. Also
+        note the order number is automatically generated, and some error
+        trapping is included that transcends xTuple logic (like making the
+        contact information required) for this particular business
+        need.</para>
+      </section>
+    </section>
+    <section>
+      <title>Other Examples - [Your language of choice here]</title>
+      <para>Hopefully this white paper has helped you understand better the
+      flexibility and benefits of using the xTuple API. We think it would be
+      helpful if the community could help contribute other application
+      examples written in languages such as Java, .NET, Python, or Ruby. In
+      addition, it would also be useful to see examples of object wrappers for
+      these views, which should be a very straightforward task since no
+      translation or mapping would be required. If you have an interest in
+      adding to our library of examples, please post your idea on our
+      developer forum at <ulink
+      url="http://www.xtuple.org">www.xtuple.org</ulink>.</para>
+    </section>
+  </section>
+</article>

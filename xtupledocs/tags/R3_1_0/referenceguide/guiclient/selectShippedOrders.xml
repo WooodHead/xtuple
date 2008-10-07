@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section589749">
+  <title>
+<indexterm significance="normal">
+      <primary>billing</primary>
+      <secondary>select all shipped orders for</secondary>
+    </indexterm>Select All Shipped Orders for Billing</title>
+  <para>This utility enables you to select groups of shipped Orders for
+  billing in one operation. When used, the full Order quantity of shipped
+  Orders will be selected for billing. You may later change the billing
+  details for individual Line Items using the right-click menu on the Billing
+  Edit List. All selected Orders will appear on the Billing Edit List after
+  the Select All Shipped Orders for Billing utility is run. This approach
+  differs from the approach used by the Select Order for Billing utility,
+  which requires you to manually enter billing details for individual Orders.
+  To select multiple shipped Orders for billing, select the "Select All
+  Shipped Orders for Billing" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/selectShippedOrders.png"/>
+        </imageobject>
+        <caption>Select all Shipped Orders for
+        Billing</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>When you select an Order for billing, you are indicating that you
+    wish to create an Invoice for the Order.</para>
+  </note>
+  <para>When selecting multiple shipped Orders for billing, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Customer Types</term>
+      <listitem>
+        <para>Choose to select all Customer Types for billing.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify the Customer Type you want to select for billing.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Customer Type pattern to select a range of Customer
+        Types. Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Choose to select all Shipped Orders for billing for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Shipped Orders you want to select for
+        billing.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without selecting Shipped Orders for billing,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SELECT</term>
+      <listitem>
+        <para>Selects all shipped Orders for billing.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

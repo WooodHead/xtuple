@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519861">
+  <title>
+<indexterm significance="normal">
+      <primary>actual costs</primary>
+      <secondary>updating by class code</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>class codes</primary>
+      <secondary>updating actual costs for</secondary>
+    </indexterm>Update Actual Costs by Class Code</title>
+  <para>In addition to updating Actual Costs individually by Item, you may
+  also update Actual Costs by Class Code. To update Actual Costs by Class
+  Code, select the "Update Actual Costs by Class Code" option. The following
+  screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/updateActualCostsByClassCode.png"/>
+        </imageobject>
+        <caption>Update Actual Costs by Class
+        Code</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <tip>
+    <para>For best performance, you should run this utility by All Class
+    Codes. This will also ensure your Costs are updated properly for any Items
+    which cross Class Code lines.</para>
+  </tip>
+  <para>When updating Actual Costs by Class Code, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Class Codes</term>
+      <listitem>
+        <para>Select to update Actual Costs for all Class Codes. Running the
+        utility by all Class Codes is the preferred method.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Class Code whose Actual Costs you want to update.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Class Code pattern to select a range of Class Codes.
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>For manufactured Items, rolling up Actual Costs ensures that lower
+    level Costs are reflected in the Cost for the parent Item.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>
+<indexterm significance="normal">
+          <primary>actual costs</primary>
+          <secondary>rolling up of</secondary>
+        </indexterm>Roll Up Actual Costs</term>
+      <listitem>
+        <para>Select to roll up Actual Costs. When this option is specified,
+        all selected Costs will be added together to establish a revised total
+        Actual Cost for the Item. This revised total goes into effect after
+        the UPDATE button is selected. If all Costs are selected, all Costs
+        will be rolled up. If a subset of all Costs is selected, only the
+        subset will be rolled up. If the Roll Up Actual Costs option is not
+        specified, the selected Cost updates will not be valid above their
+        current level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>
+<indexterm significance="normal">
+          <primary>material costs</primary>
+          <secondary>updating of</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>costing</primary>
+          <secondary>updating of material costs</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>actual costs</primary>
+          <secondary>updating material costs</secondary>
+        </indexterm>Update Lower Level Material Costs</term>
+      <listitem>
+        <para>Select to update lower level material Costs. Not selecting means
+        lower level material Costs will not be included in the Cost
+        update.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>Update Direct Labor Cost</term>
+      <listitem>
+        <para>Select to update direct labor Cost. Not selecting means the
+        direct labor Cost will not be included in the Cost update.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>Update Lower Level Direct Labor Cost</term>
+      <listitem>
+        <para>Select to update lower level direct labor Cost. Not selecting
+        means the lower level direct labor Cost will not be included in the
+        Cost update.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>You have the flexibility of updating all or only a subset of the
+    listed Costs. Updating a subset might be desirable if only Material or
+    User Costs have changed, for example.</para>
+  </note>
+  <variablelist>
+    <varlistentry role="openmfg">
+      <term>Update Overhead Cost</term>
+      <listitem>
+        <para>Select to update overhead Cost. Not selecting means the overhead
+        Cost will not be included in the Cost update.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>Update Lower Level Overhead Cost</term>
+      <listitem>
+        <para>Select to update lower level overhead Cost. Not selecting means
+        the lower level overhead Cost will not be included in the Cost
+        update.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>Update Machine Overhead</term>
+      <listitem>
+        <para>Select to update machine overhead Cost. This option is selected
+        by default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>Update Lower Machine Overhead</term>
+      <listitem>
+        <para>Select to update lower level machine overhead Cost. This option
+        is selected by default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>
+<indexterm significance="normal">
+          <primary>user costs</primary>
+          <secondary>updating of</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>costing</primary>
+          <secondary>updating of user costs</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>actual costs</primary>
+          <secondary>updating user costs</secondary>
+        </indexterm>Update User Costs</term>
+      <listitem>
+        <para>Select to update user Costs. Not selecting means user Costs will
+        not be included in the Cost update.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Update Lower Level User Costs</term>
+      <listitem>
+        <para>Select to update lower level user Costs. Not selecting means
+        lower level user Costs will not be included in the Cost update.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without updating selected Costs, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UPDATE</term>
+      <listitem>
+        <para>Updates all selected Costs for the specified Item. If the option
+        "Roll Up Actual Costs" has been selected, the total Actual Cost for
+        the specified Item will be updated.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>SUBMIT</term>
+      <listitem>
+        <para>Select to submit requested action to the Batch Manager for
+        processing.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SELECT ALL COSTS</term>
+      <listitem>
+        <para>Selects all Costs for updating. Use this option to save time
+        when selecting all Costs for updating. The option "Roll Up Actual
+        Costs" must be selected separately if you want to include a rolled up
+        total for the parent Item in the Cost update.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

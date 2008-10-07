@@ -1,0 +1,1899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518889">
+  <title id="Anchor13555"><indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Enter New Item</title>
+  <para>To enter a new Item into your system, select the "Enter New Item"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/item.png" />
+        </imageobject>
+        <caption>Create New Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Item, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter a number to uniquely identify the Item. Duplicate Item
+        Numbers will not be accepted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Active</term>
+      <listitem>
+        <para>Select if Item is active. Select this option if you intend to
+        use the Item within the application. If you don"t select this option,
+        the Item will be unavailable for use. To activate an inactive Item,
+        simply open the Item master and mark the Item as active.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>An inactive Item may still be used in a Sales Order, Work Order, or
+    Purchase Order if the Item was de-activated after the Order was
+    created.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Description #1</term>
+      <listitem>
+        <para>The Item master features two description lines. The first line
+        is typically used for entering the name used to describe the Item. In
+        printed reports or other printouts, the first line will appear on a
+        separate line above the second line. However, the two lines will be
+        concatenated (i.e., "joined together") when they are displayed
+        on-screen within the application.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description #2</term>
+      <listitem>
+        <para>Use the second description line to provide additional
+        information about the Item. The second line might include product,
+        packaging, or any other descriptive information. In printed reports or
+        other printouts, the second line will appear on a separate line below
+        the first line. However, the two lines will be concatenated (i.e.,
+        "joined together") when they are displayed on-screen within the
+        application.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Develop a logical, hierarchical numbering strategy before assigning
+    Numbers to your Items. Using an hierarchical approach will greatly enhance
+    your ability to display and search for information within the database. An
+    hierarchical numbering scheme might look something like the
+    following:</para>
+    <itemizedlist>
+      <listitem>
+        <para>MB-26-1</para>
+      </listitem>
+      <listitem>
+        <para>MB-26-2</para>
+      </listitem>
+      <listitem>
+        <para>MB-26-3</para>
+      </listitem>
+    </itemizedlist>
+    <para>In this case, similar Items have been assigned sequential Item
+    Numbers. By extension, similar categories of Items may be identified by
+    similar numbers.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>item types</primary>
+          <secondary>master list of</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>items</primary>
+          <secondary>list of types</secondary>
+        </indexterm>Item Type</term>
+      <listitem>
+        <para>Select one of the available Item Types:</para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>purchased</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Purchased</term>
+            <listitem>
+              <para>Select if the Item is an Item you purchase. A Purchase
+              Order is the normal supply order. However, you may enter a Work
+              Order for this Item Type.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>manufactured</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Manufactured</term>
+            <listitem>
+              <para>Select if the Item is an Item you make. A Work Order is
+              the normal supply order. However, you may enter a Purchase Order
+              for this Item Type.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>phantoms</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Phantom</term>
+            <listitem>
+              <para>A transient subassembly containing component Items
+              commonly used together during a manufacturing process. Phantom
+              Items require a Bill of Materials, but not separate Work Orders.
+              Since they are not stock Items, Material Requirements Planning
+              (MRP) logic blows through phantom Items and only plans for their
+              component Items. Phantom Items should be used to simplify
+              complex Bills of Materials.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Breeder</term>
+            <listitem>
+              <para>A logical Item from which Co-Products and By-Products are
+              produced. An example use for a Breeder Item is the screening of
+              raw gravel to produce different sizes of gravel. The Breeder
+              Item's Bill of Materials (BOM) defines the inputs&mdash;in this
+              case raw gravel&mdash;and the outputs are defined on its Breeder
+              BOM (i.e., Small, Medium and Large gravel). A Work Order is
+              created for the Breeder Item, but this Item is never stocked or
+              produced; again, it is a logical Item. Instead, raw gravel is
+              consumed by the Breeder's Work Order, along with labor, and the
+              resulting quantities of Co-Products and By-Products are
+              recorded.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Co-Product</term>
+            <listitem>
+              <para>Co-Products are Items that you keep and which absorb
+              Costs. They are produced during a manufacturing process. See
+              "Breeder" Item Type above.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>By-Product</term>
+            <listitem>
+              <para>By-Products are things that you throw away and incur Costs
+              doing so during a manufacturing process. See "Breeder" Item Type
+              above.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>reference</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Reference</term>
+            <listitem>
+              <para>Select if the Item is an Item you sell&mdash;but you
+              neither manufacture nor purchase it. Services are an example of
+              Reference Item. The company sells consulting services, but it
+              doesn't manufacture or purchase them. Reference Items may be
+              configured. This means you can add List Prices to any Reference
+              Item Characteristics. These Characteristic Prices are then added
+              to the Base Price of Sales Order Items when the Characteristic
+              is selected at Sales Order entry.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>costing</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Costing</term>
+            <listitem>
+              <para>A kind of pseudo-Item used solely to provide a costed
+              value for a Costing Element. When a user-defined Costing Element
+              is linked to a Costing Item, the Costing Element assumes the
+              Costs associated with the Costing Item. For more information,
+              see <xref linkend="Anchor68692" />.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>tooling</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Tooling</term>
+            <listitem>
+              <para>Select if the Item is an Item you make but do not sell. An
+              example of a tooling Item would be an Item you must make in
+              order to complete or support the building of sold Items.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>outside processes</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Outside Process</term>
+            <listitem>
+              <para>Select if the Item is an external process or service that
+              is performed by someone outside your company. Outside Process
+              Items are treated by the system in much the same way as
+              purchased Items are. For example, Outside Process Items will be
+              handled in the same was as purchased Items are when Material
+              Requirements Planning (MRP) is run.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>planning</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Planning</term>
+            <listitem>
+              <para>An Item whose Bill of Materials (BOM) groups together
+              other Items so that a Production Plan may be defined for the
+              Planning Item&mdash;and then exploded down to the lower level
+              Items during a Master Production Scheduling (MPS) run. Planning
+              Items are frequently used to group together product families or
+              product lines of MPS Items. MPS Items are typically top-level
+              saleable Items. By grouping together MPS Items under a Planning
+              Item, the family may be forecasted through with a Production
+              Plan for the Planning Item, thereby simplifying the planning
+              process. The system automatically sets the Planning System as
+              "MPS" by default when a Planning Item is created.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>job items</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Job</term>
+            <listitem>
+              <para>Job Items are specifically for make-to-order scenarios
+              where simplified production is required. Job Items cannot be
+              maintained in Inventory. And they also have no concept of
+              Standard Cost or Cost variances. All Costs for Job Items are
+              Actual. The Work Orders which create Job Items can only be
+              created via a Sales Order. The Costs for Job Item Work Orders
+              are accumulated to WIP, and then transferred directly to Cost of
+              Sales when the job is shipped. Production for a Job Item Work
+              Order is posted when the linked Sales Order Item is issued to
+              Shipping. BOM and BOO Items may be assigned to Job items;
+              however, they will not roll up to a Standard Cost for Job items.
+              Job Items may be configured. This means you can add List Prices
+              to any Job Item Characteristics. These Characteristic Prices are
+              then added to the Base Price of Sales Order Items when the
+              Characteristic is selected at Sales Order entry.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>kits</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Kit</term>
+            <listitem>
+              <para>Kit Items automatically explode their Bill of Material
+              (BOM) components on to Sales Orders for shipping. When Kit Items
+              appear on Sales Orders, sub line numbers are generated for Kit
+              components because Kit children are sub line items of the parent
+              line item. Kit components are displayed as an indented tree on
+              the Sales Order—and they are view-only. Also, Kit components
+              will appear on the Sales Order Pick List. Kit components may be
+              issued to Shipping, whereas the parent Kit Item may not be. The
+              automatic "Select for Billing" option takes effect for Kit Items
+              when all Kit Items are shipped.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Maximum Desired Cost</term>
+      <listitem>
+        <para>This is an optional field to be used for entering the maximum
+        Cost desired for the Item. The field is not used by the system for any
+        calculations, and is provided for informational purposes only.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Class Code</term>
+      <listitem>
+        <para>Specify a Class Code to associate with the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>units of measure</primary>
+          <secondary>at item level</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>pricing</primary>
+          <secondary>item list price</secondary>
+        </indexterm>Inventory UOM</term>
+      <listitem>
+        <para>Specify the Item's primary Unit of Measure&mdash;or enter a
+        free-form UOM. The Inventory (UOM) is the UOM in which Inventory is
+        maintained. All Inventory transactions, sales transactions, and
+        General Ledger transactions reflect movement in Inventory UOMs. The
+        Inventory UOM is also the base reference for all UOM conversion
+        ratios.</para>
+        <note>
+          <para>Once transactions have been posted using an Item's Inventory
+          UOM, you may no longer change the Inventory UOM for the Item.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pick List Item</term>
+      <listitem>
+        <para>Select if you want the Item to be included on Pick Lists when
+        the Item is used. Pick Lists are printed lists showing the Work Order
+        Material Requirements for a specified Work Order. You may decide not
+        to include an Item on Pick Lists if the Item is insignificant or if it
+        is not stored in a stock room but, for example, in a Work Center
+        instead.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Fractional</term>
+      <listitem>
+        <para>Select if the Item may be maintained in fractional quantities.
+        If not selected, the system will assume the Item is maintained in its
+        Inventory UOM, which is by definition a whole number. This means you
+        may never use fractional quantities of the Item (e.g., in
+        manufacturing or purchasing) unless this option is selected.</para>
+        <tip>
+          <para>If you will ever use the Item in fractional quantities, then
+          the "Fractional" option must be selected. If it is not selected, the
+          system will never let you use fractional quantities of the
+          Item.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Configured</term>
+      <listitem>
+        <para>If the Item is a Job or Reference Item, then you will have the
+        option to configure the Item for Assemble to Order (ATO) scenarios.
+        This option will be disabled for all other Item Types. To learn more
+        about product configuration, see our <ulink
+        url="http://wiki.xtuple.org/AssembleToOrderConfigurator">ATO
+        Configurator Topic</ulink>.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>Planning System</term>
+      <listitem>
+        <para>Specify which of the following planning systems you want the
+        Item to be considered by:</para>
+        <variablelist>
+          <varlistentry>
+            <term>MRP</term>
+            <listitem>
+              <para>Select if you want the Material Requirements Planning
+              (MRP) system to create Planned Orders for the Item when MRP is
+              run.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>MPS</term>
+            <listitem>
+              <para>Select if you want the Master Production Scheduling (MPS)
+              system to create Planned Orders for the Item when MPS is
+              run.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>None</term>
+            <listitem>
+              <para>Select if you want MRP and MPS to ignore the Item.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The choice of planning system is exclusive. That is, MPS will not
+    create Planned Orders for MRP Items when it is run. Likewise, the MRP
+    system will not create Planned Orders for MPS Items when it is run.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Item is Sold</term>
+      <listitem>
+        <para>Select if the Item is an Item you sell. If not selected, the
+        associated fields will be disabled.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Product Category</term>
+      <listitem>
+        <para>Specify the Product Category if the Item is sold. All sold Items
+        must be assigned a Product Category.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>pricing</primary>
+          <secondary>item list price</secondary>
+        </indexterm>List Price</term>
+      <listitem>
+        <para>Specify the List Price for the Item, based on the selling UOM
+        (i.e., "Per" UOM). List Prices may also be created and modified in the
+        Item Pricing section of the Sales module. Changes made to the List
+        Price in either location will be updated system-wide.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm>
+          <primary>units of measure</primary>
+          <secondary>selling specified</secondary>
+        </indexterm>Per</term>
+      <listitem>
+        <para>Specify the selling Unit of Measure (UOM) for the Item. The List
+        Price should be based on this selection. By default, the Inventory UOM
+        will be used here. You will not be able to select a different UOM
+        until you first manually create a selling UOM using the options found
+        under the "UOM" tab on the Item master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>exclusive</primary>
+          <secondary>item master control</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>items</primary>
+          <secondary>exclusive for customers</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>customers</primary>
+          <secondary>exclusive items for</secondary>
+        </indexterm>Exclusive</term>
+      <listitem>
+        <para>Select if the Item is sold exclusively. If a sold Item is marked
+        as Exclusive, it may only be sold to specified Customers or Customer
+        Types. To link Exclusive Items to Customers, you would first include
+        the Item on a Pricing Schedule&mdash;indicating relevant Prices and
+        Quantity Breaks. You would then assign the Pricing Schedule to
+        specified Customers or Customer Types, using the Pricing Schedule
+        assignment functionality found in the Item Pricing section of the
+        Sales module.</para>
+        <note>
+          <para>Sold Items can be configured as Exclusive by default at the
+          system level.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warranty</term>
+      <listitem>
+        <para>If the Item is sold with a warranty, specify the number of days
+        the warranty extends for. The warranty period begins on the date the
+        Item is sold and ends on the specified number of days afterward.
+        Setting this option to "0" days indicates the Item does not come with
+        a warranty.</para>
+        <tip>
+          <para>The sold warranty should not be confused with the purchased
+          warranty, which is defined at the Item Site level.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UPC Code</term>
+      <listitem>
+        <para>Enter the Universal Product Code for the Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Standard bar code formats supported by the system include the
+    following: Code 3of9, Code 3of9 Extended, Code 128, UPC-A, UPC-E, EAN-8,
+    EAN-13.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Weight</term>
+      <listitem>
+        <para>Enter details related to the weight of the Item.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Product</term>
+            <listitem>
+              <para>Specify the pre-packaging weight of the product.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Packaging</term>
+            <listitem>
+              <para>Specify the weight of the product packaging.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Item. Any Notes entered on this screen are for
+        internal purposes only.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Item, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Item and adds it to the master list of Items. Mac
+        users may use COMMAND + S to save. After saving, the "Create New Item
+        Sites" screen appears. If you select "YES," you will be directed to
+        the screen for entering a new Item Site. If you select "No," the new
+        Item will be added to Inventory, but no Item Site will be created for
+        it. You may create an Item Site at a later time.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>OPERATIONS</term>
+      <listitem>
+        <para>Select to open the Bill of Operations (BOO) for the specified
+        Item. If no BOO exists, you will have the option to create a new
+        BOO.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>MATERIALS</term>
+      <listitem>
+        <para>Select to open the Bill of Materials (BOM) for the specified
+        Item. If no BOM exists, you will have the option to create a new
+        BOO.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>WORKBENCH</term>
+      <listitem>
+        <para>Select to open the Item Availability Workbench for the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The Extended Description field is for entering descriptive Item
+  information, which may be printed on Sales and/or Purchasing documents. You
+  would add the Extended Description to printed documents using the report
+  writer. The report writer enables you to customize Forms to include data
+  stored in the database. To enter an Extended Description of an Item, select
+  the "Extended Description" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/item_extDescTab.png" />
+        </imageobject>
+        <caption>Item Extended Description</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Extended Description</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        extended descriptions of the Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>In addition to the Inventory Unit of Measure (UOM), which is defined
+  on the Item master, you also have the option to define alternate UOMs for an
+  Item. The following alternate UOMs may be defined:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Alternate Capacity</para>
+    </listitem>
+    <listitem>
+      <para>Capacity</para>
+    </listitem>
+    <listitem>
+      <para>Material Issue</para>
+    </listitem>
+    <listitem>
+      <para>Selling</para>
+    </listitem>
+  </itemizedlist>
+  <para>Unless you define an alternate UOM, an Item will always be stored and
+  used in its Inventory UOM. For example, you must define a selling UOM if you
+  want to enable an Item to be sold in a UOM other than the Inventory UOM. To
+  enter <indexterm significance="normal">
+      <primary>units of measure</primary>
+      <secondary>associating with items</secondary>
+    </indexterm> Units of Measure associated with an Item, select the "UOM"
+  tab. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/item_tabUOM.png" />
+      </imageobject>
+      <caption><para>Item Units of Measure</para></caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
+    <varlistentry>
+      <term>Conversions/Where Used</term>
+      <listitem>
+        <para>Display lists the UOM Conversions defined for the Item (if any)
+        and where these conversions are used. Global conversion ratios are
+        defined in the <xref linkend="uomConv" /> section.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Item UOM conversion.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Item UOM conversions. The edit
+        screen is the same as that for creating a new Item UOM
+        conversion&mdash;except that when editing, the fields will contain
+        Item UOM conversion information. Double-clicking on an Item UOM
+        conversion will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Item UOM conversion and then select this button to
+        remove the UOM conversion from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>units of measure</primary>
+      <secondary>alternates for items</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>alternate uoms for</secondary>
+    </indexterm>To define an alternate Item UOM, select the NEW button. The
+  following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/itemUOM.png" />
+      </imageobject>
+      <caption><para>Unit of Measure Definition</para></caption>
+    </mediaobject>
+  </screenshot>
+  <para>When defining an alternate Item UOM, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Source UOM</term>
+      <listitem>
+        <para>By default the Inventory UOM will be displayed here. However,
+        you may select an alternate UOM. If an alternate UOM is selected, then
+        the per UOM will be the Inventory UOM.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Value</term>
+            <listitem>
+              <para>Enter a value for the source UOM to be used in the
+              conversion ratio for the alternate Item UOM.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <tip>
+      <para>By default, the Available Types list will be empty&mdash;until you
+      specify either a source or per UOM. Once a source or per UOM is
+      selected, the Available Types list will be populated with the available
+      options. An Item may have multiple selling UOMs but only one of each of
+      the other types.</para>
+    </tip>
+    <varlistentry>
+      <term>Per UOM</term>
+      <listitem>
+        <para>By default the Inventory UOM will be displayed here. However,
+        you may select an alternate UOM. If an alternate UOM is selected, then
+        the Source UOM will be the Inventory UOM.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Value</term>
+            <listitem>
+              <para>Enter a value for the per UOM to be used in the conversion
+              ratio for the alternate Item UOM.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Fractional</term>
+      <listitem>
+        <para>Specify whether this alternate Item UOM may be maintained in
+        fractional quantities. If not selected, transaction quantities using
+        this alternate Item UOM may not be maintained in fractional
+        quantities.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Available Types</term>
+      <listitem>
+        <para>Once a source or per UOM has been specified, you may select one
+        of the available UOM types. Once a UOM type has been used, you may not
+        create a conversion ratio for it again&mdash;with the exception of the
+        selling UOM, which may be defined multiple times for a single
+        Item.</para>
+        <tip>
+          <para>Double-clicking on an available UOM type will move it to the
+          Selected Types list.</para>
+        </tip>
+        <variablelist>
+          <varlistentry>
+            <term>Alternate Capacity</term>
+            <listitem>
+              <para>The Alt. Capacity UOM should be used to provide an
+              alternate UOM for viewing Inventory details. For example, a
+              Sales Manager may be satisfied looking at a group of Items
+              normalized to their selling or Inventory UOM, but a Production
+              Manager may need to look at the same Items normalized to a
+              Production UOM&mdash;say, Cubic Feet (CuFt).</para>
+              <note>
+                <para>The Alternate Capacity UOM has no impact on Bills of
+                Materials. It is used solely for Capacity Planning and Sales
+                Analysis purposes.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Capacity</term>
+            <listitem>
+              <para>In Capacity Planning and Sales Analysis reports, the
+              Capacity UOM enables you to make apples-to-apples comparisons of
+              Items that use different Inventory UOMs. For example, let's say
+              that Item A is a carton containing 24 Item B"s&mdash;and that
+              you sell both Items. However, Item A and Item B use different
+              Inventory UOMs. Item A is measured by the CASE (24), and Item B
+              is measured by EACH. By utilizing the Capacity UOM, you have the
+              ability to track total load and total sales for Item
+              B&mdash;even though the Inventory UOM for Item A obscures the
+              quantity of Item B's contained therein. If, when you query the
+              database, you request data to be displayed in Capacity UOMs,
+              then the system will normalize the quantities of Item A to EACH,
+              allowing you to see the total quantity of Item Bs.</para>
+              <note>
+                <para>The Capacity UOM has no impact on Bills of Materials. It
+                is used solely for Capacity Planning and Sales Analysis
+                purposes.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Material Issue</term>
+            <listitem>
+              <para>The Material Issue UOM defines an alternate UOM for use
+              when creating Bill of Materials (BOM) Items. On the BOM Item
+              screen, you have the ability to select an issue UOM. This issue
+              UOM is used whenever the specified component Item is issued to a
+              Work Order. If you define a Material Issue UOM on the Item
+              master, then that UOM will be available for selection whenever
+              the Item is used in a BOM.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm>
+                <primary>units of measure</primary>
+                <secondary>selling specified</secondary>
+              </indexterm><indexterm>
+                <primary>items</primary>
+                <secondary>selling UOM for</secondary>
+              </indexterm>Selling</term>
+            <listitem>
+              <para>If an Item is sold, its List Price will be based on the
+              Selling UOM. While the Selling UOM may often mirror the
+              Inventory UOM, in some scenarios the two UOMs will be different.
+              For example, cans of soda may be stocked in Inventory as
+              individual units (EACH), but sold by the case (CASE24). In this
+              example, Inventory transactions will be recorded using the
+              Inventory UOM (EACH), but all pricing&mdash;including List Price
+              and Pricing Schedules&mdash;will reflect the Selling UOM
+              (CASE24). An Item may also have multiple Selling UOMs, for
+              example SIX-PACK, CASE24, PALLET, etc. You specify the Selling
+              UOM you want to use at Sales Order entry time.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected Types</term>
+      <listitem>
+        <para>Lists the UOM types you have selected for the specified UOM
+        conversion ratio. You may add multiple different UOM types for each
+        conversion ratio. However, if a UOM type (except the Selling UOM) has
+        already been used in another conversion ratio, you may not be able to
+        select it.</para>
+        <tip>
+          <para>Double-clicking on a selected UOM type will remove it from the
+          list, returning it to the Available Types list.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating an alternate Item UOM(s),
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the alternate Item UOM(s) and makes it available
+        throughout the system.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Item Characteristics are user-defined definitions of an Item which may
+  be used to provide additional layers of description to Items. For example,
+  Item Characteristics might be used to specify "Season" or "Primary Vendor".
+  These constitute static descriptions which are not processed by the
+  application, but are useful for informational purposes. For configured Items
+  (i.e., Job or Reference Items), Characteristics are used to store pricing
+  information for the options available on configured Items. That pricing by
+  Characteristic is then passed to Sales Order Line Items when particular
+  configurations are sold.</para>
+  <tip>
+    <para>Item Characteristics can be associated with Sales Order, Purchase
+    Order, and Work Order Items.</para>
+  </tip>
+  <para>To enter <indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>creating new for item</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>items having</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>characteristics for</secondary>
+    </indexterm>Characteristics associated with an Item, select the
+  "Characteristics" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/item_characteristicsTab.png" />
+        </imageobject>
+        <caption>Item Characteristics</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristics</term>
+      <listitem>
+        <para>Display lists the Characteristic name and Value of Item
+        Characteristics related to the Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Item Characteristic.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Item Characteristics. The edit
+        screen is the same as that for creating a new Item
+        Characteristic&mdash;except that when editing, the fields will contain
+        Item Characteristic information. Double-clicking on an Item
+        Characteristic will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Item Characteristic and then select this button to
+        remove the Item Characteristic from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Item Characteristic, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/characteristicAssignmentItem.png" />
+        </imageobject>
+        <caption>Create New Item Characteristic</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristic</term>
+      <listitem>
+        <para>Select a Characteristic from the list of Characteristics
+        designated as being available for use as Item Characteristics.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Enter a value to associate with the Item Characteristic.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>List Price</term>
+      <listitem>
+        <para>This field will be available only for configured Items (i.e.,
+        Job or Reference Items). Characteristics are used to store pricing
+        information for the options available on configured Items. That
+        pricing by Characteristic is then passed to Sales Order Line Items
+        when particular configurations are sold. The Price for configured
+        Items may vary depending on the Characteristics selected at Sales
+        Order entry time.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default</term>
+      <listitem>
+        <para>Select if the Value entered is the default Value for the
+        specified Characteristic. The default Value will be presented
+        initially wherever Item Characteristics are used.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Item Characteristic,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Item Characteristic and adds it to the list of Item
+        Characteristics.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view, add, or edit Item Sites associated with an Item, select the
+  "Item Sites" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/item_itemsites.png" remap="" />
+        </imageobject>
+        <caption>Item Sites for the Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Sites</term>
+      <listitem>
+        <para>Display lists Item Sites for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Item Site.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Item Sites. The edit screen is
+        the same as that for creating a new Item Site&mdash;except that when
+        editing, the fields will contain Item Site information.
+        Double-clicking on an Item Site will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an Item Site and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Item Site and then select this button to remove the
+        Item Site from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The Tax policy for an Item is determined by how its Tax Type settings
+  are configured. To associate Tax Types with an Item, select the "Tax Types"
+  tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/item_taxtypes.png" />
+        </imageobject>
+        <caption>Item Tax Types</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>To mark an Item as non-taxable, simply do not associate any Tax
+    Types with the Item.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Tax Types</term>
+      <listitem>
+        <para>Display lists Tax Types for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Tax Type definition.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Tax Type definitions. The edit
+        screen is the same as that for creating a new Tax Type
+        definition&mdash;except that when editing, the fields will contain Tax
+        Type definition information. Double-clicking on a Tax Type definition
+        will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Tax Type definition and then select this button to
+        remove the Tax Type definition from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Tax Type definition, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemtax.png" />
+        </imageobject>
+        <caption>Create New Tax Type</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Tax Type definition, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>tax authorities</primary>
+          <secondary>for sales orders</secondary>
+        </indexterm>Tax Authority</term>
+      <listitem>
+        <para>Specify the Tax Authority you want to associate with the
+        specified Tax Type. Tax Authorities are any entity legally-authorized
+        to collect Taxes&mdash;for example, city, county, state, or federal
+        government agencies. Creating a relationship between a Tax Authority
+        and a Tax Type enables you to determine how Tax will be applied when
+        processing transactions using the Item. The next step is to ensure
+        this relationship is configured on the Tax Selection matrix, where Tax
+        Authorities and Tax Types are linked to specific Tax Codes. This
+        combination of three elements (Tax Authority + Tax Type + Tax Code)
+        determines the Tax rate to be charged when processing transactions for
+        an Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Consider creating separate Tax Types for any groups or classes of
+    Items which are taxed at different rates. This will enable you to link
+    distinct Tax Codes to each Tax Type definition on the Tax Selection
+    matrix.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Tax Types</term>
+      <listitem>
+        <para>Specify the Tax Type you want to associate with the specified
+        Tax Authority. Tax Types provide a system for classifying goods and
+        services into taxable categories. Creating a relationship between a
+        Tax Authority and a Tax Type enables you to determine how Tax will be
+        applied when processing transactions using the Item. The next step is
+        to ensure this relationship is configured on the Tax Selection matrix,
+        where Tax Authorities and Tax Types are linked to specific Tax Codes.
+        This combination of three elements (Tax Authority + Tax Type + Tax
+        Code) determines the Tax rate to be charged when processing
+        transactions for an Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Tax Type definition,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Tax Type definition and adds it to the list of Tax
+        Type definitions.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view system-generated Comments associated with an Item&mdash;or to
+  add new Comments of your own&mdash;select the "Comments" tab. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/item_commentsTab.png" />
+        </imageobject>
+        <caption>Item Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>Display lists the date Comment entered, Comment Type, user who
+        entered Comment, and a content preview.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Comment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Comment and then select this button to reach a
+        read-only view of the Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Comment, select the NEW button. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CommentNew.png" />
+        </imageobject>
+        <caption>Create New Comment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Comment, returning you to
+        the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Comment and adds it to the list of Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>item aliases</primary>
+      <secondary>for cross-referencing</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>aliases for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>aliases</primary>
+      <see>item aliases</see>
+    </indexterm>Item Aliases are assigned to Items as a means for
+  cross-referencing internal and external Item information. For example, a
+  Customer may refer to an Item by a different Item Number than you do. To
+  avoid confusion&mdash;and to simplify Item lookups&mdash;you can create an
+  Item Alias linking the Customer's external Part Number to your own internal
+  Item Number. The Item Alias acts as an alternate identifier. In this way,
+  Items may be located using either internal or external Item information. To
+  associate an Item Alias with an Item, select the "Alias" tab. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/item_aliasesTab.png" />
+        </imageobject>
+        <caption>Item Alias</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Alias</term>
+      <listitem>
+        <para>Display lists Item Alias numbers and related Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Item Alias.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Multiple Item Aliases can be assigned to a single Item, allowing you
+    to cross-reference an Item using many different Item Numbers.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Item Alias definitions. The edit
+        screen is the same as that for creating a new Item Alias
+        definition&mdash;except that when editing, the fields will contain
+        Item Alias information. Double-clicking on an Item Alias definition
+        will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Item Alias definition and then select this button
+        to remove the Item Alias from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create an Item Alias, select the NEW button. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAlias.png" />
+        </imageobject>
+        <caption>Create New Item Alias</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Item Alias, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Item Number entered into previous screen will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Number</term>
+      <listitem>
+        <para>This is the Alias number for the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>item aliases</primary>
+          <secondary>related to billing</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>item aliases</primary>
+          <secondary>related to shipping</secondary>
+        </indexterm>Use an Alias Description on Billing and Shipping
+      Paperwork</term>
+      <listitem>
+        <para>Billing and Shipping Paperwork: Select to include an Item Alias
+        description on Billing and Shipping paperwork.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a description of the Item Alias for inclusion on Billing
+        and Shipping paperwork.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Comments related to the Item Alias. This field may be useful for
+        explaining why an Item Alias was created (e.g., "Customer XYZ, Inc.
+        refers to this Item Alias whenever they place an Order.").</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating an Item Alias, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Item Alias and adds it to the list of Item
+        Aliases.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>substitutes for</secondary>
+    </indexterm>Item Substitutes can be established for Items that are
+  interchangeable with other Items. To associate an Item Substitute with an
+  Item, select the "Substitute" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/item_substitutesTab.png" />
+        </imageobject>
+        <caption>Item Substitute</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>There is a difference between Item Substitutes and Substitutions
+    defined in a Bill of Materials (BOM). The difference is that BOM-defined
+    Substitutions may be implemented on the fly during Work Order
+    processing&mdash;Item Substitutes cannot be.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Substitute</term>
+      <listitem>
+        <para>Display lists the rank of the Item Substitute, Substitute Item
+        Number, Substitute Item description, and Substitute/Parent UOM
+        ratio.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Item Substitute.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Multiple Item Substitutes can be assigned to a single Item, allowing
+    you to cross-reference an Item using many different Item Numbers.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Item Substitute definitions. The
+        edit screen is the same as that for creating a new Item Substitute
+        definition&mdash;except that when editing, the fields will contain
+        Item Substitute information. Double-clicking on an Item Substitute
+        definition will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Item Substitute definition and then select this
+        button to remove the Item Substitute from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To <indexterm significance="normal">
+      <primary>item substitutes</primary>
+      <secondary>creating new</secondary>
+    </indexterm>create an Item Substitute, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemSubstitute.png" />
+        </imageobject>
+        <caption>Create New Item Substitute</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Item Substitute, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number (Root Item)</term>
+      <listitem>
+        <para>Item Number entered into previous screen will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number (Substitution)</term>
+      <listitem>
+        <para>Enter the Item Number of the Substitute Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Substitute/Parent UOM Ratio</term>
+      <listitem>
+        <para>Specifies the ratio between the Root Item's Inventory UOM and
+        the Substitute Item's Inventory UOM.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>item substitutes</primary>
+          <secondary>ranking of</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>ranking</primary>
+          <secondary>of item substitutes</secondary>
+        </indexterm>Ranking</term>
+      <listitem>
+        <para>Select a number using the arrow buttons, or manually enter a
+        value up to a maximum of 9 to specify the rank of the Item Substitute.
+        The ranking determines the order in which the Item Substitute will
+        appear in the Substitute List accessed from the Maintain Work Order
+        Materials screen. The Item Substitute having the highest rank will
+        appear at the top of list, and so on in descending order. You may
+        assign the same ranking to multiple Items, if this is
+        appropriate.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen without creating an Item Substitute, returning
+        you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Item Substitute and adds it to the list of Item
+        Substitutes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para role="standard">To identify Items which may be chosen as target Items
+  during transformation transactions, select the "Transformations" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/item_transformationsTab.png" />
+        </imageobject>
+        <caption>Item Transformations</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>You may only transform an Item if the source Item is located in the
+    same Site as the target Item.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Transformations</term>
+      <listitem>
+        <para>Display lists Items which may be chosen as target Items during
+        Transformation transactions.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens a searchable Item list showing Items which may be chosen
+        as target Items during Transformation transactions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a target Item and then select this button to remove
+        the target Item from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To <indexterm significance="normal">
+      <primary>item images</primary>
+      <secondary>associate with items</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>images</primary>
+      <secondary>items associated with</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>images associated with</secondary>
+    </indexterm>associate an Image with an Item, select the "Images" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/item_imagesTab.png" />
+        </imageobject>
+        <caption>Item Images</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Images</term>
+      <listitem>
+        <para>Display lists information about stored Item Images.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens master list of stored Item Images.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Item Image definitions. The edit
+        screen is the same as that for creating a new Item Image
+        definition&mdash;except that when editing, the fields will contain
+        Item Image information. Double-clicking on an Item Image definition
+        will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an Item Image and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Item Image definition and then select this button
+        to remove the Item Image from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>item images</primary>
+      <secondary>master list of</secondary>
+    </indexterm>To specify an Image to associate with an Item, select the NEW
+  button. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemImage.png" />
+        </imageobject>
+        <caption>Item Images Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When specifying an Image to associate with an Item, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Purpose</term>
+      <listitem>
+        <para>Select one of the available purposes an Image might
+        serve:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Inventory Description</term>
+            <listitem>
+              <para>Select if the Item Image describes Inventory.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Product Description</term>
+            <listitem>
+              <para>Select if the Item Image describes a Product.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Engineering Reference</term>
+            <listitem>
+              <para>Select if the Item Image serves as an engineering
+              reference.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Miscellaneous</term>
+            <listitem>
+              <para>Select if the Item Image is a miscellaneous Image.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>An Item may have multiple Images associated with it, but only one
+    Image per purpose.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Images</term>
+      <listitem>
+        <para>Display lists stored Images available for association with the
+        specified Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Highlight an Image, then select the SAVE button to associate the
+        Image with the specified Item and purpose.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for adding a new Image to the master list of stored
+        Images.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>images</primary>
+      <secondary>adding new</secondary>
+    </indexterm>To add a new Image to the master list of stored Images, select
+  the NEW button. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/image.png" />
+        </imageobject>
+        <caption>Create New Image</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding a new Image to the master list of stored Images, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>File Name</term>
+      <listitem>
+        <para>Enter the physical directory location of the Image. The browse
+        button enables you to search your system for the physical directory
+        location of the Image file. Once you locate the file, simply select it
+        to have it entered into the "File Name" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a unique name for the Image.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a description to further identify the Image.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without adding a new Image to the master list
+        of stored Images.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Image and adds it to the master list of stored
+        Images.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To enter Files associated with an Item, select the "Files" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/item_files.png" />
+        </imageobject>
+        <caption>Item Files</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Files</term>
+      <listitem>
+        <para>Display lists the title and URL for any Files related to the
+        Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Item File.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Item File definitions. The edit
+        screen is the same as that for creating a new Item File
+        definition&mdash;except that when editing, the fields will contain
+        Item File definition information. Double-clicking on an Item File
+        definition will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an Item File definition and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Item File definition and then select this button to
+        remove the Item File definition from the list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>OPEN</term>
+      <listitem>
+        <para>Highlight an Item File definition and then select this button to
+        open the URL in a web browser.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Item File, select the NEW button. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemFile.png" />
+        </imageobject>
+        <caption>Create New Item File</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Item File, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Title</term>
+      <listitem>
+        <para>Enter a title to identify the Item File.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>URL</term>
+      <listitem>
+        <para>Enter the URL indicating where the Item File is located. Users
+        will be able to access the file within a web browser when they select
+        the OPEN button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating an Item File, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Item File and adds it to the list of Item
+        Files.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

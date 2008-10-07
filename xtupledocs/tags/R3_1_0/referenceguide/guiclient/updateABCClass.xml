@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section539293">
+  <title>
+<indexterm significance="normal">
+      <primary>abc class</primary>
+      <secondary>updating of</secondary>
+    </indexterm>Update ABC Class</title>
+  <para>The basic formula the system uses to determine the ABC classification
+  of Items is to multiply the volume of transactions for an Item during a
+  specified period by the Item Costs for the Item. Those Items having the
+  greatest transaction value are considered Class "A" Items. Those Items
+  having the least transaction value are considered Class "C" Items. Items may
+  be grouped into ABC classes on a Site-by-Site basis, using any
+  percentages you want.</para>
+  <para>For example, let\qs say you want to do a 70-20-10 split&mdash;where A = 70%
+  of the value for a period, B = 20%, and C = 10%. In this scenario, you would
+  open the "Update ABC Class" screen shown below and enter the following
+  values:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Class A Cutoff</term>
+      <listitem>
+        <para>70</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Class B Cutoff</term>
+      <listitem>
+        <para>90</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The remaining Items having the lowest percentage of the value (10%)
+  would be assigned to the Class "C." By contrast, if you wanted to do a
+  50-30-20 split, you would enter the following values:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Class A Cutoff</term>
+      <listitem>
+        <para>50</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Class B Cutoff</term>
+      <listitem>
+        <para>80</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The remaining Items having the lowest percentage of the value (20%)
+  would be assigned to the Class "C." </para>
+  <para>To update the ABC classification for Item Sites within a given
+  Site and Class Code, select the "ABC Class" option. The following
+  screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/updateABCClass.png"/>
+        </imageobject>
+        <caption>Update ABC Class</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>Updating ABC Class values across multiple Sites simultaneously
+    can lead to inaccuracies in your data&mdash;especially if ABC values are
+    calculated differently in different Sites. For this reason, it may
+    make more sense to update ABC Classes on a Site-by-Site
+    basis.</para>
+  </note>
+  <para>When calculating the ABC class of Item Sites within a given Site
+  and Class Code, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to update ABC Classes in all Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site where ABC Classes are to be updated.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Class Codes</term>
+      <listitem>
+        <para>Select to update ABC Classes for all Class Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Class Code whose ABC Class you want to update.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Class Code pattern to select a range of Class Codes.
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Class A Cutoff %</term>
+      <listitem>
+        <para>Allows you to set the cutoff percentage for Class A
+        Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Class B Cutoff %</term>
+      <listitem>
+        <para>Allows you to set the cutoff percentage for Class B
+        Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Evaluation Start Date</term>
+      <listitem>
+        <para>Date entered determines the day from which the value will be
+        calculated.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Evaluation End Date</term>
+      <listitem>
+        <para>Date entered determines the day at which the value will stop
+        being calculated.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without updating Order Number, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UPDATE</term>
+      <listitem>
+        <para>Updates the Order Number, using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

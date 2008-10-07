@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518986">
+  <title>Running Availability</title>
+  <para>To view Running Availability, select the "Running Availability"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspRunningAvailability.png" />
+        </imageobject>
+        <caption>Running Availability</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Running Availability, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose Running Availability you
+        want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>When quantity appears in the "Ordered" column, this refers to
+    quantity that is on order through either a Work Order or Purchase Order.
+    In the case of Purchase Orders, the quantity will always be represented in
+    the Inventory Unit of Measure (UOM)—regardless of the Vendor UOM used on
+    the Purchase Order.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Specify Site whose Running Availability you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>Show Planned Orders</term>
+      <listitem>
+        <para>Select to show Planned Orders in the display. Planned Orders
+        will display in blue type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QOH</term>
+      <listitem>
+        <para>Displays Quantity on Hand for specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Multiple</term>
+      <listitem>
+        <para>Displays Order Multiple specifying the increments the Item must
+        be ordered in. Order Multiple is maintained in the Item Site
+        master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reorder Level</term>
+      <listitem>
+        <para>Displays the Reorder Level specifying the minimum Quantity on
+        Hand allowed before an Item must be reordered. Reorder Level is
+        maintained in the Item Site master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Up To Qty</term>
+      <listitem>
+        <para>Indicates the quantity level that MRP Planned Replenishment
+        Orders will order up to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Running Availability</term>
+      <listitem>
+        <para>Display lists Running Availability for the selected Item, using
+        the specified parameters. Red lettering indicates the due date has
+        passed or Running Availability has dropped below 0.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Work Order in the Running Availability display
+  enables you to select from the following options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewWorkOrderDetails)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickWorkOrderSched)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>If you right-click on a Planned Order, the following additional option
+  will also be available:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickFirmOrder)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReleaseOrder)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickDeleteOrder)" />
+  </variablelist>
+</section>

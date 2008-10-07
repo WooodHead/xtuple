@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518607">
+  <title>
+<indexterm significance="normal">
+      <primary>work orders</primary>
+      <secondary>closing of</secondary>
+    </indexterm>Close Work Order</title>
+  <para>A Work Order can be closed at any point. To close a Work Order, select
+  the "Close Work Order" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/closeWo.png"/>
+        </imageobject>
+        <caption>Close Work Order</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>Work Order Materials and Operations history is saved in the database
+    after a Work Order is closed. Reports can be written to retrieve this
+    information.</para>
+  </note>
+  <para>When closing a Work Order, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Work Order #</term>
+      <listitem>
+        <para>Enter the Work Order Number of the Work Order you want to
+        close.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Displays Site code automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays Item Number automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Displays Work Order Status automatically when Work Order Number
+        is entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>
+<indexterm significance="normal">
+          <primary>variances</primary>
+          <secondary>relation to w/o</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>work orders</primary>
+          <secondary>variances related to</secondary>
+        </indexterm>Post Material Usage Variances</term>
+      <listitem>
+        <para>Material Usage Variances: Select to post material usage
+        variances resulting from the Work Order. Variance information can be
+        found in the Work Order reports.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Labor Variances</term>
+      <listitem>
+        <para>Select to post labor variances resulting from the Work Order.
+        Variance information can be found in the Work Order reports.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Comment</term>
+      <listitem>
+        <para>Select to attach a Comment to the Work Order. This option must
+        be selected if you want to add a Comment to the Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without closing the selected Work Order,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLOSE W/O</term>
+      <listitem>
+        <para>Closes the selected Work Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

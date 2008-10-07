@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519291" role="openmfg">
+  <title>Post Operation</title>
+  <para>Work Order progress can be posted in terms of materials used or
+  Operations completed. When you post Operations, you are using the
+  Operations-driven process for reporting progress. To post Work Order
+  Operations, select the "Post Operations" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/postOperations.png" />
+        </imageobject>
+        <caption>Post Work Order Operations</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When posting a Work Order's Operations, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Work Order #</term>
+      <listitem>
+        <para>Enter the Work Order Number of the Work Order whose Operations
+        you want to post. You may also scan into this field a Work Order
+        Operation barcode as defined for the Shop Floor Workbench
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Displays Site code automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays Item Number automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If your site combines Operations posting with WIP Location tracking
+    for Multiple Location Control (MLC) Items, then you may be prompted to
+    relocate Inventory during the Operations posting process.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Displays Work Order Status automatically when Work Order Number
+        is entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>W/O Operation</term>
+      <listitem>
+        <para>Select the individual Operation you want to post from the list
+        of Work Order Operations for the specified Item. After selecting an
+        Operation, specify details for that Operation. To post Operations for
+        another Operation, simply select that Operation from the sequential
+        list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. to Post</term>
+      <listitem>
+        <para>Enter the quantity you want to post.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>work orders</primary>
+          <secondary>posting options</secondary>
+        </indexterm>Post in Production UOMs</term>
+      <listitem>
+        <para>Select to post the Operations quantity in Production Units of
+        Measure. Operations may be posted using either the Inventory or
+        Production UOM. In addition, different Operations in a single Bill of
+        Operations may use different Production UOMs. For example, if you are
+        producing soup, you might mix the soup in one Operation using UOM =
+        BATCH. But when canning the soup, the canning Operation might use UOM
+        = CAN. If you post Operations using the Production UOM, the
+        Inventory/Production UOM ratio defined at the Operation level
+        normalizes the posting so that the Inventory impact is recorded using
+        the Inventory UOM.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post in Inventory UOMs</term>
+      <listitem>
+        <para>Select to post the Operations quantity in Inventory Units of
+        Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>W/O Qty. Ordered</term>
+      <listitem>
+        <para>Ordered: Indicates the quantity of material, measures in the
+        Item's Inventory UOM, that the selected Work Order is due to
+        produce.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Operation Qty. Received</term>
+      <listitem>
+        <para>Indicates the quantity, measured in the Item's Inventory UOM,
+        that has been completed by this Operation.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Operation Balance Due</term>
+      <listitem>
+        <para>Indicates the quantity remaining to be produced by the specified
+        Operation.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Work Center</term>
+      <listitem>
+        <para>Enter the name of the Work Center where the Operations were
+        performed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Issue Components</term>
+      <listitem>
+        <para>Indicates that linked component materials will be issued
+        automatically (i.e., backflushed) when the specified Operation is
+        posted. Option will be enabled only if component materials are linked
+        to the specified Operation within the parent Item's Bill of Materials.
+        If such linkages exist, only components with "Pull" or "Mixed" issue
+        methods will be displayed. Components having the "Push" issue method
+        will not appear in the list, as these must be issued manually to a
+        Work Order. If this option is selected, the General Ledger will show
+        the component materials being removed from Inventory when this
+        Operation is posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Receive Inventory</term>
+      <listitem>
+        <para>Indicates that finished goods will be received into Inventory
+        when the specified Operation is posted. Enabled only when the selected
+        Operation is the receiving Operation for the selected Work Order. Only
+        one Work Order Operation may have this flag set. If this option is
+        selected, the General Ledger will show the finished goods being
+        received into Inventory when the Operation is posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Close W/O</term>
+      <listitem>
+        <para>Select this option to close the Work Order. The option will be
+        selected automatically at the point when you are posting all quantity
+        complete.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Setup Time</term>
+      <listitem>
+        <para>Select to post setup time.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Mark Setup as Complete</term>
+      <listitem>
+        <para>Select to mark setup as complete.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Standard Setup Time</term>
+      <listitem>
+        <para>Select to post standard setup time. Typically, standard times
+        will not be used if Operations are being posted using the Shop Floor
+        Workbench. Instead, labor times will be calculated based on clock-in
+        and clock-out times. Only users with privileges to override the
+        Production Time Clock will be able to post standard times.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Specified Setup Time</term>
+      <listitem>
+        <para>Specify the non-standard amount of setup time required. The
+        amount of time entered will be posted. If you are posting Operations
+        from the Shop Floor Workbench, the setup time entered will be
+        automatically deducted from the run-time total.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Run Time</term>
+      <listitem>
+        <para>Select to post run time.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Mark Operation as Complete</term>
+      <listitem>
+        <para>Select to mark Operation as complete. An Operation may not be
+        marked as "Complete" until all users are clocked-out of the Operation.
+        Users clock-in to and clock-out of Work Orders using the Shop Floor
+        Workbench.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Standard Run Time</term>
+      <listitem>
+        <para>Select to post the standard run time for specified Item.
+        Typically, standard times will not be used if Operations are being
+        posted using the Shop Floor Workbench. Instead, labor times will be
+        calculated based on clock-in and clock-out times. Only users with
+        privileges to override the Production Time Clock will be able to post
+        standard times.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Specified Run Time</term>
+      <listitem>
+        <para>Specify the non-standard amount of run time required. The amount
+        of time entered will be posted. If you are posting Operations from the
+        Shop Floor Workbench, run time will be automatically calculated based
+        on the accumulated time elapsed between clock-ins and
+        clock-outs.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Setup Performed By</term>
+      <listitem>
+        <para>Enter the name of the user who performed the set up. Since this
+        is a text field, user names may also be scanned into the field using a
+        Bar Code scanner.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Run Performed By</term>
+      <listitem>
+        <para>Enter the name of the user who performed the production run.
+        Since this is a text field, user names may also be scanned into the
+        field using a Bar Code scanner.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without posting Operations, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SCRAP MATERIALS</term>
+      <listitem>
+        <para>Select to open the "Scrap Work Order Material from W/O"
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST OPERATION</term>
+      <listitem>
+        <para>Posts the specified Operation using the values entered in the
+        screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

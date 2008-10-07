@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section570079">
+  <title><indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>workbench for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>workbenches</primary>
+      <secondary>for accounts receivable</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>workbench for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>workbenches</primary>
+      <secondary>for accounts receivable</secondary>
+    </indexterm>Receivables Workbench</title>
+  <para>The Receivable Workbench is designed to consolidate on one screen the
+  functions performed by Accounts Receivable personnel. To view the
+  Receivables Workbench, select the "Workbench" option. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/arWorkBench.png" />
+        </imageobject>
+        <caption>Receivables Workbench Receivables</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing the Receivables Workbench, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>Enter the Customer Number of the Customer whose A/R information
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Once a Cash Receipt is posted, it will no longer appear in the Cash
+    Receipts list.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Total Open Items</term>
+      <listitem>
+        <para>Displays the total amount of A/R open items for the Customer.
+        This total is the same amount as displayed in the A/R Display "Open
+        Items by Customer."</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cash Receipts</term>
+      <listitem>
+        <para>Displays the current list of unposted Cash Receipts for the
+        specified Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The Receivables tab provides the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Receivables</term>
+      <listitem>
+        <para>Displays the current list of receivable open items for the
+        specified Customer including invoices and misc. debit memos.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted receivables. Double-clicking on
+        an item will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an item and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Invoice in the Open Items list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewApplytoInvoice)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>The following additional options are available when right-clicking on
+  other document types:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewApplytoDbMemo)" />
+  </variablelist>
+  <para>The Credits tab provides the following options:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/arWorkBench_credits.png" />
+      </imageobject>
+      <caption>Receivables Workbench Credits</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
+    <varlistentry>
+      <term>Credits</term>
+      <listitem>
+        <para>Displays the current list of open Credit Memos and Customer
+        Deposits for the specified Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Once the full amount of a Credit Memo has been applied, the Credit
+    Memo will be removed from the A/R Open Credit Memos list.</para>
+  </tip>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>APPLY</term>
+      <listitem id="arWorkBenchAPPLYCM1">
+        <para>Highlight an unapplied Credit Memo or Cash Deposit and then
+        select this button to apply an amount, as described in the <xref
+        linkend="Anchor30541" /> section.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="arWorkBenchEDITCM1">
+        <para>Enables you to edit highlighted Credit Memos or Cash Deposit.
+        The edit screen is the same as that for creating a new Credit
+        Memo&mdash;except that when editing, the fields will contain
+        pre-loaded Credit Memo information. Double-clicking on a Credit Memo
+        will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="arWorkBenchVIEWCM1">
+        <para>Highlight an unapplied Credit Memo or Cash Deposit and then
+        select this button to reach a read-only view of the "Edit"
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CREDIT CARD REFUND</term>
+      <listitem>
+        <para>Highlight an unapplied Credit Memo or Cash Deposit and then
+        select this button to post a refund in the open amount to the
+        Customer's Credit Card. This option will be visible if Credit Cards
+        are enabled at your site.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Credit Memo in the A/R Open Credit Memos and
+  Deposits list enables you to select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Apply Credit Memo</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchAPPLYCM1)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Edit Credit Memo</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchEDITCM1)" />
+    </varlistentry>
+    <varlistentry>
+      <term>View Credit Memo</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchVIEWCM1)" />
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/arWorkBench_cashReceipts.png" />
+      </imageobject>
+      <caption>Receivables Workbench Cash Receipts</caption>
+    </mediaobject>
+  </screenshot>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Cash Receipt. For more
+        information on entering Cash Receipts, see the <xref
+        linkend="Anchor39275" /> section.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry id="arWorkBenchEDIT">
+      <term>EDIT</term>
+      <listitem id="arWorkBenchEDITCR1">
+        <para>Enables you to edit highlighted Cash Receipt. The edit screen is
+        the same as that for creating a new Cash Receipt&mdash;except that
+        when editing, the fields will contain pre-loaded Cash Receipt
+        information. Double-clicking on a Cash Receipt will also bring you to
+        the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="arWorkBenchVIEWCR1">
+        <para>Highlight a Cash Receipt and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="arWorkBenchDELETECR1">
+        <para>Highlight a Cash Receipt and then select this button to remove
+        the Cash Receipt from the edit list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem id="arWorkBenchPOSTCR1">
+        <para>Highlight a Cash Receipt and then select this button to post the
+        Cash Receipt.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Cash Receipt in the Cash Receipts list enables you
+  to select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Edit Cash Receipt</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchEDITCR1)" />
+    </varlistentry>
+    <varlistentry>
+      <term>View Cash Receipt</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchVIEWCR1)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Delete Cash Receipt</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchDELETECR1)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Post Cash Receipt</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchPOSTCR1)" />
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>The Credit Card tab provides the following options:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/arWorkBench_creditCard.png" />
+      </imageobject>
+      <caption>Receivables Workbench Credit Card</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
+    <varlistentry>
+      <term>Credit Card</term>
+      <listitem>
+        <para>Displays the current list of pre-authorized Credit Card charges
+        for the specified Customer. Pre-authorizations are generated from the
+        "Payments" tab of the Sales Order header.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following options are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Highlight a pre-authorized Credit Card charge amount and then
+        select this button to post-authorize the charge. When a
+        pre-authorization is post-authorized, an unposted Cash Receipt is
+        created in the specified post-authorization amount.</para>
+        <tip>
+          <para>You only get one chance to post a Credit Card
+          pre-authorization. Once a pre-authorization is post-authorized, it
+          will no longer appear in the "Pre-authorized Credit Card Charges"
+          list.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VOID</term>
+      <listitem>
+        <para>Highlight a pre-authorized Credit Card charge amount and then
+        select this button to void the pre-authorization.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>AMOUNT</term>
+      <listitem>
+        <para>Specify the amount of the post-authorization. By default, the
+        pre-authorized amount will display here. However, you may override the
+        default amount. After posting, a Cash Receipt for the Customer will be
+        generated in the amount entered here (i.e., the post-authorization
+        amount).</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

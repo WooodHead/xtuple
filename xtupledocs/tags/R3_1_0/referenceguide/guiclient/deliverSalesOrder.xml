@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section644173" role="standard">
+  <title>E-mail Sales Order Form</title>
+  <para>To email a Sales Order form to a Customer, select the "E-mail Sales
+  Order Form" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/deliverSalesOrder.png" />
+        </imageobject>
+        <caption>E-mail Sales Order Form</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When emailing a Sales Order to a Customer, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Sales Order #</term>
+      <listitem>
+        <para>Enter the Sales Order Number of the Sales Order you want to
+        schedule for email delivery.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Customers are set up to receive email deliveries of information
+    using the "S/O EDI" (Electronic Data Interchange) tab on the Customer
+    master.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Report Name</term>
+      <listitem>
+        <para>Specify the Order Form you want to email to the Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>From</term>
+      <listitem>
+        <para>The default address appearing in the "From" field will
+        automatically be pre-populated with the email address of the user who
+        is currently logged in to the application. User email addresses are
+        stored with user records at the system level. You may change the
+        address in this field manually at run time.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Send To</term>
+      <listitem>
+        <para>If the Customer associated with the selected Sales Order has
+        been set up to receive email, then the default email address for that
+        Customer will be automatically pre-populated here. Because this is an
+        editable field, you may change the email address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cc</term>
+      <listitem>
+        <para>If EDI is set up for the Customer, then the default carbon copy
+        (i.e., Cc:) line found on the Customer master will be automatically
+        pre-populated here. Because this is an editable field, you may also
+        modify the Cc: line.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Subject</term>
+      <listitem>
+        <para>If EDI is set up for the Customer, then the default subject line
+        found on the Customer master will be automatically pre-populated here.
+        Because this is an editable field, you may modify the subject
+        line.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Filename</term>
+      <listitem>
+        <para>If EDI is set up for the Customer, then the default filename
+        found on the Customer master will be automatically pre-populated here.
+        Because this is an editable field, you may modify the filename line.
+        XML tags may be used in this field to dynamically generate filename
+        text. In the example shown in the screenshot above, the filename will
+        include the Document Type (i.e., Sales Order) and the Document Number
+        (i.e., Sales Order Number).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Email Body</term>
+      <listitem>
+        <para>If EDI is set up for the Customer, then the default email body
+        found on the Customer master will be automatically pre-populated here.
+        This is a scrolling text field with word-wrapping. You may edit the
+        default email body.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Send Email as HTML</term>
+      <listitem>
+        <para>Select if you want the body of the Email to be sent as HTML. If
+        not selected, the Email will be sent as plain text.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without scheduling a Sales Order for email
+        delivery, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SUBMIT</term>
+      <listitem>
+        <para>Select to submit requested action to the Batch Manager for
+        processing.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

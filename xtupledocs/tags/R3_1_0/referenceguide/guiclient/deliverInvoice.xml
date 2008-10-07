@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657140">
+  <title><indexterm significance="normal">
+      <primary>invoices</primary>
+      <secondary>email delivery of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>electronic data interchange</primary>
+      <secondary>invoice delivery using</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>EDI</primary>
+      <see>electronic data interchange</see>
+    </indexterm>E-mail Invoice Form</title>
+  <para>To send a copy of a Customer Invoice by email, select the "E-mail
+  Invoice Form" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/deliverInvoice.png" />
+        </imageobject>
+        <caption>E-mail Invoice Form</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When sending a copy of a Customer Invoice by email, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Invoices</term>
+      <listitem>
+        <para>Display lists all Invoices available for email delivery.
+        Highlight the Invoice you want to schedule for email delivery using
+        your mouse button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Customers are set up to receive email deliveries of information
+    using the Electronic Data Interchange (EDI) tab on the Customer
+    master.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>From</term>
+      <listitem>
+        <para>The default address appearing in the "From" field will belong to
+        the user who is currently logged in to the application. This address
+        may be edited or changed. User email addresses are stored with user
+        records at the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Send To</term>
+      <listitem>
+        <para>If the Customer associated with the selected Invoice has been
+        set up to receive email, then the default email address for that
+        Customer will be automatically pre-populated here. Because this is an
+        editable field, you may also change the email address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cc</term>
+      <listitem>
+        <para>If EDI is set up for the Customer, then the default carbon copy
+        (i.e., Cc:) line found on the Customer master will be automatically
+        pre-populated here. Because this is an editable field, you may also
+        modify the Cc: line.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Subject</term>
+      <listitem>
+        <para>If EDI is set up for the Customer, then the default subject line
+        found on the Customer master will be automatically pre-populated here.
+        Because this is an editable field, you may also modify the subject
+        line.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Filename</term>
+      <listitem>
+        <para>If EDI is set up for the Customer, then the default filename
+        found on the Customer master will be automatically pre-populated here.
+        Because this is an editable field, you may also modify the filename
+        line. XML tags may be used in this field to dynamically generate
+        filename text. In the example shown in the screenshot above, the
+        filename will include the Document Type (i.e., Invoice) and the
+        Document Number (i.e., Invoice Number).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Email Body</term>
+      <listitem>
+        <para>If EDI is set up for the Customer, then the default email body
+        found on the Customer master will be automatically pre-populated here.
+        This is a scrolling text field with word-wrapping. You may also edit
+        the default email body.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Send Email as HTML</term>
+      <listitem>
+        <para>Select if you want the body of the Email to be sent as HTML. If
+        not selected, the Email will be sent as plain text.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Mark Invoice as having been Printed</term>
+      <listitem>
+        <para>Select to mark highlighted Invoice as having been
+        printed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without scheduling an Invoice for email
+        delivery, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SUBMIT</term>
+      <listitem>
+        <para>Select to submit requested action to the Batch Manager for
+        processing.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section533636">
+  <title><indexterm significance="normal">
+      <primary>receiving labels</primary>
+      <secondary>printing by order</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>purchase orders</primary>
+      <secondary>printing receiving labels for</secondary>
+    </indexterm>Print Receiving Labels by Order</title>
+  <para>Receiving Labels may be printed for Purchase Orders, Transfer Orders,
+  and Return Authorizations. To print receiving Labels by Order, select the
+  "Print Labels by Order" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/printLabelsByOrder.png" />
+        </imageobject>
+        <caption>Print Receiving Labels by Order</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When printing receiving Labels by Order, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Order #</term>
+      <listitem>
+        <para>Enter the Number of the Order you want to print receiving Labels
+        for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Report Name</term>
+      <listitem>
+        <para>Specify the name of the receiving Label Form you want to
+        print.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Labels</term>
+      <listitem>
+        <para>Specify the range of receiving Labels you want to print.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without printing any receiving Labels,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Prints specified number of receiving Label copies for the
+        specified Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

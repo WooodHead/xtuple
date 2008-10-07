@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section972680">
+  <title id="Anchor55000"><indexterm significance="normal">
+      <primary>vendors</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Create New Vendor</title>
+  <para>To create a new Vendor, select the "New Vendor" option. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor.png" />
+        </imageobject>
+        <caption>Create New Vendor</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>Vendors can also be created from the CRM Account screen. Simply
+    enter a new CRM Account, selecting the "Vendor" Relationship
+    option.</para>
+  </tip>
+  <para>When creating a new Vendor, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Vendor #</term>
+      <listitem>
+        <para>Enter a number to identify the Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor Type</term>
+      <listitem>
+        <para>Specify the Vendor Type of the Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter the name of the Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Active</term>
+      <listitem>
+        <para>Select if you are actively doing business with this
+        Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Number</term>
+      <listitem>
+        <para>Use this field to indicate the Account number the Vendor assigns
+        to your site.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If a new Address is manually entered here, that Address will be
+    added automatically to the master list of Addresses.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Address</term>
+      <listitem>
+        <para>Manually enter Address information in the fields below&mdash;or
+        use the browse button to select pre-existing Address information. By
+        default, this address will appear as the main address when entering
+        Purchase Orders for the Vendor.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>Enter the street Address for the Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>Enter the city where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>Enter the state where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>Enter the Postal Code for the Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>Enter the country where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Terms</term>
+      <listitem>
+        <para>Specify the default billing Terms for the Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Ship Via</term>
+      <listitem>
+        <para>Specify default Ship Via for Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Currency</term>
+      <listitem>
+        <para>Specify the Currency to be used when conducting business
+        transactions with the Vendor. This option will only be visible in
+        systems configured to use multiple Currencies.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>vendors</primary>
+          <secondary>FOB terms for</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>free on board</primary>
+          <secondary>at receiving site</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>free on board</primary>
+          <secondary>vendor specified</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>FOB</primary>
+          <see>free on board</see>
+        </indexterm>Default FOB</term>
+      <listitem>
+        <para>Indicate the default Free on Board (FOB) destination by
+        selecting one of the following options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Receiving Site FOB</term>
+            <listitem>
+              <para>Select if receiving site is default FOB
+              destination.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Vendor Specific FOB</term>
+            <listitem>
+              <para>Select if Vendor specifies an FOB destination other than
+              the receiving Site. Enter alternate FOB details in space
+              provided.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sells Purchase Order Items</term>
+      <listitem>
+        <para>Select if Vendor accepts Purchase Orders to render goods. This
+        setting is informational only. It has no impact on the ordering
+        process.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>May only Sell Items defined by an Item Source</term>
+      <listitem>
+        <para>Select if you want to restrict Items purchased from the Vendor
+        to Items having a defined Item Source. If not selected, you may choose
+        from all purchased Items when entering a Purchase Order Line
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qualified</term>
+      <listitem>
+        <para>Select this flag to indicate that the Vendor is a trusted
+        Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Check for matching V/O and P/O amounts</term>
+      <listitem>
+        <para>Select to perform Voucher matching when entering Voucher Items
+        for the Vendor. If selected, users will be presented with a warning
+        message whenever a Voucher Item amount does not match the
+        corresponding Purchase Order Item amount for the Vendor. This option
+        will not prevent users from proceeding. Instead, the warning message
+        simply alerts users that a mis-match exists.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Vendor, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Vendor and enters the Vendor into the master list of
+        Vendors.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEXT</term>
+      <listitem>
+        <para>Select to open the Vendor master whose Vendor Number immediately
+        follows the current Vendor Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PREVIOUS</term>
+      <listitem>
+        <para>Select to open the Vendor master whose Vendor Number immediately
+        precedes the current Vendor Number.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view or enter Vendor Tax information, select the "Tax" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_taxTab.png" />
+        </imageobject>
+        <caption>Vendor Tax Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para><indexterm significance="normal">
+      <primary>vendors</primary>
+      <secondary>tax information for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>taxes</primary>
+      <secondary>for vendors</secondary>
+    </indexterm>When adding Vendor Tax information, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Receives a 1099</term>
+      <listitem>
+        <para>Select if Vendor receives a 1099 federal Tax form.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>tax authorities</primary>
+          <secondary>default for vendors</secondary>
+        </indexterm>Default Tax Authority</term>
+      <listitem>
+        <para>Specify the primary Tax Authority you want to associate with the
+        Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax Registration Numbers</term>
+      <listitem>
+        <para>Display lists Tax Registration Numbers for the specified
+        Vendor.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Vendor Tax Registration
+        Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Vendor Tax Registration Numbers.
+        The edit screen is the same as that for creating a new Vendor Tax
+        Registration Number&mdash;except that when editing, the fields will
+        contain Vendor Tax Registration Number information. Double-clicking on
+        a Vendor Tax Registration Number will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Vendor Tax Registration Number and then select this
+        button to reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Vendor Tax Registration Number and then select this
+        button to remove the Vendor Tax Registration Number from the
+        list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add a new Vendor Tax Registration Number, select the NEW button.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/taxRegistration.png" />
+        </imageobject>
+        <caption>Vendor Tax Registration Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para><indexterm significance="normal">
+      <primary>vendors</primary>
+      <secondary>tax registration for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>taxes</primary>
+      <secondary>registration for vendors</secondary>
+    </indexterm>When adding a new Vendor Tax Registration Number, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Vendor #</term>
+      <listitem>
+        <para>Displays the Vendor Number for the specified Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax Authority</term>
+      <listitem>
+        <para>Specify the Tax Authority associated with the Tax Registration
+        Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Registration Number</term>
+      <listitem>
+        <para>Enter the Vendor's Tax Registration Number for the specified Tax
+        Authority. The registration number is used by Tax Authorities to
+        identify businesses and/or individuals. An Employer Identification
+        Numbers (EIN) is an example of a Tax Registration Number.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>The Vendor's Tax Registration Number is used for identifying the
+    Vendor to relevant Tax Authorities. This information should not be
+    confused with the Tax Registration Numbers, which are used to identify
+    your company to relevant Tax Authorities.</para>
+  </tip>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Vendor Tax Registration
+        Number, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Vendor Tax Registration Number and adds it to the
+        master list of Vendor Tax Registration Numbers.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view or enter Vendor contact information, select the "Contact
+  Information" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_contactTab.png" />
+        </imageobject>
+        <caption>Vendor Contact Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para><indexterm significance="normal">
+      <primary>vendors</primary>
+      <secondary>contact information for</secondary>
+    </indexterm>When adding Vendor contact information, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Primary Contact</term>
+      <listitem>
+        <para>Manually enter Contact information in the fields below&mdash;or
+        use the browse button to select pre-existing Contact
+        information.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Title</term>
+            <listitem>
+              <para>Select a Title from the list of available Titles.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>First</term>
+            <listitem>
+              <para>Enter the Contact's first name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Last</term>
+            <listitem>
+              <para>Enter the Contact's last name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Job Title</term>
+            <listitem>
+              <para>Enter the Contact's job title.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Voice</term>
+            <listitem>
+              <para>Enter the Contact's phone number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Fax:</term>
+            <listitem>
+              <para>Enter the Contact's fax number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>E-Mail</term>
+            <listitem>
+              <para>Enter the Contact's e-mail address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Secondary Contact</term>
+      <listitem>
+        <para>Manually enter Contact information in the fields below&mdash;or
+        use the browse button to select pre-existing Contact
+        information.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Title</term>
+            <listitem>
+              <para>Select a Title from the list of available Titles.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>First</term>
+            <listitem>
+              <para>Enter the Contact's first name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Last</term>
+            <listitem>
+              <para>Enter the Contact's last name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Job Title</term>
+            <listitem>
+              <para>Enter the Contact's job title.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Voice</term>
+            <listitem>
+              <para>Enter the Contact's phone number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Fax</term>
+            <listitem>
+              <para>Enter the Contact's fax number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>E-Mail</term>
+            <listitem>
+              <para>Enter the Contact's e-mail address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Just as Customers may have multiple Ship-To addresses, Vendors may
+  also maintain multiple Ship-From addresses. A Vendor address is a Ship-From
+  address. To add Vendor Addresses to a Vendor master, select the "Addresses"
+  tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_addressTab.png" />
+        </imageobject>
+        <caption>Add Vendor Addresses</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Vendor Addresses, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Vendor Addresses</term>
+      <listitem>
+        <para>Display lists Vendor Addresses for the specified Vendor.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Vendor Address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Vendor Address. The edit screen
+        is the same as that for creating a new Vendor Address&mdash;except
+        that when editing, the fields will contain Vendor Address information.
+        Double-clicking on a Vendor Address will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Vendor Address and then select this button to reach
+        a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Vendor Address and then select this button to remove
+        the Vendor from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>vendor addresses</primary>
+      <secondary>creating new</secondary>
+    </indexterm>To create a new Vendor Address, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendorAddress.png" />
+        </imageobject>
+        <caption>Create New Vendor Address</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Vendor Address, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Number</term>
+      <listitem>
+        <para>Enter a number or code to identify the Vendor Address. Using the
+        value "Remit" or "REMIT" or "remit" in this field will cause the
+        specified Address to be used as the default Remit-To Address when
+        printing Checks for the Vendor.</para>
+        <note>
+          <para>The Remit-To feature is only supported when printing Checks
+          using the APCheck report definition.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter the name of the Vendor Address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Address</term>
+      <listitem>
+        <para>Manually enter Address information in the fields below&mdash;or
+        use the browse button to select pre-existing Address information. By
+        default, this address will appear as the main address when entering
+        Purchase Orders for the Vendor.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>Enter the street Address for the Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>Enter the city where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>Enter the state where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>Enter the Postal Code for the Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>Enter the country where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Contact</term>
+      <listitem>
+        <para>Manually enter Contact information in the fields below&mdash;or
+        use the browse button to select pre-existing Contact
+        information.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Title</term>
+            <listitem>
+              <para>Select a Title from the list of available Titles.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>First</term>
+            <listitem>
+              <para>Enter the Contact's first name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Last</term>
+            <listitem>
+              <para>Enter the Contact's last name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Job Title</term>
+            <listitem>
+              <para>Enter the Contact's job title.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Voice</term>
+            <listitem>
+              <para>Enter the Contact's phone number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Fax</term>
+            <listitem>
+              <para>Enter the Contact's fax number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>E-Mail</term>
+            <listitem>
+              <para>Enter the Contact's e-mail address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Comments related to the Vendor Address.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Vendor Address,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Vendor Address and adds it to the master list of
+        Vendor Addresses.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Notes related to a Vendor, select the "Notes" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_notesTab.png" />
+        </imageobject>
+        <caption>Add Vendor Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>To add Comments related to a Vendor, select the "Comments" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_commentsTab.png" />
+        </imageobject>
+        <caption>Add Vendor Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Comments related to a Vendor, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>Display lists Comments for the specified Vendor.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Comment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Comment and then select this button to reach a
+        read-only view of the Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Vendor Comment, select the NEW button. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CommentNew.png" />
+        </imageobject>
+        <caption>Create New Comment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Comment, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Comment and adds it to the list of Vendor
+        Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add purchasing Notes related to a Vendor, select the "P/O Notes"
+  tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_ponotesTab.png" />
+        </imageobject>
+        <caption>Add Purchasing Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding purchasing Notes related to a Vendor, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>P/O Notes</term>
+      <listitem>
+        <para>Select the "P/O Notes" tab to access this scrolling text field
+        with word-wrapping for entering purchasing Notes related to the
+        Vendor.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating new purchasing Notes,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the purchasing Notes and adds them to the Vendor
+        master.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para role="standard">The Electronic Data Interchange (EDI) system enables
+  you to exchange information electronically with your Vendors. To set up a
+  Vendor to receive Purchase Orders via email, select the "EDI" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_ediTab.png" />
+        </imageobject>
+        <caption>Add Vendor EDI Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When setting up a Vendor to receive Purchase Orders via email, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Allow Email P/O Delivery</term>
+      <listitem>
+        <para>Select to enable Vendor to receive Purchase Orders via
+        email.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>EDI details entered on the Vendor master will transfer to the
+    Schedule P/O for Email Delivery screen when a Purchase Order for the
+    Vendor is selected for email delivery.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>EDI Email</term>
+      <listitem>
+        <para>Enter the Vendor email address to be used as the default
+        recipient address whenever Purchase Orders are emailed to the
+        Vendor.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Send Purchase Orders to multiple recipients by separating email
+    addresses with a comma. Be sure to omit any spaces between addresses when
+    using commas to send copies to multiple recipients.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Cc</term>
+      <listitem>
+        <para>Enter the email address to be used as the default carbon copy
+        address whenever Purchase Orders are emailed to the Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Subject</term>
+      <listitem>
+        <para>Enter a default email subject line to be used whenever Purchase
+        Orders are emailed to the Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Filename</term>
+      <listitem>
+        <para>XML tags may be used in this field to dynamically generate
+        filename text. In the example shown in the screenshot above, the
+        filename will include the Document Type (i.e., Purchase Order) and the
+        Document Number (i.e., Purchase Order Number).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDI Email Body</term>
+      <listitem>
+        <para>Use this text field to enter the default message that will
+        accompany any Purchase Orders emailed to the Vendor.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without setting up a Vendor to receive
+        Purchase Orders via email, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Enables a Vendor to receive Purchase Orders via email.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

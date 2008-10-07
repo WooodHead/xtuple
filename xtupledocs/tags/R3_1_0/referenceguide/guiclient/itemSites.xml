@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section665983">
+  <title><indexterm significance="normal">
+      <primary>item sites</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Item Sites</title>
+  <para>To access the master list of Item Sites in your system, select the
+  "List Item Sites" option. The "following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemSites.png" />
+        </imageobject>
+        <caption>Item Sites Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>At the top of the screen is a "Search for" field. To search for an
+  Item Site, begin typing in the search field. As you type, the Item Site list
+  will automatically scroll toward the Item Number you are typing. You can
+  also search for Item Sites manually by scrolling through the list. The
+  following views are also available:</para>
+  <variablelist>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display a list of all Item Sites for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Item Sites you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Inactive Item Sites</term>
+      <listitem>
+        <para>Select to display active as well as inactive Item Sites.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Item Site, as described in <xref
+        linkend="Anchor41372" />.</para>
+        <para><tip>
+            <para>Mac users may use COMMAND + N to enter a new Item
+            Site.</para>
+          </tip></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="listitemN0x180ac00N0x1875324">
+        <para>Enables you to edit highlighted Item Sites. The edit screen is
+        the same as that for creating a new Item Site&mdash;except that when
+        editing, the fields will contain Item Site information.
+        Double-clicking on an Item Site will also bring you to the editing
+        screen. Mac users may use COMMAND + E to edit an existing Item
+        Site.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="listitemN0x180ac00N0x187536c">
+        <para>Highlight an Item Site and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Item Site and then select this button to remove the
+        Item Site from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item Site in the Item Sites list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>View Item Site</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x187536c)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Edit Item Site</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x1875324)" />
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+</section>

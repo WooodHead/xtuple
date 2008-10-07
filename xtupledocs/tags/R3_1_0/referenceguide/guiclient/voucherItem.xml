@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="voucherItem">
+  <title><indexterm significance="normal">
+      <primary>vouchers</primary>
+      <secondary>distributing quantities to</secondary>
+    </indexterm>Voucher Item</title>
+  <para>To distribute quantities from Purchase Order Line Items to the
+  Voucher, highlight a Line Item and then select the DISTRIBUTIONS button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/voucherItem.png" />
+        </imageobject>
+        <caption>Voucher Item Distribution</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>An Item's per unit Actual Cost will be automatically updated after a
+    Voucher is posted if the vouchered Cost differs from the Item's current
+    Actual Cost. The vouchered Cost for an Item is determined by dividing the
+    amount to distribute by the quantity to voucher.</para>
+  </note>
+  <para>When distributing quantities from a Purchase Order Line Item to the
+  Voucher, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>P/O Number</term>
+      <listitem>
+        <para>Displays Purchase Order Number specified on previous
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Line #</term>
+      <listitem>
+        <para>Displays Line Item selected for distribution on previous
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays Item Number associated with specified Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>P/O Item Price Info</term>
+      <listitem>
+        <para>Displays the Unit Price, Extended Price, and Line Item Freight
+        for the Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vend. Item Number</term>
+      <listitem>
+        <para>Displays Item number the Vendor assigns to the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Displays the Unit of Measure used by the Vendor for specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vend. Item Descrip.</term>
+      <listitem>
+        <para>Displays description the Vendor uses to describe the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Displays the date Line Item was expected to be received.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total Quantity Ordered</term>
+      <listitem>
+        <para>Displays the quantity ordered in the specified Purchase Order
+        Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total Quantity Received</term>
+      <listitem>
+        <para>Displays the quantity received to date of the specified Line
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total Quantity Rejected</term>
+      <listitem>
+        <para>Displays the quantity rejected to date of the specified Line
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Uninvoiced Qty. Received</term>
+      <listitem>
+        <para>Displays the uninvoiced quantity received to date of the
+        specified Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Uninvoiced Qty. Rejected</term>
+      <listitem>
+        <para>Displays the uninvoiced quantity rejected to date of the
+        specified Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>vouchers</primary>
+          <secondary>distributing quantities to</secondary>
+        </indexterm>Qty. to Voucher</term>
+      <listitem>
+        <para>This is a read-only field displaying the Purchase Order Line
+        Item quantity tagged to be vouchered for the given Voucher Item. The
+        quantity displayed equals the tagged received qty. minus any returned
+        qty. which may also have been tagged. The quantity to voucher is a
+        divisor applied to the distribution amount. The resulting amount&mdash;that
+        is, the Voucher Item distribution amount divided by the quantity
+        vouchered&mdash;determines the per unit Actual Cost for an Item. The system
+        will automatically handle any differences between the Inventory and
+        Vendor UOMs&mdash;if any differences exist.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If you want to partially pay for a Receipt&mdash;but find you cannot edit
+    the value in the "Qty. to Voucher" field&mdash;you should first correct the
+    quantity on the original Receipt to be the amount you want to pay for,
+    then enter a second Receipt for the balance. To correct Receipt
+    quantities, use the right-click menu on the "Uninvoiced Receipts and
+    Returns" screen.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>PO Line Freight to Voucher</term>
+      <listitem>
+        <para>Enter the amount of any Purchase Order Line Item freight
+        charges. The freight amount entered in this field will be added to the
+        total amount for the Voucher Item. If you are vouchering for less than
+        the original quantity ordered&mdash;and if Line Item freight was entered
+        when the Purchase Order was created&mdash;then you should consider
+        adjusting the Line Item freight amount accordingly. To make this
+        adjustment, multiply the quantity you are vouchering by the per unit
+        freight charge. The per unit freight charge is determined by dividing
+        the original Line Item freight amount by the original Line Item
+        quantity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Close P/O Item</term>
+      <listitem>
+        <para>Select to close specified Line Item. This flag will be selected
+        automatically if the received quantity tagged for vouchering is equal
+        to or greater than the Order quantity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Uninvoiced Receipts and Returns</term>
+      <listitem>
+        <para>Display lists uninvoiced Receipts and Returns for the specified
+        Line Item. To change the tagged status for a Line Item, double-click
+        on the quantity in the Uninvoiced Receipts and Returns display. If a
+        received (or returned) quantity has been tagged "Yes," this means the
+        quantity will be marked as invoiced when the Voucher is posted.</para>
+        <tip>
+          <para>You can split or correct a Receipt by right-clicking on a line
+          item in the Uninvoiced Receipts and Returns window.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Distribution List</term>
+      <listitem>
+        <para>Display lists Costing Elements used for distributing Voucher
+        Costs. At the bottom of the display the total amount distributed will
+        display. This total includes Costing Element distributions and any
+        Purchase Order Line Item freight charges.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the Line Item information and adds it to the
+        Voucher.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for adding a new Costing Element to the
+        distribution list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Costing Element. The edit screen
+        is the same as that for adding a new Costing Element&mdash;except that when
+        editing, the fields will contain Costing Element information.
+        Double-clicking on a Costing Element will also bring you to the
+        editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Costing Element and then select this button to
+        remove the Costing Element from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Receipt in the Receipts and Returns list enables
+  you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCorrectReceipt)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickSplitReceipt)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <xi:include href="voucherItemDistrib.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="splitReceipt.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

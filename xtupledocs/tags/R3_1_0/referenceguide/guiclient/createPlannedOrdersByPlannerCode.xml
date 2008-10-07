@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section551404" role="openmfg">
+  <title>Run MRP by Planner Code</title>
+  <para>When you run MRP by Planner Code, you are running the Material
+  Requirements Planning (MRP) system. This utility creates Planned
+  Replenishment Orders to meet existing Sales Order and Work Order demand.
+  Replenishment Orders will be created whenever a Planned Availability for an
+  Item Site falls below its Reorder Level. The quantity of the Replenishment
+  Order will be enough to restore Planned Availability back to the Reorder
+  Level&mdash;or to the Order Up To (OUT) Level, if the OUT Level is
+  greater.</para>
+  <note>
+    <para>Running MRP by Planner Code may be used to generate Planned Orders
+    for both parent-level manufactured Items and also lower level purchased
+    Items. Only Items designated as MRP Items will be affected by an MRP
+    run.</para>
+  </note>
+  <para>To run MRP by Planner Code, select the "Run MRP by Planner Code"
+  option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/createPlannedOrdersByPlannerCode.png"/>
+        </imageobject>
+        <caption>Run MRP by Planner Code</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>The system deletes any non-firmed Planned Orders when MRP is run. If
+    demand for the deleted Planned Orders still exists, the Orders will be
+    replaced by new Replenishment Orders having new Planned Order Numbers.
+    Order quantities will also be updated if demand levels have changed since
+    MRP was last run.</para>
+  </note>
+  <para>When running MRP by Planner Code, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Planner Codes</term>
+      <listitem>
+        <para>Select to create Planned Replenishment Orders for all Planner
+        Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Planner Code you want to create Planned Replenishment
+        Orders for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Planner Code pattern to select a range of Planner Codes.
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to create Planned Replenishment Orders by Planner Code
+        for all Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site Planned Replenishment Orders should be created
+        for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cutoff Date</term>
+      <listitem>
+        <para>Specify how far into the future the MRP run should look for
+        demand.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If you schedule an MRP or MPS job submitted to the Batch Manager to
+    run on a periodic basis&mdash;daily, weekly, monthly&mdash;the cutoff date used for
+    the run will automatically be updated by the number of days in the
+    specified reschedule interval (Day = +1, Week = +7, and Month =
+    +30).</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>
+<indexterm significance="normal">
+          <primary>firmed orders</primary>
+          <secondary>deletion of</secondary>
+        </indexterm>Delete Existing Firmed MRP Orders</term>
+      <listitem>
+        <para>Firmed MRP Orders: Select to delete existing Firmed Orders. A
+        firm Planned Order is a Planned Order that has been solidified in the
+        schedule. By default, firm Planned Orders are not deleted when MRP is
+        run. Selecting this option overrides that default behavior. If firm
+        Planned Orders are deleted when MRP is run, they will automatically be
+        replaced by soft (i.e., non-firmed) Planned Orders, assuming the
+        demand for the requirements still exists.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Unposted Purchase Orders and Purchase Requests are considered as
+    valid sources of supply when MRP is run.</para>
+  </tip>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating Planned Replenishment Orders
+        by Planner Code, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CREATE</term>
+      <listitem>
+        <para>Creates Planned Replenishment Orders by Planner Code, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SUBMIT</term>
+      <listitem>
+        <para>Select to submit the MRP run to the Batch Manager.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section521523">
+  <title>
+<indexterm significance="normal">
+      <primary>class codes</primary>
+      <secondary>summarize transaction history for</secondary>
+    </indexterm>Summarize Transaction History by Class Code</title>
+  <para>Transaction history is detailed by default. For example, when viewing
+  transaction history in the Inventory History displays and reports, you see
+  levels of detail describing each transaction. The Summarize Transaction
+  History utility deletes detailed transaction records&mdash;using parameters you
+  specify&mdash;and replaces them with summarized records. Summarizing records is
+  one way to conserve disk storage space. To summarize transaction history by
+  Class Code, select the "Summarize Transaction History by Class Code" option.
+  The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/summarizeInvTransByClassCode.png"/>
+        </imageobject>
+        <caption>Summarize Transaction History by Class
+        Code</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When summarizing transaction history by Class Code, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to summarize Inventory transactions by Class Code for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Inventory transactions by Class Code you
+        want to summarize.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Class Codes</term>
+      <listitem>
+        <para>Select to summarize Inventory transactions for all Class
+        Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Class Code whose Inventory transactions you want to
+        summarize.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Class Code pattern to select a range of Class Codes
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Transactions entered on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Transactions entered on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without summarizing Inventory transactions by
+        Class Code, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SUMMARIZE</term>
+      <listitem>
+        <para>Summarizes Inventory transactions by Class Code based on entries
+        specified in the screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section527209" role="openmfg">
+  <title>Time-Phased Available Capacity by Work Center</title>
+
+  <para>To view time-phased available Capacity by Work Center, select the
+  "Time-Phased Available Capacity by Work Center" option. The following screen
+  will appear:</para>
+
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspTimePhasedAvailableCapacityByWorkCenter.png"/>
+        </imageobject>
+
+        <caption>Time-Phased Available Capacity by Work
+        Center</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+
+  <para>When displaying time-phased available Capacity by Work Center, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>All Sites</term>
+
+      <listitem>
+        <para>Select to display time-phased available Capacity by Work Center
+        for all Sites.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Selected</term>
+
+      <listitem>
+        <para>Specify Site whose time-phased available Capacity by Work
+        Center you want to display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Calendar</term>
+
+      <listitem>
+        <para>Select the Calendar you want to use for the report. Associated
+        Calendar periods will be displayed.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Name/Selected Periods</term>
+
+      <listitem>
+        <para>Select as many periods as you want to display. Selected periods
+        correspond to Calendar specified in the "Calendar" field. Select
+        individual periods or groups of periods together. To select an
+        individual period, highlight the period using your mouse button. The
+        period is now selected. To select a sequence of periods, highlight the
+        first in the sequence using your mouse button. Then, holding down the
+        SHIFT key on your keyboard, highlight the last period in the sequence.
+        The entire sequence is now selected. To select periods that are out of
+        sequence (e.g., January, April, July, October), highlight the first
+        period in the group. Then, holding down the CTRL key on your keyboard,
+        highlight the next period you want to select. Continue highlighting
+        periods with the CTRL key depressed until all desired periods are
+        selected. The entire group is now selected.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Available Capacity</term>
+
+      <listitem>
+        <para>Display lists time-phased available Capacity by Work Center,
+        using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>QUERY</term>
+
+      <listitem>
+        <para>Select to generate the display, using the specified parameters.
+        Start date and end date must be entered for calculation to proceed.
+        Results will be displayed in the "Available Capacity" display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>PRINT</term>
+
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>Right-clicking on a Work Center in the Available Capacity list enables
+  you to select from the following menu options:</para>
+
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewLoad)"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

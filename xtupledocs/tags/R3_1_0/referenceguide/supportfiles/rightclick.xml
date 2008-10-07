@@ -1,0 +1,1458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>Right-click menu support file</title>
+  <para>This file contains content frequently used in right-click menus
+  throughout the xTuple applications. It is organized, as much as possible,
+  according to functional areas.</para>
+  <section>
+    <title>Generic</title>
+    <variablelist>
+      <varlistentry id="rightclickDelete">
+        <term>Delete</term>
+        <listitem>
+          <para>Select to delete the specified item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEdit">
+        <term>Edit</term>
+        <listitem>
+          <para>Select to edit the specified item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickNew">
+        <term>New</term>
+        <listitem>
+          <para>Select to create a new item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPost">
+        <term>Post</term>
+        <listitem>
+          <para>Select to post the specified item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickView">
+        <term>View</term>
+        <listitem>
+          <para>Select to view the specified item.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>Manufacturing</title>
+    <variablelist>
+      <varlistentry id="rightclickChangeWOQuantity">
+        <term>Change W/O Quantity</term>
+        <listitem>
+          <para>Select to change the quantity of the specified Work
+          Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCloseWO">
+        <term>Close W/O</term>
+        <listitem>
+          <para>Select to close the specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCorrectOperationsPosting">
+        <term>Correct Operations Posting</term>
+        <listitem>
+          <para>Select to correct Operations Posting for the specified Work
+          Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCorrectProductionPosting">
+        <term>Correct Production Posting</term>
+        <listitem>
+          <para>Select to correct Production Posting for the specified Work
+          Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickDeleteOperation">
+        <term>Delete Operation</term>
+        <listitem>
+          <para>Select to delete the specified Operation.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickDeleteWO">
+        <term>Delete W/O</term>
+        <listitem>
+          <para>Select to delete the specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditOperation">
+        <term>Edit Operation</term>
+        <listitem>
+          <para>Select to edit the specified Operation.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditWO">
+        <term>Edit W/O</term>
+        <listitem>
+          <para>Select to edit the specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickExplodeWO">
+        <term>Explode W/O</term>
+        <listitem>
+          <para>Select to explode the specified Work Order. Applies only to
+          Open Work Orders.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickImplodeWO">
+        <term>Implode W/O</term>
+        <listitem>
+          <para>Select to implode the specified Work Order. Applies only to
+          Exploded Work Orders.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickInventoryAvailabilitybyWorkOrder">
+        <term>Inventory Availability by Work Order</term>
+        <listitem>
+          <para>Select to view Inventory Availability for the specified Work
+          Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickIssueMaterialItem">
+        <term>Issue Material Item</term>
+        <listitem>
+          <para>Select to issue a Work Order Material Item to the specified
+          Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPostOperations">
+        <term>Post Operations</term>
+        <listitem>
+          <para>Select to post Operations for the specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPostProduction">
+        <term>Post Production</term>
+        <listitem>
+          <para>Select to post Production for the specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPrintPickLists">
+        <term>Print Pick Lists</term>
+        <listitem>
+          <para>Select to print a Pick List(s) for the specified Work
+          Order(s).</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPrintTraveler">
+        <term>Print Traveler</term>
+        <listitem>
+          <para>Select to print a Traveler for the specified Work
+          Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickProdTimeClockByWO">
+        <term>Production Time Clock by Work Order</term>
+        <listitem>
+          <para>Select to view the Production Time Clock for the specified
+          Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickRecallWO">
+        <term>Recall W/O</term>
+        <listitem>
+          <para>Select to recall the specified Work Order to an Exploded
+          state. Applies only to Released Work Orders.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReleaseWO">
+        <term>Release W/O</term>
+        <listitem>
+          <para>Select to release the specified Work Order. Applies only to
+          Exploded Work Orders.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReprioritizeWO">
+        <term>Reprioritize W/O</term>
+        <listitem>
+          <para>Select to change the priority for the specified Work
+          Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickRescheduleWO">
+        <term>Reschedule W/O</term>
+        <listitem>
+          <para>Select to reschedule the specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickSubstitute">
+        <term>Substitute</term>
+        <listitem>
+          <para>Select to choose a BOM-defined substitute Item, if any.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewWOAllocations">
+        <term>View Allocations</term>
+        <listitem>
+          <para>Select to view all the Orders where the specified Item is
+          allocated.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewItemDefinedSubstituteAvailability">
+        <term>View Item-Defined Substitute Availability</term>
+        <listitem>
+          <para>Select to view availability of substitute Items defined at the
+          Item level, if any.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewOperation">
+        <term>View Operation</term>
+        <listitem>
+          <para>Select to view the specified Operation detail.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewRequirement">
+        <term>View Requirement</term>
+        <listitem>
+          <para>Select to view the specified Work Order Material Requirement
+          detail.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewWO">
+        <term>View W/O</term>
+        <listitem>
+          <para>Select to view the specified Work Order detail.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewWOMaterialAvailability">
+        <term>View W/O Material Availability</term>
+        <listitem>
+          <para>Select to view Work Order Material Availability for the
+          specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewWOMaterialRequirements">
+        <term>View W/O Material Requirements</term>
+        <listitem>
+          <para>Select to view Work Order Material Requirements for the
+          specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewWOOperations">
+        <term>View W/O Operations</term>
+        <listitem>
+          <para>Select to view Work Order Operations for the specified Work
+          Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewParentSOInfo">
+        <term>View Parent Sales Order Information</term>
+        <listitem>
+          <para>Select to view the parent Sales Order information for the
+          specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewParentWorkOrderInformation">
+        <term>View Parent Work Order Information</term>
+        <listitem>
+          <para>Select to view the parent Work Order information for the
+          specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickWorkOrderSched">
+        <term>Work Order Schedule</term>
+        <listitem>
+          <para>Select to view the Work Order Schedule for the specified Work
+          Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>Planning Systems</title>
+    <variablelist>
+      <varlistentry id="rightclickChangeOrderType">
+        <term>Change Order Type</term>
+        <listitem>
+          <para>Select to change the Order Type of the specified Order.
+          Changing the order type will delete and recreate the order then will
+          change Order Type "W/O" to "P/O". Similarly will change Order Type
+          "P/O" to "W/O".</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickDeleteOrder">
+        <term>Delete Order</term>
+        <listitem>
+          <para>Select to delete the specified Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickFirmOrder">
+        <term>Firm Order</term>
+        <listitem>
+          <para>Select to firm the specified Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickMPSDetail">
+        <term>MPS Detail</term>
+        <listitem>
+          <para>Select to view the Master Production Scheduling detail for the
+          specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReleaseOrder">
+        <term>Release Order</term>
+        <listitem>
+          <para>Select to release the specified Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickRunningAvailability">
+        <term>Running Availability</term>
+        <listitem>
+          <para>Select to view Running Availability for the specified Item
+          Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickSoftenOrder">
+        <term>Soften Order</term>
+        <listitem>
+          <para>Select to soften the specified Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickUsageStatistics">
+        <term>Usage Statistics</term>
+        <listitem>
+          <para>Select to view usage statistics for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewDemand">
+        <term>View Demand</term>
+        <listitem>
+          <para>Select to view the demand on the specified Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewLoad">
+        <term>View Load</term>
+        <listitem>
+          <para>Select to view the load on the specified Work Center.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewRunningAvailability">
+        <term>View Running Availability</term>
+        <listitem>
+          <para>Select to view Running Availability for the specified Item
+          Site.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>Shipping</title>
+    <variablelist>
+      <varlistentry id="rightclickIssueLineBalance">
+        <term>Issue Line Balance</term>
+        <listitem>
+          <para>Select to issue the specified Line Item quantity balance to
+          Shipping.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickIssueStock">
+        <term>Issue Stock</term>
+        <listitem>
+          <para>Select to issue quantity to Shipping for the specified Line
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickIssuetoShipping">
+        <term>Issue to Shipping</term>
+        <listitem>
+          <para>Select to issue the specified Line Item to Shipping.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPrintShippingForm">
+        <term>Print Shipping Form</term>
+        <listitem>
+          <para>Select to print a Shipping Form for the specified
+          Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickQueryShipmentStatus">
+        <term>Query Shipment Status</term>
+        <listitem>
+          <para>Select to track the specified Order using the supported
+          carrier's website (e.g., UPS).</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReturnALLStockIssuedtoOrder">
+        <term>Return ALL Stock Issued to Order</term>
+        <listitem>
+          <para>Select to return all issued Line Item quantity to
+          Inventory.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReturnStock">
+        <term>Return Stock</term>
+        <listitem>
+          <para>Select to return some or all of the specified Line Item
+          quantity to Inventory.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickShipOrder">
+        <term>Ship Order</term>
+        <listitem>
+          <para>Select to ship the specified Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickShippingInformation">
+        <term>Shipping Information</term>
+        <listitem>
+          <para>Select to view detailed shipment information for the specified
+          Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>Sales</title>
+    <variablelist>
+      <varlistentry id="rightclickAddtoPackingListBatch">
+        <term>Add to Packing List Batch</term>
+        <listitem>
+          <para>Select to add the specified Order to the Packing List
+          Batch.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCancelBilling">
+        <term>Cancel Billing</term>
+        <listitem>
+          <para>Select to cancel the specified Billing Selection.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickConvert">
+        <term>Convert</term>
+        <listitem>
+          <para>Select to convert the specified Quote to a Sales Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditBilling">
+        <term>Edit Billing</term>
+        <listitem>
+          <para>Select to edit the specified Billing Selection.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditCreditMemo">
+        <term>Edit Credit Memo</term>
+        <listitem>
+          <para>Select to edit the specified Credit Memo.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditItem">
+        <term>Edit Item</term>
+        <listitem>
+          <para>Select to edit the specified Order Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditNewOrder">
+        <term>Edit New Order</term>
+        <listitem>
+          <para>Select to edit the new Sales Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditNewOrderLine">
+        <term>Edit New Order Line</term>
+        <listitem>
+          <para>Select to edit the new Sales Order Line Item</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditOrder">
+        <term>Edit Order</term>
+        <listitem>
+          <para>Select to edit the specified Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditSalesOrder">
+        <term>Edit Sales Order</term>
+        <listitem>
+          <para>Select to edit the specified Sales Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEmailOrdAcknowl">
+        <term>Email Order Acknowledgement</term>
+        <listitem>
+          <para>Select to schedule the Sales Order for email delivery.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickInventoryAvailabilitybySalesOrder">
+        <term>Inventory Availability by Sales Order</term>
+        <listitem>
+          <para>Select to display Inventory availability for the specified
+          Sales Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickInvoiceInformation">
+        <term>Invoice Information</term>
+        <listitem>
+          <para>Select to view details for the specified Invoice.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickNewOrderShipments">
+        <term>New Order Shipments</term>
+        <listitem>
+          <para>Select to view Shipments for the new Sales Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickNewOrderShipStatus">
+        <term>New Order Shipment Status</term>
+        <listitem>
+          <para>Select to view Shipment statuses for the new Sales
+          Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickOpenLine">
+        <term>Open Line</term>
+        <listitem>
+          <para>Select to re-open the specified Sales Order Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPrintPackingList">
+        <term>Print Packing List</term>
+        <listitem>
+          <para>Select to print a Packing List for the specified Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPrintReturnAuthForm">
+        <term>Print Return Authorization Form</term>
+        <listitem>
+          <para>Select to print a copy of the Return Authorization.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPrintSalesOrderForm">
+        <term>Print Sales Order Form</term>
+        <listitem>
+          <para>Select to print a Sales Order Form for the specified
+          Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReassignCustomerType">
+        <term>Reassign Customer Type</term>
+        <listitem>
+          <para>Select to reassign the specified Customer to a different
+          Customer Type.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReschedule">
+        <term>Reschedule</term>
+        <listitem>
+          <para>Select to reschedule the specified Sales Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReserveLineBalance">
+        <term>Reserve Line Balance</term>
+        <listitem>
+          <para>Select to reserve Inventory quantity for the entire Line Item
+          balance.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReserveStock">
+        <term>Reserve Stock</term>
+        <listitem>
+          <para>Select to reserve Inventory quantity for the specified Sales
+          Order Item either by total quantity on hand or by location depending
+          on Configure S/O settings.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickScheduleSOforEmailDelivery">
+        <term>Schedule S/O for Email Delivery</term>
+        <listitem>
+          <para>Select to schedule the Sales Order for email delivery.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickSelectThisOrderforBilling">
+        <term>Select This Order for Billing</term>
+        <listitem>
+          <para>Select to choose the specified Order for billing.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickShipments">
+        <term>Shipments</term>
+        <listitem>
+          <para>Select to view all shipments for the specified Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickShipmentStatus">
+        <term>Shipment Status</term>
+        <listitem>
+          <para>Select to view the status of shipments for the specified
+          Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickShowReservations">
+        <term>Show Reservations</term>
+        <listitem>
+          <para>Show Sales Order Reservations for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickUnreserveStock">
+        <term>Unreserve Stock</term>
+        <listitem>
+          <para>Select to remove Inventory reservations for the specified
+          Sales Order Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewBookings">
+        <term>View Bookings</term>
+        <listitem>
+          <para>Select to view sales bookings for the specified line.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewItem">
+        <term>View Item</term>
+        <listitem>
+          <para>Select to view the specified Order Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewNewOrder">
+        <term>View New Order</term>
+        <listitem>
+          <para>Select to view the new Sales Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewNewOrderLine">
+        <term>View New Order Line</term>
+        <listitem>
+          <para>Select to view the new Sales Order Line Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewSalesOrder">
+        <term>View Order</term>
+        <listitem>
+          <para>Select to view the specified Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewOriginalOrder">
+        <term>View Original Order</term>
+        <listitem>
+          <para>Select to view the original Sales Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewSalesDetail">
+        <term>View Sales Detail</term>
+        <listitem>
+          <para>Select to view sales history for the specified line.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewSalesOrder2">
+        <term>View Sales Order</term>
+        <listitem>
+          <para>Select to view the specified Sales Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>Inventory</title>
+    <variablelist>
+      <varlistentry id="rightclickAdjustthisQOH">
+        <term>Adjust this QOH</term>
+        <listitem>
+          <para>Select to enter a Miscellaneous Adjustment for the specified
+          Item Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickBalanceItemSite">
+        <term>Balance Item Site</term>
+        <listitem>
+          <para>Select to balance the QOH for the specified Item Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCountSlipEditList">
+        <term>Count Slip Edit List</term>
+        <listitem>
+          <para>Select to display the Count Slip Edit List for the specified
+          Count Tag, if any.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCreatePO">
+        <term>Create P/O</term>
+        <listitem>
+          <para>Select to create a Purchase Order for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCreatePR">
+        <term>Create P/R</term>
+        <listitem>
+          <para>Select to create a Purchase Request for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCreateWO">
+        <term>Create W/O</term>
+        <listitem>
+          <para>Select to create a Work Order for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCreateWorkOrder">
+        <term>Create Work Order</term>
+        <listitem>
+          <para>Select to create a Work Order for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickDeleteSiteType">
+        <term>Delete Site Type</term>
+        <listitem>
+          <para>Select to delete the specified Site Type.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditCountSlip">
+        <term>Edit Count Slip</term>
+        <listitem>
+          <para>Select to edit the specified Count Slip.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditItemSite">
+        <term>Edit Item Site</term>
+        <listitem>
+          <para>Select to edit the specified Item Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditMisc.Count">
+        <term>Enter Misc. Count</term>
+        <listitem>
+          <para>Select to enter a Miscellaneous Inventory Count for the
+          specified Item Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditSiteType">
+        <term>Edit Site Type</term>
+        <listitem>
+          <para>Select to edit the specified Site Type.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditTransactionInfo">
+        <term>Edit Transaction Information</term>
+        <listitem>
+          <para>Select to edit information related to the specified
+          transaction.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickIssueCountTag">
+        <term>Issue Count Tag</term>
+        <listitem>
+          <para>Select to create a Count Tag for the specified Item
+          Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickIssuePO">
+        <term>Issue P/O</term>
+        <listitem>
+          <para>Select to create a Purchase Order for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickIssuePR">
+        <term>Issue P/R</term>
+        <listitem>
+          <para>Select to create a Purchase Request for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickIssuePurchaseOrder">
+        <term>Issue Purchase Order</term>
+        <listitem>
+          <para>Select to create a Purchase Order for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickIssueWO">
+        <term>Issue W/O</term>
+        <listitem>
+          <para>Select to create a Work Order for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickIssueWorkOrder">
+        <term>Issue Work Order</term>
+        <listitem>
+          <para>Select to create a Work Order for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickListItemsinthisInventoryCostCategory">
+        <term>List Items in this Inventory Cost Category</term>
+        <listitem>
+          <para>Select to display Item Sites using the specified Cost
+          Category</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickListItemSites">
+        <term>List Item Sites</term>
+        <listitem>
+          <para>Select to display a list of Item Sites for the specified
+          Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPostCountSlip">
+        <term>Post Count Slip</term>
+        <listitem>
+          <para>Select to post the specified Count Slip.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPostMiscProduction">
+        <term>Post Misc. Production</term>
+        <listitem>
+          <para>Select to post Miscellaneous Production for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickResetthisQOHto0">
+        <term>Reset this QOH to 0</term>
+        <listitem>
+          <para>Select to change the Quantity on Hand for the specified Item
+          Site to zero.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickSubstituteAvailability">
+        <term>Substitute Availability</term>
+        <listitem>
+          <para>Select to view availability of substitute Items, if
+          any.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickThaw">
+        <term>Thaw</term>
+        <listitem>
+          <para>Select to thaw the specified Item Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickTransfertoanotherWarehouse">
+        <term>Transfer to another Site</term>
+        <listitem>
+          <para>Select to transfer Inventory from the specified Site to
+          another Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewSiteType">
+        <term>View Site Type</term>
+        <listitem>
+          <para>Select to view the specified Site Type.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewAlltransactions">
+        <term>View All Transactions</term>
+        <listitem>
+          <para>Select to view all Inventory transactions for the specified
+          Item Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewAllocations">
+        <term>View Allocations</term>
+        <listitem>
+          <para>Select to view Orders the specified Item Site is allocated
+          to.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewAvailability">
+        <term>View Availability</term>
+        <listitem>
+          <para>Select to view Inventory Availability for the specified Item
+          Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewAvailabilityDetail">
+        <term>View Availability Detail</term>
+        <listitem>
+          <para>Select to view Inventory Availability for the specified Item
+          Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewCountTag">
+        <term>View Count Tag</term>
+        <listitem>
+          <para>Select to view the specified Count Tag.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewInventoryAvailability">
+        <term>View Inventory Availability</term>
+        <listitem>
+          <para>Select to view Inventory Availability for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewInventoryHistory">
+        <term>View Inventory History</term>
+        <listitem>
+          <para>Select to view Inventory history for the specified Item
+          Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewItemInvHistory">
+        <term>View Item Inventory History</term>
+        <listitem>
+          <para>Select to view Inventory history for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewItemSite">
+        <term>View Item Site</term>
+        <listitem>
+          <para>Select to view the specified Item Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewLocationLotSerialDetail">
+        <term>View Location/Lot/Serial # Detail</term>
+        <listitem>
+          <para>Select to view detailed information for the specified Item
+          Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewOrders">
+        <term>View Orders</term>
+        <listitem>
+          <para>Select to view all the pending Orders for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewPendingInventoryHistory">
+        <term>View Pending Inventory History</term>
+        <listitem>
+          <para>Select to view Inventory transactions for the Item Site since
+          the date the specified Count Tag was created.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewSubstituteAvailability">
+        <term>View Substitute Availability</term>
+        <listitem>
+          <para>Select to view availability of substitute Items, if
+          any.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewTransaction">
+        <term>View Transactions</term>
+        <listitem>
+          <para>Select to view transactions for the specified Item
+          Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewTransactionInformation">
+        <term>View Transaction Information</term>
+        <listitem>
+          <para>Select to view details for the specified transaction.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewWorkOrderDetails">
+        <term>View Work Order Details</term>
+        <listitem>
+          <para>Select to view details for the specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewWorkOrderInfo">
+        <term>View Work Order Information</term>
+        <listitem>
+          <para>Select to view information about the specified Work
+          Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>Products</title>
+    <variablelist>
+      <varlistentry id="rightclickCreateBOM">
+        <term>Create BOM</term>
+        <listitem>
+          <para>Select to create a Bill of Materials for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCreateBOO">
+        <term>Create BOO</term>
+        <listitem>
+          <para>Select to create a Bill of Operations for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCreateCompItemSite">
+        <term>Create Component Item Site</term>
+        <listitem>
+          <para>Select to create an Item Site for the specified
+          Component.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCreateUserCost">
+        <term>Create User Cost</term>
+        <listitem>
+          <para>Select to create a user-defined Costing Element.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickDeleteProdCat">
+        <term>Delete Product Category</term>
+        <listitem>
+          <para>Select to delete the specified Product Category</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditActualCost">
+        <term>Edit Actual Cost</term>
+        <listitem>
+          <para>Select to edit the specified Actual Cost.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditBillOfOperations">
+        <term>Edit Bill of Operations</term>
+        <listitem>
+          <para>Select to edit the BOO for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditBOM">
+        <term>Edit BOM</term>
+        <listitem>
+          <para>Select to edit the BOM for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditBOMItem">
+        <term>Edit BOM Item</term>
+        <listitem>
+          <para>Select to edit the specified BOM Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditBOO">
+        <term>Edit BOO</term>
+        <listitem>
+          <para>Select to edit the BOO for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditItemMaster">
+        <term>Edit Item Master</term>
+        <listitem>
+          <para>Select to edit the Item master for the selected Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditBOOItem">
+        <term>Edit Operation</term>
+        <listitem>
+          <para>Select to edit the specified BOO Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditParentItem">
+        <term>Edit Parent Item</term>
+        <listitem>
+          <para>Select to edit the parent Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditParentItemSite">
+        <term>Edit Parent Item Site</term>
+        <listitem>
+          <para>Select to edit the Item Site for the parent Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditProdCat">
+        <term>Edit Product Category</term>
+        <listitem>
+          <para>Select to edit the specified Product Category.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditStdOperation">
+        <term>Edit Standard Operation</term>
+        <listitem>
+          <para>Select to edit the specified Standard Operation.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickMaintainItemCosts">
+        <term>Maintain Item Costs</term>
+        <listitem>
+          <para>Select to maintain Costs for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPostActualCosts">
+        <term>Post Actual Costs</term>
+        <listitem>
+          <para>Select to post Actual Costs to Standard Cost for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPostActToStd">
+        <term>Post Actual Cost to Standard</term>
+        <listitem>
+          <para>Select to post the specified Actual Cost to Standard
+          Cost.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReplace">
+        <term>Replace</term>
+        <listitem>
+          <para>Select to replace the specified component with another
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickUpdateActCost">
+        <term>Update Actual Cost</term>
+        <listitem>
+          <para>Select to update the specified Actual Cost.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickUpdateActualCosts">
+        <term>Update Actual Costs</term>
+        <listitem>
+          <para>Select to update Actual Costs for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewBillofMaterials">
+        <term>View Bill of Materials</term>
+        <listitem>
+          <para>Select to view the BOM for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewBillofOperations">
+        <term>View Bill of Operations</term>
+        <listitem>
+          <para>Select to view the BOO for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewBOM">
+        <term>View BOM</term>
+        <listitem>
+          <para>Select to view the BOM for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewBOMItem">
+        <term>View BOM Item</term>
+        <listitem>
+          <para>Select to view the specified BOM Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewBOO">
+        <term>View BOO</term>
+        <listitem>
+          <para>Select to view the BOO for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewCostingDetail">
+        <term>View Costing Detail</term>
+        <listitem>
+          <para>Select to view detailed Costing information for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewItemCosting">
+        <term>View Item Costing</term>
+        <listitem>
+          <para>Select to view detailed Costing information for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewItemCostSumm">
+        <term>View Item Costing Summary</term>
+        <listitem>
+          <para>Select to view summarized Costing information for the
+          specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewItemMaster">
+        <term>View Item Master</term>
+        <listitem>
+          <para>Select to edit the Item master for the selected Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewBOOOperation">
+        <term>View Operation</term>
+        <listitem>
+          <para>Select to view the BOO for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewStdOperation">
+        <term>View Standard Operation</term>
+        <listitem>
+          <para>Select to view the specified Standard Operation.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>Purchasing</title>
+    <variablelist>
+      <varlistentry id="rightclickChangeQty">
+        <term>Change Qty</term>
+        <listitem>
+          <para>Select to change the Line Item quantity for the specified
+          Purchase Order Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCloseItem">
+        <term>Close Item</term>
+        <listitem>
+          <para>Select to close the specified Purchase Order Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCorrectReceipt">
+        <term>Correct Receipt</term>
+        <listitem>
+          <para>Select to correct the received quantity for the specified
+          Receipt.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCorrectReceiving">
+        <term>Correct Receiving</term>
+        <listitem>
+          <para>Select to correct the received quantity for the specified
+          Receipt.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCreateCreditMemo">
+        <term>Create Credit Memo</term>
+        <listitem>
+          <para>Select to create a Credit Memo for the specified
+          Return.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickDeletePR">
+        <term>Delete P/R</term>
+        <listitem>
+          <para>Select to delete the specified Purchase Request.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickDeliver">
+        <term>Deliver</term>
+        <listitem>
+          <para>Select to schedule the specified Purchase Order for email
+          delivery.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditPOItem">
+        <term>Edit P/O Item</term>
+        <listitem>
+          <para>Select to edit the specified Purchase Order Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickMarkasInvoiced">
+        <term>Mark as Invoiced</term>
+        <listitem>
+          <para>Select to mark the specified Receipt as invoiced.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickOpenItem">
+        <term>Open Item</term>
+        <listitem>
+          <para>Select to open the specified Purchase Order Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReleasePR">
+        <term>Release P/R</term>
+        <listitem>
+          <para>Select to release the specified Purchase Request to
+          Purchasing.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReschedulePO">
+        <term>Reschedule</term>
+        <listitem>
+          <para>Select to reschedule the specified Purchase Order Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickSplitReceipt">
+        <term>Split Receipt</term>
+        <listitem>
+          <para>Select to split the specified Receipt into smaller
+          quantities.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewBuyCard">
+        <term>View Buy Card</term>
+        <listitem>
+          <para>Select to view the Buy Card for the specified Item
+          Source.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewPOItem2">
+        <term>View Item</term>
+        <listitem>
+          <para>Select to view the specified Purchase Order Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewPurchaseOrder">
+        <term>View Order</term>
+        <listitem>
+          <para>Select to view the parent Purchase Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewPOItem">
+        <term>View P/O Item</term>
+        <listitem>
+          <para>Select to view the specified Purchase Order Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewPOs">
+        <term>View P/Os</term>
+        <listitem>
+          <para>Select to view Purchase Orders for the specified Item
+          Source.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>Accounting</title>
+    <variablelist>
+      <varlistentry id="rightclickEditAROpenItem">
+        <term>Edit A/R Open Item</term>
+        <listitem>
+          <para>Select to edit the specified open item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditInvoice">
+        <term>Edit Invoice</term>
+        <listitem>
+          <para>Select to edit the specified Invoice.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickForwardUpdate">
+        <term>Forward Update</term>
+        <listitem>
+          <para>Select to forward update the specified Account.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickOpen">
+        <term>Open</term>
+        <listitem>
+          <para>Select to open the specified Accounting Period.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickPrintStatement">
+        <term>Print Statement</term>
+        <listitem>
+          <para>Select to print a statement for the specified Customer.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickReverseJournal">
+        <term>Reverse Journal</term>
+        <listitem>
+          <para>Select to reverse the specified Journal posting.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewAPOpen">
+        <term>View A/P Open</term>
+        <listitem>
+          <para>Select to view the AP open item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewApplytoDbMemo">
+        <term>View Apply to Debit Memo</term>
+        <listitem>
+          <para>Select to view the Debit Memo the specified document was
+          applied to.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewApplytoInvoice">
+        <term>View Apply to Invoice</term>
+        <listitem>
+          <para>Select to view the Invoice the specified document was applied
+          to.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewAROpenItem">
+        <term>View A/R Open Item</term>
+        <listitem>
+          <para>Select to view the specified open item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewCreditMemo">
+        <term>View Credit Memo</term>
+        <listitem>
+          <para>Select to view the specified Credit Memo.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewGLSeries">
+        <term>View G/L Series</term>
+        <listitem>
+          <para>Select to view G/L Series information for the specified
+          document.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewGLTransactions">
+        <term>View G/L Transactions</term>
+        <listitem>
+          <para>Select to view General Ledger transactions for the specified
+          Account.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewInvoice">
+        <term>View Invoice</term>
+        <listitem>
+          <para>Select to view the specified Invoice.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewInvoiceDetails">
+        <term>View Invoice Details</term>
+        <listitem>
+          <para>Select to view detailed Invoice information.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewOpenItems">
+        <term>View Open Items</term>
+        <listitem>
+          <para>Select to view open Items for the specified Account.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewSourceCreditMemo">
+        <term>View Source Credit Memo</term>
+        <listitem>
+          <para>Select to view details for the specified Credit Memo.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewVoucher">
+        <term>View Voucher</term>
+        <listitem>
+          <para>Select to view the specified Voucher.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickVoid">
+        <term>Void</term>
+        <listitem>
+          <para>Select to void the specified Document.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickVoidPostedCheck">
+        <term>Void Posted Check</term>
+        <listitem>
+          <para>Select to void the specified posted Check.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>CRM</title>
+    <variablelist>
+      <varlistentry id="rightclickCreateIncident">
+        <term>Create Incident</term>
+        <listitem>
+          <para>Select to create a new Incident.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditIncident">
+        <term>Edit Incident</term>
+        <listitem>
+          <para>Select to edit the specified Incident.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickEditToDoItem">
+        <term>Edit To-Do Item</term>
+        <listitem>
+          <para>Select to edit the specified To-To Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewIncident">
+        <term>View Incident</term>
+        <listitem>
+          <para>Select to view the specified Incident.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickViewToDoItem">
+        <term>View To-Do Item</term>
+        <listitem>
+          <para>Select to view the specified To-To Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry id="rightclickCustomerWorkbench">
+        <term>Customer Workbench</term>
+        <listitem>
+          <para>Select to open the Customer Information Workbench for the
+          specified Customer.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</section>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section547322">
+  <title>
+<indexterm significance="normal">
+      <primary>sales history</primary>
+      <secondary>archiving of</secondary>
+    </indexterm>Archive Sales History</title>
+  <para>If your system contains Sales history which is no longer required for
+  Sales Analysis purposes, you may archive that history&mdash;effectively removing
+  it from view. Archived Sales history may be restored to view at any point.
+  To archive Sales history, select the "Archive Sales History" option. The
+  following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/archiveSalesHistory.png"/>
+        </imageobject>
+        <caption>Archive Sales History</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>Archiving Sales history does not delete Sales history. Rather, the
+    historical data is simply relocated to a storage archive on the database.
+    You may restore Sales history from the archive at any time.</para>
+  </note>
+  <para>When archiving Sales history, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Customer Types</term>
+      <listitem>
+        <para>Select to archive Sales history for all Customer Types.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Customer Type whose Sales history you want to
+        archive.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Customer Type pattern to select a range of Customer
+        Types. Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Product Categories</term>
+      <listitem>
+        <para>Select to archive Sales history for all Product
+        Categories.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Product Category whose Sales history you want to
+        archive.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Product Category pattern to select a range of Product
+        Categories. Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Archive Freight, Sales Tax and Misc. Items</term>
+      <listitem>
+        <para>Select to archive all the sales information which is not
+        directly related to the Item Sites for a Sales Order&mdash;that is, Freight
+        charges, Tax, etc.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to archive Sales history for all Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Sales history you want to
+        archive.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Sales history generated on or after this date will be
+        archived.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Sales history by Shipping Zone by Item generated on or before
+        this date will be archived.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without archiving Sales history, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SELECT</term>
+      <listitem>
+        <para>Archives Sales History using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

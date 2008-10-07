@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section631687">
+  <title id="Anchor68692"><indexterm significance="normal">
+      <primary>costing elements</primary>
+      <secondary>user-defined</secondary>
+    </indexterm>User-Defined Costing Elements</title>
+  <para>If you need to establish Costing Elements above and beyond the default
+  Costing Elements defined by the system, you have the ability to do so in
+  this section. Costing Elements you add here will be available to you when
+  you define Costs for Items, as described in <xref linkend="Anchor31787" />.
+  To create user-defined Costing Elements, select the "User-Defined Costing
+  Elements" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/costingElements.png" />
+        </imageobject>
+        <caption>User-Defined Costing Elements Master
+        List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The user-defined Costing Elements master list displays an alphabetical
+  list of all user-defined Costing Elements.</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Costing Element.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Costing Elements. The edit
+        screen is the same as that for creating a new Costing Element&mdash;except
+        that when editing, the fields will contain Costing Element
+        information. Double-clicking on a Costing Element will also bring you
+        to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Costing Element and then select this button to
+        remove the Costing Element from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>By default, the system provides the following Costing Elements for
+    manufactured Items:</para>
+    <para>Direct Labor</para>
+    <para>Machine Overhead</para>
+    <para>Overhead</para>
+    <para>For purchased Items, this default Costing Elements is
+    provided:</para>
+    <para>Material</para>
+  </note>
+  <xi:include href="userCostingElement.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

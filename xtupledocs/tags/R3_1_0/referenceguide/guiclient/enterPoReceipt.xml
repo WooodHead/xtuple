@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section531874">
+  <title id="Anchor28097"><indexterm significance="normal">
+      <primary>receiving</primary>
+      <secondary>entering of receipts</secondary>
+    </indexterm>Enter Receipt</title>
+  <para>To receive Orders into Inventory, select the "Enter Receipt" option.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/enterPoReceipt.png" />
+        </imageobject>
+        <caption>Enter Order Receipts</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When receiving an Order, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Order #</term>
+      <listitem>
+        <para>Enter the Order Number of the Purchase Order, Transfer Order or
+        Sales Return whose Line Item(s) you want to receive into Inventory.
+        The browse button located to the right of the field leads to a
+        searchable list of Purchase Orders available for receiving. This
+        option will be disabled if a Transfer Order is specified.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Assign all Lot Controlled Items to single Lot #</term>
+      <listitem>
+        <para>Select if you want all the Lot-controlled Items in a Receiving
+        session to be assigned the same Lot Number. Lot Numbers are assigned
+        when Receipt(s) are posted. This option applies to Lot-controlled
+        Items only. There is no impact on received Items which are not
+        Lot-controlled. For perishable Items, you will also be given the
+        opportunity to enter an expiration date. Expiration dates apply only
+        to Item Sites marked as perishable.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order line Items</term>
+      <listitem>
+        <para>Display lists Order Line Items available for receipt
+        confirmation.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Before a Purchase Order can be received successfully, A/P Account
+    Assignments for the specified Vendor must be in place.</para>
+  </tip>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without entering a Receipt, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT PAPERWORK</term>
+      <listitem>
+        <para>Select to print the paperwork associated with the specified
+        Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Select this button to post the Receipt quantity to
+        Inventory.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Select this button to save the Receipt quantity for posting at a
+        later time. Saved Receipts may be posted later from the List Unposted
+        Receipts screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ENTER RECEIPT</term>
+      <listitem>
+        <para>Highlight a Line Item, then select this button to reach the
+        Receipt detail screen. Double-clicking on a Line Item will also bring
+        you to the Receipt entry screen. This option will be disabled if a
+        Transfer Order is specified.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>RECEIVE ALL</term>
+      <listitem>
+        <para>Select to receive all Line Items simultaneously.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If the Item you are receiving is a <indexterm significance="normal">
+        <primary>multiple location control</primary>
+        <secondary>impact on receiving</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>receiving</primary>
+        <secondary>MLC impact on</secondary>
+      </indexterm>Multiple Location Control (MLC) Item, you will be prompted
+    to specify the Location you want to distribute the stock to.</para>
+  </note>
+  <xi:include href="enterPoitemReceipt.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

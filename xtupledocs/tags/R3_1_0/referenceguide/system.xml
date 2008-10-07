@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter id="Chapter929788">
+  <title><anchor id="Anchor30917" role="Cross-Ref"
+  xreflabel="30917: ChapterTitle: System Module" />System Module</title>
+  <para>In this chapter, we describe the System module. The System module is
+  where you configure the application modules and the overall application
+  environment. The following administrative functions are defined and
+  maintained within the System module:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Module Configuration</para>
+    </listitem>
+    <listitem>
+      <para>User Accounts</para>
+    </listitem>
+    <listitem>
+      <para>User Preferences</para>
+    </listitem>
+    <listitem>
+      <para>EDI Profiles</para>
+    </listitem>
+    <listitem>
+      <para>Locales</para>
+    </listitem>
+    <listitem>
+      <para>Multi-currency</para>
+    </listitem>
+    <listitem>
+      <para>System Messages</para>
+    </listitem>
+    <listitem>
+      <para>Events</para>
+    </listitem>
+  </itemizedlist>
+  <para>Most of the administrative functions listed above will be configured
+  and maintained by individuals who are assigned system <indexterm
+      significance="normal">
+      <primary>xtuple administrators</primary>
+      <secondary>privileges for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>privileges</primary>
+      <secondary>for administrators</secondary>
+    </indexterm>administrator privileges. However, individual users who have
+  not been assigned Administrator privileges can also be granted granular
+  security at the functional level. Regardless of the privileges assigned to
+  them, all users have the ability to set their own preferences and
+  passwords.</para>
+  <note>
+    <para>We recommend restricting access to sensitive administrative
+    functions found within the System module to individuals who are designated
+    as system administrators.</para>
+  </note>
+  <xi:include href="guiclient/systemMessage.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="guiclient/eventManager.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="guiclient/batchManager.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="guiclient/errorLog.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="guiclient/userPreferences.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="guiclient/hotkeys.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <section id="Section955801">
+    <title><indexterm significance="normal">
+        <primary>rescan privileges</primary>
+      </indexterm> <indexterm significance="normal">
+        <primary>privileges</primary>
+        <secondary>rescanning of</secondary>
+      </indexterm>Rescan Privileges</title>
+    <para>The Rescan Privileges utility enables a user to realize
+    newly-granted privileges without having to log out and log back in to the
+    application. To realize newly-granted privileges, simply select the
+    "Rescan Privileges" option to execute the utility. The privileges for the
+    current user will be rescanned and updated&mdash;without the user having
+    to log out of the application.</para>
+  </section>
+  <xi:include href="guiclient/users.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="guiclient/groups.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <section>
+    <title>Employees</title>
+    <para>Information on Employees is contained in this section.</para>
+    <xi:include href="guiclient/employee.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/employees.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/searchForEmp.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/empGroups.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <xi:include href="guiclient/schedServerMaint.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="guiclient/schedServerBackup.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <section id="Section946231">
+    <title>Configure Modules</title>
+    <para>Configure Modules section.</para>
+    <xi:include href="guiclient/configurePD.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/configureIM.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/configurePO.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/configureMS.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/configureWO.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/configureCRM.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/configureSO.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/configureGL.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section518496">
+    <title><indexterm significance="normal">
+        <primary>master information</primary>
+        <secondary>for system module</secondary>
+      </indexterm>Master Information</title>
+    <para>System Master Information section.</para>
+    <xi:include href="guiclient/databaseInformation.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/configureBackup.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/images.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/forms.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/labelForms.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/calendars.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/currencies.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/currencyConversions.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/configureCC.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/countries.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/locales.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/commentTypes.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/ediProfiles.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/departments.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/shifts.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/configureIE.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section>
+    <title>Design</title>
+    <para>System Design section.</para>
+    <xi:include href="guiclient/reports.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/uiforms.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/scripts.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/customCommands.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/packages.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section975141">
+    <title>System Utilities</title>
+    <para>System Utilities section.</para>
+    <xi:include href="guiclient/fixSerial.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/importXML.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section519476">
+    <title>Print Alignment Page</title>
+    <para>The alignment page utility prints out a formatted grid template,
+    which you can use to align pre-printed forms (e.g., Invoices, Bills of
+    Lading, etc.) on your printer. When you select this option, you will be
+    prompted to select the printer where you want to print the formatted grid
+    template. Once the template prints, you can use it to align your
+    pre-printed forms. Use this utility before printing a batch of standard
+    forms.</para>
+  </section>
+  <section id="Section973211">
+    <title><indexterm significance="normal">
+        <primary>exiting</primary>
+        <secondary>how to</secondary>
+      </indexterm>Exit the Application</title>
+    <para>There are two ways to successfully exit the system. Either use the
+    "X" symbol associated with the desktop window. Or use the System menu's
+    "Exit OpenMFG" (or "Exit PostBooks") option. Both work the same way and
+    are equally valid methods for exiting the application.</para>
+    <para>After selecting this option, the application will close, returning
+    you to your computer desktop.</para>
+    <tip>
+      <para>Be sure to close all open screens before exiting the system to
+      help prevent data loss.</para>
+    </tip>
+  </section>
+</chapter>

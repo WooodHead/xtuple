@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section535325">
+  <title>
+<indexterm significance="normal">
+      <primary>receipts</primary>
+      <secondary>by vendor</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>returns</primary>
+      <secondary>details by vendor</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>vendors</primary>
+      <secondary>receipt details for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>vendors</primary>
+      <secondary>return details for</secondary>
+    </indexterm>Receipts and Returns by Vendor</title>
+  <para>To view Receipts and Returns by Vendor, select the "Receipts and
+  Returns by Vendor" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspPoItemReceivingsByVendor.png"/>
+        </imageobject>
+        <caption>Receipts and Returns by Vendor</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When displaying Receipts and Returns by Vendor, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Vendor #</term>
+      <listitem>
+        <para>Enter the Vendor Number of the Vendor whose Receipts and Returns
+        you want to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Receipts and Returns by Vendor entered on and after this date
+        will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Receipts and Returns by Vendor entered on and before this date
+        will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display Receipts and Returns by Vendor for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Receipts and Returns by Vendor you want
+        to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Purchasing Agents</term>
+      <listitem>
+        <para>Select to display Receipts and Returns by Vendor for all
+        Purchasing Agents.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Purchasing Agent whose Receipts and Returns by Vendor
+        you want to display. Users may be designated as Purchasing Agents at
+        the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Purchase Price Variances</term>
+      <listitem>
+        <para>Select to include purchase Price variances in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>P/O Receipts and Returns</term>
+      <listitem>
+        <para>Display lists Receipts and Returns by Vendor, using the
+        specified parameters. Purchased Cost and Receiving Cost variances will
+        also display if the "Show Purchase Price Variances" option is
+        selected.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If you select the "Show Purchase Price Variances" option and the
+    value "N/A" is displayed in the "Recv. Cost" column, this simply means the
+    Purchase Order qty. has been received but not yet vouchered.</para>
+  </tip>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

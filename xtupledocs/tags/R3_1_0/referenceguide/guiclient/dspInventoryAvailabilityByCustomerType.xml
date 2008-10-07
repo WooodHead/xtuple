@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>inventory</primary>
+      <secondary>availability by customer type</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>sales orders</primary>
+      <secondary>inventory availability for</secondary>
+    </indexterm>Inventory Availability by Customer Type</title>
+  <para>If Sales Order Reservations are enabled at your site, this screen may
+  be considered a useful workbench for processing Sales Order Reservations.
+  While other screens support this functionality, the Inventory Availability
+  by Customer Type report consolidates several useful functions in one
+  location.</para>
+  <para>To view Inventory Availability by Customer Type, select the "Inventory
+  Availability by Customer Type" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspInventoryAvailabilityByCustomerType.png" />
+        </imageobject>
+        <caption>Inventory Availability by Customer Type</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Inventory Availability by Customer Type, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Customer Types</term>
+      <listitem>
+        <para>Select to display Inventory Availability for all Customer
+        Types.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Customer Type whose Inventory Availability you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Customer Type pattern to select a range of Customer
+        Types. Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Only Show Shortages</term>
+      <listitem>
+        <para>Select to only show Inventory shortages in display. A shortage
+        describes Inventory quantity whose Availability is negative.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term><indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>reservations for</secondary>
+        </indexterm>Use Reservation Netting</term>
+      <listitem>
+        <para>Select to show Sales Order Reservations (if any) for the Sales
+        Order Items included in the display. When selected, the "This
+        Availability" column will dynamically change to "This Reservation" and
+        the quantity reserved for each Sales Order Item (if any) will be
+        shown. This option will not be visible if Sales Order reservations are
+        not enabled at your site.</para>
+        <tip>
+          <para>To manipulate Sales Order Reservations by Line Item, see the
+          options available in the right-click menu. These options will not be
+          visible if Sales Order Reservations are not enabled at your
+          site.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show W/O Supply</term>
+      <listitem>
+        <para>Select to include current Work Orders for the Sales Order Items
+        shown in the display. If current Work Orders exist, they will appear
+        nested below each relevant Sales Order Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Availability</term>
+      <listitem>
+        <para>Display lists Inventory Availability by Customer Type, using the
+        specified parameters. If an available quantity value displays in the
+        color orange, this means the actual or projected Quantity on Hand is
+        at or below the Reorder Level. If the color is red, the current or
+        projected Quantity on Hand is below 0.</para>
+        <note>
+          <para>The display features additional color-coding to help easily
+          identify the Sales Order Reservation status of individual Orders and
+          also Line Items. The following color conventions are used:</para>
+          <itemizedlist>
+            <listitem>
+              <para>Green (Line Item level): Line Item quantity is
+              fully-reserved.</para>
+            </listitem>
+            <listitem>
+              <para>Green (Header level): Sales Order has been added to the
+              Packing List Batch</para>
+            </listitem>
+            <listitem>
+              <para>Blue: Line Item quantity is partially-reserved.</para>
+            </listitem>
+            <listitem>
+              <para>Black: Line Item has no Sales Order reservations.</para>
+            </listitem>
+          </itemizedlist>
+        </note>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Automatically Update</term>
+      <listitem>
+        <para>Select to automatically update the information displayed in the
+        screen. The list will automatically update every 60 seconds if this
+        option is selected.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the Availability list enables you to
+  select from the following context-sensitive menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAllocations)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewOrders)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickRunningAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickSubstituteAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueWorkOrder)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickShowReservations)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickUnreserveStock)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReserveStock)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReserveLineBalance)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueCountTag)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>The following additional option is available for purchased
+  Items:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssuePurchaseOrder)" />
+  </variablelist>
+  <xi:include href="reserveSalesOrderItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="dspReservations.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

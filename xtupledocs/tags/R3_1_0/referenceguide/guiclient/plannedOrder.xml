@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518552" role="openmfg">
+  <title>Create Planned Order</title>
+  <para>To create a Planned Order, select the "Create Planned Order" option.
+  The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/plannedOrder.png"/>
+        </imageobject>
+        <caption>Create Planned Order</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When creating a Planned Order, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Planned Order #</term>
+      <listitem>
+        <para>Displays system-defined Planned Order Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item you want to create a Planned
+        Order for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Specify Site for Planned Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Ordered</term>
+      <listitem>
+        <para>Enter the quantity of the specified Item required for the
+        Planned Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Enter the date the Planned Order must be completed by.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>This date will be equal to the due date less the Lead Time. The
+        start date may be changed by altering the Lead Time field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>
+<indexterm significance="normal">
+          <primary>lead times</primary>
+          <secondary>in planned orders</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>planned orders</primary>
+          <secondary>lead times for</secondary>
+        </indexterm>Lead Time (Days)</term>
+      <listitem>
+        <para>Select a number using the arrow buttons, or manually enter a
+        value up to a maximum of 999. Value entered specifies the Lead Time
+        required between the Due Date and the Start Date.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen without creating the Planned Order, returning
+        you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CREATE</term>
+      <listitem>
+        <para>Creates the Planned Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section570821">
+  <title><indexterm significance="normal">
+      <primary>expiration</primary>
+      <secondary>of inventory</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>inventory</primary>
+      <secondary>expiration of</secondary>
+    </indexterm>Expired Inventory</title>
+  <para>Item Sites marked as perishable may have Quantity on Hand that expires
+  on a specified date. Typically, these are Lot/Serial Number controlled Item
+  Sites. If such Inventory has expired, you may view Inventory details using
+  this display. To view expired Inventory, select the "Expired Inventory"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspExpiredInventoryByClassCode.png" />
+        </imageobject>
+        <caption>Expired Inventory</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>Expired Inventory will be displayed in red type, to alert users to
+    the expired status of the Item. This typographical feature appears in
+    other Inventory displays, as well.</para>
+  </note>
+  <para>When displaying expired Inventory, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Class Codes</term>
+      <listitem>
+        <para>Select to display expired Inventory for all Class Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Class Code whose expired Inventory you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Class Code pattern to select a range of Class Codes.
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display expired Inventory for all Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose expired Inventory you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expired By</term>
+      <listitem>
+        <para>Specify one of the following expiration types to include in the
+        display:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Perishability</term>
+            <listitem>
+              <para>Select if you want to include Inventory which expired
+              because its perishable date passed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Warranty</term>
+            <listitem>
+              <para>Select if you want to include Inventory which expired
+              because its warranty date passed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Inventory Value</term>
+      <listitem>
+        <para>Select to include the Inventory value of expired Inventory in
+        the display. Specify whether to display Inventory value using Standard
+        Costs or Actual Costs.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Standard Costs</term>
+      <listitem>
+        <para>Select to show Inventory value based on Standard Costs.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Actual Costs</term>
+      <listitem>
+        <para>Select to show Inventory value based on Actual Costs.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order By</term>
+      <listitem>
+        <para>Order the output by one of the following methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item Number</term>
+            <listitem>
+              <para>Select to order the display by Item Number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Expiration Date</term>
+            <listitem>
+              <para>Select to order the display by the date the Inventory
+              expired.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Inventory Value</term>
+            <listitem>
+              <para>Select to order the display by Inventory value. This
+              selection will only be available if used in conjunction with the
+              "Show Inventory Value" option</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Threshold Days</term>
+      <listitem>
+        <para>Select a number using the arrow buttons, or manually enter a
+        value between 999 and -999. Specify which expired Items to include in
+        the display using the threshold parameter. Threshold days are measured
+        from the current day. To view all currently expired Inventory, set the
+        parameter to "0". To display Inventory due to expire in the future,
+        enter a positive value. Enter a negative value to display Inventory
+        that expired prior to the current day.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expired Inventory</term>
+      <listitem>
+        <para>Display lists expired Inventory, using the specified parameters.
+        If the "Show Inventory Value" box is selected, the display will also
+        show unit Cost and value.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section971138">
+  <title><indexterm significance="normal">
+      <primary>configuration</primary>
+      <secondary>of crm module</secondary>
+    </indexterm>Configure CRM</title>
+  <para>To configure the CRM module, select the "Configure CRM" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureCRM.png" />
+        </imageobject>
+        <caption>Configure CRM Module</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When configuring the CRM module, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>crm accounts</primary>
+          <secondary>numbering of</secondary>
+        </indexterm>Account # Generation</term>
+      <listitem>
+        <para>Select one of the available CRM Account Number generation
+        methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Manual</term>
+            <listitem>
+              <para>CRM Account Numbers must be entered manually whenever you
+              create a new CRM Account.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic</term>
+            <listitem>
+              <para>CRM Account Numbers will be automatically incremented by 1
+              each time a new CRM Account is created. These
+              automatically-generated numbers may not be edited. They are
+              read-only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Allow Override</term>
+            <listitem>
+              <para>CRM Account Numbers will be automatically generated and
+              incremented, as under the "Automatic" option described above.
+              However, this option also allows you to manually override the
+              CRM Account Number at the time of CRM Account creation.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Incident # Generation</term>
+      <listitem>
+        <para>By default, Incident numbers are generated automatically.
+        However, you have the ability to specify the next available
+        number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Next #</term>
+      <listitem>
+        <para>Specify the next available Incident number.</para>
+        <para>The next Incident entered will use the number specified
+        here.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Cancels any configuration settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the configuration settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

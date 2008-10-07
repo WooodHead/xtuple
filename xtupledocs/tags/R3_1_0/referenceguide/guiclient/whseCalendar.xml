@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="whseCalendar" role="openmfg">
+  <title>Site Calendar Exception</title>
+  <para>
+<indexterm significance="normal">
+      <primary>sites</primary>
+      <secondary>creating new exceptions for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>calendars</primary>
+      <secondary>creating new exceptions for</secondary>
+    </indexterm>To define an exception to the standard work week for a
+  Site, select the "NEW" button. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/whseCalendar.png"/>
+        </imageobject>
+        <caption>Create New Calendar Exception</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When defining an exception to the standard work week for a Site,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to create the calendar exception for all
+        Sites.</para>
+        <para>Settings made using this option will be inherited by all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Select the Site whose work week you want to define.</para>
+        <para>Specify which days the Site is open for business. Settings
+        made using this option are specific to the selected Site.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter text to describe the calendar exception.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Specify the date when the calendar exception begins.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Specify the date when the calendar exception ends.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If the calendar exception is one day long, use the same date in the
+    start date and end date fields.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Exception Type</term>
+      <listitem>
+        <para>Specify which type of calendar exception you are
+        defining:</para>
+        <para>Open: If selected, you are indicating the specified Site(s)
+        is open during the defined time period.</para>
+        <para>Closed: If selected, you are indicating the specified
+        Site(s) is closed during the defined time period.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
