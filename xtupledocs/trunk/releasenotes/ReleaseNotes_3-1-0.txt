@@ -23,58 +23,58 @@ Changelog option.
 
 New Features:
 
-* [All] Updated code to make several functions usable by 
+* [All] Updated code to make several functions usable by
 scripting
 
 Bug Fixes:
 
-* [Accounting] Fixed issue with incorrect qty. during Lot/Location 
+* [Accounting] Fixed issue with incorrect qty. during Lot/Location
 distribution
-* [Accounting] Added error checking to identify in advance if a 
+* [Accounting] Added error checking to identify in advance if a
 NULL tax_id exists
-* [Accounting] Fixed inter Warehouse transfer function to handle 
+* [Accounting] Fixed inter Warehouse transfer function to handle
 average costed Items correctly
-* [Accounting] Fixed issue where in some cases the Tax option was 
+* [Accounting] Fixed issue where in some cases the Tax option was
 incorrectly being set to “None” on the Invoice Item screen
-* [Accounting] Fixed issue leading to error when inserting into 
+* [Accounting] Fixed issue leading to error when inserting into
 api.glaccount
-* [Accounting] Fixed PostBooks issue where columns were not 
+* [Accounting] Fixed PostBooks issue where columns were not
 aligned correctly in financial trend reports
-* [Accounting] Improved error messaging when user attempts to 
+* [Accounting] Improved error messaging when user attempts to
 post an unbalanced G/L series
-* [Accounting] Made sure year columns appear correctly when 
+* [Accounting] Made sure year columns appear correctly when
 printing Income Statement annual trend reports
-* [CRM] Improved search functionality when selecting Contacts in 
+* [CRM] Improved search functionality when selecting Contacts in
 CRM and elsewhere
-* [CRM] Fixed column sorting inconsistencies in CRM Account, 
+* [CRM] Fixed column sorting inconsistencies in CRM Account,
 Contact, and Address search and list screens
-* [CRM] Ensured that CRM Account is automatically populated when 
+* [CRM] Ensured that CRM Account is automatically populated when
 a Contact is selected on the New Incident screen
-* [Inventory] Fixed issue with Inventory distribution screen not 
+* [Inventory] Fixed issue with Inventory distribution screen not
 properly recognizing expiration dates
-* [Inventory] Fixed issue where reassignment of Lot/Serial qty. 
+* [Inventory] Fixed issue where reassignment of Lot/Serial qty.
 create duplicate Lot numbers for Lot-controlled Items
-* [Inventory] Fixed issue preventing creation of new Average 
-Costed Item Sites when AOH = 0
-* [Inventory] Added extra check to disable manual cost when 
+* [Inventory] Fixed issue preventing creation of new Average
+Costed Item Sites when QOH = 0
+* [Inventory] Added extra check to disable manual cost when
 reducing Inventory for Average costed Items
-* [Inventory] Fixed issue preventing selection of G/L Accounts 
+* [Inventory] Fixed issue preventing selection of G/L Accounts
 if no Company segment in use
-* [Inventory] Fixed issue with Lot/Serial Transfer Order 
+* [Inventory] Fixed issue with Lot/Serial Transfer Order
 shipments appear as not posted in Inventory history
-* [Inventory] Fixed issue preventing creation of new Sites if 
+* [Inventory] Fixed issue preventing creation of new Sites if
 no Address defined
-* [Inventory] Fixed issue leading to errors when attempting to 
+* [Inventory] Fixed issue leading to errors when attempting to
 ship Transfer Orders having manually-entered TO numbers
-* [Manufacture] Fixed Work Order History report so data prints 
+* [Manufacture] Fixed Work Order History report so data prints
 correctly
-* [Products] Fixed issue with Item Cost Summary screen not 
+* [Products] Fixed issue with Item Cost Summary screen not
 displaying information
-* [Sales] Fixed issue leading to error when selecting Tax link 
+* [Sales] Fixed issue leading to error when selecting Tax link
 on Return Authorization screen
-* [Sales] Fixed issue with Contact information not saving 
+* [Sales] Fixed issue with Contact information not saving
 properly when adding a new Customer
-* [System] Fixed issue with update script which was leading to 
+* [System] Fixed issue with update script which was leading to
 errors
 
 ==================================
