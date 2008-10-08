@@ -30,8 +30,8 @@ Bug Fixes:
 
 * [Accounting] Fixed issue with incorrect qty. during Lot/Location
 distribution
-* [Accounting] Added error checking to identify in advance if a
-NULL tax_id exists
+* [Accounting] Added error checking to identify internal 
+inconsistencies in Invoice Tax information
 * [Accounting] Fixed inter Warehouse transfer function to handle
 average costed Items correctly
 * [Accounting] Fixed issue where in some cases the Tax option was
