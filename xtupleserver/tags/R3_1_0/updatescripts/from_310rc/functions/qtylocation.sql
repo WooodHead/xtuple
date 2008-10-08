@@ -18,9 +18,9 @@ BEGIN
     FROM itemloc
    WHERE ( (itemloc_itemsite_id=pItemsiteId)
      AND (itemloc_location_id=pLocationId)
-     AND (COALESCE(itemloc_ls_id, -1)=COALESCE(pLsId, -1))
-     AND (COALESCE(itemloc_expiration,endoftime())=COALESCE(pExpiration,endoftime()))
-     AND (COALESCE(itemloc_warrpurc,endoftime())=COALESCE(pWarranty,endoftime())) );
+     AND (COALESCE(itemloc_ls_id, -1)=COALESCE(pLsId, itemloc_ls_id, -1))
+     AND (COALESCE(itemloc_expiration, endoftime())=COALESCE(pExpiration, itemloc_expiration, endoftime()))
+     AND (COALESCE(itemloc_warrpurc, endoftime())=COALESCE(pWarranty, itemloc_warrpurc, endoftime())) );
 
 -- Summarize itemlocrsrv qty for this location/itemsite
 -- that is reserved for a different order
@@ -31,9 +31,9 @@ BEGIN
                                           (itemlocrsrv_source_id <> COALESCE(pOrderId, -1))) )
      WHERE ( (itemloc_itemsite_id=pItemsiteId)
        AND (itemloc_location_id=pLocationId)
-       AND (COALESCE(itemloc_ls_id, -1)=COALESCE(pLsId, -1))
-       AND (COALESCE(itemloc_expiration,endoftime())=COALESCE(pExpiration,endoftime()))
-       AND (COALESCE(itemloc_warrpurc,endoftime())=COALESCE(pWarranty,endoftime())) );
+       AND (COALESCE(itemloc_ls_id, -1)=COALESCE(pLsId, itemloc_ls_id, -1))
+       AND (COALESCE(itemloc_expiration, endoftime())=COALESCE(pExpiration, itemloc_expiration, endoftime()))
+       AND (COALESCE(itemloc_warrpurc, endoftime())=COALESCE(pWarranty, itemloc_warrpurc, endoftime())) );
   END IF;
 
   RETURN (_qty - _qtyReserved);
