@@ -72,6 +72,22 @@ COMMENT ON VIEW api.purchaseline IS 'Purchase Order Line';
     getPrjId(NEW.project_number),
     getRevId('BOM',NEW.item_number,NEW.bill_of_materials_revision),
     getRevId('BOO',NEW.item_number,NEW.bill_of_operations_revision));
+
+CREATE OR REPLACE RULE "_INSERT_CHAR" AS
+  ON INSERT TO api.purchaseline DO INSTEAD
+    
+INSERT INTO charass (charass_target_type, charass_target_id, charass_char_id, charass_value)
+SELECT 'PI', poitem_id, char_id, charass_value
+FROM pohead, poitem, charass, char, itemsite, item
+  WHERE ((pohead_number=NEW.order_number)
+    AND (poitem_pohead_id=pohead_id)
+    AND (poitem_linenumber=NEW.line_number)
+    AND (itemsite_id=poitem_itemsite_id)
+    AND (itemsite_item_id=item_id)
+    AND (charass_target_type='I') 
+    AND (charass_target_id=item_id)
+    AND (charass_default)
+    AND (char_id=charass_char_id));
  
   CREATE OR REPLACE RULE "_UPDATE" AS
   ON UPDATE TO api.purchaseline DO INSTEAD
