@@ -22,7 +22,7 @@ BEGIN
 	RETURN NULL;
   END IF;
  
-  IF UPPER(pType) NOT IN (''ALL'',''SOLD'') THEN
+  IF UPPER(pType) NOT IN (''ALL'',''ACTIVE'',''SOLD'') THEN
     RAISE EXCEPTION ''Invalid Type %. Valid Itemsite types are ALL and SOLD'', pType;
   END IF;
 
@@ -34,7 +34,7 @@ BEGIN
 
   IF NOT (FOUND) THEN
     RAISE EXCEPTION ''Item % not found in Warehouse %'', pItemNumber, pWarehouseCode;
-  ELSE
+  ELSIF ((UPPER(pType)=''ACTIVE'') OR (UPPER(pType)=''SOLD'')) THEN
     IF NOT (_p.item_active) THEN
       RAISE EXCEPTION ''Item % is inactive.'', pItemNumber;
     ELSE
