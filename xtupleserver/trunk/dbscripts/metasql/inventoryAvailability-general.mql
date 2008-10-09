@@ -6,6 +6,7 @@
 
 SELECT itemsite_id, altId,
        item_number, (item_descrip1 || ' ' || item_descrip2) AS itemdescrip,
+       uom_name,
        warehous_id, warehous_code, itemsite_leadtime,
        qoh, allocated, noNeg(qoh - allocated) AS unallocated,
        ordered, reorderlevel, outlevel,
@@ -29,7 +30,7 @@ FROM (SELECT itemsite_id,
                   WHEN (item_type IN ('M')) THEN 2
                   ELSE 0
              END AS altId,
-             item_number, item_descrip1, item_descrip2,
+             item_number, item_descrip1, item_descrip2, item_inv_uom_id,
              warehous_id, warehous_code, itemsite_leadtime,
              itemsite_qtyonhand AS qoh,
              CASE WHEN itemsite_useparams THEN itemsite_reorderlevel
@@ -104,8 +105,8 @@ FROM (SELECT itemsite_id,
                                       FROM vendtype
                                       WHERE (vendtype_code ~ <? value("vendtype_pattern") ?>)))
           <? endif ?>
-      ) ) AS data 
-WHERE (true
+      ) ) AS data, uom
+WHERE ((item_inv_uom_id=uom_id)
 <? if exists("showReorder") ?>
   AND ((qoh - allocated + ordered) <= reorderlevel) 
   <? if exists("ignoreReorderAtZero") ?>
