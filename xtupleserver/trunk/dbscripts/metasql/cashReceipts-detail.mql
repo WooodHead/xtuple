@@ -35,11 +35,11 @@ FROM arapply, cust
 WHERE ( (arapply_cust_id=cust_id)
   AND   (arapply_postdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
   AND   (arapply_source_doctype ='K')
-<? if exists(\"cust_id\") ?>
+<? if exists("cust_id") ?>
   AND   (cust_id=<? value("cust_id") ?>)
-<? elseif exists(\"custtype_id\") ?>
+<? elseif exists("custtype_id") ?>
   AND   (cust_custtype_id=<? value("custtype_id") ?>)
-<? elseif exists(\"custtype_pattern\") ?>
+<? elseif exists("custtype_pattern") ?>
   AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
 <? endif ?>
       )
@@ -68,11 +68,11 @@ SELECT cashrcpt_id, 2 AS type, cust_number, cust_name,
 FROM cashrcpt, cust
 WHERE ( (cashrcpt_cust_id=cust_id)
   AND   (cashrcpt_distdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
-<? if exists(\"cust_id\") ?>
+<? if exists("cust_id") ?>
   AND   (cust_id=<? value("cust_id") ?>)
-<? elseif exists(\"custtype_id\") ?>
+<? elseif exists("custtype_id") ?>
   AND   (cust_custtype_id=<? value("custtype_id") ?>)
-<? elseif exists(\"custtype_pattern\") ?>
+<? elseif exists("custtype_pattern") ?>
   AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
 <? endif ?>
       )
@@ -103,11 +103,11 @@ FROM aropen, cust
 WHERE ( (aropen_cust_id=cust_id)
   AND   (aropen_doctype='R')
   AND   (aropen_docdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
-<? if exists(\"cust_id\") ?>
+<? if exists("cust_id") ?>
   AND   (cust_id=<? value("cust_id") ?>)
-<? elseif exists(\"custtype_id\") ?>
+<? elseif exists("custtype_id") ?>
   AND   (cust_custtype_id=<? value("custtype_id") ?>)
-<? elseif exists(\"custtype_pattern\") ?>
+<? elseif exists("custtype_pattern") ?>
   AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
 <? endif ?>
       )
