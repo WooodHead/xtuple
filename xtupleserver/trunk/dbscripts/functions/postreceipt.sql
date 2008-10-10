@@ -234,7 +234,7 @@ BEGIN
     ELSIF (_r.recv_order_type = 'TO' AND fetchMetricBool('MultiWhs')) THEN
       SELECT interWarehouseTransfer(toitem_item_id, tohead_trns_warehous_id,
             tohead_dest_warehous_id, _r.recv_qty, 
-            'TR', tohead_number, 'Receive from Transit To Dest Warehouse', 0, _glDate ) INTO _tmp
+            'TR', tohead_number, 'Receive from Transit To Dest Warehouse', _itemlocSeries, _glDate ) INTO _tmp
       FROM tohead, toitem
       WHERE ((tohead_id=toitem_tohead_id)
         AND  (toitem_id=_r.recv_orderitem_id));     
