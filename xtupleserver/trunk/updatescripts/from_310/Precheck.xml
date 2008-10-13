@@ -1,0 +1,32 @@
+ <prerequisite type="Query" name="Check for valid P/O Statuses" >
+  <query>SELECT COUNT(pohead_status)=0 FROM pohead WHERE (pohead_status NOT IN ('U','O','C'))</query>
+  <message>One or more purchase order header records (pohead) exist with invalid statuses.  Valid statuses are unposted (U),open (O) and closed (C).</message>
+ </prerequisite>
+ <prerequisite type="Query" name="Check for P/O valid terms" >
+  <query>SELECT COUNT(*) = 0 FROM pohead LEFT OUTER JOIN terms ON (pohead_terms_id=terms_id) WHERE ((COALESCE(pohead_terms_id,-1) != -1) AND (terms_id IS NULL));</query>
+  <message>One or more purchase order headers exist with invalid terms (pohead_terms_id).</message>
+ </prerequisite>
+ <prerequisite type="Query" name="Check for valid P/O vendors" >
+  <query>SELECT COUNT(*) = 0 FROM pohead LEFT OUTER JOIN vendinfo ON (pohead_vend_id=vend_id) WHERE ((pohead_vend_id IS NOT NULL) AND (vend_id IS NULL));</query>
+  <message>One or more purchase order headers exist with invalid vendors (pohead_vend_id).</message>
+ </prerequisite>
+ <prerequisite type="Query" name="Check for valid P/O vendor addresses" >
+  <query>SELECT COUNT(*) = 0 FROM pohead LEFT OUTER JOIN vendaddrinfo ON (pohead_vendaddr_id=vendaddr_id) WHERE ((COALESCE(pohead_vendaddr_id,-1) != -1) AND (vendaddr_id IS NULL));</query>
+  <message>One or more purchase order headers exist with invalid vendor address references (pohead_vendaddr_id).</message>
+ </prerequisite>
+ <prerequisite type="Query" name="Check for valid P/O warehouses" >
+  <query>SELECT COUNT(*) = 0 FROM pohead LEFT OUTER JOIN whsinfo ON (pohead_warehous_id=warehous_id) WHERE ((COALESCE(pohead_warehous_id,-1) != -1) AND (warehous_id IS NULL));</query>
+  <message>One or more purchase order headers exist with invalid vendor address references (pohead_vendaddr_id).</message>
+ </prerequisite>
+ <prerequisite type="Query" name="Check for valid P/O Line Statuses" >
+  <query>SELECT COUNT(poitem_status)=0 FROM poitem WHERE (poitem_status NOT IN ('U','O','C'))</query>
+  <message>One or more purchase order line item records (poitem) exist with invalid statuses.  Valid statuses are unposted (U),open (O) and closed (C).</message>
+ </prerequisite>
+ <prerequisite type="Query" name="Check for P/O valid item sites" >
+  <query>SELECT COUNT(*) = 0 FROM poitem LEFT OUTER JOIN itemsite ON (poitem_itemsite_id=itemsite_id) WHERE ((COALESCE(poitem_itemsite_id,-1) != -1) AND (itemsite_id IS NULL));</query>
+  <message>One or more purchase order lines exist with invalid item site references (poitem_itemsite_id).</message>
+ </prerequisite>
+ <prerequisite type="Query" name="Check for P/O valid expenese categories" >
+  <query>SELECT COUNT(*) = 0 FROM poitem LEFT OUTER JOIN expcat ON (poitem_expcat_id=expcat_id) WHERE ((COALESCE(poitem_expcat_id,-1) != -1) AND (expcat_id IS NULL));</query>
+  <message>One or more purchase order lines exist with invalid expense category references (poitem_expcat_id).</message>
+ </prerequisite>
