@@ -8,21 +8,22 @@ AS
    SELECT 
      item_number::varchar AS item_number,
      CASE
-       WHEN itemimage_purpose = 'P' THEN
+       WHEN imageass_purpose = 'P' THEN
         'Product Description'
-       WHEN itemimage_purpose = 'I' THEN
+       WHEN imageass_purpose = 'I' THEN
         'Inventory Description'
-       WHEN itemimage_purpose = 'E' THEN
+       WHEN imageass_purpose = 'E' THEN
         'Engineering Reference'
-       WHEN itemimage_purpose = 'M' THEN
-        'Miscellaneos'
+       WHEN imageass_purpose = 'M' THEN
+        'Miscellaneous'
        ELSE
         'Other'
      END AS purpose,
      image_name AS image_name
-   FROM item, itemimage, image
-   WHERE ((item_id=itemimage_item_id)
-   AND (itemimage_image_id=image_id));
+   FROM item, imageass, image
+   WHERE ((item_id=imageass_source_id)
+   AND (imageass_source='I')
+   AND (imageass_image_id=image_id));
 
 GRANT ALL ON TABLE api.itemimage TO openmfg;
 COMMENT ON VIEW api.itemimage IS 'Item Image';
@@ -32,7 +33,8 @@ COMMENT ON VIEW api.itemimage IS 'Item Image';
 CREATE OR REPLACE RULE "_INSERT" AS
     ON INSERT TO api.itemimage DO INSTEAD
 
-  SELECT saveItemImage(
+  SELECT saveImageAss(
+    'I',
     getItemId(NEW.item_number),
     CASE
       WHEN NEW.purpose = 'Product Description' THEN
@@ -51,7 +53,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.itemimage DO INSTEAD
 
-  SELECT saveItemImage(
+  SELECT saveImageAss(
+    'I',
     getItemId(NEW.item_number),
     CASE
       WHEN NEW.purpose = 'Product Description' THEN
@@ -70,8 +73,9 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.itemimage DO INSTEAD
 
-  DELETE FROM itemimage
-  WHERE ((itemimage_item_id=getItemId(OLD.item_number))
-  AND (itemimage_image_id=getImageId(OLD.image_name)));
+  DELETE FROM imageass
+  WHERE ((imageass_source_id=getItemId(OLD.item_number))
+  AND (imageass_source='I')
+  AND (imageass_image_id=getImageId(OLD.image_name)));
 
 COMMIT;

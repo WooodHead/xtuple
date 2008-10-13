@@ -29,11 +29,19 @@ BEGIN
   FROM item
   WHERE (item_id=pSItemid);
 
-  INSERT INTO itemimage
-  (itemimage_item_id, itemimage_image_id, itemimage_purpose)
-  SELECT _itemid, itemimage_image_id, itemimage_purpose
-  FROM itemimage
-  WHERE (itemimage_item_id=pSItemid);
+  INSERT INTO imageass
+  (imageass_source_id, imageass_source, imageass_image_id, imageass_purpose)
+  SELECT _itemid, ''I'', imageass_image_id, imageass_purpose
+  FROM imageass
+  WHERE ((imageass_source_id=pSItemid)
+  AND (imageass_source=''I''));
+  
+  INSERT INTO url
+  (url_source_id, url_source, url_title, url_url)
+  SELECT _itemid, ''I'', url_title, url_url
+  FROM url
+  WHERE ((url_source_id=pSItemid)
+  AND (url_source=''I''));
 
   INSERT INTO itemtax
         (itemtax_item_id, itemtax_taxauth_id, itemtax_taxtype_id)

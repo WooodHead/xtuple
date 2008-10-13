@@ -7,10 +7,11 @@ CREATE VIEW api.itemfile
 AS 
    SELECT 
      item_number::varchar AS item_number,
-     itemfile_title AS title,
-     itemfile_url AS url
-   FROM item, itemfile
-   WHERE (item_id=itemfile_item_id);
+     url_title AS title,
+     url_url AS url
+   FROM item, url
+   WHERE ((item_id=url_source_id)
+   AND (url_source='I'));
 
 GRANT ALL ON TABLE api.itemfile TO openmfg;
 COMMENT ON VIEW api.itemfile IS 'Item File';
@@ -20,31 +21,35 @@ COMMENT ON VIEW api.itemfile IS 'Item File';
 CREATE OR REPLACE RULE "_INSERT" AS
     ON INSERT TO api.itemfile DO INSTEAD
 
-  INSERT INTO itemfile (
-    itemfile_item_id,
-    itemfile_title,
-    itemfile_url)
+  INSERT INTO url (
+    url_source_id,
+    url_source,
+    url_title,
+    url_url)
   VALUES (
     getItemId(NEW.item_number),
+    'I',
     NEW.title,
     NEW.url);
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.itemfile DO INSTEAD
 
-  UPDATE itemfile SET
-    itemfile_title=NEW.title,
-    itemfile_url=NEW.url
-  WHERE  ((itemfile_item_id=getItemId(OLD.item_number))
-  AND (itemfile_title=OLD.title)
-  AND (itemfile_url=OLD.url));
+  UPDATE url SET
+    url_title=NEW.title,
+    url_url=NEW.url
+  WHERE  ((url_source_id=getItemId(OLD.item_number))
+  AND (url_source='I')
+  AND (url_title=OLD.title)
+  AND (url_url=OLD.url));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.itemfile DO INSTEAD
 
-  DELETE FROM itemfile
-  WHERE  ((itemfile_item_id=getItemId(OLD.item_number))
-  AND (itemfile_title=OLD.title)
-  AND (itemfile_url=OLD.url));
+  DELETE FROM url
+  WHERE  ((url_source_id=getItemId(OLD.item_number))
+  AND (url_source='I')
+  AND (url_title=OLD.title)
+  AND (url_url=OLD.url));
 
 COMMIT;

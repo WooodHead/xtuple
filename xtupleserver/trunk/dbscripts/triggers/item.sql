@@ -188,6 +188,11 @@ BEGIN
       END IF;
     END IF;
   END IF;
+
+  IF (TG_OP = ''DELETE'') THEN
+    DELETE FROM imageass WHERE ((imageass_source_id=OLD.item_id) AND (imageass_source=''I''));
+    DELETE FROM url WHERE ((url_source_id=OLD.item_id) AND (url_source=''I''));
+  END IF;
   
   RETURN NEW;
 
