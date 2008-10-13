@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION replaceVoidedCheck(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION replaceVoidedCheck(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pCheckid	ALIAS FOR $1;
   _newCheckid	INTEGER;
@@ -10,7 +10,19 @@ BEGIN
     RETURN -1;
   END IF;
 
-  SELECT NEXTVAL(''checkhead_checkhead_id_seq'') INTO _newCheckid;
+  -- has someone created a new check for one of the items while this was void?
+  IF EXISTS (SELECT dup.checkitem_id
+             FROM checkitem orig, checkitem dup, checkhead AS duphead
+             WHERE ((COALESCE(orig.checkitem_aropen_id,-1)=COALESCE(dup.checkitem_aropen_id,-1))
+                AND (COALESCE(orig.checkitem_apopen_id,-1)=COALESCE(dup.checkitem_apopen_id,-1))
+                AND (orig.checkitem_checkhead_id!=dup.checkitem_checkhead_id)
+                AND (dup.checkitem_checkhead_id=duphead.checkhead_id)
+                AND (NOT duphead.checkhead_void)
+                AND (orig.checkitem_checkhead_id=pCheckid))) THEN
+    RETURN -2;
+  END IF;
+
+  SELECT NEXTVAL('checkhead_checkhead_id_seq') INTO _newCheckid;
 
   INSERT INTO checkhead
   ( checkhead_id, checkhead_recip_id, checkhead_recip_type,
@@ -24,7 +36,7 @@ BEGIN
 	 -1, -- fetchNextCheckNumber(checkhead_bankaccnt_id),
          checkhead_amount,
 	 checkhead_for, checkhead_journalnumber,
-         checkhead_notes || ''\nReplaces voided check '' || checkhead_number,
+         checkhead_notes || '\nReplaces voided check ' || checkhead_number,
 	 checkhead_misc, checkhead_expcat_id, checkhead_curr_id
   FROM checkhead
   WHERE (checkhead_id=pCheckid);
@@ -48,4 +60,4 @@ BEGIN
   RETURN _newCheckid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
