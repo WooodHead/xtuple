@@ -303,7 +303,7 @@ $$ LANGUAGE 'plpgsql';
 DROP TRIGGER soitemTrigger ON coitem;
 CREATE TRIGGER soitemTrigger BEFORE INSERT OR UPDATE OR DELETE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemTrigger();
 
-CREATE OR REPLACE FUNCTION _soitemAfterTrigger() RETURNS TRIGGER AS $$
+CREATE OR REPLACE FUNCTION _soitemBeforeTrigger() RETURNS TRIGGER AS $$
 DECLARE
   _check NUMERIC;
   _itemNumber TEXT;
@@ -497,6 +497,26 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+DROP TRIGGER soitemBeforeTrigger ON coitem;
+CREATE TRIGGER soitemBeforeTrigger BEFORE INSERT OR UPDATE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemBeforeTrigger();
+-- TODO: there are two BEFORE triggers. should these be merged?
+
+
+CREATE OR REPLACE FUNCTION _soitemAfterTrigger() RETURNS TRIGGER AS $$
+DECLARE
+  _check NUMERIC;
+BEGIN
+
+  --If auto calculate freight, recalculate cohead_freight
+  IF (SELECT cohead_calcfreight FROM cohead WHERE (cohead_id=NEW.coitem_cohead_id)) THEN
+    UPDATE cohead SET cohead_freight =
+      (SELECT SUM(freightdata_total) FROM freightDetail('SO', NEW.coitem_cohead_id))
+    WHERE cohead_id=NEW.coitem_cohead_id;
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
 DROP TRIGGER soitemAfterTrigger ON coitem;
-CREATE TRIGGER soitemAfterTrigger BEFORE INSERT OR UPDATE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemAfterTrigger();
--- TODO: this is a BEFORE trigger but is called an AFTER trigger. should these be merged?
+CREATE TRIGGER soitemAfterTrigger AFTER INSERT OR UPDATE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemAfterTrigger();

@@ -79,7 +79,7 @@ CREATE TRIGGER quitemtrigger
   FOR EACH ROW
   EXECUTE PROCEDURE _quitemtrigger();
 
-CREATE OR REPLACE FUNCTION _quitemAfterTrigger() RETURNS TRIGGER AS '
+CREATE OR REPLACE FUNCTION _quitemBeforeTrigger() RETURNS TRIGGER AS '
 DECLARE
   _check NUMERIC;
   _itemNumber TEXT;
@@ -108,6 +108,27 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
+DROP TRIGGER quitemBeforeTrigger ON quitem;
+CREATE TRIGGER quitemBeforeTrigger BEFORE INSERT OR UPDATE ON quitem FOR EACH ROW EXECUTE PROCEDURE _quitemBeforeTrigger();
+-- TODO: there are two BEFORE triggers. should these be merged?
+
+
+CREATE OR REPLACE FUNCTION _quitemAfterTrigger() RETURNS TRIGGER AS $$
+DECLARE
+  _check NUMERIC;
+BEGIN
+
+  --If auto calculate freight, recalculate quhead_freight
+  IF (SELECT quhead_calcfreight FROM quhead WHERE (quhead_id=NEW.quitem_quhead_id)) THEN
+    UPDATE quhead SET quhead_freight =
+      (SELECT SUM(freightdata_total) FROM freightDetail('QU', NEW.quitem_quhead_id))
+    WHERE quhead_id=NEW.quitem_quhead_id;
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
 DROP TRIGGER quitemAfterTrigger ON quitem;
-CREATE TRIGGER quitemAfterTrigger BEFORE INSERT OR UPDATE ON quitem FOR EACH ROW EXECUTE PROCEDURE _quitemAfterTrigger();
--- TODO: this is a BEFORE trigger but is called an AFTER trigger. should these be merged?
+CREATE TRIGGER quitemAfterTrigger AFTER INSERT OR UPDATE ON quitem FOR EACH ROW EXECUTE PROCEDURE _quitemAfterTrigger();
+
