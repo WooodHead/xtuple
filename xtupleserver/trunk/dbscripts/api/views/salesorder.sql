@@ -73,6 +73,7 @@ AS
      END AS misc_account_number,
      cohead_misc AS misc_charge,
      cohead_freight AS freight,
+     cohead_calcfreight AS calculate_freight,
      cohead_ordercomments AS order_notes,
      cohead_shipcomments AS shipping_notes,
      false AS add_to_packing_list_batch
@@ -117,6 +118,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     cohead_shiptostate,
     cohead_shiptozipcode,
     cohead_freight,
+    cohead_calcfreight,
     cohead_misc,
     cohead_imported,
     cohead_ordercomments,
@@ -169,7 +171,11 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.shipto_city,
     NEW.shipto_state,
     NEW.shipto_postal_code,
-    NEW.freight,
+    CASE WHEN (COALESCE(NEW.calculate_freight, fetchMetricBool('CalculateFreight'))) THEN 0
+         ELSE
+           NEW.freight
+    END,
+    COALESCE(NEW.calculate_freight, fetchMetricBool('CalculateFreight')),
     NEW.misc_charge,
     true,
     NEW.order_notes,
@@ -235,7 +241,13 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     cohead_shiptocity=NEW.shipto_city,
     cohead_shiptostate=NEW.shipto_state,
     cohead_shiptozipcode=NEW.shipto_postal_code,
-    cohead_freight=NEW.freight,
+    cohead_freight=
+    CASE WHEN (NEW.calculate_freight) THEN
+           (SELECT SUM(freightdata_total) FROM freightDetail('SO', getCoheadid(OLD.order_number)))
+         ELSE
+           NEW.freight
+    END,
+    cohead_calcfreight=NEW.calculate_freight,
     cohead_misc=NEW.misc_charge,
     cohead_ordercomments=NEW.order_notes,
     cohead_shipcomments=NEW.shipping_notes,
