@@ -11,8 +11,6 @@ DECLARE
   _totalprice NUMERIC;
   _freight RECORD;
 BEGIN
-  RAISE NOTICE 'freight, pOrderType = %', pOrderType;
-  RAISE NOTICE 'freight, pOrderId = %', pOrderId;
   --Get the order header information need to match
   --against price schedules
   IF (pOrderType = 'SO') THEN
@@ -60,8 +58,6 @@ BEGIN
       AND   (orderitem_orderhead_id=pOrderId) )
     GROUP BY itemsite_warehous_id, item_freightclass_id LOOP
 
-  RAISE NOTICE 'freight, _weights.weight = %', _weights.weight;
-
 -- First get a sales price if any so we when we find other prices
 -- we can determine if we want that price or this price.
 --  Check for a Sale Price
@@ -82,7 +78,6 @@ BEGIN
     AND   (CURRENT_DATE BETWEEN sale_startdate AND sale_enddate) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
-  RAISE NOTICE 'freight, _sales.price = %', _sales.price;
 
 --  Check for a Customer Shipto Price
   SELECT ipsfreight_id,
@@ -105,7 +100,6 @@ BEGIN
     AND   (ipsass_shipto_id=_order.shipto_id) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
-  RAISE NOTICE 'freight, cust shipto _price.price = %', _price.price;
 
   IF (_price.price IS NULL) THEN
 --  Check for a Customer Shipto Pattern Price
@@ -129,7 +123,6 @@ BEGIN
     AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=_order.shipvia)) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
-  RAISE NOTICE 'freight, cust shipto pattern _price.price = %', _price.price;
   END IF;
 
   IF (_price.price IS NULL) THEN
@@ -153,7 +146,6 @@ BEGIN
     AND   (COALESCE(LENGTH(ipsass_shipto_pattern), 0) = 0) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
-  RAISE NOTICE 'freight, cust _price.price = %', _price.price;
   END IF;
 
   IF (_price.price IS NULL) THEN
@@ -176,7 +168,6 @@ BEGIN
     AND   (ipsass_custtype_id=_order.custtype_id) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
-  RAISE NOTICE 'freight, cust type _price.price = %', _price.price;
   END IF;
 
   IF (_price.price IS NULL) THEN
@@ -200,7 +191,6 @@ BEGIN
     AND   (_order.custtype_code ~ ipsass_custtype_pattern) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
-  RAISE NOTICE 'freight, cust type pattern _price.price = %', _price.price;
   END IF;
 
   -- Select the lowest price  
@@ -229,7 +219,6 @@ BEGIN
     _row.freightdata_total := 0;
     _row.freightdata_currency := '';
     RETURN NEXT _row;
-    RAISE NOTICE 'freight, return null';
   ELSE
     SELECT ipshead_name,
            COALESCE(warehous_code, 'Any') AS warehouse,
@@ -261,7 +250,6 @@ BEGIN
     _row.freightdata_total := _totalprice;
     _row.freightdata_currency := _order.currAbbr;
     RETURN NEXT _row;
-    RAISE NOTICE 'freight, return freight';
   END IF;
 
   END LOOP;
