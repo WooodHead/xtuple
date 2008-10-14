@@ -30,7 +30,7 @@ BEGIN
   FROM itemsite, item
   WHERE ((itemsite_item_id=item_id)
   AND (itemsite_warehous_id=getWarehousId(pWarehouseCode,''ALL''))
-  AND (UPPER(item_number)=UPPER(pItemNumber)));
+  AND (item_number=UPPER(pItemNumber)));
 
   IF NOT (FOUND) THEN
     RAISE EXCEPTION ''Item % not found in Warehouse %'', pItemNumber, pWarehouseCode;

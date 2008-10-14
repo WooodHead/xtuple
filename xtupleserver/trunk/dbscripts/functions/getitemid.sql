@@ -9,7 +9,7 @@ BEGIN
 
   SELECT item_id INTO _returnVal
   FROM item
-  WHERE (UPPER(item_number)=UPPER(pItemNumber));
+  WHERE (item_number=UPPER(pItemNumber));
 
   IF (_returnVal IS NULL) THEN
 	RAISE EXCEPTION ''Item % not found.'', pItemNumber;
