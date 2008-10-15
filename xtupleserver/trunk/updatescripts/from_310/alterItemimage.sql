@@ -1,15 +1,16 @@
 BEGIN;
 
-DROP TABLE itemfile;
+DROP TABLE itemimage;
 
-CREATE VIEW itemfile AS
-SELECT   url_id AS itemfile_id,
-  url_source_id AS itemfile_item_id,
-  url_title AS itemfile_title,
-  url_url AS itemfile_url
-FROM url
-WHERE (url_source='I');
-
-COMMENT ON VIEW itemfile IS 'Itemfile view for legacy support. Use of itemfile is deprecated. Use url table for future development';
+CREATE VIEW itemimage AS
+SELECT 
+  imageass_id AS itemimage_id,
+  imageass_source_id AS itemimage_item_id,
+  imageass_image_id AS itemimage_image_id,
+  imageass_purpose AS itemimage_purpose
+FROM imageass
+WHERE (imageass_source='I');
+GRANT ALL ON itemimage TO openmfg;
+COMMENT ON VIEW itemimage IS 'Itemimage view for legacy support. Use of itemimage is deprecated. Use imageass table for future development';
 
 COMMIT;
