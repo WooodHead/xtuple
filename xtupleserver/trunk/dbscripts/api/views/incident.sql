@@ -191,6 +191,6 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.incident DO INSTEAD
 
-  SELECT deleteIncident(getIncidentId(OLD.incident_number));
+  NOTHING;
 
 COMMIT;
