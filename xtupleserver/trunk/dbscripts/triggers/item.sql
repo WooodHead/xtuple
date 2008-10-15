@@ -192,6 +192,8 @@ BEGIN
   IF (TG_OP = ''DELETE'') THEN
     DELETE FROM imageass WHERE ((imageass_source_id=OLD.item_id) AND (imageass_source=''I''));
     DELETE FROM url WHERE ((url_source_id=OLD.item_id) AND (url_source=''I''));
+
+    RETURN OLD;
   END IF;
   
   RETURN NEW;
@@ -200,4 +202,4 @@ END;
 ' LANGUAGE 'plpgsql';
 
 DROP TRIGGER itemAfterTrigger ON item;
-CREATE TRIGGER itemAfterTrigger AFTER INSERT OR UPDATE ON item FOR EACH ROW EXECUTE PROCEDURE _itemAfterTrigger();
+CREATE TRIGGER itemAfterTrigger AFTER INSERT OR UPDATE OR DELETE ON item FOR EACH ROW EXECUTE PROCEDURE _itemAfterTrigger();

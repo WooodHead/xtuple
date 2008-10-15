@@ -117,9 +117,16 @@ BEGIN
     END IF;
   END IF;
 
+  IF (TG_OP = 'DELETE') THEN
+    DELETE FROM imageass WHERE ((imageass_source_id=OLD.crmacct_id) AND (imageass_source='CRMA'));
+    DELETE FROM url WHERE ((url_source_id=OLD.crmacct_id) AND (url_source='CRMA'));
+
+    RETURN OLD;
+  END IF;
+
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
 
 DROP TRIGGER crmacctAfterTrigger ON crmacct;
-CREATE TRIGGER crmacctAfterTrigger AFTER INSERT OR UPDATE ON crmacct FOR EACH ROW EXECUTE PROCEDURE _crmacctAfterTrigger();
+CREATE TRIGGER crmacctAfterTrigger AFTER INSERT OR UPDATE OR DELETE ON crmacct FOR EACH ROW EXECUTE PROCEDURE _crmacctAfterTrigger();
