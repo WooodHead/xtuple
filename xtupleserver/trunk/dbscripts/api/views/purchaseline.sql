@@ -57,8 +57,11 @@ COMMENT ON VIEW api.purchaseline IS 'Purchase Order Line';
     getPoheadId(NEW.order_number),
     NEW.line_number,
     NEW.due_date,
-    getItemsiteId(COALESCE(NEW.site,(
-      SELECT warehous_code 
+    getItemsiteId(COALESCE(NEW.site,
+     (SELECT warehous_code
+      FROM pohead JOIN whsinfo ON (warehous_id=pohead_warehous_id)
+      WHERE (pohead_id=getPoheadId(NEW.order_number))),
+     (SELECT warehous_code 
       FROM whsinfo
       WHERE (warehous_id=fetchPrefwarehousId())
       )),NEW.item_number),
