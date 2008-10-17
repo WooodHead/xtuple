@@ -1,0 +1,29 @@
+-- Group:unpostedCashReceipts
+-- Name:detail
+-- Notes:
+
+SELECT cashrcpt_id, 
+       cust_number,
+       cust_name,
+       cashrcpt_docnumber, 
+       bankaccnt_name,
+       cashrcpt_distdate,
+       cashrcpt_amount, 
+       currConcat(cashrcpt_curr_id) AS currabbr,
+       'curr' AS cashrcpt_amount_xtnumericrole 
+FROM cashrcpt, bankaccnt, custinfo, custtype 
+WHERE ((cashrcpt_bankaccnt_id=bankaccnt_id)
+AND (cashrcpt_cust_id=cust_id)
+AND (cust_custtype_id=custtype_id)
+<? if exists("cust_id") ?>
+  AND   (cashrcpt_cust_id=<? value("cust_id") ?>)
+<? endif ?>
+<? if exists("custtype_id") ?>
+  AND   (custtype_id=<? value("custtype_id") ?>)
+<? endif ?>
+<? if exists("custtype_pattern") ?>
+  AND   (custtype_code~<? value("custtype_pattern") ?>)
+<? endif ?>
+)
+ORDER BY cashrcpt_distdate;
+

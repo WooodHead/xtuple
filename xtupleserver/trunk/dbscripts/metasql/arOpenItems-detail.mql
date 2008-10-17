@@ -7,10 +7,17 @@ SELECT SUM(CASE WHEN (aropen_doctype IN ('C', 'R')) THEN
                     (currToBase(aropen_curr_id, (aropen_amount - aropen_paid), aropen_docdate) * -1)
                 ELSE currToBase(aropen_curr_id, (aropen_amount - aropen_paid), aropen_docdate)
            END) AS total_balance
-FROM aropen
+FROM aropen JOIN custinfo ON (aropen_cust_id=cust_id)
+            LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
 WHERE ( (aropen_open)
 <? if exists("cust_id") ?>
   AND   (aropen_cust_id=<? value("cust_id") ?>)
+<? endif ?>
+<? if exists("custtype_id") ?>
+  AND   (custtype_id=<? value("custtype_id") ?>)
+<? endif ?>
+<? if exists("custtype_pattern") ?>
+  AND   (custtype_code~<? value("custtype_pattern") ?>)
 <? endif ?>
       )
 ;
