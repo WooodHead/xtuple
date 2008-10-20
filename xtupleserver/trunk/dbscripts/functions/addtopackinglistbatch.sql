@@ -69,6 +69,11 @@ BEGIN
     ( pack_head_type, pack_head_id, pack_shiphead_id, pack_printed )
     VALUES
     ( pheadtype, pheadid, pshipheadid, FALSE );
+    -- Auto Firm Sales Orders conditionally based on metric
+    IF ( (pheadtype = ''SO'') AND (fetchMetricBool(''FirmSalesOrderPackingList'')) ) THEN
+      UPDATE coitem SET coitem_firm=TRUE
+      WHERE (coitem_cohead_id=pheadid);
+    END IF; 
   END IF;
 
   RETURN pheadid;
