@@ -30,3 +30,7 @@
   <query>SELECT COUNT(*) = 0 FROM poitem LEFT OUTER JOIN expcat ON (poitem_expcat_id=expcat_id) WHERE ((COALESCE(poitem_expcat_id,-1) != -1) AND (expcat_id IS NULL));</query>
   <message>One or more purchase order lines exist with invalid expense category references (poitem_expcat_id).</message>
  </prerequisite>
+ <prerequisite type="Query" name="Check for duplicate bank account names" >
+  <query>SELECT count(*) = 0 FROM (SELECT bankaccnt_name, count(*) FROM bankaccnt GROUP BY bankaccnt_name HAVING count(*) > 1) AS data;</query>
+  <message>Bank accounts exist with duplicate names please ensure each bank account has a unique name.</message>
+ </prerequisite>
