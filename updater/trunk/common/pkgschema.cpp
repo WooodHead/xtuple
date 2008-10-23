@@ -91,181 +91,25 @@ int PkgSchema::create(QString &errMsg)
     return -1;
   }
 
-  int namespaceoid = -1;
-  int i = 0;
-  do {
-    QSqlQuery select;
-    select.prepare("SELECT oid "
-                   "FROM pg_namespace "
-                   "WHERE (LOWER(nspname)=LOWER(:name));");
-    select.bindValue(":name", _name);
-    select.exec();
-    if (select.first())
-      namespaceoid = select.value(0).toInt();
-    else if (select.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_name)
-                        .arg(select.lastError().databaseText())
-                        .arg(select.lastError().driverText());
-      return -2;
-    }
-    else
-    {
-      QSqlQuery create;
-      create.exec(QString("CREATE SCHEMA %1;").arg(_name.toLower()));
-      if (create.lastError().type() != QSqlError::NoError)
-      {
-        errMsg = _sqlerrtxt.arg(_name)
-                          .arg(create.lastError().databaseText())
-                          .arg(create.lastError().driverText());
-        return -3;
-      }
-      create.exec(QString("GRANT ALL ON SCHEMA %1 TO GROUP openmfg;")
-                    .arg(_name.toLower()));
-      if (create.lastError().type() != QSqlError::NoError)
-      {
-        errMsg = _sqlerrtxt.arg(_name)
-                          .arg(create.lastError().databaseText())
-                          .arg(create.lastError().driverText());
-        return -4;
-      }
+  int namespaceoid;
+  QSqlQuery create;
+  create.prepare("SELECT createPkgSchema(:name, :descrip) AS result;");
+  create.bindValue(":name", _name);
 
-    }
-  } while (namespaceoid < 0 && ++i < 2);
+  create.exec();
+  if (create.first())
+    namespaceoid = create.value(0).toInt();
+  else if (create.lastError().type() != QSqlError::NoError)
+  {
+    errMsg = _sqlerrtxt.arg(_name)
+                      .arg(create.lastError().databaseText())
+                      .arg(create.lastError().driverText());
+    return -2;
+  }
 
   int patherr = setPath(errMsg);
   if (patherr < 0)
     return patherr;
-
-  QStringList childTable;
-  childTable  << "cmd"
-              << "cmdarg"
-              << "image"
-              << "metasql"
-              << "priv"
-              << "report"
-              << "script"
-              << "uiform"
-              ;
-
-  for (int i = 0; i < childTable.size(); i++)
-  {
-    QSqlQuery select;
-    select.prepare("SELECT oid "
-                   "FROM pg_class "
-                   "WHERE ((relname=:child) AND (relnamespace=:schemaid));");
-    select.bindValue(":child", "pkg" + childTable.at(i));
-    select.bindValue(":schemaid", namespaceoid);
-    select.exec();
-    if (select.first())
-      continue; // nothing to do for this child
-    else if (select.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_name)
-                        .arg(select.lastError().databaseText())
-                        .arg(select.lastError().driverText());
-      return -5;
-    }
-
-    QSqlQuery create;
-    create.prepare(QString("CREATE TABLE pkg%1 () INHERITS (%2);")
-                   .arg(childTable.at(i)).arg(childTable.at(i)));
-    create.exec();
-    if (create.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_name)
-                        .arg(create.lastError().databaseText())
-                        .arg(create.lastError().driverText());
-      return -6;
-    }
-
-    QSqlQuery alt;
-    alt.prepare(QString("ALTER TABLE pkg%1 "
-                        "ALTER %2_id SET NOT NULL, "
-                        "ADD PRIMARY KEY (%3_id), "
-                        "ALTER %4_id SET DEFAULT NEXTVAL('%5_%6_id_seq');")
-                   .arg(childTable.at(i)).arg(childTable.at(i))
-                   .arg(childTable.at(i)).arg(childTable.at(i))
-                   .arg(childTable.at(i)).arg(childTable.at(i))
-                   );
-    alt.exec();
-    if (alt.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_name)
-                        .arg(alt.lastError().databaseText())
-                        .arg(alt.lastError().driverText());
-      return -7;
-    }
-
-    alt.prepare(QString("REVOKE ALL ON pkg%1 FROM PUBLIC; "
-                        "GRANT  ALL ON pkg%2 TO GROUP openmfg; ")
-                   .arg(childTable.at(i)).arg(childTable.at(i))
-                   );
-    alt.exec();
-    if (alt.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_name)
-                        .arg(alt.lastError().databaseText())
-                        .arg(alt.lastError().driverText());
-      return -7;
-    }
-
-    if (childTable.at(i) == "cmdarg")
-    {
-      alt.exec(QString("ALTER TABLE pkgcmdarg "
-                       "ADD FOREIGN KEY (cmdarg_cmd_id) "
-                       "REFERENCES pkgcmd(cmd_id);"));
-      if (alt.lastError().type() != QSqlError::NoError)
-      {
-        errMsg = _sqlerrtxt.arg(_name)
-                          .arg(alt.lastError().databaseText())
-                          .arg(alt.lastError().driverText());
-        return -8;
-      }
-    }
-
-    QSqlQuery triggerq;
-    triggerq.exec(QString(
-                  "SELECT dropIfExists('TRIGGER', 'pkg%1beforetrigger', '%2');"
-                  "CREATE TRIGGER pkg%3beforetrigger "
-                  "BEFORE INSERT OR UPDATE OR DELETE "
-                  "ON pkg%4 FOR EACH ROW "
-                  "EXECUTE PROCEDURE _pkg%5beforetrigger();")
-                  .arg(childTable.at(i)) .arg(_name)
-                  .arg(childTable.at(i)) .arg(childTable.at(i))
-                  .arg(childTable.at(i))
-                  );
-    if (triggerq.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_name)
-                        .arg(triggerq.lastError().databaseText())
-                        .arg(triggerq.lastError().driverText());
-      return -9;
-    }
-
-    triggerq.exec(QString(
-                  "SELECT dropIfExists('TRIGGER', 'pkg%1altertrigger', '%2');"
-                  "CREATE TRIGGER pkg%3altertrigger "
-                  "BEFORE INSERT OR UPDATE OR DELETE "
-                  "ON pkg%4 FOR EACH ROW "
-                  "EXECUTE PROCEDURE _pkg%5altertrigger();")
-                  .arg(childTable.at(i)) .arg(_name)
-                  .arg(childTable.at(i)) .arg(childTable.at(i))
-                  .arg(childTable.at(i))
-                  );
-    if (triggerq.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_name)
-                        .arg(triggerq.lastError().databaseText())
-                        .arg(triggerq.lastError().driverText());
-      return -10;
-    }
-
-  }
-
-  int tmp = upsertPkgItem(namespaceoid, errMsg);
-  if (tmp < 0)
-    return tmp;
 
   return 0;
 }
@@ -337,81 +181,4 @@ int PkgSchema::clearPath(QString &errMsg)
   }
 
   return 0;
-}
-
-int PkgSchema::upsertPkgItem(const int itemid,
-                               QString &errMsg)
-{
-  int pkgheadid = -1;
-  int pkgitemid = -1;
-
-  QSqlQuery select;
-  select.prepare("SELECT pkghead_id, COALESCE(pkgitem_id, -1) "
-                 "FROM pkghead LEFT OUTER JOIN"
-                 "     pkgitem ON ((pkgitem_name=pkghead_name)"
-                 "             AND (pkgitem_pkghead_id=pkghead_id)"
-                 "             AND (pkgitem_type='S'))"
-                 "WHERE (LOWER(pkghead_name)=LOWER(:name));");
-  select.bindValue(":name",  _name);
-  select.exec();
-  if (select.first())
-  {
-    pkgheadid = select.value(0).toInt();
-    pkgitemid = select.value(1).toInt();
-  }
-  else if (select.lastError().type() != QSqlError::NoError)
-  {
-    errMsg = _sqlerrtxt.arg(_name)
-                      .arg(select.lastError().databaseText())
-                      .arg(select.lastError().driverText());
-    return -20;
-  }
-  else
-  {
-    errMsg = TR("Could not find pkghead record for package %1.").arg(_name);
-    return -21;
-  }
-
-  QSqlQuery upsert;
-
-  if (pkgitemid >= 0)
-    upsert.prepare("UPDATE pkgitem SET pkgitem_descrip=:descrip,"
-                   "       pkgitem_item_id=:itemid "
-                   "WHERE (pkgitem_id=:id);");
-  else
-  {
-    upsert.prepare("SELECT NEXTVAL('pkgitem_pkgitem_id_seq');");
-    upsert.exec();
-    if (upsert.first())
-      pkgitemid = upsert.value(0).toInt();
-    else if (upsert.lastError().type() != QSqlError::NoError)
-    {
-      QSqlError err = upsert.lastError();
-      errMsg = _sqlerrtxt.arg(_name)
-                        .arg(err.driverText()).arg(err.databaseText());
-      return -22;
-    }
-    upsert.prepare("INSERT INTO pkgitem ("
-                   "    pkgitem_id, pkgitem_pkghead_id, pkgitem_type,"
-                   "    pkgitem_item_id, pkgitem_name, pkgitem_descrip"
-                   ") VALUES ("
-                   "    :id, :headid, 'S',"
-                   "    :itemid, :name, :descrip);");
-  }
-
-  upsert.bindValue(":id",      pkgitemid);
-  upsert.bindValue(":headid",  pkgheadid);
-  upsert.bindValue(":itemid",  itemid);
-  upsert.bindValue(":name",    _name);
-  upsert.bindValue(":descrip", _comment);
-
-  if (!upsert.exec())
-  {
-    QSqlError err = upsert.lastError();
-    errMsg = _sqlerrtxt.arg(_name)
-                      .arg(err.driverText()).arg(err.databaseText());
-    return -23;
-  }
-
-  return pkgitemid;
 }

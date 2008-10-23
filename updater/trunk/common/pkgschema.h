@@ -72,8 +72,6 @@ class PkgSchema
     virtual int setPath(QString &errMsg);
 
   protected:
-    virtual int upsertPkgItem(const int itemid, QString&);
-
     QString _name;
     QString _comment;
 
