@@ -71,7 +71,7 @@ CREATE OR REPLACE FUNCTION addTaxToGLSeries(INTEGER, INTEGER, TEXT, TEXT, TEXT, 
 	_t.tax_baseval := ROUND(_t.tax_baseval, 2);
 	SELECT insertIntoGLSeries( pSequence, pSource, pDocType, pDocNumber,
 				   _t.tax_accnt_id, _t.tax_baseval,
-				   pGLDate ) INTO _test;
+				   pGLDate, 'Tax liability' ) INTO _test;
 	IF (_test < 0) THEN
 	  RETURN NULL;	-- error: insertIntoGLSeries failed
 	END IF;

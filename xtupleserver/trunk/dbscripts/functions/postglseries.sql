@@ -16,7 +16,22 @@ END;
 CREATE OR REPLACE FUNCTION postGLSeries(INTEGER, INTEGER) RETURNS INTEGER AS '
 DECLARE
   pSequence ALIAS FOR $1;
-  pJournalNumber ALIAS FOR $2;
+  pJournalNumber INTEGER;
+  _returnValue INTEGER;
+
+BEGIN
+
+  SELECT postGLSeries(pSequence, pJournalNumber, true) INTO _returnValue;
+  RETURN _returnValue;
+
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION postGLSeries(INTEGER, INTEGER, BOOLEAN) RETURNS INTEGER AS '
+DECLARE
+  pSequence 		ALIAS FOR $1;
+  pJournalNumber 	ALIAS FOR $2;
+  pPostZero		ALIAS FOR $3;
   _glseries RECORD;
   _transCount INTEGER := 0;
   _delta NUMERIC;
@@ -65,17 +80,18 @@ BEGIN
       RETURN -4;        -- remove raise exception when all callers check return code
     END IF;
 
-    INSERT INTO gltrans
-    ( gltrans_posted, gltrans_exported, gltrans_created, gltrans_date,
-      gltrans_sequence, gltrans_accnt_id, gltrans_source, gltrans_notes,
-      gltrans_doctype, gltrans_docnumber, gltrans_amount, gltrans_journalnumber )
-    VALUES
-    ( FALSE, FALSE, CURRENT_TIMESTAMP, _glseries.glseries_distdate,
-      pSequence, _glseries.glseries_accnt_id, _glseries.glseries_source, _glseries.glseries_notes,
-      _glseries.glseries_doctype, _glseries.glseries_docnumber, _glseries.amount, pJournalNumber );
+    IF (_glseries.amount != 0 OR pPostZero) THEN
+     INSERT INTO gltrans
+      ( gltrans_posted, gltrans_exported, gltrans_created, gltrans_date,
+        gltrans_sequence, gltrans_accnt_id, gltrans_source, gltrans_notes,
+        gltrans_doctype, gltrans_docnumber, gltrans_amount, gltrans_journalnumber )
+      VALUES
+      ( FALSE, FALSE, CURRENT_TIMESTAMP, _glseries.glseries_distdate,
+        pSequence, _glseries.glseries_accnt_id, _glseries.glseries_source, _glseries.glseries_notes,
+        _glseries.glseries_doctype, _glseries.glseries_docnumber, _glseries.amount, pJournalNumber );
 
     _transCount := _transCount + 1;
-
+    END IF;
   END LOOP;
 
 --  Delete all of the posted glseries members
