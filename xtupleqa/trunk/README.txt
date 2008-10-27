@@ -1,5 +1,5 @@
 Trunk File for xtupleqa
-Last updated: October 27, 2008
+Last updated: 10/27/2008
 =====================================
 
 
@@ -8,3 +8,4 @@ QA procedures for testing xTuple ERP.
 
 Directory location:
 https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtupleqa/trunk
+
