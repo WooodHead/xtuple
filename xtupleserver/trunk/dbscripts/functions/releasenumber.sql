@@ -1,7 +1,8 @@
-CREATE OR REPLACE FUNCTION releaseNumber(TEXT, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION releaseNumber(TEXT, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   psequence	ALIAS FOR $1;
   pnumber	ALIAS FOR $2;
+  _isManual     BOOLEAN;
   _test		INTEGER;
   _number	TEXT;
   _table	TEXT;
@@ -14,14 +15,14 @@ BEGIN
   FROM orderseq
   WHERE (orderseq_name=psequence);
   IF (NOT FOUND) THEN
-    RAISE EXCEPTION ''Invalid orderseq_name %'', psequence;
+    RAISE EXCEPTION 'Invalid orderseq_name %', psequence;
   END IF;
 
   -- check if an order exists with the given order number
-  EXECUTE ''SELECT '' || quote_ident(_numcol) ||
-	  '' FROM ''  || quote_ident(_table) ||
-	  '' WHERE ('' || quote_ident(_numcol) || ''='' ||
-          quote_literal(_number) || '');''
+  EXECUTE 'SELECT ' || quote_ident(_numcol) ||
+	  ' FROM '  || quote_ident(_table) ||
+	  ' WHERE (' || quote_ident(_numcol) || '=' ||
+          quote_literal(_number) || ');'
   INTO _test;
 
   IF (NOT FOUND) THEN
@@ -30,18 +31,29 @@ BEGIN
 
   -- check if order seq has been incremented past the given order number
   -- S/O code reads: IF ((_test - 1) <> pSoNumber) THEN
-  -- but the following /should/ address bug 4020 (can''t reproduce it to test)
+  -- but the following /should/ address bug 4020 (can't reproduce it to test)
   IF ((_test - 1) > pnumber) THEN
     RETURN 0;
   END IF;
 
-  PERFORM *
+  SELECT metric_value = 'M' INTO _isManual
   FROM metric
-  WHERE metric_value = ''M''
-  AND metric_name = ''TONumberGeneration'';
+  WHERE (metric_name = CASE WHEN psequence='CmNumber' THEN 'CMNumberGeneration'
+                            WHEN psequence='SoNumber' THEN 'CONumberGeneration'
+                            WHEN psequence='InvcNumber' THEN 'InvcNumberGeneration'
+                            WHEN psequence='PoNumber' THEN 'PONumberGeneration'
+                            WHEN psequence='PrNumber' THEN 'PrNumberGeneration'
+                            WHEN psequence='QuNumber' THEN 'QUNumberGeneration'
+                            WHEN psequence='RaNumber' THEN 'RANumberGeneration'
+                       --   WHEN psequence='??Number' THEN 'ShipmentNumberGeneration'
+                            WHEN psequence='ToNumber' THEN 'TONumberGeneration'
+                            WHEN psequence='VcNumber' THEN 'VoucherNumberGeneration'
+                            WHEN psequence='WoNumber' THEN 'WONumberGeneration'
+                            ELSE NULL
+                       END);
 
   -- release the given order number for reuse
-  IF (NOT FOUND) THEN
+  IF (NOT FOUND OR NOT _isManual) THEN
     UPDATE orderseq
     SET orderseq_number = (orderseq_number - 1)
     WHERE (orderseq_name=psequence);
@@ -50,4 +62,4 @@ BEGIN
   RETURN 1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
