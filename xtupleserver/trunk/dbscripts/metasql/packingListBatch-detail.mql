@@ -4,6 +4,7 @@
 
 SELECT cohead_id, pack_shiphead_id, 
        cohead_number AS order_number, pack_head_type,
+       cohead_shipvia AS shipvia,
        formatShipmentNumber(pack_shiphead_id) AS shipment_number, 
        cust_number AS number, cohead_billtoname AS name,
        CASE WHEN (cohead_holdtype='N') THEN <? value("none") ?>
@@ -23,6 +24,7 @@ WHERE pack_head_id=cohead_id
 UNION 
 SELECT tohead_id, pack_shiphead_id, 
        tohead_number AS order_number, pack_head_type,
+       tohead_shipvia AS shipvia,
        formatShipmentNumber(pack_shiphead_id) AS shipment_number, 
        tohead_destname AS number, tohead_destcntct_name AS name,
        '' AS f_holdtype,
