@@ -52,3 +52,32 @@ END;
 
 SELECT dropIfExists('TRIGGER', 'locationTrigger');
 CREATE TRIGGER locationTrigger BEFORE INSERT OR UPDATE ON location FOR EACH ROW EXECUTE PROCEDURE _locationTrigger();
+
+CREATE OR REPLACE FUNCTION _locationAfterTrigger () RETURNS TRIGGER AS '
+DECLARE
+  _itemloc    RECORD;
+
+BEGIN
+
+  -- Maintain itemsite_qtyonhand and itemsite_nnqoh when location_netable changes
+  IF ( (TG_OP = ''UPDATE'') AND (OLD.location_netable <> NEW.location_netable) ) THEN
+    FOR _itemloc IN SELECT * FROM itemloc WHERE (itemloc_location_id=NEW.location_id) LOOP
+      IF (NEW.location_netable) THEN
+        UPDATE itemsite SET itemsite_qtyonhand = itemsite_qtyonhand + _itemloc.itemloc_qty,
+                            itemsite_nnqoh = itemsite_nnqoh - _itemloc.itemloc_qty
+        WHERE (itemsite_id=_itemloc.itemloc_itemsite_id);
+      ELSE
+        UPDATE itemsite SET itemsite_qtyonhand = itemsite_qtyonhand - _itemloc.itemloc_qty,
+                            itemsite_nnqoh = itemsite_nnqoh + _itemloc.itemloc_qty
+        WHERE (itemsite_id=_itemloc.itemloc_itemsite_id);
+      END IF;
+    END LOOP;
+  END IF;
+  
+  RETURN NEW;
+
+END;
+' LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'locationAfterTrigger');
+CREATE TRIGGER locationAfterTrigger AFTER INSERT OR UPDATE ON location FOR EACH ROW EXECUTE PROCEDURE _locationAfterTrigger();
