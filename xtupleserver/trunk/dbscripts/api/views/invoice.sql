@@ -137,7 +137,7 @@ BEGIN
 		invchead_notes
 	) SELECT
 		(CASE -- use a case here so we don't unnecessarily fetch a new invoice number
-			WHEN pNew.invoice_number IS NULL THEN fetchInvcNumber()
+			WHEN pNew.invoice_number IS NULL THEN CAST(fetchInvcNumber() AS TEXT)
 			ELSE pNew.invoice_number
 		END),
 		pNew.order_number,
