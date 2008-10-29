@@ -1,12 +1,13 @@
-CREATE OR REPLACE FUNCTION voidCheck(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION voidCheck(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pCheckid ALIAS FOR $1;
 
 BEGIN
 
-  IF ( ( SELECT (checkhead_void OR checkhead_posted OR checkhead_replaced)
-         FROM checkhead
-         WHERE (checkhead_id=pCheckid) ) ) THEN
+  IF ( SELECT (checkhead_void OR checkhead_posted OR checkhead_replaced
+               OR (checkhead_ach_batch IS NOT NULL AND checkhead_printed))
+       FROM checkhead
+       WHERE (checkhead_id=pCheckid) ) THEN
     RETURN -1;
   END IF;
 
@@ -17,4 +18,4 @@ BEGIN
   RETURN 1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
