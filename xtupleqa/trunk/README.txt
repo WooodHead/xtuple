@@ -1,5 +1,5 @@
 Trunk File for xtupleqa
-Last updated: 10/27/2008
+Last updated: October 27, 2008
 =====================================
 
 
