@@ -1,6 +1,19 @@
 CREATE OR REPLACE FUNCTION _itemCostTrigger() RETURNS TRIGGER AS '
 BEGIN
 
+  --Privilege Checks
+  IF ( (TG_OP = ''INSERT'') AND (NOT checkPrivilege(''CreateCosts'')) ) THEN
+    RAISE EXCEPTION ''You do not have privileges to enter Item Costs.'';
+  END IF;
+
+  IF ( (TG_OP = ''UPDATE'') AND (NOT checkPrivilege(''EnterActualCosts'')) ) THEN
+    RAISE EXCEPTION ''You do not have privileges to update Item Costs.'';
+  END IF;
+
+  IF ( (TG_OP = ''DELETE'') AND (NOT checkPrivilege(''DeleteCosts'')) ) THEN
+    RAISE EXCEPTION ''You do not have privileges to delete Item Costs.'';
+  END IF;
+
   IF (TG_OP = ''UPDATE'') THEN
     IF (NEW.itemcost_actcost <> OLD.itemcost_actcost OR
         NEW.itemcost_curr_id <> OLD.itemcost_curr_id) THEN
