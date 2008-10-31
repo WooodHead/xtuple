@@ -6,6 +6,7 @@ SELECT dropIfExists('VIEW', 'todo', 'api');
 CREATE OR REPLACE VIEW api.todo AS
   SELECT
     todoitem_id AS task_number,
+    todoitem_owner_username AS owner,
     usr_username AS assigned_to,
     todoitem_name AS task_name,
     incdtpriority_name AS priority,
@@ -43,6 +44,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     ON INSERT TO api.todo DO INSTEAD
 
   SELECT createTodoItem(
+    NULL,
     getUsrId(NEW.assigned_to),
     COALESCE(NEW.task_name, ''),
     COALESCE(NEW.description, ''),
@@ -82,7 +84,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
         NULL
     END,
     getIncdtPriorityId(NEW.priority),
-    COALESCE(NEW.notes, '')
+    COALESCE(NEW.notes, ''),
+    NEW.owner
     );
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
