@@ -1,33 +1,28 @@
 
-CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT) RETURNS INTEGER AS '
-BEGIN
-  RETURN createTodoItem($1, $2, $3, $4, NULL, NULL, $5, $6, $7, $8, $9, $10, $11);
-END;
-' LANGUAGE 'plpgsql';
+SELECT dropIfExists('FUNCTION', 'createTodoItem(INTEGER, TEXT, TEXT, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT)', 'public');
+SELECT dropIfExists('FUNCTION', 'createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT)', 'public');
+SELECT dropIfExists('FUNCTION', 'createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT)', 'public');
+SELECT dropIfExists('FUNCTION', 'createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, TEXT)', 'public');
 
-CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT) RETURNS INTEGER AS '
-BEGIN
-  RETURN createTodoItem($1, $2, $3, $4, $5, NULL, $6, $7, $8, $9, $10, $11, $12);
-END;
-' LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, TEXT) RETURNS INTEGER AS '
   DECLARE
-    pusrid      ALIAS FOR  $1;
-    pname       ALIAS FOR  $2;
-    pdesc       ALIAS FOR  $3;
-    pincdtid    ALIAS FOR  $4;
-    pcrmacctid  ALIAS FOR  $5;
-    pOpheadid   ALIAS FOR  $6;
-    pstarted    ALIAS FOR  $7;
-    pdue        ALIAS FOR  $8;
-    pstatus     ALIAS FOR  $9;
-    passigned   ALIAS FOR $10;
-    pcompleted  ALIAS FOR $11;
-    ppriority   ALIAS FOR $12;
-    pnotes      ALIAS FOR $13;
-    powner      ALIAS FOR $14;
+    ptodoid     ALIAS FOR  $1;
+    pusrid      ALIAS FOR  $2;
+    pname       ALIAS FOR  $3;
+    pdesc       ALIAS FOR  $4;
+    pincdtid    ALIAS FOR  $5;
+    pcrmacctid  ALIAS FOR  $6;
+    pOpheadid   ALIAS FOR  $7;
+    pstarted    ALIAS FOR  $8;
+    pdue        ALIAS FOR  $9;
+    pstatus     ALIAS FOR $10;
+    passigned   ALIAS FOR $11;
+    pcompleted  ALIAS FOR $12;
+    ppriority   ALIAS FOR $13;
+    pnotes      ALIAS FOR $14;
+    powner      ALIAS FOR $15;
 
+    _todoid     INTEGER;
     _priority   INTEGER         := ppriority;
     _status     CHARACTER(1)    := pstatus;
     _incdtid    INTEGER         := pincdtid;
@@ -77,7 +72,13 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER,
       _assigned := CURRENT_DATE;
     END IF;
 
-    INSERT INTO todoitem ( todoitem_usr_id, todoitem_name,
+    IF (ptodoid IS NULL) THEN
+      SELECT NEXTVAL(''todoitem_todoitem_id_seq'') INTO _todoid;
+    ELSE
+      _todoid := ptodoid;
+    END IF;
+
+    INSERT INTO todoitem ( todoitem_id, todoitem_usr_id, todoitem_name,
                            todoitem_description, todoitem_incdt_id,
                            todoitem_creator_username, todoitem_status,
                            todoitem_active, todoitem_start_date,
@@ -85,14 +86,14 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER,
                            todoitem_completed_date, todoitem_priority_id,
                            todoitem_notes, todoitem_crmacct_id,
                            todoitem_ophead_id, todoitem_owner_username 
-                ) VALUES ( pusrid, pname,
+                ) VALUES ( _todoid, pusrid, pname,
                            pdesc, _incdtid,
                            CURRENT_USER, _status,
                            TRUE, pstarted,
                            pdue, _assigned,
                            pcompleted, _priority, pnotes, _crmacctid, _opheadid, powner );
 
-    RETURN CURRVAL(''todoitem_todoitem_id_seq'');
+    RETURN _todoid;
   END;
 ' LANGUAGE 'plpgsql';
 

@@ -1,15 +1,22 @@
-CREATE OR REPLACE FUNCTION saveAlarm(int,text,text,timestamp,int,text,text,text,int,text) RETURNS INTEGER AS '
+SELECT dropIfExists('FUNCTION', 'saveAlarm(int,text,text,timestamp,int,text,text,text,int,text)', 'public');
+
+CREATE OR REPLACE FUNCTION saveAlarm(int,text,date,time,int,text,boolean,text,boolean,text,boolean,text,text,int,text) RETURNS INTEGER AS '
 DECLARE
   pAlarmId ALIAS FOR $1;
   pAlarmNumber ALIAS FOR $2;
-  pType ALIAS FOR $3;
+  pDate ALIAS FOR $3;
   pTime ALIAS FOR $4;
   pOffset ALIAS FOR $5;
   pQualifier ALIAS FOR $6;
-  pRecipient ALIAS FOR $7;
-  pSource ALIAS FOR $8;
-  pSourceId ALIAS FOR $9;
-  pFlag ALIAS FOR $10;
+  pEvent ALIAS FOR $7;
+  pEventRecipient ALIAS FOR $8;
+  pEmail ALIAS FOR $9;
+  pEmailRecipient ALIAS FOR $10;
+  pSysmsg ALIAS FOR $11;
+  pSysmsgRecipient ALIAS FOR $12;
+  pSource ALIAS FOR $13;
+  pSourceId ALIAS FOR $14;
+  pFlag ALIAS FOR $15;
   _alarmId INTEGER;
   _alarmNumber TEXT;
   _alarmTime TIMESTAMP;
@@ -24,11 +31,16 @@ BEGIN
   IF (_debug) THEN
     RAISE NOTICE ''pAlarmId = %'', pAlarmId;
     RAISE NOTICE ''pAlarmNumber = %'', pAlarmNumber;
-    RAISE NOTICE ''pType = %'', pType;
+    RAISE NOTICE ''pDate = %'', pDate;
     RAISE NOTICE ''pTime = %'', pTime;
     RAISE NOTICE ''pOffset = %'', pOffset;
     RAISE NOTICE ''pQualifier = %'', pQualifier;
-    RAISE NOTICE ''pRecipient = %'', pRecipient;
+    RAISE NOTICE ''pEvent = %'', pEvent;
+    RAISE NOTICE ''pEventRecipient = %'', pEventRecipient;
+    RAISE NOTICE ''pEmail = %'', pEmail;
+    RAISE NOTICE ''pEmailRecipient = %'', pEmailRecipient;
+    RAISE NOTICE ''pSysmsg = %'', pSysmsg;
+    RAISE NOTICE ''pSysmsgRecipient = %'', pSysmsgRecipient;
     RAISE NOTICE ''pSource = %'', pSource;
     RAISE NOTICE ''pSourceId = %'', pSourceId;
     RAISE NOTICE ''pFlag = %'', pFlag;
@@ -48,9 +60,10 @@ BEGIN
   IF ( (pAlarmId IS NULL OR pAlarmId = -1)
 	AND (pOffset IS NULL)
         AND (pSourceId IS NULL)
-	AND (COALESCE(pType, '''') = '''')
 	AND (COALESCE(pQualifier, '''') = '''')
-	AND (COALESCE(pRecipient, '''') = '''')
+	AND (COALESCE(pEventRecipient, '''') = '''')
+	AND (COALESCE(pEmailRecipient, '''') = '''')
+	AND (COALESCE(pSysmsgRecipient, '''') = '''')
 	AND (COALESCE(pSource, '''') = '''') ) THEN
 	
 	RETURN NULL;
@@ -88,7 +101,7 @@ BEGIN
 
   _alarmNumber := COALESCE(_alarmNumber,pAlarmNumber,fetchNextNumber(''AlarmNumber''));
 
-  _alarmTime := COALESCE(pTime, CURRENT_DATE);
+  _alarmTime := COALESCE(pDate, CURRENT_DATE) + COALESCE(pTime, CURRENT_TIME);
   IF (COALESCE(pOffset, 0) > 0) THEN
     _alarmInterval := CASE WHEN (pQualifier IN (''MB'', ''MA'')) THEN CAST(pOffset AS TEXT) || '' minutes''
                            WHEN (pQualifier IN (''HB'', ''HA'')) THEN CAST(pOffset AS TEXT) || '' hours''
@@ -108,15 +121,15 @@ BEGIN
  
     INSERT INTO alarm (
       alarm_id,alarm_number,
-      alarm_type, alarm_trigger,
+      alarm_event, alarm_email, alarm_sysmsg, alarm_trigger,
       alarm_time, alarm_time_offset, alarm_time_qualifier,
-      alarm_creator, alarm_recipient,
+      alarm_creator, alarm_event_recipient, alarm_email_recipient, alarm_sysmsg_recipient,
       alarm_source, alarm_source_id )
     VALUES (
       _alarmId, _alarmNumber,
-      pType, _alarmTrigger,
+      pEvent, pEmail, pSysmsg, _alarmTrigger,
       _alarmTime, pOffset, pQualifier,
-      CURRENT_USER, pRecipient,
+      CURRENT_USER, pEventRecipient, pEmailRecipient, pSysmsgRecipient,
       pSource, pSourceId );
 
     RETURN _alarmId;
@@ -124,12 +137,16 @@ BEGIN
   ELSE
     UPDATE alarm SET
       alarm_number=_alarmNumber,
-      alarm_type=COALESCE(pType, alarm_type),
+      alarm_event=COALESCE(pEvent, alarm_event),
+      alarm_email=COALESCE(pEmail, alarm_event),
+      alarm_sysmsg=COALESCE(pSysmsg, alarm_event),
       alarm_trigger=_alarmTrigger,
       alarm_time=_alarmTime,
       alarm_time_offset=COALESCE(pOffset, alarm_time_offset),
       alarm_time_qualifier=COALESCE(pQualifier, alarm_time_qualifier),
-      alarm_recipient=COALESCE(pRecipient, alarm_recipient)
+      alarm_event_recipient=COALESCE(pEventRecipient, alarm_event_recipient),
+      alarm_email_recipient=COALESCE(pEmailRecipient, alarm_email_recipient),
+      alarm_sysmsg_recipient=COALESCE(pSysmsgRecipient, alarm_sysmsg_recipient)
     WHERE (alarm_id=pAlarmId);
     
     RETURN pAlarmId;
