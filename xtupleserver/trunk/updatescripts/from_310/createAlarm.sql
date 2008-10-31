@@ -3,13 +3,17 @@ BEGIN;
 CREATE TABLE alarm (
   alarm_id SERIAL PRIMARY KEY NOT NULL,
   alarm_number TEXT NOT NULL,
-  alarm_type TEXT,
+  alarm_event BOOLEAN NOT NULL DEFAULT FALSE,
+  alarm_email BOOLEAN NOT NULL DEFAULT FALSE,
+  alarm_sysmsg BOOLEAN NOT NULL DEFAULT FALSE,
   alarm_trigger TIMESTAMP WITH TIME ZONE,
   alarm_time TIMESTAMP WITH TIME ZONE,
   alarm_time_offset INTEGER,
   alarm_time_qualifier TEXT,
   alarm_creator TEXT,
-  alarm_recipient TEXT,
+  alarm_event_recipient TEXT,
+  alarm_email_recipient TEXT,
+  alarm_sysmsg_recipient TEXT,
   alarm_source TEXT,
   alarm_source_id INTEGER
 );
