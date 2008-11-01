@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION updateReorderLevel(INTEGER, INTEGER, INTEGER[]) RETURNS boolean AS '
+CREATE OR REPLACE FUNCTION updateReorderLevel(INTEGER, INTEGER, INTEGER[]) RETURNS boolean AS $$
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pDays ALIAS FOR $2;
@@ -24,7 +24,7 @@ BEGIN
     WHERE ( (invhist_itemsite_id=pItemsiteid)
      AND ( invhist_transdate::DATE BETWEEN findPeriodStart(_periodid)
                                    AND findPeriodEnd(_periodid) )
-     AND (invhist_transtype IN (''SH'', ''IM'')) );
+     AND (invhist_transtype IN ('SH', 'IM')) );
 
     _totalUsage := (_totalUsage + _usage);
 
@@ -54,4 +54,98 @@ BEGIN
   END IF;
 
 END;
-' LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION updateReorderLevel(INTEGER[], INTEGER, BOOLEAN, INTEGER[]) RETURNS SETOF reordlvl AS $$
+DECLARE
+  pItemsiteids 		ALIAS FOR $1;
+  pDays 		ALIAS FOR $2;
+  pAddLeadtime		ALIAS FOR $3;
+  pPeriodIds 		ALIAS FOR $4;
+  _icursor 		INTEGER := 1;
+  _pcursor 		INTEGER := 1;
+  _totalUsage 		NUMERIC := 0;
+  _totalDays 		INTEGER := 0;
+  _reorderLevel 	NUMERIC := 0;
+  _usage		NUMERIC;
+  _averageUsage 	NUMERIC;
+  _row reordlvl		%ROWTYPE;
+
+BEGIN
+  -- Calculate total days
+  FOR _pcursor IN 1..ARRAY_UPPER(pPeriodIds,1) 
+  LOOP
+    _totalDays := ( _totalDays + ( findPeriodEnd(pPeriodIds[_pcursor]) -
+                                      findPeriodStart(pPeriodIds[_pcursor]) + 1 ) );
+  END LOOP;
+
+  --  Loop through each itemsite id
+  FOR _icursor IN 1..ARRAY_UPPER(pItemsiteIds,1)
+  LOOP
+      -- Get itemsite data
+    SELECT itemsite_id,
+      item_id,
+      warehous_code,
+      item_number,
+      item_descrip1,
+      itemsite_leadtime,
+      0,
+      itemsite_reorderlevel,
+      0,
+      0,
+      0
+      INTO _row
+    FROM itemsite
+      JOIN item ON (itemsite_item_id=item_id)
+      JOIN whsinfo ON (itemsite_warehous_id=warehous_id)
+    WHERE (itemsite_id=pItemsiteIds[_icursor]);
+
+    IF (FOUND) THEN
+      IF (pAddLeadtime) THEN
+        _row.reordlvl_daysofstock := pDays + _row.reordlvl_leadtime;
+      ELSE
+        _row.reordlvl_daysofstock := pDays;
+      END IF;
+      
+      --  Loop through each period id
+      FOR _pcursor IN 1..ARRAY_UPPER(pPeriodIds,1) 
+      LOOP
+        -- Sum days and usage shipping and inventory transactions
+        SELECT COALESCE(SUM(invhist_invqty), 0) INTO _usage
+        FROM invhist
+        WHERE ( (invhist_itemsite_id=pItemsiteIds[_icursor])
+         AND ( invhist_transdate::DATE BETWEEN findPeriodStart(pPeriodIds[_pcursor])
+                                       AND findPeriodEnd(pPeriodIds[_pcursor]) )
+         AND (invhist_transtype IN ('SH', 'IM')) );
+
+        _totalUsage := (_totalUsage + _usage);
+
+      END LOOP;
+
+      -- Calculate reorder level
+      IF (_totalDays > 0) THEN
+        _reorderLevel := round(_totalUsage / _totalDays * _row.reordlvl_daysofstock);
+      END IF;
+  
+      IF (_reorderLevel <= 0) THEN
+        _reorderLevel := 0;
+      END IF;
+
+      -- Set values
+      _row.reordlvl_total_days		:= _totalDays;
+      _row.reordlvl_total_usage	:= _totalUsage;
+      _row.reordlvl_calc_level		:= _reorderLevel;
+
+      -- Return result
+      RETURN NEXT _row;
+    END IF;
+
+    _usage		:= 0;
+    _averageUsage	:= 0;
+    _totalUsage		:= 0;
+    _reorderLevel	:= 0;
+  END LOOP;
+
+  RETURN;
+END;
+$$ LANGUAGE plpgsql;
