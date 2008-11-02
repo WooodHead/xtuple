@@ -8,6 +8,7 @@ FROM itemsite
   LEFT OUTER JOIN plancode ON (itemsite_plancode_id=plancode_id)
   LEFT OUTER JOIN classcode ON (itemite_classcode_id=classcode_id)
 WHERE ( (itemsite_active)
+  AND (itemsite_useparams)
 <? if exists("warehous_id") ?>
   AND (itemsite_warehous_id=<? value("warehous_id") ?>)
 <? endif ?>

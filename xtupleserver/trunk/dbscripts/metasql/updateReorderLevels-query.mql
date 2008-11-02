@@ -1,5 +1,5 @@
 -- Group: updateReorderLevels
--- Name:  preview
+-- Name:  query
 -- Notes: Calculates reorder point levels and returns a proposed result set
 
 SELECT *,
@@ -14,6 +14,7 @@ FROM updateReorderLevel((
     LEFT OUTER JOIN plancode ON (itemsite_plancode_id=plancode_id)
     LEFT OUTER JOIN classcode ON (item_classcode_id=classcode_id)
     WHERE ( (itemsite_active)
+     AND (itemsite_useparams)
 <? if exists("warehous_id") ?>
      AND (itemsite_warehous_id=<? value("warehous_id") ?>)
 <? endif ?>
@@ -45,4 +46,5 @@ ARRAY[
      <? endif ?>
     <? value("period_id_list") ?>
    <? endforeach ?> ]
-);
+)
+ORDER BY reordlvl_warehous_code, reordlvl_item_number;
