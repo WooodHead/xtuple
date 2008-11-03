@@ -91,7 +91,15 @@ BEGIN
     cohead_ordercomments, cohead_shipcomments,
     cohead_freight, cohead_misc, cohead_misc_accnt_id, cohead_misc_descrip,
     cohead_holdtype, cohead_wasquote, cohead_quote_number, cohead_prj_id,
-    cohead_curr_id, cohead_taxauth_id )
+    cohead_curr_id, cohead_taxauth_id,
+    cohead_shipto_cntct_id, cohead_shipto_cntct_honorific, cohead_shipto_cntct_first_name,
+    cohead_shipto_cntct_middle, cohead_shipto_cntct_last_name, cohead_shipto_cntct_suffix,
+    cohead_shipto_cntct_phone, cohead_shipto_cntct_title, cohead_shipto_cntct_fax, 
+    cohead_shipto_cntct_email,
+    cohead_billto_cntct_id, cohead_billto_cntct_honorific,
+    cohead_billto_cntct_first_name, cohead_billto_cntct_middle, cohead_billto_cntct_last_name, 
+    cohead_billto_cntct_suffix, cohead_billto_cntct_phone, cohead_billto_cntct_title, 
+    cohead_billto_cntct_fax, cohead_billto_cntct_email )
   SELECT _soheadid, _soNum, quhead_cust_id,
          CURRENT_DATE, quhead_packdate,
          quhead_custponumber, quhead_warehous_id,
@@ -109,7 +117,14 @@ BEGIN
          quhead_ordercomments, quhead_shipcomments,
          quhead_freight, quhead_misc, quhead_misc_accnt_id, quhead_misc_descrip,
          'N', TRUE, quhead_number, quhead_prj_id,
-	 quhead_curr_id, quhead_taxauth_id
+	 quhead_curr_id, quhead_taxauth_id,
+	 quhead_shipto_cntct_id, quhead_shipto_cntct_honorific,
+	 quhead_shipto_cntct_first_name, quhead_shipto_cntct_middle, quhead_shipto_cntct_last_name,
+	 quhead_shipto_cntct_suffix, quhead_shipto_cntct_phone, quhead_shipto_cntct_title,
+	 quhead_shipto_cntct_fax, quhead_shipto_cntct_email, quhead_billto_cntct_id,
+	 quhead_billto_cntct_honorific, quhead_billto_cntct_first_name, quhead_billto_cntct_middle,
+	 quhead_billto_cntct_last_name, quhead_billto_cntct_suffix, quhead_billto_cntct_phone,
+	 quhead_billto_cntct_title, quhead_billto_cntct_fax, quhead_billto_cntct_email
   FROM quhead, cust
   WHERE ( (quhead_cust_id=cust_id)
   AND (quhead_id=pQuheadid) );
