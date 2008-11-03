@@ -72,6 +72,11 @@ DECLARE
   _row reordlvl		%ROWTYPE;
 
 BEGIN
+  -- Validate
+  IF (pItemsiteIds[1] IS NULL OR pPeriodIds[1] IS NULL) THEN
+    RETURN;
+  END IF;
+  
   -- Calculate total days
   FOR _pcursor IN 1..ARRAY_UPPER(pPeriodIds,1) 
   LOOP
