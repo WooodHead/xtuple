@@ -160,7 +160,7 @@ function main()
     waitForObject(":Chart of Accounts.Close_QPushButton");
     clickButton(":Chart of Accounts.Close_QPushButton");
 
-    ------------Configure:Accounting Module---------------
+    //------------Configure:Accounting Module---------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
@@ -293,7 +293,8 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "CRM...");
     activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "CRM...");
-    while(findObject(":CRM Configuration._acctGeneration_QComboBox").currentText!="Automatic, Allow Override")//    type(":CRM Configuration._acctGeneration_QComboBox", "Automatic, Allow Override","<Down>");
+    while(findObject(":CRM Configuration._acctGeneration_QComboBox").currentText!="Automatic, Allow Override")
+        type(":CRM Configuration._acctGeneration_QComboBox", "Automatic, Allow Override","<Down>");
     waitForObject(":CRM Configuration._nextAcctNumber_XLineEdit");
     type(":CRM Configuration._nextAcctNumber_XLineEdit", "<Del>");
     type(":CRM Configuration._nextAcctNumber_XLineEdit", "100");
@@ -451,7 +452,7 @@ function main()
     clickButton(":List Sites.Save_QPushButton");
     waitForObject(":Save_QPushButton");
     clickButton(":Save_QPushButton");
-  
+  	test.log("Inventory Site1: WH1 created ");
     
     
     
@@ -522,18 +523,47 @@ function main()
     clickButton(":List Sites.Save_QPushButton");
     waitForObject(":Save_QPushButton");
     clickButton(":Save_QPushButton");
-
+	test.log("Inventory Site2: WH2 created ");
     
     
-    
-    
-    
-    
-    //---------------exit Appl-----------------------
-    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+    //----------Configure: Inventory Module-----------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObject(":xTuple ERP: OpenMFG Edition.System_QMenu");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit OpenMFG...");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
+    waitForObject(":_eventFence_QSpinBox");
+    type(":_eventFence_QSpinBox", "<Ctrl+A>");
+    type(":_eventFence_QSpinBox", "<Del>");
+    type(":_eventFence_QSpinBox", "30");
+    if(!findObject(":_inventory.Post Item Site Changes to the Change Log_QCheckBox").checked)
+        findObject(":_inventory.Post Item Site Changes to the Change Log_QCheckBox").checked=true;
+    if(!findObject(":Multiple Sites.Enable Shipping Interface from Transfer Order screen_QCheckBox").checked)
+        findObject(":Multiple Sites.Enable Shipping Interface from Transfer Order screen_QCheckBox").checked=true;
+    if(!findObject(":Multiple Sites.Post Transfer Order Changes to the Change Log_QCheckBox").checked)
+        findObject(":Multiple Sites.Post Transfer Order Changes to the Change Log_QCheckBox").checked=true;
+    while(findObject(":_toNumGeneration_QComboBox").currentText!="Automatic")
+        type(":_toNumGeneration_QComboBox","<Down>");
+    waitForObject(":_toNextNum_XLineEdit");
+    type(":_toNextNum_XLineEdit", "<Ctrl+A>");
+    waitForObject(":_toNextNum_XLineEdit");
+    type(":_toNextNum_XLineEdit", "<Del>");
+    waitForObject(":_toNextNum_XLineEdit");
+    type(":_toNextNum_XLineEdit", "90000");
+    if(!findObject(":_inventory.Enable Lot/Serial Control_QCheckBox").checked)
+        findObject(":_inventory.Enable Lot/Serial Control_QCheckBox").checked=true;
+    if(!findObject(":Costing Methods Allowed.Average_QCheckBox").checked)
+        findObject(":Costing Methods Allowed.Average_QCheckBox").checked=true;
+    if(!findObject(":When Count Tag Qty. exceeds Slip Qty..Do Not Post Count Tag_QRadioButton").checked)
+        findObject(":When Count Tag Qty. exceeds Slip Qty..Do Not Post Count Tag_QRadioButton").checked=true;
+    if(!findObject(":Count Slip # Auditing.Disallow All Slip # Duplications_QRadioButton").checked)
+        findObject(":Count Slip # Auditing.Disallow All Slip # Duplications_QRadioButton").checked=true;
+    waitForObject(":Inventory Configuration.Save_QPushButton");
+    clickButton(":Inventory Configuration.Save_QPushButton");
+    test.log("Inventory Module Configured")
+    
+    
 
 
 }
