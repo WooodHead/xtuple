@@ -2,16 +2,16 @@ function main()
 {
     
     source(findFile("scripts","functions.js"));
-  
-    loginAppl();
+    loginAppl("admin");
     createDept("MFG","Manufacturing");
     assignPrivileges();
     createShift("1ST","First")
     createLocale("MYLOCALE","My Locale For Class");
     createGroup("SUPER","Super User Group");
-    createUser("User26");
+    var newuser="user37";
+    createUser(newuser)
     createCompany("01","Prodiem");
-    
+  
     
     //-------------Accounting-Profit Center Number---------------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -197,7 +197,8 @@ function main()
     if(!findObject(":Products Configuration.Post Item Changes to the Change Log_QCheckBox").checked)
         findObject(":Products Configuration.Post Item Changes to the Change Log_QCheckBox").checked= true;
     if(findObject(":Products Configuration.Allow Inactive Items to be Added to BOMs_QCheckBox").checked)
-        findObject(":Products Configuration.Allow Inactive Items to be Added to BOMs_QCheckBox").checked=false;     if(findObject(":Defaults.Set Sold Items as Exclusive_QCheckBox").checked)
+        findObject(":Products Configuration.Allow Inactive Items to be Added to BOMs_QCheckBox").checked=false;     
+    if(findObject(":Defaults.Set Sold Items as Exclusive_QCheckBox").checked)
         findObject(":Defaults.Set Sold Items as Exclusive_QCheckBox").checked=false;
     type(":_issueMethod_QComboBox", "Mixed");
     clickButton(":Products Configuration.Save_QPushButton");
@@ -304,10 +305,9 @@ function main()
         findObject(":CRM Configuration.Use Projects_QCheckBox").checked=true;
     waitForObject(":CRM Configuration.Save_QPushButton");
     clickButton(":CRM Configuration.Save_QPushButton");
-	test.log("CRM Module configured")    
+    test.log("CRM Module configured");  
   
-  
-  
+ 
     //------Create Calendars------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -345,7 +345,6 @@ function main()
     test.log("Calendars Created");
     
     
-    
     //----------Configure:Schedule Module-------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -364,8 +363,7 @@ function main()
     clickButton(":Schedule Configuration.Save_QPushButton");
     test.log("Schedule Module Configured")
   
-          
-  
+
 
     //----------Create new Title--------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
@@ -384,13 +382,13 @@ function main()
     test.log("CRM-Mast Info: New Tile created");
     
   
-  //-------create Inventory Site-----------------
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
-  activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
-  activateItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
+    //-------create Inventory Site: WH1-----------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
+    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
     waitForObject(":List Sites.New_QPushButton");
     clickButton(":List Sites.New_QPushButton");
     waitForObject(":_code_XLineEdit_3");
@@ -452,10 +450,10 @@ function main()
     clickButton(":List Sites.Save_QPushButton");
     waitForObject(":Save_QPushButton");
     clickButton(":Save_QPushButton");
-  	test.log("Inventory Site1: WH1 created ");
+    test.log("Inventory Site1: WH1 created ");
     
     
-    
+    //-------create Inventory Site: WH2-----------------
     waitForObject(":List Sites.New_QPushButton");
     clickButton(":List Sites.New_QPushButton");
     waitForObject(":_code_XLineEdit_3");
@@ -523,7 +521,7 @@ function main()
     clickButton(":List Sites.Save_QPushButton");
     waitForObject(":Save_QPushButton");
     clickButton(":Save_QPushButton");
-	test.log("Inventory Site2: WH2 created ");
+    test.log("Inventory Site2: WH2 created ");
     
     
     //----------Configure: Inventory Module-----------------
@@ -561,9 +559,74 @@ function main()
         findObject(":Count Slip # Auditing.Disallow All Slip # Duplications_QRadioButton").checked=true;
     waitForObject(":Inventory Configuration.Save_QPushButton");
     clickButton(":Inventory Configuration.Save_QPushButton");
-    test.log("Inventory Module Configured")
+    test.log("Inventory Module Configured");
     
     
-
+    
+    //-------------User Preferences------------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Preferences...");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Preferences...");
+    waitForObject(":User.Selected User:_QRadioButton");
+    clickButton(":User.Selected User:_QRadioButton");
+    waitForObject(":User._user_XComboBox");
+    for(i=0;i<findObject(":User._user_XComboBox").count;i++)
+    {
+        if(findObject(":User._user_XComboBox").currentText==newuser) break;
+        type(":User._user_XComboBox", "<Down>");
+        
+    }
+    waitForObject(":Background Image.Image:_QRadioButton");
+    clickButton(":Background Image.Image:_QRadioButton");
+    if(!findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked)
+    findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked=true;
+    type(":_idleTimeout_QSpinBox", "<Ctrl+A>");
+    type(":_idleTimeout_QSpinBox", "<Del>");
+    type(":_idleTimeout_QSpinBox", "20");
+    type(":_idleTimeout_QSpinBox", "<Tab>");
+    if(!findObject(":Defaults.Show S/O Item Availability when Entering_QCheckBox").checked)
+    findObject(":Defaults.Show S/O Item Availability when Entering_QCheckBox").checked=true;
+    clickButton(":Preferred Site:.Site:_QRadioButton");
+    waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar", "Menu");
+    waitForObject(":_menu.Show Inventory Menu_QCheckBox");
+    clickButton(":_menu.Show Inventory Menu_QCheckBox");
+    waitForObject(":_menu.Show Inventory Toolbar_QCheckBox");
+    clickButton(":_menu.Show Inventory Toolbar_QCheckBox");
+    waitForObject(":_menu.Show Products Menu_QCheckBox");
+    clickButton(":_menu.Show Products Menu_QCheckBox");
+    waitForObject(":_menu.Show Products Toolbar_QCheckBox");
+    clickButton(":_menu.Show Products Toolbar_QCheckBox");
+    waitForObject(":_menu.Show Schedule Menu_QCheckBox");
+    clickButton(":_menu.Show Schedule Menu_QCheckBox");
+    waitForObject(":_menu.Show Schedule Toolbar_QCheckBox");
+    clickButton(":_menu.Show Schedule Toolbar_QCheckBox");
+    waitForObject(":_menu.Show Purchase Menu_QCheckBox");
+    clickButton(":_menu.Show Purchase Menu_QCheckBox");
+    waitForObject(":_menu.Show Purchase Toolbar_QCheckBox");
+    clickButton(":_menu.Show Purchase Toolbar_QCheckBox");
+    waitForObject(":_menu.Show Manufacture Menu_QCheckBox");
+    clickButton(":_menu.Show Manufacture Menu_QCheckBox");
+    waitForObject(":_menu.Show Manufacture Toolbar_QCheckBox");
+    clickButton(":_menu.Show Manufacture Toolbar_QCheckBox");
+    waitForObject(":_menu.Show CRM Menu_QCheckBox");
+    clickButton(":_menu.Show CRM Menu_QCheckBox");
+    waitForObject(":_menu.Show CRM Toolbar_QCheckBox");
+    clickButton(":_menu.Show CRM Toolbar_QCheckBox");
+    waitForObject(":_menu.Show Sales Menu_QCheckBox");
+    clickButton(":_menu.Show Sales Menu_QCheckBox");
+    waitForObject(":_menu.Show Sales Toolbar_QCheckBox");
+    clickButton(":_menu.Show Sales Toolbar_QCheckBox");
+    waitForObject(":_menu.Show Accounting Menu_QCheckBox");
+    clickButton(":_menu.Show Accounting Menu_QCheckBox");
+    waitForObject(":_menu.Show Accountng Toolbar_QCheckBox");
+    clickButton(":_menu.Show Accountng Toolbar_QCheckBox");
+    waitForObject(":User Preferences.Save_QPushButton");
+    clickButton(":User Preferences.Save_QPushButton");
+    test.log("User Preferences of "+newuser +":saved");
+    
+    
+exitAppl();
 
 }
