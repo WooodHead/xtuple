@@ -2,29 +2,26 @@
 
 
 
-
-
-//----------Retreive data from Shared testdata------------------
-var set = testData.dataset("login.txt");
-for(var records in set)
+//--------Login into Appl----------
+function loginAppl(usr)
 {
+   
+    var set = testData.dataset("login.txt");
+    var url, db, port, version, pwd, user;
+    user=db=version=pwd=user="";
+    for(var records in set)
+    {
        url=testData.field(set[records],"URL");
        db=testData.field(set[records],"DB");
        port=testData.field(set[records],"PORT");
        version=testData.field(set[records],"VERSION");
        user=testData.field(set[records],"USER");
        pwd=testData.field(set[records],"PASS");
-       if(version=="3.1.0" && db=="1empty310") break; 
-}
-
-
-
-//--------Login into Appl----------
-function loginAppl()
-{
-    
+       if(user==usr) break;
+    }
     waitForObject(":Log In.Options_QPushButton");
     clickButton(":Log In.Options_QPushButton");
+    waitForObject(":_server_QLineEdit");
     if(findObject(":_server_QLineEdit").text!= url)
     {findObject(":_server_QLineEdit").text=url;
         test.log("URL Changed to: "+url);
@@ -78,8 +75,6 @@ function assignPrivileges()
     waitForObject(":List Users.Close_QPushButton_2");
     clickButton(":List Users.Close_QPushButton_2");
     test.log("Admin User assigned with all Privileges");
-  
-  
     //------------Rescan Privileges----------------------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -91,32 +86,32 @@ function assignPrivileges()
 }
 
 
-//
-////--------------Create New Dept----------------------
-//function createDept(var DeptNum, var DeptName)
-//{
-//
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-//    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Departments...");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Departments...");
-//    waitForObject(":List Departments.New_QPushButton");
-//    clickButton(":List Departments.New_QPushButton");
-//    waitForObject(":List Departments._number_XLineEdit");
-//    type(":List Departments._number_XLineEdit", DeptNum);
-//    waitForObject(":List Departments._name_XLineEdit");
-//    type(":List Departments._name_XLineEdit", DeptName);
-//    waitForObject(":List Departments.Save_QPushButton");
-//    clickButton(":List Departments.Save_QPushButton");
-//    waitForObject(":List Departments.Close_QPushButton");
-//    clickButton(":List Departments.Close_QPushButton");
-//    test.log("New Department:"+ DeptNum + " created");
-//}
+
+//--------------Create New Dept----------------------
+function createDept(DeptNum, DeptName)
+{
+
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Departments...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Departments...");
+    waitForObject(":List Departments.New_QPushButton");
+    clickButton(":List Departments.New_QPushButton");
+    waitForObject(":List Departments._number_XLineEdit");
+    type(":List Departments._number_XLineEdit", DeptNum);
+    waitForObject(":List Departments._name_XLineEdit");
+    type(":List Departments._name_XLineEdit", DeptName);
+    waitForObject(":List Departments.Save_QPushButton");
+    clickButton(":List Departments.Save_QPushButton");
+    waitForObject(":List Departments.Close_QPushButton");
+    clickButton(":List Departments.Close_QPushButton");
+    test.log("New Department:"+ DeptNum + " created");
+}
 
 
-    //--------------Creat Shift-----------------
+//--------------Creat Shift-----------------
 function createShift(ShiftNum, ShiftName)
 {
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -188,7 +183,6 @@ function createLocale(LocaleCode,LocaleDesc)
 //----------------Create new Group----------------
 function createGroup(GrpName, GrpDesc)
 {
-  
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Groups...");
@@ -213,10 +207,9 @@ function createGroup(GrpName, GrpDesc)
 }
 
 
+//-----------------Create New User and assign privileges-------------------
 function createUser(user_created)
 {
-    
-    //-----------------Create New User and assign privileges-------------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
@@ -243,7 +236,7 @@ function createUser(user_created)
     type(sWidgetTreeControl,"<Space>");
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    for(i=1;i<iNumberOfRootItems && sNameOfRootItem!=user_created;i++)
+    for(i=1;sNameOfRootItem!=user_created && i<iNumberOfRootItems ;i++)
     {
         type(sWidgetTreeControl,"<Down>");           
         obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
@@ -259,6 +252,18 @@ function createUser(user_created)
     waitForObject(":List Users.Close_QPushButton_2");
     clickButton(":List Users.Close_QPushButton_2");
     test.log(user_created +" created and added 'SUPER' group privilege");
+    
+    //-----Add the User created to the testdata file: login.txt-------------
+    test.log("working directory :" +OS.cwd());
+    if(!File.exists("..//shared//testdata//login.txt"))
+        test.Fail("login.txt file doesnt exists in the path - ..//shared//testdata//login.txt");
+    var f = File.open("..//shared//testdata//login.txt","a");
+    f.write("\n121.241.172.21\t1empty310\t5432\t3.1.0\t"+user_created+"\tmfgapp");
+    f.close();
+    test.log("login credentials updated to testdata: login.txt");
+    
+    
+    
 }
 
 
@@ -286,12 +291,13 @@ function createComp(CompNum, CompDesc)
     test.log("Company: "+CompDesc+" created");
 }
 
-
+//------------Create Chart of Accounts-------------------
 function COA(COACompany,COAProfit,COANumber,COASub,COADesc,COAType,COASubType)
 {
 
     waitForObject(":Chart of Accounts.New_QPushButton");
     clickButton(":Chart of Accounts.New_QPushButton");
+    waitForObject(":Chart of Accounts._company_XComboBox");
     if(findObject(":Chart of Accounts._company_XComboBox").currentText!=COACompany)
         type(":Chart of Accounts._company_XComboBox","01");
     if(findObject(":Chart of Accounts._profit_XComboBox").currentText!=COAProfit)
@@ -313,3 +319,20 @@ function COA(COACompany,COAProfit,COANumber,COASub,COADesc,COAType,COASubType)
     test.log("Acc: "+COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub+" created");
 
 }
+
+
+//---------------exit Appl-----------------------
+function exitAppl()
+{
+    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObject(":xTuple ERP: OpenMFG Edition.System_QMenu");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit OpenMFG...");
+}
+
+
+
+
+
+
+
