@@ -276,11 +276,17 @@
               appear on Sales Orders, sub line numbers are generated for Kit
               components because Kit children are sub line items of the parent
               line item. Kit components are displayed as an indented tree on
-              the Sales Order—and they are view-only. Also, Kit components
-              will appear on the Sales Order Pick List. Kit components may be
-              issued to Shipping, whereas the parent Kit Item may not be. The
-              automatic "Select for Billing" option takes effect for Kit Items
-              when all Kit Items are shipped.</para>
+              the Sales Order&mdash;and they are view-only. Also, Kit
+              components will appear on the Sales Order Pick List. Kit
+              components may be issued to Shipping, whereas the parent Kit
+              Item may not be. The automatic "Select for Billing" option takes
+              effect for Kit Items when all Kit Items are shipped.</para>
+              <note>
+                <para>The cost of goods sold for Kit Items is directed to the
+                Cost Category mappings of the Kit's child Items. The child
+                Items do not inherit the G/L Account mappings defined for the
+                parent Kit Item.</para>
+              </note>
             </listitem>
           </varlistentry>
         </variablelist>
