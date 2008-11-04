@@ -1,3 +1,43 @@
+CREATE OR REPLACE FUNCTION _cmitemBeforeTrigger() RETURNS "trigger" AS '
+DECLARE
+  _check BOOLEAN;
+  _id INTEGER;
+BEGIN
+  -- Checks
+  -- Start with privileges
+  SELECT checkPrivilege(''MaintainCreditMemos'') INTO _check;
+  IF NOT (_check) THEN
+    RAISE EXCEPTION ''You do not have privileges to maintain Credit Memos.'';
+  END IF;
+
+  IF (TG_OP = ''DELETE'') THEN
+    RETURN OLD;
+  END IF;
+
+  IF (TG_OP = ''INSERT'') THEN
+    IF ( (NEW.cmitem_qtycredit IS NULL) OR (NEW.cmitem_qtycredit = 0) ) THEN
+      RAISE EXCEPTION ''Quantity to Credit must be greater than zero.'';
+    END IF;
+    SELECT cmitem_id INTO _id
+    FROM cmitem
+    WHERE ( (cmitem_cmhead_id=NEW.cmitem_cmhead_id) AND (cmitem_linenumber=NEW.cmitem_linenumber) );
+    IF (FOUND) THEN
+      RAISE EXCEPTION ''The Memo Line Number is already in use.'';
+    END IF;
+  END IF;
+
+  RETURN NEW;
+END;
+' LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'cmitembeforetrigger');
+CREATE TRIGGER cmitembeforetrigger
+  BEFORE INSERT OR UPDATE OR DELETE
+  ON cmitem
+  FOR EACH ROW
+  EXECUTE PROCEDURE _cmitemBeforeTrigger();
+
+
 CREATE OR REPLACE FUNCTION _cmitemTrigger() RETURNS "trigger" AS '
 DECLARE
   _ext NUMERIC;
@@ -41,7 +81,7 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-DROP TRIGGER cmitemtrigger ON cmitem;
+SELECT dropIfExists('TRIGGER', 'cmitemtrigger');
 CREATE TRIGGER cmitemtrigger
   AFTER INSERT OR UPDATE OR DELETE
   ON cmitem
