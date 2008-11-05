@@ -1,6 +1,6 @@
--- Group:salesOrderItems
--- Name:detail
--- Notes:used by dspBacklogByCustomer, dspBacklogByItem, dspBacklogByParameterList, dspBacklogBySalesOrder, dspBookingsByCustomer, dspBookingsByCustomerGroup, dspBookingsByItem, dspBookingsByProductCategory, dspBookingsBySalesRep, dspBookingsByShipTo, dspSalesOrdersByItem
+-- Group: salesOrderItems
+-- Name: detail
+-- Notes: used by dspBacklogByCustomer, dspBacklogByItem, dspBacklogByParameterList, dspBacklogBySalesOrder, dspBookingsByCustomer, dspBookingsByCustomerGroup, dspBookingsByItem, dspBookingsByProductCategory, dspBookingsBySalesRep, dspBookingsByShipTo, dspSalesOrdersByItem
 
 SELECT
        cohead_id, coitem_id, *, currconcat(cohead_curr_id) AS currAbbr,

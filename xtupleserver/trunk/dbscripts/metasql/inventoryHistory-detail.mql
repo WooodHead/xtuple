@@ -1,6 +1,6 @@
--- Group:inventoryHistory
--- Name:detail
--- Notes:used by dspInventoryHistoryByItem, dspInventoryHistoryByParameterList
+-- Group: inventoryHistory
+-- Name: detail
+-- Notes: used by dspInventoryHistoryByItem, dspInventoryHistoryByParameterList
 
 SELECT invhist_id, invdetail_id, invhist_transdate AS sortdate,
        CASE WHEN (level=0) THEN invhist_transdate END AS invhist_transdate,

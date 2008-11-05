@@ -1,6 +1,6 @@
--- Group:inventoryHistoryByOrderNumber
--- Name:detail
--- Notes:used by dspInventoryHistoryByOrderNumber
+-- Group: inventoryHistoryByOrderNumber
+-- Name: detail
+-- Notes: used by dspInventoryHistoryByOrderNumber
 
 SELECT invhist.*,
        warehous_code, item_number,

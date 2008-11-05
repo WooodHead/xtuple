@@ -1,6 +1,6 @@
--- Group:itemReceipt
--- Name:sourceItemSite
--- Notes:used by enterPoitemReceipt
+-- Group: itemReceipt
+-- Name: sourceItemSite
+-- Notes: used by enterPoitemReceipt
 
 <? if exists("poitem_id") ?>			-- this should never be called
   SELECT -1 AS itemsite_id, -1 AS warehous_id;

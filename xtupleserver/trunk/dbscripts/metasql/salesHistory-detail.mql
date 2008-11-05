@@ -1,6 +1,6 @@
--- Group:salesHistory
--- Name:detail
--- Notes:used by dspEarnedCommissions, dspSalesHistoryByBilltoName, dspSalesHistoryByCustomer, dspSalesHistoryByItem, dspSalesHistoryByParameterList, dspSalesHistoryBySalesrep, dspSalesHistoryByShipTo
+-- Group: salesHistory
+-- Name: detail
+-- Notes: used by dspEarnedCommissions, dspSalesHistoryByBilltoName, dspSalesHistoryByCustomer, dspSalesHistoryByItem, dspSalesHistoryByParameterList, dspSalesHistoryBySalesrep, dspSalesHistoryByShipTo
 
 SELECT cohist.*,
        CASE WHEN (cohist_invcnumber='-1') THEN  <? value("credit") ?>

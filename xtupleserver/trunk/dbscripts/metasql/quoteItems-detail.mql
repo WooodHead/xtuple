@@ -1,6 +1,6 @@
--- Group:quoteItems
--- Name:detail
--- Notes:used by dspQuotesByItem
+-- Group: quoteItems
+-- Name: detail
+-- Notes: used by dspQuotesByItem
 
 SELECT quitem.*, quhead.*,
        cust_number, cust_name,

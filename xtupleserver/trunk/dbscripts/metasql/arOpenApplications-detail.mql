@@ -1,6 +1,6 @@
--- Group:arOpenApplications
--- Name:detail
--- Notes:used by applyARCreditMemo, cashReceipt
+-- Group: arOpenApplications
+-- Name: detail
+-- Notes: used by applyARCreditMemo, cashReceipt
 
 SELECT aropen_id,
 <? if exists("cashrcpt_id") ?>

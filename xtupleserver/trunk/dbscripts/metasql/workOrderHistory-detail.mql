@@ -1,6 +1,6 @@
--- Group:workOrderHistory
--- Name:detail
--- Notes:used by dspWoHistoryByNumber
+-- Group: workOrderHistory
+-- Name: detail
+-- Notes: used by dspWoHistoryByNumber
 
 SELECT wo.*,
        item_number, (item_descrip1 || ' ' || item_descrip2) AS itemdescrip,

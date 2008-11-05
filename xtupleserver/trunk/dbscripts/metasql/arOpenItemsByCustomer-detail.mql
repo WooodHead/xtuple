@@ -1,6 +1,6 @@
--- Group:arOpenItemsByCustomer
--- Name:detail
--- Notes:used by dspAROpenItemsByCustomer
+-- Group: arOpenItemsByCustomer
+-- Name: detail
+-- Notes: used by dspAROpenItemsByCustomer
 
 SELECT *,
        CASE WHEN (aropen_doctype='I') THEN <? value("invoice") ?>

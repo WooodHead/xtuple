@@ -1,6 +1,6 @@
--- Group:opportunitiesByCRM
--- Name:detail
--- Notes:used by crmaccount
+-- Group: opportunitiesByCRM
+-- Name: detail
+-- Notes: used by crmaccount
 
 SELECT ophead_id, *,
        currConcat(ophead_curr_id) AS ophead_currabbr,

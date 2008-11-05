@@ -1,6 +1,6 @@
--- Group:receipt
--- Name:receiveAll
--- Notes:used by enterPoReceipt, returnAuthorization, shipOrder
+-- Group: receipt
+-- Name: receiveAll
+-- Notes: used by enterPoReceipt, returnAuthorization, shipOrder
 
 <? if exists ("shiphead_id") ?>
   SELECT enterReceipt(<? value("ordertype") ?>, shipitem_orderitem_id,

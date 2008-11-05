@@ -1,6 +1,6 @@
--- Group:cashReceipts
--- Name:detail
--- Notes:used by dspCashReceipts
+-- Group: cashReceipts
+-- Name: detail
+-- Notes: used by dspCashReceipts
 
 SELECT arapply_id, 1 AS type, cust_number, cust_name,
        arapply_postdate AS postdate,

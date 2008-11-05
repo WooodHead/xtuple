@@ -1,6 +1,6 @@
--- Group:packingListBatch
--- Name:print
--- Notes:used by packingListBatch
+-- Group: packingListBatch
+-- Name: print
+-- Notes: used by packingListBatch
 
 SELECT pack_id, pack_head_id, pack_head_type, pack_shiphead_id,
        findCustomerForm(cohead_cust_id, 'P') AS packform,

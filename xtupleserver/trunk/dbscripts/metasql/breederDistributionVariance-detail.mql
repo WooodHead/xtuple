@@ -1,6 +1,6 @@
--- Group:breederDistributionVariance
--- Name:detail
--- Notes:used by dspBreederDistributionVarianceByItem, dspBreederDistributionVarianceByWarehouse
+-- Group: breederDistributionVariance
+-- Name: detail
+-- Notes: used by dspBreederDistributionVarianceByItem, dspBreederDistributionVarianceByWarehouse
 
 SELECT brdvar_id, brdvar_postdate,
        pi.item_number AS pitem_number,

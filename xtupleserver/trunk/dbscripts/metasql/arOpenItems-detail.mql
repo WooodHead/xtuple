@@ -1,6 +1,6 @@
--- Group:arOpenItems
--- Name:detail
--- Notes:used by arWorkBench, dspAROpenItems
+-- Group: arOpenItems
+-- Name: detail
+-- Notes: used by arWorkBench, dspAROpenItems
 
 <? if exists("totalOnly") ?>
 SELECT SUM(CASE WHEN (aropen_doctype IN ('C', 'R')) THEN

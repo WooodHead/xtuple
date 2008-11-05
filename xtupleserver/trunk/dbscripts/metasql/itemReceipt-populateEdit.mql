@@ -1,6 +1,6 @@
--- Group:itemReceipt
--- Name:populateEdit
--- Notes:used by enterPoitemReceipt, splitReceipt
+-- Group: itemReceipt
+-- Name: populateEdit
+-- Notes: used by enterPoitemReceipt, splitReceipt
 
 SELECT orderhead_number AS order_number, orderitem_linenumber,
        (orderitem_itemsite_id > 0) AS inventoryitem,

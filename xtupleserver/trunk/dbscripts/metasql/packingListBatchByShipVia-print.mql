@@ -1,6 +1,6 @@
--- Group:packingListBatchByShipVia
--- Name:print
--- Notes:used by printPackingListBatchByShipVia
+-- Group: packingListBatchByShipVia
+-- Name: print
+-- Notes: used by printPackingListBatchByShipVia
 
 SELECT pack_head_id, pack_head_type, pack_shiphead_id,
        CASE WHEN (pack_head_type='SO') THEN findCustomerForm(orderhead_to_id, 'P')

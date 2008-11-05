@@ -1,6 +1,6 @@
--- Group:allocations
--- Name:detail
--- Notes:used by dspAllocations
+-- Group: allocations
+-- Name: detail
+-- Notes: used by dspAllocations
 
 SELECT source_id, type, order_number, item_number, totalqty, relievedqty, balanceqty, duedate,
        balanceqty AS runningbal,

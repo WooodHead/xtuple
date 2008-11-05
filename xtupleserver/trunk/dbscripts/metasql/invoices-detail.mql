@@ -1,6 +1,6 @@
--- Group:invoices
--- Name:detail
--- Notes:used by unpostedInvoices
+-- Group: invoices
+-- Name: detail
+-- Notes: used by unpostedInvoices
 
 SELECT invchead_id, invchead.*,
        cust_number, cust_name,

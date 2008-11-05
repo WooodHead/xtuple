@@ -1,6 +1,6 @@
--- Group:arAging
--- Name:detail
--- Notes:used by dspTimePhasedOpenARItems
+-- Group: arAging
+-- Name: detail
+-- Notes: used by dspTimePhasedOpenARItems
 
 SELECT araging_cust_id, araging_cust_number, araging_cust_name,
        SUM(araging_total_val) AS araging_total_val_sum,

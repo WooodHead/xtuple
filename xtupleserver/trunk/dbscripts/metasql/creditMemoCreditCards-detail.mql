@@ -1,6 +1,6 @@
--- Group:creditMemoCreditCards
--- Name:detail
--- Notes:used by arWorkBench, returnAuthorization, returnAuthorizationWorkbench
+-- Group: creditMemoCreditCards
+-- Name: detail
+-- Notes: used by arWorkBench, returnAuthorization, returnAuthorizationWorkbench
 
 SELECT cmhead_number, cmhead_tax_id, cmhead_freight, cmhead_curr_id,
        SUM(ROUND((cmitem_qtycredit * cmitem_qty_invuomratio) * 

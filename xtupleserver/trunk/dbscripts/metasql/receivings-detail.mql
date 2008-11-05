@@ -1,6 +1,6 @@
--- Group:receivings
--- Name:detail
--- Notes:used by dspPoItemReceivingsByDate, dspPoItemReceivingsByItem, dspPoItemReceivingsByVendor
+-- Group: receivings
+-- Name: detail
+-- Notes: used by dspPoItemReceivingsByDate, dspPoItemReceivingsByItem, dspPoItemReceivingsByVendor
 
 SELECT recv_id, recv_order_number AS ponumber,
        vend_name,

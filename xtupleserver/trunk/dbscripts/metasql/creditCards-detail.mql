@@ -1,6 +1,6 @@
--- Group:creditCards
--- Name:detail
--- Notes:used by cashReceipt, customer, salesOrder
+-- Group: creditCards
+-- Name: detail
+-- Notes: used by cashReceipt, customer, salesOrder
 
 SELECT ccard_id, ccard_seq,
        CASE WHEN (ccard_type='M') THEN <? value("masterCard") ?>

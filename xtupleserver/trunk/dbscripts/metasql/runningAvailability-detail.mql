@@ -1,6 +1,6 @@
--- Group:runningAvailability
--- Name:detail
--- Notes:used by dspRunningAvailability, itemAvailabilityWorkbench
+-- Group: runningAvailability
+-- Name: detail
+-- Notes: used by dspRunningAvailability, itemAvailabilityWorkbench
 
 SELECT orderid, altorderid, ordertype, ordernumber, sequence, item_number,
        duedate, qtyordered,  qtyreceived, balance,

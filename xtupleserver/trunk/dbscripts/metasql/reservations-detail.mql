@@ -1,6 +1,6 @@
--- Group:reservations
--- Name:detail
--- Notes:used by dspReservations
+-- Group: reservations
+-- Name: detail
+-- Notes: used by dspReservations
 
 SELECT source_id, order_number, scheddate,
        totalqty, relievedqty, reservedqty, balanceqty,

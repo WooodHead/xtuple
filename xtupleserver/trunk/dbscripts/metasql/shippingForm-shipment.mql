@@ -1,6 +1,6 @@
--- Group:shippingForm
--- Name:shipment
--- Notes:used by printShippingForm
+-- Group: shippingForm
+-- Name: shipment
+-- Notes: used by printShippingForm
 
 SELECT cohead_id AS order_id, cohead_shiptoname AS shipto, 
        cohead_shiptoaddress1 AS addr1, shiphead_order_type, 

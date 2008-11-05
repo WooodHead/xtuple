@@ -1,6 +1,6 @@
--- Group:apAging
--- Name:detail
--- Notes:used by dspTimePhasedOpenAPItems
+-- Group: apAging
+-- Name: detail
+-- Notes: used by dspTimePhasedOpenAPItems
 
 SELECT apaging_vend_id, apaging_vend_number, apaging_vend_name,
        SUM(apaging_total_val) AS apaging_total_val_sum,

@@ -1,6 +1,6 @@
--- Group:packingListBatchByShipVia
--- Name:shipVia
--- Notes:used by printPackingListBatchByShipVia
+-- Group: packingListBatchByShipVia
+-- Name: shipVia
+-- Notes: used by printPackingListBatchByShipVia
 
 SELECT DISTINCT -1, orderhead_shipvia AS shipvia
 FROM pack, orderhead

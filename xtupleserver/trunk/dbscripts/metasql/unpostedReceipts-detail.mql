@@ -1,6 +1,6 @@
--- Group:unpostedReceipts
--- Name:detail
--- Notes:used by unpostedPoReceipts
+-- Group: unpostedReceipts
+-- Name: detail
+-- Notes: used by unpostedPoReceipts
 
 SELECT recv_id, recv_orderitem_id, recv_order_number, recv_order_type,
        orderhead_from,

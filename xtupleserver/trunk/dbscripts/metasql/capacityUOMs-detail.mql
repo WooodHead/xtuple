@@ -1,6 +1,6 @@
--- Group:capacityUOMs
--- Name:detail
--- Notes:used by dspCapacityUOMsByClassCode, dspCapacityUOMsByProductCategory
+-- Group: capacityUOMs
+-- Name: detail
+-- Notes: used by dspCapacityUOMsByClassCode, dspCapacityUOMsByProductCategory
 
 SELECT item_id, item_number,
 <? if exists("getclasscode") ?>

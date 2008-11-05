@@ -1,6 +1,6 @@
--- Group:salesOrders
--- Name:detail
--- Notes:used by dspSalesOrdersByCustomer, dspSalesOrdersByCustomerPO, dspSalesOrdersByParameterList
+-- Group: salesOrders
+-- Name: detail
+-- Notes: used by dspSalesOrdersByCustomer, dspSalesOrdersByCustomerPO, dspSalesOrdersByParameterList
 
 SELECT cohead_id, cust_id,
        cohead.*,

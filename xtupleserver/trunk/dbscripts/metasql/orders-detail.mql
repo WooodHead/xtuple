@@ -1,6 +1,6 @@
--- Group:orders
--- Name:detail
--- Notes:used by dspOrders
+-- Group: orders
+-- Name: detail
+-- Notes: used by dspOrders
 
 SELECT source_id, type, order_type, order_number, duedate,
        totalqty, relievedqty, balanceqty, balanceqty AS runningbalanceqty,

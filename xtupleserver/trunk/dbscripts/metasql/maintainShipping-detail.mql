@@ -1,6 +1,6 @@
--- Group:maintainShipping
--- Name:detail
--- Notes:used by maintainShipping
+-- Group: maintainShipping
+-- Name: detail
+-- Notes: used by maintainShipping
 
 -- order header info
 SELECT shiphead_id AS parent_id, cohead_id AS child_id,

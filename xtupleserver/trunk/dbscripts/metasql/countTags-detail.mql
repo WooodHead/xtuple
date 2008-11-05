@@ -1,6 +1,6 @@
--- Group:countTags
--- Name:detail
--- Notes:used by dspCountTagsByClassCode, dspCountTagsByItem, dspCountTagsByWarehouse
+-- Group: countTags
+-- Name: detail
+-- Notes: used by dspCountTagsByClassCode, dspCountTagsByItem, dspCountTagsByWarehouse
 
 SELECT invcnt_id, invcnt_tagnumber, warehous_code,
        item_number,

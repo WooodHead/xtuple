@@ -1,6 +1,6 @@
--- Group:receipt
--- Name:detail
--- Notes:used by enterPoReceipt
+-- Group: receipt
+-- Name: detail
+-- Notes: used by enterPoReceipt
 
 <? if exists("pohead_id") ?>
 SELECT poitem_id, poitem_linenumber AS linenumber,

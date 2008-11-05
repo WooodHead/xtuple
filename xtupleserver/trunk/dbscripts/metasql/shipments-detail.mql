@@ -1,6 +1,6 @@
--- Group:shipments
--- Name:detail
--- Notes:used by dspShipmentsByDate, dspShipmentsBySalesOrder, dspShipmentsByShipment
+-- Group: shipments
+-- Name: detail
+-- Notes: used by dspShipmentsByDate, dspShipmentsBySalesOrder, dspShipmentsByShipment
 
 SELECT shiphead_id, lineitem_id,
        CASE WHEN (level=0) THEN order_number
