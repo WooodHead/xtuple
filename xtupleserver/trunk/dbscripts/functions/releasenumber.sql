@@ -25,14 +25,10 @@ BEGIN
           quote_literal(_number) || ');'
   INTO _test;
 
-  IF (NOT FOUND) THEN
-    RETURN 0;
-  END IF;
-
   -- check if order seq has been incremented past the given order number
   -- S/O code reads: IF ((_test - 1) <> pSoNumber) THEN
   -- but the following /should/ address bug 4020 (can't reproduce it to test)
-  IF ((_test - 1) > pnumber) THEN
+  IF (FOUND AND ((_test - 1) > pnumber)) THEN
     RETURN 0;
   END IF;
 
@@ -57,6 +53,8 @@ BEGIN
     UPDATE orderseq
     SET orderseq_number = (orderseq_number - 1)
     WHERE (orderseq_name=psequence);
+  ELSE
+    RAISE NOTICE 'cannot update orderseq';
   END IF;
 
   RETURN 1;
