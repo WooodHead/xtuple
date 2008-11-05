@@ -144,12 +144,15 @@ BEGIN
     IF (_r.item_type != ''J'') THEN
       -- This is inventory so handle with g/l transaction
       SELECT postInvTrans( itemsite_id, ''SH'', pQty * coitem_qty_invuomratio,
-			 ''S/R'', porderType,
-			 formatSoNumber(coitem_id), shiphead_number, ''Issue to Shipping'',
-			 costcat_shipasset_accnt_id, costcat_asset_accnt_id,
-			 _itemlocSeries, _timestamp ) INTO _invhistid
-      FROM coitem, itemsite, costcat, shiphead
-      WHERE ( (coitem_itemsite_id=itemsite_id)
+			   ''S/R'', porderType,
+			   formatSoNumber(coitem_id), shiphead_number,
+                           (''Issue '' || item_number || '' to Shipping for customer '' || cohead_billtoname),
+			   costcat_shipasset_accnt_id, costcat_asset_accnt_id,
+			   _itemlocSeries, _timestamp ) INTO _invhistid
+      FROM coitem, cohead, itemsite, item, costcat, shiphead
+      WHERE ( (coitem_cohead_id=cohead_id)
+       AND (coitem_itemsite_id=itemsite_id)
+       AND (itemsite_item_id=item_id)
        AND (itemsite_costcat_id=costcat_id)
        AND (coitem_id=pitemid)
        AND (shiphead_id=_shipheadid) );

@@ -75,7 +75,7 @@ BEGIN
       END LOOP;
     END IF;
 
-    FOR _c IN SELECT coitem_id, cohead_number, cohead_cust_id,
+    FOR _c IN SELECT coitem_id, cohead_number, cohead_cust_id, cohead_billtoname,
 		     itemsite_id, itemsite_item_id,
                      coitem_qty_invuomratio,
                      coitem_warranty, coitem_cos_accnt_id,
@@ -89,12 +89,12 @@ BEGIN
 	       AND (shipitem_orderitem_id=coitem_id)
 	       AND (NOT shiphead_shipped)
 	       AND (shiphead_id=pshipheadid) )
-	      GROUP BY coitem_id, coitem_qty_invuomratio, cohead_number, cohead_cust_id,
+	      GROUP BY coitem_id, coitem_qty_invuomratio, cohead_number, cohead_cust_id, cohead_billtoname,
 		       itemsite_id, itemsite_item_id, coitem_warranty, coitem_cos_accnt_id LOOP
 
       IF _c._value > 0 THEN
   --    Distribute to G/L, credit Shipping Asset, debit COS
-	SELECT MIN(insertGLTransaction( 'S/R', 'SH', _shiphead.shiphead_number, 'Ship Shipment',
+	SELECT MIN(insertGLTransaction( 'S/R', 'SH', _shiphead.shiphead_number, ('Ship Shipment to Customer ' || _c.cohead_billtoname),
 				     costcat_shipasset_accnt_id,
                                      CASE WHEN(COALESCE(_c.coitem_cos_accnt_id, -1) != -1) THEN _c.coitem_cos_accnt_id
                                           WHEN(_c.coitem_warranty=TRUE) THEN resolveCOWAccount(itemsite_id, _c.cohead_cust_id)

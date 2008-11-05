@@ -38,18 +38,21 @@ BEGIN
     _itemlocSeries = pItemlocSeries;
   END IF;
   SELECT postInvTrans( ci.itemsite_id, 'IM', (_qty * -1), 
-                       'W/O', 'WO', _woNumber, '', 'Return Material from Work Order',
+                       'W/O', 'WO', _woNumber, '',
+                       ('Return ' || item_number || ' from Work Order'),
                        pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries, CURRENT_DATE,
                       (SELECT (SUM(invhist_value_before - invhist_value_after) / SUM(invhist_qoh_before - invhist_qoh_after) ) FROM invhist, womatlpost WHERE((womatlpost_womatl_id=womatl_id) AND (womatlpost_invhist_id=invhist_id) and (invhist_qoh_before > invhist_qoh_after))) * _qty
                      ) INTO _invhistid
     FROM womatl, wo,
          itemsite AS ci, costcat AS cc,
-         itemsite AS pi, costcat AS pc
+         itemsite AS pi, costcat AS pc,
+         item
    WHERE((womatl_itemsite_id=ci.itemsite_id)
      AND (ci.itemsite_costcat_id=cc.costcat_id)
      AND (womatl_wo_id=wo_id)
      AND (wo_itemsite_id=pi.itemsite_id)
      AND (pi.itemsite_costcat_id=pc.costcat_id)
+     AND (ci.itemsite_item_id=item_id)
      AND (womatl_id=pWomatlid) );
 
 --  Create linkage to the transaction created

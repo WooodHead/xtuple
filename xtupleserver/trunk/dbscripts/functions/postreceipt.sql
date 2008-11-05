@@ -17,11 +17,12 @@ BEGIN
 	 round(currToBase(recv_freight_curr_id, recv_freight, recv_date::DATE),
 	       2) AS recv_freight_base,
 	 recv_freight, recv_freight_curr_id, recv_date, recv_gldistdate,
-	 itemsite_id, itemsite_item_id, item_inv_uom_id, itemsite_costmethod
+	 itemsite_id, itemsite_item_id, item_inv_uom_id, itemsite_costmethod,
+         vend_name
 	 INTO _r
-  FROM recv LEFT OUTER JOIN
-       itemsite ON (recv_itemsite_id=itemsite_id) LEFT OUTER JOIN
-       item ON (itemsite_item_id=item_id)
+  FROM recv LEFT OUTER JOIN itemsite ON (recv_itemsite_id=itemsite_id)
+            LEFT OUTER JOIN item ON (itemsite_item_id=item_id)
+            LEFT OUTER JOIN vendinfo ON (recv_vend_id=vend_id)
   WHERE ((recv_id=precvid)
     AND  (NOT recv_posted));
 
@@ -35,7 +36,7 @@ BEGIN
     RETURN -11;
 
   ELSIF (_r.recv_order_type ='PO') THEN
-    _ordertypeabbr := 'P/O';
+    _ordertypeabbr := ('P/O for ' || _r.vend_name);
   ELSIF (_r.recv_order_type ='RA') THEN
     _ordertypeabbr := 'R/A';
   ELSIF (_r.recv_order_type ='TO') THEN

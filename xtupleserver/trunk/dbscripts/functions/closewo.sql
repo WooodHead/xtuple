@@ -22,24 +22,26 @@ BEGIN
   SELECT formatWoNumber(pWoid) INTO _woNumber;
 
 --  Distribute any remaining wo_wipvalue to G/L - debit Inventory Cost, credit WIP
-  PERFORM insertGLTransaction( 'W/O', 'WO', _woNumber, 'Manufacturing Inventory Cost Variance',
+  PERFORM insertGLTransaction( 'W/O', 'WO', _woNumber, ('Manufacturing Inventory Cost Variance for ' || item_number),
                                costcat_wip_accnt_id, costcat_invcost_accnt_id, -1,
                                wo_wipvalue, CURRENT_DATE )
-  FROM wo, itemsite, costcat
+  FROM wo, itemsite, item, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)
+   AND (itemsite_item_id=item_id)
    AND (itemsite_costcat_id=costcat_id)
    AND (wo_id=pWoid) );
 
 --  Distribute any remaining wo_brdvalue to G/L - debit Inventory Cost, credit WIP
-  PERFORM insertGLTransaction( 'W/O', 'WO', _woNumber, 'Breeder Inventory Cost Variance',
+  PERFORM insertGLTransaction( 'W/O', 'WO', _woNumber, ('Breeder Inventory Cost Variance for ' || item_number),
                                costcat_wip_accnt_id,
                                CASE WHEN(itemsite_costmethod='A') THEN costcat_asset_accnt_id
                                     ELSE costcat_invcost_accnt_id
                                END,
                                -1,
                                wo_brdvalue, CURRENT_DATE )
-  FROM wo, itemsite, costcat
+  FROM wo, itemsite, item, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)
+   AND (itemsite_item_id=item_id)
    AND (itemsite_costcat_id=costcat_id)
    AND (wo_id=pWoid) );
 

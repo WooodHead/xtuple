@@ -75,14 +75,16 @@ BEGIN
     SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
   END IF;
   SELECT postInvTrans( ci.itemsite_id, 'IM', _p.qty,
-                      'W/O', 'WO', _p.woNumber, '', 'Material Issue to Work Order',
+                      'W/O', 'WO', _p.woNumber, '', ('Material ' || item_number || ' Issue to Work Order'),
                       pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries ) INTO _invhistid
   FROM itemsite AS ci, itemsite AS pi,
-       costcat AS cc, costcat AS pc
+       costcat AS cc, costcat AS pc,
+       item
   WHERE ( (ci.itemsite_costcat_id=cc.costcat_id)
    AND (pi.itemsite_costcat_id=pc.costcat_id)
    AND (ci.itemsite_id=_p.c_itemsite_id)
-   AND (pi.itemsite_id=_p.p_itemsite_id) );
+   AND (pi.itemsite_id=_p.p_itemsite_id)
+   AND (ci.itemsite_item_id=item_id) );
 
 --  Create linkage to the transaction created
   IF (_invhistid != -1) THEN

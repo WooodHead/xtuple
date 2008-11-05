@@ -133,7 +133,7 @@ BEGIN
            ( noNeg(_wooperitem.wooper_sutime - 
              _wooperitem.wooper_suconsumed ) > 0) ) THEN
         _suTime := _wooperitem.wooper_sutime;
-        PERFORM postSutime(wooper_id, _suTime, TRUE)
+        PERFORM postSutime(wooper_id, _suTime, TRUE, pSuUser)
         FROM wooper
         WHERE (wooper_id=_wooperitem.wooper_id);
       END IF;
@@ -143,7 +143,7 @@ BEGIN
            (_wooperitem.wooper_invproduomratio <> 0) ) THEN
 
         _rnTime := (_wooperitem.wooper_rnqtyper / _wooperitem.wooper_invproduomratio * _parentQty);
-        PERFORM postRntime(wooper_id, _rnTime, FALSE, pQty )
+        PERFORM postRntime(wooper_id, _rnTime, FALSE, pQty, pRnUser )
         FROM wooper
         WHERE (wooper_id=_wooperitem.wooper_id);
 
@@ -177,12 +177,13 @@ BEGIN
   WHERE (wo_id=pWoid);         
 
   SELECT postInvTrans( itemsite_id, 'RM', _parentQty, 
-                       'W/O', 'WO', _woNumber, '', 'Receive Inventory from Manufacturing',
+                       'W/O', 'WO', _woNumber, '', ('Receive Inventory ' || item_number || ' from Manufacturing'),
                        costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, CURRENT_DATE,
                        -- the following is only actually used when the item is average costed
                        _wipPost ) INTO _invhistid
-  FROM wo, itemsite, costcat
+  FROM wo, itemsite, item, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)
+   AND (itemsite_item_id=item_id)
    AND (itemsite_costcat_id=costcat_id)
    AND (wo_id=pWoid) );
 

@@ -47,11 +47,13 @@ BEGIN
 	RETURN -1;
       END IF;
 
-      PERFORM insertGLTransaction( ''W/O'', ''WO'', formatWoNumber(womatl_wo_id), ''Scrap Material from Work Order'',
+      PERFORM insertGLTransaction( ''W/O'', ''WO'', formatWoNumber(womatl_wo_id),
+                                   (''Scrap '' || item_number || '' from Work Order''),
 				   _r.costcat_wip_accnt_id, costcat_mfgscrap_accnt_id, -1,
 				   (stdCost(itemsite_item_id) * itemuomtouom(_itemid, _uomid, NULL, _toIssue)), CURRENT_DATE )
-      FROM womatl, itemsite, costcat
+      FROM womatl, itemsite, item, costcat
       WHERE ( (womatl_itemsite_id=itemsite_id)
+       AND (itemsite_item_id=item_id)
        AND (itemsite_costcat_id=costcat_id)
        AND (womatl_id=pWomatlid) );
     END IF;
@@ -64,11 +66,12 @@ BEGIN
 
     --  Distribute to G/L
     PERFORM insertGLTransaction( ''W/O'', ''WO'', formatWoNumber(womatl_wo_id),
-				 ''Scrap Material from Work Order'',
+				 (''Scrap '' || item_number || '' from Work Order''),
 				 _r.costcat_wip_accnt_id, costcat_mfgscrap_accnt_id, -1,
 				 (stdCost(itemsite_item_id) * itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)), CURRENT_DATE )
-    FROM womatl, itemsite, costcat
+    FROM womatl, itemsite, item, costcat
     WHERE ( (womatl_itemsite_id=itemsite_id)
+     AND (itemsite_item_id=item_id)
      AND (itemsite_costcat_id=costcat_id)
      AND (womatl_id=pWomatlid) );
 

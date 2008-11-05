@@ -87,10 +87,12 @@ BEGIN
       END IF;
 
       SELECT postInvTrans( itemsite_id, 'IM', (_invqty * -1),
-                           'W/O', 'WO', formatwonumber(pWoid), '', 'Correct Receive from Manufacturing',
+                           'W/O', 'WO', formatwonumber(pWoid), '',
+                           ('Correct Receive Inventory ' || item_number || ' from Manufacturing'),
                            _parentWIPAccntid, costcat_asset_accnt_id, _itemlocSeries ) INTO _invhistid
-      FROM itemsite, costcat
-      WHERE ( (itemsite_costcat_id=costcat_id)
+      FROM itemsite, item, costcat
+      WHERE ( (itemsite_item_id=item_id)
+       AND (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_r.itemsite_id) );
 
 --  Decrease the parent W/O's WIP value by the value of the returned components
@@ -142,12 +144,14 @@ BEGIN
 
 --  Post the inventory transaction
   SELECT postInvTrans( itemsite_id, 'RM', (_parentQty * -1),
-                       'W/O', 'WO', formatwonumber(pWoid), '', 'Correct Receive from Manufacturing',
+                       'W/O', 'WO', formatwonumber(pWoid), '',
+                       ('Correct Receive Inventory ' || item_number || ' from Manufacturing'),
                        costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, CURRENT_DATE,
                        ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) * _parentQty -- only used when cost is average
                        ) INTO _invhistid
-  FROM wo, itemsite, costcat
+  FROM wo, itemsite, item, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)
+   AND (itemsite_item_id=item_id)
    AND (itemsite_costcat_id=costcat_id)
    AND (wo_id=pWoid) );
 

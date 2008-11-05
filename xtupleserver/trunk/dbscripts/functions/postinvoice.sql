@@ -192,7 +192,7 @@ BEGIN
                                       _firstExchDate), 2);
       SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN',
                                  _p.invchead_invcnumber, _tmpAccntId,
-                                 _roundedBase, _glDate ) INTO _test;
+                                 _roundedBase, _glDate, _p.invchead_billto_name ) INTO _test;
 
       _totalAmount := (_totalAmount + _amount);
       _totalRoundedBase := _totalRoundedBase + _roundedBase;
@@ -275,7 +275,7 @@ BEGIN
                                       _firstExchDate), 2);
       SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN', _p.invchead_invcnumber,
                                  _r.salescat_sales_accnt_id, _roundedBase,
-                                 _glDate ) INTO _test;
+                                 _glDate, _p.invchead_billto_name ) INTO _test;
       IF (_test < 0) THEN
         PERFORM deleteGLSeries(_p.sequence);
         DELETE FROM cohist
@@ -357,7 +357,7 @@ BEGIN
                                       _firstExchDate), 2);
       SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN', _p.invchead_invcnumber,
                                  _p.freightaccntid, _roundedBase,
-                                 _glDate ) INTO _test;
+                                 _glDate, _p.invchead_billto_name ) INTO _test;
 
 --  Cache the Freight Amount distributed
         _totalAmount := (_totalAmount + _p.invchead_freight);
@@ -442,7 +442,7 @@ BEGIN
                                      _firstExchDate), 2);
     SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN', _p.invchead_invcnumber,
                                _p.invchead_misc_accnt_id, _roundedBase,
-                               _glDate ) INTO _test;
+                               _glDate, _p.invchead_billto_name ) INTO _test;
 
 --  If the Misc. Charges Account was not found then punt
     IF (_test < 0) THEN
@@ -558,7 +558,7 @@ BEGIN
         SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN',
                                    _p.invchead_invcnumber, getGainLossAccntId(),
                                    round(_exchGain, 2) * -1,
-                                   _glDate ) INTO _test ;
+                                   _glDate, _p.invchead_billto_name ) INTO _test ;
         IF (_test < 0) THEN
           PERFORM deleteGLSeries(_p.sequence);
           DELETE FROM cohist
@@ -573,7 +573,7 @@ BEGIN
     IF (_p.araccntid != -1) THEN
       PERFORM insertIntoGLSeries( _p.sequence, 'A/R', 'IN', _p.invchead_invcnumber,
                                   _p.araccntid, round(_totalRoundedBase * -1, 2),
-                                  _glDate );
+                                  _glDate, _p.invchead_billto_name );
     ELSE
       PERFORM deleteGLSeries(_p.sequence);
       DELETE FROM cohist

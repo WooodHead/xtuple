@@ -34,12 +34,13 @@ BEGIN
 
   SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
   SELECT postInvTrans( itemsite_id, 'RX', pQty,
-                       'I/M', '', pDocumentNumber, '',
-                       (E'Miscellaneous Receipt\n' ||  pComments),
+                       'I/M', 'RX', pDocumentNumber, '',
+                       ('Miscellaneous Receipt for item ' || item_number || E'\n' ||  pComments),
                        costcat_asset_accnt_id, costcat_liability_accnt_id,
                        _itemlocSeries, pGlDistTS, pCostValue) INTO _invhistid
-  FROM itemsite, costcat
-  WHERE ( (itemsite_costcat_id=costcat_id)
+  FROM itemsite, item, costcat
+  WHERE ( (itemsite_item_id=item_id)
+   AND (itemsite_costcat_id=costcat_id)
    AND (itemsite_id=pItemsiteid) );
 
   RETURN _itemlocSeries;

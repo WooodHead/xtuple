@@ -103,6 +103,7 @@ DECLARE
   pSalesrepid		ALIAS FOR $13;
   pCommissiondue	ALIAS FOR $14;
   pCurrId		ALIAS FOR $15;
+  _custName TEXT;
   _journalNumber INTEGER;
   _prepaidAccntid INTEGER;
   _salescatid INTEGER;
@@ -122,6 +123,10 @@ BEGIN
   _accntid := pAccntid;
   _salescatid := pSalescatid;
 
+  SELECT cust_name INTO _custName
+  FROM custinfo
+  WHERE (cust_id=pCustid);
+  
   PERFORM accnt_id
      FROM accnt
     WHERE (accnt_id=_accntid);
@@ -151,7 +156,7 @@ BEGIN
   SELECT NEXTVAL(''aropen_aropen_id_seq'') INTO _aropenid;
 
   SELECT insertGLTransaction( _journalNumber, ''A/R'', ''DM'',
-                              pDocNumber, pNotes, cr.accnt_id, db.accnt_id,
+                              pDocNumber, (_custName || '' '' || pNotes), cr.accnt_id, db.accnt_id,
                               _aropenid,
                               round(currToBase(pCurrId, pAmount, pDocDate), 2),
                               pDocDate) INTO _glSequence
