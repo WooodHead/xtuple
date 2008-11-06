@@ -3,7 +3,7 @@
 
 
 //--------Login into Appl----------
-function loginAppl(usr)
+function loginAppl(vrsn,database,usr)
 {
    
     var set = testData.dataset("login.txt");
@@ -17,7 +17,12 @@ function loginAppl(usr)
        version=testData.field(set[records],"VERSION");
        user=testData.field(set[records],"USER");
        pwd=testData.field(set[records],"PASS");
-       if(user==usr) break;
+       if(user==usr && vrsn==version && database==db) break;
+    }
+    if(user!=usr || vrsn!=version || database!=db)
+    {
+        test.fatal("User Not found in TestData - login.txt");
+        exit(1);
     }
     waitForObject(":Log In.Options_QPushButton");
     clickButton(":Log In.Options_QPushButton");
@@ -105,9 +110,28 @@ function createDept(DeptNum, DeptName)
     type(":List Departments._name_XLineEdit", DeptName);
     waitForObject(":List Departments.Save_QPushButton");
     clickButton(":List Departments.Save_QPushButton");
+    var sWidgetTreeControl = ":List Departments._deptList_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    for(i=1;sNameOfRootItem!="MFG" || i<iNumberOfRootItems ;i++)
+    {
+        type(sWidgetTreeControl,"<Down>");           
+        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
+        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    }
+    if(sNameOfRootItem=="MFG")
+        test.pass("New Department:"+ DeptNum + " created");
+    else
+        test.fail("New Department:"+ DeptNum + " not created")
+    
     waitForObject(":List Departments.Close_QPushButton");
     clickButton(":List Departments.Close_QPushButton");
-    test.log("New Department:"+ DeptNum + " created");
+    
 }
 
 
@@ -126,9 +150,29 @@ function createShift(ShiftNum, ShiftName)
     type(":List Shifts._number_XLineEdit",ShiftNum);
     type(":List Shifts._name_XLineEdit", ShiftName);
     clickButton(":List Shifts.Save_QPushButton");
+   
+    var sWidgetTreeControl = ":List Shifts._shiftList_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    for(i=1;sNameOfRootItem!="1ST" || i<iNumberOfRootItems ;i++)
+    {
+        type(sWidgetTreeControl,"<Down>");           
+        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
+        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    }
+    if(sNameOfRootItem=="1ST")
+        test.pass("New Shift:"+ ShiftNum + " created");
+    else
+        test.fail("New Shift:"+ ShiftNum + "not created")
+    
     waitForObject(":List Shifts.Close_QPushButton");
     clickButton(":List Shifts.Close_QPushButton");
-    test.log("New Shift: "+ ShiftNum +" created");
+    
 }
 
 
@@ -147,24 +191,50 @@ function createLocale(LocaleCode,LocaleDesc)
     type(":_code_XLineEdit", LocaleCode);
     type(":_description_XLineEdit", LocaleDesc);   
     type(":_language_XComboBox","English");
-    type(":_country_XComboBox", "United");   
+    type(":_country_XComboBox", "United");  
+    snooze(0.5);
     type(":_country_XComboBox", "u");   
-    type(":_currencyScale_QSpinBox","<Del>");
-    type(":_currencyScale_QSpinBox","2");
-    type(":_salesPriceScale_QSpinBox","<Del>");
-    type(":_salesPriceScale_QSpinBox", "2");
-    type(":_purchPriceScale_QSpinBox", "<Del>");
-    type(":_purchPriceScale_QSpinBox", "2");
-    type(":_extPriceScale_QSpinBox", "<Del>");
-    type(":_extPriceScale_QSpinBox", "2");
-    type(":_costScale_QSpinBox", "<Del>");
-    type(":_costScale_QSpinBox", "2");
-    type(":_qtyScale_QSpinBox", "<Del>");
-    type(":_qtyScale_QSpinBox", "2");
-    type(":_qtyPerScale_QSpinBox", "<Del>");
-    type(":_qtyPerScale_QSpinBox", "6");
-    type(":_uomRatioScale_QSpinBox", "<Del>");
-    type(":_uomRatioScale_QSpinBox", "6");
+    if(findObject(":_currencyScale_QSpinBox").text!=2)
+    {
+ 
+        type(":_currencyScale_QSpinBox","<Del>");
+        type(":_currencyScale_QSpinBox","2");
+    }
+    if(findObject(":_salesPriceScale_QSpinBox").text!=2)
+    { 
+        type(":_salesPriceScale_QSpinBox","<Del>");
+        type(":_salesPriceScale_QSpinBox", "2");
+    }
+    if(findObject(":_purchPriceScale_QSpinBox").text!=2)
+    {     
+        type(":_purchPriceScale_QSpinBox", "<Del>");
+        type(":_purchPriceScale_QSpinBox", "2");
+    }
+    if(findObject(":_extPriceScale_QSpinBox").text!=2)
+    { 
+        type(":_extPriceScale_QSpinBox", "<Del>");
+        type(":_extPriceScale_QSpinBox", "2");
+    }
+    if(findObject(":_costScale_QSpinBox").text!=2)
+    { 
+        type(":_costScale_QSpinBox", "<Del>");
+        type(":_costScale_QSpinBox", "2");
+    }
+    if(findObject(":_qtyScale_QSpinBox").text!=2)
+    { 
+        type(":_qtyScale_QSpinBox", "<Del>");
+        type(":_qtyScale_QSpinBox", "2");
+    }
+    if(findObject(":_qtyPerScale_QSpinBox").text!=6)
+    { 
+        type(":_qtyPerScale_QSpinBox", "<Del>");
+        type(":_qtyPerScale_QSpinBox", "6");
+    }
+    if(findObject(":_uomRatioScale_QSpinBox").text!=6)
+    { 
+        type(":_uomRatioScale_QSpinBox", "<Del>");
+        type(":_uomRatioScale_QSpinBox", "6");
+    }
     type(":_error_QLineEdit", "red");
     type(":_warning_QLineEdit", "orange");
     type(":_emphasis_QLineEdit", "lime");
@@ -173,9 +243,28 @@ function createLocale(LocaleCode,LocaleDesc)
     type(":_future_QLineEdit", "green");
     type(":_comments_QTextEdit", "My Locale for Class");
     clickButton(":List Locales.Save_QPushButton");
+    
+    var sWidgetTreeControl = ":List Locales._locale_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    for(i=1;sNameOfRootItem!="MYLOCALE" || i<iNumberOfRootItems ;i++)
+    {
+        type(sWidgetTreeControl,"<Down>");           
+        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
+        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    }
+    if(sNameOfRootItem=="MYLOCALE")
+        test.pass("New Locale:'"+LocaleCode+"' created ");
+    else
+        test.fail("New Locale:'"+LocaleCode+"' not created ");
     waitForObject(":List Locales.Close_QPushButton");
     clickButton(":List Locales.Close_QPushButton");
-    test.log("New Locale:'"+LocaleCode+"' created ");
+
 
 }
 
@@ -200,9 +289,27 @@ function createGroup(GrpName, GrpDesc)
     }
     waitForObject(":List Groups.Save_QPushButton");
     clickButton(":List Groups.Save_QPushButton");
+
+    var sWidgetTreeControl = ":List Groups._list_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    for(i=1;sNameOfRootItem!=GrpName || i<iNumberOfRootItems ;i++)
+    {
+        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
+        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+        type(sWidgetTreeControl,"<Down>"); 
+    }
+    if(sNameOfRootItem==GrpName)
+        test.pass("New Group: '"+GrpName+"' created");
+    else
+        test.fail("New Group: '"+GrpName+"' not created");
     waitForObject(":List Groups.Close_QPushButton");
     clickButton(":List Groups.Close_QPushButton");
-    test.log("New Group: '"+GrpName+"' created");
 
 }
 
@@ -227,6 +334,7 @@ function createUser(user_created)
     type(":_locale_XComboBox", "<Down>");
     waitForObject(":List Users.Save_QPushButton_2");
     clickButton(":List Users.Save_QPushButton_2");
+    
     var sWidgetTreeControl = ":List Users._usr_XTreeWidget_2";
     waitForObject(sWidgetTreeControl);
     var obj_TreeWidget = findObject(sWidgetTreeControl);
@@ -242,19 +350,42 @@ function createUser(user_created)
         obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
         sNameOfRootItem = obj_TreeTopLevelItem.text(0);
     }
+    if(sNameOfRootItem==user_created)
+        test.pass(user_created +" created and added 'SUPER' group privilege");
+    else 
+    {
+        test.fail(user_created +" created and added 'SUPER' group privilege");
+        exit(1);
+    }
     clickButton(":List Users.Edit_QPushButton_2");
     clickTab(":List Users.qt_tabwidget_tabbar_QTabBar", "Groups");
-    type(":_groupTab._availableGroup_XTreeWidget","<Space>");
+    sWidgetTreeControl = ":_groupTab._availableGroup_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    obj_TreeWidget = findObject(sWidgetTreeControl);
+    obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    for(i=1;sNameOfRootItem!="SUPER" || i<iNumberOfRootItems ;i++)
+    {
+       
+        waitForObject(sWidgetTreeControl); 
+        type(sWidgetTreeControl,"<Down>");           
+        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
+        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    }
     waitForObject(":_groupTab.Add->_QPushButton");
     clickButton(":_groupTab.Add->_QPushButton");
     waitForObject(":List Users.Save_QPushButton_2");
     clickButton(":List Users.Save_QPushButton_2");
-    waitForObject(":List Users.Close_QPushButton_2");
+     waitForObject(":List Users.Close_QPushButton_2");
     clickButton(":List Users.Close_QPushButton_2");
-    test.log(user_created +" created and added 'SUPER' group privilege");
+   
     
     //-----Add the User created to the testdata file: login.txt-------------
-    test.log("working directory :" +OS.cwd());
+    var CurrentDirectory=OS.cwd();
+    test.log("working directory :" +CurrentDirectory);
     if(!File.exists("..//shared//testdata//login.txt"))
         test.Fail("login.txt file doesnt exists in the path - ..//shared//testdata//login.txt");
     var f = File.open("..//shared//testdata//login.txt","a");
@@ -262,15 +393,11 @@ function createUser(user_created)
     f.close();
     test.log("login credentials updated to testdata: login.txt");
     
-    
-    
 }
 
-
-
-    
+ 
 //--------------Accounting-Account-Companies-New---------------------
-function createComp(CompNum, CompDesc)
+function createCompany(CompNum, CompDesc)
 {
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -286,9 +413,29 @@ function createComp(CompNum, CompDesc)
     type(":_descrip_XTextEdit", CompDesc);
     waitForObject(":List Companies.Save_QPushButton");
     clickButton(":List Companies.Save_QPushButton");
+  
+    var sWidgetTreeControl = ":List Companies._company_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    for(i=1;sNameOfRootItem!=CompNum || i<iNumberOfRootItems ;i++)
+    {
+        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
+        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+        type(sWidgetTreeControl,"<Down>"); 
+    }
+    if(sNameOfRootItem==CompNum)
+        test.pass("Company: "+CompDesc+" created");
+    else
+        test.fail("Company: "+CompDesc+"not created");
+     
     waitForObject(":List Companies.Close_QPushButton");
     clickButton(":List Companies.Close_QPushButton");
-    test.log("Company: "+CompDesc+" created");
+
 }
 
 //------------Create Chart of Accounts-------------------
