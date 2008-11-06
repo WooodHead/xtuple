@@ -2,17 +2,88 @@ function main()
 {
     
     source(findFile("scripts","functions.js"));
-    loginAppl("3.1.0", "3empty310","admin");
-//    createDept("MFG","Manufacturing");
-//    assignPrivileges();
-//    createShift("1ST","First");
+    loginAppl("3.1.0", "4empty310-chapter2","admin");
+    createDept("MFG","Manufacturing");
+    assignPrivileges();
+    createShift("1ST","First");
     createLocale("MYLOCALE","My Locale For Class");
-//    createGroup("SUPER","Super User Group");
-    var newuser="user04";
+    createGroup("SUPER","Super User Group");
+    var newuser="user01";
     createUser(newuser);
-    createCompany("01","Prodiem");
   
+    //-------------Configure: Accounting Module----------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
+    waitForObject(":_mainSize_QSpinBox");
+    if(findObject(":_mainSize_QSpinBox").currentText!="4")
+    {
+        type(":_mainSize_QSpinBox", "<Ctrl+A>");
+        type(":_mainSize_QSpinBox", "<Del>");
+        type(":_mainSize_QSpinBox", "4");
+    }
+    if(findObject(":_companySegmentSize_QSpinBox").currentText!="2")
+    {
+        type(":_companySegmentSize_QSpinBox", "<Ctrl+A>");
+        type(":_companySegmentSize_QSpinBox", "<Del>");
+        type(":_companySegmentSize_QSpinBox", "2");
+    }
+    if(findObject(":_subaccountSize_QSpinBox").currentText!="2")
+    {
+        type(":_subaccountSize_QSpinBox", "<Ctrl+A>");    
+        type(":_subaccountSize_QSpinBox", "<Del>");
+        type(":_subaccountSize_QSpinBox", "2");
+    }
     
+    waitForObject(":_gl.Use Company Segment_QCheckBox");
+    if(!findObject(":_gl.Use Company Segment_QCheckBox").checked)
+    clickButton(":_gl.Use Company Segment_QCheckBox");
+    waitForObject(":_companyGroup.Enable External Company Consolidation_QCheckBox");
+    if(!findObject(":_companyGroup.Enable External Company Consolidation_QCheckBox").checked)
+        clickButton(":_companyGroup.Enable External Company Consolidation_QCheckBox");
+    waitForObject(":_gl.Use Profit Centers_QCheckBox");
+    if(!findObject(":_gl.Use Profit Centers_QCheckBox").checked)
+        clickButton(":_gl.Use Profit Centers_QCheckBox");
+    waitForObject(":_profitCenterGroup.Allow Free-Form Profit Centers_QCheckBox");
+    if(!findObject(":_profitCenterGroup.Allow Free-Form Profit Centers_QCheckBox").checked)
+        clickButton(":_profitCenterGroup.Allow Free-Form Profit Centers_QCheckBox");
+    waitForObject(":_gl.Use Subaccounts_QCheckBox");
+    if(!findObject(":_gl.Use Subaccounts_QCheckBox").checked)
+    clickButton(":_gl.Use Subaccounts_QCheckBox");
+    waitForObject(":_subaccountGroup.Allow Free-Form Subaccounts_QCheckBox");
+    if(findObject(":_subaccountGroup.Allow Free-Form Subaccounts_QCheckBox").checked)
+        findObject(":_subaccountGroup.Allow Free-Form Subaccounts_QCheckBox").checked=false;
+    if(findObject(":_profitCenterSize_QSpinBox").currentText!="2")
+    {
+        waitForObject(":_profitCenterSize_QSpinBox");
+        type(":_profitCenterSize_QSpinBox", "<Ctrl+A>");
+        type(":_profitCenterSize_QSpinBox", "<Del>");
+        type(":_profitCenterSize_QSpinBox", "2");
+    }
+    waitForObject(":_gl.Enforce mandatory notes for Manual G/L Entries_QCheckBox");
+    if(!findObject(":_gl.Enforce mandatory notes for Manual G/L Entries_QCheckBox").checked)
+        clickButton(":_gl.Enforce mandatory notes for Manual G/L Entries_QCheckBox");
+    waitForObject(":_gl.Allow manual entry of G/L Account Numbers_QCheckBox");
+    if(!findObject(":_gl.Allow manual entry of G/L Account Numbers_QCheckBox").checked)
+        clickButton(":_gl.Allow manual entry of G/L Account Numbers_QCheckBox");
+    waitForObject(":_taxauth_XComboBox")
+    while (findObject(":_taxauth_XComboBox").currentText!= "None")
+    {
+            waitForObject(":_taxauth_XComboBox");
+            type(":_taxauth_XComboBox","<Down>");
+    }
+    waitForObject(":Meaning of Currency Exchange Rates:.Foreign × Exchange Rate = Base_QRadioButton");
+    clickButton(":Meaning of Currency Exchange Rates:.Foreign × Exchange Rate = Base_QRadioButton");
+    waitForObject(":Accounting Configuration.Save_QPushButton");
+    clickButton(":Accounting Configuration.Save_QPushButton");
+    test.log("Acconting Module Configured");
+  
+    createCompany("01","Prodiem");
+
+  
     //-------------Accounting-Profit Center Number---------------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -26,10 +97,29 @@ function main()
     type(":List Profit Centers._descrip_QTextEdit", "Profit Center 01");
     waitForObject(":List Profit Centers.Save_QPushButton");
     clickButton(":List Profit Centers.Save_QPushButton");
+    
+    var sWidgetTreeControl = ":List Profit Centers._prftcntr_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    for(i=1;sNameOfRootItem!="01" || i<iNumberOfRootItems ;i++)
+    {
+        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
+        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+        type(sWidgetTreeControl,"<Down>"); 
+    }
+    if(sNameOfRootItem=="01")
+        test.pass("Profit Center Number: 01 created");
+    else
+        test.fail("Profit Center Number: 01 not created");
     waitForObject(":List Profit Centers.Close_QPushButton");
     clickButton(":List Profit Centers.Close_QPushButton");
-    test.log("Profit Center Number: 01 created")
-    
+
+  
     //--------------Accounting-Account-SubAccount Numbers-----------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -42,10 +132,31 @@ function main()
     type(":List Subaccounts._descrip_QTextEdit", "Subaccount 01 - General");
     waitForObject(":List Subaccounts.Save_QPushButton");
     clickButton(":List Subaccounts.Save_QPushButton");
+    
+    var sWidgetTreeControl = ":List Subaccounts._subaccnt_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    for(i=1;sNameOfRootItem!="01" || i<iNumberOfRootItems ;i++)
+    {
+        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
+        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+        type(sWidgetTreeControl,"<Down>"); 
+    }
+    if(sNameOfRootItem=="01")
+        test.pass("Profit Center Number: 01 created");
+    else
+        test.fail("Profit Center Number: 01 not created");
     waitForObject(":List Subaccounts.Close_QPushButton");
     clickButton(":List Subaccounts.Close_QPushButton");
     test.log("SubAccount: 01-General created");
 
+  
+  
     //------------Account-Account-SubAccount Types-----------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -75,10 +186,35 @@ function main()
     type(":List G/L Subaccount Types._description_XLineEdit", "Depreciation Expense");
     waitForObject(":List G/L Subaccount Types.Save_QPushButton");
     clickButton(":List G/L Subaccount Types.Save_QPushButton");
-    test.log("SubAccount: DXP-Expenses-Depreciation Expense created");
-    waitForObject(":List G/L Subaccount Types.Close_QPushButton");
-    clickButton(":List G/L Subaccount Types.Close_QPushButton");
+      test.log("SubAccount: DXP-Expenses-Depreciation Expense created");
     
+    var sWidgetTreeControl = ":List G/L Subaccount Types._subaccnttypes_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    var cnt=0;
+    for(i=1;i<iNumberOfRootItems ;i++)
+    {
+        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
+        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+        if(sNameOfRootItem=="SO" || sNameOfRootItem=="DXP") cnt++;
+        type(sWidgetTreeControl,"<Down>"); 
+    }
+    if(cnt==2)
+        test.pass("SubAccounts created");
+    else
+        test.fail("SubAccounts not created");
+  
+  
+  
+  
+      waitForObject(":List G/L Subaccount Types.Close_QPushButton");
+    clickButton(":List G/L Subaccount Types.Close_QPushButton");
+  
     
     //--------------Create Currencies------------------------       
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -87,42 +223,63 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Currencies...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Currencies...");
+
+    //----------Create Base Currency-----------------------
+    waitForObject(":List Currencies.New_QPushButton");
+    clickButton(":List Currencies.New_QPushButton");
+    waitForObject(":List Currencies._currName_QLineEdit");
+    type(":List Currencies._currName_QLineEdit", "US Dollars");
+    waitForObject(":List Currencies._currSymbol_QLineEdit");
+    type(":List Currencies._currSymbol_QLineEdit", "$");
+    waitForObject(":List Currencies._currSymbol_QLineEdit");
+    waitForObject(":List Currencies._currAbbr_QLineEdit");
+    type(":List Currencies._currAbbr_QLineEdit", "USD");
+    waitForObject(":List Currencies.Base Currency_QCheckBox");
+    clickButton(":List Currencies.Base Currency_QCheckBox");
+    waitForObject(":List Currencies.Yes_QPushButton");
+    clickButton(":List Currencies.Yes_QPushButton");
+    waitForObject(":List Currencies.Save_QPushButton");
+    clickButton(":List Currencies.Save_QPushButton");
+    waitForObject(":List Currencies.Yes_QPushButton");
+    clickButton(":List Currencies.Yes_QPushButton");
+    test.log("Base Currency: USD($) Created");
   
-//    //----------Create Base Currency-----------------------
-//    waitForObject(":List Currencies.New_QPushButton");
-//    clickButton(":List Currencies.New_QPushButton");
-//    waitForObject(":List Currencies._currName_QLineEdit");
-//    type(":List Currencies._currName_QLineEdit", "US Dollars");
-//    waitForObject(":List Currencies._currSymbol_QLineEdit");
-//    type(":List Currencies._currSymbol_QLineEdit", "$");
-//    waitForObject(":List Currencies._currSymbol_QLineEdit");
-//    waitForObject(":List Currencies._currAbbr_QLineEdit");
-//    type(":List Currencies._currAbbr_QLineEdit", "USD");
-//    waitForObject(":List Currencies.Base Currency_QCheckBox");
-//    clickButton(":List Currencies.Base Currency_QCheckBox");
-//    waitForObject(":List Currencies.Yes_QPushButton");
-//    clickButton(":List Currencies.Yes_QPushButton");
-//    waitForObject(":List Currencies.Save_QPushButton");
-//    clickButton(":List Currencies.Save_QPushButton");
-//    waitForObject(":List Currencies.Yes_QPushButton");
-//    clickButton(":List Currencies.Yes_QPushButton");
-//    test.log("Base Currency: USD($) Created");
-//  
-//    //----------Create Foreign currency - EUR------------
-//    waitForObject(":List Currencies.New_QPushButton");
-//    clickButton(":List Currencies.New_QPushButton");
-//    waitForObject(":List Currencies._currName_QLineEdit");
-//    type(":List Currencies._currName_QLineEdit", "Euros");
-//    waitForObject(":List Currencies._currSymbol_QLineEdit");
-//    type(":List Currencies._currSymbol_QLineEdit", "EUR");
-//    waitForObject(":List Currencies._currAbbr_QLineEdit");
-//    type(":List Currencies._currAbbr_QLineEdit", "EUR");
-//    waitForObject(":List Currencies.Save_QPushButton");
-//    clickButton(":List Currencies.Save_QPushButton");
-//    waitForObject(":List Currencies.Close_QPushButton");
-//    clickButton(":List Currencies.Close_QPushButton");
+    //----------Create Foreign currency - EUR------------
+    waitForObject(":List Currencies.New_QPushButton");
+    clickButton(":List Currencies.New_QPushButton");
+    waitForObject(":List Currencies._currName_QLineEdit");
+    type(":List Currencies._currName_QLineEdit", "Euros");
+    waitForObject(":List Currencies._currSymbol_QLineEdit");
+    type(":List Currencies._currSymbol_QLineEdit", "EUR");
+    waitForObject(":List Currencies._currAbbr_QLineEdit");
+    type(":List Currencies._currAbbr_QLineEdit", "EUR");
+    waitForObject(":List Currencies.Save_QPushButton");
+    clickButton(":List Currencies.Save_QPushButton");   
+  
+    var sWidgetTreeControl = ":List Currencies._curr_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    var cnt=0;
+    for(i=1;i<iNumberOfRootItems ;i++)
+    {
+        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
+        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+        if(sNameOfRootItem=="SO" || sNameOfRootItem=="DXP") cnt++;
+        type(sWidgetTreeControl,"<Down>"); 
+    }
+    if(cnt==2)
+        test.pass("SubAccounts created");
+    else
+        test.fail("SubAccounts not created");
+    waitForObject(":List Currencies.Close_QPushButton");
+    clickButton(":List Currencies.Close_QPushButton");
     test.log("Foreign Currency: EUR created");
-    
+  
     //----------Create Exchange Rates-------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -144,7 +301,7 @@ function main()
     waitForObject(":List Currency Exchange Rates.Close_QPushButton");
     clickButton(":List Currency Exchange Rates.Close_QPushButton");
     test.log("Exchange Rate for EUR created");
-    
+  
 
     //-----------Chart Of Accounts-------------------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -158,7 +315,8 @@ function main()
     COA("01","01","3030","01","Retained Earnings","Equity","EC");
     COA("01","01","3040","01","Stock Class B","Equity","EDC");
     COA("01","01","8990","01","Currency Gain / Loss","Expense","EXP");
-    COA("01","01","8995","01","G/L Series Discrepancy","Expense","EXP");
+    COA("01","01","8995","01","G/L Series Discrepancy","Expense","EXP");   
+    
     waitForObject(":Chart of Accounts.Close_QPushButton");
     clickButton(":Chart of Accounts.Close_QPushButton");
 
@@ -205,12 +363,12 @@ function main()
     type(":_issueMethod_QComboBox", "Mixed");
     clickButton(":Products Configuration.Save_QPushButton");
     if(object.exists(":Enable Revision Control.Yes_QPushButton"))
-    clickButton(":Enable Revision Control.Yes_QPushButton");
-	test.log("Product Module Configured");    
+        clickButton(":Enable Revision Control.Yes_QPushButton");
+    test.log("Product Module Configured");    
 
-            
+          
     //-----------Configure: Accounting Module------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
@@ -287,8 +445,8 @@ function main()
     waitForObject(":Manufacture Configuration.Save_QPushButton");
     clickButton(":Manufacture Configuration.Save_QPushButton");
     test.log("Manufacturing Module configured");
-    
-    
+  
+  
     //------------Configure: CRM Module------------------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -297,7 +455,10 @@ function main()
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "CRM...");
     activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "CRM...");
     while(findObject(":CRM Configuration._acctGeneration_QComboBox").currentText!="Automatic, Allow Override")
-        type(":CRM Configuration._acctGeneration_QComboBox", "Automatic, Allow Override","<Down>");
+    {
+        type(":CRM Configuration._acctGeneration_QComboBox","<Down>");
+        waitForObject(":CRM Configuration._acctGeneration_QComboBox");
+    }
     waitForObject(":CRM Configuration._nextAcctNumber_XLineEdit");
     type(":CRM Configuration._nextAcctNumber_XLineEdit", "<Del>");
     type(":CRM Configuration._nextAcctNumber_XLineEdit", "100");
@@ -308,7 +469,7 @@ function main()
     waitForObject(":CRM Configuration.Save_QPushButton");
     clickButton(":CRM Configuration.Save_QPushButton");
     test.log("CRM Module configured");  
-  
+
  
     //------Create Calendars------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -326,25 +487,44 @@ function main()
     type(":List Calendars._descrip_XLineEdit", "8 Weeks Forward From Today");
     for(i=0;i<8;i++)
     {
-    waitForObject(":List Calendars.New_QPushButton_2");
-    clickButton(":List Calendars.New_QPushButton_2");
-    waitForObject(":List Calendars._name_XLineEdit_2");
-    type(":List Calendars._name_XLineEdit_2", "WEEK"+ (i+1));
-    type(":List Calendars._offsetCount_QSpinBox","<Ctrl+A>");
-    type(":List Calendars._offsetCount_QSpinBox","<Del>");
-    type(":List Calendars._offsetCount_QSpinBox",i);
-    type(":List Calendars._offsetType_QComboBox", "Weeks");
-    type(":List Calendars._periodCount_QSpinBox","<Ctrl+A>");
-    type(":List Calendars._periodCount_QSpinBox","Del");
-    type(":List Calendars._periodCount_QSpinBox",1);
-    type(":List Calendars._periodType_QComboBox", "Weeks");
-    clickButton(":List Calendars.Save_QPushButton");    
+        waitForObject(":List Calendars.New_QPushButton_2");
+        clickButton(":List Calendars.New_QPushButton_2");
+        waitForObject(":List Calendars._name_XLineEdit_2");
+        type(":List Calendars._name_XLineEdit_2", "WEEK"+ (i+1));
+        type(":List Calendars._offsetCount_QSpinBox","<Ctrl+A>");
+        type(":List Calendars._offsetCount_QSpinBox","<Del>");
+        type(":List Calendars._offsetCount_QSpinBox",i);
+        type(":List Calendars._offsetType_QComboBox", "Weeks");
+        type(":List Calendars._periodCount_QSpinBox","<Ctrl+A>");
+        type(":List Calendars._periodCount_QSpinBox","Del");
+        type(":List Calendars._periodCount_QSpinBox",1);
+        type(":List Calendars._periodType_QComboBox", "Weeks");
+        clickButton(":List Calendars.Save_QPushButton");    
     }
     waitForObject(":List Calendars.Save_QPushButton_2");
     clickButton(":List Calendars.Save_QPushButton_2");
+    
+    var sWidgetTreeControl = ":List Calendars._calhead_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    for(i=1;sNameOfRootItem!="8WRELDAYFW" || i<iNumberOfRootItems ;i++)
+    {
+        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
+        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+        type(sWidgetTreeControl,"<Down>"); 
+    }
+    if(sNameOfRootItem=="8WRELDAYFW")
+        test.pass("Calendars Created");
+    else
+        test.fail("Calendars not Created");
     waitForObject(":List Calendars.Close_QPushButton");
     clickButton(":List Calendars.Close_QPushButton");
-    test.log("Calendars Created");
+  
     
     
     //----------Configure:Schedule Module-------------------
@@ -383,7 +563,7 @@ function main()
     clickButton(":List Titles.Close_QPushButton");
     test.log("CRM-Mast Info: New Tile created");
     
-  
+
     //-------create Inventory Site: WH1-----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
@@ -420,6 +600,8 @@ function main()
     clickButton(":_whsTypeStack.Enforce the use of Zones_QCheckBox");
     type(":_whsTypeStack._shipcomm_XLineEdit", "0.00");
     clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar", "Site Locations");
+    waitForObject(":_locationsTab.Enforce ARBL Naming Convention_QGroupBox");    
+    type(":_locationsTab.Enforce ARBL Naming Convention_QGroupBox","Space>");
     findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox").checked=true;
     type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "<Ctrl+A>");
     type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "<Del>");
@@ -453,8 +635,8 @@ function main()
     waitForObject(":Save_QPushButton");
     clickButton(":Save_QPushButton");
     test.log("Inventory Site1: WH1 created ");
-    
-    
+  
+  
     //-------create Inventory Site: WH2-----------------
     waitForObject(":List Sites.New_QPushButton");
     clickButton(":List Sites.New_QPushButton");
@@ -491,6 +673,7 @@ function main()
     clickButton(":_whsTypeStack.Enforce the use of Zones_QCheckBox");
     type(":_whsTypeStack._shipcomm_XLineEdit", "0.00");
     clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar", "Site Locations");
+    waitForObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox");
     findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox").checked=true;
     type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "<Ctrl+A>");
     type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "<Del>");
@@ -523,6 +706,8 @@ function main()
     clickButton(":List Sites.Save_QPushButton");
     waitForObject(":Save_QPushButton");
     clickButton(":Save_QPushButton");
+    waitForObject(":List Sites.Close_QPushButton");
+    clickButton(":List Sites.Close_QPushButton");
     test.log("Inventory Site2: WH2 created ");
     
     
@@ -577,7 +762,7 @@ function main()
     {
         if(findObject(":User._user_XComboBox").currentText==newuser) break;
         type(":User._user_XComboBox", "<Down>");
-        
+        waitForObject(":User._user_XComboBox");
     }
     waitForObject(":Background Image.Image:_QRadioButton");
     clickButton(":Background Image.Image:_QRadioButton");
@@ -627,8 +812,9 @@ function main()
     waitForObject(":User Preferences.Save_QPushButton");
     clickButton(":User Preferences.Save_QPushButton");
     test.log("User Preferences of "+newuser +":saved");
-    
-    
-exitAppl();
+        
+    exitAppl();
+    startApplication("xtuple");
+    loginAppl("3.1.0", "3empty310-chapter1",newuser);
 
 }
