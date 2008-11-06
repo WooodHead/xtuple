@@ -2,14 +2,14 @@ function main()
 {
     
     source(findFile("scripts","functions.js"));
-    loginAppl("admin");
-    createDept("MFG","Manufacturing");
-    assignPrivileges();
-    createShift("1ST","First")
+    loginAppl("3.1.0", "3empty310","admin");
+//    createDept("MFG","Manufacturing");
+//    assignPrivileges();
+//    createShift("1ST","First");
     createLocale("MYLOCALE","My Locale For Class");
-    createGroup("SUPER","Super User Group");
-    var newuser="user37";
-    createUser(newuser)
+//    createGroup("SUPER","Super User Group");
+    var newuser="user04";
+    createUser(newuser);
     createCompany("01","Prodiem");
   
     
@@ -46,7 +46,7 @@ function main()
     clickButton(":List Subaccounts.Close_QPushButton");
     test.log("SubAccount: 01-General created");
 
-//  -----------------------Account-Account-SubAccount Types-----------------
+    //------------Account-Account-SubAccount Types-----------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
@@ -55,7 +55,7 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Types...");
 
   
-//--------------SubAccount Types: SO-Revenue-Other Revenue------------------
+    //--------------SubAccount Types: SO-Revenue-Other Revenue------------------
     waitForObject(":List G/L Subaccount Types.New_QPushButton");
     clickButton(":List G/L Subaccount Types.New_QPushButton");
     type(":List G/L Subaccount Types._code_XLineEdit", "SO");
@@ -76,7 +76,9 @@ function main()
     waitForObject(":List G/L Subaccount Types.Save_QPushButton");
     clickButton(":List G/L Subaccount Types.Save_QPushButton");
     test.log("SubAccount: DXP-Expenses-Depreciation Expense created");
-  
+    waitForObject(":List G/L Subaccount Types.Close_QPushButton");
+    clickButton(":List G/L Subaccount Types.Close_QPushButton");
+    
     
     //--------------Create Currencies------------------------       
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -86,39 +88,39 @@ function main()
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Currencies...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Currencies...");
   
-    //----------Create Base Currency-----------------------
-    waitForObject(":List Currencies.New_QPushButton");
-    clickButton(":List Currencies.New_QPushButton");
-    waitForObject(":List Currencies._currName_QLineEdit");
-    type(":List Currencies._currName_QLineEdit", "US Dollars");
-    waitForObject(":List Currencies._currSymbol_QLineEdit");
-    type(":List Currencies._currSymbol_QLineEdit", "$");
-    waitForObject(":List Currencies._currSymbol_QLineEdit");
-    waitForObject(":List Currencies._currAbbr_QLineEdit");
-    type(":List Currencies._currAbbr_QLineEdit", "USD");
-    waitForObject(":List Currencies.Base Currency_QCheckBox");
-    clickButton(":List Currencies.Base Currency_QCheckBox");
-    waitForObject(":List Currencies.Yes_QPushButton");
-    clickButton(":List Currencies.Yes_QPushButton");
-    waitForObject(":List Currencies.Save_QPushButton");
-    clickButton(":List Currencies.Save_QPushButton");
-    waitForObject(":List Currencies.Yes_QPushButton");
-    clickButton(":List Currencies.Yes_QPushButton");
-    test.log("Base Currency: USD($) Created");
-  
-    //----------Create Foreign currency - EUR------------
-    waitForObject(":List Currencies.New_QPushButton");
-    clickButton(":List Currencies.New_QPushButton");
-    waitForObject(":List Currencies._currName_QLineEdit");
-    type(":List Currencies._currName_QLineEdit", "Euros");
-    waitForObject(":List Currencies._currSymbol_QLineEdit");
-    type(":List Currencies._currSymbol_QLineEdit", "EUR");
-    waitForObject(":List Currencies._currAbbr_QLineEdit");
-    type(":List Currencies._currAbbr_QLineEdit", "EUR");
-    waitForObject(":List Currencies.Save_QPushButton");
-    clickButton(":List Currencies.Save_QPushButton");
-    waitForObject(":List Currencies.Close_QPushButton");
-    clickButton(":List Currencies.Close_QPushButton");
+//    //----------Create Base Currency-----------------------
+//    waitForObject(":List Currencies.New_QPushButton");
+//    clickButton(":List Currencies.New_QPushButton");
+//    waitForObject(":List Currencies._currName_QLineEdit");
+//    type(":List Currencies._currName_QLineEdit", "US Dollars");
+//    waitForObject(":List Currencies._currSymbol_QLineEdit");
+//    type(":List Currencies._currSymbol_QLineEdit", "$");
+//    waitForObject(":List Currencies._currSymbol_QLineEdit");
+//    waitForObject(":List Currencies._currAbbr_QLineEdit");
+//    type(":List Currencies._currAbbr_QLineEdit", "USD");
+//    waitForObject(":List Currencies.Base Currency_QCheckBox");
+//    clickButton(":List Currencies.Base Currency_QCheckBox");
+//    waitForObject(":List Currencies.Yes_QPushButton");
+//    clickButton(":List Currencies.Yes_QPushButton");
+//    waitForObject(":List Currencies.Save_QPushButton");
+//    clickButton(":List Currencies.Save_QPushButton");
+//    waitForObject(":List Currencies.Yes_QPushButton");
+//    clickButton(":List Currencies.Yes_QPushButton");
+//    test.log("Base Currency: USD($) Created");
+//  
+//    //----------Create Foreign currency - EUR------------
+//    waitForObject(":List Currencies.New_QPushButton");
+//    clickButton(":List Currencies.New_QPushButton");
+//    waitForObject(":List Currencies._currName_QLineEdit");
+//    type(":List Currencies._currName_QLineEdit", "Euros");
+//    waitForObject(":List Currencies._currSymbol_QLineEdit");
+//    type(":List Currencies._currSymbol_QLineEdit", "EUR");
+//    waitForObject(":List Currencies._currAbbr_QLineEdit");
+//    type(":List Currencies._currAbbr_QLineEdit", "EUR");
+//    waitForObject(":List Currencies.Save_QPushButton");
+//    clickButton(":List Currencies.Save_QPushButton");
+//    waitForObject(":List Currencies.Close_QPushButton");
+//    clickButton(":List Currencies.Close_QPushButton");
     test.log("Foreign Currency: EUR created");
     
     //----------Create Exchange Rates-------------------
