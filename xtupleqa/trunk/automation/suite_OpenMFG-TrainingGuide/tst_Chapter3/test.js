@@ -10,129 +10,301 @@ function main()
     waitForObject(":_password_QLineEdit");
     type(":_password_QLineEdit", "<Return>");
     
+    
+    //-------------Create Items--------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
     activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
     activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
+
+    
+    //-----------Create Item: YTRUCK1------------------
     waitForObject(":List Items.New_QPushButton");
     clickButton(":List Items.New_QPushButton");
-    waitForObject(":_itemNumber_XLineEdit");
-    type(":_itemNumber_XLineEdit", "YTRUCK1");
-    if(!findObject(":Item.Active_QCheckBox").checked)
-        clickButton(":Item.Active_QCheckBox");
-    type(":_description1_XLineEdit", "Yellow Tough Truck");
-    waitForObject(":_itemGroup_QComboBoxListView");
-    type(":_itemGroup_QComboBoxListView", "<Return>");
-    waitForObject(":_inventoryUOM_XComboBox");
-    type(":_inventoryUOM_XComboBox", "EA");
-    if(!findObject(":_itemGroup.Pick List_QCheckBox").checked)
-        clickButton(":_itemGroup.Pick List_QCheckBox");
+    waitForObject(":_itemNumber_XLineEdit_2");
+    type(":_itemNumber_XLineEdit_2", "YTRUCK1");
+    if(!findObject(":Item.Active_QCheckBox_2").checked)
+        clickButton(":Item.Active_QCheckBox_2");
+    waitForObject(":_description1_XLineEdit_2");
+    type(":_description1_XLineEdit_2", "Yellow Tough Truck");
+    type(":Item._description2_XLineEdit","Truck Type 1");
+    if(!findObject(":_itemGroup.Pick List_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Pick List_QCheckBox_2");
+    if(findObject(":_itemGroup.Fractional_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Fractional_QCheckBox_2");
+    waitForObject(":_itemGroup_XLineEdit_2");
+    type(":_itemGroup_XLineEdit_2", "5.00");
+    if(findObject(":_itemtype_QComboBox").currentText!= "Manufactured")
+    type(":_itemtype_QComboBox","Manufactured");
+    if(findObject(":_itemGroup._classcode_XComboBox").currentText!="TOY-TRUCKS")
+    type(":_itemGroup._classcode_XComboBox","TOY-TRUCKS");
+    waitForObject(":_inventoryUOM_XComboBox_2");
+    if(findObject(":_inventoryUOM_XComboBox_2").currentText!="EA");
+    type(":_inventoryUOM_XComboBox_2", "EA");
+    if(findObject(":_itemGroup._planningType_QComboBox_2").currentText!= "MRP")
+    type(":_itemGroup._planningType_QComboBox_2","MRP");
+    if(!findObject(":Item.Item is Sold_QGroupBox_2").checked)
+    type(":Item.Item is Sold_QGroupBox_2","<Space>");
+    if(findObject(":_prodcat_XComboBox").currentText!= "CLASSIC-METAL")
+    type(":_prodcat_XComboBox","CLASSIC-METAL");
+    type(":Item is Sold._listprice_XLineEdit_2", "10.99");
+    type(":Item is Sold.qt_spinbox_lineedit_QLineEdit_2", "<Ctrl+A>");
+    type(":Item is Sold.qt_spinbox_lineedit_QLineEdit_2", "<Del>");
+    type(":Item is Sold.qt_spinbox_lineedit_QLineEdit_2", "365");
+    type(":Item is Sold._upcCode_XLineEdit_2", "1234-5432");
+    type(":_prodWeight_XLineEdit_2", "3.5");
+    type(":_packWeight_XLineEdit_2", ".25");
+    waitForObject(":Item.Save_QPushButton_3");
+    clickButton(":Item.Save_QPushButton_3");
+    snooze(0.5);
+    if(object.exists(":Item.Would you like to create Item site inventory settings for the newly created Item now?_QLabel"))
+    clickButton(":Item.No_QPushButton_2");
+    test.log("Item: YTRUCK1 created");
     
-    waitForObject(":_itemGroup.Fractional_QCheckBox");
-    clickButton(":_itemGroup.Fractional_QCheckBox");
-    waitForObject(":_itemGroup.Fractional_QCheckBox");
-    clickButton(":_itemGroup.Fractional_QCheckBox");
-    waitForObject(":_itemGroup_XLineEdit");
-    mouseClick(":_itemGroup_XLineEdit", 39, 11, 1, Qt.LeftButton);
-    waitForObject(":_itemGroup_XLineEdit");
-    type(":_itemGroup_XLineEdit", "5.00");
-    waitForObject(":_itemGroup_QComboBoxListView");
-    type(":_itemGroup_QComboBoxListView", "<Down>");
-    waitForObject(":_itemGroup_QComboBoxListView");
-    type(":_itemGroup_QComboBoxListView", "<Down>");
-    waitForObject(":_itemGroup_QComboBoxListView");
-    type(":_itemGroup_QComboBoxListView", "<Up>");
-    waitForObject(":_itemGroup_QComboBoxListView");
-    type(":_itemGroup_QComboBoxListView", "<Up>");
-    waitForObject(":_itemGroup_QComboBoxListView");
-    type(":_itemGroup_QComboBoxListView", "<Return>");
-    waitForObject(":Item.widget_QWidget");
-    mouseClick(":Item.widget_QWidget", 363, 189, 1, Qt.LeftButton);
-    waitForObject(":_itemGroup._planningType_QComboBox");
-    type(":_itemGroup._planningType_QComboBox", "<Alt>");
-    waitForObject(":Item.Item is Sold_QGroupBox");
-    mouseClick(":Item.Item is Sold_QGroupBox", 20, 11, 1, Qt.LeftButton);
-    waitForObject(":Item.Item is Sold_QGroupBox");
-    mouseClick(":Item.Item is Sold_QGroupBox", 20, 11, 1, Qt.LeftButton);
-    waitForObject(":Item is Sold_QComboBoxListView");
-    type(":Item is Sold_QComboBoxListView", "<Return>");
-    waitForObject(":Item is Sold.Exclusive_QCheckBox");
-    clickButton(":Item is Sold.Exclusive_QCheckBox");
-    waitForObject(":Item is Sold.Exclusive_QCheckBox");
-    clickButton(":Item is Sold.Exclusive_QCheckBox");
-    waitForObject(":Item is Sold._listprice_XLineEdit");
-    mouseClick(":Item is Sold._listprice_XLineEdit", 67, 9, 1, Qt.LeftButton);
-    waitForObject(":Item is Sold._listprice_XLineEdit");
-    type(":Item is Sold._listprice_XLineEdit", "10.99");
-    waitForObject(":Item is Sold_QComboBoxListView");
-    type(":Item is Sold_QComboBoxListView", "<Return>");
-    waitForObject(":Item is Sold._priceUOM_XComboBox");
-    type(":Item is Sold._priceUOM_XComboBox", "<Alt>");
-    waitForObject(":Item is Sold.qt_spinbox_lineedit_QLineEdit");
-    mouseDrag(":Item is Sold.qt_spinbox_lineedit_QLineEdit", 14, 7, -69, 0, 1, Qt.LeftButton);
-    waitForObject(":Item is Sold._warranty_QSpinBox");
-    type(":Item is Sold._warranty_QSpinBox", "<Ctrl+A>");
-    waitForObject(":Item is Sold._warranty_QSpinBox");
-    type(":Item is Sold._warranty_QSpinBox", "<Del>");
-    waitForObject(":Item is Sold._warranty_QSpinBox");
-    type(":Item is Sold._warranty_QSpinBox", "3");
-    waitForObject(":Item is Sold._warranty_QSpinBox");
-    type(":Item is Sold._warranty_QSpinBox", "6");
-    waitForObject(":Item is Sold._warranty_QSpinBox");
-    type(":Item is Sold._warranty_QSpinBox", "5");
-    waitForObject(":Item is Sold._warranty_QSpinBox");
-    type(":Item is Sold._warranty_QSpinBox", "<Tab>");
-    waitForObject(":_prodWeight_XLineEdit");
-    type(":_prodWeight_XLineEdit", "3.5");
-    waitForObject(":_packWeight_XLineEdit");
-    mouseClick(":_packWeight_XLineEdit", 37, 10, 1, Qt.LeftButton);
-    waitForObject(":_packWeight_XLineEdit");
-    type(":_packWeight_XLineEdit", ".25");
-    waitForObject(":Item is Sold._upcCode_XLineEdit");
-    mouseClick(":Item is Sold._upcCode_XLineEdit", 82, 8, 1, Qt.LeftButton);
-    waitForObject(":Item is Sold._upcCode_XLineEdit");
-    mouseClick(":Item is Sold._upcCode_XLineEdit", 25, 14, 1, Qt.LeftButton);
-    waitForObject(":Item is Sold._upcCode_XLineEdit");
-    type(":Item is Sold._upcCode_XLineEdit", "1234-");
-    waitForObject(":Item is Sold._upcCode_XLineEdit");
-    mouseClick(":Item is Sold._upcCode_XLineEdit", 57, 14, 1, Qt.LeftButton);
-    waitForObject(":Item is Sold._upcCode_XLineEdit");
-    type(":Item is Sold._upcCode_XLineEdit", "5432");
-    waitForObject(":Item is Sold._upcCode_XLineEdit");
-    mouseClick(":Item is Sold._upcCode_XLineEdit", 93, 11, 1, Qt.LeftButton);
-    waitForObject(":Item.Save_QPushButton");
-    clickButton(":Item.Save_QPushButton");
-    waitForObject(":Item.No_QPushButton");
-    clickButton(":Item.No_QPushButton");
-    waitForObjectItem(":List Items._item_XTreeWidget", "TOY-TRUCKS");
-    clickItem(":List Items._item_XTreeWidget", "TOY-TRUCKS", 55, 8, 1, Qt.LeftButton);
-    waitForObject(":List Items._item_XTreeWidget");
-    doubleClickItem(":List Items._item_XTreeWidget", "TOY-TRUCKS", 55, 8, 0, Qt.LeftButton);
-    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar");
-    clickTab(":Item.qt_tabwidget_tabbar_QTabBar", "Characteristics");
-    waitForObject(":xTuple ERP: OpenMFG Edition - [Item]_GUIClient");
-    sendEvent("QMoveEvent", ":xTuple ERP: OpenMFG Edition - [Item]_GUIClient", 100, 102, 639, 111);
-    waitForObject(":_characteristicsTab.New_QPushButton");
-    clickButton(":_characteristicsTab.New_QPushButton");
-    waitForObject(":Item_QComboBoxListView");
-    type(":Item_QComboBoxListView", "<Down>");
-    waitForObject(":Item_QComboBoxListView");
-    type(":Item_QComboBoxListView", "<Return>");
-    waitForObject(":_value_XLineEdit");
-    mouseClick(":_value_XLineEdit", 152, 14, 1, Qt.LeftButton);
-    waitForObject(":_value_XLineEdit");
-    type(":_value_XLineEdit", "Yellow-PL126");
-    waitForObject(":Item.Default_QCheckBox");
-    clickButton(":Item.Default_QCheckBox");
-    waitForObject(":Item.Save_QPushButton_2");
-    clickButton(":Item.Save_QPushButton_2");
-    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar");
-    clickTab(":Item.qt_tabwidget_tabbar_QTabBar", "Comments");
-    waitForObject(":Item.Save_QPushButton");
-    clickButton(":Item.Save_QPushButton");
-    waitForObject(":List Items.Close_QPushButton");
-    clickButton(":List Items.Close_QPushButton");
+
+    clickButton(":List Items.Edit_QPushButton");
+    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_2");
+    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_2", "Characteristics");
+    clickButton(":_characteristicsTab.New_QPushButton_2");
+    waitForObject(":_char_XComboBox");
+    type(":_char_XComboBox", "I-COLOR");
+    type(":_value_XLineEdit_2", "Yellow-PL126");
+    if(!findObject(":Item.Default_QCheckBox_2").checked)
+        clickButton(":Item.Default_QCheckBox_2");
+    clickButton(":Item.Save_QPushButton_4");
+    waitForObject(":Item.Save_QPushButton_3");
+    clickButton(":Item.Save_QPushButton_3");
+    
+    
+    
+    //--------------Create Item: YPAINT1----------------
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    waitForObject(":_itemNumber_XLineEdit_2");
+    type(":_itemNumber_XLineEdit_2", "YPAINT1");
+    if(!findObject(":Item.Active_QCheckBox_2").checked)
+        clickButton(":Item.Active_QCheckBox_2");
+    waitForObject(":_description1_XLineEdit_2");
+    type(":_description1_XLineEdit_2", "Yellow Paint 1");
+    type(":Item._description2_XLineEdit","Yellow Type 1");
+    if(!findObject(":_itemGroup.Pick List_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Pick List_QCheckBox_2");
+    if(!findObject(":_itemGroup.Fractional_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Fractional_QCheckBox_2");
+    waitForObject(":_itemGroup_XLineEdit_2");
+    type(":_itemGroup_XLineEdit_2", "2.00");
+    if(findObject(":_itemtype_QComboBox").currentText!= "Purchased")
+    type(":_itemtype_QComboBox","Purchased");
+    if(findObject(":_itemGroup._classcode_XComboBox").currentText!="TOY-TRUCKS")
+    type(":_itemGroup._classcode_XComboBox","TOY-TRUCKS");
+    waitForObject(":_inventoryUOM_XComboBox_2");
+    if(findObject(":_inventoryUOM_XComboBox_2").currentText!="GL");
+    type(":_inventoryUOM_XComboBox_2", "GL");
+    if(findObject(":_itemGroup._planningType_QComboBox_2").currentText!= "MRP")
+    type(":_itemGroup._planningType_QComboBox_2","MRP");
+    if(findObject(":Item.Item is Sold_QGroupBox_2").checked)
+        type(":Item.Item is Sold_QGroupBox_2"," ");
+    type(":_prodWeight_XLineEdit_2", "8");
+    type(":_packWeight_XLineEdit_2", ".5");
+    waitForObject(":Item.Save_QPushButton_3");
+    clickButton(":Item.Save_QPushButton_3");
+    snooze(0.5);
+    if(object.exists(":Item.Would you like to create Item site inventory settings for the newly created Item now?_QLabel"))
+    clickButton(":Item.No_QPushButton_2");
+        test.log("Item: YPAINT1 created");
+    
+    
+    
+    //--------------Create Item: TBODY1----------------
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    waitForObject(":_itemNumber_XLineEdit_2");
+    type(":_itemNumber_XLineEdit_2", "TBODY1");
+    if(!findObject(":Item.Active_QCheckBox_2").checked)
+        clickButton(":Item.Active_QCheckBox_2");
+    waitForObject(":_description1_XLineEdit_2");
+    type(":_description1_XLineEdit_2", "Tough Truck Body Type 1");
+    type(":Item._description2_XLineEdit","Truck Body");
+    if(!findObject(":_itemGroup.Pick List_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Pick List_QCheckBox_2");
+    if(findObject(":_itemGroup.Fractional_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Fractional_QCheckBox_2");
+    waitForObject(":_itemGroup_XLineEdit_2");
+    type(":_itemGroup_XLineEdit_2", "1.50");
+    if(findObject(":_itemtype_QComboBox").currentText!= "Purchased")
+    type(":_itemtype_QComboBox","Purchased");
+    if(findObject(":_itemGroup._classcode_XComboBox").currentText!="TOY-TRUCKS")
+    type(":_itemGroup._classcode_XComboBox","TOY-TRUCKS");
+    waitForObject(":_inventoryUOM_XComboBox_2");
+    if(findObject(":_inventoryUOM_XComboBox_2").currentText!="EA");
+    type(":_inventoryUOM_XComboBox_2", "EA");
+    if(findObject(":_itemGroup._planningType_QComboBox_2").currentText!= "MRP")
+    type(":_itemGroup._planningType_QComboBox_2","MRP");
+    if(findObject(":Item.Item is Sold_QGroupBox_2").checked)
+    type(":Item.Item is Sold_QGroupBox_2"," ");
+    type(":_prodWeight_XLineEdit_2", ".75");
+    type(":_packWeight_XLineEdit_2", ".12");
+    waitForObject(":Item.Save_QPushButton_3");
+    clickButton(":Item.Save_QPushButton_3");
+    snooze(0.5);
+    if(object.exists(":Item.Would you like to create Item site inventory settings for the newly created Item now?_QLabel"))
+    clickButton(":Item.No_QPushButton_2");
+    test.log("Item: TBODY1 created");
+    
+    
+    
+    //--------------Create Item: TWHEEL1----------------
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    waitForObject(":_itemNumber_XLineEdit_2");
+    type(":_itemNumber_XLineEdit_2", "TWHEEL1");
+    if(!findObject(":Item.Active_QCheckBox_2").checked)
+        clickButton(":Item.Active_QCheckBox_2");
+    waitForObject(":_description1_XLineEdit_2");
+    type(":_description1_XLineEdit_2", "Truck Wheels Type 1");
+    type(":Item._description2_XLineEdit","Wheels Type 1");
+    if(!findObject(":_itemGroup.Pick List_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Pick List_QCheckBox_2");
+    if(findObject(":_itemGroup.Fractional_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Fractional_QCheckBox_2");
+    waitForObject(":_itemGroup_XLineEdit_2");
+    type(":_itemGroup_XLineEdit_2", ".50");
+    if(findObject(":_itemtype_QComboBox").currentText!= "Purchased")
+    type(":_itemtype_QComboBox","Purchased");
+    if(findObject(":_itemGroup._classcode_XComboBox").currentText!="TOY-TRUCKS")
+    type(":_itemGroup._classcode_XComboBox","TOY-TRUCKS");
+    waitForObject(":_inventoryUOM_XComboBox_2");
+    if(findObject(":_inventoryUOM_XComboBox_2").currentText!="EA");
+    type(":_inventoryUOM_XComboBox_2", "EA");
+    if(findObject(":_itemGroup._planningType_QComboBox_2").currentText!= "MRP")
+    type(":_itemGroup._planningType_QComboBox_2","MRP");
+    if(findObject(":Item.Item is Sold_QGroupBox_2").checked)
+    type(":Item.Item is Sold_QGroupBox_2"," ");
+    type(":_prodWeight_XLineEdit_2", ".1");
+    type(":_packWeight_XLineEdit_2", ".01");
+    waitForObject(":Item.Save_QPushButton_3");
+    clickButton(":Item.Save_QPushButton_3");
+    snooze(0.5);
+    if(object.exists(":Item.Would you like to create Item site inventory settings for the newly created Item now?_QLabel"))
+    clickButton(":Item.No_QPushButton_2");
+    test.log("Item: TWHEEL1 created");
+    
+    
+    
+    //--------------Create Item: TKIT1----------------
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    waitForObject(":_itemNumber_XLineEdit_2");
+    type(":_itemNumber_XLineEdit_2", "TKIT1");
+    if(!findObject(":Item.Active_QCheckBox_2").checked)
+        clickButton(":Item.Active_QCheckBox_2");
+    waitForObject(":_description1_XLineEdit_2");
+    type(":_description1_XLineEdit_2", "Truck Kit Type 1");
+    type(":Item._description2_XLineEdit","Truck Kit");
+    if(!findObject(":_itemGroup.Pick List_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Pick List_QCheckBox_2");
+    if(findObject(":_itemGroup.Fractional_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Fractional_QCheckBox_2");
+    waitForObject(":_itemGroup_XLineEdit_2");
+    type(":_itemGroup_XLineEdit_2", "2.00");
+    if(findObject(":_itemtype_QComboBox").currentText!= "Purchased")
+    type(":_itemtype_QComboBox","Purchased");
+    if(findObject(":_itemGroup._classcode_XComboBox").currentText!="TOY-TRUCKS")
+    type(":_itemGroup._classcode_XComboBox","TOY-TRUCKS");
+    waitForObject(":_inventoryUOM_XComboBox_2");
+    if(findObject(":_inventoryUOM_XComboBox_2").currentText!="EA");
+    type(":_inventoryUOM_XComboBox_2", "EA");
+    if(findObject(":_itemGroup._planningType_QComboBox_2").currentText!= "MRP")
+    type(":_itemGroup._planningType_QComboBox_2","MRP");
+    if(findObject(":Item.Item is Sold_QGroupBox_2").checked)
+    type(":Item.Item is Sold_QGroupBox_2"," ");
+    type(":_prodWeight_XLineEdit_2", ".25");
+    type(":_packWeight_XLineEdit_2", ".1");
+    waitForObject(":Item.Save_QPushButton_3");
+    clickButton(":Item.Save_QPushButton_3");
+    snooze(0.5);
+    if(object.exists(":Item.Would you like to create Item site inventory settings for the newly created Item now?_QLabel"))
+    clickButton(":Item.No_QPushButton_2");
+    test.log("Item: TKIT1 created");
+    
+    
+    //--------------Create Item: TBOX1----------------
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    waitForObject(":_itemNumber_XLineEdit_2");
+    type(":_itemNumber_XLineEdit_2", "TBOX1");
+    if(!findObject(":Item.Active_QCheckBox_2").checked)
+        clickButton(":Item.Active_QCheckBox_2");
+    waitForObject(":_description1_XLineEdit_2");
+    type(":_description1_XLineEdit_2", "Product Box Type 1");
+    type(":Item._description2_XLineEdit","Product Box");
+    if(!findObject(":_itemGroup.Pick List_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Pick List_QCheckBox_2");
+    if(findObject(":_itemGroup.Fractional_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Fractional_QCheckBox_2");
+    waitForObject(":_itemGroup_XLineEdit_2");
+    type(":_itemGroup_XLineEdit_2", ".10");
+    if(findObject(":_itemtype_QComboBox").currentText!= "Purchased")
+    type(":_itemtype_QComboBox","Purchased");
+    if(findObject(":_itemGroup._classcode_XComboBox").currentText!="TOY-TRUCKS")
+    type(":_itemGroup._classcode_XComboBox","TOY-TRUCKS");
+    waitForObject(":_inventoryUOM_XComboBox_2");
+    if(findObject(":_inventoryUOM_XComboBox_2").currentText!="EA");
+    type(":_inventoryUOM_XComboBox_2", "EA");
+    if(findObject(":_itemGroup._planningType_QComboBox_2").currentText!= "MRP")
+    type(":_itemGroup._planningType_QComboBox_2","MRP");
+    if(findObject(":Item.Item is Sold_QGroupBox_2").checked)
+    type(":Item.Item is Sold_QGroupBox_2"," ");
+    type(":_prodWeight_XLineEdit_2", ".20");
+    type(":_packWeight_XLineEdit_2", "0");
+    waitForObject(":Item.Save_QPushButton_3");
+    clickButton(":Item.Save_QPushButton_3");
+    snooze(0.5);
+    if(object.exists(":Item.Would you like to create Item site inventory settings for the newly created Item now?_QLabel"))
+    clickButton(":Item.No_QPushButton_2");
+        test.log("Item: TBOX1 created");
+    
+    
+    
+    
+    //--------------Create Item: TINSERT1----------------
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    waitForObject(":_itemNumber_XLineEdit_2");
+    type(":_itemNumber_XLineEdit_2", "TINSERT1");
+    if(!findObject(":Item.Active_QCheckBox_2").checked)
+        clickButton(":Item.Active_QCheckBox_2");
+    waitForObject(":_description1_XLineEdit_2");
+    type(":_description1_XLineEdit_2", "Packaging Insert Type 1");
+    type(":Item._description2_XLineEdit","Insert Type 1");
+    if(!findObject(":_itemGroup.Pick List_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Pick List_QCheckBox_2");
+    if(findObject(":_itemGroup.Fractional_QCheckBox_2").checked)
+        clickButton(":_itemGroup.Fractional_QCheckBox_2");
+    waitForObject(":_itemGroup_XLineEdit_2");
+    type(":_itemGroup_XLineEdit_2", ".10");
+    if(findObject(":_itemtype_QComboBox").currentText!= "Purchased")
+    type(":_itemtype_QComboBox","Purchased");
+    if(findObject(":_itemGroup._classcode_XComboBox").currentText!="TOY-TRUCKS")
+    type(":_itemGroup._classcode_XComboBox","TOY-TRUCKS");
+    waitForObject(":_inventoryUOM_XComboBox_2");
+    if(findObject(":_inventoryUOM_XComboBox_2").currentText!="EA");
+    type(":_inventoryUOM_XComboBox_2", "EA");
+    if(findObject(":_itemGroup._planningType_QComboBox_2").currentText!= "MRP")
+    type(":_itemGroup._planningType_QComboBox_2","MRP");
+    if(findObject(":Item.Item is Sold_QGroupBox_2").checked)
+    type(":Item.Item is Sold_QGroupBox_2"," ");
+    type(":_prodWeight_XLineEdit_2", ".02");
+    type(":_packWeight_XLineEdit_2", ".01");
+    waitForObject(":Item.Save_QPushButton_3");
+    clickButton(":Item.Save_QPushButton_3");
+    snooze(0.5);
+    if(object.exists(":Item.Would you like to create Item site inventory settings for the newly created Item now?_QLabel"))
+    clickButton(":Item.No_QPushButton_2");
+      test.log("Item: TINSERT1 created");
+    
+    clickButton(":List Items.Close_QPushButton_2");
 
 }
