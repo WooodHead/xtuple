@@ -1,0 +1,34 @@
+<ui version="4.0" >
+ <author></author>
+ <comment></comment>
+ <exportmacro></exportmacro>
+ <class>errorLog</class>
+ <widget class="QWidget" name="errorLog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>642</width>
+    <height>426</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Database Log</string>
+  </property>
+   <layout class="QHBoxLayout" >
+    <item>
+     <widget class="QTextEdit" name="_errorLog" >
+      <property name="undoRedoEnabled" >
+       <bool>false</bool>
+      </property>
+      <property name="readOnly" >
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+ </widget>
+ <pixmapfunction></pixmapfunction>
+ <resources/>
+ <connections/>
+</ui>
