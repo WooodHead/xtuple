@@ -1,9 +1,9 @@
 function main()
 {
      source(findFile("scripts","functions.js"));
-     
-     attachToApplication("xtuple")
 
+     loginAppl("3.1.0", "empty310-chapter2","user01");
+     
      //-----------Chart Of Accounts-------------------------------
      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -34,8 +34,8 @@ function main()
      COA("01","01","6050","01","State Sales Tax Expense","Expense","EXP");          
      COA("01","01","6060","01","Shipping Charge Expense","Expense","EXP");          
      
-    waitForObject(":Chart of Accounts.Close_QPushButton");
-    clickButton(":Chart of Accounts.Close_QPushButton");
+    waitForObject(":Chart of Accounts.Close_QPushButton_2");
+    clickButton(":Chart of Accounts.Close_QPushButton_2");
    
    
      
