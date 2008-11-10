@@ -21,7 +21,7 @@ function loginAppl(vrsn,database,usr)
     }
     if(user!=usr || vrsn!=version || database!=db)
     {
-        test.fatal("User Not found in TestData - login.txt");
+        test.fatal("User "+usr+" not found in TestData - login.txt");
         exit(1);
     }
     waitForObject(":Log In.Options_QPushButton");
@@ -442,27 +442,27 @@ function createCompany(CompNum, CompDesc)
 function COA(COACompany,COAProfit,COANumber,COASub,COADesc,COAType,COASubType)
 {
 
-    waitForObject(":Chart of Accounts.New_QPushButton");
-    clickButton(":Chart of Accounts.New_QPushButton");
-    waitForObject(":Chart of Accounts._company_XComboBox");
-    if(findObject(":Chart of Accounts._company_XComboBox").currentText!=COACompany)
-        type(":Chart of Accounts._company_XComboBox","01");
-    if(findObject(":Chart of Accounts._profit_XComboBox").currentText!=COAProfit)
-        type(":Chart of Accounts._profit_XComboBox","01");
-    if(findObject(":Chart of Accounts._sub_XComboBox").currentText!=COASub)
+    waitForObject(":Chart of Accounts.New_QPushButton_2");
+    clickButton(":Chart of Accounts.New_QPushButton_2");
+    waitForObject(":Account Number._company_XComboBox");
+    if(findObject(":Account Number._company_XComboBox").currentText!=COACompany)
+        type(":Chart of Accounts._company_XComboBox_2","01");
+    if(findObject(":Account Number._profit_XComboBox").currentText!=COAProfit)
+        type(":Account Number._profit_XComboBox","01");
+    if(findObject(":Account Number._sub_XComboBox").currentText!=COASub)
         type(":Chart of Accounts._sub_XComboBox","01");
-    waitForObject(":_number_XLineEdit_2");
-    type(":_number_XLineEdit_2", COANumber);
-    waitForObject(":_description_XLineEdit_3");
-    type(":_description_XLineEdit_3", COADesc);
-    waitForObject(":_description_XLineEdit_3");
-    type(":_description_XLineEdit_3", "<Tab>");
-    waitForObject(":_extReference_XLineEdit");
-    type(":_extReference_XLineEdit", COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub);
-    type(":Chart of Accounts._type_XComboBox",COAType);
-    type(":Chart of Accounts._subType_XComboBox",COASubType);
-    waitForObject(":Chart of Accounts.Save_QPushButton");
-    clickButton(":Chart of Accounts.Save_QPushButton");
+    waitForObject(":_number_XLineEdit_3");
+    type(":_number_XLineEdit_3", COANumber);
+    waitForObject(":_description_XLineEdit_11");
+    type(":_description_XLineEdit_11", COADesc);
+    waitForObject(":_description_XLineEdit_11");
+    type(":_description_XLineEdit_11", "<Tab>");
+    waitForObject(":_extReference_XLineEdit_2");
+    type(":_extReference_XLineEdit_2", COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub);
+    type(":Account Number._type_XComboBox",COAType);
+    type(":Account Number._subType_XComboBox",COASubType);
+    waitForObject(":Account Number.Save_QPushButton");
+    clickButton(":Account Number.Save_QPushButton");
     test.log("Acc: "+COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub+" created");
 
 }
