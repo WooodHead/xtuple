@@ -55,7 +55,7 @@ DECLARE
   _wipPost NUMERIC;
 BEGIN
 
-  IF (pQty <= 0) THEN
+  IF (pQty = 0) THEN
     RETURN 0;
   END IF;
 
