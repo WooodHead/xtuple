@@ -2,7 +2,7 @@ BEGIN;
 
   --Item View
 
-  DROP VIEW api.item;
+  SELECT dropIfExists('VIEW', 'item', 'api');
   CREATE OR REPLACE VIEW api.item AS
 
   SELECT

@@ -26,7 +26,7 @@ COMMENT ON VIEW api.itemcost IS 'Item Cost';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO api.itemcost DO INSTEAD
+  ON INSERT TO api.itemcost DO INSTEAD
 
   SELECT insertItemCost(getItemId(NEW.item_number),
                         getCostElemId(NEW.costing_element),
@@ -35,7 +35,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
                         NEW.post_to_standard);
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
-    ON UPDATE TO api.itemcost DO INSTEAD
+  ON UPDATE TO api.itemcost DO INSTEAD
 
   SELECT updateItemCost(getItemId(NEW.item_number),
                         getCostElemId(NEW.costing_element),
@@ -44,7 +44,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
                         NEW.post_to_standard);
 
 CREATE OR REPLACE RULE "_DELETE" AS 
-    ON DELETE TO api.itemcost DO INSTEAD
+  ON DELETE TO api.itemcost DO INSTEAD
 
   SELECT deleteItemCost(getItemId(OLD.item_number),
                         getCostElemId(OLD.costing_element));
