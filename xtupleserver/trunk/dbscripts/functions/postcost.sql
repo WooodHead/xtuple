@@ -5,7 +5,7 @@ DECLARE
 
 BEGIN
 
-  SELECT round(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE),4) AS newcost,
+  SELECT roundCost(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE)) AS newcost,
          itemcost_curr_id, CURRENT_DATE AS effective,
          item_number,
          itemcost_stdcost AS oldcost INTO _p

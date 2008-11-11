@@ -32,7 +32,7 @@ BEGIN
 
   -- find the lowercost in the base currency at the current conversion rate
   IF (_type IN (''M'', ''F'', ''B'', ''T'')) THEN
-    SELECT SUM( ROUND(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE),4) * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) ),
+    SELECT SUM( roundCost(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE)) * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) ),
            SUM( itemcost_stdcost * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) )
 	INTO _actCost, _stdCost
     FROM itemcost, costelem, bomitem(pItemid)
@@ -104,7 +104,7 @@ BEGIN
     RETURN NULL;
   END IF;
 
-  RETURN round(_cost,4);
+  RETURN roundCost(_cost);
 
 END;
 ' LANGUAGE 'plpgsql';
