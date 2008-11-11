@@ -17,7 +17,7 @@ BEGIN
          CASE WHEN (womatl_qtyreq >= 0) THEN
            womatl_qtyiss < pQty
          ELSE
-           false
+           womatl_qtyiss > pQty
          END )
        FROM womatl
        WHERE ( womatl_id=pWomatlid ) ) THEN
