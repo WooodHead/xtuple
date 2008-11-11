@@ -17,6 +17,10 @@
 :Accounting Configuration_configureGL	{name='configureGL' type='configureGL' visible='1' windowTitle='Accounting Configuration'}
 :Additional Configuration Required.OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':Additional Configuration Required_QMessageBox'}
 :Additional Configuration Required_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Additional Configuration Required'}
+:Average._avgQueueDays_QSpinBox	{container=':_schedulingTab.Average_QGroupBox' name='_avgQueueDays' type='QSpinBox' visible='1'}
+:Average._avgSetup_XLineEdit	{container=':_schedulingTab.Average_QGroupBox' name='_avgSetup' type='XLineEdit' visible='1'}
+:Average._setupType_XComboBox	{container=':_schedulingTab.Average_QGroupBox' name='_setupType' type='XComboBox' visible='1'}
+:Average.qt_spinbox_lineedit_QLineEdit	{container=':_schedulingTab.Average_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
 :Background Image.Image:_QRadioButton	{container=':_application.Background Image_QGroupBox' name='_backgroundImage' text='Image:' type='QRadioButton' visible='1'}
 :CRM Configuration.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':CRM Configuration_configureCRM'}
 :CRM Configuration.Use Projects_QCheckBox	{name='_useProjects' text='Use Projects' type='QCheckBox' visible='1' window=':CRM Configuration_configureCRM'}
@@ -27,6 +31,8 @@
 :Calendar_calendar	{name='calendar' type='calendar' visible='1' windowTitle='Calendar'}
 :Cannot Connect to xTuple ERP Server.OK_QPushButton	{text='OK' type='QPushButton' visible='1' window=':Cannot Connect to xTuple ERP Server_QMessageBox'}
 :Cannot Connect to xTuple ERP Server_QMessageBox	{type='QMessageBox' visible='1' windowTitle='Cannot Connect to xTuple ERP Server'}
+:Capacity._dailyCapacity_XLineEdit	{container=':_schedulingTab.Capacity_QGroupBox' name='_dailyCapacity' type='XLineEdit' visible='1'}
+:Capacity._efficiencyFactor_XLineEdit	{container=':_schedulingTab.Capacity_QGroupBox' name='_efficiencyFactor' type='XLineEdit' visible='1'}
 :Chart of Accounts.Close_QPushButton	{container=':xTuple ERP: OpenMFG Edition.Chart of Accounts_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :Chart of Accounts.Close_QPushButton_2	{name='_close' text='Close' type='QPushButton' visible='1' window=':Chart of Accounts_accountNumbers'}
 :Chart of Accounts.Description:_QLabel	{container=':xTuple ERP: OpenMFG Edition.Chart of Accounts_QWorkspaceChild' name='_descriptionLit' text='Description:' type='QLabel' visible='1'}
@@ -76,6 +82,7 @@
 :Defaults.W/O Material Issue Method:_QLabel	{container=':Products Configuration.Defaults_QGroupBox' name='_issueMethodLit' text='W/O Material Issue Method:' type='QLabel' visible='1'}
 :Defaults.qt_spinbox_lineedit_QLineEdit	{container=':_inventory.Defaults_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
 :Defaults_QComboBoxListView	{container=':Products Configuration.Defaults_QGroupBox' type='QComboBoxListView' unnamed='1' visible='1'}
+:Department.VirtualClusterLineEdit_DeptClusterLineEdit	{container=':_schedulingTab.Department_QGroupBox' name='VirtualClusterLineEdit' type='DeptClusterLineEdit' visible='1'}
 :Enable Revision Control.Yes_QPushButton	{text='Yes' type='QPushButton' unnamed='1' visible='1' window=':Enable Revision Control_QMessageBox'}
 :Enable Revision Control_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Enable Revision Control'}
 :Enable Work Center Routings.Track Machine Overhead_QGroupBox	{container=':Products Configuration.Enable Work Center Routings_QGroupBox' name='QButtonGroup_1' title='Track Machine Overhead' type='QGroupBox' visible='1'}
@@ -444,6 +451,12 @@
 :List Sites._title_XLineEdit	{container=':xTuple ERP: OpenMFG Edition.List Sites_QWorkspaceChild' name='_title' type='XLineEdit' visible='1'}
 :List Sites.qt_tabwidget_stackedwidget_QStackedWidget	{container=':xTuple ERP: OpenMFG Edition.List Sites_QWorkspaceChild' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
 :List Sites.qt_tabwidget_tabbar_QTabBar	{container=':xTuple ERP: OpenMFG Edition.List Sites_QWorkspaceChild' name='qt_tabwidget_tabbar' type='QTabBar' visible='1'}
+:List Standard Labor Rates.Close_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Standard Labor Rates_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
+:List Standard Labor Rates.Code:_QLabel	{container=':xTuple ERP: OpenMFG Edition.List Standard Labor Rates_QWorkspaceChild' name='_codeLit' text='Code:' type='QLabel' visible='1'}
+:List Standard Labor Rates.Description:_QLabel	{container=':xTuple ERP: OpenMFG Edition.List Standard Labor Rates_QWorkspaceChild' name='_descriptionLit' text='Description:' type='QLabel' visible='1'}
+:List Standard Labor Rates.New_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Standard Labor Rates_QWorkspaceChild' name='_new' text='New' type='QPushButton' visible='1'}
+:List Standard Labor Rates.Rate:_QLabel	{container=':xTuple ERP: OpenMFG Edition.List Standard Labor Rates_QWorkspaceChild' name='_rateLit' text='Rate:' type='QLabel' visible='1'}
+:List Standard Labor Rates.Save_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Standard Labor Rates_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
 :List Subaccounts.Close_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Subaccounts_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Subaccounts.New_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Subaccounts_QWorkspaceChild' name='_new' text='New' type='QPushButton' visible='1'}
 :List Subaccounts.Save_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Subaccounts_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
@@ -498,6 +511,10 @@
 :List Users.qt_tabwidget_stackedwidget_QStackedWidget_3	{container=':xTuple ERP: OpenMFG Edition.List Users_QWorkspaceChild_2' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
 :List Users.qt_tabwidget_tabbar_QTabBar	{container=':xTuple ERP: OpenMFG Edition.List Users_QWorkspaceChild_2' name='qt_tabwidget_tabbar' type='QTabBar' visible='1'}
 :List Users_QComboBoxListView	{container=':xTuple ERP: OpenMFG Edition.List Users_QWorkspaceChild_2' type='QComboBoxListView' unnamed='1' visible='1'}
+:List Work Centers.Close_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Work Centers_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
+:List Work Centers.Copy_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Work Centers_QWorkspaceChild' name='_copy' text='Copy' type='QPushButton' visible='1'}
+:List Work Centers.New_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Work Centers_QWorkspaceChild' name='_new' text='New' type='QPushButton' visible='1'}
+:List Work Centers._wrkcnt_XTreeWidget	{container=':xTuple ERP: OpenMFG Edition.List Work Centers_QWorkspaceChild' name='_wrkcnt' type='XTreeWidget' visible='1'}
 :Log In.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Log In_login2'}
 :Log In.Copyright (c) 1999-2008, OpenMFG, LLC._QLabel	{name='_copyrightLit' text='Copyright (c) 1999-2008, OpenMFG, LLC.' type='QLabel' visible='1' window=':Log In_login2'}
 :Log In.Log in to registered xTuple demo account_QRadioButton	{name='_demoOption' text='Log in to registered xTuple demo account' type='QRadioButton' visible='1' window=':Log In_login2'}
@@ -540,6 +557,14 @@
 :Multiple Sites.Post Transfer Order Changes to the Change Log_QCheckBox	{container=':_inventory.Multiple Sites_QGroupBox' name='_transferOrderChangeLog' text='Post Transfer Order Changes to the Change Log' type='QCheckBox' visible='1'}
 :Multiple Sites.Transfer Order # Generation:_QLabel	{container=':_inventory.Multiple Sites_QGroupBox' name='_toNumGenerationLit' text='Transfer Order # Generation:' type='QLabel' visible='1'}
 :New Calendar Type?_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='New Calendar Type?'}
+:Overhead._numOfMachines_QSpinBox	{container=':_costsTab.Overhead_QGroupBox' name='_numOfMachines' type='QSpinBox' visible='1'}
+:Overhead._numOfPeople_QSpinBox	{container=':_costsTab.Overhead_QGroupBox' name='_numOfPeople' type='QSpinBox' visible='1'}
+:Overhead._overheadPerLaborHour_XLineEdit	{container=':_costsTab.Overhead_QGroupBox' name='_overheadPerLaborHour' type='XLineEdit' visible='1'}
+:Overhead._overheadPerMachHour_XLineEdit	{container=':_costsTab.Overhead_QGroupBox' name='_overheadPerMachHour' type='XLineEdit' visible='1'}
+:Overhead._overheadPerUnit_XLineEdit	{container=':_costsTab.Overhead_QGroupBox' name='_overheadPerUnit' type='XLineEdit' visible='1'}
+:Overhead._overheadPrcntOfLabor_XLineEdit	{container=':_costsTab.Overhead_QGroupBox' name='_overheadPrcntOfLabor' type='XLineEdit' visible='1'}
+:Overhead.qt_spinbox_lineedit_QLineEdit	{container=':_costsTab.Overhead_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
+:Overhead.qt_spinbox_lineedit_QLineEdit_2	{container=':_costsTab.Overhead_QGroupBox' name='qt_spinbox_lineedit' occurrence='2' type='QLineEdit' visible='1'}
 :Preferred Site:.Site:_QRadioButton	{container=':_application.Preferred Site:_QGroupBox' name='_selectedWarehouse' text='Site:' type='QRadioButton' visible='1'}
 :Preferred Site:._warehouse_WComboBox	{container=':_application.Preferred Site:_QGroupBox' name='_warehouse' type='WComboBox' visible='1'}
 :Preferred Site:_QComboBoxListView	{container=':_application.Preferred Site:_QGroupBox' type='QComboBoxListView' unnamed='1' visible='1'}
@@ -565,12 +590,17 @@
 :Remit-To Address.Street\nAddress:_XLineEdit_3	{container=':_ar.Remit-To Address_QGroupBox' leftWidget=':Remit-To Address.Street\nAddress:_QLabel' occurrence='3' type='XLineEdit' unnamed='1' visible='1'}
 :Remit-To Address._name_XLineEdit	{container=':_ar.Remit-To Address_QGroupBox' name='_name' type='XLineEdit' visible='1'}
 :Remit-To Address._phone_XLineEdit	{container=':_ar.Remit-To Address_QGroupBox' name='_phone' type='XLineEdit' visible='1'}
+:Run Labor Rate.Select Standard Rate:_QRadioButton	{container=':_costsTab.Run Labor Rate_QGroupBox' name='_runUseSelectedRate' text='Select Standard Rate:' type='QRadioButton' visible='1'}
+:Run Labor Rate._runRate_XLineEdit	{container=':_costsTab.Run Labor Rate_QGroupBox' name='_runRate' type='XLineEdit' visible='1'}
 :Save_QPushButton	{buddy=':List Sites.Post Unassigned Transactions to:_QLabel' name='_save' text='Save' type='QPushButton' visible='1'}
 :Schedule Configuration.Enable Constraint Management_QCheckBox	{name='_bufferMgt' text='Enable Constraint Management' type='QCheckBox' visible='1' window=':Schedule Configuration_configureMS'}
 :Schedule Configuration.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Schedule Configuration_configureMS'}
 :Schedule Configuration._calendar_CalendarComboBox	{name='_calendar' type='CalendarComboBox' visible='1' window=':Schedule Configuration_configureMS'}
 :Schedule Configuration._nextPlanNumber_XLineEdit	{name='_nextPlanNumber' type='XLineEdit' visible='1' window=':Schedule Configuration_configureMS'}
 :Schedule Configuration_configureMS	{name='configureMS' type='configureMS' visible='1' windowTitle='Schedule Configuration'}
+:Setup Labor Rate.Select Standard Rate:_QRadioButton	{container=':_costsTab.Setup Labor Rate_QGroupBox' name='_setupUseSelectedRate' text='Select Standard Rate:' type='QRadioButton' visible='1'}
+:Setup Labor Rate._setupRate_XLineEdit	{container=':_costsTab.Setup Labor Rate_QGroupBox' name='_setupRate' type='XLineEdit' visible='1'}
+:Setup Labor Rate._stdSetupRate_XComboBox	{container=':_costsTab.Setup Labor Rate_QGroupBox' name='_stdSetupRate' type='XComboBox' visible='1'}
 :Shop Floor Workbench Posts:.Operations_QRadioButton	{container=':Manufacture Configuration.Shop Floor Workbench Posts:_QGroupBox' name='_operations' text='Operations' type='QRadioButton' visible='1'}
 :Site Work Week.Friday_QCheckBox	{container=':xTuple ERP: OpenMFG Edition.Site Work Week_QWorkspaceChild' name='_friday' text='Friday' type='QCheckBox' visible='1'}
 :Site Work Week.Monday_QCheckBox	{container=':xTuple ERP: OpenMFG Edition.Site Work Week_QWorkspaceChild' name='_monday' text='Monday' type='QCheckBox' visible='1'}
@@ -605,6 +635,14 @@
 :Weight.Product:_QLabel	{container=':Item.Weight_QGroupBox' name='_prodWeightLit' text='Product:' type='QLabel' visible='1'}
 :Weight.Product:_QLabel_2	{container=':Item.Weight_QGroupBox_2' name='_prodWeightLit' text='Product:' type='QLabel' visible='1'}
 :When Count Tag Qty. exceeds Slip Qty..Do Not Post Count Tag_QRadioButton	{container=':_inventory.When Count Tag Qty. exceeds Slip Qty._QGroupBox' name='_doNotPost' text='Do Not Post Count Tag' type='QRadioButton' visible='1'}
+:Work Center.Save_QPushButton	{container=':xTuple ERP: OpenMFG Edition.Work Center_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
+:Work Center.Work Center_QWorkspaceTitleBar	{container=':xTuple ERP: OpenMFG Edition.Work Center_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='Work Center'}
+:Work Center._code_XLineEdit	{container=':xTuple ERP: OpenMFG Edition.Work Center_QWorkspaceChild' name='_code' type='XLineEdit' visible='1'}
+:Work Center._description_XLineEdit	{container=':xTuple ERP: OpenMFG Edition.Work Center_QWorkspaceChild' name='_description' type='XLineEdit' visible='1'}
+:Work Center._warehouse_WComboBox	{container=':xTuple ERP: OpenMFG Edition.Work Center_QWorkspaceChild' name='_warehouse' type='WComboBox' visible='1'}
+:Work Center.qt_tabwidget_stackedwidget_QStackedWidget	{container=':xTuple ERP: OpenMFG Edition.Work Center_QWorkspaceChild' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
+:Work Center.qt_tabwidget_tabbar_QTabBar	{container=':xTuple ERP: OpenMFG Edition.Work Center_QWorkspaceChild' name='qt_tabwidget_tabbar' type='QTabBar' visible='1'}
+:Work Center.widget_QWidget	{container=':xTuple ERP: OpenMFG Edition.Work Center_QWorkspaceChild' name='widget' type='QWidget' visible='1'}
 :_action_QScrollBar	{container=':Hot Key._action_XTreeWidget' type='QScrollBar' unnamed='1' visible='1'}
 :_address_AddressCluster	{buddy=':_ar.Next A/R Memo #:_QLabel' name='_address' type='AddressCluster' visible='1'}
 :_alternate_QLineEdit	{buddy=':List Locales.Alternate:_QLabel' name='_alternate' type='QLineEdit' visible='1'}
@@ -632,6 +670,7 @@
 :_code_XLineEdit_2	{buddy=':List Titles.Title:_QLabel' name='_code' type='XLineEdit' visible='1'}
 :_code_XLineEdit_3	{buddy=':List Sites.Code:_QLabel' name='_code' type='XLineEdit' visible='1'}
 :_code_XLineEdit_4	{buddy=':List Planner Codes.Code:_QLabel' name='_code' type='XLineEdit' visible='1'}
+:_code_XLineEdit_5	{buddy=':List Standard Labor Rates.Code:_QLabel' name='_code' type='XLineEdit' visible='1'}
 :_comments_QTextEdit	{buddy=':List Locales.Comments:_QLabel' name='_comments' type='QTextEdit' visible='1'}
 :_comments_QTextEdit_2	{buddy=':frame.Comments:_QLabel' name='_comments' type='QTextEdit' visible='1'}
 :_comments_QTextEdit_3	{buddy=':Account Number.Comments:_QLabel' name='_comments' type='QTextEdit' visible='1'}
@@ -642,6 +681,9 @@
 :_costScale_QSpinBox	{buddy=':List Locales.Cost:_QLabel' name='_costScale' type='QSpinBox' visible='1'}
 :_costcat_XComboBox	{buddy=':Control.Cost Category:_QLabel' name='_costcat' type='XComboBox' visible='1'}
 :_costcat_XComboBox_2	{buddy=':Control.Cost Category:_QLabel_2' name='_costcat' type='XComboBox' visible='1'}
+:_costsTab.Overhead_QGroupBox	{container=':qt_tabwidget_stackedwidget._costsTab_QWidget' name='groupBox' title='Overhead' type='QGroupBox' visible='1'}
+:_costsTab.Run Labor Rate_QGroupBox	{container=':qt_tabwidget_stackedwidget._costsTab_QWidget' name='_runRateGroup' title='Run Labor Rate' type='QGroupBox' visible='1'}
+:_costsTab.Setup Labor Rate_QGroupBox	{container=':qt_tabwidget_stackedwidget._costsTab_QWidget' name='_setupRateGroup' title='Setup Labor Rate' type='QGroupBox' visible='1'}
 :_countTagPrefix_XLineEdit	{buddy=':_whsTypeStack.Next Count Tag #:_QLabel' name='_countTagPrefix' type='XLineEdit' visible='1'}
 :_country_XComboBox	{buddy=':List Locales.Country:_QLabel' name='_country' type='XComboBox' visible='1'}
 :_currencyScale_QSpinBox	{buddy=':List Locales.Currency:_QLabel' name='_currencyScale' type='QSpinBox' visible='1'}
@@ -658,6 +700,7 @@
 :_description_XLineEdit	{buddy=':List Locales.Description:_QLabel' name='_description' type='XLineEdit' visible='1'}
 :_description_XLineEdit_10	{buddy=':List Planner Codes.Description:_QLabel' name='_description' type='XLineEdit' visible='1'}
 :_description_XLineEdit_11	{buddy=':Account Number.Description:_QLabel' name='_description' type='XLineEdit' visible='1'}
+:_description_XLineEdit_12	{buddy=':List Standard Labor Rates.Description:_QLabel' name='_description' type='XLineEdit' visible='1'}
 :_description_XLineEdit_2	{buddy=':List Groups.Description:_QLabel' name='_description' type='XLineEdit' visible='1'}
 :_description_XLineEdit_3	{buddy=':Chart of Accounts.Description:_QLabel' name='_description' type='XLineEdit' visible='1'}
 :_description_XLineEdit_4	{buddy=':Database Information.Database Description:_QLabel' name='_description' type='XLineEdit' visible='1'}
@@ -811,6 +854,7 @@
 :_name_XLineEdit_2	{buddy=':List Sites.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_3	{buddy=':List Units of Measure.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_4	{buddy=':List Characteristics.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
+:_notesTab._comments_QTextEdit	{container=':qt_tabwidget_stackedwidget._notesTab_QWidget' name='_comments' type='QTextEdit' visible='1'}
 :_number_XLineEdit	{buddy=':List Companies.Number:_QLabel' name='_number' type='XLineEdit' visible='1'}
 :_number_XLineEdit_2	{buddy=':Chart of Accounts.Number:_QLabel' name='_number' type='XLineEdit' visible='1'}
 :_number_XLineEdit_3	{buddy=':Account Number.Number:_QLabel' name='_number' type='XLineEdit' visible='1'}
@@ -846,9 +890,13 @@
 :_purgeDays_QSpinBox	{buddy=':Database Information.Purge Batch Jobs after:_QLabel' name='_purgeDays' type='QSpinBox' visible='1'}
 :_qtyPerScale_QSpinBox	{buddy=':List Locales.Qty. Per:_QLabel' name='_qtyPerScale' type='QSpinBox' visible='1'}
 :_qtyScale_QSpinBox	{buddy=':List Locales.Qty.:_QLabel' name='_qtyScale' type='QSpinBox' visible='1'}
+:_rate_XLineEdit	{buddy=':List Standard Labor Rates.Rate:_QLabel' name='_rate' type='XLineEdit' visible='1'}
 :_reorderLevel_XLineEdit	{buddy=':Enforce Order Parameters.Reorder Level:_QLabel' name='_reorderLevel' type='XLineEdit' visible='1'}
 :_reorderLevel_XLineEdit_2	{buddy=':Enforce Order Parameters.Reorder Level:_QLabel_2' name='_reorderLevel' type='XLineEdit' visible='1'}
 :_salesPriceScale_QSpinBox	{buddy=':List Locales.Sales Price:_QLabel' name='_salesPriceScale' type='QSpinBox' visible='1'}
+:_schedulingTab.Average_QGroupBox	{container=':qt_tabwidget_stackedwidget._schedulingTab_QWidget' name='_timeGroup' title='Average' type='QGroupBox' visible='1'}
+:_schedulingTab.Capacity_QGroupBox	{container=':qt_tabwidget_stackedwidget._schedulingTab_QWidget' name='_caparityGroup' title='Capacity' type='QGroupBox' visible='1'}
+:_schedulingTab.Department_QGroupBox	{container=':qt_tabwidget_stackedwidget._schedulingTab_QWidget' name='_departmentGroup' title='Department' type='QGroupBox' visible='1'}
 :_server_QLineEdit	{buddy=':Login Options.Server:_QLabel' name='_server' type='QLineEdit' visible='1'}
 :_sitetype_XComboBox	{buddy=':List Sites.Type:_QLabel' name='_sitetype' type='XComboBox' visible='1'}
 :_subaccountGroup.Allow Free-Form Subaccounts_QCheckBox	{container=':_gl._subaccountGroup_QGroupBox' name='_ffSubaccounts' text='Allow Free-Form Subaccounts' type='QCheckBox' visible='1'}
@@ -892,6 +940,7 @@
 :qt_tabwidget_stackedwidget._ar_QWidget	{container=':Accounting Configuration.qt_tabwidget_stackedwidget_QStackedWidget' name='_ar' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._characteristicsTab_QWidget	{container=':Item.qt_tabwidget_stackedwidget_QStackedWidget' name='_characteristicsTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._characteristicsTab_QWidget_2	{container=':Item.qt_tabwidget_stackedwidget_QStackedWidget_2' name='_characteristicsTab' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget._costsTab_QWidget	{container=':Work Center.qt_tabwidget_stackedwidget_QStackedWidget' name='_costsTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._events_QWidget	{container=':User Preferences.qt_tabwidget_stackedwidget_QStackedWidget' name='_events' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._expirationTab_QWidget	{container=':List Item Sites.qt_tabwidget_stackedwidget_QStackedWidget_2' name='_expirationTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._generalTab_QWidget	{container=':List Sites.qt_tabwidget_stackedwidget_QStackedWidget' name='_generalTab' type='QWidget' visible='1'}
@@ -903,10 +952,12 @@
 :qt_tabwidget_stackedwidget._inventory_QWidget	{container=':Inventory Configuration.qt_tabwidget_stackedwidget_QStackedWidget' name='_inventory' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._locationsTab_QWidget	{container=':List Sites.qt_tabwidget_stackedwidget_QStackedWidget' name='_locationsTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._menu_QWidget	{container=':User Preferences.qt_tabwidget_stackedwidget_QStackedWidget' name='_menu' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget._notesTab_QWidget	{container=':Work Center.qt_tabwidget_stackedwidget_QStackedWidget' name='_notesTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._planningTab_QWidget	{container=':List Item Sites.qt_tabwidget_stackedwidget_QStackedWidget' name='_planningTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._planningTab_QWidget_2	{container=':List Item Sites.qt_tabwidget_stackedwidget_QStackedWidget_2' name='_planningTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._privTab_QWidget	{container=':List Users.qt_tabwidget_stackedwidget_QStackedWidget' name='_privTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._privTab_QWidget_2	{container=':List Users.qt_tabwidget_stackedwidget_QStackedWidget_2' name='_privTab' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget._schedulingTab_QWidget	{container=':Work Center.qt_tabwidget_stackedwidget_QStackedWidget' name='_schedulingTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._zonesTab_QWidget	{container=':List Sites.qt_tabwidget_stackedwidget_QStackedWidget' name='_zonesTab' type='QWidget' visible='1'}
 :xTuple ERP: OpenMFG Edition - [Item].Item_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition - [Item]_GUIClient' windowTitle='Item'}
 :xTuple ERP: OpenMFG Edition - [Item]_GUIClient	{type='GUIClient' unnamed='1' visible='1' windowTitle='xTuple ERP: OpenMFG Edition - [Item]'}
@@ -946,11 +997,13 @@
 :xTuple ERP: OpenMFG Edition.List Site Locations_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List Site Locations'}
 :xTuple ERP: OpenMFG Edition.List Site Types_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List Site Types'}
 :xTuple ERP: OpenMFG Edition.List Sites_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List Sites'}
+:xTuple ERP: OpenMFG Edition.List Standard Labor Rates_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List Standard Labor Rates'}
 :xTuple ERP: OpenMFG Edition.List Subaccounts_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List Subaccounts'}
 :xTuple ERP: OpenMFG Edition.List Titles_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List Titles'}
 :xTuple ERP: OpenMFG Edition.List Units of Measure_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List Units of Measure'}
 :xTuple ERP: OpenMFG Edition.List Users_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient' windowTitle='List Users'}
 :xTuple ERP: OpenMFG Edition.List Users_QWorkspaceChild_2	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List Users'}
+:xTuple ERP: OpenMFG Edition.List Work Centers_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List Work Centers'}
 :xTuple ERP: OpenMFG Edition.Master Information_QMenu	{name='menu.sys.masterinfo' title='Master Information' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.Master Information_QMenu_2	{name='menu.crm.master' title='Master Information' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.Master Information_QMenu_3	{name='menu.im.masterinfo' title='Master Information' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
@@ -962,6 +1015,7 @@
 :xTuple ERP: OpenMFG Edition.Site Work Week_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='Site Work Week'}
 :xTuple ERP: OpenMFG Edition.Site_QMenu	{name='menu.im.warehouse' title='Site' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.System_QMenu	{name='menu.sys' title='System' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient'}
+:xTuple ERP: OpenMFG Edition.Work Center_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='Work Center'}
 :xTuple ERP: OpenMFG Edition_GUIClient	{type='GUIClient' visible='1' windowTitle='xTuple ERP: OpenMFG Edition'}
 :xTuple ERP: OpenMFG Edition_GUIClient_2	{type='GUIClient' unnamed='1' visible='1' windowTitle='xTuple ERP: OpenMFG Edition'}
 :xTuple ERP: OpenMFG Edition_QMenuBar	{type='QMenuBar' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient'}
