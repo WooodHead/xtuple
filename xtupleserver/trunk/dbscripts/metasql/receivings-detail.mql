@@ -24,7 +24,7 @@ FROM vend, recv LEFT OUTER JOIN
      item ON (itemsite_item_id=item_id)) ON (recv_itemsite_id=itemsite_id)
 WHERE ( (recv_vend_id=vend_id)
  AND (recv_order_type='PO')
- AND (recv_date BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+ AND (DATE(recv_date) BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? if exists("vend_id") ?>
  AND (vend_id=<? value ("vend_id") ?>)
 <? endif ?>
@@ -60,7 +60,7 @@ FROM vend, poreject LEFT OUTER JOIN
     (itemsite JOIN
      item ON (itemsite_item_id=item_id)) ON (poreject_itemsite_id=itemsite_id)
 WHERE ( (poreject_vend_id=vend_id)
- AND (poreject_date BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+ AND (DATE(poreject_date) BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? if exists("vend_id") ?>
  AND (vend_id=<? value ("vend_id") ?>)
 <? endif ?>
