@@ -76,13 +76,6 @@ BEGIN
     END IF;
   END IF;
 
---  Make sure that the W/O Qty. is legitimate
-  IF ( SELECT (wo_qtyord <= 0)
-       FROM wo
-       WHERE (wo_id=pWoid) ) THEN
-    RETURN -9;
-  END IF;
-
 --  Create the W/O Material Requirements
   INSERT INTO womatl
   ( womatl_wo_id, womatl_bomitem_id, womatl_wooper_id, womatl_schedatwooper,

@@ -13,9 +13,14 @@ BEGIN
 
   _itemlocSeries := 0;
   
-  IF ( SELECT (womatl_qtyiss < pQty)
+  IF ( SELECT (
+         CASE WHEN (womatl_qtyreq >= 0) THEN
+           womatl_qtyiss < pQty
+         ELSE
+           false
+         END )
        FROM womatl
-       WHERE (womatl_id=pWomatlid) ) THEN
+       WHERE ( womatl_id=pWomatlid ) ) THEN
     RETURN pItemlocSeries;
   END IF;
 

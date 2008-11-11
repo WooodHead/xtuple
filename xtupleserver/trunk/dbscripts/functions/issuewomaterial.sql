@@ -49,15 +49,11 @@ DECLARE
 
 BEGIN
 
-  IF (pQty < 0) THEN
-    RETURN pItemlocSeries;
-  END IF;
-
   SELECT item_id,
          itemsite_id AS c_itemsite_id,
          wo_itemsite_id AS p_itemsite_id,
          itemsite_loccntrl, itemsite_controlmethod,
-         womatl_wo_id,
+         womatl_wo_id, womatl_qtyreq,
          roundQty(item_fractional, itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)) AS qty,
          formatWoNumber(wo_id) AS woNumber,
          CASE WHEN(itemsite_costmethod='A') THEN avgcost(itemsite_id) ELSE stdcost(itemsite_item_id) END AS cost,
@@ -68,6 +64,10 @@ BEGIN
    AND (itemsite_item_id=item_id)
    AND (womatl_id=pWomatlid) )
   FOR UPDATE;
+
+  IF ((_p.womatl_qtyreq >= 0 AND pQty < 0) OR (_p.womatl_qtyreq < 0 AND pQty > 0)) THEN
+    RETURN pItemlocSeries;
+  END IF;
 
   IF (pItemlocSeries <> 0) THEN
     _itemlocSeries := pItemlocSeries;
