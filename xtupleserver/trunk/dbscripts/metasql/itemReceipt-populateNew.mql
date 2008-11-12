@@ -24,6 +24,7 @@ SELECT orderhead_number AS order_number, orderitem_linenumber,
        orderitem_scheddate AS duedate,
        orderitem_qty_ordered,
        orderitem_qty_received AS qtyreceived,
+       orderitem_qty_shipped AS qtyreturned,
        qtyToReceive(orderhead_type, orderitem_id) AS qtytoreceive,
        (orderitem_qty_ordered - orderitem_qty_received) AS receivable,
        ( SELECT recv_notes
@@ -40,6 +41,7 @@ SELECT orderhead_number AS order_number, orderitem_linenumber,
        'uomratio' AS orderitem_qty_invuomratio_xtnumericrole,
        'qty' AS orderitem_qty_ordered_xtnumericrole, 
        'qty' AS qtyreceived_xtnumericrole, 
+       'qty' AS qtyreturned_xtnumericrole, 
        'qty' AS qtytoreceive_xtnumericrole, 
        'qty' AS receivable_xtnumericrole 
 FROM orderhead, orderitem LEFT OUTER JOIN 
