@@ -7,7 +7,7 @@ SELECT pohead_id, pohead_number,
        CASE WHEN(poitem_status='C') THEN TEXT(<? value("closed") ?>)
             WHEN(poitem_status='U') THEN TEXT(<? value("unposted") ?>)
             WHEN(poitem_status='O' AND (SUM(poitem_qty_received-poitem_qty_returned) > 0) AND (SUM(poitem_qty_ordered)>SUM(poitem_qty_received-poitem_qty_returned))) THEN TEXT(<? value("partial") ?>)
-            WHEN(poitem_status='O' AND (SUM(poitem_qty_received-poitem_qty_returned) > 0) AND (SUM(poitem_qty_ordered)=SUM(poitem_qty_received-poitem_qty_returned))) THEN TEXT(<? value("received") ?>)
+            WHEN(poitem_status='O' AND (SUM(poitem_qty_received-poitem_qty_returned) > 0) AND (SUM(poitem_qty_ordered)<=SUM(poitem_qty_received-poitem_qty_returned))) THEN TEXT(<? value("received") ?>)
             WHEN(poitem_status='O') THEN TEXT(<? value("open") ?>)
             ELSE poitem_status
        END AS poitemstatus,
