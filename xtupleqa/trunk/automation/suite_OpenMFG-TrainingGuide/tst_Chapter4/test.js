@@ -2,12 +2,10 @@ function main()
 {
     waitForObject(":_username_QLineEdit");
     type(":_username_QLineEdit", "admin");
-    
     waitForObject(":_password_QLineEdit");
     type(":_password_QLineEdit", "1zenqa1");
-    
-//    waitForObject(":_password_QLineEdit");
     type(":_password_QLineEdit", "<Return>");
+    
 //    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
 //    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
 //    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
