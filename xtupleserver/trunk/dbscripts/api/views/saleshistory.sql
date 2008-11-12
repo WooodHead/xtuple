@@ -225,3 +225,4 @@ COMMENT ON VIEW api.saleshistory IS 'Sales History';
   NOTHING;
 
 COMMIT;
+

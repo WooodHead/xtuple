@@ -148,3 +148,4 @@ CREATE OR REPLACE RULE "_DELETE" AS
   AND (quitem_linenumber=OLD.line_number));
 
 COMMIT;
+

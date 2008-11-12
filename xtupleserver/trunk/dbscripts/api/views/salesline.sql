@@ -187,3 +187,4 @@ CREATE OR REPLACE RULE "_DELETE" AS
   AND (coitem_subnumber=0));
 
 COMMIT;
+

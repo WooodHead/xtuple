@@ -50,3 +50,4 @@ CREATE OR REPLACE RULE "_DELETE" AS
                         getCostElemId(OLD.costing_element));
 
 COMMIT;
+
