@@ -46,4 +46,4 @@ FROM cohist JOIN cust ON (cust_id=cohist_cust_id)
 REVOKE ALL ON TABLE saleshistory FROM PUBLIC;
 GRANT  ALL ON TABLE saleshistory TO GROUP openmfg;
 
-COMMENT ON VIEW saleshistory IS 'Single point of sales history calculations.';
+COMMENT ON VIEW saleshistory IS 'Single point for sales history calculations.';
