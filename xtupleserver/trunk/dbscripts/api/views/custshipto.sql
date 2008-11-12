@@ -96,7 +96,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
       WHERE (cust_id=getCustId(NEW.customer_number)))),
     COALESCE(NEW.general_notes,''),
     COALESCE(NEW.shipping_notes,''),
-    COALESCE(getShipZoneId(NEW.zone),-1),
+    getShipZoneId(NEW.zone),
     COALESCE(NEW.ship_via,(
       SELECT cust_shipvia
       FROM custinfo
