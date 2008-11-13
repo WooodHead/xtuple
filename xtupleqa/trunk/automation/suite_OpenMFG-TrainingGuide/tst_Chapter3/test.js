@@ -1,14 +1,9 @@
 function main()
 {
 
-    waitForObject(":_username_QLineEdit");
-    type(":_username_QLineEdit", "admin");
-    waitForObject(":_username_QLineEdit");
-    type(":_username_QLineEdit", "<Tab>");
-    waitForObject(":_password_QLineEdit");
-    type(":_password_QLineEdit", "1zenqa1");
-    waitForObject(":_password_QLineEdit");
-    type(":_password_QLineEdit", "<Return>");
+    source(findFile("scripts","functions.js"));
+
+    loginAppl("3.2.0", "empty320alpha-chapter2","admin");
     
     
     //-------------Create Items--------------------
@@ -20,7 +15,7 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
 
     
-    //-----------Create Item: YTRUCK1------------------
+    //-----------Create Item: YTRUCK1--------------
     waitForObject(":List Items.New_QPushButton");
     clickButton(":List Items.New_QPushButton");
     waitForObject(":_itemNumber_XLineEdit_2");
@@ -308,13 +303,13 @@ function main()
     
     
     
-    //-----------CRAEATE ITEM SITES---------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+  //-----------CRAEATE ITEM SITES---------------------
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+  activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
     
     
     //------Item site for YTRUCK1----------------
@@ -591,63 +586,63 @@ function main()
     test.log("Item TKIT1 created");
     
     
-    //---------Item site for TBOX1--------------
-    waitForObject(":List Item Sites.New_QPushButton_2");
-    clickButton(":List Item Sites.New_QPushButton_2");
-    waitForObject(":List Item Sites._itemNumber_ItemLineEdit");
-    type(":List Item Sites._itemNumber_ItemLineEdit", "tbox1");
-    type(":_warehouse_WComboBox_3","WH1");
-    if(!findObject(":List Item Sites.Supplied at this Site_QGroupBox_2").checked)
-       type(":List Item Sites.Supplied at this Site_QGroupBox_2"," ");	
-    if(findObject(":List Item Sites.Sold from this Site_QGroupBox_2").checked)
-        type(":List Item Sites.Sold from this Site_QGroupBox_2"," ");
-    clickButton(":Costing Method.Standard_QRadioButton_2");
-    type(":Control._controlMethod_XComboBox_2", "Regular");
-    type(":_plannerCode_XComboBox", "MRP");
-    type(":_costcat_XComboBox_2", "CCWH1");
-    if(findObject(":_inventory.Stocked_QCheckBox_2").checked)
-         clickButton(":_inventory.Stocked_QCheckBox_2");
-    if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_2").checked)
-        clickButton(":_inventory.Allow Automatic Updates_QCheckBox_2");
-    type(":_cycleCountFreq_QSpinBox_2", "<Ctrl+A>");
-    type(":_cycleCountFreq_QSpinBox_2", "<Del>");
-    type(":_cycleCountFreq_QSpinBox_2", "30");
-    type(":_eventFence_QSpinBox_3", "<Ctrl+A>");
-    type(":_eventFence_QSpinBox_3", "<Del>");
-    type(":_eventFence_QSpinBox_3", "10");
-    if(!findObject(":_locationGroup.Multiple Location Control_QCheckBox_2").checked)
-        type(":_locationGroup.Multiple Location Control_QCheckBox_2"," ");
-    if(!findObject(":_locationGroup.Use Default Location_QGroupBox_2").checked)
-        type(":_locationGroup.Use Default Location_QGroupBox_2"," ");
-    type(":Use Default Location._locations_XComboBox", "01010103");
-    type(":_locationGroup._locationComments_XLineEdit_2", "RM-01-01-01");
-    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar_2");
-    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar_2", "Planning");
-    type(":_planningTab.Enforce Order Parameters_QGroupBox_2"," ");
-    type(":_reorderLevel_XLineEdit_2", "0.00");
-    type(":_orderUpToQty_XLineEdit_2", "0.00");
-    type(":_minimumOrder_XLineEdit_2", "100");
-    type(":_maximumOrder_XLineEdit_2", "10000");
-    type(":_orderMultiple_XLineEdit_2", "100");
-    if(!findObject(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_2").checked)
-        clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_2");
-    type(":_mrp.qt_spinbox_lineedit_QLineEdit_2","<Ctrl+A>");
-    type(":_mrp.qt_spinbox_lineedit_QLineEdit_2","<Del>");
-    type(":_mrp.qt_spinbox_lineedit_QLineEdit_2","7");
-    type(":_mrp._mpsTimeFence_QSpinBox_2", "<Ctrl+A>");
-    type(":_mrp._mpsTimeFence_QSpinBox_2", "<Del>");
-    type(":_mrp._mpsTimeFence_QSpinBox_2", "0");
-    type(":_leadTime_QSpinBox_2", "<Ctrl+A>");
-    type(":_leadTime_QSpinBox_2", "<Del>");
-    type(":_leadTime_QSpinBox_2", "1");
-    type(":_mrp._safetyStock_XLineEdit_2", "<Ctrl+A>");
-    type(":_mrp._safetyStock_XLineEdit_2", "<Del>");
-    type(":_mrp._safetyStock_XLineEdit_2", "0.00");
-    waitForObject(":List Item Sites.Save_QPushButton_2");
-    clickButton(":List Item Sites.Save_QPushButton_2");
-    waitForObject(":List Item Sites.Cancel_QPushButton_2");
-    clickButton(":List Item Sites.Cancel_QPushButton_2");
-    test.log("Item TBOX1 created");
+//    //---------Item site for TBOX1--------------
+//    waitForObject(":List Item Sites.New_QPushButton_2");
+//    clickButton(":List Item Sites.New_QPushButton_2");
+//    waitForObject(":List Item Sites._itemNumber_ItemLineEdit");
+//    type(":List Item Sites._itemNumber_ItemLineEdit", "tbox1");
+//    type(":_warehouse_WComboBox_3","WH1");
+//    if(!findObject(":List Item Sites.Supplied at this Site_QGroupBox_2").checked)
+//       type(":List Item Sites.Supplied at this Site_QGroupBox_2"," ");	
+//    if(findObject(":List Item Sites.Sold from this Site_QGroupBox_2").checked)
+//        type(":List Item Sites.Sold from this Site_QGroupBox_2"," ");
+//    clickButton(":Costing Method.Standard_QRadioButton_2");
+//    type(":Control._controlMethod_XComboBox_2", "Regular");
+//    type(":_plannerCode_XComboBox", "MRP");
+//    type(":_costcat_XComboBox_2", "CCWH1");
+//    if(findObject(":_inventory.Stocked_QCheckBox_2").checked)
+//         clickButton(":_inventory.Stocked_QCheckBox_2");
+//    if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_2").checked)
+//        clickButton(":_inventory.Allow Automatic Updates_QCheckBox_2");
+//    type(":_cycleCountFreq_QSpinBox_2", "<Ctrl+A>");
+//    type(":_cycleCountFreq_QSpinBox_2", "<Del>");
+//    type(":_cycleCountFreq_QSpinBox_2", "30");
+//    type(":_eventFence_QSpinBox_3", "<Ctrl+A>");
+//    type(":_eventFence_QSpinBox_3", "<Del>");
+//    type(":_eventFence_QSpinBox_3", "10");
+//    if(!findObject(":_locationGroup.Multiple Location Control_QCheckBox_2").checked)
+//        type(":_locationGroup.Multiple Location Control_QCheckBox_2"," ");
+//    if(!findObject(":_locationGroup.Use Default Location_QGroupBox_2").checked)
+//        type(":_locationGroup.Use Default Location_QGroupBox_2"," ");
+//    type(":Use Default Location._locations_XComboBox", "01010103");
+//    type(":_locationGroup._locationComments_XLineEdit_2", "RM-01-01-01");
+//    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar_2");
+//    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar_2", "Planning");
+//    type(":_planningTab.Enforce Order Parameters_QGroupBox_2"," ");
+//    type(":_reorderLevel_XLineEdit_2", "0.00");
+//    type(":_orderUpToQty_XLineEdit_2", "0.00");
+//    type(":_minimumOrder_XLineEdit_2", "100");
+//    type(":_maximumOrder_XLineEdit_2", "10000");
+//    type(":_orderMultiple_XLineEdit_2", "100");
+//    if(!findObject(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_2").checked)
+//        clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_2");
+//    type(":_mrp.qt_spinbox_lineedit_QLineEdit_2","<Ctrl+A>");
+//    type(":_mrp.qt_spinbox_lineedit_QLineEdit_2","<Del>");
+//    type(":_mrp.qt_spinbox_lineedit_QLineEdit_2","7");
+//    type(":_mrp._mpsTimeFence_QSpinBox_2", "<Ctrl+A>");
+//    type(":_mrp._mpsTimeFence_QSpinBox_2", "<Del>");
+//    type(":_mrp._mpsTimeFence_QSpinBox_2", "0");
+//    type(":_leadTime_QSpinBox_2", "<Ctrl+A>");
+//    type(":_leadTime_QSpinBox_2", "<Del>");
+//    type(":_leadTime_QSpinBox_2", "1");
+//    type(":_mrp._safetyStock_XLineEdit_2", "<Ctrl+A>");
+//    type(":_mrp._safetyStock_XLineEdit_2", "<Del>");
+//    type(":_mrp._safetyStock_XLineEdit_2", "0.00");
+//    waitForObject(":List Item Sites.Save_QPushButton_2");
+//    clickButton(":List Item Sites.Save_QPushButton_2");
+//    waitForObject(":List Item Sites.Cancel_QPushButton_2");
+//    clickButton(":List Item Sites.Cancel_QPushButton_2");
+//    test.log("Item TBOX1 created");
     
     
   //---------Item site for YPAINT1--------------
@@ -708,10 +703,9 @@ function main()
     clickButton(":List Item Sites.Cancel_QPushButton_2");
     test.log("Item YPAINT1 created");
     
-    
     waitForObject(":List Item Sites.Close_QPushButton_2");
     clickButton(":List Item Sites.Close_QPushButton_2");
     
-    
+    exitAppl();
     
 }
