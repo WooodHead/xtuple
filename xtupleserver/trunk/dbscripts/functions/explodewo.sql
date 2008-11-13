@@ -85,7 +85,7 @@ BEGIN
     womatl_qtyreq,
     womatl_qtyiss, womatl_qtywipscrap,
     womatl_lastissue, womatl_lastreturn, womatl_cost,
-    womatl_picklist, womatl_createwo, womatl_issuemethod )
+    womatl_picklist, womatl_createwo, womatl_issuemethod, womatl_notes, womatl_ref )
   SELECT wo_id, bomitem_id, bomitem_booitem_seq_id, bomitem_schedatwooper,
          cs.itemsite_id,
          CASE WHEN bomitem_schedatwooper THEN COALESCE(calcWooperStart(wo_id,bomitem_booitem_seq_id), wo_startdate)
@@ -95,7 +95,7 @@ BEGIN
          roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id), (bomitem_qtyper * wo_qtyord * (1 + bomitem_scrap))),
          0, 0,
          startOfTime(), startOfTime(), 0,
-         item_picklist, ( (item_type=''M'') AND (bomitem_createwo) ), bomitem_issuemethod
+         item_picklist, ( (item_type=''M'') AND (bomitem_createwo) ), bomitem_issuemethod, bomitem_notes, bomitem_ref 
   FROM bomitem, wo, itemsite AS ps, itemsite AS cs, item
   WHERE ( (wo_itemsite_id=ps.itemsite_id)
    AND (bomitem_parent_item_id=ps.itemsite_item_id)
@@ -237,7 +237,7 @@ BEGIN
         womatl_qtyiss, womatl_qtywipscrap,
         womatl_lastissue, womatl_lastreturn,
         womatl_cost, womatl_picklist, womatl_createwo,
-        womatl_issuemethod )
+        womatl_issuemethod, womatl_notes, womatl_ref )
       SELECT pWoid, cs.itemsite_id, _p.womatl_wooper_id,
              womatl_schedatwooper, womatl_duedate,
              bomitem_uom_id, (bomitem_qtyper * womatl_qtyper), bomitem_scrap,
@@ -245,7 +245,7 @@ BEGIN
              0, 0,
              startOfTime(), startOfTime(),
              0, ci.item_picklist, ( (ci.item_type=''M'') AND (bomitem_createwo) ),
-             bomitem_issuemethod
+             bomitem_issuemethod, bomitem_notes, bomitem_ref 
       FROM wo, womatl, bomitem, 
            itemsite AS cs, itemsite AS ps,
            item AS ci, item AS pi
