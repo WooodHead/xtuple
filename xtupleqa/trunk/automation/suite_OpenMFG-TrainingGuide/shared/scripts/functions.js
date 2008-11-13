@@ -1,6 +1,6 @@
 //-***-This script doc contains all the common code libraries/functions required by the Main driver script-***-
 
-
+ var iNumberOfModules=11;
 
 //--------Login into Appl----------
 function loginAppl(vrsn,database,usr)
@@ -67,7 +67,7 @@ function assignPrivileges()
     clickButton(":List Users.Edit_QPushButton_2");
     waitForObject(":_privTab.Add All->>_QPushButton_2");   
     clickButton(":_privTab.Add All->>_QPushButton_2");   
-    var iNumberOfModules=10;
+    var iNumberOfModules=11;
     for(i=0;i<iNumberOfModules;i++)
     {
      waitForObject(":_module_XComboBox_2");
@@ -242,8 +242,8 @@ function createLocale(LocaleCode,LocaleDesc)
     type(":_alternate_QLineEdit", "blue");
     type(":_future_QLineEdit", "green");
     type(":_comments_QTextEdit", "My Locale for Class");
+    waitForObject(":List Locales.Save_QPushButton");
     clickButton(":List Locales.Save_QPushButton");
-    
     var sWidgetTreeControl = ":List Locales._locale_XTreeWidget";
     waitForObject(sWidgetTreeControl);
     var obj_TreeWidget = findObject(sWidgetTreeControl);
@@ -280,7 +280,7 @@ function createGroup(GrpName, GrpDesc)
     clickButton(":List Groups.New_QPushButton");
     type(":_name_XLineEdit", GrpName);
     type(":_description_XLineEdit_2", GrpDesc);
-    for(var i=0;i<10;i++)
+    for(var i=0;i<iNumberOfModules;i++)
     {
     waitForObject(":frame.Add All->>_QPushButton");
     clickButton(":frame.Add All->>_QPushButton");
