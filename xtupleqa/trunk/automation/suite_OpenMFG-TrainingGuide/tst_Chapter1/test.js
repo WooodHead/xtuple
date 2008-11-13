@@ -3,10 +3,10 @@ function main()
     
     source(findFile("scripts","functions.js"));
     loginAppl("3.2.0", "empty320alpha-chapter2","admin");
-//    createDept("MFG","Manufacturing");
-//    assignPrivileges();
-//    createShift("1ST","First");
-//    createLocale("MYLOCALE","My Locale For Class");
+    createDept("MFG","Manufacturing");
+    assignPrivileges();
+    createShift("1ST","First");
+    createLocale("MYLOCALE","My Locale For Class");
     createGroup("SUPER","Super User Group");
     var newuser="user01";
     createUser(newuser);
