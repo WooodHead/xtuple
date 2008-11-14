@@ -29,5 +29,7 @@ CREATE TYPE bomdata AS (
   bomdata_stdextendedcost	numeric,
   bomdata_ecn		        text,
   bomdata_char_id		integer,
-  bomdata_value		        text
+  bomdata_value		        text,
+  bomdata_notes			text,
+  bomdata_ref			text
   );

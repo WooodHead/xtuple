@@ -50,7 +50,7 @@ BEGIN
                stdcost(bomitem_item_id) AS stdunitcost,
                (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) * actcost(bomitem_item_id)) AS actextendedcost,
                (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) * stdcost(bomitem_item_id)) AS stdextendedcost,
-               bomitem_char_id, bomitem_value
+               bomitem_char_id, bomitem_value, bomitem_notes, bomitem_ref 
        FROM bomitem(pItemid,pRevisionid), item, uom 
        WHERE ( (item_inv_uom_id=uom_id)
        AND (bomitem_item_id=item_id)
@@ -98,6 +98,8 @@ BEGIN
         _row.bomdata_stdextendedcost := _x.stdextendedcost;
         _row.bomdata_char_id := _x.bomitem_char_id;
         _row.bomdata_value := _x.bomitem_value;
+        _row.bomdata_notes := _x.bomitem_notes;
+        _row.bomdata_ref := _x.bomitem_ref;
         RETURN NEXT _row;
     END LOOP;
 
@@ -127,7 +129,7 @@ BEGIN
                stdcost(bomitem_item_id) AS stdunitcost,
                (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) * actcost(bomitem_item_id)) AS actextendedcost,
                (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) * stdcost(bomitem_item_id)) AS stdextendedcost,
-               bomitem_char_id, bomitem_value
+               bomitem_char_id, bomitem_value, bomitem_notes, bomitem_ref 
        FROM bomitem(pItemid,pRevisionid), item, uom 
        WHERE ( (item_inv_uom_id=uom_id)
        AND (bomitem_item_id=item_id)
@@ -175,6 +177,8 @@ BEGIN
         _row.bomdata_stdextendedcost := _x.stdextendedcost;
         _row.bomdata_char_id := _x.bomitem_char_id;
         _row.bomdata_value := _x.bomitem_value;
+        _row.bomdata_notes := _x.bomitem_notes;
+        _row.bomdata_ref := _x.bomitem_ref;
         RETURN NEXT _row;
     END LOOP;
   END IF;

@@ -123,7 +123,7 @@ BEGIN
        bomwork_qtyper * (1 + bomwork_scrap) * bomwork_actunitcost AS actextendedcost,
        bomwork_qtyper * (1 + bomwork_scrap) * bomwork_stdunitcost AS stdextendedcost,
        bomwork_char_id,
-       bomwork_value
+       bomwork_value, bomwork_notes, bomwork_ref 
        FROM bomwork, item, uom 
        WHERE ( (bomwork_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
@@ -204,7 +204,7 @@ BEGIN
        bomhist_qtyper * (1 + bomhist_scrap) * bomhist_actunitcost AS actextendedcost,
        bomhist_qtyper * (1 + bomhist_scrap) * bomhist_stdunitcost AS stdextendedcost,
        bomhist_char_id,
-       bomhist_value
+       bomhist_value, bomhist_notes, bomhist_ref 
        FROM bomhist, item, uom 
        WHERE ( (bomhist_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
@@ -249,6 +249,8 @@ BEGIN
         _row.bomdata_stdextendedcost := _x.stdextendedcost;
         _row.bomdata_char_id := _x.bomhist_char_id;
         _row.bomdata_value := _x.bomhist_value;
+        _row.bomdata_notes := _x.bomhist_notes;
+        _row.bomdata_ref := _x.bomhist_ref;
         RETURN NEXT _row;
     END LOOP;
   END IF;   
