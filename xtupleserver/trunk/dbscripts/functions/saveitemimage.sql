@@ -7,18 +7,18 @@ DECLARE
 
 BEGIN
 -- See if a record with this purpose already exists
-  SELECT itemimage_id INTO _itemimageId
-  FROM itemimage
-  WHERE ((itemimage_item_id=pItemid)
-  AND (itemimage_purpose=pPurpose));
+  SELECT imageass_id INTO _itemimageId
+  FROM imageass
+  WHERE ( (imageass_source=''I'')
+    AND   (imageass_source_id=pItemid)
+    AND   (imageass_purpose=pPurpose) );
 
   IF (FOUND) THEN
-    UPDATE itemimage SET
-      itemimage_image_id=pImageId
-    WHERE (itemimage_id=_itemimageId);
+    UPDATE imageass SET imageass_image_id=pImageId
+    WHERE (imageass_id=_itemimageId);
   ELSE
-    _itemimageId := NEXTVAL(''itemimage_itemimage_id_seq'');
-    INSERT INTO itemimage VALUES (_itemimageId,pItemid,pImageid,pPurpose);
+    _itemimageId := NEXTVAL(''imageass_imageass_id_seq'');
+    INSERT INTO imageass VALUES (_itemimageId,pItemid,''I'',pImageid,pPurpose);
   END IF;
   
   RETURN _itemimageId;

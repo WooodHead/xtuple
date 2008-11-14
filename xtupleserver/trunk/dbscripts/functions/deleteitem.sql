@@ -116,8 +116,9 @@ BEGIN
   DELETE FROM ipsitem
   WHERE (ipsitem_item_id=pItemid);
 
-  DELETE FROM itemimage
-  WHERE (itemimage_item_id=pItemid);
+  DELETE FROM imageass
+  WHERE ( (imageass_source=''I'')
+    AND   (imageass_source_id=pItemid) );
 
   DELETE FROM locitem
   WHERE (locitem_item_id=pItemid);
