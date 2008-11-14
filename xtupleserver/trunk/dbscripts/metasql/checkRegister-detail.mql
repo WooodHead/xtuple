@@ -62,6 +62,21 @@ SELECT checkhead_id AS checkid,
          AND   (checkhead_recip_id = <? value("recip_id") ?> )
       <? endif ?>
    <? endif ?>
+   <? if exists("vend_id") ?>
+     AND (checkhead_recip_type = 'V')
+     AND (checkhead_recip_id = <? value("vend_id") ?>)
+   <? elseif exists("vendtype_id") ?>
+     AND (checkhead_recip_type = 'V')
+     AND (checkhead_recip_id IN (SELECT vend_id
+                                 FROM vend
+                                 WHERE (vend_vendtype_id=<? value("vendtype_id") ?>)))
+   <? elseif exists("vendtype_pattern") ?>
+     AND (checkhead_recip_type = 'V')
+     AND (checkhead_recip_id IN (SELECT vend_id
+                                 FROM vend, vendtype
+                                 WHERE  (vend_vendtype_id=vendtype_id)
+                                   AND  (vendtype_code ~ <? value("vendtype_pattern") ?>)))
+   <? endif ?>
 )
 <? if exists("showDetail") ?>
 UNION
@@ -112,6 +127,21 @@ SELECT checkitem_checkhead_id AS checkid, 0 AS extra, checkitem_id,
       <? if exists("recip_id") ?>
          AND   (checkhead_recip_id = <? value("recip_id") ?> )
       <? endif ?>
+   <? endif ?>
+   <? if exists("vend_id") ?>
+     AND (checkhead_recip_type = 'V')
+     AND (checkhead_recip_id = <? value("vend_id") ?>)
+   <? elseif exists("vendtype_id") ?>
+     AND (checkhead_recip_type = 'V')
+     AND (checkhead_recip_id IN (SELECT vend_id
+                                 FROM vend
+                                 WHERE (vend_vendtype_id=<? value("vendtype_id") ?>)))
+   <? elseif exists("vendtype_pattern") ?>
+     AND (checkhead_recip_type = 'V')
+     AND (checkhead_recip_id IN (SELECT vend_id
+                                 FROM vend, vendtype
+                                 WHERE  (vend_vendtype_id=vendtype_id)
+                                   AND  (vendtype_code ~ <? value("vendtype_pattern") ?>)))
    <? endif ?>
    )
 <? endif ?>
