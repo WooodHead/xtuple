@@ -13,11 +13,11 @@ SELECT item_id, item_number,
        itemaltcapuom(item_id)    AS altcapuom,
        itemaltcapinvrat(item_id) AS altcapinvrat,
        'uomratio' AS capinvrat_xtnumericrole,
-       'uomratio' AS altcapinvrat_xtnumericrole,
+       'uomratio' AS altcapinvrat_xtnumericrole
 FROM item
      JOIN uom ON (item_inv_uom_id=uom_id)
 <? if exists("getclasscode") ?>
-     LEFT OUTER JOIN classcode ON (item_clascode_id=classcode_id)
+     LEFT OUTER JOIN classcode ON (item_classcode_id=classcode_id)
 <? endif ?>
 WHERE (
 <? if exists("getclasscode") ?> true <? else ?> item_sold <? endif ?>
