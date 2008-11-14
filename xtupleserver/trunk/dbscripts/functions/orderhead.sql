@@ -86,7 +86,7 @@ BEGIN
                                      AND (raitem_status=''O''))';
   END IF;
 
-  _query := _query || ') AS data;';
+  _query := _query || ') AS data ORDER BY orderhead_type, orderhead_number ;';
   
   FOR _row IN EXECUTE _query
   LOOP
