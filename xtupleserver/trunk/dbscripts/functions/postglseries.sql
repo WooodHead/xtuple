@@ -16,7 +16,7 @@ END;
 CREATE OR REPLACE FUNCTION postGLSeries(INTEGER, INTEGER) RETURNS INTEGER AS '
 DECLARE
   pSequence ALIAS FOR $1;
-  pJournalNumber INTEGER;
+  pJournalNumber ALIAS FOR $2;
   _returnValue INTEGER;
 
 BEGIN
