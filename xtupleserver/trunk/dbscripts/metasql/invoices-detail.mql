@@ -4,7 +4,13 @@
 
 SELECT invchead_id, invchead.*,
        cust_number, cust_name,
-       COALESCE(invchead_gldistdate, invchead_invcdate) AS gldistdate
+       COALESCE(invchead_gldistdate, invchead_invcdate) AS gldistdate,
+       ( SELECT SUM(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price /
+                          (CASE WHEN(item_id IS NULL) THEN 1
+                                ELSE invcitem_price_invuomratio END)), 2))
+         FROM invcitem LEFT OUTER JOIN item ON (item_id=invcitem_item_id)
+         WHERE (invcitem_invchead_id=invchead_id) ) AS extprice,
+       'curr' AS extprice_xtnumericrole
 FROM invchead JOIN cust ON (cust_id=invchead_cust_id)
 WHERE ( (true)
 <? if exists("unpostedOnly") ?>
