@@ -84,7 +84,7 @@ BEGIN
                                round(currToBase(_p.cmhead_curr_id,
                                                 _r.amount * -1,
                                                 _p.cmhead_docdate), 2),
-                                 _glDate) INTO _test
+                                 _glDate, _p.cmhead_billtoname) INTO _test
       FROM salesaccnt
       WHERE (salesaccnt_id=findSalesAccnt(_r.itemsite_id, _r.cust_id));
       IF (NOT FOUND) THEN
@@ -99,7 +99,8 @@ BEGIN
 				      _r.cmitem_tax_id,
 				      0 - COALESCE(_r.cmitem_tax_ratea,0.0),
 				      0 - COALESCE(_r.cmitem_tax_rateb,0.0),
-				      0 - COALESCE(_r.cmitem_tax_ratec,0.0));
+				      0 - COALESCE(_r.cmitem_tax_ratec,0.0),
+                                      (''Tax liability for '' || _p.cmhead_billtoname));
     IF (_taxBaseValue IS NULL) THEN
       PERFORM deleteGLSeries(_sequence);
       RETURN -13;
@@ -154,7 +155,7 @@ BEGIN
                                accnt_id, round(currToBase(_p.cmhead_curr_id,
                                                           _p.cmhead_misc * -1,
                                                           _p.cmhead_docdate), 2),
-                               _glDate) INTO _test
+                               _glDate, _p.cmhead_billtoname) INTO _test
     FROM accnt
     WHERE (accnt_id=_p.cmhead_misc_accnt_id);
 
@@ -209,7 +210,8 @@ BEGIN
 				      _p.cmhead_adjtax_id,
 				      0 - COALESCE(_p.cmhead_adjtax_ratea,0.0),
 				      0 - COALESCE(_p.cmhead_adjtax_rateb,0.0),
-				      0 - COALESCE(_p.cmhead_adjtax_ratec,0.0));
+				      0 - COALESCE(_p.cmhead_adjtax_ratec,0.0),
+                                      (''Tax liability for '' || _p.cmhead_billtoname));
     IF (_taxBaseValue IS NULL) THEN
       PERFORM deleteGLSeries(_sequence);
       RETURN -15;
@@ -266,7 +268,7 @@ BEGIN
                                round(currToBase(_p.cmhead_curr_id,
                                                 _p.cmhead_freight * -1,
                                                 _p.cmhead_docdate), 2),
-                               _glDate) INTO _test
+                               _glDate, _p.cmhead_billtoname) INTO _test
     FROM accnt
     WHERE (accnt_id=findFreightAccount(_p.cmhead_cust_id));
 
@@ -282,7 +284,8 @@ BEGIN
 				      _p.cmhead_freighttax_id,
 				      0 - COALESCE(_p.cmhead_freighttax_ratea,0.0),
 				      0 - COALESCE(_p.cmhead_freighttax_rateb,0.0),
-				      0 - COALESCE(_p.cmhead_freighttax_ratec,0.0));
+				      0 - COALESCE(_p.cmhead_freighttax_ratec,0.0),
+                                      (''Tax liability for '' || _p.cmhead_billtoname));
     IF (_taxBaseValue IS NULL) THEN
       PERFORM deleteGLSeries(_sequence);
       RETURN -17;
@@ -342,7 +345,7 @@ BEGIN
                                   round(currToBase(_p.cmhead_curr_id,
                                                    _totalAmount,
                                                    _p.cmhead_docdate), 2),
-                                  _glDate);
+                                  _glDate, _p.cmhead_billtoname);
     ELSE
       PERFORM deleteGLSeries(_sequence);
       RETURN -18;
@@ -386,9 +389,11 @@ BEGIN
 -- Handle the Inventory and G/L Transactions for any returned Inventory
   FOR _r IN SELECT cmitem_itemsite_id AS itemsite_id, cmitem_id,
                    (cmitem_qtyreturned * cmitem_qty_invuomratio) AS qty,
-                   cmhead_number, cmhead_cust_id AS cust_id
-            FROM cmhead, cmitem
+                   cmhead_number, cmhead_cust_id AS cust_id, item_number
+            FROM cmhead, cmitem, itemsite, item
             WHERE ( (cmitem_cmhead_id=cmhead_id)
+             AND (cmitem_itemsite_id=itemsite_id)
+             AND (itemsite_item_id=item_id)
              AND (cmitem_qtyreturned <> 0)
              AND (cmhead_id=pCmheadid) ) LOOP
 
@@ -397,7 +402,8 @@ BEGIN
       SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
     END IF;
     SELECT postInvTrans( itemsite_id, ''RS'', _r.qty,
-                         ''S/O'', ''CM'', _r.cmhead_number, '''', '''',
+                         ''S/O'', ''CM'', _r.cmhead_number, '''',
+                         (''Credit Return '' || _r.item_number),
                          costcat_asset_accnt_id, resolveCOSAccount(itemsite_id, _r.cust_id), _itemlocSeries ) INTO _invhistid
     FROM itemsite, costcat
     WHERE ( (itemsite_costcat_id=costcat_id)

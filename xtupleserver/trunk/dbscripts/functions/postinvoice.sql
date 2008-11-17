@@ -17,7 +17,8 @@ $$ LANGUAGE 'plpgsql';
 -- add tax information to a GL Series
 -- return the base currency value of the GL Series records inserted
 --	  NULL if there has been an error
-CREATE OR REPLACE FUNCTION addTaxToGLSeries(INTEGER, INTEGER, TEXT, TEXT, TEXT, DATE, DATE, INTEGER, NUMERIC, NUMERIC, NUMERIC) RETURNS NUMERIC AS $$
+SELECT dropIfExists ('FUNCTION', 'addTaxToGLSeries(INTEGER, INTEGER, TEXT, TEXT, TEXT, DATE, DATE, INTEGER, NUMERIC, NUMERIC, NUMERIC)');
+CREATE OR REPLACE FUNCTION addTaxToGLSeries(INTEGER, INTEGER, TEXT, TEXT, TEXT, DATE, DATE, INTEGER, NUMERIC, NUMERIC, NUMERIC,TEXT) RETURNS NUMERIC AS $$
   DECLARE
     pSequence	ALIAS FOR $1;
     pTaxCurrId	ALIAS FOR $2;
@@ -30,6 +31,7 @@ CREATE OR REPLACE FUNCTION addTaxToGLSeries(INTEGER, INTEGER, TEXT, TEXT, TEXT, 
     pAvalue	ALIAS FOR $9;
     pBvalue	ALIAS FOR $10;
     pCvalue	ALIAS FOR $11;
+    pNotes	ALIAS FOR $12;
 
     _count	INTEGER;
     _returnVal	NUMERIC;
@@ -71,7 +73,7 @@ CREATE OR REPLACE FUNCTION addTaxToGLSeries(INTEGER, INTEGER, TEXT, TEXT, TEXT, 
 	_t.tax_baseval := ROUND(_t.tax_baseval, 2);
 	SELECT insertIntoGLSeries( pSequence, pSource, pDocType, pDocNumber,
 				   _t.tax_accnt_id, _t.tax_baseval,
-				   pGLDate, 'Tax liability' ) INTO _test;
+				   pGLDate, pNotes ) INTO _test;
 	IF (_test < 0) THEN
 	  RETURN NULL;	-- error: insertIntoGLSeries failed
 	END IF;
@@ -205,7 +207,8 @@ BEGIN
 				      _r.invcitem_tax_id,
 				      COALESCE(_r.invcitem_tax_ratea,0.0),
 				      COALESCE(_r.invcitem_tax_rateb,0.0),
-				      COALESCE(_r.invcitem_tax_ratec,0.0));
+				      COALESCE(_r.invcitem_tax_ratec,0.0),
+                                      ('Tax liability for ' || _p.invchead_billto_name));
     IF (_taxBaseValue IS NULL) THEN
       PERFORM deleteGLSeries(_p.sequence);
       DELETE FROM cohist
@@ -295,7 +298,8 @@ BEGIN
 				      _r.invcitem_tax_id,
 				      COALESCE(_r.invcitem_tax_ratea,0.0),
 				      COALESCE(_r.invcitem_tax_rateb,0.0),
-				      COALESCE(_r.invcitem_tax_ratec,0.0));
+				      COALESCE(_r.invcitem_tax_ratec,0.0),
+                                      ('Tax liability for ' || _p.invchead_billto_name));
     IF (_taxBaseValue IS NULL) THEN
       PERFORM deleteGLSeries(_p.sequence);
       DELETE FROM cohist
@@ -381,7 +385,8 @@ BEGIN
 				      _p.invchead_freighttax_id,
 				      COALESCE(_p.invchead_freighttax_ratea,0.0),
 				      COALESCE(_p.invchead_freighttax_rateb,0.0),
-				      COALESCE(_p.invchead_freighttax_ratec,0.0));
+				      COALESCE(_p.invchead_freighttax_ratec,0.0),
+                                      ('Tax liability for ' || _p.invchead_billto_name));
     IF (_taxBaseValue IS NULL) THEN
       PERFORM deleteGLSeries(_p.sequence);
       DELETE FROM cohist
@@ -498,7 +503,8 @@ BEGIN
 				    _p.invchead_adjtax_id,
 				    COALESCE(_p.invchead_adjtax_ratea,0.0),
 				    COALESCE(_p.invchead_adjtax_rateb,0.0),
-				    COALESCE(_p.invchead_adjtax_ratec,0.0));
+				    COALESCE(_p.invchead_adjtax_ratec,0.0),
+                                    ('Tax liability for ' || _p.invchead_billto_name));
   IF (_taxBaseValue IS NULL) THEN
     PERFORM deleteGLSeries(_p.sequence);
     DELETE FROM cohist
