@@ -10,10 +10,11 @@ function main()
     
     loginAppl("3.2.0", "1empty320alpha","admin");
     executeChapter1();
-    exitAppl();
-    loginAppl("3.2.0", "1empty320alpha","user01");
+    exitAppl(); //exit once to save the testdata
+    loginAppl("3.2.0", "1empty320alpha","user01"); //login with the new user created
     executeChapter2();
     executeChapter3();
     executeChapter4();
-//    executeChapter5();
+    executeChapter5();
+    
 }
