@@ -1,4 +1,5 @@
 SELECT dropIfExists('FUNCTION', 'araging(date)', 'public');
+SELECT dropIfExists('FUNCTION', 'araging(date, boolean)', 'public');
 SELECT dropIfExists('TYPE', 'araging', 'public');
 
 CREATE TYPE araging AS (
