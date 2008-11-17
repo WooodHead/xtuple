@@ -1,6 +1,9 @@
-CREATE OR REPLACE FUNCTION araging(date) RETURNS SETOF araging AS $$
+SELECT dropIfExists('FUNCTION', 'araging(date)', 'public');
+
+CREATE OR REPLACE FUNCTION araging(date, boolean) RETURNS SETOF araging AS $$
 DECLARE
   pAsOfDate ALIAS FOR $1;
+  pUseDocDate ALIAS FOR $2;
   _row araging%ROWTYPE;
   _x RECORD;
   _returnVal INTEGER;
@@ -69,7 +72,7 @@ BEGIN
                                    AND (arapply_distdate>_asOfDate))
         WHERE ( (aropen_cust_id = cust_id)
         AND (cust_custtype_id=custtype_id)
-        AND (aropen_docdate <= _asOfDate)
+        AND (CASE WHEN (pUseDocDate) THEN aropen_docdate ELSE aropen_distdate END <= _asOfDate)
         AND (COALESCE(aropen_closedate,_asOfDate+1)>_asOfDate) )
         GROUP BY aropen_id,aropen_docdate,aropen_duedate,aropen_ponumber,aropen_docnumber,aropen_doctype,aropen_paid,
                  aropen_curr_id,aropen_amount,cust_id,cust_name,cust_number,cust_custtype_id,custtype_code,terms_descrip

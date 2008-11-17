@@ -38,13 +38,13 @@ BEGIN
 
   INSERT INTO aropen
   ( aropen_id, aropen_cust_id, aropen_docnumber, aropen_doctype, aropen_ordernumber,
-    aropen_docdate, aropen_duedate, aropen_terms_id, aropen_salesrep_id,
+    aropen_docdate, aropen_duedate, aropen_distdate, aropen_terms_id, aropen_salesrep_id,
     aropen_amount, aropen_paid, aropen_commission_due, aropen_commission_paid,
     aropen_applyto, aropen_ponumber, aropen_cobmisc_id, aropen_journalnumber,
     aropen_open, aropen_notes )
   VALUES
   ( _aropenid, pCustid, pDocNumber, pDocType, pOrderNumber,
-    pDocDate, pDueDate, -1, -1,
+    pDocDate, pDueDate, pDocDate, -1, -1,
     pAmount, 0, 0, FALSE,
     '''', '''', -1, 0,
     TRUE, pNotes );

@@ -170,7 +170,7 @@ BEGIN
   INSERT INTO aropen
   ( aropen_id, aropen_username, aropen_journalnumber,
     aropen_cust_id, aropen_docnumber, aropen_doctype, aropen_ordernumber,
-    aropen_docdate, aropen_duedate, aropen_terms_id, aropen_salesrep_id,
+    aropen_docdate, aropen_duedate, aropen_distdate, aropen_terms_id, aropen_salesrep_id,
     aropen_amount, aropen_paid, aropen_commission_due, aropen_commission_paid,
     aropen_applyto, aropen_ponumber, aropen_cobmisc_id,
     aropen_open, aropen_notes, aropen_rsncode_id,
@@ -178,7 +178,7 @@ BEGIN
   VALUES
   ( _aropenid, CURRENT_USER, _journalNumber,
     pCustid, pDocNumber, ''D'', pOrderNumber,
-    pDocDate, pDueDate, pTermsid, pSalesrepid,
+    pDocDate, pDueDate, pDocDate, pTermsid, pSalesrepid,
     round(pAmount, 2), 0, pCommissiondue, FALSE,
     '''', '''', -1,
     TRUE, pNotes, pRsncodeid,

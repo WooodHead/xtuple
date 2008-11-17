@@ -364,7 +364,7 @@ BEGIN
       aropen_cust_id, aropen_ponumber,
       aropen_docnumber,
       aropen_applyto, aropen_doctype,
-      aropen_docdate, aropen_duedate, aropen_terms_id,
+      aropen_docdate, aropen_duedate, aropen_distdate, aropen_terms_id,
       aropen_amount, aropen_paid,
       aropen_salesrep_id, aropen_commission_due, aropen_commission_paid,
       aropen_ordernumber, aropen_notes,
@@ -377,7 +377,7 @@ BEGIN
                 ELSE (cmhead_invcnumber::TEXT)
            END,
            ''C'',
-           cmhead_docdate, cmhead_docdate, -1,
+           cmhead_docdate, cmhead_docdate, _glDate, -1,
            _totalAmount, 0,
            cmhead_salesrep_id, (_commissionDue * -1), FALSE,
            cmhead_number::TEXT, cmhead_comments,
