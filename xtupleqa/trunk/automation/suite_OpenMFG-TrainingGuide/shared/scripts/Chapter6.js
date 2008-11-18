@@ -1,4 +1,4 @@
-executeChapter6()
+function executeChapter6()
 {
 
     //---------Define: User defined costing element----------------
@@ -29,8 +29,6 @@ executeChapter6()
     activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
    
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Ctrl+A>");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Del>");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "TBODY1");
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
@@ -46,8 +44,6 @@ executeChapter6()
     test.log("Material cost for TBODY1 defined");    
     
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Ctrl+A>");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Del>");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "TBOX1");
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
@@ -63,8 +59,6 @@ executeChapter6()
     test.log("Material cost for TBOX1 defined");    
       
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Ctrl+A>");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Del>");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "TINSERT1");
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
@@ -80,8 +74,6 @@ executeChapter6()
     test.log("Material cost for TINSERT1 defined");    
     
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Ctrl+A>");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Del>");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "TWHEEL1");
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
@@ -97,8 +89,6 @@ executeChapter6()
     test.log("Material cost for TWHEEL1 defined");    
     
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Ctrl+A>");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Del>");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "YPAINT1");
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
@@ -114,8 +104,6 @@ executeChapter6()
     test.log("Material cost for YPAINT1 defined");    
    
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Ctrl+A>");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Del>");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "YPAINT1");
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
@@ -170,4 +158,33 @@ executeChapter6()
     clickButton(":Post Actual Costs by Class Code.Post_QPushButton");
     test.log("Posted Actual Costs");
     
+    
+    //-------------Verify standard and actual cost in Intended Costed BOM---------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
+    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Reports");
+    activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Reports");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Reports_QMenu", "Costed BOM");
+    activateItem(":xTuple ERP: OpenMFG Edition.Reports_QMenu", "Costed BOM");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costed BOM_QMenu", "Indented...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Costed BOM_QMenu", "Indented...");
+    waitForObject(":Costed Indented Bill of Materials._itemNumber_ItemLineEdit");
+    type(":Costed Indented Bill of Materials._itemNumber_ItemLineEdit", "ytruck1");
+    waitForObject(":Costed Indented Bill of Materials._itemNumber_ItemLineEdit");
+    type(":Costed Indented Bill of Materials._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":_costsGroup.Use Actual Costs_QRadioButton");
+    clickButton(":_costsGroup.Use Actual Costs_QRadioButton");
+
+    var actlcost= grabWidget(findObject(":Costed Bill of Materials._bomitem_XTreeWidget"));
+    actlcost.save("actlcost.png");
+    waitForObject(":_costsGroup.Use Standard Costs_QRadioButton");
+    clickButton(":_costsGroup.Use Standard Costs_QRadioButton");
+    var strdcost= grabWidget(findObject(":Costed Bill of Materials._bomitem_XTreeWidget"));
+    strdcost.save("strdcost.png");
+    if(actlcost.toImage()==strdcost.toImage()) test.pass("Actual costs are equal to Standard costs");
+    else test.fail("Actual costs are not equal to Standard costs");
+    waitForObject(":Costed Indented Bill of Materials.Close_QPushButton");
+    clickButton(":Costed Indented Bill of Materials.Close_QPushButton");
 }
