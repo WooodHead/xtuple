@@ -16,7 +16,10 @@ CREATE VIEW api.itemsource AS
        itemsrc.itemsrc_ranking AS vendor_ranking, 
        itemsrc.itemsrc_leadtime AS lead_time,
        itemsrc.itemsrc_comments AS notes, 
-       itemsrc.itemsrc_vend_item_descrip AS vendor_description
+       itemsrc.itemsrc_vend_item_descrip AS vendor_description,
+       itemsrc.itemsrc_manuf_name AS manufacturer_name,
+       itemsrc.itemsrc_manuf_item_number AS manufacturer_item_number,
+       itemsrc.itemsrc_manuf_item_descrip AS manufacturer_description
    FROM itemsrc
    LEFT JOIN item ON itemsrc.itemsrc_item_id = item.item_id
    LEFT JOIN vendinfo ON itemsrc.itemsrc_vend_id = vendinfo.vend_id
@@ -42,43 +45,58 @@ CREATE OR REPLACE RULE "_INSERT" AS
     itemsrc_multordqty, 
     itemsrc_leadtime, 
     itemsrc_ranking, 
-    itemsrc_active) 
+    itemsrc_active,
+    itemsrc_manuf_name,
+    itemsrc_manuf_item_number,
+    itemsrc_manuf_item_descrip) 
   VALUES (
-    getitemid(new.item_number), 
-    getvendid(new.vendor), 
-    new.vendor_item_number, 
-    COALESCE(new.vendor_description, ''), 
-    COALESCE(new.notes, ''), 
-    new.vendor_uom, 
-    new.inventory_vendor_uom_ratio, 
-    new.minimum_order, 
-    new.order_multiple, 
-    new.lead_time, 
-    new.vendor_ranking, 
-    COALESCE(new.active, true));
+    getitemid(NEW.item_number), 
+    getvendid(NEW.vendor), 
+    NEW.vendor_item_number, 
+    COALESCE(NEW.vendor_description, ''), 
+    COALESCE(NEW.notes, ''), 
+    NEW.vendor_uom, 
+    NEW.inventory_vendor_uom_ratio, 
+    NEW.minimum_order, 
+    NEW.order_multiple, 
+    NEW.lead_time, 
+    NEW.vendor_ranking, 
+    COALESCE(NEW.active, true),
+    COALESCE(NEW.manufacturer_name,''),
+    COALESCE(NEW.manufacturer_item_number,''),
+    NEW.manufacturer_description);
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.itemsource DO INSTEAD
     
   UPDATE itemsrc SET 
-    itemsrc_vend_item_number = new.vendor_item_number, 
-    itemsrc_vend_item_descrip = new.vendor_description, 
-    itemsrc_comments = new.notes, 
-    itemsrc_vend_uom = new.vendor_uom, 
-    itemsrc_invvendoruomratio = new.inventory_vendor_uom_ratio, 
-    itemsrc_minordqty = new.minimum_order, 
-    itemsrc_multordqty = new.order_multiple, 
-    itemsrc_leadtime = new.lead_time, 
-    itemsrc_ranking = new.vendor_ranking, 
-    itemsrc_active = new.active
-  WHERE ((itemsrc.itemsrc_item_id = getitemid(old.item_number)) AND 
-        (itemsrc.itemsrc_vend_id = getvendid(old.vendor)));
+    itemsrc_vend_item_number = NEW.vendor_item_number, 
+    itemsrc_vend_item_descrip = NEW.vendor_description, 
+    itemsrc_comments = NEW.notes, 
+    itemsrc_vend_uom = NEW.vendor_uom, 
+    itemsrc_invvendoruomratio = NEW.inventory_vendor_uom_ratio, 
+    itemsrc_minordqty = NEW.minimum_order, 
+    itemsrc_multordqty = NEW.order_multiple, 
+    itemsrc_leadtime = NEW.lead_time, 
+    itemsrc_ranking = NEW.vendor_ranking, 
+    itemsrc_active = NEW.active,
+    itemsrc_manuf_name = NEW.manufacturer_name,
+    itemsrc_manuf_item_number = NEW.manufacturer_item_number,
+    itemsrc_manuf_item_descrip = NEW.manufacturer_description
+  WHERE ((itemsrc.itemsrc_item_id = getitemid(old.item_number)) 
+  AND (itemsrc.itemsrc_vend_id = getvendid(old.vendor))
+  AND (itemsrc.itemsrc_vend_item_number=old.vendor_item_number)
+  AND (itemsrc.itemsrc_manuf_name=old.manufacturer_name)
+  AND (itemsrc.itemsrc_manuf_item_number=old.manufacturer_item_number));
 
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.itemsource DO INSTEAD
     
   DELETE FROM itemsrc
   WHERE ((itemsrc.itemsrc_item_id = getitemid(old.item_number)) 
-  AND (itemsrc.itemsrc_vend_id = getvendid(old.vendor)));
+  AND (itemsrc.itemsrc_vend_id = getvendid(old.vendor))
+  AND (itemsrc.itemsrc_vend_item_number=old.vendor_item_number)
+  AND (itemsrc.itemsrc_manuf_name=old.manufacturer_name)
+  AND (itemsrc.itemsrc_manuf_item_number=old.manufacturer_item_number));
 
 COMMIT;
