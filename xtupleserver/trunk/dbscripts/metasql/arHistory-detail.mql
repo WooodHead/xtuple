@@ -26,7 +26,10 @@ SELECT aropen_id, applyid,
            aropen_duedate AS duedate,
            aropen_amount AS amount,
            (aropen_amount - aropen_paid) AS balance,
-           currtobase(aropen_curr_id,(aropen_amount - aropen_paid),aropen_docdate) AS base_balance,
+           CASE WHEN (aropen_doctype IN ('C', 'R')) THEN
+                        (currtobase(aropen_curr_id,(aropen_amount - aropen_paid),aropen_docdate) * -1.0)
+                ELSE currtobase(aropen_curr_id,(aropen_amount - aropen_paid),aropen_docdate)
+           END AS base_balance,
            currConcat(aropen_curr_id) AS currAbbr
      FROM aropen
     WHERE ( (aropen_cust_id=<? value("cust_id") ?>) 
