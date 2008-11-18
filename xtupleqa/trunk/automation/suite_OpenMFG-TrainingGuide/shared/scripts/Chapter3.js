@@ -40,24 +40,26 @@ function executeChapter3()
     clickButton(":Create New Item Sites.No_QPushButton");
     waitForObject(":List Items._item_XTreeWidget_3");
     doubleClickItem(":List Items._item_XTreeWidget_3", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_3");
-    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_3", "Characteristics");
-    waitForObject(":_characteristicsTab.New_QPushButton_3");
-    clickButton(":_characteristicsTab.New_QPushButton_3");
+    waitForObject(":Item_item_11");
+    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_4", "Characteristics");
+    waitForObject(":_characteristicsTab.New_QPushButton_4");
+    clickButton(":_characteristicsTab.New_QPushButton_4");
     waitForObject(":_char_XComboBox_2");
     type(":_char_XComboBox_2", "I-COLOR");
     type(":_value_XLineEdit_3", "PL-126");
-    clickButton(":Item Characteristic.Default_QCheckBox");
+    if(!findObject(":Item Characteristic.Default_QCheckBox").checked)
+        clickButton(":Item Characteristic.Default_QCheckBox");
     clickButton(":Item Characteristic.Save_QPushButton");
-    waitForObject(":_characteristicsTab.New_QPushButton_3");
-    clickButton(":_characteristicsTab.New_QPushButton_3");
+    waitForObject(":_characteristicsTab.New_QPushButton_4");
+    clickButton(":_characteristicsTab.New_QPushButton_4");
     waitForObject(":_char_XComboBox_2");
     type(":_char_XComboBox_2", "I-COLOR");
     type(":_value_XLineEdit_3", "PL-227");
-    clickButton(":Item Characteristic.Default_QCheckBox");
+    if(findObject(":Item Characteristic.Default_QCheckBox").checked)
+        clickButton(":Item Characteristic.Default_QCheckBox");
     clickButton(":Item Characteristic.Save_QPushButton");
-    waitForObject(":Item.Save_QPushButton_6");
-    clickButton(":Item.Save_QPushButton_6");
+    waitForObject(":Item.Save_QPushButton_13");
+    clickButton(":Item.Save_QPushButton_13");
     test.log("Item: YTRUCK1 created");
   
   

@@ -150,17 +150,17 @@ function executeChapter4()
         
     waitForObject(":List Work Centers.Close_QPushButton_2");
     clickButton(":List Work Centers.Close_QPushButton_2");
-    
   
+
+
+  //---------------------Products: Standard Operation--------------------
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+  activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
   
-    //---------------------Products: Standard Operation--------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
-    
     waitForObject(":List Standard Operations.New_QPushButton");
     clickButton(":List Standard Operations.New_QPushButton");
     waitForObject(":Standard Operation._number_XLineEdit");
@@ -213,48 +213,50 @@ function executeChapter4()
     type(":Standard Operation._instructions_QTextEdit", "Enter standard instructions through the Standard Operations session");
     clickButton(":Standard Operation.Save_QPushButton");
     test.log("Standard Operation: SHIPPING created");
+  waitForObject(":List Standard Operations.Close_QPushButton");
+  clickButton(":List Standard Operations.Close_QPushButton");
+
+
+  //-----------Define BOO for Items---------------
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
+  activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
   
   
-    //-----------Define BOO for Items---------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
-    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
-    
-    
-    //-----------Define BOO for YTRUCK1---------------
-    waitForObject(":Bills of Operations.New_QPushButton");
-    clickButton(":Bills of Operations.New_QPushButton");
-    waitForObject(":itemGroup._itemNumber_ItemLineEdit");
-    type(":itemGroup._itemNumber_ItemLineEdit", "YTRUCK1");
-    type(":itemGroup._itemNumber_ItemLineEdit", "<Tab>");
-    
-    waitForObject(":frame.New_QPushButton_2");
-    clickButton(":frame.New_QPushButton_2");
-    type(":_stdopn_XComboBox", "PAINT");
-    clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
-    clickButton(":Bill of Operations Item.Save_QPushButton");
-    
-    waitForObject(":frame.New_QPushButton_2");
-    clickButton(":frame.New_QPushButton_2");
-    waitForObjectItem(":_stdopn_XComboBox", "ASSEMBLY");
-    type(":_stdopn_XComboBox", "ASSEMBLY");
-    clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
-    clickButton(":Bill of Operations Item.Save_QPushButton");
-   
-    waitForObject(":frame.New_QPushButton_2");
-    clickButton(":frame.New_QPushButton_2");
-    waitForObjectItem(":_stdopn_XComboBox", "SHIPPING");
-    type(":_stdopn_XComboBox", "SHIPPING");
-    clickButton(":_optionsGroup.Receive Inventory at this Operation_QCheckBox");
-    clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
-    clickButton(":Bill of Operations Item.Save_QPushButton");
-    waitForObject(":Bill of Operations.Save_QPushButton");
-    clickButton(":Bill of Operations.Save_QPushButton");
-    test.log("BOO for Item: YTRUCK1 created");
-    
+  //-----------Define BOO for YTRUCK1---------------
+  waitForObject(":Bills of Operations.New_QPushButton");
+  clickButton(":Bills of Operations.New_QPushButton");
+  waitForObject(":itemGroup._itemNumber_ItemLineEdit");
+  type(":itemGroup._itemNumber_ItemLineEdit", "YTRUCK1");
+  type(":itemGroup._itemNumber_ItemLineEdit", "<Tab>");
+  
+  waitForObject(":frame.New_QPushButton_2");
+  clickButton(":frame.New_QPushButton_2");
+  type(":_stdopn_XComboBox", "PAINT");
+  clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
+  clickButton(":Bill of Operations Item.Save_QPushButton");
+  
+  waitForObject(":frame.New_QPushButton_2");
+  clickButton(":frame.New_QPushButton_2");
+  waitForObjectItem(":_stdopn_XComboBox", "ASSEMBLY");
+  type(":_stdopn_XComboBox", "ASSEMBLY");
+  clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
+  clickButton(":Bill of Operations Item.Save_QPushButton");
+ 
+  waitForObject(":frame.New_QPushButton_2");
+  clickButton(":frame.New_QPushButton_2");
+  waitForObjectItem(":_stdopn_XComboBox", "SHIPPING");
+  type(":_stdopn_XComboBox", "SHIPPING");
+  clickButton(":_optionsGroup.Receive Inventory at this Operation_QCheckBox");
+  clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
+  clickButton(":Bill of Operations Item.Save_QPushButton");
+  waitForObject(":Bill of Operations.Save_QPushButton");
+  clickButton(":Bill of Operations.Save_QPushButton");
+  test.log("BOO for Item: YTRUCK1 created");
+  
     //-----------Define BOO for TKIT1---------------
     clickButton(":Bills of Operations.New_QPushButton");
     waitForObject(":itemGroup._itemNumber_ItemLineEdit");
@@ -272,136 +274,136 @@ function executeChapter4()
     clickButton(":Bill of Operations.Save_QPushButton");
     waitForObject(":Bills of Operations.Close_QPushButton");
     clickButton(":Bills of Operations.Close_QPushButton");
-//    test.log("BOO for Item: TKIT1 created");
-    
-    
-     //---------------Create BOM for Items---------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
-    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
-    
-    
-    //---------------Create BOM for YTRUCK1---------------
-    waitForObject(":Bills of Materials.New_QPushButton");
-    clickButton(":Bills of Materials.New_QPushButton");
-    waitForObject(":_itemGroup._itemNumber_ItemLineEdit");
-    type(":_itemGroup._itemNumber_ItemLineEdit", "YTRUCK1");
-    waitForObject(":_itemGroup._itemNumber_ItemLineEdit");
-    type(":_itemGroup._itemNumber_ItemLineEdit", "<Tab>");
-   
-    waitForObject(":frame_2.New_QPushButton");
-    clickButton(":frame_2.New_QPushButton");
-    waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-    type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TBODY1");
-    type(":_qtyPer_XLineEdit", "1");
-    type(":_scrap_XLineEdit", "0");
-    clickButton(":Bill of Materials Item...._QPushButton");
-    waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-    doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Paint _1", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
-    clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
-    type(":_ecn_XLineEdit", "intail definition");
-    clickButton(":Bill of Materials Item.Save_QPushButton");
-    
-    waitForObject(":frame_2.New_QPushButton");
-    clickButton(":frame_2.New_QPushButton");
-    waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-    type(":Bill of Materials Item._itemNumber_ItemLineEdit", "YPAINT1");
-    waitForObject(":_qtyPer_XLineEdit");
-    type(":_qtyPer_XLineEdit", ".01");
-    type(":_scrap_XLineEdit", "0");
-    clickButton(":Bill of Materials Item...._QPushButton");
-    waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-    doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Paint _1", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
-    clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
-    type(":_ecn_XLineEdit", "intial defintion");
-    clickButton(":Bill of Materials Item.Save_QPushButton");
-   
-    waitForObject(":frame_2.New_QPushButton");
-    clickButton(":frame_2.New_QPushButton");
-    waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-    type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TWHEEL1");
-    waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-    type(":Bill of Materials Item._itemNumber_ItemLineEdit", "<Tab>");
-    waitForObject(":_qtyPer_XLineEdit");
-    type(":_qtyPer_XLineEdit", "4");
-    type(":_scrap_XLineEdit", "0");
-    clickButton(":Bill of Materials Item...._QPushButton");
-    waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-    doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly _1", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
-    clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
-    type(":_ecn_XLineEdit", "initial definition");
-    clickButton(":Bill of Materials Item.Save_QPushButton");
-    
-    waitForObject(":frame_2.New_QPushButton");
-    clickButton(":frame_2.New_QPushButton");
-    waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-    type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TKIT1");
-    type(":_qtyPer_XLineEdit", "1");
-    type(":_scrap_XLineEdit", "0");
-    waitForObject(":_scrap_XLineEdit");
-    clickButton(":Bill of Materials Item...._QPushButton");
-    waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-    doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Shipping _1", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
-    clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
-    type(":_ecn_XLineEdit", "initial defintion");
-    clickButton(":Bill of Materials Item.Save_QPushButton");
-    
-    waitForObject(":Bill of Materials.Save_QPushButton");
-    clickButton(":Bill of Materials.Save_QPushButton");
-    test.log("BOM created for Item: YTRUCK1");
+    test.log("BOO for Item: TKIT1 created");
+  
+  
+   //---------------Create BOM for Items---------------------
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
+  activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
+  
+  
+  //---------------Create BOM for YTRUCK1---------------
+  waitForObject(":Bills of Materials.New_QPushButton");
+  clickButton(":Bills of Materials.New_QPushButton");
+  waitForObject(":_itemGroup._itemNumber_ItemLineEdit");
+  type(":_itemGroup._itemNumber_ItemLineEdit", "YTRUCK1");
+  waitForObject(":_itemGroup._itemNumber_ItemLineEdit");
+  type(":_itemGroup._itemNumber_ItemLineEdit", "<Tab>");
+ 
+  waitForObject(":frame_2.New_QPushButton");
+  clickButton(":frame_2.New_QPushButton");
+  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
+  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TBODY1");
+  type(":_qtyPer_XLineEdit", "1");
+  type(":_scrap_XLineEdit", "0");
+  clickButton(":Bill of Materials Item...._QPushButton");
+  waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
+  doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Paint _1", 5, 5, 0, Qt.LeftButton);
+  waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
+  clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
+  type(":_ecn_XLineEdit", "intail definition");
+  clickButton(":Bill of Materials Item.Save_QPushButton");
+  
+  waitForObject(":frame_2.New_QPushButton");
+  clickButton(":frame_2.New_QPushButton");
+  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
+  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "YPAINT1");
+  waitForObject(":_qtyPer_XLineEdit");
+  type(":_qtyPer_XLineEdit", ".01");
+  type(":_scrap_XLineEdit", "0");
+  clickButton(":Bill of Materials Item...._QPushButton");
+  waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
+  doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Paint _1", 5, 5, 0, Qt.LeftButton);
+  waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
+  clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
+  type(":_ecn_XLineEdit", "intial defintion");
+  clickButton(":Bill of Materials Item.Save_QPushButton");
+ 
+  waitForObject(":frame_2.New_QPushButton");
+  clickButton(":frame_2.New_QPushButton");
+  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
+  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TWHEEL1");
+  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
+  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "<Tab>");
+  waitForObject(":_qtyPer_XLineEdit");
+  type(":_qtyPer_XLineEdit", "4");
+  type(":_scrap_XLineEdit", "0");
+  clickButton(":Bill of Materials Item...._QPushButton");
+  waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
+  doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly _1", 5, 5, 0, Qt.LeftButton);
+  waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
+  clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
+  type(":_ecn_XLineEdit", "initial definition");
+  clickButton(":Bill of Materials Item.Save_QPushButton");
+  
+  waitForObject(":frame_2.New_QPushButton");
+  clickButton(":frame_2.New_QPushButton");
+  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
+  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TKIT1");
+  type(":_qtyPer_XLineEdit", "1");
+  type(":_scrap_XLineEdit", "0");
+  waitForObject(":_scrap_XLineEdit");
+  clickButton(":Bill of Materials Item...._QPushButton");
+  waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
+  doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Shipping _1", 5, 5, 0, Qt.LeftButton);
+  waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
+  clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
+  type(":_ecn_XLineEdit", "initial defintion");
+  clickButton(":Bill of Materials Item.Save_QPushButton");
+  
+  waitForObject(":Bill of Materials.Save_QPushButton");
+  clickButton(":Bill of Materials.Save_QPushButton");
+  test.log("BOM created for Item: YTRUCK1");
 
-    
-    
-    //---------------Create BOM for TKIT1---------------
-    waitForObject(":Bills of Materials.New_QPushButton");
-    clickButton(":Bills of Materials.New_QPushButton");
-    waitForObject(":_itemGroup._itemNumber_ItemLineEdit");
-    type(":_itemGroup._itemNumber_ItemLineEdit", "TKIT1");
-    waitForObject(":_itemGroup._itemNumber_ItemLineEdit");
-    type(":_itemGroup._itemNumber_ItemLineEdit", "<Tab>");
-   
-    waitForObject(":frame_2.New_QPushButton");
-    clickButton(":frame_2.New_QPushButton");
-    waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-    type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TBOX1");
-    type(":_qtyPer_XLineEdit", "1");
-    type(":_scrap_XLineEdit", "0");
-    clickButton(":Bill of Materials Item...._QPushButton");
-    waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-    doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly _1", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
-    clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
-    type(":_ecn_XLineEdit", "intail definition");
-    clickButton(":Bill of Materials Item.Save_QPushButton");
-    
-    waitForObject(":frame_2.New_QPushButton");
-    clickButton(":frame_2.New_QPushButton");
-    waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-    type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TINSERT1");
-    waitForObject(":_qtyPer_XLineEdit");
-    type(":_qtyPer_XLineEdit", "1");
-    type(":_scrap_XLineEdit", "10");
-    clickButton(":Bill of Materials Item...._QPushButton");
-    waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-    doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly _1", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
-    clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
-    type(":_ecn_XLineEdit", "intial defintion");
-    clickButton(":Bill of Materials Item.Save_QPushButton");
-   
-    waitForObject(":Bill of Materials.Save_QPushButton");
-    clickButton(":Bill of Materials.Save_QPushButton");
-    test.log("BOM created for Item: TKIT1");
-    
-    waitForObject(":Bills of Materials.Close_QPushButton");
-    clickButton(":Bills of Materials.Close_QPushButton");
+  
+  
+  //---------------Create BOM for TKIT1---------------
+  waitForObject(":Bills of Materials.New_QPushButton");
+  clickButton(":Bills of Materials.New_QPushButton");
+  waitForObject(":_itemGroup._itemNumber_ItemLineEdit");
+  type(":_itemGroup._itemNumber_ItemLineEdit", "TKIT1");
+  waitForObject(":_itemGroup._itemNumber_ItemLineEdit");
+  type(":_itemGroup._itemNumber_ItemLineEdit", "<Tab>");
+ 
+  waitForObject(":frame_2.New_QPushButton");
+  clickButton(":frame_2.New_QPushButton");
+  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
+  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TBOX1");
+  type(":_qtyPer_XLineEdit", "1");
+  type(":_scrap_XLineEdit", "0");
+  clickButton(":Bill of Materials Item...._QPushButton");
+  waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
+  doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly _1", 5, 5, 0, Qt.LeftButton);
+  waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
+  clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
+  type(":_ecn_XLineEdit", "intail definition");
+  clickButton(":Bill of Materials Item.Save_QPushButton");
+  
+  waitForObject(":frame_2.New_QPushButton");
+  clickButton(":frame_2.New_QPushButton");
+  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
+  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TINSERT1");
+  waitForObject(":_qtyPer_XLineEdit");
+  type(":_qtyPer_XLineEdit", "1");
+  type(":_scrap_XLineEdit", "10");
+  clickButton(":Bill of Materials Item...._QPushButton");
+  waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
+  doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly _1", 5, 5, 0, Qt.LeftButton);
+  waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
+  clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
+  type(":_ecn_XLineEdit", "intial defintion");
+  clickButton(":Bill of Materials Item.Save_QPushButton");
+ 
+  waitForObject(":Bill of Materials.Save_QPushButton");
+  clickButton(":Bill of Materials.Save_QPushButton");
+  test.log("BOM created for Item: TKIT1");
+  
+  waitForObject(":Bills of Materials.Close_QPushButton");
+  clickButton(":Bills of Materials.Close_QPushButton");
     
      
     

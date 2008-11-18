@@ -1,10 +1,10 @@
 function executeChapter1()
 {
     source(findFile("scripts","functions.js"));
-    createDept("MFG","Manufacturing");
-    assignPrivileges();
-    createShift("1ST","First");
-    createLocale("MYLOCALE","My Locale For Class");
+//    createDept("MFG","Manufacturing");
+//    assignPrivileges();
+//    createShift("1ST","First");
+//    createLocale("MYLOCALE","My Locale For Class");
     createGroup("SUPER","Super User Group");
     var newuser="user01";
     createUser(newuser);

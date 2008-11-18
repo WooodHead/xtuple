@@ -1,8 +1,6 @@
 function executeChapter2()
 {
      source(findFile("scripts","functions.js"));
-
-     loginAppl("3.2.0", "1empty320alpha","user01");
      
      //-----------Chart Of Accounts-------------------------------
      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
