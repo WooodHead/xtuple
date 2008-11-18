@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION copyTransferOrder(INTEGER, DATE) RETURNS INTEGER AS '
 DECLARE
   pSrcid		ALIAS FOR $1;
-  _orderdate		DATE := $2;
+  pSchedDate		DATE := $2;
   _head			RECORD;
   _toheadid		INTEGER;
 
@@ -11,8 +11,8 @@ BEGIN
     RETURN -1;
   END IF;
 
-  IF (_orderdate IS NULL) THEN
-    _orderdate := CURRENT_DATE;
+  IF (pSchedDate IS NULL) THEN
+    pSchedDate := CURRENT_DATE;
   END IF;
 
   INSERT INTO tohead (tohead_number,		tohead_status,
@@ -42,7 +42,7 @@ BEGIN
 		      tohead_shipcomments
 	      ) VALUES (
 		      fetchNextNumber(''ToNumber''),	''O'',
-		      _orderdate,
+		      CURRENT_DATE,
 		      _head.tohead_src_warehous_id, _head.tohead_srcname,
 		      _head.tohead_srcaddress1,	    _head.tohead_srcaddress2,
 		      _head.tohead_srcaddress3,	    _head.tohead_srccity,
@@ -80,8 +80,8 @@ BEGIN
                       toitem_notes
 	      ) SELECT _toheadid,	toitem_linenumber,	toitem_item_id,
 		      ''O'',
-		      CURRENT_DATE + COALESCE(d.itemsite_leadtime, 0) + COALESCE(t.itemsite_leadtime, 0),
-		      CURRENT_DATE,
+		      pSchedDate + COALESCE(d.itemsite_leadtime, 0) + COALESCE(t.itemsite_leadtime, 0),
+		      pSchedDate + COALESCE(d.itemsite_leadtime, 0),
 		      toitem_qty_ordered,	toitem_uom,	stdcost(toitem_item_id),
 		      toitem_freight,	toitem_freight_curr_id, toitem_freighttax_id,
                       toitem_freighttax_pcta, toitem_freighttax_pctb, toitem_freighttax_pctc,
