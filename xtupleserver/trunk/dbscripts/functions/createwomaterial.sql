@@ -45,6 +45,7 @@ DECLARE
   pNotes ALIAS FOR $8;
   pRef ALIAS FOR $9;
   _womatlid INTEGER;
+  _p RECORD;
 
 BEGIN
 
@@ -63,6 +64,58 @@ BEGIN
   WHERE ( (itemsite_item_id=item_id)
    AND (wo_id=pWoid)
    AND (itemsite_id=pItemsiteid) );
+
+-- Handle all of the Phantom material requirements
+  WHILE ( ( SELECT COUNT(*)
+            FROM womatl, itemsite, item
+            WHERE ( (womatl_itemsite_id=itemsite_id)
+             AND (itemsite_item_id=item_id)
+             AND (womatl_wo_id=pWoid)
+             AND (item_type=''F'') ) ) > 0 ) LOOP
+
+    FOR _p IN SELECT wo_qtyord, wo_startdate, womatl_id, womatl_wooper_id
+              FROM wo, womatl, itemsite, item
+              WHERE ( (womatl_itemsite_id=itemsite_id)
+               AND (itemsite_item_id=item_id)
+               AND (item_type=''F'')
+               AND (womatl_wo_id=wo_id)
+               AND (wo_id=pWoid) ) LOOP
+
+      INSERT INTO womatl
+      ( womatl_wo_id, womatl_itemsite_id, womatl_wooper_id,
+        womatl_schedatwooper, womatl_duedate,
+        womatl_uom_id, womatl_qtyper, womatl_scrap,
+        womatl_qtyreq,
+        womatl_qtyiss, womatl_qtywipscrap,
+        womatl_lastissue, womatl_lastreturn,
+        womatl_cost, womatl_picklist, womatl_createwo,
+        womatl_issuemethod, womatl_notes, womatl_ref )
+      SELECT pWoid, cs.itemsite_id, _p.womatl_wooper_id,
+             womatl_schedatwooper, womatl_duedate,
+             bomitem_uom_id, (bomitem_qtyper * womatl_qtyper), bomitem_scrap,
+             roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id), (_p.wo_qtyord * bomitem_qtyper * womatl_qtyper * (1 + bomitem_scrap))),
+             0, 0,
+             startOfTime(), startOfTime(),
+             0, ci.item_picklist, ( (ci.item_type=''M'') AND (bomitem_createwo) ),
+             bomitem_issuemethod, bomitem_notes, bomitem_ref 
+      FROM wo, womatl, bomitem, 
+           itemsite AS cs, itemsite AS ps,
+           item AS ci, item AS pi
+      WHERE ( (womatl_itemsite_id=ps.itemsite_id)
+       AND (womatl_wo_id=wo_id)
+       AND (bomitem_parent_item_id=pi.item_id)
+       AND (bomitem_item_id=ci.item_id)
+       AND (ps.itemsite_warehous_id=cs.itemsite_warehous_id)
+       AND (cs.itemsite_item_id=ci.item_id)
+       AND (ps.itemsite_item_id=pi.item_id)
+       AND (woEffectiveDate(_p.wo_startdate) BETWEEN bomitem_effective AND (bomitem_expires - 1))
+       AND (womatl_id=_p.womatl_id));
+
+      DELETE FROM womatl
+      WHERE (womatl_id=_p.womatl_id);
+
+    END LOOP;
+  END LOOP;
 
   UPDATE wo
   SET wo_adhoc=TRUE
