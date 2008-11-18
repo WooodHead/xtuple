@@ -3,6 +3,7 @@ DECLARE
   _cmnttypeid 	INTEGER;
   _status      	CHAR(1);
   _check      	BOOLEAN;
+  _cnt     	INTEGER;
   _s 		RECORD;
 BEGIN
 
@@ -49,19 +50,53 @@ BEGIN
     
     --Fetch and apply default item source data if applicable    
     IF ((NEW.poitem_itemsrc_id IS NULL) AND (NEW.poitem_itemsite_id IS NOT NULL)) THEN
-      SELECT itemsrc.* INTO _s
-      FROM pohead,itemsrc,itemsite
-      WHERE ((pohead_id=NEW.poitem_pohead_id)
-      AND (pohead_vend_id=itemsrc_vend_id)
-      AND (itemsite_id=NEW.poitem_itemsite_id)
-      AND (itemsite_item_id=itemsrc_item_id));
-      IF (FOUND) THEN
-        NEW.poitem_itemsrc_id 		:= _s.itemsrc_id;
-        NEW.poitem_vend_uom            := _s.itemsrc_vend_uom;
-        NEW.poitem_invvenduomratio     := _s.itemsrc_invvendoruomratio;
-        NEW.poitem_duedate		:= COALESCE(NEW.poitem_duedate, CURRENT_DATE + _s.itemsrc_leadtime);
-        NEW.poitem_vend_item_number 	:= COALESCE(NEW.poitem_vend_item_number,_s.itemsrc_vend_item_number);
-        NEW.poitem_vend_item_descrip   := COALESCE(NEW.poitem_vend_item_descrip,_s.itemsrc_vend_item_descrip);
+      IF (NEW.poitem_itemsrc_id IS NULL) THEN
+        SELECT COUNT(itemsrc_id)  INTO _cnt
+        FROM pohead,itemsrc,itemsite
+        WHERE ((pohead_id=NEW.poitem_pohead_id)
+        AND (pohead_vend_id=itemsrc_vend_id)
+        AND (itemsite_id=NEW.poitem_itemsite_id)
+        AND (itemsite_item_id=itemsrc_item_id));
+
+        IF (_cnt = 1) THEN
+          -- We found the one and only item source, so populate data for it
+          SELECT itemsrc.* INTO _s
+          FROM pohead,itemsrc,itemsite
+          WHERE ((pohead_id=NEW.poitem_pohead_id)
+          AND (pohead_vend_id=itemsrc_vend_id)
+          AND (itemsite_id=NEW.poitem_itemsite_id)
+          AND (itemsite_item_id=itemsrc_item_id));
+          IF (FOUND) THEN
+            NEW.poitem_itemsrc_id 		:= _s.itemsrc_id;
+            NEW.poitem_vend_uom            	:= _s.itemsrc_vend_uom;
+            NEW.poitem_invvenduomratio    	:= _s.itemsrc_invvendoruomratio;
+            NEW.poitem_duedate			:= COALESCE(NEW.poitem_duedate, CURRENT_DATE + _s.itemsrc_leadtime);
+            NEW.poitem_vend_item_number 	:= COALESCE(NEW.poitem_vend_item_number,_s.itemsrc_vend_item_number);
+            NEW.poitem_vend_item_descrip   	:= COALESCE(NEW.poitem_vend_item_descrip,_s.itemsrc_vend_item_descrip);
+            NEW.poitem_manuf_name		:= COALESCE(NEW.poitem_manuf_name,_s.itemsrc_manuf_name);
+            NEW.poitem_manuf_item_number	:= COALESCE(NEW.poitem_manuf_item_number, _s.itemsrc_manuf_item_number);
+            NEW.poitem_manuf_item_descrip	:= COALESCE(NEW.poitem_manuf_item_descrip, _s.itemsrc_manuf_item_descrip);
+          END IF;
+        ELSIF (_cnt > 1) THEN
+          -- There are multiple sources, see if there is an exact match with provided vendor info.
+          SELECT itemsrc.* INTO _s
+          FROM pohead,itemsrc,itemsite
+          WHERE ((pohead_id=NEW.poitem_pohead_id)
+          AND (pohead_vend_id=itemsrc_vend_id)
+          AND (itemsite_id=NEW.poitem_itemsite_id)
+          AND (itemsite_item_id=itemsrc_item_id)
+          AND (NEW.poitem_vend_item_number=itemsrc_vend_item_number)
+          AND (COALESCE(NEW.poitem_manuf_name,'')=COALESCE(itemsrc_manuf_name,''))
+          AND (COALESCE(NEW.poitem_manuf_item_number,'')=COALESCE(itemsrc_manuf_item_number,'')));
+          IF (FOUND) THEN
+            NEW.poitem_itemsrc_id 		:= _s.itemsrc_id;
+            NEW.poitem_vend_uom            	:= _s.itemsrc_vend_uom;
+            NEW.poitem_invvenduomratio    	:= _s.itemsrc_invvendoruomratio;
+            NEW.poitem_duedate			:= COALESCE(NEW.poitem_duedate, CURRENT_DATE + _s.itemsrc_leadtime);
+            NEW.poitem_vend_item_descrip   	:= COALESCE(NEW.poitem_vend_item_descrip,_s.itemsrc_vend_item_descrip);
+            NEW.poitem_manuf_item_descrip	:= COALESCE(NEW.poitem_manuf_item_descrip, _s.itemsrc_manuf_item_descrip);
+          END IF;
+        END IF;
       END IF;
     END IF;
 
