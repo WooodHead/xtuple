@@ -36,7 +36,7 @@ BEGIN
 		      pohead_freight, pohead_printed, pohead_tax,
 		      pohead_terms_id, pohead_warehous_id,
 		      pohead_vendaddr_id, pohead_agent_username,
-		      pohead_curr_id, pohead_saved
+		      pohead_curr_id, pohead_saved, pohead_vend_id
 	      ) VALUES (
 		      ''U'', fetchPoNumber(),
 		      _orderdate,
@@ -44,7 +44,7 @@ BEGIN
 		      _head.pohead_freight, false, _head.pohead_tax,
 		      _head.pohead_terms_id, _head.pohead_warehous_id,
 		      _head.pohead_vendaddr_id, _head.pohead_agent_username,
-		      _head.pohead_curr_id, true);	-- should pohead_saved be false?
+		      _head.pohead_curr_id, true, _head.pohead_vend_id);	-- should pohead_saved be false?
 
   _tgtid := CURRVAL(''pohead_pohead_id_seq'');
 
@@ -59,8 +59,7 @@ BEGIN
       SELECT * INTO _itemsrc
       FROM itemsrc, itemsite
       WHERE (itemsrc_active
-        AND  (itemsrc_vend_id = pVendid)
-        AND  (itemsrc_item_id = itemsite_item_id)
+        AND  (itemsrc_id = _lineitem.poitem_itemsrc_id)
 	AND  (itemsite_id = _lineitem.poitem_itemsite_id));
       IF (NOT FOUND AND _vend_restrictpurch) THEN
 	RETURN -3;
@@ -111,7 +110,10 @@ BEGIN
 			  poitem_comments, poitem_expcat_id,
 			  poitem_itemsrc_id,
 			  poitem_freight,
-			  poitem_stdcost
+			  poitem_stdcost,
+			  poitem_manuf_name,
+			  poitem_manuf_item_number,
+			  poitem_manuf_item_descrip
 		    ) VALUES (
 			  ''U'', _tgtid, _lineitem.poitem_linenumber,
 			  _orderdate + COALESCE(_itemsrc.itemsrc_leadtime, 0),
@@ -127,7 +129,13 @@ BEGIN
 			  _lineitem.poitem_comments, _lineitem.poitem_expcat_id,
 			  COALESCE(_itemsrc.itemsrc_id, -1),
 			  _lineitem.poitem_freight,
-			  stdcost(_itemsrc.itemsite_item_id));
+			  stdcost(_itemsrc.itemsite_item_id),
+			  COALESCE(_itemsrc.itemsrc_manuf_name,
+				   _lineitem.poitem_manuf_name),
+		          COALESCE(_itemsrc.itemsrc_manuf_item_number,
+				   _lineitem.poitem_manuf_item_number),
+			  COALESCE(_itemsrc.itemsrc_manuf_item_descrip,
+				   _lineitem.poitem_manuf_item_descrip));
 
     END LOOP;
   ELSE
@@ -136,23 +144,22 @@ BEGIN
 			poitem_vend_item_descrip, poitem_vend_uom,
 			poitem_invvenduomratio, poitem_qty_ordered,
 			poitem_unitprice,
-			poitem_nocharge, poitem_vend_item_number, poitem_comments,
+			poitem_vend_item_number, poitem_comments,
 			poitem_expcat_id, poitem_itemsrc_id, poitem_freight,
-			poitem_stdcost
+			poitem_stdcost, poitem_manuf_name, 
+			poitem_manuf_item_number, poitem_manuf_item_descrip
 		) SELECT ''U'', _tgtid, poitem_linenumber,
 			_orderdate + COALESCE(itemsrc_leadtime, 0), poitem_itemsite_id,
 			poitem_vend_item_descrip, poitem_vend_uom,
 			poitem_invvenduomratio, poitem_qty_ordered,
 			poitem_unitprice,
-			poitem_nocharge, poitem_vend_item_number, poitem_comments,
+			poitem_vend_item_number, poitem_comments,
 			poitem_expcat_id, poitem_itemsrc_id, poitem_freight,
-			stdcost(itemsite_item_id)
-		  FROM poitem LEFT OUTER JOIN
-		       (itemsite LEFT OUTER JOIN
-		       itemsrc ON (itemsrc_item_id = itemsite_item_id
-				   AND itemsrc_vend_id = pVendid
-				   AND itemsrc_active))
-                         ON (poitem_itemsite_id = itemsite_id)
+			stdcost(itemsite_item_id), poitem_manuf_name,
+			poitem_manuf_item_number, poitem_manuf_item_descrip
+		  FROM poitem
+		    LEFT OUTER JOIN itemsrc ON (itemsrc_id=poitem_itemsrc_id)
+		    LEFT OUTER JOIN itemsite ON (itemsite_id=poitem_itemsite_id)
 		  WHERE (poitem_pohead_id = pSrcid);
   END IF;
 
