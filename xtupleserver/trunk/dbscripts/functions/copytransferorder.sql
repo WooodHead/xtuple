@@ -81,7 +81,7 @@ BEGIN
 	      ) SELECT _toheadid,	toitem_linenumber,	toitem_item_id,
 		      ''O'',
 		      pSchedDate + COALESCE(d.itemsite_leadtime, 0) + COALESCE(t.itemsite_leadtime, 0),
-		      pSchedDate + COALESCE(d.itemsite_leadtime, 0),
+		      pSchedDate + COALESCE(t.itemsite_leadtime, 0),
 		      toitem_qty_ordered,	toitem_uom,	stdcost(toitem_item_id),
 		      toitem_freight,	toitem_freight_curr_id, toitem_freighttax_id,
                       toitem_freighttax_pcta, toitem_freighttax_pctb, toitem_freighttax_pctc,
