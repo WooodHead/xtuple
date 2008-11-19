@@ -65,7 +65,7 @@ BEGIN
    AND (womatl_id=pWomatlid) )
   FOR UPDATE;
 
-  IF ((_p.womatl_qtyreq >= 0 AND pQty < 0) OR (_p.womatl_qtyreq < 0 AND pQty > 0)) THEN
+  IF (pQty < 0) THEN
     RETURN pItemlocSeries;
   END IF;
 
