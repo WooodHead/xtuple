@@ -30,7 +30,8 @@ BEGIN;
            LEFT OUTER JOIN salesrep ON (salesrep_id=aropen_salesrep_id)
            LEFT OUTER JOIN terms ON (terms_id=aropen_terms_id)
            LEFT OUTER JOIN salescat ON (salescat_id=aropen_salescat_id)
-           LEFT OUTER JOIN rsncode ON (rsncode_id=aropen_rsncode_id);
+           LEFT OUTER JOIN rsncode ON (rsncode_id=aropen_rsncode_id)
+    WHERE (aropen_doctype IN ('C', 'D'));
 	
 GRANT ALL ON TABLE api.armemo TO openmfg;
 COMMENT ON VIEW api.armemo IS 'A/R Credit and Debit Memo';
