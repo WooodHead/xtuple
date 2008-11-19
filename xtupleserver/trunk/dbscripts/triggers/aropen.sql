@@ -6,7 +6,34 @@ DECLARE
   _graceDays INTEGER;
   _checkLate BOOLEAN := false;
   _checkLimit BOOLEAN := false;
+  _id INTEGER;
 BEGIN
+  -- Checks
+  -- Start with privileges
+  IF ( (NOT checkPrivilege('MaintainARMemos')) AND
+       (NOT checkPrivilege('PostMiscInvoices')) AND
+       (NOT checkPrivilege('PostARDocuments')) ) THEN
+    RAISE EXCEPTION 'You do not have privileges to maintain A/R Memos.';
+  END IF;
+
+  IF ( (NEW.aropen_docnumber IS NULL) OR (LENGTH(NEW.aropen_docnumber) = 0) ) THEN
+    RAISE EXCEPTION 'You must enter a valid Document # for this A/R Memo.';
+  END IF;
+
+  IF ( (NEW.aropen_amount IS NOT NULL) AND (NEW.aropen_amount <= 0) ) THEN
+    RAISE EXCEPTION 'You must enter a positive Amount for this A/R Memo.';
+  END IF;
+
+  IF (TG_OP = 'INSERT') THEN
+    SELECT aropen_id INTO _id
+    FROM aropen
+    WHERE ( (aropen_doctype=NEW.aropen_doctype)
+      AND   (aropen_docnumber=NEW.aropen_docnumber) )
+    LIMIT 1;
+    IF (FOUND) THEN
+      RAISE EXCEPTION 'This Document Type/Number already exists. You may not enter a duplicate A/R Memo.';
+    END IF;
+  END IF;
 
 -- Determine the number of late invoices
   IF ( SELECT (metric_value='t')
