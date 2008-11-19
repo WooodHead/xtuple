@@ -11,6 +11,12 @@ BEGIN
     RAISE EXCEPTION 'You do not have privileges to alter a Purchase Order.';
   END IF;
 
+  IF ( (TG_OP = 'INSERT') OR (TG_op = 'UPDATE') ) THEN
+    IF (NOT ISNUMERIC(NEW.pohead_number)) THEN
+      RAISE EXCEPTION 'Purchase Order Number must be numeric.';
+    END IF;
+  END IF;
+
   IF ( SELECT (metric_value='t')
        FROM metric
        WHERE (metric_name='POChangeLog') ) THEN
