@@ -53,10 +53,15 @@ DECLARE
   _rnTime NUMERIC;
   _check CHAR;
   _wipPost NUMERIC;
+  _sense TEXT;
 BEGIN
 
   IF (pQty = 0) THEN
     RETURN 0;
+  ELSIF (pQty > 0) THEN
+    _sense = 'from';
+  ELSE
+    _sense = 'to';
   END IF;
 
   IF ( ( SELECT wo_status
@@ -177,7 +182,7 @@ BEGIN
   WHERE (wo_id=pWoid);         
 
   SELECT postInvTrans( itemsite_id, 'RM', _parentQty, 
-                       'W/O', 'WO', _woNumber, '', ('Receive Inventory ' || item_number || ' from Manufacturing'),
+                       'W/O', 'WO', _woNumber, '', ('Receive Inventory ' || item_number || ' ' || _sense || ' Manufacturing'),
                        costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, CURRENT_DATE,
                        -- the following is only actually used when the item is average costed
                        _wipPost ) INTO _invhistid
