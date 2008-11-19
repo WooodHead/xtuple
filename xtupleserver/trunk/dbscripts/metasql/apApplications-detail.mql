@@ -20,6 +20,8 @@ SELECT apapply.*,
             WHEN (apapply_target_doctype='K') THEN <? value("check") ?>
             ELSE apapply_target_doctype
        END AS apapply_target_doctype_qtdisplayrole,
+       formatDate(apapply_postdate) AS f_postdate,-- for openrpt
+       formatMoney(apapply_amount) AS f_amount,   -- for openrpt
        currConcat(apapply_curr_id) AS currAbbr,
        currtobase(apapply_curr_id,apapply_amount,apapply_postdate) AS base_applied,
        'curr' AS apapply_amount_xtnumericrole,

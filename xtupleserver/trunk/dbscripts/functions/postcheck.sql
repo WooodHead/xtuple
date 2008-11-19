@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION postCheck(INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postCheck(INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pcheckid		ALIAS FOR $1;
   _journalNumber	INTEGER := $2;
@@ -19,7 +19,7 @@ BEGIN
 
   SELECT fetchGLSequence() INTO _sequence;
   IF (_journalNumber IS NULL) THEN
-    _journalNumber := fetchJournalNumber(''AP-CK'');
+    _journalNumber := fetchJournalNumber('AP-CK');
   END IF;
 
   SELECT checkhead.*,
@@ -41,7 +41,7 @@ BEGIN
     RETURN -11;
   END IF;
 
-  IF (_p.checkhead_recip_type = ''C'') THEN
+  IF (_p.checkhead_recip_type = 'C') THEN
     SELECT checkitem_id FROM checkitem INTO _test
     WHERE (checkitem_checkhead_id=pcheckid)
     LIMIT 1;
@@ -50,27 +50,27 @@ BEGIN
     END IF;
   END IF;
 
-  _gltransNote := _p.checkrecip_number || ''-'' || _p.checkrecip_name;
+  _gltransNote := _p.checkrecip_number || '-' || _p.checkrecip_name;
 
   IF (_p.checkhead_misc AND NOT _cm) THEN
     IF (COALESCE(_p.checkhead_expcat_id, -1) < 0) THEN
-      IF (_p.checkhead_recip_type = ''V'') THEN
+      IF (_p.checkhead_recip_type = 'V') THEN
 	PERFORM createAPCreditMemo( _p.checkhead_recip_id, _journalNumber,
-				    fetchAPMemoNumber(), '''',
+				    fetchAPMemoNumber(), '',
 				    _p.checkhead_checkdate, _p.checkhead_amount,
-				    _gltransNote || '' '' || _p.checkhead_notes,
+				    _gltransNote || ' ' || _p.checkhead_notes,
 				    -1, _p.checkhead_checkdate,
 				    -1, _p.checkhead_curr_id );
 	_credit_glaccnt := findAPPrepaidAccount(_p.checkhead_recip_id);
 
-      ELSIF (_p.checkhead_recip_type = ''C'') THEN
+      ELSIF (_p.checkhead_recip_type = 'C') THEN
 	PERFORM createARDebitMemo(_p.checkhead_recip_id, _journalNumber,
 	  			     fetchARMemoNumber(),
 				     _p.checkhead_checkdate, _p.checkhead_amount,
-				     _gltransNote || '' '' || _p.checkhead_notes,
+				     _gltransNote || ' ' || _p.checkhead_notes,
 				     _p.checkhead_curr_id );
         _credit_glaccnt := findPrepaidAccount(_p.checkhead_recip_id);
-      ELSIF (_p.checkhead_recip_type = ''T'') THEN
+      ELSIF (_p.checkhead_recip_type = 'T') THEN
 	-- TODO: should we create a credit memo for the tax authority? how?
 	_credit_glaccnt := _p.checkrecip_accnt_id;
 
@@ -93,7 +93,7 @@ BEGIN
       RETURN -13;
     END IF;
 
-    PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source, ''CK'',
+    PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source, 'CK',
 				CAST(_p.checkhead_number AS TEXT),
 				_credit_glaccnt,
 				round(_p.checkhead_amount_base, 2) * -1,
@@ -142,10 +142,10 @@ BEGIN
           apapply_journalnumber, apapply_amount, apapply_curr_id )
         VALUES
         ( _p.checkhead_recip_id, _p.checkhead_checkdate, CURRENT_USER,
-          -1, ''K'', _p.checkhead_number,
+          _p.checkhead_id, 'K', _p.checkhead_number,
           _r.apopen_id, _r.apopen_doctype, _r.apopen_docnumber,
           _journalNumber, _r.checkitem_amount, _r.checkitem_curr_id );
-      END IF; -- if check item''s apopen_id is not null
+      END IF; -- if check item's apopen_id is not null
 
       IF (_r.aropen_id IS NOT NULL) THEN
         UPDATE aropen
@@ -169,10 +169,10 @@ BEGIN
         VALUES
         ( _p.checkhead_recip_id, _p.checkhead_checkdate, _p.checkhead_checkdate, CURRENT_USER,
           _r.aropen_id,_r.aropen_doctype, _r.aropen_docnumber,
-          -1, ''K'',_p.checkhead_number ,
+          -1, 'K',_p.checkhead_number ,
           _journalNumber, _r.checkitem_amount, _r.checkitem_curr_id );
 
-      END IF; -- if check item''s aropen_id is not null
+      END IF; -- if check item's aropen_id is not null
 
       SELECT currGain(_r.checkitem_curr_id, _r.checkitem_amount,
                       _r.docdate, _p.checkhead_checkdate)
@@ -180,13 +180,13 @@ BEGIN
       _exchGain := _exchGain + _exchGainTmp;
 
       PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
-				  ''CK'', CAST(_p.checkhead_number AS TEXT),
+				  'CK', CAST(_p.checkhead_number AS TEXT),
                                   _p.checkrecip_accnt_id,
                                   round(_r.checkitem_amount_base, 2) * -1,
                                   _p.checkhead_checkdate, _gltransNote );
       IF (_exchGainTmp <> 0) THEN
 	PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
-				    ''CK'', CAST(_p.checkhead_number AS TEXT),
+				    'CK', CAST(_p.checkhead_number AS TEXT),
 				    getGainLossAccntId(), round(_exchGainTmp,2),
 				    _p.checkhead_checkdate, _gltransNote );
       END IF;
@@ -199,7 +199,7 @@ BEGIN
     IF round(_amount_base, 2) - round(_exchGain, 2) <> round(_p.checkhead_amount_base, 2) THEN
       IF round(_amount_base - _exchGain, 2) = round(_p.checkhead_amount_base, 2) THEN
 	PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
-				    ''CK'',
+				    'CK',
 				    CAST(_p.checkhead_number AS TEXT),
                                     getGainLossAccntId(),
 				    round(_amount_base, 2) -
@@ -207,12 +207,12 @@ BEGIN
 				      round(_p.checkhead_amount_base, 2),
 				    _p.checkhead_checkdate, _gltransNote );
       ELSE
-	RAISE EXCEPTION ''checkhead_id % does not balance (% - % <> %)'', pcheckid,
+	RAISE EXCEPTION 'checkhead_id % does not balance (% - % <> %)', pcheckid,
 	      _amount_base, _exchGain, _p.checkhead_amount_base;
       END IF;
     END IF;
 
-    IF (_p.checkhead_recip_type = ''V'') THEN
+    IF (_p.checkhead_recip_type = 'V') THEN
       -- Find the currency gain/loss on any discount previously taken
       -- could also do this via the apapply table
       -- ToDo: should this be discount specific or used for any credit memo application?
@@ -226,12 +226,12 @@ BEGIN
 	     ORDER BY checkitem_ponumber;
       IF (_exchGainTmp <> 0) THEN
 	  PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
-				      ''CK'', CAST(_p.checkhead_number AS TEXT),
+				      'CK', CAST(_p.checkhead_number AS TEXT),
 				      findAPPrepaidAccount(_p.checkhead_recip_id),
 				      round(_exchGainTmp * -1, 2),
 				      _p.checkhead_checkdate, _gltransNote );
 	  PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
-				      ''CK'', CAST(_p.checkhead_number AS TEXT),
+				      'CK', CAST(_p.checkhead_number AS TEXT),
 				      getGainLossAccntId(),
 				      round(_exchGainTmp, 2),
 				      _p.checkhead_checkdate, _gltransNote );
@@ -239,7 +239,7 @@ BEGIN
     END IF;
   END IF;
 
-  PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source, ''CK'',
+  PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source, 'CK',
 			      CAST(_p.checkhead_number AS TEXT),
                               _p.bankaccntid,
 			      round(_p.checkhead_amount_base, 2),
@@ -259,4 +259,4 @@ BEGIN
   RETURN _journalNumber;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
