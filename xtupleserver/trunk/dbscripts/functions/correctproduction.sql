@@ -29,9 +29,18 @@ DECLARE
   _qty NUMERIC;
   _invqty NUMERIC;
   _rntime NUMERIC;
+  _sense TEXT;
 
 BEGIN
 
+  IF (pQty = 0) THEN
+    RETURN pItemlocseries;
+  ELSIF (pQty > 0) THEN
+    _sense := 'from';
+  ELSE
+    _sense := 'to';
+  END IF;
+  
   IF ( ( SELECT (NOT (wo_status='I'))
          FROM wo
          WHERE (wo_id=pWoid) ) ) THEN
@@ -88,7 +97,7 @@ BEGIN
 
       SELECT postInvTrans( itemsite_id, 'IM', (_invqty * -1),
                            'W/O', 'WO', formatwonumber(pWoid), '',
-                           ('Correct Receive Inventory ' || item_number || ' from Manufacturing'),
+                           ('Correct Receive Inventory ' || item_number || ' ' || _sense || ' Manufacturing'),
                            _parentWIPAccntid, costcat_asset_accnt_id, _itemlocSeries ) INTO _invhistid
       FROM itemsite, item, costcat
       WHERE ( (itemsite_item_id=item_id)
@@ -145,7 +154,7 @@ BEGIN
 --  Post the inventory transaction
   SELECT postInvTrans( itemsite_id, 'RM', (_parentQty * -1),
                        'W/O', 'WO', formatwonumber(pWoid), '',
-                       ('Correct Receive Inventory ' || item_number || ' from Manufacturing'),
+                       ('Correct Receive Inventory ' || item_number || ' ' || _sense || ' Manufacturing'),
                        costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, CURRENT_DATE,
                        ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) * _parentQty -- only used when cost is average
                        ) INTO _invhistid
