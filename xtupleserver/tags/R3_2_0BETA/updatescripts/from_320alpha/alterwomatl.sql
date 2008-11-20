@@ -1,0 +1,6 @@
+BEGIN;
+
+ALTER TABLE womatl ADD COLUMN womatl_notes TEXT;
+ALTER TABLE womatl ADD COLUMN womatl_ref TEXT;
+
+COMMIT;
