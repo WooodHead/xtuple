@@ -227,8 +227,7 @@ int CreateFunction::upsertPkgItem(const int pkgheadid,
                    "WHERE (pkgitem_id=:id);");
   else
   {
-    upsert.prepare("SELECT NEXTVAL('pkgitem_pkgitem_id_seq');");
-    upsert.exec();
+    upsert.exec("SELECT NEXTVAL('pkgitem_pkgitem_id_seq');");
     if (upsert.first())
       pkgitemid = upsert.value(0).toInt();
     else if (upsert.lastError().type() != QSqlError::NoError)

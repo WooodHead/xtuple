@@ -260,8 +260,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
                           .arg(_system ? "" : "pkg"));
   else
   {
-    upsert.prepare("SELECT NEXTVAL('report_report_id_seq');");
-    upsert.exec();
+    upsert.exec("SELECT NEXTVAL('report_report_id_seq');");
     if (upsert.first())
       reportid = upsert.value(0).toInt();
     else if (upsert.lastError().type() != QSqlError::NoError)

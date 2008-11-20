@@ -201,8 +201,7 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
                           .arg(_system ? "" : "pkg"));
   else
   {
-    upsert.prepare("SELECT NEXTVAL('image_image_id_seq');");
-    upsert.exec();
+    upsert.exec("SELECT NEXTVAL('image_image_id_seq');");
     if (upsert.first())
       imageid = upsert.value(0).toInt();
     else if (upsert.lastError().type() != QSqlError::NoError)

@@ -242,8 +242,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
                           .arg(_system ? "" : "pkg"));
   else
   {
-    upsert.prepare("SELECT NEXTVAL('uiform_uiform_id_seq');");
-    upsert.exec();
+    upsert.exec("SELECT NEXTVAL('uiform_uiform_id_seq');");
     if (upsert.first())
       formid = upsert.value(0).toInt();
     else if (upsert.lastError().type() != QSqlError::NoError)

@@ -535,8 +535,7 @@ int Package::writeToDB(QString &errMsg)
   }
   else
   {
-    upsert.prepare("SELECT NEXTVAL('pkghead_pkghead_id_seq');");
-    upsert.exec();
+    upsert.exec("SELECT NEXTVAL('pkghead_pkghead_id_seq');");
     if (upsert.first())
       pkgheadid = upsert.value(0).toInt();
     else if (upsert.lastError().type() != QSqlError::NoError)

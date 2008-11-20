@@ -156,8 +156,7 @@ int Script::writeToDB(const QByteArray &pdata, const QString annotation, QString
   }
 
   QSqlQuery create;
-  create.prepare(QString(pdata));
-  create.exec();
+  create.exec(QString(pdata));
   if (create.lastError().type() != QSqlError::NoError)
   {
     errMsg = _sqlerrtxt.arg(filename())

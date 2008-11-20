@@ -479,8 +479,7 @@ int Prerequisite::writeToDB(const QString pkgname, QString &errMsg)
                      "WHERE (pkgdep_id=:pkgdepid);");
     else
     {
-      upsert.prepare("SELECT NEXTVAL('pkgdep_pkgdep_id_seq');");
-      upsert.exec();
+      upsert.exec("SELECT NEXTVAL('pkgdep_pkgdep_id_seq');");
       if (upsert.first())
         pkgdepid = upsert.value(0).toInt();
       else if (upsert.lastError().type() != QSqlError::NoError)

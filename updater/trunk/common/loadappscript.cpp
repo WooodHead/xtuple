@@ -225,8 +225,7 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
                        .arg(_system ? "" : "pkg"));
   else
   {
-    upsert.prepare("SELECT NEXTVAL('script_script_id_seq');");
-    upsert.exec();
+    upsert.exec("SELECT NEXTVAL('script_script_id_seq');");
     if (upsert.first())
       scriptid = upsert.value(0).toInt();
     else if (upsert.lastError().type() != QSqlError::NoError)

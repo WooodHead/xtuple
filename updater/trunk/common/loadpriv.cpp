@@ -165,8 +165,7 @@ int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
               .arg(_system ? "" : "pkg"));
   else
   {
-    upsert.prepare("SELECT NEXTVAL('priv_priv_id_seq');");
-    upsert.exec();
+    upsert.exec("SELECT NEXTVAL('priv_priv_id_seq');");
     if (upsert.first())
       privid = upsert.value(0).toInt();
     else if (upsert.lastError().type() != QSqlError::NoError)
