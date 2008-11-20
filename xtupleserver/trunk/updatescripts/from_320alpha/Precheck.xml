@@ -1,12 +1,12 @@
  <prerequisite type="Query" name="Check for valid AROpen Doc Dates" >
-  <query>SELECT COUNT(aropen_docdate)=0 FROM aropen WHERE (aropen_docdate IS NULL)</query>
+  <query>SELECT COUNT(*)=0 FROM aropen WHERE (aropen_docdate IS NULL)</query>
   <message>One or more A/R Open records (aropen) exist with null Document Dates.</message>
  </prerequisite>
  <prerequisite type="Query" name="Check for valid AROpen Due Dates" >
-  <query>SELECT COUNT(aropen_duedate)=0 FROM aropen WHERE (aropen_duedate IS NULL)</query>
+  <query>SELECT COUNT(*)=0 FROM aropen WHERE (aropen_duedate IS NULL)</query>
   <message>One or more A/R Open records (aropen) exist with null Due Dates.</message>
  </prerequisite>
  <prerequisite type="Query" name="Check for valid AROpen Amounts" >
-  <query>SELECT COUNT(aropen_amount)=0 FROM aropen WHERE (aropen_amount IS NULL)</query>
+  <query>SELECT COUNT(*)=0 FROM aropen WHERE (aropen_amount IS NULL)</query>
   <message>One or more A/R Open records (aropen) exist with null Amounts.</message>
  </prerequisite>
