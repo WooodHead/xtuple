@@ -135,7 +135,7 @@ BEGIN
 
     --See if this is inventory or job item and value accordingly
     SELECT coitem_itemsite_id, coitem_qty_invuomratio,
-           item_id, item_type INTO _r
+           item_id, item_type, itemsite_costmethod INTO _r
     FROM coitem, itemsite, item
     WHERE ((coitem_id=pitemid)
     AND (itemsite_id=coitem_itemsite_id)
@@ -157,7 +157,11 @@ BEGIN
        AND (coitem_id=pitemid)
        AND (shiphead_id=_shipheadid) );
 
-      _value := round(stdcost(_r.item_id) * pQty * _r.coitem_qty_invuomratio,2);
+      IF (_r.itemsite_costmethod = ''S'') THEN
+        _value := round(stdcost(_r.item_id) * pQty * _r.coitem_qty_invuomratio,2);
+      ELSE
+        _value := round(avgcost(_r.coitem_itemsite_id) * pQty * _r.coitem_qty_invuomratio,2);
+      END IF;
     ELSE
     -- This is a job so deal with costing and work order
     
