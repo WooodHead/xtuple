@@ -98,7 +98,7 @@ SELECT aropen_id, applyid,
     <? endif ?> )
 
     UNION
-    SELECT 0 AS type, invchead_id AS aropen_id, -1 AS applyid,
+    SELECT 0 AS type, -1 AS aropen_id, -1 AS applyid,
            invchead_invcdate AS sortdate, invchead_invcnumber AS sortnumber,
            invchead_invcnumber AS docnumber,
            false AS open,
