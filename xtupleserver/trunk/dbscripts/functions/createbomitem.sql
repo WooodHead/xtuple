@@ -79,6 +79,49 @@ END;
 ' LANGUAGE 'plpgsql';
 
 
+CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, INTEGER, CHAR,
+                                          INTEGER, NUMERIC, NUMERIC,
+                                          DATE, DATE,
+                                          BOOL, INTEGER, BOOL, TEXT, CHAR, INTEGER,
+                                          INTEGER, TEXT )
+                           RETURNS INTEGER AS '
+DECLARE
+  pBomitemid ALIAS FOR $1;
+  pParentItemid ALIAS FOR $2;
+  pComponentItemid ALIAS FOR $3;
+  pSeqNumber ALIAS FOR $4;
+  pIssueMethod ALIAS FOR $5;
+  pUomId ALIAS FOR $6;
+  pQtyPer ALIAS FOR $7;
+  pScrap ALIAS FOR $8;
+  pEffective ALIAS FOR $9;
+  pExpires ALIAS FOR $10;
+  pCreateWo ALIAS FOR $11;
+  pBOOItemseqid ALIAS FOR $12;
+  pSchedAtWooper ALIAS FOR $13;
+  pECN ALIAS FOR $14;
+  pSubType ALIAS FOR $15;
+  pRevisionid ALIAS FOR $16;
+  pCharId ALIAS FOR $17;
+  pCharVal ALIAS FOR $18;
+  _bomworksetid INTEGER;
+  _temp INTEGER;
+  _bomitemid INTEGER;
+
+BEGIN
+
+  SELECT createBOMItem( pBomitemid, pParentItemid, pComponentItemid,
+                        _seqNumber, pIssueMethod,
+                        pUomId, pQtyPer, pScrap,
+                        pEffective, pExpires,
+                        pCreateWo, pBOOItemseqid, pSchedAtWooper, pECN, pSubType, pRevisionid, pCharId, pCharVal, NULL, NULL ) INTO _bomitemid;
+
+  RETURN _bomitemid;
+  
+END;
+' LANGUAGE 'plpgsql';
+
+
 
 CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, CHAR,
                                           INTEGER, NUMERIC, NUMERIC,
