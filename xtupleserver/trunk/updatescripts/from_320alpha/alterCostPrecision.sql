@@ -1,9 +1,6 @@
 BEGIN;
 
 ALTER TABLE asohist ALTER COLUMN asohist_unitcost TYPE NUMERIC(16,6);
-ALTER TABLE bbomitem ALTER COLUMN bbomitem_costabsorb TYPE NUMERIC(16,6);
-ALTER TABLE bomhist ALTER COLUMN bomhist_stdunitcost TYPE NUMERIC(16,6);
-ALTER TABLE bomhist ALTER COLUMN bomhist_actunitcost TYPE NUMERIC(16,6);
 ALTER TABLE bomwork ALTER COLUMN bomwork_stdunitcost TYPE NUMERIC(16,6);
 ALTER TABLE bomwork ALTER COLUMN bomwork_actunitcost TYPE NUMERIC(16,6);
 
@@ -38,7 +35,6 @@ ALTER TABLE quitem ALTER COLUMN quitem_prcost TYPE NUMERIC(16,6);
 SELECT dropIfExists('VIEW', 'porecv');
 ALTER TABLE recv ALTER COLUMN recv_purchcost TYPE NUMERIC(16,6);
 ALTER TABLE recv ALTER COLUMN recv_recvcost TYPE NUMERIC(16,6);
-ALTER TABLE toitem ALTER COLUMN toitem_stdcost TYPE NUMERIC(16,6);
 ALTER TABLE wo ALTER COLUMN wo_wipvalue TYPE NUMERIC(16,6);
 ALTER TABLE wo ALTER COLUMN wo_postedvalue TYPE NUMERIC(16,6);
 ALTER TABLE wo ALTER COLUMN wo_brdvalue TYPE NUMERIC(16,6);
