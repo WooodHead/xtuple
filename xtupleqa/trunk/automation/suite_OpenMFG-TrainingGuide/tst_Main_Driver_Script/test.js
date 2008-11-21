@@ -9,6 +9,7 @@ function main()
     source(findFile("scripts","Chapter5.js"));
     source(findFile("scripts","Chapter6.js"));
     source(findFile("scripts","Chapter7.js"));
+    source(findFile("scripts","Chapter8.js"));
     
 //    loginAppl("3.2.0", "2empty320alpha","admin");
 //    executeChapter1();
@@ -20,6 +21,8 @@ function main()
 //    executeChapter4();
 //    executeChapter5();
 //    executeChapter6();
-    executeChapter7();
-      exitAppl();
+//    executeChapter7(); ----Item sources pending-----
+    executeChapter8();
+ 
+    exitAppl();	
 }
