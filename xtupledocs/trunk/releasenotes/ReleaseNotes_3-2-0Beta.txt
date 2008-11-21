@@ -6,44 +6,50 @@ November 24, 2008
 ==================================
 
 This is the Beta release of version 3.2.0. Thanks to all in the
-community who have contributed valuable testing, patches and other 
-feedback during the Alpha cycle! Please keep up the effort on 
+community who have contributed valuable testing, patches and other
+feedback during the Alpha cycle! Please keep up the effort on
 this Beta. We are eager to hear from as many of you as possible.
 
-Users may be especially interested to know about two new Accounts 
-Payable (A/P) features introduced for the first time in this Beta:
+Users may be especially interested to know about the following
+new features introduced for the first time in this Beta:
 
 * Accounts Payable Workbench
 * Vendor Information Workbench
+* Optional Report definition query storage in database
+* Disassemly Work Orders
+* 
+* 
+* One to many Item Sources
+
 
 ==================================
 
-The following features and bug fixes have been added to the 
-applications since the release of version 3.2.0Alpha. Additional 
-detail for each item listed below may be found on our community 
-website (www.xtuple.org). Simply go to the Issue Tracker and 
+The following features and bug fixes have been added to the
+applications since the release of version 3.2.0Alpha. Additional
+detail for each item listed below may be found on our community
+website (www.xtuple.org). Simply go to the Issue Tracker and
 select the Changelog option.
 
 New Features:
 
-* [Accounting] Created API views for A/R misc. Debit Memo and 
+* [Accounting] Created API views for A/R misc. Debit Memo and
 misc. Credit Memo
 * [Accounting] Cleaned up summarized G/L transactions display
-* [Accounting] Enhanced Cash Receipt Edit List 
+* [Accounting] Enhanced Cash Receipt Edit List
 * [Accounting] Added "amount" column to List Unposted Invoices
 * [Accounting] Added G/L transaction date support to AR Aging
 * [Accounting] Created Accounts Payable Workbench
 * [CRM] Linked outgoing emails to Incidents
-* [CRM] Added timed events for To-Do Assignees to the existing 
-event system 
-* [CRM] Added alarms for CRM To-Do with option to E-mail 
+* [CRM] Added timed events for To-Do Assignees to the existing
+event system
+* [CRM] Added alarms for CRM To-Do with option to E-mail
 * [CRM] Enhanced Project Tasks
-* [Inventory] Added better support for activate/deactive of 
+* [Inventory] Added better support for activate/deactive of
 Items
 * [Inventory] Added PO Item balance at receiving
-* [Inventory] Added in contributed code that can infer UPS 
+* [Inventory] Added in contributed code that can infer UPS
 shipment number from order number
-* [Manufacture] Added the ability to process disassembly Work 
+* [Manufacture] Added the ability to process disassembly Work
 Orders
 * [Manufacture] Streamlined post operations screen
 * [Manufacture] Added Reference designator field on BOM
@@ -51,111 +57,111 @@ Orders
 * [Products] Added Line Notes on Bill Of Materials
 * [Products] Increased precision for Costing to six decimals
 * [Purchase] Created Vendor Information Workbench
-* [Purchase] Added the ability to include one to many Item 
+* [Purchase] Added the ability to include one to many Item
 Sources per Vendor and Item
-* [System] Added in new executeDbQuery(group, name, params) 
-script function to the script toolbox to load and execute report 
+* [System] Added in new executeDbQuery(group, name, params)
+script function to the script toolbox to load and execute report
 queries from the database
-* [System] Added user preference to have email sent when events 
-occur; only visible when Batch Manager enabled 
+* [System] Added user preference to have email sent when events
+occur; only visible when Batch Manager enabled
 * [System] Added Prev/Next button to Comment
 
 
 Bug Fixes:
 
-* [Accounting] Fixed issue where shipping goods was relieving 
+* [Accounting] Fixed issue where shipping goods was relieving
 shipping asset account at standard cost for average cost Items
-* [Accounting] Fixed issue where AR credit memos and Sales 
+* [Accounting] Fixed issue where AR credit memos and Sales
 credit memos could get mixed up
-* [Accounting] Fixed issue where declined Credit Card amounts 
+* [Accounting] Fixed issue where declined Credit Card amounts
 were being posted to AR Invoice
-* [Accounting] Added trigger to automatically reset initial 
-Accounting Period if new initial period is added or otherwise 
+* [Accounting] Added trigger to automatically reset initial
+Accounting Period if new initial period is added or otherwise
 changed
-* [Accounting] Fixed issue with date conflicts on saved Bank 
+* [Accounting] Fixed issue with date conflicts on saved Bank
 Reconciliations
-* [Accounting] Made button labels on Item master more 
+* [Accounting] Made button labels on Item master more
 intuitive
-* [Accounting] Corrected calculation of receipt value of 
+* [Accounting] Corrected calculation of receipt value of
 average cost Items at vouchering
-* [Accounting] Added total information to Cash Receipts 
+* [Accounting] Added total information to Cash Receipts
 display
-* [Accounting] Now using invoice cluster on schedule e-mail 
+* [Accounting] Now using invoice cluster on schedule e-mail
 delivery of invoices instead of list
-* [CRM] Fixed issue where unused Addresses were not printing 
+* [CRM] Fixed issue where unused Addresses were not printing
 when Address master list was printed
-* [CRM] Fixed error received with checking “Show incidents” 
+* [CRM] Fixed error received with checking "Show incidents"
 option on To-Do List
 * [CRM] Fixed error received when opening To-Do List
-* [Inventory] Fixed issue where RECEIVE ALL function was 
+* [Inventory] Fixed issue where RECEIVE ALL function was
 receiving closed PO items
-* [Inventory] Fixed PostBooks error received when viewing or 
+* [Inventory] Fixed PostBooks error received when viewing or
 editing Item Site records
-* [Inventory] Fixed error received when selecting to edit 
+* [Inventory] Fixed error received when selecting to edit
 Sales Order related to backlog item
-* [Inventory] Fixed issue where scheduled date was being 
+* [Inventory] Fixed issue where scheduled date was being
 displayed under ordered date on Transfer Order
-* [Inventory] Fixed issue with “Order by Pack date” report 
+* [Inventory] Fixed issue with "Order by Pack date" report
 printing empty from Summarized Backlog by Site screen
-* [Inventory] Fixed issue where “View Order Item” option on 
+* [Inventory] Fixed issue where "View Order Item" option on
 List Receipts screen not working for Return Authorizations
-* [Inventory] Fixed issue with “Show Reorder Exceptions” 
-option printing empty from Inventory Availability by Item 
+* [Inventory] Fixed issue with "Show Reorder Exceptions"
+option printing empty from Inventory Availability by Item
 screen
-* [Inventory] Fixed issue with Loc/Lot/Serial information 
+* [Inventory] Fixed issue with Loc/Lot/Serial information
 not showing in Item History in Item Workbench
 * [Inventory] Fixed issue preventing receipt of RA items
-* [Inventory] Fixed issue preventing save of new Site 
+* [Inventory] Fixed issue preventing save of new Site
 Locations
-* [Inventory] Fixed issue preventing receipt of Transfer 
+* [Inventory] Fixed issue preventing receipt of Transfer
 Order Items
-* [Manufacture] Fixed issue where Phantom Items themselves 
+* [Manufacture] Fixed issue where Phantom Items themselves
 were being added as Material Requirements
-* [Manufacture] Fixed issue where Running Availability report 
+* [Manufacture] Fixed issue where Running Availability report
 was not including Job Type Items in printed output
-* [Manufacture] Fixed issue where changing a Work Order item 
+* [Manufacture] Fixed issue where changing a Work Order item
 qty. to zero created an error for material usage variance
-* [Manufacture] Added P/O and P/R menu options Inventory 
+* [Manufacture] Added P/O and P/R menu options Inventory
 Availability by Work Order screen
-* [Manufacture] Fixed issue with qty. ordered not showing on 
+* [Manufacture] Fixed issue with qty. ordered not showing on
 Post Production screen
-* [Products] Fixed Linux crash when adding new Characteristic 
+* [Products] Fixed Linux crash when adding new Characteristic
 to Item master
-* [Products] Fixed scale of file browse button size on Item 
+* [Products] Fixed scale of file browse button size on Item
 master screen
-* [Products] Fixed issue leading to error when querying 
+* [Products] Fixed issue leading to error when querying
 Capacity UOMs screen
-* [Products] Fixed issue leading to error when deleting new 
+* [Products] Fixed issue leading to error when deleting new
 Items
-* [Products] Fixed issue where Site drop down list was disabled 
+* [Products] Fixed issue where Site drop down list was disabled
 in BOMs without component Item Site
-* [Products] Fixed issue where creating a new BOM revision led 
+* [Products] Fixed issue where creating a new BOM revision led
 to loss of image links in previous revision
-* [Products] Changed Item Site to use control method = None for 
+* [Products] Changed Item Site to use control method = None for
 Reference Items
-* [Purchase] Fixed issue leading to error at receiving for 
+* [Purchase] Fixed issue leading to error at receiving for
 Purchase Orders having alphanumeric PO Numbers
-* [Purchase] Fixed issue leading to error when copying a Purchase 
+* [Purchase] Fixed issue leading to error when copying a Purchase
 Order
-* [Purchase] Fixed issue requiring encryption key when saving 
+* [Purchase] Fixed issue requiring encryption key when saving
 Vendor records
-* [Purchase] Added clearer UOM information to Purchase Order and 
+* [Purchase] Added clearer UOM information to Purchase Order and
 Purchase Order Item screens
-* [Purchase] Revised Purchase Order status to display as 
-“Received” if qty. is over-received
+* [Purchase] Revised Purchase Order status to display as
+"Received" if qty. is over-received
 * [Purchase] Fixed Receipts by Vendor report to display data
-* [Purchase] Added email html option to deliver P/O by email 
+* [Purchase] Added email html option to deliver P/O by email
 screen
-* [Sales] Fixed the AR History tab on the Customer Information 
+* [Sales] Fixed the AR History tab on the Customer Information
 Workbench, which was not totaling correctly
-* [Sales] Fixed issue where Alternate COGS information was not 
+* [Sales] Fixed issue where Alternate COGS information was not
 being transferred to new Sales Order Line Items
-* [Sales] Fixed issue where selecting to view a Prospect from a 
+* [Sales] Fixed issue where selecting to view a Prospect from a
 search result screen displayed empty page
-* [Sales] Fixed issue leading to error when printing the 
+* [Sales] Fixed issue leading to error when printing the
 Summarized Backlog by Site report
 * [Sales] Removed -1 default for Ship-to Zones in custshipto view
-* [Schedule] Fixed crash received when selecting “View Demand” 
+* [Schedule] Fixed crash received when selecting "View Demand"
 option on Time Phased Demand by Planner Code screen
 
 
