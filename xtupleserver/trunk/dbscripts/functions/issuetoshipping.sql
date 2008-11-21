@@ -157,11 +157,10 @@ BEGIN
        AND (coitem_id=pitemid)
        AND (shiphead_id=_shipheadid) );
 
-      IF (_r.itemsite_costmethod = ''S'') THEN
-        _value := round(stdcost(_r.item_id) * pQty * _r.coitem_qty_invuomratio,2);
-      ELSE
-        _value := round(avgcost(_r.coitem_itemsite_id) * pQty * _r.coitem_qty_invuomratio,2);
-      END IF;
+      SELECT (invhist_unitcost * invhist_invqty) INTO _value
+      FROM invhist
+      WHERE (invhist_id=_invhistid);
+      
     ELSE
     -- This is a job so deal with costing and work order
     
