@@ -8,7 +8,8 @@ AS
    SELECT 
      custtype_code::varchar AS customer_type,
      char_name::varchar AS characteristic,
-     charass_value AS value
+     charass_value AS value,
+     charass_default AS is_default
    FROM custtype, char, charass
    WHERE (('CT'=charass_target_type)
    AND (custtype_id=charass_target_id)
@@ -30,20 +31,21 @@ CREATE OR REPLACE RULE "_INSERT" AS
     charass_default
     )
   VALUES (
-    'C',
+    'CT',
     getCusttypeId(NEW.customer_type),
     getCharId(NEW.characteristic,'CT'),
     NEW.value,
-    false);
+    COALESCE(NEW.is_default,false));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.customertypechar DO INSTEAD
 
   UPDATE charass SET
-    charass_value=NEW.value
+    charass_value=NEW.value,
+    charass_default=NEW.is_default
   WHERE ((charass_target_type='CT')
   AND (charass_target_id=getCusttypeId(OLD.customer_type))
-  AND (charass_char_id=getCharId(OLD.characteristic,'C')));
+  AND (charass_char_id=getCharId(OLD.characteristic,'CT')));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.customertypechar DO INSTEAD
@@ -51,6 +53,6 @@ CREATE OR REPLACE RULE "_DELETE" AS
   DELETE FROM charass
   WHERE ((charass_target_type='CT')
   AND (charass_target_id=getCusttypeId(OLD.customer_type))
-  AND (charass_char_id=getCharId(OLD.characteristic,'C')));
+  AND (charass_char_id=getCharId(OLD.characteristic,'CT')));
 
 COMMIT;
