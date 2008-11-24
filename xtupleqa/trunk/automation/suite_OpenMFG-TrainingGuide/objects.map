@@ -32,6 +32,8 @@
 :Active Items_itemList	{type='itemList' unnamed='1' visible='1' windowTitle='Active Items'}
 :Additional Configuration Required.OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':Additional Configuration Required_QMessageBox'}
 :Additional Configuration Required_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Additional Configuration Required'}
+:Alternate Late Grace Days._graceDays_QSpinBox	{container=':_creditGroup.Alternate Late Grace Days_QGroupBox' name='_graceDays' type='QSpinBox' visible='1'}
+:Alternate Late Grace Days.qt_spinbox_lineedit_QLineEdit	{container=':_creditGroup.Alternate Late Grace Days_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
 :Average._avgQueueDays_QSpinBox	{container=':_schedulingTab.Average_QGroupBox' name='_avgQueueDays' type='QSpinBox' visible='1'}
 :Average._avgQueueDays_QSpinBox_2	{container=':_schedulingTab.Average_QGroupBox_2' name='_avgQueueDays' type='QSpinBox' visible='1'}
 :Average._avgSetup_XLineEdit	{container=':_schedulingTab.Average_QGroupBox' name='_avgSetup' type='XLineEdit' visible='1'}
@@ -86,6 +88,8 @@
 :Cannot Save Item Site_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Cannot Save Item Site'}
 :Cannot Save Sales Category.OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':Cannot Save Sales Category_QMessageBox'}
 :Cannot Save Sales Category_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Cannot Save Sales Category'}
+:Cannot Save Vendor.OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':Cannot Save Vendor_QMessageBox'}
+:Cannot Save Vendor_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Cannot Save Vendor'}
 :Capacity._dailyCapacity_XLineEdit	{container=':_schedulingTab.Capacity_QGroupBox' name='_dailyCapacity' type='XLineEdit' visible='1'}
 :Capacity._dailyCapacity_XLineEdit_2	{container=':_schedulingTab.Capacity_QGroupBox_2' name='_dailyCapacity' type='XLineEdit' visible='1'}
 :Capacity._efficiencyFactor_XLineEdit	{container=':_schedulingTab.Capacity_QGroupBox' name='_efficiencyFactor' type='XLineEdit' visible='1'}
@@ -176,6 +180,7 @@
 :Create New Item Sites.Yes_QPushButton	{text='Yes' type='QPushButton' unnamed='1' visible='1' window=':Create New Item Sites_QMessageBox'}
 :Create New Item Sites_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Create New Item Sites'}
 :Credit Control.Automatically Allocate Credit Memos to New Sales Order on Save_QCheckBox	{container=':general.Credit Control_QGroupBox' name='_autoAllocateCM' text='Automatically Allocate Credit Memos to New Sales Order on Save' type='QCheckBox' visible='1'}
+:Credit Status.In Good Standing_QRadioButton	{container=':credit.Credit Status_QGroupBox' name='_inGoodStanding' text='In Good Standing' type='QRadioButton' visible='1'}
 :Credit Warn Customers when Late._graceDays_QSpinBox	{container=':_ar.Credit Warn Customers when Late_QGroupBox' name='_graceDays' type='QSpinBox' visible='1'}
 :Credit Warn Customers when Late.qt_spinbox_lineedit_QLineEdit	{container=':_ar.Credit Warn Customers when Late_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
 :Currency_currency	{name='currency' type='currency' visible='1' windowTitle='Currency'}
@@ -184,6 +189,8 @@
 :Customer Characteristic.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Customer Characteristic_characteristicAssignment'}
 :Customer Characteristic.Value:_QLabel	{name='_valueLit' text='Value:' type='QLabel' visible='1' window=':Customer Characteristic_characteristicAssignment'}
 :Customer Characteristic_characteristicAssignment	{name='characteristicAssignment' type='characteristicAssignment' visible='1' windowTitle='Customer Characteristic'}
+:Customer Exists.Yes_QPushButton	{text='Yes' type='QPushButton' unnamed='1' visible='1' window=':Customer Exists_QMessageBox'}
+:Customer Exists_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Customer Exists'}
 :Customer Form Assignment.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Customer Form Assignment_customerFormAssignment'}
 :Customer Form Assignment._creditMemoForm_XComboBox	{name='_creditMemoForm' type='XComboBox' visible='1' window=':Customer Form Assignment_customerFormAssignment'}
 :Customer Form Assignment._customerTypeGroup_QGroupBox	{name='_customerTypeGroup' type='QGroupBox' visible='1' window=':Customer Form Assignment_customerFormAssignment'}
@@ -198,6 +205,13 @@
 :Customer Type.Enable Characteristics Profile_QGroupBox	{name='_characteristicGroup' title='Enable Characteristics Profile' type='QGroupBox' visible='1' window=':Customer Type_customerType'}
 :Customer Type.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Customer Type_customerType'}
 :Customer Type_customerType	{name='customerType' type='customerType' visible='1' windowTitle='Customer Type'}
+:Customer.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Customer_customer'}
+:Customer.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Customer_customer'}
+:Customer._name_XLineEdit	{name='_name' type='XLineEdit' visible='1' window=':Customer_customer'}
+:Customer._number_XLineEdit	{name='_number' type='XLineEdit' visible='1' window=':Customer_customer'}
+:Customer.qt_tabwidget_stackedwidget_QStackedWidget	{name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1' window=':Customer_customer'}
+:Customer.qt_tabwidget_tabbar_QTabBar	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1' window=':Customer_customer'}
+:Customer_customer	{name='customer' type='customer' visible='1' windowTitle='Customer'}
 :Database Information.Auto Update Signal Interval:_QLabel	{name='_intervalLit' text='Auto Update Signal Interval:' type='QLabel' visible='1' window=':Database Information_databaseInformation'}
 :Database Information.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Database Information_databaseInformation'}
 :Database Information.Database Description:_QLabel	{name='_descriptionLit' text='Database Description:' type='QLabel' visible='1' window=':Database Information_databaseInformation'}
@@ -222,15 +236,25 @@
 :Defaults.Set Sold Items as Exclusive_QCheckBox	{container=':Products Configuration.Defaults_QGroupBox' name='_exclusive' text='Set Sold Items as Exclusive' type='QCheckBox' visible='1'}
 :Defaults.Show S/O Item Availability when Entering_QCheckBox	{container=':_application.Defaults_QGroupBox' name='_showSoitemAvailability' text='Show S/O Item Availability when Entering' type='QCheckBox' visible='1'}
 :Defaults.W/O Material Issue Method:_QLabel	{container=':Products Configuration.Defaults_QGroupBox' name='_issueMethodLit' text='W/O Material Issue Method:' type='QLabel' visible='1'}
+:Defaults._defaultDiscountPrcnt_XLineEdit	{container=':credit.Defaults_QGroupBox' name='_defaultDiscountPrcnt' type='XLineEdit' visible='1'}
+:Defaults._shipchrg_XComboBox	{container=':general.Defaults_QGroupBox' name='_shipchrg' type='XComboBox' visible='1'}
+:Defaults._shipvia_XComboBox	{container=':general.Defaults_QGroupBox' name='_shipvia' type='XComboBox' visible='1'}
 :Defaults.qt_spinbox_lineedit_QLineEdit	{container=':_inventory.Defaults_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
+:Defaults:._shipchrg_XComboBox	{container=':Ship-To.Defaults:_QGroupBox' name='_shipchrg' type='XComboBox' visible='1'}
+:Defaults:._shipform_XComboBox	{container=':Ship-To.Defaults:_QGroupBox' name='_shipform' type='XComboBox' visible='1'}
 :Defaults_QComboBoxListView	{container=':Products Configuration.Defaults_QGroupBox' type='QComboBoxListView' unnamed='1' visible='1'}
 :Department.VirtualClusterLineEdit_DeptClusterLineEdit	{container=':_schedulingTab.Department_QGroupBox' name='VirtualClusterLineEdit' type='DeptClusterLineEdit' visible='1'}
 :Department.VirtualClusterLineEdit_DeptClusterLineEdit_2	{container=':_schedulingTab.Department_QGroupBox_2' name='VirtualClusterLineEdit' type='DeptClusterLineEdit' visible='1'}
 :Email Purchase Order Delivery._ediCC_XLineEdit	{container=':_purchaseOrderTab.Email Purchase Order Delivery_QGroupBox' name='_ediCC' type='XLineEdit' visible='1'}
+:Email Purchase Order Delivery._ediCC_XLineEdit_2	{container=':_transmitStack.Email Purchase Order Delivery_QGroupBox' name='_ediCC' type='XLineEdit' visible='1'}
 :Email Purchase Order Delivery._ediEmailBody_QTextEdit	{container=':_purchaseOrderTab.Email Purchase Order Delivery_QGroupBox' name='_ediEmailBody' type='QTextEdit' visible='1'}
+:Email Purchase Order Delivery._ediEmailBody_QTextEdit_2	{container=':_transmitStack.Email Purchase Order Delivery_QGroupBox' name='_ediEmailBody' type='QTextEdit' visible='1'}
 :Email Purchase Order Delivery._ediEmail_XLineEdit	{container=':_purchaseOrderTab.Email Purchase Order Delivery_QGroupBox' name='_ediEmail' type='XLineEdit' visible='1'}
+:Email Purchase Order Delivery._ediEmail_XLineEdit_2	{container=':_transmitStack.Email Purchase Order Delivery_QGroupBox' name='_ediEmail' type='XLineEdit' visible='1'}
 :Email Purchase Order Delivery._ediFilename_XLineEdit	{container=':_purchaseOrderTab.Email Purchase Order Delivery_QGroupBox' name='_ediFilename' type='XLineEdit' visible='1'}
+:Email Purchase Order Delivery._ediFilename_XLineEdit_2	{container=':_transmitStack.Email Purchase Order Delivery_QGroupBox' name='_ediFilename' type='XLineEdit' visible='1'}
 :Email Purchase Order Delivery._ediSubject_XLineEdit	{container=':_purchaseOrderTab.Email Purchase Order Delivery_QGroupBox' name='_ediSubject' type='XLineEdit' visible='1'}
+:Email Purchase Order Delivery._ediSubject_XLineEdit_2	{container=':_transmitStack.Email Purchase Order Delivery_QGroupBox' name='_ediSubject' type='XLineEdit' visible='1'}
 :Enable Characteristics Profile.New_QPushButton	{container=':Customer Type.Enable Characteristics Profile_QGroupBox' name='_new' text='New' type='QPushButton' visible='1'}
 :Enable Characteristics Profile._charass_XTreeWidget	{container=':Customer Type.Enable Characteristics Profile_QGroupBox' name='_charass' type='XTreeWidget' visible='1'}
 :Enable Return Authorizations.Check Print On Save by Default_QCheckBox	{container=':_returns.Enable Return Authorizations_QGroupBox' name='_printRA' text='Check Print On Save by Default' type='QCheckBox' visible='1'}
@@ -326,6 +350,18 @@
 :Item Site.qt_tabwidget_stackedwidget_QStackedWidget	{name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1' window=':Item Site_itemSite'}
 :Item Site.qt_tabwidget_tabbar_QTabBar	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1' window=':Item Site_itemSite'}
 :Item Site_itemSite	{name='itemSite' type='itemSite' visible='1' windowTitle='Item Site'}
+:Item Source Price.Qty. Break:_QLabel	{name='_qtyBreakLit' text='Qty. Break:' type='QLabel' visible='1' window=':Item Source Price_itemSourcePrice'}
+:Item Source Price.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Item Source Price_itemSourcePrice'}
+:Item Source Price_XLineEdit	{type='XLineEdit' unnamed='1' visible='1' window=':Item Source Price_itemSourcePrice'}
+:Item Source Price_itemSourcePrice	{name='itemSourcePrice' type='itemSourcePrice' visible='1' windowTitle='Item Source Price'}
+:Item Source.Active_QCheckBox	{name='_active' text='Active' type='QCheckBox' visible='1' window=':Item Source_itemSource'}
+:Item Source.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Item Source_itemSource'}
+:Item Source._itemNumber_ItemLineEdit	{name='_itemNumber' type='ItemLineEdit' visible='1' window=':Item Source_itemSource'}
+:Item Source._venditemGroup_QGroupBox	{name='_venditemGroup' type='QGroupBox' visible='1' window=':Item Source_itemSource'}
+:Item Source._vendorGroup_QGroupBox	{name='_vendorGroup' type='QGroupBox' visible='1' window=':Item Source_itemSource'}
+:Item Source.qt_tabwidget_stackedwidget_QStackedWidget	{name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1' window=':Item Source_itemSource'}
+:Item Source.qt_tabwidget_tabbar_QTabBar	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1' window=':Item Source_itemSource'}
+:Item Source_itemSource	{name='itemSource' type='itemSource' visible='1' windowTitle='Item Source'}
 :Item is Sold.Exclusive_QCheckBox	{container=':Item.Item is Sold_QGroupBox' name='_exclusive' text='Exclusive' type='QCheckBox' visible='1'}
 :Item is Sold.Product Category:_QLabel	{container=':Item.Item is Sold_QGroupBox_2' name='_prodcatLit' text='Product Category:' type='QLabel' visible='1'}
 :Item is Sold.Product Category:_QLabel_2	{container=':Item.Item is Sold_QGroupBox_3' name='_prodcatLit' text='Product Category:' type='QLabel' visible='1'}
@@ -355,6 +391,8 @@
 :Item.Description:_QLabel_10	{name='_descriptionLit' text='Description:' type='QLabel' visible='1' window=':Item_item_6'}
 :Item.Description:_QLabel_11	{name='_descriptionLit' text='Description:' type='QLabel' visible='1' window=':Item_item_12'}
 :Item.Description:_QLabel_12	{name='_descriptionLit' text='Description:' type='QLabel' visible='1' window=':Item_item_13'}
+:Item.Description:_QLabel_13	{name='_descriptionLit' text='Description:' type='QLabel' visible='1' window=':Item_item_15'}
+:Item.Description:_QLabel_14	{name='_descriptionLit' text='Description:' type='QLabel' visible='1' window=':Item_item_16'}
 :Item.Description:_QLabel_2	{container=':xTuple ERP: OpenMFG Edition.Item_QWorkspaceChild' name='_descriptionLit' text='Description:' type='QLabel' visible='1'}
 :Item.Description:_QLabel_3	{name='_descriptionLit' text='Description:' type='QLabel' visible='1' window=':Item_item'}
 :Item.Description:_QLabel_4	{name='_descriptionLit' text='Description:' type='QLabel' visible='1' window=':Item_item_3'}
@@ -383,6 +421,8 @@
 :Item.Save_QPushButton_14	{name='_save' text='Save' type='QPushButton' visible='1' window=':Item_item_6'}
 :Item.Save_QPushButton_15	{name='_save' text='Save' type='QPushButton' visible='1' window=':Item_item_12'}
 :Item.Save_QPushButton_16	{name='_save' text='Save' type='QPushButton' visible='1' window=':Item_item_13'}
+:Item.Save_QPushButton_17	{name='_save' text='Save' type='QPushButton' visible='1' window=':Item_item_15'}
+:Item.Save_QPushButton_18	{name='_save' text='Save' type='QPushButton' visible='1' window=':Item_item_16'}
 :Item.Save_QPushButton_2	{container=':xTuple ERP: OpenMFG Edition - [Item].Item_QWorkspaceChild' name='_save' occurrence='2' text='Save' type='QPushButton' visible='1'}
 :Item.Save_QPushButton_3	{container=':xTuple ERP: OpenMFG Edition.Item_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
 :Item.Save_QPushButton_4	{container=':xTuple ERP: OpenMFG Edition.Item_QWorkspaceChild' name='_save' occurrence='2' text='Save' type='QPushButton' visible='1'}
@@ -400,6 +440,8 @@
 :Item._description2_XLineEdit	{container=':xTuple ERP: OpenMFG Edition.Item_QWorkspaceChild' name='_description2' type='XLineEdit' visible='1'}
 :Item._description2_XLineEdit_10	{name='_description2' type='XLineEdit' visible='1' window=':Item_item_12'}
 :Item._description2_XLineEdit_11	{name='_description2' type='XLineEdit' visible='1' window=':Item_item_13'}
+:Item._description2_XLineEdit_12	{name='_description2' type='XLineEdit' visible='1' window=':Item_item_15'}
+:Item._description2_XLineEdit_13	{name='_description2' type='XLineEdit' visible='1' window=':Item_item_16'}
 :Item._description2_XLineEdit_2	{name='_description2' type='XLineEdit' visible='1' window=':Item_item'}
 :Item._description2_XLineEdit_3	{name='_description2' type='XLineEdit' visible='1' window=':Item_item_3'}
 :Item._description2_XLineEdit_4	{name='_description2' type='XLineEdit' visible='1' window=':Item_item_4'}
@@ -412,6 +454,8 @@
 :Item._itemGroup_QGroupBox_10	{name='_itemGroup' type='QGroupBox' visible='1' window=':Item_item_6'}
 :Item._itemGroup_QGroupBox_11	{name='_itemGroup' type='QGroupBox' visible='1' window=':Item_item_12'}
 :Item._itemGroup_QGroupBox_12	{name='_itemGroup' type='QGroupBox' visible='1' window=':Item_item_13'}
+:Item._itemGroup_QGroupBox_13	{name='_itemGroup' type='QGroupBox' visible='1' window=':Item_item_15'}
+:Item._itemGroup_QGroupBox_14	{name='_itemGroup' type='QGroupBox' visible='1' window=':Item_item_16'}
 :Item._itemGroup_QGroupBox_2	{container=':xTuple ERP: OpenMFG Edition.Item_QWorkspaceChild' name='_itemGroup' type='QGroupBox' visible='1'}
 :Item._itemGroup_QGroupBox_3	{name='_itemGroup' type='QGroupBox' visible='1' window=':Item_item'}
 :Item._itemGroup_QGroupBox_4	{name='_itemGroup' type='QGroupBox' visible='1' window=':Item_item_3'}
@@ -437,6 +481,8 @@
 :Item_item_12	{name='item edit 318' type='item' visible='1' windowTitle='Item'}
 :Item_item_13	{name='item edit 319' type='item' visible='1' windowTitle='Item'}
 :Item_item_14	{name='item edit 320' type='item' visible='1' windowTitle='Item'}
+:Item_item_15	{name='item edit 310' type='item' visible='1' windowTitle='Item'}
+:Item_item_16	{name='item edit 315' type='item' visible='1' windowTitle='Item'}
 :Item_item_2	{name='item edit 301' type='item' visible='1' windowTitle='Item'}
 :Item_item_3	{name='item edit 312' type='item' visible='1' windowTitle='Item'}
 :Item_item_4	{name='item edit 313' type='item' visible='1' windowTitle='Item'}
@@ -633,6 +679,9 @@
 :List Item Sites_QComboBoxListView	{container=':xTuple ERP: OpenMFG Edition - [List Item Sites].List Item Sites_QWorkspaceChild' type='QComboBoxListView' unnamed='1' visible='1'}
 :List Item Sites_QComboBoxListView_2	{container=':xTuple ERP: OpenMFG Edition.List Item Sites_QWorkspaceChild' type='QComboBoxListView' unnamed='1' visible='1'}
 :List Item Sites_itemSites	{name='itemSites' type='itemSites' visible='1' windowTitle='List Item Sites'}
+:List Item Sources.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Item Sources_itemSources'}
+:List Item Sources._frame_QFrame	{name='_frame' type='QFrame' visible='1' window=':List Item Sources_itemSources'}
+:List Item Sources_itemSources	{name='itemSources' type='itemSources' visible='1' windowTitle='List Item Sources'}
 :List Items.Close_QPushButton	{container=':xTuple ERP: OpenMFG Edition - [List Items].List Items_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Items.Close_QPushButton_2	{container=':xTuple ERP: OpenMFG Edition.List Items_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Items.Close_QPushButton_3	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Items_items'}
@@ -707,6 +756,9 @@
 :List Reject Codes.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Reject Codes_rejectCodes'}
 :List Reject Codes.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Reject Codes_rejectCodes'}
 :List Reject Codes_rejectCodes	{name='rejectCodes' type='rejectCodes' visible='1' windowTitle='List Reject Codes'}
+:List Sales Account Assignments.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Sales Account Assignments_salesAccounts'}
+:List Sales Account Assignments.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Sales Account Assignments_salesAccounts'}
+:List Sales Account Assignments_salesAccounts	{name='salesAccounts' type='salesAccounts' visible='1' windowTitle='List Sales Account Assignments'}
 :List Sales Categories.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Sales Categories_salesCategories'}
 :List Sales Categories.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Sales Categories_salesCategories'}
 :List Sales Categories_salesCategories	{name='salesCategories' type='salesCategories' visible='1' windowTitle='List Sales Categories'}
@@ -1019,6 +1071,7 @@
 :Products Configuration.Post Item Changes to the Change Log_QCheckBox	{name='_changeLog' text='Post Item Changes to the Change Log' type='QCheckBox' visible='1' window=':Products Configuration_configurePD'}
 :Products Configuration.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Products Configuration_configurePD'}
 :Products Configuration_configurePD	{name='configurePD' type='configurePD' visible='1' windowTitle='Products Configuration'}
+:Prospect_prospect	{name='prospect' type='prospect' visible='1' windowTitle='Prospect'}
 :Purchase Configuration.Check Print P/O on Save by Default_QCheckBox	{name='_printPO' text='Check Print P/O on Save by Default' type='QCheckBox' visible='1' window=':Purchase Configuration_configurePO'}
 :Purchase Configuration.Default P/O Copies:_QGroupBox	{name='_poGroup' title='Default P/O Copies:' type='QGroupBox' visible='1' window=':Purchase Configuration_configurePO'}
 :Purchase Configuration.Next #:_QLabel	{name='_nextSoNumberLit' text='Next #:' type='QLabel' visible='1' window=':Purchase Configuration_configurePO'}
@@ -1049,12 +1102,25 @@
 :Remit-To Address.Street\nAddress:_XLineEdit_3	{container=':_ar.Remit-To Address_QGroupBox' leftWidget=':Remit-To Address.Street\nAddress:_QLabel' occurrence='3' type='XLineEdit' unnamed='1' visible='1'}
 :Remit-To Address._name_XLineEdit	{container=':_ar.Remit-To Address_QGroupBox' name='_name' type='XLineEdit' visible='1'}
 :Remit-To Address._phone_XLineEdit	{container=':_ar.Remit-To Address_QGroupBox' name='_phone' type='XLineEdit' visible='1'}
+:Requirements.Uses Blanket P/O's_QCheckBox	{container=':credit.Requirements_QGroupBox' name='_blanketPos' text='Uses Blanket P/O\\'s' type='QCheckBox' visible='1'}
+:Requirements.Uses Purchase Orders_QCheckBox	{container=':credit.Requirements_QGroupBox' name='_usesPOs' text='Uses Purchase Orders' type='QCheckBox' visible='1'}
 :Run Labor Rate.Select Standard Rate:_QRadioButton	{container=':_costsTab.Run Labor Rate_QGroupBox' name='_runUseSelectedRate' text='Select Standard Rate:' type='QRadioButton' visible='1'}
 :Run Labor Rate.Select Standard Rate:_QRadioButton_2	{container=':_costsTab.Run Labor Rate_QGroupBox_2' name='_runUseSelectedRate' text='Select Standard Rate:' type='QRadioButton' visible='1'}
 :Run Labor Rate.Specify Labor Rate:_QRadioButton	{container=':_costsTab.Run Labor Rate_QGroupBox_2' name='_runSpecifyRate' text='Specify Labor Rate:' type='QRadioButton' visible='1'}
 :Run Labor Rate._runRate_XLineEdit	{container=':_costsTab.Run Labor Rate_QGroupBox' name='_runRate' type='XLineEdit' visible='1'}
 :Run Labor Rate._runRate_XLineEdit_2	{container=':_costsTab.Run Labor Rate_QGroupBox_2' name='_runRate' type='XLineEdit' visible='1'}
 :Run Labor Rate._stdRunRate_XComboBox	{container=':_costsTab.Run Labor Rate_QGroupBox_2' name='_stdRunRate' type='XComboBox' visible='1'}
+:Sales Account Assignment.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Sales Account Assignment_salesAccount'}
+:Sales Account Assignment.Site:_QLabel	{name='_warehouseLit' text='Site:' type='QLabel' visible='1' window=':Sales Account Assignment_salesAccount'}
+:Sales Account Assignment._customerTypes_ParameterGroup	{name='_customerTypes' type='ParameterGroup' visible='1' window=':Sales Account Assignment_salesAccount'}
+:Sales Account Assignment._main_XLineEdit	{name='_main' type='XLineEdit' visible='1' window=':Sales Account Assignment_salesAccount'}
+:Sales Account Assignment._main_XLineEdit_2	{name='_main' occurrence='2' type='XLineEdit' visible='1' window=':Sales Account Assignment_salesAccount'}
+:Sales Account Assignment._main_XLineEdit_3	{name='_main' occurrence='3' type='XLineEdit' visible='1' window=':Sales Account Assignment_salesAccount'}
+:Sales Account Assignment._main_XLineEdit_4	{name='_main' occurrence='4' type='XLineEdit' visible='1' window=':Sales Account Assignment_salesAccount'}
+:Sales Account Assignment._main_XLineEdit_5	{name='_main' occurrence='5' type='XLineEdit' visible='1' window=':Sales Account Assignment_salesAccount'}
+:Sales Account Assignment._main_XLineEdit_6	{name='_main' occurrence='6' type='XLineEdit' visible='1' window=':Sales Account Assignment_salesAccount'}
+:Sales Account Assignment._productCategories_ParameterGroup	{name='_productCategories' type='ParameterGroup' visible='1' window=':Sales Account Assignment_salesAccount'}
+:Sales Account Assignment_salesAccount	{name='salesAccount' type='salesAccount' visible='1' windowTitle='Sales Account Assignment'}
 :Sales Category.Active_QCheckBox	{name='_active' text='Active' type='QCheckBox' visible='1' window=':Sales Category_salesCategory'}
 :Sales Category.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Sales Category_salesCategory'}
 :Sales Category.Category:_QLabel	{name='_categoryLit' text='Category:' type='QLabel' visible='1' window=':Sales Category_salesCategory'}
@@ -1088,6 +1154,8 @@
 :Schedule Configuration._calendar_CalendarComboBox	{name='_calendar' type='CalendarComboBox' visible='1' window=':Schedule Configuration_configureMS'}
 :Schedule Configuration._nextPlanNumber_XLineEdit	{name='_nextPlanNumber' type='XLineEdit' visible='1' window=':Schedule Configuration_configureMS'}
 :Schedule Configuration_configureMS	{name='configureMS' type='configureMS' visible='1' windowTitle='Schedule Configuration'}
+:Settings.Allow Free-Form Bill-To_QCheckBox	{container=':general.Settings_QGroupBox' name='_allowFFBillto' text='Allow Free-Form Bill-To' type='QCheckBox' visible='1'}
+:Settings._sellingWarehouse_WComboBox	{container=':general.Settings_QGroupBox' name='_sellingWarehouse' type='WComboBox' visible='1'}
 :Setup Labor Rate.Select Standard Rate:_QRadioButton	{container=':_costsTab.Setup Labor Rate_QGroupBox' name='_setupUseSelectedRate' text='Select Standard Rate:' type='QRadioButton' visible='1'}
 :Setup Labor Rate.Select Standard Rate:_QRadioButton_2	{container=':_costsTab.Setup Labor Rate_QGroupBox_2' name='_setupUseSelectedRate' text='Select Standard Rate:' type='QRadioButton' visible='1'}
 :Setup Labor Rate.Specify Labor Rate:_QRadioButton	{container=':_costsTab.Setup Labor Rate_QGroupBox_2' name='_setupSpecifyRate' text='Specify Labor Rate:' type='QRadioButton' visible='1'}
@@ -1099,6 +1167,33 @@
 :Ship Via._code_XLineEdit	{name='_code' type='XLineEdit' visible='1' window=':Ship Via_shipVia'}
 :Ship Via._description_XLineEdit	{name='_description' type='XLineEdit' visible='1' window=':Ship Via_shipVia'}
 :Ship Via_shipVia	{name='shipVia' type='shipVia' visible='1' windowTitle='Ship Via'}
+:Ship-To.City:_QLabel	{text='City:' type='QLabel' unnamed='1' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.City:_XLineEdit	{leftWidget=':Ship-To.City:_QLabel' type='XLineEdit' unnamed='1' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Commission:_QLabel	{name='_commissionLit' text='Commission:' type='QLabel' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Country:_QLabel	{text='Country:' type='QLabel' unnamed='1' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Country:_XComboBox	{leftWidget=':Ship-To.Country:_QLabel' type='XComboBox' unnamed='1' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Default_QCheckBox	{name='_default' text='Default' type='QCheckBox' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Defaults:_QGroupBox	{name='_defaultsGroup' title='Defaults:' type='QGroupBox' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Name:_QLabel	{name='_nameLit' text='Name:' type='QLabel' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Postal Code:_QLabel	{text='Postal Code:' type='QLabel' unnamed='1' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Postal Code:_XLineEdit	{leftWidget=':Ship-To.Postal Code:_QLabel' type='XLineEdit' unnamed='1' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Ship-To #:_QLabel	{name='_shipToNumberLit' text='Ship-To #:' type='QLabel' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.State:_QLabel	{text='State:' type='QLabel' unnamed='1' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.State:_XComboBox	{leftWidget=':Ship-To.State:_QLabel' type='XComboBox' unnamed='1' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Street\nAddress:_QLabel	{text='Street\nAddress:' type='QLabel' unnamed='1' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Street\nAddress:_XLineEdit	{leftWidget=':Ship-To.Street\nAddress:_QLabel' type='XLineEdit' unnamed='1' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Street\nAddress:_XLineEdit_2	{leftWidget=':Ship-To.Street\nAddress:_QLabel' occurrence='2' type='XLineEdit' unnamed='1' visible='1' window=':Ship-To_shipTo'}
+:Ship-To.Street\nAddress:_XLineEdit_3	{leftWidget=':Ship-To.Street\nAddress:_QLabel' occurrence='3' type='XLineEdit' unnamed='1' visible='1' window=':Ship-To_shipTo'}
+:Ship-To._email_XLineEdit	{name='_email' type='XLineEdit' visible='1' window=':Ship-To_shipTo'}
+:Ship-To._fax_XLineEdit	{name='_fax' type='XLineEdit' visible='1' window=':Ship-To_shipTo'}
+:Ship-To._first_XLineEdit	{name='_first' type='XLineEdit' visible='1' window=':Ship-To_shipTo'}
+:Ship-To._honorific_XComboBox	{name='_honorific' type='XComboBox' visible='1' window=':Ship-To_shipTo'}
+:Ship-To._last_XLineEdit	{name='_last' type='XLineEdit' visible='1' window=':Ship-To_shipTo'}
+:Ship-To._middle_XLineEdit	{name='_middle' type='XLineEdit' visible='1' window=':Ship-To_shipTo'}
+:Ship-To._phone_XLineEdit	{name='_phone' type='XLineEdit' visible='1' window=':Ship-To_shipTo'}
+:Ship-To._title_XLineEdit	{name='_title' type='XLineEdit' visible='1' window=':Ship-To_shipTo'}
+:Ship-To_shipTo	{name='shipTo' type='shipTo' visible='1' windowTitle='Ship-To'}
 :Shipping Charge Type.Customer may pay Freight Charges_QCheckBox	{name='_customerFreight' text='Customer may pay Freight Charges' type='QCheckBox' visible='1' window=':Shipping Charge Type_shippingChargeType'}
 :Shipping Charge Type.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Shipping Charge Type_shippingChargeType'}
 :Shipping Charge Type._description_XLineEdit	{name='_description' type='XLineEdit' visible='1' window=':Shipping Charge Type_shippingChargeType'}
@@ -1258,17 +1353,41 @@
 :_accountNumber_XLineEdit	{buddy=':Vendor.Number:_QLabel' name='_accountNumber' type='XLineEdit' visible='1'}
 :_action_QScrollBar	{container=':Hot Key._action_XTreeWidget' type='QScrollBar' unnamed='1' visible='1'}
 :_addressStack.City:_QLabel	{container=':addressTab._addressStack_QStackedWidget' text='City:' type='QLabel' unnamed='1' visible='1'}
+:_addressStack.City:_QLabel_2	{container=':tabAddresses._addressStack_QStackedWidget' text='City:' type='QLabel' unnamed='1' visible='1'}
 :_addressStack.City:_XLineEdit	{container=':addressTab._addressStack_QStackedWidget' leftWidget=':_addressStack.City:_QLabel' type='XLineEdit' unnamed='1' visible='1'}
+:_addressStack.City:_XLineEdit_2	{container=':tabAddresses._addressStack_QStackedWidget' leftWidget=':_addressStack.City:_QLabel_2' type='XLineEdit' unnamed='1' visible='1'}
 :_addressStack.Country:_QLabel	{container=':addressTab._addressStack_QStackedWidget' text='Country:' type='QLabel' unnamed='1' visible='1'}
+:_addressStack.Country:_QLabel_2	{container=':tabAddresses._addressStack_QStackedWidget' text='Country:' type='QLabel' unnamed='1' visible='1'}
 :_addressStack.Country:_XComboBox	{container=':addressTab._addressStack_QStackedWidget' leftWidget=':_addressStack.Country:_QLabel' type='XComboBox' unnamed='1' visible='1'}
+:_addressStack.Country:_XComboBox_2	{container=':tabAddresses._addressStack_QStackedWidget' leftWidget=':_addressStack.Country:_QLabel_2' type='XComboBox' unnamed='1' visible='1'}
+:_addressStack.New_QPushButton	{container=':tabAddresses._addressStack_QStackedWidget' name='_newShipto' text='New' type='QPushButton' visible='1'}
 :_addressStack.Postal Code:_QLabel	{container=':addressTab._addressStack_QStackedWidget' text='Postal Code:' type='QLabel' unnamed='1' visible='1'}
+:_addressStack.Postal Code:_QLabel_2	{container=':tabAddresses._addressStack_QStackedWidget' text='Postal Code:' type='QLabel' unnamed='1' visible='1'}
 :_addressStack.Postal Code:_XLineEdit	{container=':addressTab._addressStack_QStackedWidget' leftWidget=':_addressStack.Postal Code:_QLabel' type='XLineEdit' unnamed='1' visible='1'}
+:_addressStack.Postal Code:_XLineEdit_2	{container=':tabAddresses._addressStack_QStackedWidget' leftWidget=':_addressStack.Postal Code:_QLabel_2' type='XLineEdit' unnamed='1' visible='1'}
 :_addressStack.State:_QLabel	{container=':addressTab._addressStack_QStackedWidget' text='State:' type='QLabel' unnamed='1' visible='1'}
+:_addressStack.State:_QLabel_2	{container=':tabAddresses._addressStack_QStackedWidget' text='State:' type='QLabel' unnamed='1' visible='1'}
 :_addressStack.State:_XComboBox	{container=':addressTab._addressStack_QStackedWidget' leftWidget=':_addressStack.State:_QLabel' type='XComboBox' unnamed='1' visible='1'}
+:_addressStack.State:_XComboBox_2	{container=':tabAddresses._addressStack_QStackedWidget' leftWidget=':_addressStack.State:_QLabel_2' type='XComboBox' unnamed='1' visible='1'}
 :_addressStack.Street\nAddress:_QLabel	{container=':addressTab._addressStack_QStackedWidget' text='Street\nAddress:' type='QLabel' unnamed='1' visible='1'}
+:_addressStack.Street\nAddress:_QLabel_2	{container=':tabAddresses._addressStack_QStackedWidget' text='Street\nAddress:' type='QLabel' unnamed='1' visible='1'}
 :_addressStack.Street\nAddress:_XLineEdit	{container=':addressTab._addressStack_QStackedWidget' leftWidget=':_addressStack.Street\nAddress:_QLabel' type='XLineEdit' unnamed='1' visible='1'}
 :_addressStack.Street\nAddress:_XLineEdit_2	{container=':addressTab._addressStack_QStackedWidget' leftWidget=':_addressStack.Street\nAddress:_QLabel' occurrence='2' type='XLineEdit' unnamed='1' visible='1'}
 :_addressStack.Street\nAddress:_XLineEdit_3	{container=':addressTab._addressStack_QStackedWidget' leftWidget=':_addressStack.Street\nAddress:_QLabel' occurrence='3' type='XLineEdit' unnamed='1' visible='1'}
+:_addressStack.Street\nAddress:_XLineEdit_4	{container=':tabAddresses._addressStack_QStackedWidget' leftWidget=':_addressStack.Street\nAddress:_QLabel_2' type='XLineEdit' unnamed='1' visible='1'}
+:_addressStack.Street\nAddress:_XLineEdit_5	{container=':tabAddresses._addressStack_QStackedWidget' leftWidget=':_addressStack.Street\nAddress:_QLabel_2' occurrence='2' type='XLineEdit' unnamed='1' visible='1'}
+:_addressStack.Street\nAddress:_XLineEdit_6	{container=':tabAddresses._addressStack_QStackedWidget' leftWidget=':_addressStack.Street\nAddress:_QLabel_2' occurrence='3' type='XLineEdit' unnamed='1' visible='1'}
+:_addressStack._email_XLineEdit	{container=':tabAddresses._addressStack_QStackedWidget' name='_email' type='XLineEdit' visible='1'}
+:_addressStack._fax_XLineEdit	{container=':tabAddresses._addressStack_QStackedWidget' name='_fax' type='XLineEdit' visible='1'}
+:_addressStack._first_XLineEdit	{container=':tabAddresses._addressStack_QStackedWidget' name='_first' type='XLineEdit' visible='1'}
+:_addressStack._honorific_XComboBox	{container=':tabAddresses._addressStack_QStackedWidget' name='_honorific' type='XComboBox' visible='1'}
+:_addressStack._last_XLineEdit	{container=':tabAddresses._addressStack_QStackedWidget' name='_last' type='XLineEdit' visible='1'}
+:_addressStack._middle_XLineEdit	{container=':tabAddresses._addressStack_QStackedWidget' name='_middle' type='XLineEdit' visible='1'}
+:_addressStack._phone2_XLineEdit	{container=':tabAddresses._addressStack_QStackedWidget' name='_phone2' type='XLineEdit' visible='1'}
+:_addressStack._phone_XLineEdit	{container=':tabAddresses._addressStack_QStackedWidget' name='_phone' type='XLineEdit' visible='1'}
+:_addressStack._suffix_XLineEdit	{container=':tabAddresses._addressStack_QStackedWidget' name='_suffix' type='XLineEdit' visible='1'}
+:_addressStack._title_XLineEdit	{container=':tabAddresses._addressStack_QStackedWidget' name='_title' type='XLineEdit' visible='1'}
+:_addressStack._webaddr_XLineEdit	{container=':tabAddresses._addressStack_QStackedWidget' name='_webaddr' type='XLineEdit' visible='1'}
 :_address_AddressCluster	{buddy=':_ar.Next A/R Memo #:_QLabel' name='_address' type='AddressCluster' visible='1'}
 :_alternate_QLineEdit	{buddy=':List Locales.Alternate:_QLabel' name='_alternate' type='QLineEdit' visible='1'}
 :_application.Background Image_QGroupBox	{container=':qt_tabwidget_stackedwidget._application_QWidget' name='_backgroundImageGroup' title='Background Image' type='QGroupBox' visible='1'}
@@ -1317,6 +1436,7 @@
 :_comments_QTextEdit	{buddy=':List Locales.Comments:_QLabel' name='_comments' type='QTextEdit' visible='1'}
 :_comments_QTextEdit_2	{buddy=':frame.Comments:_QLabel' name='_comments' type='QTextEdit' visible='1'}
 :_comments_QTextEdit_3	{buddy=':Account Number.Comments:_QLabel' name='_comments' type='QTextEdit' visible='1'}
+:_commission_XLineEdit	{buddy=':Ship-To.Commission:_QLabel' name='_commission' type='XLineEdit' visible='1'}
 :_companyGroup.Company Segment Size:_QLabel	{container=':_gl._companyGroup_QGroupBox' name='_companySizeLit' text='Company Segment Size:' type='QLabel' visible='1'}
 :_companyGroup.Enable External Company Consolidation_QCheckBox	{container=':_gl._companyGroup_QGroupBox' name='_externalConsolidation' text='Enable External Company Consolidation' type='QCheckBox' visible='1'}
 :_companyGroup.qt_spinbox_lineedit_QLineEdit	{container=':_gl._companyGroup_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
@@ -1355,11 +1475,16 @@
 :_costsTab.Setup Labor Rate_QGroupBox_2	{container=':qt_tabwidget_stackedwidget._costsTab_QWidget_2' name='_setupRateGroup' title='Setup Labor Rate' type='QGroupBox' visible='1'}
 :_countTagPrefix_XLineEdit	{buddy=':_whsTypeStack.Next Count Tag #:_QLabel' name='_countTagPrefix' type='XLineEdit' visible='1'}
 :_country_XComboBox	{buddy=':List Locales.Country:_QLabel' name='_country' type='XComboBox' visible='1'}
+:_creditGroup.Alternate Late Grace Days_QGroupBox	{container=':credit._creditGroup_QGroupBox' name='_warnLate' title='Alternate Late Grace Days' type='QGroupBox' visible='1'}
+:_creditGroup.Place on Credit Warning when Credit Limit/Grace Days is Exceeded_QCheckBox	{container=':credit._creditGroup_QGroupBox' name='_autoUpdateStatus' text='Place on Credit Warning when Credit Limit/Grace Days is Exceeded' type='QCheckBox' visible='1'}
+:_creditGroup._creditRating_XLineEdit	{container=':credit._creditGroup_QGroupBox' name='_creditRating' type='XLineEdit' visible='1'}
+:_creditGroup_XLineEdit	{container=':credit._creditGroup_QGroupBox' type='XLineEdit' unnamed='1' visible='1'}
 :_currencyScale_QSpinBox	{buddy=':List Locales.Currency:_QLabel' name='_currencyScale' type='QSpinBox' visible='1'}
 :_customerTypeGroup.Selected Customer Type:_QRadioButton	{container=':A/R Account Assignment._customerTypeGroup_QGroupBox' name='_selectedCustomerType' text='Selected Customer Type:' type='QRadioButton' visible='1'}
 :_customerTypeGroup.Selected Customer Type:_QRadioButton_2	{container=':Customer Form Assignment._customerTypeGroup_QGroupBox' name='_selectedCustomerType' text='Selected Customer Type:' type='QRadioButton' visible='1'}
 :_customerTypeGroup._customerTypes_XComboBox	{container=':A/R Account Assignment._customerTypeGroup_QGroupBox' name='_customerTypes' type='XComboBox' visible='1'}
 :_customerTypeGroup._customerTypes_XComboBox_2	{container=':Customer Form Assignment._customerTypeGroup_QGroupBox' name='_customerTypes' type='XComboBox' visible='1'}
+:_customerTypes.All Customer Types_QRadioButton	{container=':Sales Account Assignment._customerTypes_ParameterGroup' name='_all' text='All Customer Types' type='QRadioButton' visible='1'}
 :_cycleCountFreq_QSpinBox	{buddy=':_inventory.Cycl. Cnt. Freq.:_QLabel' name='_cycleCountFreq' type='QSpinBox' visible='1'}
 :_cycleCountFreq_QSpinBox_2	{buddy=':_inventory.Cycl. Cnt. Freq.:_QLabel_2' name='_cycleCountFreq' type='QSpinBox' visible='1'}
 :_cycleCountFreq_QSpinBox_3	{buddy=':_inventory.Cycl. Cnt. Freq.:_QLabel_3' name='_cycleCountFreq' type='QSpinBox' visible='1'}
@@ -1372,6 +1497,8 @@
 :_description1_XLineEdit_10	{buddy=':Item.Description:_QLabel_10' name='_description1' type='XLineEdit' visible='1'}
 :_description1_XLineEdit_11	{buddy=':Item.Description:_QLabel_11' name='_description1' type='XLineEdit' visible='1'}
 :_description1_XLineEdit_12	{buddy=':Item.Description:_QLabel_12' name='_description1' type='XLineEdit' visible='1'}
+:_description1_XLineEdit_13	{buddy=':Item.Description:_QLabel_13' name='_description1' type='XLineEdit' visible='1'}
+:_description1_XLineEdit_14	{buddy=':Item.Description:_QLabel_14' name='_description1' type='XLineEdit' visible='1'}
 :_description1_XLineEdit_2	{buddy=':Item.Description:_QLabel_2' name='_description1' type='XLineEdit' visible='1'}
 :_description1_XLineEdit_3	{buddy=':Item.Description:_QLabel_3' name='_description1' type='XLineEdit' visible='1'}
 :_description1_XLineEdit_4	{buddy=':Item.Description:_QLabel_4' name='_description1' type='XLineEdit' visible='1'}
@@ -1434,6 +1561,7 @@
 :_extPriceScale_QSpinBox	{buddy=':List Locales.Ext. Price:_QLabel' name='_extPriceScale' type='QSpinBox' visible='1'}
 :_extReference_XLineEdit	{buddy=':Chart of Accounts.Ext. Reference:_QLabel' name='_extReference' type='XLineEdit' visible='1'}
 :_extReference_XLineEdit_2	{buddy=':Account Number.Ext. Reference:_QLabel' name='_extReference' type='XLineEdit' visible='1'}
+:_frame.New_QPushButton	{container=':List Item Sources._frame_QFrame' name='_new' text='New' type='QPushButton' visible='1'}
 :_frame.Password:_QLabel	{container=':Log In._frame_QFrame' name='_passwordLit' text='Password:' type='QLabel' visible='1'}
 :_frame.Username:_QLabel	{container=':Log In._frame_QFrame' name='_usernameLit' text='Username:' type='QLabel' visible='1'}
 :_future_QLineEdit	{buddy=':List Locales.Future:_QLabel' name='_future' type='QLineEdit' visible='1'}
@@ -1506,6 +1634,7 @@
 :_invoiceForm_QComboBoxListView	{type='QComboBoxListView' unnamed='1' visible='1' window=':_invoiceForm_QComboBoxPrivateContainer'}
 :_invoiceForm_QComboBoxPrivateContainer	{parentWidget=':Customer Form Assignment._invoiceForm_XComboBox' type='QComboBoxPrivateContainer' unnamed='1' visible='1'}
 :_issueMethod_QComboBox	{buddy=':Defaults.W/O Material Issue Method:_QLabel' name='_issueMethod' type='QComboBox' visible='1'}
+:_itemGroup...._QPushButton	{container=':Bill of Materials._itemGroup_QGroupBox' name='_itemList' text='...' type='QPushButton' visible='1'}
 :_itemGroup.Fractional_QCheckBox	{container=':Item._itemGroup_QGroupBox' name='_fractional' text='Fractional' type='QCheckBox' visible='1'}
 :_itemGroup.Fractional_QCheckBox_2	{container=':Item._itemGroup_QGroupBox_2' name='_fractional' text='Fractional' type='QCheckBox' visible='1'}
 :_itemGroup.Fractional_QCheckBox_3	{container=':Item._itemGroup_QGroupBox_3' name='_fractional' text='Fractional' type='QCheckBox' visible='1'}
@@ -1514,6 +1643,7 @@
 :_itemGroup.Inventory UOM:_QLabel_3	{container=':Item._itemGroup_QGroupBox_3' name='_inventoryUOMLit' text='Inventory UOM:' type='QLabel' visible='1'}
 :_itemGroup.Item Type:_QLabel	{container=':Item._itemGroup_QGroupBox_2' name='_itemTypeLit' text='Item Type:' type='QLabel' visible='1'}
 :_itemGroup.Item Type:_QLabel_2	{container=':Item._itemGroup_QGroupBox_3' name='_itemTypeLit' text='Item Type:' type='QLabel' visible='1'}
+:_itemGroup.Items:_QLabel	{container=':Bill of Materials._itemGroup_QGroupBox' name='_itemsLit' text='Items:' type='QLabel' visible='1'}
 :_itemGroup.Pick List_QCheckBox	{container=':Item._itemGroup_QGroupBox' name='_pickListItem' text='Pick List' type='QCheckBox' visible='1'}
 :_itemGroup.Pick List_QCheckBox_2	{container=':Item._itemGroup_QGroupBox_2' name='_pickListItem' text='Pick List' type='QCheckBox' visible='1'}
 :_itemGroup.Pick List_QCheckBox_3	{container=':Item._itemGroup_QGroupBox_3' name='_pickListItem' text='Pick List' type='QCheckBox' visible='1'}
@@ -1524,6 +1654,8 @@
 :_itemGroup._planningType_QComboBox_10	{container=':Item._itemGroup_QGroupBox_10' name='_planningType' type='QComboBox' visible='1'}
 :_itemGroup._planningType_QComboBox_11	{container=':Item._itemGroup_QGroupBox_11' name='_planningType' type='QComboBox' visible='1'}
 :_itemGroup._planningType_QComboBox_12	{container=':Item._itemGroup_QGroupBox_12' name='_planningType' type='QComboBox' visible='1'}
+:_itemGroup._planningType_QComboBox_13	{container=':Item._itemGroup_QGroupBox_13' name='_planningType' type='QComboBox' visible='1'}
+:_itemGroup._planningType_QComboBox_14	{container=':Item._itemGroup_QGroupBox_14' name='_planningType' type='QComboBox' visible='1'}
 :_itemGroup._planningType_QComboBox_2	{container=':Item._itemGroup_QGroupBox_2' name='_planningType' type='QComboBox' visible='1'}
 :_itemGroup._planningType_QComboBox_3	{container=':Item._itemGroup_QGroupBox_3' name='_planningType' type='QComboBox' visible='1'}
 :_itemGroup._planningType_QComboBox_4	{container=':Item._itemGroup_QGroupBox_4' name='_planningType' type='QComboBox' visible='1'}
@@ -1542,6 +1674,7 @@
 :_itemNumber_XLineEdit_3	{buddy=':Item.Item Number:_QLabel_3' name='_itemNumber' type='XLineEdit' visible='1'}
 :_itemSite_XTreeWidget	{buddy=':List Item Sites.Item Sites:_QLabel' name='_itemSite' type='XTreeWidget' visible='1'}
 :_item_XTreeWidget	{buddy=':List Item Sites.Items:_QLabel' name='_item' type='XTreeWidget' visible='1'}
+:_item_XTreeWidget_2	{buddy=':_itemGroup.Items:_QLabel' name='_item' type='XTreeWidget' visible='1'}
 :_itemtype_QComboBox	{buddy=':_itemGroup.Item Type:_QLabel' name='_itemtype' type='QComboBox' visible='1'}
 :_itemtype_QComboBox_2	{buddy=':_itemGroup.Item Type:_QLabel_2' name='_itemtype' type='QComboBox' visible='1'}
 :_language_XComboBox	{buddy=':List Locales.Language:_QLabel' name='_language' type='XComboBox' visible='1'}
@@ -1607,10 +1740,12 @@
 :_mrp.qt_spinbox_lineedit_QLineEdit_5	{container=':_planningTab._mrp_QGroupBox_3' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
 :_mrp.qt_spinbox_lineedit_QLineEdit_6	{container=':_planningTab._mrp_QGroupBox_3' name='qt_spinbox_lineedit' occurrence='2' type='QLineEdit' visible='1'}
 :_mrp.qt_spinbox_lineedit_QLineEdit_7	{container=':_planningTab._mrp_QGroupBox_3' name='qt_spinbox_lineedit' occurrence='3' type='QLineEdit' visible='1'}
+:_multOrderQty_XLineEdit	{buddy=':_venditemGroup.Order Multiple:_QLabel' name='_multOrderQty' type='XLineEdit' visible='1'}
 :_name_XLineEdit	{buddy=':List Groups.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_10	{buddy=':Shipping Zone.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_11	{buddy=':Shipping Form.Form Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_12	{buddy=':Form.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
+:_name_XLineEdit_13	{buddy=':Ship-To.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_2	{buddy=':List Sites.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_3	{buddy=':List Units of Measure.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_4	{buddy=':List Characteristics.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
@@ -1670,6 +1805,7 @@
 :_prodWeight_XLineEdit_3	{buddy=':Weight.Product:_QLabel_3' name='_prodWeight' type='XLineEdit' visible='1'}
 :_prodcat_XComboBox	{buddy=':Item is Sold.Product Category:_QLabel' name='_prodcat' type='XComboBox' visible='1'}
 :_prodcat_XComboBox_2	{buddy=':Item is Sold.Product Category:_QLabel_2' name='_prodcat' type='XComboBox' visible='1'}
+:_productCategories.All Product Categories_QRadioButton	{container=':Sales Account Assignment._productCategories_ParameterGroup' name='_all' text='All Product Categories' type='QRadioButton' visible='1'}
 :_profitCenterGroup.Allow Free-Form Profit Centers_QCheckBox	{container=':_gl._profitCenterGroup_QGroupBox' name='_ffProfitCenters' text='Allow Free-Form Profit Centers' type='QCheckBox' visible='1'}
 :_profitCenterGroup.Profit Center Segment Size:_QLabel	{container=':_gl._profitCenterGroup_QGroupBox' name='_profitCenterSizeLit' text='Profit Center Segment Size:' type='QLabel' visible='1'}
 :_profitCenterGroup.qt_spinbox_lineedit_QLineEdit	{container=':_gl._profitCenterGroup_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
@@ -1679,6 +1815,7 @@
 :_purchPriceScale_QSpinBox	{buddy=':List Locales.Purch. Price:_QLabel' name='_purchPriceScale' type='QSpinBox' visible='1'}
 :_purchaseOrderTab.Email Purchase Order Delivery_QGroupBox	{container=':qt_tabwidget_stackedwidget._purchaseOrderTab_QWidget' name='_emailPODelivery' title='Email Purchase Order Delivery' type='QGroupBox' visible='1'}
 :_purgeDays_QSpinBox	{buddy=':Database Information.Purge Batch Jobs after:_QLabel' name='_purgeDays' type='QSpinBox' visible='1'}
+:_qtyBreak_XLineEdit	{buddy=':Item Source Price.Qty. Break:_QLabel' name='_qtyBreak' type='XLineEdit' visible='1'}
 :_qtyPerScale_QSpinBox	{buddy=':List Locales.Qty. Per:_QLabel' name='_qtyPerScale' type='QSpinBox' visible='1'}
 :_qtyPer_XLineEdit	{buddy=':Bill of Materials Item.Qty. Per:_QLabel' name='_qtyPer' type='XLineEdit' visible='1'}
 :_qtyScale_QSpinBox	{buddy=':List Locales.Qty.:_QLabel' name='_qtyScale' type='QSpinBox' visible='1'}
@@ -1706,6 +1843,7 @@
 :_settingsGroup.May only Sell Items defined by an Item Source_QCheckBox	{container=':generalTab._settingsGroup_QGroupBox' name='_restrictToItemSource' text='May only Sell Items defined by an Item Source' type='QCheckBox' visible='1'}
 :_settingsGroup.Qualified_QCheckBox	{container=':generalTab._settingsGroup_QGroupBox' name='_qualified' text='Qualified' type='QCheckBox' visible='1'}
 :_settingsGroup.Sells Purchase Order Items_QCheckBox	{container=':generalTab._settingsGroup_QGroupBox' name='_poItems' text='Sells Purchase Order Items' type='QCheckBox' visible='1'}
+:_shipToNumber_XLineEdit	{buddy=':Ship-To.Ship-To #:_QLabel' name='_shipToNumber' type='XLineEdit' visible='1'}
 :_shipformNumOfCopies_QSpinBox	{buddy=':Default Shipping Form Copies:.# of Copies:_QLabel' name='_shipformNumOfCopies' type='QSpinBox' visible='1'}
 :_sitetype_XComboBox	{buddy=':List Sites.Type:_QLabel' name='_sitetype' type='XComboBox' visible='1'}
 :_soPickListForm_QComboBoxPrivateContainer	{parentWidget=':Customer Form Assignment._soPickListForm_XComboBox' type='QComboBoxPrivateContainer' unnamed='1' visible='1'}
@@ -1728,6 +1866,10 @@
 :_toNextNum_XLineEdit	{buddy=':Multiple Sites.Next #:_QLabel' name='_toNextNum' type='XLineEdit' visible='1'}
 :_toNumGeneration_QComboBox	{buddy=':Multiple Sites.Transfer Order # Generation:_QLabel' name='_toNumGeneration' type='QComboBox' visible='1'}
 :_tolerance_QLineEdit	{buddy=':tab_2.By the following amount:_QLabel' name='_tolerance' type='QLineEdit' visible='1'}
+:_transmitStack.Email Purchase Order Delivery_QGroupBox	{container=':ediTab._transmitStack_QStackedWidget' name='_emailPODelivery' title='Email Purchase Order Delivery' type='QGroupBox' visible='1'}
+:_transmitStack._soEdiProfile_XComboBox	{container=':_transmitTab._transmitStack_QStackedWidget' name='_soEdiProfile' type='XComboBox' visible='1'}
+:_transmitTab.Sales Order_QRadioButton	{container=':qt_tabwidget_stackedwidget._transmitTab_QWidget' name='_soButton' text='Sales Order' type='QRadioButton' visible='1'}
+:_transmitTab._transmitStack_QStackedWidget	{container=':qt_tabwidget_stackedwidget._transmitTab_QWidget' name='_transmitStack' type='QStackedWidget' visible='1'}
 :_typeGroup.Days_QRadioButton	{container=':Terms._typeGroup_QGroupBox' name='_days' text='Days' type='QRadioButton' visible='1'}
 :_uomRatioScale_QSpinBox	{buddy=':List Locales.UOM Ratio:_QLabel' name='_uomRatioScale' type='QSpinBox' visible='1'}
 :_username_QLineEdit	{buddy=':_frame.Username:_QLabel' name='_username' type='QLineEdit' visible='1'}
@@ -1736,7 +1878,17 @@
 :_value_XLineEdit_2	{buddy=':Item.Value:_QLabel_2' name='_value' type='XLineEdit' visible='1'}
 :_value_XLineEdit_3	{buddy=':Item Characteristic.Value:_QLabel' name='_value' type='XLineEdit' visible='1'}
 :_value_XLineEdit_4	{buddy=':Customer Characteristic.Value:_QLabel' name='_value' type='XLineEdit' visible='1'}
+:_venditemGroup.Order Multiple:_QLabel	{container=':Item Source._venditemGroup_QGroupBox' name='_multOrderQtyLit' text='Order Multiple:' type='QLabel' visible='1'}
+:_venditemGroup.Vendor UOM:_QLabel	{container=':Item Source._venditemGroup_QGroupBox' name='_vendorUOMLit' text='Vendor UOM:' type='QLabel' visible='1'}
+:_venditemGroup._invVendorUOMRatio_XLineEdit	{container=':Item Source._venditemGroup_QGroupBox' name='_invVendorUOMRatio' type='XLineEdit' visible='1'}
+:_venditemGroup._leadTime_QSpinBox	{container=':Item Source._venditemGroup_QGroupBox' name='_leadTime' type='QSpinBox' visible='1'}
+:_venditemGroup._minOrderQty_XLineEdit	{container=':Item Source._venditemGroup_QGroupBox' name='_minOrderQty' type='XLineEdit' visible='1'}
+:_venditemGroup._vendorItemNumber_XLineEdit	{container=':Item Source._venditemGroup_QGroupBox' name='_vendorItemNumber' type='XLineEdit' visible='1'}
+:_venditemGroup._vendorRanking_QSpinBox	{container=':Item Source._venditemGroup_QGroupBox' name='_vendorRanking' type='QSpinBox' visible='1'}
+:_venditemGroup.qt_spinbox_lineedit_QLineEdit	{container=':Item Source._venditemGroup_QGroupBox' name='qt_spinbox_lineedit' occurrence='2' type='QLineEdit' visible='1'}
+:_vendorGroup._vendor_VendorLineEdit	{container=':Item Source._vendorGroup_QGroupBox' name='_vendor' type='VendorLineEdit' visible='1'}
 :_vendorTypeGroup.All Vendor Types:_QRadioButton	{container=':A/P Account Assignment._vendorTypeGroup_QGroupBox' name='_allVendorTypes' text='All Vendor Types:' type='QRadioButton' visible='1'}
+:_vendorUOM_XLineEdit	{buddy=':_venditemGroup.Vendor UOM:_QLabel' name='_vendorUOM' type='XLineEdit' visible='1'}
 :_vendtype_XComboBox	{buddy=':Vendor.Vendor Type:_QLabel' name='_vendtype' type='XComboBox' visible='1'}
 :_verify_XLineEdit	{buddy=':List Users.Verify:_QLabel' name='_verify' type='XLineEdit' visible='1'}
 :_warehouse.Selected:_QRadioButton	{container=':Site Work Week._warehouse_WarehouseGroup' name='_selected' text='Selected:' type='QRadioButton' visible='1'}
@@ -1754,6 +1906,7 @@
 :_warehouse_WComboBox_4	{buddy=':Location.Site:_QLabel' name='_warehouse' type='WComboBox' visible='1'}
 :_warehouse_WComboBox_5	{buddy=':Item Site.Site:  _QLabel' name='_warehouse' type='WComboBox' visible='1'}
 :_warehouse_WComboBox_6	{buddy=':Production Plan.Site:_QLabel' name='_warehouse' type='WComboBox' visible='1'}
+:_warehouse_XComboBox	{buddy=':Sales Account Assignment.Site:_QLabel' name='_warehouse' type='XComboBox' visible='1'}
 :_warning_QLineEdit	{buddy=':List Locales.Warning:_QLabel' name='_warning' type='QLineEdit' visible='1'}
 :_whsTypeStack.Enforce the use of Zones_QCheckBox	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_useZones' text='Enforce the use of Zones' type='QCheckBox' visible='1'}
 :_whsTypeStack.Force the use of Count Slips_QCheckBox	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_useSlips' text='Force the use of Count Slips' type='QCheckBox' visible='1'}
@@ -1770,8 +1923,14 @@
 :addressTab._addressStack_QStackedWidget	{container=':qt_tabwidget_stackedwidget.addressTab_QWidget' name='_addressStack' type='QStackedWidget' visible='1'}
 :contactTab._contact1Box_QGroupBox	{container=':qt_tabwidget_stackedwidget.contactTab_QWidget' name='_contact1Box' type='QGroupBox' visible='1'}
 :contactTab._contact2Box_QGroupBox	{container=':qt_tabwidget_stackedwidget.contactTab_QWidget' name='_contact2Box' type='QGroupBox' visible='1'}
+:credit.Credit Status_QGroupBox	{container=':qt_tabwidget_stackedwidget.credit_QWidget' name='_creditStatusGroup' title='Credit Status' type='QGroupBox' visible='1'}
+:credit.Defaults_QGroupBox	{container=':qt_tabwidget_stackedwidget.credit_QWidget' name='groupBox_4' title='Defaults' type='QGroupBox' visible='1'}
+:credit.Requirements_QGroupBox	{container=':qt_tabwidget_stackedwidget.credit_QWidget' name='groupBox_3' title='Requirements' type='QGroupBox' visible='1'}
+:credit._creditGroup_QGroupBox	{container=':qt_tabwidget_stackedwidget.credit_QWidget' name='_creditGroup' type='QGroupBox' visible='1'}
 :customerDefaults._comboGroup_QGroupBox	{container=':qt_tabwidget_stackedwidget.customerDefaults_QWidget' name='_comboGroup' type='QGroupBox' visible='1'}
 :customerDefaults.groupBox_6_QGroupBox	{container=':qt_tabwidget_stackedwidget.customerDefaults_QWidget' name='groupBox_6' type='QGroupBox' visible='1'}
+:ediTab.Purchase Orders_QRadioButton	{container=':qt_tabwidget_stackedwidget.ediTab_QWidget' name='_poButton' text='Purchase Orders' type='QRadioButton' visible='1'}
+:ediTab._transmitStack_QStackedWidget	{container=':qt_tabwidget_stackedwidget.ediTab_QWidget' name='_transmitStack' type='QStackedWidget' visible='1'}
 :ediTab.qt_tabwidget_stackedwidget_QStackedWidget	{container=':qt_tabwidget_stackedwidget.ediTab_QWidget' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
 :frame.%_QLabel	{container=':Tax Code.frame_QFrame' name='_percentALit' text='%' type='QLabel' visible='1'}
 :frame.Add All->>_QPushButton	{container=':List Groups.frame_QFrame' name='_addAll' text='Add All->>' type='QPushButton' visible='1'}
@@ -1789,7 +1948,9 @@
 :general.Check Print Sales Order on Save by Default_QCheckBox	{container=':qt_tabwidget_stackedwidget.general_QWidget_2' name='_printSO' text='Check Print Sales Order on Save by Default' type='QCheckBox' visible='1'}
 :general.Credit Control_QGroupBox	{container=':qt_tabwidget_stackedwidget.general_QWidget_2' name='groupBox_5' title='Credit Control' type='QGroupBox' visible='1'}
 :general.Date Control_QGroupBox	{container=':qt_tabwidget_stackedwidget.general_QWidget_2' name='groupBox_2' title='Date Control' type='QGroupBox' visible='1'}
+:general.Defaults_QGroupBox	{container=':qt_tabwidget_stackedwidget.general_QWidget_3' name='_defaultGroup' title='Defaults' type='QGroupBox' visible='1'}
 :general.Pricing on Line Item Edits_QGroupBox	{container=':qt_tabwidget_stackedwidget.general_QWidget_2' name='_lineItemPriceing' title='Pricing on Line Item Edits' type='QGroupBox' visible='1'}
+:general.Settings_QGroupBox	{container=':qt_tabwidget_stackedwidget.general_QWidget_3' name='_settingsGroup' title='Settings' type='QGroupBox' visible='1'}
 :general._optionsGroup_QGroupBox	{container=':qt_tabwidget_stackedwidget.general_QWidget' name='_optionsGroup' type='QGroupBox' visible='1'}
 :generalTab.Default FOB_QGroupBox	{container=':qt_tabwidget_stackedwidget.generalTab_QWidget' name='_defaultFOBGroup' title='Default FOB' type='QGroupBox' visible='1'}
 :generalTab.Default_QGroupBox	{container=':qt_tabwidget_stackedwidget.generalTab_QWidget' name='_defaultGroup' title='Default' type='QGroupBox' visible='1'}
@@ -1830,19 +1991,29 @@
 :qt_tabwidget_stackedwidget._returns_QWidget	{container=':Sales Configuration.qt_tabwidget_stackedwidget_QStackedWidget' name='_returns' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._schedulingTab_QWidget	{container=':Work Center.qt_tabwidget_stackedwidget_QStackedWidget' name='_schedulingTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._schedulingTab_QWidget_2	{container=':Work Center.qt_tabwidget_stackedwidget_QStackedWidget_2' name='_schedulingTab' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget._transmitTab_QWidget	{container=':Customer.qt_tabwidget_stackedwidget_QStackedWidget' name='_transmitTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._zonesTab_QWidget	{container=':List Sites.qt_tabwidget_stackedwidget_QStackedWidget' name='_zonesTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.addressTab_QWidget	{container=':Vendor.qt_tabwidget_stackedwidget_QStackedWidget' name='addressTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.contactTab_QWidget	{container=':Vendor.qt_tabwidget_stackedwidget_QStackedWidget' name='contactTab' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget.credit_QWidget	{container=':Customer.qt_tabwidget_stackedwidget_QStackedWidget' name='credit' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.customerDefaults_QWidget	{container=':Sales Configuration.qt_tabwidget_stackedwidget_QStackedWidget' name='customerDefaults' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.ediTab_QWidget	{container=':Vendor.qt_tabwidget_stackedwidget_QStackedWidget' name='ediTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.generalTab_QWidget	{container=':Vendor.qt_tabwidget_stackedwidget_QStackedWidget' name='generalTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.general_QWidget	{container=':Bill of Operations Item.qt_tabwidget_stackedwidget_QStackedWidget' name='general' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.general_QWidget_2	{container=':Sales Configuration.qt_tabwidget_stackedwidget_QStackedWidget' name='general' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget.general_QWidget_3	{container=':Customer.qt_tabwidget_stackedwidget_QStackedWidget' name='general' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.invoice_QWidget	{container=':Sales Configuration.qt_tabwidget_stackedwidget_QStackedWidget' name='invoice' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.ponotesTab_QWidget	{container=':Vendor.qt_tabwidget_stackedwidget_QStackedWidget' name='ponotesTab' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget.tab1_QWidget	{container=':Item Source.qt_tabwidget_stackedwidget_QStackedWidget' name='tab1' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget.tab2_QWidget	{container=':Item Source.qt_tabwidget_stackedwidget_QStackedWidget' name='tab2' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget.tabAddresses_QWidget	{container=':Customer.qt_tabwidget_stackedwidget_QStackedWidget' name='tabAddresses' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.tab_2_QWidget	{container=':Inventory Configuration.qt_tabwidget_stackedwidget_QStackedWidget' name='tab_2' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.tab_QWidget	{container=':Accounting Configuration.qt_tabwidget_stackedwidget_QStackedWidget' name='tab' type='QWidget' visible='1'}
 :tab.Next Accounts Payable Memo #:_QLabel	{container=':qt_tabwidget_stackedwidget.tab_QWidget' name='_nextAPMemoNumberLit' text='Next Accounts Payable Memo #:' type='QLabel' visible='1'}
+:tab1.Add_QPushButton	{container=':qt_tabwidget_stackedwidget.tab1_QWidget' name='_add' text='Add' type='QPushButton' visible='1'}
+:tab2._vendorItemDescrip_QTextEdit	{container=':qt_tabwidget_stackedwidget.tab2_QWidget' name='_vendorItemDescrip' type='QTextEdit' visible='1'}
+:tabAddresses.Ship To_QRadioButton	{container=':qt_tabwidget_stackedwidget.tabAddresses_QWidget' name='_shiptoButton' text='Ship To' type='QRadioButton' visible='1'}
+:tabAddresses._addressStack_QStackedWidget	{container=':qt_tabwidget_stackedwidget.tabAddresses_QWidget' name='_addressStack' type='QStackedWidget' visible='1'}
 :tab_2.By the following amount:_QLabel	{container=':qt_tabwidget_stackedwidget.tab_2_QWidget' name='_toleranceLit' text='By the following amount:' type='QLabel' visible='1'}
 :tab_2.Default Shipping Form Copies:_QGroupBox	{container=':qt_tabwidget_stackedwidget.tab_2_QWidget' name='_shipformGroup' title='Default Shipping Form Copies:' type='QGroupBox' visible='1'}
 :tab_2.Disallow P/O Receipt of Qty greater than ordered_QCheckBox	{container=':qt_tabwidget_stackedwidget.tab_2_QWidget' name='_disallowReceiptExcess' text='Disallow P/O Receipt of Qty greater than ordered' type='QCheckBox' visible='1'}
@@ -1866,6 +2037,7 @@
 :xTuple ERP: OpenMFG Edition.Customer_QMenu	{name='menu.sales.customer' title='Customer' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.Inventory_QMenu	{name='menu.im' title='Inventory' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.Item Site_QMenu	{name='menu.im.itemsites' title='Item Site' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
+:xTuple ERP: OpenMFG Edition.Item Source_QMenu	{name='menu.purch.itemsources' title='Item Source' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.Item_QMenu	{name='menu.prod.items' title='Item' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.Item_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='Item'}
 :xTuple ERP: OpenMFG Edition.List Calendars_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List Calendars'}
@@ -1909,6 +2081,7 @@
 :xTuple ERP: OpenMFG Edition.Production Plan_QMenu	{name='menu.sched.planning' title='Production Plan' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.Products Tools_QToolBar	{name='Products Tools' type='QToolBar' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='Products Tools'}
 :xTuple ERP: OpenMFG Edition.Products_QMenu	{name='menu.prod' title='Products' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
+:xTuple ERP: OpenMFG Edition.Prospect_QMenu	{name='menu.sales.prospect' title='Prospect' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.Purchase_QMenu	{name='menu.purch' title='Purchase' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.Reports_QMenu	{name='menu.prod.costingreports' title='Reports' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.Sales_QMenu	{name='menu.sales' title='Sales' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
