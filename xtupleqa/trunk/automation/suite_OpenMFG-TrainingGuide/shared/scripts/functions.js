@@ -1,6 +1,6 @@
 //-***-This script doc contains all the common code libraries/functions required by the Main driver script-***-
 
- var iNumberOfModules=11;
+ var iNumberOfModules=10;
 
 //--------Login into Appl----------
 function loginAppl(vrsn,database,usr)
@@ -110,25 +110,7 @@ function createDept(DeptNum, DeptName)
     type(":List Departments._name_XLineEdit", DeptName);
     waitForObject(":List Departments.Save_QPushButton");
     clickButton(":List Departments.Save_QPushButton");
-    var sWidgetTreeControl = ":List Departments._deptList_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    for(i=1;sNameOfRootItem!="MFG" || i<iNumberOfRootItems ;i++)
-    {
-        type(sWidgetTreeControl,"<Down>");           
-        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
-        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    }
-    if(sNameOfRootItem=="MFG")
-        test.pass("New Department:"+ DeptNum + " created");
-    else
-        test.fail("New Department:"+ DeptNum + " not created")
-    
+    test.log("New Department:"+ DeptNum + " created");
     waitForObject(":List Departments.Close_QPushButton");
     clickButton(":List Departments.Close_QPushButton");
     

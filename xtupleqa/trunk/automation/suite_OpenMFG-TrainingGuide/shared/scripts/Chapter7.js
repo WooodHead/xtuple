@@ -42,7 +42,7 @@ function executeChapter7()
     type(":_defaultShipVia_XLineEdit", "UPS Account 1234567");
     clickButton(":Purchase Configuration.Save_QPushButton");
     test.log("Purchase Module Configured");
-    
+  
     
     //-------------Configure: Inventory Module---------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -62,6 +62,8 @@ function executeChapter7()
     if(!findObject(":tab_2.Warn if P/O Receipt Qty differs from receivable Qty_QCheckBox").checked)
         clickButton(":tab_2.Warn if P/O Receipt Qty differs from receivable Qty_QCheckBox");
     type(":_tolerance_QLineEdit", "5");
+    type(":_shipformNumOfCopies_QSpinBox", "<Ctrl+A>");
+    type(":_shipformNumOfCopies_QSpinBox", "<Del>");
     type(":_shipformNumOfCopies_QSpinBox", "2");
     doubleClickItem(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget", "Copy #1",5,5,0,Qt.LeftButton);
     waitForObject(":Invoice/Credit Memo Watermark._watermark_XLineEdit");
@@ -179,7 +181,7 @@ function executeChapter7()
  
     waitForObject(":List Reject Codes.Close_QPushButton");
     clickButton(":List Reject Codes.Close_QPushButton");
-//    test.log("Reject codes defined");
+    test.log("Reject codes defined");
     
     //-----------Chart Of Accounts-------------------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -268,15 +270,17 @@ function executeChapter7()
     waitForObject(":ponotesTab._poComments_QTextEdit");
     type(":ponotesTab._poComments_QTextEdit", "Default Vendor Notes From Vendor Master");
    
-    clickTab(":Vendor.qt_tabwidget_tabbar_QTabBar", "Transmit");
-    if(findObject(":_purchaseOrderTab.Email Purchase Order Delivery_QGroupBox").checked)
-        type(":_purchaseOrderTab.Email Purchase Order Delivery_QGroupBox"," ");
-    waitForObject(":Email Purchase Order Delivery._ediEmail_XLineEdit");
-    type(":Email Purchase Order Delivery._ediEmail_XLineEdit", "demo@openmfg.com");
-    type(":Email Purchase Order Delivery._ediCC_XLineEdit", "matherton@openmfg.com");
-    type(":Email Purchase Order Delivery._ediSubject_XLineEdit", "Purchase Order </docnumber> Enclosed");
-    type(":Email Purchase Order Delivery._ediFilename_XLineEdit", "PO</docnumber>");
-    type(":Email Purchase Order Delivery._ediEmailBody_QTextEdit", "Dear TPARTS: Attached please find PO </docnumber>. Sincerely - Prodiem Toys");
+    clickTab(":Vendor.qt_tabwidget_tabbar_QTabBar", "Transmission");
+    waitForObject(":ediTab.Purchase Orders_QRadioButton");
+    clickButton(":ediTab.Purchase Orders_QRadioButton");
+    if(!findObject(":_transmitStack.Email Purchase Order Delivery_QGroupBox").checked)
+        type(":_transmitStack.Email Purchase Order Delivery_QGroupBox"," ");
+    type(":Email Purchase Order Delivery._ediEmail_XLineEdit_2", "demo@openmfg.com");
+    type(":Email Purchase Order Delivery._ediCC_XLineEdit_2", "matherton@openmfg.com");
+    type(":Email Purchase Order Delivery._ediSubject_XLineEdit_2", "Purchase Order </docnumber> Enclosed");
+    type(":Email Purchase Order Delivery._ediFilename_XLineEdit_2", "PO</docnumber>");
+    type(":Email Purchase Order Delivery._ediEmailBody_QTextEdit_2", "Dear TPARTS: Attached please find PO </docnumber>. Sincerely - Prodiem Toys");
+
     clickTab(":Vendor.qt_tabwidget_tabbar_QTabBar", "Addresses"); 
     waitForObject(":_addressStack.Street\nAddress:_XLineEdit");
     type(":_addressStack.Street\nAddress:_XLineEdit", "#522, Park Lane");
@@ -292,6 +296,183 @@ function executeChapter7()
     test.log("Vendor: TPARTS created");
     
     
+    
+    //------------Create Item Sources------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+    activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+    
+    //----Item source for TBOX1--------------
+    waitForObject(":_frame.New_QPushButton");
+    clickButton(":_frame.New_QPushButton");
+    waitForObject(":Item Source._itemNumber_ItemLineEdit");
+    type(":Item Source._itemNumber_ItemLineEdit", "TBOX1");
+    type(":_vendorGroup._vendor_VendorLineEdit", "TPARTS");
+    type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPBOX01");
+    type(":_vendorUOM_XLineEdit", "PCS");
+    type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
+    type(":_venditemGroup._minOrderQty_XLineEdit", "0");
+    type(":_multOrderQty_XLineEdit", "1");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "<Ctrl+A>");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "<Del>");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "1");
+    type(":_venditemGroup._leadTime_QSpinBox", "<Ctrl+A>");
+    type(":_venditemGroup._leadTime_QSpinBox", "<Del>");
+    type(":_venditemGroup._leadTime_QSpinBox", "1");
+    waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
+    
+    waitForObject(":tab1.Add_QPushButton");
+    clickButton(":tab1.Add_QPushButton");
+    waitForObject(":_qtyBreak_XLineEdit");
+    type(":_qtyBreak_XLineEdit", "0");
+    type(":Item Source Price_XLineEdit", ".25");
+    clickButton(":Item Source Price.Save_QPushButton");
+    
+    waitForObject(":tab1.Add_QPushButton");
+    clickButton(":tab1.Add_QPushButton");
+    waitForObject(":_qtyBreak_XLineEdit");
+    type(":_qtyBreak_XLineEdit", "1000");
+    type(":Item Source Price_XLineEdit", ".20");
+    waitForObject(":Item Source Price.Save_QPushButton");
+    clickButton(":Item Source Price.Save_QPushButton");
+    
+    waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Vendor Description");
+    waitForObject(":tab2._vendorItemDescrip_QTextEdit");
+    type(":tab2._vendorItemDescrip_QTextEdit", "ProDiem Box For Truck Type 1");
+    waitForObject(":Item Source.Save_QPushButton");
+    clickButton(":Item Source.Save_QPushButton");
+    test.log("Item Sources: TBOX1 created");
+    
+    
+    //----Item source for TBODY1--------------
+    waitForObject(":_frame.New_QPushButton");
+    clickButton(":_frame.New_QPushButton");
+    waitForObject(":Item Source._itemNumber_ItemLineEdit");
+    type(":Item Source._itemNumber_ItemLineEdit", "TBODY1");
+    type(":_vendorGroup._vendor_VendorLineEdit", "TPARTS");
+    type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPBODY01");
+    type(":_vendorUOM_XLineEdit", "PCS");
+    type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
+    type(":_venditemGroup._minOrderQty_XLineEdit", "0");
+    type(":_multOrderQty_XLineEdit", "1");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "<Ctrl+A>");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "<Del>");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "1");
+    type(":_venditemGroup._leadTime_QSpinBox", "<Ctrl+A>");
+    type(":_venditemGroup._leadTime_QSpinBox", "<Del>");
+    type(":_venditemGroup._leadTime_QSpinBox", "1");
+    waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
+    
+    waitForObject(":tab1.Add_QPushButton");
+    clickButton(":tab1.Add_QPushButton");
+    waitForObject(":_qtyBreak_XLineEdit");
+    type(":_qtyBreak_XLineEdit", "0");
+    type(":Item Source Price_XLineEdit", "1");
+    clickButton(":Item Source Price.Save_QPushButton");
+    waitForObject(":Item Source.Save_QPushButton");
+    clickButton(":Item Source.Save_QPushButton");
+    test.log("Item Sources: TBODY1 created");
+    
+    
+    //----Item source for TINSERT1--------------
+    waitForObject(":_frame.New_QPushButton");
+    clickButton(":_frame.New_QPushButton");
+    waitForObject(":Item Source._itemNumber_ItemLineEdit");
+    type(":Item Source._itemNumber_ItemLineEdit", "TINSERT1");
+    type(":_vendorGroup._vendor_VendorLineEdit", "TPARTS");
+    type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPINSERT01");
+    type(":_vendorUOM_XLineEdit", "PCS");
+    type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
+    type(":_venditemGroup._minOrderQty_XLineEdit", "0");
+    type(":_multOrderQty_XLineEdit", "1");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "<Ctrl+A>");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "<Del>");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "1");
+    type(":_venditemGroup._leadTime_QSpinBox", "<Ctrl+A>");
+    type(":_venditemGroup._leadTime_QSpinBox", "<Del>");
+    type(":_venditemGroup._leadTime_QSpinBox", "1");
+    waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
+    
+    waitForObject(":tab1.Add_QPushButton");
+    clickButton(":tab1.Add_QPushButton");
+    waitForObject(":_qtyBreak_XLineEdit");
+    type(":_qtyBreak_XLineEdit", "0");
+    type(":Item Source Price_XLineEdit", ".25");
+    clickButton(":Item Source Price.Save_QPushButton");
+    waitForObject(":Item Source.Save_QPushButton");
+    clickButton(":Item Source.Save_QPushButton");
+    test.log("Item Sources: TINSERT1 created");
+    
+    
+    //----Item source for TWHEEL1--------------
+    waitForObject(":_frame.New_QPushButton");
+    clickButton(":_frame.New_QPushButton");
+    waitForObject(":Item Source._itemNumber_ItemLineEdit");
+    type(":Item Source._itemNumber_ItemLineEdit", "TWHEEL1");
+    type(":_vendorGroup._vendor_VendorLineEdit", "TPARTS");
+    type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPWHEEL01");
+    type(":_vendorUOM_XLineEdit", "PCS");
+    type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
+    type(":_venditemGroup._minOrderQty_XLineEdit", "0");
+    type(":_multOrderQty_XLineEdit", "1");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "<Ctrl+A>");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "<Del>");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "1");
+    type(":_venditemGroup._leadTime_QSpinBox", "<Ctrl+A>");
+    type(":_venditemGroup._leadTime_QSpinBox", "<Del>");
+    type(":_venditemGroup._leadTime_QSpinBox", "1");
+    waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
+    
+    waitForObject(":tab1.Add_QPushButton");
+    clickButton(":tab1.Add_QPushButton");
+    waitForObject(":_qtyBreak_XLineEdit");
+    type(":_qtyBreak_XLineEdit", "0");
+    type(":Item Source Price_XLineEdit", ".10");
+    clickButton(":Item Source Price.Save_QPushButton");
+    waitForObject(":Item Source.Save_QPushButton");
+    clickButton(":Item Source.Save_QPushButton");
+    test.log("Item Sources: TWHEEL1 created");
+    
+    //----Item source for YPAINT1--------------
+    waitForObject(":_frame.New_QPushButton");
+    clickButton(":_frame.New_QPushButton");
+    waitForObject(":Item Source._itemNumber_ItemLineEdit");
+    type(":Item Source._itemNumber_ItemLineEdit", "YPAINT1");
+    type(":_vendorGroup._vendor_VendorLineEdit", "TPARTS");
+    type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPPAINT01");
+    type(":_vendorUOM_XLineEdit", "PCS");
+    type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
+    type(":_venditemGroup._minOrderQty_XLineEdit", "0");
+    type(":_multOrderQty_XLineEdit", "1");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "<Ctrl+A>");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "<Del>");
+    type(":_venditemGroup._vendorRanking_QSpinBox", "1");
+    type(":_venditemGroup._leadTime_QSpinBox", "<Ctrl+A>");
+    type(":_venditemGroup._leadTime_QSpinBox", "<Del>");
+    type(":_venditemGroup._leadTime_QSpinBox", "1");
+    waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
+    
+    waitForObject(":tab1.Add_QPushButton");
+    clickButton(":tab1.Add_QPushButton");
+    waitForObject(":_qtyBreak_XLineEdit");
+    type(":_qtyBreak_XLineEdit", "0");
+    type(":Item Source Price_XLineEdit", ".10");
+    clickButton(":Item Source Price.Save_QPushButton");
+    waitForObject(":Item Source.Save_QPushButton");
+    clickButton(":Item Source.Save_QPushButton");
+    test.log("Item Sources: YPAINT1 created");
+    
+    waitForObject(":List Item Sources.Close_QPushButton");
+    clickButton(":List Item Sources.Close_QPushButton");
     
     
 }
