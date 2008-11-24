@@ -274,7 +274,7 @@ void LoaderWindow::fileOpen()
       qDebug("LoaderWindow::fileOpen()  i fatal msg");
     for (int i = 0; i < msgList.size(); i++)
     {
-      _text->append(QString("<br/><font color=%1>%2</font>")
+      _text->append(QString("<br><font color=\"%1\">%2</font>")
                     .arg(fatalList.at(i) ? "red" : "orange")
                     .arg(msgList.at(i)));
       fatal = fatal || fatalList.at(i);
