@@ -9,7 +9,7 @@ AS
      item_number::varchar AS item_number,
      char_name::varchar AS characteristic,
      charass_value AS value,
-     charass_default AS default
+     charass_default AS is_default
    FROM item, char, charass
    WHERE (('I'=charass_target_type)
    AND (item_id=charass_target_id)
@@ -35,14 +35,14 @@ CREATE OR REPLACE RULE "_INSERT" AS
     getItemId(NEW.item_number),
     getCharId(NEW.characteristic,'I'),
     NEW.value,
-    NEW.default);
+    COALESCE(NEW.is_default,false));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.itemchar DO INSTEAD
 
   UPDATE charass SET
     charass_value=NEW.value,
-    charass_default=NEW.default
+    charass_default=NEW.is_default
   WHERE ((charass_target_type='I')
   AND (charass_target_id=getItemId(OLD.item_number))
   AND (charass_char_id=getCharId(OLD.characteristic,'I')));
