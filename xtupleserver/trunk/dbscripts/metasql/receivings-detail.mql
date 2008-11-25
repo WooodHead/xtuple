@@ -2,7 +2,7 @@
 -- Name: detail
 -- Notes: used by dspPoItemReceivingsByDate, dspPoItemReceivingsByItem, dspPoItemReceivingsByVendor
 
-SELECT recv_id, recv_order_number AS ponumber,
+SELECT recv_id, 1 AS altid, recv_order_number AS ponumber,
        vend_name,
        recv_duedate           AS duedate,
        recv_date              AS recvdate,
@@ -15,10 +15,13 @@ SELECT recv_id, recv_order_number AS ponumber,
        recv_qty               AS qty,
        recv_purchcost         AS purchcost,
        recv_recvcost          AS recvcost,
+       recv_value             AS value,
+       recv_invoiced          AS invoiced,
        recv_date              AS sortdate,
        'qty'                  AS qty_xtnumericrole,
        'cost'                 AS purchcost_xtnumericrole,
-       'cost'                 AS recvcost_xtnumericrole
+       'cost'                 AS recvcost_xtnumericrole,
+       'curr'                 AS value_xtnumericrole
 FROM vend, recv LEFT OUTER JOIN
     (itemsite JOIN
      item ON (itemsite_item_id=item_id)) ON (recv_itemsite_id=itemsite_id)
@@ -39,7 +42,7 @@ WHERE ( (recv_vend_id=vend_id)
 <? endif ?>
 )
 UNION
-SELECT poreject_id, poreject_ponumber,
+SELECT poreject_id, 2, poreject_ponumber,
        vend_name,
        NULL,
        poreject_date,
@@ -52,10 +55,13 @@ SELECT poreject_id, poreject_ponumber,
        poreject_qty,
        NULL,
        NULL,
+       poreject_value,
+       NULL,
        poreject_date,
        'qty',
        'cost',
-       'cost'
+       'cost',
+       'curr'
 FROM vend, poreject LEFT OUTER JOIN
     (itemsite JOIN
      item ON (itemsite_item_id=item_id)) ON (poreject_itemsite_id=itemsite_id)
@@ -74,4 +80,49 @@ WHERE ( (poreject_vend_id=vend_id)
  AND (poreject_agent_username=<? value("agentUsername") ?>)
 <? endif ?>
 )
+<? if exists("showUnvouchered") ?>
+UNION
+SELECT pohead_id, 3, pohead_number,
+       vend_name,
+       poitem_duedate,
+       NULL,
+       poitem_vend_item_number,
+       poitem_vend_item_descrip,
+       COALESCE(item_number,
+                (<? value("nonInv") ?> || poitem_vend_item_number)),
+       COALESCE(item_descrip1, poitem_vend_item_descrip),
+       <? value("unvouchered") ?>,
+       poitem_qty_ordered - poitem_qty_vouchered,
+       NULL,
+       NULL,
+       (poitem_qty_ordered - poitem_qty_vouchered) * poitem_unitprice,
+       NULL,
+       NULL,
+       'qty',
+       'cost',
+       'cost',
+       'curr'
+FROM vend, pohead JOIN poitem ON (pohead_id=poitem_pohead_id) LEFT OUTER JOIN
+    (itemsite JOIN
+     item ON (itemsite_item_id=item_id)) ON (poitem_itemsite_id=itemsite_id)
+WHERE ( (pohead_vend_id=vend_id)
+ AND (poitem_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+ AND (pohead_status = 'O')
+ AND (pohead_id NOT IN (SELECT vohead_pohead_id
+                        FROM vohead
+                        WHERE vohead_pohead_id IS NOT NULL))
+<? if exists("vend_id") ?>
+ AND (vend_id=<? value ("vend_id") ?>)
+<? endif ?>
+<? if exists("item_id") ?>
+ AND (itemsite_item_id=<? value("item_id") ?>)
+<? endif ?>
+<? if exists("warehous_id") ?>
+ AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+<? endif ?>
+<? if exists("agentUsername") ?>
+ AND (pohead_agent_username=<? value("agentUsername") ?>)
+<? endif ?>
+)
+<? endif ?>
 ORDER BY sortdate DESC;
