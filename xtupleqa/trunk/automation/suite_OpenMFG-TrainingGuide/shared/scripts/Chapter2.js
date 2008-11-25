@@ -69,6 +69,30 @@ function executeChapter2()
     waitForObject(":List Cost Categories.Close_QPushButton_2");
     clickButton(":List Cost Categories.Close_QPushButton_2");
     
+     //----------Inventory-Cost Categories: copy and create for INTRAN------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
+    waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
+    type(":List Cost Categories._costcat_XTreeWidget_2", " ");
+    waitForObject(":List Cost Categories.Copy_QPushButton_2");
+    clickButton(":List Cost Categories.Copy_QPushButton_2");
+    type(":Cost Category._category_XLineEdit", "<Del>");
+    type(":Cost Category._category_XLineEdit", "CCINTRAN");
+    type(":Cost Category._description_XLineEdit", "<Del>");
+    type(":Cost Category._description_XLineEdit", "Intransit Warehouse");
+    type(":Cost Category._main_XLineEdit", "<Del>");
+    type(":Cost Category._main_XLineEdit", "01-01-1252-01");
+    type(":Cost Category._main_XLineEdit", "<Tab>");
+    waitForObject(":Cost Category.Save_QPushButton");
+    clickButton(":Cost Category.Save_QPushButton");
+    waitForObject(":List Cost Categories.Close_QPushButton_2");
+    clickButton(":List Cost Categories.Close_QPushButton_2");
+    test.log("Inventory Cost Category CCINTRAN created");
+    
     
     //----------Inventory-Cost Categories: copy and create for WH2------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");

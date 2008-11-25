@@ -1,10 +1,10 @@
 function executeChapter1()
 {
     source(findFile("scripts","functions.js"));
-//    createDept("MFG","Manufacturing");
-//    assignPrivileges();
-//    createShift("1ST","First");
-//    createLocale("MYLOCALE","My Locale For Class");
+    createDept("MFG","Manufacturing");
+    assignPrivileges();
+    createShift("1ST","First");
+    createLocale("MYLOCALE","My Locale For Class");
     createGroup("SUPER","Super User Group");
     var newuser="user01";
     createUser(newuser);
@@ -398,7 +398,6 @@ function executeChapter1()
     snooze(0.5);
     if(object.exists(":Company ID Correct?.Yes_QPushButton"))
     clickButton(":Company ID Correct?.Yes_QPushButton");
-    
     test.log("Accounting Module Configured"); 
     
     //---------Configure: Manufacture Module-------------
@@ -551,7 +550,34 @@ function executeChapter1()
     clickButton(":List Titles.Close_QPushButton");
     test.log("CRM-Mast Info: New Tile created");
     
+    //-------------Create Site Types------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Site Types...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Site Types...");
+ 
+    waitForObject(":List Site Types.New_QPushButton");
+    clickButton(":List Site Types.New_QPushButton");
+    waitForObject(":List Site Types._code_XLineEdit");
+    type(":List Site Types._code_XLineEdit", "WHSE");
+    type(":List Site Types._description_XLineEdit", "Warehouse");
+    clickButton(":List Site Types.Save_QPushButton");
+    
+    waitForObject(":List Site Types.New_QPushButton");
+    clickButton(":List Site Types.New_QPushButton");
+    waitForObject(":List Site Types._code_XLineEdit");
+    type(":List Site Types._code_XLineEdit", "INTRAN");
+    type(":List Site Types._description_XLineEdit", "Intransit Site");
+    clickButton(":List Site Types.Save_QPushButton");
+    
+    waitForObject(":List Site Types.Close_QPushButton");
+    clickButton(":List Site Types.Close_QPushButton");
+    test.log("Inventory Site Types created");
 
+    
+    
     //-------create Inventory Site: WH1-----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
@@ -734,7 +760,7 @@ function executeChapter1()
         findObject(":Count Slip # Auditing.Disallow All Slip # Duplications_QRadioButton").checked=true;
     waitForObject(":Inventory Configuration.Save_QPushButton");
     clickButton(":Inventory Configuration.Save_QPushButton");
-//    test.log("Inventory Module Configured");
+    test.log("Inventory Module Configured");
     
     
     

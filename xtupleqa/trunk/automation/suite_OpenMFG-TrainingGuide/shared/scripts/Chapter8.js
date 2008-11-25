@@ -446,4 +446,364 @@ function executeChapter8()
     test.log("Sales Account Assingments done");
     
     
+    
+        //----------------Create new Customer---------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
+    activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "New...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "New...");
+   
+    waitForObject(":Customer._number_XLineEdit");
+    type(":Customer._number_XLineEdit", "TTOYS");
+    type(":Customer._name_XLineEdit", "Tremendous Toys");
+    if(findObject(":Defaults._shipvia_XComboBox").currentText!="UPS-GROUND-UPS Ground")
+        type(":Defaults._shipvia_XComboBox","UPS");
+    if(findObject(":Defaults._shipchrg_XComboBox").currentText!= "ADDCHARGE-Add Shipping Charges to Order")
+        type(":Defaults._shipchrg_XComboBox", "ADDCHARGE");
+    if(!findObject(":Settings.Allow Free-Form Bill-To_QCheckBox").checked)
+        clickButton(":Settings.Allow Free-Form Bill-To_QCheckBox");
+    if(findObject(":Settings._sellingWarehouse_WComboBox").currentText!= "WH1");
+        type(":Settings._sellingWarehouse_WComboBox", "WH1");
+    clickTab(":Customer.qt_tabwidget_tabbar_QTabBar", "Credit");
+    waitForObject(":Defaults._defaultDiscountPrcnt_XLineEdit");
+    type(":Defaults._defaultDiscountPrcnt_XLineEdit", "10");
+    type(":_creditGroup_XLineEdit", "50000");
+    type(":_creditGroup._creditRating_XLineEdit", "<Ctrl+A>");
+    type(":_creditGroup._creditRating_XLineEdit", "<Del>");
+    type(":_creditGroup._creditRating_XLineEdit", "D&B");
+    if(!findObject(":_creditGroup.Place on Credit Warning when Credit Limit/Grace Days is Exceeded_QCheckBox").checked)		clickButton(":_creditGroup.Place on Credit Warning when Credit Limit/Grace Days is Exceeded_QCheckBox");
+    clickButton(":Credit Status.In Good Standing_QRadioButton");
+    if(!findObject(":Requirements.Uses Purchase Orders_QCheckBox").checked)
+        clickButton(":Requirements.Uses Purchase Orders_QCheckBox");
+    if(!findObject(":Requirements.Uses Blanket P/O's_QCheckBox").checked)
+        clickButton(":Requirements.Uses Blanket P/O's_QCheckBox");
+    if(!findObject(":_creditGroup.Alternate Late Grace Days_QGroupBox").checked)
+        type(":_creditGroup.Alternate Late Grace Days_QGroupBox", " ");
+    type(":Alternate Late Grace Days._graceDays_QSpinBox", "<Ctrl+A>");
+    type(":Alternate Late Grace Days._graceDays_QSpinBox", "<Del>");
+    type(":Alternate Late Grace Days._graceDays_QSpinBox", "30");
+    clickTab(":Customer.qt_tabwidget_tabbar_QTabBar", "Addresses");
+    waitForObject(":_addressStack._honorific_XComboBox");
+    type(":_addressStack._honorific_XComboBox", "MR");
+    type(":_addressStack._first_XLineEdit", "Jerry");
+    type(":_addressStack._middle_XLineEdit", "R");
+    type(":_addressStack._last_XLineEdit", "Stapleton");
+    type(":_addressStack._title_XLineEdit", "Senior Analyst");
+    type(":_addressStack._phone_XLineEdit", "234325");
+    type(":_addressStack._phone2_XLineEdit", "5352352");
+    type(":_addressStack._fax_XLineEdit", "3523525");
+    type(":_addressStack._email_XLineEdit", "jerry@test.com");
+    type(":_addressStack._webaddr_XLineEdit", "www.testing.com");
+    type(":_addressStack.Street\nAddress:_XLineEdit_4", "Street line addr1");
+    type(":_addressStack.Street\nAddress:_XLineEdit_5", "Street line addr2");
+    type(":_addressStack.Street\nAddress:_XLineEdit_6", "Street line addr3");
+    type(":_addressStack.City:_XLineEdit_2", "Virginia");
+    type(":_addressStack.State:_XComboBox_2", "VA");
+    type(":_addressStack.Postal Code:_XLineEdit_2", "2535635");
+    type(":_addressStack.Country:_XComboBox_2", "United States");
+    clickButton(":tabAddresses.Ship To_QRadioButton");
+    waitForObject(":_addressStack.New_QPushButton");
+    clickButton(":_addressStack.New_QPushButton");
+    waitForObject(":_shipToNumber_XLineEdit");
+    type(":_shipToNumber_XLineEdit", "Store1");
+    type(":_name_XLineEdit_13", "Old Towne Store 1");
+    type(":Ship-To.Street\nAddress:_XLineEdit", "Street Addr line1");
+    type(":Ship-To.Street\nAddress:_XLineEdit_2", "Street Addr line2");
+    type(":Ship-To.Street\nAddress:_XLineEdit_3", "Street Addr line 3");
+    type(":Ship-To.City:_XLineEdit", "Alaska");
+    type(":Ship-To.State:_XComboBox", "WDC");
+    type(":Ship-To.Postal Code:_XLineEdit", "235235");
+    type(":Ship-To.Country:_XComboBox", "United States");
+    type(":Ship-To._honorific_XComboBox", "MR");
+    type(":Ship-To._first_XLineEdit", "Kunal");
+    type(":Ship-To._middle_XLineEdit", "R");
+    type(":Ship-To._last_XLineEdit", "Joshi");
+    type(":Ship-To._title_XLineEdit", "Associate Consultant");
+    type(":Ship-To._phone_XLineEdit", "23432");
+    type(":Ship-To._fax_XLineEdit", "23425");
+    type(":Ship-To._email_XLineEdit", "kunal@test.com");
+    type(":_commission_XLineEdit", "7.5");
+    if(findObject(":Defaults:._shipform_XComboBox").currentText!= "STANDARD-PACKING-LIST")
+        type(":Defaults:._shipform_XComboBox", "STANDARD");
+    if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
+        type(":Defaults:._shipchrg_XComboBox", "ADDCHARGE");
+    clickButton(":Ship-To.Save_QPushButton");
+    waitForObject(":Customer.Save_QPushButton");
+    clickButton(":Customer.Save_QPushButton");
+    test.log("Customer: TTOYS created");
+    
+    
+    
+    //----------------Create Customer Group---------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
+    activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "Groups...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "Groups...");
+    
+    waitForObject(":List Customer Groups.New_QPushButton");
+    clickButton(":List Customer Groups.New_QPushButton");
+    waitForObject(":GroupBox1._name_XLineEdit");
+    type(":GroupBox1._name_XLineEdit", "US-VA");
+    type(":GroupBox1._descrip_XLineEdit", "National Accounts");
+    clickButton(":Customer Group.New_QPushButton");
+    waitForObjectItem(":_listTab_XTreeWidget", "TTOYS");
+    clickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Search For Customer.Select_QPushButton");
+    clickButton(":Search For Customer.Select_QPushButton");
+    waitForObject(":GroupBox1.Save_QPushButton");
+    clickButton(":GroupBox1.Save_QPushButton");
+    waitForObject(":List Customer Groups.Close_QPushButton");
+    clickButton(":List Customer Groups.Close_QPushButton");
+    test.log("Customer Group: US-VA created");
+    
+    
+    //-----------------Define: Reason Codes---------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Reason Codes...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Reason Codes...");
+    
+    waitForObject(":List Reason Codes.New_QPushButton");
+    clickButton(":List Reason Codes.New_QPushButton");
+    waitForObject(":_code_XLineEdit_13");
+    type(":_code_XLineEdit_13", "SO-DAMAGED-RETURNED");
+    type(":_description_XLineEdit_25", "SO Damaged Returned on CM");
+    waitForObject(":Reason Code.Save_QPushButton");
+    clickButton(":Reason Code.Save_QPushButton");
+    
+    waitForObject(":List Reason Codes.New_QPushButton");
+    clickButton(":List Reason Codes.New_QPushButton");
+    waitForObject(":_code_XLineEdit_13");
+    type(":_code_XLineEdit_13", "SO-WRONG-RETURNED");
+    type(":_description_XLineEdit_25", "SO Wrong Product - Returned on CM");
+    waitForObject(":Reason Code.Save_QPushButton");
+    clickButton(":Reason Code.Save_QPushButton");
+    
+    waitForObject(":List Reason Codes.Close_QPushButton");
+    clickButton(":List Reason Codes.Close_QPushButton");
+    test.log("Reason Codes created");
+    
+    //---------------Define Pricing Schedule---------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+    activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
+    waitForObject(":List Pricing Schedules.New_QPushButton");
+    clickButton(":List Pricing Schedules.New_QPushButton");
+    
+    waitForObject(":GroupBox1._name_XLineEdit_2");
+    type(":GroupBox1._name_XLineEdit_2", "BASE");
+    type(":GroupBox1._descrip_XLineEdit_2", "Base Price Schedule");
+    waitForObject(":Pricing Schedule.New_QPushButton");
+    clickButton(":Pricing Schedule.New_QPushButton");
+    waitForObject(":_widgetStack._itemNumber_ItemLineEdit");
+    type(":_widgetStack._itemNumber_ItemLineEdit", "YTRUCK1");
+    type(":_qtyBreak_XLineEdit_2", "0");
+    type(":_baseTab_XLineEdit", "9.99");
+    waitForObject(":Pricing Schedule Item.Save_QPushButton");
+    clickButton(":Pricing Schedule Item.Save_QPushButton");
+    
+    waitForObject(":Pricing Schedule.New_QPushButton");
+    clickButton(":Pricing Schedule.New_QPushButton");
+    waitForObject(":_widgetStack._itemNumber_ItemLineEdit");
+    type(":_widgetStack._itemNumber_ItemLineEdit", "YTRUCK1");
+    type(":_qtyBreak_XLineEdit_2", "100");
+    type(":_baseTab_XLineEdit", "9.5");
+    waitForObject(":Pricing Schedule Item.Save_QPushButton");
+    clickButton(":Pricing Schedule Item.Save_QPushButton");
+    
+    waitForObject(":Pricing Schedule.New_QPushButton");
+    clickButton(":Pricing Schedule.New_QPushButton");
+    waitForObject(":_widgetStack._itemNumber_ItemLineEdit");
+    type(":_widgetStack._itemNumber_ItemLineEdit", "YTRUCK1");
+    type(":_qtyBreak_XLineEdit_2", "500");
+    type(":_baseTab_XLineEdit", "9.25");
+    waitForObject(":Pricing Schedule Item.Save_QPushButton");
+    clickButton(":Pricing Schedule Item.Save_QPushButton");
+    
+    waitForObject(":GroupBox1.Save_QPushButton_2");
+    clickButton(":GroupBox1.Save_QPushButton_2");
+    waitForObject(":List Pricing Schedules.Close_QPushButton");
+    clickButton(":List Pricing Schedules.Close_QPushButton");
+    test.log("Pricing Schedule created");
+    
+    
+    //-----------Assign Pricing Schedule---------------    
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+    activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedule Assignments...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedule Assignments...");
+    waitForObject(":List Pricing Schedule Assignments.New_QPushButton");
+    clickButton(":List Pricing Schedule Assignments.New_QPushButton");
+    waitForObject(":_customerGroup.Selected Customer Type:_QRadioButton");
+    clickButton(":_customerGroup.Selected Customer Type:_QRadioButton");
+    if(findObject(":_ipshead_XComboBox").currentText!= "BASE - Base Price Schedule")
+        type(":_ipshead_XComboBox","BASE");
+    clickButton(":Pricing Schedule Assignment.Save_QPushButton");
+    waitForObject(":List Pricing Schedule Assignments.Close_QPushButton");
+    clickButton(":List Pricing Schedule Assignments.Close_QPushButton");
+    test.log("Pricing Schedule Assigned");
+
+    
+    //-----------Create Item site for INTRAN------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
+    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
+    
+    waitForObject(":List Sites.New_QPushButton_2");
+    clickButton(":List Sites.New_QPushButton_2");
+    if(findObject(":_sitetype_XComboBox_2").currentText!="INTRAN")
+        type(":_sitetype_XComboBox_2", "INTRAN");
+   type(":_code_XLineEdit_14", "INTRAN");
+    type(":_description_XLineEdit_26", "Intransit Warehouse");
+    type(":Site.Street\nAddress:_XLineEdit", "#582, Charmy Ganesh Nilayam");
+    type(":Site.Street\nAddress:_XLineEdit_2", "Vittal Rao Colony");
+    type(":Site.Street\nAddress:_XLineEdit_3", "Santh Nagar");
+    type(":Site.City:_XLineEdit", "Pune");
+    type(":Site.State:_XComboBox", "Maharastra");
+    type(":Site.Postal Code:_XLineEdit", "534235");
+    type(":Site.Country:_XComboBox", "india");
+    type(":Site._honorific_XComboBox", "Mr");
+    type(":Site._first_XLineEdit", "Gaurav");
+    type(":Site._middle_XLineEdit", "S");
+    type(":Site._last_XLineEdit", "Gulati");
+    type(":Site._title_XLineEdit", "Associate Consultant");
+    type(":Site._phone_XLineEdit", "235423");
+    type(":Site._fax_XLineEdit", "252342");
+    type(":Site._email_XLineEdit", "gauraasv@testing.com");
+    type(":Site._main_XLineEdit", "01-01-1950-01");
+    clickButton(":_generalTab.Transit Site_QRadioButton");
+    if(findObject(":_whsTypeStack._shipvia_XComboBox")!= "UPS-GROUND-UPS Ground")
+        type(":_whsTypeStack._shipvia_XComboBox", "UPS");
+    if(findObject(":_shipform_XComboBox").currentText!="INTRAN-PACKING-LIST")
+        type(":_shipform_XComboBox", "INTRAN");
+    if(findObject(":_costcat_XComboBox_4").currentText!= "CCINTRAN-Intransit Warehouse")
+        type(":_costcat_XComboBox_4", "CCINTRAN");
+    type(":_whsTypeStack._shipcomments_QTextEdit", "This is a internal shipment between two Prodiem Toys warehouses. If you have any questions please call Anna Falactic at 757-322-2101.");	
+    waitForObject(":Save_QPushButton_2");
+    clickButton(":Save_QPushButton_2");
+    waitForObject(":List Sites.Close_QPushButton_2");
+    clickButton(":List Sites.Close_QPushButton_2");
+    test.log("Item site for INTRAN created");
+    
+    
+    
+     //-----------Configure: Inventory Module--------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
+    if(findObject(":_defaultTransWhs_WComboBox").currentText!= "INTRAN");
+       type(":_defaultTransWhs_WComboBox", "INTRAN");
+    clickButton(":Inventory Configuration.Save_QPushButton");
+    test.log("Configure Module: Inventory");
+    
+    //---------Define: Incident Categories----------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Categories...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Categories...");
+    
+    waitForObject(":List Incident Categories.New_QPushButton");
+    clickButton(":List Incident Categories.New_QPushButton");
+    waitForObject(":_name_XLineEdit_14");
+    type(":_name_XLineEdit_14", "Product");
+    type(":Incident Category._order_QSpinBox", "<Ctrl+A>");
+    type(":Incident Category._order_QSpinBox", "<Del>");
+    type(":Incident Category._order_QSpinBox", "10");
+    type(":Incident Category._descrip_QTextEdit", "Product related incidents");
+    waitForObject(":Incident Category.Save_QPushButton");
+    clickButton(":Incident Category.Save_QPushButton");
+   
+    waitForObject(":List Incident Categories.New_QPushButton");
+    clickButton(":List Incident Categories.New_QPushButton");
+    waitForObject(":_name_XLineEdit_14");
+    type(":_name_XLineEdit_14", "Customer");
+    type(":Incident Category._order_QSpinBox", "<Ctrl+A>");
+    type(":Incident Category._order_QSpinBox", "<Del>");
+    type(":Incident Category._order_QSpinBox", "20");
+    type(":Incident Category._descrip_QTextEdit", "Customer related incidents");
+    waitForObject(":Incident Category.Save_QPushButton");
+    clickButton(":Incident Category.Save_QPushButton");
+    
+    waitForObject(":List Incident Categories.New_QPushButton");
+    clickButton(":List Incident Categories.New_QPushButton");
+    waitForObject(":_name_XLineEdit_14");
+    type(":_name_XLineEdit_14", "Vendor");
+    type(":Incident Category._order_QSpinBox", "<Ctrl+A>");
+    type(":Incident Category._order_QSpinBox", "<Del>");
+    type(":Incident Category._order_QSpinBox", "30");
+    type(":Incident Category._descrip_QTextEdit", "Vendor related incidents");
+    waitForObject(":Incident Category.Save_QPushButton");
+    clickButton(":Incident Category.Save_QPushButton");
+    
+    waitForObject(":List Incident Categories.Close_QPushButton");
+    clickButton(":List Incident Categories.Close_QPushButton");
+    test.log("Incident Categories created");
+    
+    //--------------Create: Incident Severities----------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Severities...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Severities...");
+    waitForObject(":List Incident Severities.New_QPushButton");
+    clickButton(":List Incident Severities.New_QPushButton");
+    waitForObject(":_name_XLineEdit_15");
+    type(":_name_XLineEdit_15", "Crash");
+    type(":Incident Severity._order_QSpinBox", "<Ctrl+A>");
+    type(":Incident Severity._order_QSpinBox", "<Del>");
+    type(":Incident Severity._order_QSpinBox", "5");
+    type(":Incident Severity._descrip_QTextEdit", "System Down");
+    clickButton(":Incident Severity.Save_QPushButton");
+    waitForObject(":List Incident Severities.Close_QPushButton");
+    clickButton(":List Incident Severities.Close_QPushButton");
+    test.log("Incident Severities created");
+    
+    
+    //--------------Create Incident Resolutions----------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Resolutions...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Resolutions...");
+    
+    waitForObject(":List Incident Resolutions.New_QPushButton");
+    clickButton(":List Incident Resolutions.New_QPushButton");
+    waitForObject(":_name_XLineEdit_16");
+    type(":_name_XLineEdit_16", "Replace");
+    type(":Incident Resolution._order_QSpinBox", "<Ctrl+A>");
+    type(":Incident Resolution._order_QSpinBox", "<Del>");
+    type(":Incident Resolution._order_QSpinBox", "40");
+    type(":Incident Resolution._descrip_QTextEdit", "Replace Unit");
+    waitForObject(":Incident Resolution.Save_QPushButton");
+    clickButton(":Incident Resolution.Save_QPushButton");
+    waitForObject(":List Incident Resolutions.Close_QPushButton");
+    clickButton(":List Incident Resolutions.Close_QPushButton");
+    test.log("Incident Resolutions created");
 }
