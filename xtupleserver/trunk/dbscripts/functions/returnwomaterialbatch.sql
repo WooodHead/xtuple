@@ -24,7 +24,7 @@ BEGIN
               FROM wo, womatl, itemsite
               WHERE ((wo_id=womatl_wo_id)
               AND (womatl_itemsite_id=itemsite_id)
-              AND (womatl_issuemethod IN ('S','M'))
+              AND (womatl_issuemethod IN ('L','M'))
               AND (womatl_wo_id=pWoid)) LOOP
 
       IF (_r.qty != 0) THEN
