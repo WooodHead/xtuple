@@ -11,18 +11,20 @@ function main()
     source(findFile("scripts","Chapter7.js"));
     source(findFile("scripts","Chapter8.js"));
     
-//    loginAppl("3.2.0", "2empty320beta","admin");
-//    executeChapter1();
-//    exitAppl(); //exit once to save the testdata
-//    startApplication("xtuple");
+    loginAppl("3.2.0", "2empty320beta","admin"); 
+    executeChapter1();
+    exitAppl(); //exit and login with new user created
+    startApplication("xtuple");
     loginAppl("3.2.0", "2empty320beta","user01"); //login with the new user created
-//    executeChapter2();
-//    executeChapter3();
-//    executeChapter4();
-//    executeChapter5();
-//    executeChapter6();
-//    executeChapter7();
+    executeChapter2();
+    executeChapter3();
+    executeChapter4();
+    executeChapter5();
+    executeChapter6();
+    executeChapter7();
     executeChapter8();
+    executeChapter9();
+    executeChapter10();
  
     exitAppl();	
 }
