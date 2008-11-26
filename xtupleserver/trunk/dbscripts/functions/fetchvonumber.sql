@@ -9,7 +9,8 @@ BEGIN
 
     SELECT orderseq_number INTO _voucherNumber
     FROM orderseq
-    WHERE (orderseq_name=''VcNumber'');
+    WHERE (orderseq_name=''VcNumber'')
+    FOR UPDATE;
 
     UPDATE orderseq
     SET orderseq_number = (orderseq_number + 1)
