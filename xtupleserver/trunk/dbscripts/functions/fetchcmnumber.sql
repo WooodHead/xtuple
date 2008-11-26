@@ -9,7 +9,8 @@ BEGIN
 
     SELECT CAST(orderseq_number AS text) INTO _cmNumber
     FROM orderseq
-    WHERE (orderseq_name=''CmNumber'');
+    WHERE (orderseq_name=''CmNumber'')
+    FOR UPDATE;
 
     UPDATE orderseq
     SET orderseq_number = (orderseq_number + 1)
