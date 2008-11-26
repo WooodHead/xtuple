@@ -450,6 +450,25 @@ function COA(COACompany,COAProfit,COANumber,COASub,COADesc,COAType,COASubType)
 }
 
 
+function IsLeapYear(datea)
+{
+	datea = parseInt(datea);
+	if(datea%4 == 0)
+	{
+		if(datea%100 != 0)
+			return true;
+		else
+		{
+			if(datea%400 == 0)
+				return true;
+			else
+				return false;
+		}
+	}
+return false;
+}
+
+
 //---------------exit Appl-----------------------
 function exitAppl()
 {

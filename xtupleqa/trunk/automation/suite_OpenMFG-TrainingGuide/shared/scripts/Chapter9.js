@@ -1,5 +1,7 @@
 function executeChapter9()
 {
+    source(findFile("scripts","functions.js"));
+    
     //--------------Define: Check Formats-------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -20,24 +22,24 @@ function executeChapter9()
     test.log("Defined Check Formats");
  
     
-     //-----------Chart Of Accounts-------------------------------
-     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-     activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-     
-     COA("01","01","1000","01","Cash at eBank","Asset","CA"); 
-     COA("01","01","1010","01","Cash at EuroBank","Asset","CA"); 
-     COA("01","01","6750","01","Finance Fees and Expenses","Expense","EXP"); 
-     COA("01","01","1500","01","Fixed Assets","Asset","FA");
-     COA("01","01","6400","01","Depreciation Expense","Expense","DXP");
-     COA("01","01","3010","01","Paid-In Capital","Equity","EDC");
-     
-     waitForObject(":Chart of Accounts.Close_QPushButton_2");
-//     clickButton(":Chart of Accounts.Close_QPushButton_2");
-     
+    //------------------Chart Of Accounts------------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+    
+    COA("01","01","1000","01","Cash at eBank","Asset","CA"); 
+    COA("01","01","1010","01","Cash at EuroBank","Asset","CA"); 
+    COA("01","01","6750","01","Finance Fees and Expenses","Expense","EXP"); 
+    COA("01","01","1500","01","Fixed Assets","Asset","FA");
+    COA("01","01","6400","01","Depreciation Expense","Expense","DXP");
+    COA("01","01","3010","01","Paid-In Capital","Equity","EDC");
+    
+    waitForObject(":Chart of Accounts.Close_QPushButton_2");
+    clickButton(":Chart of Accounts.Close_QPushButton_2");
+   
      
      
     
@@ -95,4 +97,105 @@ function executeChapter9()
     waitForObject(":List Bank Accounts.Close_QPushButton");
     clickButton(":List Bank Accounts.Close_QPushButton");
     test.log("Bank Account: EURBANK defined"); 
+    
+    
+    
+        //--------------Create: Adjustment Types--------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Adjustment Types...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Adjustment Types...");
+    waitForObject(":List Adjustment Types.New_QPushButton");
+    clickButton(":List Adjustment Types.New_QPushButton");
+    waitForObject(":_name_XLineEdit_19");
+    type(":_name_XLineEdit_19", "BANKFEE");
+    type(":_description_XLineEdit_28", "Bank Account Fee");
+    type(":Adjustment Type._main_XLineEdit", "01-01-6750-01");
+    clickButton(":Type.Debit_QRadioButton");
+    clickButton(":Adjustment Type.Save_QPushButton");
+    waitForObject(":List Adjustment Types.Close_QPushButton");
+    clickButton(":List Adjustment Types.Close_QPushButton");
+    test.log("Created: Account Adjustment types");
+  
+  
+    //------------Define: Fiscal Year----------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
+    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Fiscal Calendar_QMenu", "Fiscal Years...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Fiscal Calendar_QMenu", "Fiscal Years...");
+    
+    waitForObject(":List Fiscal Years.New_QPushButton");
+    clickButton(":List Fiscal Years.New_QPushButton");
+    waitForObject(":Fiscal Year.XDateEdit_XDateEdit");
+    var d = new Date();
+    var CurrentYearFull = d.getFullYear();
+    var CurrentYear = CurrentYearFull.toString().slice(2);
+    type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+CurrentYearFull);
+    type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+CurrentYearFull);
+    waitForObject(":Fiscal Year.Save_QPushButton");
+    clickButton(":Fiscal Year.Save_QPushButton");
+    var NxtYear = CurrentYearFull+1;
+    waitForObject(":List Fiscal Years.New_QPushButton");
+    clickButton(":List Fiscal Years.New_QPushButton");
+    waitForObject(":Fiscal Year.XDateEdit_XDateEdit");
+    type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+NxtYear);
+    type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+NxtYear);
+    waitForObject(":Fiscal Year.Save_QPushButton");
+    clickButton(":Fiscal Year.Save_QPushButton");
+    
+    waitForObject(":List Fiscal Years.Close_QPushButton");
+    clickButton(":List Fiscal Years.Close_QPushButton");
+    test.log("Fiscal Year Defined");
+    
+    //-------------Define: Fiscal Calendar--------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
+    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Fiscal Calendar_QMenu", "Accounting Periods...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Fiscal Calendar_QMenu", "Accounting Periods...");
+       
+    for(loop=0;loop<2; loop++,CurrentYearFull++) //for two years
+    {
+      var CurrentYear = CurrentYearFull.toString().slice(2);
+      i=CurrentYear;
+      if(IsLeapYear(CurrentYearFull)) //find whether the current year is leap year
+          var YearSet = new Array("31","29","31","30","31","30","31","31","30","31","30","31");
+      else 
+          var YearSet = new Array("31","28","31","30","31","30","31","31","30","31","30","31");
+      for(j=1;j<=12;j++) //for twelve months of the year
+      {
+        waitForObject(":List Accounting Periods.New_QPushButton");
+        clickButton(":List Accounting Periods.New_QPushButton");
+        waitForObject(":_year_XComboBox");
+        if(findObject(":_year_XComboBox").currentText!="01/01/"+CurrentYear+"-12/31/"+CurrentYear)
+            type(":_year_XComboBox", "01/01/"+CurrentYear+"-12/31/"+CurrentYear);
+        waitForObject(":_name_QLineEdit");
+        type(":_name_QLineEdit", CurrentYearFull+"-");
+        type(":_name_QLineEdit", (j<10?"0"+j:j));
+        type(":Accounting Period.XDateEdit_XDateEdit", j+"/1/"+i);
+        type(":Accounting Period.XDateEdit_XDateEdit_2", j+"/"+YearSet[j-1]+"/"+i);
+          type(":_quarter_QSpinBox", "<Ctrl+A>");
+        type(":_quarter_QSpinBox", "<Del>");
+        if(j>=1 && j<=3)
+            type(":_quarter_QSpinBox", "1");
+        else if(j>=4 && j<=6)
+            type(":_quarter_QSpinBox", "2");
+        else if(j>=7 && j<=9)
+            type(":_quarter_QSpinBox", "3");
+        else if(j>=10 && j<=12)
+            type(":_quarter_QSpinBox", "4");
+        clickButton(":Accounting Period.Save_QPushButton");
+      }
+
+    }
+    waitForObject(":List Accounting Periods.Close_QPushButton");
+    clickButton(":List Accounting Periods.Close_QPushButton");
+    test.log("Accounting Periods Defined");
+    
+    
 }
