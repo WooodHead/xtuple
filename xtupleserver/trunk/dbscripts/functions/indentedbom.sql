@@ -120,8 +120,8 @@ BEGIN
        (bomwork_effective > CURRENT_DATE) AS future,
        bomwork_actunitcost AS actunitcost,
        bomwork_stdunitcost AS stdunitcost,
-       bomwork_qtyper * (1 + bomwork_scrap) * bomwork_actunitcost AS actextendedcost,
-       bomwork_qtyper * (1 + bomwork_scrap) * bomwork_stdunitcost AS stdextendedcost,
+       (itemuomtouom(item_id, item_inv_uom_id, NULL, bomwork_qtyper * (1 + bomwork_scrap)) * bomwork_actunitcost) AS actextendedcost,
+       (itemuomtouom(item_id, item_inv_uom_id, NULL, bomwork_qtyper * (1 + bomwork_scrap)) * bomwork_stdunitcost) AS stdextendedcost,
        bomwork_char_id,
        bomwork_value, bomwork_notes, bomwork_ref 
        FROM bomwork, item, uom 
