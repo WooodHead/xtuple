@@ -22,14 +22,10 @@ BEGIN
   -- backward-compatibility, so put them in the invoice currency
   IF (FOUND) THEN
     UPDATE cmhead
-       SET cmhead_tax = currToCurr(cmhead_tax_curr_id, cmhead_curr_id,
-			    _r.rateA + _r.rateB + _r.rateC, cmhead_docdate),
-           cmhead_tax_ratea = currToCurr(cmhead_tax_curr_id,
-				cmhead_curr_id, _r.rateA, cmhead_docdate),
-           cmhead_tax_rateb = currToCurr(cmhead_tax_curr_id,
-				cmhead_curr_id, _r.rateB, cmhead_docdate),
-           cmhead_tax_ratec = currToCurr(cmhead_tax_curr_id,
-				cmhead_curr_id, _r.rateC, cmhead_docdate)
+       SET cmhead_tax = _r.rateA + _r.rateB + _r.rateC,
+           cmhead_tax_ratea = _r.rateA,
+           cmhead_tax_rateb = _r.rateB,
+           cmhead_tax_ratec = _r.rateC
      WHERE (cmhead_id=pCmheadid);
   END IF;
 
