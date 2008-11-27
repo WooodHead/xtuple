@@ -50,8 +50,13 @@
 :Adjustment Type._main_XLineEdit	{name='_main' type='XLineEdit' visible='1' window=':Adjustment Type_bankAdjustmentType'}
 :Adjustment Type_bankAdjustmentType	{name='bankAdjustmentType' type='bankAdjustmentType' visible='1' windowTitle='Adjustment Type'}
 :Alternate Labels.Alternate Budget:_QCheckBox	{container=':_options.Alternate Labels_QGroupBox' name='_altBudget' text='Alternate Budget:' type='QCheckBox' visible='1'}
+:Alternate Labels.Alternate Custom Label:_QLabel	{container=':_options.Alternate Labels_QGroupBox' name='_customLit' text='Alternate Custom Label:' type='QLabel' visible='1'}
+:Alternate Labels.Alternate Difference:_QCheckBox	{container=':_options.Alternate Labels_QGroupBox' name='_altDiff' text='Alternate Difference:' type='QCheckBox' visible='1'}
+:Alternate Labels.Alternate Ending Balance:_QCheckBox	{container=':_options.Alternate Labels_QGroupBox' name='_altEnd' text='Alternate Ending Balance:' type='QCheckBox' visible='1'}
 :Alternate Labels.Alternate Grand Total:_QCheckBox	{container=':_options.Alternate Labels_QGroupBox' name='_altTotal' text='Alternate Grand Total:' type='QCheckBox' visible='1'}
 :Alternate Labels._altBudgetText_QLineEdit	{container=':_options.Alternate Labels_QGroupBox' name='_altBudgetText' type='QLineEdit' visible='1'}
+:Alternate Labels._altDiffText_QLineEdit	{container=':_options.Alternate Labels_QGroupBox' name='_altDiffText' type='QLineEdit' visible='1'}
+:Alternate Labels._altEndText_QLineEdit	{container=':_options.Alternate Labels_QGroupBox' name='_altEndText' type='QLineEdit' visible='1'}
 :Alternate Labels._altTotalText_QLineEdit	{container=':_options.Alternate Labels_QGroupBox' name='_altTotalText' type='QLineEdit' visible='1'}
 :Alternate Late Grace Days._graceDays_QSpinBox	{container=':_creditGroup.Alternate Late Grace Days_QGroupBox' name='_graceDays' type='QSpinBox' visible='1'}
 :Alternate Late Grace Days.qt_spinbox_lineedit_QLineEdit	{container=':_creditGroup.Alternate Late Grace Days_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
@@ -351,6 +356,14 @@
 :Financial Report Group.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Financial Report Group_financialLayoutGroup'}
 :Financial Report Group.Subtotal/Summarize_QGroupBox	{name='_subSummGroup' title='Subtotal/Summarize' type='QGroupBox' visible='1' window=':Financial Report Group_financialLayoutGroup'}
 :Financial Report Group_financialLayoutGroup	{name='financialLayoutGroup' type='financialLayoutGroup' visible='1' windowTitle='Financial Report Group'}
+:Financial Report Item.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Financial Report Item_financialLayoutItem'}
+:Financial Report Item.qt_tabwidget_stackedwidget_QStackedWidget	{name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1' window=':Financial Report Item_financialLayoutItem'}
+:Financial Report Item.qt_tabwidget_tabbar_QTabBar	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1' window=':Financial Report Item_financialLayoutItem'}
+:Financial Report Item_financialLayoutItem	{name='financialLayoutItem' type='financialLayoutItem' visible='1' windowTitle='Financial Report Item'}
+:Financial Report.Active_QCheckBox	{name='_active' text='Active' type='QCheckBox' visible='1' window=':Financial Report_financialLayout'}
+:Financial Report.Description:_QLabel	{name='_descripLit' text='Description:' type='QLabel' visible='1' window=':Financial Report_financialLayout'}
+:Financial Report.Name:_QLabel	{name='_nameLit' text='Name:' type='QLabel' visible='1' window=':Financial Report_financialLayout'}
+:Financial Report.Report Type_QGroupBox	{name='_reportType' title='Report Type' type='QGroupBox' visible='1' window=':Financial Report_financialLayout'}
 :Financial Report.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Financial Report_financialLayout'}
 :Financial Report.qt_tabwidget_stackedwidget_QStackedWidget	{name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1' window=':Financial Report_financialLayout'}
 :Financial Report.qt_tabwidget_tabbar_QTabBar	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1' window=':Financial Report_financialLayout'}
@@ -723,6 +736,7 @@
 :List Expense Categories_expenseCategories	{name='expenseCategories' type='expenseCategories' visible='1' windowTitle='List Expense Categories'}
 :List Financial Reports.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Financial Reports_financialLayouts'}
 :List Financial Reports.Copy_QPushButton	{name='_copy' text='Copy' type='QPushButton' visible='1' window=':List Financial Reports_financialLayouts'}
+:List Financial Reports.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Financial Reports_financialLayouts'}
 :List Financial Reports._flhead_XTreeWidget	{name='_flhead' type='XTreeWidget' visible='1' window=':List Financial Reports_financialLayouts'}
 :List Financial Reports_financialLayouts	{name='financialLayouts' type='financialLayouts' visible='1' windowTitle='List Financial Reports'}
 :List Fiscal Years.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Fiscal Years_accountingYearPeriods'}
@@ -1138,7 +1152,9 @@
 :Multiple Sites.Transfer Order # Generation:_QLabel	{container=':_inventory.Multiple Sites_QGroupBox' name='_toNumGenerationLit' text='Transfer Order # Generation:' type='QLabel' visible='1'}
 :New Calendar Type?_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='New Calendar Type?'}
 :Operation.Add to Group Total_QRadioButton	{container=':Financial Report Group.Operation_QGroupBox' name='_add' text='Add to Group Total' type='QRadioButton' visible='1'}
+:Operation.Add to Group Total_QRadioButton_2	{container=':_selection.Operation_QGroupBox' name='_add' text='Add to Group Total' type='QRadioButton' visible='1'}
 :Operation.Subtract from Group Total_QRadioButton	{container=':Financial Report Group.Operation_QGroupBox' name='_subtract' text='Subtract from Group Total' type='QRadioButton' visible='1'}
+:Operation.Subtract from Group Total_QRadioButton_2	{container=':_selection.Operation_QGroupBox' name='_subtract' text='Subtract from Group Total' type='QRadioButton' visible='1'}
 :Overhead._numOfMachines_QSpinBox	{container=':_costsTab.Overhead_QGroupBox' name='_numOfMachines' type='QSpinBox' visible='1'}
 :Overhead._numOfMachines_QSpinBox_2	{container=':_costsTab.Overhead_QGroupBox_2' name='_numOfMachines' type='QSpinBox' visible='1'}
 :Overhead._numOfPeople_QSpinBox	{container=':_costsTab.Overhead_QGroupBox' name='_numOfPeople' type='QSpinBox' visible='1'}
@@ -1245,6 +1261,7 @@
 :Remit-To Address.Street\nAddress:_XLineEdit_3	{container=':_ar.Remit-To Address_QGroupBox' leftWidget=':Remit-To Address.Street\nAddress:_QLabel' occurrence='3' type='XLineEdit' unnamed='1' visible='1'}
 :Remit-To Address._name_XLineEdit	{container=':_ar.Remit-To Address_QGroupBox' name='_name' type='XLineEdit' visible='1'}
 :Remit-To Address._phone_XLineEdit	{container=':_ar.Remit-To Address_QGroupBox' name='_phone' type='XLineEdit' visible='1'}
+:Report Type.Ad Hoc_QRadioButton	{container=':Financial Report.Report Type_QGroupBox' name='_adHoc' text='Ad Hoc' type='QRadioButton' visible='1'}
 :Report is Invalid.OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':Report is Invalid_QMessageBox'}
 :Report is Invalid.qt_msgbox_buttonbox_QDialogButtonBox	{name='qt_msgbox_buttonbox' type='QDialogButtonBox' visible='1' window=':Report is Invalid_QMessageBox'}
 :Report is Invalid_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Report is Invalid'}
@@ -1304,6 +1321,8 @@
 :Search For Customer.Select_QPushButton	{name='_select' text='Select' type='QPushButton' visible='1' window=':Search For Customer_CRMAcctList'}
 :Search For Customer._titleLit_QLabel	{name='_titleLit' type='QLabel' visible='1' window=':Search For Customer_CRMAcctList'}
 :Search For Customer_CRMAcctList	{name='CRMAcctList' type='CRMAcctList' visible='1' windowTitle='Search For Customer'}
+:Select Multiple Accounts by Segment._subType_XComboBox	{container=':_selection.Select Multiple Accounts by Segment_QGroupBox' name='_subType' type='XComboBox' visible='1'}
+:Select Multiple Accounts by Segment._type_XComboBox	{container=':_selection.Select Multiple Accounts by Segment_QGroupBox' name='_type' type='XComboBox' visible='1'}
 :Settings.Allow Free-Form Bill-To_QCheckBox	{container=':general.Settings_QGroupBox' name='_allowFFBillto' text='Allow Free-Form Bill-To' type='QCheckBox' visible='1'}
 :Settings._sellingWarehouse_WComboBox	{container=':general.Settings_QGroupBox' name='_sellingWarehouse' type='WComboBox' visible='1'}
 :Setup Labor Rate.Select Standard Rate:_QRadioButton	{container=':_costsTab.Setup Labor Rate_QGroupBox' name='_setupUseSelectedRate' text='Select Standard Rate:' type='QRadioButton' visible='1'}
@@ -1358,6 +1377,12 @@
 :Shipping Zone.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Shipping Zone_shippingZone'}
 :Shipping Zone_shippingZone	{name='shippingZone' type='shippingZone' visible='1' windowTitle='Shipping Zone'}
 :Shop Floor Workbench Posts:.Operations_QRadioButton	{container=':Manufacture Configuration.Shop Floor Workbench Posts:_QGroupBox' name='_operations' text='Operations' type='QRadioButton' visible='1'}
+:Show Grand Total.Show Beginning_QCheckBox	{container=':_options.Show Grand Total_QGroupBox' name='_showStart' text='Show Beginning' type='QCheckBox' visible='1'}
+:Show Grand Total.Show Budget_QCheckBox	{container=':_options.Show Grand Total_QGroupBox' name='_showBudget' text='Show Budget' type='QCheckBox' visible='1'}
+:Show Grand Total.Show Custom_QCheckBox	{container=':_options.Show Grand Total_QGroupBox' name='_showCustom' text='Show Custom' type='QCheckBox' visible='1'}
+:Show Grand Total.Show Debits/Credits_QCheckBox	{container=':_options.Show Grand Total_QGroupBox' name='_showDelta' text='Show Debits/Credits' type='QCheckBox' visible='1'}
+:Show Grand Total.Show Difference_QCheckBox	{container=':_options.Show Grand Total_QGroupBox' name='_showDiff' text='Show Difference' type='QCheckBox' visible='1'}
+:Show Grand Total.Show Ending_QCheckBox	{container=':_options.Show Grand Total_QGroupBox' name='_showEnd' text='Show Ending' type='QCheckBox' visible='1'}
 :Site Calendar Exception.Description:_QLabel	{name='_descriptionLit' text='Description:' type='QLabel' visible='1' window=':Site Calendar Exception_whseCalendar'}
 :Site Calendar Exception.Exception Type_QGroupBox	{name='_activeGroup' title='Exception Type' type='QGroupBox' visible='1' window=':Site Calendar Exception_whseCalendar'}
 :Site Calendar Exception.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Site Calendar Exception_whseCalendar'}
@@ -1438,6 +1463,17 @@
 :Standard Operation_standardOperation	{name='standardOperation' type='standardOperation' visible='1' windowTitle='Standard Operation'}
 :Subtotal/Summarize.Alt. Subtotal Label:_QLabel	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_altSubtotalLabelLit' text='Alt. Subtotal Label:' type='QLabel' visible='1'}
 :Subtotal/Summarize.Show % of Group Total_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
+:Subtotal/Summarize.Show % of Group Total_QCheckBox_2	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showStartPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
+:Subtotal/Summarize.Show % of Group Total_QCheckBox_3	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showEndPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
+:Subtotal/Summarize.Show % of Group Total_QCheckBox_4	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showBudgetPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
+:Subtotal/Summarize.Show % of Group Total_QCheckBox_5	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showDiffPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
+:Subtotal/Summarize.Show % of Group Total_QCheckBox_6	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showCustomPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
+:Subtotal/Summarize.Show Beginning Balance_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showStart' text='Show Beginning Balance' type='QCheckBox' visible='1'}
+:Subtotal/Summarize.Show Budget_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showBudget' text='Show Budget' type='QCheckBox' visible='1'}
+:Subtotal/Summarize.Show Custom Column_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showCustom' text='Show Custom Column' type='QCheckBox' visible='1'}
+:Subtotal/Summarize.Show Debits/Credits_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showDelta' text='Show Debits/Credits' type='QCheckBox' visible='1'}
+:Subtotal/Summarize.Show Difference_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showDiff' text='Show Difference' type='QCheckBox' visible='1'}
+:Subtotal/Summarize.Show Ending Balance_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showEnd' text='Show Ending Balance' type='QCheckBox' visible='1'}
 :Subtotal/Summarize.Show Subtotal_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showSubtotal' text='Show Subtotal' type='QCheckBox' visible='1'}
 :Subtotal/Summarize.Use Alt. Label_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_altSubtotal' text='Use Alt. Label' type='QCheckBox' visible='1'}
 :Subtotal/Summarize.Use Group_QLabel	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_groupLit' text='Use Group' type='QLabel' visible='1'}
@@ -1682,6 +1718,7 @@
 :_creditGroup_XLineEdit	{container=':credit._creditGroup_QGroupBox' type='XLineEdit' unnamed='1' visible='1'}
 :_currencyScale_QSpinBox	{buddy=':List Locales.Currency:_QLabel' name='_currencyScale' type='QSpinBox' visible='1'}
 :_currency_XComboBox	{buddy=':_bankGroup.Currency:_QLabel' name='_currency' type='XComboBox' visible='1'}
+:_customText_QLineEdit	{buddy=':Alternate Labels.Alternate Custom Label:_QLabel' name='_customText' type='QLineEdit' visible='1'}
 :_customerGroup.Selected Customer Type:_QRadioButton	{container=':Pricing Schedule Assignment._customerGroup_QGroupBox' name='_selectedCustomerType' text='Selected Customer Type:' type='QRadioButton' visible='1'}
 :_customerTypeGroup.Selected Customer Type:_QRadioButton	{container=':A/R Account Assignment._customerTypeGroup_QGroupBox' name='_selectedCustomerType' text='Selected Customer Type:' type='QRadioButton' visible='1'}
 :_customerTypeGroup.Selected Customer Type:_QRadioButton_2	{container=':Customer Form Assignment._customerTypeGroup_QGroupBox' name='_selectedCustomerType' text='Selected Customer Type:' type='QRadioButton' visible='1'}
@@ -1696,6 +1733,7 @@
 :_defaultShipVia_XLineEdit	{buddy=':Vendor Defaults.Ship Via:_QLabel' name='_defaultShipVia' type='XLineEdit' visible='1'}
 :_defaultTransWhs_WComboBox	{buddy=':Multiple Sites.Default Transit Site:_QLabel' name='_defaultTransWhs' type='WComboBox' visible='1'}
 :_descrip_QLineEdit	{buddy=':Production Plan.Description:_QLabel' name='_descrip' type='QLineEdit' visible='1'}
+:_descrip_XLineEdit	{buddy=':Financial Report.Description:_QLabel' name='_descrip' type='XLineEdit' visible='1'}
 :_descrip_XTextEdit	{buddy=':List Companies.Description:_QLabel' name='_descrip' type='XTextEdit' visible='1'}
 :_description1_XLineEdit	{buddy=':Item.Description:_QLabel' name='_description1' type='XLineEdit' visible='1'}
 :_description1_XLineEdit_10	{buddy=':Item.Description:_QLabel_10' name='_description1' type='XLineEdit' visible='1'}
@@ -1971,6 +2009,7 @@
 :_name_XLineEdit_19	{buddy=':Adjustment Type.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_2	{buddy=':List Sites.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_20	{buddy=':Financial Report Group.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
+:_name_XLineEdit_21	{buddy=':Financial Report.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_3	{buddy=':List Units of Measure.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_4	{buddy=':List Characteristics.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_5	{buddy=':Unit of Measure.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
@@ -1993,7 +2032,10 @@
 :_number_XLineEdit_5	{buddy=':Sales Representative.Number:_QLabel' name='_number' type='XLineEdit' visible='1'}
 :_operGroup.Standard Oper.:_QLabel	{container=':Bill of Operations Item._operGroup_QGroupBox' name='_standardOperLit' text='Standard Oper.:' type='QLabel' visible='1'}
 :_options.Alternate Labels_QGroupBox	{container=':qt_tabwidget_stackedwidget._options_QWidget' name='_altLabels' title='Alternate Labels' type='QGroupBox' visible='1'}
+:_options.Show % of Group Total_QCheckBox	{container=':qt_tabwidget_stackedwidget._options_QWidget_2' name='_showPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
 :_options.Show Grand Total_QCheckBox	{container=':qt_tabwidget_stackedwidget._options_QWidget' name='_showGrandTotal' text='Show Grand Total' type='QCheckBox' visible='1'}
+:_options.Show Grand Total_QGroupBox	{container=':qt_tabwidget_stackedwidget._options_QWidget' name='_showTotal' title='Show Grand Total' type='QGroupBox' visible='1'}
+:_options._group_XComboBox	{container=':qt_tabwidget_stackedwidget._options_QWidget_2' name='_group' type='XComboBox' visible='1'}
 :_optionsGroup.Auto. Issue Components at this Operation_QCheckBox	{container=':general._optionsGroup_QGroupBox' name='_issueComp' text='Auto. Issue Components at this Operation' type='QCheckBox' visible='1'}
 :_optionsGroup.Receive Inventory at this Operation_QCheckBox	{container=':general._optionsGroup_QGroupBox' name='_receiveStock' text='Receive Inventory at this Operation' type='QCheckBox' visible='1'}
 :_orderMultiple_XLineEdit	{buddy=':Enforce Order Parameters.Order Multiple:_QLabel' name='_orderMultiple' type='XLineEdit' visible='1'}
@@ -2070,6 +2112,8 @@
 :_schedulingTab.Department_QGroupBox	{container=':qt_tabwidget_stackedwidget._schedulingTab_QWidget' name='_departmentGroup' title='Department' type='QGroupBox' visible='1'}
 :_schedulingTab.Department_QGroupBox_2	{container=':qt_tabwidget_stackedwidget._schedulingTab_QWidget_2' name='_departmentGroup' title='Department' type='QGroupBox' visible='1'}
 :_scrap_XLineEdit	{buddy=':Bill of Materials Item.Scrap %:_QLabel' name='_scrap' type='XLineEdit' visible='1'}
+:_selection.Operation_QGroupBox	{container=':qt_tabwidget_stackedwidget._selection_QWidget' name='_operationGroup' title='Operation' type='QGroupBox' visible='1'}
+:_selection.Select Multiple Accounts by Segment_QGroupBox	{container=':qt_tabwidget_stackedwidget._selection_QWidget' name='_selectSegment' title='Select Multiple Accounts by Segment' type='QGroupBox' visible='1'}
 :_server_QLineEdit	{buddy=':Login Options.Server:_QLabel' name='_server' type='QLineEdit' visible='1'}
 :_settingsGroup.Check for matching Voucher and Purchase Order amounts_QCheckBox	{container=':generalTab._settingsGroup_QGroupBox' name='_match' text='Check for matching Voucher and Purchase Order amounts' type='QCheckBox' visible='1'}
 :_settingsGroup.May only Sell Items defined by an Item Source_QCheckBox	{container=':generalTab._settingsGroup_QGroupBox' name='_restrictToItemSource' text='May only Sell Items defined by an Item Source' type='QCheckBox' visible='1'}
@@ -2179,6 +2223,7 @@
 :ediTab._transmitStack_QStackedWidget	{container=':qt_tabwidget_stackedwidget.ediTab_QWidget' name='_transmitStack' type='QStackedWidget' visible='1'}
 :ediTab.qt_tabwidget_stackedwidget_QStackedWidget	{container=':qt_tabwidget_stackedwidget.ediTab_QWidget' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
 :frame.%_QLabel	{container=':Tax Code.frame_QFrame' name='_percentALit' text='%' type='QLabel' visible='1'}
+:frame.Add Account_QPushButton	{container=':_rowLayout.frame_QFrame' name='_addAccount' text='Add Account' type='QPushButton' visible='1'}
 :frame.Add All->>_QPushButton	{container=':List Groups.frame_QFrame' name='_addAll' text='Add All->>' type='QPushButton' visible='1'}
 :frame.Add Group_QPushButton	{container=':_rowLayout.frame_QFrame' name='_addGroup' text='Add Group' type='QPushButton' visible='1'}
 :frame.Add Top Level Group_QPushButton	{container=':_rowLayout.frame_QFrame' name='_addTopLevelGroup' text='Add Top Level Group' type='QPushButton' visible='1'}
@@ -2236,6 +2281,7 @@
 :qt_tabwidget_stackedwidget._notesTab_QWidget	{container=':Work Center.qt_tabwidget_stackedwidget_QStackedWidget' name='_notesTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._notesTab_QWidget_2	{container=':Work Center.qt_tabwidget_stackedwidget_QStackedWidget_2' name='_notesTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._options_QWidget	{container=':Financial Report.qt_tabwidget_stackedwidget_QStackedWidget' name='_options' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget._options_QWidget_2	{container=':Financial Report Item.qt_tabwidget_stackedwidget_QStackedWidget' name='_options' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._planningTab_QWidget	{container=':List Item Sites.qt_tabwidget_stackedwidget_QStackedWidget' name='_planningTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._planningTab_QWidget_2	{container=':List Item Sites.qt_tabwidget_stackedwidget_QStackedWidget_2' name='_planningTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._planningTab_QWidget_3	{container=':Item Site.qt_tabwidget_stackedwidget_QStackedWidget' name='_planningTab' type='QWidget' visible='1'}
@@ -2246,6 +2292,7 @@
 :qt_tabwidget_stackedwidget._rowLayout_QWidget	{container=':Financial Report.qt_tabwidget_stackedwidget_QStackedWidget' name='_rowLayout' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._schedulingTab_QWidget	{container=':Work Center.qt_tabwidget_stackedwidget_QStackedWidget' name='_schedulingTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._schedulingTab_QWidget_2	{container=':Work Center.qt_tabwidget_stackedwidget_QStackedWidget_2' name='_schedulingTab' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget._selection_QWidget	{container=':Financial Report Item.qt_tabwidget_stackedwidget_QStackedWidget' name='_selection' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._transmitTab_QWidget	{container=':Customer.qt_tabwidget_stackedwidget_QStackedWidget' name='_transmitTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._zonesTab_QWidget	{container=':List Sites.qt_tabwidget_stackedwidget_QStackedWidget' name='_zonesTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.addressTab_QWidget	{container=':Vendor.qt_tabwidget_stackedwidget_QStackedWidget' name='addressTab' type='QWidget' visible='1'}
