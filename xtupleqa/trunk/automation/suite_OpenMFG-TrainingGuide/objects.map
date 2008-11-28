@@ -1009,6 +1009,9 @@
 :List Subaccounts._descrip_QTextEdit	{container=':xTuple ERP: OpenMFG Edition.List Subaccounts_QWorkspaceChild' name='_descrip' type='QTextEdit' visible='1'}
 :List Subaccounts._number_XLineEdit	{container=':xTuple ERP: OpenMFG Edition.List Subaccounts_QWorkspaceChild' name='_number' type='XLineEdit' visible='1'}
 :List Subaccounts._subaccnt_XTreeWidget	{container=':xTuple ERP: OpenMFG Edition.List Subaccounts_QWorkspaceChild' name='_subaccnt' type='XTreeWidget' visible='1'}
+:List Tax Authorities.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Tax Authorities_taxAuthorities'}
+:List Tax Authorities.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Tax Authorities_taxAuthorities'}
+:List Tax Authorities_taxAuthorities	{name='taxAuthorities' type='taxAuthorities' visible='1' windowTitle='List Tax Authorities'}
 :List Tax Codes.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Tax Codes_taxCodes'}
 :List Tax Codes.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Tax Codes_taxCodes'}
 :List Tax Codes_taxCodes	{name='taxCodes' type='taxCodes' visible='1' windowTitle='List Tax Codes'}
@@ -1323,6 +1326,7 @@
 :Search For Customer_CRMAcctList	{name='CRMAcctList' type='CRMAcctList' visible='1' windowTitle='Search For Customer'}
 :Select Multiple Accounts by Segment._subType_XComboBox	{container=':_selection.Select Multiple Accounts by Segment_QGroupBox' name='_subType' type='XComboBox' visible='1'}
 :Select Multiple Accounts by Segment._type_XComboBox	{container=':_selection.Select Multiple Accounts by Segment_QGroupBox' name='_type' type='XComboBox' visible='1'}
+:Select one Account._main_XLineEdit	{container=':_selection.Select one Account_QGroupBox' name='_main' type='XLineEdit' visible='1'}
 :Settings.Allow Free-Form Bill-To_QCheckBox	{container=':general.Settings_QGroupBox' name='_allowFFBillto' text='Allow Free-Form Bill-To' type='QCheckBox' visible='1'}
 :Settings._sellingWarehouse_WComboBox	{container=':general.Settings_QGroupBox' name='_sellingWarehouse' type='WComboBox' visible='1'}
 :Setup Labor Rate.Select Standard Rate:_QRadioButton	{container=':_costsTab.Setup Labor Rate_QGroupBox' name='_setupUseSelectedRate' text='Select Standard Rate:' type='QRadioButton' visible='1'}
@@ -1377,6 +1381,15 @@
 :Shipping Zone.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Shipping Zone_shippingZone'}
 :Shipping Zone_shippingZone	{name='shippingZone' type='shippingZone' visible='1' windowTitle='Shipping Zone'}
 :Shop Floor Workbench Posts:.Operations_QRadioButton	{container=':Manufacture Configuration.Shop Floor Workbench Posts:_QGroupBox' name='_operations' text='Operations' type='QRadioButton' visible='1'}
+:Show Columns.Show % of Group Total_QCheckBox	{container=':_options.Show Columns_QGroupBox' name='_showEndingPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
+:Show Columns.Show % of Group Total_QCheckBox_2	{container=':_options.Show Columns_QGroupBox' name='_showBudgetPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
+:Show Columns.Show % of Group Total_QCheckBox_3	{container=':_options.Show Columns_QGroupBox' name='_showDiffPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
+:Show Columns.Show % of Group Total_QCheckBox_4	{container=':_options.Show Columns_QGroupBox' name='_showDBPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
+:Show Columns.Show Beginning Balance_QCheckBox	{container=':_options.Show Columns_QGroupBox' name='_showBeginning' text='Show Beginning Balance' type='QCheckBox' visible='1'}
+:Show Columns.Show Debits/Credits_QCheckBox	{container=':_options.Show Columns_QGroupBox' name='_showDB' text='Show Debits/Credits' type='QCheckBox' visible='1'}
+:Show Columns.Show Difference_QCheckBox	{container=':_options.Show Columns_QGroupBox' name='_showDiff' text='Show Difference' type='QCheckBox' visible='1'}
+:Show Custom Column.Show % of Group Total_QCheckBox	{container=':_options.Show Custom Column_QGroupBox' name='_showCustomPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
+:Show Custom Column.Use Difference_QRadioButton	{container=':_options.Show Custom Column_QGroupBox' name='_customUseDiff' text='Use Difference' type='QRadioButton' visible='1'}
 :Show Grand Total.Show Beginning_QCheckBox	{container=':_options.Show Grand Total_QGroupBox' name='_showStart' text='Show Beginning' type='QCheckBox' visible='1'}
 :Show Grand Total.Show Budget_QCheckBox	{container=':_options.Show Grand Total_QGroupBox' name='_showBudget' text='Show Budget' type='QCheckBox' visible='1'}
 :Show Grand Total.Show Custom_QCheckBox	{container=':_options.Show Grand Total_QGroupBox' name='_showCustom' text='Show Custom' type='QCheckBox' visible='1'}
@@ -1475,6 +1488,7 @@
 :Subtotal/Summarize.Show Difference_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showDiff' text='Show Difference' type='QCheckBox' visible='1'}
 :Subtotal/Summarize.Show Ending Balance_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showEnd' text='Show Ending Balance' type='QCheckBox' visible='1'}
 :Subtotal/Summarize.Show Subtotal_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_showSubtotal' text='Show Subtotal' type='QCheckBox' visible='1'}
+:Subtotal/Summarize.Summarized_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_summarize' text='Summarized' type='QCheckBox' visible='1'}
 :Subtotal/Summarize.Use Alt. Label_QCheckBox	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_altSubtotal' text='Use Alt. Label' type='QCheckBox' visible='1'}
 :Subtotal/Summarize.Use Group_QLabel	{container=':Financial Report Group.Subtotal/Summarize_QGroupBox' name='_groupLit' text='Use Group' type='QLabel' visible='1'}
 :Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox	{container=':List Item Sites.Supplied at this Site_QGroupBox' name='_createWo' text='Create W/Os to Meet Sales Demand' type='QCheckBox' visible='1'}
@@ -1485,6 +1499,25 @@
 :System Message (vendor.cpp at 612).OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':System Message (vendor.cpp at 612)_QMessageBox'}
 :System Message (vendor.cpp at 612)_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='System Message (vendor.cpp at 612)'}
 :Target Report:_QLineEdit	{buddy=':Copy Financial Report.Target Report:_QLabel' type='QLineEdit' unnamed='1' visible='1'}
+:Tax Authority.City:_QLabel	{text='City:' type='QLabel' unnamed='1' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.City:_XLineEdit	{leftWidget=':Tax Authority.City:_QLabel' type='XLineEdit' unnamed='1' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.Code:_QLabel	{name='_codeLit' text='Code:' type='QLabel' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.Country:_QLabel	{text='Country:' type='QLabel' unnamed='1' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.Country:_XComboBox	{leftWidget=':Tax Authority.Country:_QLabel' type='XComboBox' unnamed='1' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.Currency:_QLabel	{name='_currencyLit' text='Currency:' type='QLabel' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.Ext. Ref.:_QLabel	{name='_extrefLit' text='Ext. Ref.:' type='QLabel' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.Name:_QLabel	{name='_nameLit' text='Name:' type='QLabel' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.Postal Code:_QLabel	{text='Postal Code:' type='QLabel' unnamed='1' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.Postal Code:_XLineEdit	{leftWidget=':Tax Authority.Postal Code:_QLabel' type='XLineEdit' unnamed='1' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.State:_QLabel	{text='State:' type='QLabel' unnamed='1' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.State:_XComboBox	{leftWidget=':Tax Authority.State:_QLabel' type='XComboBox' unnamed='1' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.Street\nAddress:_QLabel	{text='Street\nAddress:' type='QLabel' unnamed='1' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.Street\nAddress:_XLineEdit	{leftWidget=':Tax Authority.Street\nAddress:_QLabel' type='XLineEdit' unnamed='1' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.Street\nAddress:_XLineEdit_2	{leftWidget=':Tax Authority.Street\nAddress:_QLabel' occurrence='2' type='XLineEdit' unnamed='1' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority.Street\nAddress:_XLineEdit_3	{leftWidget=':Tax Authority.Street\nAddress:_QLabel' occurrence='3' type='XLineEdit' unnamed='1' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority._county_QLineEdit	{name='_county' type='QLineEdit' visible='1' window=':Tax Authority_taxAuthority'}
+:Tax Authority_taxAuthority	{name='taxAuthority' type='taxAuthority' visible='1' windowTitle='Tax Authority'}
 :Tax Code.Code:_QLabel	{name='_codeLit' text='Code:' type='QLabel' visible='1' window=':Tax Code_taxCode'}
 :Tax Code.Description:_QLabel	{name='_descriptionLit' text='Description:' type='QLabel' visible='1' window=':Tax Code_taxCode'}
 :Tax Code.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Tax Code_taxCode'}
@@ -1659,6 +1692,7 @@
 :_code_XLineEdit_12	{buddy=':Tax Code.Code:_QLabel' name='_code' type='XLineEdit' visible='1'}
 :_code_XLineEdit_13	{buddy=':Reason Code.Code:_QLabel' name='_code' type='XLineEdit' visible='1'}
 :_code_XLineEdit_14	{buddy=':Site.Code:_QLabel' name='_code' type='XLineEdit' visible='1'}
+:_code_XLineEdit_15	{buddy=':Tax Authority.Code:_QLabel' name='_code' type='XLineEdit' visible='1'}
 :_code_XLineEdit_2	{buddy=':List Titles.Title:_QLabel' name='_code' type='XLineEdit' visible='1'}
 :_code_XLineEdit_3	{buddy=':List Sites.Code:_QLabel' name='_code' type='XLineEdit' visible='1'}
 :_code_XLineEdit_4	{buddy=':List Planner Codes.Code:_QLabel' name='_code' type='XLineEdit' visible='1'}
@@ -1718,6 +1752,7 @@
 :_creditGroup_XLineEdit	{container=':credit._creditGroup_QGroupBox' type='XLineEdit' unnamed='1' visible='1'}
 :_currencyScale_QSpinBox	{buddy=':List Locales.Currency:_QLabel' name='_currencyScale' type='QSpinBox' visible='1'}
 :_currency_XComboBox	{buddy=':_bankGroup.Currency:_QLabel' name='_currency' type='XComboBox' visible='1'}
+:_currency_XComboBox_2	{buddy=':Tax Authority.Currency:_QLabel' name='_currency' type='XComboBox' visible='1'}
 :_customText_QLineEdit	{buddy=':Alternate Labels.Alternate Custom Label:_QLabel' name='_customText' type='QLineEdit' visible='1'}
 :_customerGroup.Selected Customer Type:_QRadioButton	{container=':Pricing Schedule Assignment._customerGroup_QGroupBox' name='_selectedCustomerType' text='Selected Customer Type:' type='QRadioButton' visible='1'}
 :_customerTypeGroup.Selected Customer Type:_QRadioButton	{container=':A/R Account Assignment._customerTypeGroup_QGroupBox' name='_selectedCustomerType' text='Selected Customer Type:' type='QRadioButton' visible='1'}
@@ -1808,6 +1843,7 @@
 :_extPriceScale_QSpinBox	{buddy=':List Locales.Ext. Price:_QLabel' name='_extPriceScale' type='QSpinBox' visible='1'}
 :_extReference_XLineEdit	{buddy=':Chart of Accounts.Ext. Reference:_QLabel' name='_extReference' type='XLineEdit' visible='1'}
 :_extReference_XLineEdit_2	{buddy=':Account Number.Ext. Reference:_QLabel' name='_extReference' type='XLineEdit' visible='1'}
+:_extref_XLineEdit	{buddy=':Tax Authority.Ext. Ref.:_QLabel' name='_extref' type='XLineEdit' visible='1'}
 :_flhead_QHeaderView	{container=':List Financial Reports._flhead_XTreeWidget' type='QHeaderView' unnamed='1' visible='1'}
 :_frame.New_QPushButton	{container=':List Item Sources._frame_QFrame' name='_new' text='New' type='QPushButton' visible='1'}
 :_frame.Password:_QLabel	{container=':Log In._frame_QFrame' name='_passwordLit' text='Password:' type='QLabel' visible='1'}
@@ -2010,6 +2046,7 @@
 :_name_XLineEdit_2	{buddy=':List Sites.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_20	{buddy=':Financial Report Group.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_21	{buddy=':Financial Report.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
+:_name_XLineEdit_22	{buddy=':Tax Authority.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_3	{buddy=':List Units of Measure.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_4	{buddy=':List Characteristics.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_5	{buddy=':Unit of Measure.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
@@ -2033,6 +2070,8 @@
 :_operGroup.Standard Oper.:_QLabel	{container=':Bill of Operations Item._operGroup_QGroupBox' name='_standardOperLit' text='Standard Oper.:' type='QLabel' visible='1'}
 :_options.Alternate Labels_QGroupBox	{container=':qt_tabwidget_stackedwidget._options_QWidget' name='_altLabels' title='Alternate Labels' type='QGroupBox' visible='1'}
 :_options.Show % of Group Total_QCheckBox	{container=':qt_tabwidget_stackedwidget._options_QWidget_2' name='_showPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
+:_options.Show Columns_QGroupBox	{container=':qt_tabwidget_stackedwidget._options_QWidget_2' name='_showColumns' title='Show Columns' type='QGroupBox' visible='1'}
+:_options.Show Custom Column_QGroupBox	{container=':qt_tabwidget_stackedwidget._options_QWidget_2' name='_showCustom' title='Show Custom Column' type='QGroupBox' visible='1'}
 :_options.Show Grand Total_QCheckBox	{container=':qt_tabwidget_stackedwidget._options_QWidget' name='_showGrandTotal' text='Show Grand Total' type='QCheckBox' visible='1'}
 :_options.Show Grand Total_QGroupBox	{container=':qt_tabwidget_stackedwidget._options_QWidget' name='_showTotal' title='Show Grand Total' type='QGroupBox' visible='1'}
 :_options._group_XComboBox	{container=':qt_tabwidget_stackedwidget._options_QWidget_2' name='_group' type='XComboBox' visible='1'}
@@ -2114,6 +2153,7 @@
 :_scrap_XLineEdit	{buddy=':Bill of Materials Item.Scrap %:_QLabel' name='_scrap' type='XLineEdit' visible='1'}
 :_selection.Operation_QGroupBox	{container=':qt_tabwidget_stackedwidget._selection_QWidget' name='_operationGroup' title='Operation' type='QGroupBox' visible='1'}
 :_selection.Select Multiple Accounts by Segment_QGroupBox	{container=':qt_tabwidget_stackedwidget._selection_QWidget' name='_selectSegment' title='Select Multiple Accounts by Segment' type='QGroupBox' visible='1'}
+:_selection.Select one Account_QGroupBox	{container=':qt_tabwidget_stackedwidget._selection_QWidget' name='_selectAccount' title='Select one Account' type='QGroupBox' visible='1'}
 :_server_QLineEdit	{buddy=':Login Options.Server:_QLabel' name='_server' type='QLineEdit' visible='1'}
 :_settingsGroup.Check for matching Voucher and Purchase Order amounts_QCheckBox	{container=':generalTab._settingsGroup_QGroupBox' name='_match' text='Check for matching Voucher and Purchase Order amounts' type='QCheckBox' visible='1'}
 :_settingsGroup.May only Sell Items defined by an Item Source_QCheckBox	{container=':generalTab._settingsGroup_QGroupBox' name='_restrictToItemSource' text='May only Sell Items defined by an Item Source' type='QCheckBox' visible='1'}
@@ -2396,6 +2436,7 @@
 :xTuple ERP: OpenMFG Edition.Site Work Week_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='Site Work Week'}
 :xTuple ERP: OpenMFG Edition.Site_QMenu	{name='menu.im.warehouse' title='Site' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.System_QMenu	{name='menu.sys' title='System' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient'}
+:xTuple ERP: OpenMFG Edition.Tax_QMenu	{name='menu.accnt.tax' title='Tax' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.Update Actual Costs_QMenu	{name='menu.prod.costingupdact' title='Update Actual Costs' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.Vendor_QMenu	{name='menu.purch.vendor' title='Vendor' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: OpenMFG Edition.Work Center_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='Work Center'}
