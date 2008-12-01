@@ -111,7 +111,7 @@ DECLARE
 BEGIN
 
   SELECT createBOMItem( pBomitemid, pParentItemid, pComponentItemid,
-                        _seqNumber, pIssueMethod,
+                        pSeqNumber, pIssueMethod,
                         pUomId, pQtyPer, pScrap,
                         pEffective, pExpires,
                         pCreateWo, pBOOItemseqid, pSchedAtWooper, pECN, pSubType, pRevisionid, pCharId, pCharVal, NULL, NULL ) INTO _bomitemid;

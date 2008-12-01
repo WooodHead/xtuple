@@ -6,6 +6,7 @@ BEGIN;
   CREATE OR REPLACE VIEW api.bomitem AS
 
   SELECT
+    bomitem_id AS id,
     p.item_number::varchar AS bom_item_number,
     bomhead_revision::varchar AS bom_revision,
     bomitem_seqnumber AS sequence_number,
@@ -37,6 +38,8 @@ BEGIN;
     formatBooSeq(p.item_id,bomitem_booitem_seq_id) AS used_at,
     bomitem_schedatwooper AS schedule_at_wo_operation,
     bomitem_ecn AS ecn_number,
+    bomitem_notes AS notes,
+    bomitem_ref AS reference,
     CASE
       WHEN bomitem_subtype = 'N' THEN
         'No'
@@ -55,7 +58,8 @@ BEGIN;
     item p, item i, uom
   WHERE ((bomitem_parent_item_id=p.item_id)
   AND (bomitem_item_id=i.item_id)
-  AND (bomitem_uom_id=uom_id));
+  AND (bomitem_uom_id=uom_id))
+  ORDER BY p.item_number,bomitem_seqnumber;
 
 GRANT ALL ON TABLE api.bomitem TO openmfg;
 COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
@@ -65,7 +69,7 @@ COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
   CREATE OR REPLACE RULE "_INSERT" AS
     ON INSERT TO api.bomitem DO INSTEAD
 
-    SELECT createBOMItem( NEXTVAL('bomitem_bomitem_id_seq')::integer, 
+    SELECT createBOMItem( COALESCE(NEW.id, NEXTVAL('bomitem_bomitem_id_seq')::integer), 
                           getItemId(NEW.bom_item_number), 
                           getItemId(NEW.item_number),
                           COALESCE(NEW.sequence_number,(
@@ -104,7 +108,9 @@ COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
                           END,
                           COALESCE(getRevId('BOM',NEW.bom_item_number,NEW.bom_revision)),
                           getCharId(NEW.characteristic,'I'),
-                          NEW.value);
+                          NEW.value,
+                          NEW.notes,
+                          NEW.reference);
  
     CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO api.bomitem DO INSTEAD
@@ -149,11 +155,10 @@ COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
       END,
       bomitem_rev_id=getRevId('BOM',NEW.bom_item_number,NEW.bom_revision),
       bomitem_char_id=getCharId(NEW.characteristic,'I'),
-      bomitem_value=NEW.value
-      WHERE ((bomitem_parent_item_id=getItemId(OLD.bom_item_number))
-      AND (bomitem_rev_id=getRevId('BOM',OLD.bom_item_number,OLD.bom_revision))
-      AND (bomitem_seqnumber=OLD.sequence_number)
-      AND (bomitem_item_id=getItemId(OLD.item_number)));
+      bomitem_value=NEW.value,
+      bomitem_notes=NEW.notes,
+      bomitem_ref=NEW.reference
+      WHERE (bomitem_id = OLD.id);
 
     CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.bomitem DO INSTEAD NOTHING;

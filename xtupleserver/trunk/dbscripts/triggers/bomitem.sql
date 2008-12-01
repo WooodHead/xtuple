@@ -10,17 +10,6 @@ BEGIN
   END IF;
 
   IF (TG_OP IN (''INSERT'',''UPDATE'')) THEN
--- Make sure sequence is unique.  Need to do this going forward here rather than as table
--- constraint because lax enforcement in previous versions could make upgrading a
--- substantial headache for legacy users.
-    IF (SELECT (COUNT(*) != 0) 
-        FROM bomitem(NEW.bomitem_parent_item_id,NEW.bomitem_rev_id)
-        WHERE ((bomitem_id != NEW.bomitem_id)
-        AND (bomitem_item_id = NEW.bomitem_item_id)
-        AND (bomitem_seqnumber=NEW.bomitem_seqnumber))) THEN
-      RAISE EXCEPTION ''BOM Item sequence number must be unique for effectivity range.'';
-    END IF;
-
 -- Check for valid UOM
     IF (SELECT (count(*) != 1)
         FROM

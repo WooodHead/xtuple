@@ -173,6 +173,8 @@ BEGIN
         _row.bomdata_stdextendedcost := _x.stdextendedcost;
         _row.bomdata_char_id := _x.bomwork_char_id;
         _row.bomdata_value := _x.bomwork_value;
+        _row.bomdata_notes := _x.bomwork_notes;
+        _row.bomdata_ref := _x.bomwork_ref;
         RETURN NEXT _row;
     END LOOP;
     
