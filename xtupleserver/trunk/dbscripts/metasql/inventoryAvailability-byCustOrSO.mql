@@ -52,9 +52,9 @@ SELECT id, altid, cohead_id,
        END AS duedate_qtforegroundrole,
 <? if exists("useReservationNetting") ?>
        CASE WHEN (coitem_qtyreserved > 0
-              AND sobalance > coitem_qtyreserved) THEN 'emphasis'" // partial res
+              AND sobalance > coitem_qtyreserved) THEN 'emphasis'
             WHEN ((sobalance <> 0)
-              AND ((sobalance - coitem_qtyreserved) = 0)) THEN 'altemphasis'" // full res
+              AND ((sobalance - coitem_qtyreserved) = 0)) THEN 'altemphasis'
        END AS qtforegroundrole,
 <? endif ?>
        CASE WHEN (xtindentrole = 2) THEN ''
