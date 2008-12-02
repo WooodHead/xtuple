@@ -53,12 +53,12 @@ BEGIN
 
     IF (pPostMaterialVariances) THEN
 --  Post womatl variances
-      INSERT INTO womatlvar
-      ( womatlvar_number, womatlvar_subnumber, womatlvar_posted,
+    INSERT INTO womatlvar ( womatlvar_number, womatlvar_subnumber, womatlvar_posted,
         womatlvar_parent_itemsite_id, womatlvar_component_itemsite_id,
         womatlvar_qtyord, womatlvar_qtyrcv,
         womatlvar_qtyiss, womatlvar_qtyper,
-        womatlvar_scrap, womatlvar_wipscrap, womatlvar_bomitem_id )
+        womatlvar_scrap, womatlvar_wipscrap, womatlvar_bomitem_id,
+        womatlvar_notes, womatlvar_ref )
       SELECT wo_number, wo_subnumber, CURRENT_DATE,
              wo_itemsite_id, womatl_itemsite_id,
              wo_qtyord, wo_qtyrcv,
@@ -66,10 +66,11 @@ BEGIN
              itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyper),
              womatl_scrap,
              itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtywipscrap),
-             womatl_bomitem_id
+             womatl_bomitem_id,
+             womatl_notes, womatl_ref             
       FROM wo, womatl, itemsite
       WHERE ((womatl_wo_id=wo_id)
-       AND (womatl_itemsite_id=itemsite_id)
+       AND (womatl_itemsite_id=itemsite_id)      
        AND (wo_id=pWoid));
     END IF;
 
