@@ -54,6 +54,12 @@ BEGIN
   END IF;
 
   IF (_p.cashrcpt_fundstype IN (''A'', ''D'', ''M'', ''V'')) THEN
+    IF NOT EXISTS(SELECT ccpay_id
+                  FROM ccpay
+                  WHERE ((ccpay_order_number=CAST(pCashrcptid AS TEXT))
+                     AND (ccpay_status IN (''C'', ''A'')))) THEN
+      RETURN -8;
+    END IF;
     _debitAccntid := findPrepaidAccount(_p.cashrcpt_cust_id);
   ELSE
     SELECT accnt_id INTO _debitAccntid
