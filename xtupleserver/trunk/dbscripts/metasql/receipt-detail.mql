@@ -103,7 +103,7 @@ WHERE ((toitem_item_id=item_id)
   AND  (tohead_dest_warehous_id=itemsite_warehous_id)
   AND  (tohead_dest_warehous_id=warehous_id)
   AND  (toitem_item_id=itemsite_item_id)
-  AND  (toitem_status <> 'C')
+  AND  (toitem_status NOT IN ('C','X'))
 <? if exists("selectedOnly") ?>
  AND (usrsite_username=current_user) 
 <? endif ?>
