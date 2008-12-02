@@ -140,12 +140,14 @@ BEGIN
   ( apopen_id, apopen_username, apopen_journalnumber,
     apopen_vend_id, apopen_docnumber, apopen_doctype, apopen_ponumber,
     apopen_docdate, apopen_duedate, apopen_distdate, apopen_terms_id,
-    apopen_amount, apopen_paid, apopen_open, apopen_notes, apopen_accnt_id, apopen_curr_id )
+    apopen_amount, apopen_paid, apopen_open, apopen_notes, apopen_accnt_id, apopen_curr_id,
+    apopen_closedate )
   VALUES
   ( _apopenid, CURRENT_USER, _journalNumber,
     _p.pohead_vend_id, _docNumber, 'C', _p.pohead_number,
     CURRENT_DATE, CURRENT_DATE, CURRENT_DATE, -1,
-    round(_itemAmount, 2), 0, (round(_itemAmount, 2) <> 0), _p.notes, -1, _p.pohead_curr_id );
+    round(_itemAmount, 2), 0, (round(_itemAmount, 2) <> 0), _p.notes, -1, _p.pohead_curr_id,
+    CASE WHEN (round(_itemAmount, 2) = 0) THEN _p.poreject_date END );
 
   RETURN _journalNumber;
 

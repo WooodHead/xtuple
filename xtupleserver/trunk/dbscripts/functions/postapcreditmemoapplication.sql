@@ -58,8 +58,10 @@ BEGIN
       WHERE (apopen_id=_r.apcreditapply_target_apopen_id);
 
       UPDATE apopen
-      SET apopen_open = (apopen_amount > apopen_paid)
-      WHERE (apopen_id=_r.apcreditapply_target_apopen_id);
+      SET apopen_open = false,
+        apopen_closedate = current_date
+      WHERE ( (apopen_id=_r.apcreditapply_target_apopen_id)
+        AND (apopen_amount <= apopen_paid) );
 
 --  Cache the running amount posted
       _totalAmount := (_totalAmount + _r.apply_amountSource);
@@ -90,8 +92,10 @@ BEGIN
   WHERE (apopen_id=pApopenid);
 
   UPDATE apopen
-  SET apopen_open = (apopen_amount > apopen_paid)
-  WHERE (apopen_id=pApopenid);
+  SET apopen_open = false,
+    apopen_closedate = current_date
+  WHERE ( (apopen_id=pApopenid)
+    AND (apopen_amount <= apopen_paid) );
 
   PERFORM insertGLTransaction(fetchJournalNumber(''AP-MISC''), ''A/P'', ''CM'',
                             _src.apopen_docnumber, ''CM Application'',

@@ -131,7 +131,12 @@ BEGIN
 			  round(apopen_paid +
 				currToCurr(_r.checkitem_curr_id,
 					   apopen_curr_id, _r.checkitem_amount,
-					   _r.docdate), 2)
+					   _r.docdate), 2),
+            apopen_closedate = CASE WHEN (round(apopen_amount, 2) <=
+			                  round(apopen_paid +
+				                currToCurr(_r.checkitem_curr_id,
+					                   apopen_curr_id, _r.checkitem_amount,
+					                   _r.docdate), 2)) THEN _p.checkhead_checkdate END
         WHERE (apopen_id=_r.apopen_id);
 
 	--  Post the application
