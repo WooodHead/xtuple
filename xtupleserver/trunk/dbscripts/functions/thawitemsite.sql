@@ -110,6 +110,14 @@ BEGIN
     FROM itemsite
     WHERE (itemsite_id=pItemsiteid);
 
+--  We have to un-freeze the itemsite before update-ing its QOH
+--  so that that itemsite trigger won''t block the QOH update.
+--  Also so the invhist trigger won''t block the posted update.
+
+    UPDATE itemsite
+    SET itemsite_freeze=FALSE
+    WHERE (itemsite_id=pItemsiteid);
+
     FOR _invhist IN SELECT invhist_id, invhist_qoh_before, invhist_qoh_after
                     FROM invhist
                     WHERE ((invhist_itemsite_id=pItemsiteid)
@@ -127,12 +135,6 @@ BEGIN
       _qoh := (_qoh + _invhist.invhist_qoh_after - _invhist.invhist_qoh_before);
 
     END LOOP;
-
---  We have to un-freeze the itemsite before update-ing its QOH
---  so that that itemsite trigger won''t block the QOH update.
-    UPDATE itemsite
-    SET itemsite_freeze=FALSE
-    WHERE (itemsite_id=pItemsiteid);
 
     UPDATE itemsite
     SET itemsite_qtyonhand = _qoh
