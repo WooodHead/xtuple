@@ -3,278 +3,278 @@ function executeChapter4()
     source(findFile("scripts","functions.js"));
     
     
-//    //-------------Standard Labor Rate -------------------
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
-//   
-//    waitForObject(":List Standard Labor Rates.New_QPushButton_2");
-//    clickButton(":List Standard Labor Rates.New_QPushButton_2");
-//    waitForObject(":_code_XLineEdit_7");
-//    type(":_code_XLineEdit_7", "Assembly");
-//    waitForObject(":_description_XLineEdit_17");
-//    type(":_description_XLineEdit_17", "Assembly Rate");
-//    type(":_rate_XLineEdit_2", "12.00");
-//    waitForObject(":Standard Labor Rate.Save_QPushButton");
-//    clickButton(":Standard Labor Rate.Save_QPushButton");
-//    test.log("Standard Labor Rate: Assembly Rate created");
-//    
-//    waitForObject(":List Standard Labor Rates.New_QPushButton_2");
-//    clickButton(":List Standard Labor Rates.New_QPushButton_2");
-//    waitForObject(":_code_XLineEdit_7");
-//    type(":_code_XLineEdit_7", "SETUP");
-//    waitForObject(":_description_XLineEdit_17");
-//    type(":_description_XLineEdit_17", "Setup Rate");
-//    type(":_rate_XLineEdit_2", "15.00");
-//    waitForObject(":Standard Labor Rate.Save_QPushButton");
-//    clickButton(":Standard Labor Rate.Save_QPushButton");
-//    test.log("Standard Labor Rate: Setup Rate created");
-//    
-//    waitForObject(":List Standard Labor Rates.Close_QPushButton_2");
-//    clickButton(":List Standard Labor Rates.Close_QPushButton_2");
-//    
-//    
-//    //---------------Work Centers--------------------
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers...");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers...");
-//    
-//    waitForObject(":List Work Centers.New_QPushButton_2");
-//    clickButton(":List Work Centers.New_QPushButton_2");
-//    waitForObject(":Work Center._code_XLineEdit_2");
-//    type(":Work Center._code_XLineEdit_2", "ASSEMBLY1");
-//    type(":Work Center._description_XLineEdit_2", "Assembly Work Center #1");
-//    type(":Work Center._warehouse_WComboBox_2", "WH1");
-//    clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Scheduling");
-//    waitForObject(":Department.VirtualClusterLineEdit_DeptClusterLineEdit_2");
-//    type(":Department.VirtualClusterLineEdit_DeptClusterLineEdit_2", "MFG");
-//    waitForObject(":Work Center.qt_tabwidget_tabbar_QTabBar_2");
-//    clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Costs");
-//    waitForObject(":Overhead._numOfMachines_QSpinBox_2");
-//    type(":Overhead._numOfMachines_QSpinBox_2", "<Ctrl+A>");
-//    type(":Overhead._numOfMachines_QSpinBox_2", "<Del>");
-//    type(":Overhead._numOfMachines_QSpinBox_2", "1");
-//    type(":Overhead._numOfPeople_QSpinBox_2", "<Ctrl+A>");
-//    type(":Overhead._numOfPeople_QSpinBox_2", "<Del>");
-//    type(":Overhead._numOfPeople_QSpinBox_2", "1");
-//    type(":Overhead._overheadPrcntOfLabor_XLineEdit_2", "10.00");
-//    type(":Overhead._overheadPerLaborHour_XLineEdit_2", "<Ctrl+A>");
-//    type(":Overhead._overheadPerLaborHour_XLineEdit_2", "<Del>");
-//    type(":Overhead._overheadPerLaborHour_XLineEdit_2", "0.00");
-//    waitForObject(":Overhead._overheadPerMachHour_XLineEdit_2");
-//    type(":Overhead._overheadPerMachHour_XLineEdit_2", "<Ctrl+A>");
-//    type(":Overhead._overheadPerMachHour_XLineEdit_2", "<Del>");
-//    type(":Overhead._overheadPerMachHour_XLineEdit_2", "0.00");
-//    type(":Overhead._overheadPerUnit_XLineEdit_2", "<Ctrl+A");
-//    type(":Overhead._overheadPerUnit_XLineEdit_2", "<Del>");
-//    type(":Overhead._overheadPerUnit_XLineEdit_2", "0.00");
-//    clickButton(":Setup Labor Rate.Specify Labor Rate:_QRadioButton");
-//    waitForObject(":Setup Labor Rate._setupRate_XLineEdit_2");
-//    type(":Setup Labor Rate._setupRate_XLineEdit_2", "<Ctrl+A>");
-//    type(":Setup Labor Rate._setupRate_XLineEdit_2", "<Del>");
-//    type(":Setup Labor Rate._setupRate_XLineEdit_2", "10.00");
-//    clickButton(":Run Labor Rate.Specify Labor Rate:_QRadioButton");
-//    waitForObject(":Run Labor Rate._runRate_XLineEdit_2");
-//    type(":Run Labor Rate._runRate_XLineEdit_2", "<Ctrl+A>");
-//    type(":Run Labor Rate._runRate_XLineEdit_2", "<Del>");
-//    type(":Run Labor Rate._runRate_XLineEdit_2", "10.00");
-//    clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Scheduling");
-//    waitForObject(":Average._avgQueueDays_QSpinBox_2");
-//    type(":Average._avgQueueDays_QSpinBox_2", "<Ctrl+A>");
-//    type(":Average._avgQueueDays_QSpinBox_2", "<Del>");
-//    type(":Average._avgQueueDays_QSpinBox_2", "0");
-//    type(":Average._avgSetup_XLineEdit_2", "<Ctrl+A>");
-//    type(":Average._avgSetup_XLineEdit_2", "<Del>");
-//    type(":Average._avgSetup_XLineEdit_2", "6.00");
-//    type(":Average._setupType_XComboBox_2", "Labor");
-//    type(":Capacity._dailyCapacity_XLineEdit_2", "480.00");
-//    type(":Capacity._efficiencyFactor_XLineEdit_2", "100.00");
-//    clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Notes");
-//    waitForObject(":_notesTab._comments_QTextEdit_2");
-//    type(":_notesTab._comments_QTextEdit_2", "<Ctrl+A>");
-//    type(":_notesTab._comments_QTextEdit_2", "<Del>");
-//    type(":_notesTab._comments_QTextEdit_2", "Assembly Work Center Number 1");
-//    waitForObject(":Work Center.Save_QPushButton_2");
-//    clickButton(":Work Center.Save_QPushButton_2");
-//    test.log("Work Center: ASSEMBLY created");
-//    
-//    waitForObjectItem(":List Work Centers._wrkcnt_XTreeWidget_2", "Assembly Work Center #1");
-//    clickItem(":List Work Centers._wrkcnt_XTreeWidget_2", "Assembly Work Center #1", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":List Work Centers.Copy_QPushButton_2");
-//    clickButton(":List Work Centers.Copy_QPushButton_2");
-//    waitForObject(":Work Center._code_XLineEdit_2");
-//    type(":Work Center._code_XLineEdit_2", "<Ctrl+A>");
-//    type(":Work Center._code_XLineEdit_2", "<Del>");
-//    type(":Work Center._code_XLineEdit_2", "SHIPPING1");
-//    type(":Work Center._description_XLineEdit_2", "<Ctrl+A>");
-//    type(":Work Center._description_XLineEdit_2", "<Del>");
-//    type(":Work Center._description_XLineEdit_2", "Shipping Work Center #1");
-//    clickButton(":Run Labor Rate.Select Standard Rate:_QRadioButton_2");
-//    type(":Run Labor Rate._stdRunRate_XComboBox", "SETUP");
-//    clickButton(":Setup Labor Rate.Select Standard Rate:_QRadioButton_2");
-//    type(":Setup Labor Rate._stdSetupRate_XComboBox_2", "SETUP");
-//    clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Notes");
-//    waitForObject(":_notesTab._comments_QTextEdit_2");
-//    type(":_notesTab._comments_QTextEdit_2", "<Ctrl+A>");
-//    type(":_notesTab._comments_QTextEdit_2", "<Del>");
-//    type(":_notesTab._comments_QTextEdit_2", "Shipping Work Center Number 1");
-//    waitForObject(":Work Center.Save_QPushButton_2");
-//    clickButton(":Work Center.Save_QPushButton_2");
-//    test.log("Work Center:SHIPPING created");
-//    
-//     waitForObjectItem(":List Work Centers._wrkcnt_XTreeWidget_2", "Assembly Work Center #1");
-//    clickItem(":List Work Centers._wrkcnt_XTreeWidget_2", "Assembly Work Center #1", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":List Work Centers.Copy_QPushButton_2");
-//    clickButton(":List Work Centers.Copy_QPushButton_2");
-//    waitForObject(":Work Center._code_XLineEdit_2");
-//    type(":Work Center._code_XLineEdit_2", "<Ctrl+A>");
-//    type(":Work Center._code_XLineEdit_2", "<Del>");
-//    type(":Work Center._code_XLineEdit_2", "PAINT1");
-//    type(":Work Center._description_XLineEdit_2", "<Ctrl+A>");
-//    type(":Work Center._description_XLineEdit_2", "<Del>");
-//    type(":Work Center._description_XLineEdit_2", "Paint Work Center #1");
-//    clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Notes");
-//    waitForObject(":_notesTab._comments_QTextEdit_2");
-//    type(":_notesTab._comments_QTextEdit_2", "<Ctrl+A>");
-//    type(":_notesTab._comments_QTextEdit_2", "<Del>");
-//    type(":_notesTab._comments_QTextEdit_2", "Paint Work Center Number 1");
-//    waitForObject(":Work Center.Save_QPushButton_2");
-//    clickButton(":Work Center.Save_QPushButton_2");
-//    test.log("Work Center:SHIPPING created");
-//        
-//    waitForObject(":List Work Centers.Close_QPushButton_2");
-//    clickButton(":List Work Centers.Close_QPushButton_2");
-//  
-//
-//
-//  //---------------------Products: Standard Operation--------------------
-//  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-//  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-//  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-//  activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-//  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
-//  activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
-//  
-//    waitForObject(":List Standard Operations.New_QPushButton");
-//    clickButton(":List Standard Operations.New_QPushButton");
-//    waitForObject(":Standard Operation._number_XLineEdit");
-//    type(":Standard Operation._number_XLineEdit", "ASSEMBLY");
-//    type(":Standard Operation._description1_XLineEdit", "Standard Operation - Assembly");
-//    type(":Standard Operation._wrkcnt_XComboBox", "ASSEMBLY1");
-//    type(":Standard Operation._prodUOM_XComboBox", "EA");
-//    type(":Standard Operation._invProdUOMRatio_XLineEdit", "1");
-//    clickButton(":Standard Operation.Use Standard Times_QCheckBox");
-//    type(":_standardGroup._setupReport_XComboBox", "Direct");
-//    type(":_standardGroup._runTime_XLineEdit", "60.00");
-//    type(":_standardGroup._runReport_XComboBox", "Direct");
-//    type(":_standardGroup._runQtyPer_XLineEdit", "100.00");
-//    type(":Standard Operation._instructions_QTextEdit", "Enter standard instructions through the Standard Operations session");
-//    clickButton(":Standard Operation.Save_QPushButton");
-//    test.log("Standard Operation: ASSEMBLY created");
-//    
-//    waitForObject(":List Standard Operations.New_QPushButton");
-//    clickButton(":List Standard Operations.New_QPushButton");
-//    waitForObject(":Standard Operation._number_XLineEdit");
-//    type(":Standard Operation._number_XLineEdit", "PAINT");
-//    type(":Standard Operation._description1_XLineEdit", "Standard Operation - Paint");
-//    type(":Standard Operation._wrkcnt_XComboBox", "PAINT1");
-//    type(":Standard Operation._prodUOM_XComboBox", "EA");
-//    type(":Standard Operation._invProdUOMRatio_XLineEdit", "1");
-//    clickButton(":Standard Operation.Use Standard Times_QCheckBox");
-//    type(":_standardGroup._setupReport_XComboBox", "Direct");
-//    type(":_standardGroup._runTime_XLineEdit", "60.00");
-//    type(":_standardGroup._runReport_XComboBox", "Direct");
-//    type(":_standardGroup._runQtyPer_XLineEdit", "100.00");
-//    type(":Standard Operation._instructions_QTextEdit", "Enter standard instructions through the Standard Operations session");
-//    clickButton(":Standard Operation.Save_QPushButton");
-//    test.log("Standard Operation: PAINT created");
-//    
-//
-//    waitForObject(":List Standard Operations.New_QPushButton");
-//    clickButton(":List Standard Operations.New_QPushButton");
-//    waitForObject(":Standard Operation._number_XLineEdit");
-//    type(":Standard Operation._number_XLineEdit", "SHIPPING");
-//    type(":Standard Operation._description1_XLineEdit", "Standard Operation - Shipping");
-//    type(":Standard Operation._wrkcnt_XComboBox", "SHIPPING1");
-//    waitForObject(":Standard Operation._prodUOM_XComboBox");
-//    type(":Standard Operation._prodUOM_XComboBox", "EA");
-//    type(":Standard Operation._invProdUOMRatio_XLineEdit", "1");
-//    clickButton(":Standard Operation.Use Standard Times_QCheckBox");
-//    type(":_standardGroup._setupReport_XComboBox", "Direct");
-//    type(":_standardGroup._runTime_XLineEdit", "60.00");
-//    type(":_standardGroup._runReport_XComboBox", "Direct");
-//    type(":_standardGroup._runQtyPer_XLineEdit", "100.00");
-//    type(":Standard Operation._instructions_QTextEdit", "Enter standard instructions through the Standard Operations session");
-//    clickButton(":Standard Operation.Save_QPushButton");
-//    test.log("Standard Operation: SHIPPING created");
-//  waitForObject(":List Standard Operations.Close_QPushButton");
-//  clickButton(":List Standard Operations.Close_QPushButton");
-//
-//
-//  //-----------Define BOO for Items---------------
-//  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-//  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-//  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
-//  activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
-//  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
-//  activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
-//  
-//  
-//  //-----------Define BOO for YTRUCK1---------------
-//  waitForObject(":Bills of Operations.New_QPushButton");
-//  clickButton(":Bills of Operations.New_QPushButton");
-//  waitForObject(":itemGroup._itemNumber_ItemLineEdit");
-//  type(":itemGroup._itemNumber_ItemLineEdit", "YTRUCK1");
-//  type(":itemGroup._itemNumber_ItemLineEdit", "<Tab>");
-//  
-//  waitForObject(":frame.New_QPushButton_2");
-//  clickButton(":frame.New_QPushButton_2");
-//  type(":_stdopn_XComboBox", "PAINT");
-//  clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
-//  clickButton(":Bill of Operations Item.Save_QPushButton");
-//  
-//  waitForObject(":frame.New_QPushButton_2");
-//  clickButton(":frame.New_QPushButton_2");
-//  waitForObjectItem(":_stdopn_XComboBox", "ASSEMBLY");
-//  type(":_stdopn_XComboBox", "ASSEMBLY");
-//  clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
-//  clickButton(":Bill of Operations Item.Save_QPushButton");
-// 
-//  waitForObject(":frame.New_QPushButton_2");
-//  clickButton(":frame.New_QPushButton_2");
-//  waitForObjectItem(":_stdopn_XComboBox", "SHIPPING");
-//  type(":_stdopn_XComboBox", "SHIPPING");
-//  clickButton(":_optionsGroup.Receive Inventory at this Operation_QCheckBox");
-//  clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
-//  clickButton(":Bill of Operations Item.Save_QPushButton");
-//  waitForObject(":Bill of Operations.Save_QPushButton");
-//  clickButton(":Bill of Operations.Save_QPushButton");
-//  test.log("BOO for Item: YTRUCK1 created");
-//  
-//    //-----------Define BOO for TKIT1---------------
-//    clickButton(":Bills of Operations.New_QPushButton");
-//    waitForObject(":itemGroup._itemNumber_ItemLineEdit");
-//    type(":itemGroup._itemNumber_ItemLineEdit", "TKIT1");
-//    type(":itemGroup._itemNumber_ItemLineEdit", "<Tab>");
-//    waitForObject(":frame.New_QPushButton_2");
-//    clickButton(":frame.New_QPushButton_2");
-//    waitForObjectItem(":_stdopn_XComboBox", "ASSEMBLY");
-//    type(":_stdopn_XComboBox", "ASSEMBLY");
-//    waitForObject(":_optionsGroup.Receive Inventory at this Operation_QCheckBox");
-//    clickButton(":_optionsGroup.Receive Inventory at this Operation_QCheckBox");
-//    clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
-//    clickButton(":Bill of Operations Item.Save_QPushButton");
-//    waitForObject(":Bill of Operations.Save_QPushButton");
-//    clickButton(":Bill of Operations.Save_QPushButton");
-//    waitForObject(":Bills of Operations.Close_QPushButton");
-//    clickButton(":Bills of Operations.Close_QPushButton");
-//    test.log("BOO for Item: TKIT1 created");
+    //-------------Standard Labor Rate -------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
+   
+    waitForObject(":List Standard Labor Rates.New_QPushButton_2");
+    clickButton(":List Standard Labor Rates.New_QPushButton_2");
+    waitForObject(":_code_XLineEdit_7");
+    type(":_code_XLineEdit_7", "Assembly");
+    waitForObject(":_description_XLineEdit_17");
+    type(":_description_XLineEdit_17", "Assembly Rate");
+    type(":_rate_XLineEdit_2", "12.00");
+    waitForObject(":Standard Labor Rate.Save_QPushButton");
+    clickButton(":Standard Labor Rate.Save_QPushButton");
+    test.log("Standard Labor Rate: Assembly Rate created");
+    
+    waitForObject(":List Standard Labor Rates.New_QPushButton_2");
+    clickButton(":List Standard Labor Rates.New_QPushButton_2");
+    waitForObject(":_code_XLineEdit_7");
+    type(":_code_XLineEdit_7", "SETUP");
+    waitForObject(":_description_XLineEdit_17");
+    type(":_description_XLineEdit_17", "Setup Rate");
+    type(":_rate_XLineEdit_2", "15.00");
+    waitForObject(":Standard Labor Rate.Save_QPushButton");
+    clickButton(":Standard Labor Rate.Save_QPushButton");
+    test.log("Standard Labor Rate: Setup Rate created");
+    
+    waitForObject(":List Standard Labor Rates.Close_QPushButton_2");
+    clickButton(":List Standard Labor Rates.Close_QPushButton_2");
+    
+    
+    //---------------Work Centers--------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers...");
+    
+    waitForObject(":List Work Centers.New_QPushButton_2");
+    clickButton(":List Work Centers.New_QPushButton_2");
+    waitForObject(":Work Center._code_XLineEdit_2");
+    type(":Work Center._code_XLineEdit_2", "ASSEMBLY1");
+    type(":Work Center._description_XLineEdit_2", "Assembly Work Center #1");
+    type(":Work Center._warehouse_WComboBox_2", "WH1");
+    clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Scheduling");
+    waitForObject(":Department.VirtualClusterLineEdit_DeptClusterLineEdit_2");
+    type(":Department.VirtualClusterLineEdit_DeptClusterLineEdit_2", "MFG");
+    waitForObject(":Work Center.qt_tabwidget_tabbar_QTabBar_2");
+    clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Costs");
+    waitForObject(":Overhead._numOfMachines_QSpinBox_2");
+    type(":Overhead._numOfMachines_QSpinBox_2", "<Ctrl+A>");
+    type(":Overhead._numOfMachines_QSpinBox_2", "<Del>");
+    type(":Overhead._numOfMachines_QSpinBox_2", "1");
+    type(":Overhead._numOfPeople_QSpinBox_2", "<Ctrl+A>");
+    type(":Overhead._numOfPeople_QSpinBox_2", "<Del>");
+    type(":Overhead._numOfPeople_QSpinBox_2", "1");
+    type(":Overhead._overheadPrcntOfLabor_XLineEdit_2", "10.00");
+    type(":Overhead._overheadPerLaborHour_XLineEdit_2", "<Ctrl+A>");
+    type(":Overhead._overheadPerLaborHour_XLineEdit_2", "<Del>");
+    type(":Overhead._overheadPerLaborHour_XLineEdit_2", "0.00");
+    waitForObject(":Overhead._overheadPerMachHour_XLineEdit_2");
+    type(":Overhead._overheadPerMachHour_XLineEdit_2", "<Ctrl+A>");
+    type(":Overhead._overheadPerMachHour_XLineEdit_2", "<Del>");
+    type(":Overhead._overheadPerMachHour_XLineEdit_2", "0.00");
+    type(":Overhead._overheadPerUnit_XLineEdit_2", "<Ctrl+A");
+    type(":Overhead._overheadPerUnit_XLineEdit_2", "<Del>");
+    type(":Overhead._overheadPerUnit_XLineEdit_2", "0.00");
+    clickButton(":Setup Labor Rate.Specify Labor Rate:_QRadioButton");
+    waitForObject(":Setup Labor Rate._setupRate_XLineEdit_2");
+    type(":Setup Labor Rate._setupRate_XLineEdit_2", "<Ctrl+A>");
+    type(":Setup Labor Rate._setupRate_XLineEdit_2", "<Del>");
+    type(":Setup Labor Rate._setupRate_XLineEdit_2", "10.00");
+    clickButton(":Run Labor Rate.Specify Labor Rate:_QRadioButton");
+    waitForObject(":Run Labor Rate._runRate_XLineEdit_2");
+    type(":Run Labor Rate._runRate_XLineEdit_2", "<Ctrl+A>");
+    type(":Run Labor Rate._runRate_XLineEdit_2", "<Del>");
+    type(":Run Labor Rate._runRate_XLineEdit_2", "10.00");
+    clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Scheduling");
+    waitForObject(":Average._avgQueueDays_QSpinBox_2");
+    type(":Average._avgQueueDays_QSpinBox_2", "<Ctrl+A>");
+    type(":Average._avgQueueDays_QSpinBox_2", "<Del>");
+    type(":Average._avgQueueDays_QSpinBox_2", "0");
+    type(":Average._avgSetup_XLineEdit_2", "<Ctrl+A>");
+    type(":Average._avgSetup_XLineEdit_2", "<Del>");
+    type(":Average._avgSetup_XLineEdit_2", "6.00");
+    type(":Average._setupType_XComboBox_2", "Labor");
+    type(":Capacity._dailyCapacity_XLineEdit_2", "480.00");
+    type(":Capacity._efficiencyFactor_XLineEdit_2", "100.00");
+    clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Notes");
+    waitForObject(":_notesTab._comments_QTextEdit_2");
+    type(":_notesTab._comments_QTextEdit_2", "<Ctrl+A>");
+    type(":_notesTab._comments_QTextEdit_2", "<Del>");
+    type(":_notesTab._comments_QTextEdit_2", "Assembly Work Center Number 1");
+    waitForObject(":Work Center.Save_QPushButton_2");
+    clickButton(":Work Center.Save_QPushButton_2");
+    test.log("Work Center: ASSEMBLY created");
+    
+    waitForObjectItem(":List Work Centers._wrkcnt_XTreeWidget_2", "Assembly Work Center #1");
+    clickItem(":List Work Centers._wrkcnt_XTreeWidget_2", "Assembly Work Center #1", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":List Work Centers.Copy_QPushButton_2");
+    clickButton(":List Work Centers.Copy_QPushButton_2");
+    waitForObject(":Work Center._code_XLineEdit_2");
+    type(":Work Center._code_XLineEdit_2", "<Ctrl+A>");
+    type(":Work Center._code_XLineEdit_2", "<Del>");
+    type(":Work Center._code_XLineEdit_2", "SHIPPING1");
+    type(":Work Center._description_XLineEdit_2", "<Ctrl+A>");
+    type(":Work Center._description_XLineEdit_2", "<Del>");
+    type(":Work Center._description_XLineEdit_2", "Shipping Work Center #1");
+    clickButton(":Run Labor Rate.Select Standard Rate:_QRadioButton_2");
+    type(":Run Labor Rate._stdRunRate_XComboBox", "SETUP");
+    clickButton(":Setup Labor Rate.Select Standard Rate:_QRadioButton_2");
+    type(":Setup Labor Rate._stdSetupRate_XComboBox_2", "SETUP");
+    clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Notes");
+    waitForObject(":_notesTab._comments_QTextEdit_2");
+    type(":_notesTab._comments_QTextEdit_2", "<Ctrl+A>");
+    type(":_notesTab._comments_QTextEdit_2", "<Del>");
+    type(":_notesTab._comments_QTextEdit_2", "Shipping Work Center Number 1");
+    waitForObject(":Work Center.Save_QPushButton_2");
+    clickButton(":Work Center.Save_QPushButton_2");
+    test.log("Work Center:SHIPPING created");
+    
+     waitForObjectItem(":List Work Centers._wrkcnt_XTreeWidget_2", "Assembly Work Center #1");
+    clickItem(":List Work Centers._wrkcnt_XTreeWidget_2", "Assembly Work Center #1", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":List Work Centers.Copy_QPushButton_2");
+    clickButton(":List Work Centers.Copy_QPushButton_2");
+    waitForObject(":Work Center._code_XLineEdit_2");
+    type(":Work Center._code_XLineEdit_2", "<Ctrl+A>");
+    type(":Work Center._code_XLineEdit_2", "<Del>");
+    type(":Work Center._code_XLineEdit_2", "PAINT1");
+    type(":Work Center._description_XLineEdit_2", "<Ctrl+A>");
+    type(":Work Center._description_XLineEdit_2", "<Del>");
+    type(":Work Center._description_XLineEdit_2", "Paint Work Center #1");
+    clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Notes");
+    waitForObject(":_notesTab._comments_QTextEdit_2");
+    type(":_notesTab._comments_QTextEdit_2", "<Ctrl+A>");
+    type(":_notesTab._comments_QTextEdit_2", "<Del>");
+    type(":_notesTab._comments_QTextEdit_2", "Paint Work Center Number 1");
+    waitForObject(":Work Center.Save_QPushButton_2");
+    clickButton(":Work Center.Save_QPushButton_2");
+    test.log("Work Center:SHIPPING created");
+        
+    waitForObject(":List Work Centers.Close_QPushButton_2");
+    clickButton(":List Work Centers.Close_QPushButton_2");
+  
+
+
+  //---------------------Products: Standard Operation--------------------
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+  activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
+  
+    waitForObject(":List Standard Operations.New_QPushButton");
+    clickButton(":List Standard Operations.New_QPushButton");
+    waitForObject(":Standard Operation._number_XLineEdit");
+    type(":Standard Operation._number_XLineEdit", "ASSEMBLY");
+    type(":Standard Operation._description1_XLineEdit", "Standard Operation - Assembly");
+    type(":Standard Operation._wrkcnt_XComboBox", "ASSEMBLY1");
+    type(":Standard Operation._prodUOM_XComboBox", "EA");
+    type(":Standard Operation._invProdUOMRatio_XLineEdit", "1");
+    clickButton(":Standard Operation.Use Standard Times_QCheckBox");
+    type(":_standardGroup._setupReport_XComboBox", "Direct");
+    type(":_standardGroup._runTime_XLineEdit", "60.00");
+    type(":_standardGroup._runReport_XComboBox", "Direct");
+    type(":_standardGroup._runQtyPer_XLineEdit", "100.00");
+    type(":Standard Operation._instructions_QTextEdit", "Enter standard instructions through the Standard Operations session");
+    clickButton(":Standard Operation.Save_QPushButton");
+    test.log("Standard Operation: ASSEMBLY created");
+    
+    waitForObject(":List Standard Operations.New_QPushButton");
+    clickButton(":List Standard Operations.New_QPushButton");
+    waitForObject(":Standard Operation._number_XLineEdit");
+    type(":Standard Operation._number_XLineEdit", "PAINT");
+    type(":Standard Operation._description1_XLineEdit", "Standard Operation - Paint");
+    type(":Standard Operation._wrkcnt_XComboBox", "PAINT1");
+    type(":Standard Operation._prodUOM_XComboBox", "EA");
+    type(":Standard Operation._invProdUOMRatio_XLineEdit", "1");
+    clickButton(":Standard Operation.Use Standard Times_QCheckBox");
+    type(":_standardGroup._setupReport_XComboBox", "Direct");
+    type(":_standardGroup._runTime_XLineEdit", "60.00");
+    type(":_standardGroup._runReport_XComboBox", "Direct");
+    type(":_standardGroup._runQtyPer_XLineEdit", "100.00");
+    type(":Standard Operation._instructions_QTextEdit", "Enter standard instructions through the Standard Operations session");
+    clickButton(":Standard Operation.Save_QPushButton");
+    test.log("Standard Operation: PAINT created");
+    
+
+    waitForObject(":List Standard Operations.New_QPushButton");
+    clickButton(":List Standard Operations.New_QPushButton");
+    waitForObject(":Standard Operation._number_XLineEdit");
+    type(":Standard Operation._number_XLineEdit", "SHIPPING");
+    type(":Standard Operation._description1_XLineEdit", "Standard Operation - Shipping");
+    type(":Standard Operation._wrkcnt_XComboBox", "SHIPPING1");
+    waitForObject(":Standard Operation._prodUOM_XComboBox");
+    type(":Standard Operation._prodUOM_XComboBox", "EA");
+    type(":Standard Operation._invProdUOMRatio_XLineEdit", "1");
+    clickButton(":Standard Operation.Use Standard Times_QCheckBox");
+    type(":_standardGroup._setupReport_XComboBox", "Direct");
+    type(":_standardGroup._runTime_XLineEdit", "60.00");
+    type(":_standardGroup._runReport_XComboBox", "Direct");
+    type(":_standardGroup._runQtyPer_XLineEdit", "100.00");
+    type(":Standard Operation._instructions_QTextEdit", "Enter standard instructions through the Standard Operations session");
+    clickButton(":Standard Operation.Save_QPushButton");
+    test.log("Standard Operation: SHIPPING created");
+  waitForObject(":List Standard Operations.Close_QPushButton");
+  clickButton(":List Standard Operations.Close_QPushButton");
+
+
+  //-----------Define BOO for Items---------------
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
+  activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
+  
+  
+  //-----------Define BOO for YTRUCK1---------------
+  waitForObject(":Bills of Operations.New_QPushButton");
+  clickButton(":Bills of Operations.New_QPushButton");
+  waitForObject(":itemGroup._itemNumber_ItemLineEdit");
+  type(":itemGroup._itemNumber_ItemLineEdit", "YTRUCK1");
+  type(":itemGroup._itemNumber_ItemLineEdit", "<Tab>");
+  
+  waitForObject(":frame.New_QPushButton_2");
+  clickButton(":frame.New_QPushButton_2");
+  type(":_stdopn_XComboBox", "PAINT");
+  clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
+  clickButton(":Bill of Operations Item.Save_QPushButton");
+  
+  waitForObject(":frame.New_QPushButton_2");
+  clickButton(":frame.New_QPushButton_2");
+  waitForObjectItem(":_stdopn_XComboBox", "ASSEMBLY");
+  type(":_stdopn_XComboBox", "ASSEMBLY");
+  clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
+  clickButton(":Bill of Operations Item.Save_QPushButton");
+ 
+  waitForObject(":frame.New_QPushButton_2");
+  clickButton(":frame.New_QPushButton_2");
+  waitForObjectItem(":_stdopn_XComboBox", "SHIPPING");
+  type(":_stdopn_XComboBox", "SHIPPING");
+  clickButton(":_optionsGroup.Receive Inventory at this Operation_QCheckBox");
+  clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
+  clickButton(":Bill of Operations Item.Save_QPushButton");
+  waitForObject(":Bill of Operations.Save_QPushButton");
+  clickButton(":Bill of Operations.Save_QPushButton");
+  test.log("BOO for Item: YTRUCK1 created");
+  
+    //-----------Define BOO for TKIT1---------------
+    clickButton(":Bills of Operations.New_QPushButton");
+    waitForObject(":itemGroup._itemNumber_ItemLineEdit");
+    type(":itemGroup._itemNumber_ItemLineEdit", "TKIT1");
+    type(":itemGroup._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":frame.New_QPushButton_2");
+    clickButton(":frame.New_QPushButton_2");
+    waitForObjectItem(":_stdopn_XComboBox", "ASSEMBLY");
+    type(":_stdopn_XComboBox", "ASSEMBLY");
+    waitForObject(":_optionsGroup.Receive Inventory at this Operation_QCheckBox");
+    clickButton(":_optionsGroup.Receive Inventory at this Operation_QCheckBox");
+    clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
+    clickButton(":Bill of Operations Item.Save_QPushButton");
+    waitForObject(":Bill of Operations.Save_QPushButton");
+    clickButton(":Bill of Operations.Save_QPushButton");
+    waitForObject(":Bills of Operations.Close_QPushButton");
+    clickButton(":Bills of Operations.Close_QPushButton");
+    test.log("BOO for Item: TKIT1 created");
   
   
    //---------------Create BOM for Items---------------------

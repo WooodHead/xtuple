@@ -444,10 +444,10 @@ function executeChapter8()
     waitForObject(":List Sales Account Assignments.Close_QPushButton");
     clickButton(":List Sales Account Assignments.Close_QPushButton");
     test.log("Sales Account Assingments done");
+  
+  
     
-    
-    
-        //----------------Create new Customer---------------
+    //----------------Create new Customer---------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
@@ -509,6 +509,8 @@ function executeChapter8()
     waitForObject(":_shipToNumber_XLineEdit");
     type(":_shipToNumber_XLineEdit", "Store1");
     type(":_name_XLineEdit_13", "Old Towne Store 1");
+    if(!findObject(":Ship-To.Default_QCheckBox").checked)
+        clickButton(":Ship-To.Default_QCheckBox");
     type(":Ship-To.Street\nAddress:_XLineEdit", "Street Addr line1");
     type(":Ship-To.Street\nAddress:_XLineEdit_2", "Street Addr line2");
     type(":Ship-To.Street\nAddress:_XLineEdit_3", "Street Addr line 3");
@@ -530,6 +532,38 @@ function executeChapter8()
     if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
         type(":Defaults:._shipchrg_XComboBox", "ADDCHARGE");
     clickButton(":Ship-To.Save_QPushButton");
+    
+    
+    waitForObject(":_addressStack.New_QPushButton");
+    clickButton(":_addressStack.New_QPushButton");
+    waitForObject(":_shipToNumber_XLineEdit");
+    type(":_shipToNumber_XLineEdit", "Store2");
+    type(":_name_XLineEdit_13", "Old Towne Store 2");
+    if(findObject(":Ship-To.Default_QCheckBox").checked)
+        clickButton(":Ship-To.Default_QCheckBox");
+    type(":Ship-To.Street\nAddress:_XLineEdit", "Street Addr line11");
+    type(":Ship-To.Street\nAddress:_XLineEdit_2", "Street Addr line22");
+    type(":Ship-To.Street\nAddress:_XLineEdit_3", "Street Addr line 33");
+    type(":Ship-To.City:_XLineEdit", "Alaska");
+    type(":Ship-To.State:_XComboBox", "WDC");
+    type(":Ship-To.Postal Code:_XLineEdit", "345235");
+    type(":Ship-To.Country:_XComboBox", "United States");
+    type(":Ship-To._honorific_XComboBox", "MR");
+    type(":Ship-To._first_XLineEdit", "Rakesh");
+    type(":Ship-To._middle_XLineEdit", "H");
+    type(":Ship-To._last_XLineEdit", "Mittal");
+    type(":Ship-To._title_XLineEdit", "Senior Consultant");
+    type(":Ship-To._phone_XLineEdit", "23432");
+    type(":Ship-To._fax_XLineEdit", "23425");
+    type(":Ship-To._email_XLineEdit", "rakesh@test.com");
+    type(":_commission_XLineEdit", "7.5");
+    if(findObject(":Defaults:._shipform_XComboBox").currentText!= "STANDARD-PACKING-LIST")
+        type(":Defaults:._shipform_XComboBox", "STANDARD");
+    if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
+        type(":Defaults:._shipchrg_XComboBox", "ADDCHARGE");
+    clickButton(":Ship-To.Save_QPushButton");
+    
+    
     waitForObject(":Customer.Save_QPushButton");
     clickButton(":Customer.Save_QPushButton");
     test.log("Customer: TTOYS created");

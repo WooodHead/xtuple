@@ -306,7 +306,7 @@ function executeChapter10()
     if(findObject(":_options._group_XComboBox").currentText!="Sales");
         type(":_options._group_XComboBox", "Sales");
     clickButton(":Financial Report Item.Save_QPushButton");
-    test.log(Completed creation of Financial Report);
+    test.log("Completed creation of Financial Report");
     
     
     //-------------Create Official Balance Sheet------------

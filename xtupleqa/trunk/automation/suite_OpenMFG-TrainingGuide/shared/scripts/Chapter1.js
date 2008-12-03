@@ -762,7 +762,7 @@ function executeChapter1()
     clickButton(":Inventory Configuration.Save_QPushButton");
     test.log("Inventory Module Configured");
     
-    
+  
     
     //-------------User Preferences------------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -823,8 +823,29 @@ function executeChapter1()
     clickButton(":_menu.Show Accounting Menu_QCheckBox");
     waitForObject(":_menu.Show Accountng Toolbar_QCheckBox");
     clickButton(":_menu.Show Accountng Toolbar_QCheckBox");
+    
+    
+    waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar", "Events");
+        
+    var sWidgetTreeControl = ":_events._event_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    for(i=0; i<=iNumberOfRootItems ;i++)
+    {
+        clickItem(":_events._warehouses_XTreeWidget", "WH1", 5, 5, 1, Qt.LeftButton);
+        type(sWidgetTreeControl,"<Down>"); 
+    }
+    
     waitForObject(":User Preferences.Save_QPushButton");
     clickButton(":User Preferences.Save_QPushButton");
+    
+    
     test.log("User Preferences of "+newuser +":saved");
     
 }//end chapter1
