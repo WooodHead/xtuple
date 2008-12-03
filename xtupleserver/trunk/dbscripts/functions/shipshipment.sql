@@ -285,13 +285,13 @@ BEGIN
 	RETURN _result;
       END IF;
 
-      UPDATE toitem
-      SET toitem_qty_shipped = (toitem_qty_shipped + _ti.qty)
-      WHERE (toitem_id=_ti.toitem_id);
-
       UPDATE shipitem SET shipitem_shipdate=_timestamp, shipitem_shipped=TRUE
       WHERE ((shipitem_orderitem_id=_ti.toitem_id)
         AND  (shipitem_shiphead_id=pshipheadid));
+
+      UPDATE toitem
+      SET toitem_qty_shipped = (toitem_qty_shipped + _ti.qty)
+      WHERE (toitem_id=_ti.toitem_id);
     END LOOP;
   END IF;
 

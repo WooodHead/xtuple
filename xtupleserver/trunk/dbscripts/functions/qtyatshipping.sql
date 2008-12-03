@@ -19,7 +19,7 @@ BEGIN
   SELECT COALESCE(SUM(shipitem_qty), 0.0) INTO _qty
   FROM shipitem, shiphead
   WHERE ((shipitem_shiphead_id=shiphead_id)
-    AND  (NOT shiphead_shipped)
+    AND  (NOT shipitem_shipped)
     AND  (shiphead_order_type=pordertype)
     AND  (shipitem_orderitem_id=plineitemid) );
 
