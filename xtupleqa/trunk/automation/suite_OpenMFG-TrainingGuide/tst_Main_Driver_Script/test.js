@@ -1,3 +1,10 @@
+//********** This Test Suite is developed to execute the xTuple Training Guide ****************
+//---All the scripts pertaining to Chapters of the Training Guide are placed under 'shared/scripts' folder
+//---Functions/common libraries created are placed in 'shared/scripts/functions.js' script
+
+//-------***-----This is the Main Driver Script which will control the execution flow of scripts-----***-------
+
+
 function main()
 {
 
@@ -10,6 +17,9 @@ function main()
     source(findFile("scripts","Chapter6.js"));
     source(findFile("scripts","Chapter7.js"));
     source(findFile("scripts","Chapter8.js"));
+    source(findFile("scripts","Chapter9.js"));
+    source(findFile("scripts","Chapter10.js"));
+    source(findFile("scripts","Chapter11.js"));
     
     loginAppl("3.2.0", "2empty320beta","admin"); 
     executeChapter1();
@@ -25,6 +35,6 @@ function main()
     executeChapter8();
     executeChapter9();
     executeChapter10();
- 
+    executeChapter11();
     exitAppl();	
 }
