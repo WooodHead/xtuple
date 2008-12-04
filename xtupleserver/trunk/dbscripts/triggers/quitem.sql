@@ -121,7 +121,13 @@ BEGIN
   --If auto calculate freight, recalculate quhead_freight
   IF (SELECT quhead_calcfreight FROM quhead WHERE (quhead_id=NEW.quitem_quhead_id)) THEN
     UPDATE quhead SET quhead_freight =
-      (SELECT SUM(freightdata_total) FROM freightDetail('QU', NEW.quitem_quhead_id))
+      (SELECT SUM(freightdata_total) FROM freightDetail('QU',
+                                                        quhead_id,
+                                                        quhead_cust_id,
+                                                        quhead_shipto_id,
+                                                        quhead_quotedate,
+                                                        quhead_shipvia,
+                                                        quhead_curr_id))
     WHERE quhead_id=NEW.quitem_quhead_id;
   END IF;
 
