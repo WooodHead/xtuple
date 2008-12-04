@@ -243,7 +243,13 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     cohead_shiptozipcode=NEW.shipto_postal_code,
     cohead_freight=
     CASE WHEN (NEW.calculate_freight) THEN
-           (SELECT SUM(freightdata_total) FROM freightDetail('SO', getCoheadid(OLD.order_number)))
+           (SELECT SUM(freightdata_total) FROM freightDetail('SO',
+                                                             getCoheadid(OLD.order_number),
+                                                             getCustId(NEW.customer_number),
+                                                             getShiptoId(NEW.customer_number,NEW.shipto_number),
+                                                             NEW.order_date,
+                                                             NEW.ship_via,
+                                                             getCurrId(NEW.currency)))
          ELSE
            NEW.freight
     END,
