@@ -149,7 +149,7 @@ BEGIN
                    invcitem_tax_pcta,invcitem_tax_pctb,invcitem_tax_pctc,
                    invcitem_tax_ratec,invcitem_tax_id,invcitem_taxtype_id,
                    itemsite_id, item_id,
-                   (SUM(shipitem_value) / invcitem_billed * invcitem_qty_invuomratio) AS cost
+                   (SUM(shipitem_value) / (invcitem_billed * invcitem_qty_invuomratio)) AS cost
             FROM item, invcitem 
               LEFT OUTER JOIN
 		 itemsite ON ((invcitem_item_id=itemsite_item_id)
