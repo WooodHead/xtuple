@@ -60,7 +60,10 @@ function executeChapter3()
     clickButton(":Item Characteristic.Save_QPushButton");
     waitForObject(":Item.Save_QPushButton_13");
     clickButton(":Item.Save_QPushButton_13");
-    test.log("Item: YTRUCK1 created");
+    waitForObject(":List Items._item_XTreeWidget_3");
+    if(!clickItem(":List Items._item_XTreeWidget_3", "YTRUCK1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: YTRUCK1");
+
   
   
   
@@ -87,8 +90,9 @@ function executeChapter3()
     clickButton(":Item.Save_QPushButton_5");
     waitForObject(":Create New Item Sites.No_QPushButton");
     clickButton(":Create New Item Sites.No_QPushButton");
-    test.log("Item: YPAINT1 created");
-    
+    waitForObject(":List Items._item_XTreeWidget_3");
+    if(!clickItem(":List Items._item_XTreeWidget_3", "YPAINT1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: YPAINT1");
     
     
     
@@ -115,7 +119,9 @@ function executeChapter3()
     clickButton(":Item.Save_QPushButton_5");
     waitForObject(":Create New Item Sites.No_QPushButton");
     clickButton(":Create New Item Sites.No_QPushButton");
-    test.log("Item: TBODY1 created");
+    waitForObject(":List Items._item_XTreeWidget_3");
+    if(!clickItem(":List Items._item_XTreeWidget_3", "TBODY1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: TBODY1");
     
     
     //----------Create Item TWHEEL1------------
@@ -141,7 +147,9 @@ function executeChapter3()
     clickButton(":Item.Save_QPushButton_5");
     waitForObject(":Create New Item Sites.No_QPushButton");
     clickButton(":Create New Item Sites.No_QPushButton");
-    test.log("Item: TWHEEL1 created");
+    waitForObject(":List Items._item_XTreeWidget_3");
+    if(!clickItem(":List Items._item_XTreeWidget_3", "TWHEEL1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: TWHEEL1");
     
     
     
@@ -168,7 +176,9 @@ function executeChapter3()
     clickButton(":Item.Save_QPushButton_5");
     waitForObject(":Create New Item Sites.No_QPushButton");
     clickButton(":Create New Item Sites.No_QPushButton");
-    test.log("Item: TKIT1 created");
+    waitForObject(":List Items._item_XTreeWidget_3");
+    if(!clickItem(":List Items._item_XTreeWidget_3", "TKIT1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: TKIT1");
     
     
     
@@ -195,8 +205,9 @@ function executeChapter3()
     clickButton(":Item.Save_QPushButton_5");
     waitForObject(":Create New Item Sites.No_QPushButton");
     clickButton(":Create New Item Sites.No_QPushButton");
-    test.log("Item: TBOX1 created");
-    
+    waitForObject(":List Items._item_XTreeWidget_3");
+    if(!clickItem(":List Items._item_XTreeWidget_3", "TBOX1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: TBOX1");
      
     //----------Create Item TINSERT1------------
     waitForObject(":List Items.New_QPushButton_2");
@@ -221,7 +232,9 @@ function executeChapter3()
     clickButton(":Item.Save_QPushButton_5");
     waitForObject(":Create New Item Sites.No_QPushButton");
     clickButton(":Create New Item Sites.No_QPushButton");
-    test.log("Item: TBOX1 created");
+    waitForObject(":List Items._item_XTreeWidget_3");
+    if(!clickItem(":List Items._item_XTreeWidget_3", "TINSERT1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: TINSERT1");
     
     waitForObject(":List Items.Close_QPushButton_3");
     clickButton(":List Items.Close_QPushButton_3");
@@ -288,7 +301,10 @@ function executeChapter3()
     clickButton(":Item Site.Save_QPushButton");
     waitForObject(":Item Site.Cancel_QPushButton");
     clickButton(":Item Site.Cancel_QPushButton");
-    test.log("Item site for YTRUCK1 created");
+    waitForObject(":_itemSite_XTreeWidget_2");
+    if(!clickItem(":_itemSite_XTreeWidget_2", "YTRUCK1", 5, 5, 1, Qt.LeftButton))
+      test.pass("Item Site Created: YTRUCK1");
+
     
     
     
@@ -344,7 +360,9 @@ function executeChapter3()
     clickButton(":Item Site.Save_QPushButton");
     waitForObject(":Item Site.Cancel_QPushButton");
     clickButton(":Item Site.Cancel_QPushButton");
-    test.log("Item site for TBODY1 created");
+    waitForObject(":_itemSite_XTreeWidget_2");
+    if(!clickItem(":_itemSite_XTreeWidget_2", "TBODY1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Site Created: TBODY1");
     
     
     
@@ -399,8 +417,9 @@ function executeChapter3()
     clickButton(":Item Site.Save_QPushButton");
     waitForObject(":Item Site.Cancel_QPushButton");
     clickButton(":Item Site.Cancel_QPushButton");
-    
-    test.log("Item site for TINSERT1 created");
+    waitForObject(":_itemSite_XTreeWidget_2");
+    if(!clickItem(":_itemSite_XTreeWidget_2", "TINSERT1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Site Created: TINSERT1");
     
     
      //---------Item site: TWHEEL1----------------------
@@ -453,8 +472,9 @@ function executeChapter3()
     clickButton(":Item Site.Save_QPushButton");
     waitForObject(":Item Site.Cancel_QPushButton");
     clickButton(":Item Site.Cancel_QPushButton");
-    
-    test.log("Item site for TWHEEL1 created");
+    waitForObject(":_itemSite_XTreeWidget_2");
+    if(!clickItem(":_itemSite_XTreeWidget_2", "TWHEEL1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Site Created: TWHEEL1");
     
   
     
@@ -509,120 +529,125 @@ function executeChapter3()
     clickButton(":Item Site.Save_QPushButton");
     waitForObject(":Item Site.Cancel_QPushButton");
     clickButton(":Item Site.Cancel_QPushButton");
+    waitForObject(":_itemSite_XTreeWidget_2");
+    if(!clickItem(":_itemSite_XTreeWidget_2", "TKIT1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Site Created: TKIT1");
+ 
     
-    test.log("Item site for TKIT1 created");
-   
-//    
-//    //---------Item site: TBOX1----------------------
-//    waitForObject(":List Item Sites.New_QPushButton_3");
-//    clickButton(":List Item Sites.New_QPushButton_3");
-//    waitForObject(":Item Site._itemNumber_ItemLineEdit");
-//    type(":Item Site._itemNumber_ItemLineEdit", "TBOX1");
-//    type(":Item Site._itemNumber_ItemLineEdit", "<Tab>");    
-//    type(":_warehouse_WComboBox_5", "WH1");
-//    if(findObject(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3").checked)
-//        clickButton(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3");
-//    type(":Item Site.Sold from this Site_QGroupBox"," ");
-//    clickButton(":Costing Method.Standard_QRadioButton_3");
-//    type(":Control._controlMethod_XComboBox_3", "Regular");
-//    type(":_plannerCode_XComboBox_2", "MRP");
-//    type(":_costcat_XComboBox_3", "CCWH1");
-//    if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
-//        clickButton(":_inventory.Stocked_QCheckBox_3");
-//    if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_3").checked)
-//        clickButton(":_inventory.Allow Automatic Updates_QCheckBox_3");
-//    type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
-//    type(":_cycleCountFreq_QSpinBox_3", "<Del>");
-//    type(":_cycleCountFreq_QSpinBox_3", "30");
-//    type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
-//    type(":_eventFence_QSpinBox_4", "<Del>");
-//    type(":_eventFence_QSpinBox_4", "10");
-//    clickButton(":_locationGroup.Multiple Location Control_QCheckBox_3");
-//    type(":_locationGroup.Use Default Location_QGroupBox_3","01010103");
-//    type(":_locationGroup._locationComments_XLineEdit_3", "RM-01-01-01");
-//    clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
-//    type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
-//    waitForObject(":_reorderLevel_XLineEdit_3");
-//    type(":_reorderLevel_XLineEdit_3", "0.00");
-//    type(":_orderUpToQty_XLineEdit_3", "0.00");
-//    type(":_minimumOrder_XLineEdit_3", "100");
-//    type(":_maximumOrder_XLineEdit_3", "10000");
-//    type(":_orderMultiple_XLineEdit_3", "100");
-//    clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
-//    type(":_mrp._orderGroup_QSpinBox_3", "<Ctrl+A>");
-//    type(":_mrp._orderGroup_QSpinBox_3", "<Del>");
-//    type(":_mrp._orderGroup_QSpinBox_3", "7");
-//    type(":_mrp._mpsTimeFence_QSpinBox_3", "<Ctrl+A>");
-//    type(":_mrp._mpsTimeFence_QSpinBox_3", "<Del>");
-//    type(":_mrp._mpsTimeFence_QSpinBox_3", "0");
-//    type(":_leadTime_QSpinBox_3", "<Ctrl+A>");
-//    type(":_leadTime_QSpinBox_3", "<Del>");
-//    type(":_leadTime_QSpinBox_3", "1");
-//    type(":_mrp._safetyStock_XLineEdit_3", "<Ctrl+A>");
-//    type(":_mrp._safetyStock_XLineEdit_3", "<Del>");
-//    type(":_mrp._safetyStock_XLineEdit_3", "0");
-//    waitForObject(":Item Site.Save_QPushButton");
-//    clickButton(":Item Site.Save_QPushButton");
-//    waitForObject(":Item Site.Cancel_QPushButton");
-//    clickButton(":Item Site.Cancel_QPushButton");
-//    test.log("Item site for TBOX1 created");
-//    
-//    
-//    //---------Item site: YPAINT1----------------------
-//    waitForObject(":List Item Sites.New_QPushButton_3");
-//    clickButton(":List Item Sites.New_QPushButton_3");
-//    waitForObject(":Item Site._itemNumber_ItemLineEdit");
-//    type(":Item Site._itemNumber_ItemLineEdit", "YPAINT1");
-//    type(":Item Site._itemNumber_ItemLineEdit", "<Tab>");    
-//    type(":_warehouse_WComboBox_5", "WH1");
-//    if(findObject(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3").checked)
-//        clickButton(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3");
-//    type(":Item Site.Sold from this Site_QGroupBox"," ");
-//    clickButton(":Costing Method.Standard_QRadioButton_3");
-//    type(":Control._controlMethod_XComboBox_3", "Lot");
-//    type(":_plannerCode_XComboBox_2", "MRP");
-//    type(":_costcat_XComboBox_3", "CCWH1");
-//    if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
-//        clickButton(":_inventory.Stocked_QCheckBox_3");
-//    if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_3").checked)
-//        clickButton(":_inventory.Allow Automatic Updates_QCheckBox_3");
-//    type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
-//    type(":_cycleCountFreq_QSpinBox_3", "<Del>");
-//    type(":_cycleCountFreq_QSpinBox_3", "30");
-//    type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
-//    type(":_eventFence_QSpinBox_4", "<Del>");
-//    type(":_eventFence_QSpinBox_4", "10");
-//    type(":_locationGroup._locationComments_XLineEdit_3", "RM-01-01-01");
-//    clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");	
-//    type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
-//    waitForObject(":_reorderLevel_XLineEdit_3");
-//    type(":_reorderLevel_XLineEdit_3", "0.00");
-//    type(":_orderUpToQty_XLineEdit_3", "0.00");
-//    type(":_minimumOrder_XLineEdit_3", "100");
-//    type(":_maximumOrder_XLineEdit_3", "10000");
-//    type(":_orderMultiple_XLineEdit_3", "100");
-//    clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
-//    type(":_mrp._orderGroup_QSpinBox_3", "<Ctrl+A>");
-//    type(":_mrp._orderGroup_QSpinBox_3", "<Del>");
-//    type(":_mrp._orderGroup_QSpinBox_3", "7");
-//    type(":_mrp._mpsTimeFence_QSpinBox_3", "<Ctrl+A>");
-//    type(":_mrp._mpsTimeFence_QSpinBox_3", "<Del>");
-//    type(":_mrp._mpsTimeFence_QSpinBox_3", "0");
-//    type(":_leadTime_QSpinBox_3", "<Ctrl+A>");
-//    type(":_leadTime_QSpinBox_3", "<Del>");
-//    type(":_leadTime_QSpinBox_3", "1");
-//    type(":_mrp._safetyStock_XLineEdit_3", "<Ctrl+A>");
-//    type(":_mrp._safetyStock_XLineEdit_3", "<Del>");
-//    type(":_mrp._safetyStock_XLineEdit_3", "0");
-//    clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Expiration");
-//    waitForObject(":_expirationTab.Perishable_QCheckBox_2");
-//    clickButton(":_expirationTab.Perishable_QCheckBox_2");
-//    clickButton(":_expirationTab.Requires Warranty when Purchased_QCheckBox_2");
-//    clickButton(":Item Site.Save_QPushButton");
-//    waitForObject(":Item Site.Cancel_QPushButton");
-//    clickButton(":Item Site.Cancel_QPushButton");
+    //---------Item site: TBOX1----------------------
+    waitForObject(":List Item Sites.New_QPushButton_3");
+    clickButton(":List Item Sites.New_QPushButton_3");
+    waitForObject(":Item Site._itemNumber_ItemLineEdit");
+    type(":Item Site._itemNumber_ItemLineEdit", "TBOX1");
+    type(":Item Site._itemNumber_ItemLineEdit", "<Tab>");    
+    type(":_warehouse_WComboBox_5", "WH1");
+    if(findObject(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3").checked)
+        clickButton(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3");
+    type(":Item Site.Sold from this Site_QGroupBox"," ");
+    clickButton(":Costing Method.Standard_QRadioButton_3");
+    type(":Control._controlMethod_XComboBox_3", "Regular");
+    type(":_plannerCode_XComboBox_2", "MRP");
+    type(":_costcat_XComboBox_3", "CCWH1");
+    if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
+        clickButton(":_inventory.Stocked_QCheckBox_3");
+    if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_3").checked)
+        clickButton(":_inventory.Allow Automatic Updates_QCheckBox_3");
+    type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
+    type(":_cycleCountFreq_QSpinBox_3", "<Del>");
+    type(":_cycleCountFreq_QSpinBox_3", "30");
+    type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
+    type(":_eventFence_QSpinBox_4", "<Del>");
+    type(":_eventFence_QSpinBox_4", "10");
+    clickButton(":_locationGroup.Multiple Location Control_QCheckBox_3");
+    type(":_locationGroup.Use Default Location_QGroupBox_3","01010103");
+    type(":_locationGroup._locationComments_XLineEdit_3", "RM-01-01-01");
+    clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
+    type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+    waitForObject(":_reorderLevel_XLineEdit_3");
+    type(":_reorderLevel_XLineEdit_3", "0.00");
+    type(":_orderUpToQty_XLineEdit_3", "0.00");
+    type(":_minimumOrder_XLineEdit_3", "100");
+    type(":_maximumOrder_XLineEdit_3", "10000");
+    type(":_orderMultiple_XLineEdit_3", "100");
+    clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
+    type(":_mrp._orderGroup_QSpinBox_3", "<Ctrl+A>");
+    type(":_mrp._orderGroup_QSpinBox_3", "<Del>");
+    type(":_mrp._orderGroup_QSpinBox_3", "7");
+    type(":_mrp._mpsTimeFence_QSpinBox_3", "<Ctrl+A>");
+    type(":_mrp._mpsTimeFence_QSpinBox_3", "<Del>");
+    type(":_mrp._mpsTimeFence_QSpinBox_3", "0");
+    type(":_leadTime_QSpinBox_3", "<Ctrl+A>");
+    type(":_leadTime_QSpinBox_3", "<Del>");
+    type(":_leadTime_QSpinBox_3", "1");
+    type(":_mrp._safetyStock_XLineEdit_3", "<Ctrl+A>");
+    type(":_mrp._safetyStock_XLineEdit_3", "<Del>");
+    type(":_mrp._safetyStock_XLineEdit_3", "0");
+    waitForObject(":Item Site.Save_QPushButton");
+    clickButton(":Item Site.Save_QPushButton");
+    waitForObject(":Item Site.Cancel_QPushButton");
+    clickButton(":Item Site.Cancel_QPushButton");
+    waitForObject(":_itemSite_XTreeWidget_2");
+    if(!clickItem(":_itemSite_XTreeWidget_2", "TBOX1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Site Created: TBOX1");
     
-    test.log("Item site for TBOX1 created");
+    
+    //---------Item site: YPAINT1----------------------
+    waitForObject(":List Item Sites.New_QPushButton_3");
+    clickButton(":List Item Sites.New_QPushButton_3");
+    waitForObject(":Item Site._itemNumber_ItemLineEdit");
+    type(":Item Site._itemNumber_ItemLineEdit", "YPAINT1");
+    type(":Item Site._itemNumber_ItemLineEdit", "<Tab>");    
+    type(":_warehouse_WComboBox_5", "WH1");
+    if(findObject(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3").checked)
+        clickButton(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3");
+    type(":Item Site.Sold from this Site_QGroupBox"," ");
+    clickButton(":Costing Method.Standard_QRadioButton_3");
+    type(":Control._controlMethod_XComboBox_3", "Lot");
+    type(":_plannerCode_XComboBox_2", "MRP");
+    type(":_costcat_XComboBox_3", "CCWH1");
+    if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
+        clickButton(":_inventory.Stocked_QCheckBox_3");
+    if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_3").checked)
+        clickButton(":_inventory.Allow Automatic Updates_QCheckBox_3");
+    type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
+    type(":_cycleCountFreq_QSpinBox_3", "<Del>");
+    type(":_cycleCountFreq_QSpinBox_3", "30");
+    type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
+    type(":_eventFence_QSpinBox_4", "<Del>");
+    type(":_eventFence_QSpinBox_4", "10");
+    type(":_locationGroup._locationComments_XLineEdit_3", "RM-01-01-01");
+    clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");	
+    type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+    waitForObject(":_reorderLevel_XLineEdit_3");
+    type(":_reorderLevel_XLineEdit_3", "0.00");
+    type(":_orderUpToQty_XLineEdit_3", "0.00");
+    type(":_minimumOrder_XLineEdit_3", "100");
+    type(":_maximumOrder_XLineEdit_3", "10000");
+    type(":_orderMultiple_XLineEdit_3", "100");
+    clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
+    type(":_mrp._orderGroup_QSpinBox_3", "<Ctrl+A>");
+    type(":_mrp._orderGroup_QSpinBox_3", "<Del>");
+    type(":_mrp._orderGroup_QSpinBox_3", "7");
+    type(":_mrp._mpsTimeFence_QSpinBox_3", "<Ctrl+A>");
+    type(":_mrp._mpsTimeFence_QSpinBox_3", "<Del>");
+    type(":_mrp._mpsTimeFence_QSpinBox_3", "0");
+    type(":_leadTime_QSpinBox_3", "<Ctrl+A>");
+    type(":_leadTime_QSpinBox_3", "<Del>");
+    type(":_leadTime_QSpinBox_3", "1");
+    type(":_mrp._safetyStock_XLineEdit_3", "<Ctrl+A>");
+    type(":_mrp._safetyStock_XLineEdit_3", "<Del>");
+    type(":_mrp._safetyStock_XLineEdit_3", "0");
+    clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Expiration");
+    waitForObject(":_expirationTab.Perishable_QCheckBox_2");
+    clickButton(":_expirationTab.Perishable_QCheckBox_2");
+    clickButton(":_expirationTab.Requires Warranty when Purchased_QCheckBox_2");
+    clickButton(":Item Site.Save_QPushButton");
+    waitForObject(":Item Site.Cancel_QPushButton");
+    clickButton(":Item Site.Cancel_QPushButton");
+    waitForObject(":_itemSite_XTreeWidget_2");
+    if(!clickItem(":_itemSite_XTreeWidget_2", "YPAINT1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Site Created: YPAINT1");
+ 
     waitForObject(":List Item Sites.Close_QPushButton_3");
     clickButton(":List Item Sites.Close_QPushButton_3");
     

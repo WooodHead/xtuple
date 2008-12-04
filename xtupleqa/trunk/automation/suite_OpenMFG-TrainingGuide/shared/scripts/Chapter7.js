@@ -115,9 +115,13 @@ function executeChapter7()
     type(":_code_XLineEdit_8", "STANDARD");
     type(":_description_XLineEdit_18", "Standard Vendor");
     clickButton(":Vendor Type.Save_QPushButton");
+    waitForObject(":List Vendor Types._vendtype_XTreeWidget");
+    if(!clickItem(":List Vendor Types._vendtype_XTreeWidget", "STANDARD", 5, 5 ,1, Qt.LeftButton))
+        test.pass("Vendor Types Created: STANDARD");
+    
     waitForObject(":List Vendor Types.Close_QPushButton");
     clickButton(":List Vendor Types.Close_QPushButton");
-    test.log("Vendor type: STANDARD defined");
+  
     
     
     //---------Purchase: define Terms--------------
@@ -149,9 +153,12 @@ function executeChapter7()
     type(":_discountPercent_XLineEdit", "2");
     waitForObject(":Terms.Save_QPushButton");
     clickButton(":Terms.Save_QPushButton");
+    waitForObject(":List Terms._terms_XTreeWidget");
+    if(!clickItem(":List Terms._terms_XTreeWidget", "2-10N30", 5, 5, 1, Qt.LeftButton))
+        test.pass("Terms Created: 2-10N30");
     waitForObject(":List Terms.Close_QPushButton");
     clickButton(":List Terms.Close_QPushButton");
-    test.log("Purchase: Terms defined");
+
     
     
     
@@ -170,6 +177,10 @@ function executeChapter7()
     type(":_description_XLineEdit_20", "Damaged Purchased Material - Returned");
     waitForObject(":Reject Code.Save_QPushButton");
     clickButton(":Reject Code.Save_QPushButton");
+    waitForObject(":List Reject Codes._rjctcode_XTreeWidget");
+    if(!clickItem(":List Reject Codes._rjctcode_XTreeWidget", "PO-DAMAGED-RETURNED", 5, 5, 1, Qt.LeftButton))
+        test.pass("Reject Codes Created: PO-DAMAGED-RETURNED");
+
     
     waitForObject(":List Reject Codes.New_QPushButton");
     clickButton(":List Reject Codes.New_QPushButton");
@@ -178,10 +189,13 @@ function executeChapter7()
     type(":_description_XLineEdit_20", "Wrong Purchased Product - Returned");
     waitForObject(":Reject Code.Save_QPushButton");
     clickButton(":Reject Code.Save_QPushButton");
- 
+    waitForObject(":List Reject Codes._rjctcode_XTreeWidget");
+    if(!clickItem(":List Reject Codes._rjctcode_XTreeWidget", "PO-WRONG-RETURNED", 5, 5, 1, Qt.LeftButton))
+        test.pass("Reject Codes Created: PO-WRONG-RETURNED");
+    
     waitForObject(":List Reject Codes.Close_QPushButton");
     clickButton(":List Reject Codes.Close_QPushButton");
-    test.log("Reject codes defined");
+
     
     //-----------Chart Of Accounts-------------------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -192,15 +206,33 @@ function executeChapter7()
     activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
     
     COA("01","01","2000","01","Accounts Payable","Liability","AP");
+    waitForObject(":_account_XTreeWidget_2");
+    if(!clickItem(":_account_XTreeWidget_2", "Accounts Payable", 5, 5, 1, Qt.LeftButton))
+        test.pass("COA Created for: Accounts Payable");
+
     COA("01","01","1400","01","Prepaid Account - Purchasing","Asset","CAS");
+    waitForObject(":_account_XTreeWidget_2");
+    if(!clickItem(":_account_XTreeWidget_2", "Prepaid Account - Purchasing", 5, 5, 1, Qt.LeftButton))
+        test.pass("COA Created for: Prepaid Account - Purchasing");
+    
     COA("01","01","4900","01","Promotions and Discounts Taken","Revenue","SI");
+    waitForObject(":_account_XTreeWidget_2");
+    if(!clickItem(":_account_XTreeWidget_2", "Promotions and Discounts Taken", 5, 5, 1, Qt.LeftButton))
+        test.pass("COA Created for: Promotions and Discounts Taken");
+    
     COA("01","01","4050","01","State Sales Tax Revenue","Revenue","SO");
+    waitForObject(":_account_XTreeWidget_2");
+    if(!clickItem(":_account_XTreeWidget_2", "State Sales Tax Revenue", 5, 5, 1, Qt.LeftButton))
+        test.pass("COA Created for: State Sales Tax Revenue");
+    
     COA("01","01","4060","01","Shipping Charges Revenue","Revenue","SO");
-     
+    waitForObject(":_account_XTreeWidget_2");
+    if(!clickItem(":_account_XTreeWidget_2", "Shipping Charges Revenue", 5, 5, 1, Qt.LeftButton))
+        test.pass("COA Created for: Shipping Charges Revenue");
+    
     waitForObject(":Chart of Accounts.Close_QPushButton_2");
     clickButton(":Chart of Accounts.Close_QPushButton_2");
-    test.log("Chart of Accounts created");
-    
+  
     
      //----------Purchase: A/P Account Assignments-----------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
@@ -219,9 +251,13 @@ function executeChapter7()
     type(":A/P Account Assignment._main_XLineEdit_3", "01-01-4900-01");
     type(":A/P Account Assignment._main_XLineEdit_3", "<Tab>");
     clickButton(":A/P Account Assignment.Save_QPushButton");
+    waitForObject(":List A/P Account Assignments._apaccnt_XTreeWidget");
+    if(!clickItem(":List A/P Account Assignments._apaccnt_XTreeWidget", "All", 5, 5, 1, Qt.LeftButton))
+        test.pass("Accounts(A/P) Assignment created for: All");
+     
     waitForObject(":List A/P Account Assignments.Close_QPushButton");
     clickButton(":List A/P Account Assignments.Close_QPushButton");
-    test.log("Accounts assigned for A/Ps");
+ 
     
     
     //--------------Create new Vendor----------
@@ -291,9 +327,13 @@ function executeChapter7()
     type(":_addressStack.Postal Code:_XLineEdit", "300838");
     type(":_addressStack.Country:_XComboBox", "India");
     clickButton(":Vendor.Save_QPushButton");
+    waitForObject(":List Vendors._vendor_XTreeWidget");
+    if(!clickItem(":List Vendors._vendor_XTreeWidget", "TPARTS", 5, 5, 1, Qt.LeftButton))
+        test.pass("Accounts Assignment created for: All");
+
     waitForObject(":List Vendors.Close_QPushButton");
     clickButton(":List Vendors.Close_QPushButton");
-    test.log("Vendor: TPARTS created");
+  
     
     
     
@@ -346,7 +386,10 @@ function executeChapter7()
     type(":tab2._vendorItemDescrip_QTextEdit", "ProDiem Box For Truck Type 1");
     waitForObject(":Item Source.Save_QPushButton");
     clickButton(":Item Source.Save_QPushButton");
-    test.log("Item Sources: TBOX1 created");
+    waitForObject(":_frame._itemsrc_XTreeWidget");
+    if(!clickItem(":_frame._itemsrc_XTreeWidget", "TBOX1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Source created for: TBOX1");
+
     
     
     //----Item source for TBODY1--------------
@@ -377,7 +420,10 @@ function executeChapter7()
     clickButton(":Item Source Price.Save_QPushButton");
     waitForObject(":Item Source.Save_QPushButton");
     clickButton(":Item Source.Save_QPushButton");
-    test.log("Item Sources: TBODY1 created");
+    waitForObject(":_frame._itemsrc_XTreeWidget");
+    if(!clickItem(":_frame._itemsrc_XTreeWidget", "TBODY1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Source created for: TBODY1");
+
     
     
     //----Item source for TINSERT1--------------
@@ -408,7 +454,10 @@ function executeChapter7()
     clickButton(":Item Source Price.Save_QPushButton");
     waitForObject(":Item Source.Save_QPushButton");
     clickButton(":Item Source.Save_QPushButton");
-    test.log("Item Sources: TINSERT1 created");
+    waitForObject(":_frame._itemsrc_XTreeWidget");
+    if(!clickItem(":_frame._itemsrc_XTreeWidget", "TINSERT1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Source created for: TINSERT1");
+
     
     
     //----Item source for TWHEEL1--------------
@@ -439,7 +488,9 @@ function executeChapter7()
     clickButton(":Item Source Price.Save_QPushButton");
     waitForObject(":Item Source.Save_QPushButton");
     clickButton(":Item Source.Save_QPushButton");
-    test.log("Item Sources: TWHEEL1 created");
+    waitForObject(":_frame._itemsrc_XTreeWidget");
+    if(!clickItem(":_frame._itemsrc_XTreeWidget", "TWHEEL1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Source created for: TWHEEL1");
     
     //----Item source for YPAINT1--------------
     waitForObject(":_frame.New_QPushButton");
@@ -469,8 +520,9 @@ function executeChapter7()
     clickButton(":Item Source Price.Save_QPushButton");
     waitForObject(":Item Source.Save_QPushButton");
     clickButton(":Item Source.Save_QPushButton");
-    test.log("Item Sources: YPAINT1 created");
-    
+    waitForObject(":_frame._itemsrc_XTreeWidget");
+    if(!clickItem(":_frame._itemsrc_XTreeWidget", "YPAINT1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Source created for: YPAINT1");
     waitForObject(":List Item Sources.Close_QPushButton");
     clickButton(":List Item Sources.Close_QPushButton");
     

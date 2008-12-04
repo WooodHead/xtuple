@@ -32,7 +32,10 @@ function executeChapter5()
     clickButton(":Item Site.Save_QPushButton");
     waitForObject(":Item Site.Cancel_QPushButton");
     clickButton(":Item Site.Cancel_QPushButton");
-    test.log("Item and Itemsite of RTRUCK1 created");
+    waitForObject(":List Items._item_XTreeWidget_3");
+    if(!clickItem(":List Items._item_XTreeWidget_3", "RTRUCK1", 5, 5, 1, Qt.LeftButton))
+      test.pass("Item Created: RTRUCK1");
+
 
     
     //-----------Copy and create BTRUCK1------------------
@@ -59,7 +62,9 @@ function executeChapter5()
     clickButton(":Item Site.Save_QPushButton");
     waitForObject(":Item Site.Cancel_QPushButton");
     clickButton(":Item Site.Cancel_QPushButton");
-    test.log("Item and Itemsite of BTRUCK1 created");
+    waitForObject(":List Items._item_XTreeWidget_3");
+    if(!clickItem(":List Items._item_XTreeWidget_3", "BTRUCK1", 5, 5, 1, Qt.LeftButton))
+      test.pass("Item Created: BTRUCK1");
     
     //-----------Copy and create WTRUCK1-----------------
     waitForObject(":List Items._item_XTreeWidget_3");
@@ -85,7 +90,9 @@ function executeChapter5()
     clickButton(":Item Site.Save_QPushButton");
     waitForObject(":Item Site.Cancel_QPushButton");
     clickButton(":Item Site.Cancel_QPushButton");
-    test.log("Item and Itemsite of WTRUCK1 created");
+    waitForObject(":List Items._item_XTreeWidget_3");
+    if(!clickItem(":List Items._item_XTreeWidget_3", "WTRUCK1", 5, 5, 1, Qt.LeftButton))
+      test.pass("Item Created: WTRUCK1");
   
     waitForObject(":List Items.Close_QPushButton_3");
     clickButton(":List Items.Close_QPushButton_3");
@@ -177,7 +184,7 @@ function executeChapter5()
     test.log("Planning Item: COLLECTORS-LINE created");
 
 
-  //---------define BOM for COLLECTORS-LINE item----------------
+    //---------define BOM for COLLECTORS-LINE item----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
@@ -291,9 +298,13 @@ function executeChapter5()
    
     waitForObject(":Production Plan.Save_QPushButton");
     clickButton(":Production Plan.Save_QPushButton");
+    
+    waitForObject(":_list_XTreeWidget");
+    if(!clickItem(":_list_XTreeWidget", "COLLECTORS-LINE-PLAN", 5, 5, 1, Qt.LeftButton))
+      test.pass("Production Plan Created: COLLECTORS-LINE-PLAN");
     waitForObject(":List Production Plans.Close_QPushButton");
     clickButton(":List Production Plans.Close_QPushButton");
-    test.log("Production Plan for COLLECTORS-LINE Item created");
+ 
     
     
     

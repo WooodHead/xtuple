@@ -15,9 +15,12 @@ function executeChapter6()
     type(":_name_XLineEdit_7", "Special Handling");
     clickButton(":User Costing Element.Accept P/O Distributions_QCheckBox");
     clickButton(":User Costing Element.Save_QPushButton");
+    waitForObject(":List User-Defined Costing Elements._costelem_XTreeWidget");
+    if(!clickItem(":List User-Defined Costing Elements._costelem_XTreeWidget", "Special Handling", 5, 5, 1, Qt.LeftButton))    test.pass("Costing Element Created: Special Handling");
+
     waitForObject(":List User-Defined Costing Elements.Close_QPushButton");
     clickButton(":List User-Defined Costing Elements.Close_QPushButton");
-    test.log("User defined Costing Element: Special Handling created");
+  
     
     
     //-------------Maintain Item Costs------------------

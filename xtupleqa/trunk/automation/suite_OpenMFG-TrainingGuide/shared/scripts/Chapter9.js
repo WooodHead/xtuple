@@ -17,9 +17,13 @@ function executeChapter9()
     if(findObject(":_report_XComboBox_3").currentText!="APCheck")
         type(":_report_XComboBox_3", "APCheck");
     clickButton(":Check Format.Save_QPushButton");
+    waitForObject(":List Check Formats._form_XTreeWidget");
+    if(!clickItem(":List Check Formats._form_XTreeWidget", "GENERIC-CHECK", 5, 5, 1, Qt.LeftButton))
+         test.pass("Incident Resolution created : Replace");
+    
     waitForObject(":List Check Formats.Close_QPushButton");
     clickButton(":List Check Formats.Close_QPushButton");
-    test.log("Defined Check Formats");
+   
  
     
     //------------------Chart Of Accounts------------------------
@@ -31,11 +35,28 @@ function executeChapter9()
     activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
     
     COA("01","01","1000","01","Cash at eBank","Asset","CA"); 
+    if(!clickItem(":_account_XTreeWidget_2", "Cash at eBank", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Cash at eBank");
+    
     COA("01","01","1010","01","Cash at EuroBank","Asset","CA"); 
+    if(!clickItem(":_account_XTreeWidget_2", "Cash at EuroBank", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Cash at EuroBank");
+    
     COA("01","01","6750","01","Finance Fees and Expenses","Expense","EXP"); 
+    if(!clickItem(":_account_XTreeWidget_2", "Finance Fees and Expenses", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Finance Fees and Expenses");
+    
     COA("01","01","1500","01","Fixed Assets","Asset","FA");
+    if(!clickItem(":_account_XTreeWidget_2", "Fixed Assets", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Fixed Assets");
+    
     COA("01","01","6400","01","Depreciation Expense","Expense","DXP");
+    if(!clickItem(":_account_XTreeWidget_2", "Depreciation Expense", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Depreciation Expense");
+    
     COA("01","01","3010","01","Paid-In Capital","Equity","EDC");
+    if(!clickItem(":_account_XTreeWidget_2", "Paid-In Capital", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Paid-In Capital");
     
     waitForObject(":Chart of Accounts.Close_QPushButton_2");
     clickButton(":Chart of Accounts.Close_QPushButton_2");
@@ -58,7 +79,7 @@ function executeChapter9()
     type(":_description_XLineEdit_27", "eBank Checking Account");
     type(":_bankName_XLineEdit", "eBank");
     type(":_accountNumber_XLineEdit_2", "123456");
-     if(!findObject(":_currency_XComboBox").currentText!= "USD -$");
+    if(!findObject(":_currency_XComboBox").currentText!= "USD -$");
         type(":_currency_XComboBox","USD");
     waitForObjectItem(":_type_XComboBox", "Checking");
     if(findObject(":_type_XComboBox").currentText!="Checking")
@@ -72,7 +93,9 @@ function executeChapter9()
         clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
     type(":_accountGroup._main_XLineEdit", "01-01-1000-01");
     clickButton(":Bank Account.Save_QPushButton");
-    test.log("Bank Account: EBANK defined");
+    waitForObject(":List Bank Accounts._bankaccnt_XTreeWidget");
+    if(!clickItem(":List Bank Accounts._bankaccnt_XTreeWidget", "EBANK", 5, 5, 1, Qt.LeftButton))
+        test.pass("Bank Account created: EBANK");
     
     waitForObject(":List Bank Accounts.New_QPushButton");
     clickButton(":List Bank Accounts.New_QPushButton");
@@ -96,11 +119,13 @@ function executeChapter9()
     clickButton(":Bank Account.Save_QPushButton");
     waitForObject(":List Bank Accounts.Close_QPushButton");
     clickButton(":List Bank Accounts.Close_QPushButton");
-    test.log("Bank Account: EURBANK defined"); 
+    waitForObject(":List Bank Accounts._bankaccnt_XTreeWidget");
+    if(!clickItem(":List Bank Accounts._bankaccnt_XTreeWidget", "EURBANK", 5, 5, 1, Qt.LeftButton))
+        test.pass("Bank Account created: EURBANK");
     
     
     
-        //--------------Create: Adjustment Types--------------
+    //--------------Create: Adjustment Types--------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
@@ -115,9 +140,12 @@ function executeChapter9()
     type(":Adjustment Type._main_XLineEdit", "01-01-6750-01");
     clickButton(":Type.Debit_QRadioButton");
     clickButton(":Adjustment Type.Save_QPushButton");
+    waitForObject(":List Adjustment Types._bankadjtype_XTreeWidget");
+    if(!clickItem(":List Adjustment Types._bankadjtype_XTreeWidget", "BANKFEE", 5, 5, 1, Qt.LeftButton))
+        test.pass("Adjustment Type created: BANKFEE");
+     
     waitForObject(":List Adjustment Types.Close_QPushButton");
     clickButton(":List Adjustment Types.Close_QPushButton");
-    test.log("Created: Account Adjustment types");
   
   
     //------------Define: Fiscal Year----------------
@@ -146,10 +174,16 @@ function executeChapter9()
     type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+NxtYear);
     waitForObject(":Fiscal Year.Save_QPushButton");
     clickButton(":Fiscal Year.Save_QPushButton");
+    waitForObject(":List Fiscal Years._period_XTreeWidget");
+    if(!clickItem(":List Fiscal Years._period_XTreeWidget", "No_1", 5, 5, 1, Qt.LeftButton))
+       test.pass("Fiscal Year created");
     
+    if(!clickItem(":List Fiscal Years._period_XTreeWidget", "No_2", 5, 5, 1, Qt.LeftButton))
+       test.pass("Fiscal Year created");
+
     waitForObject(":List Fiscal Years.Close_QPushButton");
     clickButton(":List Fiscal Years.Close_QPushButton");
-    test.log("Fiscal Year Defined");
+    
     
     //-------------Define: Fiscal Calendar--------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");

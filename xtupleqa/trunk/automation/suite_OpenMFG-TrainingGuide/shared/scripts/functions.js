@@ -50,6 +50,7 @@ function loginAppl(vrsn,database,usr)
     type(":_password_QLineEdit", pwd);
     waitForObject(":_password_QLineEdit");
     type(":_password_QLineEdit", "<Return>");
+    test.log("Logged in Application");
 }
 
 
@@ -85,8 +86,7 @@ function assignPrivileges()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
-    test.log("User Privileges Rescaned");
-
+ 
 
 }
 
@@ -113,7 +113,7 @@ function createDept(DeptNum, DeptName)
     test.log("New Department:"+ DeptNum + " created");
     waitForObject(":List Departments.Close_QPushButton");
     clickButton(":List Departments.Close_QPushButton");
-    
+       
 }
 
 
@@ -154,7 +154,7 @@ function createShift(ShiftNum, ShiftName)
     
     waitForObject(":List Shifts.Close_QPushButton");
     clickButton(":List Shifts.Close_QPushButton");
-    
+       
 }
 
 
@@ -246,8 +246,7 @@ function createLocale(LocaleCode,LocaleDesc)
         test.fail("New Locale:'"+LocaleCode+"' not created ");
     waitForObject(":List Locales.Close_QPushButton");
     clickButton(":List Locales.Close_QPushButton");
-
-
+   
 }
 
 
@@ -417,6 +416,7 @@ function createCompany(CompNum, CompDesc)
      
     waitForObject(":List Companies.Close_QPushButton");
     clickButton(":List Companies.Close_QPushButton");
+    test.log("Company: "+CompNum+" created");
 
 }
 

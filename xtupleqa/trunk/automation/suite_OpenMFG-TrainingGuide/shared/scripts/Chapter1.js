@@ -82,7 +82,9 @@ function executeChapter1()
     clickButton(":Company ID Correct?.Yes_QPushButton");
     test.log("Acconting Module Configured");
   
+    //-------Create Company: Prodiem---------
     createCompany("01","Prodiem");
+    
 
   
     //-------------Accounting-Profit Center Number---------------------
@@ -209,11 +211,7 @@ function executeChapter1()
         test.pass("SubAccounts created");
     else
         test.fail("SubAccounts not created");
-  
-  
-  
-  
-      waitForObject(":List G/L Subaccount Types.Close_QPushButton");
+    waitForObject(":List G/L Subaccount Types.Close_QPushButton");
     clickButton(":List G/L Subaccount Types.Close_QPushButton");
   
     
@@ -243,8 +241,7 @@ function executeChapter1()
     clickButton(":List Currencies.Save_QPushButton");
     waitForObject(":List Currencies.Yes_QPushButton");
     clickButton(":List Currencies.Yes_QPushButton");
-    test.log("Base Currency: USD($) Created");
-  
+   
     //----------Create Foreign currency - EUR------------
     waitForObject(":List Currencies.New_QPushButton");
     clickButton(":List Currencies.New_QPushButton");
@@ -258,7 +255,14 @@ function executeChapter1()
     clickButton(":List Currencies.Save_QPushButton");   
     waitForObject(":List Currencies.Close_QPushButton");
     clickButton(":List Currencies.Close_QPushButton");
-    test.log("Foreign Currency: EUR created");
+     
+    if(!clickItem(":List Currencies._curr_XTreeWidget", "USD",5,5,1,Qt.LeftButton))
+        test.pass("Currency USD created");
+    else test.fail("Currency: USD not created");
+        
+    if(!clickItem(":List Currencies._curr_XTreeWidget", "EUR", 5, 5, 1, Qt.LeftButton))
+        test.pass("EUR not created");
+    else test.fail("Currency: EUR not created");
   
     //----------Create Exchange Rates-------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -278,9 +282,12 @@ function executeChapter1()
     type(":List Currency Exchange Rates.XDateEdit_XDateEdit_2", "<Tab>");
     waitForObject(":List Currency Exchange Rates.Save_QPushButton");
     clickButton(":List Currency Exchange Rates.Save_QPushButton");
+    if(!clickItem(":List Currency Exchange Rates._conversionRates_XTreeWidget", "EUR - EUR", 5, 5, 1, Qt.LeftButton))
+        test.pass("Exchange Rate of EUR created");
+    else test.fail("Exchange Rate of EUR not created");
     waitForObject(":List Currency Exchange Rates.Close_QPushButton");
     clickButton(":List Currency Exchange Rates.Close_QPushButton");
-    test.log("Exchange Rate for EUR created");
+    
   
 
     //-----------Chart Of Accounts-------------------------------
@@ -292,10 +299,24 @@ function executeChapter1()
     activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
 
     COA("01","01","1950","01","Unassigned Inv Transactions","Asset","IN");
+    if(!clickItem(":_account_XTreeWidget","Unassigned Inv Transactions",5,5,1,Qt.LeftButton))
+        test.pass("Chart of Account: Unassigned Inv Transactions created");
+    
     COA("01","01","3030","01","Retained Earnings","Equity","EC");
+    if(!clickItem(":_account_XTreeWidget","Retained Earnings",5,5,1,Qt.LeftButton))
+        test.pass("Chart of Account: Retained Earnings created");
+  
     COA("01","01","3040","01","Stock Class B","Equity","EDC");
+    if(!clickItem(":_account_XTreeWidget","Stock Class B",5,5,1,Qt.LeftButton))
+        test.pass("Chart of Account: Stock Class B created");
+ 
     COA("01","01","8990","01","Currency Gain / Loss","Expense","EXP");
+    if(!clickItem(":_account_XTreeWidget","Currency Gain / Loss",5,5,1,Qt.LeftButton))
+        test.pass("Chart of Account: Currency Gain / Loss created");
+     
     COA("01","01","8995","01","G/L Series Discrepancy","Expense","EXP");   
+    if(!clickItem(":_account_XTreeWidget","G/L Series Discrepancy",5,5,1,Qt.LeftButton))
+        test.pass("Chart of Account: G/L Series Discrepancy created");
     
     waitForObject(":Chart of Accounts.Close_QPushButton");
     clickButton(":Chart of Accounts.Close_QPushButton");
@@ -546,9 +567,12 @@ function executeChapter1()
     waitForObject(":_code_XLineEdit_2");
     type(":_code_XLineEdit_2", "Master");
     clickButton(":List Titles.Save_QPushButton");
+    if(!clickItem(":List Titles._honorifics_XTreeWidget", "Master", 5, 5, 1, Qt.LeftButton))
+        test.pass("Title: Master created");
+    else test.fail("Title: Master not created");
     waitForObject(":List Titles.Close_QPushButton");
     clickButton(":List Titles.Close_QPushButton");
-    test.log("CRM-Mast Info: New Tile created");
+ 
     
     //-------------Create Site Types------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
@@ -564,6 +588,8 @@ function executeChapter1()
     type(":List Site Types._code_XLineEdit", "WHSE");
     type(":List Site Types._description_XLineEdit", "Warehouse");
     clickButton(":List Site Types.Save_QPushButton");
+    if(!clickItem(":List Site Types._sitetype_XTreeWidget", "WHSE", 5, 5, 1, Qt.LeftButton))
+        test.pass("Site Type: WHSE created");
     
     waitForObject(":List Site Types.New_QPushButton");
     clickButton(":List Site Types.New_QPushButton");
@@ -571,10 +597,11 @@ function executeChapter1()
     type(":List Site Types._code_XLineEdit", "INTRAN");
     type(":List Site Types._description_XLineEdit", "Intransit Site");
     clickButton(":List Site Types.Save_QPushButton");
-    
+    if(!clickItem(":List Site Types._sitetype_XTreeWidget", "INTRAN", 5, 5, 1, Qt.LeftButton))
+        test.pass("Site Type: INTRAN created");
     waitForObject(":List Site Types.Close_QPushButton");
     clickButton(":List Site Types.Close_QPushButton");
-    test.log("Inventory Site Types created");
+   
 
     
     
@@ -648,7 +675,8 @@ function executeChapter1()
     clickButton(":List Sites.Save_QPushButton");
     waitForObject(":Save_QPushButton");
     clickButton(":Save_QPushButton");
-    test.log("Inventory Site1: WH1 created ");
+    if(!clickItem(":List Sites._warehouse_XTreeWidget", "Prodiem Toys Site1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Site: Prodiem Toys Site1 created ");
   
   
     //-------create Inventory Site: WH2-----------------
@@ -723,6 +751,8 @@ function executeChapter1()
     waitForObject(":List Sites.Close_QPushButton");
     clickButton(":List Sites.Close_QPushButton");
     test.log("Inventory Site2: WH2 created ");
+    if(!clickItem(":List Sites._warehouse_XTreeWidget", "Prodiem Toys Site2", 5, 5, 1, Qt.LeftButton))
+        test.pass("Site: Prodiem Toys Site2 created");
     
     
     //----------Configure: Inventory Module-----------------
@@ -823,8 +853,7 @@ function executeChapter1()
     clickButton(":_menu.Show Accounting Menu_QCheckBox");
     waitForObject(":_menu.Show Accountng Toolbar_QCheckBox");
     clickButton(":_menu.Show Accountng Toolbar_QCheckBox");
-    
-    
+       
     waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
     clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar", "Events");
         

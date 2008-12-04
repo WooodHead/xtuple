@@ -47,11 +47,13 @@ function executeChapter8()
        
     waitForObject(":Customer Type.Save_QPushButton");
     clickButton(":Customer Type.Save_QPushButton");
+    waitForObject(":List Customer Types._custtype_XTreeWidget");
+    if(!clickItem(":List Customer Types._custtype_XTreeWidget", "NORMAL", 5, 5, 1, Qt.LeftButton))
+        test.pass("Customer Type created: NORMAL");
+     
     waitForObject(":List Customer Types.Close_QPushButton");
     clickButton(":List Customer Types.Close_QPushButton");
-    test.log("Customer Type: NORMAL created");
-    
-    
+     
     
     //---------------Create Sales Reps----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -68,9 +70,13 @@ function executeChapter8()
     type(":_commPrcnt_XLineEdit", "7.5");
     waitForObject(":Sales Representative.Save_QPushButton");
     clickButton(":Sales Representative.Save_QPushButton");
+    waitForObject(":List Sales Representatives._salesrep_XTreeWidget");
+    if(!clickItem(":List Sales Representatives._salesrep_XTreeWidget", "1000", 5, 5, 1, Qt.LeftButton))
+        test.pass("Customer Type created: NORMAL");
+    
     waitForObject(":List Sales Representatives.Close_QPushButton");
     clickButton(":List Sales Representatives.Close_QPushButton");
-    test.log("Sales Rep: 1000 Sam Masters created");
+   
    
     //---------------Create Shipping Zone--------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -86,6 +92,10 @@ function executeChapter8()
     type(":_description_XLineEdit_22", "Domestic Shipping Zone 1");
     waitForObject(":Shipping Zone.Save_QPushButton");
     clickButton(":Shipping Zone.Save_QPushButton");
+    waitForObject(":List Shipping Zones._shipzone_XTreeWidget");
+    if(!clickItem(":List Shipping Zones._shipzone_XTreeWidget", "DOMESTIC1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Shipping Zone created: DOMESTIC1");
+    
     
     waitForObject(":List Shipping Zones.New_QPushButton");
     clickButton(":List Shipping Zones.New_QPushButton");
@@ -93,6 +103,10 @@ function executeChapter8()
     type(":_description_XLineEdit_22", "Domestic Shipping Zone 2");
     waitForObject(":Shipping Zone.Save_QPushButton");
     clickButton(":Shipping Zone.Save_QPushButton");
+    waitForObject(":List Shipping Zones._shipzone_XTreeWidget");
+    if(!clickItem(":List Shipping Zones._shipzone_XTreeWidget", "DOMESTIC2", 5, 5, 1, Qt.LeftButton))
+        test.pass("Shipping Zone created: DOMESTIC2");
+    
     
     waitForObject(":List Shipping Zones.New_QPushButton");
     clickButton(":List Shipping Zones.New_QPushButton");
@@ -100,6 +114,10 @@ function executeChapter8()
     type(":_description_XLineEdit_22", "Domestic Shipping Zone 3");
     waitForObject(":Shipping Zone.Save_QPushButton");
     clickButton(":Shipping Zone.Save_QPushButton");
+    waitForObject(":List Shipping Zones._shipzone_XTreeWidget");
+    if(!clickItem(":List Shipping Zones._shipzone_XTreeWidget", "DOMESTIC3", 5, 5, 1, Qt.LeftButton))
+        test.pass("Shipping Zone created: DOMESTIC3");
+    
     
     waitForObject(":List Shipping Zones.New_QPushButton");
     clickButton(":List Shipping Zones.New_QPushButton");
@@ -107,6 +125,10 @@ function executeChapter8()
     type(":_description_XLineEdit_22", "Domestic Shipping Zone 4");
     waitForObject(":Shipping Zone.Save_QPushButton");
     clickButton(":Shipping Zone.Save_QPushButton");
+    waitForObject(":List Shipping Zones._shipzone_XTreeWidget");
+    if(!clickItem(":List Shipping Zones._shipzone_XTreeWidget", "DOMESTIC4", 5, 5, 1, Qt.LeftButton))
+        test.pass("Shipping Zone created: DOMESTIC4");
+    
     
     
     waitForObject(":List Shipping Zones.New_QPushButton");
@@ -115,10 +137,13 @@ function executeChapter8()
     type(":_description_XLineEdit_22", "Domestic Shipping Zone 5");
     waitForObject(":Shipping Zone.Save_QPushButton");
     clickButton(":Shipping Zone.Save_QPushButton");
+    waitForObject(":List Shipping Zones._shipzone_XTreeWidget");
+    if(!clickItem(":List Shipping Zones._shipzone_XTreeWidget", "DOMESTIC5", 5, 5, 1, Qt.LeftButton))
+        test.pass("Shipping Zone created: DOMESTIC5");
     
     waitForObject(":List Shipping Zones.Close_QPushButton");
     clickButton(":List Shipping Zones.Close_QPushButton");
-    test.log("Shipping Zones created");
+
   
     
     //---------Create Shipping Vias---------------
@@ -135,6 +160,10 @@ function executeChapter8()
     type(":Ship Via._code_XLineEdit", "UPS-GROUND");
     type(":Ship Via._description_XLineEdit", "UPS Ground");
     clickButton(":Ship Via.Save_QPushButton");
+    waitForObject(":List Ship Vias._shipvia_XTreeWidget");
+    if(!clickItem(":List Ship Vias._shipvia_XTreeWidget", "UPS-GROUND", 5, 5, 1, Qt.LeftButton))
+        test.pass("Shipping Vias created: UPS-GROUND");
+    
     
     waitForObject(":List Ship Vias.New_QPushButton");
     clickButton(":List Ship Vias.New_QPushButton");
@@ -142,11 +171,13 @@ function executeChapter8()
     type(":Ship Via._code_XLineEdit", "FEDEXGROUND");
     type(":Ship Via._description_XLineEdit", "FedEx Ground");
     clickButton(":Ship Via.Save_QPushButton");
-        
+    waitForObject(":List Ship Vias._shipvia_XTreeWidget");
+    if(!clickItem(":List Ship Vias._shipvia_XTreeWidget", "FEDEXGROUND", 5, 5, 1, Qt.LeftButton))
+        test.pass("Shipping Vias created: FEDEXGROUND");
+    
     waitForObject(":List Ship Vias.Close_QPushButton");
     clickButton(":List Ship Vias.Close_QPushButton");
-    test.log("Shipping Vias created");
-  
+      
   
     //-----------Create Shipping Charges--------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -165,6 +196,9 @@ function executeChapter8()
     clickButton(":Shipping Charge Type.Customer may pay Freight Charges_QCheckBox");
     waitForObject(":Shipping Charge Type.Save_QPushButton");
     clickButton(":Shipping Charge Type.Save_QPushButton");
+    waitForObject(":List Shipping Charge Types._shipchrg_XTreeWidget");
+    if(!clickItem(":List Shipping Charge Types._shipchrg_XTreeWidget", "NOCHARGE", 5, 5, 1, Qt.LeftButton))
+        test.pass("Shipping Charges Types created: NOCHARGE");
 
     
     waitForObject(":List Shipping Charge Types.New_QPushButton");
@@ -176,13 +210,13 @@ function executeChapter8()
         clickButton(":Shipping Charge Type.Customer may pay Freight Charges_QCheckBox");
     waitForObject(":Shipping Charge Type.Save_QPushButton");
     clickButton(":Shipping Charge Type.Save_QPushButton");
-    
-    
+    waitForObject(":List Shipping Charge Types._shipchrg_XTreeWidget");
+    if(!clickItem(":List Shipping Charge Types._shipchrg_XTreeWidget", "ADDCHARGE", 5, 5, 1, Qt.LeftButton))
+        test.pass("Shipping Charges Types created: ADDCHARGE");
+ 
     waitForObject(":List Shipping Charge Types.Close_QPushButton");
     clickButton(":List Shipping Charge Types.Close_QPushButton");
-    test.log("Shipping Charges Created");
-    
-    
+
        
     //---------------Define: Tax Codes-----------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -201,9 +235,13 @@ function executeChapter8()
     type(":frame._main_XLineEdit", "01-01-2510-01");
     type(":frame._main_XLineEdit", "<Tab>");
     clickButton(":Tax Code.Save_QPushButton");
+    waitForObject(":List Tax Codes._tax_XTreeWidget");
+    if(!clickItem(":List Tax Codes._tax_XTreeWidget", "TAXAUTH1-EDU", 5, 5, 1, Qt.LeftButton))
+        test.pass("Tax Codes created: TAXAUTH1-EDU");
+    
     waitForObject(":List Tax Codes.Close_QPushButton");
     clickButton(":List Tax Codes.Close_QPushButton");
-    test.log("Tax Codes defined");
+ 
   
   
     //----------------Define: Shipping Forms---------------------
@@ -222,6 +260,10 @@ function executeChapter8()
         type(":_report_XComboBox", "PackingList");
     waitForObject(":Shipping Form.Save_QPushButton");
     clickButton(":Shipping Form.Save_QPushButton");
+    waitForObject(":List Shipping Forms._bolformat_XTreeWidget");
+    if(!clickItem(":List Shipping Forms._bolformat_XTreeWidget", "STANDARD-PACKING-LIST", 97, 3, 1, Qt.LeftButton))
+        test.pass("Shipping Forms created: STANDARD-PACKING-LIST");
+    
     
     waitForObject(":List Shipping Forms.New_QPushButton");
     clickButton(":List Shipping Forms.New_QPushButton");
@@ -231,6 +273,11 @@ function executeChapter8()
         type(":_report_XComboBox", "PackingList-Shipment");
     waitForObject(":Shipping Form.Save_QPushButton");
     clickButton(":Shipping Form.Save_QPushButton");
+    
+    waitForObject(":List Shipping Forms._bolformat_XTreeWidget");
+    if(!clickItem(":List Shipping Forms._bolformat_XTreeWidget", "INTRAN-PACKING-LIST", 97, 3, 1, Qt.LeftButton))
+        test.pass("Shipping Forms created: INTRAN-PACKING-LIST");
+
     
     waitForObject(":List Shipping Forms.Close_QPushButton");
     clickButton(":List Shipping Forms.Close_QPushButton");
@@ -246,13 +293,24 @@ function executeChapter8()
      activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
      
      COA("01","01","4000","01","Revenue","Revenue","SI");
+     if(!clickItem(":_account_XTreeWidget_2", "Revenue", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Revenue");
+        
      COA("01","01","4800","01","Discounts and Allowances","Revenue","SI");
+     if(!clickItem(":_account_XTreeWidget_2", "Discounts and Allowances", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Discounts and Allowances");
+
      COA("01","01","2445","01","Deferred Revenue","Liability","CL");
+     if(!clickItem(":_account_XTreeWidget_2", "Deferred Revenue", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Deferred Revenue");
+     
      COA("01","01","1100","01","Accounts Receivable","Asset","CAS");
-       
+     if(!clickItem(":_account_XTreeWidget_2", "Accounts Receivable", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Accounts Receivable");
+     
      waitForObject(":Chart of Accounts.Close_QPushButton_2");
      clickButton(":Chart of Accounts.Close_QPushButton_2");
-     test.log("Chart of Account created");
+   
      
      
      //-------------Create Sales Category----------------
@@ -271,9 +329,13 @@ function executeChapter8()
     type(":Sales Category._main_XLineEdit_2", "01-01-4800-01");
     type(":Sales Category._main_XLineEdit_3", "01-01-1100-01");
     clickButton(":Sales Category.Save_QPushButton");
+    waitForObject(":List Sales Categories._salescat_XTreeWidget");
+    if(!clickItem(":List Sales Categories._salescat_XTreeWidget", "NORMAL-SALE", 5, 5, 1, Qt.LeftButton))
+        test.pass("Sales Category created: NORMAL-SALE");
+    
     waitForObject(":List Sales Categories.Close_QPushButton");
     clickButton(":List Sales Categories.Close_QPushButton");
-    test.log("Sales Category: NORMAL-SALE created");
+   
     
   
     //-----------Chart Of Accounts-------------------------------
@@ -285,14 +347,24 @@ function executeChapter8()
      activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
      
      COA("01","01","5000","01","Cost Of Goods Sold","Expense","COGS");
+     if(!clickItem(":_account_XTreeWidget_2", "Cost Of Goods Sold", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Cost Of Goods Sold");
+     
      COA("01","01","4700","01","Returns","Revenue","SI");
+     if(!clickItem(":_account_XTreeWidget_2", "Returns", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Returns");
+     
      COA("01","01","5710","01","Returned Goods","Expense","COGS");
+     if(!clickItem(":_account_XTreeWidget_2", "Returned Goods", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Returned Goods");
+     
      COA("01","01","5720","01","Cost of Warranty","Expense","COGS");
-    
+     if(!clickItem(":_account_XTreeWidget_2", "Cost of Warranty", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Cost of Warranty");
+ 
      waitForObject(":Chart of Accounts.Close_QPushButton_2");
      clickButton(":Chart of Accounts.Close_QPushButton_2");
-     test.log("Chart of Account created");
- 
+  
    
      //----------------A/R Account Assignments----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -315,6 +387,10 @@ function executeChapter8()
     type(":A/R Account Assignment._main_XLineEdit_4", "<Tab>");
     
     clickButton(":A/R Account Assignment.Save_QPushButton");
+    waitForObject(":List A/R Account Assignments._araccnt_XTreeWidget");
+    if(!clickItem(":List A/R Account Assignments._araccnt_XTreeWidget", "NORMAL", 5, 5, 1, Qt.LeftButton))
+       test.pass("A/R Accounts Assignments done");
+    
     waitForObject(":List A/R Account Assignments.Close_QPushButton");
     clickButton(":List A/R Account Assignments.Close_QPushButton");
     test.log("A/R Accounts Assigned");
@@ -342,10 +418,12 @@ function executeChapter8()
     type(":Customer Form Assignment._packingListForm_XComboBox", "PackingList");
     type(":Customer Form Assignment._soPickListForm_XComboBox", "PickingListSONoClosedLines");
     clickButton(":Customer Form Assignment.Save_QPushButton");
+    waitForObject(":List Customer Form Assignments._custform_XTreeWidget");
+    if(!clickItem(":List Customer Form Assignments._custform_XTreeWidget", "Invoice", 5, 5, 1, Qt.LeftButton))
+       test.pass("Customer Form Assignments done");
+    
     waitForObject(":List Customer Form Assignments.Close_QPushButton");
     clickButton(":List Customer Form Assignments.Close_QPushButton");
-    test.log("Customer Form Assigned");
-    
     
     
     
@@ -366,6 +444,10 @@ function executeChapter8()
         type(":Form._key_XComboBox", "Sales");
     waitForObject(":Form.Save_QPushButton");
     clickButton(":Form.Save_QPushButton");
+    waitForObject(":List Forms._form_XTreeWidget");
+    if(!clickItem(":List Forms._form_XTreeWidget", "SO-Acknowledge", 5, 5, 1, Qt.LeftButton))
+        test.pass("Form Created: SO-Acknowledge");
+     
     waitForObject(":List Forms.Close_QPushButton");
     clickButton(":List Forms.Close_QPushButton");
     test.log("System: Forms defined");
@@ -441,6 +523,10 @@ function executeChapter8()
     type(":Sales Account Assignment._main_XLineEdit_5", "01-01-5710-01");
     type(":Sales Account Assignment._main_XLineEdit_6", "01-01-5720-01");
     clickButton(":Sales Account Assignment.Save_QPushButton");
+    waitForObject(":List Sales Account Assignments._salesaccnt_XTreeWidget");
+    if(!clickItem(":List Sales Account Assignments._salesaccnt_XTreeWidget", "Any", 5, 5, 1, Qt.LeftButton))
+       test.pass("Sales Account Assigned");
+    
     waitForObject(":List Sales Account Assignments.Close_QPushButton");
     clickButton(":List Sales Account Assignments.Close_QPushButton");
     test.log("Sales Account Assingments done");
@@ -590,9 +676,13 @@ function executeChapter8()
     clickButton(":Search For Customer.Select_QPushButton");
     waitForObject(":GroupBox1.Save_QPushButton");
     clickButton(":GroupBox1.Save_QPushButton");
+    waitForObject(":List Customer Groups._custgrp_XTreeWidget");
+    if(!clickItem(":List Customer Groups._custgrp_XTreeWidget", "US-VA", 5, 5, 1, Qt.LeftButton))
+        test.pass("Customer Group Created");
+    
     waitForObject(":List Customer Groups.Close_QPushButton");
     clickButton(":List Customer Groups.Close_QPushButton");
-    test.log("Customer Group: US-VA created");
+  
     
     
     //-----------------Define: Reason Codes---------------
@@ -610,6 +700,10 @@ function executeChapter8()
     type(":_description_XLineEdit_25", "SO Damaged Returned on CM");
     waitForObject(":Reason Code.Save_QPushButton");
     clickButton(":Reason Code.Save_QPushButton");
+    waitForObject(":List Reason Codes._rsncode_XTreeWidget");
+    if(!clickItem(":List Reason Codes._rsncode_XTreeWidget", "SO-DAMAGED-RETURNED", 5, 5, 1, Qt.LeftButton))
+        test.pass("Reason Code Created:SO-DAMAGED-RETURNED");
+    
     
     waitForObject(":List Reason Codes.New_QPushButton");
     clickButton(":List Reason Codes.New_QPushButton");
@@ -618,10 +712,13 @@ function executeChapter8()
     type(":_description_XLineEdit_25", "SO Wrong Product - Returned on CM");
     waitForObject(":Reason Code.Save_QPushButton");
     clickButton(":Reason Code.Save_QPushButton");
+    waitForObject(":List Reason Codes._rsncode_XTreeWidget");
+    if(!clickItem(":List Reason Codes._rsncode_XTreeWidget", "SO-WRONG-RETURNED", 5, 5, 1, Qt.LeftButton))
+        test.pass("Reason Code Created:SO-WRONG-RETURNED");
     
     waitForObject(":List Reason Codes.Close_QPushButton");
     clickButton(":List Reason Codes.Close_QPushButton");
-    test.log("Reason Codes created");
+ 
     
     //---------------Define Pricing Schedule---------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -643,7 +740,7 @@ function executeChapter8()
     type(":_qtyBreak_XLineEdit_2", "0");
     type(":_baseTab_XLineEdit", "9.99");
     waitForObject(":Pricing Schedule Item.Save_QPushButton");
-    clickButton(":Pricing Schedule Item.Save_QPushButton");
+    clickButton(":Pricing Schedule Item.Save_QPushButton");    
     
     waitForObject(":Pricing Schedule.New_QPushButton");
     clickButton(":Pricing Schedule.New_QPushButton");
@@ -652,7 +749,7 @@ function executeChapter8()
     type(":_qtyBreak_XLineEdit_2", "100");
     type(":_baseTab_XLineEdit", "9.5");
     waitForObject(":Pricing Schedule Item.Save_QPushButton");
-    clickButton(":Pricing Schedule Item.Save_QPushButton");
+    clickButton(":Pricing Schedule Item.Save_QPushButton");    
     
     waitForObject(":Pricing Schedule.New_QPushButton");
     clickButton(":Pricing Schedule.New_QPushButton");
@@ -661,13 +758,17 @@ function executeChapter8()
     type(":_qtyBreak_XLineEdit_2", "500");
     type(":_baseTab_XLineEdit", "9.25");
     waitForObject(":Pricing Schedule Item.Save_QPushButton");
-    clickButton(":Pricing Schedule Item.Save_QPushButton");
+    clickButton(":Pricing Schedule Item.Save_QPushButton");    
     
     waitForObject(":GroupBox1.Save_QPushButton_2");
     clickButton(":GroupBox1.Save_QPushButton_2");
+    
+    waitForObject(":_ipshead_XTreeWidget");
+    if(!clickItem(":_ipshead_XTreeWidget", "BASE", 5, 5, 1, Qt.LeftButton))
+        test.pass("Pricing Schedule created:BASE");
+    
     waitForObject(":List Pricing Schedules.Close_QPushButton");
     clickButton(":List Pricing Schedules.Close_QPushButton");
-    test.log("Pricing Schedule created");
     
     
     //-----------Assign Pricing Schedule---------------    
@@ -684,9 +785,12 @@ function executeChapter8()
     if(findObject(":_ipshead_XComboBox").currentText!= "BASE - Base Price Schedule")
         type(":_ipshead_XComboBox","BASE");
     clickButton(":Pricing Schedule Assignment.Save_QPushButton");
+    waitForObject(":List Pricing Schedule Assignments._ipsass_XTreeWidget");
+    if(!clickItem(":List Pricing Schedule Assignments._ipsass_XTreeWidget", "ANY", 5, 5, 1, Qt.LeftButton))
+      test.pass("Pricing Schedule Assigned");
+    
     waitForObject(":List Pricing Schedule Assignments.Close_QPushButton");
     clickButton(":List Pricing Schedule Assignments.Close_QPushButton");
-    test.log("Pricing Schedule Assigned");
 
     
     //-----------Create Item site for INTRAN------------
@@ -729,6 +833,10 @@ function executeChapter8()
     type(":_whsTypeStack._shipcomments_QTextEdit", "This is a internal shipment between two Prodiem Toys warehouses. If you have any questions please call Anna Falactic at 757-322-2101.");	
     waitForObject(":Save_QPushButton_2");
     clickButton(":Save_QPushButton_2");
+    waitForObject(":List Sites._warehouse_XTreeWidget_2");
+    if(!clickItem(":List Sites._warehouse_XTreeWidget_2", "INTRAN_1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Site Created:INTRAN");
+    
     waitForObject(":List Sites.Close_QPushButton_2");
     clickButton(":List Sites.Close_QPushButton_2");
     test.log("Item site for INTRAN created");
@@ -767,6 +875,10 @@ function executeChapter8()
     type(":Incident Category._descrip_QTextEdit", "Product related incidents");
     waitForObject(":Incident Category.Save_QPushButton");
     clickButton(":Incident Category.Save_QPushButton");
+    waitForObject(":List Incident Categories._incidentCategories_XTreeWidget");
+    if(clickItem(":List Incident Categories._incidentCategories_XTreeWidget", "Product", 5, 5, 1, Qt.LeftButton))
+        test.pass("Incident Categories created for: Product");
+    
    
     waitForObject(":List Incident Categories.New_QPushButton");
     clickButton(":List Incident Categories.New_QPushButton");
@@ -778,6 +890,10 @@ function executeChapter8()
     type(":Incident Category._descrip_QTextEdit", "Customer related incidents");
     waitForObject(":Incident Category.Save_QPushButton");
     clickButton(":Incident Category.Save_QPushButton");
+    waitForObject(":List Incident Categories._incidentCategories_XTreeWidget");
+    if(clickItem(":List Incident Categories._incidentCategories_XTreeWidget", "Customer", 5, 5, 1, Qt.LeftButton))
+        test.pass("Incident Categories created for: Customer");
+    
     
     waitForObject(":List Incident Categories.New_QPushButton");
     clickButton(":List Incident Categories.New_QPushButton");
@@ -789,11 +905,13 @@ function executeChapter8()
     type(":Incident Category._descrip_QTextEdit", "Vendor related incidents");
     waitForObject(":Incident Category.Save_QPushButton");
     clickButton(":Incident Category.Save_QPushButton");
-    
+    waitForObject(":List Incident Categories._incidentCategories_XTreeWidget");
+    if(clickItem(":List Incident Categories._incidentCategories_XTreeWidget", "Vendor", 5, 5, 1, Qt.LeftButton))
+        test.pass("Incident Categories created for: Vendor");
+  
     waitForObject(":List Incident Categories.Close_QPushButton");
     clickButton(":List Incident Categories.Close_QPushButton");
-    test.log("Incident Categories created");
-    
+
     //--------------Create: Incident Severities----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
@@ -812,9 +930,13 @@ function executeChapter8()
     type(":Incident Severity._order_QSpinBox", "5");
     type(":Incident Severity._descrip_QTextEdit", "System Down");
     clickButton(":Incident Severity.Save_QPushButton");
+    waitForObject(":List Incident Severities._incidentSeverities_XTreeWidget");
+    if(!clickItem(":List Incident Severities._incidentSeverities_XTreeWidget", "Crash", 5, 5, 1, Qt.LeftButton))
+        test.pass("Incident Severity created : Crash");
+    
     waitForObject(":List Incident Severities.Close_QPushButton");
     clickButton(":List Incident Severities.Close_QPushButton");
-    test.log("Incident Severities created");
+
     
     
     //--------------Create Incident Resolutions----------------
@@ -837,7 +959,11 @@ function executeChapter8()
     type(":Incident Resolution._descrip_QTextEdit", "Replace Unit");
     waitForObject(":Incident Resolution.Save_QPushButton");
     clickButton(":Incident Resolution.Save_QPushButton");
+    waitForObject(":List Incident Resolutions._incidentResolutions_XTreeWidget");
+    if(!clickItem(":List Incident Resolutions._incidentResolutions_XTreeWidget", "Replace", 5, 5, 1, Qt.LeftButton))
+        test.pass("Incident Resolution created : Replace");
+    
     waitForObject(":List Incident Resolutions.Close_QPushButton");
     clickButton(":List Incident Resolutions.Close_QPushButton");
-    test.log("Incident Resolutions created");
+ 
 }

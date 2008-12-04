@@ -11,27 +11,90 @@ function executeChapter2()
      activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
 
      COA("01","01","1250","01","Warehouse 1 Asset","Asset","IN");
+     if(!clickItem(":_account_XTreeWidget_2", "Warehouse 1 Asset", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Warehouse 1 Asset");
+  
      COA("01","01","1252","01","Intransit Asset","Asset","IN");
+     if(!clickItem(":_account_XTreeWidget_2", "Intransit Asset", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Intransit Asset");
+       
      COA("01","01","1254","01","Warehouse 2 Asset","Asset","IN");
-     COA("01","01","1210","01","WIP Asset","Asset","IN");
-     COA("01","01","1620","01","Inventory Cost Variance","Asset","IN");     
-     COA("01","01","1470","01","Material Usage Variance","Asset","IN");     
-     COA("01","01","1930","01","Transform Clearing","Asset","IN");     
-     COA("01","01","1460","01","Purchase Price Variance","Asset","IN");
-     COA("01","01","8910","01","Inventory Adjustment","Expense","EXP");     
-     COA("01","01","8920","01","Inventory Scrap","Expense","EXP");          
-     COA("01","01","8930","01","Manufacturing Scrap","Expense","EXP");          
-     COA("01","01","8980","01","Purchase Expense Variance","Expense","EXP");        
-     COA("01","01","2320","01","Labor and Overhead Costs Accrued","Liability","CL");
-     COA("01","01","2490","01","P/O Liability Clearing","Liability","CL");
-     COA("01","01","2510","01","Sales Tax Liability","Liability","CL");     
-     COA("01","01","1260","01","Shipping Asset","Asset","IN");
-     COA("01","01","6000","01","Office Supplies","Expense","EXP");          
-     COA("01","01","6550","01","P/O Line Freight Expense","Expense","EXP");
-     COA("01","01","2480","01","Transfer Order Liability Clearing","Liability","CL");	  
-     COA("01","01","6050","01","State Sales Tax Expense","Expense","EXP");          
-     COA("01","01","6060","01","Shipping Charge Expense","Expense","EXP");          
+     if(!clickItem(":_account_XTreeWidget_2", "Warehouse 2 Asset", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Warehouse 2 Asset");
      
+     COA("01","01","1210","01","WIP Asset","Asset","IN");
+     if(!clickItem(":_account_XTreeWidget_2", "WIP Asset", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: WIP Asset");
+
+     COA("01","01","1620","01","Inventory Cost Variance","Asset","IN");
+     if(!clickItem(":_account_XTreeWidget_2", "Inventory Cost Variance", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Inventory Cost Variance");
+     
+     COA("01","01","1470","01","Material Usage Variance","Asset","IN");
+     if(!clickItem(":_account_XTreeWidget_2", "Material Usage Variance", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Material Usage Variance");
+ 
+     COA("01","01","1930","01","Transform Clearing","Asset","IN");  
+     if(!clickItem(":_account_XTreeWidget_2", "Transform Clearing", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Transform Clearing");
+
+     COA("01","01","1460","01","Purchase Price Variance","Asset","IN");
+     if(!clickItem(":_account_XTreeWidget_2", "Purchase Price Variance", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Purchase Price Variance");
+     
+     COA("01","01","8910","01","Inventory Adjustment","Expense","EXP");   
+     if(!clickItem(":_account_XTreeWidget_2", "Inventory Adjustment", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Inventory Adjustment");
+     
+     COA("01","01","8920","01","Inventory Scrap","Expense","EXP"); 
+     if(!clickItem(":_account_XTreeWidget_2", "Inventory Scrap", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Inventory Scrap");
+     
+     COA("01","01","8930","01","Manufacturing Scrap","Expense","EXP");  
+     if(!clickItem(":_account_XTreeWidget_2", "Manufacturing Scrap", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Manufacturing Scrap");
+     
+     COA("01","01","8980","01","Purchase Expense Variance","Expense","EXP");
+     if(!clickItem(":_account_XTreeWidget_2", "Purchase Expense Variance", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Purchase Expense Variance");
+     
+     COA("01","01","2320","01","Labor and Overhead Costs Accrued","Liability","CL");
+     if(!clickItem(":_account_XTreeWidget_2", "Labor and Overhead Costs Accrued", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Labor and Overhead Costs Accrued");
+
+     COA("01","01","2490","01","P/O Liability Clearing","Liability","CL");
+     if(!clickItem(":_account_XTreeWidget_2", "P/O Liability Clearing", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: P/O Liability Clearing");
+     
+     COA("01","01","2510","01","Sales Tax Liability","Liability","CL");   
+     if(!clickItem(":_account_XTreeWidget_2", "Sales Tax Liability", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Sales Tax Liability");
+     
+     COA("01","01","1260","01","Shipping Asset","Asset","IN");
+     if(!clickItem(":_account_XTreeWidget_2", "Shipping Asset", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Shipping Asset");
+     
+     COA("01","01","6000","01","Office Supplies","Expense","EXP");  
+     if(!clickItem(":_account_XTreeWidget_2", "Office Supplies", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Office Supplies");
+     
+     COA("01","01","6550","01","P/O Line Freight Expense","Expense","EXP");
+     if(!clickItem(":_account_XTreeWidget_2", "P/O Line Freight Expense", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: P/O Line Freight Expense");
+     
+     COA("01","01","2480","01","Transfer Order Liability Clearing","Liability","CL");	  
+     if(!clickItem(":_account_XTreeWidget_2", "Transfer Order Liability Clearing", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Transfer Order Liability Clearing");
+     
+     COA("01","01","6050","01","State Sales Tax Expense","Expense","EXP");  
+     if(!clickItem(":_account_XTreeWidget_2", "State Sales Tax Expense", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: State Sales Tax Expense");
+     
+     
+     COA("01","01","6060","01","Shipping Charge Expense","Expense","EXP");  
+     if(!clickItem(":_account_XTreeWidget_2", "Shipping Charge Expense", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: Shipping Charge Expense");
+          
     waitForObject(":Chart of Accounts.Close_QPushButton_2");
     clickButton(":Chart of Accounts.Close_QPushButton_2");
  
@@ -65,7 +128,8 @@ function executeChapter2()
     type(":Cost Category._main_XLineEdit_13", "<Tab>");    
     waitForObject(":Cost Category.Save_QPushButton");
     clickButton(":Cost Category.Save_QPushButton");
-    test.log("Inventory Cost Category CCWH1 created");
+    if(!clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Cost Category: CCWH1 created");
     waitForObject(":List Cost Categories.Close_QPushButton_2");
     clickButton(":List Cost Categories.Close_QPushButton_2");
     
@@ -90,6 +154,8 @@ function executeChapter2()
     waitForObject(":Cost Category.Save_QPushButton");
     clickButton(":Cost Category.Save_QPushButton");
     waitForObject(":List Cost Categories.Close_QPushButton_2");
+    if(!clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCINTRAN", 5, 5, 1, Qt.LeftButton))
+        test.pass("Cost Category: CCINTRAN created");
     clickButton(":List Cost Categories.Close_QPushButton_2");
     test.log("Inventory Cost Category CCINTRAN created");
     
@@ -115,8 +181,9 @@ function executeChapter2()
     waitForObject(":Cost Category.Save_QPushButton");
     clickButton(":Cost Category.Save_QPushButton");
     waitForObject(":List Cost Categories.Close_QPushButton_2");
+    if(!clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH2", 26, 9, 1, Qt.LeftButton))
+        test.pass("Cost Category: CCWH2 created");
     clickButton(":List Cost Categories.Close_QPushButton_2");
-    test.log("Inventory Cost Category CCWH2 created");
     
      
 
@@ -139,7 +206,10 @@ function executeChapter2()
     type(":Expense Category._main_XLineEdit_4", "<Tab>");
     waitForObject(":Expense Category.Save_QPushButton");
     clickButton(":Expense Category.Save_QPushButton");
-    test.log("Expense Categories:OFFICE-SUPPLIES  created");
+    waitForObject(":List Expense Categories._expcat_XTreeWidget");
+    if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "OFFICE-SUPPLIES", 5,5, 1, Qt.LeftButton))
+        test.pass("Expense Category: OFFICE-SUPPLIES created");
+
     
     waitForObject(":List Expense Categories.New_QPushButton_2");
     clickButton(":List Expense Categories.New_QPushButton_2");
@@ -153,6 +223,10 @@ function executeChapter2()
     type(":Expense Category._main_XLineEdit_4", "<Tab>");
     waitForObject(":Expense Category.Save_QPushButton");
     clickButton(":Expense Category.Save_QPushButton");
+    waitForObject(":List Expense Categories._expcat_XTreeWidget");
+    if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "SALES_TAX", 5,5, 1, Qt.LeftButton))
+        test.pass("Expense Category: SALES_TAX created");
+
     
     waitForObject(":List Expense Categories.New_QPushButton_2");
     clickButton(":List Expense Categories.New_QPushButton_2");
@@ -166,11 +240,13 @@ function executeChapter2()
     type(":Expense Category._main_XLineEdit_4", "<Tab>");
     waitForObject(":Expense Category.Save_QPushButton");
     clickButton(":Expense Category.Save_QPushButton");
-   
+    waitForObject(":List Expense Categories._expcat_XTreeWidget");
+    if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "SHIPPING_CHARGES", 5,5, 1, Qt.LeftButton))
+        test.pass("Expense Category: SALES_TAX created");
+
     waitForObject(":List Expense Categories.Close_QPushButton_2");
     clickButton(":List Expense Categories.Close_QPushButton_2");
-    test.log("Expense Categories:SHIPPING_CHARGES  created");
-    
+  
 
   
     //------------------Inventor: create site Locations--------------------
@@ -202,7 +278,11 @@ function executeChapter2()
     type(":Location._bin_XLineEdit", "01");
     type(":_location_XLineEdit_2", "01");
     type(":_description_QTextEdit_3", "Location 01-01-01-01 in Zone RM1");
-    clickButton(":Location.Save_QPushButton");
+    clickButton(":Location.Save_QPushButton"); 
+    waitForObject(":List Site Locations._location_XTreeWidget");
+    if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-01 in Zone RM1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Location 01-01-01-01 in Zone RM1 created");
+   
     
     
     
@@ -224,7 +304,10 @@ function executeChapter2()
     type(":_location_XLineEdit_2", "02");
     type(":_description_QTextEdit_3", "Location 01-01-01-02 in Zone RM1");
     clickButton(":Location.Save_QPushButton");
-    
+    waitForObject(":List Site Locations._location_XTreeWidget");
+    if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-02 in Zone RM1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Location 01-01-01-02 in Zone RM1 created");
+ 
     
     
     
@@ -247,7 +330,11 @@ function executeChapter2()
     type(":_location_XLineEdit_2", "03");
     type(":_description_QTextEdit_3", "Location 01-01-01-03 in Zone RM1");
     clickButton(":Location.Save_QPushButton");
-    
+    clickButton(":Location.Save_QPushButton");
+    waitForObject(":List Site Locations._location_XTreeWidget");
+    if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-03 in Zone RM1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Location 01-01-01-03 in Zone RM1 created");
+ 
     
     
     waitForObject(":List Site Locations.New_QPushButton_2");
@@ -268,7 +355,10 @@ function executeChapter2()
     type(":_location_XLineEdit_2", "01");
     type(":_description_QTextEdit_3", "Location 01-01-01-01 in Zone FG1");
     clickButton(":Location.Save_QPushButton");
-    
+    waitForObject(":List Site Locations._location_XTreeWidget");
+    if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-01 in Zone FG1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Location 01-01-01-01 in Zone FG1 created");
+ 
     
     
     
@@ -290,7 +380,10 @@ function executeChapter2()
     type(":_location_XLineEdit_2", "02");
     type(":_description_QTextEdit_3", "Location 01-01-01-02 in Zone FG1");
     clickButton(":Location.Save_QPushButton");
-    
+    waitForObject(":List Site Locations._location_XTreeWidget");
+    if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-02 in Zone FG1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Location 01-01-01-02 in Zone FG1 created");
+ 
     
     
     waitForObject(":List Site Locations.New_QPushButton_2");
@@ -311,11 +404,14 @@ function executeChapter2()
     type(":_location_XLineEdit_2", "03");
     type(":_description_QTextEdit_3", "Location 01-01-01-03 in Zone FG1");
     clickButton(":Location.Save_QPushButton");
-          
+     waitForObject(":List Site Locations._location_XTreeWidget");
+    if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-03 in Zone FG1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Location 01-01-01-03 in Zone FG1 created");
+ 
     waitForObject(":List Site Locations.Close_QPushButton_2");
     clickButton(":List Site Locations.Close_QPushButton_2");
     test.log("Inventory Site Locations created");
-    
+  
   
   
   
@@ -334,6 +430,10 @@ function executeChapter2()
 
     waitForObject(":Unit of Measure.Save_QPushButton");
     clickButton(":Unit of Measure.Save_QPushButton");
+    waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
+    if(!clickItem(":List Units of Measure._uoms_XTreeWidget_2", "EA", 5, 5, 1, Qt.LeftButton))
+        test.pass("UOM: EA created");
+
     
     waitForObject(":List Units of Measure.New_QPushButton_2");
     clickButton(":List Units of Measure.New_QPushButton_2");
@@ -341,6 +441,11 @@ function executeChapter2()
     type(":_description_XLineEdit_14", "Case");
     waitForObject(":Unit of Measure.Save_QPushButton");
     clickButton(":Unit of Measure.Save_QPushButton");
+    waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
+    if(!clickItem(":List Units of Measure._uoms_XTreeWidget_2", "CA", 5, 5, 1, Qt.LeftButton))
+        test.pass("UOM: CA created");
+
+    
     
     waitForObject(":List Units of Measure.New_QPushButton_2");
     clickButton(":List Units of Measure.New_QPushButton_2");
@@ -349,6 +454,10 @@ function executeChapter2()
     type(":_description_XLineEdit_14", "Pallet");
     waitForObject(":Unit of Measure.Save_QPushButton");
     clickButton(":Unit of Measure.Save_QPushButton");
+    waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
+    if(!clickItem(":List Units of Measure._uoms_XTreeWidget_2", "PL", 5, 5, 1, Qt.LeftButton))
+        test.pass("UOM: PL created");
+
     
     waitForObject(":List Units of Measure.New_QPushButton_2");
     clickButton(":List Units of Measure.New_QPushButton_2");
@@ -357,6 +466,10 @@ function executeChapter2()
     type(":_description_XLineEdit_14", "Gallon");
     waitForObject(":Unit of Measure.Save_QPushButton");
     clickButton(":Unit of Measure.Save_QPushButton");
+     waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
+    if(!clickItem(":List Units of Measure._uoms_XTreeWidget_2", "GL", 5, 5, 1, Qt.LeftButton))
+        test.pass("UOM: GL created");
+
     
     waitForObject(":List Units of Measure.New_QPushButton_2");
     clickButton(":List Units of Measure.New_QPushButton_2");
@@ -365,6 +478,10 @@ function executeChapter2()
     type(":_description_XLineEdit_14", "Pound");
     waitForObject(":Unit of Measure.Save_QPushButton");
     clickButton(":Unit of Measure.Save_QPushButton");
+    waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
+    if(!clickItem(":List Units of Measure._uoms_XTreeWidget_2", "LB", 5, 5, 1, Qt.LeftButton))
+        test.pass("UOM: LB created");
+
     
     waitForObject(":List Units of Measure.New_QPushButton_2");
     clickButton(":List Units of Measure.New_QPushButton_2");
@@ -373,6 +490,10 @@ function executeChapter2()
     type(":_description_XLineEdit_14", "Kilo");
     waitForObject(":Unit of Measure.Save_QPushButton");
     clickButton(":Unit of Measure.Save_QPushButton");
+    waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
+    if(!clickItem(":List Units of Measure._uoms_XTreeWidget_2", "KG", 5, 5, 1, Qt.LeftButton))
+        test.pass("UOM: KG created");
+
  
     doubleClickItem(":List Units of Measure._uoms_XTreeWidget_2","KG",0,0,1,Qt.LeftButton);
       
@@ -422,6 +543,10 @@ function executeChapter2()
     type(":_description_XLineEdit_15", "Toy Trucks");
     waitForObject(":Class Code.Save_QPushButton");
     clickButton(":Class Code.Save_QPushButton");
+    waitForObject(":List Class Codes._classcode_XTreeWidget");
+    if(!clickItem(":List Class Codes._classcode_XTreeWidget", "TOY-TRUCKS", 5, 5, 1, Qt.LeftButton))
+        test.pass("Class Code: TOY-TRUCKS created");
+
     
     waitForObject(":List Class Codes.New_QPushButton_2");
     clickButton(":List Class Codes.New_QPushButton_2");
@@ -430,6 +555,10 @@ function executeChapter2()
     type(":_description_XLineEdit_15", "Toy Cars");
     waitForObject(":Class Code.Save_QPushButton");
     clickButton(":Class Code.Save_QPushButton");
+    waitForObject(":List Class Codes._classcode_XTreeWidget");
+    if(!clickItem(":List Class Codes._classcode_XTreeWidget", "TOYS-CARS", 5, 5, 1, Qt.LeftButton))
+        test.pass("Class Code: TOYS-CARS created");
+
     
     waitForObject(":List Class Codes.New_QPushButton_2");
     clickButton(":List Class Codes.New_QPushButton_2");
@@ -438,10 +567,12 @@ function executeChapter2()
     type(":_description_XLineEdit_15", "Toy Planes");
     waitForObject(":Class Code.Save_QPushButton");
     clickButton(":Class Code.Save_QPushButton");
-        
+    waitForObject(":List Class Codes._classcode_XTreeWidget");
+    if(!clickItem(":List Class Codes._classcode_XTreeWidget", "TOYS-PLANES", 5, 5, 1, Qt.LeftButton))
+        test.pass("Class Code: TOYS-PLANES created");
+    
     waitForObject(":List Class Codes.Close_QPushButton_2");
     clickButton(":List Class Codes.Close_QPushButton_2");
-    test.log("Class Codes defined");
   
   
     //-----------Define: Product Categories----------------
@@ -452,6 +583,7 @@ function executeChapter2()
     activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Product Categories...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Product Categories...");
+ 
     waitForObject(":List Product Categories.New_QPushButton_2");
     clickButton(":List Product Categories.New_QPushButton_2");
     waitForObject(":Product Category._category_XLineEdit");
@@ -459,6 +591,10 @@ function executeChapter2()
     type(":Product Category._description_XLineEdit", "Classic Metal Product Line");
     waitForObject(":Product Category.Save_QPushButton");
     clickButton(":Product Category.Save_QPushButton");
+    waitForObject(":List Product Categories._prodcat_XTreeWidget");
+    if(!clickItem(":List Product Categories._prodcat_XTreeWidget", "CLASSIC-METAL", 5, 5, 1, Qt.LeftButton))
+        test.pass("Product Category: CLASSIC-METAL created");
+
     
     waitForObject(":List Product Categories.New_QPushButton_2");
     clickButton(":List Product Categories.New_QPushButton_2");
@@ -467,6 +603,10 @@ function executeChapter2()
     type(":Product Category._description_XLineEdit", "Classic Wood Product Line");
     waitForObject(":Product Category.Save_QPushButton");
     clickButton(":Product Category.Save_QPushButton");
+    waitForObject(":List Product Categories._prodcat_XTreeWidget");
+    if(!clickItem(":List Product Categories._prodcat_XTreeWidget", "CLASSIC-WOOD", 5, 5, 1, Qt.LeftButton))
+        test.pass("Product Category: CLASSIC-WOOD created");
+    
     
     waitForObject(":List Product Categories.New_QPushButton_2");
     clickButton(":List Product Categories.New_QPushButton_2");
@@ -475,6 +615,10 @@ function executeChapter2()
     type(":Product Category._description_XLineEdit", "Collectors Metal Product Line");
     waitForObject(":Product Category.Save_QPushButton");
     clickButton(":Product Category.Save_QPushButton");
+    waitForObject(":List Product Categories._prodcat_XTreeWidget");
+    if(!clickItem(":List Product Categories._prodcat_XTreeWidget", "COLLECTORS-METAL", 5, 5, 1, Qt.LeftButton))
+        test.pass("Product Category: COLLECTORS-METAL created");
+    
     
     waitForObject(":List Product Categories.New_QPushButton_2");
     clickButton(":List Product Categories.New_QPushButton_2");
@@ -483,7 +627,10 @@ function executeChapter2()
     type(":Product Category._description_XLineEdit", "Collectors Wood Product Line");
     waitForObject(":Product Category.Save_QPushButton");
     clickButton(":Product Category.Save_QPushButton");
-    
+    waitForObject(":List Product Categories._prodcat_XTreeWidget");
+    if(!clickItem(":List Product Categories._prodcat_XTreeWidget", "COLLECTORS-WOOD", 5, 5, 1, Qt.LeftButton))
+        test.pass("Product Category: COLLECTORS-WOOD created");
+        
     waitForObject(":List Product Categories.Close_QPushButton_2");
     clickButton(":List Product Categories.Close_QPushButton_2");
     test.log("Product Categories created");
@@ -507,6 +654,10 @@ function executeChapter2()
     type(":_description_QTextEdit_4", "Product Color");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
+    waitForObject(":List Characteristics._char_XTreeWidget");
+    if(!clickItem(":List Characteristics._char_XTreeWidget", "I-COLOR", 5, 5, 1, Qt.LeftButton))
+        test.pass("Characteristics: I-COLOR created");
+ 
     
     waitForObject(":List Characteristics.New_QPushButton_2");
     clickButton(":List Characteristics.New_QPushButton_2");
@@ -518,7 +669,11 @@ function executeChapter2()
     type(":_description_QTextEdit_4", "Customer Feedback");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
+    waitForObject(":List Characteristics._char_XTreeWidget");
+    if(!clickItem(":List Characteristics._char_XTreeWidget", "SUPPORT-PLAN", 5, 5, 1, Qt.LeftButton))
+        test.pass("Characteristics: SUPPORT-PLAN created");
 
+    
     waitForObject(":List Characteristics.New_QPushButton_2");
     clickButton(":List Characteristics.New_QPushButton_2");
     waitForObject(":_name_XLineEdit_6");
@@ -529,6 +684,10 @@ function executeChapter2()
     type(":_description_QTextEdit_4", "Account Region");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
+    waitForObject(":List Characteristics._char_XTreeWidget");
+    if(!clickItem(":List Characteristics._char_XTreeWidget", "CRM-ACCOUNT-REGION", 5, 5, 1, Qt.LeftButton))
+        test.pass("Characteristics: CRM-ACCOUNT-REGION created");
+    
     
     waitForObject(":List Characteristics.New_QPushButton_2");
     clickButton(":List Characteristics.New_QPushButton_2");
@@ -540,6 +699,10 @@ function executeChapter2()
     type(":_description_QTextEdit_4", "Delivery Route");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
+    waitForObject(":List Characteristics._char_XTreeWidget");
+    if(!clickItem(":List Characteristics._char_XTreeWidget", "ADR-ROUTE", 5, 5, 1, Qt.LeftButton))
+        test.pass("Characteristics: ADR-ROUTE created");
+    
     
     waitForObject(":List Characteristics.New_QPushButton_2");
     clickButton(":List Characteristics.New_QPushButton_2");
@@ -550,7 +713,11 @@ function executeChapter2()
     waitForObject(":_description_QTextEdit_4");
     type(":_description_QTextEdit_4", "Birthday");
     waitForObject(":Characteristic.Save_QPushButton");
-    clickButton(":Characteristic.Save_QPushButton");   
+    clickButton(":Characteristic.Save_QPushButton"); 
+    waitForObject(":List Characteristics._char_XTreeWidget");
+    if(!clickItem(":List Characteristics._char_XTreeWidget", "CTC-BDAY", 5, 5, 1, Qt.LeftButton))
+        test.pass("Characteristics: CTC-BDAY created");
+    
     
     waitForObject(":List Characteristics.New_QPushButton_2");
     clickButton(":List Characteristics.New_QPushButton_2");
@@ -561,7 +728,10 @@ function executeChapter2()
     waitForObject(":_description_QTextEdit_4");
     type(":_description_QTextEdit_4", "QA Results for Test Type 1");
     waitForObject(":Characteristic.Save_QPushButton");
-    clickButton(":Characteristic.Save_QPushButton");  
+    clickButton(":Characteristic.Save_QPushButton"); 
+    waitForObject(":List Characteristics._char_XTreeWidget");
+    if(!clickItem(":List Characteristics._char_XTreeWidget", "LOT-QA-TEST1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Characteristics: LOT-QA-TEST1 created");
     
     waitForObject(":List Characteristics.Close_QPushButton_2");
     clickButton(":List Characteristics.Close_QPushButton_2");
@@ -585,6 +755,10 @@ function executeChapter2()
     findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked=true;
     waitForObject(":Planner Code.Save_QPushButton");
     clickButton(":Planner Code.Save_QPushButton");
+    waitForObject(":List Planner Codes._plancode_XTreeWidget");
+    if(!clickItem(":List Planner Codes._plancode_XTreeWidget", "MPS-ITEMS", 5, 5, 1, Qt.LeftButton))
+        test.pass("Planner Code: MPS-ITEMS created");
+    
     
     waitForObject(":List Planner Codes.New_QPushButton_2");
     clickButton(":List Planner Codes.New_QPushButton_2");
@@ -597,7 +771,10 @@ function executeChapter2()
     findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked=true;
     waitForObject(":Planner Code.Save_QPushButton");
     clickButton(":Planner Code.Save_QPushButton");
-  
+    waitForObject(":List Planner Codes._plancode_XTreeWidget");
+    if(!clickItem(":List Planner Codes._plancode_XTreeWidget", "MRP-ITEMS", 5, 5, 1, Qt.LeftButton))
+        test.pass("Planner Code: MRP-ITEMS created");
+      
     waitForObject(":List Planner Codes.Close_QPushButton_2");
     clickButton(":List Planner Codes.Close_QPushButton_2");
     test.log("Planner Codes created");
@@ -658,19 +835,25 @@ function executeChapter2()
         type(":_warehouse._warehouses_WComboBox_5", "<Down>");
         waitForObject(":_warehouse._warehouses_WComboBox_5");
     }
+    var d = new Date();
+    var CurrentYearFull = d.getFullYear();
+    var CurrentYear = CurrentYearFull.toString().slice(2);
+   
     waitForObject(":_description_QLineEdit_2");
-    type(":_description_QLineEdit_2", "Christmas 2008");
+    type(":_description_QLineEdit_2", "Christmas "+CurrentYearFull);
     waitForObject(":Site Calendar Exception.XDateEdit_XDateEdit");
-    type(":Site Calendar Exception.XDateEdit_XDateEdit", "12/25/08");
-    type(":Site Calendar Exception.XDateEdit_XDateEdit_2", "12/26/08");
+    type(":Site Calendar Exception.XDateEdit_XDateEdit", "12/25/"+CurrentYear);
+    type(":Site Calendar Exception.XDateEdit_XDateEdit_2", "12/26/"+CurrentYear);
     type(":Site Calendar Exception.XDateEdit_XDateEdit_2", "<Tab>");
     waitForObject(":Exception Type.Closed_QRadioButton_2");
     clickButton(":Exception Type.Closed_QRadioButton_2");
     waitForObject(":Site Calendar Exception.Save_QPushButton");
     clickButton(":Site Calendar Exception.Save_QPushButton");
     waitForObject(":List Site Calendar Exceptions.Close_QPushButton_2");
+    if(!clickItem(":List Site Calendar Exceptions._whsecal_XTreeWidget", "Christmas 2008", 5, 5, 1, Qt.LeftButton))
+        test.pass("Calendar Exception: Christmas 2008 created");
     clickButton(":List Site Calendar Exceptions.Close_QPushButton_2");
-    test.log("Calendar Exception created");
+ 
    
    
 }
