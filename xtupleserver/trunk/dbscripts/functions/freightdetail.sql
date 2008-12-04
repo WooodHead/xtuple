@@ -86,7 +86,8 @@ BEGIN
     FROM salesquoteitem JOIN itemsite ON (itemsite_id=orderitem_itemsite_id)
                         JOIN item ON (item_id=itemsite_item_id)
     WHERE ( (orderitem_orderhead_type=pOrderType)
-      AND   (orderitem_orderhead_id=pOrderId) )
+      AND   (orderitem_orderhead_id=pOrderId)
+      AND   (item_freightclass_id IS NOT NULL) )
     GROUP BY itemsite_warehous_id, item_freightclass_id LOOP
 
   IF (_debug) THEN
