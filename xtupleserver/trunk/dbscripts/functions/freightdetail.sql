@@ -1,7 +1,14 @@
-CREATE OR REPLACE FUNCTION freightDetail(text,integer) RETURNS SETOF freightData AS $$
+SELECT dropIfExists('function', 'freightDetail(text,integer)');
+
+CREATE OR REPLACE FUNCTION freightDetail(text,integer,integer,integer,date,text,integer) RETURNS SETOF freightData AS $$
 DECLARE
   pOrderType ALIAS FOR $1;
   pOrderId ALIAS FOR $2;
+  pCustId ALIAS FOR $3;
+  pShiptoId ALIAS FOR $4;
+  pOrderDate ALIAS FOR $5;
+  pShipVia ALIAS FOR $6;
+  pCurrId ALIAS FOR $7;
   _row freightData%ROWTYPE;
   _order RECORD;
   _weights RECORD;
@@ -10,25 +17,49 @@ DECLARE
   _freightid INTEGER;
   _totalprice NUMERIC;
   _freight RECORD;
+  _debug BOOLEAN := false;
 BEGIN
+  IF (_debug) THEN
+    RAISE NOTICE 'pOrderType = %', pOrderType;
+    RAISE NOTICE 'pOrderId = %', pOrderId;
+    RAISE NOTICE 'pCustId = %', pCustId;
+    RAISE NOTICE 'pShiptoId = %', pShiptoId;
+    RAISE NOTICE 'pOrderDate = %', pOrderDate;
+    RAISE NOTICE 'pShipVia = %', pShipVia;
+    RAISE NOTICE 'pCurrId = %', pCurrId;
+  END IF;
+
   --Get the order header information need to match
   --against price schedules
   IF (pOrderType = 'SO') THEN
-    SELECT cohead_cust_id AS cust_id,
+    SELECT cust_id AS cust_id,
            custtype_id,
            custtype_code,
            COALESCE(shipto_id, -1) AS shipto_id,
            COALESCE(shipto_num, '') AS shipto_num,
-           cohead_orderdate AS orderdate,
-           cohead_shipvia AS shipvia,
+           COALESCE(pOrderDate, cohead_orderdate) AS orderdate,
+           COALESCE(pShipVia, cohead_shipvia) AS shipvia,
            shipto_shipzone_id AS shipzone_id,
-           cohead_curr_id AS curr_id,
-           currConcat(cohead_curr_id) AS currAbbr
+           COALESCE(pCurrId, cohead_curr_id) AS curr_id,
+           currConcat(COALESCE(pCurrId, cohead_curr_id)) AS currAbbr
     INTO _order
-    FROM cohead JOIN cust ON (cust_id=cohead_cust_id)
+    FROM cohead JOIN cust ON (cust_id=COALESCE(pCustId, cohead_cust_id))
                 JOIN custtype ON (custtype_id=cust_custtype_id)
-                LEFT OUTER JOIN shipto ON (shipto_id=cohead_shipto_id)
+                LEFT OUTER JOIN shipto ON (shipto_id=COALESCE(pShiptoId, cohead_shipto_id))
     WHERE (cohead_id=pOrderId);
+
+    IF (_debug) THEN
+      RAISE NOTICE 'cust_id = %', _order.cust_id;
+      RAISE NOTICE 'custtype_id = %', _order.custtype_id;
+      RAISE NOTICE 'shipto_id = %', _order.shipto_id;
+      RAISE NOTICE 'shipto_num = %', _order.shipto_num;
+      RAISE NOTICE 'orderdate = %', _order.orderdate;
+      RAISE NOTICE 'shipvia = %', _order.shipvia;
+      RAISE NOTICE 'shipzone_id = %', _order.shipzone_id;
+      RAISE NOTICE 'curr_id = %', _order.curr_id;
+      RAISE NOTICE 'currAbbr = %', _order.currAbbr;
+    END IF;
+
   ELSE
     SELECT quhead_cust_id AS cust_id,
            custtype_id,
@@ -58,6 +89,12 @@ BEGIN
       AND   (orderitem_orderhead_id=pOrderId) )
     GROUP BY itemsite_warehous_id, item_freightclass_id LOOP
 
+  IF (_debug) THEN
+    RAISE NOTICE '_weights.weight - %', _weights.weight;
+    RAISE NOTICE '_weights.itemsite_warehous_id = %', _weights.itemsite_warehous_id;
+    RAISE NOTICE '_weights.item_freightclass_id = %', _weights.item_freightclass_id;
+  END IF;
+
 -- First get a sales price if any so we when we find other prices
 -- we can determine if we want that price or this price.
 --  Check for a Sale Price
@@ -78,6 +115,12 @@ BEGIN
     AND   (CURRENT_DATE BETWEEN sale_startdate AND sale_enddate) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
+
+  IF (_debug) THEN
+    IF (_sales.price IS NOT NULL) THEN
+      RAISE NOTICE 'Sales Price found, %', _sales.price;
+    END IF;
+  END IF;
 
 --  Check for a Customer Shipto Price
   SELECT ipsfreight_id,
@@ -101,6 +144,12 @@ BEGIN
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
 
+  IF (_debug) THEN
+    IF (_price.price IS NOT NULL) THEN
+      RAISE NOTICE 'Customer Shipto Price found, %', _price.price;
+    END IF;
+  END IF;
+
   IF (_price.price IS NULL) THEN
 --  Check for a Customer Shipto Pattern Price
   SELECT ipsfreight_id,
@@ -123,6 +172,13 @@ BEGIN
     AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=_order.shipvia)) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
+
+  IF (_debug) THEN
+    IF (_price.price IS NOT NULL) THEN
+      RAISE NOTICE 'Customer Shipto Pattern Price found, %', _price.price;
+    END IF;
+  END IF;
+
   END IF;
 
   IF (_price.price IS NULL) THEN
@@ -146,6 +202,13 @@ BEGIN
     AND   (COALESCE(LENGTH(ipsass_shipto_pattern), 0) = 0) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
+
+  IF (_debug) THEN
+    IF (_price.price IS NOT NULL) THEN
+      RAISE NOTICE 'Customer Price found, %', _price.price;
+    END IF;
+  END IF;
+
   END IF;
 
   IF (_price.price IS NULL) THEN
@@ -168,6 +231,13 @@ BEGIN
     AND   (ipsass_custtype_id=_order.custtype_id) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
+
+  IF (_debug) THEN
+    IF (_price.price IS NOT NULL) THEN
+      RAISE NOTICE 'Customer Type Price found, %', _price.price;
+    END IF;
+  END IF;
+
   END IF;
 
   IF (_price.price IS NULL) THEN
@@ -191,6 +261,13 @@ BEGIN
     AND   (_order.custtype_code ~ ipsass_custtype_pattern) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
+
+  IF (_debug) THEN
+    IF (_price.price IS NOT NULL) THEN
+      RAISE NOTICE 'Customer Type Pattern Price found, %', _price.price;
+    END IF;
+  END IF;
+
   END IF;
 
   -- Select the lowest price  
