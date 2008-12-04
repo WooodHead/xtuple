@@ -53,7 +53,7 @@ CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.bomitemsubstitute DO INSTEAD
 
   DELETE FROM bomitemsub
-  WHERE  ((bomitemsub_bomitem_id=getBomItemId(OLD.bom_item_number::text,OLD.bom_revision::text,OLD.sequence_number::text))
+  WHERE  ((bomitemsub_bomitem_id=OLD.bomitem_id)
   AND (bomitemsub_item_id=getItemId(OLD.substitute_item_number)));
 
 COMMIT;
