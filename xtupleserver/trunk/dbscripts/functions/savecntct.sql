@@ -85,10 +85,16 @@ BEGIN
       _isNew := true;
       _cntctId := nextval(''cntct_cntct_id_seq'');
       _cntctNumber := fetchNextNumber(''ContactNumber'');
+    ELSIF (_flag = ''CHANGEALL'') THEN
+      _isNew := false;
     END IF;
   END IF;
 
-  _cntctNumber := COALESCE(_cntctNumber,pContactNumber,fetchNextNumber(''ContactNumber''));
+  IF (pContactNumber = '''') THEN
+    _cntctNumber := fetchNextNumber(''ContactNumber'');
+  ELSE
+    _cntctNumber := COALESCE(_cntctNumber,pContactNumber,fetchNextNumber(''ContactNumber''));
+  END IF;
 
   IF (_isNew) THEN
     _cntctId := COALESCE(_cntctId,pCntctId,nextval(''cntct_cntct_id_seq''));
@@ -101,7 +107,7 @@ BEGIN
       cntct_fax,cntct_email,cntct_webaddr,
       cntct_notes,cntct_title,cntct_middle,cntct_suffix, cntct_owner_username ) 
     VALUES (
-      _cntctId,_cntctNumber,pCrmAcctId,pAddrId,
+      _cntctId, COALESCE(_cntctNumber,fetchNextNumber(''ContactNumber'')) ,pCrmAcctId,pAddrId,
       pFirstName,pLastName,pHonorific,
       pInitials,COALESCE(pActive,true),pPhone,pPhone2,pFax,
       pEmail,pWebAddr,pNotes,pTitle,pMiddleName,pSuffix,pOwnerUsername );
@@ -110,7 +116,7 @@ BEGIN
 
   ELSE
     UPDATE cntct SET
-      cntct_number=_cntctNumber,
+      cntct_number=COALESCE(_cntctNumber,fetchNextNumber(''ContactNumber'')),
       cntct_crmacct_id=COALESCE(pCrmAcctId,cntct_crmacct_id),
       cntct_addr_id=COALESCE(pAddrId,cntct_addr_id),
       cntct_first_name=COALESCE(pFirstName,cntct_first_name),
