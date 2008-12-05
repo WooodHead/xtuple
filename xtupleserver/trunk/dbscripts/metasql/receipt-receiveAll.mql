@@ -43,7 +43,7 @@
        LEFT OUTER JOIN raitem ON ((raitem_id=orderitem_id)
                               AND ('RA' = orderitem_orderhead_type))
 <? endif ?>
-  WHERE (orderitem_status <> 'C')
+  WHERE (orderitem_status NOT IN ('C', 'X'))
 <? if exists("EnableReturnAuth") ?>
     AND (((orderitem_orderhead_type != 'RA') OR (raitem_disposition IN (NULL,'R','V','P'))))
 <? endif ?>
