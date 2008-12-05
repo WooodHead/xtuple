@@ -23,8 +23,7 @@ BEGIN
   END IF;
 
   SELECT checkhead.*,
-         currToBase(checkhead_curr_id, checkhead_amount, checkhead_checkdate)
-						      AS checkhead_amount_base,
+         checkhead_amount / round(checkhead_curr_rate,5) AS checkhead_amount_base,
          bankaccnt_accnt_id AS bankaccntid,
          checkrecip.* INTO _p
   FROM bankaccnt, checkhead LEFT OUTER JOIN
@@ -103,12 +102,16 @@ BEGIN
 
   ELSE
     FOR _r IN SELECT checkitem_amount, checkitem_discount,
-                     currToBase(checkitem_curr_id,
-                                checkitem_amount,
-                                COALESCE(checkitem_docdate, _p.checkhead_checkdate)) AS checkitem_amount_base,
+                     CASE WHEN (checkitem_apopen_id IS NOT NULL) THEN
+                       checkitem_amount / round(apopen_curr_rate,5)
+                     ELSE
+                       currToBase(checkitem_curr_id,
+                                  checkitem_amount,
+                                  COALESCE(checkitem_docdate, _p.checkhead_checkdate)) 
+                     END AS checkitem_amount_base,
                      apopen_id, apopen_doctype, apopen_docnumber,
                      aropen_id, aropen_doctype, aropen_docnumber,
-                     checkitem_curr_id,
+                     checkitem_curr_id, checkitem_curr_rate, apopen_curr_rate,
                      COALESCE(checkitem_docdate, _p.checkhead_checkdate) AS docdate
               FROM (checkitem LEFT OUTER JOIN
 		    apopen ON (checkitem_apopen_id=apopen_id)) LEFT OUTER JOIN
@@ -123,20 +126,13 @@ BEGIN
         END IF;
 
         UPDATE apopen
-        SET apopen_paid = round(apopen_paid +
-				currToCurr(_r.checkitem_curr_id,
-					   apopen_curr_id, _r.checkitem_amount,
-					   _r.docdate), 2),
+        SET apopen_paid = round(apopen_paid + (_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2),
             apopen_open = round(apopen_amount, 2) >
 			  round(apopen_paid +
-				currToCurr(_r.checkitem_curr_id,
-					   apopen_curr_id, _r.checkitem_amount,
-					   _r.docdate), 2),
+				(_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2),
             apopen_closedate = CASE WHEN (round(apopen_amount, 2) <=
 			                  round(apopen_paid +
-				                currToCurr(_r.checkitem_curr_id,
-					                   apopen_curr_id, _r.checkitem_amount,
-					                   _r.docdate), 2)) THEN _p.checkhead_checkdate END
+				                (_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2)) THEN _p.checkhead_checkdate END
         WHERE (apopen_id=_r.apopen_id);
 
 	--  Post the application
@@ -179,8 +175,8 @@ BEGIN
 
       END IF; -- if check item's aropen_id is not null
 
-      SELECT currGain(_r.checkitem_curr_id, _r.checkitem_amount,
-                      _r.docdate, _p.checkhead_checkdate)
+      SELECT apCurrGain(_r.apopen_id,_r.checkitem_curr_id, _r.checkitem_amount,
+                      _p.checkhead_checkdate)
             INTO _exchGainTmp;
       _exchGain := _exchGain + _exchGainTmp;
 
@@ -214,32 +210,6 @@ BEGIN
       ELSE
 	RAISE EXCEPTION 'checkhead_id % does not balance (% - % <> %)', pcheckid,
 	      _amount_base, _exchGain, _p.checkhead_amount_base;
-      END IF;
-    END IF;
-
-    IF (_p.checkhead_recip_type = 'V') THEN
-      -- Find the currency gain/loss on any discount previously taken
-      -- could also do this via the apapply table
-      -- ToDo: should this be discount specific or used for any credit memo application?
-      SELECT SUM(COALESCE(currGain(apopen_curr_id, apopen_amount,
-				 _p.checkhead_checkdate, apopen_docdate), 0)) INTO _exchGainTmp
-	FROM checkitem JOIN
-	     apopen ON (checkitem_ponumber = apopen_ponumber)
-	     WHERE apopen_discount
-	       AND apopen_open
-	     GROUP BY checkitem_ponumber
-	     ORDER BY checkitem_ponumber;
-      IF (_exchGainTmp <> 0) THEN
-	  PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
-				      'CK', CAST(_p.checkhead_number AS TEXT),
-				      findAPPrepaidAccount(_p.checkhead_recip_id),
-				      round(_exchGainTmp * -1, 2),
-				      _p.checkhead_checkdate, _gltransNote );
-	  PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
-				      'CK', CAST(_p.checkhead_number AS TEXT),
-				      getGainLossAccntId(),
-				      round(_exchGainTmp, 2),
-				      _p.checkhead_checkdate, _gltransNote );
       END IF;
     END IF;
   END IF;

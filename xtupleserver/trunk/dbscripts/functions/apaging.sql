@@ -14,41 +14,37 @@ BEGIN
 
   FOR _x IN
         SELECT
-        --report uses currtobase to convert all amounts to base based on apopen_docdate to ensure the same exchange rate
+        --report uses currency rate snapshot to convert all amounts to base based on apopen_docdate to ensure the same exchange rate
 
         --today and greater base:
-        CASE WHEN((apopen_duedate >= DATE(_asOfDate))) THEN ((currtobase(apopen_curr_id,apopen_amount,apopen_docdate)-
-        currtobase(apopen_curr_id,apopen_paid,apopen_docdate)+SUM(currtobase(apapply_curr_id,apapply_amount,apopen_docdate))) *
-        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS cur_val,
+        CASE WHEN((apopen_duedate >= DATE(_asOfDate)))
+        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/round(apopen_curr_rate,5) *
+        CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS cur_val,
 
         --0 to 30 base
         CASE WHEN((apopen_duedate >= DATE(_asOfDate)-30) AND (apopen_duedate < DATE(_asOfDate)))
-        THEN ((currtobase(apopen_curr_id,apopen_amount,apopen_docdate)-
-        currtobase(apopen_curr_id,apopen_paid,apopen_docdate)+SUM(currtobase(apapply_curr_id,apapply_amount,apopen_docdate))) *
-        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS thirty_val,
+        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/round(apopen_curr_rate,5) *
+        CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS thirty_val,
 
         --30-60 base
         CASE WHEN((apopen_duedate >= DATE(_asOfDate)-60) AND (apopen_duedate < DATE(_asOfDate) - 30 ))
-        THEN ((currtobase(apopen_curr_id,apopen_amount,apopen_docdate)-
-        currtobase(apopen_curr_id,apopen_paid,apopen_docdate)+SUM(currtobase(apapply_curr_id,apapply_amount,apopen_docdate))) *
-        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS sixty_val,
+        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/round(apopen_curr_rate,5) *
+        CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS sixty_val,
 
         --60-90 base
         CASE WHEN((apopen_duedate >= DATE(_asOfDate)-90) AND (apopen_duedate < DATE(_asOfDate) - 60))
-        THEN ((currtobase(apopen_curr_id,apopen_amount,apopen_docdate)-
-        currtobase(apopen_curr_id,apopen_paid,apopen_docdate)+SUM(currtobase(apapply_curr_id,apapply_amount,apopen_docdate))) *
-        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS ninety_val,
+        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/round(apopen_curr_rate,5) *
+        CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS ninety_val,
 
         --greater than 90 base:
         CASE WHEN((apopen_duedate > DATE(_asOfDate)-10000) AND (apopen_duedate < DATE(_asOfDate) - 90))
-        THEN ((currtobase(apopen_curr_id,apopen_amount,apopen_docdate)-
-        currtobase(apopen_curr_id,apopen_paid,apopen_docdate)+SUM(currtobase(apapply_curr_id,apapply_amount,apopen_docdate))) *
-        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS plus_val,
+        THEN (((apopen_amount-apopen_paid + COALESCE(SUM(apapply_target_paid),0)))/round(apopen_curr_rate,5) *
+        CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS plus_val,
 
         --total amount base:
-        CASE WHEN((apopen_duedate > DATE(_asOfDate)-10000)) THEN ((currtobase(apopen_curr_id,apopen_amount,apopen_docdate)-
-        currtobase(apopen_curr_id,apopen_paid,apopen_docdate)+SUM(currtobase(apapply_curr_id,apapply_amount,apopen_docdate))) *
-        CASE WHEN (apopen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS total_val,
+        CASE WHEN((apopen_duedate > DATE(_asOfDate)-10000))
+        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/round(apopen_curr_rate,5) *
+        CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS total_val,
 
         --AR Open Amount base
         CASE WHEN apopen_doctype IN ('C', 'R') THEN currtobase(apopen_curr_id,(apopen_amount * -1),apopen_docdate) ELSE currtobase(apopen_curr_id,(apopen_amount),apopen_docdate) END AS apopen_amount,
@@ -75,7 +71,8 @@ BEGIN
         AND (CASE WHEN (pUseDocDate) THEN apopen_docdate ELSE apopen_distdate END <= _asOfDate)
         AND (COALESCE(apopen_closedate,_asOfDate+1)>_asOfDate) )
         GROUP BY apopen_id,apopen_docdate,apopen_duedate,apopen_ponumber,apopen_docnumber,apopen_doctype,apopen_paid,
-                 apopen_curr_id,apopen_amount,vend_id,vend_name,vend_number,vend_vendtype_id,vendtype_code,terms_descrip
+                 apopen_curr_id,apopen_amount,vend_id,vend_name,vend_number,vend_vendtype_id,vendtype_code,terms_descrip,
+                 apopen_curr_rate
         ORDER BY vend_number, apopen_duedate
   LOOP
         _row.apaging_docdate := _x.apopen_docdate;

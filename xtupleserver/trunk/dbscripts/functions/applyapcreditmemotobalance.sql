@@ -1,8 +1,9 @@
-CREATE OR REPLACE FUNCTION applyAPCreditMemoToBalance(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION applyAPCreditMemoToBalance(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pApopenid ALIAS FOR $1;
   _amount NUMERIC;
   _curr_id INTEGER;
+  _curr_rate NUMERIC;
   _docdate DATE;
   _applyAmount NUMERIC;
   _r RECORD;
@@ -11,14 +12,27 @@ DECLARE
 BEGIN
 
 --  Find the balance to apply
-  SELECT (apopen_amount - COALESCE(SUM(currToCurr(apcreditapply_curr_id,
+  SELECT (apopen_amount - apopen_paid - COALESCE(prepared,0.0) - COALESCE(selected,0.0) - COALESCE(SUM(currToCurr(apcreditapply_curr_id,
                                                   apopen_curr_id,
                                                   apcreditapply_amount,
                                                   apopen_docdate)), 0)),
-          apopen_curr_id, apopen_docdate INTO _amount, _curr_id, _docdate
-  FROM apopen LEFT OUTER JOIN apcreditapply ON (apcreditapply_source_apopen_id=apopen_id)
+          apopen_curr_id, round(apopen_curr_rate,5), apopen_docdate INTO _amount, _curr_id, _curr_rate, _docdate
+  FROM apopen 
+    LEFT OUTER JOIN apcreditapply ON (apcreditapply_source_apopen_id=apopen_id)
+    LEFT OUTER JOIN (SELECT apopen_id AS selected_apopen_id,
+                       SUM(currToCurr(apselect_curr_id, apopen_curr_id, apselect_amount + apselect_discount, apselect_date)) AS selected
+                     FROM apselect JOIN apopen ON (apselect_apopen_id=apopen_id)
+                     GROUP BY apopen_id) AS sub1 ON (apopen_id=selected_apopen_id)
+    LEFT OUTER JOIN (SELECT apopen_id AS prepared_apopen_id,
+                       SUM((checkitem_amount + checkitem_discount) / round(checkhead_curr_rate,5)) AS prepared
+                     FROM checkhead 
+                       JOIN checkitem ON (checkitem_checkhead_id=checkhead_id)
+                       JOIN apopen ON (checkitem_apopen_id=apopen_id)
+                     WHERE ((NOT checkhead_posted)
+                       AND  (NOT checkhead_void))
+                     GROUP BY apopen_id) AS sub2 ON (prepared_apopen_id=apopen_id)
   WHERE (apopen_id=pApopenid)
-  GROUP BY apopen_amount, apopen_curr_id, apopen_docdate;
+  GROUP BY apopen_amount, apopen_paid, apopen_curr_id, apopen_curr_rate, apopen_docdate, prepared, selected;
 
   IF (_amount < 0) THEN
     RETURN -1;
@@ -26,12 +40,24 @@ BEGIN
 
 --  Loop through the apopen items in order of due date
   FOR _r IN SELECT target.apopen_id AS apopenid,
-                   currToCurr(target.apopen_curr_id, _curr_id,
-                              target.apopen_amount - target.apopen_paid,
-                              _docdate) AS balance
-           FROM apopen AS target, apopen AS source
+                   ((target.apopen_amount - target.apopen_paid - COALESCE(prepared,0.0) - COALESCE(selected,0.0)) * 
+                       _curr_rate / round(target.apopen_curr_rate,5)) AS balance
+           FROM apopen AS source, apopen AS target
+             LEFT OUTER JOIN (SELECT apopen_id AS selected_apopen_id,
+                                SUM(currToCurr(apselect_curr_id, apopen_curr_id, apselect_amount + apselect_discount, apselect_date)) AS selected
+                                    FROM apselect JOIN apopen ON (apselect_apopen_id=apopen_id)
+                                GROUP BY apopen_id) AS sub1
+                                ON (target.apopen_id=selected_apopen_id)
+             LEFT OUTER JOIN (SELECT apopen_id AS prepared_apopen_id,
+                                SUM((checkitem_amount + checkitem_discount) / round(checkhead_curr_rate,5)) AS prepared
+                              FROM checkhead 
+                                JOIN checkitem ON (checkitem_checkhead_id=checkhead_id)
+                                JOIN apopen ON (checkitem_apopen_id=apopen_id)
+                              WHERE ((NOT checkhead_posted)
+                               AND  (NOT checkhead_void))
+                              GROUP BY apopen_id) AS sub2 ON (prepared_apopen_id=target.apopen_id)
             WHERE ( (source.apopen_vend_id=target.apopen_vend_id)
-             AND (target.apopen_doctype IN (''V'', ''D''))
+             AND (target.apopen_doctype IN ('V', 'D'))
              AND (target.apopen_open)
              AND (source.apopen_id=pApopenid) )
             ORDER BY target.apopen_duedate, (target.apopen_amount - target.apopen_paid) LOOP
@@ -44,8 +70,10 @@ BEGIN
     END IF;
 
 --  Does an apcreditapply record already exist?
-    SELECT apcreditapply_id, currToCurr(apcreditapply_curr_id, _curr_id,
-                                        apcreditapply_amount, _docdate) AS apcreditapply_amount INTO _p
+    SELECT apcreditapply_id, 
+              apcreditapply_amount * _curr_rate / 
+                 round(currRate(apcreditapply_curr_id,_docdate),5) AS apcreditapply_amount
+      INTO _p
     FROM apcreditapply
     WHERE ( (apcreditapply_target_apopen_id=_r.apopenid)
      AND (apcreditapply_source_apopen_id=pApopenid) );
@@ -59,9 +87,8 @@ BEGIN
 
 --  Update the apcreditapply with the new amount to apply
       UPDATE apcreditapply
-      SET apcreditapply_amount = (apcreditapply_amount + currToCurr(_curr_id,
-                                                        apcreditapply_curr_id,
-                                                        _applyAmount, _docdate))
+      SET apcreditapply_amount = (apcreditapply_amount + 
+          _applyAmount *  round(currRate(apcreditapply_curr_id,5)) / _curr_rate)
       WHERE (apcreditapply_id=_p.apcreditapply_id);
 
     ELSE
@@ -83,4 +110,4 @@ BEGIN
   RETURN 1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

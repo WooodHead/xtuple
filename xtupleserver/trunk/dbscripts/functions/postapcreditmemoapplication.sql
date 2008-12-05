@@ -1,9 +1,10 @@
-CREATE OR REPLACE FUNCTION postAPCreditMemoApplication(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postAPCreditMemoApplication(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pApopenid ALIAS FOR $1;
   _src RECORD;
   _r RECORD;
   _totalAmount NUMERIC := 0;
+  _exchGain NUMERIC;
 
 BEGIN
 
@@ -11,12 +12,12 @@ BEGIN
          SUM(currtocurr(apcreditapply_curr_id, apopen_curr_id,
 				 apcreditapply_amount, CURRENT_DATE)) AS toApply,
 	 SUM(apcreditapply_amount) AS junk,
-	 apopen_curr_id INTO _src
+	 apopen_curr_rate INTO _src
   FROM apopen, apcreditapply
   WHERE ( (apcreditapply_source_apopen_id=apopen_id)
    AND (apopen_id=pApopenid) )
   GROUP BY apopen_docnumber, apopen_amount, apopen_paid,
-	   apopen_curr_id;
+	   apopen_curr_rate;
   IF (NOT FOUND) THEN
     RETURN -1;
   ELSIF (_src.toApply = 0) THEN
@@ -29,8 +30,8 @@ BEGIN
     RETURN -6;		-- amount to apply is NULL for some unknown reason
   END IF;
 
-  SELECT apopen_vend_id, apopen_docnumber, apopen_doctype, apopen_amount,
-         apopen_curr_id, apopen_docdate, apopen_accnt_id INTO _src
+  SELECT apopen_id, apopen_vend_id, apopen_docnumber, apopen_doctype, apopen_amount,
+         apopen_curr_id, apopen_curr_rate, apopen_docdate, apopen_accnt_id INTO _src
   FROM apopen
   WHERE (apopen_id=pApopenid);
   IF (NOT FOUND) THEN
@@ -41,7 +42,7 @@ BEGIN
 		   apcreditapply_amount AS apply_amountSource,
                    currToCurr(apcreditapply_curr_id, apopen_curr_id,
                               apcreditapply_amount, CURRENT_DATE) AS apply_amountTarget,
-                   apopen_id, apopen_doctype, apopen_docnumber
+                   apopen_id, apopen_doctype, apopen_docnumber, apopen_curr_rate, apopen_docdate
             FROM apcreditapply, apopen
             WHERE ( (apcreditapply_source_apopen_id=pApopenid)
              AND (apcreditapply_target_apopen_id=apopen_id) ) LOOP
@@ -74,7 +75,7 @@ BEGIN
         apapply_postdate, apapply_journalnumber, apapply_username, apapply_curr_id )
       VALUES
       ( _src.apopen_vend_id, round(_r.apply_amountSource, 2),
-        pApopenid, ''C'', _src.apopen_docnumber,
+        pApopenid, 'C', _src.apopen_docnumber,
         _r.apopen_id, _r.apopen_doctype, _r.apopen_docnumber,
         CURRENT_DATE, 0, CURRENT_USER, _src.apopen_curr_id );
 
@@ -97,20 +98,24 @@ BEGIN
   WHERE ( (apopen_id=pApopenid)
     AND (apopen_amount <= apopen_paid) );
 
-  PERFORM insertGLTransaction(fetchJournalNumber(''AP-MISC''), ''A/P'', ''CM'',
-                            _src.apopen_docnumber, ''CM Application'',
+  IF (_r.apopen_docdate > _src.apopen_docdate) THEN
+    _exchGain := (_totalAmount / round(_r.apopen_curr_rate,5) - _totalAmount / round(_src.apopen_curr_rate,5)) * -1;
+  ELSE
+    _exchGain := _totalAmount / round(_src.apopen_curr_rate,5) - _totalAmount / round(_r.apopen_curr_rate,5);
+  END IF;
+
+  PERFORM insertGLTransaction(fetchJournalNumber('AP-MISC'), 'A/P', 'CM',
+                            _src.apopen_docnumber, 'CM Application',
                             CASE WHEN (_src.apopen_accnt_id > -1) THEN
 				_src.apopen_accnt_id
 			    ELSE findAPAccount(_src.apopen_vend_id)
 			    END,
 			    getGainLossAccntId(), -1,
-                            round(currGain(_src.apopen_curr_id,
-                                           _totalAmount,
-                                           _src.apopen_docdate,
-                                           CURRENT_DATE), 2),
+                            _exchGain,
                             CURRENT_DATE);
+
 
   RETURN pApopenid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
