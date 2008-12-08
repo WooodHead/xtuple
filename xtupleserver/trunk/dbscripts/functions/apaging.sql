@@ -47,7 +47,9 @@ BEGIN
         CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS total_val,
 
         --AR Open Amount base
-        CASE WHEN apopen_doctype IN ('C', 'R') THEN currtobase(apopen_curr_id,(apopen_amount * -1),apopen_docdate) ELSE currtobase(apopen_curr_id,(apopen_amount),apopen_docdate) END AS apopen_amount,
+        CASE WHEN apopen_doctype IN ('C', 'R') 
+        THEN (apopen_amount * -1) / round(apopen_curr_rate,5)
+        ELSE apopen_amount / round(apopen_curr_rate,5) END AS apopen_amount,
 
         apopen_docdate,
         apopen_duedate,
