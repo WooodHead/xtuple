@@ -42,6 +42,33 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Scheduled Date</term>
+      <listitem>
+        <para>Displays the Order's earliest scheduled date. The scheduled date
+        corresponds to the earliest scheduled date for an included Sales Order
+        Item. Because Sales Orders may contain multiple Sales Order Items, the
+        scheduled date indicates the most recent scheduled date. No scheduled
+        date will display in the "Scheduled Date" field until a Sales Order
+        Line Item has been created and a scheduled date assigned to it. This
+        field can be viewed by selecting the MORE button</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>pack dates</primary>
+          <secondary>for sales orders</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>pack dates for</secondary>
+        </indexterm>Pack Date</term>
+      <listitem>
+        <para>The pack date is the same date as the ship date. Because the
+        field can be edited, you have the ability to change the pack date and
+        make it different from the ship date. This field can be viewed by
+        selecting the MORE button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>setting terms for</secondary>
@@ -62,11 +89,36 @@
       <listitem>
         <para>Specify the Sales Representative associated with the Order.
         Sales Representatives are linked to a Customer on the Customer
-        master&mdash;either by a default setting or through the assignment of
+        master—either by a default setting or through the assignment of
         Ship-To Addresses. Each Ship-To Address may have a different Sales
         Representative associated with it. Consequently, the name of the Sales
         Representative appearing on the Sales Order header will be the same as
-        specified for the Ship-To Address being used.</para>
+        specified for the Ship-To Address being used. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commission</term>
+      <listitem>
+        <para>By default, the commission percentage recorded on the Customer
+        master will be automatically entered in this field. If for some reason
+        you select a non-default Sales Representative at Order entry, the
+        commission rate will not change. To adjust the commission rate, you
+        must make the change manually. This field can be viewed by selecting
+        the MORE button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>tax authorities</primary>
+          <secondary>for sales orders</secondary>
+        </indexterm>Tax Authority</term>
+      <listitem>
+        <para>Specify the Tax Authority associated with the Sales Order. The
+        Tax Authority for the specified Ship-To Address will be entered here
+        by default. Otherwise, the primary Tax Authority for the Customer will
+        be entered. Ultimately, Tax is applied at the Line Item level—so the
+        Tax Authority associated with an Item's Tax Type will be used. This
+        field can be viewed upon selecting the MORE button.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -78,6 +130,83 @@
         prevented from shipping the Order unless all Line Item quantities have
         been issued to Shipping. If not selected, partial shipments for the
         Order will be allowed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Specify the shipping Site associated with the Sales Order. The
+        Site selected here acts as the default free on board (FOB) location. A
+        Site may be designated as a shipping Site on the Site master. This
+        field can be viewed upon selecting the MORE button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Originated By</term>
+      <listitem>
+        <para>Specify the origin of the Sales Order using the options below.
+        This field can be viewed upon selecting the MORE button.:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Customer</term>
+            <listitem>
+              <para>Indicates the Order was originated by the Customer.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Internet</term>
+            <listitem>
+              <para>Indicates the Order was originated by an Internet
+              lead.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Sales Rep.</term>
+            <listitem>
+              <para>Indicates the Order was originated by the Sales
+              Representative.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Project #</term>
+      <listitem>
+        <para>Select a Project Number to associate with the Sales Order. If a
+        Sales Order is created from a converted Quote—and the Quote had a
+        Project Number associated with it—then the Project Number from the
+        originating Quote will automatically be entered here. Once a Project
+        Number is associated with a Sales Order, any Work Orders or Purchase
+        Orders created by the Sales Order demand will automatically be linked
+        to the same Project Number as the Sales Order. In this way, Sales
+        Orders, Work Orders, and Purchase Orders may be linked to the same
+        Project. This field can be viewed upon selecting the MORE
+        button.</para>
+        <note>
+          <para>The option to associate a Project with a Sales Order will only
+          be visible if your site is configured to use Projects.</para>
+        </note>
+        <tip>
+          <para>If your site is configured to create Projects automatically
+          whenever new Sales Orders or Quotes are entered, the Projects
+          generated in this way will assume the number of the Sales Order or
+          Quote which caused their creation.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>From Quote</term>
+      <listitem>
+        <para>If a Sales Order was converted from a Quote, the originating
+        Quote Number will display here. This field can be viewed upon
+        selecting the MORE button.</para>
+        <note>
+          <para>If the Sales Order was generated from a Return Authorization,
+          the Return Authorization Number will display here.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -131,8 +260,8 @@
       <term>Address</term>
       <listitem>
         <para>Displays the Customer's Bill-To Address. You may manually
-        override the displayed Address information in the fields
-        below&mdash;or use the browse button to select another Address.</para>
+        override the displayed Address information in the fields below—or use
+        the browse button to select another Address.</para>
         <variablelist>
           <varlistentry>
             <term>Street Address</term>
@@ -205,8 +334,8 @@
       <term>Address</term>
       <listitem>
         <para>Displays the specified Ship-To Address. You may manually
-        override the displayed Address information in the fields
-        below&mdash;or use the browse button to select another Address.</para>
+        override the displayed Address information in the fields below—or use
+        the browse button to select another Address.</para>
         <variablelist>
           <varlistentry>
             <term>Street Address:</term>
@@ -248,8 +377,8 @@
       <listitem>
         <para>Enter free on board (FOB) Terms for the Order. By default, FOB.
         Terms entered on the Shipping Site master will appear in this field.
-        The default Terms may be changed during Order entry&mdash;and also at
-        later stages during the billing cycle.</para>
+        The default Terms may be changed during Order entry—and also at later
+        stages during the billing cycle.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -337,6 +466,41 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>shipping charges on</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>shipping</primary>
+          <secondary>charges on sales orders</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>shipping forms on</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>shipping forms</primary>
+          <secondary>selecting on sales orders</secondary>
+        </indexterm>Shipping Chgs.</term>
+      <listitem>
+        <para>Specify the Shipping charges associated with the Order. The
+        preferred Shipping Charges Type for the Customer will appear in the
+        field. This field can be viewed upon selecting the MORE button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipping Form</term>
+      <listitem>
+        <para>Specify the Shipping Form associated with the Order. The
+        preferred Shipping Form for the Customer will appear in the field.
+        This field can be viewed upon selecting the MORE button.</para>
+        <note>
+          <para>Shipping defaults specified on the Customer master will
+          transfer to the Sales Order header when a new Sales Order is entered
+          for a Customer.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>At the top of the screen, the following buttons are available:</para>
   <variablelist>
     <varlistentry>
@@ -370,174 +534,6 @@
       <listitem>
         <para>Closes the screen without creating a new Sales Order, returning
         you to the application desktop.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <screenshot>
-    <mediaobject>
-      <imageobject>
-        <imagedata fileref="images/salesOrder_more.png" />
-      </imageobject>
-      <caption>Create New Sales Order More</caption>
-    </mediaobject>
-  </screenshot>
-  <para>Upon selecting the more button you are presented with the following
-  additional options.</para>
-  <variablelist>
-    <varlistentry>
-      <term>Scheduled Date</term>
-      <listitem>
-        <para>Displays the Order's earliest scheduled date. The scheduled date
-        corresponds to the earliest scheduled date for an included Sales Order
-        Item. Because Sales Orders may contain multiple Sales Order Items, the
-        scheduled date indicates the most recent scheduled date. No scheduled
-        date will display in the "Scheduled Date" field until a Sales Order
-        Line Item has been created and a scheduled date assigned to it.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>pack dates</primary>
-          <secondary>for sales orders</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>sales orders</primary>
-          <secondary>pack dates for</secondary>
-        </indexterm>Pack Date</term>
-      <listitem>
-        <para>The pack date is the same date as the ship date. Because the
-        field can be edited, you have the ability to change the pack date and
-        make it different from the ship date.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Commission</term>
-      <listitem>
-        <para>By default, the commission percentage recorded on the Customer
-        master will be automatically entered in this field. If for some reason
-        you select a non-default Sales Representative at Order entry, the
-        commission rate will not change. To adjust the commission rate, you
-        must make the change manually.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>tax authorities</primary>
-          <secondary>for sales orders</secondary>
-        </indexterm>Tax Authority</term>
-      <listitem>
-        <para>Specify the Tax Authority associated with the Sales Order. The
-        Tax Authority for the specified Ship-To Address will be entered here
-        by default. Otherwise, the primary Tax Authority for the Customer will
-        be entered. Ultimately, Tax is applied at the Line Item level&mdash;so
-        the Tax Authority associated with an Item's Tax Type will be
-        used.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Site</term>
-      <listitem>
-        <para>Specify the shipping Site associated with the Sales Order. The
-        Site selected here acts as the default free on board (FOB) location. A
-        Site may be designated as a shipping Site on the Site master.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Originated By</term>
-      <listitem>
-        <para>Specify the origin of the Sales Order using the available
-        options:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Customer</term>
-            <listitem>
-              <para>Indicates the Order was originated by the Customer.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Internet</term>
-            <listitem>
-              <para>Indicates the Order was originated by an Internet
-              lead.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Sales Rep.</term>
-            <listitem>
-              <para>Indicates the Order was originated by the Sales
-              Representative.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>From Quote</term>
-      <listitem>
-        <para>If a Sales Order was converted from a Quote, the originating
-        Quote Number will display here.</para>
-        <note>
-          <para>If the Sales Order was generated from a Return Authorization,
-          the Return Authorization Number will display here.</para>
-        </note>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <variablelist>
-    <varlistentry>
-      <term>Project #</term>
-      <listitem>
-        <para>Select a Project Number to associate with the Sales Order. If a
-        Sales Order is created from a converted Quote&mdash;and the Quote had
-        a Project Number associated with it&mdash;then the Project Number from
-        the originating Quote will automatically be entered here. Once a
-        Project Number is associated with a Sales Order, any Work Orders or
-        Purchase Orders created by the Sales Order demand will automatically
-        be linked to the same Project Number as the Sales Order. In this way,
-        Sales Orders, Work Orders, and Purchase Orders may be linked to the
-        same Project.</para>
-        <note>
-          <para>The option to associate a Project with a Sales Order will only
-          be visible if your site is configured to use Projects.</para>
-        </note>
-        <tip>
-          <para>If your site is configured to create Projects automatically
-          whenever new Sales Orders or Quotes are entered, the Projects
-          generated in this way will assume the number of the Sales Order or
-          Quote which caused their creation.</para>
-        </tip>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>sales orders</primary>
-          <secondary>shipping charges on</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>shipping</primary>
-          <secondary>charges on sales orders</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>sales orders</primary>
-          <secondary>shipping forms on</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>shipping forms</primary>
-          <secondary>selecting on sales orders</secondary>
-        </indexterm>Shipping Chgs.</term>
-      <listitem>
-        <para>Specify the Shipping charges associated with the Order. The
-        preferred Shipping Charges Type for the Customer will appear in the
-        field.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Shipping Form</term>
-      <listitem>
-        <para>Specify the Shipping Form associated with the Order. The
-        preferred Shipping Form for the Customer will appear in the
-        field.</para>
-        <note>
-          <para>Shipping defaults specified on the Customer master will
-          transfer to the Sales Order header when a new Sales Order is entered
-          for a Customer.</para>
-        </note>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -683,30 +679,30 @@
         Credit Card charges which have been specifically allocated to the
         Sales Order. If your system is configured to automatically allocate
         open Credit Memo balances to new Sales Orders, then the monetary value
-        of these allocated Credit Memos&mdash;plus any Credit Card charges
-        applied to the Order&mdash;will display here. If your system is not
-        configured to automatically allocate Credit Memos, then this field
-        will display only the monetary value of any Credit Card charges
-        applied to the Order&mdash;if any. The automatic allocation of Credit
-        Memos helps reduce Customer credit balances by ensuring that Customer
-        credits are consumed when new Sales Orders are entered. Any available,
-        open Credit Memos are eligible for allocation. The allocation of
-        available Credit Memos occurs only once&mdash;when a Sales Order is
-        saved for the first time. Subsequent saves will not result in
-        additional allocations. Credit Memos which have been allocated to a
-        Sales Order are applied at the point when the Invoice resulting from
-        the Sales Order is posted. Once the full balance of a Credit Memo has
-        been applied, the Credit Memo is then closed. The printed Invoice the
-        Customer receives will indicate whether Credit Memos have been
-        applied. In addition, the total due from the Customer will be
-        automatically adjusted to reflect any applied credits.</para>
+        of these allocated Credit Memos—plus any Credit Card charges applied
+        to the Order—will display here. If your system is not configured to
+        automatically allocate Credit Memos, then this field will display only
+        the monetary value of any Credit Card charges applied to the Order—if
+        any. The automatic allocation of Credit Memos helps reduce Customer
+        credit balances by ensuring that Customer credits are consumed when
+        new Sales Orders are entered. Any available, open Credit Memos are
+        eligible for allocation. The allocation of available Credit Memos
+        occurs only once—when a Sales Order is saved for the first time.
+        Subsequent saves will not result in additional allocations. Credit
+        Memos which have been allocated to a Sales Order are applied at the
+        point when the Invoice resulting from the Sales Order is posted. Once
+        the full balance of a Credit Memo has been applied, the Credit Memo is
+        then closed. The printed Invoice the Customer receives will indicate
+        whether Credit Memos have been applied. In addition, the total due
+        from the Customer will be automatically adjusted to reflect any
+        applied credits.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>The allocation of available Credit Memos occurs only once&mdash;when
-    a Sales Order is saved for the first time. Subsequent saves will not
-    result in additional allocations.</para>
+    <para>The allocation of available Credit Memos occurs only once—when a
+    Sales Order is saved for the first time. Subsequent saves will not result
+    in additional allocations.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -754,7 +750,7 @@
       <listitem>
         <para>Enter the amount of freight charge to be added to the specified
         Order. Freight charges may be entered during the creation or
-        modification of a Sales Order&mdash;or at the time of shipment.</para>
+        modification of a Sales Order—or at the time of shipment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -765,8 +761,8 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>Any Sales Order Line Item may be shipped&mdash;even if the Item or
-    Item Site in question becomes inactive after the Sales Order has been
+    <para>Any Sales Order Line Item may be shipped—even if the Item or Item
+    Site in question becomes inactive after the Sales Order has been
     created.</para>
   </note>
   <variablelist>
@@ -822,10 +818,10 @@
       <listitem id="salesOrderEDIT1">
         <para>Enables you to edit highlighted Sales Order Line Items. The edit
         screen is the same as that for creating a new Sales Order Line
-        Item&mdash;except that when editing, the fields will contain Sales
-        Order Line Item information. Double-clicking on a Sales Order Line
-        Item will also bring you to the editing screen. Mac users may use
-        COMMAND + E to edit an existing Line Item.</para>
+        Item—except that when editing, the fields will contain Sales Order
+        Line Item information. Double-clicking on a Sales Order Line Item will
+        also bring you to the editing screen. Mac users may use COMMAND + E to
+        edit an existing Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -875,8 +871,8 @@
   </variablelist>
   <tip>
     <para>You may select multiple Line Items for issuing to Shipping by
-    highlighting them using your mouse&mdash;or a combination of your mouse
-    and either the SHIFT or CTRL keys.</para>
+    highlighting them using your mouse—or a combination of your mouse and
+    either the SHIFT or CTRL keys.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -894,47 +890,47 @@
   <variablelist>
     <varlistentry>
       <term>Edit Line</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(salesOrderEDIT1)" />
+      <xi:include href="" xpointer="element(salesOrderEDIT1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <varlistentry>
       <term>Close Line</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(salesOrderCLOSE1)" />
+      <xi:include href="" xpointer="element(salesOrderCLOSE1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <varlistentry>
       <term>Delete Line</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(salesOrderDELETE1)" />
+      <xi:include href="" xpointer="element(salesOrderDELETE1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickShowReservations)" />
+                xpointer="element(rightclickShowReservations)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickUnreserveStock)" />
+                xpointer="element(rightclickUnreserveStock)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReserveStock)" />
+                xpointer="element(rightclickReserveStock)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReserveLineBalance)" />
+                xpointer="element(rightclickReserveLineBalance)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReturnStock)" />
+                xpointer="element(rightclickReturnStock)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <varlistentry>
       <term id="salesOrderISSUESTOCK">Issue Stock</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(salesOrderISSUE1STOCK)" />
+      <xi:include href="" xpointer="element(salesOrderISSUE1STOCK)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <varlistentry>
       <term>Issue Line Balance</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(salesOrderISSUELINEBAL1)" />
+      <xi:include href="" xpointer="element(salesOrderISSUELINEBAL1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>The Shipping-related options will not be visible if the system is
   configured to hide Shipping options at Sales Order entry. Also, if a
@@ -942,8 +938,8 @@
   available:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickOpenLine)" />
+                xpointer="element(rightclickOpenLine)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>Order Notes added to a Sales Order are used for internal purposes
   only. If an Invoice results from the Sales Order, these Notes will be
@@ -1064,9 +1060,9 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Shipping Notes are drawn from the Customer master&mdash;specifically
-  from the "Shipping Notes" tab on the Ship-To Address master. The Notes may
-  vary depending on the Ship-To Address specified for the Order. These Notes
+  <para>Shipping Notes are drawn from the Customer master—specifically from
+  the "Shipping Notes" tab on the Ship-To Address master. The Notes may vary
+  depending on the Ship-To Address specified for the Order. These Notes
   provide a mechanism for transferring shipping information from the Customer
   master to the Sales Order. To view Sales Order Shipping Notes, select the
   "Shipping Notes" tab at the top of the "Sales Order" screen. The following
@@ -1155,9 +1151,8 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Credit Cards. The edit screen is
-        the same as that for entering new Credit Card information&mdash;except
-        that when editing, the fields will contain Credit Card
-        information.</para>
+        the same as that for entering new Credit Card information—except that
+        when editing, the fields will contain Credit Card information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1192,8 +1187,8 @@
         for the amount specified. Pre-authorized Credit Card charges will be
         displayed in the "Authorized CC Payments" field on the "Line Items"
         tab. After a Credit Card charge has been pre-authorized, the charge
-        may then be post-authorized using the A/R Workbench&mdash;thereby
-        completing the Credit Card transaction.</para>
+        may then be post-authorized using the A/R Workbench—thereby completing
+        the Credit Card transaction.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1228,7 +1223,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="salesOrderItem.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="salesOrderItem.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
