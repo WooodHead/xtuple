@@ -7,9 +7,9 @@ December 8, 2008
 
 This is the second Beta release of version 3.2.0. It is primarily
 a bug fix release--and it is the last expected release before the
-official 3.2.0 Release Candidate. Thanks to all in the community 
-who have contributed valuable testing, patches, and other 
-feedback so far. Please keep up your efforts during this Beta2 
+official 3.2.0 Release Candidate. Thanks to all in the community
+who have contributed valuable testing, patches, and other
+feedback so far. Please keep up your efforts during this Beta2
 round. We want to hear from as many of you as possible!
 ==================================
 
@@ -21,164 +21,164 @@ select the Changelog option.
 
 New Features:
 
-* CRM] Added graphical calendar for managing To-Do list to CRM
-* [Manufacture] Added the ability to process disassembly Work 
+* [CRM] Added graphical calendar for managing To-Do list to CRM
+* [Manufacture] Added the ability to process disassembly Work
 Orders
 * [Manufacture] Added Work Order line notes
 * [Products] Added Bill Of Materials line notes
-* [Reports] Added Description, Notes and Reference Designator 
+* [Reports] Added Description, Notes and Reference Designator
 columns to all usage variance reports
 * [Sales] Added size/position memory for dialog screens
 * [Sales] Enhanced Sales Credit Memo screen
 * [Sales] Added baseline Sales Order acknowledgment form
-* [System] Exposed XtreeWidget menu so it can be populated by 
+* [System] Exposed XtreeWidget menu so it can be populated by
 scripting
 
 
 Bug Fixes:
 
-* [Accounting] Fixed issue where ACH file had blank first line 
+* [Accounting] Fixed issue where ACH file had blank first line
 if bank account is set to use default immediate origi
-* [Accounting] Fixed bytea/int problem in ACH when printing 
+* [Accounting] Fixed bytea/int problem in ACH when printing
 checks
-* [Accounting] Fixed issue where declined Credit Card amount 
-was being posted to AR Invoice 
+* [Accounting] Fixed issue where declined Credit Card amount
+was being posted to AR Invoice
 * [Accounting] Fixed client crash when navigating windows
-* [Accounting] Fixed issue preventing save of vendor record 
+* [Accounting] Fixed issue preventing save of vendor record
 with ACH check printing enabled
-* [Accounting] Fixed Mac-only field sizing issue in Select 
+* [Accounting] Fixed Mac-only field sizing issue in Select
 Payment screen
-* [Accounting] Fixed issue in AP Aging where checks distributed 
+* [Accounting] Fixed issue in AP Aging where checks distributed
 in the future were not being handled properly
 * [Accounting] Fixed printing issue in A/R Aging report
-* [Accounting] Fixed issue preventing creation of new EDI 
+* [Accounting] Fixed issue preventing creation of new EDI
 Profile
-* [Accounting] Fixed non-functional free-form sub accounts 
+* [Accounting] Fixed non-functional free-form sub accounts
 option
-* [Accounting] Hiding currency columns instead of balance 
+* [Accounting] Hiding currency columns instead of balance
 columns in single-currency environments
-* [Accounting] Fixed issue leading to error when selecting 
+* [Accounting] Fixed issue leading to error when selecting
 Vendor types in A/P Aging
-* [Accounting] Fixed issue where PO Items marked "as Paid" 
+* [Accounting] Fixed issue where PO Items marked "as Paid"
 cannot have new Voucher Items posted for them
 * [Accounting] Prevented creation of duplicate Voucher numbers
 * [Accounting] Prevented duplicates in AP select table
-* [Accounting] Made Vendor Type drop down list visible on 
+* [Accounting] Made Vendor Type drop down list visible on
 Select Payments screen
-* [Accounting] Improved performance on Invoice selection 
+* [Accounting] Improved performance on Invoice selection
 reprint screen
-* [Accounting] Fixed issue where the ship goods function was 
-relieving Shipping Asset using average cost of inventory ATM, 
+* [Accounting] Fixed issue where the ship goods function was
+relieving Shipping Asset using average cost of inventory ATM,
 not avg. cost of inventory + goods at shipping
-* [Accounting] Added code to convert Cash Receipt amounts to 
+* [Accounting] Added code to convert Cash Receipt amounts to
 specified Bank Account's currency
-* [Accounting] Tightened up handling of accounting period 
+* [Accounting] Tightened up handling of accounting period
 dates
-* [Accounting] Fix problem where manually supplied Contact 
+* [Accounting] Fix problem where manually supplied Contact
 number was not being accepted Contact API view
-* [Accounting] Fixed issue preventing the entering of foreign 
+* [Accounting] Fixed issue preventing the entering of foreign
 currency credit limits when setting up foreign Customers
-* [Batch Manager] Fixed issue where the Batch Manager was 
+* [Batch Manager] Fixed issue where the Batch Manager was
 showing completed jobs across all databases
-* [Batch Manager] Changed default of "Reschedule every" option 
+* [Batch Manager] Changed default of "Reschedule every" option
 to be OFF when users are rescheduling Batch Manager jobs
-* [CRM] Fixed issue leading to error when changing a contact 
+* [CRM] Fixed issue leading to error when changing a contact
 which is already in use
-* [CRM] Fixed issue leading to error when adding a Contact and 
+* [CRM] Fixed issue leading to error when adding a Contact and
 Address
-* [CRM] Fixed screen display problems encountered when choosing 
-the "Workbench" option from Customer drop-down button on CRM 
+* [CRM] Fixed screen display problems encountered when choosing
+the "Workbench" option from Customer drop-down button on CRM
 Account screen
-* [CRM] Added search on contact cluster to prevent duplicates 
+* [CRM] Added search on contact cluster to prevent duplicates
 when searching
-* [CRM] Fixed Address check boxes so they remember selected 
+* [CRM] Fixed Address check boxes so they remember selected
 preferences
 * [CRM] Removed duplicate menu icon for CRM Calendar
 * [CRM] Fixed issue where Contact search was getting confused
-* [CRM] Fixed broken link between CRM Account and Customer 
+* [CRM] Fixed broken link between CRM Account and Customer
 Workbench
-* [Inventory] Fixed issue where TOs could be closed before they 
+* [Inventory] Fixed issue where TOs could be closed before they
 were received in full
-* [Inventory] Fixes issue where canceled TO items were showing 
+* [Inventory] Fixes issue where canceled TO items were showing
 up in Receiving screen
-* [Inventory] Fixed result inconsistencies depending on where you 
+* [Inventory] Fixed result inconsistencies depending on where you
 printed the Packing List from
-* [Inventory] Fixed issue where transform transaction was creating 
-separate itemloc records for MLC items when there should only be 
+* [Inventory] Fixed issue where transform transaction was creating
+separate itemloc records for MLC items when there should only be
 one
-* [Inventory] Fixed issue with transformed quantity after being 
+* [Inventory] Fixed issue with transformed quantity after being
 displayed incorrectly
-* [Inventory] Fixed issue with inventory not being thawed 
+* [Inventory] Fixed issue with inventory not being thawed
 completely
-* [Inventory] Added back in report Time Phased Statistics by Item, 
+* [Inventory] Added back in report Time Phased Statistics by Item,
 which shows data both numerically and graphically
-* [Inventory] Fixed scheduled date display inconsistency when 
+* [Inventory] Fixed scheduled date display inconsistency when
 copying TOs
-* [Inventory] Allowed deactivation of Item Site having canceled 
+* [Inventory] Allowed deactivation of Item Site having canceled
 Sales Order items
-* [Inventory] Fixed issue leading to error when printing the 
+* [Inventory] Fixed issue leading to error when printing the
 Packing List Batch
-* [Inventory] Fixed issue leading to error when posting Count 
+* [Inventory] Fixed issue leading to error when posting Count
 Tags
-* [Manufacture] Fixed issue leading to error when selecting Work 
+* [Manufacture] Fixed issue leading to error when selecting Work
 Order characteristics
-* [Manufacture] Fixed standard cost error when creating a PO for 
+* [Manufacture] Fixed standard cost error when creating a PO for
 an Item with multiple Item Sources for a single Vendor
-* [Manufacture] Fixed Purge Closed Work Orders utility so it 
+* [Manufacture] Fixed Purge Closed Work Orders utility so it
 functions properly
 * [Products] Removed BOO button from Item master for Kit Items
-* [Products] Fixed issue leading to error when removing/replacing 
+* [Products] Fixed issue leading to error when removing/replacing
 BOM Items
-* [Products] Fixed issue with auto-generated Lot/Serial 
+* [Products] Fixed issue with auto-generated Lot/Serial
 registration numbers incrementing incorrectly
-* [Products] Prevented creation of empty user-defined costing 
+* [Products] Prevented creation of empty user-defined costing
 element records
-* [Products] Fixed issue where Costed Indented BOM was not 
+* [Products] Fixed issue where Costed Indented BOM was not
 considering non-fractional quantities
-* [Products] Fixed issue leading to error when querying Costed 
+* [Products] Fixed issue leading to error when querying Costed
 Single Level BOM
-* [Purchase] Fixed issue where PO status was showing as open when 
+* [Purchase] Fixed issue where PO status was showing as open when
 more quantity was received than purchased
-* [Sales] Fixed inconsistent field labeling on Price update 
+* [Sales] Fixed inconsistent field labeling on Price update
 utility
-* [Sales] Fixed issue leading to error when selecting "Use 
+* [Sales] Fixed issue leading to error when selecting "Use
 Reservation Netting" option
-* [Sales] Fixed issue preventing deletion of  Pricing Schedule 
+* [Sales] Fixed issue preventing deletion of  Pricing Schedule
 item for a freight class type
-* [Sales] Fixed issue leading to error when creating Credit 
+* [Sales] Fixed issue leading to error when creating Credit
 Memos
-* [Sales] Fixed issue where freight tax was not being added to 
+* [Sales] Fixed issue where freight tax was not being added to
 SO total tax
-* [Sales] Fixed issue preventing deletion of freight lines from 
+* [Sales] Fixed issue preventing deletion of freight lines from
 Pricing Schedule
-* [Sales] Fixed issue where editing a Pricing Schedule item for 
+* [Sales] Fixed issue where editing a Pricing Schedule item for
 freight reset the price to 0
-* [Sales] Fixed issue preventing entry of fractional SO item 
+* [Sales] Fixed issue preventing entry of fractional SO item
 quantity if global UOM was also fractional
-* [Sales] Fixed handling of Sales Order commissions after SO is 
+* [Sales] Fixed handling of Sales Order commissions after SO is
 edited
 * [Sales] Fixed missing descriptions in RMA Items list
-* [Sales] Fixed issue with failed import on API view 
+* [Sales] Fixed issue with failed import on API view
 customertypechar
 * [Sales] Fixed issue preventing creation of replacement RMA
-* [Sales] Fixed issue with zero Invoice items linking to 
-incorrect documents on AR History Tab on Customer Information 
+* [Sales] Fixed issue with zero Invoice items linking to
+incorrect documents on AR History Tab on Customer Information
 Workbench
-* [Schedule] Fixed issue with Site Calendar Exceptions not 
+* [Schedule] Fixed issue with Site Calendar Exceptions not
 saving
-* [Schedule] Fixed issue leading to error when creating a new 
+* [Schedule] Fixed issue leading to error when creating a new
 Production Plan
 * [Schedule] Fixed display problems View W/O screen
-* [System] Fixed issue preventing custom commands argument 
+* [System] Fixed issue preventing custom commands argument
 setup within custom screen
 * [System] Removed email option references in PostBooks client
-* [System] Fixed issue leading to error when unchecking "Reserve 
+* [System] Fixed issue leading to error when unchecking "Reserve
 by location" option
 * [System] Fixed issue leading to error when saving Exchange Rate
 * [System] Fixed crash problem when creating a new Locale
-* [System] Fixed issue leading to error when using CSVimp on 
+* [System] Fixed issue leading to error when using CSVimp on
 api.itemchar API view
-* [System] Prevented creation of TO having source and destination 
+* [System] Prevented creation of TO having source and destination
 as same Site
 
 ==================================
