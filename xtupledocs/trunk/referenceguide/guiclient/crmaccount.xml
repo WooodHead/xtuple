@@ -13,13 +13,13 @@
   <para>Accounts are central to the xTuple CRM system. An Account holds
   information about an entity and serves to define it further as a Customer,
   Prospect, Vendor, Competitor, or Partner. To create a new Account, select
-  the "New CRM Account" option. The following screen will appear.</para>
+  the CRM, Account, New option. The following screen will appear.</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/crmaccount.png" />
         </imageobject>
-        <caption>Create New CRM Account</caption>
+        <caption>Create New Account</caption>
       </mediaobject>
     </screenshot></para>
   <para>When creating a new Account, you are presented with the following
@@ -84,18 +84,18 @@
           <varlistentry>
             <term>Prospect</term>
             <listitem>
-              <para>Select if the Account is a Prospect. The CRM Account
-              serves as the master record for Prospects.</para>
+              <para>Select if the Account is a Prospect. The Account serves as
+              the master record for Prospects.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Customer</term>
             <listitem>
               <para>Select if the Account is a Customer Account. If selected,
-              Account information&mdash;including the Account Number, Account
-              Name, and Contact information&mdash;will be used to populate a
-              Customer master. You will be prompted to edit the Customer
-              master if no Customer relationship existed previously.</para>
+              Account information—including the Account Number, Account Name,
+              and Contact information—will be used to populate a Customer
+              master. You will be prompted to edit the Customer master if no
+              Customer relationship existed previously.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -110,10 +110,10 @@
             <term>Vendor</term>
             <listitem>
               <para>elect if the Account is a Vendor Account. If selected,
-              Account information&mdash;including the Account Number, Account
-              Name, and Contact information&mdash;will be used to populate a
-              Vendor master. You will be prompted to edit the Vendor master if
-              no Vendor relationship existed previously.</para>
+              Account information—including the Account Number, Account Name,
+              and Contact information—will be used to populate a Vendor
+              master. You will be prompted to edit the Vendor master if no
+              Vendor relationship existed previously.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -161,26 +161,24 @@
       <term>Primary</term>
       <listitem>
         <para>Select to enter or view information for the primary Contact. You
-        can manually enter Contact information in the fields shown&mdash;or
-        use the browse button to select pre-existing Contact
-        information.</para>
+        can manually enter Contact information in the fields shown—or use the
+        browse button to select pre-existing Contact information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Secondary</term>
       <listitem>
         <para>Select to enter or view information for the secondary Contact.
-        You can manually enter Contact information in the fields
-        shown&mdash;or use the browse button to select pre-existing Contact
-        information.</para>
+        You can manually enter Contact information in the fields shown—or use
+        the browse button to select pre-existing Contact information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>All</term>
       <listitem>
         <para>Select to view the master list of Contacts associated with the
-        CRM Account. When choosing to view all Contacts you are presented with
-        the following options:</para>
+        Account. When choosing to view all Contacts you are presented with the
+        following options:</para>
         <variablelist>
           <varlistentry>
             <term>NEW</term>
@@ -197,8 +195,8 @@
             <term>EDIT</term>
             <listitem id="crmaccountEDIT">
               <para>Enables you to edit highlighted Contacts. The edit screen
-              is the same as that for creating a new Contact&mdash;except that
-              when editing, the fields will contain Contact information.
+              is the same as that for creating a new Contact—except that when
+              editing, the fields will contain Contact information.
               Double-clicking on a Contact will also bring you to the editing
               screen.</para>
             </listitem>
@@ -226,13 +224,13 @@
   <variablelist>
     <varlistentry>
       <term>New</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(crmaccountNEW)" />
+      <xi:include href="" xpointer="element(crmaccountNEW)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(crmaccountEDIT)" />
+      <xi:include href="" xpointer="element(crmaccountEDIT)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <varlistentry>
       <term>View</term>
@@ -242,48 +240,48 @@
     </varlistentry>
     <varlistentry>
       <term>Attach</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(crmaccountATTACH)" />
+      <xi:include href="" xpointer="element(crmaccountATTACH)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <varlistentry>
       <term>Detach</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(crmaccountDETACH)" />
+      <xi:include href="" xpointer="element(crmaccountDETACH)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
-  <para>To add Notes to a CRM Account, select the "Notes" tab. The following
+  <para>To add Notes to a Account, select the "Notes" tab. The following
   screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/crmaccount_notesTab.png" />
         </imageobject>
-        <caption>CRM Account Notes</caption>
+        <caption>Account Notes</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When adding Notes to a CRM Account, you are presented with the
-  following options:</para>
+  <para>When adding Notes to a Account, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Notes</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
-        Notes related to the CRM Account. Any Notes entered on this screen are
-        for internal purposes only.</para>
+        Notes related to the Account. Any Notes entered on this screen are for
+        internal purposes only.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Comments to a CRM Account, select the "Comments" tab at the
-  bottom of the "CRM Account" screen. The following screen will appear:</para>
+  <para>To add Comments to a Account, select the "Comments" tab at the bottom
+  of the "Account" screen. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/crmaccount_commentsTab.png" />
         </imageobject>
-        <caption>CRM Account Comments</caption>
+        <caption>Account Comments</caption>
       </mediaobject>
     </screenshot></para>
   <para>When adding Comments to a CRM Account, you are presented with the
@@ -313,8 +311,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To enter a new CRM Account Comment, select the NEW button. The
-  following screen will appear:</para>
+  <para>To enter a new Account Comment, select the NEW button. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -353,7 +351,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>CRM Account Characteristics are user-defined definitions of an Account
+  <para>Account Characteristics are user-defined definitions of an Account
   which may be used to provide additional layers of description. To enter
   <indexterm significance="normal">
       <primary>characteristics</primary>
@@ -368,7 +366,7 @@
         <imageobject>
           <imagedata fileref="images/crmaccount_characteristicsTab.png" />
         </imageobject>
-        <caption>CRM Account Characteristics</caption>
+        <caption>Account Characteristics</caption>
       </mediaobject>
     </screenshot></para>
   <para>When associating Characteristics with a CRM Account, you are presented
@@ -396,10 +394,9 @@
       <listitem>
         <para>Enables you to edit highlighted CRM Account Characteristics. The
         edit screen is the same as that for creating a new CRM Account
-        Characteristic&mdash;except that when editing, the fields will contain
-        CRM Account Characteristic information. Double-clicking on a CRM
-        Account Characteristic will also bring you to the editing
-        screen.</para>
+        Characteristic—except that when editing, the fields will contain CRM
+        Account Characteristic information. Double-clicking on a CRM Account
+        Characteristic will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -464,7 +461,7 @@
         <imageobject>
           <imagedata fileref="images/crmaccount_todoIncdtTab.png" />
         </imageobject>
-        <caption>CRM Account To-Do List</caption>
+        <caption>Account To-Do List</caption>
       </mediaobject>
     </screenshot></para>
   <para>When entering or associating To-Dos and/or Incidents with a CRM
@@ -529,10 +526,10 @@
       <listitem>
         <para id="crmaccountEDIT2">Enables you to edit highlighted To-Do List
         items or Incidents. The edit screen is the same as that for creating a
-        new To-Do List item or Incident&mdash;except that when editing, the
-        fields will contain To-Do List item or Incident information.
-        Double-clicking on a To-Do List item or Incident will also bring you
-        to the editing screen.</para>
+        new To-Do List item or Incident—except that when editing, the fields
+        will contain To-Do List item or Incident information. Double-clicking
+        on a To-Do List item or Incident will also bring you to the editing
+        screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -558,43 +555,43 @@
     <varlistentry>
       <term>New To-Do Item</term>
       <listitem>
-        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(crmaccountNEWTODOITEM)" />
+        <xi:include href="" xpointer="element(crmaccountNEWTODOITEM)"
+                    xmlns:xi="http://www.w3.org/2001/XInclude" />
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>New Incident</term>
       <listitem>
-        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(crmaccountNEWINCIDENT)" />
+        <xi:include href="" xpointer="element(crmaccountNEWINCIDENT)"
+                    xmlns:xi="http://www.w3.org/2001/XInclude" />
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
       <listitem>
-        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(crmaccountEDIT2)" />
+        <xi:include href="" xpointer="element(crmaccountEDIT2)"
+                    xmlns:xi="http://www.w3.org/2001/XInclude" />
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>View</term>
       <listitem>
-        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(crmaccountVIEW)" />
+        <xi:include href="" xpointer="element(crmaccountVIEW)"
+                    xmlns:xi="http://www.w3.org/2001/XInclude" />
       </listitem>
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
-  <para>To view a list of Opportunities associated with the CRM Account,
-  select the "Opportunities" tab. The following screen will appear:</para>
+  <para>To view a list of Opportunities associated with the Account, select
+  the "Opportunities" tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/crmaccount_oplistTab.png" />
         </imageobject>
-        <caption>CRM Account Opportunities</caption>
+        <caption>Account Opportunities</caption>
       </mediaobject>
     </screenshot></para>
   <variablelist>
@@ -616,7 +613,7 @@
     registrations (by Customer) whenever the Item is shipped. This applies
     only to sold Items which are Lot/Serial controlled.</para>
   </tip>
-  <para>To view a list of Lot/Serial registrations associated with the CRM
+  <para>To view a list of Lot/Serial registrations associated with the
   Account, select the "Registrations" tab. The following screen will
   appear:</para>
   <para><screenshot>
@@ -624,7 +621,7 @@
         <imageobject>
           <imagedata fileref="images/crmaccount_registrationsTab.png" />
         </imageobject>
-        <caption>CRM Account Registrations</caption>
+        <caption>Account Registrations</caption>
       </mediaobject>
     </screenshot></para>
   <para>When viewing Lot/Serial registrations associated with the CRM Account,
@@ -654,7 +651,7 @@
       <listitem>
         <para>Enables you to edit highlighted Lot/Serial registrations. The
         edit screen is the same as that for creating a new Lot/Serial
-        registration&mdash;except that when editing, the fields will contain
+        registration—except that when editing, the fields will contain
         Lot/Serial registration information. Double-clicking on a Lot/Serial
         registration will also bring you to the editing screen.</para>
       </listitem>
@@ -665,6 +662,80 @@
         <para>Highlight a Lot/Serial registration and then select this button
         to remove the association between the Lot/Serial registration and the
         CRM Account.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view a list of documents associated with the Account, select the
+  "Documents" tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/crmaccount_documentsTab.png" />
+    </imageobject>
+    <caption>Account Documents</caption>
+  </mediaobject>
+  <para>When viewing documents associated with the CRM Account, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Documents</term>
+      <listitem>
+        <para>Displays a list of Images or Files associated with this Account.
+        Select radio buttons in upper left hand corner to choose which type of
+        documents you would like to view Images or Files.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>VIEW IMAGE</term>
+      <listitem>
+        <para>Launches Image viewer enabling you to review selected image.
+        Enabled when Images radio button is selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Provides the ability for user to print Image. Enabled when
+        Images radio button is selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>OPEN FILE</term>
+      <listitem>
+        <para>Launches File listed in Documents. Enabled when Files radio
+        button is selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen which allows you to save Image or File to Account
+        record.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Image or File. The edit screen
+        is the same as that for creating a new Document —except that when
+        editing, the fields will contain Document information. Double-clicking
+        on a Document will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Select to view the specified item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Document and then select this button to remove the
+        association between the Document and the CRM Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>
