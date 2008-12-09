@@ -115,15 +115,17 @@ BEGIN
             apopen_docdate, apopen_duedate, apopen_distdate, apopen_terms_id,
             apopen_amount, apopen_paid, apopen_open,
 	    apopen_notes,
-	    apopen_accnt_id, apopen_curr_id, apopen_discount, apopen_curr_rate )
+	    apopen_accnt_id, apopen_curr_id, apopen_discount, apopen_curr_rate,
+            apopen_closedate )
           VALUES
           ( _apopenid, CURRENT_USER, pJournalNumber,
             _p.checkhead_recip_id, _docnumber, 'D', '',
             pVoidDate, pVoidDate, pVoidDate, -1,
-            _r.checkitem_discount, _r.checkitem_discount, TRUE,
+            _r.checkitem_discount, _r.checkitem_discount, FALSE,
             ('Reverse Posted Discount ' || _r.apopen_doctype || ' ' ||
 	      _r.apopen_docnumber),
-	    -1, _p.checkhead_curr_id, TRUE, _r.apopen_curr_rate );
+	    -1, _p.checkhead_curr_id, TRUE, _r.apopen_curr_rate,
+            current_date );
 
 
           PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
