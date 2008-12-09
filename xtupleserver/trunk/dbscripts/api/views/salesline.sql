@@ -138,7 +138,6 @@ CREATE OR REPLACE RULE "_INSERT" AS
   AND (itemsite_active)
   AND (item_number=NEW.item_number)
   AND (warehous_active)
-  AND (warehous_shipping)
   AND (warehous_id=COALESCE(getWarehousId(NEW.sold_from_site,'ALL'),cohead_warehous_id,fetchprefwarehousid()))));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
