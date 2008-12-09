@@ -36,7 +36,8 @@ BEGIN
 	 -1, -- fetchNextCheckNumber(checkhead_bankaccnt_id),
          checkhead_amount,
 	 checkhead_for, checkhead_journalnumber,
-         checkhead_notes || '\nReplaces voided check ' || checkhead_number,
+         checkhead_notes || '
+Replaces voided check ' || checkhead_number,
 	 checkhead_misc, checkhead_expcat_id, checkhead_curr_id
   FROM checkhead
   WHERE (checkhead_id=pCheckid);
@@ -45,11 +46,11 @@ BEGIN
   ( checkitem_checkhead_id, checkitem_amount, checkitem_discount,
     checkitem_ponumber, checkitem_vouchernumber, checkitem_invcnumber,
     checkitem_apopen_id, checkitem_aropen_id,
-    checkitem_docdate, checkitem_curr_id )
+    checkitem_docdate, checkitem_curr_id, checkitem_curr_rate )
   SELECT _newCheckid, checkitem_amount, checkitem_discount,
          checkitem_ponumber, checkitem_vouchernumber, checkitem_invcnumber,
 	 checkitem_apopen_id, checkitem_aropen_id,
-	 checkitem_docdate, checkitem_curr_id
+	 checkitem_docdate, checkitem_curr_id, checkitem_curr_rate
   FROM checkitem
   WHERE (checkitem_checkhead_id=pCheckid);
 

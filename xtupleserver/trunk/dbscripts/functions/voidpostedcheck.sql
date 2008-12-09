@@ -120,7 +120,7 @@ BEGIN
           ( _apopenid, CURRENT_USER, pJournalNumber,
             _p.checkhead_recip_id, _docnumber, 'D', '',
             pVoidDate, pVoidDate, pVoidDate, -1,
-            _r.checkitem_discount, 0, TRUE,
+            _r.checkitem_discount, _r.checkitem_discount, TRUE,
             ('Reverse Posted Discount ' || _r.apopen_doctype || ' ' ||
 	      _r.apopen_docnumber),
 	    -1, _p.checkhead_curr_id, TRUE, _r.apopen_curr_rate );
@@ -153,13 +153,13 @@ BEGIN
 
         UPDATE apopen
        SET apopen_paid = round(apopen_paid -
-				(_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2),
+				((_r.checkitem_amount + noNeg(_r.checkitem_discount)) / round(_r.checkitem_curr_rate,5)), 2),
             apopen_open = round(apopen_amount, 2) >
 			  round(apopen_paid -
-				(_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2),
+				((_r.checkitem_amount + noNeg(_r.checkitem_discount))  / round(_r.checkitem_curr_rate,5)), 2),
             apopen_closedate = CASE WHEN (round(apopen_amount, 2) >
 			                  round(apopen_paid -
-				           (_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2)) THEN NULL ELSE apopen_closedate END
+				           ((_r.checkitem_amount + noNeg(_r.checkitem_discount))  / round(_r.checkitem_curr_rate,5)), 2)) THEN NULL ELSE apopen_closedate END
         WHERE (apopen_id=_r.apopen_id);
 
 	--  Post the application
