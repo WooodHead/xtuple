@@ -8,7 +8,7 @@ SELECT orderid, altorderid, ordertype, ordernumber, sequence, item_number,
        1 AS runningavail_xtrunningrole,
        <? value("qoh") ?> AS runningavail_xtrunninginit,
        CASE WHEN late THEN 'error' END AS duedate_qtforegroundrole,
-       CASE WHEN ordertype ~ 'Planned P/O' OR ordertype ~ 'Planned W/O' THEN
+       CASE WHEN ordertype ~ <? value("plannedPo") ?> OR ordertype ~ <? value("plannedWo") ?> THEN
           'emphasis' END AS qtforegroundrole,
       'qty' AS qtyordered_xtnumericrole,
       'qty' AS qtyreceived_xtnumericrole,
