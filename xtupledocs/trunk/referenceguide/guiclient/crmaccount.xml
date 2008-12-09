@@ -92,10 +92,10 @@
             <term>Customer</term>
             <listitem>
               <para>Select if the Account is a Customer Account. If selected,
-              Account information—including the Account Number, Account Name,
-              and Contact information—will be used to populate a Customer
-              master. You will be prompted to edit the Customer master if no
-              Customer relationship existed previously.</para>
+              Account information&mdash;including the Account Number, Account
+              Name, and Contact information&mdash;will be used to populate a
+              Customer master. You will be prompted to edit the Customer
+              master if no Customer relationship existed previously.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -110,10 +110,10 @@
             <term>Vendor</term>
             <listitem>
               <para>elect if the Account is a Vendor Account. If selected,
-              Account information—including the Account Number, Account Name,
-              and Contact information—will be used to populate a Vendor
-              master. You will be prompted to edit the Vendor master if no
-              Vendor relationship existed previously.</para>
+              Account information&mdash;including the Account Number, Account
+              Name, and Contact information&mdash;will be used to populate a
+              Vendor master. You will be prompted to edit the Vendor master if
+              no Vendor relationship existed previously.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -161,16 +161,18 @@
       <term>Primary</term>
       <listitem>
         <para>Select to enter or view information for the primary Contact. You
-        can manually enter Contact information in the fields shown—or use the
-        browse button to select pre-existing Contact information.</para>
+        can manually enter Contact information in the fields shown&mdash;or
+        use the browse button to select pre-existing Contact
+        information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Secondary</term>
       <listitem>
         <para>Select to enter or view information for the secondary Contact.
-        You can manually enter Contact information in the fields shown—or use
-        the browse button to select pre-existing Contact information.</para>
+        You can manually enter Contact information in the fields
+        shown&mdash;or use the browse button to select pre-existing Contact
+        information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -195,8 +197,8 @@
             <term>EDIT</term>
             <listitem id="crmaccountEDIT">
               <para>Enables you to edit highlighted Contacts. The edit screen
-              is the same as that for creating a new Contact—except that when
-              editing, the fields will contain Contact information.
+              is the same as that for creating a new Contact&mdash;except that
+              when editing, the fields will contain Contact information.
               Double-clicking on a Contact will also bring you to the editing
               screen.</para>
             </listitem>
@@ -224,13 +226,13 @@
   <variablelist>
     <varlistentry>
       <term>New</term>
-      <xi:include href="" xpointer="element(crmaccountNEW)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(crmaccountNEW)" />
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xpointer="element(crmaccountEDIT)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(crmaccountEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>View</term>
@@ -240,19 +242,19 @@
     </varlistentry>
     <varlistentry>
       <term>Attach</term>
-      <xi:include href="" xpointer="element(crmaccountATTACH)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(crmaccountATTACH)" />
     </varlistentry>
     <varlistentry>
       <term>Detach</term>
-      <xi:include href="" xpointer="element(crmaccountDETACH)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(crmaccountDETACH)" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-  <para>To add Notes to a Account, select the "Notes" tab. The following
+  <para>To add Notes to an Account, select the "Notes" tab. The following
   screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -262,7 +264,7 @@
         <caption>Account Notes</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When adding Notes to a Account, you are presented with the following
+  <para>When adding Notes to an Account, you are presented with the following
   options:</para>
   <variablelist>
     <varlistentry>
@@ -274,7 +276,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Comments to a Account, select the "Comments" tab at the bottom
+  <para>To add Comments to an Account, select the "Comments" tab at the bottom
   of the "Account" screen. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -394,9 +396,10 @@
       <listitem>
         <para>Enables you to edit highlighted CRM Account Characteristics. The
         edit screen is the same as that for creating a new CRM Account
-        Characteristic—except that when editing, the fields will contain CRM
-        Account Characteristic information. Double-clicking on a CRM Account
-        Characteristic will also bring you to the editing screen.</para>
+        Characteristic&mdash;except that when editing, the fields will contain
+        CRM Account Characteristic information. Double-clicking on a CRM
+        Account Characteristic will also bring you to the editing
+        screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -526,10 +529,10 @@
       <listitem>
         <para id="crmaccountEDIT2">Enables you to edit highlighted To-Do List
         items or Incidents. The edit screen is the same as that for creating a
-        new To-Do List item or Incident—except that when editing, the fields
-        will contain To-Do List item or Incident information. Double-clicking
-        on a To-Do List item or Incident will also bring you to the editing
-        screen.</para>
+        new To-Do List item or Incident&mdash;except that when editing, the
+        fields will contain To-Do List item or Incident information.
+        Double-clicking on a To-Do List item or Incident will also bring you
+        to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -555,34 +558,34 @@
     <varlistentry>
       <term>New To-Do Item</term>
       <listitem>
-        <xi:include href="" xpointer="element(crmaccountNEWTODOITEM)"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
+        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(crmaccountNEWTODOITEM)" />
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>New Incident</term>
       <listitem>
-        <xi:include href="" xpointer="element(crmaccountNEWINCIDENT)"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
+        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(crmaccountNEWINCIDENT)" />
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
       <listitem>
-        <xi:include href="" xpointer="element(crmaccountEDIT2)"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
+        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(crmaccountEDIT2)" />
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>View</term>
       <listitem>
-        <xi:include href="" xpointer="element(crmaccountVIEW)"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
+        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(crmaccountVIEW)" />
       </listitem>
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>To view a list of Opportunities associated with the Account, select
   the "Opportunities" tab. The following screen will appear:</para>
@@ -651,7 +654,7 @@
       <listitem>
         <para>Enables you to edit highlighted Lot/Serial registrations. The
         edit screen is the same as that for creating a new Lot/Serial
-        registration—except that when editing, the fields will contain
+        registration&mdash;except that when editing, the fields will contain
         Lot/Serial registration information. Double-clicking on a Lot/Serial
         registration will also bring you to the editing screen.</para>
       </listitem>
@@ -720,9 +723,10 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Image or File. The edit screen
-        is the same as that for creating a new Document —except that when
-        editing, the fields will contain Document information. Double-clicking
-        on a Document will also bring you to the editing screen.</para>
+        is the same as that for creating a new Document &mdash;except that
+        when editing, the fields will contain Document information.
+        Double-clicking on a Document will also bring you to the editing
+        screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
