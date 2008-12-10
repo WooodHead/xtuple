@@ -24,7 +24,7 @@ BEGIN
                      FROM apselect JOIN apopen ON (apselect_apopen_id=apopen_id)
                      GROUP BY apopen_id) AS sub1 ON (apopen_id=selected_apopen_id)
     LEFT OUTER JOIN (SELECT apopen_id AS prepared_apopen_id,
-                       SUM((checkitem_amount + checkitem_discount) / round(checkhead_curr_rate,5)) AS prepared
+                       SUM(checkitem_amount + checkitem_discount) AS prepared
                      FROM checkhead 
                        JOIN checkitem ON (checkitem_checkhead_id=checkhead_id)
                        JOIN apopen ON (checkitem_apopen_id=apopen_id)
@@ -49,7 +49,7 @@ BEGIN
                                 GROUP BY apopen_id) AS sub1
                                 ON (target.apopen_id=selected_apopen_id)
              LEFT OUTER JOIN (SELECT apopen_id AS prepared_apopen_id,
-                                SUM((checkitem_amount + checkitem_discount) / round(checkhead_curr_rate,5)) AS prepared
+                                SUM(checkitem_amount + checkitem_discount) AS prepared
                               FROM checkhead 
                                 JOIN checkitem ON (checkitem_checkhead_id=checkhead_id)
                                 JOIN apopen ON (checkitem_apopen_id=apopen_id)
