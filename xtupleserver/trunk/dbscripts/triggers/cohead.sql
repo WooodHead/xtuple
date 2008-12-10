@@ -17,7 +17,7 @@ BEGIN
   -- Checks
   -- Start with privileges
   IF (TG_OP = 'INSERT') THEN
-    SELECT checkPrivilege('CreateSales') INTO _check;
+    SELECT checkPrivilege('MaintainSalesOrders') INTO _check;
     IF NOT (_check) THEN
       RAISE EXCEPTION 'You do not have privileges to create a Sales Order.';
     END IF;
