@@ -46,7 +46,8 @@ BEGIN
                    CASE WHEN (_p.bomwork_expires < bomitem_expires) THEN _p.bomwork_expires
                         ELSE bomitem_expires
                    END AS expires,
-                   stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost
+                   stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost,
+                   bomitem_notes, bomitem_ref
   FROM bomitem(pItemid, pRevisionid), item
   WHERE ( (bomitem_item_id=item_id)
   AND (bomitem_expires > _p.bomwork_effective) ) LOOP
@@ -59,14 +60,16 @@ BEGIN
       bomwork_item_id, bomwork_createwo,
       bomwork_qtyper, bomwork_scrap, bomwork_issuemethod,
       bomwork_effective, bomwork_expires,
-      bomwork_stdunitcost, bomwork_actunitcost )
+      bomwork_stdunitcost, bomwork_actunitcost, 
+      bomwork_notes, bomwork_ref )
     VALUES
     ( _bomworkid, _p.bomwork_set_id, pParentid, _level,
       _p.bomwork_seqnumber, _r.bomitem_seqnumber,
       _r.item_id, _r.bomitem_createwo,
       (_p.bomwork_qtyper * _r.qtyper), _r.bomitem_scrap, _r.bomitem_issuemethod,
       _r.effective, _r.expires,
-      _r.standardcost, _r.actualcost );
+      _r.standardcost, _r.actualcost,
+      _r.bomitem_notes, _r.bomitem_ref );
 
 --  Recursively repeat for this component''s components
     PERFORM explodeBOM(_r.item_id, _bomworkid, _level);
