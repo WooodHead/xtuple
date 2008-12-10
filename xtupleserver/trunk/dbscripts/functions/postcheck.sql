@@ -55,7 +55,7 @@ BEGIN
     IF (COALESCE(_p.checkhead_expcat_id, -1) < 0) THEN
       IF (_p.checkhead_recip_type = 'V') THEN
 	PERFORM createAPCreditMemo( _p.checkhead_recip_id, _journalNumber,
-				    fetchAPMemoNumber(), '',
+				    CAST(fetchAPMemoNumber() AS text), '',
 				    _p.checkhead_checkdate, _p.checkhead_amount,
 				    _gltransNote || ' ' || _p.checkhead_notes,
 				    -1, _p.checkhead_checkdate,
@@ -104,6 +104,8 @@ BEGIN
     FOR _r IN SELECT checkitem_amount, checkitem_discount,
                      CASE WHEN (checkitem_apopen_id IS NOT NULL) THEN
                        checkitem_amount / round(apopen_curr_rate,5)
+                     WHEN (checkitem_aropen_id IS NOT NULL) THEN
+                       checkitem_amount / round(aropen_curr_rate,5)
                      ELSE
                        currToBase(checkitem_curr_id,
                                   checkitem_amount,
@@ -150,15 +152,13 @@ BEGIN
 
       IF (_r.aropen_id IS NOT NULL) THEN
         UPDATE aropen
-        SET aropen_paid = round(aropen_paid +
-				currToCurr(_r.checkitem_curr_id, aropen_curr_id,
-					   _r.checkitem_amount,
-					   _r.docdate), 2),
+        SET aropen_paid = round(aropen_paid + (_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2),
             aropen_open = round(aropen_amount, 2) >
 			  round(aropen_paid +
-				currToCurr(_r.checkitem_curr_id, aropen_curr_id,
-					   _r.checkitem_amount,
-					   _r.docdate), 2)
+				(_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2),
+            aropen_closedate = CASE WHEN (round(aropen_amount, 2) <=
+			                  round(aropen_paid +
+				                (_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2)) THEN _p.checkhead_checkdate END
         WHERE (aropen_id=_r.aropen_id);
 
 	--  Post the application
@@ -175,9 +175,15 @@ BEGIN
 
       END IF; -- if check item's aropen_id is not null
 
-      SELECT apCurrGain(_r.apopen_id,_r.checkitem_curr_id, _r.checkitem_amount,
-                      _p.checkhead_checkdate)
-            INTO _exchGainTmp;
+      IF (_r.apopen_id IS NOT NULL) THEN
+        SELECT apCurrGain(_r.apopen_id,_r.checkitem_curr_id, _r.checkitem_amount,
+                        _p.checkhead_checkdate)
+              INTO _exchGainTmp;
+      ELSIF (_r.aropen_id IS NOT NULL) THEN
+        SELECT arCurrGain(_r.aropen_id,_r.checkitem_curr_id, _r.checkitem_amount,
+                        _p.checkhead_checkdate)
+              INTO _exchGainTmp;
+      END IF;
       _exchGain := _exchGain + _exchGainTmp;
 
       PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
