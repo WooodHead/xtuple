@@ -11,7 +11,7 @@ BEGIN
 
   IF (NOT fetchMetricBool(''RevControl'')) THEN
     RETURN -1;
-  ELSIF (pRevision IS NULL) THEN
+  ELSIF ( (pRevision IS NULL) OR (LENGTH(pRevision)=0) ) THEN
     SELECT getActiveRevId(pType, getItemId(pItemNumber)) INTO _returnVal;
   ELSE
     IF (pType=''BOM'') THEN
