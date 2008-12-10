@@ -107,6 +107,7 @@ FROM vend, pohead JOIN poitem ON (pohead_id=poitem_pohead_id) LEFT OUTER JOIN
      item ON (itemsite_item_id=item_id)) ON (poitem_itemsite_id=itemsite_id)
 WHERE ( (pohead_vend_id=vend_id)
  AND (poitem_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+ AND (poitem_qty_received <> 0)
  AND (pohead_status = 'O')
  AND (pohead_id NOT IN (SELECT vohead_pohead_id
                         FROM vohead
