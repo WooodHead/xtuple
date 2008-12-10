@@ -140,6 +140,32 @@ BEGIN
 
     SELECT NEXTVAL('coitem_coitem_id_seq') INTO _soitemid;
 
+    INSERT INTO coitem
+    ( coitem_id, coitem_cohead_id, coitem_linenumber, coitem_itemsite_id,
+      coitem_status, coitem_scheddate, coitem_promdate,
+      coitem_price, coitem_custprice, 
+      coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
+      coitem_qty_uom_id, coitem_qty_invuomratio,
+      coitem_price_uom_id, coitem_price_invuomratio,
+      coitem_unitcost,
+      coitem_custpn, coitem_memo, coitem_prcost, coitem_tax_id )
+    VALUES
+    ( _soitemid, _soheadid, _r.quitem_linenumber, _r.quitem_itemsite_id,
+      'O', _r.quitem_scheddate, _r.quitem_promdate,
+      _r.quitem_price, _r.quitem_custprice,
+      _r.quitem_qtyord, 0, 0,
+      _r.quitem_qty_uom_id, _r.quitem_qty_invuomratio,
+      _r.quitem_price_uom_id, _r.quitem_price_invuomratio,
+      stdcost(_r.itemsite_item_id),
+      _r.quitem_custpn, _r.quitem_memo, _r.quitem_prcost, _r.quitem_tax_id );
+
+    INSERT INTO charass
+          (charass_target_type, charass_target_id, charass_char_id, charass_value, charass_default, charass_price)
+    SELECT 'SI', _soitemid, charass_char_id, charass_value, charass_default, charass_price
+      FROM charass
+     WHERE ((charass_target_type='QI')
+       AND  (charass_target_id=_r.quitem_id));
+
     _orderid := -1;
     _ordertype := '';
     IF (_r.quitem_createorder) THEN
@@ -167,33 +193,10 @@ BEGIN
         UPDATE pr SET pr_prj_id=_r.quhead_prj_id WHERE pr_id=_orderId;
       END IF;
 
+      UPDATE coitem SET coitem_order_type=_ordertype, coitem_order_id=_orderid
+      WHERE (coitem_id=_soitemid);
+
     END IF;
-
-    INSERT INTO coitem
-    ( coitem_id, coitem_cohead_id, coitem_linenumber, coitem_itemsite_id,
-      coitem_status, coitem_scheddate, coitem_promdate,
-      coitem_price, coitem_custprice, 
-      coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
-      coitem_qty_uom_id, coitem_qty_invuomratio,
-      coitem_price_uom_id, coitem_price_invuomratio,
-      coitem_order_type, coitem_order_id, coitem_unitcost,
-      coitem_custpn, coitem_memo, coitem_prcost, coitem_tax_id )
-    VALUES
-    ( _soitemid, _soheadid, _r.quitem_linenumber, _r.quitem_itemsite_id,
-      'O', _r.quitem_scheddate, _r.quitem_promdate,
-      _r.quitem_price, _r.quitem_custprice,
-      _r.quitem_qtyord, 0, 0,
-      _r.quitem_qty_uom_id, _r.quitem_qty_invuomratio,
-      _r.quitem_price_uom_id, _r.quitem_price_invuomratio,
-      _ordertype, _orderid, stdcost(_r.itemsite_item_id),
-      _r.quitem_custpn, _r.quitem_memo, _r.quitem_prcost, _r.quitem_tax_id );
-
-    INSERT INTO charass
-          (charass_target_type, charass_target_id, charass_char_id, charass_value)
-    SELECT 'SI', _soitemid, charass_char_id, charass_value
-      FROM charass
-     WHERE ((charass_target_type='QI')
-       AND  (charass_target_id=_r.quitem_id));
 
   END LOOP;
 
