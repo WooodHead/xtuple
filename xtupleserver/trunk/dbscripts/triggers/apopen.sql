@@ -18,6 +18,8 @@ BEGIN
     END IF;
   END IF;
 
+  NEW.apopen_open := NEW.apopen_amount > NEW.apopen_paid;
+
   RETURN NEW;
 
 END;
