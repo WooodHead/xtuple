@@ -44,10 +44,61 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Active Only</term>
+      <term>Only Start Dates Between</term>
       <listitem>
-        <para>Select to include only active To-Do List items in the
-        display.</para>
+        <para>Select check box to identify date range filter for start date of
+        To-Do items.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>To-Do start date created on or after this date will be
+              included in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>To-Do start date created on or before this date will be
+              included in the display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Only Due Dates Between</term>
+      <listitem>
+        <para>Select check box to identify date range filter for due date of
+        To-Do items.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>To-Do due date created on or after this date will be
+              included in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>To-Do due date created on or before this date will be
+              included in the display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Incidents</term>
+      <listitem>
+        <para>Select to include Incidents in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Projects</term>
+      <listitem>
+        <para>Select to include Project tasks in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -55,67 +106,6 @@
       <listitem>
         <para>Select to include completed To-Do List items in the
         display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Incidents</term>
-      <listitem>
-        <para>Select to include Incidents in the display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Project Tasks</term>
-      <listitem>
-        <para>Select to include tasks associated with projects.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>First Due Date</term>
-      <listitem>
-        <para>To-Dos due on or after this date will be included in the
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Last Due Date</term>
-      <listitem>
-        <para>To-Dos due on or before this date will be included in the
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>First Incident Date</term>
-      <listitem>
-        <para>Incidents created on or after this date will be included in the
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Last Incident Date</term>
-      <listitem>
-        <para>Incidents created on or before this date will be included in the
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>First Project Task Date</term>
-      <listitem>
-        <para>Project tasks due on or after this date will be included in the
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Last Project Task Date</term>
-      <listitem>
-        <para>Project tasks due on or before this date will be included in the
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>To-Do List</term>
-      <listitem>
-        <para>Display lists To-Do List items, using the specified
-        parameters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
