@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section607486">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>list prices</primary>
       <secondary>updating of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,17 +12,14 @@
     </indexterm>Update List Prices by Product Category</title>
   <para>To update List Prices by Product Category, select the "Update List
   Prices by Product Category" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/updatePricesByProductCategory.png"/>
+          <imagedata fileref="images/updatePricesByProductCategory.png" />
         </imageobject>
-        <caption>Update List Prices by Product
-        Category</caption>
+        <caption>Update List Prices by Product Category</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When updating List Prices by Product Category, you are presented with
   the following options:</para>
   <variablelist>
@@ -49,8 +46,9 @@
     <varlistentry>
       <term>Update Prices by</term>
       <listitem>
-        <para>Update your List Prices by a specified percentage for the
-        selected Product Categories.</para>
+        <para>Update your List Prices for the selected Product Categories.
+        Select Percent or Fixed Amount to specify how you want to update
+        pricing.</para>
       </listitem>
     </varlistentry>
   </variablelist>
