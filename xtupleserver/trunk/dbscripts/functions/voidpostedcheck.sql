@@ -155,13 +155,13 @@ BEGIN
 
         UPDATE apopen
        SET apopen_paid = round(apopen_paid -
-				((_r.checkitem_amount + noNeg(_r.checkitem_discount)) / round(_r.checkitem_curr_rate,5)), 2),
+				(_r.checkitem_amount + noNeg(_r.checkitem_discount)), 2),
             apopen_open = round(apopen_amount, 2) >
 			  round(apopen_paid -
-				((_r.checkitem_amount + noNeg(_r.checkitem_discount))  / round(_r.checkitem_curr_rate,5)), 2),
+				(_r.checkitem_amount + noNeg(_r.checkitem_discount)), 2),
             apopen_closedate = CASE WHEN (round(apopen_amount, 2) >
 			                  round(apopen_paid -
-				           ((_r.checkitem_amount + noNeg(_r.checkitem_discount))  / round(_r.checkitem_curr_rate,5)), 2)) THEN NULL ELSE apopen_closedate END
+				           (_r.checkitem_amount + noNeg(_r.checkitem_discount)))) THEN NULL ELSE apopen_closedate END
         WHERE (apopen_id=_r.apopen_id);
 
 	--  Post the application
@@ -179,15 +179,9 @@ BEGIN
 
       IF (_r.aropen_id IS NOT NULL) THEN
         UPDATE aropen
-        SET aropen_paid = round(aropen_paid -
-				currToCurr(_r.checkitem_curr_id, aropen_curr_id,
-					   _r.checkitem_amount,
-					   _r.docdate), 2),
+        SET aropen_paid = round(aropen_paid -_r.checkitem_amount, 2),
             aropen_open = round(aropen_amount, 2) >
-			  round(aropen_paid -
-				currToCurr(_r.checkitem_curr_id, aropen_curr_id,
-					   _r.checkitem_amount,
-					   _r.docdate), 2)
+			  round(aropen_paid - _r.checkitem_amount, 2)
         WHERE (aropen_id=_r.aropen_id);
 
 	--  Post the application
