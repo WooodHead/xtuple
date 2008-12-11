@@ -126,13 +126,11 @@ BEGIN
         END IF;
 
         UPDATE apopen
-        SET apopen_paid = round(apopen_paid + (_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2),
+        SET apopen_paid = round(apopen_paid + _r.checkitem_amount, 2),
             apopen_open = round(apopen_amount, 2) >
-			  round(apopen_paid +
-				(_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2),
+			  round(apopen_paid + _r.checkitem_amount, 2),
             apopen_closedate = CASE WHEN (round(apopen_amount, 2) <=
-			                  round(apopen_paid +
-				                (_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2)) THEN _p.checkhead_checkdate END
+			                  round(apopen_paid + _r.checkitem_amount, 2)) THEN _p.checkhead_checkdate END
         WHERE (apopen_id=_r.apopen_id);
 
 	--  Post the application
