@@ -138,9 +138,9 @@ function executeChapter7()
     type(":_description_XLineEdit_19", "2% Discount in 10 Days - Net 30 Days");
     if(!findObject(":_typeGroup.Days_QRadioButton").checked)
         clickButton(":_typeGroup.Days_QRadioButton");
-    if(!findObject(":Terms.Used in A/P_QCheckBox"))
+    if(!findObject(":Terms.Used in A/P_QCheckBox").checked)
         clickButton(":Terms.Used in A/P_QCheckBox");
-    if(!findObject(":Terms.Used in A/R_QCheckBox"))
+    if(!findObject(":Terms.Used in A/R_QCheckBox").checked)
         clickButton(":Terms.Used in A/R_QCheckBox");
     type(":_dueDays_QSpinBox", "<Ctrl+A>");
     type(":_dueDays_QSpinBox", "<Del>");
@@ -220,10 +220,6 @@ function executeChapter7()
     if(!clickItem(":_account_XTreeWidget_2", "Promotions and Discounts Taken", 5, 5, 1, Qt.LeftButton))
         test.pass("COA Created for: Promotions and Discounts Taken");
     
-    COA("01","01","4050","01","State Sales Tax Revenue","Revenue","SO");
-    waitForObject(":_account_XTreeWidget_2");
-    if(!clickItem(":_account_XTreeWidget_2", "State Sales Tax Revenue", 5, 5, 1, Qt.LeftButton))
-        test.pass("COA Created for: State Sales Tax Revenue");
     
     COA("01","01","4060","01","Shipping Charges Revenue","Revenue","SO");
     waitForObject(":_account_XTreeWidget_2");
@@ -271,7 +267,7 @@ function executeChapter7()
     clickButton(":List Vendors.New_QPushButton");
     type(":_number_XLineEdit_4", "TPARTS");
     if(findObject(":_vendtype_XComboBox").currentText!="STANDARD-Standard Vendor")
-        type(":_vendtype_XComboBox", "STANDARD-Standard Vendor");
+        type(":_vendtype_XComboBox", "STANDARD");
     type(":_name_XLineEdit_8", "Toy Parts Inc");
     type(":_accountNumber_XLineEdit", "110022");
     if(findObject(":Default._defaultTerms_XComboBox").currentText!="2-10N30-2% Discount in 10 Days - Net 30 Days")

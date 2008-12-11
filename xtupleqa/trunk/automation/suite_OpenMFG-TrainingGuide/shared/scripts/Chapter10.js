@@ -307,13 +307,14 @@ function executeChapter10()
     if(findObject(":_options._group_XComboBox").currentText!="Sales");
         type(":_options._group_XComboBox", "Sales");
     clickButton(":Financial Report Item.Save_QPushButton");
+    waitForObject(":Financial Report.Save_QPushButton");
     clickButton(":Financial Report.Save_QPushButton");
     waitForObject(":List Financial Reports._flhead_XTreeWidget");
     if(!clickItem(":List Financial Reports._flhead_XTreeWidget", "Official Income Statement", 5, 5, 1, Qt.LeftButton))
         test.pass("Financial Report created:Official Income Statement");
 
     
-    
+  
     //-------------Create Official Balance Sheet------------
     waitForObjectItem(":List Financial Reports._flhead_XTreeWidget", "Basic Balance Sheet");
     clickItem(":List Financial Reports._flhead_XTreeWidget", "Basic Balance Sheet", 5, 5, 1, Qt.LeftButton);
@@ -660,9 +661,11 @@ function executeChapter10()
     if(findObject(":_group_XComboBox").currentText!="Assets")
         type(":_group_XComboBox", "Assets");
     clickButton(":Financial Report Group.Save_QPushButton");
-    
-    
-        waitForObject(":List Financial Reports._flhead_XTreeWidget");
+        
+    waitForObject(":Financial Report.Save_QPushButton");
+    clickButton(":Financial Report.Save_QPushButton");
+
+    waitForObject(":List Financial Reports._flhead_XTreeWidget");
     doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "Official Balance Sheet", 5, 5, 0, Qt.LeftButton);
     
     waitForObject(":frame._layout_XTreeWidget");
@@ -891,6 +894,9 @@ function executeChapter10()
     if(findObject(":_options._group_XComboBox").currentText!="ASSETS");
         type(":_options._group_XComboBox", "ASSETS");
     clickButton(":Financial Report Item.Save_QPushButton");
+    waitForObject(":Financial Report.Save_QPushButton");
+    clickButton(":Financial Report.Save_QPushButton");
+
     waitForObject(":List Financial Reports._flhead_XTreeWidget");
     if(!clickItem(":List Financial Reports._flhead_XTreeWidget", "Official Balance Sheet", 5, 5, 1, Qt.LeftButton))
         test.pass("Financial Report created:Official Balance Sheet");
@@ -1042,11 +1048,12 @@ function executeChapter10()
     clickButton(":Operation.Add to Group Total_QRadioButton");
     clickButton(":Financial Report Group.Save_QPushButton");
     clickButton(":Financial Report.Save_QPushButton");
-    
+  
     waitForObject(":List Financial Reports._flhead_XTreeWidget");
     doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "INCOME\\_STATEMENT", 5, 5, 0, Qt.LeftButton);  
     waitForObject(":frame._layout_XTreeWidget");
     doubleClickItem(":frame._layout_XTreeWidget","REVENUE.Sales",5, 5, 0, Qt.LeftButton);
+    waitForObject(":_group_XComboBox");
     if(!findObject(":_group_XComboBox").currentText!="Sales")
        clickItem(":_group_XComboBox", "Sales", 5, 5, 1, Qt.LeftButton);
     clickButton(":Financial Report Group.Save_QPushButton");
@@ -1682,9 +1689,11 @@ function executeChapter10()
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Financial Report Item.Save_QPushButton");
-    test.log("Adhoc Income Statement created");
+    waitForObject(":Financial Report.Save_QPushButton");
+    clickButton(":Financial Report.Save_QPushButton");
+
     waitForObject(":List Financial Reports._flhead_XTreeWidget");
-    if(!clickItem(":List Financial Reports._flhead_XTreeWidget", "INCOME_STATEMENT", 5, 5, 1, Qt.LeftButton))
+    if(!clickItem(":List Financial Reports._flhead_XTreeWidget", "INCOME\\_STATEMENT", 5, 5, 1, Qt.LeftButton))
         test.pass("Financial Report created:INCOME_STATEMENT");
 
 
@@ -1726,7 +1735,7 @@ function executeChapter10()
     clickButton(":Operation.Add to Group Total_QRadioButton");
     clickButton(":Financial Report Group.Save_QPushButton");
     clickButton(":Financial Report.Save_QPushButton")
-            ;
+          ;
     waitForObject(":List Financial Reports._flhead_XTreeWidget");
     doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "BALANCE\\_SHEET", 5, 5, 0, Qt.LeftButton);
     waitForObject(":frame.Add Top Level Group_QPushButton");
@@ -3237,9 +3246,11 @@ function executeChapter10()
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Financial Report Item.Save_QPushButton");
-    test.log("Balance Sheet Created");
+    waitForObject(":Financial Report.Save_QPushButton");
+    clickButton(":Financial Report.Save_QPushButton");
+
     waitForObject(":List Financial Reports._flhead_XTreeWidget");
-    if(!clickItem(":List Financial Reports._flhead_XTreeWidget", "BALANCE_SHEET", 5, 5, 1, Qt.LeftButton))
+    if(!clickItem(":List Financial Reports._flhead_XTreeWidget", "BALANCE\\_SHEET", 5, 5, 1, Qt.LeftButton))
         test.pass("Financial Report created: BALANCE_SHEET");
 
     

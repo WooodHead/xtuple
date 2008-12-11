@@ -236,8 +236,8 @@ function executeChapter8()
     type(":frame._main_XLineEdit", "<Tab>");
     clickButton(":Tax Code.Save_QPushButton");
     waitForObject(":List Tax Codes._tax_XTreeWidget");
-    if(!clickItem(":List Tax Codes._tax_XTreeWidget", "TAXAUTH1-EDU", 5, 5, 1, Qt.LeftButton))
-        test.pass("Tax Codes created: TAXAUTH1-EDU");
+    if(!clickItem(":List Tax Codes._tax_XTreeWidget", "VATAX", 5, 5, 1, Qt.LeftButton))
+        test.pass("Tax Codes created: VATAX");
     
     waitForObject(":List Tax Codes.Close_QPushButton");
     clickButton(":List Tax Codes.Close_QPushButton");

@@ -28,7 +28,7 @@ function executeChapter3()
     type(":_itemGroup._planningType_QComboBox_3", "MRP");
     if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
         type(":Item.Item is Sold_QGroupBox_3"," ");
-    type(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line");
+    type(":_prodcat_XComboBox_2", "CLASSIC-METAL");
     type(":Item is Sold._upcCode_XLineEdit_3", "1234-5432");
     type(":Item is Sold._listprice_XLineEdit_3", "10.99");
     type(":Item is Sold._priceUOM_XComboBox_3", "EA");

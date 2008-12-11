@@ -160,13 +160,13 @@ function executeChapter1()
 
   
   
-    //------------Account-Account-SubAccount Types-----------------
-    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Types...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Types...");
+  //------------Account-Account-SubAccount Types-----------------
+  waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+  activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Types...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Types...");
 
   
     //--------------SubAccount Types: SO-Revenue-Other Revenue------------------
@@ -183,6 +183,7 @@ function executeChapter1()
     //---------------SubAccount Types: DXP-Expenses-Depreciation Expense------------
     waitForObject(":List G/L Subaccount Types.New_QPushButton");
     clickButton(":List G/L Subaccount Types.New_QPushButton");
+    waitForObject(":List G/L Subaccount Types._code_XLineEdit");
     type(":List G/L Subaccount Types._code_XLineEdit", "DXP");
     while(findObject(":List G/L Subaccount Types._type_XComboBox").currentText!="Expense")
         type(":List G/L Subaccount Types._type_XComboBox","<Down>");
@@ -252,17 +253,18 @@ function executeChapter1()
     waitForObject(":List Currencies._currAbbr_QLineEdit");
     type(":List Currencies._currAbbr_QLineEdit", "EUR");
     waitForObject(":List Currencies.Save_QPushButton");
-    clickButton(":List Currencies.Save_QPushButton");   
-    waitForObject(":List Currencies.Close_QPushButton");
-    clickButton(":List Currencies.Close_QPushButton");
-     
+    clickButton(":List Currencies.Save_QPushButton"); 
+     waitForObject(":List Currencies._curr_XTreeWidget");
     if(!clickItem(":List Currencies._curr_XTreeWidget", "USD",5,5,1,Qt.LeftButton))
         test.pass("Currency USD created");
     else test.fail("Currency: USD not created");
-        
+    
     if(!clickItem(":List Currencies._curr_XTreeWidget", "EUR", 5, 5, 1, Qt.LeftButton))
         test.pass("EUR not created");
     else test.fail("Currency: EUR not created");
+    waitForObject(":List Currencies.Close_QPushButton");
+    clickButton(":List Currencies.Close_QPushButton");
+   
   
     //----------Create Exchange Rates-------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -605,18 +607,20 @@ function executeChapter1()
 
     
     
-    //-------create Inventory Site: WH1-----------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
-    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
+  //-------create Inventory Site: WH1-----------------
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
+  activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
     waitForObject(":List Sites.New_QPushButton");
     clickButton(":List Sites.New_QPushButton");
     waitForObject(":_code_XLineEdit_3");
     type(":_code_XLineEdit_3", "WH1");
     type(":_description_XLineEdit_5", "Prodiem Toys Site1");
+    if(findObject(":_sitetype_XComboBox").currentText!= "WHSE")
+        type(":_sitetype_XComboBox","WHSE");
     type(":List Sites.Street\nAddress:_XLineEdit", "Street Address Line1");
     type(":List Sites.Street\nAddress:_XLineEdit_2", "Street Address Line2");
     type(":List Sites.Street\nAddress:_XLineEdit_3", "Street Address Line3");
@@ -685,12 +689,14 @@ function executeChapter1()
     waitForObject(":_code_XLineEdit_3");
     type(":_code_XLineEdit_3", "WH2");
     type(":_description_XLineEdit_5", "Prodiem Toys Site2");
-    type(":List Sites.Street\nAddress:_XLineEdit", "Street Address Line1");
-    type(":List Sites.Street\nAddress:_XLineEdit_2", "Street Address Line2");
-    type(":List Sites.Street\nAddress:_XLineEdit_3", "Street Address Line3");
-    type(":List Sites.City:_XLineEdit", "City1");
-    type(":List Sites.State:_XComboBox", "State1");
-    type(":List Sites.Postal Code:_XLineEdit", "123-4324");
+    if(findObject(":_sitetype_XComboBox").currentText!= "WHSE")
+        type(":_sitetype_XComboBox","WHSE");
+    type(":List Sites.Street\nAddress:_XLineEdit", "Street Address Line11");
+    type(":List Sites.Street\nAddress:_XLineEdit_2", "Street Address Line22");
+    type(":List Sites.Street\nAddress:_XLineEdit_3", "Street Address Line33");
+    type(":List Sites.City:_XLineEdit", "City11");
+    type(":List Sites.State:_XComboBox", "State11");
+    type(":List Sites.Postal Code:_XLineEdit", "123-41324");
     type(":List Sites.Country:_XComboBox", "United");
     type(":List Sites._honorific_XComboBox", "Mr");
     type(":List Sites._first_XLineEdit", "Keshav ");
@@ -748,11 +754,13 @@ function executeChapter1()
     clickButton(":List Sites.Save_QPushButton");
     waitForObject(":Save_QPushButton");
     clickButton(":Save_QPushButton");
-    waitForObject(":List Sites.Close_QPushButton");
-    clickButton(":List Sites.Close_QPushButton");
-    test.log("Inventory Site2: WH2 created ");
+    waitForObject(":List Sites._warehouse_XTreeWidget");
     if(!clickItem(":List Sites._warehouse_XTreeWidget", "Prodiem Toys Site2", 5, 5, 1, Qt.LeftButton))
         test.pass("Site: Prodiem Toys Site2 created");
+     
+    waitForObject(":List Sites.Close_QPushButton");
+    clickButton(":List Sites.Close_QPushButton");
+ 
     
     
     //----------Configure: Inventory Module-----------------

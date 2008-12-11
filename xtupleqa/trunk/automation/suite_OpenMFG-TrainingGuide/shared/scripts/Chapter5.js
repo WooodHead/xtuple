@@ -1,22 +1,105 @@
 function executeChapter5()
 {
-    //-----------Copy Items--------------------------
+    source(findFile("scripts","functions.js"));
+  
+    //-----------Chart Of Accounts-------------------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+
+    COA("01","01","4050","01","State Sales Tax Revenue","Revenue","SO");
+    waitForObject(":_account_XTreeWidget_2");
+    if(!clickItem(":_account_XTreeWidget_2", "State Sales Tax Revenue", 5, 5, 1, Qt.LeftButton))
+        test.pass("COA Created for: State Sales Tax Revenue");
+    
+    waitForObject(":Chart of Accounts.Close_QPushButton_2");
+    clickButton(":Chart of Accounts.Close_QPushButton_2");
+
+    
+    //-----Define Taxation------
+    defineTaxation();
+    
+    //----------Create Items---------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
     activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
     activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
+  
+    //-----Associate: YTRUCK1 with taxation--------
+    doubleClickItem(":List Items._item_XTreeWidget_3", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_4");
+    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_4", "Tax Types");
+    waitForObject(":_taxtypesTab.New_QPushButton_2");
+    clickButton(":_taxtypesTab.New_QPushButton_2");
+    waitForObject(":_taxauth_XComboBox_5");
+    type(":_taxauth_XComboBox_5", "TAX-AUTH1");
+    type(":_taxtype_XComboBox_4", "EDU");
+    waitForObject(":Item Tax.Save_QPushButton");
+    clickButton(":Item Tax.Save_QPushButton");
+    waitForObject(":Item.Save_QPushButton_13");
+    clickButton(":Item.Save_QPushButton_13");
+    test.log("Item YTRUCK1 associated with Tax Type");
+  
+
+    //-----------Create Item RTRUCK1---------------
+    waitForObject(":List Items.New_QPushButton_2");
+    clickButton(":List Items.New_QPushButton_2");
+    waitForObject(":_itemNumber_XLineEdit_3");
+    type(":_itemNumber_XLineEdit_3","RTRUCK1");
+    type(":_description1_XLineEdit_3", "Red Collector’s Truck");
+    type(":Item._description2_XLineEdit_2", "Truck Type 1");
+    type(":_itemtype_QComboBox_2", "Manufactured");
+    type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
+    type(":_inventoryUOM_XComboBox_3", "EA");
+    if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
+        type(":_itemGroup.Pick List_QCheckBox_3"," ");
+    if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
+         type(":_itemGroup.Fractional_QCheckBox_3"," ");
+    type(":_itemGroup_XLineEdit_3", "5.00");
+    type(":_itemGroup._planningType_QComboBox_3", "MPS");
+    if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
+        type(":Item.Item is Sold_QGroupBox_3"," ");
+    type(":_prodcat_XComboBox_2", "CLASSIC-METAL");
+    type(":Item is Sold._upcCode_XLineEdit_3", "1234-5432");
+    type(":Item is Sold._listprice_XLineEdit_3", "10.99");
+    type(":Item is Sold._priceUOM_XComboBox_3", "EA");
+    type(":Item is Sold._warranty_QSpinBox_2", "365");
+    type(":_prodWeight_XLineEdit_3", "3.5");
+    type(":_packWeight_XLineEdit_3", ".25");
+    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Characteristics");
     
-    //----------Copy and create RTRUCK1-----------------
-    waitForObject(":List Items._item_XTreeWidget_3");
-    clickItem(":List Items._item_XTreeWidget_3", "YTRUCK1", 5, 5, 1, Qt.LeftButton);
-    clickButton(":List Items.Copy_QPushButton");
-    waitForObject(":_targetItemNumber_XLineEdit");
-    type(":_targetItemNumber_XLineEdit", "RTRUCK1");
-    clickButton(":Copy Item.Copy_QPushButton");
+    clickButton(":_characteristicsTab.New_QPushButton_6");
+    waitForObject(":_char_XComboBox_2");
+    type(":_char_XComboBox_2", "I-COLOR");
+    type(":_value_XLineEdit_3", "PL-126");
+    clickButton(":Item Characteristic.Save_QPushButton");
+    
+    waitForObject(":_characteristicsTab.New_QPushButton_6");
+    clickButton(":_characteristicsTab.New_QPushButton_6");
+    waitForObject(":_char_XComboBox_2");
+    type(":_char_XComboBox_2", "I-COLOR");
+    type(":_value_XLineEdit_3", "PL-227");
+    clickButton(":Item Characteristic.Save_QPushButton");
+    
+    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
+    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Tax Types");
+    waitForObject(":_taxtypesTab.New_QPushButton_10");
+    clickButton(":_taxtypesTab.New_QPushButton_10");
+    waitForObject(":_taxauth_XComboBox_5");
+    type(":_taxauth_XComboBox_5", "TAX-AUTH1");
+    type(":_taxtype_XComboBox_4", "GM");
+    clickButton(":Item Tax.Save_QPushButton");
+       
+    waitForObject(":Item.Save_QPushButton_5");
+    clickButton(":Item.Save_QPushButton_5");
     waitForObject(":Create New Item Sites.Yes_QPushButton");
     clickButton(":Create New Item Sites.Yes_QPushButton");
+    
     waitForObjectItem(":_warehouse_WComboBox_5", "WH1");
     type(":_warehouse_WComboBox_5", "WH1");
     type(":_plannerCode_XComboBox_2", "MPS");
@@ -32,21 +115,66 @@ function executeChapter5()
     clickButton(":Item Site.Save_QPushButton");
     waitForObject(":Item Site.Cancel_QPushButton");
     clickButton(":Item Site.Cancel_QPushButton");
+        
     waitForObject(":List Items._item_XTreeWidget_3");
     if(!clickItem(":List Items._item_XTreeWidget_3", "RTRUCK1", 5, 5, 1, Qt.LeftButton))
-      test.pass("Item Created: RTRUCK1");
-
-
+        test.pass("Item Created: RTRUCK1");
     
-    //-----------Copy and create BTRUCK1------------------
-    waitForObject(":List Items._item_XTreeWidget_3");
-    clickItem(":List Items._item_XTreeWidget_3", "YTRUCK1", 5, 5, 1, Qt.LeftButton);
-    clickButton(":List Items.Copy_QPushButton");
-    waitForObject(":_targetItemNumber_XLineEdit");
-    type(":_targetItemNumber_XLineEdit", "BTRUCK1");
-    clickButton(":Copy Item.Copy_QPushButton");
+    
+    //-----------Create Item BTRUCK1---------------
+    waitForObject(":List Items.New_QPushButton_2");
+    clickButton(":List Items.New_QPushButton_2");
+    waitForObject(":_itemNumber_XLineEdit_3");
+    type(":_itemNumber_XLineEdit_3","BTRUCK1");
+    type(":_description1_XLineEdit_3", "Blue Collector’s Truck");
+    type(":Item._description2_XLineEdit_2", "Truck Type 1");
+    type(":_itemtype_QComboBox_2", "Manufactured");
+    type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
+    type(":_inventoryUOM_XComboBox_3", "EA");
+    if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
+        type(":_itemGroup.Pick List_QCheckBox_3"," ");
+    if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
+         type(":_itemGroup.Fractional_QCheckBox_3"," ");
+    type(":_itemGroup_XLineEdit_3", "5.00");
+    type(":_itemGroup._planningType_QComboBox_3", "MPS");
+    if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
+        type(":Item.Item is Sold_QGroupBox_3"," ");
+    type(":_prodcat_XComboBox_2", "CLASSIC-METAL");
+    type(":Item is Sold._upcCode_XLineEdit_3", "1234-5432");
+    type(":Item is Sold._listprice_XLineEdit_3", "10.99");
+    type(":Item is Sold._priceUOM_XComboBox_3", "EA");
+    type(":Item is Sold._warranty_QSpinBox_2", "365");
+    type(":_prodWeight_XLineEdit_3", "3.5");
+    type(":_packWeight_XLineEdit_3", ".25");
+    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Characteristics");
+    
+    clickButton(":_characteristicsTab.New_QPushButton_6");
+    waitForObject(":_char_XComboBox_2");
+    type(":_char_XComboBox_2", "I-COLOR");
+    type(":_value_XLineEdit_3", "PL-126");
+    clickButton(":Item Characteristic.Save_QPushButton");
+    
+    waitForObject(":_characteristicsTab.New_QPushButton_6");
+    clickButton(":_characteristicsTab.New_QPushButton_6");
+    waitForObject(":_char_XComboBox_2");
+    type(":_char_XComboBox_2", "I-COLOR");
+    type(":_value_XLineEdit_3", "PL-227");
+    clickButton(":Item Characteristic.Save_QPushButton");
+       
+    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
+    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Tax Types");
+    waitForObject(":_taxtypesTab.New_QPushButton_10");
+    clickButton(":_taxtypesTab.New_QPushButton_10");
+    waitForObject(":_taxauth_XComboBox_5");
+    type(":_taxauth_XComboBox_5", "TAX-AUTH1");
+    type(":_taxtype_XComboBox_4", "GM");
+    clickButton(":Item Tax.Save_QPushButton");
+    
+    waitForObject(":Item.Save_QPushButton_5");
+    clickButton(":Item.Save_QPushButton_5");
     waitForObject(":Create New Item Sites.Yes_QPushButton");
     clickButton(":Create New Item Sites.Yes_QPushButton");
+    
     waitForObjectItem(":_warehouse_WComboBox_5", "WH1");
     type(":_warehouse_WComboBox_5", "WH1");
     type(":_plannerCode_XComboBox_2", "MPS");
@@ -62,19 +190,66 @@ function executeChapter5()
     clickButton(":Item Site.Save_QPushButton");
     waitForObject(":Item Site.Cancel_QPushButton");
     clickButton(":Item Site.Cancel_QPushButton");
+        
     waitForObject(":List Items._item_XTreeWidget_3");
     if(!clickItem(":List Items._item_XTreeWidget_3", "BTRUCK1", 5, 5, 1, Qt.LeftButton))
-      test.pass("Item Created: BTRUCK1");
+        test.pass("Item Created: BTRUCK1");
+
     
-    //-----------Copy and create WTRUCK1-----------------
-    waitForObject(":List Items._item_XTreeWidget_3");
-    clickItem(":List Items._item_XTreeWidget_3", "YTRUCK1", 5, 5, 1, Qt.LeftButton);
-    clickButton(":List Items.Copy_QPushButton");
-    waitForObject(":_targetItemNumber_XLineEdit");
-    type(":_targetItemNumber_XLineEdit", "WTRUCK1");
-    clickButton(":Copy Item.Copy_QPushButton");
+    //-----------Create Item WTRUCK1---------------
+    waitForObject(":List Items.New_QPushButton_2");
+    clickButton(":List Items.New_QPushButton_2");
+    waitForObject(":_itemNumber_XLineEdit_3");
+    type(":_itemNumber_XLineEdit_3","WTRUCK1");
+    type(":_description1_XLineEdit_3", "White Collector’s Truck");
+    type(":Item._description2_XLineEdit_2", "Truck Type 1");
+    type(":_itemtype_QComboBox_2", "Manufactured");
+    type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
+    type(":_inventoryUOM_XComboBox_3", "EA");
+    if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
+        type(":_itemGroup.Pick List_QCheckBox_3"," ");
+    if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
+         type(":_itemGroup.Fractional_QCheckBox_3"," ");
+    type(":_itemGroup_XLineEdit_3", "5.00");
+    type(":_itemGroup._planningType_QComboBox_3", "MPS");
+    if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
+        type(":Item.Item is Sold_QGroupBox_3"," ");
+    type(":_prodcat_XComboBox_2", "CLASSIC-METAL");
+    type(":Item is Sold._upcCode_XLineEdit_3", "1234-5432");
+    type(":Item is Sold._listprice_XLineEdit_3", "10.99");
+    type(":Item is Sold._priceUOM_XComboBox_3", "EA");
+    type(":Item is Sold._warranty_QSpinBox_2", "365");
+    type(":_prodWeight_XLineEdit_3", "3.5");
+    type(":_packWeight_XLineEdit_3", ".25");
+    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Characteristics");
+    
+    clickButton(":_characteristicsTab.New_QPushButton_6");
+    waitForObject(":_char_XComboBox_2");
+    type(":_char_XComboBox_2", "I-COLOR");
+    type(":_value_XLineEdit_3", "PL-126");
+    clickButton(":Item Characteristic.Save_QPushButton");
+    
+    waitForObject(":_characteristicsTab.New_QPushButton_6");
+    clickButton(":_characteristicsTab.New_QPushButton_6");
+    waitForObject(":_char_XComboBox_2");
+    type(":_char_XComboBox_2", "I-COLOR");
+    type(":_value_XLineEdit_3", "PL-227");
+    clickButton(":Item Characteristic.Save_QPushButton");
+       
+    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
+    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Tax Types");
+    waitForObject(":_taxtypesTab.New_QPushButton_10");
+    clickButton(":_taxtypesTab.New_QPushButton_10");
+    waitForObject(":_taxauth_XComboBox_5");
+    type(":_taxauth_XComboBox_5", "TAX-AUTH1");
+    type(":_taxtype_XComboBox_4", "GM");
+    clickButton(":Item Tax.Save_QPushButton");
+    
+    waitForObject(":Item.Save_QPushButton_5");
+    clickButton(":Item.Save_QPushButton_5");
     waitForObject(":Create New Item Sites.Yes_QPushButton");
     clickButton(":Create New Item Sites.Yes_QPushButton");
+    
     waitForObjectItem(":_warehouse_WComboBox_5", "WH1");
     type(":_warehouse_WComboBox_5", "WH1");
     type(":_plannerCode_XComboBox_2", "MPS");
@@ -90,63 +265,13 @@ function executeChapter5()
     clickButton(":Item Site.Save_QPushButton");
     waitForObject(":Item Site.Cancel_QPushButton");
     clickButton(":Item Site.Cancel_QPushButton");
+        
     waitForObject(":List Items._item_XTreeWidget_3");
     if(!clickItem(":List Items._item_XTreeWidget_3", "WTRUCK1", 5, 5, 1, Qt.LeftButton))
-      test.pass("Item Created: WTRUCK1");
-  
-    waitForObject(":List Items.Close_QPushButton_3");
-    clickButton(":List Items.Close_QPushButton_3");
-  
-  
+        test.pass("Item Created: WTRUCK1");
 
-    //------Edit the created Items and change Planning Systems--------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
-    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
-    waitForObject(":List Items._item_XTreeWidget_3");
-    doubleClickItem(":List Items._item_XTreeWidget_3", "RTRUCK1", 5, 5, 1, Qt.LeftButton);
-       
-   
-    waitForObject(":_description1_XLineEdit_5");
-    type(":_description1_XLineEdit_5", "<Ctrl+A>");
-    type(":_description1_XLineEdit_5", "<Del>");
-    type(":_description1_XLineEdit_5", "Red Collector’s Truck");
-    type(":Item._description2_XLineEdit_4", "<Ctrl+A>");
-    type(":Item._description2_XLineEdit_4", "<Del>");
-    type(":Item._description2_XLineEdit_4", "Truck Type 1");
-    type(":_itemGroup._planningType_QComboBox_5", "MPS");
-    clickButton(":Item.Save_QPushButton_8");
-    
-    waitForObject(":List Items._item_XTreeWidget_3");
-    doubleClickItem(":List Items._item_XTreeWidget_3", "BTRUCK1", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":_description1_XLineEdit_6");
-    type(":_description1_XLineEdit_6", "<Ctrl+A>");
-    type(":_description1_XLineEdit_6", "<Del>");
-    type(":_description1_XLineEdit_6", "Blue Collector’s Truck");
-    type(":Item._description2_XLineEdit_5", "<Ctrl+A>");
-    type(":Item._description2_XLineEdit_5", "<Del>");
-    type(":Item._description2_XLineEdit_5", "Truck Type 1");
-    type(":_itemGroup._planningType_QComboBox_6", "MPS");
-    clickButton(":Item.Save_QPushButton_9");
-        
-    waitForObject(":List Items._item_XTreeWidget_3");
-    doubleClickItem(":List Items._item_XTreeWidget_3", "WTRUCK1", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":_description1_XLineEdit_14");
-    type(":_description1_XLineEdit_14", "<Ctrl+A>");
-    type(":_description1_XLineEdit_14", "<Del>");
-    type(":_description1_XLineEdit_14", "White Collector’s Truck");
-    type(":Item._description2_XLineEdit_13", "<Ctrl+A>");
-    type(":Item._description2_XLineEdit_13", "<Del>");
-    type(":Item._description2_XLineEdit_13", "Truck Type 1");
-    type(":_itemGroup._planningType_QComboBox_14", "MPS");
-    clickButton(":Item.Save_QPushButton_18");
-        
-    waitForObject(":List Items.Close_QPushButton_3");
     clickButton(":List Items.Close_QPushButton_3");
-    
+  
   
   
     //------------create Planning Item: COLLECTORS-LINE-----------------
@@ -184,18 +309,7 @@ function executeChapter5()
     test.log("Planning Item: COLLECTORS-LINE created");
 
 
-    //---------define BOM for COLLECTORS-LINE item----------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
-    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
-    waitForObject(":List Items._item_XTreeWidget_3");
-    doubleClickItem(":List Items._item_XTreeWidget_3", "COLLECTORS-LINE", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":Item.Materials..._QPushButton_3");
-    clickButton(":Item.Materials..._QPushButton_3");
-  
+
     
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -252,8 +366,6 @@ function executeChapter5()
     waitForObject(":Bill of Materials.Save_QPushButton");
     clickButton(":Bill of Materials.Save_QPushButton");
     test.log("BOMs added for COLLECTORS-LINE item");
-    waitForObject(":List Items.Close_QPushButton_3");
-    clickButton(":List Items.Close_QPushButton_3");
   
     waitForObject(":Bills of Materials.Close_QPushButton");
     clickButton(":Bills of Materials.Close_QPushButton");

@@ -239,13 +239,13 @@ function executeChapter4()
   clickButton(":List Standard Operations.Close_QPushButton");
 
 
-  //-----------Define BOO for Items---------------
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
-  activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
-  activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
+//-----------Define BOO for Items---------------
+waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
+activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
+activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
   
   
   //-----------Define BOO for YTRUCK1---------------
@@ -297,11 +297,11 @@ function executeChapter4()
   clickButton(":Bill of Operations Item.Save_QPushButton");
   waitForObject(":Bill of Operations.Save_QPushButton");
   clickButton(":Bill of Operations.Save_QPushButton");
-  waitForObject(":Bills of Operations.Close_QPushButton");
-  clickButton(":Bills of Operations.Close_QPushButton");
   waitForObject(":_boo_XTreeWidget");
   if(!clickItem(":_boo_XTreeWidget", "TKIT1", 5, 5, 1, Qt.LeftButton))
       test.pass("BOO created for: TKIT1");
+  waitForObject(":Bills of Operations.Close_QPushButton");
+  clickButton(":Bills of Operations.Close_QPushButton");
   
   
   

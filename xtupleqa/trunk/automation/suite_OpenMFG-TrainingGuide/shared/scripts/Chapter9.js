@@ -117,13 +117,14 @@ function executeChapter9()
         clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
     type(":_accountGroup._main_XLineEdit", "01-01-1010-01");
     clickButton(":Bank Account.Save_QPushButton");
-    waitForObject(":List Bank Accounts.Close_QPushButton");
-    clickButton(":List Bank Accounts.Close_QPushButton");
     waitForObject(":List Bank Accounts._bankaccnt_XTreeWidget");
     if(!clickItem(":List Bank Accounts._bankaccnt_XTreeWidget", "EURBANK", 5, 5, 1, Qt.LeftButton))
         test.pass("Bank Account created: EURBANK");
+
+    waitForObject(":List Bank Accounts.Close_QPushButton");
+    clickButton(":List Bank Accounts.Close_QPushButton");
     
-    
+  
     
     //--------------Create: Adjustment Types--------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");

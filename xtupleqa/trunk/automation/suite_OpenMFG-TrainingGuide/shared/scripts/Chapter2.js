@@ -167,7 +167,7 @@ function executeChapter2()
     activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
-    waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
+//    waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
     type(":List Cost Categories._costcat_XTreeWidget_2", " ");
     waitForObject(":List Cost Categories.Copy_QPushButton_2");
     clickButton(":List Cost Categories.Copy_QPushButton_2");
@@ -210,7 +210,7 @@ function executeChapter2()
     if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "OFFICE-SUPPLIES", 5,5, 1, Qt.LeftButton))
         test.pass("Expense Category: OFFICE-SUPPLIES created");
 
-    
+  
     waitForObject(":List Expense Categories.New_QPushButton_2");
     clickButton(":List Expense Categories.New_QPushButton_2");
     waitForObject(":_category_XLineEdit_2");
@@ -224,7 +224,7 @@ function executeChapter2()
     waitForObject(":Expense Category.Save_QPushButton");
     clickButton(":Expense Category.Save_QPushButton");
     waitForObject(":List Expense Categories._expcat_XTreeWidget");
-    if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "SALES_TAX", 5,5, 1, Qt.LeftButton))
+    if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "SALES\\_TAX", 5,5, 1, Qt.LeftButton))
         test.pass("Expense Category: SALES_TAX created");
 
     
@@ -241,7 +241,7 @@ function executeChapter2()
     waitForObject(":Expense Category.Save_QPushButton");
     clickButton(":Expense Category.Save_QPushButton");
     waitForObject(":List Expense Categories._expcat_XTreeWidget");
-    if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "SHIPPING_CHARGES", 5,5, 1, Qt.LeftButton))
+    if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "SHIPPING\\_CHARGES", 5,5, 1, Qt.LeftButton))
         test.pass("Expense Category: SALES_TAX created");
 
     waitForObject(":List Expense Categories.Close_QPushButton_2");
@@ -329,7 +329,6 @@ function executeChapter2()
     type(":Location._bin_XLineEdit", "01");
     type(":_location_XLineEdit_2", "03");
     type(":_description_QTextEdit_3", "Location 01-01-01-03 in Zone RM1");
-    clickButton(":Location.Save_QPushButton");
     clickButton(":Location.Save_QPushButton");
     waitForObject(":List Site Locations._location_XTreeWidget");
     if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-03 in Zone RM1", 5, 5, 1, Qt.LeftButton))
