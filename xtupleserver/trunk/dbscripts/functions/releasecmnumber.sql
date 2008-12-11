@@ -25,7 +25,8 @@ BEGIN
   FROM orderseq
   WHERE (orderseq_name=''CmNumber'');
 
-  IF ((_test - 1) <> pCmNumber) THEN
+  IF (CAST(_test   AS INTEGER) - 1 <>
+      CAST(pCmNumber AS INTEGER)) THEN
     RETURN FALSE;
   END IF;
 
