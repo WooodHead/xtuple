@@ -43,7 +43,7 @@ BEGIN
     IF (COALESCE(_p.checkhead_expcat_id, -1) < 0) THEN
       IF (_p.checkhead_recip_type = 'V') THEN
 	PERFORM createAPDebitMemo(_p.checkhead_recip_id, pJournalNumber,
-				  fetchAPMemoNumber(), '',
+				  CAST(fetchAPMemoNumber() AS text), '',
 				  pVoidDate, _p.checkhead_amount,
 				  _gltransNote || ' '|| _p.checkhead_notes,
 				  -1, pVoidDate, -1, _p.checkhead_curr_id );
