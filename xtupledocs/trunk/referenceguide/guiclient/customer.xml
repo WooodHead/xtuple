@@ -57,14 +57,12 @@
       <term>Sales Rep</term>
       <listitem>
         <para>Specify a default Sales Representative for the Customer.</para>
+        <note>
+          <para>When entering Orders for a Customer, the Sales Representative
+          defined on the specified Ship-To Address will be used.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>When entering Orders for a Customer, the Sales Representative
-    defined on the specified Ship-To Address will be used.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Commission</term>
       <listitem>
@@ -73,33 +71,25 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Defaults</term>
+      <term>Ship Via</term>
       <listitem>
-        <para>Specify one of the available Shipping-related defaults:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Ship Via</term>
-            <listitem>
-              <para>Specify the default Ship Via to be used for the Customer.
-              You may enter a free-form Ship Via simply by typing the name of
-              the Ship Via into the field.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Shipping Form</term>
-            <listitem>
-              <para>Specify the default Shipping Form to be used for the
-              Customer.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Shipping Charges</term>
-            <listitem>
-              <para>Specify the default Shipping Charges to be used for the
-              Customer.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        <para>Specify the default Ship Via to be used for the Customer. You
+        may enter a free-form Ship Via simply by typing the name of the Ship
+        Via into the field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipping Form</term>
+      <listitem>
+        <para>Specify the default Shipping Form to be used for the
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipping Charges</term>
+      <listitem>
+        <para>Specify the default Shipping Charges to be used for the
+        Customer.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -193,7 +183,7 @@
         setting. If a preferred Site is selected, then this Site will be used
         when entering Sales Orders for the Customer. At Sales Order entry, the
         preferred Site will be the default Shipping Site for the Sales
-        Order&mdash;as well as the default selling Site for Sales Order
+        Order—as well as the default selling Site for Sales Order
         Items.</para>
       </listitem>
     </varlistentry>
@@ -221,148 +211,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To view or enter Customer Tax information, select the "Tax" tab. The
-  following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/customer_tax.png" />
-        </imageobject>
-        <caption>Customer Tax Information</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para><indexterm significance="normal">
-      <primary>customers</primary>
-      <secondary>tax information for</secondary>
-    </indexterm> <indexterm significance="normal">
-      <primary>taxes</primary>
-      <secondary>for customers</secondary>
-    </indexterm>When adding Customer Tax information, you are presented with
-  the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>tax authorities</primary>
-          <secondary>default for customers</secondary>
-        </indexterm>Default Tax Authority</term>
-      <listitem>
-        <para>Specify the primary Tax Authority you want to associate with the
-        Customer. By default, the specified Tax Authority will be used on the
-        Sales Order header whenever entering Sales Orders or Quotes for the
-        Customer.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Tax Registration Numbers</term>
-      <listitem>
-        <para>Display lists Tax Registration Numbers for the specified
-        Customer.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens screen for creating a new Customer Tax Registration
-        Number.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem>
-        <para>Enables you to edit highlighted Customer Tax Registration
-        Numbers. The edit screen is the same as that for creating a new
-        Customer Tax Registration Number&mdash;except that when editing, the
-        fields will contain Customer Tax Registration Number information.
-        Double-clicking on a Customer Tax Registration Number will also bring
-        you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>VIEW</term>
-      <listitem>
-        <para>Highlight a Customer Tax Registration Number and then select
-        this button to reach a read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>DELETE</term>
-      <listitem>
-        <para>Highlight a Customer Tax Registration Number and then select
-        this button to remove the Customer Tax Registration Number from the
-        list.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To add a new Customer Tax Registration Number, select the NEW button.
-  The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/taxRegistration.png" />
-        </imageobject>
-        <caption>Customer Tax Registration Information</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para><indexterm significance="normal">
-      <primary>customers</primary>
-      <secondary>tax registration for</secondary>
-    </indexterm> <indexterm significance="normal">
-      <primary>taxes</primary>
-      <secondary>registration for customers</secondary>
-    </indexterm>When adding a new Customer Tax Registration Number, you are
-  presented with the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Customer #</term>
-      <listitem>
-        <para>Displays the Customer Number for the specified Customer.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Tax Authority</term>
-      <listitem>
-        <para>Specify the Tax Authority associated with the Tax Registration
-        Number.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Registration Number</term>
-      <listitem>
-        <para>Enter the Customer's Tax Registration Number for the specified
-        Tax Authority. The registration number is used by Tax Authorities to
-        identify businesses and/or individuals. An Employer Identification
-        Numbers (EIN) is an example of a Tax Registration Number.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>The Customer's Tax Registration Number is used for identifying the
-    Customer to relevant Tax Authorities. This information should not be
-    confused with the Tax Registration Numbers, which are used to identify
-    your company to relevant Tax Authorities.</para>
-  </tip>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating a new Customer Tax
-        Registration Number, returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Customer Tax Registration Number and adds it to the
-        master list of Customer Tax Registration Numbers.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <para>To view or edit Customer credit terms, select the "Credit" tab. The
   following screen will appear:</para>
   <para><screenshot>
@@ -383,37 +231,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Balance Method</term>
-      <listitem>
-        <para>Specify one of the available methods for handling open balances
-        for the Customer:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Balance Forward</term>
-            <listitem>
-              <para>Select to post payments against the oldest Invoices. Used
-              in Accounts Receivable only.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Open Items</term>
-            <listitem>
-              <para>Select to post payments against specific Invoices,
-              regardless of their age. Used in Accounts Receivable
-              only.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Default Discount</term>
       <listitem>
-        <para>Enter the default discount&mdash;if any&mdash;which the Customer
-        should receive. Customer discounts are applied to either a) the List
-        Price for an Item if the List Price is being used or b) a specific
-        Sale if a Sale is in place which the Customer is assigned to. The
-        discount does not get applied to Pricing Schedules.</para>
+        <para>Enter the default discount—if any—which the Customer should
+        receive. Customer discounts are applied to either a) the List Price
+        for an Item if the List Price is being used or b) a specific Sale if a
+        Sale is in place which the Customer is assigned to. The discount does
+        not get applied to Pricing Schedules.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -423,24 +247,6 @@
         the Customer. With the system's multi-currency support, you can do
         business with Customer's in their Currency, using Exchange Rates to
         normalize transactions in your base Currency.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Credit Limit</term>
-      <listitem>
-        <para>Specify the credit ceiling you are willing to extend to the
-        Customer.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>customers</primary>
-          <secondary>credit rating options for</secondary>
-        </indexterm>Credit Rating</term>
-      <listitem>
-        <para>You have the option of assigning a credit rating to the
-        Customer. Any value entered here is purely informational. The system
-        does not use the credit rating in any calculations.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -488,16 +294,14 @@
         selected, users will be required to enter a Customer Purchase Order
         Number when entering a Sales Order. In addition, selecting the option
         will prevent users from entering duplicate Customer Purchase Order
-        Numbers&mdash;unless the Customer is marked as using Blanket
-        POs.</para>
+        Numbers—unless the Customer is marked as using Blanket POs.</para>
+        <note>
+          <para>If the option "Uses Purchase Orders" is not selected, the
+          system will place no restrictions on Customer Purchase Order
+          Numbers.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>If the option "Uses Purchase Orders" is not selected, the system
-    will place no restrictions on Customer Purchase Order Numbers.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>purchase orders</primary>
@@ -512,6 +316,50 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Balance Method</term>
+      <listitem>
+        <para>Specify one of the available methods for handling open balances
+        for the Customer:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Balance Forward</term>
+            <listitem>
+              <para>Select to post payments against the oldest Invoices. Used
+              in Accounts Receivable only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Open Items</term>
+            <listitem>
+              <para>Select to post payments against specific Invoices,
+              regardless of their age. Used in Accounts Receivable
+              only.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Limit</term>
+      <listitem>
+        <para>Specify the credit ceiling you are willing to extend to the
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>customers</primary>
+          <secondary>credit rating options for</secondary>
+        </indexterm>Credit Rating</term>
+      <listitem>
+        <para>You have the option of assigning a credit rating to the
+        Customer. Any value entered here is purely informational. The system
+        does not use the credit rating in any calculations.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
       <term>Place on Credit Warning when Credit Limit is Exceeded</term>
       <listitem>
         <para>Select this option to automatically place the Customer on Credit
@@ -519,7 +367,7 @@
         Credit Limit. This option must also be selected for a Customer's A/R
         open items to be evaluated when the Update Late Customer Credit Status
         utility is run. If a Customer is on Credit Warning, Sales Orders may
-        not be entered for the Customer&mdash;except by users with override
+        not be entered for the Customer—except by users with override
         privileges. Once the Customer's A/R open balance falls below their
         Credit Limit, Sales Orders may once again be entered for the
         Customer.</para>
@@ -537,28 +385,9 @@
         <para>Select this option to place all new and existing open Sales
         Orders on Credit Hold if the Customer's Credit Limit is exceeded. The
         contents of Sales Orders placed on Credit Hold may not be issued to
-        Shipping&mdash;except by users with override privileges. Once the
-        Customer's Credit Limit is no longer exceeded, Sales Order contents
-        may be issued to Shipping.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Alternate Late Grace Days</term>
-      <listitem>
-        <para>Select to specify an alternate grace period for the specific
-        Customer. If selected, this grace period will override the global
-        grace period used when the late credit status utility is run. This
-        option is only available if the "Place on Credit Warning when Credit
-        Limit is Exceeded" option is selected.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Grace Days</term>
-            <listitem>
-              <para>Specify the number of days beyond the due date before a
-              Customer's A/R open items are considered late.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        Shipping—except by users with override privileges. Once the Customer's
+        Credit Limit is no longer exceeded, Sales Order contents may be issued
+        to Shipping.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -586,7 +415,7 @@
       <term>Billing Contact</term>
       <listitem>
         <para>Manually enter billing Contact information in the fields
-        below&mdash;or use the browse button to select pre-existing Contact
+        below—or use the browse button to select pre-existing Contact
         information.</para>
         <note>
           <para>If a new Contact is manually entered here, that Contact will
@@ -647,22 +476,6 @@
               website address in the URL field.</para>
             </listitem>
           </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <variablelist>
-    <varlistentry>
-      <term>Address</term>
-      <listitem>
-        <para>Manually enter billing Address information in the fields
-        below&mdash;or use the browse button to select pre-existing Address
-        information.</para>
-        <note>
-          <para>If a new Address is manually entered here, that Address will
-          be added automatically to the master list of Addresses.</para>
-        </note>
-        <variablelist>
           <varlistentry>
             <term>Street Address</term>
             <listitem>
@@ -696,13 +509,15 @@
         </variablelist>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <variablelist>
     <varlistentry>
       <term>Correspondence Contact</term>
       <listitem>
         <para>Manually enter non-billing-related Contact information in the
-        fields below&mdash;or use the browse button to select pre-existing
-        Contact information. Examples of non-billing-related correspondence
-        might include Price updates, holiday cards, etc. You may also enter
+        fields below—or use the browse button to select pre-existing Contact
+        information. Examples of non-billing-related correspondence might
+        include Price updates, holiday cards, etc. You may also enter
         additional contact information.</para>
         <variablelist>
           <varlistentry>
@@ -759,16 +574,6 @@
               website address in the URL field.</para>
             </listitem>
           </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Address</term>
-      <listitem>
-        <para>Manually enter non-billing Address information in the fields
-        below&mdash;or use the browse button to select pre-existing Address
-        information.</para>
-        <variablelist>
           <varlistentry>
             <term>Street Address</term>
             <listitem>
@@ -803,18 +608,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Customers may have multiple Addresses where they want you to ship
-  their goods. To support this, the system allows you to maintain multiple
-  Customer Ship-To Addresses. To view or edit Customer Ship-To Addresses,
-  select the "Ship-To" tab. The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/customer_tabShipto.png" />
-        </imageobject>
-        <caption>Ship-To Addresses</caption>
-      </mediaobject>
-    </screenshot></para>
   <variablelist>
     <varlistentry>
       <term>Ship-To Addresses</term>
@@ -847,10 +640,10 @@
       <term>EDIT</term>
       <listitem id="customerShipToEDIT">
         <para>Enables you to edit highlighted Ship-To Address. The edit screen
-        is the same as that for creating a new Ship-To Address&mdash;except
-        that when editing, the fields will contain Ship-To Address
-        information. Double-clicking on a Ship-To Address will also bring you
-        to the editing screen.</para>
+        is the same as that for creating a new Ship-To Address—except that
+        when editing, the fields will contain Ship-To Address information.
+        Double-clicking on a Ship-To Address will also bring you to the
+        editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -873,18 +666,18 @@
   <variablelist>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(customerShipToEDIT)" />
+      <xi:include href="" xpointer="element(customerShipToEDIT)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(customerShipToVIEW)" />
+      <xi:include href="" xpointer="element(customerShipToVIEW)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <varlistentry>
       <term>Delete</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(customerShipToDELETE)" />
+      <xi:include href="" xpointer="element(customerShipToDELETE)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
   </variablelist>
   <para><indexterm significance="normal">
@@ -902,7 +695,7 @@
     </screenshot></para>
   <tip>
     <para>The Ship-To master shares many common fields with the Customer
-    master&mdash;shipping defaults, Sales Representative, etc. By default, the
+    master—shipping defaults, Sales Representative, etc. By default, the
     Customer master values will pre-populate the Ship-To master. However, when
     specifying a specific Ship-To Address on a Sales Order, the specific
     Ship-To details will populate the Sales Order header.</para>
@@ -956,7 +749,7 @@
       <term>Address</term>
       <listitem>
         <para>Manually enter billing Address information in the fields
-        below&mdash;or use the browse button to select pre-existing Address
+        below—or use the browse button to select pre-existing Address
         information.</para>
         <variablelist>
           <varlistentry>
@@ -1004,8 +797,8 @@
           <secondary>contact information for</secondary>
         </indexterm>Contact</term>
       <listitem>
-        <para>Manually enter Contact information in the fields below&mdash;or
-        use the browse button to select pre-existing Contact information. This
+        <para>Manually enter Contact information in the fields below—or use
+        the browse button to select pre-existing Contact information. This
         field should not to be confused with the "Name" field that appears on
         the Ship-To Address label.</para>
         <variablelist>
@@ -1163,47 +956,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Any Notes added to the Customer master are for internal purposes only.
-  To add Notes to a Customer master, select the "Notes" tab at the bottom of
-  the "Customer" screen. The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/customer_tabNotes.png" />
-        </imageobject>
-        <caption>Add Customer Notes</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>When adding Notes to a Customer master, you are presented with the
-  following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Notes</term>
-      <listitem>
-        <para>This is a scrolling text field with word-wrapping for entering
-        Notes related to the Customer. Any Notes entered on this screen are
-        for internal purposes only.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CLOSE</term>
-      <listitem>
-        <para>Closes the screen without creating the Customer Note, returning
-        you to the application desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Customer Note and adds it to the Customer
-        master.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <para><indexterm significance="normal">
       <primary>characteristics</primary>
       <secondary>creating new for customer</secondary>
@@ -1269,7 +1021,7 @@
       <listitem>
         <para>Enables you to edit highlighted Customer Characteristics. The
         edit screen is the same as that for creating a new Customer
-        Characteristic&mdash;except that when editing, the fields will contain
+        Characteristic—except that when editing, the fields will contain
         Customer Characteristic information. Double-clicking on a Customer
         Characteristic will also bring you to the editing screen.</para>
       </listitem>
@@ -1325,6 +1077,171 @@
       <listitem>
         <para>Creates the Customer Characteristic and adds it to the list of
         Customer Characteristics.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view or enter Customer Tax information, select the "Tax" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customer_tax.png" />
+        </imageobject>
+        <caption>Customer Tax Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para><indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>tax information for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>taxes</primary>
+      <secondary>for customers</secondary>
+    </indexterm>When adding Customer Tax information, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>tax authorities</primary>
+          <secondary>default for customers</secondary>
+        </indexterm>Default Tax Authority</term>
+      <listitem>
+        <para>Specify the primary Tax Authority you want to associate with the
+        Customer. By default, the specified Tax Authority will be used on the
+        Sales Order header whenever entering Sales Orders or Quotes for the
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax Registration Numbers</term>
+      <listitem>
+        <para>Display lists Tax Registration Numbers for the specified
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Customer Tax Registration
+        Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Customer Tax Registration
+        Numbers. The edit screen is the same as that for creating a new
+        Customer Tax Registration Number—except that when editing, the fields
+        will contain Customer Tax Registration Number information.
+        Double-clicking on a Customer Tax Registration Number will also bring
+        you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Customer Tax Registration Number and then select
+        this button to reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Customer Tax Registration Number and then select
+        this button to remove the Customer Tax Registration Number from the
+        list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add a new Customer Tax Registration Number, select the NEW button.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/taxRegistration.png" />
+        </imageobject>
+        <caption>Customer Tax Registration Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para><indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>tax registration for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>taxes</primary>
+      <secondary>registration for customers</secondary>
+    </indexterm>When adding a new Customer Tax Registration Number, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>Displays the Customer Number for the specified Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax Authority</term>
+      <listitem>
+        <para>Specify the Tax Authority associated with the Tax Registration
+        Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Registration Number</term>
+      <listitem>
+        <para>Enter the Customer's Tax Registration Number for the specified
+        Tax Authority. The registration number is used by Tax Authorities to
+        identify businesses and/or individuals. An Employer Identification
+        Numbers (EIN) is an example of a Tax Registration Number.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>The Customer's Tax Registration Number is used for identifying the
+    Customer to relevant Tax Authorities. This information should not be
+    confused with the Tax Registration Numbers, which are used to identify
+    your company to relevant Tax Authorities.</para>
+  </tip>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Customer Tax
+        Registration Number, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Customer Tax Registration Number and adds it to the
+        master list of Customer Tax Registration Numbers.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Any Notes added to the Customer master are for internal purposes only.
+  To add Notes to a Customer master, select the "Notes" tab at the bottom of
+  the "Customer" screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customer_tabNotes.png" />
+        </imageobject>
+        <caption>Add Customer Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Notes to a Customer master, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Customer. Any Notes entered on this screen are
+        for internal purposes only.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -1406,16 +1323,25 @@
   </variablelist>
   <para role="standard">The Electronic Data Interchange (EDI) system enables
   you to send Sales Orders and Invoices electronically to your Customers. To
-  establish a Customer's EDI preferences for Sales Orders, select the "S/O
-  EDI" tab. The following screen will appear:</para>
+  establish a Customer's EDI preferences, select the "Transmission" tab. The
+  following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/customer_soEdi.png" />
+          <imagedata fileref="images/customer_transmitTab.png" />
         </imageobject>
-        <caption>Sales Order EDI Information</caption>
+        <caption>Transmission EDI Information</caption>
       </mediaobject>
     </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Sales Order</term>
+      <listitem>
+        <para>To establish a Customer's EDI preferences for Sales Orders
+        select the "Invoice" radio button. </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>When setting up the Sales Order EDI preferences for a Customer, you
   are presented with the following options:</para>
   <variablelist>
@@ -1437,8 +1363,8 @@
               <para>Select this option if you want to bypass standard EDI
               Profiles and instead create custom email preferences for the
               Customer. These preferences will be stored solely with the
-              Customer master&mdash;and will be used to send email versions of
-              Sales Orders to the Customer. When this option is selected, the
+              Customer master—and will be used to send email versions of Sales
+              Orders to the Customer. When this option is selected, the
               email-related fields on the Customer master will be enabled.
               Otherwise, the email-related fields will be disabled.</para>
             </listitem>
@@ -1512,34 +1438,15 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
   <variablelist>
     <varlistentry>
-      <term>CLOSE</term>
+      <term>Invoice</term>
       <listitem>
-        <para>Closes the screen without setting up a Customer to receive Sales
-        Orders via email, returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Enables the Customer to receive Sales Orders via email.</para>
+        <para>To establish a Customer's EDI preferences for Invoices, select
+        the "Invoice" radio button. </para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para role="standard">To establish a Customer's EDI preferences for
-  Invoices, select the "Invoice EDI" tab. The following screen will
-  appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/customer_tabEDI.png" />
-        </imageobject>
-        <caption>Invoice EDI Information</caption>
-      </mediaobject>
-    </screenshot></para>
   <note>
     <para>EDI preferences for a Customer are implemented at the point when
     Invoices for the Customer are printed.</para>
@@ -1565,7 +1472,7 @@
               <para>Select this option if you want to bypass standard EDI
               Profiles and instead create custom email preferences for the
               Customer. These preferences will be stored solely with the
-              Customer master&mdash;and will be used to send email versions of
+              Customer master—and will be used to send email versions of
               Invoices to the Customer when Invoices for the Customer are
               printed. When this option is selected, the email-related fields
               on the Customer master will be enabled. Otherwise, the
@@ -1640,23 +1547,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CLOSE</term>
-      <listitem>
-        <para>Closes the screen without setting up a Customer to receive
-        Invoices via email, returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Enables the Customer to receive Invoices via email.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <note>
     <para>If your system is configured to use Credit Cards, the "Credit Cards"
     tab will be visible. This tab will not be visible if your system is not
@@ -1710,9 +1600,8 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Credit Cards. The edit screen is
-        the same as that for entering new Credit Card information&mdash;except
-        that when editing, the fields will contain Credit Card
-        information.</para>
+        the same as that for entering new Credit Card information—except that
+        when editing, the fields will contain Credit Card information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
