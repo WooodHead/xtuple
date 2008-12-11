@@ -21,11 +21,11 @@ function main()
     source(findFile("scripts","Chapter10.js"));
     source(findFile("scripts","Chapter11.js"));
     
-    loginAppl("3.2.0", "2empty320beta","admin"); 
+    loginAppl("3.2.0beta", "6empty320beta","admin"); 
     executeChapter1();
     exitAppl(); //exit and login with new user created
     startApplication("xtuple");
-    loginAppl("3.2.0", "2empty320beta","user01"); //login with the new user created
+    loginAppl("3.2.0beta", "6empty320beta","user01"); //login with the new user created
     executeChapter2();
     executeChapter3();
     executeChapter4();
