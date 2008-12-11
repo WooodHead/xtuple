@@ -104,8 +104,6 @@ BEGIN
     FOR _r IN SELECT checkitem_amount, checkitem_discount,
                      CASE WHEN (checkitem_apopen_id IS NOT NULL) THEN
                        checkitem_amount / round(apopen_curr_rate,5)
-                     WHEN (checkitem_aropen_id IS NOT NULL) THEN
-                       checkitem_amount / round(aropen_curr_rate,5)
                      ELSE
                        currToBase(checkitem_curr_id,
                                   checkitem_amount,
@@ -151,15 +149,19 @@ BEGIN
       END IF; -- if check item's apopen_id is not null
 
       IF (_r.aropen_id IS NOT NULL) THEN
-        UPDATE aropen
-        SET aropen_paid = round(aropen_paid + (_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2),
-            aropen_open = round(aropen_amount, 2) >
-			  round(aropen_paid +
-				(_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2),
-            aropen_closedate = CASE WHEN (round(aropen_amount, 2) <=
-			                  round(aropen_paid +
-				                (_r.checkitem_amount / round(_r.checkitem_curr_rate,5)), 2)) THEN _p.checkhead_checkdate END
-        WHERE (aropen_id=_r.aropen_id);
+       UPDATE aropen
+           SET aropen_paid = round(aropen_paid +
+   				currToCurr(_r.checkitem_curr_id, aropen_curr_id,
+   					   _r.checkitem_amount,
+   					   _r.docdate), 2),
+              aropen_open = round(aropen_amount, 2) >
+   			  round(aropen_paid +
+   				currToCurr(_r.checkitem_curr_id, aropen_curr_id,
+   					   _r.checkitem_amount,
+   					   _r.docdate), 2)
+          WHERE (aropen_id=_r.aropen_id);
+    
+
 
 	--  Post the application
         INSERT INTO arapply
