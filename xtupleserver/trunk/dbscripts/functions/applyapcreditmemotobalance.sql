@@ -40,8 +40,9 @@ BEGIN
 
 --  Loop through the apopen items in order of due date
   FOR _r IN SELECT target.apopen_id AS apopenid,
-                   ((target.apopen_amount - target.apopen_paid - COALESCE(prepared,0.0) - COALESCE(selected,0.0)) * 
-                       _curr_rate / round(target.apopen_curr_rate,5)) AS balance
+                   currToCurr(target.apopen_curr_id,source.apopen_curr_id, 
+                     target.apopen_amount - target.apopen_paid - COALESCE(prepared,0.0) - COALESCE(selected,0.0),
+                     current_date) AS balance
            FROM apopen AS source, apopen AS target
              LEFT OUTER JOIN (SELECT apopen_id AS selected_apopen_id,
                                 SUM(currToCurr(apselect_curr_id, apopen_curr_id, apselect_amount + apselect_discount, apselect_date)) AS selected
