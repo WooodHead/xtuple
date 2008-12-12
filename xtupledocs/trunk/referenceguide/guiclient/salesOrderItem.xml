@@ -256,6 +256,14 @@
   they are needed.</para>
   <variablelist>
     <varlistentry>
+      <term>Inventory</term>
+      <listitem>
+        <para>Select radio button to view available inventory.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
       <term><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>availability of items for</secondary>
@@ -392,6 +400,23 @@
         Site master for an Item are considered supplying Sites. If no
         supplying Site exists for an Item, a Work Order may not be created for
         the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Dependencies</term>
+      <listitem>
+        <para>Select radio button to review any components dependent on
+        manufactured line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Dependencies as Indented BOM</term>
+      <listitem>
+        <para>Displays components Items associated with sold manufactured Item
+        in a nested list with a plus ("+") sign located to the far left of the
+        screen next to each line that may be expanded to lower levels. By
+        clicking your mouse on a plus sign, you reveal lower levels of
+        information related to the Line Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
