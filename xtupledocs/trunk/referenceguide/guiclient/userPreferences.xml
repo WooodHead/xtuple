@@ -94,20 +94,6 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>check boxes</primary>
-          <secondary>configure preference for</secondary>
-        </indexterm>Remember Check Box Settings</term>
-      <listitem>
-        <para>Select if you want check boxes in the system to remember their
-        settings (i.e., ON/OFF). Check boxes appear on many screens throughout
-        the applications. They are options used for filtering displayed
-        information. If your preference is to remember check box settings,
-        then a shaded bullet symbol will appear next to check boxes which
-        support the feature.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Ignore Missing Translations</term>
       <listitem>
         <para>Select to bypass the warning message which may be presented at
@@ -116,10 +102,10 @@
         useful in situations where the default language is acceptable, even
         though the country designation on the user's Locale might indicate
         otherwise. For example, in the United Kingdom (UK), the language may
-        be English and the country United Kingdom&mdash;allowing for date and
-        time localizations specific to the UK. However, because the default
-        English language translation is acceptable, there's no need for an
-        alternate translation file just for the UK (e.g.,
+        be English and the country United Kingdom—allowing for date and time
+        localizations specific to the UK. However, because the default English
+        language translation is acceptable, there's no need for an alternate
+        translation file just for the UK (e.g.,
         <filename>xTuple.en_uk.qm</filename>).</para>
       </listitem>
     </varlistentry>
@@ -134,56 +120,6 @@
         <para>Value entered dictates the number of minutes before the client
         automatically shuts down. To turn the idle timeout feature off, simply
         set the value = 0.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Defaults</term>
-      <listitem>
-        <para>Specify preferences for the following defaults:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Use Fixed Width Fonts where Applicable</term>
-            <listitem>
-              <para>Select to view information in fixed width fonts wherever
-              applicable.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Show Only Released and In-Process Work Orders</term>
-            <listitem>
-              <para>Select to show only released and in-process Work Orders by
-              default. If selected, Work Order displays and reports will not
-              include Work Orders whose status is other than released or
-              in-process. For example, affected displays and reports will not
-              include open or exploded Work Orders if this option is
-              selected.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>List Numeric Item Numbers First</term>
-            <listitem>
-              <para>Select to list numeric Item Numbers before alphabetic Item
-              Numbers in displays featuring Item Numbers.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Show S/O Item Availability when Entering</term>
-            <listitem>
-              <para>Select to show Availability by Item by default when
-              viewing the Sales Order Line Item screen.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Default Ellipses Action</term>
-            <listitem>
-              <para>Specify whether you want to launch a List view or a Search
-              view after selecting a browse button to look up information. The
-              List view corresponds to the standard CTRL+L keyboard shortcut
-              functionality; whereas the Search view corresponds to CTRL+S
-              functionality.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -204,11 +140,36 @@
             <term>Site</term>
             <listitem>
               <para>Specify the preferred Site. Sites designated as preferred
-              will appear at the top of Site list by default&mdash;eliminating
-              the need to search the menu for the desired Site code. The user
-              may access other Sites in these lists in the normal way.
-              Assigning a preferred Site is simply a time-saving feature and
-              does not affect user access to Site data.</para>
+              will appear at the top of Site list by default—eliminating the
+              need to search the menu for the desired Site code. The user may
+              access other Sites in these lists in the normal way. Assigning a
+              preferred Site is simply a time-saving feature and does not
+              affect user access to Site data.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Defaults</term>
+      <listitem>
+        <para>Specify preferences for the following defaults:</para>
+        <variablelist>
+          <varlistentry>
+            <term>List Numeric Item Numbers First</term>
+            <listitem>
+              <para>Select to list numeric Item Numbers before alphabetic Item
+              Numbers in displays featuring Item Numbers.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Default Ellipses Action</term>
+            <listitem>
+              <para>Specify whether you want to launch a List view or a Search
+              view after selecting a browse button to look up information. The
+              List view corresponds to the standard CTRL+L keyboard shortcut
+              functionality; whereas the Search view corresponds to CTRL+S
+              functionality.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -415,9 +376,9 @@
       <listitem>
         <para>Enables you to edit highlighted Hot Key definitions. The edit
         screen is the same as that for creating a new Hot Key
-        definition&mdash;except that when editing, the fields will contain Hot
-        Key information. Double-clicking on a Hot Key definition will also
-        bring you to the editing screen.</para>
+        definition—except that when editing, the fields will contain Hot Key
+        information. Double-clicking on a Hot Key definition will also bring
+        you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -486,6 +447,37 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="hotkey.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <para>To define or modify a user's Alarm preferences, select the "Alarms"
+  tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/userPreferences_alarms.png" />
+    </imageobject>
+    <caption>Alarms</caption>
+  </mediaobject>
+  <para>When defining or modifying a user's Alarm notification preferences,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Event</term>
+      <listitem>
+        <para>Select Event if you would like an alarm to alert you when an
+        event occurs.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Email</term>
+      <listitem>
+        <para>Select Email if you would like an alarm to alert you when a
+        system Email has been sent to you.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>System Message</term>
+      <listitem>
+        <para>Select System Message if you would like an alarm to alert you
+        when a System Message has occured.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
