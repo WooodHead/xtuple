@@ -49,19 +49,19 @@ BEGIN
 
 --  Clear previous distributions
 
+        UPDATE recv SET recv_vohead_id=NULL, recv_voitem_id=NULL
+                WHERE ((recv_vohead_id=pVoucherId)
+                AND (recv_orderitem_id=pPoitemId)
+		AND (recv_order_type=''PO''));
+        UPDATE poreject SET poreject_vohead_id=NULL, poreject_voitem_id=NULL
+                WHERE ((poreject_vohead_id=pVoucherId)
+                AND (poreject_poitem_id=pPoitemId));
         DELETE FROM vodist
                 WHERE ((vodist_poitem_id=pPoitemId)
                 AND (vodist_vohead_id=pVoucherId));
         DELETE FROM voitem
                 WHERE ((voitem_poitem_id=pPoitemId)
                 AND (voitem_vohead_id=pVoucherId));
-        UPDATE recv SET recv_vohead_id=NULL
-                WHERE ((recv_vohead_id=pVoucherId)
-                AND (recv_orderitem_id=pPoitemId)
-		AND (recv_order_type=''PO''));
-        UPDATE poreject SET poreject_vohead_id=NULL
-                WHERE ((poreject_vohead_id=pVoucherId)
-                AND (poreject_poitem_id=pPoitemId));
 
 --  Determine Line balances
 
