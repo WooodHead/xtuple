@@ -14,7 +14,7 @@ BEGIN
       RAISE EXCEPTION ''You do not have privileges to add new Sites.'';
     END IF;
   ELSE
-    SELECT checkPrivilege(''MaintainWarehouses'') INTO _check;
+    SELECT checkPrivilege(''MaintainWarehouses'') OR checkPrivilege(''IssueCountTags'') INTO _check;
     IF NOT (_check) THEN
       RAISE EXCEPTION ''You do not have privileges to alter a Site.'';
     END IF;
