@@ -228,7 +228,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/transferOrderItem_charTab.png" />
+          <imagedata fileref="images/transferOrderItem_itemCharacteristicsTab.png" />
         </imageobject>
         <caption>Transfer Order Line Item Characteristics</caption>
       </mediaobject>
@@ -364,51 +364,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>If the Transfer Order Line Item is a manufactured Item, you have the
-  ability to view Pending Availability for any of its component Items. To view
-  the Pending Availability for Transfer Order Line Item component Items,
-  select the "Pending Availability" tab, as shown below:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/transferOrderItem_availabilityTab.png" />
-        </imageobject>
-        <caption>Pending Availability for Component Items</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>When displaying Pending Availability for Transfer Order component
-  Items, you are presented with the following options:</para>
-  <note>
-    <para>The "Pending Availability" tab features details related to component
-    Items and so only applies if a Transfer Order Line Item is a manufactured
-    Item. If a Line Item is not manufactured, Pending Availability does not
-    apply.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
-      <term>Show Pending Availability as Indented BOM</term>
-      <listitem>
-        <para>Select to display Pending Availability as an indented Bill of
-        Materials.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Pending Availability</term>
-      <listitem>
-        <para>Displays Pending Availability for component Items associated
-        with sold manufactured Items. If you choose the "Show Pending
-        Availability as Indented BOM" option, the information will be
-        displayed in a nested list—with a plus ("+") sign located to the far
-        left of the screen next to each line that may be expanded to lower
-        levels. By clicking your mouse on a plus sign, you reveal lower levels
-        of information related to the Line Item.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>Keep in mind that Pending Availability in this case is not the same
-    as Available to Promise. This view to Pending Availability reflects
-    current Inventory Levels—it is not a time-phased view of
-    Availability.</para>
-  </tip>
 </section>
