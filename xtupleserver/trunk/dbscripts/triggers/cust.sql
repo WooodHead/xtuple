@@ -173,6 +173,7 @@ BEGIN
        SELECT DISTINCT char_id, char_name, charass_value
        FROM charass, char, custtype
        WHERE ((custtype_id=NEW.cust_custtype_id)
+       AND (custtype_char)
        AND (charass_target_type=''CT'') 
        AND (charass_target_id=custtype_id)
        AND (charass_default)
