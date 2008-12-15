@@ -2,7 +2,7 @@
 -- Name: print
 -- Notes: used by printPackingListBatchByShipVia
 
-SELECT pack_head_id, pack_head_type, pack_shiphead_id,
+SELECT pack_head_id, pack_head_type, pack_shiphead_id, orderhead_status,
        CASE WHEN (pack_head_type='SO') THEN findCustomerForm(orderhead_to_id, 'P')
 	   <? if exists("MultiWhs") ?>
             WHEN (pack_head_type='TO') THEN findTOForm(pack_head_id, 'P')
