@@ -117,7 +117,9 @@ INSERT INTO vendinfo (
   vend_cntct2_id,
   vend_addr_id,
   vend_match,
-  vend_taxauth_id )
+  vend_taxauth_id,
+  vend_ach_routingnumber,
+  vend_ach_accntnumber )
 VALUES (
   COALESCE(NEW.vendor_name, ''),
   NULL,
@@ -194,7 +196,9 @@ VALUES (
             NEW.country,
             NEW.address_change ),
   COALESCE(NEW.matching_vo_po_amounts, false),
-  getTaxAuthId(NEW.default_tax_authority) );
+  getTaxAuthId(NEW.default_tax_authority),
+            '',
+            '');
 
 CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO api.vendor DO INSTEAD
