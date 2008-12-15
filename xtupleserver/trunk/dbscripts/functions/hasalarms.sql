@@ -36,7 +36,7 @@ BEGIN
           INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
                                 evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number )
           SELECT CURRENT_TIMESTAMP, _recipient, evnttype_id,
-                 'T', todoitem_id, _whsId, todoitem_name
+                 'T', todoitem_id, _whsId, (todoitem_name || '-' || todoitem_description)
           FROM evnttype, todoitem
           WHERE ( (todoitem_id=_alarm.alarm_source_id)
             AND   (evnttype_name='TodoAlarm') );
@@ -45,7 +45,7 @@ BEGIN
           INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
                                 evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number )
           SELECT CURRENT_TIMESTAMP, _recipient, evnttype_id,
-                 'I', incdt_id, _whsId, incdt_summary
+                 'I', incdt_id, _whsId, (incdt_summary || '-' || incdt_descrip)
           FROM evnttype, incdt
           WHERE ( (incdt_id=_alarm.alarm_source_id)
             AND   (evnttype_name='IncidentAlarm') );
@@ -54,9 +54,10 @@ BEGIN
           INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
                                 evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number )
           SELECT CURRENT_TIMESTAMP, _recipient, evnttype_id,
-                 'J', prjtask_id, _whsId, prjtask_name
-          FROM evnttype, prjtask
+                 'J', prjtask_id, _whsId, (prj_number || ' ' || prj_name || '-' || prjtask_name)
+          FROM evnttype, prjtask, prj
           WHERE ( (prjtask_id=_alarm.alarm_source_id)
+            AND   (prj_id=prjtask_prj_id)
             AND   (evnttype_name='TaskAlarm') );
         END IF;
         _recipientPart := _recipientPart + 1;
@@ -79,7 +80,7 @@ BEGIN
           SELECT * INTO _todoitem
           FROM todoitem
           WHERE (todoitem_id = _alarm.alarm_source_id);
-          SELECT submitEmailToBatch(_fromEmail, _recipient, '', _todoitem.todoitem_name,
+          SELECT submitEmailToBatch(_fromEmail, _recipient, '', (_todoitem.todoitem_name || '-' || _todoitem.todoitem_description),
                                     'Alarm reminder for To-Do Item.',
                                     NULL, CURRENT_TIMESTAMP, FALSE) INTO _batchId;
         END IF;
@@ -87,15 +88,15 @@ BEGIN
           SELECT * INTO _incdt
           FROM incdt
           WHERE (incdt_id = _alarm.alarm_source_id);
-          SELECT submitEmailToBatch(_fromEmail, _recipient, '', _incdt.incdt_summary,
+          SELECT submitEmailToBatch(_fromEmail, _recipient, '', (_incdt.incdt_summary || '-' || _incdt.incdt_descrip),
                                     'Alarm reminder for Incident.',
                                     NULL, CURRENT_TIMESTAMP, FALSE) INTO _batchId;
         END IF;
         IF (_alarm.alarm_source = 'J') THEN
           SELECT * INTO _prjtask
-          FROM prjtask
+          FROM prjtask JOIN prj ON (prj_id=prjtask_prj_id)
           WHERE (prjtask_id = _alarm.alarm_source_id);
-          SELECT submitEmailToBatch(_fromEmail, _recipient, '', _prjtask.prjtask_name,
+          SELECT submitEmailToBatch(_fromEmail, _recipient, '', (_prjtask.prj_number || ' ' || _prjtask.prj_name || '-' || _prjtask.prjtask_name),
                                     'Alarm reminder for Project Task.',
                                     NULL, CURRENT_TIMESTAMP, FALSE) INTO _batchId;
         END IF;
@@ -115,19 +116,19 @@ BEGIN
           SELECT * INTO _todoitem
           FROM todoitem
           WHERE (todoitem_id = _alarm.alarm_source_id);
-          SELECT postMessage(_recipient, ('ToDo - ' || _todoitem.todoitem_name)) INTO _msgId;
+          SELECT postMessage(_recipient, ('ToDo - ' || _todoitem.todoitem_name || '-' || _todoitem.todoitem_description)) INTO _msgId;
         END IF;
         IF (_alarm.alarm_source = 'INCDT') THEN
           SELECT * INTO _incdt
           FROM incdt
           WHERE (incdt_id = _alarm.alarm_source_id);
-          SELECT postMessage(_recipient, ('Incident - ' || _incdt.incdt_summary)) INTO _msgId;
+          SELECT postMessage(_recipient, ('Incident - ' || _incdt.incdt_summary || '-' || _incdt.incdt_descrip)) INTO _msgId;
         END IF;
         IF (_alarm.alarm_source = 'J') THEN
           SELECT * INTO _prjtask
-          FROM prjtask
+          FROM prjtask JOIN prj ON (prj_id=prjtask_prj_id)
           WHERE (prjtask_id = _alarm.alarm_source_id);
-          SELECT postMessage(_recipient, ('Project Task - ' || _prjtask.prjtask_name)) INTO _msgId;
+          SELECT postMessage(_recipient, ('Project Task - ' || _prjtask.prj_number || ' ' || _prjtask.prj_name || '-' || _prjtask.prjtask_name)) INTO _msgId;
         END IF;
         _recipientPart := _recipientPart + 1;
       END LOOP;
