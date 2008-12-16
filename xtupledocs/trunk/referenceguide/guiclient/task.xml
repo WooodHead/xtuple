@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>tasks</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Create New Task</title>
+  <para>To create a new Task, select the NEW button. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/task.png" />
+        </imageobject>
+        <caption>Create New Task</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Task, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Number</term>
+      <listitem>
+        <para>Enter a code to identify the Task.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a brief name to identify the Task.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Specify one of the following statuses to characterize the
+        Task:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Concept</term>
+            <listitem>
+              <para>Use this status to indicate the Task has not yet
+              begun.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>In-Process</term>
+            <listitem>
+              <para>Use this status to indicate the Task is in-process.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Complete</term>
+            <listitem>
+              <para>Use this status to indicate the Task is complete.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a description to identify the Task.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Hours</term>
+      <listitem>
+        <para>Specify the number of hours associated with the Task using the
+        following fields:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Budgeted</term>
+            <listitem>
+              <para>Enter the number of hours budgeted for the Task. This
+              information may be saved and updated later.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Actual</term>
+            <listitem>
+              <para>Enter the actual number of hours consumed performing the
+              Task. This information may be saved and updated later.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Balance</term>
+            <listitem>
+              <para>Displays the difference between the budgeted and actual
+              hours.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expenses</term>
+      <listitem>
+        <para>Specify the Expenses associated with the Task using the
+        following fields:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Budgeted</term>
+            <listitem>
+              <para>Enter the total Expenses budgeted for the Task. This
+              information may be saved and updated later.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Actual</term>
+            <listitem>
+              <para>Enter the actual Expenses incurred while performing the
+              Task. This information may be saved and updated later.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Balance</term>
+            <listitem>
+              <para>Displays the difference between the budgeted and actual
+              Expenses.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the new Task and adds it to the Project's list of
+        Tasks.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
