@@ -27,12 +27,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Name</term>
-      <listitem>
-        <para>Enter a brief name to identify the Task.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Status</term>
       <listitem>
         <para>Specify one of the following statuses to characterize the
@@ -61,9 +55,27 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a brief name to identify the Task.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Description</term>
       <listitem>
         <para>Enter a description to identify the Task.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Owner</term>
+      <listitem>
+        <para>Select Task Owner.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Assigned to</term>
+      <listitem>
+        <para>Select who the Task was assigned to.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -127,6 +139,32 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Due</term>
+      <listitem>
+        <para>Date Task is due.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Assigned</term>
+      <listitem>
+        <para>Date task was assigned.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Started</term>
+      <listitem>
+        <para>Date Task actually started.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Completed</term>
+      <listitem>
+        <para>Date Task was actually completed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
@@ -141,6 +179,144 @@
       <listitem>
         <para>Creates the new Task and adds it to the Project's list of
         Tasks.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Description related to a Task, select the "Description" tab.
+  The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/task_descrip.png" />
+      </imageobject>
+      <caption>Create New Description</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Add detailed description of task.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Alarm related to a Task, select the "Alarms tab. The following
+  screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/task_alarmTab.png" />
+      </imageobject>
+      <caption>Create New Alarm</caption>
+    </mediaobject>
+  </screenshot>
+  <para>Upon selecting Alarms you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Alarms</term>
+      <listitem>
+        <para>Displays a list of Alarms you can create to send reminders to
+        various users associated with an event or system message.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for entering new Alarm information..</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Alarm. The edit screen is the
+        same as that for entering new Alarm information—except that when
+        editing, the fields will contain Alarm information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an Alarm and then select this button to reach a
+        read-only view of the "Edit" screen. Double-clicking on an Alarm will
+        also bring you to the view screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Alarm Item and then select this button to remove
+        the Alarm Item from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add a new Alarm to the master list of stored Alarms, select the NEW
+  button. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/alarms.png" />
+    </imageobject>
+    <caption>Create Alarm</caption>
+  </mediaobject>
+  <para>When creating a new Alarm you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Due</term>
+      <listitem>
+        <para>Add the date and time for which you want the Alarm to alert
+        specific users and contacts.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Event</term>
+      <listitem>
+        <para>Select if you would like an event to trigger the Alarm. You may
+        select from an unlimited list of users to be notified.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>System Message</term>
+      <listitem>
+        <para>Select if you would like a system message to trigger the Alarm.
+        You may select from an unlimited list of users to be notified.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating an Alarm, returning you to
+        the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Alarm and adds it to the list of Alarms.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>USER LOOKUP</term>
+      <listitem>
+        <para>Allows you to choose unlimited number of users created in the
+        system.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CONTACT LOOKUP</term>
+      <listitem>
+        <para>Allows you to choose from unlimited number of contacts created
+        in the system.</para>
       </listitem>
     </varlistentry>
   </variablelist>
