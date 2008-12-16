@@ -64,7 +64,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>W/O Operation</term>
+      <term>Method</term>
+      <listitem>
+        <para>Indicates whether selected Work Order is an Assembly or
+        Disassembly Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Operation</term>
       <listitem>
         <para>Select the individual Operation you want to post from the list
         of Work Order Operations for the specified Item. After selecting an
@@ -74,56 +81,73 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Qty. to Post</term>
+      <term>Quantities</term>
       <listitem>
-        <para>Enter the quantity you want to post.</para>
+        <para>Displays quantity information related to the Operation
+        posting.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Ordered</term>
+            <listitem>
+              <para>Indicates the quantity of material, measures in the Item's
+              Inventory UOM, that the selected Work Order is due to
+              produce.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Received</term>
+            <listitem>
+              <para>Indicates the quantity, measured in the Item's Inventory
+              UOM, that has been completed by this Operation.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Due</term>
+            <listitem>
+              <para>Indicates the quantity remaining to be produced by the
+              specified Operation.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>To Post</term>
+            <listitem>
+              <para>Enter the quantity you want to post.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>work orders</primary>
-          <secondary>posting options</secondary>
-        </indexterm>Post in Production UOMs</term>
+      <term>Post in</term>
       <listitem>
-        <para>Select to post the Operations quantity in Production Units of
-        Measure. Operations may be posted using either the Inventory or
-        Production UOM. In addition, different Operations in a single Bill of
-        Operations may use different Production UOMs. For example, if you are
-        producing soup, you might mix the soup in one Operation using UOM =
-        BATCH. But when canning the soup, the canning Operation might use UOM
-        = CAN. If you post Operations using the Production UOM, the
-        Inventory/Production UOM ratio defined at the Operation level
-        normalizes the posting so that the Inventory impact is recorded using
-        the Inventory UOM.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Post in Inventory UOMs</term>
-      <listitem>
-        <para>Select to post the Operations quantity in Inventory Units of
-        Measure.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>W/O Qty. Ordered</term>
-      <listitem>
-        <para>Ordered: Indicates the quantity of material, measures in the
-        Item's Inventory UOM, that the selected Work Order is due to
-        produce.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Operation Qty. Received</term>
-      <listitem>
-        <para>Indicates the quantity, measured in the Item's Inventory UOM,
-        that has been completed by this Operation.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Operation Balance Due</term>
-      <listitem>
-        <para>Indicates the quantity remaining to be produced by the specified
-        Operation.</para>
+        <para>Specify how you want the quantity to be posted</para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>work orders</primary>
+                <secondary>posting options</secondary>
+              </indexterm>Production UOMs</term>
+            <listitem>
+              <para>Select to post the Operations quantity in Production Units
+              of Measure. Operations may be posted using either the Inventory
+              or Production UOM. In addition, different Operations in a single
+              Bill of Operations may use different Production UOMs. For
+              example, if you are producing soup, you might mix the soup in
+              one Operation using UOM = BATCH. But when canning the soup, the
+              canning Operation might use UOM = CAN. If you post Operations
+              using the Production UOM, the Inventory/Production UOM ratio
+              defined at the Operation level normalizes the posting so that
+              the Inventory impact is recorded using the Inventory UOM.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Inventory UOMs</term>
+            <listitem>
+              <para>Select to post the Operations quantity in Inventory Units
+              of Measure.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -262,17 +286,25 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>SCRAP MATERIALS</term>
+      <term>SCRAP</term>
       <listitem>
         <para>Select to open the "Scrap Work Order Material from W/O"
         screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>POST OPERATION</term>
+      <term>POST</term>
       <listitem>
         <para>Posts the specified Operation using the values entered in the
         screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>MORE</term>
+      <listitem>
+        <para>Select to display extra information related to the Operation
+        posting. To hide the extra information, simply select the MORE button
+        again.</para>
       </listitem>
     </varlistentry>
   </variablelist>
