@@ -40,7 +40,7 @@
   </variablelist>
   <note>
     <para>In the case of Planned Purchase Orders, the quantity will always be
-    represented in the Inventory Unit of Measure (UOM)—regardless of the
+    represented in the Inventory Unit of Measure (UOM)&mdash;regardless of the
     Vendor UOM used on any existing Purchase Orders.</para>
   </note>
   <variablelist>
@@ -61,7 +61,7 @@
       <term>Planned Orders</term>
       <listitem>
         <para>Display will show Planned Orders by Item, using the specified
-        parameters.</para>
+        parameters. Firm Planned Orders will display in blue.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -98,29 +98,29 @@
   to select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickRunningAvailability)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickRunningAvailability)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickFirmOrder)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickFirmOrder)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickChangeOrderType)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickChangeOrderType)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickReleaseOrder)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReleaseOrder)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickDeleteOrder)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickDeleteOrder)" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>If the selected Order is firmed, the following option will be
   available:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickSoftenOrder)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickSoftenOrder)" />
   </variablelist>
 </section>
