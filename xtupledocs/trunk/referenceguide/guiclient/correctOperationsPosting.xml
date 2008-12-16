@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519346" role="openmfg">
   <title>Correct Operations Posting</title>
   <para>To correct a Work Order Operations posting, select the "Correct
   Operations Posting" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/correctOperationsPosting.png"/>
+          <imagedata fileref="images/correctOperationsPosting.png" />
         </imageobject>
         <caption>Correct Operations Posting</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When correcting a Work Order Operations posting, you are presented
   with the following options:</para>
   <variablelist>
@@ -50,6 +49,13 @@
       <listitem>
         <para>Displays Work Order Status automatically when Work Order Number
         is entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Method</term>
+      <listitem>
+        <para>Indicates whether selected Work Order is an Assembly or
+        Disassembly Work Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -113,8 +119,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>components</primary>
           <secondary>at w/o posting</secondary>
         </indexterm>Return Components</term>
@@ -126,8 +131,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>inventory</primary>
           <secondary>correcting operations posting</secondary>
         </indexterm>Correct Inventory</term>
