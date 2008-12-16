@@ -34,6 +34,27 @@
   </tip>
   <variablelist>
     <varlistentry>
+      <term>Show Inactive Employees</term>
+      <listitem>
+        <para>Select to show inactive Employees as well as active Employees.
+        By default, inactive Employees are not displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to show Employees who have permissions for all
+        sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Select to show Employees who have permissions only for site
+        specified from drop down list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Search through</term>
       <listitem>
         <para>Specify which of the following criteria you want to include in
@@ -73,13 +94,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Show Inactive Employees</term>
-      <listitem>
-        <para>Select to show inactive Employees as well as active Employees.
-        By default, inactive Employees are not displayed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Employees</term>
       <listitem>
         <para>Display will show search results for Employees, using specified
@@ -101,9 +115,9 @@
       <term>EDIT</term>
       <listitem id="searchForEmployeeEDIT">
         <para>Enables you to edit highlighted Employee. The edit screen is the
-        same as that for creating a new Employee&mdash;except that when
-        editing, the fields will contain Employee information. Double-clicking
-        on an Employee will also bring you to the editing screen.</para>
+        same as that for creating a new Employee—except that when editing, the
+        fields will contain Employee information. Double-clicking on an
+        Employee will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -119,16 +133,16 @@
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(searchForEmployeeVIEW)" />
+      <xi:include href="" xpointer="element(searchForEmployeeVIEW)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(searchForEmployeeEDIT)" />
+      <xi:include href="" xpointer="element(searchForEmployeeEDIT)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>
