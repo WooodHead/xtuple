@@ -5,8 +5,8 @@
 <section role="standard">
   <title>Return Authorization Workbench</title>
   <para>The Return Authorization Workbench is designed to help manage and
-  process open Return Authorizations&mdash;and to process credits and refunds. The
-  Return Authorization Workbench appears as follows:</para>
+  process open Return Authorizations&mdash;and to process credits and refunds.
+  The Return Authorization Workbench appears as follows:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -41,7 +41,8 @@
             <term>Pattern</term>
             <listitem>
               <para>Enter a Customer Type pattern to select a range of
-              Customer Types. Refine your search using Regular Expressions.</para>
+              Customer Types. Refine your search using Regular
+              Expressions.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -255,8 +256,8 @@
     <varlistentry>
       <term>Print Credit Memo</term>
       <listitem>
-        <para>Select if you want Credit Memos to be printed as part of their
-        processing.</para>
+        <para>Select if you want Credit Memos to be printed when you select
+        the PROCESS button.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -309,7 +310,12 @@
       <term>PROCESS</term>
       <listitem>
         <para>Highlight a Return Authorization and then select this button to
-        process the selected item.</para>
+        create a Sales Order Credit Memo for the selected item. The S/O Credit
+        Memo will be added to the list of unposted Credit Memos in an
+        unprinted state. However, you may print the Credit Memo as you process
+        it by selecting the "Print Credit Memo" option. If you select the
+        "Post Credit Memos Immediately" option, then the Credit Memo will be
+        posted as soon as it is created.</para>
       </listitem>
     </varlistentry>
   </variablelist>
