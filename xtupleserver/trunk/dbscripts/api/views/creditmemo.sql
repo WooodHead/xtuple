@@ -172,7 +172,10 @@ BEGIN
 			WHEN pNew.tax_authority = 'None' THEN NULL
 			ELSE COALESCE(getTaxAuthId(pNew.tax_authority),shipto_taxauth_id,cust_taxauth_id)
 		END,
-		NULL,
+                CASE
+                        WHEN pNew.tax_authority = 'None' THEN COALESCE(getCurrId(pNew.currency),cust_curr_id,basecurrid())
+                        ELSE (SELECT taxauth_curr_id FROM taxauth WHERE (taxauth_id=getTaxAuthId(pNew.tax_authority)))
+                END,
 		NULL,
                 NULL,
                 0,
@@ -244,6 +247,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 		cmhead_misc_descrip=NEW.misc_charge_description,
 		cmhead_rsncode_id=(SELECT rsncode_id FROM rsncode WHERE rsncode_code = NEW.reason_code),
 		cmhead_curr_id=COALESCE(getCurrId(NEW.currency),-1),
+                cmhead_tax_curr_id=(SELECT taxauth_curr_id FROM taxauth WHERE (taxauth_id=getTaxAuthId(NULLIF(NEW.tax_authority, 'None')))),
 		cmhead_taxauth_id=getTaxAuthId(NULLIF(NEW.tax_authority, 'None'))
 	WHERE (cmhead_number=OLD.memo_number)
 		AND (cmhead_posted = FALSE);
