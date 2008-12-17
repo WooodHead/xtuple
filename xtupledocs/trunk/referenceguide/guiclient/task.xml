@@ -182,24 +182,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Description related to a Task, select the "Description" tab.
-  The following screen will appear:</para>
-  <screenshot>
-    <mediaobject>
-      <imageobject>
-        <imagedata fileref="images/task_descrip.png" />
-      </imageobject>
-      <caption>Create New Description</caption>
-    </mediaobject>
-  </screenshot>
-  <variablelist>
-    <varlistentry>
-      <term>Description</term>
-      <listitem>
-        <para>Add detailed description of task.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <para>To add Alarm related to a Task, select the "Alarms tab. The following
   screen will appear:</para>
   <screenshot>
@@ -234,7 +216,7 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Alarm. The edit screen is the
-        same as that for entering new Alarm information&mdash;except that when
+        same as that for entering new Alarm information—except that when
         editing, the fields will contain Alarm information.</para>
       </listitem>
     </varlistentry>
@@ -254,7 +236,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="../widgets/alarmMaint.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="../widgets/alarmMaint.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
