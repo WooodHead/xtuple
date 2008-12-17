@@ -246,70 +246,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add a new Alarm to the master list of stored Alarms, select the NEW
-  button. The following screen will appear:</para>
-  <mediaobject>
-    <imageobject>
-      <imagedata fileref="images/alarms.png" />
-    </imageobject>
-    <caption>Create Alarm</caption>
-  </mediaobject>
-  <para>When creating a new Alarm you are presented with the following
-  options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Due</term>
-      <listitem>
-        <para>Add the date and time for which you want the Alarm to alert
-        specific users and contacts.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Event</term>
-      <listitem>
-        <para>Select if you would like an event to trigger the Alarm. You may
-        select from an unlimited list of users to be notified.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <variablelist>
-    <varlistentry>
-      <term>System Message</term>
-      <listitem>
-        <para>Select if you would like a system message to trigger the Alarm.
-        You may select from an unlimited list of users to be notified.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating an Alarm, returning you to
-        the previous screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Alarm and adds it to the list of Alarms.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>USER LOOKUP</term>
-      <listitem>
-        <para>Allows you to choose unlimited number of users created in the
-        system.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>CONTACT LOOKUP</term>
-      <listitem>
-        <para>Allows you to choose from unlimited number of contacts created
-        in the system.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <xi:include href="../widgets/alarmMaint.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
