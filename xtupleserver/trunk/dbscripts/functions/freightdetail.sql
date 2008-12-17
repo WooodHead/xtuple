@@ -1,4 +1,3 @@
-SELECT dropIfExists('function', 'freightDetail(text,integer)');
 
 CREATE OR REPLACE FUNCTION freightDetail(text,integer,integer,integer,date,text,integer) RETURNS SETOF freightData AS $$
 DECLARE
