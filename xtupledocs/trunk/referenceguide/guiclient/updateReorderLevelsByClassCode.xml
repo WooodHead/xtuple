@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section572703">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>reorder levels</primary>
       <secondary>updating by class code</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,34 +12,17 @@
     </indexterm>Update Reorder Levels by Class Code</title>
   <para>To update Reorder Levels by Class Code, select the "Reorder Levels by
   Class Code" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/updateReorderLevelsByClassCode.png"/>
+          <imagedata fileref="images/updateReorderLevelsByClassCode.png" />
         </imageobject>
-        <caption>Update Reorder Levels by Class
-        Code</caption>
+        <caption>Update Reorder Levels by Class Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When updating Reorder Levels by Class Code, you are presented with the
   following options:</para>
   <variablelist>
-    <varlistentry role="standard">
-      <term>All Sites</term>
-      <listitem>
-        <para>Select to update Reorder Levels by Class Code for all
-        Sites.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Selected</term>
-      <listitem>
-        <para>Specify Site where Reorder Levels by Class Code are to be
-        updated.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>All Class Codes</term>
       <listitem>
@@ -58,6 +41,53 @@
       <listitem>
         <para>Enter a Class Code pattern to select a range of Class Codes.
         Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Site Selection</term>
+      <listitem>
+        <para>Select what sites you want to query.</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Sites</term>
+            <listitem>
+              <para>Select to update Reorder Levels by Class Code for all
+              Sites.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Selected</term>
+            <listitem>
+              <para>Specify Site where Reorder Levels by Class Code are to be
+              updated.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Options</term>
+      <listitem>
+        <para>Select whether you would prefer to review results of analysis
+        before updating reorder levels or update immediately.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Preview Results</term>
+            <listitem>
+              <para>Review Results of Analysis prior to updating reorder
+              levels.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <variablelist>
+          <varlistentry>
+            <term>Update Immediately</term>
+            <listitem>
+              <para>Update reorder levels without previewing Analysis
+              first.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -135,9 +165,9 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>UPDATE</term>
+      <term>QUERY</term>
       <listitem>
-        <para>Updates Reorder Levels by Class Code, using the specified
+        <para>Queries Reorder Levels by Class Code, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
@@ -146,6 +176,36 @@
       <listitem>
         <para>Select to submit requested action to the Batch Manager for
         processing.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Results of query, select the "Results" tab. The following
+  screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/updateReorderLevelsByClassCode_resultsTab.png" />
+      </imageobject>
+      <caption>Review Reorder Level Analysis by Item</caption>
+    </mediaobject>
+  </screenshot>
+  <para>Upon selecting Results a list of Analysis results will appear on the
+  screen.</para>
+  <variablelist>
+    <varlistentry>
+      <term>Total Days Analyzed</term>
+      <listitem>
+        <para>Shows how many days were analyzed in your Analysis</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen the following buttons are
+  listed:</para>
+  <variablelist>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Posts new reorder levels for line items selected.</para>
       </listitem>
     </varlistentry>
   </variablelist>
