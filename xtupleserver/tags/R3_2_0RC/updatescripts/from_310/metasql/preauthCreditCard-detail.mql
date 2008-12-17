@@ -1,0 +1,32 @@
+-- Group: preauthCreditCard
+-- Name: detail
+-- Notes:
+
+SELECT ccpay_id,
+       cust_number,
+       cust_name,
+       TEXT(ccpay_order_number) || '-' || TEXT(ccpay_order_number_seq) AS ordnum, 
+       ccpay_amount, 'curr' AS ccpay_amount_xtnumericrole,
+       currConcat(ccpay_curr_id) AS currabbr,
+       CASE WHEN (date_part('day', CURRENT_TIMESTAMP - ccpay_transaction_datetime) >= COALESCE(<? value("ccValidDays") ?>,0)) THEN
+         'warning'
+       END AS qtforegroundrole
+FROM custinfo, custtype, ccpay
+WHERE ( (ccpay_status = 'A')
+AND (ccpay_cust_id=cust_id)
+AND (cust_custtype_id=custtype_id)
+<? if exists("validOnly") ?>
+AND (date_part('day', CURRENT_TIMESTAMP - ccpay_transaction_datetime) < <? value("ccValidDays") ?>)
+<? endif ?>
+<? if exists("cust_id") ?>
+  AND   (ccpay_cust_id=<? value("cust_id") ?>)
+<? endif ?>
+<? if exists("custtype_id") ?>
+  AND   (custtype_id=<? value("custtype_id") ?>)
+<? endif ?>
+<? if exists("custtype_pattern") ?>
+  AND   (custtype_code~<? value("custtype_pattern") ?>)
+<? endif ?>
+)
+ORDER BY ccpay_transaction_datetime;
+

@@ -1,0 +1,28 @@
+-- Ensure that shiphead_number is unique
+SELECT COUNT(*)=0
+FROM shiphead a, shiphead b
+WHERE ((a.shiphead_number=b.shiphead_number)
+   AND (a.shiphead_id!=b.shiphead_id));
+
+-- Ensure that salesrep_number is unique
+SELECT COUNT(*)=0
+FROM salesrep a, salesrep b
+WHERE ((a.salesrep_number=b.salesrep_number)
+   AND (a.salesrep_id!=b.salesrep_id));
+
+--  All pricing schedule item schedules must be valid
+SELECT COUNT(*)=0 FROM ipsitem WHERE (ipsitem_ipshead_id NOT IN (
+SELECT ipshead_id FROM ipshead WHERE (ipshead_id=ipsitem_ipshead_id)
+));
+
+--  All pricing schedule items must be valid
+SELECT COUNT(*)=0 FROM ipsitem WHERE (ipsitem_item_id NOT IN (
+SELECT item_id FROM item WHERE (item_id=ipsitem_item_id)
+));
+
+--  Pricing schedule names must be unique
+SELECT COUNT(*)=0 FROM 
+(SELECT COUNT(ipshead_name) 
+ FROM ipshead
+ GROUP BY ipshead_name
+ HAVING (COUNT(ipshead_name) > 1)) as data
