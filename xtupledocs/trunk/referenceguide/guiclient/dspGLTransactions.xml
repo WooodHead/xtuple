@@ -38,6 +38,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Show Running Total</term>
+      <listitem>
+        <para>Specify to show running total for a selected account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Start Date</term>
       <listitem>
         <para>G/L transactions posted on and after this date will be
@@ -59,17 +65,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Selected</term>
+      <term>Selected Source</term>
       <listitem>
         <para>Specify source module whose G/L transactions you want to
         display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Username</term>
-      <listitem>
-        <para>Select to display the username of users associated with
-        transactions.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -118,11 +117,11 @@
   select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickView)" />
+                xpointer="element(rightclickView)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>If the transaction refers to an Invoice, Purchase Order, Voucher, or
   Shipment, you may also drill down to view the original Document.</para>
