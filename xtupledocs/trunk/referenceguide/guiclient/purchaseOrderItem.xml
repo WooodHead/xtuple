@@ -101,8 +101,7 @@
     <varlistentry>
       <term>UOM</term>
       <listitem>
-        <para>Unit of Measure in which you are using to order the
-        items.</para>
+        <para>Unit of Measure Item is being ordered in.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -148,11 +147,11 @@
       <listitem>
         <para>Select a Project Number to associate with the Purchase Order
         Line Item. If the Purchase Order Line Item is being created from a
-        Purchase Request driven by Sales Order demand—and the parent Sales
-        Order had a Project Number associated with it—then the Project Number
-        from the parent Sales Order will automatically be entered here. In
-        this way, Sales Orders and Purchase Order Line Items may be linked to
-        the same Project.</para>
+        Purchase Request driven by Sales Order demand&mdash;and the parent
+        Sales Order had a Project Number associated with it&mdash;then the
+        Project Number from the parent Sales Order will automatically be
+        entered here. In this way, Sales Orders and Purchase Order Line Items
+        may be linked to the same Project.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -209,10 +208,10 @@
                 <para>The Inv./Vendor UOM Ratio specifies the ratio between
                 Inventory and Vendor Units of Measure (UOM). For example, if
                 you store an Item in single units, but a Vendor sells you the
-                Item in cases of 12, then the ratio would be 12—or 12:1. When
-                an Inv./Vend. ratio is specified, the system allows you to
-                purchase Items using the Vendor's UOM; however, when the Items
-                are received, the system will automatically convert the
+                Item in cases of 12, then the ratio would be 12&mdash;or 12:1.
+                When an Inv./Vend. ratio is specified, the system allows you
+                to purchase Items using the Vendor's UOM; however, when the
+                Items are received, the system will automatically convert the
                 Inventory to your Inventory UOM.</para>
               </note>
             </listitem>
@@ -410,7 +409,7 @@
         pre-defined Value; 3) manually enter a new Value in place of the
         pre-defined Value; or 4) make no selection. Making no selection means
         the Characteristics will not be associated with the Purchase Order
-        Item—except in the case of Characteristics inherited from Sales
+        Item&mdash;except in the case of Characteristics inherited from Sales
         Orders, by way of Purchase Requests.</para>
       </listitem>
     </varlistentry>
