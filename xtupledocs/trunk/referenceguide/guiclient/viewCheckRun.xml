@@ -21,6 +21,12 @@
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
+      <term>Vendor</term>
+      <listitem>
+        <para>Select all or specific vendors you would like to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Bank Account</term>
       <listitem>
         <para>Specify the Bank Account whose Check Run you want to
@@ -28,7 +34,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>A/P Checks</term>
+      <term>Checks</term>
       <listitem>
         <para>Display lists details for Checks included in the Check Run. This
         display is a nested list, with a plus ("+") sign located to the far
@@ -49,46 +55,63 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>PRINT EDIT LIST</term>
+      <term>PREPARE</term>
+      <listitem>
+        <para>Select to choose bank account to be used for run and date to be
+        printed on checks.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT </term>
       <listitem>
         <para>Select to print a copy of the list displayed on the
         screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>check runs</primary>
-          <secondary>printing of</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>checks</primary>
-          <secondary>printing multiple</secondary>
-        </indexterm>PRINT CHECK RUN</term>
-      <listitem>
-        <para>Select to print the Check Run, using the specified Bank Account.
-        For more information on printing Check Runs, see the <xref
-        linkend="Anchor26666" /> section.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>checks</primary>
-          <secondary>printing individual</secondary>
-        </indexterm>PRINT CHECK</term>
-      <listitem>
-        <para>Highlight a Check in the list of Checks and then select this
-        button to print the Check.<tip>
-            <para>If Checks being printed contain reference lines which spill
-            over and exceed one standard page, then consider using the report
-            definition CheckMultiPage.xml. This Check Form is designed to
-            support multiple pages for one Check number.</para>
-          </tip></para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>check runs</primary>
+                <secondary>printing of</secondary>
+              </indexterm> <indexterm significance="normal">
+                <primary>checks</primary>
+                <secondary>printing multiple</secondary>
+              </indexterm>CHECK RUN</term>
+            <listitem>
+              <para>Select to print the Check Run, using the specified Bank
+              Account. For more information on printing Check Runs, see the
+              <xref linkend="Anchor26666" /> section.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>checks</primary>
+                <secondary>printing individual</secondary>
+              </indexterm>SELECTED CHECK</term>
+            <listitem>
+              <para>Highlight a Check in the list of Checks and then select
+              this button to print the Check.</para>
+              <tip>
+                <para>f Checks being printed contain reference lines which
+                spill over and exceed one standard page, then consider using
+                the report definition CheckMultiPage.xml. This Check Form is
+                designed to support multiple pages for one Check
+                number.</para>
+              </tip>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>EDIT LIST</term>
+            <listitem>
+              <para>Provides the option to select printer.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>checks</primary>
           <secondary>posting individual</secondary>
-        </indexterm>POST CHECK</term>
+        </indexterm>POST </term>
       <listitem>
         <para>Highlight a Check in the list of Checks and then select this
         button to post the Check. A Check must be printed before it can be
@@ -100,7 +123,7 @@
       <term><indexterm significance="normal">
           <primary>checks</primary>
           <secondary>voiding of</secondary>
-        </indexterm>VOID CHECK</term>
+        </indexterm>VOID </term>
       <listitem>
         <para>Highlight a Check in the list of Checks and then select this
         button to void the Check. Voided Checks may not be printed or posted.
@@ -119,7 +142,7 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term>EDIT CHECK</term>
+      <term>EDIT </term>
       <listitem>
         <para>Highlight a miscellaneous Check and then select this button to
         edit the Check. Only unprinted miscellaneous Checks may be
@@ -147,7 +170,7 @@
         </indexterm> <indexterm significance="normal">
           <primary>check runs</primary>
           <secondary>replacing checks in</secondary>
-        </indexterm>REPLACE CHECK</term>
+        </indexterm>REPLACE </term>
       <listitem>
         <para>Highlight a voided Check in the list of Checks and then select
         this button to replace the Check. Checks must be voided before they
