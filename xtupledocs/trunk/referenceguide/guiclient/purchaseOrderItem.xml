@@ -99,6 +99,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Unit of Measure in which you are using to order the
+        items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Unit Price</term>
       <listitem>
         <para>Enter the Unit Price for the specified Item.</para>
@@ -225,30 +232,64 @@
   available:</para>
   <variablelist>
     <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating a new Purchase Order Line
-        Item, returning you to the application desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>SAVE</term>
       <listitem>
         <para>Creates the new Purchase Order Line Item and adds it to the list
         of Purchase Order Line Items.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Purchase Order Line
+        Item, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-  <para>To add miscellaneous Notes to the Purchase Order Item, select the
-  "Notes" tab. The following screen will appear:</para>
+  <para>To add manufacturer information to the Purchase Order Item, select the
+  "Manufacturer" tab. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/purchaseOrderItem_manufTab.png" />
+      </imageobject>
+      <caption>Purchase Order Item Manufacturer Information</caption>
+    </mediaobject>
+  </screenshot>
+  <para>When entering manufacturer information to a Purchase Order Item, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>The name of the manufacturer who creates the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>The Item Number the manufacturer uses to identify the
+        component.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>The Description the manufacturer uses to describe the
+        item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add miscellaneous Remarks to the Purchase Order Item, select the
+  "Remarks" tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/purchaseOrderItem_notesTab.png" />
+          <imagedata fileref="images/purchaseOrderItem_remarksTab.png" />
         </imageobject>
-        <caption>Purchase Order Notes</caption>
+        <caption>Purchase Order Item Remarks</caption>
       </mediaobject>
-    </screenshot>When entering miscellaneous Notes to a Purchase Order Item,
+    </screenshot>When entering miscellaneous Remarks to a Purchase Order Item,
   you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
@@ -259,67 +300,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>If an Item has Characteristics associated with it, you have the option
-  of linking those Characteristics to a Purchase Order Item. In the case where
-  Sales Order demand generates a Purchase Request, Item Characteristics and
-  Values inherited from the Sales Order will already be linked to the Purchase
-  Order. Ultimately, Characteristics associated with a Purchase Order Item may
-  be printed on the Purchase Order report.</para>
-  <tip>
-    <para>You can link Characteristics and Values to an Item by using the Item
-    master. Once entered, these Characteristics and Values will be available
-    to users entering Purchase Order Items.</para>
-  </tip>
-  <para>To specify or edit Characteristics for a Purchase Order Item, select
-  the "Characteristics" tab at the bottom of the screen. The following screen
-  will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/purchaseOrderItem_itemchar.png" />
-        </imageobject>
-        <caption>Purchase Order Line Item Characteristics</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>When selecting or editing Characteristics for a Purchase Order Line
-  Item, you are presented with the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Name</term>
-      <listitem>
-        <para>Displays the name of any Item Characteristics associated with
-        the Item. Characteristics defined as Item Characteristics may be
-        associated with Items on the Item master.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Value</term>
-      <listitem>
-        <para>Displays the default Value associated with an Item
-        Characteristic, but permits you to specify an alternate Value. When
-        associating Characteristic Values with a Purchase Order Item, you have
-        four options: 1) Select the default Value; 2) select an alternate
-        pre-defined Value; 3) manually enter a new Value in place of the
-        pre-defined Value; or 4) make no selection. Making no selection means
-        the Characteristics will not be associated with the Purchase Order
-        Item—except in the case of Characteristics inherited from Sales
-        Orders, by way of Purchase Requests.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To add Comments to a Purchase Order Line Item—or to view
-  system-generated Comments—select the "Comments" tab at the bottom of the
-  screen. The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/purchaseOrderItem_commentsTab.png" />
-        </imageobject>
-        <caption>Add Comments to Purchase Order Line Item</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>When adding Comments to a Purchase Order Line Item, you are presented
-  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Comments</term>
@@ -384,6 +364,54 @@
       <listitem>
         <para>Creates the Comment and adds it to the list of Line Item
         Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>If an Item has Characteristics associated with it, you have the option
+  of linking those Characteristics to a Purchase Order Item. In the case where
+  Sales Order demand generates a Purchase Request, Item Characteristics and
+  Values inherited from the Sales Order will already be linked to the Purchase
+  Order. Ultimately, Characteristics associated with a Purchase Order Item may
+  be printed on the Purchase Order report.</para>
+  <tip>
+    <para>You can link Characteristics and Values to an Item by using the Item
+    master. Once entered, these Characteristics and Values will be available
+    to users entering Purchase Order Items.</para>
+  </tip>
+  <para>To specify or edit Characteristics for a Purchase Order Item, select
+  the "Characteristics" tab at the bottom of the screen. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/purchaseOrderItem_itemchar.png" />
+        </imageobject>
+        <caption>Purchase Order Line Item Characteristics</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When selecting or editing Characteristics for a Purchase Order Line
+  Item, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Displays the name of any Item Characteristics associated with
+        the Item. Characteristics defined as Item Characteristics may be
+        associated with Items on the Item master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Displays the default Value associated with an Item
+        Characteristic, but permits you to specify an alternate Value. When
+        associating Characteristic Values with a Purchase Order Item, you have
+        four options: 1) Select the default Value; 2) select an alternate
+        pre-defined Value; 3) manually enter a new Value in place of the
+        pre-defined Value; or 4) make no selection. Making no selection means
+        the Characteristics will not be associated with the Purchase Order
+        Item—except in the case of Characteristics inherited from Sales
+        Orders, by way of Purchase Requests.</para>
       </listitem>
     </varlistentry>
   </variablelist>
