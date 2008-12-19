@@ -11,15 +11,7 @@
     </indexterm> <indexterm significance="normal">
       <primary>workbenches</primary>
       <secondary>for customer service</secondary>
-    </indexterm> <indexterm significance="normal">
-      <primary>customer information</primary>
-    </indexterm> <indexterm significance="normal">
-      <primary>customers</primary>
-      <secondary>information about</secondary>
-    </indexterm> <indexterm significance="normal">
-      <primary>workbenches</primary>
-      <secondary>for customer service</secondary>
-    </indexterm>Customer Information Workbench</title>
+    </indexterm> Customer Information Workbench</title>
   <para>The Customer Information Workbench groups together in one location a
   wide range of both current and historical Customer information. To access
   the Customer Information Workbench, select the "Customer Information
@@ -294,9 +286,9 @@
       <term>EDIT</term>
       <listitem id="dspCustomerInformationEDITQuote">
         <para>Enables you to edit highlighted Quotes. The edit screen is the
-        same as that for creating a new Quote—except that when editing, the
-        fields will contain Quote information. Double-clicking on a Quote will
-        also bring you to the editing screen.</para>
+        same as that for creating a new Quote&mdash;except that when editing,
+        the fields will contain Quote information. Double-clicking on a Quote
+        will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -318,28 +310,27 @@
   <variablelist>
     <varlistentry>
       <term>New Quote</term>
-      <xi:include href="" xpointer="element(dspCustomerInformationNEWQuote)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationNEWQuote)" />
     </varlistentry>
     <varlistentry>
       <term>Edit Quote</term>
-      <xi:include href="" xpointer="element(dspCustomerInformationEDITQuote)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationEDITQuote)" />
     </varlistentry>
     <varlistentry>
       <term>View Quote</term>
-      <xi:include href="" xpointer="element(dspCustomerInformationVIEWQuote)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationVIEWQuote)" />
     </varlistentry>
     <varlistentry>
       <term>Convert Quote</term>
-      <xi:include href=""
-                  xpointer="element(dspCustomerInformationCONVERTQuote)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationCONVERTQuote)" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>To view open Sales Orders associated with the Customer, select the
   "Sales Orders" tab at the bottom of the screen. The following screen will
@@ -396,7 +387,7 @@
       <term>EDIT</term>
       <listitem id="dspCustomerInformationEDITSO">
         <para>Enables you to edit highlighted Sales Order. The edit screen is
-        the same as that for creating a new Sales Order—except that when
+        the same as that for creating a new Sales Order&mdash;except that when
         editing, the fields will contain Sales Order information.
         Double-clicking on a Sales Order will also bring you to the editing
         screen.</para>
@@ -415,28 +406,28 @@
   <variablelist>
     <varlistentry>
       <term>New Order</term>
-      <xi:include href="" xpointer="element(dspCustomerInformationNEWSO)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationNEWSO)" />
     </varlistentry>
     <varlistentry>
       <term>Edit Order</term>
-      <xi:include href="" xpointer="element(dspCustomerInformationEDITSO)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationEDITSO)" />
     </varlistentry>
     <varlistentry>
       <term>View Order</term>
-      <xi:include href="" xpointer="element(dspCustomerInformationVIEWSO)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationVIEWSO)" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickShipmentStatus)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickShipmentStatus)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickShipments)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickShipments)" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>To view Invoices associated with the Customer, select the "Invoices"
   tab at the bottom of the screen. The following screen will appear:</para>
@@ -488,9 +479,9 @@
       <term>EDIT</term>
       <listitem id="dspCustomerInformationEDITINV">
         <para>Enables you to edit highlighted Invoices. The edit screen is the
-        same as that for selecting a new Invoice—except that when editing, the
-        fields will contain Invoice information. Double-clicking on an Invoice
-        will also bring you to the editing screen.</para>
+        same as that for selecting a new Invoice&mdash;except that when
+        editing, the fields will contain Invoice information. Double-clicking
+        on an Invoice will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -520,22 +511,22 @@
   <variablelist>
     <varlistentry>
       <term>New Invoice</term>
-      <xi:include href="" xpointer="element(dspCustomerInformationNEWINV)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationNEWINV)" />
     </varlistentry>
     <varlistentry>
       <term>Edit Invoice</term>
-      <xi:include href="" xpointer="element(dspCustomerInformationEDITINV)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationEDITINV)" />
     </varlistentry>
     <varlistentry>
       <term>View Invoice</term>
-      <xi:include href="" xpointer="element(dspCustomerInformationVIEWINV)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationVIEWINV)" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>To view Credit Memos associated with the Customer, select the "Credit
   Memos" tab at the bottom of the screen. The following screen will
@@ -568,8 +559,8 @@
         <para>Highlight a sales Credit Memo and then select this button to
         print the Sales Credit Memo.</para>
         <note>
-          <para>Printing is supported for sales Credit Memos only—not for
-          miscellaneous Credit Memos.</para>
+          <para>Printing is supported for sales Credit Memos only&mdash;not
+          for miscellaneous Credit Memos.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -609,22 +600,22 @@
   <variablelist>
     <varlistentry>
       <term>New Credit Memo</term>
-      <xi:include href="" xpointer="element(dspCustomerInformationNEW)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationNEW)" />
     </varlistentry>
     <varlistentry>
       <term>Edit Credit Memo</term>
-      <xi:include href="" xpointer="element(dspCustomerInformationEDITCM)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationEDITCM)" />
     </varlistentry>
     <varlistentry>
       <term>View Credit Memo</term>
-      <xi:include href="" xpointer="element(dspCustomerInformationVIEWCM)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(dspCustomerInformationVIEWCM)" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>To view sales history for the Customer, select the "A/R History" tab
   at the bottom of the screen. The following screen will appear:</para>
@@ -667,14 +658,14 @@
   select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEditAROpenItem)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditAROpenItem)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewAROpenItem)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAROpenItem)" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>To view Credit Card activity associated with the Customer, select the
   "CC Payments" tab at the bottom of the screen. The following screen will
