@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section631832">
+  <title><indexterm significance="normal">
+      <primary>vendor workbench</primary>
+    </indexterm> <indexterm significance="normal">
+      <primary>vendors</primary>
+      <secondary>information about</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>workbenches</primary>
+      <secondary>for vendors</secondary>
+    </indexterm> Vendor Workbench</title>
+  <para>The Vendor Workbench groups together in one location a wide range of
+  both current and historical Vendor information. To access the Vendor
+  Workbench, select the "Vendor Workbench" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendorWorkBench.png" />
+        </imageobject>
+        <caption>Vendor Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Vendor information, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Vendor #</term>
+      <listitem>
+        <para>Enter the Vendor Number of the Vendor whose information you want
+        to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Displays Vendor name automatically when Vendor Number is
+        entered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ACCOUNT</term>
+      <listitem>
+        <para>Select this button to open the CRM Account record associated
+        with the Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Displays the Vendor Type for the specified Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Terms</term>
+      <listitem>
+        <para>Displays the Vendor's default Terms.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Ship Via</term>
+      <listitem>
+        <para>Displays the default Ship Via for the Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>First Purchase</term>
+      <listitem>
+        <para>Displays the first purchase from the Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Most Recent Purchase</term>
+      <listitem>
+        <para>Displays the most recent purchase from the Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Backlog</term>
+      <listitem>
+        <para>Displays the total cost of Purchase Order items that have been
+        ordered but not yet recieved.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Last Year's Purchases</term>
+      <listitem>
+        <para>Displays total purchases from Vendor for previous year.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>YTD Purchases</term>
+      <listitem>
+        <para>Displays year-to-date purchases made from Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Open Balance</term>
+      <listitem>
+        <para>Displays open balance with Vendor.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the reports associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Select to edit the Vendor master for the specified
+        Vendor.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Purchase Orders associated with the Vendor, select the
+  "Purchase Orders" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendorWorkBench_poTab.png" />
+        </imageobject>
+        <caption>Vendor Purchase Orders</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying the list of Purchase Orders associated with the
+  Vendor, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to re-generate and update the information on the
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Purchase Order in the Purchase Orders list enables
+  you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewPurchaseOrder)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>To view Receipts and Returns associated with the Vendor, select the
+  "Receipts and Returns" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendorWorkBench_receiptsTab.png" />
+        </imageobject>
+        <caption>Vendor Receipts and Returns</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying the list of Receipts and Returns associated with the
+  Vendor, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to re-generate and update the information on the
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Receipt in the Receipts and Returns list enables
+  you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickMarkasInvoiced)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCorrectReceiving)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>If the Receipt is not yet vouchered, then the following additional
+  option will be available:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateVoucher)" />
+  </variablelist>
+  <para>To view open Payables associated with the Vendor, select the
+  "Payables" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendorWorkBench_payablesTab.png" />
+        </imageobject>
+        <caption>Vendor Payables</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying the list of Payables associated with the Vendor, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SELECT</term>
+      <listitem>
+        <para>Highlight an A/P open item and then click this button to
+        manually review and select the Item for payment. This option brings
+        you to the individual Select Payment screen, where you will find the
+        full range of payment options.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SELECT LINE</term>
+      <listitem>
+        <para>Highlight an A/P open item and then click this button to
+        automatically select the open item for payment. Any available Terms
+        Discount will also be applied automatically.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLEAR SELECTION</term>
+      <listitem>
+        <para>Highlight an A/P open item and then select this button to clear
+        the selected payment. This option effectively reverses the action of
+        the SELECT option.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SELECT ALL DUE</term>
+      <listitem>
+        <para>Select this button to select for payment all A/P open items
+        whose Payment Date is due or past due and whose Currency is the same
+        as the Bank Account's Currency.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SELECT ALL DISCOUNTS</term>
+      <listitem>
+        <para>Select this option to automatically select all A/P open items
+        which are eligible for a Terms Discount and whose Currency is the same
+        as the Bank Account's Currency. The Terms Discount will be applied
+        automatically to all selected open items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLEAR SELECTIONS</term>
+      <listitem>
+        <para>Select this button to clear all selected payments due. This
+        option effectively reverses the action of the SELECT ALL DUE
+        option.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Credit Memos associated with the Vendor, select the "Credit
+  Memos" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendorWorkBench_cmTab.png" />
+        </imageobject>
+        <caption>Vendor Credit Memos</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying the list of Credit Memos associated with the Vendor,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Unapplied Accounts Payable Credit Memos</term>
+      <listitem>
+        <para>Displays the list of unapplied Credit Memos associated with the
+        specified Vendor.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new miscellaneous Credit
+        Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an unapplied Credit Memo and then select this button
+        to reach a read-only view of the A/P open item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>APPLY</term>
+      <listitem>
+        <para>Highlight an unapplied Credit Memo and then select this button
+        to apply an amount.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view purchasing history with the Vendor, select the "A/P History"
+  tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendorWorkBench_historyTab.png" />
+        </imageobject>
+        <caption>Vendor A/P History</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying purchasing history from the Vendor, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to re-generate and update the information on the
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the A/R History list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEdit)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAPOpen)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewGLSeries)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>To view Checks associated with the Vendor, select the "Checks" tab.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendorWorkBench_checksTab.png" />
+        </imageobject>
+        <caption>Vendor Check Register</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying the Check Register for the Vendor, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following button is
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to re-generate and update the information on the
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
