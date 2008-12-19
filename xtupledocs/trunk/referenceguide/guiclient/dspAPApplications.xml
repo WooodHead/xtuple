@@ -97,19 +97,19 @@
   to select from the following menu options:</para>
   <variablelist>
     <varlistentry>
-      <term><remark>findme</remark></term>
+      <term>View Source</term>
       <listitem>
-        <para></para>
+        <para>Select to view check or credit memo detail.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term></term>
+      <term>View Apply to Voucher</term>
       <listitem>
-        <para></para>
+        <para>Select to view voucher detail.</para>
       </listitem>
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>
