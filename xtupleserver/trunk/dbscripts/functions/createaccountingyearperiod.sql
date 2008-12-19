@@ -5,6 +5,7 @@ DECLARE
   pEndDate ALIAS FOR $2;
   _yearperiodid INTEGER;
   _check INTEGER;
+  _checkBool BOOLEAN;
   _r RECORD;
   _initial BOOLEAN;
 
@@ -33,6 +34,12 @@ BEGIN
    AND (yearperiod_end <= pEndDate) );
   IF (FOUND) THEN
     RETURN -3;
+  END IF;
+
+--  Make sure that the passed start is prior to the end date
+  SELECT (pStartDate > pEndDate) INTO _checkBool;
+  IF (_checkBool) THEN
+    RETURN -5;
   END IF;
 
 --  Determine if this is the initial accounting yearperiod

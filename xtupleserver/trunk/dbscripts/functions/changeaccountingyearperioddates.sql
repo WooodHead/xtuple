@@ -5,6 +5,7 @@ DECLARE
   pStartDate ALIAS FOR $2;
   pEndDate ALIAS FOR $3;
   _check INTEGER;
+  _checkBool BOOLEAN;
   _r RECORD;
 
 BEGIN
@@ -36,6 +37,12 @@ BEGIN
   LIMIT 1;
   IF (FOUND) THEN
     RETURN -3;
+  END IF;
+
+--  Make sure that the passed start is prior to the end date
+  SELECT (pStartDate > pEndDate) INTO _checkBool;
+  IF (_checkBool) THEN
+    RETURN -5;
   END IF;
 
 --  Alter the start and end dates of the pass period
