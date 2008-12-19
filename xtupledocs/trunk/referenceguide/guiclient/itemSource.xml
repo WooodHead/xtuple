@@ -39,7 +39,7 @@
     <varlistentry>
       <term>Active</term>
       <listitem>
-        <para>Identifies whether the item is currently active.</para>
+        <para>Identifies whether the Item is currently active.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -77,17 +77,17 @@
         specified, the system allows you to purchase Items using the Vendor's
         UOM; however, when the Items are received, the system will
         automatically convert the Inventory to your Inventory UOM. This same
-        conversion logic flows throughout the system—whether you are viewing
-        Inventory availability or running Material Requirements Planning
-        (MRP). Your Inventory will always be represented in your Inventory
-        UOM, regardless of the Vendor UOMs specified on any open Purchase
-        Orders.</para>
+        conversion logic flows throughout the system&mdash;whether you are
+        viewing Inventory availability or running Material Requirements
+        Planning (MRP). Your Inventory will always be represented in your
+        Inventory UOM, regardless of the Vendor UOMs specified on any open
+        Purchase Orders.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Vendor Currency</term>
       <listitem>
-        <para>Currency used by the vendor.</para>
+        <para>Currency used by the Vendor.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -211,10 +211,10 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Item Source Price. The edit
-        screen is the same as that for creating a new Item Source Price—except
-        that when editing, the fields will contain Item Source Price
-        information. Double-clicking on an Item Source Price will also bring
-        you to the editing screen.</para>
+        screen is the same as that for creating a new Item Source
+        Price&mdash;except that when editing, the fields will contain Item
+        Source Price information. Double-clicking on an Item Source Price will
+        also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -301,6 +301,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="itemSourcePrice.xml" xpointer="element(/1)"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="itemSourcePrice.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
