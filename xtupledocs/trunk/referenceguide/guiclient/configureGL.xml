@@ -189,13 +189,13 @@
       <term>Retained Earnings, Year End Account</term>
       <listitem>
         <para>Select a valid General Ledger Account. This is an Equity
-        Account. It will be credited if retained earnings are
-        positive&mdash;and debited if retained earnings are negative. The
-        retained earnings calculation occurs when a Fiscal Year is closed.
-        Total Expenses for the year are subtracted from total Revenues, and
-        the balance is transferred to the Year End Equity Account. The system
-        then automatically resets the beginning balances for Revenue and
-        Expense Accounts to $0 for the start of the new Fiscal Year.</para>
+        Account. It will be credited if retained earnings are positive—and
+        debited if retained earnings are negative. The retained earnings
+        calculation occurs when a Fiscal Year is closed. Total Expenses for
+        the year are subtracted from total Revenues, and the balance is
+        transferred to the Year End Equity Account. The system then
+        automatically resets the beginning balances for Revenue and Expense
+        Accounts to $0 for the start of the new Fiscal Year.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -287,9 +287,68 @@
       <term>Next A/P Memo #</term>
       <listitem>
         <para>The next sequentially available Accounts Payable Memo Number
-        will display here. You may change the number&mdash;creating a new
-        basis for the next A/P Memo Number&mdash;by typing the new number into
-        this field.</para>
+        will display here. You may change the number—creating a new basis for
+        the next A/P Memo Number—by typing the new number into this
+        field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Enable ACH Check Printing</term>
+      <listitem>
+        <para>Select to enable Automated Check Clearinghouse (ACH), which is
+        automated electronic funds transfer and clearing.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Next Batch #</term>
+      <listitem>
+        <para>Start number for the next batch of checks issued.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Company ID</term>
+      <listitem>
+        <para>Unique company number used to identify legal business entity.
+        Select a radio button to specify what type of number is used.</para>
+        <variablelist>
+          <varlistentry>
+            <term>EIN/TIN</term>
+            <listitem>
+              <para>Employer Identification Number or Federal Tax
+              Identification Number </para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <variablelist>
+          <varlistentry>
+            <term>DUNS Number</term>
+            <listitem>
+              <para>Dun &amp; Bradstreet nine digit unique business ID
+              number.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <variablelist>
+          <varlistentry>
+            <term>Other</term>
+            <listitem>
+              <para>Any other unique Identifier.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Company Name</term>
+      <listitem>
+        <para>Legal Name of organization.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default File Suffix</term>
+      <listitem>
+        <para>Specifies file format used for check printing based on items in
+        drop down list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -310,9 +369,9 @@
       <term>Next A/R Memo #</term>
       <listitem>
         <para>The next sequentially available Accounts Receivable Memo Number
-        will display here. You may change the number&mdash;creating a new
-        basis for the next A/R Memo Number&mdash;by typing the new number into
-        this field.</para>
+        will display here. You may change the number—creating a new basis for
+        the next A/R Memo Number—by typing the new number into this
+        field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -429,6 +488,13 @@
         Invoice dates within the look-ahead (i.e., buffer) days. If an Invoice
         date falls outside the buffer period, then no new Invoice will be
         created.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Incident Category</term>
+      <listitem>
+        <para>Specifies the default incident category used for incidents
+        associated with Accounts Receivable.</para>
       </listitem>
     </varlistentry>
   </variablelist>
