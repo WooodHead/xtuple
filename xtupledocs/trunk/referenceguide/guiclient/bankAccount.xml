@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="bankAccount">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>bank accounts</primary>
       <secondary>creating new</secondary>
     </indexterm>Bank Account</title>
   <para>A Bank Account can be set up for use by either Accounts Receivable
   (A/R), Accounts Payable (A/P), or both. To create a new Bank Account, select
   the NEW button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/bankAccount.png"/>
+          <imagedata fileref="images/bankAccount.png" />
         </imageobject>
         <caption>Create New Bank Account</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When creating a new Bank Account, you are presented with the following
   options:</para>
   <variablelist>
@@ -56,11 +54,17 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term>Currency</term>
+      <listitem>
+        <para>Specify what type of currency to use for this bank
+        account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
           <primary>bank accounts</primary>
           <secondary>used for payables</secondary>
-        </indexterm>Used in A/P</term>
+        </indexterm>Used in Accounts Payable</term>
       <listitem>
         <para>Select if the Bank Account is used for Accounts Payable. If
         selected, the Bank Account will be available for use when making
@@ -86,11 +90,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>bank accounts</primary>
           <secondary>used for receivables</secondary>
-        </indexterm>Used in A/R</term>
+        </indexterm>Used in Accounts Receivable</term>
       <listitem>
         <para>Select if the Bank Account is used for Accounts Receivable. If
         selected, the Bank Account will be available for use when receiving
@@ -128,6 +131,57 @@
       <listitem>
         <para>Creates the Bank Account and adds it to the master list of Bank
         Accounts.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Transmission details to an Account, select the "Transmissions"
+  tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/bankAccount_transmitTab.png" />
+    </imageobject>
+    <caption>Create New Bank Account Transmission</caption>
+  </mediaobject>
+  <para>When adding Transmission details to the bank account, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Enable ACH Check Printing</term>
+      <listitem>
+        <para>Select to enable online processing or Automated Clearing House
+        check printing.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Routing Number</term>
+      <listitem>
+        <para>Bank Account Routing Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Settlement Lead Time</term>
+      <listitem>
+        <para>Number of days prior to funds transfer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Create Check Number for ACH Checks</term>
+      <listitem>
+        <para>Select to create check number for automated transactions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Immediate Origin Name and Number</term>
+      <listitem>
+        <para>Number used by the financial institution of origin, either
+        routing or other, specified by ACH gateway.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Immediate Destination Name and Number</term>
+      <listitem>
+        <para>Number used by the destination financial institution, routing or
+        other, specified by ACH gateway.</para>
       </listitem>
     </varlistentry>
   </variablelist>
