@@ -1,0 +1,8 @@
+ <prerequisite type="Query" name="Check for orphan planreqs" >
+  <query>SELECT COUNT(*)=0 FROM planreq LEFT OUTER JOIN planord ON (planord_id=planreq_source_id AND planreq_source='P') WHERE (planord_id IS NULL)</query>
+  <message>One or more orphan planned requirements records (planreq) exist without associated planned order (planord).</message>
+ </prerequisite>
+ <prerequisite type="Query" name="Check for orphan planopers" >
+  <query>SELECT COUNT(*)=0 FROM planoper LEFT OUTER JOIN planord ON (planord_id=planoper_planord_id) WHERE (planord_id IS NULL)</query>
+  <message>One or more orphan planned operations records (planoper) exist without associated planned order (planord).</message>
+ </prerequisite>
