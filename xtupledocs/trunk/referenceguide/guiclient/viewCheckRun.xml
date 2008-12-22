@@ -70,20 +70,6 @@
         <variablelist>
           <varlistentry>
             <term><indexterm significance="normal">
-                <primary>check runs</primary>
-                <secondary>printing of</secondary>
-              </indexterm> <indexterm significance="normal">
-                <primary>checks</primary>
-                <secondary>printing multiple</secondary>
-              </indexterm>CHECK RUN</term>
-            <listitem>
-              <para>Select to print the Check Run, using the specified Bank
-              Account. For more information on printing Check Runs, see the
-              <xref linkend="Anchor26666" /> section.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><indexterm significance="normal">
                 <primary>checks</primary>
                 <secondary>printing individual</secondary>
               </indexterm>SELECTED CHECK</term>
@@ -97,6 +83,20 @@
                 designed to support multiple pages for one Check
                 number.</para>
               </tip>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>check runs</primary>
+                <secondary>printing of</secondary>
+              </indexterm> <indexterm significance="normal">
+                <primary>checks</primary>
+                <secondary>printing multiple</secondary>
+              </indexterm>CHECK RUN</term>
+            <listitem>
+              <para>Select to print the Check Run, using the specified Bank
+              Account. For more information on printing Check Runs, see the
+              <xref linkend="Anchor26666" /> section.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -136,26 +136,18 @@
         Memo).</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>To void a Check after it has been posted, use the right-click menu
-    option on the Check Register.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term>EDIT</term>
       <listitem>
         <para>Highlight a miscellaneous Check and then select this button to
         edit the Check. Only unprinted miscellaneous Checks may be
         edited.</para>
+        <note>
+          <para>Only unprinted miscellaneous Checks may be edited. Regular
+          Checks may not be edited.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>Only unprinted miscellaneous Checks may be edited. Regular Checks
-    may not be edited.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>DELETE</term>
       <listitem>

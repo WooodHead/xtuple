@@ -150,7 +150,7 @@
     <varlistentry>
       <term>Selected</term>
       <listitem>
-        <para>Select to Query Purchase Orders from a specific site </para>
+        <para>Select to Query Purchase Orders from a specific site</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -229,11 +229,11 @@
   you to select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewPurchaseOrder)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewPurchaseOrder)" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>To view Receipts and Returns associated with the Vendor, select the
   "Receipts and Returns" tab. The following screen will appear:</para>
@@ -273,7 +273,7 @@
       <term>Selected</term>
       <listitem>
         <para>Select to Query Purchase Order Receipts and Returns from a
-        specific site </para>
+        specific site</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -326,21 +326,21 @@
   you to select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickMarkasInvoiced)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickMarkasInvoiced)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickCorrectReceiving)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCorrectReceiving)" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>If the Receipt is not yet vouchered, then the following additional
   option will be available:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickCreateVoucher)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateVoucher)" />
   </variablelist>
   <para>To view open Payables associated with the Vendor, select the
   "Payables" tab. The following screen will appear:</para>
@@ -358,7 +358,14 @@
     <varlistentry>
       <term>Due Date</term>
       <listitem>
-        <para>Specify date parameters to Query open Payables.</para>
+        <para>Specify date parameters to query open Payables.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Open Items</term>
+      <listitem>
+        <para>Display lists A/P open items. If a Document is past due, the
+        line for that Document will display in red type.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -527,17 +534,17 @@
   select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEdit)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEdit)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewAPOpen)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAPOpen)" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewGLSeries)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewGLSeries)" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>To view Checks associated with the Vendor, select the "Checks" tab.
   The following screen will appear:</para>
