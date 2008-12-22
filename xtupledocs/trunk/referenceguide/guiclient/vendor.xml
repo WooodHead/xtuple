@@ -64,71 +64,35 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term>Address</term>
+      <term>Default</term>
       <listitem>
-        <para>Manually enter Address information in the fields below&mdash;or
-        use the browse button to select pre-existing Address information. By
-        default, this address will appear as the main address when entering
-        Purchase Orders for the Vendor.</para>
+        <para>Default settings for vendor.</para>
         <variablelist>
           <varlistentry>
-            <term>Street Address</term>
+            <term>Terms</term>
             <listitem>
-              <para>Enter the street Address for the Vendor.</para>
+              <para>Specify the default billing Terms for the Vendor.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>City</term>
+            <term>Ship Via</term>
             <listitem>
-              <para>Enter the city where the Vendor is located.</para>
+              <para>Specify default Ship Via for Vendor.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>State</term>
+            <term>Currency</term>
             <listitem>
-              <para>Enter the state where the Vendor is located.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Postal Code</term>
-            <listitem>
-              <para>Enter the Postal Code for the Vendor.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Country</term>
-            <listitem>
-              <para>Enter the country where the Vendor is located.</para>
+              <para>Specify the Currency to be used when conducting business
+              transactions with the Vendor. This option will only be visible
+              in systems configured to use multiple Currencies.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Default Terms</term>
-      <listitem>
-        <para>Specify the default billing Terms for the Vendor.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Default Ship Via</term>
-      <listitem>
-        <para>Specify default Ship Via for Vendor.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Default Currency</term>
-      <listitem>
-        <para>Specify the Currency to be used when conducting business
-        transactions with the Vendor. This option will only be visible in
-        systems configured to use multiple Currencies.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>vendors</primary>
-          <secondary>FOB terms for</secondary>
-        </indexterm> <indexterm significance="normal">
+      <term> <indexterm significance="normal">
           <primary>free on board</primary>
           <secondary>at receiving site</secondary>
         </indexterm> <indexterm significance="normal">
@@ -149,6 +113,8 @@
               destination.</para>
             </listitem>
           </varlistentry>
+        </variablelist>
+        <variablelist>
           <varlistentry>
             <term>Vendor Specific FOB</term>
             <listitem>
@@ -169,15 +135,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>May only Sell Items defined by an Item Source</term>
-      <listitem>
-        <para>Select if you want to restrict Items purchased from the Vendor
-        to Items having a defined Item Source. If not selected, you may choose
-        from all purchased Items when entering a Purchase Order Line
-        Item.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Qualified</term>
       <listitem>
         <para>Select this flag to indicate that the Vendor is a trusted
@@ -185,7 +142,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Check for matching V/O and P/O amounts</term>
+      <term>Check for matching Voucher and Purchase Order amounts</term>
       <listitem>
         <para>Select to perform Voucher matching when entering Voucher Items
         for the Vendor. If selected, users will be presented with a warning
@@ -193,6 +150,15 @@
         corresponding Purchase Order Item amount for the Vendor. This option
         will not prevent users from proceeding. Instead, the warning message
         simply alerts users that a mis-match exists.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>May only Sell Items defined by an Item Source</term>
+      <listitem>
+        <para>Select if you want to restrict Items purchased from the Vendor
+        to Items having a defined Item Source. If not selected, you may choose
+        from all purchased Items when entering a Purchase Order Line
+        Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -286,9 +252,9 @@
       <listitem>
         <para>Enables you to edit highlighted Vendor Tax Registration Numbers.
         The edit screen is the same as that for creating a new Vendor Tax
-        Registration Number&mdash;except that when editing, the fields will
-        contain Vendor Tax Registration Number information. Double-clicking on
-        a Vendor Tax Registration Number will also bring you to the editing
+        Registration Number—except that when editing, the fields will contain
+        Vendor Tax Registration Number information. Double-clicking on a
+        Vendor Tax Registration Number will also bring you to the editing
         screen.</para>
       </listitem>
     </varlistentry>
@@ -391,11 +357,10 @@
   the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Primary Contact</term>
+      <term>Contact 1</term>
       <listitem>
-        <para>Manually enter Contact information in the fields below&mdash;or
-        use the browse button to select pre-existing Contact
-        information.</para>
+        <para>Manually enter Contact information in the fields below—or use
+        the browse button to select pre-existing Contact information.</para>
         <variablelist>
           <varlistentry>
             <term>Title</term>
@@ -443,11 +408,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Secondary Contact</term>
+      <term>Contact 2</term>
       <listitem>
-        <para>Manually enter Contact information in the fields below&mdash;or
-        use the browse button to select pre-existing Contact
-        information.</para>
+        <para>Manually enter Contact information in the fields below—or use
+        the browse button to select pre-existing Contact information.</para>
         <variablelist>
           <varlistentry>
             <term>Title</term>
@@ -511,9 +475,49 @@
   options:</para>
   <variablelist>
     <varlistentry>
-      <term>Vendor Addresses</term>
+      <term>Main</term>
       <listitem>
-        <para>Display lists Vendor Addresses for the specified Vendor.</para>
+        <para>Select to present primary address used by vendor. Manually enter
+        Address information in the fields below—or use the browse button to
+        select pre-existing Address information. By default, this address will
+        appear as the main address when entering Purchase Orders for the
+        Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Alternates</term>
+      <listitem>
+        <para>Select to list various alternate addresses for vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Street address</term>
+      <listitem>
+        <para>Enter the street Address for the Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>City </term>
+      <listitem>
+        <para>Enter the city where the Vendor is located.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>State </term>
+      <listitem>
+        <para>Enter the state where the Vendor is located.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Postal Code</term>
+      <listitem>
+        <para>Enter the Postal Code for the Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Country</term>
+      <listitem>
+        <para>Enter the country where the Vendor is located.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -536,8 +540,8 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Vendor Address. The edit screen
-        is the same as that for creating a new Vendor Address&mdash;except
-        that when editing, the fields will contain Vendor Address information.
+        is the same as that for creating a new Vendor Address—except that when
+        editing, the fields will contain Vendor Address information.
         Double-clicking on a Vendor Address will also bring you to the editing
         screen.</para>
       </listitem>
@@ -595,8 +599,8 @@
     <varlistentry>
       <term>Address</term>
       <listitem>
-        <para>Manually enter Address information in the fields below&mdash;or
-        use the browse button to select pre-existing Address information. By
+        <para>Manually enter Address information in the fields below—or use
+        the browse button to select pre-existing Address information. By
         default, this address will appear as the main address when entering
         Purchase Orders for the Vendor.</para>
         <variablelist>
@@ -636,9 +640,8 @@
     <varlistentry>
       <term>Contact</term>
       <listitem>
-        <para>Manually enter Contact information in the fields below&mdash;or
-        use the browse button to select pre-existing Contact
-        information.</para>
+        <para>Manually enter Contact information in the fields below—or use
+        the browse button to select pre-existing Contact information.</para>
         <variablelist>
           <varlistentry>
             <term>Title</term>
@@ -798,7 +801,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add purchasing Notes related to a Vendor, select the "P/O Notes"
+  <para>To add purchasing Notes related to a Vendor, select the "Order Notes"
   tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -812,9 +815,9 @@
   with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>P/O Notes</term>
+      <term>Order Notes</term>
       <listitem>
-        <para>Select the "P/O Notes" tab to access this scrolling text field
+        <para>Select the "Order Notes" tab to access this scrolling text field
         with word-wrapping for entering purchasing Notes related to the
         Vendor.</para>
       </listitem>
@@ -840,21 +843,34 @@
   </variablelist>
   <para role="standard">The Electronic Data Interchange (EDI) system enables
   you to exchange information electronically with your Vendors. To set up a
-  Vendor to receive Purchase Orders via email, select the "EDI" tab. The
-  following screen will appear:</para>
+  Vendor to receive Purchase Orders via email, select the "Transmission" tab.
+  The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/vendor_ediTab.png" />
         </imageobject>
-        <caption>Add Vendor EDI Information</caption>
+        <caption>Add Vendor Transmission</caption>
       </mediaobject>
     </screenshot></para>
   <para>When setting up a Vendor to receive Purchase Orders via email, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Allow Email P/O Delivery</term>
+      <term>Purchase Orders</term>
+      <listitem>
+        <para>Select to specify transmission details for Purchase
+        Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Checks</term>
+      <listitem>
+        <para>Select to specify transmission details for Checks.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Email Purchase Order Delivery</term>
       <listitem>
         <para>Select to enable Vendor to receive Purchase Orders via
         email.</para>
@@ -912,23 +928,12 @@
         accompany any Purchase Orders emailed to the Vendor.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
     <varlistentry>
-      <term>CANCEL</term>
+      <term>Send Email as HTML</term>
       <listitem>
-        <para>Closes the screen without setting up a Vendor to receive
-        Purchase Orders via email, returning you to the application
-        desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Enables a Vendor to receive Purchase Orders via email.</para>
+        <para>Select to send Email in HTML format.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+  <para></para>
 </section>
