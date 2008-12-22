@@ -144,26 +144,26 @@
     <varlistentry>
       <term>All Sites</term>
       <listitem>
-        <para>Select to Query Purchase Orders from all sites.</para>
+        <para>Select to display Purchase Orders from all sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Selected</term>
       <listitem>
-        <para>Select to Query Purchase Orders from a specific site</para>
+        <para>Select to display Purchase Orders from a specific site</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Start Date</term>
       <listitem>
-        <para>Queries Purchase orders dated on or after date specified. Date
+        <para>Displays Purchase orders dated on or after date specified. Date
         type dependent on radio button selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem>
-        <para>Queries Purchase Orders dated on or before date specified. Date
+        <para>Displays Purchase Orders dated on or before date specified. Date
         type dependent on radio button selected.</para>
         <variablelist>
           <varlistentry>
@@ -197,14 +197,14 @@
     <varlistentry>
       <term>Show Closed</term>
       <listitem>
-        <para>Select to include closed Purchase Orders in Query.</para>
+        <para>Select to include closed Purchase Orders in display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Where Item Description contains</term>
       <listitem>
         <para>Specify key word or phrase from the Purchase Order description
-        to use as a parameter for Query.</para>
+        to use as a parameter for display.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -265,43 +265,43 @@
     <varlistentry>
       <term>All Sites</term>
       <listitem>
-        <para>Select to Query Purchase Order Receipts and Returns from all
+        <para>Select to display Purchase Order Receipts and Returns from all
         sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Selected</term>
       <listitem>
-        <para>Select to Query Purchase Order Receipts and Returns from a
+        <para>Select to display Purchase Order Receipts and Returns from a
         specific site</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Start Date</term>
       <listitem>
-        <para>Queries Purchase Order Receipts and Returns created on or after
+        <para>Displays Purchase Order Receipts and Returns created on or after
         date specified.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem>
-        <para>Queries Purchase Order Receipts and Returns created on or before
-        date specified.</para>
+        <para>displays Purchase Order Receipts and Returns created on or
+        before date specified.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Show Unvouchered</term>
       <listitem>
         <para>Includes Unvouchered Purchase Order Receipts and Returns in
-        Query.</para>
+        display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Show Purchase Price Variances</term>
       <listitem>
-        <para>Includes Purchase Cost, Receiving Cost, and Value in Purchase
-        Order Receipts and Returns Query results.</para>
+        <para>Displays Purchase Cost, Receiving Cost, and Value in Purchase
+        Order Receipts and Returns in results.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -497,19 +497,19 @@
     <varlistentry>
       <term>Start Date</term>
       <listitem>
-        <para>Queries Documents created on or after date specified.</para>
+        <para>Displays Documents created on or after date specified.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem>
-        <para>Queries Documents created on or before date specified.</para>
+        <para>Displays Documents created on or before date specified.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Find Vend. Invoice #</term>
       <listitem>
-        <para>Enter specific vendor invoice number to Query.</para>
+        <para>Enter specific vendor invoice number to display.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -562,25 +562,27 @@
     <varlistentry>
       <term>Bank Account</term>
       <listitem>
-        <para>Select Bank Account from drop down list to Query.</para>
+        <para>Select Bank Account whose Checks you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Check Number</term>
       <listitem>
-        <para>Enter specific Check Number to Query.</para>
+        <para>Enter specific Check Number to include in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Start Date</term>
       <listitem>
-        <para>Queries checks created on or after date specified.</para>
+        <para>Checks created on or after specified date will be included in
+        the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem>
-        <para>Queries checks created on or before date specified.</para>
+        <para>Queries checks created on or before specified date will be
+        included in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
