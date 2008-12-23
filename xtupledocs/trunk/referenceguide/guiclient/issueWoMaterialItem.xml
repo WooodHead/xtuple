@@ -15,8 +15,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/issueWoMaterialItem.png"
-                     />
+          <imagedata fileref="images/issueWoMaterialItem.png" />
         </imageobject>
         <caption>Issue Work Order Material Item</caption>
       </mediaobject>
@@ -59,6 +58,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Method</term>
+      <listitem>
+        <para>Indicates whether selected Work Order is an Assembly or
+        Disassembly Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Comp. Item Number</term>
       <listitem>
         <para>Select one of the specified Item's component Items whose issue
@@ -80,14 +86,26 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Total Qty. Required</term>
+      <term>Qty. Per</term>
+      <listitem>
+        <para>Quantity equal to one unit of the component Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Required</term>
       <listitem>
         <para>The total quantity of the component Item required by the Work
         Order will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Qty. Issued to Date</term>
+      <term>Scrap %</term>
+      <listitem>
+        <para>Percentage of total material scrapped.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Issued </term>
       <listitem>
         <para>The total quantity of the component Item issued to the Work
         Order to date will be displayed.</para>
@@ -138,7 +156,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>ISSUE MATERIAL</term>
+      <term>POST</term>
       <listitem>
         <para>Issues the component Item in the quantity specified.</para>
       </listitem>
