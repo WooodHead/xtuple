@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518905">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>issuing materials in batch mode</secondary>
     </indexterm> <indexterm significance="normal">
@@ -16,16 +16,14 @@
   <para>To issue Work Order Material Requirement Items simultaneously in a
   batch, select the "Issue W/O Material Batch" option. The following screen
   will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/issueWoMaterialBatch.png"/>
+          <imagedata fileref="images/issueWoMaterialBatch.png" />
         </imageobject>
         <caption>Issue Work Order Material Batch</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When issuing Work Order Material Requirement Items in a batch, you are
   presented with the following options:</para>
   <variablelist>
@@ -64,6 +62,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Method</term>
+      <listitem>
+        <para>Indicates whether selected Work Order is an Assembly or
+        Disassembly Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Issue Items not on Pick List</term>
       <listitem>
         <para>Select to indicate that non-Pick List Items should be
@@ -75,14 +80,14 @@
       <listitem>
         <para>Display lists Work Order Material Requirements. The display is
         color-coded for ease of use. If an Item's issue method is "Pull," then
-        that Item&mdash;and the entire row it sits on&mdash;will appear in blue type.
-        The blue type indicates that the batch issue utility will not affect
-        these Items. By definition, pulled Items are backflushed, not issued.
-        However, if an Item's issue method is "Push," then that Item&mdash;and the
-        row it sits on&mdash;will appear in black type. Rows with black type are
+        that Item—and the entire row it sits on—will appear in blue type. The
+        blue type indicates that the batch issue utility will not affect these
+        Items. By definition, pulled Items are backflushed, not issued.
+        However, if an Item's issue method is "Push," then that Item—and the
+        row it sits on—will appear in black type. Rows with black type are
         affected by the batch issue utility. One other color may also appear.
         If the quantity required by the Work Order exceeds the Quantity on
-        Hand&mdash;meaning there is an Inventory shortage&mdash;the value in the "Short"
+        Hand—meaning there is an Inventory shortage—the value in the "Short"
         column will display in red.</para>
       </listitem>
     </varlistentry>
@@ -103,7 +108,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>ISSUE MATERIALS</term>
+      <term>POST</term>
       <listitem>
         <para>Issues all pushed Work Order Material Requirements for the
         selected Work Order.</para>
