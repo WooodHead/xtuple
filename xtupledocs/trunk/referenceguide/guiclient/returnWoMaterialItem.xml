@@ -15,8 +15,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/returnWoMaterialItem.png"
-                     />
+          <imagedata fileref="images/returnWoMaterialItem.png" />
         </imageobject>
         <caption>Return Work Order Material Item</caption>
       </mediaobject>
@@ -56,6 +55,13 @@
       <listitem>
         <para>Displays Work Order Status automatically when Work Order Number
         is entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Method</term>
+      <listitem>
+        <para>Indicates whether selected Work Order is an Assembly or
+        Disassembly Work Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
