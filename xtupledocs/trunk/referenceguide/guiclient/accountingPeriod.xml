@@ -26,19 +26,37 @@
         <para>Enter a name to describe the Accounting Period. This name will
         be used as the Period's column header text when a Financial Report is
         generated. If not specified, then the Period's start and end dates
-        will be used as the column header text.</para>
+        will be used as the column header text. When a new period is added,
+        the beginning and end dates default to the next logical month. Dates
+        are not editable on periods with adjacent periods or when trial
+        balance activity exists.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Start Date</term>
       <listitem>
-        <para>Specify the start date for the Accounting Period.</para>
+        <para>Specify the start date for the Accounting Period. Start Date is
+        only editable if all periods are open.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem>
-        <para>Specify the end date for the Accounting Period.</para>
+        <para>Specify the end date for the Accounting Period. End Date is only
+        editable on a period when it is the last period and there is no trial
+        balance activity in it.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Fiscal Year</term>
+      <listitem>
+        <para>Select Fiscal Year from the drop down list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Quarter</term>
+      <listitem>
+        <para>Select Quarter from the drop down list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -47,10 +65,9 @@
         <para>Select to indicate the Accounting Period is closed. You may not
         close an Accounting Period until a subsequent Period has been created.
         If an Accounting Period is closed, Trial Balances for the Period may
-        not be updated&mdash;except for Accounts which specifically allow
-        posting into closed Periods. Reopening a closed Accounting Period will
-        cause any pending Account activity to be posted into the
-        Period.</para>
+        not be updated—except for Accounts which specifically allow posting
+        into closed Periods. Reopening a closed Accounting Period will cause
+        any pending Account activity to be posted into the Period.</para>
       </listitem>
     </varlistentry>
   </variablelist>
