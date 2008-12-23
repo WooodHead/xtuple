@@ -24,7 +24,7 @@
     <para>If Checks being printed contain reference lines which spill over and
     exceed one standard page, then consider using the report definition
     CheckMultiPage.xml. This Check Form is designed to support multiple pages
-    for one Check number. </para>
+    for one Check number.</para>
   </tip>
   <para>When printing an individual Check, you are presented with the
   following options:</para>
@@ -36,11 +36,17 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Check #</term>
+      <term>Check </term>
       <listitem>
         <para>Specify the Check Number you want to print. Menu will list
         Checks from prepared Check Runs associated with the specified Bank
         Account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Next Check #</term>
+      <listitem>
+        <para>Specify the next Check number.</para>
       </listitem>
     </varlistentry>
   </variablelist>
