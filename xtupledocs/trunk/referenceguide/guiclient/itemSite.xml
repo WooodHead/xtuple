@@ -84,8 +84,8 @@
   <note>
     <para>Purchase Requests created, as specified above, to meet Sales Order
     and Work Order demands will be created regardless of an Item's
-    Availability&mdash;and also regardless of whether Material Requirements
-    Planning (MRP) is being run in parallel.</para>
+    Availability—and also regardless of whether Material Requirements Planning
+    (MRP) is being run in parallel.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -103,8 +103,8 @@
   </variablelist>
   <note>
     <para>Work Orders created, as specified above, to meet Sales Order demand
-    will be created regardless of an Item's Availability&mdash;and also
-    regardless of whether Material Requirements Planning (MRP) is being run in
+    will be created regardless of an Item's Availability—and also regardless
+    of whether Material Requirements Planning (MRP) is being run in
     parallel.</para>
   </note>
   <variablelist>
@@ -448,9 +448,9 @@
   </variablelist>
   <note>
     <para>Running Material Requirements Planning (MRP) on your system consists
-    entirely of running the Create Planned Replenishment Orders
-    screens&mdash;either by Item or by Planner Code. As MRP runs, the Planned
-    Replenishment Orders are generated automatically.</para>
+    entirely of running the Create Planned Replenishment Orders screens—either
+    by Item or by Planner Code. As MRP runs, the Planned Replenishment Orders
+    are generated automatically.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -462,7 +462,7 @@
         will be created when Material Requirements Planning (MRP) is run. The
         Replenishment Order quantity will be equal to the quantity required to
         return Planned Availability to either the Reorder Level or the Order
-        Up To quantity&mdash;whichever is greater.</para>
+        Up To quantity—whichever is greater.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -509,10 +509,10 @@
         for Planned Replenishment Orders when MRP is run. The setting does not
         apply to manual Orders, but to Planned Orders only. When a maximum
         Order quantity is specified, MRP will ignore Order multiples and
-        minimum Order specifications&mdash;focusing instead solely on the
-        maximum Order setting. For example, if the maximum Order quantity is
-        set to 10 and there is demand for 17, then Planned Orders of 10 and 7
-        would be generated when MRP is run.</para>
+        minimum Order specifications—focusing instead solely on the maximum
+        Order setting. For example, if the maximum Order quantity is set to 10
+        and there is demand for 17, then Planned Orders of 10 and 7 would be
+        generated when MRP is run.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -548,17 +548,17 @@
     <varlistentry role="openmfg">
       <term>Group MPS/MRP Orders Every</term>
       <listitem>
-        <para>Specify the length of a period&mdash;measured in
-        days&mdash;within which MPS or MRP Planned Orders will be grouped
-        together (i.e, consolidated) to meet scheduled demand for the period.
-        This functionality serves to limit the total number of Planned Orders,
-        thereby simplifying order processing. For example, to consolidate
-        demand for an Item Site into 30-day buckets, set the value to "30."
-        When MRP is run, the system will automatically consolidate all demand
-        falling within the 30-day horizon into a single Planned Purchase Order
-        or Planned Work Order. The grouping of Planned Orders moves forward in
-        time, meaning the system will create as many buckets as will fit
-        within the cutoff date specified when MRP is run.</para>
+        <para>Specify the length of a period—measured in days—within which MPS
+        or MRP Planned Orders will be grouped together (i.e, consolidated) to
+        meet scheduled demand for the period. This functionality serves to
+        limit the total number of Planned Orders, thereby simplifying order
+        processing. For example, to consolidate demand for an Item Site into
+        30-day buckets, set the value to "30." When MRP is run, the system
+        will automatically consolidate all demand falling within the 30-day
+        horizon into a single Planned Purchase Order or Planned Work Order.
+        The grouping of Planned Orders moves forward in time, meaning the
+        system will create as many buckets as will fit within the cutoff date
+        specified when MRP is run.</para>
         <para>The initial grouping of Planned Orders is handled differently
         than subsequent buckets. The following formula specifies how the date
         range for the initial period is determined:</para>
@@ -610,16 +610,16 @@
         Demand Time Fence (also known as the demand fence) is used by the
         Master Production Scheduling (MPS) system to evaluate when forecasted
         demand (i.e., from Production Plans) should be used in place of actual
-        demand (i.e., from Sales Orders)—and vice versa. Measured in days,
-        the Demand Time Fence is the period of time extending from the current
-        day to the number of days into the future as specified in this field.
-        The Demand Time Fence option applies only to those Items which
-        currently appear on a released Production Plan. If demand for these
-        Items falls within the Demand Time Fence period, then the Forecast
-        will be ignored. If demand falls outside the Demand Time Fence, then
-        the larger of actual or forecasted demand will be used. MPS responds
-        to the demand it locates by creating firm Planned Orders for the
-        required quantities.</para>
+        demand (i.e., from Sales Orders)—and vice versa. Measured in days, the
+        Demand Time Fence is the period of time extending from the current day
+        to the number of days into the future as specified in this field. The
+        Demand Time Fence option applies only to those Items which currently
+        appear on a released Production Plan. If demand for these Items falls
+        within the Demand Time Fence period, then the Forecast will be
+        ignored. If demand falls outside the Demand Time Fence, then the
+        larger of actual or forecasted demand will be used. MPS responds to
+        the demand it locates by creating firm Planned Orders for the required
+        quantities.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -634,6 +634,13 @@
         Vendor-by-Vendor basis, using Item Source masters. Material
         Requirements Planning (MRP) will consider Lead Times when calculating
         Planned Order start dates when MRP is run.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>First Group</term>
+      <listitem>
+        <para>Select to enable MRP to process those orders with lead times on
+        the first grouping.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
