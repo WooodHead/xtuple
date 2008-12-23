@@ -167,3 +167,31 @@ $$
 
 DROP TRIGGER aropenTrigger ON aropen;
 CREATE TRIGGER aropenTrigger BEFORE INSERT OR UPDATE ON aropen FOR EACH ROW EXECUTE PROCEDURE _aropenTrigger();
+
+CREATE OR REPLACE FUNCTION _aropenAfterTrigger() RETURNS TRIGGER AS $$
+DECLARE
+  _openAmount NUMERIC;
+  _p RECORD;
+  _lateCount INTEGER := 0;
+  _graceDays INTEGER;
+  _checkLate BOOLEAN := false;
+  _checkLimit BOOLEAN := false;
+  _id INTEGER;
+BEGIN
+
+-- If metric is set then auto close any associated incidents when AR is closed
+  IF (fetchMetricBool('AutoCloseARIncident')) THEN
+    IF (NEW.aropen_open = FALSE) THEN
+      UPDATE incdt SET incdt_status='L' WHERE (incdt_aropen_id=OLD.aropen_id);
+    END IF;
+  END IF;
+
+  RETURN NEW;
+
+END;
+$$
+ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'aropenAfterTrigger');
+CREATE TRIGGER aropenAfterTrigger AFTER INSERT OR UPDATE ON aropen FOR EACH ROW EXECUTE PROCEDURE _aropenAfterTrigger();
+
