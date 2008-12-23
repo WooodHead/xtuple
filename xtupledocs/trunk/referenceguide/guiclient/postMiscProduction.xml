@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519141">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>production</primary>
       <secondary>posting miscellaneous</secondary>
     </indexterm> <indexterm significance="normal">
@@ -16,17 +16,14 @@
   manufactured Items is required. To post miscellaneous production, select the
   "Post Miscellaneous Production" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/postMiscProduction.png"/>
+          <imagedata fileref="images/postMiscProduction.png" />
         </imageobject>
-        <caption>Post Miscellaneous Work Order
-        Production</caption>
+        <caption>Post Miscellaneous Work Order Production</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>If you want to disassemble a manufactured Item and return the
     component Items to Inventory, simply enter a negative quantity for the
@@ -47,6 +44,18 @@
       <term>UOM</term>
       <listitem>
         <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Assembly</term>
+      <listitem>
+        <para>Select to identify Work Order as Assembly order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Disassembly</term>
+      <listitem>
+        <para>Select to identify Work Order as Disassembly order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -98,9 +107,8 @@
     <varlistentry>
       <term>Immediate Transfer to Site</term>
       <listitem>
-        <para>Select to transfer miscellaneous production to specified
-        Site. Specify the Site you want to transfer production
-        to.</para>
+        <para>Select to transfer miscellaneous production to specified Site.
+        Specify the Site you want to transfer production to.</para>
       </listitem>
     </varlistentry>
   </variablelist>
