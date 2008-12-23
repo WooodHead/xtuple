@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>encryption</primary>
+      <secondary>for credit cards</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>credit cards</primary>
+      <secondary>encryption for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>encryption</primary>
+      <secondary>for ach</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>ach</primary>
+      <secondary>encryption for</secondary>
+    </indexterm>Encryption</title>
+  <para>You must have an encryption key defined to successfully process Credit
+  Cards and ACH transactions in xTuple ERP. To define the name of the
+  encryption key and its location in your system, select the "Encryption"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureEncryption.png" />
+        </imageobject>
+        <caption>Configure Encryption</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>All users on your system who need access to Credit Card and ACH
+    information must use the same key file. The key file can be a simple text
+    file with any contents whatsoever. It should be stored at the same level
+    as the xTuple executable file. For Mac users, this would be within the
+    MacOS directory inside the Package Contents for your xTuple executable.
+    The key file is not stored in the database.</para>
+  </tip>
+  <para>When establishing the encryption key settings for your Credit Card and
+  ACH configuration, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Key File Name</term>
+      <listitem>
+        <para>Enter the name of your key file. The key file is an encryption
+        seed file, which enables you to read encrypted Credit Card and ACH
+        information. The key file is required regardless of the Verification
+        Service used at your site. The contents of the key file should be at
+        least 16 characters long and use a combination of upper and lower case
+        letters and numbers. Special characters should not be used.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If you change the contents of your key file after it has already
+    been in production, steps must be taken to convert any data encrypted up
+    to that point. The function "alterencrypt" must be used to handle the
+    conversion. Please contact your Systems Administrator for more
+    information.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Windows Location</term>
+      <listitem>
+        <para>Specify the directory path any Windows machine on your system
+        would use to access the key file. All users and machines on the system
+        must use the same key file. To ensure consistency and security, the
+        file should be stored in a central location.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If you name the key file "OpenMFG.key" and place it in the
+    installation directory, then you do not need to enter the path.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Linux Location</term>
+      <listitem>
+        <para>Specify the directory path any Linux machine on your system
+        would use to access the key file. All users and machines on the system
+        must use the same key file. To ensure consistency and security, the
+        file should be stored in a central location.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Mac Location</term>
+      <listitem>
+        <para>Specify the directory path any Mac machine on your system would
+        use to access the key file. All users and machines on the system must
+        use the same key file. To ensure consistency and security, the file
+        should be stored in a central location.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
