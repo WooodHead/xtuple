@@ -1,36 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518968">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>work order material requirements</primary>
       <secondary>returning in batch mode</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>batch mode</primary>
       <secondary>return w/o materials using</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>return material batch from</secondary>
     </indexterm>Return W/O Material Batch</title>
-  <para>To return Work Order materials to Inventory
-  simultaneously in a batch, select the "Return W/O Material Batch" option.
-  The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To return Work Order materials to Inventory simultaneously in a batch,
+  select the "Return W/O Material Batch" option. The following screen will
+  appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/returnWoMaterialBatch.png"/>
+          <imagedata fileref="images/returnWoMaterialBatch.png" />
         </imageobject>
         <caption>Return Work Order Material Batch</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When returning Work Order materials to Inventory
-  simultaneously in a batch, you are presented with the following
-  options:</para>
+    </screenshot></para>
+  <para>When returning Work Order materials to Inventory simultaneously in a
+  batch, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Work Order #</term>
@@ -66,9 +61,16 @@
         is entered into "Work Order #" field.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Method</term>
+      <listitem>
+        <para>Indicates whether selected Work Order is an Assembly or
+        Disassembly Work Order.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -78,7 +80,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>RETURN MATERIALS</term>
+      <term>POST</term>
       <listitem>
         <para>Returns the Work Order's materials to Inventory simultaneously
         in a batch.</para>
