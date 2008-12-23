@@ -2,7 +2,8 @@
 -- Name: detail
 -- Notes: used by dspQuotesByItem
 
-SELECT quitem.*, quhead.*,
+SELECT quitem_id, quhead_id,
+       quitem.*, quhead.*,
        cust_number, cust_name,
        'qty' AS quitem_qtyord_xtnumericrole
 FROM quitem JOIN quhead ON (quhead_id=quitem_quhead_id)
