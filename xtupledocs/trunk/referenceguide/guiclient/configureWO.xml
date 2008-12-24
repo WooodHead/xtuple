@@ -84,7 +84,7 @@
         exploded manually.</para>
       </listitem>
     </varlistentry>
-    <varlistentry role="openmfg">
+    <varlistentry role="manufacturing">
       <term>Auto fill Post Operation Qty. to Balance</term>
       <listitem>
         <para>Check this option if you want quantities to be automatically be
@@ -182,7 +182,7 @@
               Order production is posted.</para>
             </listitem>
           </varlistentry>
-          <varlistentry role="openmfg">
+          <varlistentry role="manufacturing">
             <term>Post Labor Variances</term>
             <listitem>
               <para>Select to post labor variances whenever Work Order
@@ -228,7 +228,7 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para role="openmfg">The appropriate reporting selections must be made in
+    <para role="manufacturing">The appropriate reporting selections must be made in
     the Bill of Operations to ensure that labor and overhead Costs associated
     with setup and run time Operations are reported.</para>
   </tip>
@@ -246,7 +246,7 @@
               Shop Floor Workbench.</para>
             </listitem>
           </varlistentry>
-          <varlistentry role="openmfg">
+          <varlistentry role="manufacturing">
             <term>Operations</term>
             <listitem>
               <para>Select to require an Operations-posting approach on the
@@ -257,7 +257,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <note role="openmfg">
+  <note role="manufacturing">
     <para>The Shop Floor Workbench cannot be used in a dual mode. The
     Workbench must be configured to use either a Production-posting or an
     Operations-posting approach.</para>
