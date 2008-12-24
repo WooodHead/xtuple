@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section519080" role="openmfg">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519080" role="manufacturing">
   <title>Reorder Exceptions by Planner Code</title>
   <para>A Reorder Exception is an indication that an Item Site's projected
   Availability will drop below the Reorder Level for that Item Site. To view a
   list of Items requiring Orders to correct projected deficits, select the
   "Reorder Exceptions by Planner Code" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspReorderExceptionsByPlannerCode.png"/>
+          <imagedata fileref="images/dspReorderExceptionsByPlannerCode.png" />
         </imageobject>
-        <caption>Reorder Exceptions by Planner
-        Code</caption>
+        <caption>Reorder Exceptions by Planner Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Reorder Exceptions by Planner Code, you are presented
   with the following options:</para>
   <variablelist>
@@ -67,8 +65,8 @@
     <varlistentry>
       <term>Selected</term>
       <listitem>
-        <para>Specify Site whose Reorder Expedite Exceptions by Planner
-        Code you want to display.</para>
+        <para>Specify Site whose Reorder Expedite Exceptions by Planner Code
+        you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -106,12 +104,18 @@
   <para>Right-clicking on an Item in the Expedite Exceptions display enables
   you to select from the following options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewRunningAvailability)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewRunningAvailability)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>If the selected Item is a manufactured Item, the following additional
   option will also be available:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickCreateWorkOrder)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateWorkOrder)" />
   </variablelist>
 </section>

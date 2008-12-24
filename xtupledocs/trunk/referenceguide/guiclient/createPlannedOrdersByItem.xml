@@ -2,15 +2,15 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section537828" role="openmfg">
+<section id="Section537828" role="manufacturing">
   <title>Run MRP by Item</title>
   <para>When you run MRP by Item, you are running the Material Requirements
   Planning (MRP) system. This utility creates Planned Replenishment Orders to
   meet existing Sales Order and Work Order demand. Replenishment Orders will
   be created whenever a Planned Availability for an Item Site falls below its
   Reorder Level. The quantity of the Replenishment Order will be enough to
-  restore Planned Availability back to the Reorder Level—or to the Order Up To
-  (OUT) Level, if the OUT Level is greater.</para>
+  restore Planned Availability back to the Reorder Level&mdash;or to the Order
+  Up To (OUT) Level, if the OUT Level is greater.</para>
   <tip>
     <para>When running MRP by Item for manufactured Items, the system
     generates Planned Work Orders only. If you want to also generate Planned

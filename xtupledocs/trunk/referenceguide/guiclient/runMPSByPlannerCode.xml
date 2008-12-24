@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section537794" role="openmfg">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section537794" role="manufacturing">
   <title>Run MPS by Planner Code</title>
   <para>When you run MPS by Planner Code, you are running the Master
   Production Scheduling (MPS) system. This utility creates firm Planned Orders
@@ -25,8 +26,8 @@
     </listitem>
     <listitem>
       <para>Outside the Demand Time Fence, the system will create Planned
-      Orders for whichever demand source is greater&mdash;that is, actual demand or
-      forecasted demand</para>
+      Orders for whichever demand source is greater&mdash;that is, actual
+      demand or forecasted demand</para>
     </listitem>
   </orderedlist>
   <tip>
@@ -36,16 +37,14 @@
   </tip>
   <para>To run MPS by Planner Code, select the "Run MPS by Planner Code"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/runMPSByPlannerCode.png"/>
+          <imagedata fileref="images/runMPSByPlannerCode.png" />
         </imageobject>
         <caption>Run MPS by Planner Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>Only Items designated as MPS Items will have Planned Orders created
     for them when MPS is run. By default, MPS generates firm Planned
@@ -102,9 +101,9 @@
   </variablelist>
   <tip>
     <para>If you schedule an MRP or MPS job submitted to the Batch Manager to
-    run on a periodic basis&mdash;daily, weekly, monthly&mdash;the cutoff date used for
-    the run will automatically be updated by the number of days in the
-    specified reschedule interval (Day = +1, Week = +7, and Month =
+    run on a periodic basis&mdash;daily, weekly, monthly&mdash;the cutoff date
+    used for the run will automatically be updated by the number of days in
+    the specified reschedule interval (Day = +1, Week = +7, and Month =
     +30).</para>
   </tip>
   <para>To the far right of the screen, the following buttons are

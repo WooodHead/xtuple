@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section537991" role="openmfg">
+<section id="Section537991" role="manufacturing">
   <title>Run Buffer Status by Item</title>
   <para>When you run buffer status by Item, you are running the Constraint
   Management system. This utility, when it is run, scans through your data and
@@ -22,8 +22,8 @@
     Eliyahu Goldratt.</para>
   </note>
   <para>After the buffer status utility has been run, you may view the
-  Constraint Management displays which pertain to the Item&mdash;and then decide
-  whether to take immediate action based on the newly-updated status
+  Constraint Management displays which pertain to the Item&mdash;and then
+  decide whether to take immediate action based on the newly-updated status
   value.</para>
   <para>To run buffer status by Item, select the "Run Buffer Status by Item"
   option. The following screen will appear:</para>
@@ -54,8 +54,7 @@
     <varlistentry>
       <term>Site</term>
       <listitem>
-        <para>Specify Site where buffer status update should
-        occur.</para>
+        <para>Specify Site where buffer status update should occur.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -79,7 +78,8 @@
     <varlistentry>
       <term>SUBMIT</term>
       <listitem>
-        <para>Select to submit the buffer status update to the Batch Manager.</para>
+        <para>Select to submit the buffer status update to the Batch
+        Manager.</para>
       </listitem>
     </varlistentry>
   </variablelist>

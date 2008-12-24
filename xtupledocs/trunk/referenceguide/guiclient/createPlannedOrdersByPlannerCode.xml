@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section551404" role="openmfg">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section551404" role="manufacturing">
   <title>Run MRP by Planner Code</title>
   <para>When you run MRP by Planner Code, you are running the Material
   Requirements Planning (MRP) system. This utility creates Planned
@@ -19,16 +20,14 @@
   </note>
   <para>To run MRP by Planner Code, select the "Run MRP by Planner Code"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/createPlannedOrdersByPlannerCode.png"/>
+          <imagedata fileref="images/createPlannedOrdersByPlannerCode.png" />
         </imageobject>
         <caption>Run MRP by Planner Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>The system deletes any non-firmed Planned Orders when MRP is run. If
     demand for the deleted Planned Orders still exists, the Orders will be
@@ -84,15 +83,14 @@
   </variablelist>
   <tip>
     <para>If you schedule an MRP or MPS job submitted to the Batch Manager to
-    run on a periodic basis&mdash;daily, weekly, monthly&mdash;the cutoff date used for
-    the run will automatically be updated by the number of days in the
-    specified reschedule interval (Day = +1, Week = +7, and Month =
+    run on a periodic basis&mdash;daily, weekly, monthly&mdash;the cutoff date
+    used for the run will automatically be updated by the number of days in
+    the specified reschedule interval (Day = +1, Week = +7, and Month =
     +30).</para>
   </tip>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>firmed orders</primary>
           <secondary>deletion of</secondary>
         </indexterm>Delete Existing Firmed MRP Orders</term>

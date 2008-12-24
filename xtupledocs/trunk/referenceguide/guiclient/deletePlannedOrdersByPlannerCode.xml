@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section518665" role="openmfg">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518665" role="manufacturing">
   <title>Delete Planned Orders by Planner Code</title>
   <para>To delete Planned Orders by Planner Code, select the "Delete Planned
   Orders by Planner Code" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/deletePlannedOrdersByPlannerCode.png"/>
+          <imagedata fileref="images/deletePlannedOrdersByPlannerCode.png" />
         </imageobject>
-        <caption>Delete Planned Orders by Planner
-        Code</caption>
+        <caption>Delete Planned Orders by Planner Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>Planned Orders that have been firmed in the system will not be
     deleted when this utility is run.</para>
@@ -53,8 +51,8 @@
     <varlistentry>
       <term>Selected</term>
       <listitem>
-        <para>Specify Site whose Planned Orders by Planner Code you want
-        to delete.</para>
+        <para>Specify Site whose Planned Orders by Planner Code you want to
+        delete.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -65,8 +63,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>firmed orders</primary>
           <secondary>deletion of</secondary>
         </indexterm>Delete Firmed Orders</term>
@@ -96,7 +93,7 @@
       <term>Planning System</term>
       <listitem>
         <para>Specify the planning system(s) whose Planned Orders you want to
-        delete: </para>
+        delete:</para>
         <variablelist>
           <varlistentry>
             <term>MPS and MRP</term>

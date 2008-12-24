@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="Chapter550363" role="openmfg">
+<chapter id="Chapter550363" role="manufacturing">
   <title>Schedule Module</title>
   <para>In this chapter, we describe the Schedule module. This module enables
   you to develop your <indexterm significance="normal">
@@ -37,7 +37,7 @@
       <para>Planner Codes</para>
     </listitem>
   </itemizedlist>
-  <section id="Section539566" role="openmfg">
+  <section id="Section539566" role="manufacturing">
     <title>Production Plan</title>
     <para>The Master Production Scheduling (MPS) system serves several
     important purposes:</para>
@@ -71,11 +71,11 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
-  <section id="Section518545" role="openmfg">
+  <section id="Section518545" role="manufacturing">
     <title>Scheduling</title>
     <para>Planned Orders are a scheduling mechanism used by the two planning
     systems&mdash;Master Production Scheduling (MPS) and Material Requirements
-    Planning (MRP)—to create "soft" demands for materials and capacity
+    Planning (MRP)&mdash;to create "soft" demands for materials and capacity
     required to meet the Production Plan. These Planned Orders are converted
     to actual Work Orders or Purchase Orders as their Lead Time
     approaches.</para>
@@ -108,7 +108,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
-  <section id="Section539268" role="openmfg">
+  <section id="Section539268" role="manufacturing">
     <title>Constraint Management</title>
     <para>Manufacturing managers frequently look for tools and methods to help
     them identify actions requiring immediate attention. In this way, they can
@@ -182,7 +182,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
-  <section role="openmfg">
+  <section role="manufacturing">
     <title>Capacity Planning</title>
     <para>Capacity Planning section.</para>
     <xi:include href="guiclient/dspTimePhasedCapacityByWorkCenter.xml"
@@ -211,7 +211,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(Section530193)" />
   </section>
-  <section role="openmfg">
+  <section role="manufacturing">
     <title>Reports</title>
     <para>Schedule Reports section.</para>
     <section>
@@ -255,7 +255,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
-  <section role="openmfg">
+  <section role="manufacturing">
     <title>Master Information</title>
     <para>Schedule Master Information section.</para>
     <xi:include href="guiclient/plannerCodes.xml"

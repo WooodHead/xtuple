@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
-  <title>
-<indexterm significance="normal">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section role="manufacturing">
+  <title><indexterm significance="normal">
       <primary>work centers</primary>
       <secondary>master list of</secondary>
     </indexterm>Work Centers</title>
@@ -15,19 +15,17 @@
   overhead, of such production. A single Site may contain multiple Work
   Centers. To access the master list of Work Centers, select the "Work
   Centers" option. The following screen will appear.</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/workCenters.png"/>
+          <imagedata fileref="images/workCenters.png" />
         </imageobject>
         <caption>Work Centers Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>The "Work Centers" screen displays information on all existing Work
-  Centers, including Site Location, Work Center name, number of machines,
-  and Work Center description.</para>
+  Centers, including Site Location, Work Center name, number of machines, and
+  Work Center description.</para>
   <tip>
     <para>At least one Site must be entered into the system before a Work
     Center may be added.</para>
@@ -58,7 +56,7 @@
       <term>EDIT</term>
       <listitem id="workCentersEDIT">
         <para>Enables you to edit highlighted Work Centers. The edit screen is
-        the same as that for creating a new Work Center—except that when
+        the same as that for creating a new Work Center&mdash;except that when
         editing, the fields will contain Work Center information.
         Double-clicking on Work Center will also bring you to the editing
         screen.</para>
@@ -91,21 +89,28 @@
   <variablelist>
     <varlistentry>
       <term>Edit Work Center</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workCentersEDIT)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(workCentersEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>View Work Center</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workCentersVIEW)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(workCentersVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Copy Work Center</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workCentersCOPY)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(workCentersCOPY)" />
     </varlistentry>
     <varlistentry>
       <term>Delete Work Center</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workCentersDELETE)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(workCentersDELETE)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="workCenter.xml" xpointer="element(/1)"/>
+  <xi:include href="workCenter.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

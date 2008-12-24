@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section518959" role="openmfg">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518959" role="manufacturing">
   <title>Time-Phased Availability</title>
   <para>To view time-phased Availability, select the "Time-Phased
   Availability" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspTimePhasedAvailability.png"/>
+          <imagedata fileref="images/dspTimePhasedAvailability.png" />
         </imageobject>
         <caption>Time-Phased Availability</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying time-phased Availability, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Sites</term>
       <listitem>
-        <para>Select to display time-phased Availability for all
-        Sites.</para>
+        <para>Select to display time-phased Availability for all Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -121,20 +119,34 @@
   <para>Right-clicking on a Line Item in the Time-Phased Availability display
   enables you to select from the following context-sensitive options.</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewAvailabilityDetail)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewAllocations)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewOrders)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAvailabilityDetail)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAllocations)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewOrders)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>If the Line Item is a purchased Item, the following additional options
   will be available:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickCreatePR)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickCreatePO)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreatePR)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreatePO)" />
   </variablelist>
   <para>If the Line Item is a manufactured Item, the following additional
   option will be available:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickCreateWO)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateWO)" />
   </variablelist>
 </section>
