@@ -44,11 +44,7 @@ BEGIN
     PERFORM deleteBOMWorkset(_bomworksetid);
   END IF;
 
-  FOR _r IN SELECT bomitem_id, bomitem_seqnumber, bomitem_item_id,
-                   bomitem_uom_id, bomitem_qtyper, bomitem_scrap,
-                   bomitem_expires, bomitem_ecn,
-                   bomitem_createwo, bomitem_issuemethod, bomitem_subtype,
-                   bomitem_schedatwooper, bomitem_booitem_seq_id
+  FOR _r IN SELECT bomitem.*
             FROM bomitem(pSItemid) 
             WHERE (bomitem_expires>CURRENT_DATE) LOOP
 
@@ -67,13 +63,15 @@ BEGIN
       bomitem_uom_id, bomitem_qtyper, bomitem_scrap, bomitem_schedatwooper,
       bomitem_booitem_seq_id,
       bomitem_effective, bomitem_expires, bomitem_ecn,
-      bomitem_createwo, bomitem_issuemethod, bomitem_moddate, bomitem_subtype )
+      bomitem_createwo, bomitem_issuemethod, bomitem_moddate, bomitem_subtype,
+      bomitem_notes, bomitem_ref )
     VALUES
     ( _bomitemid, pTItemid, _r.bomitem_seqnumber, _r.bomitem_item_id,
       _r.bomitem_uom_id, _r.bomitem_qtyper, _r.bomitem_scrap, _schedatwooper,
       _booitemseqid,
       CURRENT_DATE, _r.bomitem_expires, _r.bomitem_ecn,
-      _r.bomitem_createwo, _r.bomitem_issuemethod, CURRENT_DATE, _r.bomitem_subtype );
+      _r.bomitem_createwo, _r.bomitem_issuemethod, CURRENT_DATE, _r.bomitem_subtype,
+      _r.bomitem_notes, _r.bomitem_ref );
 
     INSERT INTO bomitemsub
     ( bomitemsub_bomitem_id, bomitemsub_item_id,
