@@ -34,7 +34,7 @@ BEGIN
 
   UPDATE bomitem
   SET bomitem_expires=_effectiveDate
-  WHERE ( (_effectiveDate BETWEEN bomitem_effective AND (bomitem_expires - 1))
+  WHERE ( (_effectiveDate < bomitem_expires)
    AND (bomitem_item_id=pOriginalItemid)
    AND (bomitem_rev_id=getActiveRevid('BOM',bomitem_parent_item_id)) );
 
