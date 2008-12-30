@@ -45,7 +45,7 @@ BEGIN
           INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
                                 evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number )
           SELECT CURRENT_TIMESTAMP, _recipient, evnttype_id,
-                 'I', incdt_id, _whsId, (incdt_summary || '-' || incdt_descrip)
+                 'I', incdt_id, _whsId, (incdt_number || '-' || incdt_summary)
           FROM evnttype, incdt
           WHERE ( (incdt_id=_alarm.alarm_source_id)
             AND   (evnttype_name='IncidentAlarm') );
@@ -88,7 +88,7 @@ BEGIN
           SELECT * INTO _incdt
           FROM incdt
           WHERE (incdt_id = _alarm.alarm_source_id);
-          SELECT submitEmailToBatch(_fromEmail, _recipient, '', (_incdt.incdt_summary || '-' || _incdt.incdt_descrip),
+          SELECT submitEmailToBatch(_fromEmail, _recipient, '', (_incdt.incdt_number || '-' || _incdt.incdt_summary),
                                     'Alarm reminder for Incident.',
                                     NULL, CURRENT_TIMESTAMP, FALSE) INTO _batchId;
         END IF;
@@ -122,7 +122,7 @@ BEGIN
           SELECT * INTO _incdt
           FROM incdt
           WHERE (incdt_id = _alarm.alarm_source_id);
-          SELECT postMessage(_recipient, ('Incident - ' || _incdt.incdt_summary || '-' || _incdt.incdt_descrip)) INTO _msgId;
+          SELECT postMessage(_recipient, ('Incident - ' || _incdt.incdt_number || '-' || _incdt.incdt_summary)) INTO _msgId;
         END IF;
         IF (_alarm.alarm_source = 'J') THEN
           SELECT * INTO _prjtask
