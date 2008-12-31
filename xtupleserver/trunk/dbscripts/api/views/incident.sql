@@ -96,7 +96,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     saveCntct(
       getCntctId(NEW.contact_number),
       NEW.contact_number,
-      getCrmAcctId(NEW.crm_account),
+      NULL,
       NEW.honorific,
       NEW.first,
       NEW.middle,
@@ -146,7 +146,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
      saveCntct(
       getCntctId(NEW.contact_number),
       NEW.contact_number,
-      getCrmAcctId(NEW.crm_account),
+      NULL,
       NEW.honorific,
       NEW.first,
       NEW.middle,
