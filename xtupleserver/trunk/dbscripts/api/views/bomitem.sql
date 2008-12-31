@@ -2,7 +2,7 @@ BEGIN;
 
   --Bill of Material Item View
 
-  DROP VIEW api.bomitem;
+  SELECT dropIfExists('VIEW', 'bomitem', 'api');
   CREATE OR REPLACE VIEW api.bomitem AS
 
   SELECT
@@ -92,8 +92,12 @@ COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
                           WHERE (item_id=getItemId(NEW.item_number)))), 
                           NEW.qty_per, 
                           NEW.scrap,
-                          COALESCE(NEW.effective::date,startoftime()), 
-                          COALESCE(NEW.expires::date,endoftime()),
+                          CASE WHEN (NEW.effective = 'Always') THEN startoftime()
+                               ELSE COALESCE(NEW.effective::date,startoftime())
+                          END, 
+                          CASE WHEN (NEW.expires = 'Never') THEN endoftime()
+                               ELSE COALESCE(NEW.expires::date,endoftime())
+                          END,
                           COALESCE(NEW.create_child_wo,FALSE),
                           COALESCE(getBooitemSeqId(NEW.bom_item_number,NEW.used_at),-1),
                           COALESCE(NEW.schedule_at_wo_operation,FALSE),
