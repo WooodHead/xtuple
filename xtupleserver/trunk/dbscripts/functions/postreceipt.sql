@@ -269,7 +269,7 @@ BEGIN
     END IF;
 
     IF(_r.itemsite_costmethod='A') THEN
-      _recvvalue := ROUND(avgcost(_r.itemsite_item_id) * _r.recv_qty * _o.invvenduomratio, 2);
+      _recvvalue := ROUND(avgcost(_r.itemsite_id) * _r.recv_qty * _o.invvenduomratio, 2);
     ELSE
       _recvvalue := ROUND(stdcost(_r.itemsite_item_id) * _r.recv_qty * _o.invvenduomratio, 2);
     END IF;
