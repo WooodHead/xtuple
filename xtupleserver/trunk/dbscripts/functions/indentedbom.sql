@@ -30,15 +30,12 @@ BEGIN
   SELECT NEXTVAL(''misc_index_seq'') INTO _indexid;
 
 --  Step through all of the components of the passed pItemid
-  FOR _r IN SELECT bomitem_seqnumber,
-                   item_id, bomitem_createwo,
+  FOR _r IN SELECT bomitem.*,
+                   item_id,
                    itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
                                 bomitem_qtyper) AS qtyper,
-                   bomitem_scrap, bomitem_issuemethod,
-                   bomitem_effective, bomitem_expires,
                    stdcost(item_id) AS standardcost,
-                   actcost(item_id) AS actualcost,
-                   bomitem_char_id, bomitem_value, bomitem_notes, bomitem_ref 
+                   actcost(item_id) AS actualcost
   FROM bomitem(pItemId, pRevisionid), item
   WHERE ( (bomitem_item_id=item_id) ) LOOP
 
@@ -51,7 +48,8 @@ BEGIN
       bomwork_qtyper, bomwork_scrap, bomwork_issuemethod,
       bomwork_effective, bomwork_expires,
       bomwork_stdunitcost, bomwork_actunitcost,
-      bomwork_char_id, bomwork_value, bomwork_notes, bomwork_ref )
+      bomwork_char_id, bomwork_value, bomwork_notes, bomwork_ref,
+      bomwork_bomitem_id, bomwork_ecn )
     VALUES
     ( _bomworkid, _indexid, -1, 1,
       0, _r.bomitem_seqnumber,
@@ -59,7 +57,8 @@ BEGIN
       _r.qtyper, _r.bomitem_scrap, _r.bomitem_issuemethod,
       _r.bomitem_effective, _r.bomitem_expires,
       _r.standardcost, _r.actualcost,
-      _r.bomitem_char_id, _r.bomitem_value, _r.bomitem_notes, _r.bomitem_ref );
+      _r.bomitem_char_id, _r.bomitem_value, _r.bomitem_notes, _r.bomitem_ref,
+      _r.bomitem_id, _r.bomitem_ecn );
 
 --  Explode the components of the current component
     PERFORM explodeBOM(_r.item_id, _bomworkid, 1);
@@ -123,7 +122,8 @@ BEGIN
        (itemuomtouom(item_id, item_inv_uom_id, NULL, bomwork_qtyper * (1 + bomwork_scrap)) * bomwork_actunitcost) AS actextendedcost,
        (itemuomtouom(item_id, item_inv_uom_id, NULL, bomwork_qtyper * (1 + bomwork_scrap)) * bomwork_stdunitcost) AS stdextendedcost,
        bomwork_char_id,
-       bomwork_value, bomwork_notes, bomwork_ref 
+       bomwork_value, bomwork_notes, bomwork_ref,
+       bomwork_bomitem_id, bomwork_ecn
        FROM bomwork, item, uom 
        WHERE ( (bomwork_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
@@ -142,7 +142,7 @@ BEGIN
               itemcost_stdcost AS stdunitcost,
               currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE) AS actextendedcost,
               itemcost_stdcost AS stdextendedcost,
-              NULL,NULL,NULL,NULL
+              NULL,NULL,NULL,NULL,NULL,NULL
        FROM itemcost, costelem 
        WHERE ( (itemcost_costelem_id=costelem_id)
        AND (NOT itemcost_lowlevel)
@@ -153,6 +153,7 @@ BEGIN
         _row.bomdata_bomwork_parent_id := _x.bomwork_parent_id;
         _row.bomdata_bomwork_level := _x.bomwork_level;
         _row.bomdata_bomwork_seqnumber := _x.bomwork_seqnumber;
+        _row.bomdata_bomitem_id := _x.bomwork_bomitem_id;
         _row.bomdata_item_id := _x.item_id;
         _row.bomdata_item_number := _x.item_number;
         _row.bomdata_uom_name := _x.uom_name;
@@ -171,6 +172,7 @@ BEGIN
         _row.bomdata_stdunitcost := _x.stdunitcost;
         _row.bomdata_actextendedcost := _x.actextendedcost;
         _row.bomdata_stdextendedcost := _x.stdextendedcost;
+        _row.bomdata_ecn := _x.bomwork_ecn;
         _row.bomdata_char_id := _x.bomwork_char_id;
         _row.bomdata_value := _x.bomwork_value;
         _row.bomdata_notes := _x.bomwork_notes;
@@ -231,6 +233,7 @@ BEGIN
         _row.bomdata_bomwork_parent_id := _x.bomhist_parent_id;
         _row.bomdata_bomwork_level := _x.bomhist_level;
         _row.bomdata_bomwork_seqnumber := _x.bomhist_seqnumber;
+        _row.bomdata_bomitem_id := -1;
         _row.bomdata_item_id := _x.item_id;
         _row.bomdata_item_number := _x.item_number;
         _row.bomdata_uom_name := _x.uom_name;
@@ -249,6 +252,7 @@ BEGIN
         _row.bomdata_stdunitcost := _x.stdunitcost;
         _row.bomdata_actextendedcost := _x.actextendedcost;
         _row.bomdata_stdextendedcost := _x.stdextendedcost;
+        _row.bomdata_ecn := '''';
         _row.bomdata_char_id := _x.bomhist_char_id;
         _row.bomdata_value := _x.bomhist_value;
         _row.bomdata_notes := _x.bomhist_notes;

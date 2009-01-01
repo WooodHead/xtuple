@@ -37,17 +37,16 @@ BEGIN
   WHERE (bomwork_id=pParentid);
 
 --  Step through all of the components of the parent component
-  FOR _r IN SELECT bomitem_seqnumber,
-                   item_id, bomitem_createwo,
-                   itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper, bomitem_scrap, bomitem_issuemethod,
+  FOR _r IN SELECT bomitem.*,
+                   item_id,
+                   itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper,
                    CASE WHEN (_p.bomwork_effective > bomitem_effective) THEN _p.bomwork_effective
                         ELSE bomitem_effective
                    END AS effective,
                    CASE WHEN (_p.bomwork_expires < bomitem_expires) THEN _p.bomwork_expires
                         ELSE bomitem_expires
                    END AS expires,
-                   stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost,
-                   bomitem_notes, bomitem_ref
+                   stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost
   FROM bomitem(pItemid, pRevisionid), item
   WHERE ( (bomitem_item_id=item_id)
   AND (bomitem_expires > _p.bomwork_effective) ) LOOP
@@ -61,7 +60,8 @@ BEGIN
       bomwork_qtyper, bomwork_scrap, bomwork_issuemethod,
       bomwork_effective, bomwork_expires,
       bomwork_stdunitcost, bomwork_actunitcost, 
-      bomwork_notes, bomwork_ref )
+      bomwork_notes, bomwork_ref,
+      bomwork_bomitem_id, bomwork_ecn )
     VALUES
     ( _bomworkid, _p.bomwork_set_id, pParentid, _level,
       _p.bomwork_seqnumber, _r.bomitem_seqnumber,
@@ -69,7 +69,8 @@ BEGIN
       (_p.bomwork_qtyper * _r.qtyper), _r.bomitem_scrap, _r.bomitem_issuemethod,
       _r.effective, _r.expires,
       _r.standardcost, _r.actualcost,
-      _r.bomitem_notes, _r.bomitem_ref );
+      _r.bomitem_notes, _r.bomitem_ref,
+      _r.bomitem_id, _r.bomitem_ecn );
 
 --  Recursively repeat for this component''s components
     PERFORM explodeBOM(_r.item_id, _bomworkid, _level);
