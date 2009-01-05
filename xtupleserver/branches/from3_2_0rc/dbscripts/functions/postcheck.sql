@@ -179,10 +179,10 @@ BEGIN
         SELECT apCurrGain(_r.apopen_id,_r.checkitem_curr_id, _r.checkitem_amount,
                         _p.checkhead_checkdate)
               INTO _exchGainTmp;
-      ELSIF (_r.aropen_id IS NOT NULL) THEN
-        SELECT arCurrGain(_r.aropen_id,_r.checkitem_curr_id, _r.checkitem_amount,
-                        _p.checkhead_checkdate)
-              INTO _exchGainTmp;
+ --     ELSIF (_r.aropen_id IS NOT NULL) THEN
+ --       SELECT arCurrGain(_r.aropen_id,_r.checkitem_curr_id, _r.checkitem_amount,
+ --                       _p.checkhead_checkdate)
+ --             INTO _exchGainTmp;
       END IF;
       _exchGain := _exchGain + _exchGainTmp;
 
