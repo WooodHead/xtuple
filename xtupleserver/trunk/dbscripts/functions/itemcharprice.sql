@@ -7,7 +7,7 @@ DECLARE
   pQty ALIAS FOR $5;
 
 BEGIN
-  RETURN itemPrice(pItemid, pCharid, pCharValue, pCustid, -1, pQty, baseCurrId(), CURRENT_DATE);
+  RETURN itemCharPrice(pItemid, pCharid, pCharValue, pCustid, -1, pQty, baseCurrId(), CURRENT_DATE);
 END;
 ' LANGUAGE 'plpgsql';
 
@@ -21,7 +21,7 @@ DECLARE
   pQty ALIAS FOR $6;
 
 BEGIN
-  RETURN itemPrice(pItemid, pCharid, pCharValue, pCustid, pShiptoid, pQty, baseCurrId(), CURRENT_DATE);
+  RETURN itemCharPrice(pItemid, pCharid, pCharValue, pCustid, pShiptoid, pQty, baseCurrId(), CURRENT_DATE);
 END;
 ' LANGUAGE 'plpgsql';
 
@@ -36,7 +36,7 @@ DECLARE
   pCurrid ALIAS FOR $7;
 
 BEGIN
-  RETURN itemPrice(pItemid, pCharid, pCharValue, pCustid, pShiptoid, pQty, pCurrid, CURRENT_DATE);
+  RETURN itemCharPrice(pItemid, pCharid, pCharValue, pCustid, pShiptoid, pQty, pCurrid, CURRENT_DATE);
 END;
 ' LANGUAGE plpgsql;
 
