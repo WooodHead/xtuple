@@ -32,6 +32,9 @@ BEGIN;
     dc.curr_abbr AS default_currency,
     clc.curr_abbr AS credit_limit_currency,
     cust_creditlmt AS credit_limit,
+    CASE
+      WHEN (COALESCE(cust_gracedays, 0) > 0) THEN cust_gracedays
+    END AS alternate_grace_days,
     cust_creditrating AS credit_rating,
     CASE
       WHEN (cust_creditstatus = 'G') THEN
@@ -189,7 +192,8 @@ INSERT INTO custinfo
         cust_soedifilename,
         cust_soediemailbody,
         cust_soedicc,
-        cust_soediprofile_id )
+        cust_soediprofile_id,
+        cust_gracedays )
         VALUES (
 	COALESCE(NEW.active,true),
 	COALESCE(getcusttypeid(NEW.customer_type),FetchMetricValue('DefaultCustType')),
@@ -321,6 +325,9 @@ INSERT INTO custinfo
           NULL
         ELSE
           getEdiProfileId(NEW.so_edi_profile)
+        END,
+        CASE WHEN (COALESCE(NEW.alternate_grace_days, 0) > 0) THEN NEW.alternate_grace_days
+             ELSE NULL
         END
          );
 
@@ -461,6 +468,9 @@ UPDATE custinfo SET
            NULL
           ELSE
             getEdiProfileId(NEW.so_edi_profile)
+          END,
+        cust_gracedays=
+          CASE WHEN (COALESCE(NEW.alternate_grace_days, 0) > 0) THEN NEW.alternate_grace_days
           END
         WHERE cust_id=getCustId(OLD.customer_number);
 
