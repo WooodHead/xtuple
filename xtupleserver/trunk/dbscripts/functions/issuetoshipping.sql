@@ -194,9 +194,9 @@ BEGIN
       SELECT
         wo_id, formatwonumber(wo_id) AS f_wonumber,wo_status, wo_qtyord, wo_qtyrcv,
         CASE WHEN (wo_cosmethod = ''D'') THEN
-          wo_wipvalue
+          COALESCE(wo_wipvalue, 0)
         ELSE
-          round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord - wo_qtyrcv - pQty))),2)
+          COALESCE(round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord - wo_qtyrcv - pQty))),2), 0)
         END AS value INTO _p
       FROM wo
       WHERE ((wo_ordtype = ''S'')
