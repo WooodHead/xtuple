@@ -39,6 +39,5 @@ FROM recv, orderhead, orderitem LEFT OUTER JOIN
       poitem ON (orderitem_orderhead_type='PO' AND orderitem_id=poitem_id)
 WHERE ((orderitem_orderhead_id=orderhead_id)
   AND  (orderitem_orderhead_type=orderhead_type)
-  AND  (orderitem_status <> 'C')
   AND  (recv_orderitem_id=orderitem_id)
   AND  (recv_id=<? value("recv_id") ?>) );
