@@ -21,7 +21,7 @@ BEGIN;
     pohead_comments AS notes
   FROM pohead
     LEFT OUTER JOIN terms ON (pohead_terms_id=terms_id)
-    LEFT OUTER JOIN warehous ON (pohead_warehous_id=warehous_id)
+    LEFT OUTER JOIN whsinfo ON (pohead_warehous_id=warehous_id)
     LEFT OUTER JOIN vendaddrinfo ua ON (pohead_vendaddr_id=vendaddr_id)
     JOIN vendinfo ON (pohead_vend_id=vend_id)
     JOIN curr_symbol ON (pohead_curr_id=curr_id)
