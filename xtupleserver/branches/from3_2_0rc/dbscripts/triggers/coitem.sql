@@ -509,14 +509,14 @@ BEGIN
 
   --If auto calculate freight, recalculate cohead_freight
   IF (SELECT cohead_calcfreight FROM cohead WHERE (cohead_id=NEW.coitem_cohead_id)) THEN
-    UPDATE cohead SET cohead_freight =
+    UPDATE cohead SET cohead_freight = COALESCE(
       (SELECT SUM(freightdata_total) FROM freightDetail('SO',
                                                         cohead_id,
                                                         cohead_cust_id,
                                                         cohead_shipto_id,
                                                         cohead_orderdate,
                                                         cohead_shipvia,
-                                                        cohead_curr_id))
+                                                        cohead_curr_id)), 0)
     WHERE cohead_id=NEW.coitem_cohead_id;
   END IF;
 
