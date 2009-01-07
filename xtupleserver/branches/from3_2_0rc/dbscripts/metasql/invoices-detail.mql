@@ -1,9 +1,11 @@
 -- Group: invoices
 -- Name: detail
--- Notes: used by unpostedInvoices
+-- Notes: used by reprintInvoices, unpostedInvoices
 
-SELECT invchead_id, invchead.*,
+SELECT invchead_id, cust_id,
+       invchead.*,
        cust_number, cust_name,
+       (TEXT(cust_number) || ' - ' || cust_name) AS customer,
        COALESCE(invchead_gldistdate, invchead_invcdate) AS gldistdate,
        ( SELECT SUM(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price /
                           (CASE WHEN(item_id IS NULL) THEN 1
@@ -24,6 +26,9 @@ WHERE ( (true)
 <? endif ?>
 <? if exists("startDate") ?>
   AND   (invchead_invcdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+<? endif ?>
+<? if exists("invc_pattern") ?>
+  AND   (invchead_invcnumber ~ <? value("invc_pattern") ?>)
 <? endif ?>
   AND   ((SELECT COUNT(*)
           FROM invcitem, site()
