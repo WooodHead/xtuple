@@ -1,11 +1,15 @@
 
-DROP VIEW warehous;
-CREATE OR REPLACE VIEW warehous AS
+DROP VIEW warehous CASCADE;
+CREATE VIEW warehous AS
   SELECT warehous_id, warehous_code, warehous_descrip,
     m.addr_line1        AS warehous_addr1,
     m.addr_line2        AS warehous_addr2,
     m.addr_line3        AS warehous_addr3,
-    m.addr_city         AS warehous_addr4,
+    m.addr_city         AS warehous_addr4, -- backward compatibility
+    m.addr_city         AS warehous_city,
+    m.addr_state        AS warehous_state,
+    m.addr_postalcode   AS warehous_zip,
+    m.addr_country      AS warehous_country,
     warehous_fob,
     warehous_active,
     warehous_sitetype_id,
