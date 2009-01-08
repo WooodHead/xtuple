@@ -6,7 +6,7 @@ BEGIN
     RAISE EXCEPTION ''You do not have privileges to enter Item Costs.'';
   END IF;
 
-  IF ( (TG_OP = ''UPDATE'') AND (NOT checkPrivilege(''EnterActualCosts'')) ) THEN
+  IF ( (TG_OP = ''UPDATE'') AND (NOT checkPrivilege(''EnterActualCosts'')) AND (NOT checkPrivilege(''PostVouchers'')) ) THEN
     RAISE EXCEPTION ''You do not have privileges to update Item Costs.'';
   END IF;
 
