@@ -7,11 +7,7 @@ CREATE OR REPLACE VIEW api.itemcost
 AS 
   SELECT item.item_number::character varying(100) AS item_number,
          costelem.costelem_type::character varying(100) AS costing_element,
-         itemcost.itemcost_lowlevel AS lower,
-         itemcost.itemcost_stdcost AS standard_cost, 
-         itemcost.itemcost_posted AS posted,
          itemcost.itemcost_actcost AS actual_cost,
-         itemcost.itemcost_updated AS updated,
          curr_symbol.curr_abbr AS currency,
          false AS post_to_standard
   FROM itemcost
