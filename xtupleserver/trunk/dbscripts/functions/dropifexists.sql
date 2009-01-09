@@ -4,17 +4,28 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-
 CREATE OR REPLACE FUNCTION dropIfExists(TEXT, TEXT, TEXT) RETURNS INTEGER AS $$
+BEGIN
+  RETURN dropIfExists($1, $2, $3, false);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION dropIfExists(TEXT, TEXT, TEXT, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pType         ALIAS FOR $1;
   pObject       ALIAS FOR $2;
   pSchema       ALIAS FOR $3;
+  pCascade      ALIAS FOR $4;
   _table	TEXT;
   _query	TEXT;
 BEGIN
   IF (UPPER(pType) = 'TABLE') THEN
-    _query = 'DROP TABLE ' || quote_ident(LOWER(pSchema)) || '.' || quote_ident(LOWER(pObject));
+    _query = 'DROP TABLE ' || quote_ident(LOWER(pSchema)) || '.' || quote_ident(LOWER(pObject)); 
+    
+    IF (pCascade) THEN
+      _query = _query || ' CASCADE';
+    END IF;
+
     BEGIN
       EXECUTE _query;
     EXCEPTION WHEN undefined_table OR invalid_schema_name THEN
@@ -24,6 +35,11 @@ BEGIN
 
   ELSIF (UPPER(pType) = 'VIEW') THEN
     _query = 'DROP VIEW ' || quote_ident(LOWER(pSchema)) || '.' || quote_ident(LOWER(pObject));
+
+    IF (pCascade) THEN
+      _query = _query || ' CASCADE';
+    END IF;
+    
     BEGIN
       EXECUTE _query;
     EXCEPTION WHEN undefined_table OR invalid_schema_name THEN

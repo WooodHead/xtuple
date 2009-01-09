@@ -214,7 +214,7 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS $$
         PERFORM dropIfExists('SCHEMA', OLD.pkgitem_name, OLD.pkgitem_name);
 
       ELSIF (OLD.pkgitem_type = 'T') THEN
-        PERFORM dropIfExists('TABLE', _object, _schema);
+        PERFORM dropIfExists('TABLE', _object, _schema, true);
 
       ELSIF (OLD.pkgitem_type = 'U') THEN
         DELETE FROM uiform
@@ -222,7 +222,7 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS $$
            AND (uiform_name=OLD.pkgitem_name));
 
       ELSIF (OLD.pkgitem_type = 'V') THEN
-        PERFORM dropIfExists('VIEW', _object, _schema);
+        PERFORM dropIfExists('VIEW', _object, _schema, true);
 
       ELSE
         RAISE EXCEPTION '"%" is not a valid type of package item.',
