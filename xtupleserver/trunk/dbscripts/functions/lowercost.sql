@@ -54,21 +54,26 @@ BEGIN
     END IF;
 
   ELSIF (_type IN (''C'')) THEN
-    SELECT ( SUM(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE) / bbomitem_qtyper) * bbomitem_costabsorb ),
-	   ( SUM(itemcost_stdcost / bbomitem_qtyper) * bbomitem_costabsorb )
+    SELECT SUM(CASE WHEN (bbomitem_qtyper = 0) THEN 0
+                    ELSE currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE) / bbomitem_qtyper * bbomitem_costabsorb
+               END),
+	   SUM(CASE WHEN (bbomitem_qtyper = 0) THEN 0
+                    ELSE itemcost_stdcost / bbomitem_qtyper * bbomitem_costabsorb
+               END)
 	INTO _actCost1, _stdCost1
     FROM itemcost, costelem, bbomitem
     WHERE ( (bbomitem_item_id=pItemid)
      AND (CURRENT_DATE BETWEEN bbomitem_effective AND (bbomitem_expires - 1))
      AND (bbomitem_parent_item_id=itemcost_item_id)
      AND (itemcost_costelem_id=costelem_id)
-     AND (costelem_type=pCosttype) )
-    GROUP BY bbomitem_costabsorb;
+     AND (costelem_type=pCosttype) );
 
-    SELECT ( SUM(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE) * s.bbomitem_qtyper) / t.bbomitem_qtyper *
-             t.bbomitem_costabsorb ),
-	   ( SUM(itemcost_stdcost * s.bbomitem_qtyper) / t.bbomitem_qtyper *
-             t.bbomitem_costabsorb )
+    SELECT SUM(CASE WHEN (t.bbomitem_qtyper = 0) THEN 0
+                    ELSE currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE) * s.bbomitem_qtyper / t.bbomitem_qtyper * t.bbomitem_costabsorb
+               END),
+	   SUM(CASE WHEN (t.bbomitem_qtyper = 0) THEN 0
+                    ELSE itemcost_stdcost * s.bbomitem_qtyper / t.bbomitem_qtyper * t.bbomitem_costabsorb
+               END)
 	INTO _actCost2, _stdCost2
     FROM itemcost, costelem, bbomitem AS t, bbomitem AS s, item
     WHERE ( (t.bbomitem_item_id=pItemid)
@@ -81,8 +86,7 @@ BEGIN
      AND (s.bbomitem_item_id=item_id)
      AND (item_type=''Y'')
      AND (itemcost_costelem_id=costelem_id)
-     AND (costelem_type=pCosttype) )
-    GROUP BY t.bbomitem_qtyper, t.bbomitem_costabsorb;
+     AND (costelem_type=pCosttype) );
 
     IF (pActual) THEN
 	_cost  = _actCost;
