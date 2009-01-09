@@ -99,7 +99,7 @@ BEGIN
 	     itemcost_actcost, itemcost_updated)
 	SELECT
 	      _itemcostid, pItemid, costelem_id,
-	      pLevel, _oldCost, CURRENT_DATE,
+	      pLevel, _newCost, CURRENT_DATE,
 	      0, CURRENT_DATE
 	FROM costelem
 	WHERE (costelem_type=pCosttype);
