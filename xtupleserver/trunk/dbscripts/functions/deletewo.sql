@@ -8,6 +8,14 @@ DECLARE
   _routings BOOLEAN;
 
 BEGIN
+  SELECT wo_status INTO woStatus
+  FROM wo
+  WHERE (wo_id=pWoid);
+
+  IF (NOT woStatus IN (''O'', ''E'')) THEN
+    RETURN -1;
+  END IF;
+
   SELECT metric_value=''t'' INTO _routings
            FROM metric
            WHERE (metric_name=''Routings'');
@@ -20,10 +28,6 @@ BEGIN
       RETURN -1;
     END IF;
   END IF;
-
-  SELECT wo_status INTO woStatus
-  FROM wo
-  WHERE (wo_id=pWoid);
 
   IF (woStatus = ''R'') THEN
     INSERT INTO evntlog (evntlog_evnttime, evntlog_username, evntlog_evnttype_id,

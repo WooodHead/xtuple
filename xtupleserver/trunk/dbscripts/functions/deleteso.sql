@@ -1,81 +1,56 @@
-CREATE OR REPLACE FUNCTION deleteSo(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION deleteSo(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pSoheadid	ALIAS FOR $1;
 BEGIN
   RETURN deleteSo(pSoheadid, NULL);
 END;
-' LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION deleteSo(INTEGER, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION deleteSo(INTEGER, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pSoheadid	ALIAS FOR $1;
   pSonumber	ALIAS FOR $2;
 
-  _r		RECORD;
-  _test		INTEGER;
+  _r            RECORD;
+  _result       INTEGER;
 
 BEGIN
+-- Get cohead
   SELECT * INTO _r FROM cohead WHERE (cohead_id=pSoheadid);
 
-  SELECT coitem_id INTO _test
-  FROM coitem
-  WHERE ( (coitem_qtyshipped > 0)
-   AND (coitem_cohead_id=pSoheadid) );
-  IF (FOUND) THEN
+   IF (NOT FOUND) THEN
+     RETURN 0;
+   END IF;
+
+-- Cannot delete if credit card payments
+  IF (EXISTS(SELECT ccpay_id
+	     FROM ccpay, payco
+	     WHERE ((ccpay_status IN ('C'))
+	       AND  (ccpay_id=payco_ccpay_id)
+	       AND  (payco_cohead_id=pSoheadid)))) THEN
     RETURN -1;
   END IF;
 
-  SELECT coship_id INTO _test
-  FROM coship, coitem
-  WHERE ( (coship_coitem_id=coitem_id)
-   AND (coitem_cohead_id=pSoheadid) );
-  IF (FOUND) THEN
+-- Cannot delete if credit card history
+  IF (EXISTS(SELECT ccpay_id
+	     FROM ccpay, payco
+	     WHERE ((ccpay_status != 'C')
+	       AND  (ccpay_id=payco_ccpay_id)
+	       AND  (payco_cohead_id=pSoheadid)))) THEN
     RETURN -2;
   END IF;
 
-  IF (EXISTS(SELECT ccpay_id
-	     FROM ccpay, payco
-	     WHERE ((ccpay_status IN (''C''))
-	       AND  (ccpay_id=payco_ccpay_id)
-	       AND  (payco_cohead_id=pSoheadid)))) THEN
-    RETURN -4;
-  END IF;
-
-  IF (EXISTS(SELECT ccpay_id
-	     FROM ccpay, payco
-	     WHERE ((ccpay_status != ''C'')
-	       AND  (ccpay_id=payco_ccpay_id)
-	       AND  (payco_cohead_id=pSoheadid)))) THEN
-    RETURN -5;
-  END IF;
-
-  IF (fetchmetricbool(''EnableReturnAuth'')) THEN
-    SELECT raitem_id INTO _test
-    FROM raitem, coitem
-    WHERE ( (raitem_new_coitem_id=coitem_id)
-     AND (coitem_cohead_id=pSoheadid) );
-    IF (FOUND) THEN
-      RETURN -6;
-    END IF;
-  END IF;
-  
-  UPDATE pr SET pr_prj_id=-1
+-- Delete Sales Order Items
+  SELECT deleteSoItem(coitem_id) INTO _result
   FROM coitem
-  WHERE ((coitem_cohead_id=pSoheadid)
-  AND  (coitem_order_type=''R'')
-  AND  (coitem_order_id=pr_id));
-
-  PERFORM changeWoProject(coitem_order_id, -1, TRUE)
-  FROM coitem
-  WHERE ((coitem_cohead_id=pSoheadid)
-  AND  (coitem_order_type=''W''));
+  WHERE (coitem_cohead_id=pSoheadid);
+  IF (_result < 0) THEN
+    RETURN _result;
+  END IF;
 
   DELETE FROM prj
   WHERE ((prj_id=_r.cohead_prj_id)
   AND (prj_status IS NULL));
-
-  DELETE FROM coitem
-  WHERE (coitem_cohead_id=pSoheadid);
 
   DELETE FROM cohead
   WHERE (cohead_id=pSoheadid);
@@ -83,7 +58,7 @@ BEGIN
   DELETE FROM aropenco
   WHERE (aropenco_cohead_id=pSoheadid);
 
-  IF (COALESCE(pSonumber,'''') != '''') THEN
+  IF (COALESCE(pSonumber,'') != '') THEN
     IF (NOT releaseSoNumber(CAST(pSonumber AS INTEGER))) THEN
       RETURN 0; -- change to -3 when releaseSoNumber returns INTEGER
     END IF;
@@ -98,4 +73,4 @@ BEGIN
   RETURN 0;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
