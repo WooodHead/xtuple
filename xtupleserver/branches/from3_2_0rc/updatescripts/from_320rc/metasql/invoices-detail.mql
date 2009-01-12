@@ -1,0 +1,38 @@
+-- Group: invoices
+-- Name: detail
+-- Notes: used by reprintInvoices, unpostedInvoices
+
+SELECT invchead_id, cust_id,
+       invchead.*,
+       cust_number, cust_name,
+       (TEXT(cust_number) || ' - ' || cust_name) AS customer,
+       COALESCE(invchead_gldistdate, invchead_invcdate) AS gldistdate,
+       ( SELECT SUM(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price /
+                          (CASE WHEN(item_id IS NULL) THEN 1
+                                ELSE invcitem_price_invuomratio END)), 2))
+         FROM invcitem LEFT OUTER JOIN item ON (item_id=invcitem_item_id)
+         WHERE (invcitem_invchead_id=invchead_id) ) AS extprice,
+       'curr' AS extprice_xtnumericrole
+FROM invchead JOIN cust ON (cust_id=invchead_cust_id)
+WHERE ( (true)
+<? if exists("unpostedOnly") ?>
+  AND   (NOT invchead_posted)
+<? endif ?>
+<? if exists("postedOnly") ?>
+  AND   (invchead_posted)
+<? endif ?>
+<? if exists("cust_id") ?>
+  AND   (invchead_cust_id=<? value("cust_id") ?>)
+<? endif ?>
+<? if exists("startDate") ?>
+  AND   (invchead_invcdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+<? endif ?>
+<? if exists("invc_pattern") ?>
+  AND   (invchead_invcnumber ~ <? value("invc_pattern") ?>)
+<? endif ?>
+  AND   ((SELECT COUNT(*)
+          FROM invcitem, site()
+          WHERE ( (invcitem_invchead_id=invchead_id)
+            AND   ((warehous_id=invcitem_warehous_id) OR (invcitem_warehous_id=-1)) )) > 0) )
+ORDER BY invchead_invcnumber
+;
