@@ -1,0 +1,300 @@
+<ui version="4.0" >
+ <class>todoList</class>
+ <widget class="QWidget" name="todoList" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>To-Do List</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_5" >
+   <item row="0" column="0" >
+    <layout class="QGridLayout" name="gridLayout_4" >
+     <property name="margin" >
+      <number>12</number>
+     </property>
+     <property name="spacing" >
+      <number>12</number>
+     </property>
+     <item row="0" column="0" >
+      <widget class="ParameterGroup" name="_usr" >
+       <property name="focusPolicy" >
+        <enum>Qt::StrongFocus</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1" >
+      <widget class="QGroupBox" name="_startdateGroup" >
+       <property name="title" >
+        <string>Only Start Dates Between </string>
+       </property>
+       <property name="checkable" >
+        <bool>true</bool>
+       </property>
+       <property name="checked" >
+        <bool>false</bool>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_3" >
+        <item row="0" column="0" >
+         <widget class="DateCluster" name="_startDates" >
+          <property name="focusPolicy" >
+           <enum>Qt::StrongFocus</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="0" column="2" >
+      <widget class="QGroupBox" name="_duedateGroup" >
+       <property name="title" >
+        <string>Only Due Dates Between </string>
+       </property>
+       <property name="checkable" >
+        <bool>true</bool>
+       </property>
+       <property name="checked" >
+        <bool>false</bool>
+       </property>
+       <layout class="QGridLayout" name="gridLayout" >
+        <item row="0" column="0" >
+         <widget class="DateCluster" name="_dueDates" >
+          <property name="focusPolicy" >
+           <enum>Qt::StrongFocus</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item rowspan="2" row="0" column="3" >
+      <layout class="QVBoxLayout" name="verticalLayout_2" >
+       <item>
+        <widget class="QPushButton" name="_close" >
+         <property name="text" >
+          <string>Close</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer" >
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0" >
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0" colspan="3" >
+      <widget class="QGroupBox" name="_showGroup" >
+       <property name="title" >
+        <string>Show</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2" >
+        <item row="0" column="0" >
+         <layout class="QHBoxLayout" name="horizontalLayout" >
+          <property name="spacing" >
+           <number>12</number>
+          </property>
+          <item>
+           <widget class="XCheckBox" name="_incidents" >
+            <property name="text" >
+             <string>Incidents</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="XCheckBox" name="_projects" >
+            <property name="text" >
+             <string>Projects</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="XCheckBox" name="_completed" >
+            <property name="text" >
+             <string>Completed</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer" >
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0" >
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="2" column="0" colspan="3" >
+      <layout class="QVBoxLayout" name="verticalLayout_3" >
+       <item>
+        <widget class="XTreeWidget" name="_todoList" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+           <horstretch>0</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" >
+         <item>
+          <widget class="XCheckBox" name="_autoUpdate" >
+           <property name="text" >
+            <string>Automatically Update</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="_totalLit" >
+           <property name="text" >
+            <string>Total:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="_total" >
+           <property name="text" >
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="3" >
+      <layout class="QVBoxLayout" name="verticalLayout" >
+       <item>
+        <widget class="QPushButton" name="_print" >
+         <property name="text" >
+          <string>Print</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" >
+         <property name="spacing" >
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="_new" >
+           <property name="text" >
+            <string>New</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="_edit" >
+           <property name="text" >
+            <string>Edit</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="_view" >
+           <property name="text" >
+            <string>View</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="_delete" >
+           <property name="text" >
+            <string>Delete</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0" >
+          <size>
+           <width>71</width>
+           <height>238</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="5" margin="5" />
+ <customwidgets>
+  <customwidget>
+   <class>DateCluster</class>
+   <extends>QWidget</extends>
+   <header>datecluster.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ParameterGroup</class>
+   <extends>QGroupBox</extends>
+   <header>parametergroup.h</header>
+  </customwidget>
+  <customwidget>
+   <class>XCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>xcheckbox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>XTreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>xtreewidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>_usr</tabstop>
+  <tabstop>_incidents</tabstop>
+  <tabstop>_dueDates</tabstop>
+  <tabstop>_todoList</tabstop>
+  <tabstop>_edit</tabstop>
+  <tabstop>_view</tabstop>
+  <tabstop>_delete</tabstop>
+  <tabstop>_print</tabstop>
+  <tabstop>_close</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
