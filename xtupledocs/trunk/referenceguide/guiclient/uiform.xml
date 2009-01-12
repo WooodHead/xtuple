@@ -36,11 +36,11 @@
       <term>Order</term>
       <listitem>
         <para>Specify the ranking of the screen. Having an order is useful
-        when you have more than one screen with the same name—as when testing
-        different versions of the same screen, for example. The version of the
-        screen having the lowest number will be used (e.g., 0 will be executed
-        before 1). To switch between screen versions, simply give the screen
-        you want to run the lowest number.</para>
+        when you have more than one screen with the same name&mdash;as when
+        testing different versions of the same screen, for example. The
+        version of the screen having the lowest number will be used (e.g., 0
+        will be executed before 1). To switch between screen versions, simply
+        give the screen you want to run the lowest number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -77,6 +77,24 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>screens</primary>
+          <secondary>using qt designer with</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>qt designer</primary>
+          <secondary>designing new</secondary>
+        </indexterm>EDIT</term>
+      <listitem>
+        <para>Highlight a screen definition and then select this button to
+        launch an embedded version of the Qt Designer tool. The embedded
+        version of Qt Designer has been added to xTuple ERP to make screen
+        editing more convenient. It is not a requirement that the embedded
+        version of Qt Designer be used for building custom xTuple ERP screens.
+        You may also use a standalone version of Qt Designer for this
+        purpose.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>IMPORT</term>
       <listitem>
         <para>Select to import the UI file you want to use as the basis for
@@ -84,13 +102,14 @@
         they are imported using this option, they are stored in the database
         and associated with the specified screen definition. If you ever want
         or need to edit the UI file and do not have a copy stored locally, you
-        can simply export the UI file to your file system—and then re-import
-        it when you are done editing. Whenever you import a UI file, it
-        automatically replaces whatever UI file was in place before it.</para>
+        can simply export the UI file to your file system&mdash;and then
+        re-import it when you are done editing. Whenever you import a UI file,
+        it automatically replaces whatever UI file was in place before
+        it.</para>
         <warning>
           <para>Every time you import a UI file, the new UI file replaces
-          whatever UI file was imported previously—regardless of the name of
-          the file(s).</para>
+          whatever UI file was imported previously&mdash;regardless of the
+          name of the file(s).</para>
         </warning>
       </listitem>
     </varlistentry>
@@ -100,7 +119,7 @@
         <para>Select to export the UI file associated with the screen. You
         would use this option if you need or want to edit the UI file and do
         not have a copy stored locally on your system. Once exported, the UI
-        can be edited using Qt Designer—and then re-imported into the
+        can be edited using Qt Designer&mdash;and then re-imported into the
         database using the import option. Whenever you import a UI file, it
         automatically replaces whatever UI file was in place before it.</para>
       </listitem>
