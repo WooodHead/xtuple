@@ -18,7 +18,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_Pay_printChkRun.png" />
+          <imagedata fileref="images/printChecks.png" />
         </imageobject>
         <caption>Print Check Run</caption>
       </mediaobject>
@@ -76,6 +76,12 @@
       <term>PRINT</term>
       <listitem>
         <para>Prints the Check Run, using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CREATE ACH FILE</term>
+      <listitem>
+        <para>Select to create an Automated Clearing House (ACH) file.</para>
       </listitem>
     </varlistentry>
   </variablelist>
