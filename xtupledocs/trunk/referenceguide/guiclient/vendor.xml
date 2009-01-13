@@ -853,7 +853,7 @@
         <imageobject>
           <imagedata fileref="images/vendor_ediTab.png" />
         </imageobject>
-        <caption>Add Vendor Transmission</caption>
+        <caption>Vendor Transmissions</caption>
       </mediaobject>
     </screenshot></para>
   <para>When setting up a Vendor to receive Purchase Orders via email, you are
@@ -864,12 +864,6 @@
       <listitem>
         <para>Select to specify transmission details for Purchase
         Orders.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Checks</term>
-      <listitem>
-        <para>Select to specify transmission details for Checks.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -935,6 +929,62 @@
       <term>Send Email as HTML</term>
       <listitem>
         <para>Select to send Email in HTML format.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To enable online processing or Automated Clearing House (ACH) Check
+  printing for the Vendor, select the "Checks" radio button.</para>
+  <variablelist role="standard">
+    <varlistentry>
+      <term>Checks</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Enable ACH Check Printing</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Routing Number</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Account Number</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Account Type</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Instead of Vendor Number and Name</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Identification Number</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Name</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
