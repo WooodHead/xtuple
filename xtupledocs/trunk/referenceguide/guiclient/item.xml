@@ -1260,13 +1260,46 @@
         <caption>Item Relationships</caption>
       </mediaobject>
     </screenshot></para>
+  <para>When associating Alias relationships with an Item, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Alias</term>
       <listitem>
-        <para>Display lists Item Alias numbers and related Comments. To
-        associate an Item Alias with an Item, select the "Alias" radio
-        button.</para>
+        <para>Display lists Item Alias numbers and related Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Item Alias.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Multiple Item Aliases can be assigned to a single Item, allowing you
+    to cross-reference an Item using many different Item Numbers.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Item Alias definitions. The edit
+        screen is the same as that for creating a new Item Alias
+        definition&mdash;except that when editing, the fields will contain
+        Item Alias information. Double-clicking on an Item Alias definition
+        will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Item Alias definition and then select this button
+        to remove the Item Alias from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -1333,39 +1366,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens screen for creating a new Item Alias.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>Multiple Item Aliases can be assigned to a single Item, allowing you
-    to cross-reference an Item using many different Item Numbers.</para>
-  </tip>
-  <variablelist>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem>
-        <para>Enables you to edit highlighted Item Alias definitions. The edit
-        screen is the same as that for creating a new Item Alias
-        definition&mdash;except that when editing, the fields will contain
-        Item Alias information. Double-clicking on an Item Alias definition
-        will also bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>DELETE</term>
-      <listitem>
-        <para>Highlight an Item Alias definition and then select this button
-        to remove the Item Alias from the list.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para>To associate Item Substitutes with an Item, select the "Substitutes"
+  button. The following options will appear:</para>
   <variablelist>
     <varlistentry>
       <term>Substitutes</term>
@@ -1373,12 +1375,52 @@
         <para><indexterm significance="normal">
             <primary>items</primary>
             <secondary>substitutes for</secondary>
-          </indexterm>Item Substitutes can be established for Items that are
-        interchangeable with other Items. To associate an Item Substitute with
-        an Item, select the "Substitute" radio button.</para>
+          </indexterm>Display lists Item Substitutes, including rank and Item
+        description.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Item Substitute.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Multiple Item Substitutes can be assigned to a single Item, allowing
+    you to cross-reference an Item using many different Item Numbers.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Item Substitute definitions. The
+        edit screen is the same as that for creating a new Item Substitute
+        definition&mdash;except that when editing, the fields will contain
+        Item Substitute information. Double-clicking on an Item Substitute
+        definition will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Item Substitute definition and then select this
+        button to remove the Item Substitute from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>There is a difference between Item Substitutes and Substitutions
+    defined in a Bill of Materials (BOM). The difference is that BOM-defined
+    Substitutions may be implemented on the fly during Work Order
+    processing&mdash;Item Substitutes cannot be.</para>
+  </note>
+  <para>To create a new Item Substitute, select the NEW button. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -1387,12 +1429,6 @@
         <caption>Create New Item Substitute</caption>
       </mediaobject>
     </screenshot></para>
-  <note>
-    <para>There is a difference between Item Substitutes and Substitutions
-    defined in a Bill of Materials (BOM). The difference is that BOM-defined
-    Substitutions may be implemented on the fly during Work Order
-    processing&mdash;Item Substitutes cannot be.</para>
-  </note>
   <para>When creating a new Item Substitute, you are presented with the
   following options:</para>
   <variablelist>
@@ -1448,46 +1484,14 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens screen for creating a new Item Substitute.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>Multiple Item Substitutes can be assigned to a single Item, allowing
-    you to cross-reference an Item using many different Item Numbers.</para>
-  </tip>
-  <variablelist>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem>
-        <para>Enables you to edit highlighted Item Substitute definitions. The
-        edit screen is the same as that for creating a new Item Substitute
-        definition&mdash;except that when editing, the fields will contain
-        Item Substitute information. Double-clicking on an Item Substitute
-        definition will also bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>DELETE</term>
-      <listitem>
-        <para>Highlight an Item Substitute definition and then select this
-        button to remove the Item Substitute from the list.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para>To associate Transformation options for an Item, select the
+  "Transformations" button. The following options will appear:</para>
   <variablelist>
     <varlistentry>
       <term>Transformations</term>
       <listitem>
         <para>Display lists Items which may be chosen as target Items during
-        Transformation transactions. To associate an Item Transformation with
-        an Item, select the "Transformation" radio button.</para>
+        Transformation transactions.</para>
         <note>
           <para>You may only transform an Item if the source Item is located
           in the same Site as the target Item.</para>
@@ -1522,7 +1526,7 @@
     </indexterm> <indexterm significance="normal">
       <primary>items</primary>
       <secondary>documents associated with</secondary>
-    </indexterm>associate an Image and File with an Item, select the
+    </indexterm>associate Images and Files with an Item, select the
   "Documents" tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -1532,13 +1536,13 @@
         <caption>Item Documents</caption>
       </mediaobject>
     </screenshot></para>
+  <para>When associating Images with an Item, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Images</term>
       <listitem>
-        <para>Display lists information about stored Item Images. To enter
-        Images associated with an Item, select the "Images" radio
-        button.</para>
+        <para>Display lists information about stored Item Images.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -1601,7 +1605,7 @@
         <caption>Image Assignments</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When assigning an Image to to a purpose, you are presented with the
+  <para>When assigning an Image to a purpose, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
@@ -1729,12 +1733,15 @@
         Images.</para>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <para>When associating Files with an Item, you are presented with the
+  following options:</para>
+  <variablelist>
     <varlistentry>
       <term>Files</term>
       <listitem>
         <para>Display lists the title and URL for any Files related to the
-        Item. To enter Files associated with an Item, select the "Files" radio
-        button.</para>
+        Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
