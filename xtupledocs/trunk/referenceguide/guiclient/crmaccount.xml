@@ -179,8 +179,8 @@
       <term>All</term>
       <listitem>
         <para>Select to view the master list of Contacts associated with the
-        Account. When choosing to view all Contacts you are presented with the
-        following options:</para>
+        Account. To the far right of the screen, the following buttons are
+        available:</para>
         <variablelist>
           <varlistentry>
             <term>NEW</term>
@@ -668,7 +668,13 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To view a list of documents associated with the Account, select the
+  <para>To <indexterm significance="normal">
+      <primary>documents</primary>
+      <secondary>crm associated with</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>crm accounts</primary>
+      <secondary>documents associated with</secondary>
+    </indexterm>associate Images and Files with a CRM Account, select the
   "Documents" tab. The following screen will appear:</para>
   <mediaobject>
     <imageobject>
@@ -676,15 +682,13 @@
     </imageobject>
     <caption>Account Documents</caption>
   </mediaobject>
-  <para>When viewing documents associated with the CRM Account, you are
-  presented with the following options:</para>
+  <para>When associating Images with an Item, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Documents</term>
+      <term>Images</term>
       <listitem>
-        <para>Displays a list of Images or Files associated with this Account.
-        Select radio buttons in upper left hand corner to choose which type of
-        documents you would like to view Images or Files.</para>
+        <para>Display lists information about stored CRM Images.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -694,52 +698,95 @@
     <varlistentry>
       <term>VIEW IMAGE</term>
       <listitem>
-        <para>Launches Image viewer enabling you to review selected image.
-        Enabled when Images radio button is selected.</para>
+        <para>Allows you the ability to preview Image.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>PRINT</term>
       <listitem>
-        <para>Provides the ability for user to print Image. Enabled when
-        Images radio button is selected.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>OPEN FILE</term>
-      <listitem>
-        <para>Launches File listed in Documents. Enabled when Files radio
-        button is selected.</para>
+        <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW</term>
       <listitem>
-        <para>Opens screen which allows you to save Image or File to Account
-        record.</para>
+        <para>Opens master list of stored Images.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
       <listitem>
-        <para>Enables you to edit highlighted Image or File. The edit screen
-        is the same as that for creating a new Document &mdash;except that
-        when editing, the fields will contain Document information.
-        Double-clicking on a Document will also bring you to the editing
-        screen.</para>
+        <para>Enables you to edit highlighted CRM Image definitions. The edit
+        screen is the same as that for creating a new CRM Image
+        definition&mdash;except that when editing, the fields will contain CRM
+        Image information. Double-clicking on a CRM Image definition will also
+        bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
       <listitem>
-        <para>Select to view the specified item.</para>
+        <para>Highlight a CRM Image and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
       <listitem>
-        <para>Highlight a Document and then select this button to remove the
-        association between the Document and the CRM Account.</para>
+        <para>Highlight a CRM Image definition and then select this button to
+        remove the CRM Image from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>When associating Files with a CRM Account, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Files</term>
+      <listitem>
+        <para>Display lists the title and URL for any Files related to the CRM
+        Account.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>OPEN FILE</term>
+      <listitem>
+        <para>Highlight a CRM File definition and then select this button to
+        open the URL in a web browser.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new CRM File.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted CRM File definitions. The edit
+        screen is the same as that for creating a new CRM File
+        definition&mdash;except that when editing, the fields will contain CRM
+        File definition information. Double-clicking on a CRM File definition
+        will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a CRM File definition and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a CRM File definition and then select this button to
+        remove the CRM File definition from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
