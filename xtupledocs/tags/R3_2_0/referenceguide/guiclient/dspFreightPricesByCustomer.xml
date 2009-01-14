@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>freight pricing</primary>
+      <secondary>by customer</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>freight pricing for</secondary>
+    </indexterm>Freight Prices by Customer</title>
+  <para>To display a list of Freight Prices by Customer, select the "Freight
+  Prices by Customer" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspFreightPricesByCustomer.png" />
+        </imageobject>
+        <caption>Freight Prices by Customer</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Freight Prices by Customer, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>Enter the Customer Number of the Customer whose Freight Prices
+        you want to view. The browse button located to the right of the field
+        leads to a searchable Customers list. You may also access this list
+        using the keyboard shortcut "CTRL + L". Once a Customer Number is
+        entered, the Customer name and billing address will display. Select
+        the "?" or "$" symbol next to the browse button to view Customer
+        information for the specified Customer. If a Customer's credit is "In
+        Good Standing," the button will feature a black question mark ("?")
+        icon. If the icon turns to an orange dollar sign ("$"), the Customer's
+        credit Status is "On Credit Warning." A red dollar sign ("$")
+        indicates the Customer's credit Status is "On Credit Hold."</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Expired Prices</term>
+      <listitem>
+        <para>Select to display expired Freight Prices.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Future Prices</term>
+      <listitem>
+        <para>Select to display future Freight Prices.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Freight Prices</term>
+      <listitem>
+        <para>Display lists Freight Prices for the specified Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

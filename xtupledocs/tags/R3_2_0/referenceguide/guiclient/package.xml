@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>packages</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Package</title>
+  <para>Once a Package has been loaded into xTuple ERP, you have the ability
+  to review the Package's contents using the Package screen. You won't be able
+  to edit the Package, because Package details are defined at the Package
+  level. However, being able to view Package details is helpful for general
+  information and debugging purposes. For additional information, please see
+  the <ulink
+  url="http://wiki.xtuple.org/CreateUpdaterPackages">CreateUpdaterPackages</ulink>
+  wiki page.</para>
+  <para>To view the details of a specific Package, select the VIEW button from
+  the Packages master list. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/package.png" />
+        </imageobject>
+        <caption>View Package</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing a Package, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Displays the name of the Package, as defined in the
+        <code>package.xml</code> file.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Version</term>
+      <listitem>
+        <para>Displays the Package version, as defined in the
+        <code>package.xml</code> file.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Displays the Package description, as defined in the
+        <code>package.xml</code> file.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Developer</term>
+      <listitem>
+        <para>Displays the name Package developer, as defined in the
+        <code>package.xml</code> file. The name used could be an individual or
+        a company name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Enabled</term>
+      <listitem>
+        <para>Indicates whether the package is enabled or disabled.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>Displays any notes related to the Package, as defined in the
+        <code>package.xml</code> file.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the Packages master
+        list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To review the contents included in a Package, select the "Contents"
+  tab at the top of the "Package" screen. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/package_recordsTab.png" />
+        </imageobject>
+        <caption>Package Contents</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The contents screen displays a directory listing of all the components
+  contained in the Package. Packages may include any of the following:</para>
+  <itemizedlist>
+    <listitem>
+      <para>user interface forms</para>
+    </listitem>
+    <listitem>
+      <para>application scripts</para>
+    </listitem>
+    <listitem>
+      <para>images</para>
+    </listitem>
+    <listitem>
+      <para>report definitions</para>
+    </listitem>
+    <listitem>
+      <para>MetaSQL statements</para>
+    </listitem>
+    <listitem>
+      <para>tables</para>
+    </listitem>
+    <listitem>
+      <para>views</para>
+    </listitem>
+    <listitem>
+      <para>stored procedures</para>
+    </listitem>
+    <listitem>
+      <para>application privileges</para>
+    </listitem>
+    <listitem>
+      <para>custom commands</para>
+    </listitem>
+  </itemizedlist>
+  <para>To review a list of any Packages required to load the Package, select
+  the "Requirements" tab at the top of the screen. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/package_requirementsTab.png" />
+        </imageobject>
+        <caption>Package Requirements</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Requirements" list displays information on all packages required
+  to load the Package, including Package name, description, and
+  version.</para>
+  <para>To review a list of any Packages which depend on the Package, select
+  the "Dependencies" tab at the top of the screen. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/package_dependenciesTab.png" />
+        </imageobject>
+        <caption>Package Dependencies</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Dependencies" list displays information on all packages dependent
+  on this package including, package name, description, and version.</para>
+</section>

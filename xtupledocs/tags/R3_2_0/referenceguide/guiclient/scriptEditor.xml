@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>scripts</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Script Editor</title>
+  <para>To create a new script, select the NEW button. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/scriptEditor.png" />
+        </imageobject>
+        <caption>Create New Script</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new script, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a name to identify the script. The name of the script must
+        match the name of the screen the script will be used for. If the
+        script name does not match the screen name, the script will not be
+        used. Because a single screen may require more than one script, you
+        may save multiple scripts having the same name. The order, notes, and
+        content of each script will distinguish one from the other.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>Enter a brief description of the script.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order</term>
+      <listitem>
+        <para>Specify the order in which the script should be run. The script
+        having the lowest number (i.e., "0") will be run first, and then
+        following scripts will be run in consecutive order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Enabled</term>
+      <listitem>
+        <para>Select to enable the script. If not selected, the script will be
+        disabled. A disabled script will not be run when the corresponding
+        screen is executed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Script</term>
+      <listitem>
+        <para>Enter the content of the script using QtScript. You may type the
+        script directly into this window, or you may import a script using the
+        IMPORT SCRIPT button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without saving any changes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the script and adds it to the scripts master list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>IMPORT SCRIPT</term>
+      <listitem>
+        <para>Select to import a script from your local file system into the
+        database. This option is useful if you prefer to do your scripting
+        using an external script editor. The script you import will be shown
+        in the script window.</para>
+        <warning>
+          <para>Every time you import a script file, the new script will
+          replace the script which was shown in the script window
+          previously.</para>
+        </warning>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EXPORT SCRIPT</term>
+      <listitem>
+        <para>Select to export the script shown in the script window to your
+        local file system. You would use this option if you need or want to
+        edit the script and do not have a copy stored locally on your system.
+        Once exported, the script can be edited using an external editor—and
+        then re-imported into the database using the import option. Whenever
+        you import a script file, it automatically replaces whatever script
+        was in place before it.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

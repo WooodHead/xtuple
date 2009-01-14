@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518876">
+  <title>
+<indexterm significance="normal">
+      <primary>work orders</primary>
+      <secondary>maintenance of materials in</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>work order material requirements</primary>
+      <secondary>maintenance involving</secondary>
+    </indexterm>Maintain W/O Material Requirements</title>
+  <para>To maintain Work Order Material Requirements, select the "Maintain W/O
+  Material Requirements" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/workOrderMaterials.png"/>
+        </imageobject>
+        <caption>Maintain Work Order Material
+        Requirements</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>If you are using the "Substitute" option found on the right-click
+    menu, keep in mind that this utility applies only to BOM-defined
+    Substitutions, as specified on the Bill of Materials for the Item in
+    question.</para>
+  </note>
+  <para>When maintaining Work Order Material Requirements, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Work Order #</term>
+      <listitem>
+        <para>Enter the Work Order Number of the Work Order whose Material
+        Requirements you want to maintain.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Displays Site code automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays Item Number automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Displays Work Order Status automatically when Work Order Number
+        is entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Material Requirements</term>
+      <listitem>
+        <para>Display lists Material Requirements associated with specified
+        Work Order. If the due date is past due, the date will display in
+        red.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pick List Items</term>
+      <listitem>
+        <para>Displays the total number of component Items which are also Pick
+        List Items. Items may be marked as Pick List Items on the Item
+        master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Non-Pick List Items</term>
+      <listitem>
+        <para>Displays the total number of component Items which are not Pick
+        List Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Totals</term>
+      <listitem>
+        <para>Displays the total number of component Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Current Std. Material Cost</term>
+      <listitem>
+        <para>Displays the current Standard Cost for the component Items. The
+        displayed Cost includes all Standard Costs associated with the
+        component Items. Any non-material Costs associated with manufactured
+        subcomponents (e.g., Labor and Overhead) would also be included in
+        this total.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Current Act. Material Cost</term>
+      <listitem>
+        <para>Displays the current Actual Cost for the component Items. The
+        displayed Cost includes all Actual Costs associated with the component
+        Items. Any non-material Costs associated with manufactured
+        subcomponents (e.g., Labor and Overhead) would also be included in
+        this total.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Maximum Desired Cost</term>
+      <listitem>
+        <para>Displays the maximum desired Cost for the component Items. The
+        maximum desired Cost is defined on the Item master. It provides a
+        visual guide to help determine whether component Item Costs&mdash;either
+        Standard or Actual&mdash;have exceeded the maximum desired Cost.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Work Order Material
+        Requirement.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry id="workOrderMaterialsEDIT">
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Material Requirements. The edit
+        screen is the same as that for creating a new Operation&mdash;except that
+        when editing, the fields will contain Operation information.
+        Double-clicking on a Requirement will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="workOrderMaterialsVIEW">
+        <para>Highlight a Material Requirement and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="workOrderMaterialsDELETE">
+        <para>Highlight a Material Requirement and then select this button to
+        remove the Operation from the list. You may not delete Material
+        Requirements which have materials issued against them. If materials
+        have been issued, the Requirement may not be deleted.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Requirement in the Operations list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Edit</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workOrderMaterialsEDIT/2)"/>
+    </varlistentry>
+    <varlistentry>
+      <term>View</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workOrderMaterialsVIEW)"/>
+    </varlistentry>
+    <varlistentry>
+      <term>Delete</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workOrderMaterialsDELETE)"/>
+    </varlistentry>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewAvailability)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewItemDefinedSubstituteAvailability)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickSubstitute)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+</section>

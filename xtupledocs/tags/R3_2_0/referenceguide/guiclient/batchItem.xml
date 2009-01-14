@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="batchItem" role="standard">
+  <title>Batch Item</title>
+  <para>To reschedule a Batch Item, select the RESCHEDULE
+  button. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/batchItem.png"/>
+        </imageobject>
+        <caption>Reschedule Batch Item</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When rescheduling a Batch Item, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Submitted by</term>
+      <listitem>
+        <para>Displays the name of the user who submitted the Batch
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Submitted on</term>
+      <listitem>
+        <para>Displays the date and time when the Batch Item was
+        submitted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Response Email</term>
+      <listitem>
+        <para>Displays the email address&mdash;typically belonging to the
+        submitting user&mdash;where the Batch Manager will send the Batch Item
+        results once they are completed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Action</term>
+      <listitem>
+        <para>Displays the type of action to be performed when the Batch Item
+        is run.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Parameter</term>
+      <listitem>
+        <para>Displays the source in the application where the Batch Item
+        originated from.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Scheduled</term>
+      <listitem>
+        <para>Schedule a date and time to run the Batch Item.</para>
+        <para>Specify a date in the first field using a
+        standard date format. Use the arrow buttons in the second field to
+        specify a time of day.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Started</term>
+      <listitem>
+        <para>Displays the date and time when processing of the Batch Item
+        began.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Completed</term>
+      <listitem>
+        <para>Displays the date and time when processing of the Batch Item was
+        completed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reschedule every</term>
+      <listitem>
+        <para>Select to reschedule the submitted action on a regular
+        basis.</para>
+        <para>If you decide to reschedule the action, you may
+        reschedule on a daily, weekly, or monthly basis.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without rescheduling the Batch Item, returning
+        you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves any changes made to the Batch Item schedule.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

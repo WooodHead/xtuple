@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560608">
+  <title><indexterm significance="normal">
+      <primary>crm</primary>
+      <secondary>incident &amp; to-do priorities and</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>incidents &amp; to-do</primary>
+      <secondary>priorities for</secondary>
+    </indexterm>Incident and To-Do Priorities</title>
+  <para>Priorities are used by the Priority Management system to prioritize
+  Incidents and To-Do's. When Priorities are entered in the Master Information
+  section, these are then available for use when entering or updating
+  Incidents and To-Dos.</para>
+  <tip>
+    <para>You must manually create Priorities if you want the ability to
+    assign them to Incidents or To-Do's. If no Priorities are defined, then
+    none will be available when entering Incidents or To-Do's.</para>
+  </tip>
+  <para>To access the master List of Priorities, select CRM, Master
+  Information, Priorities option. The following screen will appear.</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incidentPriorities.png" />
+        </imageobject>
+        <caption>Priorities Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "List Priorities" screen displays information on all existing
+  Priorities, including Priority order, name, and description.</para>
+  <para>To the far right of the list, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Priority.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="incidentPrioritiesEDIT">
+        <para>Enables you to edit highlighted Priorities. The edit screen is
+        the same as that for creating a new Priority—except that when editing,
+        the fields will contain Priority information. Double-clicking on an
+        Priority will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="incidentPrioritiesVIEW">
+        <para>Highlight an Priority and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="incidentPrioritiesDELETE">
+        <para>Highlight an Priority and then select this button to remove the
+        Incident Priority from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Priority in the Priorities list enables you to
+  select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Edit</term>
+      <xi:include href="" xpointer="element(incidentPrioritiesEDIT)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </varlistentry>
+    <varlistentry>
+      <term>View</term>
+      <xi:include href="" xpointer="element(incidentPrioritiesVIEW)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </varlistentry>
+    <varlistentry>
+      <term>Delete</term>
+      <xi:include href="" xpointer="element(incidentPrioritiesDELETE)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </variablelist>
+  <xi:include href="incidentPriority.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
