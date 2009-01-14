@@ -64,7 +64,7 @@ UnappliedAPCreditMemos
 UninvoicedReceipts
 ViewAPCheckRunEditList
 
- 
+
  ====================================================================
  REPORT: APOpenItemsByVendor
  QUERY: head
@@ -77,7 +77,7 @@ ViewAPCheckRunEditList
    FROM vend
   WHERE (vend_id=<? value("vend_id") ?>);
  --------------------------------------------------------------------
-   
+
  QUERY: detail
  SELECT apopen_id, apopen_ponumber, apopen_docnumber,
 -       CASE WHEN (apopen_doctype='C') THEN text('C/M')
@@ -103,38 +103,36 @@ ViewAPCheckRunEditList
 -            ELSE (apopen_amount - apapplied(apopen_id,<? value("asofDate") ?>))
 -       END AS balance
 +                    formatMoney(apopen_paid - COALESCE(SUM(apapply_target_paid),0)) AS f_paid,
-+                    formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) * 
-+                    CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1 
++                    formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) *
++                    CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1
 +                    END) AS f_balance,
 +                    currConcat(apopen_curr_id) AS currAbbr,
-+                    (apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) 
-+                    / round(apopen_curr_rate,5) * (CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1 
++                    (apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0))
++                    / round(apopen_curr_rate,5) * (CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1
 +                         END) AS base_balance,
-+                    formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) 
-+                    / round(apopen_curr_rate,5) * (CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1 
++                    formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0))
++                    / round(apopen_curr_rate,5) * (CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1
 +                         END)) AS f_base_balance
    FROM apopen
-+               LEFT OUTER JOIN apapply ON (((apopen_id=apapply_target_apopen_id) 
-+                                       OR (apopen_id=apapply_source_apopen_id)) 
-+                                       AND (apapply_postdate > <? value("asofDate") ?>)) 
++               LEFT OUTER JOIN apapply ON (((apopen_id=apapply_target_apopen_id)
++                                       OR (apopen_id=apapply_source_apopen_id))
++                                       AND (apapply_postdate > <? value("asofDate") ?>))
    WHERE ( (COALESCE(apopen_closedate,date <? value("asofDate") ?> + integer '1')><? value("asofDate") ?>)
          AND   (apopen_docdate<=<? value("asofDate") ?>)
-         AND   (apopen_vend_id=<? value("vend_id") ?>) 
--        AND   (apopen_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>) 
+         AND   (apopen_vend_id=<? value("vend_id") ?>)
+-        AND   (apopen_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 -        AND   ((currtobase(apopen_curr_id,apopen_amount,<? value("asofDate") ?>) - apapplied(apopen_id,<? value("asofDate") ?>)) > 0))
 -ORDER BY apopen_docdate;
-+                AND   (apopen_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>) ) 
-+              GROUP BY apopen_id, apopen_ponumber, apopen_docnumber,apopen_doctype, apopen_invcnumber, apopen_docdate, 
-+                apopen_duedate, apopen_docdate, apopen_amount, apopen_paid, apopen_curr_id, apopen_curr_rate 
++                AND   (apopen_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>) )
++              GROUP BY apopen_id, apopen_ponumber, apopen_docnumber,apopen_doctype, apopen_invcnumber, apopen_docdate,
++                apopen_duedate, apopen_docdate, apopen_amount, apopen_paid, apopen_curr_id, apopen_curr_rate
 +              ORDER BY apopen_docdate;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: ARAging
  QUERY: detail
- SELECT 
+ SELECT
  	araging_docdate,
  	araging_duedate,
  	araging_ponumber,
@@ -162,10 +160,8 @@ ViewAPCheckRunEditList
  <? elseif exists("custtype_pattern") ?>
     WHERE (araging_custtype_code ~ <? value("custtype_pattern") ?>)
  <? endif ?>;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: AddressesMasterList
  QUERY: detail
@@ -204,7 +200,7 @@ ViewAPCheckRunEditList
  FROM addr, whsinfo
  WHERE (warehous_addr_id=addr_id)
    <? if exists("activeOnly") ?> AND addr_active <? endif ?>
- 
+
  UNION
  SELECT '' AS type, '' AS first, '' AS last,
         '' AS crmacct_number, '' AS phone,
@@ -218,7 +214,7 @@ ViewAPCheckRunEditList
 -            UNION SELECT vendaddr_addr_id FROM vendaddrinfo
 -            UNION SELECT warehous_addr_id FROM whsinfo)
 +            SELECT cntct_addr_id FROM cntct WHERE (cntct_addr_id IS NOT NULL)
-+            UNION SELECT shipto_addr_id FROM shiptoinfo WHERE (shipto_addr_id IS NOT NULL) 
++            UNION SELECT shipto_addr_id FROM shiptoinfo WHERE (shipto_addr_id IS NOT NULL)
 +            UNION SELECT vend_addr_id FROM vendinfo WHERE (vend_addr_id IS NOT NULL)
 +            UNION SELECT vendaddr_addr_id FROM vendaddrinfo WHERE (vendaddr_addr_id IS NOT NULL)
 +            UNION SELECT warehous_addr_id FROM whsinfo WHERE (warehous_addr_id IS NOT NULL))
@@ -226,23 +222,10 @@ ViewAPCheckRunEditList
  ORDER BY addr_country, addr_state, addr_city,
           addr_postalcode, addr_line1, addr_line2,
           addr_line3, type, last, first;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: CheckRegister
- QUERY: head
- SELECT bankaccnt_name,
-        bankaccnt_descrip,
-        formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate,
-        curr_symbol
-   FROM bankaccnt, curr_symbol
-  WHERE ((bankaccnt_id=<? value("bankaccnt_id") ?>)
-    AND  (bankaccnt_curr_id = curr_id));
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT checkhead_id AS checkid,
         CASE WHEN(checkhead_void) THEN -1
@@ -260,7 +243,7 @@ ViewAPCheckRunEditList
         COALESCE(checkrecip_number || '-' || checkrecip_name,
  		checkhead_recip_type || '-' || checkhead_recip_id ) AS description,
         formatDate(checkhead_checkdate) AS f_checkdate,
-        formatMoney(checkhead_amount) AS f_amount, 
+        formatMoney(checkhead_amount) AS f_amount,
         currConcat(checkhead_curr_id) AS currAbbr,
         checkhead_number,
 +       checkhead_ach_batch,
@@ -286,7 +269,7 @@ ViewAPCheckRunEditList
        <? if exists("recip_id") ?>
  	 AND   (checkhead_recip_id = <? value("recip_id") ?> )
        <? endif ?>
-    <? endif ?> 
+    <? endif ?>
     )
  <? if exists("showDetail") ?>
  UNION
@@ -296,11 +279,11 @@ ViewAPCheckRunEditList
         checkitem_invcnumber AS description,
         '' AS f_checkdate,
         formatMoney(checkitem_amount) AS f_amount,
-        currConcat(checkitem_curr_id) AS currAbbr, 
-        checkhead_number, 
+        currConcat(checkitem_curr_id) AS currAbbr,
+        checkhead_number,
 +       NULL,
-        2 AS orderby 
-   FROM checkitem, checkhead 
+        2 AS orderby
+   FROM checkitem, checkhead
   WHERE ( (checkitem_checkhead_id=checkhead_id)
     AND   (checkhead_checkdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
     AND   (checkhead_bankaccnt_id=<? value("bankaccnt_id") ?>)
@@ -323,40 +306,8 @@ ViewAPCheckRunEditList
     <? endif ?> )
  <? endif ?>
   ORDER BY checkhead_number, checkid, orderby;
- --------------------------------------------------------------------
-   
- QUERY: total
- SELECT formatMoney(SUM(currToCurr(checkhead_curr_id, bankaccnt_curr_id, checkhead_amount, checkhead_checkdate))) AS f_amount,
-        currConcat(bankaccnt_curr_id) AS currAbbr
-   FROM checkhead, checkrecip, bankaccnt
-  WHERE ( (checkhead_recip_id=checkrecip_id)
-    AND   (checkhead_recip_type=checkrecip_type)
-    AND   (NOT checkhead_void)
-    AND   (checkhead_checkdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
-    AND   (checkhead_bankaccnt_id=bankaccnt_id)
-    AND   (checkhead_bankaccnt_id=<? value("bankaccnt_id") ?>)
-    <? if exists("check_number") ?>
-       AND   (CAST(checkhead_number AS text) ~ <? value("check_number") ?>)
-    <? endif ?>
-    <? if exists("recip") ?>
-       <? if exists("recip_type_v") ?>
-          AND   (checkhead_recip_type = 'V' )
-       <? endif ?>
-       <? if exists("recip_type_c") ?>
-          AND   (checkhead_recip_type = 'C' )
-       <? endif ?>
-       <? if exists("recip_type_t") ?>
-          AND   (checkhead_recip_type = 'T' )
-       <? endif ?>
-       <? if exists("recip_id") ?>
-          AND   (checkhead_recip_id = <? value("recip_id") ?> )
-       <? endif ?>
-    <? endif ?> )
- GROUP BY bankaccnt_curr_id;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: CreditMemo
  QUERY: GroupHead
@@ -383,7 +334,7 @@ ViewAPCheckRunEditList
 +                  COALESCE(cmhead_shipto_city,'') ||'  '|| COALESCE(cmhead_shipto_state,'') || '  '|| COALESCE(cmhead_shipto_zipcode,''),
 +                  cmhead_shipto_country)
 +                  AS f_shiptoaddr,
-        CASE 
+        CASE
           WHEN (cmhead_invcnumber='-1') THEN ''
 -         ELSE cmhead_invcnumber
 +         --note: must now set explicit type for Postgres 8.3+
@@ -403,61 +354,12 @@ ViewAPCheckRunEditList
     AND (cmhead_id=%1))
  ORDER BY cmhead_number;
  --------------------------------------------------------------------
-   
- QUERY: Detail
- SELECT cmitem_linenumber,
-        formatQty(cmitem_qtycredit) AS qtycredit,
-        formatQty(cmitem_qtyreturned) AS qtyreturned,
-        uom_name,
-        item_number,
-        item_descrip1,
-        item_descrip2,
-        formatSalesPrice(cmitem_unitprice) AS unitprice,
-        formatMoney((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio)) AS extprice,
-        cmitem_comments
-   FROM cmitem, itemsite, item, uom
-  WHERE ((cmitem_itemsite_id=itemsite_id)
-    AND (itemsite_item_id=item_id)
-    AND (item_inv_uom_id=uom_id)
-    AND (cmitem_cmhead_id=%1))
- ORDER BY cmitem_linenumber;
- --------------------------------------------------------------------
-   
- QUERY: GroupFoot
- SELECT formatExtPrice(SUM((cmitem_qtycredit * cmitem_qty_invuomratio) * cmitem_unitprice / cmitem_price_invuomratio)) AS extprice
-   FROM cmhead, cmitem, itemsite, item
-  WHERE ((cmitem_cmhead_id=cmhead_id)
-    AND (cmitem_itemsite_id=itemsite_id)
-    AND (itemsite_item_id=item_id)
-    AND (cmhead_id=%1));
- --------------------------------------------------------------------
-   
- QUERY: GroupExtended
- SELECT formatExtPrice(COALESCE(cmhead_freight,0.0) + COALESCE(cmhead_tax,0.0) + COALESCE(cmhead_misc,0.0) +
-          ( SELECT COALESCE(SUM((cmitem_qtycredit * cmitem_qty_invuomratio) * cmitem_unitprice / cmitem_price_invuomratio), 0.0)
-              FROM cmitem, itemsite, item
-             WHERE ((cmitem_cmhead_id=%1)
-               AND (cmitem_itemsite_id=itemsite_id)
-               AND (itemsite_item_id=item_id)
-              )
-            )
-          ) AS totaldue,
-        formatExtPrice(COALESCE(cmhead_freight,0.0)) AS freight,
-        formatExtPrice(COALESCE(cmhead_tax,0.0)) AS tax,
-        formatExtPrice(COALESCE(cmhead_misc,0.0)) AS misc
-   FROM cmhead
-  WHERE (cmhead_id=%1);
- --------------------------------------------------------------------
-   
-\ No newline at end of file
+
 +QUERY: logo
-+SELECT image_data 
-+FROM image 
++SELECT image_data
++FROM image
 +WHERE ((image_name='logo'));
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: CurrencyConversionList
  QUERY: exchangeRates
@@ -467,48 +369,13 @@ ViewAPCheckRunEditList
 -	curr_effective, curr_expires
 -FROM	curr_symbol NATURAL JOIN curr_rate
 -WHERE	curr_base = FALSE
--ORDER BY currConcat, curr_effective; 
----------------------------------------------------------------------
-   
- QUERY: baseCurrency
- SELECT
- 	curr_name,
- 	currConcat(curr_id) AS currConcat
- FROM curr_symbol
- WHERE curr_base = TRUE;
- --------------------------------------------------------------------
-   
- QUERY: knownCurrencies
- SELECT
- 	curr_name,
- 	currConcat(curr_id) AS currConcat,
- 	curr_base
- FROM curr_symbol
- WHERE curr_base = FALSE
- ORDER BY currConcat;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+-ORDER BY currConcat, curr_effective;
+
+
  ====================================================================
  REPORT: FinancialReportMonth
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -604,29 +471,12 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_month <> 0) OR  (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReportMonthBudget
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -722,29 +572,12 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_month <> 0) OR (flstmtitem_monthbudget <> 0) OR (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReportMonthDbCr
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -840,31 +673,12 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_monthdb <> 0) OR (flstmtitem_monthcr <> 0) OR (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReportMonthPriorMonth
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_typedescrip2 || ' Diff.' AS f_diff,
-     flstmthead_typedescrip2 || ' % Diff.' AS f_diffprcnt,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -960,31 +774,12 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_month <> 0) OR (flstmtitem_prmonth <> 0) OR (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReportMonthPriorQuarter
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_typedescrip2 || 'Diff.' AS f_diff,
-     flstmthead_typedescrip2 || ' % Diff.' AS f_diffprcnt,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -1080,31 +875,12 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_month <> 0) OR (flstmtitem_prqtr <> 0) OR (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReportMonthPriorYear
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_typedescrip2 || ' Diff.' AS f_diff,
-     flstmthead_typedescrip2 || ' % Diff.' AS f_diffprcnt,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -1200,29 +976,12 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_month <> 0) OR (flstmtitem_pryear <> 0) OR (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReportMonthQuarter
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -1318,29 +1077,12 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_month <> 0) OR (flstmtitem_qtr <> 0) OR (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReportMonthYear
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -1436,29 +1178,12 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_month <> 0) OR (flstmtitem_year <> 0) OR (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReportQuarter
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -1554,29 +1279,12 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_qtr <> 0) OR  (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReportQuarterBudget
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -1672,31 +1380,12 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_qtr <> 0) OR (flstmtitem_qtrbudget <> 0) OR (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReportQuarterPriorQuarter
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_typedescrip2 || ' Diff.' AS f_diff,
-     flstmthead_typedescrip2 || ' % Diff.' AS f_diffprcnt,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -1792,29 +1481,12 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_qtr <> 0) OR (flstmtitem_prqtr <> 0) OR (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReportYear
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -1910,29 +1582,12 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_year <> 0) OR  (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReportYearBudget
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -2028,31 +1683,12 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_year <> 0) OR (flstmtitem_yearbudget <> 0) OR (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReportYearPriorYear
- QUERY: head
- SELECT 
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_typedescrip2 || 'Diff.' AS f_diff,
-     flstmthead_typedescrip2 || ' % Diff.' AS f_diffprcnt,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
      flstmtitem_flhead_id,
      flstmtitem_period_id,
      flstmtitem_username,
@@ -2148,37 +1784,10 @@ ViewAPCheckRunEditList
 +  WHERE ((flstmtitem_year <> 0) OR (flstmtitem_pryear <> 0) OR (flstmtitem_type <> 'I'))
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: GLTransactions
- QUERY: head
- SELECT formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate,
-        <? if exists("source") ?>
-          text(<? value("source") ?>)
-        <? else ?>
-          text('All Sources')
-        <? endif  ?>
-        AS source,
-        <? if exists("accnt_id") ?>
-          ( SELECT (accnt_number || '-' || accnt_descrip)
-              FROM accnt
-             WHERE (accnt_id=<? value("accnt_id") ?>) )
-        <? else ?>
-          text('All Accounts')
-        <? endif ?>
-        AS accnt,
-        <? if exists("showUsernames") ?>
-          text('Username')
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_username
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT gltrans_id,
 -       formatDate(gltrans_date) AS transdate,
@@ -2195,10 +1804,10 @@ ViewAPCheckRunEditList
  -- Debits:
         CASE WHEN (gltrans_amount < 0) THEN formatMoney(ABS(gltrans_amount))
              ELSE ''
-        END AS f_debit,       
+        END AS f_debit,
         CASE WHEN (gltrans_amount < 0) THEN ABS(gltrans_amount)
              ELSE 0
-        END AS debit_amt, 
+        END AS debit_amt,
  --Credits:
         CASE WHEN (gltrans_amount > 0) THEN formatMoney(gltrans_amount)
              ELSE ''
@@ -2262,10 +1871,8 @@ ViewAPCheckRunEditList
 +  WHERE (accnt_id=<? value("accnt_id") ?>)
 +ORDER BY gltrans_created <? if not exists("beginningBalance") ?> DESC <? endif ?>,
 +        gltrans_sequence, gltrans_amount;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: IncidentsByCRMAccount
  QUERY: detail
@@ -2308,58 +1915,16 @@ ViewAPCheckRunEditList
  <? if exists("showAcctsWOIncdts") ?>
     AND (incdt_id IS NULL OR (true
  <? endif ?>
- 
+
  <? if exists("showAcctsWOIncdts") ?>
     ))
  <? endif ?>
-  ) 
+  )
  ORDER BY crmacct_name, incdt_timestamp, todoitem_due_date;
- --------------------------------------------------------------------
-   
- QUERY: queryParams
- SELECT
-   <? if exists("showClosed") ?> 'Yes' <? else ?> 'No' <? endif ?> AS showClosed,
-   <? if exists("showAcctsWOIncdts") ?> 'Yes' <? else ?> 'No' <? endif ?> AS showAcctsWOIncdts,
-   <? if exists("crmacct_id") ?>
-     crmacct_name
-     FROM crmacct
-     WHERE (crmacct_id=<? value("crmacct_id") ?>)
-   <? elseif exists("crmacct_pattern") ?>
-     <? value("crmacct_pattern") ?>
-   <? else ?>
-     'ALL' AS crmacct_name
-   <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: InventoryAvailabilityByCustomerType
- QUERY: head
- SELECT 
-        <? if exists("onlyShowShortages") ?>
-          text('Only Showing Shortages')
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_onlyShowShortages,
-       <? if exists("showWoSupply") ?>
-          text('Show W/O Supply')
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_showWoSupply,
- <? if exists(\"custtype_id\") ?>"
-        SELECT custtype_code from custtype where (cust_custtype_id=<? value("custtype_id") ?>)
- <? elseif exists("custtype_pattern") ?>
-        <? value("custtype_pattern") ?>
- <? else ?>
-        text('All Customer Types')
- <? endif ?>
-        AS f_custtype;
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT itemsite_id, coitem_id,
         cohead_id, cohead_number, (cust_number||'-'||cust_name) AS custname,
@@ -2377,17 +1942,17 @@ ViewAPCheckRunEditList
         (qoh + ordered - allocated) AS totalavail,
         formatQty(qoh + ordered - allocated) AS f_totalavail,
         atshipping,formatQty(atshipping) AS f_atshipping,
-        reorderlevel 
- <? if exists(showWoSupply) ?>,         
+        reorderlevel
+ <? if exists(showWoSupply) ?>,
         wo_id,
         wo_status,
         wo_number,
         wo_ordered,
         CASE WHEN (wo_id = -1) THEN NULL ELSE formatQty(wo_ordered) END AS f_wo_ordered,
-        formatdate(wo_startdate) AS f_wo_startdate, 
+        formatdate(wo_startdate) AS f_wo_startdate,
         formatdate(wo_duedate) AS f_wo_duedate,
         COALESCE(wo_latestart,false) AS wo_latestart,
-        COALESCE(wo_latedue,false) AS wo_latedue 
+        COALESCE(wo_latedue,false) AS wo_latedue
  <? endif ?>
         FROM ( SELECT itemsite_id, coitem_id,
                       cohead_id, cohead_number, cust_number, cust_name,
@@ -2399,22 +1964,22 @@ ViewAPCheckRunEditList
                       qtyOrdered(itemsite_id, coitem_scheddate) AS ordered,
                       qtyatshipping(coitem_id) AS atshipping,
 +                     coitem_qtyreserved,
-                      CASE WHEN(itemsite_useparams) THEN itemsite_reorderlevel ELSE 0.0 END AS reorderlevel 
- <? if exists(showWoSupply) ?>,  
+                      CASE WHEN(itemsite_useparams) THEN itemsite_reorderlevel ELSE 0.0 END AS reorderlevel
+ <? if exists(showWoSupply) ?>,
                       COALESCE(wo_id,-1) AS wo_id,
                       formatwonumber(wo_id) AS wo_number,
                       noNeg((wo_qtyord-wo_qtyrcv)) AS wo_ordered,
                       wo_status, wo_startdate, wo_duedate,
                       ((wo_startdate <= CURRENT_DATE) AND (wo_status IN ('O','E','S','R'))) AS wo_latestart,
-                      (wo_duedate<=CURRENT_DATE) AS wo_latedue  
- <? endif ?> 
+                      (wo_duedate<=CURRENT_DATE) AS wo_latedue
+ <? endif ?>
                  FROM cohead, itemsite, item, uom, cust, coitem
- <? if exists(showWoSupply) ?> 
+ <? if exists(showWoSupply) ?>
                  LEFT OUTER JOIN wo
                    ON ((coitem_itemsite_id=wo_itemsite_id)
                    AND (wo_status IN ('E','R','I'))
                    AND (wo_qtyord-wo_qtyrcv > 0)
-                   AND (noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned-qtyatshipping(coitem_id)) > 
+                   AND (noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned-qtyatshipping(coitem_id)) >
                          (SELECT itemsite_qtyonhand FROM itemsite WHERE (itemsite_id=coitem_itemsite_id))))
  <? endif ?>
                  WHERE((coitem_cohead_id=cohead_id)
@@ -2431,49 +1996,20 @@ ViewAPCheckRunEditList
                                               WHERE(custtype_code ~ <? value("custtype_pattern") ?>)))
  <? endif ?>
                )
-             ) AS data 
+             ) AS data
  <? if exists(onlyShowShortages) ?>
        WHERE ( ((qoh + ordered - allocated) < 0)
-            OR ((qoh + ordered - sobalance) < 0) ) 
+            OR ((qoh + ordered - sobalance) < 0) )
  <? endif ?>
        ORDER BY cohead_id, cohead_number, item_number
  <? if exists(showWoSupply) ?> ,
                 wo_duedate
  <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: InventoryAvailabilityByItem
- QUERY: head
- SELECT item_number,
-        item_descrip1,
-        item_descrip2,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse,
-        <? if exists("byDays") ?>
-          (text('Look ahead ') || text(<? value("byDays") ?>) || text(' days'))
-        <? elseif exists("byDate") ?>
-          (text('Cutoff date ') || formatDate(<? value("byDate") ?>))
-        <? elseif exists("byDates") ?>
-          (text('Dates from ') || formatDate(<? value("startDate") ?>) || text(' to ') || formatDate(<? value("endDate") ?>))
-        <? else ?>
-          text('Item Site Lead Time')
-        <? endif ?>
-        AS ltcriteria
-   FROM item
- WHERE (item_id=<? value("item_id") ?>);
- 
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT warehous_code,
         itemsite_leadtime,
@@ -2523,37 +2059,10 @@ ViewAPCheckRunEditList
 + WHERE ((qtyonhand - allocated + ordered) < 0)
  <? endif ?>
  ORDER BY warehous_code DESC;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: Invoice
- QUERY: GroupHead
- SELECT 
-        --remitto.*,
- remitto_name,
- formatAddr(remitto_address1, remitto_address2, remitto_address3, remitto_citystatezip, remitto_country) AS remitto_adr,
-        invchead_invcnumber AS invoicenumber,
-        formatDate(invchead_invcdate) AS f_invoicedate,
-        cust_number,
-        invchead_billto_name,
-        formatAddr(invchead_billto_address1, invchead_billto_address2, invchead_billto_address3, ( invchead_billto_city || '  ' || invchead_billto_state || '  ' || invchead_billto_zipcode ), invchead_billto_country) AS f_billtoaddress,
-        invchead_billto_phone,
-        invchead_shipto_name,
-        formatAddr(invchead_shipto_address1, invchead_shipto_address2, invchead_shipto_address3, ( invchead_shipto_city || '  ' || invchead_shipto_state || ' ' || invchead_shipto_zipcode ), invchead_shipto_country) AS f_shiptoaddress,
-        invchead_ordernumber AS ordernumber,
-        invchead_ponumber,
-        formatDate(invchead_orderdate) AS f_orderdate,
-        formatDate(invchead_shipdate) AS f_shipdate,
-        invchead_fob, terms_descrip, invchead_shipvia
- FROM remitto, cust, invchead
-      LEFT OUTER JOIN terms ON (invchead_terms_id=terms_id)
- WHERE ( (invchead_cust_id=cust_id)
-  AND (invchead_id=<? value("invchead_id") ?>) )
- ORDER BY ordernumber;
- --------------------------------------------------------------------
-   
  QUERY: Detail
  SELECT invcitem_linenumber,
         formatQty(invcitem_billed) AS f_billed,
@@ -2576,26 +2085,20 @@ ViewAPCheckRunEditList
         invcitem_notes,
         getInvcitemLotSerial(invcitem_id) AS lotserial,
  --Sub-select updated for 3.1 to support kitting
-        characteristicsToString('SI',(SELECT coitem_id FROM coitem, cohead, invchead, itemsite 
+        characteristicsToString('SI',(SELECT coitem_id FROM coitem, cohead, invchead, itemsite
         WHERE (cohead_number=invchead_ordernumber and invchead_id=<? value("invchead_id") ?>
-        and coitem_cohead_id=cohead_id 
+        and coitem_cohead_id=cohead_id
         and invcitem_item_id = item_id
         and coitem_itemsite_id = itemsite_id
         and itemsite_item_id = item_id
         and coitem_linenumber=invcitem_linenumber)
-        ), '=', ', ') 
+        ), '=', ', ')
         AS coitem_characteristics
  FROM invcitem LEFT OUTER JOIN (item JOIN uom ON (item_inv_uom_id=uom_id)) ON (invcitem_item_id=item_id) LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=invcitem_custpn)
  WHERE (invcitem_invchead_id=<? value("invchead_id") ?>)
  ORDER BY invcitem_linenumber;
  --------------------------------------------------------------------
-   
- QUERY: foot
- SELECT formatMoney(SUM(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / COALESCE(invcitem_price_invuomratio,1)),2))) AS f_extprice
- FROM invcitem LEFT OUTER JOIN item on (invcitem_item_id=item_id)
- WHERE (invcitem_invchead_id=<? value("invchead_id") ?>);
- --------------------------------------------------------------------
-   
+
  QUERY: GroupExtended
 -SELECT formatMoney( noNeg(invchead_freight + invchead_misc_amount + invchead_tax +
 -                       ( SELECT COALESCE(SUM(round(((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / COALESCE(invcitem_price_invuomratio,1))),2)), 0)
@@ -2625,7 +2128,7 @@ ViewAPCheckRunEditList
 +      formatMoney(MAX(total_allocated)) AS f_allocated,
         invchead_notes,
         invchead_misc_descrip
--FROM invchead, arapply, 
+-FROM invchead, arapply,
 -(SELECT COALESCE(SUM(CASE WHEN((aropen_amount - aropen_paid) >=
 +FROM invchead
 +     LEFT OUTER JOIN invcitem ON (invcitem_invchead_id=invchead_id)
@@ -2665,119 +2168,8 @@ ViewAPCheckRunEditList
 +GROUP BY invchead_freight, invchead_misc_amount, invchead_tax, invchead_payment,
 +         invchead_notes, invchead_misc_descrip
  ;
- --------------------------------------------------------------------
-   
- QUERY: allocatedCMs
- SELECT cohead_id,
-        aropen_docnumber,
-        formatMoney(aropen_amount) AS f_total,
-        formatMoney(aropen_paid) AS f_paid,
-        formatMoney(aropen_amount - aropen_paid) AS f_balance,
-        CASE WHEN((aropen_amount - aropen_paid) >= currToCurr(aropenco_curr_id,
- 							     aropen_curr_id,
- 							     aropenco_amount,
- 							     aropen_docdate))
- 	    THEN currToCurr(aropenco_curr_id, aropen_curr_id,
- 			    aropenco_amount, aropen_docdate)
-             ELSE (aropen_amount - aropen_paid)
-        END AS allocated,
-        CASE WHEN((aropen_amount - aropen_paid) >= currToCurr(aropenco_curr_id,
- 							     aropen_curr_id,
- 							     aropenco_amount,
- 							     aropen_docdate))
- 	    THEN formatMoney(currToCurr(aropenco_curr_id, aropen_curr_id,
- 					aropenco_amount, aropen_docdate))
-             ELSE formatMoney(aropen_amount - aropen_paid)
-        END AS f_allocated,
-        CASE WHEN((aropen_amount - aropen_paid) >= currToCurr(aropenco_curr_id,
- 							     aropen_curr_id,
- 							     aropenco_amount,
- 							     aropen_docdate))
- 	    THEN currToCurr(aropenco_curr_id, invchead_curr_id,
- 			    aropenco_amount, aropen_docdate)
-             ELSE currToCurr(aropen_curr_id, invchead_curr_id,
-                             aropen_amount - aropen_paid, aropen_docdate)
-        END AS allocated_invccurr,
-        CASE WHEN((aropen_amount - aropen_paid) >= currToCurr(aropenco_curr_id,
- 							     aropen_curr_id,
- 							     aropenco_amount,
- 							     aropen_docdate))
- 	    THEN formatMoney(currToCurr(aropenco_curr_id, invchead_curr_id,
- 					aropenco_amount, aropen_docdate))
-             ELSE formatMoney(currToCurr(aropen_curr_id, invchead_curr_id,
-                                         aropen_amount - aropen_paid,
-                                         aropen_docdate))
-        END AS f_allocated_invccurr,
-        curr_symbol AS aropen_currsymbol
-   FROM aropenco, aropen, cohead, invchead, curr_symbol
-  WHERE ( (aropenco_aropen_id=aropen_id)
-    AND   (aropenco_cohead_id=cohead_id)
-    AND   ((aropen_amount - aropen_paid) > 0)
-    AND   (aropen_curr_id=curr_id)
-    AND   (cohead_number=invchead_ordernumber)
-    AND   (NOT invchead_posted)
-    AND   (invchead_id=<? value("invchead_id") ?>) )
- UNION
- SELECT cohead_id,
-        arapply_source_docnumber AS aropen_docnumber,
-        formatMoney(s.aropen_amount) AS f_total,
-        formatMoney(s.aropen_paid -
-                    currToCurr(arapply_curr_id, s.aropen_curr_id,
-                               arapply_applied, arapply_postdate)) AS f_paid,
-        formatMoney(s.aropen_amount - s.aropen_paid +
-                    currToCurr(arapply_curr_id, s.aropen_curr_id,
-                               arapply_applied, arapply_postdate)) AS f_balance,
-        currToCurr(arapply_curr_id, s.aropen_curr_id,
-                   arapply_applied, arapply_postdate) AS allocated,
-        formatMoney(currToCurr(arapply_curr_id, s.aropen_curr_id,
-                               arapply_applied,
-                               arapply_postdate)) AS f_allocated,
-        currToCurr(arapply_curr_id, invchead_curr_id,
-                   arapply_applied, t.aropen_docdate) AS allocated_invccurr,
-        formatMoney(currToCurr(arapply_curr_id, invchead_curr_id,
-                               arapply_applied,
-                               t.aropen_docdate)) AS f_allocated_invccurr,
-        curr_symbol AS aropen_currsymbol
-   FROM arapply, aropen s, aropen t, cohead, invchead, curr_symbol
-  WHERE ( (s.aropen_id=arapply_source_aropen_id)
-    AND   (arapply_target_aropen_id=t.aropen_id)
-    AND   (arapply_target_doctype='I')
-    AND   (arapply_target_docnumber=invchead_invcnumber)
-    AND   (arapply_source_aropen_id=s.aropen_id)
-    AND   (arapply_curr_id=curr_id)
-    AND   (cohead_number=invchead_ordernumber)
-    AND   (invchead_posted)
-    AND   (invchead_id=<? value("invchead_id") ?>) )
-  ORDER BY aropen_docnumber;
- --------------------------------------------------------------------
-   
- QUERY: currency
- SELECT
-  curr_symbol
- FROM
-     invchead,
-     curr_symbol
- WHERE (invchead_id = <? value("invchead_id") ?>) AND
-       invchead_curr_id = curr_id;
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
- QUERY: tracknum
- select formatdate(cosmisc_shipdate) AS f_shipdate, cosmisc_tracknum, cosmisc_shipvia from cohead, cosmisc, invchead 
- where 
- cohead_id = cosmisc_cohead_id
- and cohead_number = invchead_ordernumber
- and invchead_id = <? value("invchead_id") ?>
- order by cosmisc_shipdate;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: ItemMaster
  QUERY: head
@@ -2821,38 +2213,7 @@ ViewAPCheckRunEditList
 + WHERE (item_id=<? value("item_id") ?>)
 +;
  --------------------------------------------------------------------
-   
- QUERY: sold
- SELECT uom_name,
-        formatUOMRatio(iteminvpricerat(item_id)) AS f_iteminvpricerat,
-        (prodcat_code||' - '||prodcat_descrip) AS f_prodcat,
-        formatBoolYN(item_exclusive) AS f_item_exclusive,
-        formatPrice(item_listprice) AS f_item_listprice,
-        formatExtPrice(item_listprice / iteminvpricerat(item_id)) AS f_extprice
-   FROM item, prodcat, uom
-  WHERE ((item_id=<? value("item_id") ?>)
-    AND  (item_price_uom_id=uom_id)
-    AND  (item_sold)
-    AND  (item_prodcat_id=prodcat_id) );
- --------------------------------------------------------------------
-   
- QUERY: notes
- SELECT item_comments, item_extdescrip
-   FROM item
-  WHERE (item_id=<? value("item_id") ?>);
- --------------------------------------------------------------------
-   
- QUERY: itemchar
- SELECT 1 as one,
-        char_name as charass_name,
-        charass_value
-   FROM charass, char
-  WHERE ((charass_target_type='I')
-    AND (charass_char_id=char_id)
-    AND (charass_target_id=<? value("item_id") ?>))
- ORDER BY char_name;
- --------------------------------------------------------------------
-   
+
  QUERY: imglist
  SELECT 1 as one,
         image_name, firstLine(image_descrip) as f_descrip,
@@ -2874,57 +2235,17 @@ ViewAPCheckRunEditList
 + AND (imageass_source='I')
 + AND (imageass_source_id=<? value("item_id") ?>) )
  ORDER BY image_name;
- --------------------------------------------------------------------
-   
- QUERY: comments
- SELECT 1 as one,
-        formatDate(comment_date) as f_date,
-        comment_user,
-        comment_text
- FROM comment
- WHERE ( (comment_source='I')
-  AND (comment_source_id=<? value("item_id") ?>) )
- ORDER BY comment_date;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: MaterialUsageVarianceByBOMItem
- QUERY: head
- SELECT parent.item_number AS parent_number,
-        parent.item_descrip1 AS parent_descrip1,
-        parent.item_descrip2 AS parent_descrip2,
-        puom.uom_name AS parent_invuom,
-        child.item_number AS comp_number,
-        child.item_descrip1 AS comp_descrip1,
-        child.item_descrip2 AS comp_descrip2,
-        cuom.uom_name AS comp_invuom,
-        bomitem_seqnumber as comp_seqnumber,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse
-   FROM item as parent, item as child, uom AS puom, uom AS cuom, bomitem
-  WHERE ((parent.item_id=<? value("item_id") ?>)
-    AND (parent.item_inv_uom_id=puom.uom_id)
-    AND (bomitem_item_id=child.item_id)
-    AND (child.item_inv_uom_id=cuom.uom_id)
-    AND (bomitem_id=<? value("component_item_id") ?>) );
- 
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT formatDate(posted) AS f_posted,
         formatQty(ordered) AS f_ordered,
         formatQty(received) AS f_produced,
         formatQty(projreq) AS f_projreq,
         formatQtyPer(projqtyper) AS f_projqtyper,
-        formatQty(actiss) AS f_actiss, 
+        formatQty(actiss) AS f_actiss,
         formatQtyPer(actqtyper) AS f_actqtyper,
         formatQtyPer(actqtyper - projqtyper) AS f_qtypervar,
 -       formatPrcnt((1 - (actqtyper / projqtyper)) * -1) AS f_percent
@@ -2937,7 +2258,7 @@ ViewAPCheckRunEditList
                  womatlvar_qtyrcv AS received,
                  (womatlvar_qtyrcv * (womatlvar_qtyper * (1 + womatlvar_scrap))) AS projreq,
                  womatlvar_qtyper AS projqtyper,
-                 (womatlvar_qtyiss) AS actiss, (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper 
+                 (womatlvar_qtyiss) AS actiss, (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper
             FROM womatlvar, itemsite AS component,
                  itemsite AS parent
            WHERE ((womatlvar_parent_itemsite_id=parent.itemsite_id)
@@ -2950,32 +2271,10 @@ ViewAPCheckRunEditList
                  )
         ) AS data
  ORDER BY posted;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: MaterialUsageVarianceByComponentItem
- QUERY: head
- SELECT item_number,
-        item_descrip1,
-        item_descrip2,
-        uom_name,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse,
-        formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate
-   FROM item JOIN uom ON (item_inv_uom_id=uom_id)
-  WHERE (item_id=<? value("item_id") ?>);
- 
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT formatDate(posted) AS f_posted,
         item_number, item_descrip1, item_descrip2, uom_name,
@@ -2983,7 +2282,7 @@ ViewAPCheckRunEditList
         formatQty(received) AS f_produced,
         formatQty(projreq) AS f_projreq,
         formatQtyPer(projqtyper) AS f_projqtyper,
-        formatQty(actiss) AS f_actiss, 
+        formatQty(actiss) AS f_actiss,
         formatQtyPer(actqtyper) AS f_actqtyper,
         formatQtyPer(actqtyper - projqtyper) AS f_qtypervar,
 -       formatPrcnt((1 - (actqtyper / projqtyper)) * -1) AS f_percent
@@ -2999,7 +2298,7 @@ ViewAPCheckRunEditList
                  (womatlvar_qtyrcv * (womatlvar_qtyper * (1 + womatlvar_scrap))) AS projreq,
                  womatlvar_qtyper AS projqtyper,
                  (womatlvar_qtyiss) AS actiss,
-                 (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper 
+                 (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper
             FROM womatlvar, itemsite AS component,
                  itemsite AS parent, item, uom
            WHERE ((womatlvar_parent_itemsite_id=parent.itemsite_id)
@@ -3014,32 +2313,10 @@ ViewAPCheckRunEditList
                  )
         ) AS data
  ORDER BY posted;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: MaterialUsageVarianceByItem
- QUERY: head
- SELECT item_number,
-        item_descrip1,
-        item_descrip2,
-        uom_name,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse,
-        formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate
-   FROM item JOIN uom ON (item_inv_uom_id=uom_id)
-  WHERE (item_id=<? value("item_id") ?>);
- 
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT formatDate(posted) AS f_posted,
         item_number, item_descrip1, item_descrip2, uom_name,
@@ -3047,7 +2324,7 @@ ViewAPCheckRunEditList
         formatQty(received) AS f_produced,
         formatQty(projreq) AS f_projreq,
         formatQtyPer(projqtyper) AS f_projqtyper,
-        formatQty(actiss) AS f_actiss, 
+        formatQty(actiss) AS f_actiss,
         formatQtyPer(actqtyper) AS f_actqtyper,
         formatQtyPer(actqtyper - projqtyper) AS f_qtypervar,
 -       formatPrcnt((1 - (actqtyper / projqtyper)) * -1) AS f_percent
@@ -3063,7 +2340,7 @@ ViewAPCheckRunEditList
                  (womatlvar_qtyrcv * (womatlvar_qtyper * (1 + womatlvar_scrap))) AS projreq,
                  womatlvar_qtyper AS projqtyper,
                  (womatlvar_qtyiss) AS actiss,
-                 (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper 
+                 (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper
             FROM womatlvar, itemsite AS component,
                  itemsite AS parent, item, uom
            WHERE ((womatlvar_parent_itemsite_id=parent.itemsite_id)
@@ -3078,25 +2355,10 @@ ViewAPCheckRunEditList
                  )
         ) AS data
  ORDER BY posted;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: MaterialUsageVarianceByWarehouse
- QUERY: head
- SELECT formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse;
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT formatDate(posted) AS f_posted,
         parent_number, parent_descrip1, parent_descrip2, parent_invuom,
@@ -3105,7 +2367,7 @@ ViewAPCheckRunEditList
         formatQty(received) AS f_produced,
         formatQty(projreq) AS f_projreq,
         formatQtyPer(projqtyper) AS f_projqtyper,
-        formatQty(actiss) AS f_actiss, 
+        formatQty(actiss) AS f_actiss,
         formatQtyPer(actqtyper) AS f_actqtyper,
         formatQtyPer(actqtyper - projqtyper) AS f_qtypervar,
 -       formatPrcnt((1 - (actqtyper / projqtyper)) * -1) AS f_percent
@@ -3127,7 +2389,7 @@ ViewAPCheckRunEditList
                  (womatlvar_qtyrcv * (womatlvar_qtyper * (1 + womatlvar_scrap))) AS projreq,
                  womatlvar_qtyper AS projqtyper,
                  (womatlvar_qtyiss) AS actiss,
-                 (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper 
+                 (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper
             FROM womatlvar, itemsite AS componentsite, itemsite AS parentsite,
                  item AS componentitem, item AS parentitem, uom AS puom, uom AS cuom
            WHERE ((womatlvar_parent_itemsite_id=parentsite.itemsite_id)
@@ -3143,25 +2405,10 @@ ViewAPCheckRunEditList
                  )
         ) AS data
  ORDER BY posted;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: MaterialUsageVarianceByWorkOrder
- QUERY: head
- SELECT formatWONumber(wo_id) AS wonumber,
-        warehous_code, item_number, uom_name,
-        item_descrip1, item_descrip2,
-        wo_status
-   FROM wo, itemsite, item, warehous, uom
-  WHERE ((wo_itemsite_id=itemsite_id)
-    AND (itemsite_item_id=item_id)
-    AND (item_inv_uom_id=uom_id)
-    AND (itemsite_warehous_id=warehous_id)
-    AND (wo_id=<? value("wo_id") ?>))
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT formatDate(posted) AS f_posted,
         item_number, item_descrip1, item_descrip2, uom_name,
@@ -3169,7 +2416,7 @@ ViewAPCheckRunEditList
         formatQty(received) AS f_produced,
         formatQty(projreq) AS f_projreq,
         formatQtyPer(projqtyper) AS f_projqtyper,
-        formatQty(actiss) AS f_actiss, 
+        formatQty(actiss) AS f_actiss,
         formatQtyPer(actqtyper) AS f_actqtyper,
         formatQtyPer(actqtyper - projqtyper) AS f_qtypervar,
 -       formatPrcnt((1 - (actqtyper / projqtyper)) * -1) AS f_percent
@@ -3185,7 +2432,7 @@ ViewAPCheckRunEditList
                  (womatlvar_qtyrcv * (womatlvar_qtyper * (1 + womatlvar_scrap))) AS projreq,
                  womatlvar_qtyper AS projqtyper,
                  (womatlvar_qtyiss) AS actiss,
-                 (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper 
+                 (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper
             FROM womatlvar, itemsite, item, wo, uom
            WHERE ((womatlvar_component_itemsite_id=itemsite_id)
              AND (itemsite_item_id=item_id)
@@ -3194,84 +2441,14 @@ ViewAPCheckRunEditList
              AND (wo_subnumber=womatlvar_subnumber)
              AND (wo_id=<? value("wo_id") ?>) ) ) AS data
  ORDER BY item_number;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: PackingList-Shipment
- QUERY: head
- SELECT shiphead_number, 'S/O #:' AS ordertype,
-        cohead_number AS ordernumber,
-        formatsobarcode(cohead_id) AS order_barcode,
-        cohead_shipvia AS shipvia,
-        cohead_shiptophone AS shiptophone,
-        cohead_custponumber,
-        formatDate(cohead_orderdate) AS orderdate,
-        cohead_shipcomments AS shipcomments,   
-        cohead_billtoname AS billtoname,
-        formataddr(cohead_billtoaddress1, cohead_billtoaddress2,
-                   cohead_billtoaddress3,
-                   (cohead_billtocity || '  ' ||   cohead_billtostate ||
-                   '  ' || cohead_billtozipcode), cohead_billtocountry) AS billing_address,
-        cohead_shiptoname AS shiptoname,
-        formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2,
-                   cohead_shiptoaddress3,
-                   (cohead_shiptocity || '  ' ||   cohead_shiptostate ||
-                   '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
- 
-        cust_number,
-        cust_contact,
-        cust_phone,
-        terms_descrip
-   FROM shiphead, cohead, cust, terms
-  WHERE ((cohead_cust_id=cust_id)
-    AND (cohead_terms_id=terms_id)
-    AND (cohead_id=shiphead_order_id)
-    AND (shiphead_order_type='SO')
-    AND (shiphead_id=<? value("shiphead_id") ?>)
- )
- <? if exists("MultiWhs") ?>
- UNION
- SELECT shiphead_number, 'T/O #:' AS ordertype,
-        tohead_number AS ordernumber,
-        formattobarcode(tohead_id) AS order_barcode,
-        shiphead_shipvia AS shipvia,
-        tohead_destphone AS shiptophone,
-        TEXT(tohead_number) AS cohead_custponumber,
-        formatDate(tohead_orderdate) AS orderdate,
-        tohead_shipcomments AS shipcomments,
-        '' AS billtoname,
-        '' AS billing_address,
-        tohead_destname AS shiptoname,
-        formataddr(tohead_destaddress1, tohead_destaddress2,
-                    tohead_destaddress3,
-                   (tohead_destcity || ' ' || tohead_deststate ||
-                    ' ' || tohead_destpostalcode), tohead_destcountry) AS shipping_address,
-        'Transfer Order' AS cust_number,
-        tohead_destcntct_name AS cust_contact,
-        tohead_destphone AS cust_phone,
-        '' AS terms_descrip
-   FROM shiphead, tohead
-  WHERE ((tohead_id=shiphead_order_id)
-    AND  (shiphead_order_type='TO')
-    AND  (shiphead_id=<? value("shiphead_id") ?>)
- )
- <? endif ?>;
- --------------------------------------------------------------------
-   
- QUERY: scheddate
- SELECT formatDate(MIN(coitem_scheddate)) AS scheddate
-   FROM coitem, coship
-  WHERE ((coitem_status <> 'X')
-    AND  (coitem_id=coship_coitem_id)
-    AND  (coship_cosmisc_id=<? value("coship_cosmisc_id") ?>));
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT 1 AS groupby,
  --     coitem_linenumber AS linenumber,
- --     In 3.1 replace line above with line below to support 
+ --     In 3.1 replace line above with line below to support
  --     kitting functionality
         formatsolinenumber(coitem_id) AS linenumber,
         coitem_memo AS memo,
@@ -3285,11 +2462,11 @@ ViewAPCheckRunEditList
         itemsellinguom(item_id) AS shipuom,
         item_descrip1,
         item_descrip2,
- 
+
         formatQty(coitem_qtyord) AS ordered,
 -       formatQty(coship_qty) AS shipped,
 +       (SELECT formatQty(SUM(coship_qty)) FROM coship WHERE ((coship_cosmisc_id=<? value("cosmisc_id") ?>) AND (coship_coitem_id=coitem_id))) AS shipped,
- 
+
         CASE WHEN (coitem_status='O' AND (SELECT cust_creditstatus
                                             FROM cust,cohead
                                            WHERE coitem_cohead_id=cohead_id
@@ -3341,7 +2518,7 @@ ViewAPCheckRunEditList
  <? if exists("MultiWhs") ?>
  UNION
  SELECT 2 AS groupby,
- --     For 3.1 added CAST to match column type of corresponding column in other SELECT 
+ --     For 3.1 added CAST to match column type of corresponding column in other SELECT
  --     in this UNION
         CAST(toitem_linenumber AS text) AS linenumber,
         '' AS memo,
@@ -3352,10 +2529,10 @@ ViewAPCheckRunEditList
         itemsellinguom(item_id) AS shipuom,
         item_descrip1,
         item_descrip2,
- 
+
         formatQty(toitem_qty_ordered) AS ordered,
         formatQty(shipitem_qty) AS shipped,
- 
+
         toitem_status AS f_status,
         CASE
           WHEN (getPacklistItemLotSerial(shiphead_id, toitem_id) = '') THEN
@@ -3381,30 +2558,8 @@ ViewAPCheckRunEditList
  )
  <? endif ?>
  ORDER BY linenumber;
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
- QUERY: so_ra_relation
- --added in 2.3 to show RA link to S/O if the SO
- --was created as the result of a replacement RA
- select 
- 'RA #' AS ratext,
- rahead_number
- from
- rahead, cohead, shiphead
- where 
- rahead_new_cohead_id = cohead_id
- and cohead_id = shiphead_order_id
- and shiphead_id = <? value("shiphead_id") ?>;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: PackingListBatchEditList
  QUERY: detail
@@ -3419,7 +2574,7 @@ ViewAPCheckRunEditList
 -            ELSE 'Other'
 +SELECT cohead_number AS order_number, pack_head_type,
 +       cohead_shipvia AS shipvia,
-+       formatShipmentNumber(pack_shiphead_id) AS shipment_number, 
++       formatShipmentNumber(pack_shiphead_id) AS shipment_number,
 +       cust_number AS number, cohead_billtoname AS name,
 +       CASE WHEN (cohead_holdtype='N') THEN <? value("none") ?>
 +            WHEN (cohead_holdtype='C') THEN <? value("credit") ?>
@@ -3434,53 +2589,28 @@ ViewAPCheckRunEditList
 - AND (cohead_cust_id=cust_id) )
 -ORDER BY cohead_number;
 +       formatBoolYN(pack_printed) AS f_printed
-+FROM pack, cohead, cust 
++FROM pack, cohead, cust
 +WHERE ((pack_head_id=cohead_id)
 +  AND  (cohead_cust_id=cust_id)
 +  AND  (pack_head_type='SO'))
 +<? if exists("MultiWhs") ?>
 +  AND  checkSOSitePrivs(cohead_id)
-+UNION 
++UNION
 +SELECT tohead_number AS order_number, pack_head_type,
 +       tohead_shipvia AS shipvia,
-+       formatShipmentNumber(pack_shiphead_id) AS shipment_number, 
++       formatShipmentNumber(pack_shiphead_id) AS shipment_number,
 +       tohead_destname AS number, tohead_destcntct_name AS name,
 +       '' AS f_holdtype,
 +       formatBoolYN(pack_printed) AS f_printed
-+FROM pack, tohead 
++FROM pack, tohead
 +WHERE ((pack_head_id=tohead_id)
-+  AND  (pack_head_type='TO')) 
++  AND  (pack_head_type='TO'))
 +<? endif ?>
 +ORDER BY order_number;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: PurchaseReqsByPlannerCode
- QUERY: head
- SELECT <? if exists("plancode_id") ?>
-          ( SELECT (plancode_code||'-'||plancode_name)
-              FROM plancode
-             WHERE plancode_id=<? value("plancode_id") ?>)
-        <? elseif exists("plancode_pattern") ?>
-          text(<? value("plancode_pattern") ?>)
-        <? else ?>
-          text('All Planner Codes')
-        <? endif ?>
-        AS plancode,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE warehous_id=<? value("warehous_id") ?>)
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse,
-        formatDate(<? value("startDate") ?>) AS startdate,
-        formatDate(<? value("endDate") ?>) AS enddate;
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT item_number,
 +SELECT pr_number || '-' || pr_subnumber AS pr_number,
@@ -3513,29 +2643,10 @@ ViewAPCheckRunEditList
  <? endif ?>
  )
  ORDER BY pr_duedate;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: PurchaseRequestsByItem
- QUERY: head
- SELECT item_number,
-        item_descrip1,
-        item_descrip2,
-        uom_name,
-        <? if exists("warehous_id") ?>
-          (select warehous_code
-             from warehous
-            where warehous_id=<? value("warehous_id") ?>)
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse
-   FROM item JOIN uom ON (item_inv_uom_id=uom_id)
-  WHERE (item_id=<? value("item_id") ?>);
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT pr_status,
 +       pr_number || '-' || pr_subnumber AS pr_number,
@@ -3549,79 +2660,24 @@ ViewAPCheckRunEditList
         END as f_type,
         formatDate(pr_duedate) as f_duedate,
         formatQty(pr_qtyreq) as f_qtyreq
-   FROM pr, itemsite 
+   FROM pr, itemsite
   WHERE ((pr_itemsite_id=itemsite_id)
     AND (itemsite_item_id=<? value("item_id") ?>)
  <? if exists("warehous_id") ?>
     AND (itemsite_warehous_id=<? value("warehous_id") ?>)
  <? endif ?>
-  ) 
+  )
  ORDER BY pr_duedate;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: Quote
- QUERY: head
- SELECT quhead_number,
-        quhead_shipvia,
-        formatDate(quhead_quotedate) as f_orderdate,
-        formatDate(quhead_packdate) as f_packdate,
-        CASE WHEN(quhead_origin='C') THEN 'Customer'
-             WHEN(quhead_origin='I') THEN 'Internet'
-             WHEN(quhead_origin='S') THEN 'Sales Rep.'
-             ELSE quhead_origin
-        END AS f_origin,
-         salesrep_name,
-        formatScrap(quhead_commission) as f_commission,
-         (tax_code||' - '||tax_descrip) as f_tax,
-         (terms_code||' - '||terms_descrip) as f_terms,
-        cust_number,
-        quhead_billtoname,
-        formatAddr(quhead_billtoaddress1, quhead_billtoaddress2, quhead_billtoaddress3, (quhead_billtocity||', '||quhead_billtostate||' '||quhead_billtozip), quhead_billtocountry) AS f_billtoaddress,
-        
-        CASE WHEN(quhead_shipto_id=-1) THEN text('')
-             ELSE (select text(shipto_num) from shipto where shipto_id=quhead_shipto_id)
-        END AS f_shiptonum,
- 
-        quhead_shiptoname,
-        formatAddr(quhead_shiptoaddress1, quhead_shiptoaddress2, quhead_shiptoaddress3, (quhead_shiptocity||', '||quhead_shiptostate||' '||quhead_shiptozipcode), quhead_shiptocountry) AS f_shiptoaddress,
-        quhead_custponumber,
-        quhead_fob
- --For 2.1  the structure related to TAX and CRM and Quotes for PROSPECTS 
- --has changed and the FROM and WHERE clauses should be
- --changed as follows:
- --Start:
-     FROM quhead
-          LEFT OUTER JOIN cust ON (quhead_cust_id = cust_id)
- 	LEFT OUTER JOIN terms ON (quhead_terms_id = terms_id)
-          LEFT OUTER JOIN salesrep ON (quhead_salesrep_id = salesrep_id)
-          LEFT OUTER JOIN tax ON (quhead_tax_id = tax_id)
-     WHERE (quhead_id = <? value("quhead_id") ?>)
- --End
- 
- --  Previous FROM and WHERE clauses:
- --  FROM quhead, terms, salesrep, cust
- --     AND  (quhead_cust_id=cust_id))
- --     AND  (quhead_salesrep_id=salesrep_id))
- --     AND  (quhead_tax_id=tax_id)
- --     AND  (quhead_terms_id=terms_id) );
- --------------------------------------------------------------------
-   
- QUERY: notes
- SELECT quhead_ordercomments,
-        quhead_shipcomments
-   FROM quhead
-  WHERE (quhead_id=<? value("quhead_id") ?>);
- --------------------------------------------------------------------
-   
  QUERY: items
- SELECT 
-        
+ SELECT
+
         quitem_id,
         quitem_linenumber,
-+       quitem_custpn, 
++       quitem_custpn,
         item_number,
         item_descrip1,
         --The following 2 lines are new in 2.3
@@ -3635,192 +2691,23 @@ ViewAPCheckRunEditList
         --To:
         formatExtprice((quitem_qtyord * quitem_qty_invuomratio) * (quitem_price / quitem_price_invuomratio)) as f_extprice,
         quitem_memo,
-        char_name, 
-        charass_value 
- FROM 
-      item, 
+        char_name,
+        charass_value
+ FROM
+      item,
       quitem
       LEFT OUTER JOIN (itemsite JOIN warehous ON (itemsite_warehous_id=warehous_id)) ON (quitem_itemsite_id=itemsite_id)
       LEFT OUTER JOIN charass on (charass_target_id = quitem_id) left outer join char ON (charass_char_id = char_id)
- WHERE 
- ( 
+ WHERE
+ (
       (quitem_item_id=item_id)
-      AND (quitem_quhead_id=<? value("quhead_id") ?>) 
+      AND (quitem_quhead_id=<? value("quhead_id") ?>)
  )
  ORDER BY quitem_linenumber;
- --------------------------------------------------------------------
-   
- QUERY: totals
- SELECT 1 as one,
-        formatExtPrice(subtotal) AS f_subtotal,
-        formatExtPrice(tax) AS f_tax,
-        formatExtPrice(quhead_freight) as f_freight,
-        formatExtPrice(subtotal + tax + quhead_freight) AS f_total
-   FROM quhead,
-        (SELECT SUM(quitem_qtyord * (quitem_price / iteminvpricerat(item_id))) AS subtotal
-           FROM quitem, item
-          WHERE ((quitem_quhead_id=<? value("quhead_id") ?>)
-            AND  (quitem_item_id=item_id)) ) AS subtot,
-        (SELECT calculateTax(quhead_tax_id,
-                             SUM(quitem_qtyord
-                               * (quitem_price
-                               / iteminvpricerat(item_id))),
-                             quhead_freight) AS tax
-           FROM quitem, item,
-                (SELECT quhead_tax_id,
-                        quhead_freight
-                   FROM quhead
-                  WHERE (quhead_id=<? value("quhead_id") ?>) ) as data
-          WHERE ((quitem_quhead_id=<? value("quhead_id") ?>)
-            AND  (quitem_item_id=item_id))
-       GROUP BY quhead_tax_id, quhead_freight ) as taxinfo
-  WHERE (quhead_id=<? value("quhead_id") ?>);
- 
- 
- --------------------------------------------------------------------
-   
- QUERY: GroupFoot
- --Note that for version 2.3 the addition of quitem_qty_invuomratio was added in the line below and iteminvpricerat(item_id) was replaced
- --with quitem_price_invuomratio:
- SELECT formatMoney(SUM(round((quitem_price * quitem_qty_invuomratio) * quitem_qtyord / quitem_price_invuomratio ,2))) AS f_extprice,
-        formatMoney(quhead_freight) AS f_freight,
-        formatMoney(quhead_misc) AS f_misc,
- 
- -- Old way of calculating Tax:       
- --formatMoney(calculateTax(quhead_tax_id, SUM(round(quitem_price * CASE WHEN (item_taxable) THEN quitem_qtyord ELSE 0 END / iteminvpricerat(item_id) ,2)), quhead_freight, 'T')) AS f_tax,
- --
- -- New way after 2.1.1:
- formatMoney((select 
- ((
- 
- --Note that for version 2.3 the addition of quitem_qty_invuomratio was added in the line below and iteminvpricerat(item_id) was replaced
- --with quitem_price_invuomratio:
- select sum(calculatetax(quitem_tax_id, (quitem_qtyord * (quitem_price * quitem_qty_invuomratio) / quitem_price_invuomratio), '0')) from quitem, quhead, item, itemsite where quhead_id  = <? value("quhead_id") ?> and quitem_quhead_id = quhead_id and quitem_itemsite_id = itemsite_id and itemsite_item_id  = item_id
- )
- +
- (
- select calculatetax((select getfreighttaxselection((select quhead_taxauth_id from quhead where quhead_id = <? value("quhead_id")?>))), quhead_freight, quhead_freight, 'A') from quhead where quhead_id = <? value("quhead_id") ?>
- )
- +
- (
- select calculatetax((select getfreighttaxselection((select quhead_taxauth_id from quhead where quhead_id = <? value("quhead_id")?>))), quhead_freight, quhead_freight, 'B') from quhead where quhead_id = <? value("quhead_id") ?>
- )
- +
- (
- select calculatetax((select getfreighttaxselection((select quhead_taxauth_id from quhead where quhead_id = <? value("quhead_id")?>))), quhead_freight, quhead_freight, 'C') from quhead where quhead_id = <? value("quhead_id") ?>
- )
- ))) AS f_tax,
- --End of new 2.1.1 Tax Calc
- 
- --Note: in 2.1.1 replace Tax Calc with new method in the section 
- --of the query that returns f_totaldue:
- --Old f_total due START:
- --formatMoney((calculateTax(quhead_tax_id, SUM(round(quitem_price * CASE WHEN (item_taxable) THEN quitem_qtyord ELSE 0 END / --iteminvpricerat(item_id) ,2)), quhead_freight, 'T')) + SUM(round(quitem_price * quitem_qtyord / iteminvpricerat(item_id) ,2)) + quhead_freight + --quhead_misc) as f_totaldue
- --Old f_totaldue END
- 
- ------------------------------------
- --New f_totaldue begin:
- 
- formatMoney(
- (
- --Note that for version 2.3 the addition of quitem_qty_invuomratio was added in the line below and iteminvpricerat(item_id) was replaced
- --with quitem_price_invuomratio:
- select sum(calculatetax(quitem_tax_id, (quitem_qtyord * (quitem_price * quitem_qty_invuomratio) / quitem_price_invuomratio), '0')) from quitem, quhead, item, itemsite where quhead_id  = <? value("quhead_id") ?> and quitem_quhead_id = quhead_id and quitem_itemsite_id = itemsite_id and itemsite_item_id  = item_id
- )
- +
- (
- select calculatetax((select getfreighttaxselection((select quhead_taxauth_id from quhead where quhead_id = <? value("quhead_id")?>))), quhead_freight, quhead_freight, 'A') from quhead where quhead_id = <? value("quhead_id") ?>
- )
- +
- (
- select calculatetax((select getfreighttaxselection((select quhead_taxauth_id from quhead where quhead_id = <? value("quhead_id")?>))), quhead_freight, quhead_freight, 'B') from quhead where quhead_id = <? value("quhead_id") ?>
- )
- +
- (
- select calculatetax((select getfreighttaxselection((select quhead_taxauth_id from quhead where quhead_id = <? value("quhead_id")?>))), quhead_freight, quhead_freight, 'C') from quhead where quhead_id = <? value("quhead_id") ?>
- )
- --Note that for version 2.3 the addition of quitem_qty_invuomratio was added in the line below and iteminvpricerat(item_id) was replaced
- --with quitem_price_invuomratio:
-  + SUM(round((quitem_price * quitem_qty_invuomratio) * quitem_qtyord / quitem_price_invuomratio ,2)) 
-  + quhead_freight 
-  + quhead_misc) 
- AS f_totaldue
- 
- --New f_totaldue end:
- ------------------------------------
- 
- FROM quhead, quitem, item
- 
- WHERE ( (quitem_quhead_id=quhead_id)
-  AND (quitem_item_id=item_id)
-  AND (quhead_id=<? value("quhead_id") ?>) )
- GROUP BY quhead_id, quhead_freight, quhead_tax_id, quhead_misc;
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
- QUERY: currency_info
- --this was added in version 2.3
- select 
- curr_name,
- curr_symbol,
- curr_abbr
-  from quhead, curr_symbol where quhead_curr_id = curr_id
-  and quhead_id = <? value("quhead_id") ?>;
- --------------------------------------------------------------------
-   
- QUERY: address
- SELECT
-      warehous_descrip,
-      formatAddr(addr_line1, addr_line2, addr_line3, ( addr_city || '  ' || addr_state || '  ' || addr_postalcode), addr_country) AS warehouse_address
- FROM
-      whsinfo, 
-      addr, 
-      quhead
- WHERE 
-      addr_id = warehous_addr_id
-      and quhead_warehous_id = warehous_id
-      AND quhead_id=<? value("quhead_id") ?> ;
- --------------------------------------------------------------------
-   
- QUERY: contact_fax_phone
- select 
- 
- cntct_fax,
- cntct_phone
- 
- from 
- 
- cntct, quhead, custinfo where cust_id = quhead_cust_id  and cust_cntct_id = cntct_id and quhead_id = <? value("quhead_id") ?>;
- 
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: RunningAvailability
- QUERY: head
- SELECT item_number,
-        item_descrip1,
-        item_descrip2,
-        uom_name,
-        warehous_code AS warehouse,
-        <? if exists("showPlanned") ?>
-          text('Yes')
-        <? else ?>
-          text('No')
-        <? endif ?>
-        AS showplnord
-   FROM item, uom, warehous
-  WHERE ((item_id=<? value("item_id") ?>)
-    AND (item_inv_uom_id=uom_id)
-    AND (warehous_id=<? value("warehous_id") ?>))
- --------------------------------------------------------------------
-   
  QUERY: detail
  <? if exists("MultiWhs") ?>
  SELECT tohead_id AS orderid, toitem_id AS altorderid, 'T/O' AS ordertype,
@@ -3840,7 +2727,7 @@ ViewAPCheckRunEditList
    AND  (toitem_item_id=<? value("item_id") ?>)
    AND  (tohead_dest_warehous_id=<? value("warehous_id") ?>)
    AND  (toitem_qty_ordered > toitem_qty_received) )
- 
+
  UNION
  SELECT tohead_id AS orderid, toitem_id AS altorderid, 'T/O' AS ordertype,
         TEXT(tohead_number) AS ordernumber,
@@ -3859,7 +2746,7 @@ ViewAPCheckRunEditList
    AND  (toitem_item_id=<? value("item_id") ?>)
    AND  (tohead_src_warehous_id=<? value("warehous_id") ?>)
    AND  (toitem_qty_ordered - toitem_qty_shipped - qtyAtShipping('TO', toitem_id)) > 0 )
- 
+
  UNION
  <? endif ?>
  SELECT wo_id AS orderid, -1 AS altorderid,
@@ -3882,7 +2769,7 @@ ViewAPCheckRunEditList
    AND  (itemsite_item_id=<? value("item_id") ?>)
 -  AND  (item_type='M'))
 +  AND  (item_type NOT IN ('C', 'Y')))
- 
+
  UNION
  SELECT wo_id AS orderid, -1 AS altorderid,
         'W/O' AS ordertype,
@@ -3905,7 +2792,7 @@ ViewAPCheckRunEditList
    AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
    AND  (itemsite_item_id=<? value("item_id") ?>)
    AND  (item_type IN ('C', 'Y')) )
- 
+
  UNION
  SELECT wo_id AS orderid, womatl_id AS altorderid,
        'W/O' AS ordertype,
@@ -3929,7 +2816,7 @@ ViewAPCheckRunEditList
 -  AND  (womatl_itemsite_id=womatlis.itemsite_id)
 -  AND  (item_type IN ('P', 'M', 'C', 'O')) )
 +  AND  (womatl_itemsite_id=womatlis.itemsite_id) )
- 
+
  UNION
  SELECT pohead_id AS orderid, poitem_id AS altorderid,
        'P/O' AS ordertype,
@@ -3951,7 +2838,7 @@ ViewAPCheckRunEditList
    AND  (itemsite_item_id=item_id)
    AND  (item_id=<? value("item_id") ?>)
    AND  (item_type IN ('P', 'M', 'C', 'O')) )
- 
+
  UNION
  SELECT cohead_id AS orderid, coitem_id AS altorderid,
         'S/O' AS ordertype,
@@ -3974,7 +2861,7 @@ ViewAPCheckRunEditList
    AND  (itemsite_item_id=item_id)
    AND  (item_id=<? value("item_id") ?>)
    AND  item_sold )
- 
+
  <? if exists("showPlanned") ?>
  <? if exists("showMRPplan") ?>
  UNION
@@ -3999,7 +2886,7 @@ ViewAPCheckRunEditList
    AND  (planord_itemsite_id=itemsite_id)
    AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
    AND  (itemsite_item_id=<? value("item_id") ?>) )
- 
+
  UNION
  SELECT planord_id AS orderid, -1 AS altorderid,
         'Planned W/O' AS ordertype,
@@ -4022,7 +2909,7 @@ ViewAPCheckRunEditList
    AND  (planord_itemsite_id=itemsite_id)
    AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
    AND  (itemsite_item_id=<? value("item_id") ?>) )
- 
+
  UNION
  SELECT planreq_id AS orderid, -1 AS altorderid,
         'Planned W/O' AS ordertype,
@@ -4056,13 +2943,13 @@ ViewAPCheckRunEditList
    AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
    AND  (itemsite_item_id=<? value("item_id") ?>) )
  <? endif ?>
- 
+
  UNION
  SELECT pr_id AS orderid, -1 AS altorderid,
         'P/R' AS ordertype,
  --       <? value("pr") ?> AS ordernumber,
  --2.3 replaced above with actual order number
-        CAST(pr_number AS text) AS ordernumber,       
+        CAST(pr_number AS text) AS ordernumber,
         1 AS sequence,
         '' AS item_number,
         formatDate(pr_duedate) AS duedate,
@@ -4079,9 +2966,9 @@ ViewAPCheckRunEditList
    AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
    AND  (itemsite_item_id=<? value("item_id") ?>) )
  <? endif ?>
- 
- UNION 
- 
+
+ UNION
+
  SELECT -1 AS orderid, -1 AS altorderid,
               '' AS ordertype,
               '' AS ordernumber,
@@ -4097,54 +2984,12 @@ ViewAPCheckRunEditList
          FROM itemsite
         WHERE ((itemsite_item_id=<? value("item_id") ?>)
           AND (itemsite_warehous_id=<? value("warehous_id") ?>))
- 
+
  ORDER BY r_duedate, sequence;
- 
- 
- --------------------------------------------------------------------
-   
- QUERY: info
- SELECT
-        formatQty(itemsite_qtyonhand) AS qoh,
-        formatQty(CASE WHEN(itemsite_useparams) THEN itemsite_reorderlevel ELSE 0.0 END) AS reorderlevel,
-        formatQty(CASE WHEN(itemsite_useparams) THEN itemsite_ordertoqty ELSE 0.0 END) AS ordertoqty,
-        formatQty(CASE WHEN(itemsite_useparams) THEN itemsite_multordqty ELSE 0.0 END) AS multorderqty 
- FROM itemsite 
- WHERE ((itemsite_item_id=<? value("item_id") ?>)
-  AND (itemsite_warehous_id=<? value("warehous_id") ?>));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: SalesHistoryByBilltoName
- QUERY: head
- SELECT text(<? value("billToName") ?>) AS billtoname,
-        <? if exists("warehous_id") ?>
-            (select warehous_code from warehous where warehous_id=<? value("warehous_id") ?>)
-        <? else ?>
-            text('All Sites')
-        <? endif ?>
-          AS warehouse,
-        <? if exists("prodcat_id") ?>
-            (select (prodcat_code||'-'||prodcat_descrip) from prodcat where prodcat_id=<? value("prodcat_id") ?>)
-        <? elseif exists("prodcat_pattern") ?>
-            text(<? value("prodcat_pattern") ?>)
-        <? else ?>
-            text('All Categories')
-        <? endif ?>
-          AS prodcat,
-        formatDate(date(<? value("startDate") ?>)) AS startDate,
-        formatDate(date(<? value("endDate") ?>)) AS endDate,
-        <? if exists("showPrices") ?>
-            text('Unit Price') AS lbl_unitprice,
-            text('Total') AS lbl_total
-        <? else ?>
-            text('') AS lbl_unitprice,
-            text('') AS lbl_total
-        <? endif ?>
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT cohist_billtoname as billto,
 +       cust_number,
@@ -4178,76 +3023,10 @@ ViewAPCheckRunEditList
  <? endif ?>
  )
  ORDER BY cohist_invcdate, cohist_billtoname, item_number;
-       
- --------------------------------------------------------------------
-   
- QUERY: showPrices
- SELECT TRUE
-  WHERE (TRUE =
- <? if exists("showPrices") ?>
-     TRUE
- <? else ?>
-     FALSE
- <? endif ?>
-  );
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: SalesHistoryByParameterList
- QUERY: head
- SELECT <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse,
-        <? if exists("prodcat_id") ?>
-          ( SELECT (prodcat_code||'-'||prodcat_descrip)
-              FROM prodcat
-             WHERE (prodcat_id=<? value("prodcat_id") ?>) )
-        <? elseif exists("prodcat_pattern") ?>
-          text(<? value("prodcat_pattern") ?>)
-        <? elseif exists("custtype_id") ?>
-          ( SELECT (custtype_code || '-' || custtype_descrip)
-              FROM custtype
-             WHERE (custtype_id=<? value("custtype_id") ?>) )
-        <? elseif exists("custtype_pattern") ?>
-          text(<? value("custtype_pattern") ?>)
-        <? elseif exists("custgrp_id") ?>
-          ( SELECT (custgrp_name || '-' || custgrp_descrip)
-              FROM custgrp
-             WHERE (custgrp_id=<? value("custgrp_id") ?>) )
-        <? elseif exists("custgrp_pattern") ?>
-          text(<? value("custgrp_pattern") ?>)
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_value,
-        <? if reExists("prodcat.*") ?>
-          text('Product Categories:')
-        <? elseif reExists("custtype.*") ?>
-          text('Customer Types:')
-        <? elseif reExists("custgrp.*") ?>
-          text('Customer Groups:')
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_label,
-        formatDate(date(<? value("startDate") ?>)) AS startDate,
-        formatDate(date(<? value("endDate") ?>)) AS endDate,
-        <? if exists("showPrices") ?>
-            text('Unit Price') AS lbl_unitprice,
-            text('Total') AS lbl_total
-        <? else ?>
-            text('') AS lbl_unitprice,
-            text('') AS lbl_total
-        <? endif ?>   
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT cohist_ordernumber AS sonumber,
 +       cust_number,
@@ -4264,7 +3043,7 @@ ViewAPCheckRunEditList
         '' AS f_total,
         <? endif ?>
         round(cohist_qtyshipped * currtobase(cohist_curr_id,cohist_unitprice,cohist_invcdate),2)  AS total
-   FROM cohist, itemsite, item, cust 
+   FROM cohist, itemsite, item, cust
   WHERE ((cohist_itemsite_id=itemsite_id)
     AND (itemsite_item_id=item_id)
     AND (cohist_cust_id=cust_id)
@@ -4288,22 +3067,9 @@ ViewAPCheckRunEditList
     AND (itemsite_warehous_id=<? value("warehous_id") ?>)
  <? endif ?>
   )
- ORDER BY cohist_invcdate, item_number;      
- --------------------------------------------------------------------
-   
- QUERY: showPrices
- SELECT TRUE
-  WHERE (TRUE=
- <? if exists("showPrices") ?>
-     TRUE
- <? else ?>
-     FALSE
- <? endif ?>
-  );
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+ ORDER BY cohist_invcdate, item_number;
+
+
  ====================================================================
  REPORT: SelectPaymentsList
  QUERY: detail
@@ -4346,34 +3112,8 @@ ViewAPCheckRunEditList
           apopen_duedate, apopen_docdate, apopen_amount, apopen_paid, apopen_curr_id) AS data
   WHERE (amount <> 0.0)
  ORDER BY apopen_duedate, amount DESC;
- --------------------------------------------------------------------
-   
- QUERY: head
- SELECT <? if exists("vend_id") ?>
-          ( SELECT vend_name
-              FROM vend
-             WHERE (vend_id=<? value("vend_id") ?>) )
-        <? elseif exists("vendtype_id") ?>
-          ( SELECT (vendtype_code || '-' || vendtype_descrip)
-              FROM vendtype
-             WHERE (vendtype_id=<? value("vendtype_id") ?>) )
-        <? elseif exists("vendtype_pattern") ?>
-          text(<? value("vendtype_pattern") ?>)
-        <? else ?>
-          text('All Vendors')
-        <? endif ?>
-        AS f_value,
-        <? if reExists("vendtype_.*") ?>
-          text('Vendor Type:')
-        <? else ?>
-          text('Vendor:')
-        <? endif ?>
-        AS f_label;
-        
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: SelectedPaymentsList
  QUERY: detail
@@ -4399,10 +3139,8 @@ ViewAPCheckRunEditList
 +<? endif ?>
 +      )
  ORDER BY bankaccnt_name, vend_number, apopen_docnumber;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: ShipmentsByDate
  QUERY: head
@@ -4412,7 +3150,7 @@ ViewAPCheckRunEditList
 +       formatDate(date(<? value("endDate") ?>)) AS endDate;
 +
  --------------------------------------------------------------------
-   
+
  QUERY: detail
 -SELECT cosmisc_id,
 -       formatShipmentNumber(cosmisc_id) AS cosmisc_number,
@@ -4429,8 +3167,8 @@ ViewAPCheckRunEditList
 +            ELSE itemdescription
 +       END AS cust_desc,
 +       shiphead_order_type,
-+       shiphead_number, 
-+       order_number, 
++       shiphead_number,
++       order_number,
 +       customer,
 +       shiphead_shipdate AS f_shipdate,
 +       shiphead_tracknum,
@@ -4454,18 +3192,18 @@ ViewAPCheckRunEditList
 +SELECT shiphead_id, coitem_id AS lineitem_id, cohead_number AS sortkey1, shiphead_number AS sortkey2, 1 AS level,
 +       shiphead_order_type,
 +       shiphead_number,
-+       cohead_number AS order_number, 
++       cohead_number AS order_number,
 +       (cust_number || '-' || cust_name) AS customer,
 +       shiphead_shipdate,
 +       shiphead_tracknum,
 +       shiphead_freight,
-+       currConcat(shiphead_freight_curr_id) AS freight_curr_abbr, 
++       currConcat(shiphead_freight_curr_id) AS freight_curr_abbr,
 +       coitem_linenumber AS linenumber, item_number,
 +       (item_descrip1 || ' ' || item_descrip2) AS itemdescription,
 +       warehous_code,
 +       coitem_qtyord AS qtyord,
 +       SUM(shipitem_qty) AS qtyshipped
-+FROM shipitem, shiphead, coitem, cohead, cust, itemsite, item, warehous 
++FROM shipitem, shiphead, coitem, cohead, cust, itemsite, item, warehous
 +WHERE ( (shipitem_shiphead_id=shiphead_id)
 + AND (shipitem_orderitem_id=coitem_id)
     AND (coitem_itemsite_id=itemsite_id)
@@ -4491,31 +3229,31 @@ ViewAPCheckRunEditList
 +<? if exists("shiphead_id") ?>
 + AND (shiphead_id = <? value("shiphead_id") ?>)
 +<? endif ?>
-+      ) 
++      )
 +GROUP BY shiphead_id, coitem_id, shiphead_order_type, shiphead_number,
 +         cohead_number, cust_number, cust_name, shiphead_shipdate,
           coitem_linenumber, item_number, item_descrip1, item_descrip2,
 -         uom_name, warehous_code, coitem_qtyord
 -ORDER BY cosmisc_id, coitem_linenumber;
-+         warehous_code, shiphead_tracknum, coitem_qtyord, 
-+         shiphead_freight, shiphead_freight_curr_id 
++         warehous_code, shiphead_tracknum, coitem_qtyord,
++         shiphead_freight, shiphead_freight_curr_id
 +<? if exists("MultiWhs") ?>
 +UNION
 +SELECT shiphead_id, toitem_id AS lineitem_id, tohead_number AS sortkey1, shiphead_number AS sortkey2, 1 AS level,
 +       shiphead_order_type,
 +       shiphead_number,
-+       tohead_number AS order_number, 
++       tohead_number AS order_number,
 +       tohead_destname AS customer,
 +       shiphead_shipdate,
 +       shiphead_tracknum,
 +       shiphead_freight,
-+       currConcat(shiphead_freight_curr_id) AS freight_curr_abbr, 
++       currConcat(shiphead_freight_curr_id) AS freight_curr_abbr,
 +       toitem_linenumber AS linenumber, item_number,
 +       (item_descrip1 || ' ' || item_descrip2) AS itemdescription,
 +       tohead_srcname AS warehous_code,
 +       toitem_qty_ordered AS qtyord,
 +       SUM(shipitem_qty) AS qtyshipped
-+FROM shipitem, shiphead, toitem, tohead, item 
++FROM shipitem, shiphead, toitem, tohead, item
 +WHERE ( (shipitem_shiphead_id=shiphead_id)
 + AND (shipitem_orderitem_id=toitem_id)
 + AND (toitem_status <> 'X')
@@ -4532,22 +3270,20 @@ ViewAPCheckRunEditList
 +<? if exists("shiphead_id") ?>
 + AND (shiphead_id = <? value("shiphead_id") ?>)
 +<? endif ?>
-+      ) 
++      )
 +GROUP BY shiphead_id, toitem_id, shiphead_order_type, shiphead_number,
 +         tohead_number, tohead_destname, shiphead_shipdate,
 +         toitem_linenumber, item_number, item_descrip1, item_descrip2,
-+         tohead_srcname, shiphead_tracknum, toitem_qty_ordered, 
-+         shiphead_freight, shiphead_freight_curr_id 
++         tohead_srcname, shiphead_tracknum, toitem_qty_ordered,
++         shiphead_freight, shiphead_freight_curr_id
 +<? endif ?>
 +   ) AS data
 +ORDER BY sortkey1, sortkey2, level, linenumber DESC;
 +
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
--REPORT: 
+-REPORT:
 +REPORT: StandardBOL
  QUERY: head
  SELECT cosmisc_shipvia, formatDate(cosmisc_shipdate) AS shipdate,
@@ -4562,7 +3298,7 @@ ViewAPCheckRunEditList
            AND (cohead_warehous_id=warehous_id)
            AND (cosmisc_id=%1));
  --------------------------------------------------------------------
-   
+
  QUERY: detail
  SELECT coitem_linenumber, formatQty(SUM(coship_qty)) AS invqty, uom_name, roundUp(SUM(coship_qty) / itemuomratiobytype(item_id, 'Selling'))::integer AS shipqty,
                  itemsellinguom(item_id) AS shipuom, item_number, item_descrip1, item_descrip2,
@@ -4577,9 +3313,9 @@ ViewAPCheckRunEditList
           GROUP BY coitem_linenumber, item_number, uom_name, shipuom,
                    item_descrip1, item_descrip2, item_prodweight, item_packweight
           ORDER BY coitem_linenumber;
-     
+
  --------------------------------------------------------------------
-   
+
  QUERY: foot
  SELECT formatQty(SUM(coship_qty * item_prodweight)) AS netweight,
                  formatQty(SUM(coship_qty * (item_prodweight + item_packweight))) AS grossweight,
@@ -4613,51 +3349,15 @@ ViewAPCheckRunEditList
            AND (itemsite_item_id=item_id)
            AND (coship_cosmisc_id=%1));
  --------------------------------------------------------------------
-   
+
  QUERY: notes
  SELECT cosmisc_notes
           FROM cosmisc
           WHERE (cosmisc_id=%1);
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: SummarizedBacklogByWarehouse
- QUERY: head
- SELECT <? if exists("custtype_id") ?>
-          ( SELECT (custtype_code||'-'||custtype_descrip)
-              FROM custtype
-             WHERE (custtype_id=<? value("custtype_id") ?>) )
-        <? elseif exists("custtype_pattern") ?>
-          text(<? value("custtype_pattern") ?>)
-        <? else ?>
-          text('All Customer Types')
-        <? endif ?>
-        AS custtype,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse,
-        <? if exists("showPrices") ?>
-          text('Sales') AS lbl_sales,
-          text('Cost') AS lbl_cost,
-          text('Margin') AS lbl_margin,
-          text('Totals:') AS lbl_totals,
-        <? else ?>
-          text('') AS lbl_sales,
-          text('') AS lbl_cost,
-          text('') AS lbl_margin,
-          text('') AS lbl_totals,
-        <? endif ?>
-        formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate;
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT CASE WHEN (cohead_holdtype='P') THEN -1
              ELSE cohead_id
@@ -4708,8 +3408,8 @@ ViewAPCheckRunEditList
         CASE WHEN (cosmisc_shipdate IS NULL) THEN text('')
              ELSE formatDate(cosmisc_shipdate)
         END AS shipdate
-   FROM coitem, itemsite, item, cust, 
-        cohead LEFT OUTER JOIN cosmisc ON (cosmisc_cohead_id=cohead_id) 
+   FROM coitem, itemsite, item, cust,
+        cohead LEFT OUTER JOIN cosmisc ON (cosmisc_cohead_id=cohead_id)
   WHERE ( (coitem_cohead_id=cohead_id)
     AND (cohead_cust_id=cust_id)
     AND (coitem_itemsite_id=itemsite_id)
@@ -4730,7 +3430,7 @@ ViewAPCheckRunEditList
  GROUP BY cohead_id, cohead_number, cust_name, cohead_holdtype,
           cohead_orderdate, cohead_packdate, cosmisc_shipped,
           cosmisc_shipvia, cosmisc_shipdate, cosmisc_id
- ORDER BY 
+ ORDER BY
  <? if exists("orderByShipDate") ?>
    scheddate,
  <? elseif exists("orderByPackDate") ?>
@@ -4738,51 +3438,8 @@ ViewAPCheckRunEditList
 +  cohead_packdate,
  <? endif ?>
  cohead_number, cosmisc_shipped;
- --------------------------------------------------------------------
-   
- QUERY: totals
- SELECT
- <? if exists("showPrices") ?>
-        formatMoney( SUM( sales ) ) AS f_sales,
-        formatCost( SUM( cost ) ) AS f_cost,
-        formatMoney( SUM( margin ) ) AS f_margin
-   FROM (
- SELECT SUM( round((noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) * coitem_qty_invuomratio) *
-                          (coitem_price / coitem_price_invuomratio),2) ) AS sales,
-        SUM((noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) * coitem_qty_invuomratio) * stdcost(item_id) ) AS cost,
-        SUM((noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) * coitem_qty_invuomratio) *
-                          ((coitem_price / coitem_price_invuomratio) - stdcost(item_id)) ) AS margin
-   FROM coitem, itemsite, item, cust, 
-        cohead
-  WHERE ( (coitem_cohead_id=cohead_id)
-    AND (cohead_cust_id=cust_id)
-    AND (coitem_itemsite_id=itemsite_id)
-    AND (itemsite_item_id=item_id)
-    AND (coitem_status NOT IN ('C','X'))
-    AND (coitem_scheddate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
- <? if exists("custtype_id") ?>
-    AND (cust_custtype_id=<? value("custtype_id") ?>)
- <? elseif exists("custtype_pattern") ?>
-    AND (cust_custtype_id IN (SELECT custtype_id
-                                FROM custtype
-                               WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
- <? endif ?>
- <? if exists("warehous_id") ?>
-    AND (itemsite_warehous_id=<? value("warehous_id") ?>)
- <? endif ?>
- )
- GROUP BY cohead_id, cohead_number, cust_name, cohead_holdtype,
-          cohead_orderdate, cohead_packdate
- ) AS data
- <? else ?>
-        text('') AS f_sales,
-        text('') AS f_cost,
-        text('') AS f_margin
- <? endif ?>
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: TimePhasedStatisticsByItem
  QUERY: head
@@ -4800,65 +3457,14 @@ ViewAPCheckRunEditList
         AS warehouse
    FROM item
   WHERE (item_id=<? value("item_id") ?>);
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT calitem_pstart AS pstart,
-        calitem_pend AS pend,
-        (formatDate(calitem_pstart) || '-' || formatDate(calitem_pend)) AS period,
-        warehous_code,
-        formatQty(summTransR(itemsite_id, calitem_id)) AS received,
-        formatQty(summTransI(itemsite_id, calitem_id)) AS issued,
-        formatQty(summTransS(itemsite_id, calitem_id)) AS sold,
-        formatQty(summTransC(itemsite_id, calitem_id)) AS scrap,
-        formatQty(summTransA(itemsite_id, calitem_id)) AS adjustments
-   FROM itemsite, warehous,
- 
-        ( SELECT rcalitem_id as calitem_id,
-                 findPeriodStart(rcalitem_id) as calitem_pstart,
-                 findPeriodEnd(rcalitem_id) as calitem_pend
-            FROM rcalitem
-           WHERE (rcalitem_id in (
- <? foreach("period_id_list") ?>
-   <? if not isfirst("period_id_list") ?>
-     ,
-   <? endif ?>
-   <? value("period_id_list") ?>
- <? endforeach ?>
-                  ))
-           UNION
-          SELECT acalitem_id as calitem_id,
-                 findPeriodStart(acalitem_id) as calitem_pstart,
-                 findPeriodEnd(acalitem_id) as calitem_pend
-            FROM acalitem
-           WHERE (acalitem_id in (
- <? foreach("period_id_list") ?>
-   <? if not isfirst("period_id_list") ?>
-     ,
-   <? endif ?>
-   <? value("period_id_list") ?>
- <? endforeach ?>
-                  ))
-        ORDER BY calitem_pstart, calitem_pend
-        ) as calitem
- 
-  WHERE ((itemsite_warehous_id=warehous_id)
-    AND (itemsite_item_id=<? value("item_id") ?>)
- <? if exists("warehous_id") ?>
-    AND (itemsite_warehous_id=<? value("warehous_id") ?>)
- <? endif ?>
- )
- ORDER BY calitem_pstart, warehous_code;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: TodoByUserAndIncident
  QUERY: detail
 -SELECT todoitem_id, incdt_id, todoitem_seq, incdt_number,
 +SELECT todoitem_id, incdt_id, incdtpriority_name, incdt_number,
-        usr_username, todoitem_name, todoitem_due_date, 
+        usr_username, todoitem_name, todoitem_due_date,
         todoitem_start_date, todoitem_status,
         todoitem_description
  FROM usr, todoitem LEFT OUTER JOIN
@@ -4866,10 +3472,10 @@ ViewAPCheckRunEditList
 +     LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=todoitem_priority_id)
  WHERE ((usr_id=todoitem_usr_id)
  <? if not exists("showInactive") ?>
-   AND todoitem_active 
+   AND todoitem_active
  <? endif ?>
  <? if not exists("showCompleted") ?>
-   AND todoitem_status != 'C' 
+   AND todoitem_status != 'C'
  <? endif ?>
  <? if exists("usr_id") ?>
    AND (usr_id=<? value("usr_id") ?>)
@@ -4889,203 +3495,175 @@ ViewAPCheckRunEditList
  <? endif ?>
 -) ORDER BY usr_username, todoitem_seq;
 +) ORDER BY usr_username, incdtpriority_order;
- --------------------------------------------------------------------
-   
- QUERY: username
- SELECT
-   <? if exists("usr_id") ?>
-     usr_username AS usr
-     FROM usr
-     WHERE (usr_id=<? value("usr_id") ?>)
-   <? elseif exists("usr_pattern") ?>
-     <? value("usr_pattern") ?>
-   <? else ?>
-     'ALL' AS usr
-   <? endif ?>
- ;
- --------------------------------------------------------------------
-   
- QUERY: incident
- SELECT
-   <? if exists("incdt_id") ?>
-     incdt_number
-     FROM incdt
-     WHERE (incdt_id=<? value("incdt_id") ?>)
-   <? else ?>
-     'ALL' AS incdt_number
-   <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: TodoList
  QUERY: detail
--SELECT todoitem_id AS id, todoitem_usr_id AS altId, 
--       'T' AS type, todoitem_seq AS seq, 
-+SELECT todoitem_id AS id, 1 AS altId, todoitem_owner_username AS owner, 
-+		       <? value("todo") ?> AS type, incdtpriority_order AS seq, incdtpriority_name AS priority, 
-        todoitem_name AS name, 
-        firstLine(todoitem_description) AS descrip, 
--       todoitem_status AS status, todoitem_due_date AS due, 
--       usr_username AS usr, incdt_number AS incdt 
--FROM usr, todoitem LEFT OUTER JOIN 
--     incdt ON (incdt_id=todoitem_incdt_id) 
+-SELECT todoitem_id AS id, todoitem_usr_id AS altId,
+-       'T' AS type, todoitem_seq AS seq,
++SELECT todoitem_id AS id, 1 AS altId, todoitem_owner_username AS owner,
++		       <? value("todo") ?> AS type, incdtpriority_order AS seq, incdtpriority_name AS priority,
+        todoitem_name AS name,
+        firstLine(todoitem_description) AS descrip,
+-       todoitem_status AS status, todoitem_due_date AS due,
+-       usr_username AS usr, incdt_number AS incdt
+-FROM usr, todoitem LEFT OUTER JOIN
+-     incdt ON (incdt_id=todoitem_incdt_id)
 -WHERE ( (todoitem_usr_id=usr_id)
 -  AND   (todoitem_due_date BETWEEN <? value("startDate") ?>
 -                               AND <? value("endDate") ?>)
-+           todoitem_status AS status, todoitem_start_date as start, 
-+		       todoitem_due_date AS due, formatDate(todoitem_due_date) AS f_due, 
-+		       usr_username AS usr, CAST(incdt_number AS text) AS number, cust_number AS cust, 
-+           CASE WHEN (todoitem_status != 'C'AND 
++           todoitem_status AS status, todoitem_start_date as start,
++		       todoitem_due_date AS due, formatDate(todoitem_due_date) AS f_due,
++		       usr_username AS usr, CAST(incdt_number AS text) AS number, cust_number AS cust,
++           CASE WHEN (todoitem_status != 'C'AND
 +                      todoitem_due_date < CURRENT_DATE) THEN 'expired'
-+                WHEN (todoitem_status != 'C'AND 
++                WHEN (todoitem_status != 'C'AND
 +                      todoitem_due_date > CURRENT_DATE) THEN 'future'
-+           END AS due_qtforegroundrole 
-+		FROM usr, todoitem LEFT OUTER JOIN incdt ON (incdt_id=todoitem_incdt_id) 
-+		                   LEFT OUTER JOIN crmacct ON (crmacct_id=todoitem_crmacct_id) 
-+		                   LEFT OUTER JOIN cust ON (cust_id=crmacct_cust_id) 
-+                       LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=todoitem_priority_id) 
++           END AS due_qtforegroundrole
++		FROM usr, todoitem LEFT OUTER JOIN incdt ON (incdt_id=todoitem_incdt_id)
++		                   LEFT OUTER JOIN crmacct ON (crmacct_id=todoitem_crmacct_id)
++		                   LEFT OUTER JOIN cust ON (cust_id=crmacct_cust_id)
++                       LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=todoitem_priority_id)
 +		WHERE ( (todoitem_usr_id=usr_id)
-+      <? if exists("startStartDate") ?> 
++      <? if exists("startStartDate") ?>
 +      AND (todoitem_start_date BETWEEN <? value("startStartDate") ?>
 +		                             AND <? value("startEndDate") ?>)
 +      <? endif ?>
-+      <? if exists("dueStartDate") ?> 
-+		  AND   (todoitem_due_date BETWEEN <? value("dueStartDate") ?> 
-+		                               AND <? value("dueEndDate") ?>) 
++      <? if exists("dueStartDate") ?>
++		  AND   (todoitem_due_date BETWEEN <? value("dueStartDate") ?>
++		                               AND <? value("dueEndDate") ?>)
 +  	  <? endif ?>
    <? if not exists("completed") ?>
    AND   (todoitem_status != 'C')
    <? endif ?>
-   <? if exists("usr_id") ?>   
--  AND (todoitem_usr_id=<? value("usr_id") ?>)   
+   <? if exists("usr_id") ?>
+-  AND (todoitem_usr_id=<? value("usr_id") ?>)
 -  <? elseif exists("usr_pattern") ?>
--  AND (todoitem_usr_id IN (SELECT usr_id 
--        FROM usr 
--        WHERE (usr_username ~ <? value("usr_pattern") ?>)))   
-+		  AND (usr_id=<? value("usr_id") ?>) 
+-  AND (todoitem_usr_id IN (SELECT usr_id
+-        FROM usr
+-        WHERE (usr_username ~ <? value("usr_pattern") ?>)))
++		  AND (usr_id=<? value("usr_id") ?>)
 +		  <? elseif exists("usr_pattern" ?>
-+		  AND (usr_username ~ <? value("usr_pattern") ?>) 
++		  AND (usr_username ~ <? value("usr_pattern") ?>)
    <? endif ?>
 -  <? if exists("active") ?>AND (todoitem_active) <? endif ?>
 +		  <? if not exists("completed") ?>AND (todoitem_active) <? endif ?>
-        ) 
+        )
 -<? if exists("incidents")?>
--UNION 
--SELECT incdt_id AS id, usr_id AS altId, 
--       'I' AS type, NULL AS seq, 
+-UNION
+-SELECT incdt_id AS id, usr_id AS altId,
+-       'I' AS type, NULL AS seq,
 +		<? if exists("incidents")?>
-+    <? if not exists("dueStartDate") ?> 
-+		UNION 
-+		SELECT incdt_id AS id, 2 AS altId, incdt_owner_username AS owner, 
-+		       <? value("incident") ?> AS type, incdtpriority_order AS seq, incdtpriority_name AS priority, 
-        incdt_summary AS name, 
-        firstLine(incdt_descrip) AS descrip, 
--       incdt_status AS status,  NULL AS due, 
--       incdt_assigned_username AS usr, incdt_number AS incdt 
++    <? if not exists("dueStartDate") ?>
++		UNION
++		SELECT incdt_id AS id, 2 AS altId, incdt_owner_username AS owner,
++		       <? value("incident") ?> AS type, incdtpriority_order AS seq, incdtpriority_name AS priority,
+        incdt_summary AS name,
+        firstLine(incdt_descrip) AS descrip,
+-       incdt_status AS status,  NULL AS due,
+-       incdt_assigned_username AS usr, incdt_number AS incdt
 -FROM incdt LEFT OUTER JOIN usr ON (usr_username=incdt_assigned_username)
 -WHERE ((incdt_timestamp BETWEEN <? value("incdtStartDate") ?>
 -                            AND <? value("incdtEndDate") ?>)
-+           incdt_status AS status, CAST(incdt_timestamp AS date) AS start, 
-+		       null AS due, null AS f_due, 
-+		       incdt_assigned_username AS usr, CAST(incdt_number AS text) AS number, cust_number AS cust, 
-+                       NULL AS due_qtforegroundrole 
++           incdt_status AS status, CAST(incdt_timestamp AS date) AS start,
++		       null AS due, null AS f_due,
++		       incdt_assigned_username AS usr, CAST(incdt_number AS text) AS number, cust_number AS cust,
++                       NULL AS due_qtforegroundrole
 +		FROM incdt LEFT OUTER JOIN usr ON (usr_username=incdt_assigned_username)
-+		           LEFT OUTER JOIN crmacct ON (crmacct_id=incdt_crmacct_id) 
-+		           LEFT OUTER JOIN cust ON (cust_id=crmacct_cust_id) 
-+               LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=incdt_incdtpriority_id) 
-+		WHERE ((true) 
-+      <? if exists("startStartDate") ?> 
++		           LEFT OUTER JOIN crmacct ON (crmacct_id=incdt_crmacct_id)
++		           LEFT OUTER JOIN cust ON (cust_id=crmacct_cust_id)
++               LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=incdt_incdtpriority_id)
++		WHERE ((true)
++      <? if exists("startStartDate") ?>
 +      AND (incdt_timestamp BETWEEN <? value("startStartDate") ?>
 +		                            AND <? value("startEndDate") ?>)
 +      <? endif ?>
-   <? if not exists("completed") ?>   
+   <? if not exists("completed") ?>
     AND (incdt_status != 'L')
    <? endif ?>
-   <? if exists("usr_id") ?>   
-   AND (usr_id=<? value("usr_id") ?>)   
+   <? if exists("usr_id") ?>
+   AND (usr_id=<? value("usr_id") ?>)
    <? elseif exists("usr_pattern" ?>
--  AND (usr_id IN (SELECT usr_id 
--        FROM usr 
--        WHERE (usr_username ~ <? value("usr_pattern") ?>)))   
-+		  AND (usr_username ~ <? value("usr_pattern") ?>) 
+-  AND (usr_id IN (SELECT usr_id
+-        FROM usr
+-        WHERE (usr_username ~ <? value("usr_pattern") ?>)))
++		  AND (usr_username ~ <? value("usr_pattern") ?>)
    <? endif ?>
-        ) 
+        )
 -<? endif ?>
 -ORDER BY seq, usr;
 +		<? endif ?>
 +    <? endif ?>
 +		<? if exists("projects")?>
-+		UNION 
-+		SELECT prjtask_id AS id, 3 AS altId, prjtask_owner_username AS owner, 
-+		       <? value("task") ?> AS type, NULL AS seq, NULL AS priority, 
-+		       prjtask_number || '-' || prjtask_name AS name, 
-+		       firstLine(prjtask_descrip) AS descrip, 
-+		       prjtask_status AS status,  prjtask_start_date AS start, 
-+           prjtask_due_date AS due, formatDate(prjtask_due_date) AS f_due, 
-+		       usr_username AS usr, prj_number, '' AS cust, 
-+           CASE WHEN (prjtask_status != 'C'AND 
++		UNION
++		SELECT prjtask_id AS id, 3 AS altId, prjtask_owner_username AS owner,
++		       <? value("task") ?> AS type, NULL AS seq, NULL AS priority,
++		       prjtask_number || '-' || prjtask_name AS name,
++		       firstLine(prjtask_descrip) AS descrip,
++		       prjtask_status AS status,  prjtask_start_date AS start,
++           prjtask_due_date AS due, formatDate(prjtask_due_date) AS f_due,
++		       usr_username AS usr, prj_number, '' AS cust,
++           CASE WHEN (prjtask_status != 'C'AND
 +                      prjtask_due_date < CURRENT_DATE) THEN 'expired'
-+                WHEN (prjtask_status != 'C'AND 
++                WHEN (prjtask_status != 'C'AND
 +                      prjtask_due_date > CURRENT_DATE) THEN 'future'
-+           END AS due_qtforegroundrole 
++           END AS due_qtforegroundrole
 +		FROM prj, prjtask LEFT OUTER JOIN usr ON (usr_id=prjtask_usr_id)
-+		WHERE ((prj_id=prjtask_prj_id) 
-+      <? if exists("startStartDate") ?> 
++		WHERE ((prj_id=prjtask_prj_id)
++      <? if exists("startStartDate") ?>
 +      AND (prjtask_start_date BETWEEN <? value("startStartDate") ?>
 +		                             AND <? value("startEndDate") ?>)
 +      <? endif ?>
-+      <? if exists("dueStartDate") ?> 
++      <? if exists("dueStartDate") ?>
 +      AND (prjtask_due_date BETWEEN <? value("dueStartDate") ?>
 +		                             AND <? value("dueEndDate") ?>)
 +      <? endif ?>
-+		  <? if not exists("completed") ?> 
++		  <? if not exists("completed") ?>
 +		  AND (prjtask_status != 'L')
 +		  <? endif ?>
-+		  <? if exists("usr_id") ?> 
-+		  AND (usr_id=<? value("usr_id") ?>) 
++		  <? if exists("usr_id") ?>
++		  AND (usr_id=<? value("usr_id") ?>)
 +		  <? elseif exists("usr_pattern" ?>
-+		  AND (usr_username ~ <? value("usr_pattern") ?>) 
++		  AND (usr_username ~ <? value("usr_pattern") ?>)
 +		  <? endif ?>
-+		       ) 
-+  	UNION 
-+		SELECT prj_id AS id, 4 AS altId, prj_owner_username AS owner, 
-+		       <? value("project") ?> AS type, NULL AS seq, NULL AS priority, 
-+		       prj_number || '-' || prj_name AS name, 
-+		       firstLine(prj_descrip) AS descrip, 
-+		       prj_status AS status,  prj_start_date AS start, 
-+           prj_due_date AS due, formatDate(prj_due_date) AS f_due, 
-+		       usr_username AS usr, NULL AS number, '' AS cust, 
-+           CASE WHEN (prj_status != 'C'AND 
++		       )
++  	UNION
++		SELECT prj_id AS id, 4 AS altId, prj_owner_username AS owner,
++		       <? value("project") ?> AS type, NULL AS seq, NULL AS priority,
++		       prj_number || '-' || prj_name AS name,
++		       firstLine(prj_descrip) AS descrip,
++		       prj_status AS status,  prj_start_date AS start,
++           prj_due_date AS due, formatDate(prj_due_date) AS f_due,
++		       usr_username AS usr, NULL AS number, '' AS cust,
++           CASE WHEN (prj_status != 'C'AND
 +                      prj_due_date < CURRENT_DATE) THEN 'expired'
-+                WHEN (prj_status != 'C'AND 
++                WHEN (prj_status != 'C'AND
 +                      prj_due_date > CURRENT_DATE) THEN 'future'
-+           END AS due_qtforegroundrole 
++           END AS due_qtforegroundrole
 +		FROM prj LEFT OUTER JOIN usr ON (usr_id=prj_usr_id)
-+		WHERE ((true) 
-+      <? if exists("startStartDate") ?> 
++		WHERE ((true)
++      <? if exists("startStartDate") ?>
 +      AND (prj_start_date BETWEEN <? value("startStartDate") ?>
 +		                             AND <? value("startEndDate") ?>)
 +      <? endif ?>
-+      <? if exists("dueStartDate") ?> 
++      <? if exists("dueStartDate") ?>
 +      AND (prj_due_date BETWEEN <? value("dueStartDate") ?>
 +		                             AND <? value("dueEndDate") ?>)
 +      <? endif ?>
-+		  <? if not exists("completed") ?> 
++		  <? if not exists("completed") ?>
 +		  AND (prj_status != 'L')
 +		  <? endif ?>
-+		  <? if exists("usr_id") ?> 
-+		  AND (usr_id=<? value("usr_id") ?>) 
++		  <? if exists("usr_id") ?>
++		  AND (usr_id=<? value("usr_id") ?>)
 +		  <? elseif exists("usr_pattern" ?>
-+		  AND (usr_username ~ <? value("usr_pattern") ?>) 
++		  AND (usr_username ~ <? value("usr_pattern") ?>)
 +		  <? endif ?>
-+		       ) 
++		       )
 +		<? endif ?>
 +		ORDER BY due, seq, usr;
  --------------------------------------------------------------------
-   
+
  QUERY: queryParams
  SELECT
 +  <? if exists("startStartDate") ?>
@@ -5094,14 +3672,14 @@ ViewAPCheckRunEditList
 +  <? else ?>
 +  'All' AS f_startStartDate,
 +  'All' AS f_startEndDate,
-+  <? endif ?> 
++  <? endif ?>
 +  <? if exists("dueStartDate") ?>
 +  formatDate(<? value("dueStartDate") ?>) AS f_dueStartDate,
 +  formatDate(<? value("dueEndDate") ?>) AS f_dueEndDate,
 +  <? else ?>
 +  'All' AS f_dueStartDate,
 +  'All' AS f_dueEndDate,
-+  <? endif ?> 
++  <? endif ?>
    <? if exists("completed") ?> 'Yes' <? else ?> 'No' <? endif ?> AS showClosed,
 -  <? if exists("active") ?>    'Yes' <? else ?> 'No' <? endif ?> AS activeOnly,
 +  <? if exists("projects") ?>    'Yes' <? else ?> 'No' <? endif ?> AS showTasks,
@@ -5114,10 +3692,8 @@ ViewAPCheckRunEditList
      'All' AS usr_username
    <? endif ?>
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: UnappliedAPCreditMemos
  QUERY: detail
@@ -5142,36 +3718,16 @@ ViewAPCheckRunEditList
 +<? endif ?>
 +)
  ORDER BY apopen_docnumber;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: UninvoicedReceipts
- QUERY: head
- SELECT <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse,
-        <? if exists("agentUsername") ?>
-        TEXT(<? value("agentUsername" ?>)
-        <? else ?>
-        TEXT('All Agents')
-        <? endif ?>
-        AS agentUsername;
- 
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT porecv_id,
         formatDate(porecv_date) as f_date,
         getUsername(porecv_trans_usr_id) as f_user,
         porecv_ponumber AS f_ponumber, poitem_linenumber,
-        vend_name, 
+        vend_name,
         COALESCE(item_number, ('Misc. - ' || porecv_vend_item_number)) AS item_number,
         formatQty(porecv_qty) as f_qty,
         'Receipt' AS f_type,
@@ -5198,7 +3754,7 @@ ViewAPCheckRunEditList
         formatDate(poreject_date) as f_date,
         getUsername(poreject_trans_usr_id) as f_user,
         poreject_ponumber AS f_ponumber, poitem_linenumber,
-        vend_name, 
+        vend_name,
         COALESCE(item_number, ('Misc. - ' || poreject_vend_item_number)) AS item_number,
         formatQty(poreject_qty) as f_qty,
         'Return' AS f_type,
@@ -5222,10 +3778,8 @@ ViewAPCheckRunEditList
  <? endif ?>
  )
  ORDER BY f_ponumber, poitem_linenumber;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: ViewAPCheckRunEditList
  QUERY: detail
@@ -5273,7 +3827,7 @@ ViewAPCheckRunEditList
 +                             AND (vendtype_code ~ <? value("vendtype_pattern") ?>))))
 +<? endif ?>
 +   )
- 
+
  UNION SELECT 0 AS amt_check,
               0 AS base_amt_check,
               checkitem_checkhead_id AS primaryid,
@@ -5317,12 +3871,3 @@ ViewAPCheckRunEditList
 +<? endif ?>
 +              )
  ORDER BY checkhead_number, primaryid, orderby;
- --------------------------------------------------------------------
-   
- QUERY: head
- SELECT (bankaccnt_name || '-' || bankaccnt_descrip) AS bankaccnt
-   FROM bankaccnt
-  WHERE (bankaccnt_id=<? value("bankaccnt_id") ?>);
- --------------------------------------------------------------------
-   
-\ No newline at end of file
