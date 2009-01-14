@@ -484,42 +484,44 @@
         to select pre-existing Address information. By default, this address
         will appear as the main address when entering Purchase Orders for the
         Vendor.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street address</term>
+            <listitem>
+              <para>Enter the street Address for the Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>Enter the city where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>Enter the state where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>Enter the Postal Code for the Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>Enter the country where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Alternates</term>
       <listitem>
-        <para>Select to list various alternate addresses for Vendor.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Street address</term>
-      <listitem>
-        <para>Enter the street Address for the Vendor.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>City</term>
-      <listitem>
-        <para>Enter the city where the Vendor is located.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>State</term>
-      <listitem>
-        <para>Enter the state where the Vendor is located.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Postal Code</term>
-      <listitem>
-        <para>Enter the Postal Code for the Vendor.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Country</term>
-      <listitem>
-        <para>Enter the country where the Vendor is located.</para>
+        <para>Select to list various alternate Addresses for Vendor.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -846,8 +848,9 @@
   </variablelist>
   <para role="standard">The Electronic Data Interchange (EDI) system enables
   you to exchange information electronically with your Vendors. To set up a
-  Vendor to receive Purchase Orders via email, select the "Transmission" tab.
-  The following screen will appear:</para>
+  Vendor to receive Purchase Orders via email or Automated Clearing House
+  (ACH) transmissions, select the "Transmission" tab. The following screen
+  will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -856,91 +859,79 @@
         <caption>Vendor Transmissions</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When setting up a Vendor to receive Purchase Orders via email, you are
-  presented with the following options:</para>
+  <para>When setting up a Vendor to receive Purchase Orders via email, select
+  the "Purchase Orders" button. The following options will appear:</para>
   <variablelist>
-    <varlistentry>
-      <term>Purchase Orders</term>
-      <listitem>
-        <para>Select to specify transmission details for Purchase
-        Orders.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>Email Purchase Order Delivery</term>
       <listitem>
         <para>Select to enable Vendor to receive Purchase Orders via
         email.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note>
-    <para>EDI details entered on the Vendor master will transfer to the
-    Schedule P/O for Email Delivery screen when a Purchase Order for the
-    Vendor is selected for email delivery.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
-      <term>EDI Email</term>
-      <listitem>
-        <para>Enter the Vendor email address to be used as the default
-        recipient address whenever Purchase Orders are emailed to the
-        Vendor.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>Send Purchase Orders to multiple recipients by separating email
-    addresses with a comma. Be sure to omit any spaces between addresses when
-    using commas to send copies to multiple recipients.</para>
-  </tip>
-  <variablelist>
-    <varlistentry>
-      <term>Cc</term>
-      <listitem>
-        <para>Enter the email address to be used as the default carbon copy
-        address whenever Purchase Orders are emailed to the Vendor.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Subject</term>
-      <listitem>
-        <para>Enter a default email subject line to be used whenever Purchase
-        Orders are emailed to the Vendor.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Filename</term>
-      <listitem>
-        <para>XML tags may be used in this field to dynamically generate
-        filename text. In the example shown in the screenshot above, the
-        filename will include the Document Type (i.e., Purchase Order) and the
-        Document Number (i.e., Purchase Order Number).</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>EDI Email Body</term>
-      <listitem>
-        <para>Use this text field to enter the default message that will
-        accompany any Purchase Orders emailed to the Vendor.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Send Email as HTML</term>
-      <listitem>
-        <para>Select to send Email in HTML format.</para>
+        <note>
+          <para>EDI details entered on the Vendor master will transfer to the
+          Schedule P/O for Email Delivery screen when a Purchase Order for the
+          Vendor is selected for email delivery.</para>
+        </note>
+        <variablelist>
+          <varlistentry>
+            <term>EDI Email</term>
+            <listitem>
+              <para>Enter the Vendor email address to be used as the default
+              recipient address whenever Purchase Orders are emailed to the
+              Vendor.</para>
+              <tip>
+                <para>Send Purchase Orders to multiple recipients by
+                separating email addresses with a comma. Be sure to omit any
+                spaces between addresses when using commas to send copies to
+                multiple recipients.</para>
+              </tip>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Cc</term>
+            <listitem>
+              <para>Enter the email address to be used as the default carbon
+              copy address whenever Purchase Orders are emailed to the
+              Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Subject</term>
+            <listitem>
+              <para>Enter a default email subject line to be used whenever
+              Purchase Orders are emailed to the Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Filename</term>
+            <listitem>
+              <para>XML tags may be used in this field to dynamically generate
+              filename text. In the example shown in the screenshot above, the
+              filename will include the Document Type (i.e., Purchase Order)
+              and the Document Number (i.e., Purchase Order Number).</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>EDI Email Body</term>
+            <listitem>
+              <para>Use this text field to enter the default message that will
+              accompany any Purchase Orders emailed to the Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Send Email as HTML</term>
+            <listitem>
+              <para>Select to send Email in HTML format.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
   <para>To enable online processing or Automated Clearing House (ACH) Check
-  printing for the Vendor, select the "Checks" radio button.</para>
+  printing for the Vendor, select the "Checks" radio button. The following
+  options will appear:</para>
   <variablelist role="standard">
-    <varlistentry>
-      <term>Checks</term>
-      <listitem>
-        <para>Select to view fields associated with ACH check printing.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>Enable ACH Check Printing</term>
       <listitem>
@@ -950,19 +941,19 @@
           <varlistentry>
             <term>Routing Number</term>
             <listitem>
-              <para>Enter bank account routing number.</para>
+              <para>Enter Bank Account Routing Number.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Account Number</term>
             <listitem>
-              <para>Enter bank account check number.</para>
+              <para>Enter Bank Account Check Number.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Account Type</term>
             <listitem>
-              <para>Select type of bank account associated with Routing and
+              <para>Select type of Bank Account associated with Routing and
               Account numbers.</para>
             </listitem>
           </varlistentry>
@@ -978,15 +969,15 @@
           <varlistentry>
             <term>Identification Number</term>
             <listitem>
-              <para>Enter alternate Vendor identification number (i.e. tax ID
-              number)</para>
+              <para>Enter alternate Vendor identification number (i.e., tax ID
+              number).</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Name</term>
             <listitem>
-              <para>Enter alternate Vendor name (i.e. name of parent
-              company)</para>
+              <para>Enter alternate Vendor name (i.e., name of parent
+              company).</para>
             </listitem>
           </varlistentry>
         </variablelist>
