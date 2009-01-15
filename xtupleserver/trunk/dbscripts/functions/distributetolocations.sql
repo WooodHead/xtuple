@@ -5,11 +5,25 @@ DECLARE
   _itemlocdist RECORD;
   _itemlocid INTEGER;
   _runningQty NUMERIC;
+  _tmp RECORD;
 
 BEGIN
 
   _distCounter := 0;
   _runningQty  := 0;
+
+-- A scenario can occur where two people try to post distributions
+-- to the same itemsite against two or more lot/serial/mlc locations
+-- leading to a deadlock. This line tries to prevent that by locking
+-- ahead of time all the itemsites that the transaction will need
+-- before any of the other tables are locked individually.
+  SELECT itemsite_id
+    INTO _tmp
+    FROM itemsite
+   WHERE(itemsite_id in (SELECT DISTINCT itemlocdist_itemsite_id
+                           FROM itemlocdist
+                          WHERE(itemlocdist_id=pItemlocdistid)))
+     FOR UPDATE;
 
 --  March through all of the itemlocdist owned by the passed parent itemlocdist
   FOR _itemlocdist IN SELECT c.itemlocdist_id AS itemlocdistid,
