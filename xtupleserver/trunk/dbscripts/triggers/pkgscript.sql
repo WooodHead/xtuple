@@ -23,6 +23,14 @@ $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgscriptalterTrigger() RETURNS TRIGGER AS $$
 BEGIN
+  IF (pkgMayBeModified(TG_TABLE_SCHEMA)) THEN
+    IF (TG_OP = 'DELETE') THEN
+      RETURN OLD;
+    ELSE
+      RETURN NEW;
+    END IF;
+  END IF;
+
   IF (TG_OP = 'INSERT') THEN
     RAISE EXCEPTION 'You may not create scripts in packages except using the xTuple Updater utility';
 
@@ -32,6 +40,22 @@ BEGIN
   ELSIF (TG_OP = 'DELETE') THEN
     RAISE EXCEPTION 'You may not delete scripts from packages. Try deleting or disabling the package.';
 
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION _pkgscriptaftertrigger() RETURNS TRIGGER AS $$
+BEGIN
+  IF (TG_OP = 'DELETE') THEN
+    DELETE FROM pkgitem
+    WHERE ((pkgitem_type='C')
+       AND (pkgitem_item_id=OLD.script_id)
+       AND (pkgitem_pkghead_id IN (SELECT pkghead_id
+                                   FROM pkghead
+                                   WHERE pkghead_name = TG_TABLE_SCHEMA)));
+    RETURN OLD;
   END IF;
 
   RETURN NEW;

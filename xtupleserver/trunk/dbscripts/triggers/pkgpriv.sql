@@ -43,6 +43,14 @@ $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgprivalterTrigger() RETURNS TRIGGER AS $$
 BEGIN
+  IF (pkgMayBeModified(TG_TABLE_SCHEMA)) THEN
+    IF (TG_OP = 'DELETE') THEN
+      RETURN OLD;
+    ELSE
+      RETURN NEW;
+    END IF;
+  END IF;
+
   IF (TG_OP = 'INSERT') THEN
     RAISE EXCEPTION 'You may not create privileges in packages except using the xTuple Updater utility';
 
@@ -57,4 +65,20 @@ BEGIN
   RETURN NEW;
 END;
 
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION _pkgprivaftertrigger() RETURNS TRIGGER AS $$
+BEGIN
+  IF (TG_OP = 'DELETE') THEN
+    DELETE FROM pkgitem
+    WHERE ((pkgitem_type='P')
+       AND (pkgitem_item_id=OLD.priv_id)
+       AND (pkgitem_pkghead_id IN (SELECT pkghead_id
+                                   FROM pkghead
+                                   WHERE pkghead_name = TG_TABLE_SCHEMA)));
+    RETURN OLD;
+  END IF;
+
+  RETURN NEW;
+END;
 $$ LANGUAGE 'plpgsql';

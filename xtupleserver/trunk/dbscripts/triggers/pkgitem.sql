@@ -5,7 +5,7 @@ CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS $$
     _group        TEXT;
     _object       TEXT;
     _schema       TEXT;
-    _debug        BOOL := true;
+    _debug        BOOL := false;
   BEGIN
     IF (TG_OP = 'INSERT' OR TG_OP = 'UPDATE') THEN
       _object = NEW.pkgitem_name;

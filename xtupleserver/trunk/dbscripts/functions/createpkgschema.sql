@@ -61,6 +61,14 @@ BEGIN
       EXECUTE 'CREATE TRIGGER pkg' || _tabs[i] || 'altertrigger ' ||
               'BEFORE INSERT OR UPDATE OR DELETE ON ' || _pkgtab ||
               ' FOR EACH ROW EXECUTE PROCEDURE _pkg' || _tabs[i] || 'altertrigger();';
+
+      EXECUTE 'SELECT dropIfExists(''TRIGGER'', ''pkg' ||
+                                   _tabs[i] || 'aftertrigger'', ''' ||
+                                   pname || ''');' ;
+      EXECUTE 'CREATE TRIGGER pkg' || _tabs[i] || 'aftertrigger ' ||
+              'AFTER INSERT OR UPDATE OR DELETE ON ' || _pkgtab ||
+              ' FOR EACH ROW EXECUTE PROCEDURE _pkg' || _tabs[i] || 'aftertrigger();';
+
     END IF;
   END LOOP;
 

@@ -23,6 +23,14 @@ $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgcmdargalterTrigger() RETURNS TRIGGER AS $$
 BEGIN
+  IF (pkgMayBeModified(TG_TABLE_SCHEMA)) THEN
+    IF (TG_OP = 'DELETE') THEN
+      RETURN OLD;
+    ELSE
+      RETURN NEW;
+    END IF;
+  END IF;
+
   IF (TG_OP = 'INSERT') THEN
     RAISE EXCEPTION 'You may not create command arguments in packages except using the xTuple Updater utility';
 
@@ -37,4 +45,13 @@ BEGIN
   RETURN NEW;
 END;
 
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION _pkgcmdargaftertrigger() RETURNS TRIGGER AS $$
+BEGIN
+  IF (TG_OP = 'DELETE') THEN
+    RETURN OLD;
+  END IF;
+  RETURN NEW;
+END;
 $$ LANGUAGE 'plpgsql';
