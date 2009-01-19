@@ -168,7 +168,7 @@ BEGIN
           itemlocdist_qty, itemlocdist_invhist_id )
         SELECT _itemlocSeries, ''L'', _p.itemsite_location_id,
                _p.itemsite_id,
-               endOfTime(),
+               _lsid, endOfTime(),
                (_p.invcnt_qoh_after - _runningQty), _invhistid;
 
         _hasDetail = TRUE;
