@@ -163,6 +163,16 @@ BEGIN
     END IF;
   END IF;
 
+  IF (_openmfg) THEN
+    SELECT pschitem_id INTO _result
+    FROM pschitem
+    WHERE (pschitem_itemsite_id=pItemsiteid)
+    LIMIT 1;
+    IF (FOUND) THEN
+      RETURN -6;
+    END IF;
+  END IF;
+
   DELETE FROM invcnt
   WHERE (invcnt_itemsite_id=pItemsiteid);
 
