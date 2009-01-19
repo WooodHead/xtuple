@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION postCashReceipt(INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postCashReceipt(INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pCashrcptid ALIAS FOR $1;
   pJournalNumber ALIAS FOR $2;
@@ -37,7 +37,7 @@ BEGIN
     END IF;
   END IF;
 
-  SELECT cashrcpt_cust_id, (cust_number||''-''||cust_name) AS custnote,
+  SELECT cashrcpt_cust_id, (cust_number||'-'||cust_name) AS custnote,
          cashrcpt_fundstype, cashrcpt_docnumber,
          cashrcpt_distdate, cashrcpt_amount,
          currToBase(cashrcpt_curr_id, cashrcpt_amount, cashrcpt_distdate) AS cashrcpt_amount_base,
@@ -53,11 +53,16 @@ BEGIN
     RETURN -7;
   END IF;
 
-  IF (_p.cashrcpt_fundstype IN (''A'', ''D'', ''M'', ''V'')) THEN
+  IF (_p.cashrcpt_fundstype IN ('A', 'D', 'M', 'V')) THEN
     IF NOT EXISTS(SELECT ccpay_id
                   FROM ccpay
-                  WHERE ((ccpay_order_number=CAST(pCashrcptid AS TEXT))
-                     AND (ccpay_status IN (''C'', ''A'')))) THEN
+                  WHERE ((ccpay_order_number=(SELECT CASE WHEN(TRIM(both from COALESCE(cashrcpt_docnumber, ''))='')
+                                                          THEN text(cashrcpt_id)
+                                                          ELSE cashrcpt_docnumber
+                                                      END
+                                                FROM cashrcpt
+                                               WHERE cashrcpt_id=pCashrcptid))
+                     AND (ccpay_status IN ('C', 'A')))) THEN
       RETURN -8;
     END IF;
     _debitAccntid := findPrepaidAccount(_p.cashrcpt_cust_id);
@@ -131,22 +136,22 @@ BEGIN
       arapply_curr_id )
     VALUES
     ( _p.cashrcpt_cust_id,
-      -1, ''K'', '''',
+      -1, 'K', '',
       _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
       _p.cashrcpt_fundstype, _p.cashrcpt_docnumber,
       round(_r.cashrcptitem_amount, 2), _r.closed,
       CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id );
 
-    PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CR'',
-                        (_r.aropen_doctype || ''-'' || _r.aropen_docnumber),
+    PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR',
+                        (_r.aropen_doctype || '-' || _r.aropen_docnumber),
                         _arAccntid, round(_r.cashrcptitem_amount_base, 2),
                         _p.cashrcpt_distdate, _p.custnote );
 
     _exchGain := currGain(_p.cashrcpt_curr_id, _r.cashrcptitem_amount,
                           _r.aropen_docdate, _p.cashrcpt_distdate);
     IF (_exchGain <> 0) THEN
-        PERFORM insertIntoGLSeries(_sequence, ''A/R'', ''CR'',
-               _r.aropen_doctype || ''-'' || _r.aropen_docnumber,
+        PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CR',
+               _r.aropen_doctype || '-' || _r.aropen_docnumber,
                getGainLossAccntId(), round(_exchGain, 2) * -1,
                _p.cashrcpt_distdate, _p.custnote);
         _posted_base := _posted_base - _exchGain;
@@ -178,13 +183,13 @@ BEGIN
       arapply_curr_id )
     VALUES
     ( _p.cashrcpt_cust_id,
-      -1, ''K'', '''',
-      -1, ''Misc.'', '''',
+      -1, 'K', '',
+      -1, 'Misc.', '',
       _p.cashrcpt_fundstype, _p.cashrcpt_docnumber,
       round(_r.cashrcptmisc_amount, 2), TRUE,
       CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _r.cashrcpt_curr_id );
 
-    PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CR'', _r.cashrcptmisc_notes,
+    PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR', _r.cashrcptmisc_notes,
                                 _r.cashrcptmisc_accnt_id,
                                 round(_r.cashrcptmisc_amount_base, 2),
                                 _p.cashrcpt_distdate, _p.custnote );
@@ -194,8 +199,8 @@ BEGIN
 --  Post any remaining Cash to an A/R Cash Despoit (Credit Memo)
 --  this credit memo may absorb an occasional currency exchange rounding error
   IF (round(_posted_base, 2) < round(_p.cashrcpt_amount_base, 2)) THEN
-    _comment := (''Unapplied from '' || _p.cashrcpt_fundstype || ''-'' || _p.cashrcpt_docnumber);
-    PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CR'',
+    _comment := ('Unapplied from ' || _p.cashrcpt_fundstype || '-' || _p.cashrcpt_docnumber);
+    PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR',
                                 _comment,
                                 _p.prepaid_accnt_id,
                                 round(_p.cashrcpt_amount_base, 2) -
@@ -204,27 +209,27 @@ BEGIN
     SELECT fetchArMemoNumber() INTO _arMemoNumber;
     IF(_p.cashrcpt_usecustdeposit) THEN
       -- TODO: post customer deposit
-      PERFORM createARCashDeposit(_p.cashrcpt_cust_id, _arMemoNumber, '''',
+      PERFORM createARCashDeposit(_p.cashrcpt_cust_id, _arMemoNumber, '',
                                   _p.cashrcpt_distdate, (_p.cashrcpt_amount - _posted),
                                   _comment, pJournalNumber, _p.cashrcpt_curr_id);
     ELSE
-      PERFORM createARCreditMemo(_p.cashrcpt_cust_id, _arMemoNumber, '''',
+      PERFORM createARCreditMemo(_p.cashrcpt_cust_id, _arMemoNumber, '',
                                  _p.cashrcpt_distdate, (_p.cashrcpt_amount - _posted),
                                  _comment, -1, -1, -1, _p.cashrcpt_distdate, -1, -1, 0,
                                  pJournalNumber, _p.cashrcpt_curr_id);
     END IF;
 
   ELSIF (round(_posted_base, 2) > round(_p.cashrcpt_amount_base, 2)) THEN
-    PERFORM insertIntoGLSeries(_sequence, ''A/R'', ''CR'',
-                   ''Currency Exchange Rounding - '' || _p.cashrcpt_docnumber,
+    PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CR',
+                   'Currency Exchange Rounding - ' || _p.cashrcpt_docnumber,
                    getGainLossAccntId(),
                    round(_posted_base, 2) - round(_p.cashrcpt_amount_base, 2),
                    _p.cashrcpt_distdate, _p.custnote);
   END IF;
 
 --  Debit Cash
-  PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CR'',
-                    (_p.cashrcpt_fundstype || ''-'' || _p.cashrcpt_docnumber),
+  PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR',
+                    (_p.cashrcpt_fundstype || '-' || _p.cashrcpt_docnumber),
                      _debitAccntid, round(_p.cashrcpt_amount_base, 2) * -1,
                      _p.cashrcpt_distdate,
                      _p.custnote );
@@ -244,5 +249,5 @@ BEGIN
   RETURN 1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

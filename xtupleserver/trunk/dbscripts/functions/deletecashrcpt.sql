@@ -8,7 +8,7 @@ BEGIN
   IF EXISTS(SELECT cashrcpt_id
             FROM cashrcpt, ccpay
             WHERE ((cashrcpt_fundstype IN ('A', 'D', 'M', 'V'))
-               AND (CAST(cashrcpt_id AS TEXT)=ccpay_order_number)
+               AND ((CASE WHEN(TRIM(both from COALESCE(cashrcpt_docnumber, ''))='') THEN text(cashrcpt_id) ELSE cashrcpt_docnumber END)=ccpay_order_number)
                AND (ccpay_status NOT IN ('D', 'X'))
                AND (cashrcpt_id=pcashrcptid))) THEN
     RETURN -1;
