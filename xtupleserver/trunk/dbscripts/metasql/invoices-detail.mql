@@ -11,7 +11,8 @@ SELECT invchead_id, cust_id,
                           (CASE WHEN(item_id IS NULL) THEN 1
                                 ELSE invcitem_price_invuomratio END)), 2))
          FROM invcitem LEFT OUTER JOIN item ON (item_id=invcitem_item_id)
-         WHERE (invcitem_invchead_id=invchead_id) ) AS extprice,
+         WHERE (invcitem_invchead_id=invchead_id) ) +
+         invchead_freight + invchead_tax + invchead_misc_amount AS extprice,
        'curr' AS extprice_xtnumericrole
 FROM invchead JOIN cust ON (cust_id=invchead_cust_id)
 WHERE ( (true)
