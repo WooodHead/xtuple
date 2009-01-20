@@ -201,11 +201,12 @@ BEGIN
       FROM wo
       WHERE ((wo_ordtype = ''S'')
       AND (wo_ordid = pitemid));
+      IF (NOT FOUND) THEN
+        RAISE EXCEPTION ''Work order % not found and can not be shipped'',_p.f_wonumber;
+      END IF;
       IF (_p.wo_status = ''C'') THEN
         RAISE EXCEPTION ''Work order % is closed and can not be shipped'',_p.f_wonumber;
       END IF;
-  --  Make sure value is not null
-      _p.value := COALESCE(_p.value, 0);
 
   --  Distribute to G/L, debit Shipping Asset, credit WIP
       PERFORM MIN(insertGLTransaction( ''S/R'', ''SO'', formatSoNumber(pItemid), ''Issue to Shipping'',

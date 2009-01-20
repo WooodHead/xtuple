@@ -47,7 +47,7 @@ BEGIN
 
   IF (_jobItem AND _r.coitem_order_type='W') THEN
 -- Delete associated Work Order
-    SELECT deleteWo(_r.coitem_order_id, TRUE) INTO _result;
+    SELECT deleteWo(_r.coitem_order_id, TRUE, TRUE) INTO _result;
     IF (_result < 0) THEN
       RETURN -104;
     END IF;
