@@ -6,6 +6,10 @@
 SELECT poitem_id, poitem_linenumber AS linenumber,
        poitem_duedate AS duedate,
        COALESCE(item_number, <? value("nonInventory") ?>) AS item_number,
+       CASE WHEN (LENGTH(TRIM(BOTH '    ' FROM poitem_vend_item_descrip)) <= 0) THEN
+                 (item_descrip1 || ' ' || item_descrip2)
+            ELSE poitem_vend_item_descrip
+       END AS itemdescription,
        COALESCE(uom_name, <? value("na") ?>) AS inv_uom,
        warehous_code,
        poitem_vend_item_number AS vend_item_number,
@@ -40,6 +44,7 @@ ORDER BY poitem_linenumber;
 SELECT raitem_id, raitem_linenumber AS linenumber,
        rahead_expiredate AS duedate,
        COALESCE(item_number, <? value("nonInventory") ?>) AS item_number,
+       (item_descrip1 || ' ' || item_descrip2) AS itemdescription,
        COALESCE(iu.uom_name, <? value("na") ?>) AS inv_uom,
        warehous_code,
        '' AS vend_item_number,
@@ -79,6 +84,7 @@ ORDER BY raitem_linenumber;
 SELECT toitem_id, toitem_linenumber AS linenumber,
        toitem_duedate AS duedate,
        COALESCE(item_number, <? value("nonInventory") ?>) AS item_number,
+       (item_descrip1 || ' ' || item_descrip2) AS itemdescription,
        COALESCE(uom_name, <? value("na") ?>) AS inv_uom,
        warehous_code,
        ''  AS vend_item_number,
