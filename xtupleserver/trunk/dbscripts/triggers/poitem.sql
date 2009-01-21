@@ -8,7 +8,10 @@ DECLARE
 BEGIN
 
   -- Check
-  IF ( (TG_OP = 'UPDATE') AND (NOT checkPrivilege('MaintainPurchaseOrders')) AND (NOT checkPrivilege('PostVouchers')) ) THEN
+  IF ( (TG_OP = 'UPDATE') AND
+       (NOT checkPrivilege('MaintainPurchaseOrders')) AND
+       (NOT checkPrivilege('ChangePurchaseOrderQty')) AND
+       (NOT checkPrivilege('PostVouchers')) ) THEN
     RAISE EXCEPTION 'You do not have privileges to alter a Purchase Order.';
   END IF;
   IF ( ( (TG_OP = 'INSERT') OR (TG_OP = 'DELETE') ) AND (NOT checkPrivilege('MaintainPurchaseOrders')) ) THEN
