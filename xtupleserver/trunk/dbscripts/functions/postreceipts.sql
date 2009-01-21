@@ -34,6 +34,8 @@ BEGIN
 	      AND  (orderitem_orderhead_id=porderid)
 	      AND  (orderitem_orderhead_type=pordertype)
 	      AND  (NOT recv_posted)
+-- Check for multiple users receiving the same order
+              AND  (recv_trans_usr_name=CURRENT_USER)
 	      AND  (recv_order_type=pordertype)) LOOP
     IF (_r.postResult < 0 AND _r.postResult != -11) THEN
       RETURN _r.postResult; -- fail on 1st error but ignore lines with qty == 0
