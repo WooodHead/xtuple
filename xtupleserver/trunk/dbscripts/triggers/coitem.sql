@@ -154,7 +154,6 @@ BEGIN
      AND (evnttype_name='SoitemCancelled') );
 
   ELSIF (TG_OP = 'UPDATE') THEN
-
     IF (NEW.coitem_qtyord <> OLD.coitem_qtyord) THEN
       IF(_kit) THEN
         IF(_shipped) THEN
@@ -221,14 +220,6 @@ BEGIN
     END IF;
 
     IF ((NEW.coitem_status = 'C') AND (OLD.coitem_status <> 'C')) THEN
-      IF(_kit) THEN
-        UPDATE coitem
-           SET coitem_status='C'
-         WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
-           AND (coitem_linenumber=OLD.coitem_linenumber)
-           AND (coitem_status='O')
-           AND (coitem_subnumber > 0));
-      END IF;
       NEW.coitem_closedate = CURRENT_TIMESTAMP;
       NEW.coitem_close_username = CURRENT_USER;
       NEW.coitem_qtyreserved := 0;
@@ -239,14 +230,6 @@ BEGIN
     END IF;
 
     IF ((NEW.coitem_status = 'X') AND (OLD.coitem_status <> 'X')) THEN
-      IF(_kit) THEN
-        UPDATE coitem
-           SET coitem_status='X'
-         WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
-           AND (coitem_linenumber=OLD.coitem_linenumber)
-           AND (coitem_status='O')
-           AND (coitem_subnumber > 0));
-      END IF;
       NEW.coitem_qtyreserved := 0;
 
       IF (_cmnttypeid <> -1) THEN
@@ -270,17 +253,6 @@ BEGIN
        AND (OLD.coitem_scheddate <= (CURRENT_DATE + itemsite_eventfence))
        AND (evnttype_name='SoitemCancelled') );
 
-    END IF;
-
-    IF(NEW.coitem_status = 'O' AND OLD.coitem_status <> 'O') THEN
-      IF(_kit) THEN
-        UPDATE coitem
-           SET coitem_status='O'
-         WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
-           AND (coitem_linenumber=OLD.coitem_linenumber)
-           AND ((coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) > 0)
-           AND (coitem_subnumber > 0));
-      END IF;
     END IF;
 
     IF ((NEW.coitem_qtyreserved <> OLD.coitem_qtyreserved) AND (_cmnttypeid <> -1)) THEN
@@ -505,7 +477,99 @@ CREATE TRIGGER soitemBeforeTrigger BEFORE INSERT OR UPDATE ON coitem FOR EACH RO
 CREATE OR REPLACE FUNCTION _soitemAfterTrigger() RETURNS TRIGGER AS $$
 DECLARE
   _check NUMERIC;
+  _kit BOOLEAN;
+  _rec RECORD;
+  _kstat TEXT;
+  _pstat TEXT;
 BEGIN
+
+  IF(TG_OP = 'DELETE') THEN
+    _rec := OLD;
+  ELSE
+    _rec := NEW;
+  END IF;
+
+  SELECT COALESCE(item_type,'')='K'
+    INTO _kit
+    FROM itemsite, item
+   WHERE((itemsite_item_id=item_id)
+     AND (itemsite_id=_rec.coitem_itemsite_id));
+  _kit := COALESCE(_kit, false);
+
+  IF (_rec.coitem_subnumber > 0) THEN
+    SELECT coitem_status
+      INTO _kstat
+      FROM coitem
+     WHERE((coitem_cohead_id=_rec.coitem_cohead_id)
+       AND (coitem_linenumber=_rec.coitem_linenumber)
+       AND (coitem_subnumber = 0));
+    IF ((SELECT count(*)
+           FROM coitem
+          WHERE((coitem_cohead_id=_rec.coitem_cohead_id)
+            AND (coitem_linenumber=_rec.coitem_linenumber)
+            AND (coitem_subnumber <> _rec.coitem_subnumber)
+            AND (coitem_subnumber > 0)
+            AND (coitem_status = 'O'))) > 0) THEN
+      _pstat := 'O';
+    ELSE
+      _pstat := 'C';
+    END IF;
+  END IF;
+
+  IF(TG_OP = 'INSERT') THEN
+    IF (_rec.coitem_subnumber > 0 AND _rec.coitem_status = 'O') THEN
+      _pstat := 'O';
+    END IF;
+  ELSIF (TG_OP = 'UPDATE') THEN
+    IF (_rec.coitem_subnumber > 0 AND _rec.coitem_status = 'O') THEN
+      _pstat := 'O';
+    END IF;
+
+    IF ((NEW.coitem_status = 'C') AND (OLD.coitem_status <> 'C')) THEN
+      IF(_kit) THEN
+        UPDATE coitem
+           SET coitem_status='C'
+         WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
+           AND (coitem_linenumber=OLD.coitem_linenumber)
+           AND (coitem_status='O')
+           AND (coitem_subnumber > 0));
+      END IF;
+    END IF;
+
+    IF ((NEW.coitem_status = 'X') AND (OLD.coitem_status <> 'X')) THEN
+      IF(_kit) THEN
+        UPDATE coitem
+           SET coitem_status='X'
+         WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
+           AND (coitem_linenumber=OLD.coitem_linenumber)
+           AND (coitem_status='O')
+           AND (coitem_subnumber > 0));
+      END IF;
+    END IF;
+
+    IF(NEW.coitem_status = 'O' AND OLD.coitem_status <> 'O') THEN
+      IF(_kit) THEN
+        UPDATE coitem
+           SET coitem_status='O'
+         WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
+           AND (coitem_linenumber=OLD.coitem_linenumber)
+           AND ((coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) > 0)
+           AND (coitem_subnumber > 0));
+      END IF;
+    END IF;
+
+  END IF;
+
+  IF ((_kstat IS NOT NULL) AND (_pstat IS NOT NULL) AND (_rec.coitem_subnumber > 0) AND (_kstat <> _pstat)) THEN
+    UPDATE coitem
+       SET coitem_status = _pstat
+     WHERE((coitem_cohead_id=_rec.coitem_cohead_id)
+       AND (coitem_subnumber = 0));
+  END IF;
+
+  IF(TG_OP = 'DELETE') THEN
+    RETURN OLD;
+  END IF;
 
   --If auto calculate freight, recalculate cohead_freight
   IF (SELECT cohead_calcfreight FROM cohead WHERE (cohead_id=NEW.coitem_cohead_id)) THEN
@@ -524,5 +588,5 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-DROP TRIGGER soitemAfterTrigger ON coitem;
-CREATE TRIGGER soitemAfterTrigger AFTER INSERT OR UPDATE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemAfterTrigger();
+SELECT dropIfExists('TRIGGER', 'soitemAfterTrigger');
+CREATE TRIGGER soitemAfterTrigger AFTER INSERT OR UPDATE OR DELETE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemAfterTrigger();
