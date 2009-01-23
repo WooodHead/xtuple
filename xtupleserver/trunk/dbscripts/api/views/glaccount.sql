@@ -52,8 +52,8 @@ VALUES (
   COALESCE(NEW.account_number, ''),
   COALESCE(NEW.description, ''),
   COALESCE(NEW.notes, ''),
-  COALESCE(NEW.profit_center, '1'),
-  COALESCE(NEW.sub_account, '1'),
+  NEW.profit_center,
+  NEW.sub_account,
   CASE
     WHEN NEW.type='Asset' THEN 'A'
     WHEN NEW.type='Liability' THEN 'L'
