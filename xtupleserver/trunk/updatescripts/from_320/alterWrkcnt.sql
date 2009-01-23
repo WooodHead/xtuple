@@ -1,5 +1,0 @@
-BEGIN;
-
-ALTER TABLE wrkcnt ALTER COLUMN wrkcnt_setuprate TYPE NUMERIC(20,8);
-
-COMMIT;
