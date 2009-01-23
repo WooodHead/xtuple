@@ -59,7 +59,7 @@ BEGIN
                                        AND (shiphead_shipped)
                                        AND (shiphead_id=pshipheadid)))) FOR UPDATE LOOP
 
-      SELECT SUM(shipitem_qty),SUM(shipitem_value) INTO _qty, _value
+      SELECT SUM(shipitem_qty),SUM(COALESCE(shipitem_value, 0)) INTO _qty, _value
       FROM shipitem
       WHERE ( (shipitem_orderitem_id=_co.coitem_id)
        AND (shipitem_shiphead_id=pshipheadid) );
