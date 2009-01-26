@@ -17,10 +17,6 @@
         <caption>Create New Bill of Materials</caption>
       </mediaobject>
     </screenshot></para>
-  <note>
-    <para>Manufactured subcomponents will be displayed in greet text, to help
-    distinguish them from other components.</para>
-  </note>
   <para>When creating a new Bill of Materials, you are presented with the
   following options:</para>
   <variablelist>
@@ -151,6 +147,10 @@
       <term>Bill of Materials</term>
       <listitem>
         <para>Display lists component Items for the Bill of Materials.</para>
+        <tip>
+          <para>Manufactured subcomponents will be displayed in green text, to
+          help distinguish them from other components.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
