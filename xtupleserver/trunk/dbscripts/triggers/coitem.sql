@@ -280,8 +280,14 @@ DECLARE
   _check NUMERIC;
   _itemNumber TEXT;
   _r RECORD;
+  _custID INTEGER;
   _kit BOOLEAN;
 BEGIN
+
+  --Cache some information
+  SELECT cohead_cust_id INTO _custID
+  FROM cohead
+  WHERE (cohead_id=NEW.coitem_cohead_id);
 
   --Determine if this is a kit for later processing
   SELECT COALESCE(item_type,'')='K'
@@ -301,6 +307,16 @@ BEGIN
       WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
         AND (coitem_linenumber = NEW.coitem_linenumber)
         AND (coitem_subnumber > 0));
+      IF (fetchMetricBool('KitComponentInheritCOS')) THEN
+        UPDATE coitem
+        SET coitem_cos_accnt_id = CASE WHEN (COALESCE(NEW.coitem_cos_accnt_id, -1) != -1) THEN NEW.coitem_cos_accnt_id
+                                       WHEN (NEW.coitem_warranty) THEN resolveCOWAccount(NEW.coitem_itemsite_id, _custID)
+                                       ELSE resolveCOSAccount(NEW.coitem_itemsite_id, _custID)
+                                  END
+        WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
+          AND (coitem_linenumber = NEW.coitem_linenumber)
+          AND (coitem_subnumber > 0));
+      END IF;
     END IF;
 
     -- If this is imported, go ahead and insert default characteristics
@@ -359,6 +375,19 @@ BEGIN
       WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
         AND (coitem_linenumber = NEW.coitem_linenumber)
         AND (coitem_subnumber > 0));
+    END IF;
+-- Update kit line item COS
+    IF (_kit AND (NEW.coitem_cos_accnt_id <> OLD.coitem_cos_accnt_id)) THEN
+      IF (fetchMetricBool('KitComponentInheritCOS')) THEN
+        UPDATE coitem
+        SET coitem_cos_accnt_id = CASE WHEN (COALESCE(NEW.coitem_cos_accnt_id, -1) != -1) THEN NEW.coitem_cos_accnt_id
+                                       WHEN (NEW.coitem_warranty) THEN resolveCOWAccount(NEW.coitem_itemsite_id, _custID)
+                                       ELSE resolveCOSAccount(NEW.coitem_itemsite_id, _custID)
+                                  END
+        WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
+          AND (coitem_linenumber = NEW.coitem_linenumber)
+          AND (coitem_subnumber > 0));
+      END IF;
     END IF;
            
 --  If closing or cancelling and there is a job item work order, then close job and distribute remaining costs
