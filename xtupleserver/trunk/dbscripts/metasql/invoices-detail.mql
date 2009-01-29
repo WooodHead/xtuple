@@ -12,9 +12,15 @@ SELECT invchead_id, cust_id,
                                 ELSE invcitem_price_invuomratio END)), 2))
          FROM invcitem LEFT OUTER JOIN item ON (item_id=invcitem_item_id)
          WHERE (invcitem_invchead_id=invchead_id) ) +
-         invchead_freight + invchead_tax + invchead_misc_amount AS extprice,
-       'curr' AS extprice_xtnumericrole
+       invchead_freight + invchead_tax + invchead_misc_amount AS extprice,
+       CASE WHEN (aropen_open) THEN (aropen_amount - aropen_paid)
+            ELSE 0
+       END AS balance,
+       'curr' AS extprice_xtnumericrole,
+       'curr' AS balance_xtnumericrole,
+       CASE WHEN (aropen_id IS NULL) THEN 'Unposted' END AS balance_qtdisplayrole
 FROM invchead JOIN cust ON (cust_id=invchead_cust_id)
+              LEFT OUTER JOIN aropen ON ( (aropen_doctype='I') AND (aropen_docnumber=invchead_invcnumber) )
 WHERE ( (true)
 <? if exists("unpostedOnly") ?>
   AND   (NOT invchead_posted)
@@ -30,6 +36,9 @@ WHERE ( (true)
 <? endif ?>
 <? if exists("invc_pattern") ?>
   AND   (invchead_invcnumber ~ <? value("invc_pattern") ?>)
+<? endif ?>
+<? if exists("balanceOnly") ?>
+  AND   (aropen_open AND (aropen_amount - aropen_paid > 0))
 <? endif ?>
   AND   ((SELECT COUNT(*)
           FROM invcitem, site()
