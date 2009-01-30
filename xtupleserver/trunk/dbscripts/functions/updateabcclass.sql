@@ -64,7 +64,7 @@ BEGIN
      AND (invhist_transdate::DATE BETWEEN pStartDate AND pEndDate)
      AND ((itemsite_warehous_id=pWarehousid) OR (pWarehousid=-1)) );
 
-    IF (_totalValue IS NULL) THEN
+    IF ( (_totalValue IS NULL) OR (_totalValue = 0) ) THEN
       UPDATE itemsite
       SET itemsite_abcclass=''A''
       WHERE (itemsite_abcclass=''T'');
@@ -182,7 +182,7 @@ BEGIN
      AND (invhist_transdate::DATE BETWEEN pStartDate AND pEndDate)
      AND ((itemsite_warehous_id=pWarehousid) OR (pWarehousid=-1)) );
 
-    IF (_totalValue IS NULL) THEN
+    IF ( (_totalValue IS NULL) OR (_totalValue = 0) ) THEN
       UPDATE itemsite
       SET itemsite_abcclass=''A''
       WHERE (itemsite_abcclass=''T'');
