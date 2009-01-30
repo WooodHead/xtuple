@@ -175,10 +175,9 @@ BEGIN
 			  _ra.rahead_number::TEXT || '-' || _ra.raitem_linenumber::TEXT,
 			  'Receive Inventory from ' || _ordertypeabbr,
 			  costcat_asset_accnt_id,
-			  CASE WHEN (_ra.raitem_warranty) THEN
-			    resolveCOWAccount(_r.itemsite_id,_ra.rahead_cust_id)
-			  ELSE
-			    resolveCORAccount(_r.itemsite_id,_ra.rahead_cust_id)
+                          CASE WHEN(COALESCE(_ra.raitem_cos_accnt_id, -1) != -1) THEN _ra.raitem_cos_accnt_id
+			       WHEN (_ra.raitem_warranty) THEN resolveCOWAccount(_r.itemsite_id,_ra.rahead_cust_id)
+			       ELSE resolveCORAccount(_r.itemsite_id,_ra.rahead_cust_id)
 			  END,
 			  _itemlocSeries, _glDate) INTO _tmp
       FROM itemsite, costcat
