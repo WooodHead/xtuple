@@ -27,9 +27,9 @@ RETURNS NUMERIC AS $$
         WHERE (apopen_id=pApopenId);
 
 	IF (_r.apopen_docdate > pDate) THEN
-	  _gain := currToBase(pCurrId, pValue, pDate) - pValue / round(_r.apopen_curr_rate,5) * -1;
+	  _gain := (currToBase(pCurrId, pValue, pDate) - (pValue / round(_r.apopen_curr_rate,5))) * -1;
 	ELSE
-          _gain := pValue / round(_r.apopen_curr_rate,5) - currToBase(pCurrId, pValue, pDate);
+          _gain := (pValue / round(_r.apopen_curr_rate,5)) - currToBase(pCurrId, pValue, pDate);
 	END IF;
         
     	IF (_gain IS NULL) THEN
