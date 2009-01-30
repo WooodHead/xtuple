@@ -154,14 +154,14 @@ BEGIN
 		END,
 		COALESCE(getTermsId(pNew.terms),cust_terms_id),
 		(SELECT getCustId(pNew.customer_number)),
-		pNew.billto_name,
-		pNew.billto_address1,
-		pNew.billto_address2,
-		pNew.billto_address3,
-		pNew.billto_city,
-		pNew.billto_state,
-		pNew.billto_postal_code,
-		pNew.billto_country,
+		COALESCE(pNew.billto_name, cohead_billtoname, cust_name),
+		COALESCE(pNew.billto_address1, cohead_billtoaddress1, addr_line1),
+		COALESCE(pNew.billto_address2, cohead_billtoaddress2, addr_line2),
+		COALESCE(pNew.billto_address3, cohead_billtoaddress3, addr_line3),
+		COALESCE(pNew.billto_city, cohead_billtocity, addr_city),
+		COALESCE(pNew.billto_state, cohead_billtostate, addr_state),
+		COALESCE(pNew.billto_postal_code, cohead_billtozipcode, addr_postalcode),
+		COALESCE(pNew.billto_country, cohead_billtocountry, addr_country),
 		COALESCE(pNew.billto_phone, ''),
 		COALESCE(shipto_id,-1),
 		pNew.shipto_name,
@@ -217,6 +217,9 @@ BEGIN
 				THEN getShiptoId(pNew.customer_number,pNew.shipto_number)
 			ELSE (SELECT shipto_id FROM shiptoinfo WHERE shipto_cust_id=cust_id AND shipto_default)
 		END))
+                LEFT OUTER JOIN cohead ON (cohead_id=getCoheadId(pNEW.order_number))
+                LEFT OUTER JOIN cntct ON (cntct_id=cust_cntct_id)
+                LEFT OUTER JOIN addr ON (addr_id=cntct_addr_id)
 	WHERE cust_id = (SELECT getCustId(pNew.customer_number));
 	RETURN TRUE;
 END;

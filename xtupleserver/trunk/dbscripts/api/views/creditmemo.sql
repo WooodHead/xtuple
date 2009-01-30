@@ -150,14 +150,14 @@ BEGIN
 		COALESCE(pNew.misc_charge_amount, 0),
 		pNew.notes,
 		FALSE, -- printed
-		pNew.billto_name,
-		pNew.billto_address1,
-		pNew.billto_address2,
-		pNew.billto_address3,
-		pNew.billto_city,
-		pNew.billto_state,
-		pNew.billto_postal_code,
-		pNew.billto_country,
+		COALESCE(pNew.billto_name, invchead_billto_name, cust_name),
+		COALESCE(pNew.billto_address1, invchead_billto_address1, addr_line1),
+		COALESCE(pNew.billto_address2, invchead_billto_address2, addr_line2),
+		COALESCE(pNew.billto_address3, invchead_billto_address3, addr_line3),
+		COALESCE(pNew.billto_city, invchead_billto_city, addr_city),
+		COALESCE(pNew.billto_state, invchead_billto_state, addr_state),
+		COALESCE(pNew.billto_postal_code, invchead_billto_zipcode, addr_postalcode),
+		COALESCE(pNew.billto_country, invchead_billto_country, addr_country),
 		COALESCE(pNew.on_hold, FALSE),
 		COALESCE(pNew.commission, 0),
 		COALESCE(getGlAccntId(pNew.misc_charge_credit_account),-1),
@@ -200,6 +200,9 @@ BEGIN
 				THEN getShiptoId(pNew.customer_number,pNew.shipto_number)
 			ELSE (SELECT shipto_id FROM shiptoinfo WHERE shipto_cust_id=cust_id AND shipto_default)
 		END))
+                LEFT OUTER JOIN invchead ON (invchead_id=getInvcheadId(pNEW.apply_to))
+                LEFT OUTER JOIN cntct ON (cntct_id=cust_cntct_id)
+                LEFT OUTER JOIN addr ON (addr_id=cntct_addr_id)
 	WHERE cust_id = (CASE
 		WHEN pNew.customer_number IS NOT NULL THEN (SELECT getCustId(pNew.customer_number))
 		ELSE (SELECT invchead_cust_id FROM invchead WHERE invchead_invcnumber = pNew.apply_to)
