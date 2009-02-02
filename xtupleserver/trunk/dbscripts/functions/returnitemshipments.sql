@@ -59,7 +59,7 @@ BEGIN
 			  ''S/R'', pordertype, formatSoNumber(pitemid),
 			  shiphead_number, ''Return from Shipping'',
 			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
-			  _ils, _timestamp ) INTO _invhistid
+			  _ils, _timestamp, _value ) INTO _invhistid
         FROM coitem, itemsite, costcat, shiphead, shipitem
         WHERE ( (coitem_itemsite_id=itemsite_id)
          AND (itemsite_costcat_id=costcat_id)
@@ -121,7 +121,7 @@ BEGIN
 			  ''S/R'', pordertype, tohead_number,
 			  '''', ''Return from Shipping'',
 			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
-			  _ils, _timestamp ) INTO _invhistid
+			  _ils, _timestamp, _value ) INTO _invhistid
       FROM toitem, tohead, itemsite, costcat
       WHERE ((toitem_item_id=itemsite_item_id)
         AND  (toitem_tohead_id=tohead_id)
