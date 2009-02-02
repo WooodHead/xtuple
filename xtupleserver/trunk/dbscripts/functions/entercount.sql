@@ -13,7 +13,7 @@ BEGIN
                              ELSE invcnt_comments
                         END,
       invcnt_cntdate = CURRENT_TIMESTAMP,
-      invcnt_cnt_usr_id = currentUserId()
+      invcnt_cnt_username = CURRENT_USER
   WHERE (invcnt_id=pInvcntid);
 
   RETURN 0;

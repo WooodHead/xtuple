@@ -60,12 +60,12 @@ BEGIN
     INSERT INTO invcnt (
       invcnt_id, invcnt_itemsite_id, invcnt_tagdate,
       invcnt_tagnumber,
-      invcnt_tag_usr_id, invcnt_posted,
+      invcnt_tag_username, invcnt_posted,
       invcnt_priority, invcnt_comments, invcnt_location_id
     ) VALUES (
       _invcntid, pItemsiteid, CURRENT_TIMESTAMP,
       (_whs.warehous_counttag_prefix || _whs.warehous_counttag_number::TEXT),
-      currentUserId(), FALSE,
+      CURRENT_USER, FALSE,
       pPriority, pComments, pLocationid
     );
 

@@ -5,13 +5,13 @@
 SELECT invcnt_id, invcnt_tagnumber, warehous_code,
        item_number,
        invcnt_tagdate,
-       CASE WHEN invcnt_tagdate IS NOT NULL THEN getUsername(invcnt_tag_usr_id)
+       CASE WHEN invcnt_tagdate IS NOT NULL THEN invcnt_tag_username
        END AS creator,
        invcnt_cntdate,
-       CASE WHEN invcnt_cntdate IS NOT NULL THEN getUsername(invcnt_cnt_usr_id)
+       CASE WHEN invcnt_cntdate IS NOT NULL THEN invcnt_cnt_username
        END AS counter,
        invcnt_postdate,
-       CASE WHEN invcnt_postdate IS NOT NULL THEN getUsername(invcnt_post_usr_id)
+       CASE WHEN invcnt_postdate IS NOT NULL THEN invcnt_post_username
        END AS poster,
        CASE WHEN (NOT invcnt_posted) THEN NULL
             ELSE invcnt_qoh_before

@@ -7,7 +7,7 @@ CREATE OR REPLACE VIEW api.todo AS
   SELECT
     todoitem_id AS task_number,
     todoitem_owner_username AS owner,
-    usr_username AS assigned_to,
+    todoitem_username AS assigned_to,
     todoitem_name AS task_name,
     incdtpriority_name AS priority,
     incdt_number AS incident,
@@ -29,7 +29,6 @@ CREATE OR REPLACE VIEW api.todo AS
     todoitem_description AS description,
     todoitem_notes AS notes
     FROM todoitem
-       LEFT OUTER JOIN usr ON (usr_id=todoitem_usr_id)
        LEFT OUTER JOIN incdt ON (incdt_id=todoitem_incdt_id)
        LEFT OUTER JOIN ophead ON (ophead_id=todoitem_ophead_id)
        LEFT OUTER JOIN crmacct ON (crmacct_id=todoitem_crmacct_id)
@@ -45,7 +44,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
 
   SELECT createTodoItem(
     NULL,
-    getUsrId(NEW.assigned_to),
+    NEW.assigned_to,
     COALESCE(NEW.task_name, ''),
     COALESCE(NEW.description, ''),
     getIncidentId(NEW.incident),
@@ -93,7 +92,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 
   SELECT updateTodoItem(
     OLD.task_number,
-    getUsrId(OLD.assigned_to),
+    OLD.assigned_to,
     NEW.task_name,
     NEW.description,
     getIncidentId(NEW.incident),
@@ -135,7 +134,8 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     END,
     getIncdtPriorityId(NEW.priority),
     NEW.notes,
-    NEW.active
+    NEW.active,
+    NEW.owner
     );
            
 CREATE OR REPLACE RULE "_DELETE" AS 

@@ -56,7 +56,7 @@ BEGIN;
     dept_number         AS department,
     shift_number        AS shift,
 
-    (e.emp_usr_id IS NOT NULL)  AS is_user,
+    (e.emp_username IS NOT NULL) AS is_user,
     (salesrep_id IS NOT NULL)   AS is_salesrep,
     e.emp_notes                 AS notes,
     image_name                  AS image
@@ -92,7 +92,7 @@ CREATE OR REPLACE RULE "_INSERT" AS ON INSERT TO api.employee DO INSTEAD
       emp_wage_period,
       emp_dept_id,
       emp_shift_id,
-      emp_usr_id,
+      emp_username,
       emp_image_id,
       emp_notes
     ) VALUES (
@@ -142,7 +142,7 @@ CREATE OR REPLACE RULE "_INSERT" AS ON INSERT TO api.employee DO INSTEAD
 
       getDeptId(NEW.department),
       getShiftId(NEW.shift),
-      (SELECT usr_id FROM usr WHERE (usr_username=NEW.code)),
+      NEW.code,
       getImageId(NEW.image),
       COALESCE(NEW.notes,'')
     );
@@ -196,7 +196,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS ON UPDATE TO api.employee DO INSTEAD
                     END,
     emp_dept_id=getDeptId(NEW.department),
     emp_shift_id=getShiftId(NEW.shift),
-    emp_usr_id=(SELECT usr_id FROM usr WHERE (usr_username=NEW.code)),
+    emp_username=NEW.code,
     emp_image_id=getImageId(NEW.image),
     emp_notes=COALESCE(NEW.notes,'')
   WHERE emp_code=OLD.code;

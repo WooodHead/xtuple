@@ -1,13 +1,8 @@
 
-SELECT dropIfExists('FUNCTION', 'createTodoItem(INTEGER, TEXT, TEXT, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT)', 'public');
-SELECT dropIfExists('FUNCTION', 'createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT)', 'public');
-SELECT dropIfExists('FUNCTION', 'createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT)', 'public');
-SELECT dropIfExists('FUNCTION', 'createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, TEXT)', 'public');
-
-CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, TEXT) RETURNS INTEGER AS $$
   DECLARE
     ptodoid     ALIAS FOR  $1;
-    pusrid      ALIAS FOR  $2;
+    pusername   ALIAS FOR  $2;
     pname       ALIAS FOR  $3;
     pdesc       ALIAS FOR  $4;
     pincdtid    ALIAS FOR  $5;
@@ -32,11 +27,11 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER,
     _result     INTEGER;
 
   BEGIN
-    IF (pusrid IS NULL OR pusrid <= 0) THEN
+    IF (pusername IS NULL OR pusername = '') THEN
       RETURN -1;
     END IF;
 
-    IF (pname IS NULL OR pname = '''') THEN
+    IF (pname IS NULL OR pname = '') THEN
       RETURN -2;
     END IF;
 
@@ -45,11 +40,11 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER,
     END IF;
 
     IF (pcompleted IS NOT NULL) THEN
-      _status := ''C'';
+      _status := 'C';
     ELSIF (pstatus IS NULL AND pstarted IS NOT NULL) THEN
-      _status := ''I'';
+      _status := 'I';
     ELSIF (pstatus IS NULL) THEN
-      _status := ''N'';
+      _status := 'N';
     END IF;
 
     IF (_incdtid <= 0) THEN
@@ -73,12 +68,12 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER,
     END IF;
 
     IF (ptodoid IS NULL) THEN
-      SELECT NEXTVAL(''todoitem_todoitem_id_seq'') INTO _todoid;
+      SELECT NEXTVAL('todoitem_todoitem_id_seq') INTO _todoid;
     ELSE
       _todoid := ptodoid;
     END IF;
 
-    INSERT INTO todoitem ( todoitem_id, todoitem_usr_id, todoitem_name,
+    INSERT INTO todoitem ( todoitem_id, todoitem_username, todoitem_name,
                            todoitem_description, todoitem_incdt_id,
                            todoitem_creator_username, todoitem_status,
                            todoitem_active, todoitem_start_date,
@@ -86,7 +81,7 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER,
                            todoitem_completed_date, todoitem_priority_id,
                            todoitem_notes, todoitem_crmacct_id,
                            todoitem_ophead_id, todoitem_owner_username 
-                ) VALUES ( _todoid, pusrid, pname,
+                ) VALUES ( _todoid, pusername, pname,
                            pdesc, _incdtid,
                            CURRENT_USER, _status,
                            TRUE, pstarted,
@@ -95,5 +90,5 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER,
 
     RETURN _todoid;
   END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

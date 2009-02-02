@@ -1,6 +1,5 @@
 
-CREATE OR REPLACE FUNCTION createGLReport (integer) RETURNS integer
-    AS '
+CREATE OR REPLACE FUNCTION createGLReport (integer) RETURNS integer AS $$
 DECLARE
   pPeriodId ALIAS FOR $1;
   _p RECORD;
@@ -60,13 +59,13 @@ BEGIN
       _workglhead_cy_startdate := _current_full_year;
     ELSE
 --  Build the beginning of the year
-      _workglhead_cy_startdate := ''1/1/'' || _currYear::TEXT;
+      _workglhead_cy_startdate := '1/1/' || _currYear::TEXT;
     END IF;
 
 --  We need to get the beginning of the year from the year table
 
 --  Build the prior period starting date
-    _workglhead_pyp_startdate = _currMonth::TEXT || ''/'' || _currDay::TEXT || ''/'' || _priorYear::TEXT;
+    _workglhead_pyp_startdate = _currMonth::TEXT || '/' || _currDay::TEXT || '/' || _priorYear::TEXT;
 --  Find the Prior Period
     bFoundPriorPeriod := TRUE;
     SELECT * INTO _rPriorPeriod FROM period where period_start = _workglhead_pyp_startdate;
@@ -74,7 +73,7 @@ BEGIN
       bFoundPriorPeriod := FALSE;
       _rPriorPeriod.period_id = -1;
 --  Build the prior year start date
-      _workglhead_py_startdate = ''1/1/'' || _priorYear::TEXT;
+      _workglhead_py_startdate = '1/1/' || _priorYear::TEXT;
     ELSE
 --  We need to get the beginning of the prior year from the year table
       SELECT yearperiod_start INTO _current_full_year
@@ -86,36 +85,28 @@ BEGIN
         _workglhead_py_startdate := _current_full_year;
       ELSE
 --  Build the prior year start date
-        _workglhead_py_startdate = ''1/1/'' || _priorYear::TEXT;
+        _workglhead_py_startdate = '1/1/' || _priorYear::TEXT;
       END IF;
-    END IF;
-
--- Get the user info
-    SELECT usr_id, usr_active INTO _p
-    FROM usr
-    WHERE (usr_username=CURRENT_USER);
-    IF (NOT FOUND) THEN
-      RETURN -2;
     END IF;
 
 -- See if there is a mess to clean up
 
-    SELECT * INTO _rworkGLhead FROM workglhead WHERE workglhead_usr_id = _p.usr_id;
+    SELECT * INTO _rworkGLhead FROM workglhead WHERE workglhead_username = CURRENT_USER;
     IF (FOUND) THEN
-      DELETE FROM workglitem WHERE workglitem_workglhead_id IN (SELECT workglhead_id FROM workglhead WHERE workglhead_usr_id=_p.usr_id);
-      DELETE FROM workglhead WHERE workglhead_id IN (SELECT workglhead_id FROM workglhead WHERE workglhead_usr_id=_p.usr_id);
-      DELETE FROM workgltotal WHERE workgltotal_workglhead_id IN (SELECT workglhead_id FROM workglhead WHERE workglhead_usr_id=_p.usr_id);
-      DELETE FROM workgltotaleq WHERE workgltotaleq_workglhead_id IN (SELECT workglhead_id FROM workglhead WHERE workglhead_usr_id=_p.usr_id);
+      DELETE FROM workglitem WHERE workglitem_workglhead_id IN (SELECT workglhead_id FROM workglhead WHERE workglhead_username=CURRENT_USER);
+      DELETE FROM workglhead WHERE workglhead_id IN (SELECT workglhead_id FROM workglhead WHERE workglhead_username=CURRENT_USER);
+      DELETE FROM workgltotal WHERE workgltotal_workglhead_id IN (SELECT workglhead_id FROM workglhead WHERE workglhead_username=CURRENT_USER);
+      DELETE FROM workgltotaleq WHERE workgltotaleq_workglhead_id IN (SELECT workglhead_id FROM workglhead WHERE workglhead_username=CURRENT_USER);
     END IF;
 
 -- Insert the header
 
-    SELECT NEXTVAL(''workglhead_workglhead_id_seq'') INTO _workglhead_id;
+    SELECT NEXTVAL('workglhead_workglhead_id_seq') INTO _workglhead_id;
 
     IF (bFoundPriorPeriod) THEN
-      INSERT INTO workglhead VALUES (_workglhead_id, _p.usr_id, _rPeriod.period_start, _rPeriod.period_end, _workglhead_cy_startdate, _rPriorPeriod.period_start, _rPriorPeriod.period_end, _workglhead_py_startdate);
+      INSERT INTO workglhead (workglhead_id, workglhead_cyp_startdate, workglhead_cyp_enddate, workglhead_cy_startdate, workglhead_pyp_startdate, workglhead_pyp_enddate, workglhead_py_startdate) VALUES (_workglhead_id, _rPeriod.period_start, _rPeriod.period_end, _workglhead_cy_startdate, _rPriorPeriod.period_start, _rPriorPeriod.period_end, _workglhead_py_startdate);
     ELSE
-      INSERT INTO workglhead VALUES (_workglhead_id, _p.usr_id, _rPeriod.period_start, _rPeriod.period_end, _workglhead_cy_startdate, NULL, NULL, NULL);
+      INSERT INTO workglhead (workglhead_id, workglhead_cyp_startdate, workglhead_cyp_enddate, workglhead_cy_startdate, workglhead_pyp_startdate, workglhead_pyp_enddate, workglhead_py_startdate) VALUES (_workglhead_id, _rPeriod.period_start, _rPeriod.period_end, _workglhead_cy_startdate, NULL, NULL, NULL);
     END IF;
 
 -- Now we need to process the accounts
@@ -157,7 +148,7 @@ BEGIN
         _workglitem_pp_ending_trialbal = 0;
       END IF;
 
-    INSERT INTO workglitem VALUES (NEXTVAL(''workglitem_workglitem_id_seq''), _workglhead_id, formatglaccount(_rAccount.accnt_id), _rAccount.accnt_descrip, _rAccount.accnt_type, _workglitem_cyp_balance, _workglitem_cy_balance, _workglitem_pyp_balance, _workglitem_py_balance, _workglitem_cp_ending_trialbal, _workglitem_pp_ending_trialbal, _rAccount.accnt_subaccnttype_code);
+    INSERT INTO workglitem VALUES (NEXTVAL('workglitem_workglitem_id_seq'), _workglhead_id, formatglaccount(_rAccount.accnt_id), _rAccount.accnt_descrip, _rAccount.accnt_type, _workglitem_cyp_balance, _workglitem_cy_balance, _workglitem_pyp_balance, _workglitem_py_balance, _workglitem_cp_ending_trialbal, _workglitem_pp_ending_trialbal, _rAccount.accnt_subaccnttype_code);
 
     END LOOP;
 
@@ -168,29 +159,28 @@ BEGIN
     _workgltotaleq_pp_ending_total_work = 0.00;
     _workgltotaleq_cp_ending_total = 0.00;
     _workgltotaleq_pp_ending_total = 0.00;
-    select sum(workglitem_cp_ending_trialbal) into _workgltotaleq_cp_ending_total_work from workglitem, workglhead where workglitem_workglhead_id = _workglhead_id and workglitem_accnt_type = ''Q'';
+    select sum(workglitem_cp_ending_trialbal) into _workgltotaleq_cp_ending_total_work from workglitem, workglhead where workglitem_workglhead_id = _workglhead_id and workglitem_accnt_type = 'Q';
 
-    select sum(workglitem_pp_ending_trialbal) into _workgltotaleq_pp_ending_total_work from workglitem, workglhead where workglitem_workglhead_id = _workglhead_id and workglitem_accnt_type = ''Q'';
+    select sum(workglitem_pp_ending_trialbal) into _workgltotaleq_pp_ending_total_work from workglitem, workglhead where workglitem_workglhead_id = _workglhead_id and workglitem_accnt_type = 'Q';
 
-    select sum(workglitem_cy_balance) into _workgltotaleq_cp_ending_total from workglitem, workglhead where  workglitem_workglhead_id = _workglhead_id and workglitem_accnt_type in (''R'', ''E'');
+    select sum(workglitem_cy_balance) into _workgltotaleq_cp_ending_total from workglitem, workglhead where  workglitem_workglhead_id = _workglhead_id and workglitem_accnt_type in ('R', 'E');
 
-    select sum(workglitem_py_balance) into _workgltotaleq_pp_ending_total from workglitem, workglhead where workglitem_workglhead_id = _workglhead_id and workglitem_accnt_type in (''R'', ''E'');
+    select sum(workglitem_py_balance) into _workgltotaleq_pp_ending_total from workglitem, workglhead where workglitem_workglhead_id = _workglhead_id and workglitem_accnt_type in ('R', 'E');
 
-    INSERT INTO workgltotaleq VALUES (NEXTVAL(''workgltotaleq_workgltotaleq_id_seq''), _workglhead_id, _workgltotaleq_cp_ending_total + _workgltotaleq_cp_ending_total_work, _workgltotaleq_pp_ending_total + _workgltotaleq_pp_ending_total_work);
+    INSERT INTO workgltotaleq VALUES (NEXTVAL('workgltotaleq_workgltotaleq_id_seq'), _workglhead_id, _workgltotaleq_cp_ending_total + _workgltotaleq_cp_ending_total_work, _workgltotaleq_pp_ending_total + _workgltotaleq_pp_ending_total_work);
 
 -- New Code for liabilty and equity totals
 
-    select sum(workglitem_cp_ending_trialbal) into _workgltotal_cp_ending_total from workglitem where workglitem_workglhead_id = _workglhead_id AND workglitem_accnt_type = ''L'';
+    select sum(workglitem_cp_ending_trialbal) into _workgltotal_cp_ending_total from workglitem where workglitem_workglhead_id = _workglhead_id AND workglitem_accnt_type = 'L';
 
-    select sum(workglitem_pp_ending_trialbal) into _workgltotal_pp_ending_total from workglitem where workglitem_workglhead_id = _workglhead_id AND workglitem_accnt_type = ''L'';
+    select sum(workglitem_pp_ending_trialbal) into _workgltotal_pp_ending_total from workglitem where workglitem_workglhead_id = _workglhead_id AND workglitem_accnt_type = 'L';
 
 -- Add in the P/L
 
-    INSERT INTO workgltotal VALUES (NEXTVAL(''workgltotal_workgltotal_id_seq''), _workglhead_id, _workgltotal_cp_ending_total + _workgltotaleq_cp_ending_total_work + _workgltotaleq_cp_ending_total, _workgltotal_pp_ending_total + _workgltotaleq_pp_ending_total_work + _workgltotaleq_pp_ending_total);
+    INSERT INTO workgltotal VALUES (NEXTVAL('workgltotal_workgltotal_id_seq'), _workglhead_id, _workgltotal_cp_ending_total + _workgltotaleq_cp_ending_total_work + _workgltotaleq_cp_ending_total, _workgltotal_pp_ending_total + _workgltotaleq_pp_ending_total_work + _workgltotaleq_pp_ending_total);
 
     RETURN _workglhead_id;
 
 END;
-'
-  LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

@@ -196,7 +196,7 @@ BEGIN
       invcnt_postdate=_postDate,
       invcnt_posted=TRUE,
       invcnt_invhist_id=_invhistid,
-      invcnt_post_usr_id=currentUserId()
+      invcnt_post_username=CURRENT_USER
   WHERE (invcnt_id=pInvcntid);
 
 --  Create the CC transaction

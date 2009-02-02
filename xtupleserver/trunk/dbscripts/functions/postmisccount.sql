@@ -19,13 +19,13 @@ BEGIN
     INSERT INTO invcnt
      ( invcnt_id, invcnt_itemsite_id, invcnt_tagdate,
        invcnt_qoh_before, invcnt_qoh_after,
-       invcnt_tag_usr_id, invcnt_cntdate, invcnt_cnt_usr_id,
-       invcnt_postdate, invcnt_post_usr_id, invcnt_posted,
+       invcnt_tag_username, invcnt_cntdate, invcnt_cnt_username,
+       invcnt_postdate, invcnt_post_username, invcnt_posted,
        invcnt_priority, invcnt_comments )
     SELECT _invcntid, pItemsiteid, now(),
            itemsite_qtyonhand, pQty,
-           currentUserId(), now(), currentUserId(),
-           now(), currentUserId(), FALSE,
+           CURRENT_USER, now(), CURRENT_USER,
+           now(), CURRENT_USER, FALSE,
            FALSE, pComments
     FROM itemsite
     WHERE (itemsite_id=pItemsiteid);
