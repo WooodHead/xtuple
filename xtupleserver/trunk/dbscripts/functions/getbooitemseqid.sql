@@ -19,7 +19,7 @@ BEGIN
   END IF;
     
   IF (_returnVal IS NULL) THEN
-    RAISE EXCEPTION ''% revision % for % not found.'', pType, pRevision, pItemNumber;
+    RAISE EXCEPTION ''Boo Sequence % for Item % not found.'', pSeqNumber, pItemNumber;
   END IF;
 
   RETURN _returnVal;
