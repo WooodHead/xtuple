@@ -253,7 +253,7 @@ BEGIN
 --  Update the qty and freight vouchered fields
     UPDATE poitem
        SET poitem_qty_vouchered = (poitem_qty_vouchered + _g.voitem_qty),
-           poitem_freight_vouchered = (poitem_freight_vouchered + _g.voitem_freight)
+           poitem_freight_vouchered = (poitem_freight_vouchered + _g.vouchered_freight)
      WHERE (poitem_id=_g.poitem_id);
 
   END LOOP;
