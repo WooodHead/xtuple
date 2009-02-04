@@ -67,8 +67,8 @@ BEGIN
         FROM itemloc
         WHERE ( (itemloc_itemsite_id=_itemlocdist.itemsiteid)
          AND (itemloc_location_id=_itemlocdist.sourceid)
-         AND (itemloc_ls_id=_itemlocdist.lotserialid)
-         AND (itemloc_expiration=_itemlocdist.expiration)
+         AND (COALESCE(itemloc_ls_id,-1)=COALESCE(_itemlocdist.lotserialid,-1))
+         AND (COALESCE(itemloc_expiration,endOfTime())=COALESCE(_itemlocdist.expiration,endOfTime()))
          AND (COALESCE(itemloc_warrpurc,endoftime())=COALESCE(_itemlocdist.warranty,endoftime())) );
 
 --  Nope, create it

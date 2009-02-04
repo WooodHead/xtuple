@@ -100,7 +100,7 @@ BEGIN
   SELECT itemloc_id INTO _targetItemlocid
   FROM itemloc 
   WHERE ( (COALESCE(itemloc_ls_id, -1)=COALESCE(_p.itemloc_ls_id,-1))
-   AND (itemloc_expiration=_p.itemloc_expiration)
+   AND (COALESCE(itemloc_expiration,endOfTime())=COALESCE(_p.itemloc_expiration,endOfTime()))
    AND (COALESCE(itemloc_warrpurc,endOfTime())=COALESCE(_p.itemloc_warrpurc,endOfTime()))
    AND (itemloc_itemsite_id=pItemsiteid)
    AND (itemloc_location_id=pTargetLocationid) );

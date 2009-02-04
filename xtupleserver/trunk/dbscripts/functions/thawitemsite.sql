@@ -33,7 +33,8 @@ BEGIN
 
 --  Grab all of the itemsite/location/lot/serial combinations
 --  that have unposted detail
-      FOR _coarse IN SELECT DISTINCT invdetail_location_id, invdetail_ls_id
+      FOR _coarse IN SELECT DISTINCT invdetail_location_id, invdetail_ls_id,
+                                     invdetail_expiration, invdetail_warrpurc
                      FROM invhist, invdetail
                      WHERE ( (invdetail_invhist_id=invhist_id)
                       AND (NOT invhist_posted)
@@ -46,7 +47,9 @@ BEGIN
         FROM itemloc
         WHERE ( (itemloc_itemsite_id=pItemsiteid)
          AND (itemloc_location_id=_coarse.invdetail_location_id)
-         AND (COALESCE(itemloc_ls_id,-1)=COALESCE(_coarse.invdetail_ls_id,-1)) );
+         AND (COALESCE(itemloc_ls_id,-1)=COALESCE(_coarse.invdetail_ls_id,-1))
+         AND (COALESCE(itemloc_expiration,endOfTime())=COALESCE(_coarse.invdetail_expiration,endOfTime()))
+         AND (COALESCE(itemloc_warrpurc,endOfTime())=COALESCE(_coarse.invdetail_warrpurc,endOfTime())) );
 
 --  If the itemloc in question cannot be found, create it
         IF (NOT FOUND) THEN
