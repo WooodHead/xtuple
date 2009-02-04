@@ -1,0 +1,32 @@
+-- Group: ccpayments
+-- Name:  list
+-- Notes: list credit card payments, optionally by customer
+SELECT ccpay_id AS id, cohead_id,
+       ccpay.*,
+       CASE WHEN (ccpay_type='A') THEN <? value("preauth") ?>
+            WHEN (ccpay_type='C') THEN <? value("charge") ?>
+            WHEN (ccpay_type='R') THEN <? value("refund") ?>
+            ELSE ccpay_type
+       END AS type,
+       CASE WHEN (ccpay_status='A') THEN <? value("authorized") ?>
+            WHEN (ccpay_status='C') THEN <? value("approved") ?>
+            WHEN (ccpay_status='D') THEN <? value("declined") ?>
+            WHEN (ccpay_status='V') THEN <? value("voided") ?>
+            WHEN (ccpay_status='X') THEN <? value("noapproval") ?>
+            ELSE ccpay_status
+       END AS status,
+       currConcat(ccpay_curr_id) AS ccpay_currAbbr,
+       COALESCE(cohead_number, ccpay_order_number) AS docnumber,
+       ABS(COALESCE(payco_amount, ccpay_amount)) AS allocated,
+       currConcat(COALESCE(payco_curr_id, ccpay_curr_id)) AS payco_currAbbr,
+       cust_number, cust_name,
+       'curr' AS ccpay_amount_xtnumericrole,
+       'curr' AS allocated_xtnumericrole 
+  FROM ccpay LEFT OUTER JOIN 
+       (payco JOIN cohead ON (payco_cohead_id=cohead_id))
+         ON (payco_ccpay_id=ccpay_id)
+      LEFT OUTER JOIN cust ON (ccpay_cust_id=cust_id)
+<? if exists("cust_id") ?>
+ WHERE (ccpay_cust_id=<? value("cust_id") ?>)
+<? endif ?>
+ ORDER BY ccpay_transaction_datetime;
