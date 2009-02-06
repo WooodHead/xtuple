@@ -1,0 +1,1085 @@
+====================================================================
+NEW REPORTS:
+WarehouseLocationMasterList
+====================================================================
+CHANGED REPORTS:
+CustOrderAcknowledgement
+GLTransactions
+PackingList-Shipment
+PackingList
+PurchaseOrder
+SalesOrderAcknowledgement
+
+ 
+ ====================================================================
+ REPORT: CustOrderAcknowledgement
+ QUERY: head
+ <? if not exists("cosmisc_id") ?>
+ --Run query if no cosmisc_id passed - No Shipment Pack List
+ SELECT cust_number,
+        formatsobarcode(cohead_id) AS order_barcode,
+-
++       formataddr(cust_address1, cust_address2, cust_address3, (cust_city || '  ' ||  cust_state || '  ' || cust_zipcode), cust_country) AS corr_address, 
+        formataddr(cohead_billtoaddress1, cohead_billtoaddress2, cohead_billtoaddress3, (cohead_billtocity || '  ' ||   cohead_billtostate || '  ' || cohead_billtozipcode), cohead_billtocountry) AS billing_address, 
+ 
+   formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2, cohead_shiptoaddress3, (cohead_shiptocity || '  ' ||   cohead_shiptostate || '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
+ 
+        cust_contact,
+        cohead_fob,
+        cohead_billtoname,
+        cohead_billtoaddress1,
+        cohead_billtoaddress2,
+        cohead_billtoaddress3,
+        (cohead_billtocity || '  ' || cohead_billtostate || '  ' || cohead_billtozipcode) AS billtocitystatezip,
+        cust_phone,
+        cohead_shiptoname,
+        cohead_shiptoaddress1,
+        cohead_shiptoaddress2,
+        cohead_shiptoaddress3,
+        (cohead_shiptocity || '  ' || cohead_shiptostate || ' ' || cohead_shiptozipcode) AS shiptocitystatezip,
+        cohead_number,
+        cohead_shipvia,
+        cohead_shiptophone,
+        cohead_custponumber,
+        formatDate(cohead_orderdate) AS orderdate,
+        cohead_shipcomments, 
+        terms_descrip
+   FROM cohead, cust, terms
+  WHERE ((cohead_cust_id=cust_id)
+    AND (cohead_terms_id=terms_id)
+    AND (cohead_id=<? value("sohead_id") ?>)
+ );
+ 
+ -------------------
+ <? else ?>
+ --Run New Query for Header with shipment number
+ -----------------------------------------------
+ 
+ SELECT cosmisc_number,
+ 
+        cohead_number,
+        formatsobarcode(cohead_id) AS order_barcode,
+        cohead_shipvia,
+        cohead_shiptophone,
+        cohead_custponumber,
+        formatDate(cohead_orderdate) AS orderdate,
+        cohead_shipcomments,   
+        cohead_billtoname,
+        formataddr(cohead_billtoaddress1, cohead_billtoaddress2, cohead_billtoaddress3,
+                   (cohead_billtocity || '  ' ||   cohead_billtostate || '  ' || cohead_billtozipcode), cohead_billtocountry) AS billing_address,
+        cohead_shiptoname,
+        formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2, cohead_shiptoaddress3,
+                   (cohead_shiptocity || '  ' ||   cohead_shiptostate || '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
+ 
+        cust_number,
+        cust_contact,
+        cust_phone,
+        cohead_shipchrg_id,
+        shipchrg_descrip,
+ 
+        terms_descrip
+   FROM cosmisc, cohead, cust, terms, shipchrg
+  WHERE ((cohead_cust_id=cust_id)
+    AND (cohead_terms_id=terms_id)
+    AND (cohead_id=cosmisc_cohead_id)
+    AND (cohead_shipchrg_id = shipchrg_id)
+    AND (cosmisc_id=<? value("cosmisc_id") ?>)
+ );
+ 
+ <? endif ?>
+ --------------------------------------------------------------------
+   
+ QUERY: scheddate
+ <? if not exists("cosmisc_id") ?>
+ --Query without shipment number
+ 
+ SELECT formatDate(MIN(coitem_scheddate)) AS scheddate
+   FROM coitem
+  WHERE ((coitem_status <> 'X') AND (coitem_cohead_id=<? value("sohead_id") ?>));
+ 
+ --
+ <? else ?>
+ --------------------------
+ 
+ 
+ SELECT formatDate(MIN(coitem_scheddate)) AS scheddate
+   FROM coitem, coship
+  WHERE ((coitem_status <> 'X')
+    AND  (coitem_id=coship_coitem_id)
+    AND  (coship_cosmisc_id=<? value("cosmisc_id") ?>));
+ 
+ <? endif ?>
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ SELECT 1 AS groupby,
+        coitem_linenumber,
+        coitem_memo,
+-       item_number,
++       CASE WHEN (coitem_custpn != '') THEN coitem_custpn
++            ELSE item_number
++       END AS item_number,
+        formatitemsitebarcode(itemsite_id) AS item_barcode,
+ --     In 2.3 replaced the next line:
+ --     uom_name,
+ --     with:
+        (select uom_name from uom where uom_id = coitem_qty_uom_id) AS uom_name,
+        itemSellingUOM(item_id) AS item_shipuom,
+-       item_descrip1,
+-       item_descrip2,
++       CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip1
++            ELSE item_descrip1
++       END AS item_descrip1,
++       CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip2
++            ELSE item_descrip2
++       END AS item_descrip2,
+        formatQty(coitem_qtyord) AS ordered,
+        formatMoney(coitem_price) as unitprice,
+        formatMoney(coitem_qtyord * coitem_price) AS f_extprice,
+        formatQty(coitem_qtyshipped - coitem_qtyreturned) AS shipped,
+        formatQty(noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned)) AS balance,
+        formatQty( ( SELECT COALESCE(SUM(coship_qty), 0)
+                     FROM coship, cosmisc
+                     WHERE ( (coship_coitem_id=coitem_id)
+                      AND (coship_cosmisc_id=cosmisc_id)
+                      AND (NOT cosmisc_shipped) ) ) ) AS atshipping,
+        formatQty(roundUp((coitem_qtyord * coitem_qty_invuomratio) / itemInvPriceRat(item_id))) AS shipordered,
+        formatQty(roundUp(((coitem_qtyshipped - coitem_qtyreturned) * coitem_qty_invuomratio) / itemInvPriceRat(item_id))) AS shipshipped,
+        formatQty(roundUp((noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) * coitem_qty_invuomratio) / itemInvPriceRat(item_id))) AS shipbalance,
+        formatQty(roundUp( ( SELECT COALESCE(SUM(coship_qty), 0)
+                             FROM coship, cosmisc
+                             WHERE ( (coship_coitem_id=coitem_id)
+                               AND (coship_cosmisc_id=cosmisc_id)
+                               AND (NOT cosmisc_shipped) ) )/ itemInvPriceRat(item_id) ) ) AS shipatshipping,
+        CASE WHEN (coitem_status='O' AND (SELECT cust_creditstatus FROM cust,cohead WHERE coitem_cohead_id=cohead_id AND cust_id=cohead_cust_id)='H') THEN 'H'
+             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
+                                             FROM cohead, invchead, invcitem
+                                            WHERE ((invchead_ordernumber=cohead_number)
+                                              AND  (invcitem_invchead_id=invchead_id)
+                                              AND  (invcitem_item_id=item_id)
+                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
+                                              AND  (invcitem_linenumber=coitem_linenumber)
+                                              AND  (cohead_id=coitem_cohead_id))) >= coitem_qtyord)) THEN 'I'
+             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
+                                             FROM cohead, invchead, invcitem
+                                            WHERE ((invchead_ordernumber=cohead_number)
+                                              AND  (invcitem_invchead_id=invchead_id)
+                                              AND  (invcitem_item_id=item_id)
+                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
+                                              AND  (invcitem_linenumber=coitem_linenumber)
+                                              AND  (cohead_id=coitem_cohead_id))) > 0)) THEN 'P'
+             WHEN (coitem_status='O' AND (itemsite_qtyonhand - qtyAllocated(itemsite_id, CURRENT_DATE)
+                                          + qtyOrdered(itemsite_id, CURRENT_DATE))
+                                           >= (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned)) THEN 'R'
+             ELSE coitem_status
+        END AS f_status
+-  FROM itemsite, item, uom, coitem
+- WHERE ( (coitem_itemsite_id=itemsite_id)
+-   AND (itemsite_item_id=item_id)
+-   AND (item_inv_uom_id=uom_id)
+-   AND (coitem_status <> 'X')
++  FROM coitem
++       JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
++       JOIN item ON (item_id=itemsite_item_id)
++       JOIN uom ON (uom_id=item_inv_uom_id)
++       LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=coitem_custpn) 
++ WHERE ( (coitem_status <> 'X')
+    AND (coitem_status <> 'C')
+ -- 1 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST  
+    <? if exists("hide closed") ?>
+    AND (coitem_status <> 'C')
+ -- 2 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST  
+ -- <? endif ?>
+    AND (coitem_cohead_id=<? value("sohead_id") ?>)
+ )
+ --2.3 add coitem_qty_uom_id, to the GROUP BY clause
+ GROUP BY coitem_qty_uom_id, coitem_linenumber, coitem_id, coitem_memo, item_number, uom_name, item_id,
++         coitem_custpn, itemalias_usedescrip, itemalias_descrip1, itemalias_descrip2,
+          item_descrip1, item_descrip2, coitem_qtyord, coitem_qty_invuomratio, coitem_qtyshipped,
+          coitem_qtyreturned, coitem_status, coitem_cohead_id,
+          itemsite_id, itemsite_qtyonhand, itemsite_warehous_id, item_id, unitprice,f_extprice
+ ORDER BY coitem_linenumber;
+ --------------------------------------------------------------------
+   
+ QUERY: logo
+ SELECT image_data 
+ FROM image 
+ WHERE ((image_name='logo'));
+ --------------------------------------------------------------------
+   
+ QUERY: footer
+ SELECT formatMoney(SUM(round(coitem_qtyord * coitem_price,2)) + cohead_freight + cohead_misc) AS f_totaldue,
+        formatMoney(SUM(round(coitem_qtyord * coitem_price,2))) AS f_subtotal,
+        formatMoney(cohead_freight) AS f_freight,
+        formatMoney(cohead_misc) AS f_miscamt
+ FROM coitem,cohead
+ WHERE (coitem_cohead_id=<? value("sohead_id") ?> AND coitem_cohead_id= cohead_id)
+ AND coitem_status <> 'X'
+ GROUP BY cohead_freight,cohead_misc
+ 
+ --------------------------------------------------------------------
+   
+ QUERY: lastupdated
+ SELECT formatDate(MAX(lastupdated)) AS f_lastupdated
+   FROM (SELECT cohead_lastupdated AS lastupdated
+           FROM cohead
+          WHERE (cohead_id=:sohead_id)
+          UNION
+         SELECT coitem_lastupdated AS lastupdated
+           FROM coitem
+          WHERE (coitem_cohead_id=<? value("sohead_id") ?>) ) AS data;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: GLTransactions
+ QUERY: head
+ SELECT formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
+        formatDate(<? value("endDate") ?>, 'Latest') AS enddate,
+        <? if exists("source") ?>
+          text(<? value("source") ?>)
+        <? else ?>
+          text('All Sources')
+        <? endif  ?>
+        AS source,
+        <? if exists("accnt_id") ?>
+          ( SELECT (accnt_number || '-' || accnt_descrip)
+              FROM accnt
+             WHERE (accnt_id=<? value("accnt_id") ?>) )
+        <? else ?>
+          text('All Accounts')
+        <? endif ?>
+        AS accnt,
+        <? if exists("showUsernames") ?>
+          text('Username')
+        <? else ?>
+          text('')
+        <? endif ?>
+        AS f_username
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ 
+   SELECT gltrans_id,
+        gltrans_created, formatDate(gltrans_date) AS transdate,
+        gltrans_source, gltrans_doctype, gltrans_docnumber, invhist_docnumber,
+        firstLine(gltrans_notes) AS transnotes,
+        (formatGLAccount(accnt_id) || ' - ' || accnt_descrip) AS account,
+ -- Debits:
+        CASE WHEN (gltrans_amount < 0) THEN formatMoney(ABS(gltrans_amount))
+             ELSE ''
+        END AS f_debit,       
+        CASE WHEN (gltrans_amount < 0) THEN ABS(gltrans_amount)
+             ELSE 0
+        END AS debit_amt, 
+ --Credits:
+        CASE WHEN (gltrans_amount > 0) THEN formatMoney(gltrans_amount)
+             ELSE ''
+        END AS f_credit,
+        CASE WHEN (gltrans_amount > 0) THEN gltrans_amount
+             ELSE 0
+        END AS credit_amt,
+ --Balance:
+        gltrans_amount * -1 as balance_amt,
+ --
+        gltrans_amount,
++       CASE WHEN accnt_type IN ('A','E') THEN 
++         gltrans_amount * -1
++       ELSE gltrans_amount END AS running,
+        formatBoolYN(gltrans_posted) AS f_posted,
+        gltrans_username AS f_username,
+        gltrans_sequence
+   FROM gltrans JOIN accnt ON (gltrans_accnt_id=accnt_id)
+        LEFT OUTER JOIN invhist ON (gltrans_misc_id=invhist_id AND gltrans_docnumber='Misc.')
+  WHERE ((gltrans_date BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+ <? if exists("accnt_id") ?>
+    AND (gltrans_accnt_id=<? value("accnt_id") ?>)
+ <? endif ?>
+ <? if exists("source") ?>
+    AND (gltrans_source=<? value("source") ?>)
+ <? endif ?>
+        )
+   <? if exists("beginningBalance") ?>
+   UNION SELECT -1,
+         <? value("startDate") ?>, formatDate(<? value("startDate") ?>),
+         '', '', '', '',
+         'Beginning Balance',
+         (formatGLAccount(accnt_id) || ' - ' || accnt_descrip),
+         CASE WHEN (<? value("beginningBalance") ?> < 0) THEN
+                       formatMoney(ABS(<? value("beginningBalance") ?>))
+              ELSE ''
+         END,
+         CASE WHEN (<? value("beginningBalance") ?> < 0) THEN
+                       ABS(<? value("beginningBalance") ?>)
+              ELSE 0
+         END,
+ 
+         CASE WHEN (<? value("beginningBalance") ?> > 0) THEN
+                       formatMoney(ABS(<? value("beginningBalance") ?>))
+              ELSE ''
+         END,
+         CASE WHEN (<? value("beginningBalance") ?> > 0) THEN
+                       ABS(<? value("beginningBalance") ?>)
+              ELSE 0
+         END,
+         <? value("beginningBalance") ?> * -1,
+         <? value("beginningBalance") ?>,
++        <? value("beginningBalance") ?>,
+         NULL,
+         NULL,
+         -1
+   FROM accnt
+   WHERE (accnt_id=<? value("accnt_id") ?>)
+ ORDER BY gltrans_created <? if not exists("beginningBalance") ?> DESC <? endif ?>,
+         gltrans_sequence, gltrans_amount;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: PackingList-Shipment
+ QUERY: head
+ SELECT shiphead_number, 'S/O #:' AS ordertype,
+        cohead_number AS ordernumber,
+        formatsobarcode(cohead_id) AS order_barcode,
+-       cohead_shipvia AS shipvia,
++       COALESCE(shiphead_shipvia, cohead_shipvia) AS shipvia,
+        cohead_shiptophone AS shiptophone,
+        cohead_custponumber,
+        formatDate(cohead_orderdate) AS orderdate,
+        cohead_shipcomments AS shipcomments,   
+        cohead_billtoname AS billtoname,
+        formataddr(cohead_billtoaddress1, cohead_billtoaddress2,
+                   cohead_billtoaddress3,
+                   (cohead_billtocity || '  ' ||   cohead_billtostate ||
+                   '  ' || cohead_billtozipcode), cohead_billtocountry) AS billing_address,
+        cohead_shiptoname AS shiptoname,
+        formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2,
+                   cohead_shiptoaddress3,
+                   (cohead_shiptocity || '  ' ||   cohead_shiptostate ||
+                   '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
+ 
+        cust_number,
+        cust_contact,
+        cust_phone,
+        terms_descrip
+   FROM shiphead, cohead, cust, terms
+  WHERE ((cohead_cust_id=cust_id)
+    AND (cohead_terms_id=terms_id)
+    AND (cohead_id=shiphead_order_id)
+    AND (shiphead_order_type='SO')
+    AND (shiphead_id=<? value("shiphead_id") ?>)
+ )
+ <? if exists("MultiWhs") ?>
+ UNION
+ SELECT shiphead_number, 'T/O #:' AS ordertype,
+        tohead_number AS ordernumber,
+        formattobarcode(tohead_id) AS order_barcode,
+        shiphead_shipvia AS shipvia,
+        tohead_destphone AS shiptophone,
+        TEXT(tohead_number) AS cohead_custponumber,
+        formatDate(tohead_orderdate) AS orderdate,
+        tohead_shipcomments AS shipcomments,
+        '' AS billtoname,
+        '' AS billing_address,
+        tohead_destname AS shiptoname,
+        formataddr(tohead_destaddress1, tohead_destaddress2,
+                    tohead_destaddress3,
+                   (tohead_destcity || ' ' || tohead_deststate ||
+                    ' ' || tohead_destpostalcode), tohead_destcountry) AS shipping_address,
+        'Transfer Order' AS cust_number,
+        tohead_destcntct_name AS cust_contact,
+        tohead_destphone AS cust_phone,
+        '' AS terms_descrip
+   FROM shiphead, tohead
+  WHERE ((tohead_id=shiphead_order_id)
+    AND  (shiphead_order_type='TO')
+    AND  (shiphead_id=<? value("shiphead_id") ?>)
+ )
+ <? endif ?>;
+ --------------------------------------------------------------------
+   
+ QUERY: scheddate
+ SELECT formatDate(MIN(coitem_scheddate)) AS scheddate
+   FROM coitem, coship
+  WHERE ((coitem_status <> 'X')
+    AND  (coitem_id=coship_coitem_id)
+    AND  (coship_cosmisc_id=<? value("coship_cosmisc_id") ?>));
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ SELECT 1 AS groupby,
+ --     coitem_linenumber AS linenumber,
+ --     In 3.1 replace line above with line below to support 
+ --     kitting functionality
+        formatsolinenumber(coitem_id) AS linenumber,
+        coitem_memo AS memo,
+-       item_number,
++       CASE WHEN (coitem_custpn != '') THEN coitem_custpn
++            ELSE item_number
++       END AS item_number,
+        formatitemsitebarcode(itemsite_id) AS item_barcode,
+        formatsoitembarcode(coitem_id) AS orderitem_barcode,
+ --     In 2.3 replaced the next line:
+ --     uom_name,
+ --     with:
+        (select uom_name from uom where uom_id = coitem_qty_uom_id) AS uom_name,
+        itemsellinguom(item_id) AS shipuom,
+-       item_descrip1,
+-       item_descrip2,
++       CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip1
++            ELSE item_descrip1
++       END AS item_descrip1,
++       CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip2
++            ELSE item_descrip2
++       END AS item_descrip2,
+ 
+        formatQty(coitem_qtyord) AS ordered,
+        (SELECT formatQty(SUM(coship_qty)) FROM coship WHERE ((coship_cosmisc_id=<? value("cosmisc_id") ?>) AND (coship_coitem_id=coitem_id))) AS shipped,
+ 
+        CASE WHEN (coitem_status='O' AND (SELECT cust_creditstatus
+                                            FROM cust,cohead
+                                           WHERE coitem_cohead_id=cohead_id
+                                             AND cust_id=cohead_cust_id)='H') THEN 'H'
+             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
+                                             FROM cohead, invchead, invcitem
+                                            WHERE ((invchead_ordernumber=cohead_number)
+                                              AND  (invcitem_invchead_id=invchead_id)
+                                              AND  (invcitem_item_id=item_id)
+                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
+                                              AND  (invcitem_linenumber=coitem_linenumber)
+                                              AND  (cohead_id=coitem_cohead_id))) >= coitem_qtyord)) THEN 'I'
+             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
+                                             FROM cohead, invchead, invcitem
+                                            WHERE ((invchead_ordernumber=cohead_number)
+                                              AND  (invcitem_invchead_id=invchead_id)
+                                              AND  (invcitem_item_id=item_id)
+                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
+                                              AND  (invcitem_linenumber=coitem_linenumber)
+                                              AND  (cohead_id=coitem_cohead_id))) > 0)) THEN 'P'
+             WHEN (coitem_status='O' AND (itemsite_qtyonhand - qtyAllocated(itemsite_id, CURRENT_DATE)
+                                          + qtyOrdered(itemsite_id, CURRENT_DATE))
+                                           >= (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned)) THEN 'R'
+             ELSE coitem_status
+        END AS f_status,
+        CASE
+          WHEN (getPacklistItemLotSerial(coship_cosmisc_id, coitem_id) = '') THEN
+            ''
+          ELSE
+            'Serial #/Lot Information:'
+        END AS lotserial_title,
+        getPacklistItemLotSerial(coship_cosmisc_id, coitem_id) AS lotserial,
+        CASE
+          WHEN (getPacklistCharName(coship_cosmisc_id, coitem_id) = '') THEN
+            ''
+          ELSE
+            'Characteristics:'
+        END AS char_title,
+        getPacklistCharName(coship_cosmisc_id, coitem_id) AS char_name,
+        getPacklistCharValue(coship_cosmisc_id, coitem_id) AS char_value
+-  FROM itemsite, item, coitem, coship, uom
+- WHERE ( (coitem_itemsite_id=itemsite_id)
+-   AND (itemsite_item_id=item_id)
+-   AND (item_inv_uom_id=uom_id)
+-   AND (coitem_status <> 'X')
+-   AND (coitem_id=coship_coitem_id)
++  FROM coship
++       JOIN coitem ON (coitem_id=coship_coitem_id)
++       JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
++       JOIN item ON (item_id=itemsite_item_id)
++       JOIN uom ON (uom_id=item_inv_uom_id)
++       LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=coitem_custpn) 
++ WHERE ( (coitem_status <> 'X')
+    AND (coship_cosmisc_id=<? value("cosmisc_id") ?>)
+ )
+ <? if exists("MultiWhs") ?>
+ UNION
+ SELECT 2 AS groupby,
+ --     For 3.1 added CAST to match column type of corresponding column in other SELECT 
+ --     in this UNION
+        CAST(toitem_linenumber AS text) AS linenumber,
+        '' AS memo,
+        item_number,
+        formatitemsitebarcode(itemsite_id) AS item_barcode,
+        formattoitembarcode(toitem_id) AS orderitem_barcode,
+        uom_name,
+        itemsellinguom(item_id) AS shipuom,
+        item_descrip1,
+        item_descrip2,
+ 
+        formatQty(toitem_qty_ordered) AS ordered,
+        formatQty(shipitem_qty) AS shipped,
+ 
+        toitem_status AS f_status,
+        CASE
+          WHEN (getPacklistItemLotSerial(shiphead_id, toitem_id) = '') THEN
+            ''
+          ELSE
+            'Serial #/Lot Information:'
+        END AS lotserial_title,
+        getPacklistItemLotSerial(shiphead_id, toitem_id) AS lotserial,
+        '' AS char_title,
+        '' AS char_name,
+        '' AS char_value
+   FROM itemsite, item, toitem, tohead, shipitem, shiphead, uom
+  WHERE ((toitem_item_id=item_id)
+    AND  (item_inv_uom_id=uom_id)
+    AND  (item_id=itemsite_item_id)
+    AND  (toitem_tohead_id=tohead_id)
+    AND  (toitem_status <> 'X')
+    AND  (tohead_src_warehous_id=itemsite_warehous_id)
+    AND  (toitem_id=shipitem_orderitem_id)
+    AND  (shipitem_shiphead_id=shiphead_id)
+    AND  (shiphead_order_type='TO')
+    AND  (shiphead_id=<? value("shiphead_id") ?>)
+ )
+ <? endif ?>
+ ORDER BY linenumber;
+ --------------------------------------------------------------------
+   
+ QUERY: logo
+ SELECT image_data 
+ FROM image 
+ WHERE ((image_name='logo'));
+ --------------------------------------------------------------------
+   
+ QUERY: so_ra_relation
+ --added in 2.3 to show RA link to S/O if the SO
+ --was created as the result of a replacement RA
+ select 
+ 'RA #' AS ratext,
+ rahead_number
+ from
+ rahead, cohead, shiphead
+ where 
+ rahead_new_cohead_id = cohead_id
+ and cohead_id = shiphead_order_id
+ and shiphead_id = <? value("shiphead_id") ?>;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: PackingList
+ QUERY: head
+ SELECT COALESCE(shiphead_number::TEXT, 'Not Issued To Shipping') AS shiphead_number,
+ 	      'S/O #:' AS ordertype,
+        cohead_number AS ordernumber,
+        formatsobarcode(cohead_id) AS order_barcode,
+        COALESCE(shiphead_shipvia, cohead_shipvia) AS shipvia,
+        cohead_shiptophone AS shiptophone,
+        cohead_custponumber,
+        formatDate(cohead_orderdate) AS orderdate,
+        cohead_shipcomments AS shipcomments,
+        cohead_billtoname AS billtoname,
+        formataddr(cohead_billtoaddress1, cohead_billtoaddress2,
+                   cohead_billtoaddress3,
+                   (cohead_billtocity || '  ' ||   cohead_billtostate ||
+                   '  ' || cohead_billtozipcode), cohead_billtocountry) AS billing_address,
+        cohead_shiptoname AS shiptoname,
+        formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2,
+                   cohead_shiptoaddress3,
+                   (cohead_shiptocity || '  ' ||   cohead_shiptostate ||
+                   '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
+ 
+        cust_number,
+        cust_contact,
+        cust_phone,
+        terms_descrip
+   FROM cust, terms, cohead
+ <? if exists("shiphead_id") ?>
+ 	JOIN
+ <? else ?>
+ 	LEFT OUTER JOIN
+ <? endif ?>
+        shiphead ON ((shiphead_id=<? value("shiphead_id") ?>)
+ 		AND (shiphead_order_id=cohead_id)
+ 		AND (shiphead_order_type='SO'))
+  WHERE ((cohead_cust_id=cust_id)
+    AND  (cohead_terms_id=terms_id)
+ <? if exists("head_id") ?>
+    AND  (<? value("head_type") ?>='SO')
+    AND  (cohead_id=<? value("head_id") ?>)
+ <? endif ?>
+ )
+ 
+ <? if exists("MultiWhs") ?>
+ UNION
+ SELECT COALESCE(shiphead_number::TEXT, 'Not Issued To Shipping') AS shiphead_number,
+       'T/O #:' AS ordertype,
+        tohead_number AS ordernumber,
+        formattobarcode(tohead_id) AS order_barcode,
+        COALESCE(shiphead_shipvia, tohead_shipvia) AS shipvia,
+        tohead_destphone AS shiptophone,
+        TEXT(tohead_number) AS cohead_custponumber,
+        formatDate(tohead_orderdate) AS orderdate,
+        tohead_shipcomments AS shipcomments,
+        '' AS billtoname,
+        '' AS billing_address,
+        tohead_destname AS shiptoname,
+        formataddr(tohead_destaddress1, tohead_destaddress2,
+                    tohead_destaddress3,
+                   (tohead_destcity || ' ' || tohead_deststate ||
+                    ' ' || tohead_destpostalcode), tohead_destcountry) AS shipping_address,
+        'Transfer Order' AS cust_number,
+        tohead_destcntct_name AS cust_contact,
+        tohead_destphone AS cust_phone,
+        '' AS terms_descrip
+   FROM tohead 
+ <? if exists("shiphead_id") ?>
+ 	JOIN
+ <? else ?>
+ 	LEFT OUTER JOIN
+ <? endif ?>
+        shiphead ON ((shiphead_id=<? value("shiphead_id") ?>)
+ 		AND (shiphead_order_id=tohead_id)
+ 		AND (shiphead_order_type='TO'))
+ <? if exists("head_id") ?>
+  WHERE ((<? value("head_type") ?>='TO')
+    AND  (tohead_id=<? value("head_id") ?>)
+    )
+ <? endif ?>
+ <? endif ?>;
+ --------------------------------------------------------------------
+   
+ QUERY: scheddate
+ SELECT formatDate(MIN(orderitem_scheddate)) AS scheddate
+   FROM orderitem
+        <? if exists("shiphead_id") ?>
+        JOIN shiphead ON ((orderitem_orderhead_type=shiphead_order_type)
+ 		     AND (orderitem_orderhead_id=shiphead_order_id)
+ 		     AND (shiphead_id=<? value("shiphead_id")?>))
+        JOIN shipitem ON ((shiphead_id=shipitem_shiphead_id)
+ 		     AND (shipitem_orderitem_id=orderitem_id))
+        <? endif ?>
+  WHERE ((orderitem_status <> 'X')
+ <? if exists("head_id") ?>
+    AND  (orderitem_orderhead_type=<? value("head_type") ?>)
+    AND  (orderitem_orderhead_id=<? value("head_id") ?>)
+ <? endif ?>
+  );
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ SELECT 1 AS groupby,
+        coitem_linenumber AS linenumber,
+        coitem_memo AS memo,
+-       item_number,
++       CASE WHEN (coitem_custpn != '') THEN coitem_custpn
++            ELSE item_number
++       END AS item_number,
+        formatitemsitebarcode(itemsite_id) AS item_barcode,
+        formatsoitembarcode(coitem_id) AS orderitem_barcode,
+        (select uom_name from uom where uom_id = coitem_qty_uom_id) AS uom_name,
+        itemsellinguom(item_id) AS shipuom,
+-       item_descrip1,
+-       item_descrip2,
++       CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip1
++            ELSE item_descrip1
++       END AS item_descrip1,
++       CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip2
++            ELSE item_descrip2
++       END AS item_descrip2,
+        formatQty(coitem_qtyord) AS ordered,
++       ( SELECT formatQty(COALESCE(SUM(shipitem_qty), 0))
++         FROM shipitem JOIN shiphead ON (shiphead_id=shipitem_shiphead_id)
++         WHERE ((shipitem_orderitem_id=coitem_id) AND (shiphead_order_type='SO')) ) AS atShipping,
+ 
+        CASE WHEN (coitem_status='O' AND (SELECT cust_creditstatus
+                                            FROM cust,cohead
+                                           WHERE coitem_cohead_id=cohead_id
+                                             AND cust_id=cohead_cust_id)='H') THEN 'H'
+             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
+                                             FROM cohead, invchead, invcitem
+                                            WHERE ((invchead_ordernumber=cohead_number)
+                                              AND  (invcitem_invchead_id=invchead_id)
+                                              AND  (invcitem_item_id=item_id)
+                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
+                                              AND  (invcitem_linenumber=coitem_linenumber)
+                                              AND  (cohead_id=coitem_cohead_id))) >= coitem_qtyord)) THEN 'I'
+             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
+                                             FROM cohead, invchead, invcitem
+                                            WHERE ((invchead_ordernumber=cohead_number)
+                                              AND  (invcitem_invchead_id=invchead_id)
+                                              AND  (invcitem_item_id=item_id)
+                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
+                                              AND  (invcitem_linenumber=coitem_linenumber)
+                                              AND  (cohead_id=coitem_cohead_id))) > 0)) THEN 'P'
+             WHEN (coitem_status='O' AND (itemsite_qtyonhand - qtyAllocated(itemsite_id, CURRENT_DATE)
+                                          + qtyOrdered(itemsite_id, CURRENT_DATE))
+                                           >= (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned)) THEN 'R'
+             ELSE coitem_status
+        END AS f_status
+-  FROM itemsite, item, coitem, uom
+- WHERE ( (coitem_itemsite_id=itemsite_id)
+-   AND (itemsite_item_id=item_id)
+-   AND (item_inv_uom_id=uom_id)
+-   AND (coitem_status <> 'X')
++  FROM coitem
++       JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
++       JOIN item ON (item_id=itemsite_item_id)
++       JOIN uom ON (uom_id=item_inv_uom_id)
++       LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=coitem_custpn) 
++ WHERE ( (coitem_status <> 'X')
+ <? if exists("shiphead_id") ?>
+    AND  (coitem_cohead_id IN (SELECT shiphead_order_id FROM shiphead
+ 			      WHERE ((shiphead_id=<? value("shiphead_id") ?>)
+ 			        AND  (shiphead_order_type='SO'))))
+ <? endif ?>
+ <? if exists("head_id") ?>
+    AND  (<? value("head_type") ?>='SO')
+    AND  (coitem_cohead_id=<? value("head_id") ?>)
+ <? endif ?>
+ )
+ GROUP BY coitem_qty_uom_id, coitem_linenumber, coitem_id, coitem_memo, item_number, uom_name, shipuom,
++         coitem_custpn, itemalias_usedescrip, itemalias_descrip1, itemalias_descrip2,
+          item_descrip1, item_descrip2, coitem_qtyord, coitem_qty_invuomratio, coitem_qtyshipped,
+          coitem_qtyreturned, coitem_status, coitem_cohead_id,
+          itemsite_id, itemsite_qtyonhand, itemsite_warehous_id, item_id
+ <? if exists("MultiWhs") ?>
+ UNION
+ SELECT 2 AS groupby,
+        toitem_linenumber AS linenumber,
+        '' AS memo,
+        item_number,
+        formatitemsitebarcode(itemsite_id) AS item_barcode,
+        formattoitembarcode(toitem_id) AS orderitem_barcode,
+        uom_name,
+        itemsellinguom(item_id) AS shipuom,
+        item_descrip1,
+        item_descrip2,
+ 
+        formatQty(toitem_qty_ordered) AS ordered,
++       ( SELECT formatQty(COALESCE(SUM(shipitem_qty), 0))
++         FROM shipitem JOIN shiphead ON (shiphead_id=shipitem_shiphead_id)
++         WHERE ((shipitem_orderitem_id=toitem_id) AND (shiphead_order_type='TO')) ) AS atShipping,
+ 
+        toitem_status AS f_status
+   FROM itemsite, item, toitem, tohead, uom
+  WHERE ((toitem_item_id=item_id)
+    AND  (item_inv_uom_id=uom_id)
+    AND  (item_id=itemsite_item_id)
+    AND  (toitem_tohead_id=tohead_id)
+    AND  (toitem_status <> 'X')
+    AND  (tohead_src_warehous_id=itemsite_warehous_id)
+ <? if exists("shiphead_id") ?>
+    AND  (toitem_tohead_id IN (SELECT shiphead_order_id FROM shiphead
+ 			      WHERE ((shiphead_id=<? value("shiphead_id") ?>)
+ 			        AND  (shiphead_order_type='TO'))))
+ <? endif ?>
+ <? if exists("head_id") ?>
+    AND  (<? value("head_type") ?>='TO')
+    AND  (toitem_tohead_id=<? value("head_id") ?>)
+ <? endif ?>
+ )
+ <? endif ?>
+ ORDER BY linenumber;
+ --------------------------------------------------------------------
+   
+ QUERY: logo
+ SELECT image_data 
+ FROM image 
+ WHERE ((image_name='logo'));
+ --------------------------------------------------------------------
+   
+ QUERY: lotdetail
+ SELECT
+ shiphead_number AS cosmisc_number,
+ (orderhead_number || '-' || orderitem_linenumber) AS ordernumber,
+ item_number,
+ formatlotserialnumber(invdetail_ls_id) AS invdetail_lotserial,
+ SUM(invdetail_qty) * -1 AS lotqty,
+ SUM(invhist_invqty) as totalshipmentqty,
+ invhist_transtype,
+ formatdate(MAX(invhist_transdate)) AS invhistdate,
+ formatdate(MAX(shipitem_transdate)) AS shiptransdate
+ FROM shiphead,shipitem,invhist,invdetail,orderhead,orderitem,itemsite,item
+ WHERE ( (shiphead_id = <? value("cosmisc_id") ?> )
+ AND (shipitem_shiphead_id=shiphead_id)
+ AND (invhist_id=shipitem_invhist_id)
+ AND (invdetail_invhist_id=invhist_id)
+ AND (orderhead_type=shiphead_order_type)
+ AND (orderhead_id=shiphead_order_id)
+ AND (orderitem_orderhead_type=shiphead_order_type)
+ AND (orderitem_id=shipitem_orderitem_id)
+ AND (itemsite_id=orderitem_itemsite_id)
+ AND (item_id=itemsite_item_id)
+ )
+ GROUP BY shiphead_number,orderhead_number,item_number,invdetail_ls_id,
+ orderitem_linenumber,invhist_transtype
+ ORDER BY ordernumber;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: PurchaseOrder
+ QUERY: Head
+ SELECT pohead_number,
+        formatDate(pohead_orderdate) AS f_orderdate,
+        pohead_fob,
+        pohead_shipvia,
+-       terms_descrip,
+        vend_number,
+        vend_name,
+-       vend_address1,
+-       vend_address2,
+-       vend_address3,
+-       (vend_city || '  '  || vend_state || '  ' || vend_zip) AS vendcitystatezip,
+-       formataddr(vend_address1, vend_address2, vend_address3, (vend_city || '  '  || vend_state || '   ' || vend_zip), vend_country) as vend_address,
++       formatAddr(vend_address1, vend_address2, vend_address3, (vend_city || '  '  || vend_state || '  ' || vend_zip), vend_country) AS f_address,
+        warehous_descrip,
+-       addr_line1 as warehous_addr1,
+-       addr_line2 as warehous_addr2,
+-       addr_line3 as warehous_addr3,
+-       addr_city  as warehous_addr4,
+-       addr_postalcode as zip,
+-       addr_state,
+-       addr_country,
+-       formataddr(addr_line1, addr_line2, addr_line3, (addr_city || ' ' || addr_state || ' ' || addr_postalcode), addr_country) as warehouse_address,
++       formatAddr(warehous_addr1, warehous_addr2, warehous_addr3, (warehous_city || '  '  || warehous_state || '  ' || warehous_zip), warehous_country) AS f_shiptoaddress,
++       CASE WHEN(pohead_terms_id IS NULL OR pohead_terms_id = -1) THEN text('N/A')
++            ELSE (SELECT terms_code FROM terms WHERE (terms_id=pohead_terms_id) )
++       END AS f_terms,
+        pohead_agent_username AS username,
+        pohead_comments,
+        text(<? value("title") ?>) AS title
+- FROM pohead
+-   LEFT OUTER JOIN terms ON (pohead_terms_id = terms_id),
+-   vend, whsinfo
+-   LEFT OUTER JOIN addr ON (warehous_addr_id = addr_id)
++  FROM pohead, vend, warehous
+  WHERE ((pohead_vend_id=vend_id)
+-   AND (pohead_warehous_id = warehous_id)
++   AND (pohead_warehous_id=warehous_id)
+    AND (pohead_id=<? value("pohead_id") ?>) );
+ --------------------------------------------------------------------
+   
+ QUERY: Detail
+ SELECT poitem_linenumber,
+        poitem_comments,
+        poitem_linenumber AS f_line,
+        item_number,
+        poitem_vend_item_number, 
+-       CASE WHEN (LENGTH(TRIM(BOTH '	' FROM poitem_vend_item_descrip)) <= 0) THEN
+-          (item_descrip1 || '' || item_descrip2)
++       CASE WHEN (poitem_vend_item_descrip LIKE '') THEN (item_descrip1 || ' ' || item_descrip2)
+        ELSE (poitem_vend_item_descrip)
+        END AS itemdescription,
+        formatQty(poitem_qty_ordered) AS f_ordered,
+        CASE WHEN (poitem_vend_uom LIKE '') THEN (uom_name)
+             ELSE (poitem_vend_uom)
+        END AS itemuom,
+        formatPrice(poitem_unitprice) AS f_price,
+        formatExtPrice(poitem_unitprice * poitem_qty_ordered) AS f_extended,
+-       formatDate(poitem_duedate) AS f_duedate,
+-       characteristicsToString('PI', poitem_id, '=', ', ') AS poitem_characteristics
+-FROM poitem
+-	LEFT OUTER JOIN itemsite ON (poitem_itemsite_id = itemsite_id)
+-	LEFT OUTER JOIN (item JOIN uom ON (item_inv_uom_id=uom_id)) ON (itemsite_item_id = item_id)
+-WHERE 	(poitem_pohead_id=<? value("pohead_id") ?>) 
++       formatDate(poitem_duedate) AS f_duedate
++  FROM poitem LEFT OUTER JOIN
++         ( itemsite JOIN item
++           ON (itemsite_item_id=item_id) JOIN uom ON (item_inv_uom_id=uom_id))
++         ON (poitem_itemsite_id=itemsite_id)
++ WHERE (poitem_pohead_id=<? value("pohead_id") ?>)
+ ORDER BY poitem_linenumber;
+ --------------------------------------------------------------------
+   
+ QUERY: Foot
+-SELECT formatExtPrice(COALESCE(SUM(poitem_qty_ordered * poitem_unitprice), 0)) AS f_subtotal,
+-       formatExtPrice(COALESCE(SUM(poitem_freight)+pohead_freight,0)) AS f_totalfreight,
+-       formatExtPrice(COALESCE(pohead_tax,0)) AS f_tax,
+-       formatExtPrice(COALESCE(SUM(poitem_qty_ordered * poitem_unitprice), 0)+COALESCE(SUM(poitem_freight)+pohead_freight,0)+COALESCE(pohead_tax,0)) AS f_totaldue
+-  FROM poitem, pohead
+- WHERE ( (poitem_pohead_id=<? value("pohead_id") ?>)
+-  AND (pohead_id=poitem_pohead_id) )
+- GROUP BY pohead_freight, pohead_tax;
++SELECT formatExtPrice(COALESCE(SUM(poitem_qty_ordered * poitem_unitprice), 0)) AS f_totaldue
++  FROM poitem
++ WHERE (poitem_pohead_id=<? value("pohead_id") ?>);
+ --------------------------------------------------------------------
+   
+ QUERY: Logo
+ SELECT image_data 
+-FROM image 
+-WHERE ((image_name='logo'));
+---------------------------------------------------------------------
+-  
+-QUERY: Currency
+-SELECT
+- curr_symbol
+-FROM
+-    pohead,
+-    curr_symbol
+-WHERE (pohead_id = <? value("pohead_id") ?>) AND
+-      pohead_curr_id = curr_id;
++  FROM image
++ WHERE (image_name='NSILogo');
+ --------------------------------------------------------------------
+   
+-QUERY: Address
+-SELECT
+-     warehous_descrip,
+-     formatAddr(addr_line1, addr_line2, addr_line3, ( addr_city || '  ' || addr_state || '  ' || addr_postalcode), addr_country) AS warehouse_address
+-FROM
+-     whsinfo, 
+-     addr, 
+-     pohead
+-WHERE 
+-     addr_id = warehous_addr_id
+-     and pohead_warehous_id = warehous_id
+-     AND pohead_id=<? value("pohead_id") ?> ;
++QUERY: FootExt
++SELECT formatExtPrice(pohead_freight + pohead_tax +
++         ( SELECT COALESCE(SUM(poitem_qty_ordered * poitem_unitprice), 0)
++             FROM poitem
++            WHERE (poitem_pohead_id=<? value("pohead_id") ?>)
++         )) AS f_total,
++       formatExtPrice(pohead_tax) AS f_tax,
++       formatExtPrice(pohead_freight) AS f_freight
++  FROM pohead
++ WHERE (pohead_id=<? value("pohead_id") ?>)
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: SalesOrderAcknowledgement
+ QUERY: head
+ SELECT cust_number,
+        formatsobarcode(cohead_id) AS order_barcode,
+ 
+        formataddr(cohead_billtoaddress1, cohead_billtoaddress2, cohead_billtoaddress3, (cohead_billtocity || '  ' ||   cohead_billtostate || '  ' || cohead_billtozipcode), cohead_billtocountry) AS billing_address, 
+ 
+   formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2, cohead_shiptoaddress3, (cohead_shiptocity || '  ' ||   cohead_shiptostate || '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
+ 
+        cust_contact,
+        cohead_billtoname,
+        cohead_billtoaddress1,
+        cohead_billtoaddress2,
+        cohead_billtoaddress3,
+        (cohead_billtocity || '  ' || cohead_billtostate || '  ' || cohead_billtozipcode) AS billtocitystatezip,
+        cust_phone,
+        cohead_shiptoname,
+        cohead_shiptoaddress1,
+        cohead_shiptoaddress2,
+        cohead_shiptoaddress3,
+        (cohead_shiptocity || '  ' || cohead_shiptostate || ' ' || cohead_shiptozipcode) AS shiptocitystatezip,
+        cohead_number,
+        cohead_shipvia,
+        cohead_shiptophone,
+        cohead_custponumber,
+        formatDate(cohead_orderdate) AS orderdate,
+        cohead_shipcomments, 
+        terms_descrip
+   FROM cohead, cust, terms
+  WHERE ((cohead_cust_id=cust_id)
+    AND (cohead_terms_id=terms_id)
+    AND (cohead_id=<? value("sohead_id") ?>)
+ );
+ --------------------------------------------------------------------
+   
+ QUERY: scheddate
+ SELECT formatDate(MIN(coitem_scheddate)) AS scheddate
+   FROM coitem
+  WHERE ((coitem_status <> 'X') AND (coitem_cohead_id=<? value("sohead_id") ?>));
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ SELECT 1 AS groupby,
+        coitem_linenumber,
+        coitem_memo,
+-       item_number,
++       CASE WHEN (coitem_custpn != '') THEN coitem_custpn
++            ELSE item_number
++       END AS item_number,
+        formatitemsitebarcode(itemsite_id) AS item_barcode,
+ --     In 2.3 replaced the next line:
+ --     uom_name,
+ --     with:
+        (select uom_name from uom where uom_id = coitem_qty_uom_id) AS uom_name,
+        itemSellingUOM(item_id) AS item_shipuom,
+-       item_descrip1,
+-       item_descrip2,
++       CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip1
++            ELSE item_descrip1
++       END AS item_descrip1,
++       CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip2
++            ELSE item_descrip2
++       END AS item_descrip2,
+        formatQty(coitem_qtyord) AS ordered,
+        formatQty(coitem_qtyshipped - coitem_qtyreturned) AS shipped,
+        formatQty(noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned)) AS balance,
+        formatQty( ( SELECT COALESCE(SUM(coship_qty), 0)
+                     FROM coship, cosmisc
+                     WHERE ( (coship_coitem_id=coitem_id)
+                      AND (coship_cosmisc_id=cosmisc_id)
+                      AND (NOT cosmisc_shipped) ) ) ) AS atshipping,
+        formatQty(roundUp((coitem_qtyord * coitem_qty_invuomratio) / itemInvPriceRat(item_id))) AS shipordered,
+        formatQty(roundUp(((coitem_qtyshipped - coitem_qtyreturned) * coitem_qty_invuomratio) / itemInvPriceRat(item_id))) AS shipshipped,
+        formatQty(roundUp((noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) * coitem_qty_invuomratio) / itemInvPriceRat(item_id))) AS shipbalance,
+        formatQty(roundUp( ( SELECT COALESCE(SUM(coship_qty), 0)
+                             FROM coship, cosmisc
+                             WHERE ( (coship_coitem_id=coitem_id)
+                               AND (coship_cosmisc_id=cosmisc_id)
+                               AND (NOT cosmisc_shipped) ) )/ itemInvPriceRat(item_id) ) ) AS shipatshipping,
+        CASE WHEN (coitem_status='O' AND (SELECT cust_creditstatus FROM cust,cohead WHERE coitem_cohead_id=cohead_id AND cust_id=cohead_cust_id)='H') THEN 'H'
+             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
+                                             FROM cohead, invchead, invcitem
+                                            WHERE ((invchead_ordernumber=cohead_number)
+                                              AND  (invcitem_invchead_id=invchead_id)
+                                              AND  (invcitem_item_id=item_id)
+                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
+                                              AND  (invcitem_linenumber=coitem_linenumber)
+                                              AND  (cohead_id=coitem_cohead_id))) >= coitem_qtyord)) THEN 'I'
+             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
+                                             FROM cohead, invchead, invcitem
+                                            WHERE ((invchead_ordernumber=cohead_number)
+                                              AND  (invcitem_invchead_id=invchead_id)
+                                              AND  (invcitem_item_id=item_id)
+                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
+                                              AND  (invcitem_linenumber=coitem_linenumber)
+                                              AND  (cohead_id=coitem_cohead_id))) > 0)) THEN 'P'
+             WHEN (coitem_status='O' AND (itemsite_qtyonhand - qtyAllocated(itemsite_id, CURRENT_DATE)
+                                          + qtyOrdered(itemsite_id, CURRENT_DATE))
+                                           >= (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned)) THEN 'R'
+             ELSE coitem_status
+        END AS f_status
+-  FROM itemsite, item, uom, coitem
+- WHERE ( (coitem_itemsite_id=itemsite_id)
+-   AND (itemsite_item_id=item_id)
+-   AND (item_inv_uom_id=uom_id)
+-   AND (coitem_status <> 'X')
++  FROM coitem
++       JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
++       JOIN item ON (item_id=itemsite_item_id)
++       JOIN uom ON (uom_id=item_inv_uom_id)
++       LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=coitem_custpn) 
++ WHERE ( (coitem_status <> 'X')
+    AND (coitem_status <> 'C')
+ -- 1 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST  
+    <? if exists("hide closed") ?>
+    AND (coitem_status <> 'C')
+ -- 2 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST  
+ -- <? endif ?>
+    AND (coitem_cohead_id=<? value("sohead_id") ?>)
+ )
+ --2.3 add coitem_qty_uom_id, to the GROUP BY clause
+ GROUP BY coitem_qty_uom_id, coitem_linenumber, coitem_id, coitem_memo, item_number, uom_name, item_id,
++         coitem_custpn, itemalias_usedescrip, itemalias_descrip1, itemalias_descrip2,
+          item_descrip1, item_descrip2, coitem_qtyord, coitem_qty_invuomratio, coitem_qtyshipped,
+          coitem_qtyreturned, coitem_status, coitem_cohead_id,
+          itemsite_id, itemsite_qtyonhand, itemsite_warehous_id, item_id
+ ORDER BY coitem_linenumber;
+ --------------------------------------------------------------------
+   
+ QUERY: logo
+ SELECT image_data 
+ FROM image 
+ WHERE ((image_name='logo'));
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
