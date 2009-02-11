@@ -2,13 +2,13 @@ Release Notes
 xTuple ERP
 PostBooks, Standard, and Manufacturing Editions
 Version 3.2.1
-February 12, 2009
+February 11, 2009
 ==================================
 
 This is the final release of version 3.2.1, a follow-up release
 to version 3.2.0. This is primarily a bug fix release but does
 contain several new features designed to support custom screen
-and package development. Thanks to all in the community who 
+and package development. Thanks to all in the community who
 helped make this release possible!
 
 ==================================
@@ -22,34 +22,34 @@ select the Changelog option.
 New Features:
 
 * [System] Exposed metrics set function to scripting
-* [System] Added menu manipulation capabilities to script 
-toolbox 
+* [System] Added menu manipulation capabilities to script
+toolbox
 * [System] Exposed more control of tab widget to scripting
 
 
 Bug Fixes:
 
-* [Accounting] Fixed CC Refund for Authorize.ne
-* [Accounting] Fixed return Shipment to update Item Site 
+* [Accounting] Fixed CC Refund for Authorize.net
+* [Accounting] Fixed return Shipment to update Item Site
 Average Cost correctly
-* [Accounting] Removed date range requirement for reprint 
+* [Accounting] Removed date range requirement for reprint
 Invoice
-* [Accounting] Fixed running total on GL transaction to not 
+* [Accounting] Fixed running total on GL transaction to not
 reverse sense for certain Account Types
-* [Accounting] Fixed duplicate key error when selecting to 
+* [Accounting] Fixed duplicate key error when selecting to
 create Profit Center
-* [Accounting] Removed company segment requirement from 
+* [Accounting] Removed company segment requirement from
 forward update utility
-* [Accounting] Improved performance when opening Sales 
+* [Accounting] Improved performance when opening Sales
 Order/Sales Order Line screens
-* [CRM] Fixed alignment problems on Contact, Incident, and 
+* [CRM] Fixed alignment problems on Contact, Incident, and
 CRM Account screens
-* [Products] Made Element column visible in Item Cost 
+* [Products] Made Element column visible in Item Cost
 History Report
 * [Sales] Removed Zone requirement on Ship To screen
-* [Sales] Included Freight Tax into consideration on Sales 
+* [Sales] Included Freight Tax into consideration on Sales
 Order Summary Screen
-* [System] Fixed issue with xtreeview column view/hide 
+* [System] Fixed issue with xtreeview column view/hide
 settings over-writing each other
 
 
