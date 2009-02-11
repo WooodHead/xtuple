@@ -24,7 +24,7 @@ CREATE OR REPLACE FUNCTION todoItemMove(INTEGER, INTEGER) RETURNS INTEGER AS $$
     WHERE todoitem_seq >= _currseq + _howFar
       AND todoitem_id != ptodoItemId
       AND todoitem_username = _username
-      AND todoitem_status != ''C'';
+      AND todoitem_status != 'C';
 
     UPDATE todoitem
     SET todoitem_seq=_currseq + _howFar
