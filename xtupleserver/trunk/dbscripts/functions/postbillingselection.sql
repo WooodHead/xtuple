@@ -68,7 +68,7 @@ BEGIN
          cohead_shiptoname, cohead_shiptoaddress1,
          cohead_shiptoaddress2, cohead_shiptoaddress3,
          cohead_shiptocity, cohead_shiptostate,
-         cohead_shiptozipcode, cohead_shiptophone,
+         cohead_shiptozipcode, cohead_shipto_cntct_phone,
          cohead_shiptocountry,
          cohead_salesrep_id, COALESCE(cohead_commission, 0),
          cohead_terms_id,
