@@ -63,8 +63,8 @@ BEGIN
 	_credit_glaccnt := findAPPrepaidAccount(_p.checkhead_recip_id);
 
       ELSIF (_p.checkhead_recip_type = 'C') THEN
-	PERFORM createARDebitMemo(_p.checkhead_recip_id, _journalNumber,
-	  			     fetchARMemoNumber(),
+	PERFORM createARDebitMemo(_p.checkhead_recip_id,
+	  			     fetchARMemoNumber(), '',
 				     _p.checkhead_checkdate, _p.checkhead_amount,
 				     _gltransNote || ' ' || _p.checkhead_notes,
 				     _p.checkhead_curr_id );
