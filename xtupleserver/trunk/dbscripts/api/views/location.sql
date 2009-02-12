@@ -18,7 +18,7 @@ CREATE OR REPLACE VIEW api.location AS
        LEFT OUTER JOIN whsinfo ON (warehous_id=location_warehous_id)
        LEFT OUTER JOIN whsezone ON (whsezone_id=location_whsezone_id);
 
-GRANT ALL ON TABLE api.location TO openmfg;
+GRANT ALL ON TABLE api.location TO xtrole;
 COMMENT ON VIEW api.location IS 'Location';
 
 --Rules

@@ -14,7 +14,7 @@ AS
    WHERE ((p.item_id=itemsub_parent_item_id)
    AND (s.item_id=itemsub_sub_item_id));
 
-GRANT ALL ON TABLE api.itemsubstitute TO openmfg;
+GRANT ALL ON TABLE api.itemsubstitute TO xtrole;
 COMMENT ON VIEW api.itemsubstitute IS 'Item Substitute';
 
 --Rules

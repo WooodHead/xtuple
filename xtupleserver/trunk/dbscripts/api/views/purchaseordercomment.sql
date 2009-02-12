@@ -15,7 +15,7 @@ AS
    AND (comment_source_id=pohead_id)
    AND (comment_cmnttype_id=cmnttype_id));
 
-GRANT ALL ON TABLE api.purchaseordercomment TO openmfg;
+GRANT ALL ON TABLE api.purchaseordercomment TO xtrole;
 COMMENT ON VIEW api.purchaseordercomment IS 'Purchase Order Comment';
 
 --Rules

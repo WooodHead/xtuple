@@ -16,7 +16,7 @@ AS
        LEFT JOIN curr_symbol ON (itemcost.itemcost_curr_id = curr_symbol.curr_id)
  ORDER BY item.item_number::character varying(100), costelem.costelem_type::character varying(100);
 
-GRANT ALL ON TABLE api.itemcost TO openmfg;
+GRANT ALL ON TABLE api.itemcost TO xtrole;
 COMMENT ON VIEW api.itemcost IS 'Item Cost';
 
 --Rules

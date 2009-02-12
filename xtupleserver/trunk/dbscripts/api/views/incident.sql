@@ -66,7 +66,7 @@ CREATE OR REPLACE VIEW api.incident AS
      LEFT OUTER JOIN item ON (item_id=incdt_item_id)
      LEFT OUTER JOIN aropen ON (aropen_id=incdt_aropen_id);
 
-GRANT ALL ON TABLE api.incident TO openmfg;
+GRANT ALL ON TABLE api.incident TO xtrole;
 COMMENT ON VIEW api.incident IS 'Incident';
 
 --Rules

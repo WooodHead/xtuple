@@ -35,7 +35,7 @@ FROM
                               AND (i3.charass_default))
 ORDER BY order_number,line_number, characteristic;
 
-GRANT ALL ON TABLE api.purchaselinechar TO openmfg;
+GRANT ALL ON TABLE api.purchaselinechar TO xtrole;
 COMMENT ON VIEW api.purchaselinechar IS 'Purchase Order Line Item Characteristic';
 
 --Rules

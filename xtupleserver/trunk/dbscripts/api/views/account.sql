@@ -64,7 +64,7 @@ BEGIN;
       LEFT OUTER JOIN cntct sc ON (c.crmacct_cntct_id_2=sc.cntct_id)
       LEFT OUTER JOIN addr s ON (sc.cntct_addr_id=s.addr_id);
 
-GRANT ALL ON TABLE api.account TO openmfg;
+GRANT ALL ON TABLE api.account TO xtrole;
 COMMENT ON VIEW api.account IS 'Account';
 
 --Rules

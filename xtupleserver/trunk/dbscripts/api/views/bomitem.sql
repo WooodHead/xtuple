@@ -61,7 +61,7 @@ BEGIN;
   AND (bomitem_uom_id=uom_id))
   ORDER BY p.item_number,bomitem_seqnumber;
 
-GRANT ALL ON TABLE api.bomitem TO openmfg;
+GRANT ALL ON TABLE api.bomitem TO xtrole;
 COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
 
   --Rules

@@ -60,7 +60,7 @@ AS
      AND (cust_salesrep_id=salesrep_id)
      AND (cust_shipform_id=shipform_id));
 
-GRANT ALL ON TABLE api.custshipto TO openmfg;
+GRANT ALL ON TABLE api.custshipto TO xtrole;
 COMMENT ON VIEW api.custshipto IS 'Customer Shipto Address';
 
 --Rules

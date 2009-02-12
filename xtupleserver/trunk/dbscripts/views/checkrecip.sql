@@ -25,4 +25,4 @@ FROM vendinfo LEFT OUTER JOIN vendaddrinfo ON ((vend_id=vendaddr_vend_id)
 					  AND (UPPER(vendaddr_code)='REMIT'));
 
 REVOKE ALL ON TABLE checkrecip FROM PUBLIC;
-GRANT  ALL ON TABLE checkrecip TO GROUP openmfg;
+GRANT  ALL ON TABLE checkrecip TO GROUP xtrole;

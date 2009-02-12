@@ -30,7 +30,7 @@ AS
 		LEFT OUTER JOIN uom AS qty_uom ON (qty_uom.uom_id=invcitem_qty_uom_id)
 		LEFT OUTER JOIN uom AS price_uom ON (price_uom.uom_id=invcitem_price_uom_id);
 	
-GRANT ALL ON TABLE api.invoiceline TO openmfg;
+GRANT ALL ON TABLE api.invoiceline TO xtrole;
 COMMENT ON VIEW api.invoiceline IS '
 This view can be used as an interface to import Invioce Line Items data directly  
 into the system.  Required fields will be checked and default values will be 

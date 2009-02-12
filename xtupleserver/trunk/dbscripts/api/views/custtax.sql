@@ -14,7 +14,7 @@ AS
    AND (taxreg_rel_id=cust_id)
    AND (taxreg_taxauth_id=taxauth_id));
 
-GRANT ALL ON TABLE api.custtax TO openmfg;
+GRANT ALL ON TABLE api.custtax TO xtrole;
 COMMENT ON VIEW api.custtax IS 'Customer Tax Registration';
 
 --Rules

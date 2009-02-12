@@ -115,5 +115,5 @@ WHERE ( (cmitem_itemsite_id=itemsite_id)
 ORDER BY ordernumber, linenumber;
 
 REVOKE ALL ON creditMemoEditList FROM PUBLIC;
-GRANT ALL ON creditMemoEditList TO GROUP openmfg;
+GRANT ALL ON creditMemoEditList TO GROUP xtrole;
 

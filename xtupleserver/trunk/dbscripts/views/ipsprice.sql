@@ -18,5 +18,5 @@ CREATE OR REPLACE VIEW ipsprice AS
     FROM ipsprodcat JOIN item ON (ipsprodcat_prodcat_id=item_prodcat_id);
 
 REVOKE ALL ON TABLE ipsprice FROM PUBLIC;
-GRANT ALL ON TABLE ipsprice TO GROUP openmfg;
+GRANT ALL ON TABLE ipsprice TO GROUP xtrole;
 

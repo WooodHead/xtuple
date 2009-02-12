@@ -34,7 +34,7 @@ AS
    FROM ccard, custinfo
    WHERE (ccard_cust_id=cust_id);
 
-GRANT ALL ON TABLE api.custcreditcard TO openmfg;
+GRANT ALL ON TABLE api.custcreditcard TO xtrole;
 COMMENT ON VIEW api.custcreditcard IS 'Customer Credit Cards.';
 
 --Rules

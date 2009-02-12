@@ -20,7 +20,7 @@ BEGIN;
   FROM
     addr;
 
-GRANT ALL ON TABLE api.address TO openmfg;
+GRANT ALL ON TABLE api.address TO xtrole;
 COMMENT ON VIEW api.address IS 'Address';
 
 --Rules

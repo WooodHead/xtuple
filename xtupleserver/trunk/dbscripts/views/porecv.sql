@@ -30,6 +30,6 @@ CREATE VIEW porecv AS
   WHERE recv_order_type='PO';
 
 REVOKE ALL ON TABLE porecv FROM PUBLIC;
-GRANT  ALL ON TABLE porecv TO GROUP openmfg;
+GRANT  ALL ON TABLE porecv TO GROUP xtrole;
 COMMIT;
 

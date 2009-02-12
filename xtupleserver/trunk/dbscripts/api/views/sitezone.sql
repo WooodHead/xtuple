@@ -11,7 +11,7 @@ CREATE OR REPLACE VIEW api.sitezone AS
     FROM whsezone
        LEFT OUTER JOIN whsinfo ON (warehous_id=whsezone_warehous_id);
 
-GRANT ALL ON TABLE api.sitezone TO openmfg;
+GRANT ALL ON TABLE api.sitezone TO xtrole;
 COMMENT ON VIEW api.sitezone IS 'Site Zone';
 
 --Rules

@@ -13,7 +13,7 @@ AS
    AND (imageass_source='CRMA')
    AND (imageass_image_id=image_id));
 
-GRANT ALL ON TABLE api.accountimage TO openmfg;
+GRANT ALL ON TABLE api.accountimage TO xtrole;
 COMMENT ON VIEW api.accountimage IS 'Account Image';
 
 --Rules

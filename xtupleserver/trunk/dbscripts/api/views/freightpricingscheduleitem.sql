@@ -23,7 +23,7 @@ CREATE OR REPLACE VIEW api.freightpricingscheduleitem AS
    LEFT OUTER JOIN shipzone ON (shipzone_id=ipsfreight_shipzone_id)
    LEFT OUTER JOIN freightclass ON (freightclass_id=ipsfreight_freightclass_id);
 
-GRANT ALL ON TABLE api.freightpricingscheduleitem TO openmfg;
+GRANT ALL ON TABLE api.freightpricingscheduleitem TO xtrole;
 COMMENT ON VIEW api.freightpricingscheduleitem IS 'Freight Pricing Schedule Item';
 
 CREATE OR REPLACE RULE "_INSERT" AS

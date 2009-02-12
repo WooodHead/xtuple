@@ -16,7 +16,7 @@ AS
    AND (comment_source_id=item_id)
    AND (comment_cmnttype_id=cmnttype_id));
 
-GRANT ALL ON TABLE api.salesordercomment TO openmfg;
+GRANT ALL ON TABLE api.salesordercomment TO xtrole;
 COMMENT ON VIEW api.salesordercomment IS 'Item Comments';
 
 --Rules

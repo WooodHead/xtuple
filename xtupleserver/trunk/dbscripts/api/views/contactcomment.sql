@@ -16,7 +16,7 @@ AS
    AND (comment_source_id=cntct_id)
    AND (comment_cmnttype_id=cmnttype_id));
 
-GRANT ALL ON TABLE api.contactcomment TO openmfg;
+GRANT ALL ON TABLE api.contactcomment TO xtrole;
 COMMENT ON VIEW api.contactcomment IS 'Contact Comment';
 
 --Rules

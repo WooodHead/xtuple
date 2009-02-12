@@ -15,4 +15,4 @@ CREATE VIEW coship AS
   WHERE ((shipitem_shiphead_id=shiphead_id)
     AND  (shiphead_order_type='SO'));
 REVOKE ALL ON TABLE coship FROM PUBLIC;
-GRANT  ALL ON TABLE coship TO GROUP openmfg;
+GRANT  ALL ON TABLE coship TO GROUP xtrole;

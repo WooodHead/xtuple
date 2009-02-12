@@ -18,7 +18,7 @@ BEGIN;
     (bomhead_item_id=item_id);
 
 
-GRANT ALL ON TABLE api.bom TO openmfg;
+GRANT ALL ON TABLE api.bom TO xtrole;
 COMMENT ON VIEW api.bom IS 'Bill of Material Header';
 
   --Rules

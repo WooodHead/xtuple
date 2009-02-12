@@ -34,7 +34,7 @@ CREATE OR REPLACE VIEW api.pricingscheduleitem AS
    JOIN ipshead ON (ipsprodcat_ipshead_id = ipshead_id)
    JOIN prodcat ON (ipsprodcat_prodcat_id = prodcat_id);
 
-GRANT ALL ON TABLE api.pricingscheduleitem TO openmfg;
+GRANT ALL ON TABLE api.pricingscheduleitem TO xtrole;
 COMMENT ON VIEW api.pricingscheduleitem IS 'Pricing Schedule Item';
 
 CREATE OR REPLACE RULE "_INSERT" AS

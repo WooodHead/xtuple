@@ -13,7 +13,7 @@ AS
    AND (imageass_source='INCDT')
    AND (imageass_image_id=image_id));
 
-GRANT ALL ON TABLE api.incidentimage TO openmfg;
+GRANT ALL ON TABLE api.incidentimage TO xtrole;
 COMMENT ON VIEW api.incidentimage IS 'Incident Image';
 
 --Rules

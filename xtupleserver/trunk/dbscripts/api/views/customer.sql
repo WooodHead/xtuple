@@ -140,7 +140,7 @@ BEGIN;
   AND (cust_terms_id=terms_id))
   ORDER BY cust_number;
 
-GRANT ALL ON TABLE api.customer TO openmfg;
+GRANT ALL ON TABLE api.customer TO xtrole;
 COMMENT ON VIEW api.customer IS 'Customer';
 
 --Rules

@@ -68,7 +68,7 @@ BEGIN;
   AND (item_price_uom_id=p.uom_id))
   ORDER BY item_number;
 
-GRANT ALL ON TABLE api.item TO openmfg;
+GRANT ALL ON TABLE api.item TO xtrole;
 COMMENT ON VIEW api.item IS 'Item';
 
   --Rules

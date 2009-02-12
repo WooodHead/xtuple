@@ -7,5 +7,5 @@ CREATE VIEW budget AS
          budgitem_amount AS budget_amount
     FROM budgitem;
 REVOKE ALL ON TABLE budget FROM PUBLIC;
-GRANT  ALL ON TABLE budget TO   GROUP openmfg;
+GRANT  ALL ON TABLE budget TO   GROUP xtrole;
 

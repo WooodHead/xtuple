@@ -22,7 +22,7 @@ AS
      AND (ipsitem_price_uom_id=priceuom.uom_id)
      AND (ipsitemchar_char_id=char_id));
 
-GRANT ALL ON TABLE api.pricingscheduleitemchar TO openmfg;
+GRANT ALL ON TABLE api.pricingscheduleitemchar TO xtrole;
 COMMENT ON VIEW api.pricingscheduleitemchar IS 'Pricing Schedule Item Characteristics';
 
 --Rules

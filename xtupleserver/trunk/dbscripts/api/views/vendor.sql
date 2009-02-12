@@ -80,7 +80,7 @@ FROM
     LEFT OUTER JOIN vendtype ON (vend_vendtype_id=vendtype_id)
 ORDER BY vend_number;
 
-GRANT ALL ON TABLE api.vendor TO openmfg;
+GRANT ALL ON TABLE api.vendor TO xtrole;
 COMMENT ON VIEW api.vendor IS 'vendor';
 
 --Rules

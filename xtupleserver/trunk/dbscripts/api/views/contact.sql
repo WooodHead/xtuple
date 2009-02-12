@@ -37,7 +37,7 @@ BEGIN;
       LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
       LEFT OUTER JOIN crmacct ON (cntct_crmacct_id=crmacct_id);
 
-GRANT ALL ON TABLE api.contact TO openmfg;
+GRANT ALL ON TABLE api.contact TO xtrole;
 COMMENT ON VIEW api.contact IS 'Contact';
 
 --Rules

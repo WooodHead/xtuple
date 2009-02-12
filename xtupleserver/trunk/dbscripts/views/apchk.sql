@@ -45,4 +45,4 @@ FROM checkhead
 WHERE (checkhead_recip_type='V');
 
 REVOKE ALL ON TABLE apchk FROM PUBLIC;
-GRANT  ALL ON TABLE apchk TO GROUP openmfg;
+GRANT  ALL ON TABLE apchk TO GROUP xtrole;

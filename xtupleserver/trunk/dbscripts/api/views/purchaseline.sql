@@ -33,7 +33,7 @@ BEGIN;
     LEFT OUTER JOIN whsinfo ON (itemsite_warehous_id=warehous_id)
   ORDER BY pohead_number,poitem_linenumber;
 --TODO add label to expense category
-GRANT ALL ON TABLE api.purchaseline TO openmfg;
+GRANT ALL ON TABLE api.purchaseline TO xtrole;
 COMMENT ON VIEW api.purchaseline IS 'Purchase Order Line';
 
   --Rules

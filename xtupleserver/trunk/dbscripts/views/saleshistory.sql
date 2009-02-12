@@ -44,6 +44,6 @@ FROM cohist JOIN cust ON (cust_id=cohist_cust_id)
             LEFT OUTER JOIN shipzone ON (shipzone_id=shipto_shipzone_id);
 
 REVOKE ALL ON TABLE saleshistory FROM PUBLIC;
-GRANT  ALL ON TABLE saleshistory TO GROUP openmfg;
+GRANT  ALL ON TABLE saleshistory TO GROUP xtrole;
 
 COMMENT ON VIEW saleshistory IS 'Single point for sales history calculations.';

@@ -15,7 +15,7 @@ AS
    AND (item_id=charass_target_id)
    AND (charass_char_id=char_id));
 
-GRANT ALL ON TABLE api.itemchar TO openmfg;
+GRANT ALL ON TABLE api.itemchar TO xtrole;
 COMMENT ON VIEW api.itemchar IS 'Item Characteristic';
 
 --Rules

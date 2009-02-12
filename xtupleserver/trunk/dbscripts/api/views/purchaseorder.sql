@@ -27,7 +27,7 @@ BEGIN;
     JOIN curr_symbol ON (pohead_curr_id=curr_id)
   ORDER BY pohead_number;
 
-GRANT ALL ON TABLE api.purchaseorder TO openmfg;
+GRANT ALL ON TABLE api.purchaseorder TO xtrole;
 COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
 
   --Rules

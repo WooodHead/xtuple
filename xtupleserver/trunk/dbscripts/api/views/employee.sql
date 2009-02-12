@@ -73,7 +73,7 @@ BEGIN;
       LEFT OUTER JOIN image    ON (e.emp_image_id=image_id)
       JOIN curr_symbol        ON (e.emp_wage_curr_id=curr_id);
 
-GRANT ALL ON TABLE api.employee TO openmfg;
+GRANT ALL ON TABLE api.employee TO xtrole;
 COMMENT ON VIEW api.employee IS 'Employee';
 
 --Rules

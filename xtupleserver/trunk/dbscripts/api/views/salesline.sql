@@ -58,7 +58,7 @@ AS
   AND (coitem_price_uom_id=p.uom_id))
 ORDER BY cohead_number,coitem_linenumber,coitem_subnumber;
     
-GRANT ALL ON TABLE api.salesline TO openmfg;
+GRANT ALL ON TABLE api.salesline TO xtrole;
 COMMENT ON VIEW api.salesline IS 'Sales Order Line Item';
 
 --Rules

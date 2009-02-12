@@ -27,7 +27,7 @@ CREATE OR REPLACE VIEW api.creditmemoline AS
               LEFT OUTER JOIN uom AS qty_uom ON (qty_uom.uom_id=cmitem_qty_uom_id)
               LEFT OUTER JOIN uom AS price_uom ON (price_uom.uom_id=cmitem_price_uom_id);
 	
-GRANT ALL ON TABLE api.creditmemoline TO openmfg;
+GRANT ALL ON TABLE api.creditmemoline TO xtrole;
 COMMENT ON VIEW api.creditmemoline IS 'Credit Memo Line';
 
 

@@ -13,7 +13,7 @@ AS
    WHERE ((crmacct_id=url_source_id)
    AND (url_source='CRMA'));
 
-GRANT ALL ON TABLE api.accountfile TO openmfg;
+GRANT ALL ON TABLE api.accountfile TO xtrole;
 COMMENT ON VIEW api.accountfile IS 'Account File';
 
 --Rules

@@ -92,7 +92,7 @@ BEGIN;
     LEFT OUTER JOIN whsinfo ON (itemsite_warehous_id=warehous_id)
     LEFT OUTER JOIN curr_symbol ON (cohist_curr_id=curr_id);
 
-GRANT ALL ON TABLE api.saleshistory TO openmfg;
+GRANT ALL ON TABLE api.saleshistory TO xtrole;
 COMMENT ON VIEW api.saleshistory IS 'Sales History';
 
   --Rules

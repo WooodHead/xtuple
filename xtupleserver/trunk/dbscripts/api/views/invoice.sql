@@ -67,7 +67,7 @@ AS
 		LEFT OUTER JOIN tax AS frttax ON (frttax.tax_id=invchead_adjtax_id)
 		LEFT OUTER JOIN taxauth ON (taxauth_id=invchead_taxauth_id);
 	
-GRANT ALL ON TABLE api.invoice TO openmfg;
+GRANT ALL ON TABLE api.invoice TO xtrole;
 COMMENT ON VIEW api.invoice IS '
 This view can be used as an interface to import Invioce Header data directly  
 into the system.  Required fields will be checked and default values will be 

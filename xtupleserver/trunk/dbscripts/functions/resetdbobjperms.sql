@@ -4,7 +4,7 @@ DECLARE
 BEGIN
   EXECUTE ''ALTER TABLE ''   || pObjname || '' OWNER TO '' || CURRENT_USER || '';'';
   EXECUTE ''REVOKE ALL ON '' || pObjname || '' FROM PUBLIC;'';
-  EXECUTE ''GRANT  ALL ON '' || pObjname || '' TO GROUP openmfg;'';
+  EXECUTE ''GRANT  ALL ON '' || pObjname || '' TO GROUP xtrole;'';
   RETURN 1;
 END;
 ' LANGUAGE 'plpgsql';

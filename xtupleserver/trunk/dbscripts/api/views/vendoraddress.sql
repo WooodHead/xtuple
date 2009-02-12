@@ -42,7 +42,7 @@ FROM
     LEFT OUTER JOIN taxauth ON (vendaddr_taxauth_id=taxauth_id)
 ORDER BY vendaddr_code;
 
-GRANT ALL ON TABLE api.vendoraddress TO openmfg;
+GRANT ALL ON TABLE api.vendoraddress TO xtrole;
 COMMENT ON VIEW api.vendoraddress IS 'vendor address';
 
 --Rules

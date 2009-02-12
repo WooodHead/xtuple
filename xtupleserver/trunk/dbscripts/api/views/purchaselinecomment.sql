@@ -18,7 +18,7 @@ AS
    AND (comment_cmnttype_id=cmnttype_id))
    ORDER BY pohead_number ASC, poitem_linenumber ASC, comment_date DESC;
 
-GRANT ALL ON TABLE api.purchaselinecomment TO openmfg;
+GRANT ALL ON TABLE api.purchaselinecomment TO xtrole;
 COMMENT ON VIEW api.purchaselinecomment IS 'Purchase Order Line Item Comment';
 
 --Rules

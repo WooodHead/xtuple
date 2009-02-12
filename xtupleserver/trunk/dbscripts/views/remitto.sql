@@ -14,5 +14,5 @@ CREATE OR REPLACE VIEW remitto AS
          (SELECT metric.metric_value FROM metric WHERE (metric.metric_name = 'remitto_phone'::text)) AS remitto_phone;
 
 REVOKE ALL ON TABLE remitto FROM PUBLIC;
-GRANT  ALL ON TABLE remitto TO GROUP openmfg;
+GRANT  ALL ON TABLE remitto TO GROUP xtrole;
 

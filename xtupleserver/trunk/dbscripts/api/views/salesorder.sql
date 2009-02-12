@@ -90,7 +90,7 @@ AS
    AND (cohead_terms_id=terms_id)
    AND (cohead_curr_id=curr_id));
 
-GRANT ALL ON TABLE api.salesorder TO openmfg;
+GRANT ALL ON TABLE api.salesorder TO xtrole;
 COMMENT ON VIEW api.salesorder IS 'Sales Order';
 
 --Rules

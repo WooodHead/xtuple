@@ -40,7 +40,7 @@ CREATE OR REPLACE VIEW api.cashreceiptapplymisc AS
     LEFT OUTER JOIN curr_symbol ON (curr_id=cashrcpt_curr_id)
     LEFT OUTER JOIN accnt ON (accnt_id=cashrcptmisc_accnt_id);
 	
-GRANT ALL ON TABLE api.cashreceiptapplymisc TO openmfg;
+GRANT ALL ON TABLE api.cashreceiptapplymisc TO xtrole;
 COMMENT ON VIEW api.cashreceiptapplymisc IS '
 This view can be used as an interface to import Cash Receipt Miscellaneous Application
 data directly into the system.  Required fields will be checked and default values

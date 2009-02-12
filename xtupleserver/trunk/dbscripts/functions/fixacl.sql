@@ -11,7 +11,7 @@ BEGIN
 
     RAISE NOTICE ''%.%'', _r.nspname, _r.relname;
     EXECUTE ''REVOKE ALL ON '' || _r.nspname || ''.'' || _r.relname || '' FROM PUBLIC;'';
-    EXECUTE ''GRANT ALL ON ''  || _r.nspname || ''.'' || _r.relname || '' TO GROUP openmfg;'';
+    EXECUTE ''GRANT ALL ON ''  || _r.nspname || ''.'' || _r.relname || '' TO GROUP xtrole;'';
     _count := _count + 1;
 
   END LOOP;

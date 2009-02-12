@@ -25,7 +25,7 @@ AS
    AND (imageass_source='I')
    AND (imageass_image_id=image_id));
 
-GRANT ALL ON TABLE api.itemimage TO openmfg;
+GRANT ALL ON TABLE api.itemimage TO xtrole;
 COMMENT ON VIEW api.itemimage IS 'Item Image';
 
 --Rules

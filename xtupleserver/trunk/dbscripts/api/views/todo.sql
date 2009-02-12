@@ -34,7 +34,7 @@ CREATE OR REPLACE VIEW api.todo AS
        LEFT OUTER JOIN crmacct ON (crmacct_id=todoitem_crmacct_id)
        LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=todoitem_priority_id);
 
-GRANT ALL ON TABLE api.todo TO openmfg;
+GRANT ALL ON TABLE api.todo TO xtrole;
 COMMENT ON VIEW api.todo IS 'To-Do List';
 
 --Rules

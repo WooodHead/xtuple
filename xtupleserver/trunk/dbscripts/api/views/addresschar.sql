@@ -14,7 +14,7 @@ AS
    AND (addr_id=charass_target_id)
    AND (charass_char_id=char_id));
 
-GRANT ALL ON TABLE api.addresschar TO openmfg;
+GRANT ALL ON TABLE api.addresschar TO xtrole;
 COMMENT ON VIEW api.addresschar IS 'Address Characteristics';
 
 --Rules

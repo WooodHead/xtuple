@@ -28,7 +28,7 @@ FROM
   accnt
 ORDER BY accnt_company, accnt_profit, accnt_number, accnt_sub;
 
-GRANT ALL ON TABLE api.glaccount TO openmfg;
+GRANT ALL ON TABLE api.glaccount TO xtrole;
 COMMENT ON VIEW api.glaccount IS 'GL Account';
 
 --Rules

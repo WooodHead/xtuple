@@ -10,7 +10,7 @@ AS
     0::numeric as quantity,
     'This view is for inserts only'::text as comment;
 
-GRANT ALL ON TABLE api.misccounttag TO openmfg;
+GRANT ALL ON TABLE api.misccounttag TO xtrole;
 COMMENT ON VIEW api.misccounttag IS 'Miscellaneous Count Tag';
 
 --Rules

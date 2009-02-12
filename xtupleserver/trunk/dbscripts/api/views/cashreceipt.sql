@@ -47,7 +47,7 @@ CREATE OR REPLACE VIEW api.cashreceipt AS
     LEFT OUTER JOIN bankaccnt ON (bankaccnt_id=cashrcpt_bankaccnt_id)
     LEFT OUTER JOIN salescat ON (salescat_id=cashrcpt_salescat_id);
 	
-GRANT ALL ON TABLE api.cashreceipt TO openmfg;
+GRANT ALL ON TABLE api.cashreceipt TO xtrole;
 COMMENT ON VIEW api.cashreceipt IS '
 This view can be used as an interface to import Cash Receipt data directly  
 into the system.  Required fields will be checked and default values will be 

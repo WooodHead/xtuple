@@ -18,7 +18,7 @@ AS
    AND (itemuomconv_from_uom_id=f.uom_id)
    AND (itemuomconv_to_uom_id=p.uom_id));
 
-GRANT ALL ON TABLE api.itemuomconversion TO openmfg;
+GRANT ALL ON TABLE api.itemuomconversion TO xtrole;
 COMMENT ON VIEW api.itemuomconversion IS 'Item Unit of Measure Conversion';
 
 --Rules

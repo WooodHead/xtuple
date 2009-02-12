@@ -46,7 +46,7 @@ AS
 ORDER BY quhead_number,quitem_linenumber;
     
 
-GRANT ALL ON TABLE api.quoteline TO openmfg;
+GRANT ALL ON TABLE api.quoteline TO xtrole;
 COMMENT ON VIEW api.quoteline IS 'Quote Line Item';
 
 --Rules

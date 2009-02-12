@@ -26,7 +26,7 @@ BEGIN;
   AND (shipdata_total_freight_curr_id=total.curr_id))
   ORDER BY shipdata_cohead_number,shipdata_shiphead_number;
 
-GRANT ALL ON TABLE api.extshipmaint TO openmfg;
+GRANT ALL ON TABLE api.extshipmaint TO xtrole;
 COMMENT ON VIEW api.extshipmaint IS 'External Shipping Maintenance';
 
   --Rules

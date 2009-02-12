@@ -14,7 +14,7 @@ AS
   FROM ipshead, curr_symbol
   WHERE (curr_id=ipshead_curr_id);
 
-GRANT ALL ON TABLE api.pricingschedule TO openmfg;
+GRANT ALL ON TABLE api.pricingschedule TO xtrole;
 COMMENT ON VIEW api.pricingschedule IS 'Pricing Schedule';
 
 -- Rules

@@ -52,7 +52,7 @@ BEGIN;
            LEFT OUTER JOIN taxauth ON (taxauth_id=cmhead_taxauth_id)
            LEFT OUTER JOIN rsncode ON (rsncode_id=cmhead_rsncode_id);
 	
-GRANT ALL ON TABLE api.creditmemo TO openmfg;
+GRANT ALL ON TABLE api.creditmemo TO xtrole;
 COMMENT ON VIEW api.creditmemo IS 'Credit Memo Header';
 
 

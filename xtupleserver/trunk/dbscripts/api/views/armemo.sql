@@ -33,7 +33,7 @@ BEGIN;
            LEFT OUTER JOIN rsncode ON (rsncode_id=aropen_rsncode_id)
     WHERE (aropen_doctype IN ('C', 'D'));
 	
-GRANT ALL ON TABLE api.armemo TO openmfg;
+GRANT ALL ON TABLE api.armemo TO xtrole;
 COMMENT ON VIEW api.armemo IS 'A/R Credit and Debit Memo';
 
 

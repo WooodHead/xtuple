@@ -21,7 +21,7 @@ AS
    AND (s.item_id=bomitemsub_item_id)
    AND (bomitemsub_bomitem_id=bomitem_id));
 
-GRANT ALL ON TABLE api.bomitemsubstitute TO openmfg;
+GRANT ALL ON TABLE api.bomitemsubstitute TO xtrole;
 COMMENT ON VIEW api.bomitemsubstitute IS 'Bill of Material Item Substitute';
 
 --Rules

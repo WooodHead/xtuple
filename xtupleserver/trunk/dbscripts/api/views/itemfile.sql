@@ -13,7 +13,7 @@ AS
    WHERE ((item_id=url_source_id)
    AND (url_source='I'));
 
-GRANT ALL ON TABLE api.itemfile TO openmfg;
+GRANT ALL ON TABLE api.itemfile TO xtrole;
 COMMENT ON VIEW api.itemfile IS 'Item File';
 
 --Rules

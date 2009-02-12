@@ -44,7 +44,7 @@ BEGIN;
       LEFT OUTER JOIN salesrep ON (prospect_salesrep_id=salesrep_id)
       LEFT OUTER JOIN whsinfo ON (prospect_warehous_id=warehous_id);
 
-GRANT ALL ON TABLE api.prospect TO openmfg;
+GRANT ALL ON TABLE api.prospect TO xtrole;
 COMMENT ON VIEW api.prospect IS 'Prospect';
 
 --Rules

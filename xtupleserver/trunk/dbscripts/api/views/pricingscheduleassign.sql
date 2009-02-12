@@ -20,7 +20,7 @@ AS
     
     
 
-GRANT ALL ON TABLE api.pricingscheduleassign TO openmfg;
+GRANT ALL ON TABLE api.pricingscheduleassign TO xtrole;
 COMMENT ON VIEW api.pricingscheduleassign IS 'Pricing Schedule Assignments';
 
 -- Rules

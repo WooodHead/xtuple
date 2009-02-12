@@ -14,7 +14,7 @@ BEGIN
     _sql := _sql || '' NOCREATEUSER '';
   END IF;
 
-  _sql := _sql || ''IN GROUP openmfg;'';
+  _sql := _sql || ''IN GROUP xtrole;'';
 
   EXECUTE _sql;
 

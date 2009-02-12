@@ -14,7 +14,7 @@ SELECT
 FROM salesrep LEFT OUTER JOIN emp ON (emp_id=salesrep_emp_id)
 ORDER BY salesrep_number;
 
-GRANT ALL ON TABLE api.salesrep TO openmfg;
+GRANT ALL ON TABLE api.salesrep TO xtrole;
 COMMENT ON VIEW api.salesrep IS 'Sales Rep';
 
 --Rules

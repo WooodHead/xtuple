@@ -25,7 +25,7 @@ CREATE VIEW api.itemsource AS
    LEFT JOIN vendinfo ON itemsrc.itemsrc_vend_id = vendinfo.vend_id
   ORDER BY item.item_number::VARCHAR(100), vendinfo.vend_number::VARCHAR(100);
         
-GRANT ALL ON TABLE api.itemsource TO openmfg;
+GRANT ALL ON TABLE api.itemsource TO xtrole;
 COMMENT ON VIEW api.itemsource IS 'Item Source';
 
 -- Rules

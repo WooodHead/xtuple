@@ -19,7 +19,7 @@ AS
    AND (comment_cmnttype_id=cmnttype_id))
    ORDER BY quhead_number ASC, quitem_linenumber ASC, comment_date DESC;
 
-GRANT ALL ON TABLE api.quotelinecomment TO openmfg;
+GRANT ALL ON TABLE api.quotelinecomment TO xtrole;
 COMMENT ON VIEW api.quotelinecomment IS 'Quote Line Item Comment';
 
 --Rules

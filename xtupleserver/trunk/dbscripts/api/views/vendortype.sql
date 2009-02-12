@@ -11,7 +11,7 @@ SELECT
 FROM vendtype
 ORDER BY vendtype_code;
 
-GRANT ALL ON TABLE api.vendortype TO openmfg;
+GRANT ALL ON TABLE api.vendortype TO xtrole;
 COMMENT ON VIEW api.vendortype IS 'Vendor Type';
 
 --Rules

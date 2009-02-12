@@ -23,7 +23,7 @@ AS
    AND (curr_id=basecurrid()))
    ORDER BY d.gltrans_date DESC;
 
-GRANT ALL ON TABLE api.journalentry TO openmfg;
+GRANT ALL ON TABLE api.journalentry TO xtrole;
 COMMENT ON VIEW api.journalentry IS 'Journal Entry';
 
 --Rules

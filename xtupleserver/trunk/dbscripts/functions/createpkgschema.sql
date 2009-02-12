@@ -17,7 +17,7 @@ BEGIN
   WHERE (LOWER(nspname)=LOWER(pname));
   IF (NOT FOUND) THEN
     EXECUTE 'CREATE SCHEMA ' || LOWER(pname);
-    EXECUTE 'GRANT ALL ON SCHEMA ' || LOWER(pname) || ' TO GROUP openmfg;';
+    EXECUTE 'GRANT ALL ON SCHEMA ' || LOWER(pname) || ' TO GROUP xtrole;';
 
     SELECT oid INTO _namespaceoid
     FROM pg_namespace
@@ -40,7 +40,7 @@ BEGIN
               _tabs[i] || '_' || _tabs[i] || '_id_seq'');';
 
       EXECUTE 'REVOKE ALL ON ' || _pkgtab || ' FROM PUBLIC;';
-      EXECUTE 'GRANT  ALL ON ' || _pkgtab || ' TO GROUP openmfg;';
+      EXECUTE 'GRANT  ALL ON ' || _pkgtab || ' TO GROUP xtrole;';
 
       IF (_tabs[i] = 'cmdarg') THEN
         EXECUTE 'ALTER TABLE ' || _pkgtab ||

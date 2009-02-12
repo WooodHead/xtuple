@@ -14,7 +14,7 @@ AS
    AND (cust_id=charass_target_id)
    AND (charass_char_id=char_id));
 
-GRANT ALL ON TABLE api.custchar TO openmfg;
+GRANT ALL ON TABLE api.custchar TO xtrole;
 COMMENT ON VIEW api.custchar IS 'Customer Characteristics';
 
 --Rules

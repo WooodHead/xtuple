@@ -69,7 +69,7 @@ AS
    AND (itemsite_costcat_id=costcat_id)
    AND (itemsite_warehous_id=warehous_id));     
 
-GRANT ALL ON TABLE api.itemsite TO openmfg;
+GRANT ALL ON TABLE api.itemsite TO xtrole;
 COMMENT ON VIEW api.itemsite IS 'Item Site';
 
 --Rules

@@ -42,7 +42,7 @@ CREATE OR REPLACE VIEW api.cashreceiptapply AS
     LEFT OUTER JOIN curr_symbol ON (curr_id=cashrcpt_curr_id)
     LEFT OUTER JOIN aropen ON (aropen_id=cashrcptitem_aropen_id);
 	
-GRANT ALL ON TABLE api.cashreceiptapply TO openmfg;
+GRANT ALL ON TABLE api.cashreceiptapply TO xtrole;
 COMMENT ON VIEW api.cashreceiptapply IS '
 This view can be used as an interface to import Cash Receipt Application data directly  
 into the system.  Required fields will be checked and default values will be 

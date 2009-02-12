@@ -72,7 +72,7 @@ AS
      LEFT OUTER JOIN terms ON (quhead_terms_id=terms_id)
    WHERE (quhead_curr_id=curr_id);
 
-GRANT ALL ON TABLE api.quote TO openmfg;
+GRANT ALL ON TABLE api.quote TO xtrole;
 COMMENT ON VIEW api.quote IS 'Quote';
 
 --Rules

@@ -15,7 +15,7 @@ FROM taxreg
 WHERE (taxreg_rel_type='C')
 ORDER BY cust_number, taxreg_number;
 
-GRANT ALL ON TABLE api.customertaxreg TO openmfg;
+GRANT ALL ON TABLE api.customertaxreg TO xtrole;
 COMMENT ON VIEW api.customertaxreg IS 'Customer Tax Registrations';
 
 --Rules

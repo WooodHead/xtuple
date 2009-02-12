@@ -13,7 +13,7 @@ AS
    WHERE ((incdt_id=url_source_id)
    AND (url_source='INCDT'));
 
-GRANT ALL ON TABLE api.incidentfile TO openmfg;
+GRANT ALL ON TABLE api.incidentfile TO xtrole;
 COMMENT ON VIEW api.incidentfile IS 'Incident File';
 
 --Rules

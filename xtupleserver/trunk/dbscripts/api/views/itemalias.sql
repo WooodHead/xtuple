@@ -15,7 +15,7 @@ AS
    FROM item, itemalias
    WHERE (item_id=itemalias_item_id);
 
-GRANT ALL ON TABLE api.itemalias TO openmfg;
+GRANT ALL ON TABLE api.itemalias TO xtrole;
 COMMENT ON VIEW api.itemalias IS 'Item Alias';
 
 --Rules

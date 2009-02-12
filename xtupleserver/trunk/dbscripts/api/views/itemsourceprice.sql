@@ -17,7 +17,7 @@ CREATE VIEW api.itemsourceprice AS
    LEFT JOIN curr_symbol ON itemsrcp.itemsrcp_curr_id = curr_symbol.curr_id
   ORDER BY item.item_number::VARCHAR(100), vendinfo.vend_number::VARCHAR(100);
 
-GRANT ALL ON TABLE api.itemsourceprice TO openmfg;
+GRANT ALL ON TABLE api.itemsourceprice TO xtrole;
 COMMENT ON VIEW api.itemsourceprice IS 'Item Source Price';
 
 -- Rules

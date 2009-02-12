@@ -14,7 +14,7 @@ AS
    AND (crmacct_id=charass_target_id)
    AND (charass_char_id=char_id));
 
-GRANT ALL ON TABLE api.accountchar TO openmfg;
+GRANT ALL ON TABLE api.accountchar TO xtrole;
 COMMENT ON VIEW api.accountchar IS 'Account Characteristics';
 
 --Rules

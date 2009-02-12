@@ -21,7 +21,7 @@ AS
    AND (bomitem_parent_item_id=item_id))
    ORDER BY item_number,bomhead_revision,bomitem_seqnumber,comment_date;
 
-GRANT ALL ON TABLE api.bomitemcomment TO openmfg;
+GRANT ALL ON TABLE api.bomitemcomment TO xtrole;
 COMMENT ON VIEW api.bomitemcomment IS 'Bill of Material Comment';
 
 --Rules

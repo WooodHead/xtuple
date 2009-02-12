@@ -204,7 +204,7 @@ BEGIN;
       LEFT OUTER JOIN sitetype st ON (warehous_sitetype_id=st.sitetype_id)
   ORDER BY warehous_code;
 
-GRANT ALL ON TABLE api.site TO openmfg;
+GRANT ALL ON TABLE api.site TO xtrole;
 COMMENT ON VIEW api.site IS 'Site';
 
 --Rules

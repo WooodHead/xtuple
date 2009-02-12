@@ -29,7 +29,7 @@ AND (a.charass_target_type='I')
 AND (a.charass_target_id=item_id) ) 
 ORDER BY quhead_number,quitem_linenumber, char_name;
 
-GRANT ALL ON TABLE api.quotelinechar TO openmfg;
+GRANT ALL ON TABLE api.quotelinechar TO xtrole;
 COMMENT ON VIEW api.quotelinechar IS 'Quote Line Item Characteristics';
 
 --Rules

@@ -12,7 +12,7 @@ BEGIN;
   FROM custtype
   ORDER BY custtype_code;
 
-GRANT ALL ON TABLE api.customertype TO openmfg;
+GRANT ALL ON TABLE api.customertype TO xtrole;
 COMMENT ON VIEW api.customertype IS 'Customer Type';
 
   --Rules

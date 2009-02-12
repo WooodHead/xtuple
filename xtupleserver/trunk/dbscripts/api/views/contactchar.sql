@@ -14,7 +14,7 @@ AS
    AND (cntct_id=charass_target_id)
    AND (charass_char_id=char_id));
 
-GRANT ALL ON TABLE api.contactchar TO openmfg;
+GRANT ALL ON TABLE api.contactchar TO xtrole;
 COMMENT ON VIEW api.contactchar IS 'Contact Characteristics';
 
 --Rules

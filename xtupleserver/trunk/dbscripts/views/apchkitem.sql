@@ -28,4 +28,4 @@ WHERE ((checkitem_checkhead_id=checkhead_id)
   AND  (checkhead_recip_type = 'V'));
 
 REVOKE ALL ON TABLE apchkitem FROM PUBLIC;
-GRANT  ALL ON TABLE apchkitem TO GROUP openmfg;
+GRANT  ALL ON TABLE apchkitem TO GROUP xtrole;
