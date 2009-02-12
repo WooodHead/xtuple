@@ -29,7 +29,7 @@ BEGIN
       ELSE
         IF ((NEW.quhead_number IS NOT NULL) AND (_numGen=''A'')) THEN
           RAISE EXCEPTION ''You may not supply a new Quote Number;
-                          OpenMFG will generate the number.'';
+                          xTuple will generate the number.'';
         ELSE
           IF ((NEW.quhead_number IS NULL) AND (_numGen=''O'')) THEN
             SELECT fetchqunumber() INTO NEW.quhead_number;

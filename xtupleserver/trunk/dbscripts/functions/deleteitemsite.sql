@@ -1,10 +1,10 @@
-CREATE OR REPLACE FUNCTION deleteItemSite(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION deleteItemSite(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pItemsiteid ALIAS FOR $1;
   _result INTEGER;
   _lotserial BOOLEAN;
   _bbom BOOLEAN;
-  _openmfg BOOLEAN;
+  _mfg BOOLEAN;
 
 BEGIN
 
@@ -14,17 +14,17 @@ BEGIN
     RETURN -9;
   END IF;
 
-  SELECT metric_value=''t'' INTO _bbom
+  SELECT metric_value='t' INTO _bbom
     FROM metric
-   WHERE (metric_name=''BBOM'');
+   WHERE (metric_name='BBOM');
 
-  SELECT metric_value=''t'' INTO _lotserial
+  SELECT metric_value='t' INTO _lotserial
     FROM metric
-   WHERE (metric_name=''LotSerialControl'');
+   WHERE (metric_name='LotSerialControl');
 
-  SELECT metric_value=''OpenMFG'' INTO _openmfg
+  SELECT metric_value='Manufacturing' INTO _mfg
     FROM metric
-   WHERE (metric_name=''Application'');
+   WHERE (metric_name='Application');
 
   SELECT invhist_id INTO _result
   FROM invhist
@@ -153,7 +153,7 @@ BEGIN
     RETURN -4;
   END IF;
 
-  IF (_openmfg) THEN
+  IF (_mfg) THEN
     SELECT planord_id INTO _result
     FROM planord
     WHERE (planord_itemsite_id=pItemsiteid)
@@ -163,7 +163,7 @@ BEGIN
     END IF;
   END IF;
 
-  IF (_openmfg) THEN
+  IF (_mfg) THEN
     SELECT pschitem_id INTO _result
     FROM pschitem
     WHERE (pschitem_itemsite_id=pItemsiteid)
@@ -190,4 +190,4 @@ BEGIN
   RETURN 0;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
