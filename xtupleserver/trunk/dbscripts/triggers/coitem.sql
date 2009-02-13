@@ -159,16 +159,6 @@ BEGIN
         IF(_shipped) THEN
           RAISE EXCEPTION 'You can not change the qty ordered for a Kit item when one or more of its components have shipped inventory.';
         END IF;
-        DELETE FROM coitem
-         WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
-           AND (coitem_linenumber=OLD.coitem_linenumber)
-           AND (coitem_subnumber > 0));
-        PERFORM explodeKit(OLD.coitem_cohead_id, OLD.coitem_linenumber, 0, NEW.coitem_itemsite_id, NEW.coitem_qtyord);
-        UPDATE coitem
-           SET coitem_scheddate = NEW.coitem_scheddate,
-               coitem_promdate = NEW.coitem_promdate
-         WHERE((coitem_linenumber = OLD.coitem_linenumber)
-           AND (coitem_subnumber > 0));
       END IF;
       INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
 			    evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number,
@@ -280,14 +270,8 @@ DECLARE
   _check NUMERIC;
   _itemNumber TEXT;
   _r RECORD;
-  _custID INTEGER;
   _kit BOOLEAN;
 BEGIN
-
-  --Cache some information
-  SELECT cohead_cust_id INTO _custID
-  FROM cohead
-  WHERE (cohead_id=NEW.coitem_cohead_id);
 
   --Determine if this is a kit for later processing
   SELECT COALESCE(item_type,'')='K'
@@ -298,26 +282,6 @@ BEGIN
   _kit := COALESCE(_kit, false);
   
   IF (TG_OP = 'INSERT') THEN
-
-    IF(_kit) THEN
-      PERFORM explodeKit(NEW.coitem_cohead_id, NEW.coitem_linenumber, 0, NEW.coitem_itemsite_id, NEW.coitem_qtyord);
-      UPDATE coitem
-      SET coitem_scheddate = NEW.coitem_scheddate,
-          coitem_promdate = NEW.coitem_promdate
-      WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
-        AND (coitem_linenumber = NEW.coitem_linenumber)
-        AND (coitem_subnumber > 0));
-      IF (fetchMetricBool('KitComponentInheritCOS')) THEN
-        UPDATE coitem
-        SET coitem_cos_accnt_id = CASE WHEN (COALESCE(NEW.coitem_cos_accnt_id, -1) != -1) THEN NEW.coitem_cos_accnt_id
-                                       WHEN (NEW.coitem_warranty) THEN resolveCOWAccount(NEW.coitem_itemsite_id, _custID)
-                                       ELSE resolveCOSAccount(NEW.coitem_itemsite_id, _custID)
-                                  END
-        WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
-          AND (coitem_linenumber = NEW.coitem_linenumber)
-          AND (coitem_subnumber > 0));
-      END IF;
-    END IF;
 
     -- If this is imported, go ahead and insert default characteristics
     IF (NEW.coitem_imported) THEN
@@ -365,31 +329,6 @@ BEGIN
   END IF;
 
   IF (TG_OP = 'UPDATE') THEN
---  Update kit line item dates
-    IF (_kit
-	AND (NEW.coitem_scheddate <> OLD.coitem_scheddate
-	OR  NEW.coitem_promdate <> OLD.coitem_promdate)) THEN
-      UPDATE coitem
-      SET coitem_scheddate = NEW.coitem_scheddate,
-          coitem_promdate = NEW.coitem_promdate
-      WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
-        AND (coitem_linenumber = NEW.coitem_linenumber)
-        AND (coitem_subnumber > 0));
-    END IF;
--- Update kit line item COS
-    IF (_kit AND (NEW.coitem_cos_accnt_id <> OLD.coitem_cos_accnt_id)) THEN
-      IF (fetchMetricBool('KitComponentInheritCOS')) THEN
-        UPDATE coitem
-        SET coitem_cos_accnt_id = CASE WHEN (COALESCE(NEW.coitem_cos_accnt_id, -1) != -1) THEN NEW.coitem_cos_accnt_id
-                                       WHEN (NEW.coitem_warranty) THEN resolveCOWAccount(NEW.coitem_itemsite_id, _custID)
-                                       ELSE resolveCOSAccount(NEW.coitem_itemsite_id, _custID)
-                                  END
-        WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
-          AND (coitem_linenumber = NEW.coitem_linenumber)
-          AND (coitem_subnumber > 0));
-      END IF;
-    END IF;
-           
 --  If closing or cancelling and there is a job item work order, then close job and distribute remaining costs
     IF ((NEW.coitem_status = 'C' AND OLD.coitem_status <> 'C')
      OR (NEW.coitem_status = 'X' AND OLD.coitem_status <> 'X'))
@@ -506,6 +445,7 @@ CREATE TRIGGER soitemBeforeTrigger BEFORE INSERT OR UPDATE ON coitem FOR EACH RO
 CREATE OR REPLACE FUNCTION _soitemAfterTrigger() RETURNS TRIGGER AS $$
 DECLARE
   _check NUMERIC;
+  _custID INTEGER;
   _kit BOOLEAN;
   _rec RECORD;
   _kstat TEXT;
@@ -518,6 +458,12 @@ BEGIN
     _rec := NEW;
   END IF;
 
+  --Cache some information
+  SELECT cohead_cust_id INTO _custID
+  FROM cohead
+  WHERE (cohead_id=_rec.coitem_cohead_id);
+
+  --Determine if this is a kit for later processing
   SELECT COALESCE(item_type,'')='K'
     INTO _kit
     FROM itemsite, item
@@ -525,6 +471,67 @@ BEGIN
      AND (itemsite_id=_rec.coitem_itemsite_id));
   _kit := COALESCE(_kit, false);
 
+  IF (_kit) THEN
+  -- Kit Processing
+    IF (TG_OP = 'INSERT') THEN
+  -- Create Sub Lines for Kit Components
+      PERFORM explodeKit(NEW.coitem_cohead_id, NEW.coitem_linenumber, 0, NEW.coitem_itemsite_id, NEW.coitem_qtyord);
+  -- Update kit line item dates
+      UPDATE coitem
+      SET coitem_scheddate = NEW.coitem_scheddate,
+          coitem_promdate = NEW.coitem_promdate
+      WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
+        AND (coitem_linenumber = NEW.coitem_linenumber)
+        AND (coitem_subnumber > 0));
+      IF (fetchMetricBool('KitComponentInheritCOS')) THEN
+  -- Update kit line item COS
+        UPDATE coitem
+        SET coitem_cos_accnt_id = CASE WHEN (COALESCE(NEW.coitem_cos_accnt_id, -1) != -1) THEN NEW.coitem_cos_accnt_id
+                                       WHEN (NEW.coitem_warranty) THEN resolveCOWAccount(NEW.coitem_itemsite_id, _custID)
+                                       ELSE resolveCOSAccount(NEW.coitem_itemsite_id, _custID)
+                                  END
+        WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
+          AND (coitem_linenumber = NEW.coitem_linenumber)
+          AND (coitem_subnumber > 0));
+      END IF;
+    END IF;
+    IF (TG_OP = 'UPDATE') THEN
+      IF (NEW.coitem_qtyord <> OLD.coitem_qtyord) THEN
+  -- Recreate Sub Lines for Kit Components
+        DELETE FROM coitem
+         WHERE ( (coitem_cohead_id=OLD.coitem_cohead_id)
+           AND   (coitem_linenumber=OLD.coitem_linenumber)
+           AND   (coitem_subnumber > 0) );
+        PERFORM explodeKit(NEW.coitem_cohead_id, NEW.coitem_linenumber, 0, NEW.coitem_itemsite_id, NEW.coitem_qtyord);
+      END IF;
+      IF ( (NEW.coitem_qtyord <> OLD.coitem_qtyord) OR
+           (NEW.coitem_scheddate <> OLD.coitem_scheddate) OR
+           (NEW.coitem_promdate <> OLD.coitem_promdate) ) THEN
+  -- Update kit line item dates
+        UPDATE coitem
+        SET coitem_scheddate = NEW.coitem_scheddate,
+            coitem_promdate = NEW.coitem_promdate
+        WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
+          AND (coitem_linenumber = NEW.coitem_linenumber)
+          AND (coitem_subnumber > 0));
+      END IF;
+      IF ( (NEW.coitem_qtyord <> OLD.coitem_qtyord) OR
+           (NEW.coitem_cos_accnt_id <> OLD.coitem_cos_accnt_id) ) THEN
+        IF (fetchMetricBool('KitComponentInheritCOS')) THEN
+  -- Update kit line item COS
+          UPDATE coitem
+          SET coitem_cos_accnt_id = CASE WHEN (COALESCE(NEW.coitem_cos_accnt_id, -1) != -1) THEN NEW.coitem_cos_accnt_id
+                                         WHEN (NEW.coitem_warranty) THEN resolveCOWAccount(NEW.coitem_itemsite_id, _custID)
+                                         ELSE resolveCOSAccount(NEW.coitem_itemsite_id, _custID)
+                                    END
+          WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
+            AND (coitem_linenumber = NEW.coitem_linenumber)
+            AND (coitem_subnumber > 0));
+        END IF;
+      END IF;
+    END IF;
+  END IF;
+           
   IF (_rec.coitem_subnumber > 0) THEN
     SELECT coitem_status
       INTO _kstat
