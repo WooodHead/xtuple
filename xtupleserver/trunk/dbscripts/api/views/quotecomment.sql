@@ -35,7 +35,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   VALUES (
     COALESCE(NEW.date,current_date),
     'Q',
-    getQuoteId(NEW.quote_number),
+    getQuoteId(text(NEW.quote_number)),
     COALESCE(NEW.username,current_user),
     getCmntTypeId(NEW.type),
     NEW.text);
