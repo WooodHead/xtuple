@@ -37,7 +37,8 @@ BEGIN
    WHERE((bomitem_parent_item_id=_itemid)
      AND (bomitem_item_id=item_id)
      AND (bomitem_rev_id=_revid)
-     AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1))) LOOP
+     AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1)))
+   ORDER BY bomitem_seqnumber LOOP
     IF (NOT _item.active) THEN
       RAISE EXCEPTION 'One or more of the components for the kit is inactive for the selected item site.';
     ELSIF (NOT _item.sold) THEN
