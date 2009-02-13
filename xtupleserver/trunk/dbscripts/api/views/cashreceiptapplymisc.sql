@@ -29,14 +29,16 @@ CREATE OR REPLACE VIEW api.cashreceiptapplymisc AS
     cashrcpt_docnumber::VARCHAR AS check_document_number,
     formatGLAccount(accnt_id)::VARCHAR AS account,
     cust_name AS customer_name,
-    cust_address1 AS customer_address,
+    addr_line1 AS customer_address,
     accnt_descrip AS account_description,
     curr_abbr AS currency,
     cashrcptmisc_amount AS amount_to_distribute,
     cashrcptmisc_notes AS notes
   FROM cashrcptmisc
     LEFT OUTER JOIN cashrcpt ON (cashrcpt_id=cashrcptmisc_cashrcpt_id)
-    LEFT OUTER JOIN cust ON (cust_id=cashrcpt_cust_id)
+    LEFT OUTER JOIN custinfo ON (cust_id=cashrcpt_cust_id)
+    LEFT OUTER JOIN cntct mc ON (custinfo.cust_cntct_id = mc.cntct_id)
+    LEFT OUTER JOIN addr m ON (mc.cntct_addr_id = m.addr_id)
     LEFT OUTER JOIN curr_symbol ON (curr_id=cashrcpt_curr_id)
     LEFT OUTER JOIN accnt ON (accnt_id=cashrcptmisc_accnt_id);
 	

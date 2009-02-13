@@ -72,7 +72,7 @@ COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
     0,
     COALESCE(NEW.freight,0),
     COALESCE(NEW.notes,'')
-  FROM vend
+  FROM vendinfo
   WHERE (vend_id=getVendId(NEW.vendor_number));
  
   CREATE OR REPLACE RULE "_UPDATE" AS

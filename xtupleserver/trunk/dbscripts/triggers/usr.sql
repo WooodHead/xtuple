@@ -17,7 +17,7 @@ BEGIN
 
     IF (FOUND AND _empusername IS NULL) THEN
       UPDATE emp SET emp_username=NEW.usr_username WHERE (emp_id=_empid);
-    ELSIF (FOUND AND _empusername != NEW.usr_id) THEN
+    ELSIF (FOUND AND _empusername != NEW.usr_username) THEN
       RAISE EXCEPTION 'User Name % is already in use by an Employee.',
         NEW.usr_username;
     ELSIF (NOT FOUND) THEN

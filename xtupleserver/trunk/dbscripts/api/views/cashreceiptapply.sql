@@ -30,7 +30,7 @@ CREATE OR REPLACE VIEW api.cashreceiptapply AS
     aropen_doctype::VARCHAR AS doc_type,
     aropen_docnumber::VARCHAR AS doc_number,
     cust_name AS customer_name,
-    cust_address1 AS customer_address,
+    addr_line1 AS customer_address,
     formatDate(aropen_docdate) AS doc_date,
     formatDate(aropen_duedate) AS due_date,
     curr_abbr AS currency,
@@ -38,7 +38,9 @@ CREATE OR REPLACE VIEW api.cashreceiptapply AS
     cashrcptitem_amount AS amount_to_apply
   FROM cashrcptitem
     LEFT OUTER JOIN cashrcpt ON (cashrcpt_id=cashrcptitem_cashrcpt_id)
-    LEFT OUTER JOIN cust ON (cust_id=cashrcpt_cust_id)
+    LEFT OUTER JOIN custinfo ON (cust_id=cashrcpt_cust_id)
+    LEFT OUTER JOIN cntct mc ON (custinfo.cust_cntct_id = mc.cntct_id)
+    LEFT OUTER JOIN addr m ON (mc.cntct_addr_id = m.addr_id)
     LEFT OUTER JOIN curr_symbol ON (curr_id=cashrcpt_curr_id)
     LEFT OUTER JOIN aropen ON (aropen_id=cashrcptitem_aropen_id);
 	

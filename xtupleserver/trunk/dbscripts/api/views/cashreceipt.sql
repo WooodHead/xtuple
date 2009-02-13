@@ -28,7 +28,7 @@ CREATE OR REPLACE VIEW api.cashreceipt AS
     END AS funds_type,
     cashrcpt_docnumber::VARCHAR AS check_document_number,
     cust_name AS customer_name,
-    cust_address1 AS customer_address,
+    addr_line1 AS customer_address,
     curr_abbr AS currency,
     cashrcpt_amount AS amount_received,
     bankaccnt_name AS post_to,
@@ -42,7 +42,9 @@ CREATE OR REPLACE VIEW api.cashreceipt AS
     salescat_name AS sales_category,
     cashrcpt_notes AS notes
   FROM cashrcpt
-    LEFT OUTER JOIN cust ON (cust_id=cashrcpt_cust_id)
+    LEFT OUTER JOIN custinfo ON (cust_id=cashrcpt_cust_id)
+    LEFT OUTER JOIN cntct mc ON (custinfo.cust_cntct_id = mc.cntct_id)
+    LEFT OUTER JOIN addr m ON (mc.cntct_addr_id = m.addr_id)
     LEFT OUTER JOIN curr_symbol ON (curr_id=cashrcpt_curr_id)
     LEFT OUTER JOIN bankaccnt ON (bankaccnt_id=cashrcpt_bankaccnt_id)
     LEFT OUTER JOIN salescat ON (salescat_id=cashrcpt_salescat_id);

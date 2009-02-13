@@ -34,13 +34,13 @@ SELECT cohist.*,
        0 AS baseextprice_xttotalrole,
        0 AS extcost_xttotalrole,
        0 AS basecommission_xttotalrole
-FROM cohist JOIN cust ON (cust_id=cohist_cust_id)
+FROM cohist JOIN custinfo ON (cust_id=cohist_cust_id)
             JOIN custtype ON (custtype_id=cust_custtype_id)
             JOIN salesrep ON (salesrep_id=cohist_salesrep_id)
             JOIN itemsite ON (itemsite_id=cohist_itemsite_id)
             JOIN site() ON (warehous_id=itemsite_warehous_id)
             JOIN item ON (item_id=itemsite_item_id)
-            LEFT OUTER JOIN shipto ON (shipto_id=cohist_shipto_id)
+            LEFT OUTER JOIN shiptoinfo ON (shipto_id=cohist_shipto_id)
             LEFT OUTER JOIN shipzone ON (shipzone_id=shipto_shipzone_id);
 
 REVOKE ALL ON TABLE saleshistory FROM PUBLIC;
