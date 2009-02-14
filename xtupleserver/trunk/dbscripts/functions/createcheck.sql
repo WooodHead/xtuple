@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION createCheck(INTEGER, TEXT, INTEGER, DATE, NUMERIC, INTEGER, INTEGER, INTEGER, TEXT, TEXT, BOOL) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createCheck(INTEGER, TEXT, INTEGER, DATE, NUMERIC, INTEGER, INTEGER, INTEGER, TEXT, TEXT, BOOL) RETURNS INTEGER AS $$
 DECLARE
   pBankaccntid		ALIAS FOR  $1;
   pRecipType		ALIAS FOR  $2;
@@ -18,11 +18,11 @@ BEGIN
   RETURN _checkid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
 
-CREATE OR REPLACE FUNCTION createCheck(INTEGER, TEXT, INTEGER, DATE, NUMERIC, INTEGER, INTEGER, INTEGER, TEXT, TEXT, BOOL, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createCheck(INTEGER, TEXT, INTEGER, DATE, NUMERIC, INTEGER, INTEGER, INTEGER, TEXT, TEXT, BOOL, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pBankaccntid		ALIAS FOR  $1;
   pRecipType		ALIAS FOR  $2;
@@ -37,17 +37,18 @@ DECLARE
   pMisc			ALIAS FOR $11;
   pAropenid             ALIAS FOR $12;
   _checkid		INTEGER;
+  _check_curr_rate      NUMERIC;
   _bankaccnt_currid	INTEGER;
 
 BEGIN
-  SELECT bankaccnt_curr_id INTO _bankaccnt_currid
+  SELECT bankaccnt_curr_id,currRate(bankaccnt_curr_id,pCheckDate) INTO _bankaccnt_currid, _check_curr_rate
   FROM bankaccnt
   WHERE bankaccnt_id = pBankaccntid;
   IF (NOT FOUND) THEN
     RETURN -1;
   END IF;
 
-  IF (pRecipType NOT IN (''C'', ''T'', ''V'')) THEN
+  IF (pRecipType NOT IN ('C', 'T', 'V')) THEN
     RETURN -2;
   END IF;
 
@@ -70,10 +71,10 @@ BEGIN
   END IF;
 
   if (_journalNumber IS NULL) THEN
-    _journalNumber := fetchJournalNumber(''AP-CK'');
+    _journalNumber := fetchJournalNumber('AP-CK');
   END IF;
 
-  _checkid := NEXTVAL(''checkhead_checkhead_id_seq'');
+  _checkid := NEXTVAL('checkhead_checkhead_id_seq');
 
   INSERT INTO checkhead
   ( checkhead_id,		checkhead_recip_type,	checkhead_recip_id,
@@ -90,27 +91,33 @@ BEGIN
     _journalNumber,		pFor,			pNotes,
     _bankaccnt_currid );
 
-  IF (pAropenid IS NOT NULL AND fetchmetricbool(''EnableReturnAuth'')) THEN
+  IF (pAropenid IS NOT NULL AND fetchmetricbool('EnableReturnAuth')) THEN
     INSERT INTO checkitem (checkitem_checkhead_id,checkitem_amount,checkitem_discount,checkitem_ponumber,
                            checkitem_aropen_id,checkitem_docdate,checkitem_curr_id,checkitem_cmnumber,
-                           checkitem_ranumber)
-    SELECT _checkid,pAmount,0,cmhead_custponumber,pAropenid,aropen_docdate,pCurrid,cmhead_number,rahead_number
-    FROM aropen
+                           checkitem_ranumber, checkitem_curr_rate)
+    SELECT _checkid, currToCurr(checkhead_curr_id, aropen_curr_id, pAmount, checkhead_checkdate),
+      0,cmhead_custponumber,pAropenid,aropen_docdate,aropen_curr_id,cmhead_number,rahead_number,
+      1 / (round(_check_curr_rate,5) / round(aropen_curr_rate,5))
+    FROM checkhead, aropen
       LEFT OUTER JOIN cmhead ON (aropen_docnumber=cmhead_number)
       LEFT OUTER JOIN rahead ON (cmhead_rahead_id=rahead_id)
-    WHERE (aropen_id=pAropenid);
+    WHERE ((aropen_id=pAropenid)
+     AND (checkhead_id=_checkid));
   ELSIF (pAropenid IS NOT NULL) THEN
     INSERT INTO checkitem (checkitem_checkhead_id,checkitem_amount,checkitem_discount,checkitem_ponumber,
                            checkitem_aropen_id,checkitem_docdate,checkitem_curr_id,checkitem_cmnumber,
-                           checkitem_ranumber)
-    SELECT _checkid,pAmount,0,cmhead_custponumber,pAropenid,aropen_docdate,pCurrid,cmhead_number,NULL
-    FROM aropen
+                           checkitem_ranumber, checkitem_curr_rate)
+    SELECT _checkid,currToCurr(checkhead_curr_id, aropen_curr_id, pAmount, checkhead_checkdate),
+      0,cmhead_custponumber,pAropenid,aropen_docdate,aropen_curr_id,cmhead_number,NULL,
+      1 / (round(_check_curr_rate,5) / round(aropen_curr_rate,5))
+    FROM checkhead, aropen
       LEFT OUTER JOIN cmhead ON (aropen_docnumber=cmhead_number)
-    WHERE (aropen_id=pAropenid);
+    WHERE ((aropen_id=pAropenid)
+     AND (checkhead_id=_checkid));
   END IF;
   
 
   RETURN _checkid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

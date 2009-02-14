@@ -13,10 +13,9 @@ SELECT *,
        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN ((aropen_amount - paid) * -1)
             ELSE (aropen_amount - paid)
        END AS balance,
-       currToBase(aropen_curr_id,
-                  CASE WHEN (aropen_doctype IN ('C', 'R')) THEN ((aropen_amount - paid) * -1)
+       CASE WHEN (aropen_doctype IN ('C', 'R')) THEN ((aropen_amount - paid) * -1)
                        ELSE (aropen_amount - paid)
-                  END, aropen_docdate) AS base_balance,
+                  END / round(aropen_curr_rate,5) AS base_balance,
        currConcat(aropen_curr_id) AS currAbbr,
        'curr' AS aropen_amount_xtnumericrole,
        'curr' AS paid_xtnumericrole,
@@ -41,7 +40,7 @@ FROM (
                         arapply_applied, aropen_docdate)) AS paid,
          aropen_open,             aropen_username,        aropen_rsncode_id,
          aropen_salescat_id,      aropen_accnt_id,        aropen_curr_id,
-         aropen_closedate,
+         aropen_closedate, aropen_curr_rate,
          NULL AS aropen_docnumber_qtdisplayrole,
          NULL AS aropen_docdate_qtdisplayrole,
          0 AS xtindentrole
@@ -64,7 +63,7 @@ FROM (
            aropen_cobmisc_id,       aropen_journalnumber,
            aropen_open,             aropen_username,        aropen_rsncode_id,
            aropen_salescat_id,      aropen_accnt_id,        aropen_curr_id,
-           aropen_closedate,
+           aropen_closedate,        aropen_curr_rate,
            aropen_docnumber_qtdisplayrole,
            aropen_docdate_qtdisplayrole,
            xtindentrole
@@ -80,7 +79,7 @@ FROM (
          NULL,
          NULL,   NULL,    NULL,
          NULL,   NULL,    NULL,
-         NULL,
+         NULL,   NULL,
          '' AS aropen_docnumber_qtdisplayrole,
          '' AS aropen_docdate_qtdisplayrole,
          1 AS xtindentrole

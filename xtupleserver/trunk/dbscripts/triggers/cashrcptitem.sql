@@ -21,7 +21,7 @@ BEGIN
 
   -- Over Application
   SELECT currToCurr(aropen_curr_id, cashrcpt_curr_id,
-                    aropen_amount - aropen_paid, aropen_docdate) INTO _openAmount
+                    aropen_amount - aropen_paid, cashrcpt_distdate) INTO _openAmount
   FROM aropen, cashrcpt
   WHERE ( (aropen_id=NEW.cashrcptitem_aropen_id)
     AND   (cashrcpt_id=NEW.cashrcptitem_cashrcpt_id) );

@@ -126,6 +126,7 @@ BEGIN
         END IF;
 
         UPDATE apopen
+
         SET apopen_paid = round(apopen_paid + _r.checkitem_amount, 2),
             apopen_open = round(apopen_amount, 2) >
 			  round(apopen_paid + _r.checkitem_amount, 2),
@@ -147,19 +148,14 @@ BEGIN
       END IF; -- if check item's apopen_id is not null
 
       IF (_r.aropen_id IS NOT NULL) THEN
-       UPDATE aropen
-           SET aropen_paid = round(aropen_paid +
-   				currToCurr(_r.checkitem_curr_id, aropen_curr_id,
-   					   _r.checkitem_amount,
-   					   _r.docdate), 2),
-              aropen_open = round(aropen_amount, 2) >
-   			  round(aropen_paid +
-   				currToCurr(_r.checkitem_curr_id, aropen_curr_id,
-   					   _r.checkitem_amount,
-   					   _r.docdate), 2)
-          WHERE (aropen_id=_r.aropen_id);
-    
 
+        UPDATE aropen
+        SET aropen_paid = round(aropen_paid + _r.checkitem_amount, 2),
+            aropen_open = round(aropen_amount, 2) >
+			  round(aropen_paid + _r.checkitem_amount, 2),
+            aropen_closedate = CASE WHEN (round(aropen_amount, 2) <=
+			                  round(aropen_paid + _r.checkitem_amount, 2)) THEN _p.checkhead_checkdate END
+        WHERE (aropen_id=_r.aropen_id);
 
 	--  Post the application
         INSERT INTO arapply

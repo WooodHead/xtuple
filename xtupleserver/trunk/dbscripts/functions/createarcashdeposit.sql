@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION createARCashDeposit(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createARCashDeposit(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pCustid ALIAS FOR $1;
   pDocNumber ALIAS FOR $2;
@@ -18,9 +18,9 @@ BEGIN
     RETURN 0;
   END IF;
 
-  SELECT NEXTVAL(''aropen_aropen_id_seq'') INTO _aropenid;
+  SELECT NEXTVAL('aropen_aropen_id_seq') INTO _aropenid;
 
-  SELECT insertGLTransaction( pJournalNumber, ''A/R'', ''CD'',
+  SELECT insertGLTransaction( pJournalNumber, 'A/R', 'CD',
                               pDocNumber, pNotes, cr.accnt_id, db.accnt_id,
                               _aropenid,
                               round(currToBase(pCurrId, pAmount, pDocDate), 2),
@@ -29,7 +29,7 @@ BEGIN
   WHERE ( (db.accnt_id = findPrepaidAccount(pCustid))
    AND (cr.accnt_id = findDeferredAccount(pCustid)) );
   IF (NOT FOUND) THEN
-    RAISE EXCEPTION ''There was an error creating the Customer Deposit GL Transactions. No Deferred Revenue Account is assigned.'';
+    RAISE EXCEPTION 'There was an error creating the Customer Deposit GL Transactions. No Deferred Revenue Account is assigned.';
   END IF;
 
   INSERT INTO aropen
@@ -42,15 +42,15 @@ BEGIN
     aropen_salescat_id, aropen_accnt_id, aropen_curr_id )
   VALUES
   ( _aropenid, CURRENT_USER, pJournalNumber,
-    pCustid, pDocNumber, ''R'', pOrderNumber,
+    pCustid, pDocNumber, 'R', pOrderNumber,
     pDocDate, pDocDate, pDocDate, -1, -1,
     round(pAmount, 2), 0, 0.0, FALSE,
-    '''', '''', -1,
+    '', '', -1,
     TRUE, pNotes, -1,
     -1, -1, pCurrId );
 
   RETURN _aropenid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

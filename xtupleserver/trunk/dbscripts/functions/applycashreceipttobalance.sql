@@ -1,5 +1,4 @@
-
-CREATE OR REPLACE FUNCTION applyCashReceiptToBalance(INTEGER, NUMERIC) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION applyCashReceiptToBalance(INTEGER, NUMERIC) RETURNS INTEGER AS $$
 DECLARE
   pCashrcptid ALIAS FOR $1;
   pAmount ALIAS FOR $2;
@@ -7,9 +6,9 @@ DECLARE
 BEGIN
   RETURN applyCashReceiptToBalance(pCashrcptid, pAmount, baseCurrId() );
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION applyCashReceiptToBalance(INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION applyCashReceiptToBalance(INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pCashrcptid ALIAS FOR $1;
   pAmount ALIAS FOR $2;
@@ -38,15 +37,16 @@ BEGIN
 --  Loop through the aropen item in order of due date, searching only for
 --  aropen items that are open, for the current customer and have an outstanding balance
   FOR _r IN SELECT aropen_id,
-                   currToCurr(aropen_curr_id, cashrcpt_curr_id,
-                              aropen_amount - aropen_paid, aropen_docdate) -
-                   (SELECT COALESCE(SUM(p.cashrcptitem_amount), 0) FROM cashrcptitem p
-                   WHERE p.cashrcptitem_aropen_id=aropen_id) AS balance,
-                   s.cashrcptitem_id AS cashrcptitem_id
+              ((aropen_amount - aropen_paid) / 
+                (1 / round(currRate(cashrcpt_curr_id,cashrcpt_distdate),5) / round(aropen_curr_rate,5))) -
+                (SELECT COALESCE(SUM(p.cashrcptitem_amount), 0) 
+                 FROM cashrcptitem p
+                 WHERE p.cashrcptitem_aropen_id=aropen_id) AS balance,
+              s.cashrcptitem_id AS cashrcptitem_id
             FROM cashrcpt, aropen LEFT OUTER JOIN
                  cashrcptitem s ON (s.cashrcptitem_aropen_id=aropen_id AND s.cashrcptitem_cashrcpt_id=pCashrcptId)
             WHERE ( (aropen_cust_id=cashrcpt_cust_id)
-             AND (aropen_doctype IN (''I'', ''D''))
+             AND (aropen_doctype IN ('I', 'D'))
              AND (aropen_open)
              AND (cashrcpt_id=pCashrcptid) )
             ORDER BY aropen_duedate, aropen_amount, balance LOOP
@@ -85,5 +85,5 @@ BEGIN
   RETURN 1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

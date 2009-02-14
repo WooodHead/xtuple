@@ -7,6 +7,7 @@ DECLARE
   _checkLate BOOLEAN := false;
   _checkLimit BOOLEAN := false;
   _id INTEGER;
+  _currRate NUMERIC;
 BEGIN
   -- Checks
   -- Start with privileges
@@ -73,11 +74,27 @@ BEGIN
     END IF;
   END IF;
 
+-- get the base exchange rate for the doc date
+  IF (TG_OP = 'INSERT' AND NEW.aropen_curr_rate IS NULL) THEN
+    SELECT curr_rate INTO _currrate
+    FROM curr_rate
+    WHERE ( (NEW.aropen_curr_id=curr_id)
+      AND ( NEW.aropen_docdate BETWEEN curr_effective 
+                                   AND curr_expires) );
+    IF (FOUND) THEN
+      NEW.aropen_curr_rate := _currrate;
+    ELSE
+      RAISE EXCEPTION 'Currency exchange rate not found';
+    END IF;
+  END IF;
+
 --  Close this aropen if it is paid
   IF (NEW.aropen_paid = NEW.aropen_amount) THEN
     NEW.aropen_open=FALSE;
     IF (TG_OP = 'UPDATE') THEN
-      IF ((OLD.aropen_open=TRUE) and (NEW.aropen_open=FALSE)) THEN
+      IF ((OLD.aropen_open=TRUE) 
+      AND (NEW.aropen_open=FALSE) 
+      AND (NEW.aropen_closedate IS NULL)) THEN
         NEW.aropen_closedate=current_date;
       END IF;
     END IF;

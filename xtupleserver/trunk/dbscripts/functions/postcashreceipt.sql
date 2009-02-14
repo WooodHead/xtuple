@@ -12,6 +12,7 @@ DECLARE
   _aropenid INTEGER;
   _arMemoNumber TEXT;
   _arAccntid INTEGER;
+  _closed BOOLEAN;
   _debitAccntid INTEGER;
   _exchGain NUMERIC;
   _comment      TEXT;
@@ -56,12 +57,7 @@ BEGIN
   IF (_p.cashrcpt_fundstype IN ('A', 'D', 'M', 'V')) THEN
     IF NOT EXISTS(SELECT ccpay_id
                   FROM ccpay
-                  WHERE ((ccpay_order_number=(SELECT CASE WHEN(TRIM(both from COALESCE(cashrcpt_docnumber, ''))='')
-                                                          THEN text(cashrcpt_id)
-                                                          ELSE cashrcpt_docnumber
-                                                      END
-                                                FROM cashrcpt
-                                               WHERE cashrcpt_id=pCashrcptid))
+                  WHERE ((ccpay_order_number=CAST(pCashrcptid AS TEXT))
                      AND (ccpay_status IN ('C', 'A')))) THEN
       RETURN -8;
     END IF;
@@ -100,25 +96,28 @@ BEGIN
 
 --  Distribute A/R Applications
   FOR _r IN SELECT aropen_id, aropen_doctype, aropen_docnumber, aropen_docdate,
-                   aropen_duedate, aropen_curr_id,
+                   aropen_duedate, aropen_curr_id, aropen_curr_rate,
                    round(aropen_amount - aropen_paid, 2) <=
-                        round(currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,
-                                   cashrcptitem_amount, aropen_docdate), 2)
+                      round(aropen_paid + 
+                      currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,cashrcptitem_amount,_p.cashrcpt_distdate),2)
                                AS closed,
                    cashrcptitem_id, cashrcptitem_amount,
                    currToBase(_p.cashrcpt_curr_id, cashrcptitem_amount,
-                              aropen_docdate) AS cashrcptitem_amount_base
+                              aropen_docdate) AS cashrcptitem_amount_base,
+
+round(aropen_paid + 
+                      currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,cashrcptitem_amount,_p.cashrcpt_distdate),2) AS new_paid
             FROM aropen, cashrcptitem
             WHERE ( (cashrcptitem_aropen_id=aropen_id)
              AND (cashrcptitem_cashrcpt_id=pCashrcptid) ) LOOP
 
+--raise exception 'new paid %', _r.new_paid;
 --  Update the aropen item to post the paid amount
     UPDATE aropen
-    SET aropen_paid = round(aropen_paid + currToCurr(_p.cashrcpt_curr_id,
-                                                 _r.aropen_curr_id,
-                                                 _r.cashrcptitem_amount,
-                                                 _r.aropen_docdate), 2),
-        aropen_open = (NOT _r.closed)
+    SET aropen_paid = round(aropen_paid + 
+                      currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,_r.cashrcptitem_amount,_p.cashrcpt_distdate),2),
+        aropen_open = (NOT _r.closed),
+        aropen_closedate = CASE WHEN _r.closed THEN _p.cashrcpt_distdate END
     WHERE (aropen_id=_r.aropen_id);
 
 --  Cache the running amount posted
@@ -146,9 +145,11 @@ BEGIN
                         (_r.aropen_doctype || '-' || _r.aropen_docnumber),
                         _arAccntid, round(_r.cashrcptitem_amount_base, 2),
                         _p.cashrcpt_distdate, _p.custnote );
+raise exception 'gain/loss= %',arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, _r.cashrcptitem_amount,
+                           _p.cashrcpt_distdate);
+    _exchGain := arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, _r.cashrcptitem_amount,
+                           _p.cashrcpt_distdate);
 
-    _exchGain := currGain(_p.cashrcpt_curr_id, _r.cashrcptitem_amount,
-                          _r.aropen_docdate, _p.cashrcpt_distdate);
     IF (_exchGain <> 0) THEN
         PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CR',
                _r.aropen_doctype || '-' || _r.aropen_docnumber,
@@ -250,4 +251,3 @@ BEGIN
 
 END;
 $$ LANGUAGE 'plpgsql';
-

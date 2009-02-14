@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION applyCashReceiptLineBalance(INTEGER, INTEGER, NUMERIC, INTEGER) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION applyCashReceiptLineBalance(INTEGER, INTEGER, NUMERIC, INTEGER) RETURNS NUMERIC AS $$
 DECLARE
   pCashrcptId ALIAS FOR $1;
   pAropenid ALIAS FOR $2;
@@ -26,20 +26,21 @@ BEGIN
   FROM cashrcptmisc
   WHERE (cashrcptmisc_cashrcpt_id=pCashrcptid);
 
-RAISE NOTICE ''Amount (%)'', _amount;
+RAISE NOTICE 'Amount (%)', _amount;
 
   IF (_amount = 0) THEN
     RETURN 0;
   END IF;
 
 --  Determine Line balance
-        SELECT   currToCurr(aropen_curr_id, pCurrId,
-                 aropen_amount - aropen_paid, aropen_docdate) -
+        SELECT  ((aropen_amount - aropen_paid) / 
+                 (1 / round(currRate(pCurrId,cashrcpt_distdate),5) / round(aropen_curr_rate,5))) -
                  COALESCE((SELECT SUM(cashrcptitem_amount) FROM cashrcptitem WHERE cashrcptitem_aropen_id=pAropenId), 0) INTO _balance
-            FROM aropen
-            WHERE (aropen_id=pAropenId);
+            FROM aropen, cashrcpt
+            WHERE ((aropen_id=pAropenId)
+            AND (cashrcpt_id=pCashrcptId));
 
-RAISE NOTICE ''Line Bal (%)'', _balance;
+RAISE NOTICE 'Line Bal (%)', _balance;
 
 --  Determine the amount to apply
     IF (_balance > _amount) THEN
@@ -60,5 +61,5 @@ RAISE NOTICE ''Line Bal (%)'', _balance;
   RETURN 1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
