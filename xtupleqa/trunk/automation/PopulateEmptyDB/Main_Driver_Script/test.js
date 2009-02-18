@@ -20,12 +20,17 @@ function main()
     source(findFile("scripts","Chapter9.js"));
     source(findFile("scripts","Chapter10.js"));
     source(findFile("scripts","Chapter11.js"));
+    source(findFile("scripts","Chapter12.js"));
     
-    loginAppl("3.2.0beta", "6empty320beta","admin"); 
-    executeChapter1();
+    
+    var version = "3.2.1";
+    var dbname = "1empty321-postbooks";
+    
+    loginAppl(version, dbname,"admin"); 
+    executeChapter1(dbname);
     exitAppl(); //exit and login with new user created
     startApplication("xtuple");
-    loginAppl("3.2.0beta", "6empty320beta","user01"); //login with the new user created
+    loginAppl(version, dbname,"user01"); //login with the new user created
     executeChapter2();
     executeChapter3();
     executeChapter4();
@@ -36,5 +41,6 @@ function main()
     executeChapter9();
     executeChapter10();
     executeChapter11();
+    executeChapter12()
     exitAppl();	
 }
