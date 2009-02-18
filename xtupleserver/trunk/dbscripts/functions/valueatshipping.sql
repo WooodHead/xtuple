@@ -37,7 +37,9 @@ BEGIN
                          WHEN (itemsite_costmethod = 'S') THEN stdCost(itemsite_item_id)
                          ELSE avgCost(itemsite_item_id)
                     END, 0.0) INTO _cost
-    FROM toitem JOIN itemsite ON (itemsite_id=toitem_itemsite_id)
+    FROM toitem JOIN tohead ON (tohead_id=toitem_tohead_id)
+                JOIN itemsite ON ((itemsite_item_id=toitem_item_id) AND
+                                  (itemsite_warehous_id=tohead_src_warehous_id))
     WHERE (toitem_id=plineitemid);
   END IF;
 
