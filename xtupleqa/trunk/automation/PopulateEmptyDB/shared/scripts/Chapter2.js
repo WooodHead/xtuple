@@ -1,7 +1,7 @@
 function executeChapter2()
 {
-     source(findFile("scripts","functions.js"));
-     
+   source(findFile("scripts","functions.js"));
+ 
      //-----------Chart Of Accounts-------------------------------
      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -50,9 +50,9 @@ function executeChapter2()
      if(!clickItem(":_account_XTreeWidget_2", "Inventory Scrap", 5,5, 1, Qt.LeftButton))
         test.pass("COA created: Inventory Scrap");
      
-     COA("01","01","8930","01","Manufacturing Scrap","Expense","EXP");  
-     if(!clickItem(":_account_XTreeWidget_2", "Manufacturing Scrap", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Manufacturing Scrap");
+     COA("01","01","8930","01","OpenMFG Scrap","Expense","EXP");  
+     if(!clickItem(":_account_XTreeWidget_2", "OpenMFG Scrap", 5,5, 1, Qt.LeftButton))
+        test.pass("COA created: OpenMFG Scrap");
      
      COA("01","01","8980","01","Purchase Expense Variance","Expense","EXP");
      if(!clickItem(":_account_XTreeWidget_2", "Purchase Expense Variance", 5,5, 1, Qt.LeftButton))
@@ -167,7 +167,7 @@ function executeChapter2()
     activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
-//    waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
+    waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
     type(":List Cost Categories._costcat_XTreeWidget_2", " ");
     waitForObject(":List Cost Categories.Copy_QPushButton_2");
     clickButton(":List Cost Categories.Copy_QPushButton_2");
@@ -634,7 +634,26 @@ function executeChapter2()
     clickButton(":List Product Categories.Close_QPushButton_2");
     test.log("Product Categories created");
      
-  
+
+    
+    //---------Create Freight Classes-----------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Freight Classes...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Freight Classes...");
+    waitForObject(":List Freight Classes.New_QPushButton_2");
+    clickButton(":List Freight Classes.New_QPushButton_2");
+    waitForObject(":_freightClass_XLineEdit_2");
+    type(":_freightClass_XLineEdit_2", "BULK");
+    type(":_description_XLineEdit_34", "Bulk Freight");
+    clickButton(":Freight Class.Save_QPushButton");
+    waitForObject(":List Freight Classes.Close_QPushButton_2");
+    clickButton(":List Freight Classes.Close_QPushButton_2");
+    test.log("Freight Class: BULK created");
+    
+    
     //-----------Products: create Characteristics--------------------    
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -672,6 +691,20 @@ function executeChapter2()
     if(!clickItem(":List Characteristics._char_XTreeWidget", "SUPPORT-PLAN", 5, 5, 1, Qt.LeftButton))
         test.pass("Characteristics: SUPPORT-PLAN created");
 
+    
+    waitForObject(":List Characteristics.New_QPushButton_2");
+    clickButton(":List Characteristics.New_QPushButton_2");
+    waitForObject(":_name_XLineEdit_6");
+    type(":_name_XLineEdit_6", "SALES-VOLUME");
+    if(!findObject(":May be used for:.Customer Characteristics_QCheckBox_2").checked)
+        findObject(":May be used for:.Customer Characteristics_QCheckBox_2").checked=true;
+    waitForObject(":_description_QTextEdit_4");
+    type(":_description_QTextEdit_4", "Customer Sales Volume");
+    waitForObject(":Characteristic.Save_QPushButton");
+    clickButton(":Characteristic.Save_QPushButton");
+    waitForObject(":List Characteristics._char_XTreeWidget");
+    if(!clickItem(":List Characteristics._char_XTreeWidget", "SALES-VOLUME", 5, 5, 1, Qt.LeftButton))
+        test.pass("Characteristics: SALES-VOLUME created");
     
     waitForObject(":List Characteristics.New_QPushButton_2");
     clickButton(":List Characteristics.New_QPushButton_2");
@@ -814,7 +847,7 @@ function executeChapter2()
     waitForObject(":Site Work Week.Save_QPushButton_2");
     clickButton(":Site Work Week.Save_QPushButton_2");
     test.log("Site Week created");
-   
+ 
     
     //----------Schedule: Site Calendar Exceptions---------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
@@ -849,8 +882,8 @@ function executeChapter2()
     waitForObject(":Site Calendar Exception.Save_QPushButton");
     clickButton(":Site Calendar Exception.Save_QPushButton");
     waitForObject(":List Site Calendar Exceptions.Close_QPushButton_2");
-    if(!clickItem(":List Site Calendar Exceptions._whsecal_XTreeWidget", "Christmas 2008", 5, 5, 1, Qt.LeftButton))
-        test.pass("Calendar Exception: Christmas 2008 created");
+    if(!clickItem(":List Site Calendar Exceptions._whsecal_XTreeWidget", "Christmas "+CurrentYearFull, 5, 5, 1, Qt.LeftButton))
+        test.pass("Calendar Exception: Christmas "+CurrentYearFull+" created");
     clickButton(":List Site Calendar Exceptions.Close_QPushButton_2");
  
    

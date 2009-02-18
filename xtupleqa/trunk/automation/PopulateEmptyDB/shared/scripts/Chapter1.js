@@ -1,7 +1,7 @@
-function executeChapter1()
+function executeChapter1(dbname)
 {
     source(findFile("scripts","functions.js"));
-    createDept("MFG","Manufacturing");
+    createDept("MFG","OpenMFG");
     assignPrivileges();
     createShift("1ST","First");
     createLocale("MYLOCALE","My Locale For Class");
@@ -86,7 +86,7 @@ function executeChapter1()
     createCompany("01","Prodiem");
     
 
-  
+
     //-------------Accounting-Profit Center Number---------------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -373,6 +373,162 @@ function executeChapter1()
         clickButton(":Enable Revision Control.Yes_QPushButton");
     test.log("Product Module Configured");    
 
+    
+    
+    //----------Define Encryption (metric)------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
+    
+    if(findObject(":Cannot Read Configuration.<p>Cannot read encrypted information from database._QLabel").text== "<p>Cannot read encrypted information from database.");
+        clickButton(":xTuple ERP: *_QPushButton");
+        
+    waitForObject(":_ccEncKeyName_QLineEdit");
+     
+    if(findObject(":_ccEncKeyName_QLineEdit").text!="xTuple.key")
+    {
+        type(":_ccEncKeyName_QLineEdit", "<Ctrl+A>");
+        type(":_ccEncKeyName_QLineEdit", "<Del>");
+        type(":_ccEncKeyName_QLineEdit", "xTuple.key");
+        test.log("Encryption: key name changed");
+    }
+    if(findObject(":Encryption Configuration_FileLineEdit").text!="c:\\crypto")
+    {
+        type(":Encryption Configuration_FileLineEdit", "<Ctrl+A>");
+        type(":Encryption Configuration_FileLineEdit", "<Del>");
+        type(":Encryption Configuration_FileLineEdit", "c:\\crypto");
+        test.log("Encryption: Windows location changed");
+    }
+    if(findObject(":Encryption Configuration_FileLineEdit_2").text!="\\home\\crypto")
+    {
+        type(":Encryption Configuration_FileLineEdit_2", "<Ctrl+A>");
+        type(":Encryption Configuration_FileLineEdit_2", "<Del>");
+        type(":Encryption Configuration_FileLineEdit_2", "\\home\\crypto");
+        test.log("Encryption: Linux location changed");
+    }
+    if(findObject(":Encryption Configuration_FileLineEdit_3").text!="/Users/crypto")
+    {
+        type(":Encryption Configuration_FileLineEdit_3", "<Ctrl+A>");
+        type(":Encryption Configuration_FileLineEdit_3", "<Del>");
+        type(":Encryption Configuration_FileLineEdit_3", "/Users/crypto");
+        test.log("Encryption: Mac location changed");
+    }
+    clickButton(":Encryption Configuration.Save_QPushButton");
+    test.log("Encryption defined");
+    
+    
+    //---------Define Database Information----------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+    waitForObject(":_description_XLineEdit_4");
+    if(findObject(":_description_XLineEdit_4").text!="Practice Database")
+    {
+        type(":_description_XLineEdit_4", "<Ctrl+A>");
+        type(":_description_XLineEdit_4", "<Del>");
+        type(":_description_XLineEdit_4", "Practice Database");        
+    }
+    if(findObject(":_defaultFromAddress_XLineEdit").text!="mike@xtuple.com")
+    {
+        type(":_defaultFromAddress_XLineEdit", "<Ctrl+A>");
+        type(":_defaultFromAddress_XLineEdit", "<Del>");
+        type(":_defaultFromAddress_XLineEdit", "mike@xtuple.com");
+    }
+        
+    if(!findObject(":Database Information.Enable Batch Manager_QCheckBox").checked)
+       clickButton(":Database Information.Enable Batch Manager_QCheckBox");
+    
+    if(findObject(":Database Information.qt_spinbox_lineedit_QLineEdit").currentText!="30")
+    {
+        type(":_purgeDays_QSpinBox", "<Ctrl+A>");
+        type(":_purgeDays_QSpinBox", "<Del>");
+        type(":_purgeDays_QSpinBox", "30");
+    }
+    if(findObject(":_interval_QSpinBox").currentText!="1")
+    {
+        type(":_interval_QSpinBox", "<Ctrl+A>");
+        type(":_interval_QSpinBox", "<Del>");
+        type(":_interval_QSpinBox", "1");    
+    }
+    if(!findObject(":Database Information.Disallow mismatched client versions_QCheckBox").checked)
+        clickButton(":Database Information.Disallow mismatched client versions_QCheckBox");
+  
+    if(findObject(":_comments_QTextEdit_2").plainText!="Settings for practice database")
+    {
+        type(":_comments_QTextEdit_2", "<Ctrl+A>");
+        type(":_comments_QTextEdit_2", "<Del>");
+        type(":_comments_QTextEdit_2", "Settings for practice database");
+    }
+    clickButton(":Database Information.Save_QPushButton");
+    test.log("Database Information Defined");
+  
+    
+    //---------Setup EDI profiles---------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "EDI Profiles...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "EDI Profiles...");
+    waitForObject(":List EDI Profiles.New_QPushButton");
+    clickButton(":List EDI Profiles.New_QPushButton");
+    
+    waitForObject(":List EDI Profiles._name_QLineEdit");
+    type(":List EDI Profiles._name_QLineEdit", "DUNNING");
+    type(":List EDI Profiles._type_QComboBox", "Email");
+    type(":_stack._emailTo_QLineEdit", "/</email3>");
+    type(":_stack._emailTo_QLineEdit", "<home>");
+    type(":_stack._emailTo_QLineEdit", "<Del>");
+    type(":_stack._emailCC_QLineEdit", "/</email1></email2>");
+    type(":_stack._emailCC_QLineEdit", "<home>");
+    type(":_stack._emailCC_QLineEdit", "<Del>");
+    type(":_stack._emailSubject_QLineEdit", "ProDiem Toys Invoice");
+    type(":_stack._emailBody_QTextEdit", "There is an issue with your invoice. Please contact us and reference </docnumber> and </description>. Thank You, ProDiem Accounts Receivable");
+    clickButton(":List EDI Profiles.OK_QPushButton");
+    waitForObject(":List EDI Profiles.Close_QPushButton");
+    clickButton(":List EDI Profiles.Close_QPushButton");
+    test.log("EDI Profiles setup completed");
+   
+    
+    
+    //----------Create Incident Category-----------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Categories...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Categories...");
+    waitForObject(":List Incident Categories.New_QPushButton");
+    clickButton(":List Incident Categories.New_QPushButton");
+    
+    waitForObject(":_name_XLineEdit_14");
+    type(":_name_XLineEdit_14", "DUNNING");
+    type(":Incident Category._order_QSpinBox", "<Ctrl+A>");
+    type(":Incident Category._order_QSpinBox", "<Del>");
+    type(":Incident Category._order_QSpinBox", "90");
+    type(":List Incident Categories._ediprofile_XComboBox", "DUNNING");
+    type(":Incident Category._descrip_QTextEdit", "Dunning Incident");
+    clickButton(":Incident Category.Save_QPushButton");
+    waitForObject(":List Incident Categories.Close_QPushButton");
+    clickButton(":List Incident Categories.Close_QPushButton");
+    test.log("Incident category: Dunning incident created");
+    
+    
+    //-----------Rescan privileges--------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
+
+    
           
     //-----------Configure: Accounting Module------------------
      waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -416,11 +572,9 @@ function executeChapter1()
     type(":_ar._recurringBuffer_QSpinBox", "<Del>");
     type(":_ar._recurringBuffer_QSpinBox", "7");
     type(":_ar._recurringBuffer_QSpinBox", "<Tab>");
+    type(":_ar._incdtCategory_XComboBox", "DUNNING");
     waitForObject(":Accounting Configuration.Save_QPushButton");
     clickButton(":Accounting Configuration.Save_QPushButton");
-    snooze(0.5);
-    if(object.exists(":Company ID Correct?.Yes_QPushButton"))
-    clickButton(":Company ID Correct?.Yes_QPushButton");
     test.log("Accounting Module Configured"); 
     
     //---------Configure: Manufacture Module-------------
@@ -454,8 +608,8 @@ function executeChapter1()
         findObject(":Shop Floor Workbench Posts:.Operations_QRadioButton").checked=true;
     waitForObject(":Manufacture Configuration.Save_QPushButton");
     clickButton(":Manufacture Configuration.Save_QPushButton");
-    test.log("Manufacturing Module configured");
-  
+    test.log("OpenMFG Module configured");
+
   
     //------------Configure: CRM Module------------------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -481,7 +635,7 @@ function executeChapter1()
     test.log("CRM Module configured");  
 
  
-    //------Create Calendars------------------
+    //--------------Create Calendars------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
@@ -601,13 +755,23 @@ function executeChapter1()
     clickButton(":List Site Types.Save_QPushButton");
     if(!clickItem(":List Site Types._sitetype_XTreeWidget", "INTRAN", 5, 5, 1, Qt.LeftButton))
         test.pass("Site Type: INTRAN created");
+    
+    waitForObject(":List Site Types.New_QPushButton");
+    clickButton(":List Site Types.New_QPushButton");
+    waitForObject(":List Site Types._code_XLineEdit");
+    type(":List Site Types._code_XLineEdit", "STORAGE");
+    type(":List Site Types._description_XLineEdit", "Storage Site");
+    clickButton(":List Site Types.Save_QPushButton");
+    if(!clickItem(":List Site Types._sitetype_XTreeWidget", "STORAGE", 5, 5, 1, Qt.LeftButton))
+        test.pass("Site Type: STORAGE created");
+        
     waitForObject(":List Site Types.Close_QPushButton");
     clickButton(":List Site Types.Close_QPushButton");
    
 
     
     
-  //-------create Inventory Site: WH1-----------------
+  //-----------Create Inventory Site: WH1-----------------
   waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
   activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
   waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
@@ -683,7 +847,7 @@ function executeChapter1()
         test.pass("Site: Prodiem Toys Site1 created ");
   
   
-    //-------create Inventory Site: WH2-----------------
+    //-------Create Inventory Site: WH2-----------------
     waitForObject(":List Sites.New_QPushButton");
     clickButton(":List Sites.New_QPushButton");
     waitForObject(":_code_XLineEdit_3");
@@ -879,10 +1043,14 @@ function executeChapter1()
         type(sWidgetTreeControl,"<Down>"); 
     }
     
+    waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar","Alarms");
+    clickButton(":Default Actions.Event_XCheckBox");
+    clickButton(":Default Actions.System Message_XCheckBox");
+    
     waitForObject(":User Preferences.Save_QPushButton");
     clickButton(":User Preferences.Save_QPushButton");
-    
-    
+      
     test.log("User Preferences of "+newuser +":saved");
     
 }//end chapter1

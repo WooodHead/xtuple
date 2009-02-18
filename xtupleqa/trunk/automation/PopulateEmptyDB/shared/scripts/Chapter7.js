@@ -1,7 +1,7 @@
 function executeChapter7()
 {
-    source(findFile("scripts","functions.js"));
-    
+source(findFile("scripts","functions.js"));
+  
     //--------Configure: Purchase Module-------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -97,11 +97,9 @@ function executeChapter7()
     type(":_nextAPMemoNumber_XLineEdit", "<Del>");
     type(":_nextAPMemoNumber_XLineEdit", "39000");
     clickButton(":Accounting Configuration.Save_QPushButton");
-    waitForObject(":Company ID Correct?.Yes_QPushButton");	
-    clickButton(":Company ID Correct?.Yes_QPushButton");
     test.log("Account-Accounts Payable configured");
-    
-   
+  
+ 
     //----------Define Vendor types--------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
@@ -254,8 +252,8 @@ function executeChapter7()
     waitForObject(":List A/P Account Assignments.Close_QPushButton");
     clickButton(":List A/P Account Assignments.Close_QPushButton");
  
-    
-    
+
+  
     //--------------Create new Vendor----------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
@@ -265,6 +263,7 @@ function executeChapter7()
     activateItem(":xTuple ERP: OpenMFG Edition.Vendor_QMenu", "List...");
     waitForObject(":List Vendors.New_QPushButton");
     clickButton(":List Vendors.New_QPushButton");
+    waitForObject(":_number_XLineEdit_4");
     type(":_number_XLineEdit_4", "TPARTS");
     if(findObject(":_vendtype_XComboBox").currentText!="STANDARD-Standard Vendor")
         type(":_vendtype_XComboBox", "STANDARD");
@@ -303,8 +302,8 @@ function executeChapter7()
     type(":ponotesTab._poComments_QTextEdit", "Default Vendor Notes From Vendor Master");
    
     clickTab(":Vendor.qt_tabwidget_tabbar_QTabBar", "Transmission");
-    waitForObject(":ediTab.Purchase Orders_QRadioButton");
-    clickButton(":ediTab.Purchase Orders_QRadioButton");
+//    waitForObject(":ediTab.Purchase Orders_QRadioButton");
+//    clickButton(":ediTab.Purchase Orders_QRadioButton");
     if(!findObject(":_transmitStack.Email Purchase Order Delivery_QGroupBox").checked)
         type(":_transmitStack.Email Purchase Order Delivery_QGroupBox"," ");
     type(":Email Purchase Order Delivery._ediEmail_XLineEdit_2", "demo@openmfg.com");
@@ -330,8 +329,8 @@ function executeChapter7()
     waitForObject(":List Vendors.Close_QPushButton");
     clickButton(":List Vendors.Close_QPushButton");
   
-    
-    
+  
+  
     
     //------------Create Item Sources------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
@@ -361,15 +360,15 @@ function executeChapter7()
     waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
     
-    waitForObject(":tab1.Add_QPushButton");
-    clickButton(":tab1.Add_QPushButton");
+    waitForObject(":widget1.Add_QPushButton");
+    clickButton(":widget1.Add_QPushButton");
     waitForObject(":_qtyBreak_XLineEdit");
     type(":_qtyBreak_XLineEdit", "0");
     type(":Item Source Price_XLineEdit", ".25");
     clickButton(":Item Source Price.Save_QPushButton");
     
-    waitForObject(":tab1.Add_QPushButton");
-    clickButton(":tab1.Add_QPushButton");
+    waitForObject(":widget1.Add_QPushButton");
+    clickButton(":widget1.Add_QPushButton");
     waitForObject(":_qtyBreak_XLineEdit");
     type(":_qtyBreak_XLineEdit", "1000");
     type(":Item Source Price_XLineEdit", ".20");
@@ -378,8 +377,8 @@ function executeChapter7()
     
     waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Vendor Description");
-    waitForObject(":tab2._vendorItemDescrip_QTextEdit");
-    type(":tab2._vendorItemDescrip_QTextEdit", "ProDiem Box For Truck Type 1");
+    waitForObject(":tab._vendorItemDescrip_QTextEdit");
+    type(":tab._vendorItemDescrip_QTextEdit", "ProDiem Box For Truck Type 1");
     waitForObject(":Item Source.Save_QPushButton");
     clickButton(":Item Source.Save_QPushButton");
     waitForObject(":_frame._itemsrc_XTreeWidget");
@@ -408,8 +407,8 @@ function executeChapter7()
     waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
     
-    waitForObject(":tab1.Add_QPushButton");
-    clickButton(":tab1.Add_QPushButton");
+    waitForObject(":widget1.Add_QPushButton");
+    clickButton(":widget1.Add_QPushButton");
     waitForObject(":_qtyBreak_XLineEdit");
     type(":_qtyBreak_XLineEdit", "0");
     type(":Item Source Price_XLineEdit", "1");
@@ -442,8 +441,8 @@ function executeChapter7()
     waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
     
-    waitForObject(":tab1.Add_QPushButton");
-    clickButton(":tab1.Add_QPushButton");
+    waitForObject(":widget1.Add_QPushButton");
+    clickButton(":widget1.Add_QPushButton");
     waitForObject(":_qtyBreak_XLineEdit");
     type(":_qtyBreak_XLineEdit", "0");
     type(":Item Source Price_XLineEdit", ".25");
@@ -476,8 +475,8 @@ function executeChapter7()
     waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
     
-    waitForObject(":tab1.Add_QPushButton");
-    clickButton(":tab1.Add_QPushButton");
+    waitForObject(":widget1.Add_QPushButton");
+    clickButton(":widget1.Add_QPushButton");
     waitForObject(":_qtyBreak_XLineEdit");
     type(":_qtyBreak_XLineEdit", "0");
     type(":Item Source Price_XLineEdit", ".10");
@@ -508,8 +507,8 @@ function executeChapter7()
     waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
     
-    waitForObject(":tab1.Add_QPushButton");
-    clickButton(":tab1.Add_QPushButton");
+    waitForObject(":widget1.Add_QPushButton");
+    clickButton(":widget1.Add_QPushButton");
     waitForObject(":_qtyBreak_XLineEdit");
     type(":_qtyBreak_XLineEdit", "0");
     type(":Item Source Price_XLineEdit", ".10");

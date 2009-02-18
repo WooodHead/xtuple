@@ -76,8 +76,8 @@ function executeChapter8()
     
     waitForObject(":List Sales Representatives.Close_QPushButton");
     clickButton(":List Sales Representatives.Close_QPushButton");
-   
-   
+ 
+ 
     //---------------Create Shipping Zone--------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -88,6 +88,7 @@ function executeChapter8()
     
     waitForObject(":List Shipping Zones.New_QPushButton");
     clickButton(":List Shipping Zones.New_QPushButton");
+    waitForObject(":_name_XLineEdit_10");
     type(":_name_XLineEdit_10", "DOMESTIC1");
     type(":_description_XLineEdit_22", "Domestic Shipping Zone 1");
     waitForObject(":Shipping Zone.Save_QPushButton");
@@ -99,6 +100,7 @@ function executeChapter8()
     
     waitForObject(":List Shipping Zones.New_QPushButton");
     clickButton(":List Shipping Zones.New_QPushButton");
+    waitForObject(":_name_XLineEdit_10");
     type(":_name_XLineEdit_10", "DOMESTIC2");
     type(":_description_XLineEdit_22", "Domestic Shipping Zone 2");
     waitForObject(":Shipping Zone.Save_QPushButton");
@@ -110,6 +112,7 @@ function executeChapter8()
     
     waitForObject(":List Shipping Zones.New_QPushButton");
     clickButton(":List Shipping Zones.New_QPushButton");
+    waitForObject(":_name_XLineEdit_10");
     type(":_name_XLineEdit_10", "DOMESTIC3");
     type(":_description_XLineEdit_22", "Domestic Shipping Zone 3");
     waitForObject(":Shipping Zone.Save_QPushButton");
@@ -121,6 +124,7 @@ function executeChapter8()
     
     waitForObject(":List Shipping Zones.New_QPushButton");
     clickButton(":List Shipping Zones.New_QPushButton");
+    waitForObject(":_name_XLineEdit_10");
     type(":_name_XLineEdit_10", "DOMESTIC4");
     type(":_description_XLineEdit_22", "Domestic Shipping Zone 4");
     waitForObject(":Shipping Zone.Save_QPushButton");
@@ -133,6 +137,7 @@ function executeChapter8()
     
     waitForObject(":List Shipping Zones.New_QPushButton");
     clickButton(":List Shipping Zones.New_QPushButton");
+    waitForObject(":_name_XLineEdit_10");
     type(":_name_XLineEdit_10", "DOMESTIC5");
     type(":_description_XLineEdit_22", "Domestic Shipping Zone 5");
     waitForObject(":Shipping Zone.Save_QPushButton");
@@ -719,7 +724,7 @@ function executeChapter8()
     waitForObject(":List Reason Codes.Close_QPushButton");
     clickButton(":List Reason Codes.Close_QPushButton");
  
-    
+  
     //---------------Define Pricing Schedule---------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -727,9 +732,9 @@ function executeChapter8()
     activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
     activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
+  
     waitForObject(":List Pricing Schedules.New_QPushButton");
     clickButton(":List Pricing Schedules.New_QPushButton");
-    
     waitForObject(":GroupBox1._name_XLineEdit_2");
     type(":GroupBox1._name_XLineEdit_2", "BASE");
     type(":GroupBox1._descrip_XLineEdit_2", "Base Price Schedule");
@@ -737,7 +742,8 @@ function executeChapter8()
     clickButton(":Pricing Schedule.New_QPushButton");
     waitForObject(":_widgetStack._itemNumber_ItemLineEdit");
     type(":_widgetStack._itemNumber_ItemLineEdit", "YTRUCK1");
-    type(":_qtyBreak_XLineEdit_2", "0");
+    
+    type(":_qtyBreak_XLineEdit_3", "0");
     type(":_baseTab_XLineEdit", "9.99");
     waitForObject(":Pricing Schedule Item.Save_QPushButton");
     clickButton(":Pricing Schedule Item.Save_QPushButton");    
@@ -746,7 +752,7 @@ function executeChapter8()
     clickButton(":Pricing Schedule.New_QPushButton");
     waitForObject(":_widgetStack._itemNumber_ItemLineEdit");
     type(":_widgetStack._itemNumber_ItemLineEdit", "YTRUCK1");
-    type(":_qtyBreak_XLineEdit_2", "100");
+    type(":_qtyBreak_XLineEdit_3", "100");
     type(":_baseTab_XLineEdit", "9.5");
     waitForObject(":Pricing Schedule Item.Save_QPushButton");
     clickButton(":Pricing Schedule Item.Save_QPushButton");    
@@ -755,7 +761,7 @@ function executeChapter8()
     clickButton(":Pricing Schedule.New_QPushButton");
     waitForObject(":_widgetStack._itemNumber_ItemLineEdit");
     type(":_widgetStack._itemNumber_ItemLineEdit", "YTRUCK1");
-    type(":_qtyBreak_XLineEdit_2", "500");
+    type(":_qtyBreak_XLineEdit_3", "500");
     type(":_baseTab_XLineEdit", "9.25");
     waitForObject(":Pricing Schedule Item.Save_QPushButton");
     clickButton(":Pricing Schedule Item.Save_QPushButton");    
@@ -767,32 +773,161 @@ function executeChapter8()
     if(!clickItem(":_ipshead_XTreeWidget", "BASE", 5, 5, 1, Qt.LeftButton))
         test.pass("Pricing Schedule created:BASE");
     
+    
+    
+    
+    //---------Define Pricing Schedule: FREIGHT-BULK----------------
+    waitForObject(":List Pricing Schedules.New_QPushButton");
+    clickButton(":List Pricing Schedules.New_QPushButton");
+    
+    waitForObject(":GroupBox1._name_XLineEdit_2");
+    type(":GroupBox1._name_XLineEdit_2", "FREIGHT-BULK");
+    type(":GroupBox1._descrip_XLineEdit_2", "Freight Pricing for Bulk Items");
+    waitForObject(":Pricing Schedule.New_QPushButton");
+    clickButton(":Pricing Schedule.New_QPushButton");
+    waitForObject(":_widgetStack._itemNumber_ItemLineEdit");
+    type(":_widgetStack._itemNumber_ItemLineEdit", "YTRUCK1");
+    
+    type(":_qtyBreak_XLineEdit_3", "0");
+    type(":_baseTab_XLineEdit", "9.99");
+    waitForObject(":Pricing Schedule Item.Save_QPushButton");
+    clickButton(":Pricing Schedule Item.Save_QPushButton");    
+    
+    waitForObject(":Pricing Schedule.New_QPushButton");
+    clickButton(":Pricing Schedule.New_QPushButton");
+    waitForObject(":_widgetStack._itemNumber_ItemLineEdit");
+    type(":_widgetStack._itemNumber_ItemLineEdit", "YTRUCK1");
+    type(":_qtyBreak_XLineEdit_3", "100");
+    type(":_baseTab_XLineEdit", "9.5");
+    waitForObject(":Pricing Schedule Item.Save_QPushButton");
+    clickButton(":Pricing Schedule Item.Save_QPushButton");    
+    
+    waitForObject(":Pricing Schedule.New_QPushButton");
+    clickButton(":Pricing Schedule.New_QPushButton");
+    waitForObject(":_widgetStack._itemNumber_ItemLineEdit");
+    type(":_widgetStack._itemNumber_ItemLineEdit", "YTRUCK1");
+    type(":_qtyBreak_XLineEdit_3", "500");
+    type(":_baseTab_XLineEdit", "9.25");
+    waitForObject(":Pricing Schedule Item.Save_QPushButton");
+    clickButton(":Pricing Schedule Item.Save_QPushButton");    
+    
+    waitForObject(":GroupBox1.Save_QPushButton_2");
+    clickButton(":GroupBox1.Save_QPushButton_2");
+    
+    waitForObject(":_ipshead_XTreeWidget");
+    if(!clickItem(":_ipshead_XTreeWidget", "BASE", 5, 5, 1, Qt.LeftButton))
+        test.pass("Pricing Schedule created:BASE");
+
+  
+    //-----------Pricing Schedule: FREIGHT-BULK-------------
+    waitForObject(":List Pricing Schedules.New_QPushButton");
+    clickButton(":List Pricing Schedules.New_QPushButton");
+    waitForObject(":GroupBox1._name_XLineEdit_2");
+    type(":GroupBox1._name_XLineEdit_2", "FREIGHT-BULK");
+    type(":GroupBox1._descrip_XLineEdit_2", "Freight Pricing for Bulk Items");
+    
+    clickButton(":Pricing Schedule.New_QPushButton");
+    waitForObject(":Type.Freight_QRadioButton_2");
+    clickButton(":Type.Freight_QRadioButton_2");
+    waitForObject(":_typeFreightGroup.Price per N/A_QRadioButton");
+    clickButton(":_typeFreightGroup.Price per N/A_QRadioButton");
+    type(":_qtyBreakFreight_XLineEdit_2", "0");
+    type(":_freightRateGroup_XLineEdit_2", ".50");
+    clickButton(":From.All Sites_QRadioButton_2");
+    clickButton(":_shipViaFreightGroup.All Ship Vias_QRadioButton_2");
+    clickButton(":To.All Shipping Zones_QRadioButton_2");
+    clickButton(":_freightClassGroup.Selected:_QRadioButton_2");
+    type(":_freightClassGroup._freightClass_XComboBox_2", "BULK-Bulk");
+    clickButton(":Pricing Schedule Item.Save_QPushButton");
+    
+    waitForObject(":GroupBox1.Save_QPushButton_2");
+    clickButton(":GroupBox1.Save_QPushButton_2");
+    waitForObject(":_ipshead_XTreeWidget");
+    if(!clickItem(":_ipshead_XTreeWidget", "FREIGHT-BULK", 5, 5, 1, Qt.LeftButton))
+        test.pass("Pricing Schedule created:FREIGHT-BULK");
+    
+  
+    //-----------Pricing Schedule: FREIGHT-TTOYS-BULK-------------
+    waitForObject(":List Pricing Schedules.New_QPushButton");
+    clickButton(":List Pricing Schedules.New_QPushButton");
+    waitForObject(":GroupBox1._name_XLineEdit_2");
+    type(":GroupBox1._name_XLineEdit_2", "FREIGHT-TTOYS-BULK");
+    type(":GroupBox1._descrip_XLineEdit_2", "Freight Pricing for Bulk Toys");
+    
+    clickButton(":Pricing Schedule.New_QPushButton");
+    waitForObject(":Type.Freight_QRadioButton_2");
+    clickButton(":Type.Freight_QRadioButton_2");
+    waitForObject(":_typeFreightGroup.Price per N/A_QRadioButton");
+    clickButton(":_typeFreightGroup.Price per N/A_QRadioButton");
+    type(":_qtyBreakFreight_XLineEdit_2", "0");
+    type(":_freightRateGroup_XLineEdit_2", ".40");
+    clickButton(":From.All Sites_QRadioButton_2");
+    clickButton(":_shipViaFreightGroup.All Ship Vias_QRadioButton_2");
+    clickButton(":To.All Shipping Zones_QRadioButton_2");
+    clickButton(":_freightClassGroup.Selected:_QRadioButton_2");
+    type(":_freightClassGroup._freightClass_XComboBox_2", "BULK-Bulk");
+    clickButton(":Pricing Schedule Item.Save_QPushButton");
+    
+    waitForObject(":GroupBox1.Save_QPushButton_2");
+    clickButton(":GroupBox1.Save_QPushButton_2");
+    waitForObject(":_ipshead_XTreeWidget");
+    if(!clickItem(":_ipshead_XTreeWidget", "FREIGHT-TTOYS-BULK", 5, 5, 1, Qt.LeftButton))
+        test.pass("Pricing Schedule created:FREIGHT-TTOYS-BULK");
+    
+    
+    
     waitForObject(":List Pricing Schedules.Close_QPushButton");
     clickButton(":List Pricing Schedules.Close_QPushButton");
+  
+  
+  //-----------Assign Pricing Schedule---------------    
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+  activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedule Assignments...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedule Assignments...");
     
-    
-    //-----------Assign Pricing Schedule---------------    
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
-    activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedule Assignments...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedule Assignments...");
+     //----------Pricing Schdule Assignment:BASE----------------
     waitForObject(":List Pricing Schedule Assignments.New_QPushButton");
     clickButton(":List Pricing Schedule Assignments.New_QPushButton");
     waitForObject(":_customerGroup.Selected Customer Type:_QRadioButton");
-    clickButton(":_customerGroup.Selected Customer Type:_QRadioButton");
+    clickButton(":_customerGroup.Selected Customer Type:_QRadioButton");    
     if(findObject(":_ipshead_XComboBox").currentText!= "BASE - Base Price Schedule")
         type(":_ipshead_XComboBox","BASE");
     clickButton(":Pricing Schedule Assignment.Save_QPushButton");
     waitForObject(":List Pricing Schedule Assignments._ipsass_XTreeWidget");
     if(!clickItem(":List Pricing Schedule Assignments._ipsass_XTreeWidget", "ANY", 5, 5, 1, Qt.LeftButton))
-      test.pass("Pricing Schedule Assigned");
+        test.pass("Pricing Schedule Assignment created: BASE");
+    
+    
+    //----------Pricing Schdule Assignment: FREIGHT-BULK----------------
+    waitForObject(":List Pricing Schedule Assignments.New_QPushButton");
+    clickButton(":List Pricing Schedule Assignments.New_QPushButton");
+    waitForObject(":_customerGroup.Customer Type Pattern:_QRadioButton_2");
+    clickButton(":_customerGroup.Customer Type Pattern:_QRadioButton_2");
+    type(":_customerGroup._customerType_XLineEdit_2", "*");
+    type(":_ipshead_XComboBox", "FREIGHT-BULK");
+    clickButton(":Pricing Schedule Assignment.Save_QPushButton");
+    if(!clickItem(":List Pricing Schedule Assignments._ipsass_XTreeWidget", "FREIGHT-BULK", 5, 5, 1, Qt.LeftButton))
+        test.pass("Pricing Schedule Assignment created: FREIGHT-BULK");
+  
+    //----------Pricing Schdule Assignment: FREIGHT-TTOYS-BULK-----------
+    waitForObject(":List Pricing Schedule Assignments.New_QPushButton");
+    clickButton(":List Pricing Schedule Assignments.New_QPushButton");
+    waitForObject(":_customerGroup.Selected Customer:_QRadioButton_2");
+    clickButton(":_customerGroup.Selected Customer:_QRadioButton_2");
+    type(":_customerGroup._customerNumber_CLineEdit_2", "ttoys");
+    type(":_ipshead_XComboBox", "FREIGHT-TTOYS-BULK");
+    clickButton(":Pricing Schedule Assignment.Save_QPushButton");
+    waitForObject(":List Pricing Schedule Assignments._ipsass_XTreeWidget");
+    if(!clickItem(":List Pricing Schedule Assignments._ipsass_XTreeWidget", "FREIGHT-TTOYS-BULK", 5, 5, 1, Qt.LeftButton))
+        test.pass("Pricing Schedule Assignment created: FREIGHT-TTOYS-BULK");
     
     waitForObject(":List Pricing Schedule Assignments.Close_QPushButton");
     clickButton(":List Pricing Schedule Assignments.Close_QPushButton");
 
-    
+  
     //-----------Create Item site for INTRAN------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
@@ -803,6 +938,7 @@ function executeChapter8()
     
     waitForObject(":List Sites.New_QPushButton_2");
     clickButton(":List Sites.New_QPushButton_2");
+    waitForObject(":_sitetype_XComboBox_2");
     if(findObject(":_sitetype_XComboBox_2").currentText!="INTRAN")
         type(":_sitetype_XComboBox_2", "INTRAN");
    type(":_code_XLineEdit_14", "INTRAN");
@@ -855,115 +991,7 @@ function executeChapter8()
     clickButton(":Inventory Configuration.Save_QPushButton");
     test.log("Configure Module: Inventory");
     
-    //---------Define: Incident Categories----------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Categories...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Categories...");
-    
-    waitForObject(":List Incident Categories.New_QPushButton");
-    clickButton(":List Incident Categories.New_QPushButton");
-    waitForObject(":_name_XLineEdit_14");
-    type(":_name_XLineEdit_14", "Product");
-    type(":Incident Category._order_QSpinBox", "<Ctrl+A>");
-    type(":Incident Category._order_QSpinBox", "<Del>");
-    type(":Incident Category._order_QSpinBox", "10");
-    type(":Incident Category._descrip_QTextEdit", "Product related incidents");
-    waitForObject(":Incident Category.Save_QPushButton");
-    clickButton(":Incident Category.Save_QPushButton");
-    waitForObject(":List Incident Categories._incidentCategories_XTreeWidget");
-    if(clickItem(":List Incident Categories._incidentCategories_XTreeWidget", "Product", 5, 5, 1, Qt.LeftButton))
-        test.pass("Incident Categories created for: Product");
-    
-   
-    waitForObject(":List Incident Categories.New_QPushButton");
-    clickButton(":List Incident Categories.New_QPushButton");
-    waitForObject(":_name_XLineEdit_14");
-    type(":_name_XLineEdit_14", "Customer");
-    type(":Incident Category._order_QSpinBox", "<Ctrl+A>");
-    type(":Incident Category._order_QSpinBox", "<Del>");
-    type(":Incident Category._order_QSpinBox", "20");
-    type(":Incident Category._descrip_QTextEdit", "Customer related incidents");
-    waitForObject(":Incident Category.Save_QPushButton");
-    clickButton(":Incident Category.Save_QPushButton");
-    waitForObject(":List Incident Categories._incidentCategories_XTreeWidget");
-    if(clickItem(":List Incident Categories._incidentCategories_XTreeWidget", "Customer", 5, 5, 1, Qt.LeftButton))
-        test.pass("Incident Categories created for: Customer");
-    
-    
-    waitForObject(":List Incident Categories.New_QPushButton");
-    clickButton(":List Incident Categories.New_QPushButton");
-    waitForObject(":_name_XLineEdit_14");
-    type(":_name_XLineEdit_14", "Vendor");
-    type(":Incident Category._order_QSpinBox", "<Ctrl+A>");
-    type(":Incident Category._order_QSpinBox", "<Del>");
-    type(":Incident Category._order_QSpinBox", "30");
-    type(":Incident Category._descrip_QTextEdit", "Vendor related incidents");
-    waitForObject(":Incident Category.Save_QPushButton");
-    clickButton(":Incident Category.Save_QPushButton");
-    waitForObject(":List Incident Categories._incidentCategories_XTreeWidget");
-    if(clickItem(":List Incident Categories._incidentCategories_XTreeWidget", "Vendor", 5, 5, 1, Qt.LeftButton))
-        test.pass("Incident Categories created for: Vendor");
   
-    waitForObject(":List Incident Categories.Close_QPushButton");
-    clickButton(":List Incident Categories.Close_QPushButton");
-
-    //--------------Create: Incident Severities----------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Severities...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Severities...");
-    waitForObject(":List Incident Severities.New_QPushButton");
-    clickButton(":List Incident Severities.New_QPushButton");
-    waitForObject(":_name_XLineEdit_15");
-    type(":_name_XLineEdit_15", "Crash");
-    type(":Incident Severity._order_QSpinBox", "<Ctrl+A>");
-    type(":Incident Severity._order_QSpinBox", "<Del>");
-    type(":Incident Severity._order_QSpinBox", "5");
-    type(":Incident Severity._descrip_QTextEdit", "System Down");
-    clickButton(":Incident Severity.Save_QPushButton");
-    waitForObject(":List Incident Severities._incidentSeverities_XTreeWidget");
-    if(!clickItem(":List Incident Severities._incidentSeverities_XTreeWidget", "Crash", 5, 5, 1, Qt.LeftButton))
-        test.pass("Incident Severity created : Crash");
-    
-    waitForObject(":List Incident Severities.Close_QPushButton");
-    clickButton(":List Incident Severities.Close_QPushButton");
-
-    
-    
-    //--------------Create Incident Resolutions----------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Resolutions...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Resolutions...");
-    
-    waitForObject(":List Incident Resolutions.New_QPushButton");
-    clickButton(":List Incident Resolutions.New_QPushButton");
-    waitForObject(":_name_XLineEdit_16");
-    type(":_name_XLineEdit_16", "Replace");
-    type(":Incident Resolution._order_QSpinBox", "<Ctrl+A>");
-    type(":Incident Resolution._order_QSpinBox", "<Del>");
-    type(":Incident Resolution._order_QSpinBox", "40");
-    type(":Incident Resolution._descrip_QTextEdit", "Replace Unit");
-    waitForObject(":Incident Resolution.Save_QPushButton");
-    clickButton(":Incident Resolution.Save_QPushButton");
-    waitForObject(":List Incident Resolutions._incidentResolutions_XTreeWidget");
-    if(!clickItem(":List Incident Resolutions._incidentResolutions_XTreeWidget", "Replace", 5, 5, 1, Qt.LeftButton))
-        test.pass("Incident Resolution created : Replace");
-    
-    waitForObject(":List Incident Resolutions.Close_QPushButton");
-    clickButton(":List Incident Resolutions.Close_QPushButton");
  
+
 }

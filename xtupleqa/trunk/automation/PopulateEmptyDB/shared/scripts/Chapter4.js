@@ -2,7 +2,7 @@ function executeChapter4()
 {
     source(findFile("scripts","functions.js"));
     
-    
+  
     //-------------Standard Labor Rate -------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -166,13 +166,13 @@ function executeChapter4()
   
 
 
-  //---------------------Products: Standard Operation--------------------
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-  activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
-  activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
+//---------------------Products: Standard Operation--------------------
+waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
+activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
   
   waitForObject(":List Standard Operations.New_QPushButton");
   clickButton(":List Standard Operations.New_QPushButton");
@@ -213,7 +213,7 @@ function executeChapter4()
   if(!clickItem(":List Standard Operations._stdopn_XTreeWidget", "PAINT", 5, 5, 1, Qt.LeftButton))
       test.pass("Standard Operation created: PAINT");
  
-  
+
 
   waitForObject(":List Standard Operations.New_QPushButton");
   clickButton(":List Standard Operations.New_QPushButton");

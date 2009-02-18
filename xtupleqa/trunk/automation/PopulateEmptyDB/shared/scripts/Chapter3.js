@@ -1,6 +1,6 @@
 function executeChapter3()
 {
-    
+  
     //----------Create Items---------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -239,7 +239,7 @@ function executeChapter3()
     waitForObject(":List Items.Close_QPushButton_3");
     clickButton(":List Items.Close_QPushButton_3");
     
-    
+  
   
   //---------------Create Item sites------------------------------ 
   waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");

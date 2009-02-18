@@ -626,7 +626,7 @@ function exitAppl()
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObject(":xTuple ERP: OpenMFG Edition.System_QMenu");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit OpenMFG...");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit xTuple ERP...");
 }
 
 
