@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION postMessage(TIMESTAMP, TIMESTAMP, TEXT, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postMessage(TIMESTAMP, TIMESTAMP, TEXT, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pScheduled ALIAS FOR $1;
   pExpires ALIAS FOR $2;
@@ -9,15 +9,7 @@ DECLARE
 
 BEGIN
 
---  Validate the passed username
-  PERFORM usr_id
-  FROM usr
-  WHERE (usr_username=pUsername);
-  IF (NOT FOUND) THEN
-    RETURN -1;
-  END IF;
-
-  SELECT NEXTVAL(''msg_msg_id_seq'') INTO _msgid;
+  SELECT NEXTVAL('msg_msg_id_seq') INTO _msgid;
   INSERT INTO msg
   (msg_id, msg_posted, msg_scheduled, msg_expires, msg_username, msg_text)
   VALUES
@@ -31,9 +23,9 @@ BEGIN
   RETURN _msgid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION postMessage(TIMESTAMP, TIMESTAMP, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postMessage(TIMESTAMP, TIMESTAMP, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pScheduled ALIAS FOR $1;
   pExpires ALIAS FOR $2;
@@ -42,7 +34,7 @@ DECLARE
 
 BEGIN
 
-  SELECT NEXTVAL(''msg_msg_id_seq'') INTO _msgid;
+  SELECT NEXTVAL('msg_msg_id_seq') INTO _msgid;
   INSERT INTO msg
   (msg_id, msg_posted, msg_scheduled, msg_expires, msg_username, msg_text)
   VALUES
@@ -57,10 +49,10 @@ BEGIN
   RETURN _msgid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION postMessage(TEXT, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postMessage(TEXT, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pUsername ALIAS FOR $1;
   pText ALIAS FOR $2;
@@ -68,15 +60,7 @@ DECLARE
 
 BEGIN
 
---  Validate the passed username
-  PERFORM usr_id
-  FROM usr
-  WHERE (usr_username=pUsername);
-  IF (NOT FOUND) THEN
-    RETURN -1;
-  END IF;
-
-  SELECT NEXTVAL(''msg_msg_id_seq'') INTO _msgid;
+  SELECT NEXTVAL('msg_msg_id_seq') INTO _msgid;
   INSERT INTO msg
   (msg_id, msg_posted, msg_scheduled, msg_expires, msg_username, msg_text)
   VALUES
@@ -90,5 +74,5 @@ BEGIN
   RETURN _msgid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

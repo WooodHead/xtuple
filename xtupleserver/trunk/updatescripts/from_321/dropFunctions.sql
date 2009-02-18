@@ -12,5 +12,12 @@ SELECT dropIfExists('FUNCTION', 'createTodoItem(INTEGER, TEXT, TEXT, INTEGER, IN
 SELECT dropIfExists('FUNCTION', 'createTodoItem(INTEGER, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, TEXT)', 'public');
 SELECT dropIfExists('FUNCTION', 'createTodoItem(INTEGER, INTEGER, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, TEXT)', 'public');
 SELECT dropIfExists('FUNCTION', 'logWOTCEvent(INTEGER, INTEGER, TEXT)');
+SELECT dropIfExists('FUNCTION', 'currentUserId()');
+SELECT dropIfExists('FUNCTION', 'getUsername(INTEGER)');
+SELECT dropIfExists('FUNCTION', 'triggeritemcost()');
+SELECT dropIfExists('FUNCTION', 'getUsrId(text)');
+SELECT dropIfExists('FUNCTION', 'setUserPreference(INTEGER, TEXT, TEXT)');
+SELECT dropIfExists('FUNCTION', 'revokePriv(INTEGER, INTEGER)');
+SELECT dropIfExists('FUNCTION', 'revokeAllModulePriv(INTEGER, TEXT)');
 
 COMMIT;

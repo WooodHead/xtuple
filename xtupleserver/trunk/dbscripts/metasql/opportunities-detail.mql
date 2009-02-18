@@ -25,8 +25,8 @@ SELECT ophead_id,
        OR (((<? value("startDate") ?> <= startOfTime()) OR (<? value("endDate") ?> >= endOfTime()))
         AND (ophead_target_date IS NULL))
     )
-<? if exists("usr_id") ?>
-   AND (ophead_owner_username=(SELECT usr_username FROM usr WHERE usr_id=<? value("usr_id") ?>))
+<? if exists("username") ?>
+   AND (ophead_owner_username=<? value("username") ?>)
 <? elseif exists("usr_pattern") ?>
    AND (ophead_owner_username ~ <? value("username_pattern") ?>)
 <? endif ?>
