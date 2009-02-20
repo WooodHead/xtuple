@@ -61,7 +61,7 @@ BEGIN
     AND (COALESCE(pState, '')=COALESCE(addr_state, ''))
     AND (COALESCE(pPostalCode, '')=COALESCE(addr_postalcode, ''))
     AND (COALESCE(pCountry, '')=COALESCE(addr_country, ''))
-    AND (COALESCE(pActive, '')=COALESCE(addr_active, ''))
+    AND (pActive=addr_active)
     AND (_notes=COALESCE(addr_notes,'')));
     IF (FOUND) THEN
       RETURN _addrId;
