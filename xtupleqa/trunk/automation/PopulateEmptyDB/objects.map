@@ -338,10 +338,18 @@
 :Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_2	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_rackAlpha' text='Allow Alpha Characters' type='QCheckBox' visible='1'}
 :Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_3	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_binAlpha' text='Allow Alpha Characters' type='QCheckBox' visible='1'}
 :Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_4	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_locationAlpha' text='Allow Alpha Characters' type='QCheckBox' visible='1'}
+:Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_5	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox_2' name='_aisleAlpha' text='Allow Alpha Characters' type='QCheckBox' visible='1'}
+:Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_6	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox_2' name='_rackAlpha' text='Allow Alpha Characters' type='QCheckBox' visible='1'}
+:Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_7	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox_2' name='_binAlpha' text='Allow Alpha Characters' type='QCheckBox' visible='1'}
+:Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_8	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox_2' name='_locationAlpha' text='Allow Alpha Characters' type='QCheckBox' visible='1'}
 :Enforce ARBL Naming Convention._aisleSize_QSpinBox	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_aisleSize' type='QSpinBox' visible='1'}
+:Enforce ARBL Naming Convention._aisleSize_QSpinBox_2	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox_2' name='_aisleSize' type='QSpinBox' visible='1'}
 :Enforce ARBL Naming Convention._binSize_QSpinBox	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_binSize' type='QSpinBox' visible='1'}
+:Enforce ARBL Naming Convention._binSize_QSpinBox_2	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox_2' name='_binSize' type='QSpinBox' visible='1'}
 :Enforce ARBL Naming Convention._locationSize_QSpinBox	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_locationSize' type='QSpinBox' visible='1'}
+:Enforce ARBL Naming Convention._locationSize_QSpinBox_2	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox_2' name='_locationSize' type='QSpinBox' visible='1'}
 :Enforce ARBL Naming Convention._rackSize_QSpinBox	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_rackSize' type='QSpinBox' visible='1'}
+:Enforce ARBL Naming Convention._rackSize_QSpinBox_2	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox_2' name='_rackSize' type='QSpinBox' visible='1'}
 :Enforce ARBL Naming Convention.qt_spinbox_lineedit_QLineEdit	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
 :Enforce Order Parameters.Enforce on Manual Orders_QCheckBox	{container=':_planningTab.Enforce Order Parameters_QGroupBox' name='_useParametersOnManual' text='Enforce on Manual Orders' type='QCheckBox' visible='1'}
 :Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_2	{container=':_planningTab.Enforce Order Parameters_QGroupBox_2' name='_useParametersOnManual' text='Enforce on Manual Orders' type='QCheckBox' visible='1'}
@@ -618,6 +626,8 @@
 :Item.qt_tabwidget_tabbar_QTabBar_10	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1' window=':Item_item_7'}
 :Item.qt_tabwidget_tabbar_QTabBar_11	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1' window=':Item_item_19'}
 :Item.qt_tabwidget_tabbar_QTabBar_12	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1' window=':Item_item_20'}
+:Item.qt_tabwidget_tabbar_QTabBar_13	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1' window=':Item_item_21'}
+:Item.qt_tabwidget_tabbar_QTabBar_14	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1' window=':Item_item_3'}
 :Item.qt_tabwidget_tabbar_QTabBar_2	{container=':xTuple ERP: OpenMFG Edition.Item_QWorkspaceChild' name='qt_tabwidget_tabbar' type='QTabBar' visible='1'}
 :Item.qt_tabwidget_tabbar_QTabBar_3	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1' window=':Item_item_2'}
 :Item.qt_tabwidget_tabbar_QTabBar_4	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1' window=':Item_item_11'}
@@ -642,6 +652,7 @@
 :Item_item_19	{name='item edit 328' type='item' visible='1' windowTitle='Item'}
 :Item_item_2	{name='item edit 301' type='item' visible='1' windowTitle='Item'}
 :Item_item_20	{name='item edit 308' type='item' visible='1' windowTitle='Item'}
+:Item_item_21	{name='item edit 311' type='item' visible='1' windowTitle='Item'}
 :Item_item_3	{name='item edit 312' type='item' visible='1' windowTitle='Item'}
 :Item_item_4	{name='item edit 313' type='item' visible='1' windowTitle='Item'}
 :Item_item_5	{name='item edit 314' type='item' visible='1' windowTitle='Item'}
@@ -1667,6 +1678,10 @@
 :Site Work Week._warehouse_WarehouseGroup	{container=':xTuple ERP: OpenMFG Edition.Site Work Week_QWorkspaceChild' name='_warehouse' type='WarehouseGroup' visible='1'}
 :Site Work Week._warehouse_WarehouseGroup_2	{name='_warehouse' type='WarehouseGroup' visible='1' window=':Site Work Week_whseWeek'}
 :Site Work Week_whseWeek	{name='whseWeek' type='whseWeek' visible='1' windowTitle='Site Work Week'}
+:Site Zone.Description:_QLabel	{name='_descriptionLit' text='Description:' type='QLabel' visible='1' window=':Site Zone_warehouseZone'}
+:Site Zone.Name:_QLabel	{name='_nameLit' text='Name:' type='QLabel' visible='1' window=':Site Zone_warehouseZone'}
+:Site Zone.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Site Zone_warehouseZone'}
+:Site Zone_warehouseZone	{name='warehouseZone' type='warehouseZone' visible='1' windowTitle='Site Zone'}
 :Site...._QPushButton	{name='_list' text='...' type='QPushButton' visible='1' window=':Site_warehouse'}
 :Site...._QPushButton_2	{name='_list' occurrence='2' text='...' type='QPushButton' visible='1' window=':Site_warehouse'}
 :Site.City:_QLabel	{text='City:' type='QLabel' unnamed='1' visible='1' window=':Site_warehouse'}
@@ -1945,6 +1960,7 @@
 :_baseTab.Qty. Break:_XLabel	{container=':qt_tabwidget_stackedwidget._baseTab_QWidget' name='_qtyBreakLit' text='Qty. Break:' type='XLabel' visible='1'}
 :_baseTab_XLineEdit	{container=':qt_tabwidget_stackedwidget._baseTab_QWidget' occurrence='2' type='XLineEdit' unnamed='1' visible='1'}
 :_bolPrefix_XLineEdit	{buddy=':_whsTypeStack.Next Bill of Lading #:_QLabel' name='_bolPrefix' type='XLineEdit' visible='1'}
+:_bolPrefix_XLineEdit_2	{buddy=':_whsTypeStack.Next Bill of Lading #:_QLabel_2' name='_bolPrefix' type='XLineEdit' visible='1'}
 :_boo_XTreeWidget	{buddy=':Bills of Operations.Routers:_QLabel' name='_boo' type='XTreeWidget' visible='1'}
 :_calendar_QComboBoxListView	{type='QComboBoxListView' unnamed='1' visible='1' window=':_calendar_QComboBoxPrivateContainer'}
 :_calendar_QComboBoxPrivateContainer	{parentWidget=':Schedule Configuration._calendar_CalendarComboBox' type='QComboBoxPrivateContainer' unnamed='1' visible='1'}
@@ -1982,6 +1998,10 @@
 :_code_XLineEdit_9	{buddy=':Terms.Code:_QLabel' name='_code' type='XLineEdit' visible='1'}
 :_comboGroup._shipvia_XComboBox	{container=':customerDefaults._comboGroup_QGroupBox' name='_shipvia' type='XComboBox' visible='1'}
 :_commPrcnt_XLineEdit	{buddy=':Sales Representative.Comm. Prcnt.:_QLabel' name='_commPrcnt' type='XLineEdit' visible='1'}
+:_commentsTab.Cancel_QPushButton	{container=':qt_tabwidget_stackedwidget._commentsTab_QWidget' name='_close' text='Cancel' type='QPushButton' visible='1'}
+:_commentsTab.New_QPushButton	{container=':qt_tabwidget_stackedwidget._commentsTab_QWidget' name='_newComment' text='New' type='QPushButton' visible='1'}
+:_commentsTab._comment_QTextEdit	{container=':qt_tabwidget_stackedwidget._commentsTab_QWidget' name='_comment' type='QTextEdit' visible='1'}
+:_commentsTab._comment_XTreeWidget	{container=':qt_tabwidget_stackedwidget._commentsTab_QWidget' name='_comment' type='XTreeWidget' visible='1'}
 :_comments_QTextEdit	{buddy=':List Locales.Comments:_QLabel' name='_comments' type='QTextEdit' visible='1'}
 :_comments_QTextEdit_2	{buddy=':frame.Comments:_QLabel' name='_comments' type='QTextEdit' visible='1'}
 :_comments_QTextEdit_3	{buddy=':Account Number.Comments:_QLabel' name='_comments' type='QTextEdit' visible='1'}
@@ -2026,6 +2046,7 @@
 :_costsTab.Setup Labor Rate_QGroupBox	{container=':qt_tabwidget_stackedwidget._costsTab_QWidget' name='_setupRateGroup' title='Setup Labor Rate' type='QGroupBox' visible='1'}
 :_costsTab.Setup Labor Rate_QGroupBox_2	{container=':qt_tabwidget_stackedwidget._costsTab_QWidget_2' name='_setupRateGroup' title='Setup Labor Rate' type='QGroupBox' visible='1'}
 :_countTagPrefix_XLineEdit	{buddy=':_whsTypeStack.Next Count Tag #:_QLabel' name='_countTagPrefix' type='XLineEdit' visible='1'}
+:_countTagPrefix_XLineEdit_2	{buddy=':_whsTypeStack.Next Count Tag #:_QLabel_2' name='_countTagPrefix' type='XLineEdit' visible='1'}
 :_country_XComboBox	{buddy=':List Locales.Country:_QLabel' name='_country' type='XComboBox' visible='1'}
 :_creditGroup.Alternate Late Grace Days_QGroupBox	{container=':credit._creditGroup_QGroupBox' name='_warnLate' title='Alternate Late Grace Days' type='QGroupBox' visible='1'}
 :_creditGroup.Place on Credit Warning when Credit Limit/Grace Days is Exceeded_QCheckBox	{container=':credit._creditGroup_QGroupBox' name='_autoUpdateStatus' text='Place on Credit Warning when Credit Limit/Grace Days is Exceeded' type='QCheckBox' visible='1'}
@@ -2053,6 +2074,7 @@
 :_cycleCountFreq_QSpinBox_2	{buddy=':_inventory.Cycl. Cnt. Freq.:_QLabel_2' name='_cycleCountFreq' type='QSpinBox' visible='1'}
 :_cycleCountFreq_QSpinBox_3	{buddy=':_inventory.Cycl. Cnt. Freq.:_QLabel_3' name='_cycleCountFreq' type='QSpinBox' visible='1'}
 :_database_QLineEdit	{buddy=':Login Options.Database:_QLabel' name='_database' type='QLineEdit' visible='1'}
+:_defaultFOB_XLineEdit	{buddy=':_whsTypeStack.Default F.O.B.:_QLabel' name='_defaultFOB' type='XLineEdit' visible='1'}
 :_defaultFromAddress_XLineEdit	{buddy=':Database Information.Default Batch Email Address:_QLabel' name='_defaultFromAddress' type='XLineEdit' visible='1'}
 :_defaultShipVia_XLineEdit	{buddy=':Vendor Defaults.Ship Via:_QLabel' name='_defaultShipVia' type='XLineEdit' visible='1'}
 :_defaultTransWhs_WComboBox	{buddy=':Multiple Sites.Default Transit Site:_QLabel' name='_defaultTransWhs' type='WComboBox' visible='1'}
@@ -2111,6 +2133,7 @@
 :_description_XLineEdit_35	{buddy=':Opportunity Source.Description:_QLabel' name='_description' type='XLineEdit' visible='1'}
 :_description_XLineEdit_36	{buddy=':Opportunity Stage.Description:_QLabel' name='_description' type='XLineEdit' visible='1'}
 :_description_XLineEdit_37	{buddy=':Opportunity Type.Description:_QLabel' name='_description' type='XLineEdit' visible='1'}
+:_description_XLineEdit_38	{buddy=':Site Zone.Description:_QLabel' name='_description' type='XLineEdit' visible='1'}
 :_description_XLineEdit_4	{buddy=':Database Information.Database Description:_QLabel' name='_description' type='XLineEdit' visible='1'}
 :_description_XLineEdit_5	{buddy=':List Sites.Description:_QLabel' name='_description' type='XLineEdit' visible='1'}
 :_description_XLineEdit_6	{buddy=':List Sites.Description:_QLabel_2' name='_description' type='XLineEdit' visible='1'}
@@ -2189,6 +2212,7 @@
 :_groupTab._availableGroup_XTreeWidget	{container=':qt_tabwidget_stackedwidget._groupTab_QWidget' name='_availableGroup' type='XTreeWidget' visible='1'}
 :_groupTab._grantedGroup_XTreeWidget	{container=':qt_tabwidget_stackedwidget._groupTab_QWidget' name='_grantedGroup' type='XTreeWidget' visible='1'}
 :_group_XComboBox	{buddy=':Subtotal/Summarize.Use Group_QLabel' name='_group' type='XComboBox' visible='1'}
+:_honorific_QLineEdit	{parentWidget=':Site._honorific_XComboBox' type='QLineEdit' unnamed='1' visible='1'}
 :_hotkeys.New_QPushButton	{container=':qt_tabwidget_stackedwidget._hotkeys_QWidget' name='_new' text='New' type='QPushButton' visible='1'}
 :_idleTimeout_QSpinBox	{buddy=':Interface Options.Idle Timeout:_QLabel' name='_idleTimeout' type='QSpinBox' visible='1'}
 :_initials_XLineEdit	{buddy=':List Users.Initials:_QLabel' name='_initials' type='XLineEdit' visible='1'}
@@ -2300,6 +2324,7 @@
 :_location_XLineEdit	{buddy=':List Site Locations.Aisle_QLabel' name='_location' type='XLineEdit' visible='1'}
 :_location_XLineEdit_2	{buddy=':Location.Aisle_QLabel' name='_location' type='XLineEdit' visible='1'}
 :_locationsTab.Enforce ARBL Naming Convention_QGroupBox	{container=':qt_tabwidget_stackedwidget._locationsTab_QWidget' name='_arblGroup' title='Enforce ARBL Naming Convention' type='QGroupBox' visible='1'}
+:_locationsTab.Enforce ARBL Naming Convention_QGroupBox_2	{container=':qt_tabwidget_stackedwidget._locationsTab_QWidget_2' name='_arblGroup' title='Enforce ARBL Naming Convention' type='QGroupBox' visible='1'}
 :_mainSize_QSpinBox	{buddy=':_gl.Main Segment Size:_QLabel' name='_mainSize' type='QSpinBox' visible='1'}
 :_maximumOrder_XLineEdit	{buddy=':Enforce Order Parameters.Maximum Order:_QLabel' name='_maximumOrder' type='XLineEdit' visible='1'}
 :_maximumOrder_XLineEdit_2	{buddy=':Enforce Order Parameters.Maximum Order:_QLabel_2' name='_maximumOrder' type='XLineEdit' visible='1'}
@@ -2372,6 +2397,7 @@
 :_name_XLineEdit_29	{buddy=':Opportunity Type.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_3	{buddy=':List Units of Measure.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_30	{buddy=':Priority.Priority:_QLabel' name='_name' type='XLineEdit' visible='1'}
+:_name_XLineEdit_31	{buddy=':Site Zone.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_4	{buddy=':List Characteristics.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_5	{buddy=':Unit of Measure.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
 :_name_XLineEdit_6	{buddy=':Characteristic.Name:_QLabel' name='_name' type='XLineEdit' visible='1'}
@@ -2603,15 +2629,24 @@
 :_warehouse_XComboBox	{buddy=':Sales Account Assignment.Site:_QLabel' name='_warehouse' type='XComboBox' visible='1'}
 :_warning_QLineEdit	{buddy=':List Locales.Warning:_QLabel' name='_warning' type='QLineEdit' visible='1'}
 :_whsTypeStack.Default Cost Category:_QLabel	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_costcatLit' text='Default Cost Category:' type='QLabel' visible='1'}
+:_whsTypeStack.Default F.O.B.:_QLabel	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_defaultFOBLit' text='Default F.O.B.:' type='QLabel' visible='1'}
 :_whsTypeStack.Default Shipping Form:_QLabel	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_shipformLit' text='Default Shipping Form:' type='QLabel' visible='1'}
 :_whsTypeStack.Enforce the use of Zones_QCheckBox	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_useZones' text='Enforce the use of Zones' type='QCheckBox' visible='1'}
+:_whsTypeStack.Enforce the use of Zones_QCheckBox_2	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_useZones' text='Enforce the use of Zones' type='QCheckBox' visible='1'}
 :_whsTypeStack.Force the use of Count Slips_QCheckBox	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_useSlips' text='Force the use of Count Slips' type='QCheckBox' visible='1'}
+:_whsTypeStack.Force the use of Count Slips_QCheckBox_2	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_useSlips' text='Force the use of Count Slips' type='QCheckBox' visible='1'}
 :_whsTypeStack.Next Bill of Lading #:_QLabel	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_nextBOLNumber' text='Next Bill of Lading #:' type='QLabel' visible='1'}
+:_whsTypeStack.Next Bill of Lading #:_QLabel_2	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_nextBOLNumber' text='Next Bill of Lading #:' type='QLabel' visible='1'}
 :_whsTypeStack.Next Count Tag #:_QLabel	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_nextCountTagNumberLit' text='Next Count Tag #:' type='QLabel' visible='1'}
+:_whsTypeStack.Next Count Tag #:_QLabel_2	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_nextCountTagNumberLit' text='Next Count Tag #:' type='QLabel' visible='1'}
 :_whsTypeStack.Shipping Site_QCheckBox	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_shipping' text='Shipping Site' type='QCheckBox' visible='1'}
+:_whsTypeStack.Shipping Site_QCheckBox_2	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_shipping' text='Shipping Site' type='QCheckBox' visible='1'}
 :_whsTypeStack._bolNumber_XLineEdit	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_bolNumber' type='XLineEdit' visible='1'}
+:_whsTypeStack._bolNumber_XLineEdit_2	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_bolNumber' type='XLineEdit' visible='1'}
 :_whsTypeStack._countTagNumber_XLineEdit	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_countTagNumber' type='XLineEdit' visible='1'}
+:_whsTypeStack._countTagNumber_XLineEdit_2	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_countTagNumber' type='XLineEdit' visible='1'}
 :_whsTypeStack._shipcomm_XLineEdit	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_shipcomm' type='XLineEdit' visible='1'}
+:_whsTypeStack._shipcomm_XLineEdit_2	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_shipcomm' type='XLineEdit' visible='1'}
 :_whsTypeStack._shipcomments_QTextEdit	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_shipcomments' type='QTextEdit' visible='1'}
 :_whsTypeStack._shipvia_XComboBox	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_shipvia' type='XComboBox' visible='1'}
 :_whsezone_XComboBox	{buddy=':List Site Locations.Zone:_QLabel' name='_whsezone' type='XComboBox' visible='1'}
@@ -2633,6 +2668,7 @@
 :_widgetStack.qt_tabwidget_stackedwidget_QStackedWidget	{container=':Pricing Schedule Item._widgetStack_QStackedWidget' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
 :_year_XComboBox	{buddy=':Accounting Period.Fiscal Year:_QLabel' name='_year' type='XComboBox' visible='1'}
 :_zonesTab.New_QPushButton	{container=':qt_tabwidget_stackedwidget._zonesTab_QWidget' name='_new' text='New' type='QPushButton' visible='1'}
+:_zonesTab.New_QPushButton_2	{container=':qt_tabwidget_stackedwidget._zonesTab_QWidget_2' name='_new' text='New' type='QPushButton' visible='1'}
 :addressTab.Main_QRadioButton	{container=':qt_tabwidget_stackedwidget.addressTab_QWidget' name='_mainButton' text='Main' type='QRadioButton' visible='1'}
 :addressTab._addressStack_QStackedWidget	{container=':qt_tabwidget_stackedwidget.addressTab_QWidget' name='_addressStack' type='QStackedWidget' visible='1'}
 :contactTab._contact1Box_QGroupBox	{container=':qt_tabwidget_stackedwidget.contactTab_QWidget' name='_contact1Box' type='QGroupBox' visible='1'}
@@ -2697,6 +2733,7 @@
 :qt_tabwidget_stackedwidget._characteristicsTab_QWidget_4	{container=':Item.qt_tabwidget_stackedwidget_QStackedWidget_4' name='_characteristicsTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._characteristicsTab_QWidget_5	{container=':Item.qt_tabwidget_stackedwidget_QStackedWidget_7' name='_characteristicsTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._characteristicsTab_QWidget_6	{container=':Item.qt_tabwidget_stackedwidget_QStackedWidget_8' name='_characteristicsTab' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget._commentsTab_QWidget	{container=':Site.qt_tabwidget_stackedwidget_QStackedWidget' name='_commentsTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._costsTab_QWidget	{container=':Work Center.qt_tabwidget_stackedwidget_QStackedWidget' name='_costsTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._costsTab_QWidget_2	{container=':Work Center.qt_tabwidget_stackedwidget_QStackedWidget_2' name='_costsTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._events_QWidget	{container=':User Preferences.qt_tabwidget_stackedwidget_QStackedWidget' name='_events' type='QWidget' visible='1'}
@@ -2713,6 +2750,7 @@
 :qt_tabwidget_stackedwidget._inventory_QWidget	{container=':Inventory Configuration.qt_tabwidget_stackedwidget_QStackedWidget' name='_inventory' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._lineItemsPage_QWidget	{container=':Sales Order.qt_tabwidget_stackedwidget_QStackedWidget' name='_lineItemsPage' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._locationsTab_QWidget	{container=':List Sites.qt_tabwidget_stackedwidget_QStackedWidget' name='_locationsTab' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget._locationsTab_QWidget_2	{container=':Site.qt_tabwidget_stackedwidget_QStackedWidget' name='_locationsTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._menu_QWidget	{container=':User Preferences.qt_tabwidget_stackedwidget_QStackedWidget' name='_menu' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._notesTab_QWidget	{container=':Work Center.qt_tabwidget_stackedwidget_QStackedWidget' name='_notesTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._notesTab_QWidget_2	{container=':Work Center.qt_tabwidget_stackedwidget_QStackedWidget_2' name='_notesTab' type='QWidget' visible='1'}
@@ -2741,6 +2779,7 @@
 :qt_tabwidget_stackedwidget._taxtypesTab_QWidget_9	{container=':Item.qt_tabwidget_stackedwidget_QStackedWidget_12' name='_taxtypesTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._transmitTab_QWidget	{container=':Customer.qt_tabwidget_stackedwidget_QStackedWidget' name='_transmitTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._zonesTab_QWidget	{container=':List Sites.qt_tabwidget_stackedwidget_QStackedWidget' name='_zonesTab' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget._zonesTab_QWidget_2	{container=':Site.qt_tabwidget_stackedwidget_QStackedWidget' name='_zonesTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.addressTab_QWidget	{container=':Vendor.qt_tabwidget_stackedwidget_QStackedWidget' name='addressTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.contactTab_QWidget	{container=':Vendor.qt_tabwidget_stackedwidget_QStackedWidget' name='contactTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.credit_QWidget	{container=':Customer.qt_tabwidget_stackedwidget_QStackedWidget' name='credit' type='QWidget' visible='1'}
@@ -2780,6 +2819,7 @@
 :xTuple ERP: *.Accounting Tools_QToolBar	{name='Accounting Tools' type='QToolBar' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='Accounting Tools'}
 :xTuple ERP: *.Aging_QToolButton	{text='Aging' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: *.Aging_QToolButton_2	{occurrence='2' text='Aging' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
+:xTuple ERP: *.Billing Selections_QToolButton	{text='Billing Selections' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: *.CRM Tools_QToolBar	{name='CRM Tools' type='QToolBar' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='CRM Tools'}
 :xTuple ERP: *.Edit List_QToolButton	{text='Edit List' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: *.Incident Workbench_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='Incident Workbench'}
