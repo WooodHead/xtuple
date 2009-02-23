@@ -1,253 +1,255 @@
-function executeChapter2()
+function executeChapter2(appVersion)
 {
    source(findFile("scripts","functions.js"));
  
-     //-----------Chart Of Accounts-------------------------------
-     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-     activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-
-     COA("01","01","1250","01","Warehouse 1 Asset","Asset","IN");
-     if(!clickItem(":_account_XTreeWidget_2", "Warehouse 1 Asset", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Warehouse 1 Asset");
-  
-     COA("01","01","1252","01","Intransit Asset","Asset","IN");
-     if(!clickItem(":_account_XTreeWidget_2", "Intransit Asset", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Intransit Asset");
-       
-     COA("01","01","1254","01","Warehouse 2 Asset","Asset","IN");
-     if(!clickItem(":_account_XTreeWidget_2", "Warehouse 2 Asset", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Warehouse 2 Asset");
-     
-     COA("01","01","1210","01","WIP Asset","Asset","IN");
-     if(!clickItem(":_account_XTreeWidget_2", "WIP Asset", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: WIP Asset");
-
-     COA("01","01","1620","01","Inventory Cost Variance","Asset","IN");
-     if(!clickItem(":_account_XTreeWidget_2", "Inventory Cost Variance", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Inventory Cost Variance");
-     
-     COA("01","01","1470","01","Material Usage Variance","Asset","IN");
-     if(!clickItem(":_account_XTreeWidget_2", "Material Usage Variance", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Material Usage Variance");
- 
-     COA("01","01","1930","01","Transform Clearing","Asset","IN");  
-     if(!clickItem(":_account_XTreeWidget_2", "Transform Clearing", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Transform Clearing");
-
-     COA("01","01","1460","01","Purchase Price Variance","Asset","IN");
-     if(!clickItem(":_account_XTreeWidget_2", "Purchase Price Variance", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Purchase Price Variance");
-     
-     COA("01","01","8910","01","Inventory Adjustment","Expense","EXP");   
-     if(!clickItem(":_account_XTreeWidget_2", "Inventory Adjustment", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Inventory Adjustment");
-     
-     COA("01","01","8920","01","Inventory Scrap","Expense","EXP"); 
-     if(!clickItem(":_account_XTreeWidget_2", "Inventory Scrap", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Inventory Scrap");
-     
-     COA("01","01","8930","01","OpenMFG Scrap","Expense","EXP");  
-     if(!clickItem(":_account_XTreeWidget_2", "OpenMFG Scrap", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: OpenMFG Scrap");
-     
-     COA("01","01","8980","01","Purchase Expense Variance","Expense","EXP");
-     if(!clickItem(":_account_XTreeWidget_2", "Purchase Expense Variance", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Purchase Expense Variance");
-     
-     COA("01","01","2320","01","Labor and Overhead Costs Accrued","Liability","CL");
-     if(!clickItem(":_account_XTreeWidget_2", "Labor and Overhead Costs Accrued", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Labor and Overhead Costs Accrued");
-
-     COA("01","01","2490","01","P/O Liability Clearing","Liability","CL");
-     if(!clickItem(":_account_XTreeWidget_2", "P/O Liability Clearing", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: P/O Liability Clearing");
-     
-     COA("01","01","2510","01","Sales Tax Liability","Liability","CL");   
-     if(!clickItem(":_account_XTreeWidget_2", "Sales Tax Liability", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Sales Tax Liability");
-     
-     COA("01","01","1260","01","Shipping Asset","Asset","IN");
-     if(!clickItem(":_account_XTreeWidget_2", "Shipping Asset", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Shipping Asset");
-     
-     COA("01","01","6000","01","Office Supplies","Expense","EXP");  
-     if(!clickItem(":_account_XTreeWidget_2", "Office Supplies", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Office Supplies");
-     
-     COA("01","01","6550","01","P/O Line Freight Expense","Expense","EXP");
-     if(!clickItem(":_account_XTreeWidget_2", "P/O Line Freight Expense", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: P/O Line Freight Expense");
-     
-     COA("01","01","2480","01","Transfer Order Liability Clearing","Liability","CL");	  
-     if(!clickItem(":_account_XTreeWidget_2", "Transfer Order Liability Clearing", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Transfer Order Liability Clearing");
-     
-     COA("01","01","6050","01","State Sales Tax Expense","Expense","EXP");  
-     if(!clickItem(":_account_XTreeWidget_2", "State Sales Tax Expense", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: State Sales Tax Expense");
-     
-     
-     COA("01","01","6060","01","Shipping Charge Expense","Expense","EXP");  
-     if(!clickItem(":_account_XTreeWidget_2", "Shipping Charge Expense", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Shipping Charge Expense");
-          
-    waitForObject(":Chart of Accounts.Close_QPushButton_2");
-    clickButton(":Chart of Accounts.Close_QPushButton_2");
- 
- 
-   
-    //---------------Create Inventory - new Cost Catergory------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
-    waitForObject(":List Cost Categories.New_QPushButton_2");
-    clickButton(":List Cost Categories.New_QPushButton_2");
-    waitForObject(":Cost Category._category_XLineEdit");
-    type(":Cost Category._category_XLineEdit", "CCWH1");
-    type(":Cost Category._description_XLineEdit", "Warehouse 1");
-    type(":Cost Category._main_XLineEdit", "01-01-1250-01");
-    type(":Cost Category._main_XLineEdit_2", "01-01-1210-01");
-    type(":Cost Category._main_XLineEdit_3", "01-01-1620-01");
-    type(":Cost Category._main_XLineEdit_4", "01-01-1930-01");
-    type(":Cost Category._main_XLineEdit_5", "01-01-1460-01");
-    type(":Cost Category._main_XLineEdit_6", "01-01-8910-01");
-    type(":Cost Category._main_XLineEdit_7", "01-01-8920-01");
-    type(":Cost Category._main_XLineEdit_8", "01-01-8930-01");
-    type(":Cost Category._main_XLineEdit_9", "01-01-2320-01");
-    type(":Cost Category._main_XLineEdit_10", "01-01-2490-01");
-    type(":Cost Category._main_XLineEdit_11", "01-01-1260-01");
-    type(":Cost Category._main_XLineEdit_12", "01-01-6550-01");
-    type(":Cost Category._main_XLineEdit_13", "01-01-2480-01");
-    type(":Cost Category._main_XLineEdit_13", "<Tab>");    
-    waitForObject(":Cost Category.Save_QPushButton");
-    clickButton(":Cost Category.Save_QPushButton");
-    if(!clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH1", 5, 5, 1, Qt.LeftButton))
-        test.pass("Cost Category: CCWH1 created");
-    waitForObject(":List Cost Categories.Close_QPushButton_2");
-    clickButton(":List Cost Categories.Close_QPushButton_2");
-    
-     //----------Inventory-Cost Categories: copy and create for INTRAN------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
-    waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
-    type(":List Cost Categories._costcat_XTreeWidget_2", " ");
-    waitForObject(":List Cost Categories.Copy_QPushButton_2");
-    clickButton(":List Cost Categories.Copy_QPushButton_2");
-    type(":Cost Category._category_XLineEdit", "<Del>");
-    type(":Cost Category._category_XLineEdit", "CCINTRAN");
-    type(":Cost Category._description_XLineEdit", "<Del>");
-    type(":Cost Category._description_XLineEdit", "Intransit Warehouse");
-    type(":Cost Category._main_XLineEdit", "<Del>");
-    type(":Cost Category._main_XLineEdit", "01-01-1252-01");
-    type(":Cost Category._main_XLineEdit", "<Tab>");
-    waitForObject(":Cost Category.Save_QPushButton");
-    clickButton(":Cost Category.Save_QPushButton");
-    waitForObject(":List Cost Categories.Close_QPushButton_2");
-    if(!clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCINTRAN", 5, 5, 1, Qt.LeftButton))
-        test.pass("Cost Category: CCINTRAN created");
-    clickButton(":List Cost Categories.Close_QPushButton_2");
-    test.log("Inventory Cost Category CCINTRAN created");
-    
-    
-    //----------Inventory-Cost Categories: copy and create for WH2------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
-    waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
-    type(":List Cost Categories._costcat_XTreeWidget_2", " ");
-    waitForObject(":List Cost Categories.Copy_QPushButton_2");
-    clickButton(":List Cost Categories.Copy_QPushButton_2");
-    type(":Cost Category._category_XLineEdit", "<Del>");
-    type(":Cost Category._category_XLineEdit", "CCWH2");
-    type(":Cost Category._description_XLineEdit", "<Del>");
-    type(":Cost Category._description_XLineEdit", "Warehouse 2");
-    type(":Cost Category._main_XLineEdit", "<Del>");
-    type(":Cost Category._main_XLineEdit", "01-01-1254-01");
-    type(":Cost Category._main_XLineEdit", "<Tab>");
-    waitForObject(":Cost Category.Save_QPushButton");
-    clickButton(":Cost Category.Save_QPushButton");
-    waitForObject(":List Cost Categories.Close_QPushButton_2");
-    if(!clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH2", 26, 9, 1, Qt.LeftButton))
-        test.pass("Cost Category: CCWH2 created");
-    clickButton(":List Cost Categories.Close_QPushButton_2");
-    
-     
-
-    //----------------------Inventory: create Expense Categories---------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Expense Categories...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Expense Categories...");
-    waitForObject(":List Expense Categories.New_QPushButton_2");
-    clickButton(":List Expense Categories.New_QPushButton_2");
-    waitForObject(":_category_XLineEdit_2");
-    type(":_category_XLineEdit_2", "OFFICE-SUPPLIES");
-    type(":_description_XLineEdit_13", "Print Paper");
-    type(":Expense Category._main_XLineEdit", "01-01-6000-01");
-    type(":Expense Category._main_XLineEdit_2", "01-01-8980-01");
-    type(":Expense Category._main_XLineEdit_3", "01-01-2490-01");
-    type(":Expense Category._main_XLineEdit_4", "01-01-6550-01");
-    type(":Expense Category._main_XLineEdit_4", "<Tab>");
-    waitForObject(":Expense Category.Save_QPushButton");
-    clickButton(":Expense Category.Save_QPushButton");
-    waitForObject(":List Expense Categories._expcat_XTreeWidget");
-    if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "OFFICE-SUPPLIES", 5,5, 1, Qt.LeftButton))
-        test.pass("Expense Category: OFFICE-SUPPLIES created");
-
-  
-    waitForObject(":List Expense Categories.New_QPushButton_2");
-    clickButton(":List Expense Categories.New_QPushButton_2");
-    waitForObject(":_category_XLineEdit_2");
-    type(":_category_XLineEdit_2", "SALES_TAX");
-    type(":_description_XLineEdit_13", "Sales Tax");
-    type(":Expense Category._main_XLineEdit", "01-01-2510-01");
-    type(":Expense Category._main_XLineEdit_2", "01-01-8980-01");
-    type(":Expense Category._main_XLineEdit_3", "01-01-2490-01");
-    type(":Expense Category._main_XLineEdit_4", "01-01-6550-01");
-    type(":Expense Category._main_XLineEdit_4", "<Tab>");
-    waitForObject(":Expense Category.Save_QPushButton");
-    clickButton(":Expense Category.Save_QPushButton");
-    waitForObject(":List Expense Categories._expcat_XTreeWidget");
-    if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "SALES\\_TAX", 5,5, 1, Qt.LeftButton))
-        test.pass("Expense Category: SALES_TAX created");
-
-    
-    waitForObject(":List Expense Categories.New_QPushButton_2");
-    clickButton(":List Expense Categories.New_QPushButton_2");
-    waitForObject(":_category_XLineEdit_2");
-    type(":_category_XLineEdit_2", "SHIPPING_CHARGES");
-    type(":_description_XLineEdit_13", "Shipping Charges Expense");
-    type(":Expense Category._main_XLineEdit", "01-01-6060-01");
-    type(":Expense Category._main_XLineEdit_2", "01-01-8980-01");
-    type(":Expense Category._main_XLineEdit_3", "01-01-2490-01");
-    type(":Expense Category._main_XLineEdit_4", "01-01-6550-01");
-    type(":Expense Category._main_XLineEdit_4", "<Tab>");
-    waitForObject(":Expense Category.Save_QPushButton");
-    clickButton(":Expense Category.Save_QPushButton");
-    waitForObject(":List Expense Categories._expcat_XTreeWidget");
-    if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "SHIPPING\\_CHARGES", 5,5, 1, Qt.LeftButton))
-        test.pass("Expense Category: SALES_TAX created");
-
-    waitForObject(":List Expense Categories.Close_QPushButton_2");
-    clickButton(":List Expense Categories.Close_QPushButton_2");
-  
-
+//     //-----------Chart Of Accounts-------------------------------
+//     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+//     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+//     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+//     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+//     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+//     activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+//
+//     COA("01","01","1250","01","Warehouse 1 Asset","Asset","IN");
+//     if(!clickItem(":_account_XTreeWidget_2", "Warehouse 1 Asset", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Warehouse 1 Asset");
+//  
+//     COA("01","01","1252","01","Intransit Asset","Asset","IN");
+//     if(!clickItem(":_account_XTreeWidget_2", "Intransit Asset", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Intransit Asset");
+//       
+//     COA("01","01","1254","01","Warehouse 2 Asset","Asset","IN");
+//     if(!clickItem(":_account_XTreeWidget_2", "Warehouse 2 Asset", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Warehouse 2 Asset");
+//     
+//     COA("01","01","1210","01","WIP Asset","Asset","IN");
+//     if(!clickItem(":_account_XTreeWidget_2", "WIP Asset", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: WIP Asset");
+//
+//     COA("01","01","1620","01","Inventory Cost Variance","Asset","IN");
+//     if(!clickItem(":_account_XTreeWidget_2", "Inventory Cost Variance", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Inventory Cost Variance");
+//     
+//     COA("01","01","1470","01","Material Usage Variance","Asset","IN");
+//     if(!clickItem(":_account_XTreeWidget_2", "Material Usage Variance", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Material Usage Variance");
+// 
+//     COA("01","01","1930","01","Transform Clearing","Asset","IN");  
+//     if(!clickItem(":_account_XTreeWidget_2", "Transform Clearing", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Transform Clearing");
+//
+//     COA("01","01","1460","01","Purchase Price Variance","Asset","IN");
+//     if(!clickItem(":_account_XTreeWidget_2", "Purchase Price Variance", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Purchase Price Variance");
+//     
+//     COA("01","01","8910","01","Inventory Adjustment","Expense","EXP");   
+//     if(!clickItem(":_account_XTreeWidget_2", "Inventory Adjustment", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Inventory Adjustment");
+//     
+//     COA("01","01","8920","01","Inventory Scrap","Expense","EXP"); 
+//     if(!clickItem(":_account_XTreeWidget_2", "Inventory Scrap", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Inventory Scrap");
+//     
+//     COA("01","01","8930","01","OpenMFG Scrap","Expense","EXP");  
+//     if(!clickItem(":_account_XTreeWidget_2", "OpenMFG Scrap", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: OpenMFG Scrap");
+//     
+//     COA("01","01","8980","01","Purchase Expense Variance","Expense","EXP");
+//     if(!clickItem(":_account_XTreeWidget_2", "Purchase Expense Variance", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Purchase Expense Variance");
+//     
+//     COA("01","01","2320","01","Labor and Overhead Costs Accrued","Liability","CL");
+//     if(!clickItem(":_account_XTreeWidget_2", "Labor and Overhead Costs Accrued", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Labor and Overhead Costs Accrued");
+//
+//     COA("01","01","2490","01","P/O Liability Clearing","Liability","CL");
+//     if(!clickItem(":_account_XTreeWidget_2", "P/O Liability Clearing", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: P/O Liability Clearing");
+//     
+//     COA("01","01","2510","01","Sales Tax Liability","Liability","CL");   
+//     if(!clickItem(":_account_XTreeWidget_2", "Sales Tax Liability", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Sales Tax Liability");
+//     
+//     COA("01","01","1260","01","Shipping Asset","Asset","IN");
+//     if(!clickItem(":_account_XTreeWidget_2", "Shipping Asset", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Shipping Asset");
+//     
+//     COA("01","01","6000","01","Office Supplies","Expense","EXP");  
+//     if(!clickItem(":_account_XTreeWidget_2", "Office Supplies", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Office Supplies");
+//     
+//     COA("01","01","6550","01","P/O Line Freight Expense","Expense","EXP");
+//     if(!clickItem(":_account_XTreeWidget_2", "P/O Line Freight Expense", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: P/O Line Freight Expense");
+//     
+//     COA("01","01","2480","01","Transfer Order Liability Clearing","Liability","CL");	  
+//     if(!clickItem(":_account_XTreeWidget_2", "Transfer Order Liability Clearing", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Transfer Order Liability Clearing");
+//     
+//     COA("01","01","6050","01","State Sales Tax Expense","Expense","EXP");  
+//     if(!clickItem(":_account_XTreeWidget_2", "State Sales Tax Expense", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: State Sales Tax Expense");
+//     
+//     
+//     COA("01","01","6060","01","Shipping Charge Expense","Expense","EXP");  
+//     if(!clickItem(":_account_XTreeWidget_2", "Shipping Charge Expense", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Shipping Charge Expense");
+//          
+//    waitForObject(":Chart of Accounts.Close_QPushButton_2");
+//    clickButton(":Chart of Accounts.Close_QPushButton_2");
+// 
+// 
+//   
+//    //---------------Create Inventory - new Cost Catergory------------
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
+//    waitForObject(":List Cost Categories.New_QPushButton_2");
+//    clickButton(":List Cost Categories.New_QPushButton_2");
+//    waitForObject(":Cost Category._category_XLineEdit");
+//    type(":Cost Category._category_XLineEdit", "CCWH1");
+//    type(":Cost Category._description_XLineEdit", "Warehouse 1");
+//    type(":Cost Category._main_XLineEdit", "01-01-1250-01");
+//    type(":Cost Category._main_XLineEdit_2", "01-01-1210-01");
+//    if(appVersion=="manufacturing"||appVersion=="standard")
+//    type(":Cost Category._main_XLineEdit_3", "01-01-1620-01");
+//    type(":Cost Category._main_XLineEdit_4", "01-01-1930-01");
+//    type(":Cost Category._main_XLineEdit_5", "01-01-1460-01");
+//    type(":Cost Category._main_XLineEdit_6", "01-01-8910-01");
+//    type(":Cost Category._main_XLineEdit_7", "01-01-8920-01");
+//    type(":Cost Category._main_XLineEdit_8", "01-01-8930-01");
+//    type(":Cost Category._main_XLineEdit_9", "01-01-2320-01");
+//    type(":Cost Category._main_XLineEdit_10", "01-01-2490-01");
+//    type(":Cost Category._main_XLineEdit_11", "01-01-1260-01");
+//    if(appVersion=="manufacturing"||appVersion=="standard")
+//    type(":Cost Category._main_XLineEdit_12", "01-01-6550-01");
+//    if(appVersion=="manufacturing"||appVersion=="standard")
+//    type(":Cost Category._main_XLineEdit_13", "01-01-2480-01");
+//    waitForObject(":Cost Category.Save_QPushButton");
+//    clickButton(":Cost Category.Save_QPushButton");
+//    if(!clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH1", 5, 5, 1, Qt.LeftButton))
+//        test.pass("Cost Category: CCWH1 created");
+//    waitForObject(":List Cost Categories.Close_QPushButton_2");
+//    clickButton(":List Cost Categories.Close_QPushButton_2");
+//    
+//     //----------Inventory-Cost Categories: copy and create for INTRAN------------------
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
+//    waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
+//    type(":List Cost Categories._costcat_XTreeWidget_2", " ");
+//    waitForObject(":List Cost Categories.Copy_QPushButton_2");
+//    clickButton(":List Cost Categories.Copy_QPushButton_2");
+//    type(":Cost Category._category_XLineEdit", "<Del>");
+//    type(":Cost Category._category_XLineEdit", "CCINTRAN");
+//    type(":Cost Category._description_XLineEdit", "<Del>");
+//    type(":Cost Category._description_XLineEdit", "Intransit Warehouse");
+//    type(":Cost Category._main_XLineEdit", "<Del>");
+//    type(":Cost Category._main_XLineEdit", "01-01-1252-01");
+//    type(":Cost Category._main_XLineEdit", "<Tab>");
+//    waitForObject(":Cost Category.Save_QPushButton");
+//    clickButton(":Cost Category.Save_QPushButton");
+//    waitForObject(":List Cost Categories.Close_QPushButton_2");
+//    if(!clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCINTRAN", 5, 5, 1, Qt.LeftButton))
+//        test.pass("Cost Category: CCINTRAN created");
+//    clickButton(":List Cost Categories.Close_QPushButton_2");
+//    test.log("Inventory Cost Category CCINTRAN created");
+//    
+//    
+//    //----------Inventory-Cost Categories: copy and create for WH2------------------
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
+//    waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
+//    type(":List Cost Categories._costcat_XTreeWidget_2", " ");
+//    waitForObject(":List Cost Categories.Copy_QPushButton_2");
+//    clickButton(":List Cost Categories.Copy_QPushButton_2");
+//    type(":Cost Category._category_XLineEdit", "<Del>");
+//    type(":Cost Category._category_XLineEdit", "CCWH2");
+//    type(":Cost Category._description_XLineEdit", "<Del>");
+//    type(":Cost Category._description_XLineEdit", "Warehouse 2");
+//    type(":Cost Category._main_XLineEdit", "<Del>");
+//    type(":Cost Category._main_XLineEdit", "01-01-1254-01");
+//    type(":Cost Category._main_XLineEdit", "<Tab>");
+//    waitForObject(":Cost Category.Save_QPushButton");
+//    clickButton(":Cost Category.Save_QPushButton");
+//    waitForObject(":List Cost Categories.Close_QPushButton_2");
+//    if(!clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH2", 26, 9, 1, Qt.LeftButton))
+//        test.pass("Cost Category: CCWH2 created");
+//    clickButton(":List Cost Categories.Close_QPushButton_2");
+//    
+//     
+//
+//    //----------------------Inventory: create Expense Categories---------------------
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Expense Categories...");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Expense Categories...");
+//    waitForObject(":List Expense Categories.New_QPushButton_2");
+//    clickButton(":List Expense Categories.New_QPushButton_2");
+//    waitForObject(":_category_XLineEdit_2");
+//    type(":_category_XLineEdit_2", "OFFICE-SUPPLIES");
+//    type(":_description_XLineEdit_13", "Print Paper");
+//    type(":Expense Category._main_XLineEdit", "01-01-6000-01");
+//    type(":Expense Category._main_XLineEdit_2", "01-01-8980-01");
+//    type(":Expense Category._main_XLineEdit_3", "01-01-2490-01");
+//    type(":Expense Category._main_XLineEdit_4", "01-01-6550-01");
+//    type(":Expense Category._main_XLineEdit_4", "<Tab>");
+//    waitForObject(":Expense Category.Save_QPushButton");
+//    clickButton(":Expense Category.Save_QPushButton");
+//    waitForObject(":List Expense Categories._expcat_XTreeWidget");
+//    if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "OFFICE-SUPPLIES", 5,5, 1, Qt.LeftButton))
+//        test.pass("Expense Category: OFFICE-SUPPLIES created");
+//
+//  
+//    waitForObject(":List Expense Categories.New_QPushButton_2");
+//    clickButton(":List Expense Categories.New_QPushButton_2");
+//    waitForObject(":_category_XLineEdit_2");
+//    type(":_category_XLineEdit_2", "SALES_TAX");
+//    type(":_description_XLineEdit_13", "Sales Tax");
+//    type(":Expense Category._main_XLineEdit", "01-01-2510-01");
+//    type(":Expense Category._main_XLineEdit_2", "01-01-8980-01");
+//    type(":Expense Category._main_XLineEdit_3", "01-01-2490-01");
+//    type(":Expense Category._main_XLineEdit_4", "01-01-6550-01");
+//    type(":Expense Category._main_XLineEdit_4", "<Tab>");
+//    waitForObject(":Expense Category.Save_QPushButton");
+//    clickButton(":Expense Category.Save_QPushButton");
+//    waitForObject(":List Expense Categories._expcat_XTreeWidget");
+//    if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "SALES\\_TAX", 5,5, 1, Qt.LeftButton))
+//        test.pass("Expense Category: SALES_TAX created");
+//
+//    
+//    waitForObject(":List Expense Categories.New_QPushButton_2");
+//    clickButton(":List Expense Categories.New_QPushButton_2");
+//    waitForObject(":_category_XLineEdit_2");
+//    type(":_category_XLineEdit_2", "SHIPPING_CHARGES");
+//    type(":_description_XLineEdit_13", "Shipping Charges Expense");
+//    type(":Expense Category._main_XLineEdit", "01-01-6060-01");
+//    type(":Expense Category._main_XLineEdit_2", "01-01-8980-01");
+//    type(":Expense Category._main_XLineEdit_3", "01-01-2490-01");
+//    type(":Expense Category._main_XLineEdit_4", "01-01-6550-01");
+//    type(":Expense Category._main_XLineEdit_4", "<Tab>");
+//    waitForObject(":Expense Category.Save_QPushButton");
+//    clickButton(":Expense Category.Save_QPushButton");
+//    waitForObject(":List Expense Categories._expcat_XTreeWidget");
+//    if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "SHIPPING\\_CHARGES", 5,5, 1, Qt.LeftButton))
+//        test.pass("Expense Category: SALES_TAX created");
+//
+//    waitForObject(":List Expense Categories.Close_QPushButton_2");
+//    clickButton(":List Expense Categories.Close_QPushButton_2");
+//  
+//
   
     //------------------Inventor: create site Locations--------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
@@ -256,13 +258,13 @@ function executeChapter2()
     activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Locations...");
     activateItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Locations...");
- 
+    
+    if(appVersion=="manufacturing"||appVersion=="standard")
     if(findObject(":_warehouse._warehouses_WComboBox_3").currentText!= "WH1")
         type(":_warehouse._warehouses_WComboBox_3","WH1")
+        
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
-    
-    
     waitForObject(":_whsezone_XComboBox_2");
     while(findObject(":_whsezone_XComboBox_2").currentText!="RM1")
     {    
@@ -341,8 +343,8 @@ function executeChapter2()
     waitForObject(":_whsezone_XComboBox_2");
     while(findObject(":_whsezone_XComboBox_2").currentText!="FG1")
     {    
-        type(":_whsezone_XComboBox", "<Down>");
-        waitForObject(":_whsezone_XComboBox");
+        type(":_whsezone_XComboBox_2", "<Down>");
+        waitForObject(":_whsezone_XComboBox_2");
     }
     if(!findObject(":Location.Netable_QCheckBox").checked)
     findObject(":Location.Netable_QCheckBox").checked=true;
@@ -768,124 +770,162 @@ function executeChapter2()
     waitForObject(":List Characteristics.Close_QPushButton_2");
     clickButton(":List Characteristics.Close_QPushButton_2");
     
-     //----------------Schedule: Create Planner Code----------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Planner Codes...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Planner Codes...");
     
-    waitForObject(":List Planner Codes.New_QPushButton_2");
-    clickButton(":List Planner Codes.New_QPushButton_2");
-    waitForObject(":_code_XLineEdit_6");
-    type(":_code_XLineEdit_6", "MPS-ITEMS");
-    type(":_description_XLineEdit_16", "MRP Items");
-    if(!findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked)
-        findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked=true;
-    if(!findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked);
-    findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked=true;
-    waitForObject(":Planner Code.Save_QPushButton");
-    clickButton(":Planner Code.Save_QPushButton");
-    waitForObject(":List Planner Codes._plancode_XTreeWidget");
-    if(!clickItem(":List Planner Codes._plancode_XTreeWidget", "MPS-ITEMS", 5, 5, 1, Qt.LeftButton))
-        test.pass("Planner Code: MPS-ITEMS created");
-    
-    
-    waitForObject(":List Planner Codes.New_QPushButton_2");
-    clickButton(":List Planner Codes.New_QPushButton_2");
-    waitForObject(":_code_XLineEdit_6");
-    type(":_code_XLineEdit_6", "MRP-ITEMS");
-    type(":_description_XLineEdit_16", "MRP Items");
-    if(!findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked)
-        findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked=true;
-    if(!findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked);
-    findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked=true;
-    waitForObject(":Planner Code.Save_QPushButton");
-    clickButton(":Planner Code.Save_QPushButton");
-    waitForObject(":List Planner Codes._plancode_XTreeWidget");
-    if(!clickItem(":List Planner Codes._plancode_XTreeWidget", "MRP-ITEMS", 5, 5, 1, Qt.LeftButton))
-        test.pass("Planner Code: MRP-ITEMS created");
-      
-    waitForObject(":List Planner Codes.Close_QPushButton_2");
-    clickButton(":List Planner Codes.Close_QPushButton_2");
-    test.log("Planner Codes created");
-  
-    
-    //--------------Schedule: Site week--------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
-    waitForObject(":_warehouse.Selected:_QRadioButton_3");
-    clickButton(":_warehouse.Selected:_QRadioButton_3");
-    waitForObject(":_warehouse._warehouses_WComboBox_4");
-    while(findObject(":_warehouse._warehouses_WComboBox_4").currentText!="WH1")
+    if(appVersion=="manufacturing"||appVersion=="standard")
     {
-        type(":_warehouse._warehouses_WComboBox_4", "<Down>");
+    
+        //----------------Schedule: Create Planner Code----------------
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
+        activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Planner Codes...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Planner Codes...");
+        
+        waitForObject(":List Planner Codes.New_QPushButton_2");
+        clickButton(":List Planner Codes.New_QPushButton_2");
+        waitForObject(":_code_XLineEdit_6");
+        type(":_code_XLineEdit_6", "MPS-ITEMS");
+        type(":_description_XLineEdit_16", "MPS Items");
+        if(!findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked)
+            findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked=true;
+        if(!findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked);
+        findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked=true;
+        waitForObject(":Planner Code.Save_QPushButton");
+        clickButton(":Planner Code.Save_QPushButton");
+        waitForObject(":List Planner Codes._plancode_XTreeWidget");
+        if(!clickItem(":List Planner Codes._plancode_XTreeWidget", "MPS-ITEMS", 5, 5, 1, Qt.LeftButton))
+            test.pass("Planner Code: MPS-ITEMS created");
+        
+        
+        waitForObject(":List Planner Codes.New_QPushButton_2");
+        clickButton(":List Planner Codes.New_QPushButton_2");
+        waitForObject(":_code_XLineEdit_6");
+        type(":_code_XLineEdit_6", "MRP-ITEMS");
+        type(":_description_XLineEdit_16", "MRP Items");
+        if(!findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked)
+            findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked=true;
+        if(!findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked);
+        findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked=true;
+        waitForObject(":Planner Code.Save_QPushButton");
+        clickButton(":Planner Code.Save_QPushButton");
+        waitForObject(":List Planner Codes._plancode_XTreeWidget");
+        if(!clickItem(":List Planner Codes._plancode_XTreeWidget", "MRP-ITEMS", 5, 5, 1, Qt.LeftButton))
+            test.pass("Planner Code: MRP-ITEMS created");
+        
+        waitForObject(":List Planner Codes.Close_QPushButton_2");
+        clickButton(":List Planner Codes.Close_QPushButton_2");
+        test.log("Planner Codes created");
+        
+        
+        //--------------Schedule: Site week--------------
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
+        activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
+        waitForObject(":_warehouse.Selected:_QRadioButton_3");
+        clickButton(":_warehouse.Selected:_QRadioButton_3");
         waitForObject(":_warehouse._warehouses_WComboBox_4");
-    }
-    waitForObject(":Site Work Week.Sunday_QCheckBox_2");
-    if(findObject(":Site Work Week.Sunday_QCheckBox_2").checked)
-        findObject(":Site Work Week.Sunday_QCheckBox_2").checked=false;
-    if(!findObject(":Site Work Week.Monday_QCheckBox_2").checked)
-        findObject(":Site Work Week.Monday_QCheckBox_2").checked=true;
-    if(!findObject(":Site Work Week.Monday_QCheckBox_2").checked)
-        findObject(":Site Work Week.Monday_QCheckBox_2").checked=true;
-    if(!findObject(":Site Work Week.Tuesday_QCheckBox_2").checked)
-        findObject(":Site Work Week.Tuesday_QCheckBox_2").checked=true;
-    if(!findObject(":Site Work Week.Wednesday_QCheckBox_2").checked)
-        findObject(":Site Work Week.Wednesday_QCheckBox_2").checked=true;
-    if(!findObject(":Site Work Week.Thursday_QCheckBox_2").checked)
-        findObject(":Site Work Week.Thursday_QCheckBox_2").checked=true;
-    if(!findObject(":Site Work Week.Friday_QCheckBox_2").checked)
-        findObject(":Site Work Week.Friday_QCheckBox_2").checked=true;
-    if(findObject(":Site Work Week.Saturday_QCheckBox_2").checked)
-        findObject(":Site Work Week.Saturday_QCheckBox_2").checked=false;
-    waitForObject(":Site Work Week.Save_QPushButton_2");
-    clickButton(":Site Work Week.Save_QPushButton_2");
-    test.log("Site Week created");
- 
-    
-    //----------Schedule: Site Calendar Exceptions---------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Calendar Exceptions...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Calendar Exceptions...");
-     
-    waitForObject(":List Site Calendar Exceptions.New_QPushButton_2");
-    clickButton(":List Site Calendar Exceptions.New_QPushButton_2");
-    waitForObject(":_warehouse.Selected:_QRadioButton_4");
-    clickButton(":_warehouse.Selected:_QRadioButton_4");
-    waitForObject(":_warehouse._warehouses_WComboBox_5");
-    while(findObject(":_warehouse._warehouses_WComboBox_5").currentText!="WH1")
-    {
-        type(":_warehouse._warehouses_WComboBox_5", "<Down>");
+        while(findObject(":_warehouse._warehouses_WComboBox_4").currentText!="WH1")
+        {
+            type(":_warehouse._warehouses_WComboBox_4", "<Down>");
+            waitForObject(":_warehouse._warehouses_WComboBox_4");
+        }
+        waitForObject(":Site Work Week.Sunday_QCheckBox_2");
+        if(findObject(":Site Work Week.Sunday_QCheckBox_2").checked)
+            findObject(":Site Work Week.Sunday_QCheckBox_2").checked=false;
+        if(!findObject(":Site Work Week.Monday_QCheckBox_2").checked)
+            findObject(":Site Work Week.Monday_QCheckBox_2").checked=true;
+        if(!findObject(":Site Work Week.Monday_QCheckBox_2").checked)
+            findObject(":Site Work Week.Monday_QCheckBox_2").checked=true;
+        if(!findObject(":Site Work Week.Tuesday_QCheckBox_2").checked)
+            findObject(":Site Work Week.Tuesday_QCheckBox_2").checked=true;
+        if(!findObject(":Site Work Week.Wednesday_QCheckBox_2").checked)
+            findObject(":Site Work Week.Wednesday_QCheckBox_2").checked=true;
+        if(!findObject(":Site Work Week.Thursday_QCheckBox_2").checked)
+            findObject(":Site Work Week.Thursday_QCheckBox_2").checked=true;
+        if(!findObject(":Site Work Week.Friday_QCheckBox_2").checked)
+            findObject(":Site Work Week.Friday_QCheckBox_2").checked=true;
+        if(findObject(":Site Work Week.Saturday_QCheckBox_2").checked)
+            findObject(":Site Work Week.Saturday_QCheckBox_2").checked=false;
+        waitForObject(":Site Work Week.Save_QPushButton_2");
+        clickButton(":Site Work Week.Save_QPushButton_2");
+        test.log("Site Week created");
+        
+        
+        //----------Schedule: Site Calendar Exceptions---------------
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
+        activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Calendar Exceptions...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Calendar Exceptions...");
+        
+        waitForObject(":List Site Calendar Exceptions.New_QPushButton_2");
+        clickButton(":List Site Calendar Exceptions.New_QPushButton_2");
+        waitForObject(":_warehouse.Selected:_QRadioButton_4");
+        clickButton(":_warehouse.Selected:_QRadioButton_4");
         waitForObject(":_warehouse._warehouses_WComboBox_5");
-    }
-    var d = new Date();
-    var CurrentYearFull = d.getFullYear();
-    var CurrentYear = CurrentYearFull.toString().slice(2);
-   
-    waitForObject(":_description_QLineEdit_2");
-    type(":_description_QLineEdit_2", "Christmas "+CurrentYearFull);
-    waitForObject(":Site Calendar Exception.XDateEdit_XDateEdit");
-    type(":Site Calendar Exception.XDateEdit_XDateEdit", "12/25/"+CurrentYear);
-    type(":Site Calendar Exception.XDateEdit_XDateEdit_2", "12/26/"+CurrentYear);
-    type(":Site Calendar Exception.XDateEdit_XDateEdit_2", "<Tab>");
-    waitForObject(":Exception Type.Closed_QRadioButton_2");
-    clickButton(":Exception Type.Closed_QRadioButton_2");
-    waitForObject(":Site Calendar Exception.Save_QPushButton");
-    clickButton(":Site Calendar Exception.Save_QPushButton");
-    waitForObject(":List Site Calendar Exceptions.Close_QPushButton_2");
-    if(!clickItem(":List Site Calendar Exceptions._whsecal_XTreeWidget", "Christmas "+CurrentYearFull, 5, 5, 1, Qt.LeftButton))
-        test.pass("Calendar Exception: Christmas "+CurrentYearFull+" created");
-    clickButton(":List Site Calendar Exceptions.Close_QPushButton_2");
+        while(findObject(":_warehouse._warehouses_WComboBox_5").currentText!="WH1")
+        {
+            type(":_warehouse._warehouses_WComboBox_5", "<Down>");
+            waitForObject(":_warehouse._warehouses_WComboBox_5");
+        }
+        var d = new Date();
+        var CurrentYearFull = d.getFullYear();
+        var CurrentYear = CurrentYearFull.toString().slice(2);
+        
+        waitForObject(":_description_QLineEdit_2");
+        type(":_description_QLineEdit_2", "Christmas "+CurrentYearFull);
+        waitForObject(":Site Calendar Exception.XDateEdit_XDateEdit");
+        type(":Site Calendar Exception.XDateEdit_XDateEdit", "12/25/"+CurrentYear);
+        type(":Site Calendar Exception.XDateEdit_XDateEdit_2", "12/26/"+CurrentYear);
+        type(":Site Calendar Exception.XDateEdit_XDateEdit_2", "<Tab>");
+        waitForObject(":Exception Type.Closed_QRadioButton_2");
+        clickButton(":Exception Type.Closed_QRadioButton_2");
+        waitForObject(":Site Calendar Exception.Save_QPushButton");
+        clickButton(":Site Calendar Exception.Save_QPushButton");
+        waitForObject(":List Site Calendar Exceptions.Close_QPushButton_2");
+        if(!clickItem(":List Site Calendar Exceptions._whsecal_XTreeWidget", "Christmas "+CurrentYearFull, 5, 5, 1, Qt.LeftButton))
+            test.pass("Calendar Exception: Christmas "+CurrentYearFull+" created");
+        clickButton(":List Site Calendar Exceptions.Close_QPushButton_2");
  
-   
+    }
+    
+    if(appVersion=="postbooks")
+    {
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
+            activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Planner Codes...");
+            activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Planner Codes...");
+            waitForObject(":List Planner Codes.New_QPushButton");
+            clickButton(":List Planner Codes.New_QPushButton");
+            waitForObject(":_code_XLineEdit_4");
+            type(":_code_XLineEdit_4", "MRP-Items");
+            type(":_description_XLineEdit_10", "MRP Items");
+            clickButton(":List Planner Codes.Automatically Explode Planned Orders_QCheckBox");
+            clickButton(":_explosionGroup.Multiple Level Explosion_QRadioButton");
+            clickButton(":List Planner Codes.Save_QPushButton");
+            waitForObject(":List Planner Codes.New_QPushButton");
+            clickButton(":List Planner Codes.New_QPushButton");
+            waitForObject(":_code_XLineEdit_4");
+            type(":_code_XLineEdit_4", "MPS-Items");
+            type(":_description_XLineEdit_10", "MPS Items");
+            clickButton(":List Planner Codes.Automatically Explode Planned Orders_QCheckBox");
+            clickButton(":_explosionGroup.Multiple Level Explosion_QRadioButton");
+            clickButton(":List Planner Codes.Save_QPushButton");
+            waitForObject(":List Planner Codes._plancode_XTreeWidget");
+            if(!clickItem(":List Planner Codes._plancode_XTreeWidget", "MRP-ITEMS", 5, 5, 1, Qt.LeftButton))
+                test.pass("Planner Code: MRP-ITEMS created");
+            
+            waitForObject(":List Planner Codes.Close_QPushButton_2");
+            clickButton(":List Planner Codes.Close_QPushButton_2");
+            test.log("Planner Codes created");
+    }
+    
    
 }
