@@ -1,7 +1,5 @@
 function executeChapter12(appVersion)
 {
-
-
     //---------Assign Tax Authority for Customer----------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -27,8 +25,6 @@ function executeChapter12(appVersion)
     waitForObject(":Ship-To._taxauth_XComboBox");
     type(":Ship-To._taxauth_XComboBox", "TAX-AUTH1");
     clickButton(":Ship-To.Save_QPushButton");
-    
-    
     waitForObject(":Customer.Save_QPushButton");
     clickButton(":Customer.Save_QPushButton");
     waitForObject(":List Customers.Close_QPushButton_2");

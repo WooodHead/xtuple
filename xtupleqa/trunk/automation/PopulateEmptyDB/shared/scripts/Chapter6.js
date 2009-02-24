@@ -20,8 +20,7 @@ function executeChapter6(appVersion)
 
     waitForObject(":List User-Defined Costing Elements.Close_QPushButton");
     clickButton(":List User-Defined Costing Elements.Close_QPushButton");
-  
-    
+      
     
     //-------------Maintain Item Costs------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -160,7 +159,6 @@ function executeChapter6(appVersion)
     waitForObject(":Post Actual Costs by Class Code.Post_QPushButton");
     clickButton(":Post Actual Costs by Class Code.Post_QPushButton");
     test.log("Posted Actual Costs");
-    
     
     //-------------Verify standard and actual cost in Intended Costed BOM---------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");

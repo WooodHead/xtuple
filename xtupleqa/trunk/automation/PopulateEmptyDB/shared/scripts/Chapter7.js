@@ -158,8 +158,6 @@ function executeChapter7(appVersion)
     clickButton(":List Terms.Close_QPushButton");
 
     
-    
-    
     //-------------Define: Reject Codes-----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");

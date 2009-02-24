@@ -18,10 +18,8 @@ function executeChapter3(appVersion)
     waitForObject(":Chart of Accounts.Close_QPushButton_2");
     clickButton(":Chart of Accounts.Close_QPushButton_2");
 
-    
     //-----Define Taxation------
     defineTaxation();
-  
     
     //----------Create Items---------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");

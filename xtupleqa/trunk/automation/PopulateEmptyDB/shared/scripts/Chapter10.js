@@ -21,7 +21,6 @@ function executeChapter10(appVersion)
     waitForObject(":List Check Formats._form_XTreeWidget");
     if(!clickItem(":List Check Formats._form_XTreeWidget", "GENERIC-CHECK", 5, 5, 1, Qt.LeftButton))
          test.pass("Incident Resolution created : Replace");
-    
     waitForObject(":List Check Formats.Close_QPushButton");
     clickButton(":List Check Formats.Close_QPushButton");
    
@@ -224,7 +223,7 @@ function executeChapter10(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Fiscal Calendar_QMenu", "Accounting Periods...");
     activateItem(":xTuple ERP: OpenMFG Edition.Fiscal Calendar_QMenu", "Accounting Periods...");
-       
+     
     for(loop=0;loop<2; loop++,CurrentYearFull++) //for two years
     {
       var CurrentYear = CurrentYearFull.toString().slice(2);

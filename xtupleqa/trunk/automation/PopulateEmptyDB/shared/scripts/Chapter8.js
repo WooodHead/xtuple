@@ -96,8 +96,6 @@ function executeChapter8(appVersion)
     waitForObject(":List Shipping Zones._shipzone_XTreeWidget");
     if(!clickItem(":List Shipping Zones._shipzone_XTreeWidget", "DOMESTIC1", 5, 5, 1, Qt.LeftButton))
         test.pass("Shipping Zone created: DOMESTIC1");
-    
-    
     waitForObject(":List Shipping Zones.New_QPushButton");
     clickButton(":List Shipping Zones.New_QPushButton");
     waitForObject(":_name_XLineEdit_10");
@@ -109,7 +107,6 @@ function executeChapter8(appVersion)
     if(!clickItem(":List Shipping Zones._shipzone_XTreeWidget", "DOMESTIC2", 5, 5, 1, Qt.LeftButton))
         test.pass("Shipping Zone created: DOMESTIC2");
     
-    
     waitForObject(":List Shipping Zones.New_QPushButton");
     clickButton(":List Shipping Zones.New_QPushButton");
     waitForObject(":_name_XLineEdit_10");
@@ -120,8 +117,6 @@ function executeChapter8(appVersion)
     waitForObject(":List Shipping Zones._shipzone_XTreeWidget");
     if(!clickItem(":List Shipping Zones._shipzone_XTreeWidget", "DOMESTIC3", 5, 5, 1, Qt.LeftButton))
         test.pass("Shipping Zone created: DOMESTIC3");
-    
-    
     waitForObject(":List Shipping Zones.New_QPushButton");
     clickButton(":List Shipping Zones.New_QPushButton");
     waitForObject(":_name_XLineEdit_10");
@@ -132,9 +127,6 @@ function executeChapter8(appVersion)
     waitForObject(":List Shipping Zones._shipzone_XTreeWidget");
     if(!clickItem(":List Shipping Zones._shipzone_XTreeWidget", "DOMESTIC4", 5, 5, 1, Qt.LeftButton))
         test.pass("Shipping Zone created: DOMESTIC4");
-    
-    
-    
     waitForObject(":List Shipping Zones.New_QPushButton");
     clickButton(":List Shipping Zones.New_QPushButton");
     waitForObject(":_name_XLineEdit_10");
@@ -168,8 +160,6 @@ function executeChapter8(appVersion)
     waitForObject(":List Ship Vias._shipvia_XTreeWidget");
     if(!clickItem(":List Ship Vias._shipvia_XTreeWidget", "UPS-GROUND", 5, 5, 1, Qt.LeftButton))
         test.pass("Shipping Vias created: UPS-GROUND");
-    
-    
     waitForObject(":List Ship Vias.New_QPushButton");
     clickButton(":List Ship Vias.New_QPushButton");
     waitForObject(":Ship Via._code_XLineEdit");
@@ -179,7 +169,6 @@ function executeChapter8(appVersion)
     waitForObject(":List Ship Vias._shipvia_XTreeWidget");
     if(!clickItem(":List Ship Vias._shipvia_XTreeWidget", "FEDEXGROUND", 5, 5, 1, Qt.LeftButton))
         test.pass("Shipping Vias created: FEDEXGROUND");
-    
     waitForObject(":List Ship Vias.Close_QPushButton");
     clickButton(":List Ship Vias.Close_QPushButton");
       
@@ -204,8 +193,6 @@ function executeChapter8(appVersion)
     waitForObject(":List Shipping Charge Types._shipchrg_XTreeWidget");
     if(!clickItem(":List Shipping Charge Types._shipchrg_XTreeWidget", "NOCHARGE", 5, 5, 1, Qt.LeftButton))
         test.pass("Shipping Charges Types created: NOCHARGE");
-
-    
     waitForObject(":List Shipping Charge Types.New_QPushButton");
     clickButton(":List Shipping Charge Types.New_QPushButton");
     waitForObject(":Shipping Charge Type._name_XLineEdit");

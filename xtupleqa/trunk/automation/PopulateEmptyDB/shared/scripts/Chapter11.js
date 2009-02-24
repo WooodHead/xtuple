@@ -50,8 +50,6 @@ function executeChapter11(appVersion)
     type(":_altSubtotalLabel_QLineEdit", "Total Expenses");
     clickButton(":Operation.Subtract from Group Total_QRadioButton");
     clickButton(":Financial Report Group.Save_QPushButton");
- 
-    
     waitForObject(":frame._layout_XTreeWidget");
     clickItem(":frame._layout_XTreeWidget", "REVENUE", 5, 5, 1, Qt.LeftButton);
     clickButton(":frame.Add Group_QPushButton");
@@ -69,8 +67,6 @@ function executeChapter11(appVersion)
     type(":_altSubtotalLabel_QLineEdit", "Total Sales");
     clickButton(":Operation.Add to Group Total_QRadioButton");
     clickButton(":Financial Report Group.Save_QPushButton");
-   
-    
     waitForObject(":frame._layout_XTreeWidget");
     clickItem(":frame._layout_XTreeWidget", "REVENUE", 5, 5, 1, Qt.LeftButton);
     clickButton(":frame.Add Group_QPushButton");
@@ -88,8 +84,6 @@ function executeChapter11(appVersion)
     type(":_altSubtotalLabel_QLineEdit", "Total Other Revenue");
     clickButton(":Operation.Add to Group Total_QRadioButton");
     clickButton(":Financial Report Group.Save_QPushButton");
-    
-    
     waitForObject(":frame._layout_XTreeWidget");
     clickItem(":frame._layout_XTreeWidget", "REVENUE", 5, 5, 1, Qt.LeftButton);
     clickButton(":frame.Add Group_QPushButton");
@@ -126,7 +120,6 @@ function executeChapter11(appVersion)
     type(":_altSubtotalLabel_QLineEdit", "Total General Expenses");
     clickButton(":Operation.Add to Group Total_QRadioButton");
     clickButton(":Financial Report Group.Save_QPushButton");
-    
     waitForObject(":frame._layout_XTreeWidget");
     clickItem(":frame._layout_XTreeWidget", "EXPENSES", 5, 5, 1, Qt.LeftButton);
     clickButton(":frame.Add Group_QPushButton");
@@ -144,10 +137,7 @@ function executeChapter11(appVersion)
     type(":_altSubtotalLabel_QLineEdit", "Total Depreciation Expenses");
     clickButton(":Operation.Add to Group Total_QRadioButton");
     clickButton(":Financial Report Group.Save_QPushButton");
-    
     clickButton(":Financial Report.Save_QPushButton");
-  
-
     waitForObject(":List Financial Reports._flhead_XTreeWidget");
     doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "Official Income Statement", 5, 5, 0, Qt.LeftButton);     waitForObject(":Financial Report.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Financial Report.qt_tabwidget_tabbar_QTabBar", "Options");

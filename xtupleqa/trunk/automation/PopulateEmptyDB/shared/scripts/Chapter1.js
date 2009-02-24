@@ -165,13 +165,13 @@ function executeChapter1(appVersion)
 
   
   
-  //------------Account-Account-SubAccount Types-----------------
-  waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-  activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Types...");
-  activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Types...");
+    //------------Account-Account-SubAccount Types-----------------
+    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Types...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Types...");
 
   
     //--------------SubAccount Types: SO-Revenue-Other Revenue------------------

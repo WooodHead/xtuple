@@ -449,8 +449,7 @@ function executeChapter4(appVersion)
   type(":_scrap_XLineEdit", "10");
    if(appVersion=="manufacturing")
   {
- 
-       clickButton(":Bill of Materials Item...._QPushButton");
+        clickButton(":Bill of Materials Item...._QPushButton");
        waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
        doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly _1", 5, 5, 0, Qt.LeftButton);
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
@@ -469,6 +468,6 @@ function executeChapter4(appVersion)
   waitForObject(":Bills of Materials.Close_QPushButton");
   clickButton(":Bills of Materials.Close_QPushButton");
     
-     
-    
 }
+
+

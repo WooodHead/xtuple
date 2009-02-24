@@ -249,7 +249,7 @@ function executeChapter2(appVersion)
     waitForObject(":List Expense Categories.Close_QPushButton_2");
     clickButton(":List Expense Categories.Close_QPushButton_2");
   
-//
+
   
     //------------------Inventor: create site Locations--------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
@@ -284,10 +284,6 @@ function executeChapter2(appVersion)
     waitForObject(":List Site Locations._location_XTreeWidget");
     if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-01 in Zone RM1", 5, 5, 1, Qt.LeftButton))
         test.pass("Location 01-01-01-01 in Zone RM1 created");
-   
-    
-    
-    
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
@@ -309,11 +305,7 @@ function executeChapter2(appVersion)
     waitForObject(":List Site Locations._location_XTreeWidget");
     if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-02 in Zone RM1", 5, 5, 1, Qt.LeftButton))
         test.pass("Location 01-01-01-02 in Zone RM1 created");
- 
-    
-    
-    
-    
+   
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
@@ -382,9 +374,6 @@ function executeChapter2(appVersion)
     waitForObject(":List Site Locations._location_XTreeWidget");
     if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-02 in Zone FG1", 5, 5, 1, Qt.LeftButton))
         test.pass("Location 01-01-01-02 in Zone FG1 created");
- 
-    
-    
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");

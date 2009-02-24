@@ -25,8 +25,6 @@ function executeChapter9(appVersion)
     waitForObject(":List Incident Categories._incidentCategories_XTreeWidget");
     if(clickItem(":List Incident Categories._incidentCategories_XTreeWidget", "Product", 5, 5, 1, Qt.LeftButton))
         test.pass("Incident Categories created for: Product");
-    
-   
     waitForObject(":List Incident Categories.New_QPushButton");
     clickButton(":List Incident Categories.New_QPushButton");
     waitForObject(":_name_XLineEdit_14");
@@ -40,8 +38,6 @@ function executeChapter9(appVersion)
     waitForObject(":List Incident Categories._incidentCategories_XTreeWidget");
     if(clickItem(":List Incident Categories._incidentCategories_XTreeWidget", "Customer", 5, 5, 1, Qt.LeftButton))
         test.pass("Incident Categories created for: Customer");
-    
-    
     waitForObject(":List Incident Categories.New_QPushButton");
     clickButton(":List Incident Categories.New_QPushButton");
     waitForObject(":_name_XLineEdit_14");

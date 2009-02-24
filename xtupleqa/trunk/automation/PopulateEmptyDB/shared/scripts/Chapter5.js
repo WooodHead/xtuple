@@ -1,7 +1,6 @@
 function executeChapter5(appVersion)
 {
-  source(findFile("scripts","functions.js"));
-
+    source(findFile("scripts","functions.js"));
     
     //----------Create Items---------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -428,6 +427,5 @@ function executeChapter5(appVersion)
         clickButton(":List Production Plans.Close_QPushButton");
  
     }
-    
-    
+        
 }
