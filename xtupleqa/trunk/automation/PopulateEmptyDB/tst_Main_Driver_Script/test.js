@@ -24,6 +24,15 @@ function main()
     
     
     var version = "3.2.1";
+<<<<<<< .mine
+    var dbname = "2empty321-standard";
+    var appVersion = "standard"; //"manufactuing"/"postbooks"/"standard"
+   
+    loginAppl(version, dbname,"admin"); 
+    executeChapter1(appVersion);
+    exitAppl(); //exit and login with new user created
+    startApplication("xtuple");
+=======
     var dbname = "2empty321-postbooks";
     var appVersion = "postbooks"; //"manufactuing"/"postbooks"/"standard"
   
@@ -32,7 +41,21 @@ function main()
 //    executeChapter1(appVersion);
 //    exitAppl(); //exit and login with new user created
 //    startApplication("xtuple");
+>>>>>>> .r5304
     loginAppl(version, dbname,"user01"); //login with the new user created
+<<<<<<< .mine
+    executeChapter2(appVersion);
+    executeChapter3(appVersion);
+    executeChapter4(appVersion);
+    executeChapter5(appVersion);
+    executeChapter6(appVersion);
+    executeChapter7(appVersion);
+    executeChapter8(appVersion);
+    executeChapter9(appVersion);
+    executeChapter10(appVersion);
+    executeChapter11(appVersion);
+    executeChapter12(appVersion);
+=======
 //    executeChapter2(appVersion);
 //    executeChapter3(appVersion);
     executeChapter4(appVersion);
@@ -44,5 +67,6 @@ function main()
     executeChapter10(appVersion);
     executeChapter11(appVersion);
     executeChapter12(appVersion)
+>>>>>>> .r5304
     exitAppl();	
 }
