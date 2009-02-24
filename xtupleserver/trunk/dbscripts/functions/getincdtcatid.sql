@@ -1,4 +1,5 @@
-CREATE OR REPLACE FUNCTION getIncdtCatId(text) RETURNS INTEGER AS '
+
+CREATE OR REPLACE FUNCTION getIncdtCatId(text) RETURNS INTEGER AS $$
 DECLARE
   pIncdtCatName ALIAS FOR $1;
   _returnVal INTEGER;
@@ -12,9 +13,10 @@ BEGIN
   WHERE (incdtcat_name=pIncdtCatName);
 
   IF (_returnVal IS NULL) THEN
-	RAISE EXCEPTION ''Incident Category Name % not found.'', pIncdtCatName;
+	RAISE EXCEPTION 'Incident Category Name % not found.', pIncdtCatName;
   END IF;
 
   RETURN _returnVal;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
+
