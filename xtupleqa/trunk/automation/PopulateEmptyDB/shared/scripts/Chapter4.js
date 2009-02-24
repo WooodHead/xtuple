@@ -5,7 +5,6 @@ function executeChapter4(appVersion)
     if(appVersion=="manufacturing")
     {
   
-<<<<<<< .mine
         //-------------Standard Labor Rate -------------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -308,8 +307,6 @@ function executeChapter4(appVersion)
   
 }
   
-=======
->>>>>>> .r5304
    //---------------Create BOM for Items---------------------
   waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
   activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
