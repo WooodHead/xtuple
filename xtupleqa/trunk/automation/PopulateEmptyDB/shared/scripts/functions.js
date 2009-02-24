@@ -54,8 +54,6 @@ function loginAppl(vrsn,database,usr)
 }
 
 
-
-
 //-----------Assign All Privileges to the Admin User-----------------------
 function assignPrivileges()
 {
