@@ -1,6 +1,6 @@
-function executeChapter7()
+function executeChapter7(appVersion)
 {
-source(findFile("scripts","functions.js"));
+    source(findFile("scripts","functions.js"));
   
     //--------Configure: Purchase Module-------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");

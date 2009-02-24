@@ -1,4 +1,4 @@
-function executeChapter6()
+function executeChapter6(appVersion)
 {
 
     //---------Define: User defined costing element----------------

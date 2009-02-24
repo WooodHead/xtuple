@@ -1,8 +1,6 @@
-function executeChapter9()
+function executeChapter9(appVersion)
 {
-  source(findFile("scripts","functions.js"));
-  
-
+    source(findFile("scripts","functions.js"));
   
     //---------Define: Incident Categories----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");

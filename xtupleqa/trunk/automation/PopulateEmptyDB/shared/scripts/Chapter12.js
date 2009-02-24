@@ -1,4 +1,4 @@
-function executeChapter12()
+function executeChapter12(appVersion)
 {
 
 
@@ -34,6 +34,6 @@ function executeChapter12()
     waitForObject(":List Customers.Close_QPushButton_2");
     clickButton(":List Customers.Close_QPushButton_2");
     test.log("Tax Authority assigned for Customer: NORMAL");
-    test.log("-**-Empty database staged for further transactions-**-");
+    test.log("--Empty database staged for further transactions--");
     
 }

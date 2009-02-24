@@ -1,6 +1,6 @@
-function executeChapter11()
+function executeChapter11(appVersion)
 { 
-      
+    
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Financial Statements");
@@ -572,6 +572,7 @@ function executeChapter11()
   
     waitForObject(":Financial Report.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Financial Report.qt_tabwidget_tabbar_QTabBar", "Options");
+    waitForObject(":_options.Show Grand Total_QCheckBox");
     if(!findObject(":_options.Show Grand Total_QCheckBox").checked)
         clickButton(":_options.Show Grand Total_QCheckBox");
     if(findObject(":Alternate Labels.Alternate Budget:_QCheckBox").checked)

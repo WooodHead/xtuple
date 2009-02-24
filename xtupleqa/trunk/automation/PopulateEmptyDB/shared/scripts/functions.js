@@ -226,24 +226,9 @@ function createLocale(LocaleCode,LocaleDesc)
     type(":_comments_QTextEdit", "My Locale for Class");
     waitForObject(":List Locales.Save_QPushButton");
     clickButton(":List Locales.Save_QPushButton");
-    var sWidgetTreeControl = ":List Locales._locale_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    for(i=1;sNameOfRootItem!="MYLOCALE" || i<iNumberOfRootItems ;i++)
-    {
-        type(sWidgetTreeControl,"<Down>");           
-        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
-        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    }
-    if(sNameOfRootItem=="MYLOCALE")
-        test.pass("New Locale:'"+LocaleCode+"' created ");
-    else
-        test.fail("New Locale:'"+LocaleCode+"' not created ");
+    if(!clickItem(":List Locales._locale_XTreeWidget","MYLOCALE", 5, 5, 1, Qt.LeftButton))
+        test.pass("Locale created: MYLOCALE");
+    
     waitForObject(":List Locales.Close_QPushButton");
     clickButton(":List Locales.Close_QPushButton");
    

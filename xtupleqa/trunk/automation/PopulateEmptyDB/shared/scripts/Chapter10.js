@@ -1,7 +1,8 @@
-function executeChapter10()
+function executeChapter10(appVersion)
 {
    source(findFile("scripts","functions.js"));
-  
+   
+
     //--------------Define: Check Formats-------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -61,35 +62,37 @@ function executeChapter10()
     waitForObject(":Chart of Accounts.Close_QPushButton_2");
     clickButton(":Chart of Accounts.Close_QPushButton_2");
  
+    if(appVersion=="manufacturing"||appVersion=="standard")
+    {
      
-    //---------------Configure ACH in Accounting-------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
-    
-    waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
-    clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
-    waitForObject(":tab.Enable ACH Check Printing_QGroupBox");
-    if(!findObject(":tab.Enable ACH Check Printing_QGroupBox").checked)
-        type(":tab.Enable ACH Check Printing_QGroupBox"," ");
-    type(":_nextACHBatchNumber_XLineEdit", "<Ctrl+A>");
-    type(":_nextACHBatchNumber_XLineEdit", "<Del>");
-    type(":_nextACHBatchNumber_XLineEdit", "10000");
-    type(":_companyId_XLineEdit", "<Ctrl+A>");
-    type(":_companyId_XLineEdit", "<Del>");
-    type(":_companyId_XLineEdit", "987654");
-    clickButton(":Enable ACH Check Printing.Other_QRadioButton");
-    type(":_companyName_XLineEdit", "ProDiem Inc.");
-    type(":Enable ACH Check Printing._achSuffix_QComboBox",".dat");
-    clickButton(":Accounting Configuration.Save_QPushButton");
-    waitForObject(":Set Encryption?.No_QPushButton");
-    clickButton(":Set Encryption?.No_QPushButton");
-    test.log("Accounting for ACH configured");
+        //---------------Configure ACH in Accounting-------------
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
+        
+        waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
+        waitForObject(":tab.Enable ACH Check Printing_QGroupBox");
+        if(!findObject(":tab.Enable ACH Check Printing_QGroupBox").checked)
+            type(":tab.Enable ACH Check Printing_QGroupBox"," ");
+        type(":_nextACHBatchNumber_XLineEdit", "<Ctrl+A>");
+        type(":_nextACHBatchNumber_XLineEdit", "<Del>");
+        type(":_nextACHBatchNumber_XLineEdit", "10000");
+        type(":_companyId_XLineEdit", "<Ctrl+A>");
+        type(":_companyId_XLineEdit", "<Del>");
+        type(":_companyId_XLineEdit", "987654");
+        clickButton(":Enable ACH Check Printing.Other_QRadioButton");
+        type(":_companyName_XLineEdit", "ProDiem Inc.");
+        type(":Enable ACH Check Printing._achSuffix_QComboBox",".dat");
+        clickButton(":Accounting Configuration.Save_QPushButton");
+        waitForObject(":Set Encryption?.No_QPushButton");
+        clickButton(":Set Encryption?.No_QPushButton");
+        test.log("Accounting for ACH configured");
 
-    
+    }
     
     
     //---------------Define: Bank Accounts------------------

@@ -1,4 +1,4 @@
-function executeChapter8()
+function executeChapter8(appVersion)
 {
     //----------Create Customer Type------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -456,8 +456,8 @@ function executeChapter8()
     waitForObject(":List Forms.Close_QPushButton");
     clickButton(":List Forms.Close_QPushButton");
     test.log("System: Forms defined");
-    
-    
+  
+  
     //------------Configure Sales Module------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -470,9 +470,13 @@ function executeChapter8()
        type(":Sales Configuration._orderNumGeneration_QComboBox", "Automatic");
     type(":Sales Configuration._nextSoNumber_XLineEdit", "50000");
     type(":Sales Configuration._nextQuNumber_XLineEdit", "40000");
-    if(findObject(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox").currentText!="Automatic, Use R/A #’s");
-       type(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox", "Automatic,");
-    type(":Sales Configuration._nextRaNumber_XLineEdit", "80000");
+    if(appVersion=="manufacturing"||appVersion=="standard")
+    {
+        if(findObject(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox").currentText!="Automatic, Use R/A #’s");
+        type(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox", "Automatic,");
+         type(":Sales Configuration._nextRaNumber_XLineEdit", "80000");
+   }
+   
     if(findObject(":Sales Configuration._creditMemoNumGeneration_QComboBox").currentText!="Automatic, Use C/M #'s")
         type(":Sales Configuration._creditMemoNumGeneration_QComboBox", "Automatic,");
     type(":Sales Configuration._nextCmNumber_XLineEdit", "70000");
@@ -489,25 +493,28 @@ function executeChapter8()
     clickTab(":Sales Configuration.qt_tabwidget_tabbar_QTabBar", "Customer Defaults");
     waitForObject(":groupBox_6._creditLimit_XLineEdit");
     type(":groupBox_6._creditLimit_XLineEdit", "20000");
-    clickTab(":Sales Configuration.qt_tabwidget_tabbar_QTabBar", "Returns");
-    waitForObject(":_returns.Enable Return Authorizations_QGroupBox");
-    if(!findObject(":_returns.Enable Return Authorizations_QGroupBox").checked)
-        type(":_returns.Enable Return Authorizations_QGroupBox"," ");
-    if(!findObject(":Enable Return Authorizations.Post Return Authorization Changes to the Change Log_QCheckBox").checked)
-        clickButton(":Enable Return Authorizations.Post Return Authorization Changes to the Change Log_QCheckBox");
-    if(findObject(":Enable Return Authorizations._disposition_XComboBox").currentText!="Return")
-        type(":Enable Return Authorizations._disposition_XComboBox", "Return");
-    if(findObject(":Enable Return Authorizations._timing_XComboBox").currentText!="Upon Receipt")
-        type(":Enable Return Authorizations._timing_XComboBox", "Upon");
-    if(findObject(":Enable Return Authorizations._creditBy_XComboBox").currentText!= "Check")
-        type(":Enable Return Authorizations._creditBy_XComboBox", "Check");
-    if(!findObject(":Enable Return Authorizations.Check Print On Save by Default_QCheckBox").checked)
-        clickButton(":Enable Return Authorizations.Check Print On Save by Default_QCheckBox");
+    if(appVersion=="manufacturing"||appVersion=="standard")
+    {
+        clickTab(":Sales Configuration.qt_tabwidget_tabbar_QTabBar", "Returns");
+        waitForObject(":_returns.Enable Return Authorizations_QGroupBox");
+        if(!findObject(":_returns.Enable Return Authorizations_QGroupBox").checked)
+            type(":_returns.Enable Return Authorizations_QGroupBox"," ");
+        if(!findObject(":Enable Return Authorizations.Post Return Authorization Changes to the Change Log_QCheckBox").checked)
+            clickButton(":Enable Return Authorizations.Post Return Authorization Changes to the Change Log_QCheckBox");
+        if(findObject(":Enable Return Authorizations._disposition_XComboBox").currentText!="Return")
+            type(":Enable Return Authorizations._disposition_XComboBox", "Return");
+        if(findObject(":Enable Return Authorizations._timing_XComboBox").currentText!="Upon Receipt")
+            type(":Enable Return Authorizations._timing_XComboBox", "Upon");
+        if(findObject(":Enable Return Authorizations._creditBy_XComboBox").currentText!= "Check")
+            type(":Enable Return Authorizations._creditBy_XComboBox", "Check");
+        if(!findObject(":Enable Return Authorizations.Check Print On Save by Default_QCheckBox").checked)
+            clickButton(":Enable Return Authorizations.Check Print On Save by Default_QCheckBox");
+    }
     clickButton(":Sales Configuration.Save_QPushButton");
     test.log("Sales Module Configured");
-    
-    
-    
+  
+  
+  
     //------------Sales: Account Assignments-----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -524,9 +531,12 @@ function executeChapter8()
     type(":Sales Account Assignment._main_XLineEdit", "01-01-4000-01");
     type(":Sales Account Assignment._main_XLineEdit_2", "01-01-4800-01");
     type(":Sales Account Assignment._main_XLineEdit_3", "01-01-5000-01");
-    type(":Sales Account Assignment._main_XLineEdit_4", "01-01-4700-01");
-    type(":Sales Account Assignment._main_XLineEdit_5", "01-01-5710-01");
-    type(":Sales Account Assignment._main_XLineEdit_6", "01-01-5720-01");
+    if(appVersion=="manufacturing"||appVersion=="standard")
+    {
+        type(":Sales Account Assignment._main_XLineEdit_4", "01-01-4700-01");
+        type(":Sales Account Assignment._main_XLineEdit_5", "01-01-5710-01");
+        type(":Sales Account Assignment._main_XLineEdit_6", "01-01-5720-01");
+    }
     clickButton(":Sales Account Assignment.Save_QPushButton");
     waitForObject(":List Sales Account Assignments._salesaccnt_XTreeWidget");
     if(!clickItem(":List Sales Account Assignments._salesaccnt_XTreeWidget", "Any", 5, 5, 1, Qt.LeftButton))
@@ -555,8 +565,11 @@ function executeChapter8()
         type(":Defaults._shipchrg_XComboBox", "ADDCHARGE");
     if(!findObject(":Settings.Allow Free-Form Bill-To_QCheckBox").checked)
         clickButton(":Settings.Allow Free-Form Bill-To_QCheckBox");
-    if(findObject(":Settings._sellingWarehouse_WComboBox").currentText!= "WH1");
+    if(appVersion=="manufacturing"||appVersion=="standard")
+    {
+        if(findObject(":Settings._sellingWarehouse_WComboBox").currentText!= "WH1");
         type(":Settings._sellingWarehouse_WComboBox", "WH1");
+    }
     clickTab(":Customer.qt_tabwidget_tabbar_QTabBar", "Credit");
     waitForObject(":Defaults._defaultDiscountPrcnt_XLineEdit");
     type(":Defaults._defaultDiscountPrcnt_XLineEdit", "10");
@@ -773,53 +786,9 @@ function executeChapter8()
     if(!clickItem(":_ipshead_XTreeWidget", "BASE", 5, 5, 1, Qt.LeftButton))
         test.pass("Pricing Schedule created:BASE");
     
-    
-    
-    
-    //---------Define Pricing Schedule: FREIGHT-BULK----------------
-    waitForObject(":List Pricing Schedules.New_QPushButton");
-    clickButton(":List Pricing Schedules.New_QPushButton");
-    
-    waitForObject(":GroupBox1._name_XLineEdit_2");
-    type(":GroupBox1._name_XLineEdit_2", "FREIGHT-BULK");
-    type(":GroupBox1._descrip_XLineEdit_2", "Freight Pricing for Bulk Items");
-    waitForObject(":Pricing Schedule.New_QPushButton");
-    clickButton(":Pricing Schedule.New_QPushButton");
-    waitForObject(":_widgetStack._itemNumber_ItemLineEdit");
-    type(":_widgetStack._itemNumber_ItemLineEdit", "YTRUCK1");
-    
-    type(":_qtyBreak_XLineEdit_3", "0");
-    type(":_baseTab_XLineEdit", "9.99");
-    waitForObject(":Pricing Schedule Item.Save_QPushButton");
-    clickButton(":Pricing Schedule Item.Save_QPushButton");    
-    
-    waitForObject(":Pricing Schedule.New_QPushButton");
-    clickButton(":Pricing Schedule.New_QPushButton");
-    waitForObject(":_widgetStack._itemNumber_ItemLineEdit");
-    type(":_widgetStack._itemNumber_ItemLineEdit", "YTRUCK1");
-    type(":_qtyBreak_XLineEdit_3", "100");
-    type(":_baseTab_XLineEdit", "9.5");
-    waitForObject(":Pricing Schedule Item.Save_QPushButton");
-    clickButton(":Pricing Schedule Item.Save_QPushButton");    
-    
-    waitForObject(":Pricing Schedule.New_QPushButton");
-    clickButton(":Pricing Schedule.New_QPushButton");
-    waitForObject(":_widgetStack._itemNumber_ItemLineEdit");
-    type(":_widgetStack._itemNumber_ItemLineEdit", "YTRUCK1");
-    type(":_qtyBreak_XLineEdit_3", "500");
-    type(":_baseTab_XLineEdit", "9.25");
-    waitForObject(":Pricing Schedule Item.Save_QPushButton");
-    clickButton(":Pricing Schedule Item.Save_QPushButton");    
-    
-    waitForObject(":GroupBox1.Save_QPushButton_2");
-    clickButton(":GroupBox1.Save_QPushButton_2");
-    
-    waitForObject(":_ipshead_XTreeWidget");
-    if(!clickItem(":_ipshead_XTreeWidget", "BASE", 5, 5, 1, Qt.LeftButton))
-        test.pass("Pricing Schedule created:BASE");
-
   
-    //-----------Pricing Schedule: FREIGHT-BULK-------------
+  
+    //--------Pricing Schedule: FREIGHT-BULK-------------
     waitForObject(":List Pricing Schedules.New_QPushButton");
     clickButton(":List Pricing Schedules.New_QPushButton");
     waitForObject(":GroupBox1._name_XLineEdit_2");
@@ -833,7 +802,8 @@ function executeChapter8()
     clickButton(":_typeFreightGroup.Price per N/A_QRadioButton");
     type(":_qtyBreakFreight_XLineEdit_2", "0");
     type(":_freightRateGroup_XLineEdit_2", ".50");
-    clickButton(":From.All Sites_QRadioButton_2");
+    if(appVersion=="manufacturing"||appVersion=="standard")
+        clickButton(":From.All Sites_QRadioButton_2");
     clickButton(":_shipViaFreightGroup.All Ship Vias_QRadioButton_2");
     clickButton(":To.All Shipping Zones_QRadioButton_2");
     clickButton(":_freightClassGroup.Selected:_QRadioButton_2");
@@ -861,7 +831,8 @@ function executeChapter8()
     clickButton(":_typeFreightGroup.Price per N/A_QRadioButton");
     type(":_qtyBreakFreight_XLineEdit_2", "0");
     type(":_freightRateGroup_XLineEdit_2", ".40");
-    clickButton(":From.All Sites_QRadioButton_2");
+    if(appVersion=="manufacturing"||appVersion=="standard")
+        clickButton(":From.All Sites_QRadioButton_2");
     clickButton(":_shipViaFreightGroup.All Ship Vias_QRadioButton_2");
     clickButton(":To.All Shipping Zones_QRadioButton_2");
     clickButton(":_freightClassGroup.Selected:_QRadioButton_2");
@@ -927,71 +898,73 @@ function executeChapter8()
     waitForObject(":List Pricing Schedule Assignments.Close_QPushButton");
     clickButton(":List Pricing Schedule Assignments.Close_QPushButton");
 
-  
-    //-----------Create Item site for INTRAN------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
-    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
+    if(appVersion=="manufacturing"||appVersion=="standard")
+    {
     
-    waitForObject(":List Sites.New_QPushButton_2");
-    clickButton(":List Sites.New_QPushButton_2");
-    waitForObject(":_sitetype_XComboBox_2");
-    if(findObject(":_sitetype_XComboBox_2").currentText!="INTRAN")
-        type(":_sitetype_XComboBox_2", "INTRAN");
-   type(":_code_XLineEdit_14", "INTRAN");
-    type(":_description_XLineEdit_26", "Intransit Warehouse");
-    type(":Site.Street\nAddress:_XLineEdit", "#582, Charmy Ganesh Nilayam");
-    type(":Site.Street\nAddress:_XLineEdit_2", "Vittal Rao Colony");
-    type(":Site.Street\nAddress:_XLineEdit_3", "Santh Nagar");
-    type(":Site.City:_XLineEdit", "Pune");
-    type(":Site.State:_XComboBox", "Maharastra");
-    type(":Site.Postal Code:_XLineEdit", "534235");
-    type(":Site.Country:_XComboBox", "india");
-    type(":Site._honorific_XComboBox", "Mr");
-    type(":Site._first_XLineEdit", "Gaurav");
-    type(":Site._middle_XLineEdit", "S");
-    type(":Site._last_XLineEdit", "Gulati");
-    type(":Site._title_XLineEdit", "Associate Consultant");
-    type(":Site._phone_XLineEdit", "235423");
-    type(":Site._fax_XLineEdit", "252342");
-    type(":Site._email_XLineEdit", "gauraasv@testing.com");
-    type(":Site._main_XLineEdit", "01-01-1950-01");
-    clickButton(":_generalTab.Transit Site_QRadioButton");
-    if(findObject(":_whsTypeStack._shipvia_XComboBox")!= "UPS-GROUND-UPS Ground")
-        type(":_whsTypeStack._shipvia_XComboBox", "UPS");
-    if(findObject(":_shipform_XComboBox").currentText!="INTRAN-PACKING-LIST")
-        type(":_shipform_XComboBox", "INTRAN");
-    if(findObject(":_costcat_XComboBox_4").currentText!= "CCINTRAN-Intransit Warehouse")
-        type(":_costcat_XComboBox_4", "CCINTRAN");
-    type(":_whsTypeStack._shipcomments_QTextEdit", "This is a internal shipment between two Prodiem Toys warehouses. If you have any questions please call Anna Falactic at 757-322-2101.");	
-    waitForObject(":Save_QPushButton_2");
-    clickButton(":Save_QPushButton_2");
-    waitForObject(":List Sites._warehouse_XTreeWidget_2");
-    if(!clickItem(":List Sites._warehouse_XTreeWidget_2", "INTRAN_1", 5, 5, 1, Qt.LeftButton))
-        test.pass("Site Created:INTRAN");
+        //-----------Create Item site for INTRAN------------
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
+        activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
+        
+        waitForObject(":List Sites.New_QPushButton_2");
+        clickButton(":List Sites.New_QPushButton_2");
+        waitForObject(":_sitetype_XComboBox_2");
+        if(findObject(":_sitetype_XComboBox_2").currentText!="INTRAN")
+            type(":_sitetype_XComboBox_2", "INTRAN");
+        type(":_code_XLineEdit_14", "INTRAN");
+        type(":_description_XLineEdit_26", "Intransit Warehouse");
+        type(":Site.Street\nAddress:_XLineEdit", "#582, Charmy Ganesh Nilayam");
+        type(":Site.Street\nAddress:_XLineEdit_2", "Vittal Rao Colony");
+        type(":Site.Street\nAddress:_XLineEdit_3", "Santh Nagar");
+        type(":Site.City:_XLineEdit", "Pune");
+        type(":Site.State:_XComboBox", "Maharastra");
+        type(":Site.Postal Code:_XLineEdit", "534235");
+        type(":Site.Country:_XComboBox", "india");
+        type(":Site._honorific_XComboBox", "Mr");
+        type(":Site._first_XLineEdit", "Gaurav");
+        type(":Site._middle_XLineEdit", "S");
+        type(":Site._last_XLineEdit", "Gulati");
+        type(":Site._title_XLineEdit", "Associate Consultant");
+        type(":Site._phone_XLineEdit", "235423");
+        type(":Site._fax_XLineEdit", "252342");
+        type(":Site._email_XLineEdit", "gauraasv@testing.com");
+        type(":Site._main_XLineEdit", "01-01-1950-01");
+        clickButton(":_generalTab.Transit Site_QRadioButton");
+        if(findObject(":_whsTypeStack._shipvia_XComboBox")!= "UPS-GROUND-UPS Ground")
+            type(":_whsTypeStack._shipvia_XComboBox", "UPS");
+        if(findObject(":_shipform_XComboBox").currentText!="INTRAN-PACKING-LIST")
+            type(":_shipform_XComboBox", "INTRAN");
+        if(findObject(":_costcat_XComboBox_4").currentText!= "CCINTRAN-Intransit Warehouse")
+            type(":_costcat_XComboBox_4", "CCINTRAN");
+        type(":_whsTypeStack._shipcomments_QTextEdit", "This is a internal shipment between two Prodiem Toys warehouses. If you have any questions please call Anna Falactic at 757-322-2101.");	
+        waitForObject(":Save_QPushButton_2");
+        clickButton(":Save_QPushButton_2");
+        waitForObject(":List Sites._warehouse_XTreeWidget_2");
+        if(!clickItem(":List Sites._warehouse_XTreeWidget_2", "INTRAN_1", 5, 5, 1, Qt.LeftButton))
+            test.pass("Site Created:INTRAN");
+        
+        waitForObject(":List Sites.Close_QPushButton_2");
+        clickButton(":List Sites.Close_QPushButton_2");
+        test.log("Item site for INTRAN created");
     
-    waitForObject(":List Sites.Close_QPushButton_2");
-    clickButton(":List Sites.Close_QPushButton_2");
-    test.log("Item site for INTRAN created");
     
     
+        //-----------Configure: Inventory Module--------------
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
+        if(findObject(":_defaultTransWhs_WComboBox").currentText!= "INTRAN");
+        type(":_defaultTransWhs_WComboBox", "INTRAN");
+        clickButton(":Inventory Configuration.Save_QPushButton");
+        test.log("Configure Module: Inventory");
     
-     //-----------Configure: Inventory Module--------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
-    if(findObject(":_defaultTransWhs_WComboBox").currentText!= "INTRAN");
-       type(":_defaultTransWhs_WComboBox", "INTRAN");
-    clickButton(":Inventory Configuration.Save_QPushButton");
-    test.log("Configure Module: Inventory");
-    
-  
- 
+    }
+
 
 }
