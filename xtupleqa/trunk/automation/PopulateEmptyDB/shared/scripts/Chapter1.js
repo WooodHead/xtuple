@@ -1,11 +1,11 @@
 function executeChapter1(appVersion)
 {
     source(findFile("scripts","functions.js"));
-    createDept("MFG","OpenMFG");
-    assignPrivileges();
-    if(appVersion=="manufacturing")
-        createShift("1ST","First");
-    createLocale("MYLOCALE","My Locale For Class");
+//    createDept("MFG","OpenMFG");
+//    assignPrivileges();
+//    if(appVersion=="manufacturing")
+//        createShift("1ST","First");
+//    createLocale("MYLOCALE","My Locale For Class");
     createGroup("SUPER","Super User Group");
     var newuser="user01";
     createUser(newuser);
