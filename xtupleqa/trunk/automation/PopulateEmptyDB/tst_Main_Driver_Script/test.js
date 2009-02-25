@@ -23,8 +23,8 @@ function main()
     source(findFile("scripts","Chapter12.js"));
     
     var version = "3.2.1";
-    var dbname = "2empty321-standard";
-    var appVersion = "standard"; //"manufactuing"/"postbooks"/"standard"
+    var dbname = "10empty321-mfg";
+    var appVersion = "manufacturing"; //"manufacturing"/"postbooks"/"standard"
  
     loginAppl(version, dbname,"admin"); 
     executeChapter1(appVersion);
