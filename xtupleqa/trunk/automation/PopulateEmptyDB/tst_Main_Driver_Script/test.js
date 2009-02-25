@@ -23,9 +23,9 @@ function main()
     source(findFile("scripts","Chapter12.js"));
     
     var version = "3.2.1";
-    var dbname = "4empty321-mfg";
-    var appVersion = "manufacturing"; //"manufacturing"/"postbooks"/"standard"
-   
+    var dbname = "2empty321-standard";
+    var appVersion = "standard"; //"manufactuing"/"postbooks"/"standard"
+ 
     loginAppl(version, dbname,"admin"); 
     executeChapter1(appVersion);
     exitAppl(); //exit and login with new user created
@@ -43,4 +43,6 @@ function main()
     executeChapter11(appVersion);
     executeChapter12(appVersion);
     exitAppl();	
+    
+    
 }
