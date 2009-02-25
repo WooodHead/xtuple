@@ -19,5 +19,8 @@ SELECT dropIfExists('FUNCTION', 'getUsrId(text)');
 SELECT dropIfExists('FUNCTION', 'setUserPreference(INTEGER, TEXT, TEXT)');
 SELECT dropIfExists('FUNCTION', 'revokePriv(INTEGER, INTEGER)');
 SELECT dropIfExists('FUNCTION', 'revokeAllModulePriv(INTEGER, TEXT)');
+SELECT dropIfExists('FUNCTION', 'itemPrice(INTEGER, INTEGER, NUMERIC)');
+SELECT dropIfExists('FUNCTION', 'itemPrice(INTEGER, INTEGER, INTEGER, NUMERIC)');
+SELECT dropIfExists('FUNCTION', 'itemPrice(INTEGER, INTEGER, INTEGER, NUMERIC, INTEGER)');
 
 COMMIT;
