@@ -258,12 +258,11 @@ function executeChapter2(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Locations...");
     activateItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Locations...");
-    
+    waitForObject(":List Site Locations.New_QPushButton_2");
     if(appVersion=="manufacturing"||appVersion=="standard")
     if(findObject(":_warehouse._warehouses_WComboBox_3").currentText!= "WH1")
         type(":_warehouse._warehouses_WComboBox_3","WH1")
         
-    waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
     while(findObject(":_whsezone_XComboBox_2").currentText!="RM1")
@@ -523,7 +522,6 @@ function executeChapter2(appVersion)
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Class Codes...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Class Codes...");
     
-       
     waitForObject(":List Class Codes.New_QPushButton_2");
     clickButton(":List Class Codes.New_QPushButton_2");
     waitForObject(":_classCode_XLineEdit_2");

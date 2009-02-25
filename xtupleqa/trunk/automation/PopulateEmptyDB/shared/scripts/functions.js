@@ -61,6 +61,7 @@ function assignPrivileges()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObject(":xTuple ERP: OpenMFG Edition.System_QMenu");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
+    waitForObject(":List Users._usr_XTreeWidget_2");
     type(":List Users._usr_XTreeWidget_2","<Space>");
     waitForObject(":List Users.Edit_QPushButton_2");
     clickButton(":List Users.Edit_QPushButton_2");
@@ -166,6 +167,7 @@ function createLocale(LocaleCode,LocaleDesc)
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Locales...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Locales...");
+    waitForObject(":List Locales.New_QPushButton");
     clickButton(":List Locales.New_QPushButton");
     waitForObject(":_code_XLineEdit");
     type(":_code_XLineEdit", LocaleCode);
@@ -285,6 +287,7 @@ function createUser(user_created)
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
+    waitForObject(":List Users.New_QPushButton");
     clickButton(":List Users.New_QPushButton");
     type(":_username_XLineEdit", user_created);
     type(":_properName_XLineEdit", "Test User");

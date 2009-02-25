@@ -1,11 +1,11 @@
 function executeChapter1(appVersion)
 {
     source(findFile("scripts","functions.js"));
-//    createDept("MFG","OpenMFG");
-//    assignPrivileges();
-//    if(appVersion=="manufacturing")
-//        createShift("1ST","First");
-//    createLocale("MYLOCALE","My Locale For Class");
+    createDept("MFG","OpenMFG");
+    assignPrivileges();
+    if(appVersion=="manufacturing")
+        createShift("1ST","First");
+    createLocale("MYLOCALE","My Locale For Class");
     createGroup("SUPER","Super User Group");
     var newuser="user01";
     createUser(newuser);
@@ -357,6 +357,7 @@ function executeChapter1(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Products...");
     activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Products...");
+    waitForObject(":Products Configuration.Post Item Changes to the Change Log_QCheckBox");
     if(appVersion=="manufacturing")
     {
         if(!findObject(":Products Configuration.Enable Work Center Routings_QGroupBox").checked)
@@ -378,9 +379,8 @@ function executeChapter1(appVersion)
         findObject(":Defaults.Set Sold Items as Exclusive_QCheckBox").checked=false;
     type(":_issueMethod_QComboBox", "Mixed");
     clickButton(":Products Configuration.Save_QPushButton");
-    snooze(0.5);
-    if(object.exists(":Enable Revision Control.Yes_QPushButton"))
-        clickButton(":Enable Revision Control.Yes_QPushButton");
+    waitForObject(":Enable Revision Control.Yes_QPushButton");
+    clickButton(":Enable Revision Control.Yes_QPushButton");
     test.log("Product Module Configured");    
 
     
@@ -392,10 +392,8 @@ function executeChapter1(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
-    
-    if(findObject(":xTuple ERP: *_QPushButton"))
-        clickButton(":xTuple ERP: *_QPushButton");
-        
+    waitForObject(":Cannot Read Configuration.<p>Cannot read encrypted information from database._QLabel");
+    clickButton(":xTuple ERP: *_QPushButton");
     waitForObject(":_ccEncKeyName_QLineEdit");
      
     if(findObject(":_ccEncKeyName_QLineEdit").text!="xTuple.key")
@@ -480,6 +478,15 @@ function executeChapter1(appVersion)
     }
     clickButton(":Database Information.Save_QPushButton");
     test.log("Database Information Defined");
+    
+    
+     //-----------Rescan privileges--------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
+
+    
   
     if(appVersion=="manufacturing")
     {
@@ -546,7 +553,7 @@ function executeChapter1(appVersion)
     
           
     //-----------Configure: Accounting Module------------------
-     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
@@ -641,6 +648,7 @@ function executeChapter1(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "CRM...");
     activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "CRM...");
+    waitForObject(":CRM Configuration._acctGeneration_QComboBox");
     while(findObject(":CRM Configuration._acctGeneration_QComboBox").currentText!="Automatic, Allow Override")
     {
         type(":CRM Configuration._acctGeneration_QComboBox","<Down>");
@@ -1076,12 +1084,7 @@ function executeChapter1(appVersion)
     waitForObject(":User.Selected User:_QRadioButton");
     clickButton(":User.Selected User:_QRadioButton");
     waitForObject(":User._user_XComboBox");
-    for(i=0;i<findObject(":User._user_XComboBox").count;i++)
-    {
-        if(findObject(":User._user_XComboBox").currentText==newuser) break;
-        type(":User._user_XComboBox", "<Down>");
-        waitForObject(":User._user_XComboBox");
-    }
+    type(":User._user_XComboBox",newuser);
     waitForObject(":Background Image.Image:_QRadioButton");
     clickButton(":Background Image.Image:_QRadioButton");
     if(!findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked)
