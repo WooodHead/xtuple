@@ -9,13 +9,13 @@ DECLARE
 
 BEGIN
 
-  SELECT item_type, itemsite_supply INTO _p
+  SELECT item_type, itemsite_wosupply INTO _p
   FROM item, itemsite
   WHERE ( (itemsite_item_id=item_id)
    AND (itemsite_id=pitemsiteid) );
   
   IF ( (_p.item_type IN (''M'', ''P'', ''J'')) AND
-       (_p.itemsite_supply) ) THEN
+       (_p.itemsite_wosupply) ) THEN
 
     IF (_p.item_type IN (''M'',''J'')) THEN
       SELECT COALESCE(MAX(component.itemsite_leadtime), 0) INTO _materialLeadTime

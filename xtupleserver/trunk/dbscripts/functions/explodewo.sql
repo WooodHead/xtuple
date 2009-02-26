@@ -274,7 +274,7 @@ BEGIN
                WHERE ( (womatl_wo_id=wo_id)
                 AND (womatl_itemsite_id=itemsite_id)
                 AND (womatl_createwo)
-                AND (itemsite_supply)
+                AND (itemsite_wosupply)
                 AND (itemsite_item_id=item_id)
                 AND (wo_id=pWoid) ) LOOP
 

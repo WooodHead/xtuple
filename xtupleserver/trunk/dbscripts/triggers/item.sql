@@ -6,14 +6,6 @@ BEGIN
     NEW.item_picklist := FALSE;
   END IF;
 
-  IF (NEW.item_type IN (''J'',''R'',''S'',''T'')) THEN
-    NEW.item_planning_type := ''N'';
-  END IF;
-
-  IF (NEW.item_type = ''L'') THEN
-    NEW.item_planning_type := ''S'';
-  END IF;
-
   IF (NEW.item_type IN (''F'',''S'',''T'',''O'',''L'',''B'')) THEN
     NEW.item_picklist := FALSE;
     NEW.item_sold := FALSE;

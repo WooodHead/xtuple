@@ -146,7 +146,7 @@ BEGIN
   END IF;
 
 --  Check to make sure the itemsite specified is a supplied at itemsite
-  IF ( SELECT (NOT itemsite_supply)
+  IF ( SELECT (NOT itemsite_wosupply)
        FROM itemsite
        WHERE (itemsite_id=pItemsiteid) ) THEN
     RETURN -1;

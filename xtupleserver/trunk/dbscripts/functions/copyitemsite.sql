@@ -51,7 +51,8 @@ BEGIN
     _new.itemsite_reorderlevel	:= 0;
     _new.itemsite_ordertoqty	:= 0;
     _new.itemsite_soldranking	:= NULL;
-    _new.itemsite_supply	:= FALSE;
+    _new.itemsite_posupply	:= FALSE;
+    _new.itemsite_wosupply	:= FALSE;
     _new.itemsite_loccntrl	:= FALSE;
     _new.itemsite_safetystock	:= 0;
     _new.itemsite_minordqty	:= 0;
@@ -85,8 +86,9 @@ BEGIN
     itemsite_costmethod,                itemsite_value,
     itemsite_reorderlevel,		itemsite_ordertoqty,
     itemsite_cyclecountfreq,		itemsite_datelastcount,
-    itemsite_datelastused,
-    itemsite_supply,			itemsite_loccntrl,
+    itemsite_datelastused,              itemsite_planning_type,
+    itemsite_posupply,			itemsite_wosupply,
+    itemsite_loccntrl,
     itemsite_safetystock,		itemsite_minordqty,
     itemsite_multordqty,		itemsite_leadtime,
     itemsite_abcclass,			itemsite_issuemethod,
@@ -110,8 +112,9 @@ BEGIN
     _new.itemsite_costmethod,           _new.itemsite_value,
     _new.itemsite_reorderlevel,	_new.itemsite_ordertoqty,
     _new.itemsite_cyclecountfreq,	_new.itemsite_datelastcount,
-    _new.itemsite_datelastused,
-    _new.itemsite_supply,		_new.itemsite_loccntrl,
+    _new.itemsite_datelastused,         _new.itemsite_planning_type,
+    _new.itemsite_posupply,		_new.itemsite_wosupply,
+    _new.itemsite_loccntrl,
     _new.itemsite_safetystock,		_new.itemsite_minordqty,
     _new.itemsite_multordqty,		_new.itemsite_leadtime,
     _new.itemsite_abcclass,		_new.itemsite_issuemethod,

@@ -1,8 +1,23 @@
 CREATE OR REPLACE FUNCTION _itemsiteTrigger () RETURNS TRIGGER AS $$
 DECLARE
   _cmnttypeid INTEGER;
+  _r RECORD;
 
 BEGIN
+
+  -- Cache some information
+  SELECT item_type INTO _r
+  FROM item
+  WHERE (item_id=NEW.itemsite_item_id);
+ 
+-- Override values to avoid invalid data combinations
+  IF (_r.item_type IN ('J','R','S','T')) THEN
+    NEW.item_planning_type := 'N';
+  END IF;
+
+  IF (_r.item_type = 'L') THEN
+    NEW.item_planning_type := 'S';
+  END IF;
 
   IF (TG_OP = 'UPDATE') THEN
     IF ( (NEW.itemsite_qtyonhand <> OLD.itemsite_qtyonhand) ) THEN
@@ -103,7 +118,9 @@ BEGIN
      OR (OLD.itemsite_reorderlevel      != NEW.itemsite_reorderlevel)
      OR (OLD.itemsite_ordertoqty        != NEW.itemsite_ordertoqty)
      OR (OLD.itemsite_cyclecountfreq    != NEW.itemsite_cyclecountfreq)
-     OR (OLD.itemsite_supply            != NEW.itemsite_supply)
+     OR (OLD.itemsite_planning_type     != NEW.itemsite_planning_type)
+     OR (OLD.itemsite_posupply          != NEW.itemsite_posupply)
+     OR (OLD.itemsite_wosupply          != NEW.itemsite_wosupply)
      OR (OLD.itemsite_loccntrl          != NEW.itemsite_loccntrl)
      OR (OLD.itemsite_safetystock       != NEW.itemsite_safetystock)
      OR (OLD.itemsite_minordqty         != NEW.itemsite_minordqty)
@@ -153,9 +170,13 @@ BEGIN
     END IF;
     
 -- Override values to avoid invalid data combinations
-    IF (NOT NEW.itemsite_supply) THEN
+    IF (NOT NEW.itemsite_posupply) THEN
       UPDATE itemsite SET
-        itemsite_createpr = FALSE,
+        itemsite_createpr = FALSE
+      WHERE (itemsite_id=NEW.itemsite_id);
+    END IF;
+    IF (NOT NEW.itemsite_wosupply) THEN
+      UPDATE itemsite SET
         itemsite_createwo = FALSE
       WHERE (itemsite_id=NEW.itemsite_id);
     END IF;

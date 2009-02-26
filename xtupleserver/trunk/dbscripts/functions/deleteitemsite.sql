@@ -5,6 +5,7 @@ DECLARE
   _lotserial BOOLEAN;
   _bbom BOOLEAN;
   _mfg BOOLEAN;
+  _standard BOOLEAN;
 
 BEGIN
 
@@ -23,6 +24,10 @@ BEGIN
    WHERE (metric_name='LotSerialControl');
 
   SELECT metric_value='Manufacturing' INTO _mfg
+    FROM metric
+   WHERE (metric_name='Application');
+
+  SELECT metric_value='Standard' INTO _standard
     FROM metric
    WHERE (metric_name='Application');
 
@@ -153,7 +158,7 @@ BEGIN
     RETURN -4;
   END IF;
 
-  IF (_mfg) THEN
+  IF (_mfg OR _standard) THEN
     SELECT planord_id INTO _result
     FROM planord
     WHERE (planord_itemsite_id=pItemsiteid)
@@ -170,6 +175,16 @@ BEGIN
     LIMIT 1;
     IF (FOUND) THEN
       RETURN -6;
+    END IF;
+  END IF;
+
+  IF (_mfg OR _standard) THEN
+    SELECT itemsite_id INTO _result
+    FROM itemsite
+    WHERE (itemsite_supply_itemsite_id=pItemsiteid)
+    LIMIT 1;
+    IF (FOUND) THEN
+      RETURN -7;
     END IF;
   END IF;
 

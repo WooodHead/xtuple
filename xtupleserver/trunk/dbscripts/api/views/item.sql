@@ -42,14 +42,6 @@ BEGIN;
     item_picklist AS pick_list_item,
     item_fractional AS fractional,
     item_config AS configured,
-    CASE
-      WHEN item_planning_type = 'N' THEN
-        'None'
-      WHEN item_planning_type = 'M' THEN
-        'MRP'
-      WHEN item_planning_type = 'S' THEN
-        'MPS'
-    END AS planning_system,
     item_sold AS item_is_sold,
     prodcat_code AS product_category,
     item_exclusive AS exclusive,
@@ -88,7 +80,6 @@ COMMENT ON VIEW api.item IS 'Item';
 	    item_picklist,
 	    item_fractional,
 	    item_config,
-	    item_planning_type,
 	    item_sold,
 	    item_prodcat_id,
 	    item_exclusive,
@@ -136,14 +127,6 @@ COMMENT ON VIEW api.item IS 'Item';
 	    COALESCE(NEW.pick_list_item,TRUE),
 	    COALESCE(NEW.fractional,FALSE),
 	    COALESCE(NEW.configured,FALSE),
-	    CASE
-	      WHEN NEW.planning_system = 'None' THEN
-	        'N'
-	      WHEN NEW.planning_system = 'MPS' THEN
-	        'S'
-	      ELSE
-	        'M'
-	    END,
 	    COALESCE(NEW.item_is_sold,TRUE),
 	    COALESCE(getProdCatId(NEW.product_category),-1),
 	    COALESCE(NEW.exclusive,FALSE),
@@ -195,15 +178,6 @@ COMMENT ON VIEW api.item IS 'Item';
       item_picklist=NEW.pick_list_item,
       item_fractional=NEW.fractional,
       item_config=NEW.configured,
-      item_planning_type=
-      	    CASE
-	      WHEN NEW.planning_system = 'None' THEN
-	        'N'
-	      WHEN NEW.planning_system = 'MPS' THEN
-	        'S'
-	      ELSE
-	        'M'
-	    END,
       item_sold=NEW.item_is_sold,
       item_prodcat_id=COALESCE(getProdCatId(NEW.product_category),-1),
       item_exclusive=NEW.exclusive,

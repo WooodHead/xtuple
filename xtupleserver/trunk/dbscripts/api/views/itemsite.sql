@@ -9,8 +9,9 @@ AS
      item_number::varchar AS item_number,
      warehous_code::varchar AS site,
      itemsite_active AS active,
-     itemsite_supply AS supplied_at_site,
+     itemsite_posupply AS po_supplied_at_site,
      itemsite_createpr AS create_prs,
+     itemsite_wosupply AS wo_supplied_at_site,
      itemsite_createwo AS create_wos,
      itemsite_sold AS sold_from_site,
      itemsite_soldranking AS ranking,
@@ -53,6 +54,14 @@ AS
      itemsite_maxordqty AS maximum_order,
      itemsite_multordqty AS order_multiple,
      itemsite_useparamsmanual AS enforce_on_manual_orders,
+     CASE
+       WHEN itemsite_planning_type = 'N' THEN
+         'None'
+       WHEN itemsite_planning_type = 'M' THEN
+         'MRP'
+       WHEN itemsite_planning_type = 'S' THEN
+         'MPS'
+     END AS planning_system,
      itemsite_ordergroup AS group_mps_mrp_orders,
      itemsite_mps_timefence AS mps_time_fence,
      itemsite_leadtime AS lead_time,
@@ -81,8 +90,9 @@ INSERT INTO itemsite (
      itemsite_item_id,
      itemsite_warehous_id,
      itemsite_active,
-     itemsite_supply,
+     itemsite_posupply,
      itemsite_createpr,
+     itemsite_wosupply,
      itemsite_createwo,
      itemsite_sold,
      itemsite_soldranking,
@@ -117,13 +127,15 @@ INSERT INTO itemsite (
      itemsite_warrpurc,
      itemsite_autoreg,
      itemsite_freeze,
-     itemsite_value)
+     itemsite_value,
+     itemsite_planning_type)
      VALUES (
        getItemId(NEW.item_number),
        getWarehousId(NEW.site,'ACTIVE'),
        COALESCE(NEW.active,TRUE),
-       COALESCE(NEW.supplied_at_site,TRUE),
+       COALESCE(NEW.po_supplied_at_site,FALSE),
        COALESCE(NEW.create_prs,FALSE),
+       COALESCE(NEW.wo_supplied_at_site,FALSE),
        COALESCE(NEW.create_wos,FALSE),
        COALESCE(NEW.sold_from_site,TRUE),
        COALESCE(NEW.ranking,1),
@@ -176,15 +188,24 @@ INSERT INTO itemsite (
        COALESCE(NEW.require_warranty,FALSE),
        COALESCE(NEW.auto_register,FALSE),
        false,
-       0);
+       0,
+       CASE
+         WHEN NEW.planning_system = 'None' THEN
+           'N'
+         WHEN NEW.planning_system = 'MPS' THEN
+           'S'
+         ELSE
+           'M'
+       END );
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.itemsite DO INSTEAD
 
 UPDATE itemsite SET 
      itemsite_active=NEW.active,
-     itemsite_supply=NEW.supplied_at_site,
+     itemsite_posupply=NEW.po_supplied_at_site,
      itemsite_createpr=NEW.create_prs,
+     itemsite_wosupply=NEW.wo_supplied_at_site,
      itemsite_createwo=NEW.create_wos,
      itemsite_sold=NEW.sold_from_site,
      itemsite_soldranking=NEW.ranking,
@@ -242,7 +263,16 @@ UPDATE itemsite SET
      itemsite_safetystock=NEW.safety_stock,
      itemsite_notes=NEW.notes,
      itemsite_warrpurc=NEW.require_warranty,
-     itemsite_autoreg=NEW.auto_register
+     itemsite_autoreg=NEW.auto_register,
+     itemsite_planning_type=
+       CASE
+         WHEN NEW.planning_system = 'None' THEN
+           'N'
+         WHEN NEW.planning_system = 'MPS' THEN
+           'S'
+         ELSE
+           'M'
+       END
    WHERE (itemsite_id=getItemSiteId(OLD.site,OLD.item_number));
            
 CREATE OR REPLACE RULE "_DELETE" AS 

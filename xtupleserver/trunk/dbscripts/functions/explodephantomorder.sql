@@ -10,7 +10,7 @@ BEGIN
   FOR _b IN SELECT planord_number, c.itemsite_id AS componentsiteid,
                    (planord_startdate - c.itemsite_leadtime) AS startdate,
                    planord_startdate AS duedate,
-                   bomitem_createwo, item_planning_type,
+                   bomitem_createwo, c.itemsite_planning_type AS planningtype,
                    (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) * pQty) AS qtyreq,
                    item_type
               FROM bomitem, planord, itemsite AS p, itemsite AS c, item
@@ -34,7 +34,7 @@ BEGIN
       ( ''P'', pPlanordid,
         _b.componentsiteid, _b.qtyreq );
 
-      IF (_b.bomitem_createwo AND _b.item_planning_type != ''N'') THEN
+      IF (_b.bomitem_createwo AND _b.planningtype != ''N'') THEN
         PERFORM createPlannedOrder( pPlanordid, _b.planord_number, _b.componentsiteid,
                                     _b.qtyreq, _b.startdate, _b.duedate, FALSE, FALSE, NULL );
       END IF;

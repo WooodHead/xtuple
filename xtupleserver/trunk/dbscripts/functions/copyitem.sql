@@ -16,16 +16,14 @@ BEGIN
     item_maxcost, item_prodweight, item_packweight,
     item_prodcat_id,item_exclusive, item_listprice,
     item_config, item_comments, item_extdescrip,
-    item_upccode, item_planning_type,
-    item_inv_uom_id, item_price_uom_id )
+    item_upccode, item_inv_uom_id, item_price_uom_id )
   SELECT _itemid, pTItemNumber, item_descrip1, item_descrip2,
          item_classcode_id, item_type,
          item_active, item_picklist, item_sold, item_fractional,
          item_maxcost, item_prodweight, item_packweight,
          item_prodcat_id, item_exclusive, item_listprice,
          item_config, item_comments, item_extdescrip,
-         item_upccode, item_planning_type,
-         item_inv_uom_id, item_price_uom_id
+         item_upccode, item_inv_uom_id, item_price_uom_id
   FROM item
   WHERE (item_id=pSItemid);
 
