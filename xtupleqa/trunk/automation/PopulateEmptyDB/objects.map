@@ -100,6 +100,7 @@
 :Bill of Operations Items_booItemList	{name='booItemList' type='booItemList' visible='1' windowTitle='Bill of Operations Items'}
 :Bill of Operations.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':Bill of Operations_boo'}
 :Bill of Operations.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Bill of Operations_boo'}
+:Bill of Operations._operGroup_QGroupBox	{container=':xTuple ERP: *.Bill of Operations_QWorkspaceChild' name='_operGroup' type='QGroupBox' visible='1'}
 :Bill of Operations.frame_QFrame	{name='frame' type='QFrame' visible='1' window=':Bill of Operations_boo'}
 :Bill of Operations.itemGroup_QGroupBox	{name='itemGroup' type='QGroupBox' visible='1' window=':Bill of Operations_boo'}
 :Bill of Operations_boo	{name='boo' type='boo' visible='1' windowTitle='Bill of Operations'}
@@ -2419,6 +2420,7 @@
 :_number_XLineEdit_4	{buddy=':Vendor.Vendor #:_QLabel' name='_number' type='XLineEdit' visible='1'}
 :_number_XLineEdit_5	{buddy=':Sales Representative.Number:_QLabel' name='_number' type='XLineEdit' visible='1'}
 :_operGroup.Standard Oper.:_QLabel	{container=':Bill of Operations Item._operGroup_QGroupBox' name='_standardOperLit' text='Standard Oper.:' type='QLabel' visible='1'}
+:_operGroup.Standard Oper.:_QLabel_2	{container=':Bill of Operations._operGroup_QGroupBox' name='_standardOperLit' text='Standard Oper.:' type='QLabel' visible='1'}
 :_options.Alternate Labels_QGroupBox	{container=':qt_tabwidget_stackedwidget._options_QWidget' name='_altLabels' title='Alternate Labels' type='QGroupBox' visible='1'}
 :_options.Show % of Group Total_QCheckBox	{container=':qt_tabwidget_stackedwidget._options_QWidget_2' name='_showPrcnt' text='Show % of Group Total' type='QCheckBox' visible='1'}
 :_options.Show Columns_QGroupBox	{container=':qt_tabwidget_stackedwidget._options_QWidget_2' name='_showColumns' title='Show Columns' type='QGroupBox' visible='1'}
@@ -2541,7 +2543,9 @@
 :_standardGroup._setupTime_XLineEdit	{container=':Standard Operation._standardGroup_QGroupBox' name='_setupTime' type='XLineEdit' visible='1'}
 :_statementForm_QComboBoxListView	{type='QComboBoxListView' unnamed='1' visible='1' window=':_statementForm_QComboBoxPrivateContainer'}
 :_statementForm_QComboBoxPrivateContainer	{parentWidget=':Customer Form Assignment._statementForm_XComboBox' type='QComboBoxPrivateContainer' unnamed='1' visible='1'}
+:_stdopn_QComboBoxPrivateContainer	{parentWidget=':_stdopn_XComboBox_2' type='QComboBoxPrivateContainer' unnamed='1' visible='1'}
 :_stdopn_XComboBox	{buddy=':_operGroup.Standard Oper.:_QLabel' name='_stdopn' type='XComboBox' visible='1'}
+:_stdopn_XComboBox_2	{buddy=':_operGroup.Standard Oper.:_QLabel_2' name='_stdopn' type='XComboBox' visible='1'}
 :_subaccountGroup.Allow Free-Form Subaccounts_QCheckBox	{container=':_gl._subaccountGroup_QGroupBox' name='_ffSubaccounts' text='Allow Free-Form Subaccounts' type='QCheckBox' visible='1'}
 :_subaccountGroup.Subaccount Segment Size:_QLabel	{container=':_gl._subaccountGroup_QGroupBox' name='_subAccountSizeLit' text='Subaccount Segment Size:' type='QLabel' visible='1'}
 :_subaccountGroup.qt_spinbox_lineedit_QLineEdit	{container=':_gl._subaccountGroup_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
@@ -2819,6 +2823,7 @@
 :xTuple ERP: *.Accounting Tools_QToolBar	{name='Accounting Tools' type='QToolBar' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='Accounting Tools'}
 :xTuple ERP: *.Aging_QToolButton	{text='Aging' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: *.Aging_QToolButton_2	{occurrence='2' text='Aging' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
+:xTuple ERP: *.Bill of Operations_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='Bill of Operations'}
 :xTuple ERP: *.Billing Selections_QToolButton	{text='Billing Selections' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: *.CRM Tools_QToolBar	{name='CRM Tools' type='QToolBar' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='CRM Tools'}
 :xTuple ERP: *.Edit List_QToolButton	{text='Edit List' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
