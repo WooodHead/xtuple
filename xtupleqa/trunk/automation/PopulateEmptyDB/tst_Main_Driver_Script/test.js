@@ -23,7 +23,7 @@ function main()
     source(findFile("scripts","Chapter12.js"));
     
     var version = "3.2.1";
-    var dbname = "10empty321-mfg";
+    var dbname = "zen321-mfg1";
     var appVersion = "manufacturing"; //"manufacturing"/"postbooks"/"standard"
  
     loginAppl(version, dbname,"admin"); 
