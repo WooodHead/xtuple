@@ -2,254 +2,254 @@ function executeChapter7(appVersion)
 {
     source(findFile("scripts","functions.js"));
 
-//    //--------Configure: Purchase Module-------------------
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-//    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Purchase...");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Purchase...");
-//    waitForObjectItem(":_orderNumGeneration_QComboBox", "Automatic");
-//    if(findObject(":_orderNumGeneration_QComboBox").currentText!="Automatic")
-//        type(":_orderNumGeneration_QComboBox", "Automatic");
-//    type(":_nextPoNumber_XLineEdit", "<Ctrl+A>");
-//    type(":_nextPoNumber_XLineEdit", "<Del>");
-//    type(":_nextPoNumber_XLineEdit", "20000");
-//    type(":_nextVcNumber_XLineEdit", "<Ctrl+A>");
-//    type(":_nextVcNumber_XLineEdit", "<Del>");
-//    type(":_nextVcNumber_XLineEdit", "30000");
-//    if(findObject(":_prNumberGeneration_QComboBox").currentText!="Automatic")
-//        type(":_prNumberGeneration_QComboBox", "Automatic");
-//    type(":_nextPrNumber_XLineEdit", "<Ctrl+A>");
-//    type(":_nextPrNumber_XLineEdit", "<Del>");
-//    type(":_nextPrNumber_XLineEdit", "10000");
-//    if(!findObject(":Default P/O Copies:.Vendor_QCheckBox").checked)
-//        clickButton(":Default P/O Copies:.Vendor_QCheckBox");
-//    if(findObject(":Default P/O Copies:.Internal_QCheckBox").checked)
-//        clickButton(":Default P/O Copies:.Internal_QCheckBox");
-//    if(!findObject(":Purchase Configuration.Post P/O Changes to the Change Log_QCheckBox"))
-//        clickButton(":Purchase Configuration.Post P/O Changes to the Change Log_QCheckBox");
-//    if(!findObject(":Purchase Configuration.Post Vendor Changes to the Change Log_QCheckBox"))
-//        clickButton(":Purchase Configuration.Post Vendor Changes to the Change Log_QCheckBox");
-//    if(!findObject(":Purchase Configuration.Use Earliest Avail. as Due Date for P/O Item_QCheckBox"))
-//        clickButton(":Purchase Configuration.Use Earliest Avail. as Due Date for P/O Item_QCheckBox");
-//    if(!findObject(":Purchase Configuration.Prevent P/O Items when no Std. Cost Exists_QCheckBox"))
-//        clickButton(":Purchase Configuration.Prevent P/O Items when no Std. Cost Exists_QCheckBox");
-//    if(!findObject(":Purchase Configuration.Check Print P/O on Save by Default_QCheckBox"))
-//        clickButton(":Purchase Configuration.Check Print P/O on Save by Default_QCheckBox");
-//    type(":_defaultShipVia_XLineEdit", "<Ctrl+A>");    
-//    type(":_defaultShipVia_XLineEdit", "<Del>");
-//    type(":_defaultShipVia_XLineEdit", "UPS Account 1234567");
-//    clickButton(":Purchase Configuration.Save_QPushButton");
-//    test.log("Purchase Module Configured");
-//  
-//    
-//    //-------------Configure: Inventory Module---------------------
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-//    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
-//    waitForObject(":Inventory Configuration.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":Inventory Configuration.qt_tabwidget_tabbar_QTabBar", "Shipping and Receiving");
-//    waitForObject(":_nextShipmentNum_XLineEdit");
-//    type(":_nextShipmentNum_XLineEdit", "<Ctrl+A>");
-//    type(":_nextShipmentNum_XLineEdit", "<Del>");
-//    type(":_nextShipmentNum_XLineEdit", "10000");
-//    if(findObject(":tab_2.Disallow P/O Receipt of Qty greater than ordered_QCheckBox").checked)
-//        clickButton(":tab_2.Disallow P/O Receipt of Qty greater than ordered_QCheckBox");
-//    if(!findObject(":tab_2.Warn if P/O Receipt Qty differs from receivable Qty_QCheckBox").checked)
-//        clickButton(":tab_2.Warn if P/O Receipt Qty differs from receivable Qty_QCheckBox");
-//    type(":_tolerance_QLineEdit", "5");
-//    type(":_shipformNumOfCopies_QSpinBox", "<Ctrl+A>");
-//    type(":_shipformNumOfCopies_QSpinBox", "<Del>");
-//    type(":_shipformNumOfCopies_QSpinBox", "2");
-//    doubleClickItem(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget", "Copy #1",5,5,0,Qt.LeftButton);
-//    waitForObject(":Invoice/Credit Memo Watermark._watermark_XLineEdit");
-//    type(":Invoice/Credit Memo Watermark._watermark_XLineEdit", "Customer");
-//    if(!findObject(":Invoice/Credit Memo Watermark.Show Prices_QCheckBox").checked)
-//        clickButton(":Invoice/Credit Memo Watermark.Show Prices_QCheckBox");
-//    clickButton(":Invoice/Credit Memo Watermark.Save_QPushButton");
-//    waitForObject(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget");
-//    doubleClickItem(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget", "Copy #2",5,5,0,Qt.LeftButton);
-//    waitForObject(":Invoice/Credit Memo Watermark._watermark_XLineEdit");
-//    type(":Invoice/Credit Memo Watermark._watermark_XLineEdit", "Internal");
-//    if(!findObject(":Invoice/Credit Memo Watermark.Show Prices_QCheckBox"))
-//        clickButton(":Invoice/Credit Memo Watermark.Show Prices_QCheckBox");
-//    clickButton(":Invoice/Credit Memo Watermark.Save_QPushButton");
-//    
-//    waitForObject(":Inventory Configuration.Save_QPushButton");
-//    clickButton(":Inventory Configuration.Save_QPushButton");
-//    test.log("Inventory Module configured");
-//    
-//    //---------Configure: Accounting-Account Payble---------------
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-//    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
-//    waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
-//    waitForObject(":_nextAPMemoNumber_XLineEdit");
-//    type(":_nextAPMemoNumber_XLineEdit", "<Ctrl>");
-//    type(":_nextAPMemoNumber_XLineEdit", "<Del>");
-//    type(":_nextAPMemoNumber_XLineEdit", "39000");
-//    clickButton(":Accounting Configuration.Save_QPushButton");
-//    test.log("Account-Accounts Payable configured");
-//  
-// 
-//    //----------Define Vendor types--------------
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Vendor");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Vendor");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Vendor_QMenu", "Types...");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Vendor_QMenu", "Types...");
-//    waitForObject(":List Vendor Types.New_QPushButton");
-//    clickButton(":List Vendor Types.New_QPushButton");
-//    waitForObject(":_code_XLineEdit_8");
-//    type(":_code_XLineEdit_8", "STANDARD");
-//    type(":_description_XLineEdit_18", "Standard Vendor");
-//    clickButton(":Vendor Type.Save_QPushButton");
-//    waitForObject(":List Vendor Types._vendtype_XTreeWidget");
-//    if(!clickItem(":List Vendor Types._vendtype_XTreeWidget", "STANDARD", 5, 5 ,1, Qt.LeftButton))
-//        test.pass("Vendor Types Created: STANDARD");
-//    
-//    waitForObject(":List Vendor Types.Close_QPushButton");
-//    clickButton(":List Vendor Types.Close_QPushButton");
-//  
-//  
-//    
-//    //---------Purchase: define Terms--------------
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Terms...");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Terms...");
-//    waitForObject(":List Terms.New_QPushButton");
-//    clickButton(":List Terms.New_QPushButton");
-//    waitForObject(":_code_XLineEdit_9");
-//    type(":_code_XLineEdit_9", "2-10N30");
-//    type(":_description_XLineEdit_19", "2% Discount in 10 Days - Net 30 Days");
-//    if(!findObject(":_typeGroup.Days_QRadioButton").checked)
-//        clickButton(":_typeGroup.Days_QRadioButton");
-//    if(!findObject(":Terms.Used in A/P_QCheckBox").checked)
-//        clickButton(":Terms.Used in A/P_QCheckBox");
-//    if(!findObject(":Terms.Used in A/R_QCheckBox").checked)
-//        clickButton(":Terms.Used in A/R_QCheckBox");
-//    type(":_dueDays_QSpinBox", "<Ctrl+A>");
-//    type(":_dueDays_QSpinBox", "<Del>");
-//    type(":_dueDays_QSpinBox", "30");
-//    type(":_discountDays_QSpinBox", "<Ctrl+A>");
-//    type(":_discountDays_QSpinBox", "<Del>");
-//    type(":_discountDays_QSpinBox", "10");
-//    type(":_discountPercent_XLineEdit", "<Ctrl+A>");
-//    type(":_discountPercent_XLineEdit", "<Del>");
-//    type(":_discountPercent_XLineEdit", "2");
-//    waitForObject(":Terms.Save_QPushButton");
-//    clickButton(":Terms.Save_QPushButton");
-//    waitForObject(":List Terms._terms_XTreeWidget");
-//    if(!clickItem(":List Terms._terms_XTreeWidget", "2-10N30", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Terms Created: 2-10N30");
-//    waitForObject(":List Terms.Close_QPushButton");
-//    clickButton(":List Terms.Close_QPushButton");
-//
-//    
-//    //-------------Define: Reject Codes-----------------
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Reject Codes...");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Reject Codes...");
-//    
-//    waitForObject(":List Reject Codes.New_QPushButton");
-//    clickButton(":List Reject Codes.New_QPushButton");
-//    waitForObject(":_code_XLineEdit_10");
-//    type(":_code_XLineEdit_10", "PO-DAMAGED-RETURNED");
-//    type(":_description_XLineEdit_20", "Damaged Purchased Material - Returned");
-//    waitForObject(":Reject Code.Save_QPushButton");
-//    clickButton(":Reject Code.Save_QPushButton");
-//    waitForObject(":List Reject Codes._rjctcode_XTreeWidget");
-//    if(!clickItem(":List Reject Codes._rjctcode_XTreeWidget", "PO-DAMAGED-RETURNED", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Reject Codes Created: PO-DAMAGED-RETURNED");
-//
-//    
-//    waitForObject(":List Reject Codes.New_QPushButton");
-//    clickButton(":List Reject Codes.New_QPushButton");
-//    waitForObject(":_code_XLineEdit_10");
-//    type(":_code_XLineEdit_10", "PO-WRONG-RETURNED");
-//    type(":_description_XLineEdit_20", "Wrong Purchased Product - Returned");
-//    waitForObject(":Reject Code.Save_QPushButton");
-//    clickButton(":Reject Code.Save_QPushButton");
-//    waitForObject(":List Reject Codes._rjctcode_XTreeWidget");
-//    if(!clickItem(":List Reject Codes._rjctcode_XTreeWidget", "PO-WRONG-RETURNED", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Reject Codes Created: PO-WRONG-RETURNED");
-//    
-//    waitForObject(":List Reject Codes.Close_QPushButton");
-//    clickButton(":List Reject Codes.Close_QPushButton");
-//
-//    
-//    //-----------Chart Of Accounts-------------------------------
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-//    
-//    COA("01","01","2000","01","Accounts Payable","Liability","AP");
-//    waitForObject(":_account_XTreeWidget_2");
-//    if(!clickItem(":_account_XTreeWidget_2", "Accounts Payable", 5, 5, 1, Qt.LeftButton))
-//        test.pass("COA Created for: Accounts Payable");
-//
-//    COA("01","01","1400","01","Prepaid Account - Purchasing","Asset","CAS");
-//    waitForObject(":_account_XTreeWidget_2");
-//    if(!clickItem(":_account_XTreeWidget_2", "Prepaid Account - Purchasing", 5, 5, 1, Qt.LeftButton))
-//        test.pass("COA Created for: Prepaid Account - Purchasing");
-//    
-//    COA("01","01","4900","01","Promotions and Discounts Taken","Revenue","SI");
-//    waitForObject(":_account_XTreeWidget_2");
-//    if(!clickItem(":_account_XTreeWidget_2", "Promotions and Discounts Taken", 5, 5, 1, Qt.LeftButton))
-//        test.pass("COA Created for: Promotions and Discounts Taken");
-//    
-//    
-//    COA("01","01","4060","01","Shipping Charges Revenue","Revenue","SO");
-//    waitForObject(":_account_XTreeWidget_2");
-//    if(!clickItem(":_account_XTreeWidget_2", "Shipping Charges Revenue", 5, 5, 1, Qt.LeftButton))
-//        test.pass("COA Created for: Shipping Charges Revenue");
-//    
-//    waitForObject(":Chart of Accounts.Close_QPushButton_2");
-//    clickButton(":Chart of Accounts.Close_QPushButton_2");
-//  
-//    
-//     //----------Purchase: A/P Account Assignments-----------
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "A/P Account Assignments...");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "A/P Account Assignments...");
-//   
-//    waitForObject(":List A/P Account Assignments.New_QPushButton");
-//    clickButton(":List A/P Account Assignments.New_QPushButton");
-//    waitForObject(":_vendorTypeGroup.All Vendor Types:_QRadioButton");
-//    clickButton(":_vendorTypeGroup.All Vendor Types:_QRadioButton");
-//    type(":A/P Account Assignment._main_XLineEdit", "01-01-2000-01");
-//    type(":A/P Account Assignment._main_XLineEdit_2", "01-01-1400-01");
-//    type(":A/P Account Assignment._main_XLineEdit_3", "01-01-4900-01");
-//    type(":A/P Account Assignment._main_XLineEdit_3", "<Tab>");
-//    clickButton(":A/P Account Assignment.Save_QPushButton");
-//    waitForObject(":List A/P Account Assignments._apaccnt_XTreeWidget");
-//    if(!clickItem(":List A/P Account Assignments._apaccnt_XTreeWidget", "All", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Accounts(A/P) Assignment created for: All");
-//     
-//    waitForObject(":List A/P Account Assignments.Close_QPushButton");
-//    clickButton(":List A/P Account Assignments.Close_QPushButton");
-// 
+    //--------Configure: Purchase Module-------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Purchase...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Purchase...");
+    waitForObjectItem(":_orderNumGeneration_QComboBox", "Automatic");
+    if(findObject(":_orderNumGeneration_QComboBox").currentText!="Automatic")
+        type(":_orderNumGeneration_QComboBox", "Automatic");
+    type(":_nextPoNumber_XLineEdit", "<Ctrl+A>");
+    type(":_nextPoNumber_XLineEdit", "<Del>");
+    type(":_nextPoNumber_XLineEdit", "20000");
+    type(":_nextVcNumber_XLineEdit", "<Ctrl+A>");
+    type(":_nextVcNumber_XLineEdit", "<Del>");
+    type(":_nextVcNumber_XLineEdit", "30000");
+    if(findObject(":_prNumberGeneration_QComboBox").currentText!="Automatic")
+        type(":_prNumberGeneration_QComboBox", "Automatic");
+    type(":_nextPrNumber_XLineEdit", "<Ctrl+A>");
+    type(":_nextPrNumber_XLineEdit", "<Del>");
+    type(":_nextPrNumber_XLineEdit", "10000");
+    if(!findObject(":Default P/O Copies:.Vendor_QCheckBox").checked)
+        clickButton(":Default P/O Copies:.Vendor_QCheckBox");
+    if(findObject(":Default P/O Copies:.Internal_QCheckBox").checked)
+        clickButton(":Default P/O Copies:.Internal_QCheckBox");
+    if(!findObject(":Purchase Configuration.Post P/O Changes to the Change Log_QCheckBox"))
+        clickButton(":Purchase Configuration.Post P/O Changes to the Change Log_QCheckBox");
+    if(!findObject(":Purchase Configuration.Post Vendor Changes to the Change Log_QCheckBox"))
+        clickButton(":Purchase Configuration.Post Vendor Changes to the Change Log_QCheckBox");
+    if(!findObject(":Purchase Configuration.Use Earliest Avail. as Due Date for P/O Item_QCheckBox"))
+        clickButton(":Purchase Configuration.Use Earliest Avail. as Due Date for P/O Item_QCheckBox");
+    if(!findObject(":Purchase Configuration.Prevent P/O Items when no Std. Cost Exists_QCheckBox"))
+        clickButton(":Purchase Configuration.Prevent P/O Items when no Std. Cost Exists_QCheckBox");
+    if(!findObject(":Purchase Configuration.Check Print P/O on Save by Default_QCheckBox"))
+        clickButton(":Purchase Configuration.Check Print P/O on Save by Default_QCheckBox");
+    type(":_defaultShipVia_XLineEdit", "<Ctrl+A>");    
+    type(":_defaultShipVia_XLineEdit", "<Del>");
+    type(":_defaultShipVia_XLineEdit", "UPS Account 1234567");
+    clickButton(":Purchase Configuration.Save_QPushButton");
+    test.log("Purchase Module Configured");
+  
+    
+    //-------------Configure: Inventory Module---------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
+    waitForObject(":Inventory Configuration.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Inventory Configuration.qt_tabwidget_tabbar_QTabBar", "Shipping and Receiving");
+    waitForObject(":_nextShipmentNum_XLineEdit");
+    type(":_nextShipmentNum_XLineEdit", "<Ctrl+A>");
+    type(":_nextShipmentNum_XLineEdit", "<Del>");
+    type(":_nextShipmentNum_XLineEdit", "10000");
+    if(findObject(":tab_2.Disallow P/O Receipt of Qty greater than ordered_QCheckBox").checked)
+        clickButton(":tab_2.Disallow P/O Receipt of Qty greater than ordered_QCheckBox");
+    if(!findObject(":tab_2.Warn if P/O Receipt Qty differs from receivable Qty_QCheckBox").checked)
+        clickButton(":tab_2.Warn if P/O Receipt Qty differs from receivable Qty_QCheckBox");
+    type(":_tolerance_QLineEdit", "5");
+    type(":_shipformNumOfCopies_QSpinBox", "<Ctrl+A>");
+    type(":_shipformNumOfCopies_QSpinBox", "<Del>");
+    type(":_shipformNumOfCopies_QSpinBox", "2");
+    doubleClickItem(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget", "Copy #1",5,5,0,Qt.LeftButton);
+    waitForObject(":Invoice/Credit Memo Watermark._watermark_XLineEdit");
+    type(":Invoice/Credit Memo Watermark._watermark_XLineEdit", "Customer");
+    if(!findObject(":Invoice/Credit Memo Watermark.Show Prices_QCheckBox").checked)
+        clickButton(":Invoice/Credit Memo Watermark.Show Prices_QCheckBox");
+    clickButton(":Invoice/Credit Memo Watermark.Save_QPushButton");
+    waitForObject(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget");
+    doubleClickItem(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget", "Copy #2",5,5,0,Qt.LeftButton);
+    waitForObject(":Invoice/Credit Memo Watermark._watermark_XLineEdit");
+    type(":Invoice/Credit Memo Watermark._watermark_XLineEdit", "Internal");
+    if(!findObject(":Invoice/Credit Memo Watermark.Show Prices_QCheckBox"))
+        clickButton(":Invoice/Credit Memo Watermark.Show Prices_QCheckBox");
+    clickButton(":Invoice/Credit Memo Watermark.Save_QPushButton");
+    
+    waitForObject(":Inventory Configuration.Save_QPushButton");
+    clickButton(":Inventory Configuration.Save_QPushButton");
+    test.log("Inventory Module configured");
+    
+    //---------Configure: Accounting-Account Payble---------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
+    waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
+    waitForObject(":_nextAPMemoNumber_XLineEdit");
+    type(":_nextAPMemoNumber_XLineEdit", "<Ctrl>");
+    type(":_nextAPMemoNumber_XLineEdit", "<Del>");
+    type(":_nextAPMemoNumber_XLineEdit", "39000");
+    clickButton(":Accounting Configuration.Save_QPushButton");
+    test.log("Account-Accounts Payable configured");
+  
+ 
+    //----------Define Vendor types--------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Vendor");
+    activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Vendor");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Vendor_QMenu", "Types...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Vendor_QMenu", "Types...");
+    waitForObject(":List Vendor Types.New_QPushButton");
+    clickButton(":List Vendor Types.New_QPushButton");
+    waitForObject(":_code_XLineEdit_8");
+    type(":_code_XLineEdit_8", "STANDARD");
+    type(":_description_XLineEdit_18", "Standard Vendor");
+    clickButton(":Vendor Type.Save_QPushButton");
+    waitForObject(":List Vendor Types._vendtype_XTreeWidget");
+    if(!clickItem(":List Vendor Types._vendtype_XTreeWidget", "STANDARD", 5, 5 ,1, Qt.LeftButton))
+        test.pass("Vendor Types Created: STANDARD");
+    
+    waitForObject(":List Vendor Types.Close_QPushButton");
+    clickButton(":List Vendor Types.Close_QPushButton");
+  
+  
+    
+    //---------Purchase: define Terms--------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Terms...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Terms...");
+    waitForObject(":List Terms.New_QPushButton");
+    clickButton(":List Terms.New_QPushButton");
+    waitForObject(":_code_XLineEdit_9");
+    type(":_code_XLineEdit_9", "2-10N30");
+    type(":_description_XLineEdit_19", "2% Discount in 10 Days - Net 30 Days");
+    if(!findObject(":_typeGroup.Days_QRadioButton").checked)
+        clickButton(":_typeGroup.Days_QRadioButton");
+    if(!findObject(":Terms.Used in A/P_QCheckBox").checked)
+        clickButton(":Terms.Used in A/P_QCheckBox");
+    if(!findObject(":Terms.Used in A/R_QCheckBox").checked)
+        clickButton(":Terms.Used in A/R_QCheckBox");
+    type(":_dueDays_QSpinBox", "<Ctrl+A>");
+    type(":_dueDays_QSpinBox", "<Del>");
+    type(":_dueDays_QSpinBox", "30");
+    type(":_discountDays_QSpinBox", "<Ctrl+A>");
+    type(":_discountDays_QSpinBox", "<Del>");
+    type(":_discountDays_QSpinBox", "10");
+    type(":_discountPercent_XLineEdit", "<Ctrl+A>");
+    type(":_discountPercent_XLineEdit", "<Del>");
+    type(":_discountPercent_XLineEdit", "2");
+    waitForObject(":Terms.Save_QPushButton");
+    clickButton(":Terms.Save_QPushButton");
+    waitForObject(":List Terms._terms_XTreeWidget");
+    if(!clickItem(":List Terms._terms_XTreeWidget", "2-10N30", 5, 5, 1, Qt.LeftButton))
+        test.pass("Terms Created: 2-10N30");
+    waitForObject(":List Terms.Close_QPushButton");
+    clickButton(":List Terms.Close_QPushButton");
+
+    
+    //-------------Define: Reject Codes-----------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Reject Codes...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Reject Codes...");
+    
+    waitForObject(":List Reject Codes.New_QPushButton");
+    clickButton(":List Reject Codes.New_QPushButton");
+    waitForObject(":_code_XLineEdit_10");
+    type(":_code_XLineEdit_10", "PO-DAMAGED-RETURNED");
+    type(":_description_XLineEdit_20", "Damaged Purchased Material - Returned");
+    waitForObject(":Reject Code.Save_QPushButton");
+    clickButton(":Reject Code.Save_QPushButton");
+    waitForObject(":List Reject Codes._rjctcode_XTreeWidget");
+    if(!clickItem(":List Reject Codes._rjctcode_XTreeWidget", "PO-DAMAGED-RETURNED", 5, 5, 1, Qt.LeftButton))
+        test.pass("Reject Codes Created: PO-DAMAGED-RETURNED");
+
+    
+    waitForObject(":List Reject Codes.New_QPushButton");
+    clickButton(":List Reject Codes.New_QPushButton");
+    waitForObject(":_code_XLineEdit_10");
+    type(":_code_XLineEdit_10", "PO-WRONG-RETURNED");
+    type(":_description_XLineEdit_20", "Wrong Purchased Product - Returned");
+    waitForObject(":Reject Code.Save_QPushButton");
+    clickButton(":Reject Code.Save_QPushButton");
+    waitForObject(":List Reject Codes._rjctcode_XTreeWidget");
+    if(!clickItem(":List Reject Codes._rjctcode_XTreeWidget", "PO-WRONG-RETURNED", 5, 5, 1, Qt.LeftButton))
+        test.pass("Reject Codes Created: PO-WRONG-RETURNED");
+    
+    waitForObject(":List Reject Codes.Close_QPushButton");
+    clickButton(":List Reject Codes.Close_QPushButton");
+
+    
+    //-----------Chart Of Accounts-------------------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+    
+    COA("01","01","2000","01","Accounts Payable","Liability","AP");
+    waitForObject(":_account_XTreeWidget_2");
+    if(!clickItem(":_account_XTreeWidget_2", "Accounts Payable", 5, 5, 1, Qt.LeftButton))
+        test.pass("COA Created for: Accounts Payable");
+
+    COA("01","01","1400","01","Prepaid Account - Purchasing","Asset","CAS");
+    waitForObject(":_account_XTreeWidget_2");
+    if(!clickItem(":_account_XTreeWidget_2", "Prepaid Account - Purchasing", 5, 5, 1, Qt.LeftButton))
+        test.pass("COA Created for: Prepaid Account - Purchasing");
+    
+    COA("01","01","4900","01","Promotions and Discounts Taken","Revenue","SI");
+    waitForObject(":_account_XTreeWidget_2");
+    if(!clickItem(":_account_XTreeWidget_2", "Promotions and Discounts Taken", 5, 5, 1, Qt.LeftButton))
+        test.pass("COA Created for: Promotions and Discounts Taken");
+    
+    
+    COA("01","01","4060","01","Shipping Charges Revenue","Revenue","SO");
+    waitForObject(":_account_XTreeWidget_2");
+    if(!clickItem(":_account_XTreeWidget_2", "Shipping Charges Revenue", 5, 5, 1, Qt.LeftButton))
+        test.pass("COA Created for: Shipping Charges Revenue");
+    
+    waitForObject(":Chart of Accounts.Close_QPushButton_2");
+    clickButton(":Chart of Accounts.Close_QPushButton_2");
+  
+    
+     //----------Purchase: A/P Account Assignments-----------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "A/P Account Assignments...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "A/P Account Assignments...");
+   
+    waitForObject(":List A/P Account Assignments.New_QPushButton");
+    clickButton(":List A/P Account Assignments.New_QPushButton");
+    waitForObject(":_vendorTypeGroup.All Vendor Types:_QRadioButton");
+    clickButton(":_vendorTypeGroup.All Vendor Types:_QRadioButton");
+    type(":A/P Account Assignment._main_XLineEdit", "01-01-2000-01");
+    type(":A/P Account Assignment._main_XLineEdit_2", "01-01-1400-01");
+    type(":A/P Account Assignment._main_XLineEdit_3", "01-01-4900-01");
+    type(":A/P Account Assignment._main_XLineEdit_3", "<Tab>");
+    clickButton(":A/P Account Assignment.Save_QPushButton");
+    waitForObject(":List A/P Account Assignments._apaccnt_XTreeWidget");
+    if(!clickItem(":List A/P Account Assignments._apaccnt_XTreeWidget", "All", 5, 5, 1, Qt.LeftButton))
+        test.pass("Accounts(A/P) Assignment created for: All");
+     
+    waitForObject(":List A/P Account Assignments.Close_QPushButton");
+    clickButton(":List A/P Account Assignments.Close_QPushButton");
+ 
 
   
     //--------------Create new Vendor----------

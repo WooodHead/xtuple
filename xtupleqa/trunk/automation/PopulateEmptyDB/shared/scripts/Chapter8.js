@@ -920,6 +920,7 @@ function executeChapter8(appVersion)
         type(":Site._email_XLineEdit", "gauraasv@testing.com");
         type(":Site._main_XLineEdit", "01-01-1950-01");
         clickButton(":_generalTab.Transit Site_QRadioButton");
+        waitForObject(":_whsTypeStack._shipvia_XComboBox");
         if(findObject(":_whsTypeStack._shipvia_XComboBox")!= "UPS-GROUND-UPS Ground")
             type(":_whsTypeStack._shipvia_XComboBox", "UPS");
         if(findObject(":_shipform_XComboBox").currentText!="INTRAN-PACKING-LIST")
