@@ -362,6 +362,16 @@ BEGIN
         END IF;
       END IF;
     END IF;
+
+--  If Planning Type changed to None then delete all Planned Orders
+    IF (TG_OP = 'UPDATE') THEN
+      IF (NEW.itemsite_planning_type = 'N' AND OLD.itemsite_planning_type <> 'N') THEN
+        PERFORM deletePlannedOrder(planord_id, TRUE)
+        FROM planord
+        WHERE (planord_itemsite_id=NEW.itemsite_id);
+      END IF;
+    END IF;
+    
   END IF;  -- End Maintenance
 
   RETURN NEW;
