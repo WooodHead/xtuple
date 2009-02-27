@@ -17,13 +17,12 @@ function executeChapter12(appVersion)
     waitForObject(":_addressStack._shipto_XTreeWidget_2");
     doubleClickItem(":_addressStack._shipto_XTreeWidget_2", "Old Towne Store 1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Ship-To._taxauth_XComboBox");
-    type(":Ship-To._taxauth_XComboBox", "TAX-AUTH1");
+    clickItem(":Ship-To._taxauth_XComboBox", "TAX-AUTH1",0,0,1,Qt.LeftButton);
     clickButton(":Ship-To.Save_QPushButton");
-    
     waitForObject(":_addressStack._shipto_XTreeWidget_2");
     doubleClickItem(":_addressStack._shipto_XTreeWidget_2", "Old Towne Store 2", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Ship-To._taxauth_XComboBox");
-    type(":Ship-To._taxauth_XComboBox", "TAX-AUTH1");
+    clickItem(":Ship-To._taxauth_XComboBox", "TAX-AUTH1",0,0,1,Qt.LeftButton);
     clickButton(":Ship-To.Save_QPushButton");
     waitForObject(":Customer.Save_QPushButton");
     clickButton(":Customer.Save_QPushButton");

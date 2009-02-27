@@ -11,7 +11,7 @@ function executeChapter7(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Purchase...");
     waitForObjectItem(":_orderNumGeneration_QComboBox", "Automatic");
     if(findObject(":_orderNumGeneration_QComboBox").currentText!="Automatic")
-        type(":_orderNumGeneration_QComboBox", "Automatic");
+        clickItem(":_orderNumGeneration_QComboBox", "Automatic",0,0,1,Qt.LeftButton);
     type(":_nextPoNumber_XLineEdit", "<Ctrl+A>");
     type(":_nextPoNumber_XLineEdit", "<Del>");
     type(":_nextPoNumber_XLineEdit", "20000");
@@ -264,11 +264,11 @@ function executeChapter7(appVersion)
     waitForObject(":_number_XLineEdit_4");
     type(":_number_XLineEdit_4", "TPARTS");
     if(findObject(":_vendtype_XComboBox").currentText!="STANDARD-Standard Vendor")
-        type(":_vendtype_XComboBox", "STANDARD");
+        clickItem(":_vendtype_XComboBox", "STANDARD",0,0,1,Qt.LeftButton);
     type(":_name_XLineEdit_8", "Toy Parts Inc");
     type(":_accountNumber_XLineEdit", "110022");
     if(findObject(":Default._defaultTerms_XComboBox").currentText!="2-10N30-2% Discount in 10 Days - Net 30 Days")
-        type(":Default._defaultTerms_XComboBox", "2-10N30");
+        clickItem(":Default._defaultTerms_XComboBox", "2-10N30",0,0,1,Qt.LeftButton);
     clickButton(":Default FOB.Receiving Site_QRadioButton");
     if(findObject(":_settingsGroup.Sells Purchase Order Items_QCheckBox").checked)
         clickButton(":_settingsGroup.Sells Purchase Order Items_QCheckBox");
@@ -279,7 +279,7 @@ function executeChapter7(appVersion)
     if(findObject(":_settingsGroup.May only Sell Items defined by an Item Source_QCheckBox").checked)
         clickButton(":_settingsGroup.May only Sell Items defined by an Item Source_QCheckBox");
     clickTab(":Vendor.qt_tabwidget_tabbar_QTabBar", "Contacts");
-    type(":_contact1Box._honorific_XComboBox", "Mr");
+    clickItem(":_contact1Box._honorific_XComboBox", "Mr",0,0,1,Qt.LeftButton);
     type(":_contact1Box._first_XLineEdit", "Ramesh");
     type(":_contact1Box._middle_XLineEdit", "K");
     type(":_contact1Box._last_XLineEdit", "Thapar");
@@ -287,7 +287,7 @@ function executeChapter7(appVersion)
     type(":_contact1Box._phone_XLineEdit", "124645987");
     type(":_contact1Box._fax_XLineEdit", "435433434");
     type(":_contact1Box._email_XLineEdit", "thappar@testing.com");
-    type(":_contact2Box._honorific_XComboBox", "Miss");
+    clickItem(":_contact2Box._honorific_XComboBox", "Miss",0,0,1,Qt.LeftButton);
     type(":_contact2Box._first_XLineEdit", "Sunita");
     type(":_contact2Box._middle_XLineEdit", "S");
     type(":_contact2Box._last_XLineEdit", "Bhaglani");
@@ -315,9 +315,9 @@ function executeChapter7(appVersion)
     type(":_addressStack.Street\nAddress:_XLineEdit_2", "Alpha Industries PVt ltd");
     type(":_addressStack.Street\nAddress:_XLineEdit_3", "Vengal Rao  Nagar");
     type(":_addressStack.City:_XLineEdit", "Kolkata");
-    type(":_addressStack.State:_XComboBox", "WB");
+    clickItem(":_addressStack.State:_XComboBox", "WB",0,0,1,Qt.LeftButton);
     type(":_addressStack.Postal Code:_XLineEdit", "300838");
-    type(":_addressStack.Country:_XComboBox", "India");
+    clickItem(":_addressStack.Country:_XComboBox", "India",0,0,1,Qt.LeftButton);
     clickButton(":Vendor.Save_QPushButton");
     waitForObject(":List Vendors._vendor_XTreeWidget");
     if(!clickItem(":List Vendors._vendor_XTreeWidget", "TPARTS", 5, 5, 1, Qt.LeftButton))

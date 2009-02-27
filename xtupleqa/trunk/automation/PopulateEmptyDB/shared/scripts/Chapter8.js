@@ -19,7 +19,7 @@ function executeChapter8(appVersion)
     clickButton(":Enable Characteristics Profile.New_QPushButton");
     waitForObject(":_char_XComboBox_3");
     if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN")
-        type(":_char_XComboBox_3", "SUPPORT");
+        clickItem(":_char_XComboBox_3", "SUPPORT",0,0,1,Qt.LeftButton);
     type(":_value_XLineEdit_4", "Standard");
     if(!findObject(":Customer Characteristic.Default_QCheckBox").checked)
         clickButton(":Customer Characteristic.Default_QCheckBox");
@@ -29,7 +29,7 @@ function executeChapter8(appVersion)
     clickButton(":Enable Characteristics Profile.New_QPushButton");
     waitForObject(":_char_XComboBox_3");
     if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN")
-        type(":_char_XComboBox_3", "SUPPORT");
+        clickItem(":_char_XComboBox_3", "SUPPORT",0,0,1,Qt.LeftButton);
     type(":_value_XLineEdit_4", "Complete");
     if(findObject(":Customer Characteristic.Default_QCheckBox").checked)
         clickButton(":Customer Characteristic.Default_QCheckBox");
@@ -39,7 +39,7 @@ function executeChapter8(appVersion)
     clickButton(":Enable Characteristics Profile.New_QPushButton");
     waitForObject(":_char_XComboBox_3");
     if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN")
-        type(":_char_XComboBox_3", "SUPPORT");
+        clickItem(":_char_XComboBox_3", "SUPPORT",0,0,1,Qt.LeftButton);
     type(":_value_XLineEdit_4", "None");
     if(findObject(":Customer Characteristic.Default_QCheckBox").checked)
         clickButton(":Customer Characteristic.Default_QCheckBox");
@@ -249,7 +249,7 @@ function executeChapter8(appVersion)
     waitForObject(":_name_XLineEdit_11");
     type(":_name_XLineEdit_11", "STANDARD-PACKING-LIST");
     if(findObject(":_report_XComboBox").currentText!="PackingList");
-        type(":_report_XComboBox", "PackingList");
+      clickItem(":_report_XComboBox", "PackingList",0,0,1,Qt.LeftButton);
     waitForObject(":Shipping Form.Save_QPushButton");
     clickButton(":Shipping Form.Save_QPushButton");
     waitForObject(":List Shipping Forms._bolformat_XTreeWidget");
@@ -262,7 +262,7 @@ function executeChapter8(appVersion)
     waitForObject(":_name_XLineEdit_11");
     type(":_name_XLineEdit_11", "INTRAN-PACKING-LIST");
     if(findObject(":_report_XComboBox").currentText!="PackingList-Shipment");
-        type(":_report_XComboBox", "PackingList-Shipment");
+      clickItem(":_report_XComboBox", "PackingList-Shipment",0,0,1,Qt.LeftButton);
     waitForObject(":Shipping Form.Save_QPushButton");
     clickButton(":Shipping Form.Save_QPushButton");
     
@@ -371,7 +371,7 @@ function executeChapter8(appVersion)
     waitForObject(":_customerTypeGroup.Selected Customer Type:_QRadioButton");
     clickButton(":_customerTypeGroup.Selected Customer Type:_QRadioButton");
     if(findObject(":_customerTypeGroup._customerTypes_XComboBox").currentText!="NORMAL-Normal Customer")
-    type(":_customerTypeGroup._customerTypes_XComboBox", "NORMAL");
+    clickItem(":_customerTypeGroup._customerTypes_XComboBox", "NORMAL",0,0,1,Qt.LeftButton);   
     type(":A/R Account Assignment._main_XLineEdit", "01-01-1100-01");
     type(":A/R Account Assignment._main_XLineEdit_2", "01-01-4800-01");
     type(":A/R Account Assignment._main_XLineEdit_3", "01-01-4060-01");
@@ -402,13 +402,13 @@ function executeChapter8(appVersion)
     waitForObject(":_customerTypeGroup.Selected Customer Type:_QRadioButton_2");
     clickButton(":_customerTypeGroup.Selected Customer Type:_QRadioButton_2");
     if(findObject(":_customerTypeGroup._customerTypes_XComboBox_2").currentText!="NORMAL-Normal Customer")
-        type(":_customerTypeGroup._customerTypes_XComboBox_2", "NORMAL");
-    type(":Customer Form Assignment._invoiceForm_XComboBox", "Invoice");
-    type(":Customer Form Assignment._creditMemoForm_XComboBox", "CreditMemo");
-    type(":Customer Form Assignment._statementForm_XComboBox", "Statement");
-    type(":Customer Form Assignment._quoteForm_XComboBox", "Quote");
-    type(":Customer Form Assignment._packingListForm_XComboBox", "PackingList");
-    type(":Customer Form Assignment._soPickListForm_XComboBox", "PickingListSONoClosedLines");
+        clickItem(":_customerTypeGroup._customerTypes_XComboBox_2", "NORMAL",0,0,1,Qt.LeftButton);
+        clickItem(":Customer Form Assignment._invoiceForm_XComboBox", "Invoice",0,0,1,Qt.LeftButton);
+        clickItem(":Customer Form Assignment._creditMemoForm_XComboBox", "CreditMemo",0,0,1,Qt.LeftButton);
+        clickItem(":Customer Form Assignment._statementForm_XComboBox", "Statement",0,0,1,Qt.LeftButton);
+        clickItem(":Customer Form Assignment._quoteForm_XComboBox", "Quote",0,0,1,Qt.LeftButton);
+        clickItem(":Customer Form Assignment._packingListForm_XComboBox", "PackingList",0,0,1,Qt.LeftButton);
+        clickItem(":Customer Form Assignment._soPickListForm_XComboBox", "PickingListSONoClosedLines",0,0,1,Qt.LeftButton);
     clickButton(":Customer Form Assignment.Save_QPushButton");
     waitForObject(":List Customer Form Assignments._custform_XTreeWidget");
     if(!clickItem(":List Customer Form Assignments._custform_XTreeWidget", "Invoice", 5, 5, 1, Qt.LeftButton))
@@ -431,9 +431,9 @@ function executeChapter8(appVersion)
     type(":_name_XLineEdit_12", "SO-Acknowledge");
     type(":Form._descrip_XLineEdit", "Sales Order Acknowledgement Form");
     if(findObject(":_report_XComboBox_2").currentText!="PickingListSOClosedLines")
-        type(":_report_XComboBox_2", "PickingListSOClosedLines");
+        clickItem(":_report_XComboBox_2", "PickingListSOClosedLines",0,0,1,Qt.LeftButton);
     if(findObject(":Form._key_XComboBox").currentText!="Sales Orders")
-        type(":Form._key_XComboBox", "Sales");
+        clickItem(":Form._key_XComboBox", "Sales",0,0,1,Qt.LeftButton);
     waitForObject(":Form.Save_QPushButton");
     clickButton(":Form.Save_QPushButton");
     waitForObject(":List Forms._form_XTreeWidget");
@@ -454,21 +454,22 @@ function executeChapter8(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Sales...");
     waitForObject(":Sales Configuration._orderNumGeneration_QComboBox");
     if(findObject(":Sales Configuration._orderNumGeneration_QComboBox").currentText!="Automatic");
-       type(":Sales Configuration._orderNumGeneration_QComboBox", "Automatic");
+       clickItem(":Sales Configuration._orderNumGeneration_QComboBox", "Automatic",0,0,1,Qt.LeftButton);
     type(":Sales Configuration._nextSoNumber_XLineEdit", "50000");
     type(":Sales Configuration._nextQuNumber_XLineEdit", "40000");
     if(appVersion=="manufacturing"||appVersion=="standard")
     {
         if(findObject(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox").currentText!="Automatic, Use R/A #’s");
-        type(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox", "Automatic,");
+        clickItem(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox", "Automatic,",0,0,1,Qt.LeftButton);
          type(":Sales Configuration._nextRaNumber_XLineEdit", "80000");
    }
    
     if(findObject(":Sales Configuration._creditMemoNumGeneration_QComboBox").currentText!="Automatic, Use C/M #'s")
-        type(":Sales Configuration._creditMemoNumGeneration_QComboBox", "Automatic,");
+        clickItem(":Sales Configuration._creditMemoNumGeneration_QComboBox", "Automatic,",0,0,1,Qt.LeftButton);
     type(":Sales Configuration._nextCmNumber_XLineEdit", "70000");
     type(":Sales Configuration._nextInNumber_XLineEdit", "60000");
-    if(!findObject(":Credit Control.Automatically Allocate Credit Memos to New Sales Order on Save_QCheckBox").checked)		clickButton(":Credit Control.Automatically Allocate Credit Memos to New Sales Order on Save_QCheckBox");
+    if(!findObject(":Credit Control.Automatically Allocate Credit Memos to New Sales Order on Save_QCheckBox").checked)		
+        clickButton(":Credit Control.Automatically Allocate Credit Memos to New Sales Order on Save_QCheckBox");
     if(!findObject(":general.Check Print Sales Order on Save by Default_QCheckBox").checked)
         clickButton(":general.Check Print Sales Order on Save by Default_QCheckBox");
     if(!findObject(":Date Control.Enable Promise Dates_QCheckBox").checked)
@@ -489,11 +490,11 @@ function executeChapter8(appVersion)
         if(!findObject(":Enable Return Authorizations.Post Return Authorization Changes to the Change Log_QCheckBox").checked)
             clickButton(":Enable Return Authorizations.Post Return Authorization Changes to the Change Log_QCheckBox");
         if(findObject(":Enable Return Authorizations._disposition_XComboBox").currentText!="Return")
-            type(":Enable Return Authorizations._disposition_XComboBox", "Return");
+            clickItem(":Enable Return Authorizations._disposition_XComboBox", "Return",0,0,1,Qt.LeftButton);
         if(findObject(":Enable Return Authorizations._timing_XComboBox").currentText!="Upon Receipt")
-            type(":Enable Return Authorizations._timing_XComboBox", "Upon");
+            clickItem(":Enable Return Authorizations._timing_XComboBox", "Upon",0,0,1,Qt.LeftButton);
         if(findObject(":Enable Return Authorizations._creditBy_XComboBox").currentText!= "Check")
-            type(":Enable Return Authorizations._creditBy_XComboBox", "Check");
+            clickItem(":Enable Return Authorizations._creditBy_XComboBox", "Check",0,0,1,Qt.LeftButton);
         if(!findObject(":Enable Return Authorizations.Check Print On Save by Default_QCheckBox").checked)
             clickButton(":Enable Return Authorizations.Check Print On Save by Default_QCheckBox");
     }
@@ -547,15 +548,15 @@ function executeChapter8(appVersion)
     type(":Customer._number_XLineEdit", "TTOYS");
     type(":Customer._name_XLineEdit", "Tremendous Toys");
     if(findObject(":Defaults._shipvia_XComboBox").currentText!="UPS-GROUND-UPS Ground")
-        type(":Defaults._shipvia_XComboBox","UPS");
+        clickItem(":Defaults._shipvia_XComboBox","UPS",0,0,1,Qt.LeftButton);
     if(findObject(":Defaults._shipchrg_XComboBox").currentText!= "ADDCHARGE-Add Shipping Charges to Order")
-        type(":Defaults._shipchrg_XComboBox", "ADDCHARGE");
+        clickItem(":Defaults._shipchrg_XComboBox", "ADDCHARGE",0,0,1,Qt.LeftButton);
     if(!findObject(":Settings.Allow Free-Form Bill-To_QCheckBox").checked)
         clickButton(":Settings.Allow Free-Form Bill-To_QCheckBox");
     if(appVersion=="manufacturing"||appVersion=="standard")
     {
         if(findObject(":Settings._sellingWarehouse_WComboBox").currentText!= "WH1");
-        type(":Settings._sellingWarehouse_WComboBox", "WH1");
+        clickItem(":Settings._sellingWarehouse_WComboBox", "WH1",0,0,1,Qt.LeftButton);
     }
     clickTab(":Customer.qt_tabwidget_tabbar_QTabBar", "Credit");
     waitForObject(":Defaults._defaultDiscountPrcnt_XLineEdit");
@@ -564,7 +565,8 @@ function executeChapter8(appVersion)
     type(":_creditGroup._creditRating_XLineEdit", "<Ctrl+A>");
     type(":_creditGroup._creditRating_XLineEdit", "<Del>");
     type(":_creditGroup._creditRating_XLineEdit", "D&B");
-    if(!findObject(":_creditGroup.Place on Credit Warning when Credit Limit/Grace Days is Exceeded_QCheckBox").checked)		clickButton(":_creditGroup.Place on Credit Warning when Credit Limit/Grace Days is Exceeded_QCheckBox");
+    if(!findObject(":_creditGroup.Place on Credit Warning when Credit Limit/Grace Days is Exceeded_QCheckBox").checked)		
+        clickButton(":_creditGroup.Place on Credit Warning when Credit Limit/Grace Days is Exceeded_QCheckBox");
     clickButton(":Credit Status.In Good Standing_QRadioButton");
     if(!findObject(":Requirements.Uses Purchase Orders_QCheckBox").checked)
         clickButton(":Requirements.Uses Purchase Orders_QCheckBox");
@@ -577,7 +579,7 @@ function executeChapter8(appVersion)
     type(":Alternate Late Grace Days._graceDays_QSpinBox", "30");
     clickTab(":Customer.qt_tabwidget_tabbar_QTabBar", "Addresses");
     waitForObject(":_addressStack._honorific_XComboBox");
-    type(":_addressStack._honorific_XComboBox", "MR");
+    clickItem(":_addressStack._honorific_XComboBox", "MR",0,0,1,Qt.LeftButton);
     type(":_addressStack._first_XLineEdit", "Jerry");
     type(":_addressStack._middle_XLineEdit", "R");
     type(":_addressStack._last_XLineEdit", "Stapleton");
@@ -591,9 +593,9 @@ function executeChapter8(appVersion)
     type(":_addressStack.Street\nAddress:_XLineEdit_5", "Street line addr2");
     type(":_addressStack.Street\nAddress:_XLineEdit_6", "Street line addr3");
     type(":_addressStack.City:_XLineEdit_2", "Virginia");
-    type(":_addressStack.State:_XComboBox_2", "VA");
+    clickItem(":_addressStack.State:_XComboBox_2", "VA",0,0,1,Qt.LeftButton);
     type(":_addressStack.Postal Code:_XLineEdit_2", "2535635");
-    type(":_addressStack.Country:_XComboBox_2", "United States");
+    clickItem(":_addressStack.Country:_XComboBox_2", "United States",0,0,1,Qt.LeftButton);
     clickButton(":tabAddresses.Ship To_QRadioButton");
     waitForObject(":_addressStack.New_QPushButton");
     clickButton(":_addressStack.New_QPushButton");
@@ -606,10 +608,10 @@ function executeChapter8(appVersion)
     type(":Ship-To.Street\nAddress:_XLineEdit_2", "Street Addr line2");
     type(":Ship-To.Street\nAddress:_XLineEdit_3", "Street Addr line 3");
     type(":Ship-To.City:_XLineEdit", "Alaska");
-    type(":Ship-To.State:_XComboBox", "WDC");
+    clickItem(":Ship-To.State:_XComboBox", "WDC",0,0,1,Qt.LeftButton);
     type(":Ship-To.Postal Code:_XLineEdit", "235235");
-    type(":Ship-To.Country:_XComboBox", "United States");
-    type(":Ship-To._honorific_XComboBox", "MR");
+    clickItem(":Ship-To.Country:_XComboBox", "United States",0,0,1,Qt.LeftButton);
+    clickItem(":Ship-To._honorific_XComboBox", "MR",0,0,1,Qt.LeftButton);
     type(":Ship-To._first_XLineEdit", "Kunal");
     type(":Ship-To._middle_XLineEdit", "R");
     type(":Ship-To._last_XLineEdit", "Joshi");
@@ -619,9 +621,9 @@ function executeChapter8(appVersion)
     type(":Ship-To._email_XLineEdit", "kunal@test.com");
     type(":_commission_XLineEdit", "7.5");
     if(findObject(":Defaults:._shipform_XComboBox").currentText!= "STANDARD-PACKING-LIST")
-        type(":Defaults:._shipform_XComboBox", "STANDARD");
+        clickItem(":Defaults:._shipform_XComboBox", "STANDARD",0,0,1,Qt.LeftButton);
     if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
-        type(":Defaults:._shipchrg_XComboBox", "ADDCHARGE");
+        clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE",0,0,1,Qt.LeftButton);
     clickButton(":Ship-To.Save_QPushButton");
     
     
@@ -636,10 +638,10 @@ function executeChapter8(appVersion)
     type(":Ship-To.Street\nAddress:_XLineEdit_2", "Street Addr line22");
     type(":Ship-To.Street\nAddress:_XLineEdit_3", "Street Addr line 33");
     type(":Ship-To.City:_XLineEdit", "Alaska");
-    type(":Ship-To.State:_XComboBox", "WDC");
+    clickItem(":Ship-To.State:_XComboBox", "WDC",0,0,1,Qt.LeftButton);
     type(":Ship-To.Postal Code:_XLineEdit", "345235");
-    type(":Ship-To.Country:_XComboBox", "United States");
-    type(":Ship-To._honorific_XComboBox", "MR");
+    clickItem(":Ship-To.Country:_XComboBox", "United States",0,0,1,Qt.LeftButton);
+    clickItem(":Ship-To._honorific_XComboBox", "MR",0,0,1,Qt.LeftButton);
     type(":Ship-To._first_XLineEdit", "Rakesh");
     type(":Ship-To._middle_XLineEdit", "H");
     type(":Ship-To._last_XLineEdit", "Mittal");
@@ -649,9 +651,9 @@ function executeChapter8(appVersion)
     type(":Ship-To._email_XLineEdit", "rakesh@test.com");
     type(":_commission_XLineEdit", "7.5");
     if(findObject(":Defaults:._shipform_XComboBox").currentText!= "STANDARD-PACKING-LIST")
-        type(":Defaults:._shipform_XComboBox", "STANDARD");
+        clickItem(":Defaults:._shipform_XComboBox", "STANDARD",0,0,1,Qt.LeftButton);
     if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
-        type(":Defaults:._shipchrg_XComboBox", "ADDCHARGE");
+        clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE",0,0,1,Qt.LeftButton);
     clickButton(":Ship-To.Save_QPushButton");
     
     
@@ -794,7 +796,7 @@ function executeChapter8(appVersion)
     clickButton(":_shipViaFreightGroup.All Ship Vias_QRadioButton_2");
     clickButton(":To.All Shipping Zones_QRadioButton_2");
     clickButton(":_freightClassGroup.Selected:_QRadioButton_2");
-    type(":_freightClassGroup._freightClass_XComboBox_2", "BULK-Bulk");
+    clickItem(":_freightClassGroup._freightClass_XComboBox_2", "BULK-Bulk",0,0,1,Qt.LeftButton);
     clickButton(":Pricing Schedule Item.Save_QPushButton");
     
     waitForObject(":GroupBox1.Save_QPushButton_2");
@@ -823,7 +825,7 @@ function executeChapter8(appVersion)
     clickButton(":_shipViaFreightGroup.All Ship Vias_QRadioButton_2");
     clickButton(":To.All Shipping Zones_QRadioButton_2");
     clickButton(":_freightClassGroup.Selected:_QRadioButton_2");
-    type(":_freightClassGroup._freightClass_XComboBox_2", "BULK-Bulk");
+    clickItem(":_freightClassGroup._freightClass_XComboBox_2", "BULK-Bulk",0,0,1,Qt.LeftButton);
     clickButton(":Pricing Schedule Item.Save_QPushButton");
     
     waitForObject(":GroupBox1.Save_QPushButton_2");
@@ -852,7 +854,7 @@ function executeChapter8(appVersion)
     waitForObject(":_customerGroup.Selected Customer Type:_QRadioButton");
     clickButton(":_customerGroup.Selected Customer Type:_QRadioButton");    
     if(findObject(":_ipshead_XComboBox").currentText!= "BASE - Base Price Schedule")
-        type(":_ipshead_XComboBox","BASE");
+        clickItem(":_ipshead_XComboBox","BASE",0,0,1,Qt.LeftButton);
     clickButton(":Pricing Schedule Assignment.Save_QPushButton");
     waitForObject(":List Pricing Schedule Assignments._ipsass_XTreeWidget");
     if(!clickItem(":List Pricing Schedule Assignments._ipsass_XTreeWidget", "ANY", 5, 5, 1, Qt.LeftButton))
@@ -865,7 +867,7 @@ function executeChapter8(appVersion)
     waitForObject(":_customerGroup.Customer Type Pattern:_QRadioButton_2");
     clickButton(":_customerGroup.Customer Type Pattern:_QRadioButton_2");
     type(":_customerGroup._customerType_XLineEdit_2", "*");
-    type(":_ipshead_XComboBox", "FREIGHT-BULK");
+    clickItem(":_ipshead_XComboBox", "FREIGHT-BULK",0,0,1,Qt.LeftButton);
     clickButton(":Pricing Schedule Assignment.Save_QPushButton");
     if(!clickItem(":List Pricing Schedule Assignments._ipsass_XTreeWidget", "FREIGHT-BULK", 5, 5, 1, Qt.LeftButton))
         test.pass("Pricing Schedule Assignment created: FREIGHT-BULK");
@@ -876,7 +878,7 @@ function executeChapter8(appVersion)
     waitForObject(":_customerGroup.Selected Customer:_QRadioButton_2");
     clickButton(":_customerGroup.Selected Customer:_QRadioButton_2");
     type(":_customerGroup._customerNumber_CLineEdit_2", "ttoys");
-    type(":_ipshead_XComboBox", "FREIGHT-TTOYS-BULK");
+    clickItem(":_ipshead_XComboBox", "FREIGHT-TTOYS-BULK",0,0,1,Qt.LeftButton);
     clickButton(":Pricing Schedule Assignment.Save_QPushButton");
     waitForObject(":List Pricing Schedule Assignments._ipsass_XTreeWidget");
     if(!clickItem(":List Pricing Schedule Assignments._ipsass_XTreeWidget", "FREIGHT-TTOYS-BULK", 5, 5, 1, Qt.LeftButton))
@@ -900,17 +902,17 @@ function executeChapter8(appVersion)
         clickButton(":List Sites.New_QPushButton_2");
         waitForObject(":_sitetype_XComboBox_2");
         if(findObject(":_sitetype_XComboBox_2").currentText!="INTRAN")
-            type(":_sitetype_XComboBox_2", "INTRAN");
+            clickItem(":_sitetype_XComboBox_2", "INTRAN",0,0,1,Qt.LeftButton);
         type(":_code_XLineEdit_14", "INTRAN");
         type(":_description_XLineEdit_26", "Intransit Warehouse");
         type(":Site.Street\nAddress:_XLineEdit", "#582, Charmy Ganesh Nilayam");
         type(":Site.Street\nAddress:_XLineEdit_2", "Vittal Rao Colony");
         type(":Site.Street\nAddress:_XLineEdit_3", "Santh Nagar");
         type(":Site.City:_XLineEdit", "Pune");
-        type(":Site.State:_XComboBox", "Maharastra");
+        clickItem(":Site.State:_XComboBox", "Maharastra",0,0,1,Qt.LeftButton);
         type(":Site.Postal Code:_XLineEdit", "534235");
-        type(":Site.Country:_XComboBox", "india");
-        type(":Site._honorific_XComboBox", "Mr");
+        clickItem(":Site.Country:_XComboBox", "india",0,0,1,Qt.LeftButton);
+        clickItem(":Site._honorific_XComboBox", "Mr",0,0,1,Qt.LeftButton);
         type(":Site._first_XLineEdit", "Gaurav");
         type(":Site._middle_XLineEdit", "S");
         type(":Site._last_XLineEdit", "Gulati");
@@ -922,11 +924,11 @@ function executeChapter8(appVersion)
         clickButton(":_generalTab.Transit Site_QRadioButton");
         waitForObject(":_whsTypeStack._shipvia_XComboBox");
         if(findObject(":_whsTypeStack._shipvia_XComboBox")!= "UPS-GROUND-UPS Ground")
-            type(":_whsTypeStack._shipvia_XComboBox", "UPS");
+            clickItem(":_whsTypeStack._shipvia_XComboBox", "UPS",0,0,1,Qt.LeftButton);
         if(findObject(":_shipform_XComboBox").currentText!="INTRAN-PACKING-LIST")
-            type(":_shipform_XComboBox", "INTRAN");
+            clickItem(":_shipform_XComboBox", "INTRAN",0,0,1,Qt.LeftButton);
         if(findObject(":_costcat_XComboBox_4").currentText!= "CCINTRAN-Intransit Warehouse")
-            type(":_costcat_XComboBox_4", "CCINTRAN");
+            clickItem(":_costcat_XComboBox_4", "CCINTRAN",0,0,1,Qt.LeftButton);
         type(":_whsTypeStack._shipcomments_QTextEdit", "This is a internal shipment between two Prodiem Toys warehouses. If you have any questions please call Anna Falactic at 757-322-2101.");	
         waitForObject(":Save_QPushButton_2");
         clickButton(":Save_QPushButton_2");
@@ -948,7 +950,7 @@ function executeChapter8(appVersion)
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
         activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
         if(findObject(":_defaultTransWhs_WComboBox").currentText!= "INTRAN");
-        type(":_defaultTransWhs_WComboBox", "INTRAN");
+         clickItem(":_defaultTransWhs_WComboBox", "INTRAN",0,0,1,Qt.LeftButton);
         clickButton(":Inventory Configuration.Save_QPushButton");
         test.log("Configure Module: Inventory");
     

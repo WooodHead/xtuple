@@ -71,12 +71,8 @@ function executeChapter1(appVersion)
     waitForObject(":_gl.Allow manual entry of G/L Account Numbers_QCheckBox");
     if(!findObject(":_gl.Allow manual entry of G/L Account Numbers_QCheckBox").checked)
         clickButton(":_gl.Allow manual entry of G/L Account Numbers_QCheckBox");
-    waitForObject(":_taxauth_XComboBox")
-    while (findObject(":_taxauth_XComboBox").currentText!= "None")
-    {
-            waitForObject(":_taxauth_XComboBox");
-            type(":_taxauth_XComboBox","<Down>");
-    }
+    waitForObject(":_taxauth_XComboBox");
+    clickItem(":_taxauth_XComboBox", "None", 0, 0, 1, Qt.LeftButton);
     waitForObject(":Meaning of Currency Exchange Rates:.Foreign × Exchange Rate = Base_QRadioButton");
     clickButton(":Meaning of Currency Exchange Rates:.Foreign × Exchange Rate = Base_QRadioButton");
     waitForObject(":Accounting Configuration.Save_QPushButton");
@@ -100,6 +96,7 @@ function executeChapter1(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Profit Center Numbers...");
     waitForObject(":List Profit Centers.New_QPushButton");
     clickButton(":List Profit Centers.New_QPushButton");
+    waitForObject(":List Profit Centers._number_XLineEdit");
     type(":List Profit Centers._number_XLineEdit", "01");
     type(":List Profit Centers._descrip_QTextEdit", "Profit Center 01");
     waitForObject(":List Profit Centers.Save_QPushButton");
@@ -136,6 +133,7 @@ function executeChapter1(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Numbers...");
     waitForObject(":List Subaccounts.New_QPushButton");
     clickButton(":List Subaccounts.New_QPushButton");
+    waitForObject(":List Subaccounts._number_XLineEdit");
     type(":List Subaccounts._number_XLineEdit", "01");
     type(":List Subaccounts._descrip_QTextEdit", "Subaccount 01 - General");
     waitForObject(":List Subaccounts.Save_QPushButton");
@@ -177,9 +175,9 @@ function executeChapter1(appVersion)
     //--------------SubAccount Types: SO-Revenue-Other Revenue------------------
     waitForObject(":List G/L Subaccount Types.New_QPushButton");
     clickButton(":List G/L Subaccount Types.New_QPushButton");
+    waitForObject(":List G/L Subaccount Types._code_XLineEdit");
     type(":List G/L Subaccount Types._code_XLineEdit", "SO");
-    while(findObject(":List G/L Subaccount Types._type_XComboBox").currentText!="Revenue")
-        type(":List G/L Subaccount Types._type_XComboBox","<Down>")
+    clickItem(":List G/L Subaccount Types._type_XComboBox", "Revenue", 0, 0, 1, Qt.LeftButton);
     type(":List G/L Subaccount Types._description_XLineEdit", "Other Revenue");
     waitForObject(":List G/L Subaccount Types.Save_QPushButton");
     clickButton(":List G/L Subaccount Types.Save_QPushButton");
@@ -190,8 +188,7 @@ function executeChapter1(appVersion)
     clickButton(":List G/L Subaccount Types.New_QPushButton");
     waitForObject(":List G/L Subaccount Types._code_XLineEdit");
     type(":List G/L Subaccount Types._code_XLineEdit", "DXP");
-    while(findObject(":List G/L Subaccount Types._type_XComboBox").currentText!="Expense")
-        type(":List G/L Subaccount Types._type_XComboBox","<Down>");
+    clickItem(":List G/L Subaccount Types._type_XComboBox", "Expense", 0, 0, 1, Qt.LeftButton);
     type(":List G/L Subaccount Types._description_XLineEdit", "Depreciation Expense");
     waitForObject(":List G/L Subaccount Types.Save_QPushButton");
     clickButton(":List G/L Subaccount Types.Save_QPushButton");
@@ -502,7 +499,7 @@ function executeChapter1(appVersion)
         
         waitForObject(":List EDI Profiles._name_QLineEdit");
         type(":List EDI Profiles._name_QLineEdit", "DUNNING");
-        type(":List EDI Profiles._type_QComboBox", "Email");
+        clickItem(":List EDI Profiles._type_QComboBox", "Email", 0, 0, 1, Qt.LeftButton);
         type(":_stack._emailTo_QLineEdit", "/</email3>");
         type(":_stack._emailTo_QLineEdit", "<home>");
         type(":_stack._emailTo_QLineEdit", "<Del>");
@@ -536,7 +533,7 @@ function executeChapter1(appVersion)
     type(":Incident Category._order_QSpinBox", "<Del>");
     type(":Incident Category._order_QSpinBox", "90");
     if(appVersion=="manufacturing"||appVersion=="standard")
-        type(":List Incident Categories._ediprofile_XComboBox", "DUNNING");
+        clickItem(":List Incident Categories._ediprofile_XComboBox", "DUNNING", 0, 0, 1, Qt.LeftButton);
     type(":Incident Category._descrip_QTextEdit", "Dunning Incident");
     clickButton(":Incident Category.Save_QPushButton");
     waitForObject(":List Incident Categories.Close_QPushButton");
@@ -594,7 +591,7 @@ function executeChapter1(appVersion)
     type(":_ar._recurringBuffer_QSpinBox", "<Del>");
     type(":_ar._recurringBuffer_QSpinBox", "7");
     type(":_ar._recurringBuffer_QSpinBox", "<Tab>");
-    type(":_ar._incdtCategory_XComboBox", "DUNNING");
+    clickItem(":_ar._incdtCategory_XComboBox", "DUNNING", 0, 0, 1, Qt.LeftButton);
     waitForObject(":Accounting Configuration.Save_QPushButton");
     clickButton(":Accounting Configuration.Save_QPushButton");
     test.log("Accounting Module Configured"); 
@@ -649,11 +646,7 @@ function executeChapter1(appVersion)
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "CRM...");
     activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "CRM...");
     waitForObject(":CRM Configuration._acctGeneration_QComboBox");
-    while(findObject(":CRM Configuration._acctGeneration_QComboBox").currentText!="Automatic, Allow Override")
-    {
-        type(":CRM Configuration._acctGeneration_QComboBox","<Down>");
-        waitForObject(":CRM Configuration._acctGeneration_QComboBox");
-    }
+    clickItem(":CRM Configuration._acctGeneration_QComboBox", "Automatic, Allow Override", 0, 0, 1, Qt.LeftButton);
     waitForObject(":CRM Configuration._nextAcctNumber_XLineEdit");
     type(":CRM Configuration._nextAcctNumber_XLineEdit", "<Del>");
     type(":CRM Configuration._nextAcctNumber_XLineEdit", "100");
@@ -693,7 +686,7 @@ function executeChapter1(appVersion)
         type(":List Calendars._periodCount_QSpinBox","<Ctrl+A>");
         type(":List Calendars._periodCount_QSpinBox","Del");
         type(":List Calendars._periodCount_QSpinBox",1);
-        type(":List Calendars._periodType_QComboBox", "Weeks");
+        clickItem(":List Calendars._periodType_QComboBox", "Weeks", 0, 0, 1, Qt.LeftButton);
         clickButton(":List Calendars.Save_QPushButton");    
     }
     waitForObject(":List Calendars.Save_QPushButton_2");
@@ -734,7 +727,7 @@ function executeChapter1(appVersion)
         type(":Schedule Configuration._nextPlanNumber_XLineEdit", "<Del>");
         waitForObject(":Schedule Configuration._nextPlanNumber_XLineEdit");
         type(":Schedule Configuration._nextPlanNumber_XLineEdit", "90000");
-        type(":Schedule Configuration._calendar_CalendarComboBox", "8WRELDAYFW");
+        clickItem(":Schedule Configuration._calendar_CalendarComboBox", "8WRELDAYFW", 0, 0, 1, Qt.LeftButton);
         if(!findObject(":Schedule Configuration.Enable Constraint Management_QCheckBox").checked)
             findObject(":Schedule Configuration.Enable Constraint Management_QCheckBox").checked=true;
         waitForObject(":Schedule Configuration.Save_QPushButton");
@@ -778,7 +771,6 @@ function executeChapter1(appVersion)
     clickButton(":List Site Types.Save_QPushButton");
     if(!clickItem(":List Site Types._sitetype_XTreeWidget", "WHSE", 5, 5, 1, Qt.LeftButton))
         test.pass("Site Type: WHSE created");
-    
     waitForObject(":List Site Types.New_QPushButton");
     clickButton(":List Site Types.New_QPushButton");
     waitForObject(":List Site Types._code_XLineEdit");
@@ -819,7 +811,7 @@ function executeChapter1(appVersion)
         type(":_code_XLineEdit_3", "WH1");
         type(":_description_XLineEdit_5", "Prodiem Toys Site1");
         if(findObject(":_sitetype_XComboBox").currentText!= "WHSE")
-            type(":_sitetype_XComboBox","WHSE");
+            clickItem(":_sitetype_XComboBox", "WHSE", 0, 0, 1, Qt.LeftButton);
         type(":List Sites.Street\nAddress:_XLineEdit", "Street Address Line1");
         type(":List Sites.Street\nAddress:_XLineEdit_2", "Street Address Line2");
         type(":List Sites.Street\nAddress:_XLineEdit_3", "Street Address Line3");
@@ -1084,7 +1076,7 @@ function executeChapter1(appVersion)
     waitForObject(":User.Selected User:_QRadioButton");
     clickButton(":User.Selected User:_QRadioButton");
     waitForObject(":User._user_XComboBox");
-    type(":User._user_XComboBox",newuser);
+    clickItem(":User._user_XComboBox", newuser, 0, 0, 1, Qt.LeftButton);
     waitForObject(":Background Image.Image:_QRadioButton");
     clickButton(":Background Image.Image:_QRadioButton");
     if(!findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked)

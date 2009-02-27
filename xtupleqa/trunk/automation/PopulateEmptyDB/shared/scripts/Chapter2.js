@@ -211,8 +211,7 @@ function executeChapter2(appVersion)
     waitForObject(":List Expense Categories._expcat_XTreeWidget");
     if(!clickItem(":List Expense Categories._expcat_XTreeWidget", "OFFICE-SUPPLIES", 5,5, 1, Qt.LeftButton))
         test.pass("Expense Category: OFFICE-SUPPLIES created");
-
-  
+    
     waitForObject(":List Expense Categories.New_QPushButton_2");
     clickButton(":List Expense Categories.New_QPushButton_2");
     waitForObject(":_category_XLineEdit_2");
@@ -261,15 +260,10 @@ function executeChapter2(appVersion)
     waitForObject(":List Site Locations.New_QPushButton_2");
     if(appVersion=="manufacturing"||appVersion=="standard")
     if(findObject(":_warehouse._warehouses_WComboBox_3").currentText!= "WH1")
-        type(":_warehouse._warehouses_WComboBox_3","WH1")
-        
+       clickItem(":_warehouse._warehouses_WComboBox_3", "WH1", 0, 0, 1, Qt.LeftButton);    
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
-    while(findObject(":_whsezone_XComboBox_2").currentText!="RM1")
-    {    
-        type(":_whsezone_XComboBox_2", "<Down>");
-        waitForObject(":_whsezone_XComboBox_2");
-    }
+    clickItem(":_whsezone_XComboBox_2", "RM1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
     findObject(":Location.Netable_QCheckBox").checked=true;
     if(findObject(":Location.Restricted_QCheckBox").checked)
@@ -286,11 +280,7 @@ function executeChapter2(appVersion)
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
-    while(findObject(":_whsezone_XComboBox_2").currentText!="RM1")
-    {    
-        type(":_whsezone_XComboBox_2", "<Down>");
-        waitForObject(":_whsezone_XComboBox_2");
-    }
+    clickItem(":_whsezone_XComboBox_2", "RM1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
     findObject(":Location.Netable_QCheckBox").checked=true;
     if(findObject(":Location.Restricted_QCheckBox").checked)
@@ -308,11 +298,7 @@ function executeChapter2(appVersion)
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
-    while(findObject(":_whsezone_XComboBox_2").currentText!="RM1")
-    {    
-        type(":_whsezone_XComboBox_2", "<Down>");
-        waitForObject(":_whsezone_XComboBox_2");
-    }
+    clickItem(":_whsezone_XComboBox_2", "RM1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
     findObject(":Location.Netable_QCheckBox").checked=true;
     if(findObject(":Location.Restricted_QCheckBox").checked)
@@ -332,11 +318,7 @@ function executeChapter2(appVersion)
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
-    while(findObject(":_whsezone_XComboBox_2").currentText!="FG1")
-    {    
-        type(":_whsezone_XComboBox_2", "<Down>");
-        waitForObject(":_whsezone_XComboBox_2");
-    }
+    clickItem(":_whsezone_XComboBox_2", "FG1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
     findObject(":Location.Netable_QCheckBox").checked=true;
     if(findObject(":Location.Restricted_QCheckBox").checked)
@@ -355,11 +337,7 @@ function executeChapter2(appVersion)
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
-    while(findObject(":_whsezone_XComboBox_2").currentText!="FG1")
-    {    
-        type(":_whsezone_XComboBox_2", "<Down>");
-        waitForObject(":_whsezone_XComboBox_2");
-    }
+    clickItem(":_whsezone_XComboBox_2", "FG1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
     findObject(":Location.Netable_QCheckBox").checked=true;
     if(findObject(":Location.Restricted_QCheckBox").checked)
@@ -376,11 +354,7 @@ function executeChapter2(appVersion)
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
-    while(findObject(":_whsezone_XComboBox_2").currentText!="FG1")
-    {    
-        type(":_whsezone_XComboBox_2", "<Down>");
-        waitForObject(":_whsezone_XComboBox_2");
-    }
+    clickItem(":_whsezone_XComboBox_2", "FG1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
     findObject(":Location.Netable_QCheckBox").checked=true;
     if(findObject(":Location.Restricted_QCheckBox").checked)
@@ -487,17 +461,9 @@ function executeChapter2(appVersion)
     waitForObject(":Global Conversion Ratios:.New_QPushButton");
     clickButton(":Global Conversion Ratios:.New_QPushButton");
     waitForObject(":Conversion._uomFrom_XComboBox");
-    while(findObject(":Conversion._uomFrom_XComboBox").currentText!="KG")
-    {
-        type(":Conversion._uomFrom_XComboBox","<Down>");
-        waitForObject(":Conversion._uomFrom_XComboBox");
-    }
+    clickItem(":Conversion._uomFrom_XComboBox", "KG", 0, 0, 1, Qt.LeftButton);
     waitForObject(":Conversion._uomTo_XComboBox");
-    while(findObject(":Conversion._uomTo_XComboBox").currentText!="LB")
-    {
-        type(":Conversion._uomTo_XComboBox","<Down>");
-        waitForObject(":Conversion._uomTo_XComboBox");
-    }
+    clickItem(":Conversion._uomTo_XComboBox", "LB", 0, 0, 1, Qt.LeftButton);
     waitForObject(":Conversion._toValue_XLineEdit");
     type(":Conversion._toValue_XLineEdit", "2.20462262");
     if(!findObject(":Conversion.Fractional_QCheckBox").checked)
@@ -813,11 +779,7 @@ function executeChapter2(appVersion)
         waitForObject(":_warehouse.Selected:_QRadioButton_3");
         clickButton(":_warehouse.Selected:_QRadioButton_3");
         waitForObject(":_warehouse._warehouses_WComboBox_4");
-        while(findObject(":_warehouse._warehouses_WComboBox_4").currentText!="WH1")
-        {
-            type(":_warehouse._warehouses_WComboBox_4", "<Down>");
-            waitForObject(":_warehouse._warehouses_WComboBox_4");
-        }
+        clickItem(":_warehouse._warehouses_WComboBox_4", "WH1", 0, 0, 1, Qt.LeftButton);
         waitForObject(":Site Work Week.Sunday_QCheckBox_2");
         if(findObject(":Site Work Week.Sunday_QCheckBox_2").checked)
             findObject(":Site Work Week.Sunday_QCheckBox_2").checked=false;
@@ -853,11 +815,7 @@ function executeChapter2(appVersion)
         waitForObject(":_warehouse.Selected:_QRadioButton_4");
         clickButton(":_warehouse.Selected:_QRadioButton_4");
         waitForObject(":_warehouse._warehouses_WComboBox_5");
-        while(findObject(":_warehouse._warehouses_WComboBox_5").currentText!="WH1")
-        {
-            type(":_warehouse._warehouses_WComboBox_5", "<Down>");
-            waitForObject(":_warehouse._warehouses_WComboBox_5");
-        }
+        clickItem(":_warehouse._warehouses_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
         var d = new Date();
         var CurrentYearFull = d.getFullYear();
         var CurrentYear = CurrentYearFull.toString().slice(2);

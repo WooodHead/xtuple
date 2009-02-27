@@ -16,7 +16,7 @@ function executeChapter10(appVersion)
     type(":_name_XLineEdit_17", "GENERIC-CHECK");
     type(":Check Format._descrip_XLineEdit", "Generic Check Format");
     if(findObject(":_report_XComboBox_3").currentText!="APCheck")
-        type(":_report_XComboBox_3", "APCheck");
+       clickItem(":_report_XComboBox_3", "APCheck",0,0,1,Qt.LeftButton); 
     clickButton(":Check Format.Save_QPushButton");
     waitForObject(":List Check Formats._form_XTreeWidget");
     if(!clickItem(":List Check Formats._form_XTreeWidget", "GENERIC-CHECK", 5, 5, 1, Qt.LeftButton))
@@ -84,8 +84,8 @@ function executeChapter10(appVersion)
         type(":_companyId_XLineEdit", "<Del>");
         type(":_companyId_XLineEdit", "987654");
         clickButton(":Enable ACH Check Printing.Other_QRadioButton");
-        type(":_companyName_XLineEdit", "ProDiem Inc.");
-        type(":Enable ACH Check Printing._achSuffix_QComboBox",".dat");
+         type(":_companyName_XLineEdit", "ProDiem Inc.");
+           clickItem(":Enable ACH Check Printing._achSuffix_QComboBox",".dat",0,0,1,Qt.LeftButton);
         clickButton(":Accounting Configuration.Save_QPushButton");
         waitForObject(":Set Encryption?.No_QPushButton");
         clickButton(":Set Encryption?.No_QPushButton");
@@ -110,7 +110,7 @@ function executeChapter10(appVersion)
     type(":_bankName_XLineEdit", "eBank");
     type(":_accountNumber_XLineEdit_2", "123456");
     if(!findObject(":_currency_XComboBox").currentText!= "USD -$");
-        type(":_currency_XComboBox","USD");
+       clickItem(":_currency_XComboBox","USD",0,0,1,Qt.LeftButton);
     waitForObjectItem(":_type_XComboBox", "Checking");
     if(findObject(":_type_XComboBox").currentText!="Checking")
         type(":Bank Account._bankGroup_QGroupBox","Checking");
@@ -118,7 +118,7 @@ function executeChapter10(appVersion)
         clickButton(":_useGroup.Used in Accounts Payable_QCheckBox");
     type(":_useGroup._nextCheckNum_XLineEdit", "3000");
     if(!findObject(":_type_XComboBox")!= "GENERIC-CHECK")
-        type(":_type_XComboBox", "GENERIC");
+        clickItem(":_type_XComboBox", "GENERIC",0,0,1,Qt.LeftButton);
     if(!findObject(":_useGroup.Used in Accounts Receivable_QCheckBox").checked)
         clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
     type(":_accountGroup._main_XLineEdit", "01-01-1000-01");
@@ -135,14 +135,14 @@ function executeChapter10(appVersion)
     type(":_bankName_XLineEdit", "Euro Bank");
     type(":_accountNumber_XLineEdit_2", "654321");
     if(!findObject(":_currency_XComboBox").currentText!= "EUR -EUR");
-        type(":_currency_XComboBox","EUR");
+       clickItem(":_currency_XComboBox","EUR",0,0,1,Qt.LeftButton);
     if(findObject(":_type_XComboBox").currentText!="Checking")
         type(":Bank Account._bankGroup_QGroupBox","Checking");
     if(!findObject(":_useGroup.Used in Accounts Payable_QCheckBox").checked)
         clickButton(":_useGroup.Used in Accounts Payable_QCheckBox");
     type(":_useGroup._nextCheckNum_XLineEdit", "9000");
     if(!findObject(":_type_XComboBox")!= "GENERIC-CHECK")
-        type(":_type_XComboBox", "GENERIC");
+        clickItem(":_type_XComboBox", "GENERIC",0,0,1,Qt.LeftButton);
     if(!findObject(":_useGroup.Used in Accounts Receivable_QCheckBox").checked)
         clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
     type(":_accountGroup._main_XLineEdit", "01-01-1010-01");
