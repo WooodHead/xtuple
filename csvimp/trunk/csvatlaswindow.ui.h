@@ -226,15 +226,14 @@ void CSVAtlasWindow::sAddMap()
 
     QStringList tables;
     QSqlQuery qry;
-    qry.prepare( "SELECT tablename FROM ( "
-                 "SELECT schemaname || '.' || viewname AS tablename from pg_views "
-                 "WHERE schemaname IN ('api','public') "
-                 "UNION "
-                 "SELECT schemaname || '.' || tablename AS tablename from pg_tables "
-                 "WHERE schemaname IN ('api','public') ) "
-                 "AS data "
-                 "ORDER by tablename; " );
-    qry.exec();
+    qry.exec( "SELECT tablename FROM ( "
+              "SELECT schemaname || '.' || viewname AS tablename from pg_views "
+              "WHERE schemaname IN ('api','public') "
+              "UNION "
+              "SELECT schemaname || '.' || tablename AS tablename from pg_tables "
+              "WHERE schemaname IN ('api','public') ) "
+              "AS data "
+              "ORDER by tablename; " );
     while(qry.next())
       tables.append(qry.value(0).toString());
 
@@ -356,18 +355,17 @@ void CSVAtlasWindow::sMapChanged( int )
       QString tList;
       QStringList tables;
       QSqlQuery qry;
-      qry.prepare( "SELECT tablename FROM ( "
-                   "SELECT schemaname || '.' || viewname AS tablename from pg_views "
-                   "WHERE schemaname IN ('api','public') "
-                   "UNION "
-                   "SELECT schemaname || '.' || tablename AS tablename from pg_tables "
-                   "WHERE schemaname IN ('api','public')  "
-                   "UNION "
-                   "SELECT tablename AS tablename from pg_tables "
-                   "WHERE (schemaname = 'public') ) "
-                   "AS data "
-                   "ORDER by tablename; " );
-      qry.exec();
+      qry.exec( "SELECT tablename FROM ( "
+                "SELECT schemaname || '.' || viewname AS tablename from pg_views "
+                "WHERE schemaname IN ('api','public') "
+                "UNION "
+                "SELECT schemaname || '.' || tablename AS tablename from pg_tables "
+                "WHERE schemaname IN ('api','public')  "
+                "UNION "
+                "SELECT tablename AS tablename from pg_tables "
+                "WHERE (schemaname = 'public') ) "
+                "AS data "
+                "ORDER by tablename; " );
       while(qry.next())
         tList.append(qry.value(0).toString());
       if(tList.contains(map.table()))

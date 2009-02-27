@@ -61,6 +61,6 @@
 
 QString _name = QObject::tr("CSV Import");
 
-QString _copyright = QObject::tr("Copyright (c) 1999-2007, OpenMFG, LLC");
-QString _version = QObject::tr("0.3");
+QString _copyright = QObject::tr("Copyright (c) 1999-2009, OpenMFG, LLC");
+QString _version = QObject::tr("0.3.1");
 
