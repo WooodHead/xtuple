@@ -252,7 +252,7 @@ function executeChapter7(appVersion)
  
 
   
-    //--------------Create new Vendor----------
+    //--------------Create new Vendor-------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Vendor");
@@ -264,11 +264,11 @@ function executeChapter7(appVersion)
     waitForObject(":_number_XLineEdit_4");
     type(":_number_XLineEdit_4", "TPARTS");
     if(findObject(":_vendtype_XComboBox").currentText!="STANDARD-Standard Vendor")
-        clickItem(":_vendtype_XComboBox", "STANDARD",0,0,1,Qt.LeftButton);
+        clickItem(":_vendtype_XComboBox", "STANDARD-Standard Vendor",0,0,1,Qt.LeftButton);
     type(":_name_XLineEdit_8", "Toy Parts Inc");
     type(":_accountNumber_XLineEdit", "110022");
     if(findObject(":Default._defaultTerms_XComboBox").currentText!="2-10N30-2% Discount in 10 Days - Net 30 Days")
-        clickItem(":Default._defaultTerms_XComboBox", "2-10N30",0,0,1,Qt.LeftButton);
+        clickItem(":Default._defaultTerms_XComboBox", "2-10N30-2% Discount in 10 Days - Net 30 Days",0,0,1,Qt.LeftButton);
     clickButton(":Default FOB.Receiving Site_QRadioButton");
     if(findObject(":_settingsGroup.Sells Purchase Order Items_QCheckBox").checked)
         clickButton(":_settingsGroup.Sells Purchase Order Items_QCheckBox");
@@ -279,6 +279,7 @@ function executeChapter7(appVersion)
     if(findObject(":_settingsGroup.May only Sell Items defined by an Item Source_QCheckBox").checked)
         clickButton(":_settingsGroup.May only Sell Items defined by an Item Source_QCheckBox");
     clickTab(":Vendor.qt_tabwidget_tabbar_QTabBar", "Contacts");
+    waitForObject(":_contact1Box._honorific_XComboBox");
     clickItem(":_contact1Box._honorific_XComboBox", "Mr",0,0,1,Qt.LeftButton);
     type(":_contact1Box._first_XLineEdit", "Ramesh");
     type(":_contact1Box._middle_XLineEdit", "K");
@@ -315,7 +316,7 @@ function executeChapter7(appVersion)
     type(":_addressStack.Street\nAddress:_XLineEdit_2", "Alpha Industries PVt ltd");
     type(":_addressStack.Street\nAddress:_XLineEdit_3", "Vengal Rao  Nagar");
     type(":_addressStack.City:_XLineEdit", "Kolkata");
-    clickItem(":_addressStack.State:_XComboBox", "WB",0,0,1,Qt.LeftButton);
+    type(":_addressStack.State:_XComboBox", "WB");
     type(":_addressStack.Postal Code:_XLineEdit", "300838");
     clickItem(":_addressStack.Country:_XComboBox", "India",0,0,1,Qt.LeftButton);
     clickButton(":Vendor.Save_QPushButton");

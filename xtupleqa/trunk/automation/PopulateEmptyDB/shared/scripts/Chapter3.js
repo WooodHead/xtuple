@@ -38,7 +38,9 @@ function executeChapter3(appVersion)
     type(":_description1_XLineEdit_3", "Yellow Tough Truck");
     type(":Item._description2_XLineEdit_2", "Truck Type 1");
     clickItem(":_itemtype_QComboBox_2", "Manufactured", 0, 0, 1, Qt.LeftButton);
-    clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS", 0, 0, 1, Qt.LeftButton);    
+    waitForObject(":_itemGroup._classcode_XComboBox_2");
+    type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");    
+    waitForObject(":_inventoryUOM_XComboBox_3");
     clickItem(":_inventoryUOM_XComboBox_3", "EA", 0, 0, 1, Qt.LeftButton);    
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
@@ -103,7 +105,7 @@ function executeChapter3(appVersion)
     type(":_description1_XLineEdit_3", "Yellow Paint 1");
     type(":Item._description2_XLineEdit_2", "Yellow Type 1");
     clickItem(":_itemtype_QComboBox_2", "Purchased",0, 0, 1, Qt.LeftButton);
-    clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS",0, 0, 1, Qt.LeftButton);
+    type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
     clickItem(":_inventoryUOM_XComboBox_3", "GL", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
@@ -133,7 +135,7 @@ function executeChapter3(appVersion)
     type(":_description1_XLineEdit_3", "Tough Truck Body Type 1");
     type(":Item._description2_XLineEdit_2", "Truck Body");
     clickItem(":_itemtype_QComboBox_2", "Purchased", 0, 0, 1, Qt.LeftButton);
-    clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS", 0, 0, 1, Qt.LeftButton);
+    type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
     clickItem(":_inventoryUOM_XComboBox_3", "EA", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
@@ -162,7 +164,7 @@ function executeChapter3(appVersion)
     type(":_description1_XLineEdit_3", "TruckTruck Body1");
     type(":Item._description2_XLineEdit_2", "Wheels Type 1");
     type(":_itemtype_QComboBox_2", "Purchased");	
-    clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS", 0, 0, 1, Qt.LeftButton);
+    type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
     clickItem(":_inventoryUOM_XComboBox_3", "EA", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
@@ -192,7 +194,7 @@ function executeChapter3(appVersion)
     type(":_description1_XLineEdit_3", "Truck Kit Type 1");
     type(":Item._description2_XLineEdit_2", "Truck Kit");
     clickItem(":_itemtype_QComboBox_2", "Manufactured", 0, 0, 1, Qt.LeftButton);
-    clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS", 0, 0, 1, Qt.LeftButton);
+    type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
     clickItem(":_inventoryUOM_XComboBox_3", "EA", 0, 0, 1, Qt.LeftButton);    
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
@@ -223,7 +225,6 @@ function executeChapter3(appVersion)
     type(":Item._description2_XLineEdit_2", "Product Box");
     clickItem(":_itemtype_QComboBox_2", "Purchased", 0, 0, 1, Qt.LeftButton);    
     type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
-    clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS", 0, 0, 1, Qt.LeftButton);        
     clickItem(":_inventoryUOM_XComboBox_3", "EA", 0, 0, 1, Qt.LeftButton);            
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
@@ -251,7 +252,7 @@ function executeChapter3(appVersion)
     type(":_description1_XLineEdit_3", "Packaging Insert Type 1");
     type(":Item._description2_XLineEdit_2", "Insert Type 1");
     clickItem(":_itemtype_QComboBox_2", "Purchased", 0, 0, 1, Qt.LeftButton);                
-    clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS", 0, 0, 1, Qt.LeftButton);                
+    type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");                
     clickItem(":_inventoryUOM_XComboBox_3", "EA", 0, 0, 1, Qt.LeftButton);                    
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
@@ -299,8 +300,8 @@ function executeChapter3(appVersion)
     type(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3","1");
     clickButton(":Costing Method.Standard_QRadioButton_3");
     clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);                    
-    clickItem(":_plannerCode_XComboBox_2", "MRP", 0, 0, 1, Qt.LeftButton);                    
-    clickItem(":_costcat_XComboBox_3", "CCWH1", 0, 0, 1, Qt.LeftButton);                    
+    clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);                    
+    clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton);                    
     if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
         clickButton(":_inventory.Stocked_QCheckBox_3");
     if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_3").checked)
@@ -313,6 +314,8 @@ function executeChapter3(appVersion)
     type(":_eventFence_QSpinBox_4", "10");type(":_locationGroup._locationComments_XLineEdit_3", "FG-01-01-01");
     waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
+    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
+    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
     type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
     waitForObject(":_reorderLevel_XLineEdit_3");
     type(":_reorderLevel_XLineEdit_3", "0.00");
@@ -362,7 +365,7 @@ function executeChapter3(appVersion)
     type(":Item Site.Sold from this Site_QGroupBox"," ");
     clickButton(":Costing Method.Standard_QRadioButton_3");
     clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);                    
-    clickItem(":_plannerCode_XComboBox_2", "MRP", 0, 0, 1, Qt.LeftButton);                    
+    clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);                    
     clickItem(":_costcat_XComboBox_3", "CCWH1", 0, 0, 1, Qt.LeftButton);                        
     if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
         clickButton(":_inventory.Stocked_QCheckBox_3");
@@ -377,7 +380,9 @@ function executeChapter3(appVersion)
     type(":_locationGroup._locationComments_XLineEdit_3", "FG-01-01-01");
     waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
-    type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
+    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
+        type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
     waitForObject(":_reorderLevel_XLineEdit_3");
     type(":_reorderLevel_XLineEdit_3", "0.00");
     type(":_orderUpToQty_XLineEdit_3", "0.00");
@@ -430,7 +435,7 @@ function executeChapter3(appVersion)
     type(":Item Site.Sold from this Site_QGroupBox"," ");
     clickButton(":Costing Method.Standard_QRadioButton_3");
     clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);                    
-    clickItem(":_plannerCode_XComboBox_2", "MRP", 0, 0, 1, Qt.LeftButton);                    
+    clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);                    
     clickItem(":_costcat_XComboBox_3", "CCWH1", 0, 0, 1, Qt.LeftButton);                    
     if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
         clickButton(":_inventory.Stocked_QCheckBox_3");
@@ -444,7 +449,9 @@ function executeChapter3(appVersion)
     type(":_eventFence_QSpinBox_4", "10");type(":_locationGroup._locationComments_XLineEdit_3", "FG-01-01-01");
     waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
-    type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
+    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
+        type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
     waitForObject(":_reorderLevel_XLineEdit_3");
     type(":_reorderLevel_XLineEdit_3", "0.00");
     type(":_orderUpToQty_XLineEdit_3", "0.00");
@@ -495,7 +502,7 @@ function executeChapter3(appVersion)
     type(":Item Site.Sold from this Site_QGroupBox"," ");
     clickButton(":Costing Method.Standard_QRadioButton_3");
     clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);
-    clickItem(":_plannerCode_XComboBox_2", "MRP", 0, 0, 1, Qt.LeftButton);
+    clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);
     clickItem(":_costcat_XComboBox_3", "CCWH1", 0, 0, 1, Qt.LeftButton);    
     if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
         clickButton(":_inventory.Stocked_QCheckBox_3");
@@ -509,7 +516,9 @@ function executeChapter3(appVersion)
     type(":_eventFence_QSpinBox_4", "10");
     type(":_locationGroup._locationComments_XLineEdit_3", "FG-01-01-01");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
-    type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
+    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
+        type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
     waitForObject(":_reorderLevel_XLineEdit_3");
     type(":_reorderLevel_XLineEdit_3", "0.00");
     type(":_orderUpToQty_XLineEdit_3", "0.00");
@@ -561,7 +570,7 @@ function executeChapter3(appVersion)
     type(":Item Site.Sold from this Site_QGroupBox"," ");
     clickButton(":Costing Method.Standard_QRadioButton_3");
     clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);
-    clickItem(":_plannerCode_XComboBox_2", "MRP", 0, 0, 1, Qt.LeftButton);
+    clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);
     clickItem(":_costcat_XComboBox_3", "CCWH1", 0, 0, 1, Qt.LeftButton);    
     if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
         clickButton(":_inventory.Stocked_QCheckBox_3");
@@ -576,7 +585,8 @@ function executeChapter3(appVersion)
     type(":_locationGroup._locationComments_XLineEdit_3", "WP-01-01-01");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
-    type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
+        type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
     waitForObject(":_reorderLevel_XLineEdit_3");
     type(":_reorderLevel_XLineEdit_3", "0.00");
     type(":_orderUpToQty_XLineEdit_3", "0.00");
@@ -626,7 +636,7 @@ function executeChapter3(appVersion)
     type(":Item Site.Sold from this Site_QGroupBox"," ");
     clickButton(":Costing Method.Standard_QRadioButton_3");
     clickItem(":Control._controlMethod_XComboBox_3", "Regular", 5, 5, 1, Qt.LeftButton);
-    clickItem(":_plannerCode_XComboBox_2", "MRP", 5, 5, 1, Qt.LeftButton);
+    clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 5, 5, 1, Qt.LeftButton);
     clickItem(":_costcat_XComboBox_3", "CCWH1", 5, 5, 1, Qt.LeftButton);
     if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
         clickButton(":_inventory.Stocked_QCheckBox_3");
@@ -642,7 +652,9 @@ function executeChapter3(appVersion)
     type(":_locationGroup.Use Default Location_QGroupBox_3","01010103");
     type(":_locationGroup._locationComments_XLineEdit_3", "RM-01-01-01");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
-    type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
+    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
+       type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
     waitForObject(":_reorderLevel_XLineEdit_3");
     type(":_reorderLevel_XLineEdit_3", "0.00");
     type(":_orderUpToQty_XLineEdit_3", "0.00");
@@ -692,10 +704,9 @@ function executeChapter3(appVersion)
         clickButton(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3");
     type(":Item Site.Sold from this Site_QGroupBox"," ");
     clickButton(":Costing Method.Standard_QRadioButton_3");
-    type(":Control._controlMethod_XComboBox_3", "Lot");
+    type(":Control._controlMethod_XComboBox_3", "Lot #");
     clickItem(":Control._controlMethod_XComboBox_3", "Lot", 0, 0, 1, Qt.LeftButton);
-    type(":_plannerCode_XComboBox_2", "MRP");
-    clickItem(":_plannerCode_XComboBox_2", "MRP", 0, 0, 1, Qt.LeftButton);    
+    clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);    
     type(":_costcat_XComboBox_3", "CCWH1");
     clickItem(":_costcat_XComboBox_3", "CCWH1", 0, 0, 1, Qt.LeftButton);    
     if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
@@ -710,7 +721,9 @@ function executeChapter3(appVersion)
     type(":_eventFence_QSpinBox_4", "10");
     type(":_locationGroup._locationComments_XLineEdit_3", "RM-01-01-01");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");	
-    type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
+    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
+        type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
     waitForObject(":_reorderLevel_XLineEdit_3");
     type(":_reorderLevel_XLineEdit_3", "0.00");
     type(":_orderUpToQty_XLineEdit_3", "0.00");

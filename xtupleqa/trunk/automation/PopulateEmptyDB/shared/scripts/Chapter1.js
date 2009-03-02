@@ -258,11 +258,11 @@ function executeChapter1(appVersion)
     clickButton(":List Currencies.Save_QPushButton"); 
      waitForObject(":List Currencies._curr_XTreeWidget");
     if(!clickItem(":List Currencies._curr_XTreeWidget", "USD",5,5,1,Qt.LeftButton))
-        test.pass("Currency USD created");
+        test.pass("Currency: USD created");
     else test.fail("Currency: USD not created");
     
     if(!clickItem(":List Currencies._curr_XTreeWidget", "EUR", 5, 5, 1, Qt.LeftButton))
-        test.pass("EUR not created");
+        test.pass("Currency: EUR created");
     else test.fail("Currency: EUR not created");
     waitForObject(":List Currencies.Close_QPushButton");
     clickButton(":List Currencies.Close_QPushButton");
@@ -286,6 +286,7 @@ function executeChapter1(appVersion)
     type(":List Currency Exchange Rates.XDateEdit_XDateEdit_2", "<Tab>");
     waitForObject(":List Currency Exchange Rates.Save_QPushButton");
     clickButton(":List Currency Exchange Rates.Save_QPushButton");
+    waitForObject(":List Currency Exchange Rates._conversionRates_XTreeWidget");
     if(!clickItem(":List Currency Exchange Rates._conversionRates_XTreeWidget", "EUR - EUR", 5, 5, 1, Qt.LeftButton))
         test.pass("Exchange Rate of EUR created");
     else test.fail("Exchange Rate of EUR not created");
@@ -500,6 +501,7 @@ function executeChapter1(appVersion)
         waitForObject(":List EDI Profiles._name_QLineEdit");
         type(":List EDI Profiles._name_QLineEdit", "DUNNING");
         clickItem(":List EDI Profiles._type_QComboBox", "Email", 0, 0, 1, Qt.LeftButton);
+        waitForObject(":_stack._emailTo_QLineEdit");
         type(":_stack._emailTo_QLineEdit", "/</email3>");
         type(":_stack._emailTo_QLineEdit", "<home>");
         type(":_stack._emailTo_QLineEdit", "<Del>");
@@ -748,6 +750,7 @@ function executeChapter1(appVersion)
     waitForObject(":_code_XLineEdit_2");
     type(":_code_XLineEdit_2", "Master");
     clickButton(":List Titles.Save_QPushButton");
+    waitForObject(":List Titles._honorifics_XTreeWidget");
     if(!clickItem(":List Titles._honorifics_XTreeWidget", "Master", 5, 5, 1, Qt.LeftButton))
         test.pass("Title: Master created");
     else test.fail("Title: Master not created");
@@ -777,6 +780,7 @@ function executeChapter1(appVersion)
     type(":List Site Types._code_XLineEdit", "INTRAN");
     type(":List Site Types._description_XLineEdit", "Intransit Site");
     clickButton(":List Site Types.Save_QPushButton");
+    waitForObject(":List Site Types._sitetype_XTreeWidget");
     if(!clickItem(":List Site Types._sitetype_XTreeWidget", "INTRAN", 5, 5, 1, Qt.LeftButton))
         test.pass("Site Type: INTRAN created");
     
@@ -786,6 +790,7 @@ function executeChapter1(appVersion)
     type(":List Site Types._code_XLineEdit", "STORAGE");
     type(":List Site Types._description_XLineEdit", "Storage Site");
     clickButton(":List Site Types.Save_QPushButton");
+    waitForObject(":List Site Types._sitetype_XTreeWidget");
     if(!clickItem(":List Site Types._sitetype_XTreeWidget", "STORAGE", 5, 5, 1, Qt.LeftButton))
         test.pass("Site Type: STORAGE created");
         
@@ -847,13 +852,14 @@ function executeChapter1(appVersion)
         type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "<Del>");
         type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "2");
         findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_2").checked=true;
+        type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "<Ctrl+A>");
         type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "<Del>");
         type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "2");
-        type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "<Tab>");
         findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_3").checked=true;
+        type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "<Ctrl+A>");
         type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "<Del>");
         type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "2");
-        type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "<Tab>");
+
         findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_4").checked=true;
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar", "Site Zones");
         waitForObject(":_zonesTab.New_QPushButton");
@@ -870,6 +876,7 @@ function executeChapter1(appVersion)
         clickButton(":List Sites.Save_QPushButton");
         waitForObject(":Save_QPushButton");
         clickButton(":Save_QPushButton");
+        waitForObject(":List Sites._warehouse_XTreeWidget");
         if(!clickItem(":List Sites._warehouse_XTreeWidget", "Prodiem Toys Site1", 5, 5, 1, Qt.LeftButton))
             test.pass("Site: Prodiem Toys Site1 created ");
 
@@ -1146,6 +1153,7 @@ function executeChapter1(appVersion)
     clickItem(":_events._warehouses_XTreeWidget", "WH1", 5, 5, 1, Qt.LeftButton); 
     waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
     clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar","Alarms");
+    waitForObject(":Default Actions.Event_XCheckBox");
     clickButton(":Default Actions.Event_XCheckBox");
     clickButton(":Default Actions.System Message_XCheckBox");
     

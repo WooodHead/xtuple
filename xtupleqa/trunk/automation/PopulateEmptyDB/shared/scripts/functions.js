@@ -419,9 +419,10 @@ function COA(COACompany,COAProfit,COANumber,COASub,COADesc,COAType,COASubType)
     type(":_description_XLineEdit_11", COADesc);
     type(":_extReference_XLineEdit_2", COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub);
     clickItem(":Account Number._type_XComboBox", COAType, 0, 0, 1, Qt.LeftButton);
-    clickItem(":Account Number._subType_XComboBox", COASubType, 0, 0, 1, Qt.LeftButton);
+    type(":Account Number._subType_XComboBox", COASubType);
     clickButton(":Account Number.Save_QPushButton");
     test.log("Acc: "+COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub+" created");
+    waitForObject(":Chart of Accounts.New_QPushButton_2");
 
 }
 
@@ -459,6 +460,8 @@ function defineTaxation()
     waitForObject(":List Tax Authorities.New_QPushButton");
     clickButton(":List Tax Authorities.New_QPushButton");
     waitForObject(":_code_XLineEdit_15");
+    type(":_code_XLineEdit_15", "<Ctrl+A>");
+    type(":_code_XLineEdit_15", "<Del>");
     type(":_code_XLineEdit_15", "TAX-AUTH1");
     type(":_name_XLineEdit_22", "Virginia");
     type(":_extref_XLineEdit", "Smith");
@@ -567,7 +570,7 @@ function defineTaxation()
     waitForObject(":_taxauth_XComboBox_4");
     clickItem(":_taxauth_XComboBox_4", "TAX-AUTH1", 0, 0, 1, Qt.LeftButton);
     clickItem(":_taxtype_XComboBox_3", "GM", 0, 0, 1, Qt.LeftButton);
-    clickItem(":_tax_XComboBox_2", "TAXAUTH1-GM", 0, 0, 1, Qt.LeftButton);
+    type(":_tax_XComboBox_2", "TAXAUTH1-GM");
     clickButton(":Tax Selection.Save_QPushButton");
     waitForObject(":List Tax Selections._taxsel_XTreeWidget");
     if(!clickItem(":List Tax Selections._taxsel_XTreeWidget", "TAXAUTH1-GM", 30, 9, 1, Qt.LeftButton))
@@ -579,7 +582,7 @@ function defineTaxation()
     waitForObject(":_taxauth_XComboBox_4");
     clickItem(":_taxauth_XComboBox_4", "TAX-AUTH1", 0, 0, 1, Qt.LeftButton);
     clickItem(":_taxtype_XComboBox_3", "EDU", 0, 0, 1, Qt.LeftButton);
-    clickItem(":_tax_XComboBox_2", "TAXAUTH1-EDU", 0, 0, 1, Qt.LeftButton);
+    type(":_tax_XComboBox_2", "TAXAUTH1-EDU");
     clickButton(":Tax Selection.Save_QPushButton");
     waitForObject(":List Tax Selections._taxsel_XTreeWidget");
     if(!clickItem(":List Tax Selections._taxsel_XTreeWidget", "TAXAUTH1-EDU", 30, 9, 1, Qt.LeftButton))
@@ -600,12 +603,12 @@ function defineTaxation()
     clickButton(":List Tax Registrations.New_QPushButton_2");
     waitForObject(":Tax Registration Information._taxauth_XComboBox");
     clickItem(":Tax Registration Information._taxauth_XComboBox", "TAX-AUTH1", 0, 0, 1, Qt.LeftButton);
-    clickItem(":Tax Registration Information._number_QLineEdit", "AUTH1-0101", 0, 0, 1, Qt.LeftButton);
+    type(":Tax Registration Information._number_QLineEdit", "AUTH1-0101");
+    waitForObject(":Tax Registration Information.Save	_QPushButton");
     clickButton(":Tax Registration Information.Save_QPushButton");
     waitForObject(":_taxreg_XTreeWidget");
     if(!clickItem(":_taxreg_XTreeWidget", "TAX-AUTH1", 5, 5, 1, Qt.LeftButton))
         test.pass("Tax Registrations done");
- 
     waitForObject(":List Tax Registrations.Close_QPushButton_2");
     clickButton(":List Tax Registrations.Close_QPushButton_2");
  

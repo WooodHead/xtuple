@@ -19,7 +19,7 @@ function executeChapter8(appVersion)
     clickButton(":Enable Characteristics Profile.New_QPushButton");
     waitForObject(":_char_XComboBox_3");
     if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN")
-        clickItem(":_char_XComboBox_3", "SUPPORT",0,0,1,Qt.LeftButton);
+        clickItem(":_char_XComboBox_3", "SUPPORT-PLAN",0,0,1,Qt.LeftButton);
     type(":_value_XLineEdit_4", "Standard");
     if(!findObject(":Customer Characteristic.Default_QCheckBox").checked)
         clickButton(":Customer Characteristic.Default_QCheckBox");
@@ -29,7 +29,7 @@ function executeChapter8(appVersion)
     clickButton(":Enable Characteristics Profile.New_QPushButton");
     waitForObject(":_char_XComboBox_3");
     if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN")
-        clickItem(":_char_XComboBox_3", "SUPPORT",0,0,1,Qt.LeftButton);
+        clickItem(":_char_XComboBox_3", "SUPPORT-PLAN",0,0,1,Qt.LeftButton);
     type(":_value_XLineEdit_4", "Complete");
     if(findObject(":Customer Characteristic.Default_QCheckBox").checked)
         clickButton(":Customer Characteristic.Default_QCheckBox");
@@ -39,7 +39,7 @@ function executeChapter8(appVersion)
     clickButton(":Enable Characteristics Profile.New_QPushButton");
     waitForObject(":_char_XComboBox_3");
     if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN")
-        clickItem(":_char_XComboBox_3", "SUPPORT",0,0,1,Qt.LeftButton);
+        clickItem(":_char_XComboBox_3", "SUPPORT-PLAN",0,0,1,Qt.LeftButton);
     type(":_value_XLineEdit_4", "None");
     if(findObject(":Customer Characteristic.Default_QCheckBox").checked)
         clickButton(":Customer Characteristic.Default_QCheckBox");
@@ -428,12 +428,13 @@ function executeChapter8(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Forms...");
     waitForObject(":List Forms.New_QPushButton");
     clickButton(":List Forms.New_QPushButton");
+    waitForObject(":_name_XLineEdit_12");
     type(":_name_XLineEdit_12", "SO-Acknowledge");
     type(":Form._descrip_XLineEdit", "Sales Order Acknowledgement Form");
     if(findObject(":_report_XComboBox_2").currentText!="PickingListSOClosedLines")
         clickItem(":_report_XComboBox_2", "PickingListSOClosedLines",0,0,1,Qt.LeftButton);
     if(findObject(":Form._key_XComboBox").currentText!="Sales Orders")
-        clickItem(":Form._key_XComboBox", "Sales",0,0,1,Qt.LeftButton);
+        clickItem(":Form._key_XComboBox", "Sales Orders",0,0,1,Qt.LeftButton);
     waitForObject(":Form.Save_QPushButton");
     clickButton(":Form.Save_QPushButton");
     waitForObject(":List Forms._form_XTreeWidget");
@@ -460,12 +461,12 @@ function executeChapter8(appVersion)
     if(appVersion=="manufacturing"||appVersion=="standard")
     {
         if(findObject(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox").currentText!="Automatic, Use R/A #’s");
-        clickItem(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox", "Automatic,",0,0,1,Qt.LeftButton);
+       type(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox", "Automatic,");
          type(":Sales Configuration._nextRaNumber_XLineEdit", "80000");
    }
    
     if(findObject(":Sales Configuration._creditMemoNumGeneration_QComboBox").currentText!="Automatic, Use C/M #'s")
-        clickItem(":Sales Configuration._creditMemoNumGeneration_QComboBox", "Automatic,",0,0,1,Qt.LeftButton);
+        type(":Sales Configuration._creditMemoNumGeneration_QComboBox", "Automatic,");
     type(":Sales Configuration._nextCmNumber_XLineEdit", "70000");
     type(":Sales Configuration._nextInNumber_XLineEdit", "60000");
     if(!findObject(":Credit Control.Automatically Allocate Credit Memos to New Sales Order on Save_QCheckBox").checked)		
@@ -492,7 +493,7 @@ function executeChapter8(appVersion)
         if(findObject(":Enable Return Authorizations._disposition_XComboBox").currentText!="Return")
             clickItem(":Enable Return Authorizations._disposition_XComboBox", "Return",0,0,1,Qt.LeftButton);
         if(findObject(":Enable Return Authorizations._timing_XComboBox").currentText!="Upon Receipt")
-            clickItem(":Enable Return Authorizations._timing_XComboBox", "Upon",0,0,1,Qt.LeftButton);
+            clickItem(":Enable Return Authorizations._timing_XComboBox", "Upon Receipt",0,0,1,Qt.LeftButton);
         if(findObject(":Enable Return Authorizations._creditBy_XComboBox").currentText!= "Check")
             clickItem(":Enable Return Authorizations._creditBy_XComboBox", "Check",0,0,1,Qt.LeftButton);
         if(!findObject(":Enable Return Authorizations.Check Print On Save by Default_QCheckBox").checked)

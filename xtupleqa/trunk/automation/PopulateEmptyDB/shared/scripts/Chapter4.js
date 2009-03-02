@@ -99,7 +99,7 @@ function executeChapter4(appVersion)
         type(":Average._avgSetup_XLineEdit_2", "<Ctrl+A>");
         type(":Average._avgSetup_XLineEdit_2", "<Del>");
         type(":Average._avgSetup_XLineEdit_2", "6.00");
-        clickItem(":Average._setupType_XComboBox_2", "Labor",0,0,1,Qt.LeftButton);
+        clickItem(":Average._setupType_XComboBox_2", "Labor Time",0,0,1,Qt.LeftButton);
         type(":Capacity._dailyCapacity_XLineEdit_2", "480.00");
         type(":Capacity._efficiencyFactor_XLineEdit_2", "100.00");
         clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Notes");
@@ -185,9 +185,9 @@ function executeChapter4(appVersion)
         clickItem(":Standard Operation._prodUOM_XComboBox", "EA",0,0,1,Qt.LeftButton);
         type(":Standard Operation._invProdUOMRatio_XLineEdit", "1");
         clickButton(":Standard Operation.Use Standard Times_QCheckBox");
-        type(":_standardGroup._setupReport_XComboBox", "Direct");
+        clickItem(":_standardGroup._setupReport_XComboBox", "Direct Labor",0,0,1,Qt.LeftButton);
         type(":_standardGroup._runTime_XLineEdit", "60.00");
-        clickItem(":_standardGroup._runReport_XComboBox", "Direct",0,0,1,Qt.LeftButton);
+        clickItem(":_standardGroup._runReport_XComboBox", "Direct Labor",0,0,1,Qt.LeftButton);
         type(":_standardGroup._runQtyPer_XLineEdit", "100.00");
         type(":Standard Operation._instructions_QTextEdit", "Enter standard instructions through the Standard Operations session");
         clickButton(":Standard Operation.Save_QPushButton");
@@ -205,9 +205,10 @@ function executeChapter4(appVersion)
         clickItem(":Standard Operation._prodUOM_XComboBox", "EA",0,0,1,Qt.LeftButton);
         type(":Standard Operation._invProdUOMRatio_XLineEdit", "1");
         clickButton(":Standard Operation.Use Standard Times_QCheckBox");
-        type(":_standardGroup._setupReport_XComboBox", "Direct");
+        waitForObject(":_standardGroup._setupReport_XComboBox");
+        clickItem(":_standardGroup._setupReport_XComboBox", "Direct Labor",0,0,1,Qt.LeftButton);
         type(":_standardGroup._runTime_XLineEdit", "60.00");
-        clickItem(":_standardGroup._runReport_XComboBox", "Direct",0,0,1,Qt.LeftButton);
+        clickItem(":_standardGroup._runReport_XComboBox", "Direct Labor",0,0,1,Qt.LeftButton);
         type(":_standardGroup._runQtyPer_XLineEdit", "100.00");
         type(":Standard Operation._instructions_QTextEdit", "Enter standard instructions through the Standard Operations session");
         clickButton(":Standard Operation.Save_QPushButton");
@@ -227,9 +228,9 @@ function executeChapter4(appVersion)
         clickItem(":Standard Operation._prodUOM_XComboBox", "EA",0,0,1,Qt.LeftButton);
         type(":Standard Operation._invProdUOMRatio_XLineEdit", "1");
         clickButton(":Standard Operation.Use Standard Times_QCheckBox");
-        type(":_standardGroup._setupReport_XComboBox", "Direct");
+        clickItem(":_standardGroup._setupReport_XComboBox", "Direct Labor",0,0,1,Qt.LeftButton);
         type(":_standardGroup._runTime_XLineEdit", "60.00");
-        clickItem(":_standardGroup._runReport_XComboBox", "Direct",0,0,1,Qt.LeftButton);
+        clickItem(":_standardGroup._runReport_XComboBox", "Direct Labor",0,0,1,Qt.LeftButton);
         type(":_standardGroup._runQtyPer_XLineEdit", "100.00");
         type(":Standard Operation._instructions_QTextEdit", "Enter standard instructions through the Standard Operations session");
         clickButton(":Standard Operation.Save_QPushButton");
@@ -339,7 +340,8 @@ function executeChapter4(appVersion)
       waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
       clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
   }
-  type(":_ecn_XLineEdit", "intail definition");
+  type(":_ecn_XLineEdit", "intial definition");
+  waitForObject(":Bill of Materials Item.Save_QPushButton");
   clickButton(":Bill of Materials Item.Save_QPushButton");
 
 

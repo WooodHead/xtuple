@@ -130,6 +130,7 @@ function executeChapter2(appVersion)
     type(":Cost Category._main_XLineEdit_13", "01-01-2480-01");
     waitForObject(":Cost Category.Save_QPushButton");
     clickButton(":Cost Category.Save_QPushButton");
+    waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
     if(!clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH1", 5, 5, 1, Qt.LeftButton))
         test.pass("Cost Category: CCWH1 created");
     waitForObject(":List Cost Categories.Close_QPushButton_2");
@@ -146,6 +147,7 @@ function executeChapter2(appVersion)
     type(":List Cost Categories._costcat_XTreeWidget_2", " ");
     waitForObject(":List Cost Categories.Copy_QPushButton_2");
     clickButton(":List Cost Categories.Copy_QPushButton_2");
+    waitForObject(":Cost Category._category_XLineEdit");
     type(":Cost Category._category_XLineEdit", "<Del>");
     type(":Cost Category._category_XLineEdit", "CCINTRAN");
     type(":Cost Category._description_XLineEdit", "<Del>");
@@ -173,6 +175,7 @@ function executeChapter2(appVersion)
     type(":List Cost Categories._costcat_XTreeWidget_2", " ");
     waitForObject(":List Cost Categories.Copy_QPushButton_2");
     clickButton(":List Cost Categories.Copy_QPushButton_2");
+    waitForObject(":Cost Category._category_XLineEdit");
     type(":Cost Category._category_XLineEdit", "<Del>");
     type(":Cost Category._category_XLineEdit", "CCWH2");
     type(":Cost Category._description_XLineEdit", "<Del>");
@@ -386,10 +389,9 @@ function executeChapter2(appVersion)
  
     waitForObject(":List Units of Measure.New_QPushButton_2");
     clickButton(":List Units of Measure.New_QPushButton_2");
+    waitForObject(":_name_XLineEdit_5");
     type(":_name_XLineEdit_5", "EA");
     type(":_description_XLineEdit_14", "Each");
-
-    waitForObject(":Unit of Measure.Save_QPushButton");
     clickButton(":Unit of Measure.Save_QPushButton");
     waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
     if(!clickItem(":List Units of Measure._uoms_XTreeWidget_2", "EA", 5, 5, 1, Qt.LeftButton))
@@ -398,9 +400,9 @@ function executeChapter2(appVersion)
     
     waitForObject(":List Units of Measure.New_QPushButton_2");
     clickButton(":List Units of Measure.New_QPushButton_2");
+    waitForObject(":_name_XLineEdit_5");    
     type(":_name_XLineEdit_5", "CA");
     type(":_description_XLineEdit_14", "Case");
-    waitForObject(":Unit of Measure.Save_QPushButton");
     clickButton(":Unit of Measure.Save_QPushButton");
     waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
     if(!clickItem(":List Units of Measure._uoms_XTreeWidget_2", "CA", 5, 5, 1, Qt.LeftButton))
