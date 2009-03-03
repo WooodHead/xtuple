@@ -73,7 +73,7 @@ function executeChapter5(appVersion)
 
     }
     clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
-    clickItem(":_costcat_XComboBox_3", "CCWH1",0,0,1,Qt.LeftButton);
+    clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
     if(appVersion=="manufacturing")
     {
@@ -105,7 +105,7 @@ function executeChapter5(appVersion)
     type(":_description1_XLineEdit_3", "Blue Collector’s Truck");
     type(":Item._description2_XLineEdit_2", "Truck Type 1");
     clickItem(":_itemtype_QComboBox_2", "Manufactured",0,0,1,Qt.LeftButton);
-    clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS",0,0,1,Qt.LeftButton);
+    clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS-Toy Trucks",0,0,1,Qt.LeftButton);
     type(":_inventoryUOM_XComboBox_3", "EA");
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
@@ -159,7 +159,7 @@ function executeChapter5(appVersion)
         clickItem(":_warehouse_WComboBox_5", "WH1",0,0,1,Qt.LeftButton);
         
     }
-    clickItem(":_plannerCode_XComboBox_2", "MPS",0,0,1,Qt.LeftButton);
+    clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS-Items",0,0,1,Qt.LeftButton);
     clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
      clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
     if(appVersion=="manufacturing")
@@ -192,7 +192,7 @@ function executeChapter5(appVersion)
     type(":_description1_XLineEdit_3", "White Collector’s Truck");
     type(":Item._description2_XLineEdit_2", "Truck Type 1");
     clickItem(":_itemtype_QComboBox_2", "Manufactured",0,0,1,Qt.LeftButton);
-    clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS",0,0,1,Qt.LeftButton);
+    clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS-Toy Trucks",0,0,1,Qt.LeftButton);
     clickItem(":_inventoryUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
@@ -248,7 +248,7 @@ function executeChapter5(appVersion)
        
     }
     clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
-    clickItem(":_costcat_XComboBox_3", "CCWH1",0,0,1,Qt.LeftButton);
+    clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
     waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
     if(appVersion=="manufacturing")
@@ -288,7 +288,7 @@ function executeChapter5(appVersion)
     type(":_description1_XLineEdit_3", "Truck Family Planning Item");
     type(":Item._description2_XLineEdit_2", "Trucks");
     clickItem(":_itemtype_QComboBox_2", "Planning",0,0,1,Qt.LeftButton);
-    type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
+    type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS-Toy Trucks");
     clickItem(":_inventoryUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);
     clickButton(":Item.Save_QPushButton_5");
     waitForObject(":Create New Item Sites.Yes_QPushButton");

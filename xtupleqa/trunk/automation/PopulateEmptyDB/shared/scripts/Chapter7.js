@@ -61,6 +61,7 @@ function executeChapter7(appVersion)
         clickButton(":tab_2.Disallow P/O Receipt of Qty greater than ordered_QCheckBox");
     if(!findObject(":tab_2.Warn if P/O Receipt Qty differs from receivable Qty_QCheckBox").checked)
         clickButton(":tab_2.Warn if P/O Receipt Qty differs from receivable Qty_QCheckBox");
+    waitForObject(":_tolerance_QLineEdit");
     type(":_tolerance_QLineEdit", "5");
     type(":_shipformNumOfCopies_QSpinBox", "<Ctrl+A>");
     type(":_shipformNumOfCopies_QSpinBox", "<Del>");

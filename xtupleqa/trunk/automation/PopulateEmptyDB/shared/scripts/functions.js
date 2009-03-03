@@ -604,7 +604,7 @@ function defineTaxation()
     waitForObject(":Tax Registration Information._taxauth_XComboBox");
     clickItem(":Tax Registration Information._taxauth_XComboBox", "TAX-AUTH1", 0, 0, 1, Qt.LeftButton);
     type(":Tax Registration Information._number_QLineEdit", "AUTH1-0101");
-    waitForObject(":Tax Registration Information.Save	_QPushButton");
+    waitForObject(":Tax Registration Information.Save_QPushButton");
     clickButton(":Tax Registration Information.Save_QPushButton");
     waitForObject(":_taxreg_XTreeWidget");
     if(!clickItem(":_taxreg_XTreeWidget", "TAX-AUTH1", 5, 5, 1, Qt.LeftButton))

@@ -391,6 +391,7 @@ function executeChapter1(appVersion)
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
     waitForObject(":Cannot Read Configuration.<p>Cannot read encrypted information from database._QLabel");
+    waitForObject(":xTuple ERP: *_QPushButton");
     clickButton(":xTuple ERP: *_QPushButton");
     waitForObject(":_ccEncKeyName_QLineEdit");
      
@@ -680,6 +681,8 @@ function executeChapter1(appVersion)
         waitForObject(":List Calendars.New_QPushButton_2");
         clickButton(":List Calendars.New_QPushButton_2");
         waitForObject(":List Calendars._name_XLineEdit_2");
+        type(":List Calendars._name_XLineEdit_2","<Ctrl+A");
+        type(":List Calendars._name_XLineEdit_2","<Del>");
         type(":List Calendars._name_XLineEdit_2", "WEEK"+ (i+1));
         type(":List Calendars._offsetCount_QSpinBox","<Ctrl+A>");
         type(":List Calendars._offsetCount_QSpinBox","<Del>");

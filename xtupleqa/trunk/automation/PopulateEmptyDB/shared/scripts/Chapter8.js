@@ -577,6 +577,7 @@ function executeChapter8(appVersion)
     waitForObject(":_creditGroup.Alternate Late Grace Days_QGroupBox");
     if(!findObject(":_creditGroup.Alternate Late Grace Days_QGroupBox").checked)
         type(":_creditGroup.Alternate Late Grace Days_QGroupBox", " ");
+    waitForObject(":Alternate Late Grace Days._graceDays_QSpinBox");
     type(":Alternate Late Grace Days._graceDays_QSpinBox", "<Ctrl+A>");
     type(":Alternate Late Grace Days._graceDays_QSpinBox", "<Del>");
     type(":Alternate Late Grace Days._graceDays_QSpinBox", "30");
@@ -654,9 +655,9 @@ function executeChapter8(appVersion)
     type(":Ship-To._email_XLineEdit", "rakesh@test.com");
     type(":_commission_XLineEdit", "7.5");
     if(findObject(":Defaults:._shipform_XComboBox").currentText!= "STANDARD-PACKING-LIST")
-        clickItem(":Defaults:._shipform_XComboBox", "STANDARD",0,0,1,Qt.LeftButton);
+        clickItem(":Defaults:._shipform_XComboBox", "STANDARD-PACKING-LIST",0,0,1,Qt.LeftButton);
     if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
-        clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE",0,0,1,Qt.LeftButton);
+        clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);
     clickButton(":Ship-To.Save_QPushButton");
     
     
@@ -932,7 +933,7 @@ function executeChapter8(appVersion)
         clickButton(":_generalTab.Transit Site_QRadioButton");
         waitForObject(":_whsTypeStack._shipvia_XComboBox");
         if(findObject(":_whsTypeStack._shipvia_XComboBox")!= "UPS-GROUND-UPS Ground")
-            clickItem(":_whsTypeStack._shipvia_XComboBox", "UPS",0,0,1,Qt.LeftButton);
+            clickItem(":_whsTypeStack._shipvia_XComboBox", "UPS-GROUND-UPS Ground",0,0,1,Qt.LeftButton);
         if(findObject(":_shipform_XComboBox").currentText!="INTRAN-PACKING-LIST")
             clickItem(":_shipform_XComboBox", "INTRAN-PACKING-LIST",0,0,1,Qt.LeftButton);
         if(findObject(":_costcat_XComboBox_4").currentText!= "CCINTRAN-Intransit Warehouse")
