@@ -7,7 +7,7 @@ function executeChapter1(appVersion)
         createShift("1ST","First");
     createLocale("MYLOCALE","My Locale For Class");
     createGroup("SUPER","Super User Group");
-    var newuser="user01";
+  var newuser="user01";
     createUser(newuser);
 
     //-------------Configure: Accounting Module----------------
@@ -382,7 +382,7 @@ function executeChapter1(appVersion)
     test.log("Product Module Configured");    
 
     
-    
+  
     //----------Define Encryption (metric)------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -390,7 +390,6 @@ function executeChapter1(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
-    waitForObject(":Cannot Read Configuration.<p>Cannot read encrypted information from database._QLabel");
     waitForObject(":xTuple ERP: *_QPushButton");
     clickButton(":xTuple ERP: *_QPushButton");
     waitForObject(":_ccEncKeyName_QLineEdit");
@@ -681,8 +680,6 @@ function executeChapter1(appVersion)
         waitForObject(":List Calendars.New_QPushButton_2");
         clickButton(":List Calendars.New_QPushButton_2");
         waitForObject(":List Calendars._name_XLineEdit_2");
-        type(":List Calendars._name_XLineEdit_2","<Ctrl+A");
-        type(":List Calendars._name_XLineEdit_2","<Del>");
         type(":List Calendars._name_XLineEdit_2", "WEEK"+ (i+1));
         type(":List Calendars._offsetCount_QSpinBox","<Ctrl+A>");
         type(":List Calendars._offsetCount_QSpinBox","<Del>");
