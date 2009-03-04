@@ -646,7 +646,7 @@ BEGIN
                  AND   (cohead_number=_p.invchead_ordernumber) ) LOOP
 
       _appliedAmount := _r.balance;
-      IF (_totalAmount < _appliedAmount / (1 / round(currRate(_firstExchDate),5) /
+      IF (_totalAmount < _appliedAmount / (1 / round(currRate(_r.aropen_curr_id,_firstExchDate),5) /
                         round(_r.aropen_curr_rate,5))) THEN
         _appliedAmount := _totalAmount;
 	_tmpCurrId := _p.invchead_curr_id;
