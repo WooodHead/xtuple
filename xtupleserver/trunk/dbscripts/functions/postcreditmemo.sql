@@ -1,4 +1,5 @@
-CREATE OR REPLACE FUNCTION postCreditMemo(INTEGER, INTEGER) RETURNS INTEGER AS '
+
+CREATE OR REPLACE FUNCTION postCreditMemo(INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pCmheadid ALIAS FOR $1;
   pItemlocSeries ALIAS FOR $2;
@@ -6,15 +7,15 @@ DECLARE
 
 BEGIN
 
-  SELECT postCreditMemo(pCmheadid, fetchJournalNumber(''AR-CM''), pItemlocSeries) INTO _return;
+  SELECT postCreditMemo(pCmheadid, fetchJournalNumber('AR-CM'), pItemlocSeries) INTO _return;
 
   RETURN _return;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION postCreditMemo(INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postCreditMemo(INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pCmheadid ALIAS FOR $1;
   pJournalNumber ALIAS FOR $2;
@@ -75,7 +76,7 @@ BEGIN
 
     IF (_r.amount <> 0) THEN
 --  Debit the Sales Account for the current cmitem
-      SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', _r.cmhead_number,
+      SELECT insertIntoGLSeries( _sequence, 'A/R', 'CM', _r.cmhead_number,
                                  CASE WHEN _r.cmhead_rahead_id IS NULL THEN
                                    salesaccnt_credit_accnt_id
                                  ELSE
@@ -94,13 +95,13 @@ BEGIN
     END IF;
 
     _taxBaseValue := addTaxToGLSeries(_sequence, _p.cmhead_tax_curr_id,
-				      ''A/R'', ''CM'', _p.cmhead_number,
+				      'A/R', 'CM', _p.cmhead_number,
 				      _glDate, _p.cmhead_docdate,
 				      _r.cmitem_tax_id,
 				      0 - COALESCE(_r.cmitem_tax_ratea,0.0),
 				      0 - COALESCE(_r.cmitem_tax_rateb,0.0),
 				      0 - COALESCE(_r.cmitem_tax_ratec,0.0),
-                                      (''Tax liability for '' || _p.cmhead_billtoname));
+                                      ('Tax liability for ' || _p.cmhead_billtoname));
     IF (_taxBaseValue IS NULL) THEN
       PERFORM deleteGLSeries(_sequence);
       RETURN -13;
@@ -125,9 +126,9 @@ BEGIN
       cohist_tax_ratea,	cohist_tax_rateb,	cohist_tax_ratec)
     VALUES
     ( _p.cmhead_cust_id, _r.itemsite_id, _p.cmhead_shipto_id, _r.cmitem_tax_id,
-      _p.cmhead_docdate, '''',
+      _p.cmhead_docdate, '',
       _p.cmhead_number, _p.cmhead_custponumber, _p.cmhead_docdate,
-      ''C'', _p.cmhead_invcnumber, _p.cmhead_docdate,
+      'C', _p.cmhead_invcnumber, _p.cmhead_docdate,
       (_r.cmitem_qtycredit * _r.cmitem_qty_invuomratio * -1), _r.unitprice, _r.cost,
       _p.cmhead_salesrep_id, (_r.cmhead_commission * _r.amount * -1), FALSE,
       _p.cmhead_billtoname, _p.cmhead_billtoaddress1,
@@ -151,7 +152,7 @@ BEGIN
 
 --  Credit the Misc. Account for Miscellaneous Charges
   IF (_p.cmhead_misc <> 0) THEN
-    SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', _p.cmhead_number,
+    SELECT insertIntoGLSeries( _sequence, 'A/R', 'CM', _p.cmhead_number,
                                accnt_id, round(currToBase(_p.cmhead_curr_id,
                                                           _p.cmhead_misc * -1,
                                                           _p.cmhead_docdate), 2),
@@ -183,10 +184,10 @@ BEGIN
       cohist_curr_id )
     VALUES
     ( _p.cmhead_cust_id, -1, _p.cmhead_shipto_id, _p.cmhead_adjtax_id,
-      ''M'', _p.cmhead_misc_descrip, _p.cmhead_misc_accnt_id,
-      _p.cmhead_docdate, '''',
+      'M', _p.cmhead_misc_descrip, _p.cmhead_misc_accnt_id,
+      _p.cmhead_docdate, '',
       _p.cmhead_number, _p.cmhead_custponumber, _p.cmhead_docdate,
-      ''C'', _p.cmhead_invcnumber, _p.cmhead_docdate,
+      'C', _p.cmhead_invcnumber, _p.cmhead_docdate,
       1, (_p.cmhead_misc * -1), (_p.cmhead_misc * -1),
       _p.cmhead_salesrep_id, 0, FALSE,
       _p.cmhead_billtoname, _p.cmhead_billtoaddress1,
@@ -205,13 +206,13 @@ BEGIN
   IF (COALESCE(_p.cmhead_adjtax_ratea,0.0) != 0 OR COALESCE(_p.cmhead_adjtax_rateb,0.0) != 0 OR
       COALESCE(_p.cmhead_adjtax_ratec,0.0) != 0) THEN
     _taxBaseValue := addTaxToGLSeries(_sequence, _p.cmhead_tax_curr_id,
-				      ''A/R'', ''CM'', _p.cmhead_number,
+				      'A/R', 'CM', _p.cmhead_number,
 				      _glDate, _p.cmhead_docdate,
 				      _p.cmhead_adjtax_id,
 				      0 - COALESCE(_p.cmhead_adjtax_ratea,0.0),
 				      0 - COALESCE(_p.cmhead_adjtax_rateb,0.0),
 				      0 - COALESCE(_p.cmhead_adjtax_ratec,0.0),
-                                      (''Tax liability for '' || _p.cmhead_billtoname));
+                                      ('Tax liability for ' || _p.cmhead_billtoname));
     IF (_taxBaseValue IS NULL) THEN
       PERFORM deleteGLSeries(_sequence);
       RETURN -15;
@@ -243,10 +244,10 @@ BEGIN
       cohist_tax_ratea,	cohist_tax_rateb,	cohist_tax_ratec)
     VALUES
     ( _p.cmhead_cust_id, -1, _p.cmhead_shipto_id, _p.cmhead_adjtax_id,
-      ''T'', ''Misc Tax Adjustment'',
-      _p.cmhead_docdate, '''',
+      'T', 'Misc Tax Adjustment',
+      _p.cmhead_docdate, '',
       _p.cmhead_number, _p.cmhead_custponumber, _p.cmhead_docdate,
-      ''C'', _p.cmhead_invcnumber, _p.cmhead_docdate,
+      'C', _p.cmhead_invcnumber, _p.cmhead_docdate,
       0, 0, 0,
       _p.cmhead_salesrep_id, 0, FALSE,
       _p.cmhead_billtoname, _p.cmhead_billtoaddress1,
@@ -263,7 +264,7 @@ BEGIN
 
 --  Debit the Freight Account
   IF (_p.cmhead_freight <> 0) THEN
-    SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', _p.cmhead_number,
+    SELECT insertIntoGLSeries( _sequence, 'A/R', 'CM', _p.cmhead_number,
                                accnt_id,
                                round(currToBase(_p.cmhead_curr_id,
                                                 _p.cmhead_freight * -1,
@@ -279,13 +280,13 @@ BEGIN
     END IF;
 
     _taxBaseValue := addTaxToGLSeries(_sequence, _p.cmhead_tax_curr_id,
-				      ''A/R'', ''CM'', _p.cmhead_number,
+				      'A/R', 'CM', _p.cmhead_number,
 				      _glDate, _p.cmhead_docdate,
 				      _p.cmhead_freighttax_id,
 				      0 - COALESCE(_p.cmhead_freighttax_ratea,0.0),
 				      0 - COALESCE(_p.cmhead_freighttax_rateb,0.0),
 				      0 - COALESCE(_p.cmhead_freighttax_ratec,0.0),
-                                      (''Tax liability for '' || _p.cmhead_billtoname));
+                                      ('Tax liability for ' || _p.cmhead_billtoname));
     IF (_taxBaseValue IS NULL) THEN
       PERFORM deleteGLSeries(_sequence);
       RETURN -17;
@@ -319,10 +320,10 @@ BEGIN
       cohist_tax_ratea,	cohist_tax_rateb,	cohist_tax_ratec)
     VALUES
     ( _p.cmhead_cust_id, -1, _p.cmhead_shipto_id, _p.cmhead_freighttax_id,
-      ''F'', ''Freight Charge'',
-      _p.cmhead_docdate, '''',
+      'F', 'Freight Charge',
+      _p.cmhead_docdate, '',
       _p.cmhead_number, _p.cmhead_custponumber, _p.cmhead_docdate,
-      ''C'', _p.cmhead_invcnumber, _p.cmhead_docdate,
+      'C', _p.cmhead_invcnumber, _p.cmhead_docdate,
       1, (_p.cmhead_freight * -1), (_p.cmhead_freight * -1),
       _p.cmhead_salesrep_id, 0, FALSE,
       _p.cmhead_billtoname, _p.cmhead_billtoaddress1,
@@ -340,7 +341,7 @@ BEGIN
 --  Credit the A/R for the total Amount
   IF (_totalAmount <> 0) THEN
     IF (_p.ar_accnt_id != -1) THEN
-      PERFORM insertIntoGLSeries( _sequence, ''A/R'', ''CM'', _p.cmhead_number,
+      PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CM', _p.cmhead_number,
                                   _p.ar_accnt_id,
                                   round(currToBase(_p.cmhead_curr_id,
                                                    _totalAmount,
@@ -357,7 +358,7 @@ BEGIN
 
   IF (_totalAmount <> 0) THEN
 --  Create the Invoice aropen item
-    SELECT NEXTVAL(''aropen_aropen_id_seq'') INTO _aropenid;
+    SELECT NEXTVAL('aropen_aropen_id_seq') INTO _aropenid;
     INSERT INTO aropen
     ( aropen_id, aropen_username, aropen_journalnumber,
       aropen_open, aropen_posted,
@@ -373,10 +374,10 @@ BEGIN
            TRUE, FALSE,
            cmhead_cust_id, cmhead_custponumber,
            cmhead_number,
-           CASE WHEN (cmhead_invcnumber=''-1'') THEN ''OPEN''
+           CASE WHEN (cmhead_invcnumber='-1') THEN 'OPEN'
                 ELSE (cmhead_invcnumber::TEXT)
            END,
-           ''C'',
+           'C',
            cmhead_docdate, cmhead_docdate, _glDate, -1,
            _totalAmount, 0,
            cmhead_salesrep_id, (_commissionDue * -1), FALSE,
@@ -399,11 +400,11 @@ BEGIN
 
 --  Return credited stock to inventory
     IF (_itemlocSeries = 0) THEN
-      SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
+      SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
     END IF;
-    SELECT postInvTrans( itemsite_id, ''RS'', _r.qty,
-                         ''S/O'', ''CM'', _r.cmhead_number, '''',
-                         (''Credit Return '' || _r.item_number),
+    SELECT postInvTrans( itemsite_id, 'RS', _r.qty,
+                         'S/O', 'CM', _r.cmhead_number, '',
+                         ('Credit Return ' || _r.item_number),
                          costcat_asset_accnt_id, resolveCOSAccount(itemsite_id, _r.cust_id), _itemlocSeries ) INTO _invhistid
     FROM itemsite, costcat
     WHERE ( (itemsite_costcat_id=costcat_id)
@@ -438,7 +439,7 @@ BEGIN
          currToCurr(aropen_curr_id, cmhead_curr_id, aropen_amount - aropen_paid,
                     cmhead_docdate) AS balance INTO _p
   FROM aropen, cmhead
-  WHERE ( (aropen_doctype=''I'')
+  WHERE ( (aropen_doctype='I')
    AND (aropen_docnumber=cmhead_invcnumber)
    AND (cmhead_id=pCmheadid) );
   IF (FOUND) THEN
@@ -471,9 +472,9 @@ BEGIN
       arapply_postdate, arapply_distdate, arapply_journalnumber, arapply_curr_id )
     VALUES
     ( _p.aropen_cust_id,
-      _aropenid, ''C'', _p.cmhead_number,
-      _p.aropen_id, ''I'', _p.aropen_docnumber,
-      '''', '''',
+      _aropenid, 'C', _p.cmhead_number,
+      _p.aropen_id, 'I', _p.aropen_docnumber,
+      '', '',
       round(_toApply, 2), _toClose,
       CURRENT_DATE, _p.cmhead_docdate, 0, _p.cmhead_curr_id );
 
@@ -482,4 +483,5 @@ BEGIN
   RETURN _itemlocSeries;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
+
