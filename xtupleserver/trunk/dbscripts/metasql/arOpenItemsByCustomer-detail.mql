@@ -52,7 +52,16 @@ FROM (
                     date <? value ("asofDate") ?> + integer '1') > <? value("asofDate") ?>) 
     AND   (aropen_docdate <= <? value ("asofDate") ?>)
     AND   (aropen_cust_id=<? value("cust_id") ?>)
+<? if exists("startDate") ?>
     AND   (aropen_docdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+<? endif ?>
+<? if exists("startDueDate") ?>
+    AND   (aropen_duedate >= <? value("startDueDate") ?>)
+<? endif ?>
+<? if exists("endDueDate") ?>
+    AND   (aropen_duedate <= <? value("endDueDate") ?>)
+<? endif ?>
+
         )
   GROUP BY id,                      altId,
            aropen_docdate,          aropen_duedate,         aropen_terms_id,
@@ -87,7 +96,15 @@ FROM (
   WHERE ( (COALESCE(aropen_closedate,date <? value ("asofDate") ?> + integer '1')><? value("asofDate") ?>) 
     AND   (aropen_docdate <= <? value ("asofDate") ?>)
     AND   (aropen_cust_id=<? value("cust_id") ?>)
-    AND   (aropen_docdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+<? if exists("startDate") ?>
+  AND   (aropen_docdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+<? endif ?>
+<? if exists("startDueDate") ?>
+  AND   (aropen_duedate >= <? value("startDueDate") ?>)
+<? endif ?>
+<? if exists("endDueDate") ?>
+  AND   (aropen_duedate <= <? value("endDueDate") ?>)
+<? endif ?>
         )
 ) AS dummy
 
