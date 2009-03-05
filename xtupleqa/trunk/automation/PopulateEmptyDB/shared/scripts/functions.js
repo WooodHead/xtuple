@@ -460,8 +460,7 @@ function defineTaxation()
     waitForObject(":List Tax Authorities.New_QPushButton");
     clickButton(":List Tax Authorities.New_QPushButton");
     waitForObject(":_code_XLineEdit_15");
-    type(":_code_XLineEdit_15", "<Ctrl+A>");
-    type(":_code_XLineEdit_15", "<Del>");
+    type(":_code_XLineEdit_15", "<Backspace>");
     type(":_code_XLineEdit_15", "TAX-AUTH1");
     type(":_name_XLineEdit_22", "Virginia");
     type(":_extref_XLineEdit", "Smith");

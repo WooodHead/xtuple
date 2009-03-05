@@ -176,6 +176,7 @@ function executeChapter2(appVersion)
     waitForObject(":List Cost Categories.Copy_QPushButton_2");
     clickButton(":List Cost Categories.Copy_QPushButton_2");
     waitForObject(":Cost Category._category_XLineEdit");
+    type(":Cost Category._category_XLineEdit", "<Ctrl+A>");
     type(":Cost Category._category_XLineEdit", "<Del>");
     type(":Cost Category._category_XLineEdit", "CCWH2");
     type(":Cost Category._description_XLineEdit", "<Del>");
@@ -185,7 +186,7 @@ function executeChapter2(appVersion)
     type(":Cost Category._main_XLineEdit", "<Tab>");
     waitForObject(":Cost Category.Save_QPushButton");
     clickButton(":Cost Category.Save_QPushButton");
-    waitForObject(":List Cost Categories.Close_QPushButton_2");
+    waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
     if(!clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH2", 26, 9, 1, Qt.LeftButton))
         test.pass("Cost Category: CCWH2 created");
     clickButton(":List Cost Categories.Close_QPushButton_2");

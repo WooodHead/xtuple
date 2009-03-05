@@ -55,7 +55,7 @@ function executeChapter11(appVersion)
     waitForObject(":Subtotal/Summarize.Show % of Group Total_QCheckBox");
     if(!findObject(":Subtotal/Summarize.Show % of Group Total_QCheckBox").checked)
         clickButton(":Subtotal/Summarize.Show % of Group Total_QCheckBox");  
-    waitForObject("Total Expenses");
+    waitForObject(":_altSubtotalLabel_QLineEdit");
     type(":_altSubtotalLabel_QLineEdit", "Total Expenses");
     clickButton(":Operation.Subtract from Group Total_QRadioButton");
     clickButton(":Financial Report Group.Save_QPushButton");
@@ -241,7 +241,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-        clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Revenue")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Revenue",0,0,1,Qt.LeftButton);
@@ -263,13 +263,13 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-         clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Revenue")
          clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Revenue",0,0,1,Qt.LeftButton);
     waitForObject(":Select Multiple Accounts by Segment._subType_XComboBox");
     if(findObject(":Select Multiple Accounts by Segment._subType_XComboBox").currentText!="SO-Other Revenue");
-        clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "SO-Other Revenue",0,0,1,Qt.LeftButton);
+        clickItem(":Select Multiple Accounts by Segment._subtype_XComboBox", "SO-Other Revenue",0,0,1,Qt.LeftButton);
     waitForObject(":Operation.Add to Group Total_QRadioButton_2");
     clickButton(":Operation.Add to Group Total_QRadioButton_2");
     waitForObject(":Financial Report Item.qt_tabwidget_tabbar_QTabBar");
@@ -279,7 +279,7 @@ function executeChapter11(appVersion)
         clickButton(":_options.Show % of Group Total_QCheckBox");
     waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Sales");
-         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
+        clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
     clickButton(":Financial Report Item.Save_QPushButton");
     
@@ -288,7 +288,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-        clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Expense")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Expense",0,0,1,Qt.LeftButton);
@@ -311,13 +311,13 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-        clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Expense")
            clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Expense",0,0,1,Qt.LeftButton);
     waitForObject(":Select Multiple Accounts by Segment._subType_XComboBox");
     if(findObject(":Select Multiple Accounts by Segment._subType_XComboBox").currentText!="EXP-Expenses");
-        clickItem(":Select Multiple Accounts by Segment._subType_XComboBox", "EXP-Expenses",0,0,1,Qt.Button);
+        clickItem(":Select Multiple Accounts by Segment._subType_XComboBox", "EXP-Expenses",0,0,1,Qt.LeftButton);
     waitForObject(":Operation.Add to Group Total_QRadioButton_2");
     clickButton(":Operation.Add to Group Total_QRadioButton_2");
     clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -334,7 +334,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-       clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+       type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Expense")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Expense",0,0,1,Qt.LeftButton);
@@ -787,7 +787,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-        clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Asset")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Asset",0,0,1,Qt.LeftButton);
@@ -811,7 +811,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-        clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Asset")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Asset",0,0,1,Qt.LeftButton);
@@ -836,7 +836,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-        clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Asset")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Asset",0,0,1,Qt.LeftButton);
@@ -861,7 +861,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-        clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Asset")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Asset",0,0,1,Qt.LeftButton);
@@ -887,7 +887,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-         clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+         type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Liability")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Liability",0,0,1,Qt.LeftButton);
@@ -910,7 +910,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-        clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Liability")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Liability",0,0,1,Qt.LeftButton);
@@ -934,7 +934,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-        clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Liability")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Liability",0,0,1,Qt.LeftButton);
@@ -958,7 +958,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-        clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Equity")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Equity",0,0,1,Qt.LeftButton);
@@ -982,7 +982,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-        clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Equity")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Equity",0,0,1,Qt.LeftButton);
@@ -1008,7 +1008,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-        clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Revenue")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Revenue",0,0,1,Qt.LeftButton);
@@ -1033,7 +1033,7 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(!findObject(":_selection.Select Multiple Accounts by Segment_QGroupBox").checked)
-        clickItem(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_selection.Select Multiple Accounts by Segment_QGroupBox"," ");
     waitForObject(":_selection.Select Multiple Accounts by Segment_QGroupBox");
     if(findObject(":Select Multiple Accounts by Segment._type_XComboBox").currentText!= "Expense")
         clickItem(":Select Multiple Accounts by Segment._type_XComboBox", "Expense",0,0,1,Qt.LeftButton);
@@ -1071,7 +1071,7 @@ function executeChapter11(appVersion)
     clickTab(":Financial Report.qt_tabwidget_tabbar_QTabBar", "Options");
     waitForObject(":_options.Show Grand Total_QGroupBox");
     if(!findObject(":_options.Show Grand Total_QGroupBox").checked)
-    clickItem(":_options.Show Grand Total_QGroupBox"," ",0,0,1,Qt.LeftButton);
+        type(":_options.Show Grand Total_QGroupBox"," ");
     waitForObject(":Show Grand Total.Show Beginning_QCheckBox");
     if(findObject(":Show Grand Total.Show Beginning_QCheckBox").checked)
         clickButton(":Show Grand Total.Show Ending_QCheckBox");
@@ -1395,7 +1395,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
        clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
-      clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+      type(":_options.Show Custom Column_QGroupBox"," ");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
     waitForObject(":Show Custom Column.Use Difference_QRadioButton");
@@ -1432,7 +1432,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
          clickItem(":_group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
     waitForObject(":Show Custom Column.Use Difference_QRadioButton");
@@ -1470,7 +1470,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
       clickItem(":_group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
     waitForObject(":Show Custom Column.Use Difference_QRadioButton");
@@ -1507,7 +1507,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
        clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton); 
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
@@ -1543,7 +1543,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton); 
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
@@ -1580,7 +1580,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
       clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton);   
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
@@ -1617,7 +1617,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton); 
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
@@ -1654,7 +1654,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
          clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton); 
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
@@ -1691,7 +1691,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
          clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton); 
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
@@ -1728,7 +1728,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton); 
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
@@ -1765,7 +1765,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton); 
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
@@ -1803,7 +1803,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton); 
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
@@ -1839,7 +1839,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton); 
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
     waitForObject(":Show Custom Column.Use Difference_QRadioButton");
@@ -1876,7 +1876,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
@@ -1913,7 +1913,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
@@ -1950,7 +1950,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
@@ -1987,7 +1987,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
@@ -2022,9 +2022,9 @@ function executeChapter11(appVersion)
       clickButton(":Show Columns.Show Difference_QCheckBox");
     waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Sales")
-         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
+        clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
@@ -2048,8 +2048,10 @@ function executeChapter11(appVersion)
     clickTab(":Financial Report.qt_tabwidget_tabbar_QTabBar", "Options");
     waitForObject(":_options.Show Grand Total_QGroupBox");
     if(!findObject(":_options.Show Grand Total_QGroupBox").checked)
-        clickItem(":_options.Show Grand Total_QGroupBox"," ",0,0,1,Qt.LeftButton);
-    clickButton(":Alternate Labels.Alternate Ending Balance:_QCheckBox");
+        type(":_options.Show Grand Total_QGroupBox"," ");
+    if(!findObject(":Alternate Labels.Alternate Ending Balance:_QCheckBox").checked)
+        clickButton(":Alternate Labels.Alternate Ending Balance:_QCheckBox");
+    waitForObject(":Alternate Labels._altEndText_QLineEdit");
     type(":Alternate Labels._altEndText_QLineEdit", "Account Balance");
     clickButton(":Alternate Labels.Alternate Grand Total:_QCheckBox");
     type(":Alternate Labels._altTotalText_QLineEdit", "Balance Total");
@@ -2635,7 +2637,7 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
@@ -2672,12 +2674,11 @@ function executeChapter11(appVersion)
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    type(":_options.Show Custom Column_QGroupBox"," ");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Financial Report Item.Save_QPushButton");
-   //-------------------------updated(Mar04,2009)----------------------- 
     waitForObject(":frame._layout_XTreeWidget");
     clickItem(":frame._layout_XTreeWidget", "ASSETS.Current Assets", 5, 5, 1, Qt.LeftButton);
     waitForObject(":frame.Add Account_QPushButton");
@@ -2689,23 +2690,31 @@ function executeChapter11(appVersion)
     waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     waitForObject(":frame._layout_XTreeWidget");
@@ -2715,28 +2724,37 @@ function executeChapter11(appVersion)
     waitForObject(":Select one Account._main_XLineEdit");
     type(":Select one Account._main_XLineEdit", "01-01-1250-01");
     clickButton(":Operation.Add to Group Total_QRadioButton_2");
+    waitForObject(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
     clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
     waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
-    ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -2746,29 +2764,38 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":Select one Account._main_XLineEdit");
     type(":Select one Account._main_XLineEdit", "01-01-1210-01");
+    waitForObject(":Operation.Add to Group Total_QRadioButton_2");
     clickButton(":Operation.Add to Group Total_QRadioButton_2");
     clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
     waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
-    ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -2778,29 +2805,38 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":Select one Account._main_XLineEdit");
     type(":Select one Account._main_XLineEdit", "01-01-1400-01");
+    waitForObject(":Operation.Add to Group Total_QRadioButton_2");
     clickButton(":Operation.Add to Group Total_QRadioButton_2");
     clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
     waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
-    ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
-    if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
+     waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
+    if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+     waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+     waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+     waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+     waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+     waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+     waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -2810,29 +2846,39 @@ function executeChapter11(appVersion)
     clickButton(":frame.Add Account_QPushButton");
     waitForObject(":Select one Account._main_XLineEdit");
     type(":Select one Account._main_XLineEdit", "01-01-1620-01");
+    waitForObject(":Operation.Add to Group Total_QRadioButton_2");
     clickButton(":Operation.Add to Group Total_QRadioButton_2");
     clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
     waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+      waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+      waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+      waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+      waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+      waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+      waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+      waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -2848,23 +2894,31 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+      waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+      waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+      waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+      waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+      waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+      waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+      waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     waitForObject(":frame._layout_XTreeWidget");
@@ -2879,23 +2933,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+      waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -2911,23 +2974,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
-    waitForObject(":_options.Show Custom Column_QGroupBox");
+    waitForObject(":_options.Show Custom Column_QGroupBox");    
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     waitForObject(":frame._layout_XTreeWidget");
@@ -2942,23 +3014,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     waitForObject(":frame._layout_XTreeWidget");
@@ -2973,23 +3054,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+     waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+     waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+     waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+     waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+     waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
-        clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
+        clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);    
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+     waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     waitForObject(":frame._layout_XTreeWidget");
@@ -3004,23 +3094,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -3036,23 +3135,31 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     waitForObject(":frame._layout_XTreeWidget");
@@ -3067,23 +3174,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+     waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+     waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+     waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+     waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+     waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+     waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+     waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+     waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+     waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     waitForObject(":frame._layout_XTreeWidget");
@@ -3098,23 +3214,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -3130,23 +3255,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     waitForObject(":frame._layout_XTreeWidget");
@@ -3161,23 +3295,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -3193,23 +3336,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject();
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject();
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     waitForObject(":frame._layout_XTreeWidget");
@@ -3224,23 +3376,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -3256,23 +3417,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -3288,23 +3458,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     waitForObject(":frame._layout_XTreeWidget");
@@ -3319,23 +3498,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
      waitForObject(":frame._layout_XTreeWidget");
@@ -3350,23 +3538,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
      waitForObject(":frame._layout_XTreeWidget");
@@ -3381,23 +3578,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
-    if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
+    if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)        
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
      waitForObject(":frame._layout_XTreeWidget");
@@ -3412,23 +3618,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
      waitForObject(":frame._layout_XTreeWidget");
@@ -3443,23 +3658,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
-    if(findObject(":_options._group_XComboBox").currentText!="Parent")
+    waitForObject(":_options._group_XComboBx");
+    if(findObject(":_options._group_XComboBx").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
      waitForObject(":frame._layout_XTreeWidget");
@@ -3474,23 +3698,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -3506,23 +3739,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
-       clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton); 
+       clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);     
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
      waitForObject(":frame._layout_XTreeWidget");
@@ -3537,23 +3779,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
-        clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
+        clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);    
     waitForObject(":_options.Show Custom Column_QGroupBox");
-    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);  
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -3569,23 +3820,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
       waitForObject(":frame._layout_XTreeWidget");
@@ -3600,23 +3860,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
   
@@ -3632,23 +3901,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
       waitForObject(":frame._layout_XTreeWidget");
@@ -3663,23 +3941,33 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
+    waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
       waitForObject(":frame._layout_XTreeWidget");
@@ -3694,23 +3982,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
-        clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
+        clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);    
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -3726,23 +4023,32 @@ function executeChapter11(appVersion)
     ":Show Columns.Show Beginning Balance_QCheckBox"
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+    waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
     if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
         clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+    waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+    waitForObject(":Show Columns.Show Difference_QCheckBox");
     if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
       clickButton(":Show Columns.Show Difference_QCheckBox");
+    waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="Parent")
         clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
     waitForObject(":_options.Show Custom Column_QGroupBox");
     clickItem(":_options.Show Custom Column_QGroupBox"," ",0,0,1,Qt.LeftButton);
+    waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+    waitForObject(":Show Custom Column.Use Difference_QRadioButton");
     clickButton(":Show Custom Column.Use Difference_QRadioButton");
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     waitForObject(":Financial Report.Save_QPushButton");
     clickButton(":Financial Report.Save_QPushButton");
