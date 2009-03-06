@@ -330,8 +330,12 @@ function executeChapter4(appVersion)
  
   waitForObject(":frame_2.New_QPushButton");
   clickButton(":frame_2.New_QPushButton");
-  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TBODY1");
+  
+  waitForObject(":Bill of Materials Item...._QPushButton_2");
+  clickButton(":Bill of Materials Item...._QPushButton_2");
+  waitForObject(":_item_XTreeWidget_3");
+  doubleClickItem(":_item_XTreeWidget_3", "TBODY1", 5, 5, 0, Qt.LeftButton);
+  waitForObject(":_qtyPer_XLineEdit");
   type(":_qtyPer_XLineEdit", "1");
   type(":_scrap_XLineEdit", "0");
   if(appVersion=="manufacturing")
@@ -350,8 +354,10 @@ function executeChapter4(appVersion)
   
   waitForObject(":frame_2.New_QPushButton");
   clickButton(":frame_2.New_QPushButton");
-  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "YPAINT1");
+  waitForObject(":Bill of Materials Item...._QPushButton_2");
+  clickButton(":Bill of Materials Item...._QPushButton_2");
+  waitForObject(":_item_XTreeWidget_3");
+  doubleClickItem(":_item_XTreeWidget_3", "YPAINT1", 5, 5, 0, Qt.LeftButton);
   waitForObject(":_qtyPer_XLineEdit");
   type(":_qtyPer_XLineEdit", ".01");
   type(":_scrap_XLineEdit", "0");
@@ -370,10 +376,10 @@ function executeChapter4(appVersion)
  
   waitForObject(":frame_2.New_QPushButton");
   clickButton(":frame_2.New_QPushButton");
-  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TWHEEL1");
-  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "<Tab>");
+  waitForObject(":Bill of Materials Item...._QPushButton_2");
+  clickButton(":Bill of Materials Item...._QPushButton_2");
+  waitForObject(":_item_XTreeWidget_3");
+  doubleClickItem(":_item_XTreeWidget_3", "TWHEEL1", 5, 5, 0, Qt.LeftButton);
   waitForObject(":_qtyPer_XLineEdit");
   type(":_qtyPer_XLineEdit", "4");
   type(":_scrap_XLineEdit", "0");
@@ -393,9 +399,11 @@ function executeChapter4(appVersion)
   
   waitForObject(":frame_2.New_QPushButton");
   clickButton(":frame_2.New_QPushButton");
-  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-  
-  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TKIT1");
+  waitForObject(":Bill of Materials Item...._QPushButton_2");
+  clickButton(":Bill of Materials Item...._QPushButton_2");
+  waitForObject(":_item_XTreeWidget_3");
+  doubleClickItem(":_item_XTreeWidget_3", "TKIT1", 5, 5, 0, Qt.LeftButton);
+  waitForObject(":_qtyPer_XLineEdit"); 
   type(":_qtyPer_XLineEdit", "1");
   type(":_scrap_XLineEdit", "0");
   waitForObject(":_scrap_XLineEdit");
@@ -432,8 +440,11 @@ function executeChapter4(appVersion)
  
   waitForObject(":frame_2.New_QPushButton");
   clickButton(":frame_2.New_QPushButton");
-  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TBOX1");
+  waitForObject(":Bill of Materials Item...._QPushButton_2");
+  clickButton(":Bill of Materials Item...._QPushButton_2");
+  waitForObject(":_item_XTreeWidget_3");
+  doubleClickItem(":_item_XTreeWidget_3", "TBOX1", 5, 5, 0, Qt.LeftButton);
+  waitForObject(":_qtyPer_XLineEdit"); 
   type(":_qtyPer_XLineEdit", "1");
   type(":_scrap_XLineEdit", "0");
   
@@ -452,8 +463,11 @@ function executeChapter4(appVersion)
   
   waitForObject(":frame_2.New_QPushButton");
   clickButton(":frame_2.New_QPushButton");
-  waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-  type(":Bill of Materials Item._itemNumber_ItemLineEdit", "TINSERT1");
+  waitForObject(":Bill of Materials Item...._QPushButton_2");
+  clickButton(":Bill of Materials Item...._QPushButton_2");
+  waitForObject(":_item_XTreeWidget_3");
+  doubleClickItem(":_item_XTreeWidget_3", "TINSERT1", 5, 5, 0, Qt.LeftButton);
+  waitForObject(":_qtyPer_XLineEdit"); 
   waitForObject(":_qtyPer_XLineEdit");
   type(":_qtyPer_XLineEdit", "1");
   type(":_scrap_XLineEdit", "10");

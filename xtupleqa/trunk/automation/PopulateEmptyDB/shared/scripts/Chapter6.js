@@ -34,12 +34,13 @@ function executeChapter6(appVersion)
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "TBODY1");
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObjectItem(":Create Item Cost._costelem_XComboBox", "Material");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
     if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
-        clickItem(":Create Item Cost_XComboBox", "USD",0,0,1,Qt.LeftButton);
+        clickItem(":Create Item Cost_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
     type(":Create Item Cost_XLineEdit", "1.0");
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
@@ -49,12 +50,13 @@ function executeChapter6(appVersion)
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "TBOX1");
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObjectItem(":Create Item Cost._costelem_XComboBox", "Material");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
     if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
-        clickItem(":Create Item Cost_XComboBox", "USD",0,0,1,Qt.LeftButton);
+        clickItem(":Create Item Cost_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
     type(":Create Item Cost_XLineEdit", "0.25");
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
@@ -64,12 +66,13 @@ function executeChapter6(appVersion)
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "TINSERT1");
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObjectItem(":Create Item Cost._costelem_XComboBox", "Material");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
     if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
-        clickItem(":Create Item Cost_XComboBox", "USD",0,0,1,Qt.LeftButton);
+        clickItem(":Create Item Cost_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
     type(":Create Item Cost_XLineEdit", "0.5");
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
@@ -79,12 +82,13 @@ function executeChapter6(appVersion)
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "TWHEEL1");
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObjectItem(":Create Item Cost._costelem_XComboBox", "Material");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
     if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
-        clickItem(":Create Item Cost_XComboBox", "USD",0,0,1,Qt.LeftButton);
+        clickItem(":Create Item Cost_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
     type(":Create Item Cost_XLineEdit", "0.10");
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
@@ -94,12 +98,13 @@ function executeChapter6(appVersion)
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "YPAINT1");
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObjectItem(":Create Item Cost._costelem_XComboBox", "Material");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
     if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
-        clickItem(":Create Item Cost_XComboBox", "USD",0,0,1,Qt.LeftButton);
+        clickItem(":Create Item Cost_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
     type(":Create Item Cost_XLineEdit", "5.00");
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
@@ -109,12 +114,13 @@ function executeChapter6(appVersion)
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "YPAINT1");
     waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObjectItem(":Create Item Cost._costelem_XComboBox", "Material");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Special Handling")
         clickItem(":Create Item Cost._costelem_XComboBox", "Special",0,0,1,Qt.LeftButton);
     if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
-        clickItem(":Create Item Cost_XComboBox", "USD",0,0,1,Qt.LeftButton);
+        clickItem(":Create Item Cost_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
     type(":Create Item Cost_XLineEdit", "2.00");
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");

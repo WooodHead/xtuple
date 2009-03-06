@@ -86,7 +86,9 @@ function executeChapter10(appVersion)
         clickButton(":Enable ACH Check Printing.Other_QRadioButton");
          type(":_companyName_XLineEdit", "ProDiem Inc.");
          waitForObject(":Enable ACH Check Printing._achSuffix_QComboBox");
-           clickItem(":Enable ACH Check Printing._achSuffix_QComboBox",".dat",0,0,1,Qt.LeftButton);
+           type(":Enable ACH Check Printing._achSuffix_QComboBox","<Ctrl+A>");
+           type(":Enable ACH Check Printing._achSuffix_QComboBox","<Del>");
+           type(":Enable ACH Check Printing._achSuffix_QComboBox",".dat");
         clickButton(":Accounting Configuration.Save_QPushButton");
         waitForObject(":Set Encryption?.No_QPushButton");
         clickButton(":Set Encryption?.No_QPushButton");
@@ -118,8 +120,8 @@ function executeChapter10(appVersion)
     if(!findObject(":_useGroup.Used in Accounts Payable_QCheckBox").checked)
         clickButton(":_useGroup.Used in Accounts Payable_QCheckBox");
     type(":_useGroup._nextCheckNum_XLineEdit", "3000");
-    if(!findObject(":_type_XComboBox")!= "GENERIC-CHECK")
-        clickItem(":_type_XComboBox", "GENERIC",0,0,1,Qt.LeftButton);
+    if(!findObject(":_useGroup._form_XComboBox").currentText!= "GENERIC-CHECK")
+         clickItem(":_useGroup._form_XComboBox","GENERIC-CHECK",0,0,1,Qt.LeftButton);
     if(!findObject(":_useGroup.Used in Accounts Receivable_QCheckBox").checked)
         clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
     waitForObject(":_accountGroup._main_XLineEdit");
@@ -144,8 +146,9 @@ function executeChapter10(appVersion)
         clickButton(":_useGroup.Used in Accounts Payable_QCheckBox");
     waitForObject(":_useGroup._nextCheckNum_XLineEdit");
     type(":_useGroup._nextCheckNum_XLineEdit", "9000");
-    if(!findObject(":_type_XComboBox")!= "GENERIC-CHECK")
-        type(":_type_XComboBox", "GENERIC");
+    if(!findObject(":_useGroup._form_XComboBox").currentText!= "GENERIC-CHECK")
+         clickItem(":_useGroup._form_XComboBox","GENERIC-CHECK",0,0,1,Qt.LeftButton);
+    
     if(!findObject(":_useGroup.Used in Accounts Receivable_QCheckBox").checked)
         clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
     type(":_accountGroup._main_XLineEdit", "01-01-1010-01");

@@ -144,14 +144,15 @@ function executeChapter2(appVersion)
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
     waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
-    type(":List Cost Categories._costcat_XTreeWidget_2", " ");
+    clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH1",0,0,1,Qt.LeftButton);
     waitForObject(":List Cost Categories.Copy_QPushButton_2");
     clickButton(":List Cost Categories.Copy_QPushButton_2");
     waitForObject(":Cost Category._category_XLineEdit");
-    type(":Cost Category._category_XLineEdit", "<Del>");
+    type(":Cost Category._category_XLineEdit", "<Ctrl+Backspace>");
     type(":Cost Category._category_XLineEdit", "CCINTRAN");
-    type(":Cost Category._description_XLineEdit", "<Del>");
+    type(":Cost Category._description_XLineEdit", "<Ctrl+Backspace");
     type(":Cost Category._description_XLineEdit", "Intransit Warehouse");
+    type(":Cost Category._main_XLineEdit", "<Ctrl+A>");
     type(":Cost Category._main_XLineEdit", "<Del>");
     type(":Cost Category._main_XLineEdit", "01-01-1252-01");
     type(":Cost Category._main_XLineEdit", "<Tab>");
@@ -172,7 +173,7 @@ function executeChapter2(appVersion)
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
     waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
-    type(":List Cost Categories._costcat_XTreeWidget_2", " ");
+    clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH1",0,0,1,Qt.LeftButton);
     waitForObject(":List Cost Categories.Copy_QPushButton_2");
     clickButton(":List Cost Categories.Copy_QPushButton_2");
     waitForObject(":Cost Category._category_XLineEdit");

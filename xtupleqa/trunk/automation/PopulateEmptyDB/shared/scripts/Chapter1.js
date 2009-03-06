@@ -377,8 +377,11 @@ function executeChapter1(appVersion)
         findObject(":Defaults.Set Sold Items as Exclusive_QCheckBox").checked=false;
     type(":_issueMethod_QComboBox", "Mixed");
     clickButton(":Products Configuration.Save_QPushButton");
-    waitForObject(":Enable Revision Control.Yes_QPushButton");
-    clickButton(":Enable Revision Control.Yes_QPushButton");
+    if(appVersion=="manufacturing")
+    {
+        waitForObject(":Enable Revision Control.Yes_QPushButton");
+        clickButton(":Enable Revision Control.Yes_QPushButton");
+    }
     test.log("Product Module Configured");    
 
     
@@ -390,6 +393,7 @@ function executeChapter1(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
+    snooze(1);
     waitForObject(":xTuple ERP: *_QPushButton");
     clickButton(":xTuple ERP: *_QPushButton");
     waitForObject(":_ccEncKeyName_QLineEdit");
@@ -486,7 +490,7 @@ function executeChapter1(appVersion)
 
     
   
-    if(appVersion=="manufacturing")
+    if(appVersion=="manufacturing"||appVersion=="standard")
     {
         //---------Setup EDI profiles---------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");

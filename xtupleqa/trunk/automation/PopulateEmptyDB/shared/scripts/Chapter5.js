@@ -159,7 +159,7 @@ function executeChapter5(appVersion)
         clickItem(":_warehouse_WComboBox_5", "WH1",0,0,1,Qt.LeftButton);
         
     }
-    clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS-Items",0,0,1,Qt.LeftButton);
+    clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
     clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
      clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
     if(appVersion=="manufacturing")
@@ -337,9 +337,12 @@ function executeChapter5(appVersion)
     
     waitForObject(":frame_2.New_QPushButton");
     clickButton(":frame_2.New_QPushButton");
-    waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-    type(":Bill of Materials Item._itemNumber_ItemLineEdit", "YTRUCK1");
-    type(":Bill of Materials Item._itemNumber_ItemLineEdit", "<Tab>");
+    
+    waitForObject(":Bill of Materials Item...._QPushButton_2");
+    clickButton(":Bill of Materials Item...._QPushButton_2");
+    waitForObject(":_item_XTreeWidget_3");
+    doubleClickItem(":_item_XTreeWidget_3", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_qtyPer_XLineEdit");
     type(":_qtyPer_XLineEdit", ".30");
     type(":_scrap_XLineEdit", "0");
     waitForObject(":Bill of Materials Item.Save_QPushButton");
@@ -347,10 +350,10 @@ function executeChapter5(appVersion)
         
     waitForObject(":frame_2.New_QPushButton");
     clickButton(":frame_2.New_QPushButton");
-    waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-    type(":Bill of Materials Item._itemNumber_ItemLineEdit", "WTRUCK1");
-    waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-    type(":Bill of Materials Item._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":Bill of Materials Item...._QPushButton_2");
+    clickButton(":Bill of Materials Item...._QPushButton_2");
+    waitForObject(":_item_XTreeWidget_3");
+    doubleClickItem(":_item_XTreeWidget_3", "WTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_qtyPer_XLineEdit");
     type(":_qtyPer_XLineEdit", ".20");
     type(":_scrap_XLineEdit", "0");
@@ -359,10 +362,10 @@ function executeChapter5(appVersion)
     
     waitForObject(":frame_2.New_QPushButton");
     clickButton(":frame_2.New_QPushButton");
-    waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-    type(":Bill of Materials Item._itemNumber_ItemLineEdit", "BTRUCK1");
-    waitForObject(":Bill of Materials Item._itemNumber_ItemLineEdit");
-    type(":Bill of Materials Item._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":Bill of Materials Item...._QPushButton_2");
+    clickButton(":Bill of Materials Item...._QPushButton_2");
+    waitForObject(":_item_XTreeWidget_3");
+    doubleClickItem(":_item_XTreeWidget_3", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_qtyPer_XLineEdit");
     type(":_qtyPer_XLineEdit", ".50");
     type(":_scrap_XLineEdit", "0");
