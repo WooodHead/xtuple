@@ -38,6 +38,7 @@
 :Accounting Period.qt_spinbox_lineedit_QLineEdit	{name='qt_spinbox_lineedit' type='QLineEdit' visible='1' window=':Accounting Period_accountingPeriod'}
 :Accounting Period_accountingPeriod	{name='accountingPeriod' type='accountingPeriod' visible='1' windowTitle='Accounting Period'}
 :Active Items.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Active Items_itemList'}
+:Active Items.Items:_QLabel	{name='_itemsLit' text='Items:' type='QLabel' visible='1' window=':Active Items_itemList'}
 :Active Items_itemList	{type='itemList' unnamed='1' visible='1' windowTitle='Active Items'}
 :Additional Configuration Required.OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':Additional Configuration Required_QMessageBox'}
 :Additional Configuration Required_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Additional Configuration Required'}
@@ -78,6 +79,7 @@
 :Bank Account._useGroup_QGroupBox	{name='_useGroup' type='QGroupBox' visible='1' window=':Bank Account_bankAccount'}
 :Bank Account_bankAccount	{name='bankAccount' type='bankAccount' visible='1' windowTitle='Bank Account'}
 :Bill of Materials Item...._QPushButton	{name='_booitemList' text='...' type='QPushButton' visible='1' window=':Bill of Materials Item_bomItem'}
+:Bill of Materials Item...._QPushButton_2	{name='_itemList' text='...' type='QPushButton' visible='1' window=':Bill of Materials Item_bomItem'}
 :Bill of Materials Item.ECN #:_QLabel	{name='_ecnNumLit' text='ECN #:' type='QLabel' visible='1' window=':Bill of Materials Item_bomItem'}
 :Bill of Materials Item.Qty. Per:_QLabel	{name='_qtyPerLit' text='Qty. Per:' type='QLabel' visible='1' window=':Bill of Materials Item_bomItem'}
 :Bill of Materials Item.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Bill of Materials Item_bomItem'}
@@ -679,6 +681,7 @@
 :List Bank Accounts.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Bank Accounts_bankAccounts'}
 :List Bank Accounts.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Bank Accounts_bankAccounts'}
 :List Bank Accounts._bankaccnt_XTreeWidget	{name='_bankaccnt' type='XTreeWidget' visible='1' window=':List Bank Accounts_bankAccounts'}
+:List Bank Accounts._useGroup_QGroupBox	{container=':xTuple ERP: *.List Bank Accounts_QWorkspaceChild' name='_useGroup' type='QGroupBox' visible='1'}
 :List Bank Accounts_bankAccounts	{name='bankAccounts' type='bankAccounts' visible='1' windowTitle='List Bank Accounts'}
 :List Calendars.Close_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Calendars_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Calendars.New_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Calendars_QWorkspaceChild' name='_new' text='New' type='QPushButton' visible='1'}
@@ -2302,6 +2305,7 @@
 :_itemSite_XTreeWidget_2	{buddy=':List Item Sites.Item Sites:_QLabel_2' name='_itemSite' type='XTreeWidget' visible='1'}
 :_item_XTreeWidget	{buddy=':List Item Sites.Items:_QLabel' name='_item' type='XTreeWidget' visible='1'}
 :_item_XTreeWidget_2	{buddy=':_itemGroup.Items:_QLabel' name='_item' type='XTreeWidget' visible='1'}
+:_item_XTreeWidget_3	{buddy=':Active Items.Items:_QLabel' name='_item' type='XTreeWidget' visible='1'}
 :_itemtype_QComboBox	{buddy=':_itemGroup.Item Type:_QLabel' name='_itemtype' type='QComboBox' visible='1'}
 :_itemtype_QComboBox_2	{buddy=':_itemGroup.Item Type:_QLabel_2' name='_itemtype' type='QComboBox' visible='1'}
 :_language_XComboBox	{buddy=':List Locales.Language:_QLabel' name='_language' type='XComboBox' visible='1'}
@@ -2591,6 +2595,7 @@
 :_uomRatioScale_QSpinBox	{buddy=':List Locales.UOM Ratio:_QLabel' name='_uomRatioScale' type='QSpinBox' visible='1'}
 :_useGroup.Used in Accounts Payable_QCheckBox	{container=':Bank Account._useGroup_QGroupBox' name='_ap' text='Used in Accounts Payable' type='QCheckBox' visible='1'}
 :_useGroup.Used in Accounts Receivable_QCheckBox	{container=':Bank Account._useGroup_QGroupBox' name='_ar' text='Used in Accounts Receivable' type='QCheckBox' visible='1'}
+:_useGroup._form_XComboBox	{container=':List Bank Accounts._useGroup_QGroupBox' name='_form' type='XComboBox' visible='1'}
 :_useGroup._nextCheckNum_XLineEdit	{container=':Bank Account._useGroup_QGroupBox' name='_nextCheckNum' type='XLineEdit' visible='1'}
 :_username_QLineEdit	{buddy=':_frame.Username:_QLabel' name='_username' type='QLineEdit' visible='1'}
 :_username_XLineEdit	{buddy=':List Users.Username:_QLabel' name='_username' type='XLineEdit' visible='1'}
@@ -2831,6 +2836,7 @@
 :xTuple ERP: *.Incident_QMenu	{name='menu.crm.incident' title='Incident' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: *.Inventory Tools_QToolBar	{name='Inventory Tools' type='QToolBar' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='Inventory Tools'}
 :xTuple ERP: *.Issue to Shipping_QToolButton	{text='Issue to Shipping' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
+:xTuple ERP: *.List Bank Accounts_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List Bank Accounts'}
 :xTuple ERP: *.List EDI Profiles_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List EDI Profiles'}
 :xTuple ERP: *.List Freight Classes_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List Freight Classes'}
 :xTuple ERP: *.List Incident Categories_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2' windowTitle='List Incident Categories'}
