@@ -7,7 +7,7 @@ function executeChapter1(appVersion)
         createShift("1ST","First");
     createLocale("MYLOCALE","My Locale For Class");
     createGroup("SUPER","Super User Group");
-  var newuser="user01";
+    var newuser="user01";
     createUser(newuser);
 
     //-------------Configure: Accounting Module----------------

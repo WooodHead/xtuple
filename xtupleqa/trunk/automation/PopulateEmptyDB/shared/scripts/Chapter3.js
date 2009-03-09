@@ -704,7 +704,10 @@ function executeChapter3(appVersion)
         clickButton(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3");
     type(":Item Site.Sold from this Site_QGroupBox"," ");
     clickButton(":Costing Method.Standard_QRadioButton_3");
-    clickItem(":Control._controlMethod_XComboBox_3", "Lot #", 0, 0, 1, Qt.LeftButton);
+    if(appVersion=="manufacturing"||appVersion=="standard")
+        clickItem(":Control._controlMethod_XComboBox_3", "Lot #", 0, 0, 1, Qt.LeftButton);
+    else if(apppVersion=="postbooks")
+        clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);
     clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);    
     clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton);    
     if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
