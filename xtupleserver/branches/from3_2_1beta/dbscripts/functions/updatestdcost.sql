@@ -31,7 +31,8 @@ BEGIN
 
 --  Distribute to G/L, debit Inventory Asset, credit Inventory Cost Variance
   FOR _r IN SELECT itemsite_id, (itemsite_qtyonhand + itemsite_nnqoh) AS totalQty,
-                   costcat_invcost_accnt_id, costcat_asset_accnt_id
+                   costcat_invcost_accnt_id, costcat_asset_accnt_id,
+                   itemsite_costmethod
             FROM itemcost, itemsite, costcat
             WHERE ( (itemsite_item_id=itemcost_item_id)
              AND (itemsite_costcat_id=costcat_id)
@@ -45,6 +46,12 @@ BEGIN
                                  _r.costcat_invcost_accnt_id, _r.costcat_asset_accnt_id, _r.itemsite_id,
                                  ((_newcost - _oldcost) * _r.totalQty),
                                  CURRENT_DATE );
+--  Update Itemsite Value if not Average Cost
+    IF (_r.itemsite_costmethod <> 'A') THEN
+--      RAISE NOTICE 'itemsite_id = %, Qty = %, New Cost = %', _r.itemsite_id, _r.totalQty, _newcost;
+      UPDATE itemsite SET itemsite_value=(_r.totalQty * stdCost(itemsite_item_id))
+      WHERE (itemsite_id=_r.itemsite_id);
+    END IF;
   END LOOP;
 
   IF (_newcost = 0) THEN
