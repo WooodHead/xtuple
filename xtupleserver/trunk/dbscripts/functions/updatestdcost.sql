@@ -48,7 +48,7 @@ BEGIN
                                  CURRENT_DATE );
 --  Update Itemsite Value if not Average Cost
     IF (_r.itemsite_costmethod <> 'A') THEN
-      RAISE NOTICE 'itemsite_id = %, Qty = %, New Cost = %', _r.itemsite_id, _r.totalQty, _newcost;
+--      RAISE NOTICE 'itemsite_id = %, Qty = %, New Cost = %', _r.itemsite_id, _r.totalQty, _newcost;
       UPDATE itemsite SET itemsite_value=(_r.totalQty * stdCost(itemsite_item_id))
       WHERE (itemsite_id=_r.itemsite_id);
     END IF;
