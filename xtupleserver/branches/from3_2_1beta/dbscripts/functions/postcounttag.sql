@@ -219,6 +219,7 @@ BEGIN
     UPDATE itemsite
     SET itemsite_qtyonhand=_p.invcnt_qoh_after,
         itemsite_nnqoh = 0,
+        itemsite_value = _p.itemsite_value + (_p.cost * (_p.invcnt_qoh_after - itemsite_qtyonhand)),
         itemsite_datelastcount=_postDate
     WHERE (itemsite_id=_p.itemsite_id);
  
