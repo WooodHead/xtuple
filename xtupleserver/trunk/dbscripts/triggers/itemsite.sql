@@ -12,11 +12,11 @@ BEGIN
  
 -- Override values to avoid invalid data combinations
   IF (_r.item_type IN ('J','R','S','T')) THEN
-    NEW.item_planning_type := 'N';
+    NEW.itemsite_planning_type := 'N';
   END IF;
 
   IF (_r.item_type = 'L') THEN
-    NEW.item_planning_type := 'S';
+    NEW.itemsite_planning_type := 'S';
   END IF;
 
   IF (TG_OP = 'UPDATE') THEN
