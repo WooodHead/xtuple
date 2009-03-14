@@ -5,31 +5,36 @@ SELECT planord_id, planord_itemsite_id,
        formatPloNumber(planord_id) AS ordernum,
        CASE WHEN (planord_type='P') THEN 'P/O'
             WHEN (planord_type='W') THEN 'W/O'
+            WHEN (planord_type='T') THEN 'T/O'
             ELSE '?'
        END AS ordtype,
-       warehous_code, item_number,
+       whsinfo.warehous_code AS warehous_code,
+       supplywhsinfo.warehous_code AS supply_warehous_code,
+       item_number,
        (item_descrip1 || ' ' || item_descrip2) AS item_descrip,
        firstline(planord_comments) AS comments,
        uom_name,
        'qty' AS planord_qty_xtnumericrole,
        CASE WHEN (planord_firm) THEN 'emphasis'
        END AS qtforegroundrole
-FROM planord, itemsite, warehous, item, uom 
-WHERE ((planord_itemsite_id=itemsite_id)
-   AND (itemsite_warehous_id=warehous_id)
-   AND (itemsite_item_id=item_id)
-   AND (item_inv_uom_id=uom_id)
+FROM planord JOIN itemsite ON (planord_itemsite_id=itemsite.itemsite_id)
+             JOIN whsinfo ON (itemsite.itemsite_warehous_id=whsinfo.warehous_id)
+             JOIN item ON (itemsite.itemsite_item_id=item_id)
+             JOIN uom ON (item_inv_uom_id=uom_id)
+             LEFT OUTER JOIN itemsite supplyitemsite ON (planord_supply_itemsite_id=supplyitemsite.itemsite_id)
+             LEFT OUTER JOIN whsinfo supplywhsinfo ON (supplyitemsite.itemsite_warehous_id=supplywhsinfo.warehous_id)
+WHERE (TRUE
 <? if exists("item_id") ?>
-   AND (itemsite_item_id=<? value("item_id") ?>)
+   AND (itemsite.itemsite_item_id=<? value("item_id") ?>)
 <? elseif exists("plancode_id") ?>
-   AND (itemsite_plancode_id=<? value("plancode_id") ?>)
+   AND (itemsite.itemsite_plancode_id=<? value("plancode_id") ?>)
 <? elseif exists("plancode_pattern") ?>
-   AND (itemsite_plancode_id IN (SELECT plancode_id
-                                 FROM plancode
-                                 WHERE (plancode_code ~ <? value("plancode_pattern") ?>)))
+   AND (itemsite.itemsite_plancode_id IN (SELECT plancode_id
+                                          FROM plancode
+                                          WHERE (plancode_code ~ <? value("plancode_pattern") ?>)))
 <? endif ?>
 <? if exists("warehous_id") ?>
-   AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+   AND (itemsite.itemsite_warehous_id=<? value("warehous_id") ?>)
 <? endif ?>
  ) 
 ORDER BY planord_duedate, item_number;
