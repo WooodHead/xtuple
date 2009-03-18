@@ -393,7 +393,7 @@ function executeChapter1(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
-    snooze(1);
+    snooze(3);
     waitForObject(":xTuple ERP: *_QPushButton");
     clickButton(":xTuple ERP: *_QPushButton");
     waitForObject(":_ccEncKeyName_QLineEdit");

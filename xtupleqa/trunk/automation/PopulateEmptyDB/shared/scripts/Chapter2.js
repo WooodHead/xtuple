@@ -148,9 +148,10 @@ function executeChapter2(appVersion)
     waitForObject(":List Cost Categories.Copy_QPushButton_2");
     clickButton(":List Cost Categories.Copy_QPushButton_2");
     waitForObject(":Cost Category._category_XLineEdit");
-    type(":Cost Category._category_XLineEdit", "<Ctrl+Backspace>");
+    type(":Cost Category._category_XLineEdit", "<Ctrl+A>");
+    type(":Cost Category._category_XLineEdit", "<Del>");
     type(":Cost Category._category_XLineEdit", "CCINTRAN");
-    type(":Cost Category._description_XLineEdit", "<Ctrl+Backspace");
+    type(":Cost Category._description_XLineEdit", "<Del");
     type(":Cost Category._description_XLineEdit", "Intransit Warehouse");
     type(":Cost Category._main_XLineEdit", "<Ctrl+A>");
     type(":Cost Category._main_XLineEdit", "<Del>");

@@ -706,7 +706,7 @@ function executeChapter3(appVersion)
     clickButton(":Costing Method.Standard_QRadioButton_3");
     if(appVersion=="manufacturing"||appVersion=="standard")
         clickItem(":Control._controlMethod_XComboBox_3", "Lot #", 0, 0, 1, Qt.LeftButton);
-    else if(apppVersion=="postbooks")
+    else if(appVersion=="postbooks")
         clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);
     clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);    
     clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton);    
