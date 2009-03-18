@@ -3,7 +3,7 @@ function executeChapter4(appVersion)
     source(findFile("scripts","functions.js"));
     
     if(appVersion=="manufacturing")
-  {
+    {
 
         //-------------Standard Labor Rate -------------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");

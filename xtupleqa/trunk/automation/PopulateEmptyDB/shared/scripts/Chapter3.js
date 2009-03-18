@@ -288,9 +288,11 @@ function executeChapter3(appVersion)
     //---------Item site: YTRUCK1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
     clickButton(":List Item Sites.New_QPushButton_3");
-    waitForObject(":Item Site._itemNumber_ItemLineEdit");
-    type(":Item Site._itemNumber_ItemLineEdit", "YTRUCK1");
-    type(":Item Site._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":Item Site...._QPushButton");
+    clickButton(":Item Site...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4","YTRUCK1",0,0,0,Qt.LeftButton);
+    waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
     if(appVersion=="manufacturing"||appVersion=="standard")
         clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);                    
     if(!findObject(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3").checked)
@@ -355,9 +357,11 @@ function executeChapter3(appVersion)
     //---------Item site: TBODY1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
     clickButton(":List Item Sites.New_QPushButton_3");
-    waitForObject(":Item Site._itemNumber_ItemLineEdit");
-    type(":Item Site._itemNumber_ItemLineEdit", "TBODY1");
-    type(":Item Site._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":Item Site...._QPushButton");
+    clickButton(":Item Site...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4","TBODY1",0,0,0,Qt.LeftButton);
+    waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
     if(appVersion=="manufacturing"||appVersion=="standard")
         clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);                    
     if(findObject(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3").checked)
@@ -425,9 +429,11 @@ function executeChapter3(appVersion)
     //---------Item site: TINSERT1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
     clickButton(":List Item Sites.New_QPushButton_3");
-    waitForObject(":Item Site._itemNumber_ItemLineEdit");
-    type(":Item Site._itemNumber_ItemLineEdit", "TINSERT1");
-    type(":Item Site._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":Item Site...._QPushButton");
+    clickButton(":Item Site...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4","TINSERT1",0,0,0,Qt.LeftButton);
+    waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
     if(appVersion=="manufacturing"||appVersion=="standard")
         clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);                    
     if(findObject(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3").checked)
@@ -492,9 +498,11 @@ function executeChapter3(appVersion)
     //---------Item site: TWHEEL1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
     clickButton(":List Item Sites.New_QPushButton_3");
-    waitForObject(":Item Site._itemNumber_ItemLineEdit");
-    type(":Item Site._itemNumber_ItemLineEdit", "TWHEEL1");
-    type(":Item Site._itemNumber_ItemLineEdit", "<Tab>"); 
+    waitForObject(":Item Site...._QPushButton");
+    clickButton(":Item Site...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4","TWHEEL1",0,0,0,Qt.LeftButton);
+    waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
     if(appVersion=="manufacturing"||appVersion=="standard")
         clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
     if(findObject(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3").checked)
@@ -560,9 +568,11 @@ function executeChapter3(appVersion)
     //---------Item site: TKIT1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
     clickButton(":List Item Sites.New_QPushButton_3");
-    waitForObject(":Item Site._itemNumber_ItemLineEdit");
-    type(":Item Site._itemNumber_ItemLineEdit", "TKIT1");
-    type(":Item Site._itemNumber_ItemLineEdit", "<Tab>");   
+    waitForObject(":Item Site...._QPushButton");
+    clickButton(":Item Site...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4","TKIT1",0,0,0,Qt.LeftButton);
+    waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
     if(appVersion=="manufacturing"||appVersion=="standard")
         clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
     if(findObject(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3").checked)
@@ -626,9 +636,11 @@ function executeChapter3(appVersion)
     //---------Item site: TBOX1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
     clickButton(":List Item Sites.New_QPushButton_3");
-    waitForObject(":Item Site._itemNumber_ItemLineEdit");
-    type(":Item Site._itemNumber_ItemLineEdit", "TBOX1");
-    type(":Item Site._itemNumber_ItemLineEdit", "<Tab>"); 
+    waitForObject(":Item Site...._QPushButton");
+    clickButton(":Item Site...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4","TBOX1",0,0,0,Qt.LeftButton);
+    waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
     if(appVersion=="manufacturing"||appVersion=="standard")
         clickItem(":_warehouse_WComboBox_5", "WH1", 5, 5, 1, Qt.LeftButton);
     if(findObject(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3").checked)
@@ -695,9 +707,11 @@ function executeChapter3(appVersion)
     //---------Item site: YPAINT1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
     clickButton(":List Item Sites.New_QPushButton_3");
-    waitForObject(":Item Site._itemNumber_ItemLineEdit");
-    type(":Item Site._itemNumber_ItemLineEdit", "YPAINT1");
-    type(":Item Site._itemNumber_ItemLineEdit", "<Tab>"); 
+    waitForObject(":Item Site...._QPushButton");
+    clickButton(":Item Site...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4","YPAINT1",0,0,0,Qt.LeftButton);
+    waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
     if(appVersion=="manufacturing"||appVersion=="standard")
         clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
     if(findObject(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3").checked)
