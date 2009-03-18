@@ -474,6 +474,7 @@
 :Item Characteristic.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Item Characteristic_characteristicAssignment'}
 :Item Characteristic.Value:_QLabel	{name='_valueLit' text='Value:' type='QLabel' visible='1' window=':Item Characteristic_characteristicAssignment'}
 :Item Characteristic_characteristicAssignment	{name='characteristicAssignment' type='characteristicAssignment' visible='1' windowTitle='Item Characteristic'}
+:Item Site...._QPushButton	{name='_itemList' text='...' type='QPushButton' visible='1' window=':Item Site_itemSite'}
 :Item Site.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Item Site_itemSite'}
 :Item Site.Control_QGroupBox	{name='_reporting' title='Control' type='QGroupBox' visible='1' window=':Item Site_itemSite'}
 :Item Site.Costing Method_QGroupBox	{name='_costing' title='Costing Method' type='QGroupBox' visible='1' window=':Item Site_itemSite'}
@@ -663,6 +664,8 @@
 :Item_item_7	{name='item edit 330' type='item' visible='1' windowTitle='Item'}
 :Item_item_8	{name='item edit 331' type='item' visible='1' windowTitle='Item'}
 :Item_item_9	{name='item edit 332' type='item' visible='1' windowTitle='Item'}
+:Items.Items:_QLabel	{name='_itemsLit' text='Items:' type='QLabel' visible='1' window=':Items_itemList'}
+:Items_itemList	{type='itemList' unnamed='1' visible='1' windowTitle='Items'}
 :List A/P Account Assignments.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List A/P Account Assignments_apAccountAssignments'}
 :List A/P Account Assignments.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List A/P Account Assignments_apAccountAssignments'}
 :List A/P Account Assignments._apaccnt_XTreeWidget	{name='_apaccnt' type='XTreeWidget' visible='1' window=':List A/P Account Assignments_apAccountAssignments'}
@@ -2306,6 +2309,7 @@
 :_item_XTreeWidget	{buddy=':List Item Sites.Items:_QLabel' name='_item' type='XTreeWidget' visible='1'}
 :_item_XTreeWidget_2	{buddy=':_itemGroup.Items:_QLabel' name='_item' type='XTreeWidget' visible='1'}
 :_item_XTreeWidget_3	{buddy=':Active Items.Items:_QLabel' name='_item' type='XTreeWidget' visible='1'}
+:_item_XTreeWidget_4	{buddy=':Items.Items:_QLabel' name='_item' type='XTreeWidget' visible='1'}
 :_itemtype_QComboBox	{buddy=':_itemGroup.Item Type:_QLabel' name='_itemtype' type='QComboBox' visible='1'}
 :_itemtype_QComboBox_2	{buddy=':_itemGroup.Item Type:_QLabel_2' name='_itemtype' type='QComboBox' visible='1'}
 :_language_XComboBox	{buddy=':List Locales.Language:_QLabel' name='_language' type='XComboBox' visible='1'}
