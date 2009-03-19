@@ -23,8 +23,8 @@ DECLARE
 BEGIN
   --Initialize
   _number = pNumber;
-  _month = pMonth;
-  _year = pYear;
+  _month = CAST(pMonth::text AS integer);
+  _year = CAST(pYear::text AS integer);
 
   -- Check Card holder info
   IF (pName IS NULL) THEN
