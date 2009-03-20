@@ -148,8 +148,8 @@ function executeChapter2(appVersion)
     waitForObject(":List Cost Categories.Copy_QPushButton_2");
     clickButton(":List Cost Categories.Copy_QPushButton_2");
     waitForObject(":Cost Category._category_XLineEdit");
-    type(":Cost Category._category_XLineEdit", "<Ctrl+A>");
-    type(":Cost Category._category_XLineEdit", "<Del>");
+    type(":Cost Category._category_XLineEdit", "<Right>");
+    type(":Cost Category._category_XLineEdit", "<Ctrl+Backspace>");
     type(":Cost Category._category_XLineEdit", "CCINTRAN");
     type(":Cost Category._description_XLineEdit", "<Del");
     type(":Cost Category._description_XLineEdit", "Intransit Warehouse");
@@ -178,8 +178,8 @@ function executeChapter2(appVersion)
     waitForObject(":List Cost Categories.Copy_QPushButton_2");
     clickButton(":List Cost Categories.Copy_QPushButton_2");
     waitForObject(":Cost Category._category_XLineEdit");
-    type(":Cost Category._category_XLineEdit", "<Ctrl+A>");
-    type(":Cost Category._category_XLineEdit", "<Del>");
+    type(":Cost Category._category_XLineEdit", "<Right>");
+    type(":Cost Category._category_XLineEdit", "<Ctrl+Backspace>");
     type(":Cost Category._category_XLineEdit", "CCWH2");
     type(":Cost Category._description_XLineEdit", "<Del>");
     type(":Cost Category._description_XLineEdit", "Warehouse 2");

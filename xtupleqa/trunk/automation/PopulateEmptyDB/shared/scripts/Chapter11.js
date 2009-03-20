@@ -169,11 +169,13 @@ function executeChapter11(appVersion)
     type(":_altSubtotalLabel_QLineEdit", "Total Depreciation Expenses");
     clickButton(":Operation.Add to Group Total_QRadioButton");
     clickButton(":Financial Report Group.Save_QPushButton");
+    waitForObject(":Financial Report.Save_QPushButton");
     clickButton(":Financial Report.Save_QPushButton");
     waitForObject(":List Financial Reports._flhead_XTreeWidget");
     doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "Official Income Statement", 5, 5, 0, Qt.LeftButton);     
     waitForObject(":Financial Report.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Financial Report.qt_tabwidget_tabbar_QTabBar", "Options");
+    waitForObject(":_options.Show Grand Total_QCheckBox");
     if(!findObject(":_options.Show Grand Total_QCheckBox").checked)
         clickButton(":_options.Show Grand Total_QCheckBox");
     waitForObject(":Alternate Labels.Alternate Budget:_QCheckBox");

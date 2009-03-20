@@ -126,6 +126,7 @@ function executeChapter4(appVersion)
         type(":Work Center._description_XLineEdit_2", "<Del>");
         type(":Work Center._description_XLineEdit_2", "Shipping Work Center #1");
         clickButton(":Run Labor Rate.Select Standard Rate:_QRadioButton_2");
+        waitForObject(":Run Labor Rate._stdRunRate_XComboBox");
         type(":Run Labor Rate._stdRunRate_XComboBox", "SETUP");
         clickButton(":Setup Labor Rate.Select Standard Rate:_QRadioButton_2");
         clickItem(":Setup Labor Rate._stdSetupRate_XComboBox_2", "SETUP",0,0,1,Qt.LeftButton);

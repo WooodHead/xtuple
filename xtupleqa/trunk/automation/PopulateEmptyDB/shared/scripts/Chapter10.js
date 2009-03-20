@@ -119,6 +119,7 @@ function executeChapter10(appVersion)
         type(":Bank Account._bankGroup_QGroupBox","Checking");
     if(!findObject(":_useGroup.Used in Accounts Payable_QCheckBox").checked)
         clickButton(":_useGroup.Used in Accounts Payable_QCheckBox");
+    waitForObject(":_useGroup._nextCheckNum_XLineEdit");
     type(":_useGroup._nextCheckNum_XLineEdit", "3000");
     if(!findObject(":_useGroup._form_XComboBox_2").currentText!= "GENERIC-CHECK")
          clickItem(":_useGroup._form_XComboBox_2","GENERIC-CHECK",0,0,1,Qt.LeftButton);

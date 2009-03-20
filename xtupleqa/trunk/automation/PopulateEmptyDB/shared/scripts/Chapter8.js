@@ -942,7 +942,7 @@ function executeChapter8(appVersion)
         waitForObject(":Save_QPushButton_2");
         clickButton(":Save_QPushButton_2");
         waitForObject(":List Sites._warehouse_XTreeWidget_2");
-        if(!clickItem(":List Sites._warehouse_XTreeWidget_2", "INTRAN_1", 5, 5, 1, Qt.LeftButton))
+        if(!clickItem(":List Sites._warehouse_XTreeWidget_2", "INTRAN", 5, 5, 1, Qt.LeftButton))
             test.pass("Site Created:INTRAN");
         
         waitForObject(":List Sites.Close_QPushButton_2");
