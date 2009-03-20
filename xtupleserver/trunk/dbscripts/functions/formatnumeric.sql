@@ -1,6 +1,6 @@
 CREATE OR REPLACE FUNCTION formatNumeric(NUMERIC, TEXT) RETURNS TEXT IMMUTABLE AS $$
 DECLARE
-  _value        NUMERIC := COALESCE($1, 0);
+  _value        NUMERIC := $1;
   _type         TEXT    := LOWER(COALESCE($2, 'curr'));
   _abs          NUMERIC := ABS(_value);
   _magnitudecnt NUMERIC(1000) := TRUNC(_abs / 10);
@@ -16,6 +16,11 @@ DECLARE
   _r            RECORD;
 
 BEGIN
+  -- If the value passed in is NULL then we want to pass back an empty string
+  IF(_value IS NULL) THEN
+    RETURN '';
+  END IF;
+
   SELECT * INTO _r
   FROM locale, usr
   WHERE ((usr_locale_id=locale_id)
