@@ -30,5 +30,8 @@ SELECT ophead_id,
 <? elseif exists("usr_pattern") ?>
    AND (ophead_owner_username ~ <? value("username_pattern") ?>)
 <? endif ?>
+<? if exists("crmAccountId") ?>
+   AND (ophead_crmacct_id = <? value("crmAccountId") ?>)
+<? endif ?>
  )
  ORDER BY ophead_target_date;
