@@ -3,7 +3,7 @@ function executeChapter1(appVersion)
     //-----declarations------
     source(findFile("scripts","functions.js"));
     var newuser="user01";
-    
+  
     //-----implementation-------
     createDept("MFG","OpenMFG");
     assignPrivileges();
@@ -380,11 +380,11 @@ function executeChapter1(appVersion)
         findObject(":Defaults.Set Sold Items as Exclusive_QCheckBox").checked=false;
     type(":_issueMethod_QComboBox", "Mixed");
     clickButton(":Products Configuration.Save_QPushButton");
-    if(appVersion=="manufacturing")
-    {
-        waitForObject(":Enable Revision Control.Yes_QPushButton");
-        clickButton(":Enable Revision Control.Yes_QPushButton");
-    }
+//    if(appVersion=="manufacturing")
+//    {
+//        waitForObject(":Enable Revision Control.Yes_QPushButton");
+//        clickButton(":Enable Revision Control.Yes_QPushButton");
+//    }
     test.log("Product Module Configured");    
 
     
@@ -396,10 +396,9 @@ function executeChapter1(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
-    snooze(5);
-    waitForObject(":Cannot Read Configuration.<p>Cannot read encrypted information from database._QLabel");
+    snooze(3);
+    mouseClick(":Cannot Read Configuration.<p>Cannot read encrypted information from database._QLabel", 10, 10, 1, Qt.LeftButton);    
     clickButton(":xTuple ERP: *_QPushButton");
-    waitForObject(":_ccEncKeyName_QLineEdit");
      
     if(findObject(":_ccEncKeyName_QLineEdit").text!="xTuple.key")
     {
