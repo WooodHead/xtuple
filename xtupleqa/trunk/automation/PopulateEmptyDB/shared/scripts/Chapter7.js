@@ -263,6 +263,7 @@ function executeChapter7(appVersion)
     waitForObject(":List Vendors.New_QPushButton");
     clickButton(":List Vendors.New_QPushButton");
     waitForObject(":_number_XLineEdit_4");
+    findObject(":_number_XLineEdit_4").clear();
     type(":_number_XLineEdit_4", "TPARTS");
     if(findObject(":_vendtype_XComboBox").currentText!="STANDARD-Standard Vendor")
         clickItem(":_vendtype_XComboBox", "STANDARD-Standard Vendor",0,0,1,Qt.LeftButton);
@@ -305,6 +306,7 @@ function executeChapter7(appVersion)
     waitForObject(":_transmitStack.Email Purchase Order Delivery_QGroupBox");
     if(!findObject(":_transmitStack.Email Purchase Order Delivery_QGroupBox").checked)
         type(":_transmitStack.Email Purchase Order Delivery_QGroupBox"," ");
+    waitForObject(":Email Purchase Order Delivery._ediEmail_XLineEdit_2");
     type(":Email Purchase Order Delivery._ediEmail_XLineEdit_2", "demo@openmfg.com");
     type(":Email Purchase Order Delivery._ediCC_XLineEdit_2", "matherton@openmfg.com");
     type(":Email Purchase Order Delivery._ediSubject_XLineEdit_2", "Purchase Order </docnumber> Enclosed");

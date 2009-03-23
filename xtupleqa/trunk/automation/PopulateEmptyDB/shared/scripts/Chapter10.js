@@ -77,6 +77,7 @@ function executeChapter10(appVersion)
         waitForObject(":tab.Enable ACH Check Printing_QGroupBox");
         if(!findObject(":tab.Enable ACH Check Printing_QGroupBox").checked)
             type(":tab.Enable ACH Check Printing_QGroupBox"," ");
+        waitForObject(":_nextACHBatchNumber_XLineEdit");
         type(":_nextACHBatchNumber_XLineEdit", "<Ctrl+A>");
         type(":_nextACHBatchNumber_XLineEdit", "<Del>");
         type(":_nextACHBatchNumber_XLineEdit", "10000");
@@ -247,12 +248,14 @@ function executeChapter10(appVersion)
         if(findObject(":_year_XComboBox").currentText!="01/01/"+CurrentYear+"-12/31/"+CurrentYear)
             type(":_year_XComboBox", "01admin	/01/"+CurrentYear+"-12/31/"+CurrentYear);
         waitForObject(":_name_QLineEdit");
+        waitForObject(":_name_QLineEdit").clear();
         type(":_name_QLineEdit", CurrentYearFull+"-");
         type(":_name_QLineEdit", (j<10?"0"+j:j));
+        findObject(":Accounting Period.XDateEdit_XDateEdit").clear();
         type(":Accounting Period.XDateEdit_XDateEdit", j+"/1/"+i);
+        findObject(":Accounting Period.XDateEdit_XDateEdit_2").clear();        
         type(":Accounting Period.XDateEdit_XDateEdit_2", j+"/"+YearSet[j-1]+"/"+i);
-          type(":_quarter_QSpinBox", "<Ctrl+A>");
-        type(":_quarter_QSpinBox", "<Del>");
+        findObject(":_quarter_QSpinBox").clear();
         if(j>=1 && j<=3)
             type(":_quarter_QSpinBox", "1");
         else if(j>=4 && j<=6)

@@ -129,6 +129,7 @@ function executeChapter4(appVersion)
         waitForObject(":Run Labor Rate._stdRunRate_XComboBox");
         type(":Run Labor Rate._stdRunRate_XComboBox", "SETUP");
         clickButton(":Setup Labor Rate.Select Standard Rate:_QRadioButton_2");
+        waitForObject(":Setup Labor Rate._stdSetupRate_XComboBox_2");
         clickItem(":Setup Labor Rate._stdSetupRate_XComboBox_2", "SETUP",0,0,1,Qt.LeftButton);
         clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar_2", "Notes");
         waitForObject(":_notesTab._comments_QTextEdit_2");

@@ -460,8 +460,7 @@ function defineTaxation()
     waitForObject(":List Tax Authorities.New_QPushButton");
     clickButton(":List Tax Authorities.New_QPushButton");
     waitForObject(":_code_XLineEdit_15");
-    type(":_code_XLineEdit_15", "<Right>");
-    type(":_code_XLineEdit_15", "<Ctrl+Backspace>");
+    findObject(":_code_XLineEdit_15").clear();
     type(":_code_XLineEdit_15", "TAX-AUTH1");
     type(":_name_XLineEdit_22", "Virginia");
     type(":_extref_XLineEdit", "Smith");
@@ -500,6 +499,7 @@ function defineTaxation()
     type(":_description_XLineEdit_23", "Tax Authority 1 General Merchandise");
     type(":_taxRateA_XLineEdit", "10");
     type(":frame._main_XLineEdit", "01-01-4050-01");
+    waitForObject(":Tax Code.Save_QPushButton");
     clickButton(":Tax Code.Save_QPushButton");
     waitForObject(":List Tax Codes._tax_XTreeWidget");
     if(!clickItem(":List Tax Codes._tax_XTreeWidget", "TAXAUTH1-GM", 5, 5, 1, Qt.LeftButton))
@@ -513,6 +513,7 @@ function defineTaxation()
     type(":_description_XLineEdit_23", "Tax Authority 1 Educational Merchandise");
     type(":_taxRateA_XLineEdit", "1");
     type(":frame._main_XLineEdit", "01-01-4050-01");
+    waitForObject(":Tax Code.Save_QPushButton");
     clickButton(":Tax Code.Save_QPushButton");
     waitForObject(":List Tax Codes._tax_XTreeWidget");
     if(!clickItem(":List Tax Codes._tax_XTreeWidget", "TAXAUTH1-EDU", 5, 5, 1, Qt.LeftButton))
@@ -571,6 +572,7 @@ function defineTaxation()
     clickItem(":_taxauth_XComboBox_4", "TAX-AUTH1", 0, 0, 1, Qt.LeftButton);
     clickItem(":_taxtype_XComboBox_3", "GM", 0, 0, 1, Qt.LeftButton);
     type(":_tax_XComboBox_2", "TAXAUTH1-GM");
+    waitForObject(":Tax Selection.Save_QPushButton");
     clickButton(":Tax Selection.Save_QPushButton");
     waitForObject(":List Tax Selections._taxsel_XTreeWidget");
     if(!clickItem(":List Tax Selections._taxsel_XTreeWidget", "TAXAUTH1-GM", 30, 9, 1, Qt.LeftButton))
@@ -583,6 +585,7 @@ function defineTaxation()
     clickItem(":_taxauth_XComboBox_4", "TAX-AUTH1", 0, 0, 1, Qt.LeftButton);
     clickItem(":_taxtype_XComboBox_3", "EDU", 0, 0, 1, Qt.LeftButton);
     type(":_tax_XComboBox_2", "TAXAUTH1-EDU");
+    waitForObject(":Tax Selection.Save_QPushButton");
     clickButton(":Tax Selection.Save_QPushButton");
     waitForObject(":List Tax Selections._taxsel_XTreeWidget");
     if(!clickItem(":List Tax Selections._taxsel_XTreeWidget", "TAXAUTH1-EDU", 30, 9, 1, Qt.LeftButton))

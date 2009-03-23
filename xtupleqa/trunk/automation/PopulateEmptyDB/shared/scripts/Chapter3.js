@@ -76,7 +76,8 @@ function executeChapter3(appVersion)
     if(findObject(":Item Characteristic.Default_QCheckBox").checked)
         clickButton(":Item Characteristic.Default_QCheckBox");
     clickButton(":Item Characteristic.Save_QPushButton");
-  
+    admin
+    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
     clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8","Tax Types");    
     waitForObject(":_taxtypesTab.New_QPushButton_10");
     clickButton(":_taxtypesTab.New_QPushButton_10");
