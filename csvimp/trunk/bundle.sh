@@ -187,7 +187,7 @@ if $BUILD ; then
   make
 fi
 
-./fixPackage
+./fixPackage -pD csvimp.app
 
 if [ ! -e $APP ] ; then
   echo Cannot find the application!
