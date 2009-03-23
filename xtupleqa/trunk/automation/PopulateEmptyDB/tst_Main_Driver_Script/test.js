@@ -23,14 +23,14 @@ function main()
     source(findFile("scripts","Chapter12.js"));
     
     var version = "3.2.1";
-    var dbname = "1empty321-mfg";
+    var dbname = "5empty321-mfg";
     var appVersion = "manufacturing"; //"manufacturing"/"postbooks"/"standard"
  
     loginAppl(version, dbname,"admin"); 
     executeChapter1(appVersion);
     exitAppl(); //exit and login with new user created
     snooze(5);
-    startApplication("xtuple");
+    startApplication("xtuple"); 
     snooze(10);
     loginAppl(version, dbname,"user01"); //login with the new user created
     executeChapter2(appVersion);
