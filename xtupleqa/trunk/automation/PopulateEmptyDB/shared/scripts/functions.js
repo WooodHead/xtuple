@@ -417,13 +417,14 @@ function COA(COACompany,COAProfit,COANumber,COASub,COADesc,COAType,COASubType)
         clickItem(":Chart of Accounts._sub_XComboBox", "01", 0, 0, 1, Qt.LeftButton);
     type(":_number_XLineEdit_3", COANumber);
     type(":_description_XLineEdit_11", COADesc);
+    
     type(":_extReference_XLineEdit_2", COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub);
     clickItem(":Account Number._type_XComboBox", COAType, 0, 0, 1, Qt.LeftButton);
+    waitForObject(":Account Number._subType_XComboBox");
     type(":Account Number._subType_XComboBox", COASubType);
     clickButton(":Account Number.Save_QPushButton");
     test.log("Acc: "+COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub+" created");
-    waitForObject(":Chart of Accounts.New_QPushButton_2");
-
+    waitForObject(":_account_XTreeWidget_2");
 }
 
 //--------check if the year is a leap year--------

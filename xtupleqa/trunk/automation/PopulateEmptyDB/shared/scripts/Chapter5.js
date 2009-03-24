@@ -11,91 +11,98 @@ function executeChapter5(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
   
 
-    //-----------Create Item RTRUCK1---------------
-    waitForObject(":List Items.New_QPushButton_2");
-    clickButton(":List Items.New_QPushButton_2");
-    waitForObject(":_itemNumber_XLineEdit_3");
-    type(":_itemNumber_XLineEdit_3","RTRUCK1");
-    type(":_description1_XLineEdit_3", "Red Collector’s Truck");
-    type(":Item._description2_XLineEdit_2", "Truck Type 1");
-    clickItem(":_itemtype_QComboBox_2", "Manufactured",0,0,1,Qt.LeftButton);
-    clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS-Toy Trucks",0,0,1,Qt.LeftButton);
-    clickItem(":_inventoryUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);
-    if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
-        type(":_itemGroup.Pick List_QCheckBox_3"," ");
-    if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
-         type(":_itemGroup.Fractional_QCheckBox_3"," ");
-    type(":_itemGroup_XLineEdit_3", "5.00");
-    if(appVersion=="manufacturing")
-        clickItem(":_itemGroup._planningType_QComboBox_3", "MPS",0,0,1,Qt.LeftButton);
-    if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
-        type(":Item.Item is Sold_QGroupBox_3"," ");
-    clickItem(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line",0,0,1,Qt.LeftButton);
-    type(":Item is Sold._upcCode_XLineEdit_3", "1234-5432");
-    type(":Item is Sold._listprice_XLineEdit_3", "10.99");
-    clickItem(":Item is Sold._priceUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);  
-    type(":Item is Sold._warranty_QSpinBox_2", "365");
-    type(":_prodWeight_XLineEdit_3", "3.5");
-    type(":_packWeight_XLineEdit_3", ".25");
-    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Characteristics");
-    waitForObject(":_characteristicsTab.New_QPushButton_6");
-    clickButton(":_characteristicsTab.New_QPushButton_6");
-    waitForObject(":_char_XComboBox_2");
-    clickItem(":_char_XComboBox_2", "I-COLOR",0,0,1,Qt.LeftButton);
-    type(":_value_XLineEdit_3", "PL-126");
-    clickButton(":Item Characteristic.Save_QPushButton");
-    
-    waitForObject(":_characteristicsTab.New_QPushButton_6");
-    clickButton(":_characteristicsTab.New_QPushButton_6");
-    waitForObject(":_char_XComboBox_2");
-    clickItem(":_char_XComboBox_2", "I-COLOR",0,0,1,Qt.LeftButton);
-    type(":_value_XLineEdit_3", "PL-227");
-    clickButton(":Item Characteristic.Save_QPushButton");
-    
-    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
-    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Tax Types");
-    waitForObject(":_taxtypesTab.New_QPushButton_10");
-    clickButton(":_taxtypesTab.New_QPushButton_10");
-    waitForObject(":_taxauth_XComboBox_5");
-    clickItem(":_taxauth_XComboBox_5", "TAX-AUTH1",0,0,1,Qt.LeftButton);
-    clickItem(":_taxtype_XComboBox_4", "GM",0,0,1,Qt.LeftButton);
-    clickButton(":Item Tax.Save_QPushButton");
-       
-    waitForObject(":Item.Save_QPushButton_5");
-    clickButton(":Item.Save_QPushButton_5");
-    waitForObject(":Create New Item Sites.Yes_QPushButton");
-    clickButton(":Create New Item Sites.Yes_QPushButton");
-    
-    if(appVersion=="manufacturing"||appVersion=="standard")
-    {
-        waitForObjectItem(":_warehouse_WComboBox_5", "WH1");
-        type(":_warehouse_WComboBox_5", "WH1");
-
-    }
-    clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
-    clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
-    clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
-    if(appVersion=="manufacturing")
-    {
-        waitForObject(":_mrp._mpsTimeFence_QSpinBox_3");
-        type(":_mrp._mpsTimeFence_QSpinBox_3", "<Ctrl+A>");
-        type(":_mrp._mpsTimeFence_QSpinBox_3", "<Del>");
-        type(":_mrp._mpsTimeFence_QSpinBox_3", "14");
-    }
-    type(":_leadTime_QSpinBox_3", "<Ctrl+A>");
-    type(":_leadTime_QSpinBox_3", "<Del>");
-    type(":_leadTime_QSpinBox_3", "1");
-    clickButton(":Item Site.Save_QPushButton");
-    if(appVersion=="manufacturing"|| appVersion=="standard")
-    {
-        waitForObject(":Item Site.Cancel_QPushButton");
-        clickButton(":Item Site.Cancel_QPushButton");
-    }
-        
-    waitForObject(":List Items._item_XTreeWidget_3");
-    if(!clickItem(":List Items._item_XTreeWidget_3", "RTRUCK1", 5, 5, 1, Qt.LeftButton))
-        test.pass("Item Created: RTRUCK1");
-    
+//    //-----------Create Item RTRUCK1---------------
+//    waitForObject(":List Items.New_QPushButton_2");
+//    clickButton(":List Items.New_QPushButton_2");
+//    waitForObject(":_itemNumber_XLineEdit_3");
+//    type(":_itemNumber_XLineEdit_3","RTRUCK1");
+//    type(":_description1_XLineEdit_3", "Red Collector’s Truck");
+//    type(":Item._description2_XLineEdit_2", "Truck Type 1");
+//    clickItem(":_itemtype_QComboBox_2", "Manufactured",0,0,1,Qt.LeftButton);
+//    clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS-Toy Trucks",0,0,1,Qt.LeftButton);
+//    clickItem(":_inventoryUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);
+//    if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
+//        type(":_itemGroup.Pick List_QCheckBox_3"," ");
+//    if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
+//         type(":_itemGroup.Fractional_QCheckBox_3"," ");
+//    type(":_itemGroup_XLineEdit_3", "5.00");
+//    if(appVersion=="manufacturing")
+//        clickItem(":_itemGroup._planningType_QComboBox_3", "MPS",0,0,1,Qt.LeftButton);
+//    if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
+//        type(":Item.Item is Sold_QGroupBox_3"," ");
+//    clickItem(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line",0,0,1,Qt.LeftButton);
+//    type(":Item is Sold._upcCode_XLineEdit_3", "1234-5432");
+//    type(":Item is Sold._listprice_XLineEdit_3", "10.99");
+//    waitForObject(":Item is Sold._priceUOM_XComboBox_3");
+//    clickItem(":Item is Sold._priceUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);  
+//    type(":Item is Sold._warranty_QSpinBox_2", "365");
+//    type(":_prodWeight_XLineEdit_3", "3.5");
+//    type(":_packWeight_XLineEdit_3", ".25");
+//    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Characteristics");
+//    
+//    waitForObject(":_characteristicsTab.New_QPushButton_6");
+//    clickButton(":_characteristicsTab.New_QPushButton_6");
+//    waitForObject(":_char_XComboBox_2");
+//    clickItem(":_char_XComboBox_2", "I-COLOR",0,0,1,Qt.LeftButton);
+//    type(":_value_XLineEdit_3", "PL-126");
+//    waitForObject(":Item Characteristic.Save_QPushButton");
+//    clickButton(":Item Characteristic.Save_QPushButton");
+//    
+//    waitForObject(":_characteristicsTab.New_QPushButton_6");
+//    clickButton(":_characteristicsTab.New_QPushButton_6");
+//    waitForObject(":_char_XComboBox_2");
+//    clickItem(":_char_XComboBox_2", "I-COLOR",0,0,1,Qt.LeftButton);
+//    type(":_value_XLineEdit_3", "PL-227");
+//    waitForObject(":Item Characteristic.Save_QPushButton");    
+//    clickButton(":Item Characteristic.Save_QPushButton");
+//    
+//    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
+//    clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Tax Types");
+//    waitForObject(":_taxtypesTab.New_QPushButton_10");
+//    clickButton(":_taxtypesTab.New_QPushButton_10");
+//    waitForObject(":_taxauth_XComboBox_5");
+//    clickItem(":_taxauth_XComboBox_5", "TAX-AUTH1",0,0,1,Qt.LeftButton);
+//    clickItem(":_taxtype_XComboBox_4", "GM",0,0,1,Qt.LeftButton);
+//    waitForObject(":Item Tax.Save_QPushButton");
+//    clickButton(":Item Tax.Save_QPushButton");
+//       
+//    waitForObject(":Item.Save_QPushButton_5");
+//    clickButton(":Item.Save_QPushButton_5");
+////    waitForObject(":Create New Item Sites.Yes_QPushButton");
+////    clickButton(":Create New Item Sites.Yes_QPushButton");
+//    waitForObject(":_itemGroup.Yes_QPushButton");
+//    clickButton(":_itemGroup.Yes_QPushButton");
+//    
+//    if(appVersion=="manufacturing"||appVersion=="standard")
+//    {
+//        waitForObject(":_warehouse_WComboBox_5");
+//        type(":_warehouse_WComboBox_5", "WH1");
+//
+//    }
+//    clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
+//    clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
+//    clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
+//    if(appVersion=="manufacturing")
+//    {
+//        waitForObject(":_mrp._mpsTimeFence_QSpinBox_3");
+//        type(":_mrp._mpsTimeFence_QSpinBox_3", "<Ctrl+A>");
+//        type(":_mrp._mpsTimeFence_QSpinBox_3", "<Del>");
+//        type(":_mrp._mpsTimeFence_QSpinBox_3", "14");
+//    }
+//    type(":_leadTime_QSpinBox_3", "<Ctrl+A>");
+//    type(":_leadTime_QSpinBox_3", "<Del>");
+//    type(":_leadTime_QSpinBox_3", "1");
+//    clickButton(":Item Site.Save_QPushButton");
+//    if(appVersion=="manufacturing"|| appVersion=="standard")
+//    {
+//        waitForObject(":Item Site.Cancel_QPushButton");
+//        clickButton(":Item Site.Cancel_QPushButton");
+//    }
+//        
+//    waitForObject(":List Items._item_XTreeWidget_3");
+//    if(!clickItem(":List Items._item_XTreeWidget_3", "RTRUCK1", 5, 5, 1, Qt.LeftButton))
+//        test.pass("Item Created: RTRUCK1");
+//  
     
     //-----------Create Item BTRUCK1---------------
     waitForObject(":List Items.New_QPushButton_2");
@@ -117,6 +124,7 @@ function executeChapter5(appVersion)
     if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
         type(":Item.Item is Sold_QGroupBox_3"," ");
     type(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line");
+    waitForObject(":Item is Sold._upcCode_XLineEdit_3");
     type(":Item is Sold._upcCode_XLineEdit_3", "1234-5432");
     type(":Item is Sold._listprice_XLineEdit_3", "10.99");
     clickItem(":Item is Sold._priceUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);
@@ -130,6 +138,7 @@ function executeChapter5(appVersion)
     waitForObject(":_char_XComboBox_2");
     type(":_char_XComboBox_2", "I-COLOR");
     type(":_value_XLineEdit_3", "PL-126");
+    waitForObject(":Item Characteristic.Save_QPushButton");
     clickButton(":Item Characteristic.Save_QPushButton");
     
     waitForObject(":_characteristicsTab.New_QPushButton_6");
@@ -137,6 +146,7 @@ function executeChapter5(appVersion)
     waitForObject(":_char_XComboBox_2");
     type(":_char_XComboBox_2", "I-COLOR");
     type(":_value_XLineEdit_3", "PL-227");
+    waitForObject(":Item Characteristic.Save_QPushButton");    
     clickButton(":Item Characteristic.Save_QPushButton");
        
     waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
@@ -150,18 +160,21 @@ function executeChapter5(appVersion)
     
     waitForObject(":Item.Save_QPushButton_5");
     clickButton(":Item.Save_QPushButton_5");
-    waitForObject(":Create New Item Sites.Yes_QPushButton");
-    clickButton(":Create New Item Sites.Yes_QPushButton");
+//    waitForObject(":Create New Item Sites.Yes_QPushButton");
+//    clickButton(":Create New Item Sites.Yes_QPushButton");
+    waitForObject(":_itemGroup.Yes_QPushButton");
+    clickButton(":_itemGroup.Yes_QPushButton");
     
     if(appVersion=="manufacturing"||appVersion=="standard")
     {
-        waitForObjectItem(":_warehouse_WComboBox_5", "WH1");
+        waitForObject(":_warehouse_WComboBox_5");
         clickItem(":_warehouse_WComboBox_5", "WH1",0,0,1,Qt.LeftButton);
         
     }
     clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
     clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
-     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
+    waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
     if(appVersion=="manufacturing")
     {
         waitForObject(":_mrp._mpsTimeFence_QSpinBox_3");
@@ -172,6 +185,7 @@ function executeChapter5(appVersion)
     type(":_leadTime_QSpinBox_3", "<Ctrl+A>");
     type(":_leadTime_QSpinBox_3", "<Del>");
     type(":_leadTime_QSpinBox_3", "1");
+    waitForObject(":Item Site.Save_QPushButton");
     clickButton(":Item Site.Save_QPushButton");
     if(appVersion=="manufacturing"||appVersion=="standard")
     {
@@ -212,11 +226,13 @@ function executeChapter5(appVersion)
     type(":_packWeight_XLineEdit_3", ".25");
     waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
     clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Characteristics");
+    
     waitForObject(":_characteristicsTab.New_QPushButton_6");
     clickButton(":_characteristicsTab.New_QPushButton_6");
     waitForObject(":_char_XComboBox_2");
     clickItem(":_char_XComboBox_2", "I-COLOR",0,0,1,Qt.LeftButton);
     type(":_value_XLineEdit_3", "PL-126");
+    waitForObject(":Item Characteristic.Save_QPushButton");    
     clickButton(":Item Characteristic.Save_QPushButton");
     
     waitForObject(":_characteristicsTab.New_QPushButton_6");
@@ -224,6 +240,7 @@ function executeChapter5(appVersion)
     waitForObject(":_char_XComboBox_2");
     clickItem(":_char_XComboBox_2", "I-COLOR",0,0,1,Qt.LeftButton);
     type(":_value_XLineEdit_3", "PL-227");
+    waitForObject(":Item Characteristic.Save_QPushButton");    
     clickButton(":Item Characteristic.Save_QPushButton");
        
     waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
@@ -233,17 +250,20 @@ function executeChapter5(appVersion)
     waitForObject(":_taxauth_XComboBox_5");
     clickItem(":_taxauth_XComboBox_5", "TAX-AUTH1",0,0,1,Qt.LeftButton);
     clickItem(":_taxtype_XComboBox_4", "GM",0,0,1,Qt.LeftButton);
+    waitForObject(":Item Tax.Save_QPushButton");
     clickButton(":Item Tax.Save_QPushButton");
     
     waitForObject(":Item.Save_QPushButton_5");
     clickButton(":Item.Save_QPushButton_5");
-    waitForObject(":Create New Item Sites.Yes_QPushButton");
-    clickButton(":Create New Item Sites.Yes_QPushButton");
+//    waitForObject(":Create New Item Sites.Yes_QPushButton");
+//    clickButton(":Create New Item Sites.Yes_QPushButton");
+    waitForObject(":_itemGroup.Yes_QPushButton");
+    clickButton(":_itemGroup.Yes_QPushButton");
     
     if(appVersion=="manufacturing"||appVersion=="standard")
     {
 
-        waitForObjectItem(":_warehouse_WComboBox_5", "WH1");
+        waitForObject(":_warehouse_WComboBox_5");
         clickItem(":_warehouse_WComboBox_5", "WH1",0,0,1,Qt.LeftButton);
        
     }
@@ -261,6 +281,7 @@ function executeChapter5(appVersion)
     type(":_leadTime_QSpinBox_3", "<Ctrl+A>");
     type(":_leadTime_QSpinBox_3", "<Del>");
     type(":_leadTime_QSpinBox_3", "1");
+    waitForObject(":Item Site.Save_QPushButton");
     clickButton(":Item Site.Save_QPushButton");
     if(appVersion=="manufacturing"||appVersion=="standard")
     {
