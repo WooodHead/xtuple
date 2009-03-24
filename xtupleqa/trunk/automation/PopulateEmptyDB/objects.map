@@ -121,6 +121,9 @@
 :CRM Configuration._nextInNumber_XLineEdit	{name='_nextInNumber' type='XLineEdit' visible='1' window=':CRM Configuration_configureCRM'}
 :CRM Configuration_configureCRM	{name='configureCRM' type='configureCRM' visible='1' windowTitle='CRM Configuration'}
 :Calendar_calendar	{name='calendar' type='calendar' visible='1' windowTitle='Calendar'}
+:Cancel.Enabling revision control will create control records for products that contain revision number data.  This change can not be undone.  Do you wish to proceed?_QLabel	{name='qt_msgbox_label' text='Enabling revision control will create control records for products that contain revision number data.  This change can not be undone.  Do you wish to proceed?' type='QLabel' visible='1' window=':Cancel_QMessageBox'}
+:Cancel.Yes_QPushButton	{text='Yes' type='QPushButton' unnamed='1' visible='1' window=':Cancel_QMessageBox'}
+:Cancel_QMessageBox	{aboveWidget=':Products Configuration.Cancel_QPushButton' type='QMessageBox' unnamed='1' visible='1'}
 :Cannot Connect to xTuple ERP Server.OK_QPushButton	{text='OK' type='QPushButton' visible='1' window=':Cannot Connect to xTuple ERP Server_QMessageBox'}
 :Cannot Connect to xTuple ERP Server_QMessageBox	{type='QMessageBox' visible='1' windowTitle='Cannot Connect to xTuple ERP Server'}
 :Cannot Read Configuration.<p>Cannot read encrypted information from database._QLabel	{name='qt_msgbox_label' text='<p>Cannot read encrypted information from database.' type='QLabel' visible='1' window=':Cannot Read Configuration_QMessageBox'}
@@ -2275,9 +2278,11 @@
 :_itemGroup.Item Type:_QLabel	{container=':Item._itemGroup_QGroupBox_2' name='_itemTypeLit' text='Item Type:' type='QLabel' visible='1'}
 :_itemGroup.Item Type:_QLabel_2	{container=':Item._itemGroup_QGroupBox_3' name='_itemTypeLit' text='Item Type:' type='QLabel' visible='1'}
 :_itemGroup.Items:_QLabel	{container=':Bill of Materials._itemGroup_QGroupBox' name='_itemsLit' text='Items:' type='QLabel' visible='1'}
+:_itemGroup.No_QPushButton	{text='No' type='QPushButton' unnamed='1' visible='1' window=':_itemGroup_QMessageBox'}
 :_itemGroup.Pick List_QCheckBox	{container=':Item._itemGroup_QGroupBox' name='_pickListItem' text='Pick List' type='QCheckBox' visible='1'}
 :_itemGroup.Pick List_QCheckBox_2	{container=':Item._itemGroup_QGroupBox_2' name='_pickListItem' text='Pick List' type='QCheckBox' visible='1'}
 :_itemGroup.Pick List_QCheckBox_3	{container=':Item._itemGroup_QGroupBox_3' name='_pickListItem' text='Pick List' type='QCheckBox' visible='1'}
+:_itemGroup.Yes_QPushButton	{text='Yes' type='QPushButton' unnamed='1' visible='1' window=':_itemGroup_QMessageBox'}
 :_itemGroup._classcode_XComboBox	{container=':Item._itemGroup_QGroupBox_2' name='_classcode' type='XComboBox' visible='1'}
 :_itemGroup._classcode_XComboBox_2	{container=':Item._itemGroup_QGroupBox_3' name='_classcode' type='XComboBox' visible='1'}
 :_itemGroup._itemNumber_ItemLineEdit	{container=':Bill of Materials._itemGroup_QGroupBox' name='_itemNumber' type='ItemLineEdit' visible='1'}
@@ -2298,6 +2303,7 @@
 :_itemGroup._planningType_QComboBox_9	{container=':Item._itemGroup_QGroupBox_9' name='_planningType' type='QComboBox' visible='1'}
 :_itemGroup_QComboBoxListView	{container=':Item._itemGroup_QGroupBox' type='QComboBoxListView' unnamed='1' visible='1'}
 :_itemGroup_QComboBoxListView_2	{container=':Item._itemGroup_QGroupBox_3' type='QComboBoxListView' unnamed='1' visible='1'}
+:_itemGroup_QMessageBox	{aboveWidget=':Item._itemGroup_QGroupBox_3' type='QMessageBox' unnamed='1' visible='1'}
 :_itemGroup_XLineEdit	{container=':Item._itemGroup_QGroupBox' type='XLineEdit' unnamed='1' visible='1'}
 :_itemGroup_XLineEdit_2	{container=':Item._itemGroup_QGroupBox_2' type='XLineEdit' unnamed='1' visible='1'}
 :_itemGroup_XLineEdit_3	{container=':Item._itemGroup_QGroupBox_3' type='XLineEdit' unnamed='1' visible='1'}
