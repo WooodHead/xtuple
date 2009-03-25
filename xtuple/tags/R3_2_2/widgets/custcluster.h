@@ -1,0 +1,204 @@
+/*
+ * This file is part of the xTuple ERP: PostBooks Edition, a free and
+ * open source Enterprise Resource Planning software suite,
+ * Copyright (c) 1999-2009 by OpenMFG LLC, d/b/a xTuple.
+ * It is licensed to you under the Common Public Attribution License
+ * version 1.0, the full text of which (including xTuple-specific Exhibits)
+ * is available at www.xtuple.com/CPAL.  By using this software, you agree
+ * to be bound by its terms.
+ */
+
+#ifndef custCluster_h
+#define custCluster_h
+
+#include "widgets.h"
+#include "xlineedit.h"
+
+class QLabel;
+class QPushButton;
+class QDragEnterEvent;
+class QDropEvent;
+class QMouseEvent;
+
+class CustInfo;
+
+#define __allCustomers    0x01
+#define __activeCustomers 0x02
+
+class XTUPLEWIDGETS_EXPORT CLineEdit : public XLineEdit
+{
+  Q_OBJECT
+
+  Q_ENUMS(CLineEditTypes)
+
+  Q_PROPERTY(bool	   autoFocus READ autoFocus WRITE setAutoFocus	)
+  Q_PROPERTY(CLineEditTypes	type READ type	    WRITE setType	)
+  Q_PROPERTY(QString     number          READ text          WRITE setNumber)
+
+  friend class CustInfo;
+
+  public:
+    CLineEdit(QWidget * = 0, const char * = 0);
+
+    enum CLineEditTypes
+    {
+      AllCustomers, 		ActiveCustomers,
+      AllProspects,		ActiveProspects,
+      AllCustomersAndProspects,	ActiveCustomersAndProspects
+    };
+
+    inline bool			autoFocus() const { return _autoFocus;  }
+    inline CLineEditTypes	type()	    const { return _type;       }
+
+  public slots:
+    void sEllipses();
+    void sSearch();
+    void sList();
+    void setSilentId(int);
+    void setId(int);
+    void setNumber(const QString& pNumber);
+    void setType(CLineEditTypes);
+    void sParse();
+    void setAutoFocus(bool);
+
+  signals:
+    void newId(int);
+    void custNumberChanged(const QString &);
+    void custNameChanged(const QString &);
+    void custAddr1Changed(const QString &);
+    void custAddr2Changed(const QString &);
+    void custAddr3Changed(const QString &);
+    void custCityChanged(const QString &);
+    void custStateChanged(const QString &);
+    void custZipCodeChanged(const QString &);
+    void custCountryChanged(const QString &);
+    void creditStatusChanged(const QString &);
+    void custAddressChanged(const int);
+    void custContactChanged(const int);
+    void valid(bool);
+
+  protected:
+    void mousePressEvent(QMouseEvent *);
+    void mouseMoveEvent(QMouseEvent *);
+    void dragEnterEvent(QDragEnterEvent *);
+    void dropEvent(QDropEvent *);
+    void keyPressEvent(QKeyEvent *);
+
+  private:
+    bool		_autoFocus;
+    bool		_dragging;
+    CLineEditTypes	_type;
+};
+
+class XTUPLEWIDGETS_EXPORT CustInfoAction
+{
+  public:
+    virtual ~CustInfoAction() {};
+    virtual void customerInformation(QWidget* parent, int pCustid) = 0;
+};
+
+class XTUPLEWIDGETS_EXPORT CustInfo : public QWidget
+{
+  Q_OBJECT
+
+  Q_PROPERTY(bool                       autoFocus      READ autoFocus     WRITE setAutoFocus                     )
+  Q_PROPERTY(CLineEdit::CLineEditTypes	type           READ type          WRITE setType                          )
+  Q_PROPERTY(QString                    defaultNumber  READ defaultNumber WRITE setDefaultNumber DESIGNABLE false)
+  Q_PROPERTY(QString                    fieldName      READ fieldName     WRITE setFieldName                     )
+  Q_PROPERTY(QString                    number         READ number        WRITE setNumber        DESIGNABLE false)
+
+  public:
+    CustInfo(QWidget *parent, const char *name = 0);
+
+    void setReadOnly(bool);
+
+    inline bool                      autoFocus()     const  { return _customerNumber->autoFocus(); }
+    inline bool                      isValid()              { return _customerNumber->_valid;      }
+    inline QString                   defaultNumber() const  { return _default;                     }
+    inline QString                   fieldName()     const  { return _fieldName;                   }
+    inline QString                   number()        const  { return _customerNumber->text();      }
+    inline CLineEdit::CLineEditTypes type()          const  { return _customerNumber->type();      }
+
+    static CustInfoAction * _custInfoAction;
+
+  public slots:
+    int  id()    { return _customerNumber->_id;         }
+    void setSilentId(int);
+    void setId(int);
+    void setType(CLineEdit::CLineEditTypes);
+    void setAutoFocus(bool);
+    void setDataWidgetMap(XDataWidgetMapper* m);
+    void setNumber(QString number) { _customerNumber->setNumber(number);}
+    void setDefaultNumber(const QString& p)     { _default=p; };
+    void setFieldName(const QString& p)         { _fieldName=p; };
+
+  private slots:
+    void sInfo();
+    void sHandleCreditStatus(const QString &);
+    void updateMapperData();
+
+  signals:
+    void newId(int);
+    void numberChanged(const QString &);
+    void nameChanged(const QString &);
+    void address1Changed(const QString &);
+    void address2Changed(const QString &);
+    void address3Changed(const QString &);
+    void cityChanged(const QString &);
+    void stateChanged(const QString &);
+    void zipCodeChanged(const QString &);
+    void countryChanged(const QString &);
+    void addressChanged(const int);
+    void contactChanged(const int);
+    void valid(bool);
+
+  private:
+    QPushButton *_list;
+    QPushButton *_info;
+    QString     _default;
+    QString     _fieldName;
+    XDataWidgetMapper *_mapper;
+    
+  protected:
+    CLineEdit   *_customerNumber;
+};
+
+
+class XTUPLEWIDGETS_EXPORT CustCluster : public QWidget
+{
+  Q_OBJECT
+
+  Q_PROPERTY(bool                       autoFocus      READ autoFocus     WRITE setAutoFocus                     )
+  Q_PROPERTY(CLineEdit::CLineEditTypes	type           READ type	  WRITE setType                          )
+
+  public:
+    CustCluster(QWidget *parent, const char *name = 0);
+
+    void setReadOnly(bool);
+
+    inline bool                      autoFocus()     const { return _custInfo->autoFocus();     };
+    Q_INVOKABLE inline int           id()                  { return _custInfo->id();            };
+    inline bool                      isValid()             { return _custInfo->isValid();       };
+    inline CLineEdit::CLineEditTypes type()          const { return _custInfo->type();          };
+    inline QString                   number()        const { return _custInfo->number();        };
+
+    void   setType(CLineEdit::CLineEditTypes);
+    
+  signals:
+    void newId(int);
+    void valid(bool);
+
+  public slots:
+    void setId(int);
+    void setSilentId(int);
+    void setAutoFocus(bool);
+    void setNumber(const QString& number)       { _custInfo->setNumber(number);};
+
+  private:
+    CustInfo    *_custInfo;
+    QLabel      *_name;
+    QLabel      *_address1;
+};
+
+#endif
+

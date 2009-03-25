@@ -1,0 +1,960 @@
+<!DOCTYPE openRPTDef>
+<report>
+ <title>To-Do List</title>
+ <name>TodoList</name>
+ <description></description>
+ <size>Letter</size>
+ <portrait/>
+ <topmargin>50</topmargin>
+ <bottommargin>50</bottommargin>
+ <rightmargin>50</rightmargin>
+ <leftmargin>50</leftmargin>
+ <querysource>
+  <name>detail</name>
+  <sql>SELECT todoitem_id AS id, 1 AS altId, todoitem_owner_username AS owner, 
+		       &lt;? value("todo") ?> AS type, incdtpriority_order AS seq, incdtpriority_name AS priority, 
+		       todoitem_name AS name, 
+		       firstLine(todoitem_description) AS descrip, 
+           todoitem_status AS status, todoitem_start_date as start, 
+		       todoitem_due_date AS due, formatDate(todoitem_due_date) AS f_due, 
+		       usr_username AS usr, CAST(incdt_number AS text) AS number, cust_number AS cust, 
+           CASE WHEN (todoitem_status != 'C'AND 
+                      todoitem_due_date &lt; CURRENT_DATE) THEN 'expired'
+                WHEN (todoitem_status != 'C'AND 
+                      todoitem_due_date > CURRENT_DATE) THEN 'future'
+           END AS due_qtforegroundrole 
+		FROM usr, todoitem LEFT OUTER JOIN incdt ON (incdt_id=todoitem_incdt_id) 
+		                   LEFT OUTER JOIN crmacct ON (crmacct_id=todoitem_crmacct_id) 
+		                   LEFT OUTER JOIN cust ON (cust_id=crmacct_cust_id) 
+                       LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=todoitem_priority_id) 
+		WHERE ( (todoitem_usr_id=usr_id)
+      &lt;? if exists("startStartDate") ?> 
+      AND (todoitem_start_date BETWEEN &lt;? value("startStartDate") ?>
+		                             AND &lt;? value("startEndDate") ?>)
+      &lt;? endif ?>
+      &lt;? if exists("dueStartDate") ?> 
+		  AND   (todoitem_due_date BETWEEN &lt;? value("dueStartDate") ?> 
+		                               AND &lt;? value("dueEndDate") ?>) 
+  	  &lt;? endif ?>
+		  &lt;? if not exists("completed") ?>
+		  AND   (todoitem_status != 'C')
+		  &lt;? endif ?>
+		  &lt;? if exists("usr_id") ?> 
+		  AND (usr_id=&lt;? value("usr_id") ?>) 
+		  &lt;? elseif exists("usr_pattern" ?>
+		  AND (usr_username ~ &lt;? value("usr_pattern") ?>) 
+		  &lt;? endif ?>
+		  &lt;? if not exists("completed") ?>AND (todoitem_active) &lt;? endif ?>
+		       ) 
+		&lt;? if exists("incidents")?>
+    &lt;? if not exists("dueStartDate") ?> 
+		UNION 
+		SELECT incdt_id AS id, 2 AS altId, incdt_owner_username AS owner, 
+		       &lt;? value("incident") ?> AS type, incdtpriority_order AS seq, incdtpriority_name AS priority, 
+		       incdt_summary AS name, 
+		       firstLine(incdt_descrip) AS descrip, 
+           incdt_status AS status, CAST(incdt_timestamp AS date) AS start, 
+		       null AS due, null AS f_due, 
+		       incdt_assigned_username AS usr, CAST(incdt_number AS text) AS number, cust_number AS cust, 
+                       NULL AS due_qtforegroundrole 
+		FROM incdt LEFT OUTER JOIN usr ON (usr_username=incdt_assigned_username)
+		           LEFT OUTER JOIN crmacct ON (crmacct_id=incdt_crmacct_id) 
+		           LEFT OUTER JOIN cust ON (cust_id=crmacct_cust_id) 
+               LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=incdt_incdtpriority_id) 
+		WHERE ((true) 
+      &lt;? if exists("startStartDate") ?> 
+      AND (incdt_timestamp BETWEEN &lt;? value("startStartDate") ?>
+		                            AND &lt;? value("startEndDate") ?>)
+      &lt;? endif ?>
+		  &lt;? if not exists("completed") ?> 
+		  AND (incdt_status != 'L')
+		  &lt;? endif ?>
+		  &lt;? if exists("usr_id") ?> 
+		  AND (usr_id=&lt;? value("usr_id") ?>) 
+		  &lt;? elseif exists("usr_pattern" ?>
+		  AND (usr_username ~ &lt;? value("usr_pattern") ?>) 
+		  &lt;? endif ?>
+		       ) 
+		&lt;? endif ?>
+    &lt;? endif ?>
+		&lt;? if exists("projects")?>
+		UNION 
+		SELECT prjtask_id AS id, 3 AS altId, prjtask_owner_username AS owner, 
+		       &lt;? value("task") ?> AS type, NULL AS seq, NULL AS priority, 
+		       prjtask_number || '-' || prjtask_name AS name, 
+		       firstLine(prjtask_descrip) AS descrip, 
+		       prjtask_status AS status,  prjtask_start_date AS start, 
+           prjtask_due_date AS due, formatDate(prjtask_due_date) AS f_due, 
+		       usr_username AS usr, prj_number, '' AS cust, 
+           CASE WHEN (prjtask_status != 'C'AND 
+                      prjtask_due_date &lt; CURRENT_DATE) THEN 'expired'
+                WHEN (prjtask_status != 'C'AND 
+                      prjtask_due_date > CURRENT_DATE) THEN 'future'
+           END AS due_qtforegroundrole 
+		FROM prj, prjtask LEFT OUTER JOIN usr ON (usr_id=prjtask_usr_id)
+		WHERE ((prj_id=prjtask_prj_id) 
+      &lt;? if exists("startStartDate") ?> 
+      AND (prjtask_start_date BETWEEN &lt;? value("startStartDate") ?>
+		                             AND &lt;? value("startEndDate") ?>)
+      &lt;? endif ?>
+      &lt;? if exists("dueStartDate") ?> 
+      AND (prjtask_due_date BETWEEN &lt;? value("dueStartDate") ?>
+		                             AND &lt;? value("dueEndDate") ?>)
+      &lt;? endif ?>
+		  &lt;? if not exists("completed") ?> 
+		  AND (prjtask_status != 'L')
+		  &lt;? endif ?>
+		  &lt;? if exists("usr_id") ?> 
+		  AND (usr_id=&lt;? value("usr_id") ?>) 
+		  &lt;? elseif exists("usr_pattern" ?>
+		  AND (usr_username ~ &lt;? value("usr_pattern") ?>) 
+		  &lt;? endif ?>
+		       ) 
+  	UNION 
+		SELECT prj_id AS id, 4 AS altId, prj_owner_username AS owner, 
+		       &lt;? value("project") ?> AS type, NULL AS seq, NULL AS priority, 
+		       prj_number || '-' || prj_name AS name, 
+		       firstLine(prj_descrip) AS descrip, 
+		       prj_status AS status,  prj_start_date AS start, 
+           prj_due_date AS due, formatDate(prj_due_date) AS f_due, 
+		       usr_username AS usr, NULL AS number, '' AS cust, 
+           CASE WHEN (prj_status != 'C'AND 
+                      prj_due_date &lt; CURRENT_DATE) THEN 'expired'
+                WHEN (prj_status != 'C'AND 
+                      prj_due_date > CURRENT_DATE) THEN 'future'
+           END AS due_qtforegroundrole 
+		FROM prj LEFT OUTER JOIN usr ON (usr_id=prj_usr_id)
+		WHERE ((true) 
+      &lt;? if exists("startStartDate") ?> 
+      AND (prj_start_date BETWEEN &lt;? value("startStartDate") ?>
+		                             AND &lt;? value("startEndDate") ?>)
+      &lt;? endif ?>
+      &lt;? if exists("dueStartDate") ?> 
+      AND (prj_due_date BETWEEN &lt;? value("dueStartDate") ?>
+		                             AND &lt;? value("dueEndDate") ?>)
+      &lt;? endif ?>
+		  &lt;? if not exists("completed") ?> 
+		  AND (prj_status != 'L')
+		  &lt;? endif ?>
+		  &lt;? if exists("usr_id") ?> 
+		  AND (usr_id=&lt;? value("usr_id") ?>) 
+		  &lt;? elseif exists("usr_pattern" ?>
+		  AND (usr_username ~ &lt;? value("usr_pattern") ?>) 
+		  &lt;? endif ?>
+		       ) 
+		&lt;? endif ?>
+		ORDER BY due, seq, usr;</sql>
+ </querysource>
+ <querysource>
+  <name>queryParams</name>
+  <sql>SELECT
+  &lt;? if exists("startStartDate") ?>
+  formatDate(&lt;? value("startStartDate") ?>) AS f_startStartDate,
+  formatDate(&lt;? value("startEndDate") ?>) AS f_startEndDate,
+  &lt;? else ?>
+  'All' AS f_startStartDate,
+  'All' AS f_startEndDate,
+  &lt;? endif ?> 
+  &lt;? if exists("dueStartDate") ?>
+  formatDate(&lt;? value("dueStartDate") ?>) AS f_dueStartDate,
+  formatDate(&lt;? value("dueEndDate") ?>) AS f_dueEndDate,
+  &lt;? else ?>
+  'All' AS f_dueStartDate,
+  'All' AS f_dueEndDate,
+  &lt;? endif ?> 
+  &lt;? if exists("completed") ?> 'Yes' &lt;? else ?> 'No' &lt;? endif ?> AS showClosed,
+  &lt;? if exists("projects") ?>    'Yes' &lt;? else ?> 'No' &lt;? endif ?> AS showTasks,
+  &lt;? if exists("incidents") ?> 'Yes' &lt;? else ?> 'No' &lt;? endif ?> AS showIncdts,
+  &lt;? if exists("usr_id") ?>
+    usr_username FROM usr WHERE usr_id = &lt;? value("usr_id") ?>
+  &lt;? elseif exists("usr_pattern") ?>
+    &lt;? value("usr_pattern") ?> AS usr_username
+  &lt;? else ?>
+    'All' AS usr_username
+  &lt;? endif ?>
+;</sql>
+ </querysource>
+ <rpthead>
+  <height>141</height>
+  <label>
+   <rect>
+    <x>450</x>
+    <y>55</y>
+    <width>25</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <hcenter/>
+   <vcenter/>
+   <string>to</string>
+  </label>
+  <field>
+   <rect>
+    <x>120</x>
+    <y>69.8214</y>
+    <width>100</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <data>
+    <query>queryParams</query>
+    <column>showClosed</column>
+   </data>
+  </field>
+  <label>
+   <rect>
+    <x>540</x>
+    <y>120</y>
+    <width>100</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>Due Date</string>
+  </label>
+  <label>
+   <rect>
+    <x>10</x>
+    <y>120</y>
+    <width>75</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>User</string>
+  </label>
+  <field>
+   <rect>
+    <x>475</x>
+    <y>55</y>
+    <width>75</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <data>
+    <query>queryParams</query>
+    <column>f_startEndDate</column>
+   </data>
+  </field>
+  <label>
+   <rect>
+    <x>20</x>
+    <y>84.8214</y>
+    <width>85</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <right/>
+   <vcenter/>
+   <string>Show Incidents:</string>
+  </label>
+  <field>
+   <rect>
+    <x>380</x>
+    <y>55</y>
+    <width>75</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <data>
+    <query>queryParams</query>
+    <column>f_startStartDate</column>
+   </data>
+  </field>
+  <label>
+   <rect>
+    <x>20</x>
+    <y>55</y>
+    <width>85</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <right/>
+   <vcenter/>
+   <string>User:</string>
+  </label>
+  <label>
+   <rect>
+    <x>165</x>
+    <y>120</y>
+    <width>50</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>Priority</string>
+  </label>
+  <field>
+   <rect>
+    <x>120</x>
+    <y>84.8214</y>
+    <width>100</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <data>
+    <query>queryParams</query>
+    <column>showIncdts</column>
+   </data>
+  </field>
+  <line>
+   <xstart>10</xstart>
+   <ystart>135</ystart>
+   <xend>750</xend>
+   <yend>135</yend>
+   <weight>2</weight>
+  </line>
+  <label>
+   <rect>
+    <x>100</x>
+    <y>120</y>
+    <width>35</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>Type</string>
+  </label>
+  <label>
+   <rect>
+    <x>20</x>
+    <y>69.8214</y>
+    <width>85</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <right/>
+   <vcenter/>
+   <string>Completed:</string>
+  </label>
+  <label>
+   <rect>
+    <x>295</x>
+    <y>10</y>
+    <width>450</width>
+    <height>37</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>18</size>
+    <weight>bold</weight>
+   </font>
+   <right/>
+   <vcenter/>
+   <string>To-Do List</string>
+  </label>
+  <label>
+   <rect>
+    <x>435</x>
+    <y>120</y>
+    <width>100</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>Status</string>
+  </label>
+  <label>
+   <rect>
+    <x>230</x>
+    <y>120</y>
+    <width>200</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>Name</string>
+  </label>
+  <label>
+   <rect>
+    <x>250</x>
+    <y>55</y>
+    <width>125</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <right/>
+   <vcenter/>
+   <string>To-Do List Item Assign Date:</string>
+  </label>
+  <label>
+   <rect>
+    <x>645</x>
+    <y>120</y>
+    <width>100</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>Parent#</string>
+  </label>
+  <field>
+   <rect>
+    <x>120</x>
+    <y>55</y>
+    <width>100</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <data>
+    <query>queryParams</query>
+    <column>usr_username</column>
+   </data>
+  </field>
+  <label>
+   <rect>
+    <x>4.10714</x>
+    <y>99.4</y>
+    <width>100.893</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <right/>
+   <vcenter/>
+   <string>Show Project Tasks:</string>
+  </label>
+  <field>
+   <rect>
+    <x>120</x>
+    <y>99.4</y>
+    <width>100</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <data>
+    <query>queryParams</query>
+    <column>showTasks</column>
+   </data>
+  </field>
+  <label>
+   <rect>
+    <x>450</x>
+    <y>70</y>
+    <width>25</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <hcenter/>
+   <vcenter/>
+   <string>to</string>
+  </label>
+  <field>
+   <rect>
+    <x>380</x>
+    <y>70</y>
+    <width>75</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <data>
+    <query>queryParams</query>
+    <column>f_dueStartDate</column>
+   </data>
+  </field>
+  <label>
+   <rect>
+    <x>250</x>
+    <y>70</y>
+    <width>125</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <right/>
+   <vcenter/>
+   <string>To-Do List Item Due Date:</string>
+  </label>
+  <field>
+   <rect>
+    <x>475</x>
+    <y>70</y>
+    <width>75</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <data>
+    <query>queryParams</query>
+    <column>f_dueEndDate</column>
+   </data>
+  </field>
+ </rpthead>
+ <pghead>
+  <firstpage/>
+  <height>6</height>
+ </pghead>
+ <pghead>
+  <height>21</height>
+  <label>
+   <rect>
+    <x>435</x>
+    <y>0</y>
+    <width>100</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>Status</string>
+  </label>
+  <label>
+   <rect>
+    <x>100</x>
+    <y>0</y>
+    <width>35</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>Type</string>
+  </label>
+  <label>
+   <rect>
+    <x>165</x>
+    <y>0</y>
+    <width>50</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>Priority</string>
+  </label>
+  <line>
+   <xstart>5</xstart>
+   <ystart>15</ystart>
+   <xend>745</xend>
+   <yend>15</yend>
+   <weight>2</weight>
+  </line>
+  <label>
+   <rect>
+    <x>540</x>
+    <y>-1</y>
+    <width>100</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>Due Date</string>
+  </label>
+  <label>
+   <rect>
+    <x>230</x>
+    <y>0</y>
+    <width>200</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>Name</string>
+  </label>
+  <label>
+   <rect>
+    <x>10</x>
+    <y>0</y>
+    <width>75</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>User</string>
+  </label>
+  <label>
+   <rect>
+    <x>645</x>
+    <y>-1</y>
+    <width>100</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>Parent#</string>
+  </label>
+ </pghead>
+ <section>
+  <name>detail</name>
+  <group>
+   <name>ByUser</name>
+   <column>usr</column>
+  </group>
+  <detail>
+   <key>
+    <query>detail</query>
+   </key>
+   <height>31</height>
+   <field>
+    <rect>
+     <x>645</x>
+     <y>2</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
+    </font>
+    <left/>
+    <top/>
+    <data>
+     <query>detail</query>
+     <column>number</column>
+    </data>
+   </field>
+   <field>
+    <rect>
+     <x>10</x>
+     <y>2</y>
+     <width>75</width>
+     <height>15</height>
+    </rect>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
+    </font>
+    <left/>
+    <top/>
+    <data>
+     <query>detail</query>
+     <column>usr</column>
+    </data>
+   </field>
+   <text>
+    <rect>
+     <x>230</x>
+     <y>15</y>
+     <width>520</width>
+     <height>15</height>
+    </rect>
+    <bottompad>0</bottompad>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
+    </font>
+    <left/>
+    <top/>
+    <data>
+     <query>detail</query>
+     <column>descrip</column>
+    </data>
+   </text>
+   <field>
+    <rect>
+     <x>435</x>
+     <y>2</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
+    </font>
+    <left/>
+    <vcenter/>
+    <data>
+     <query>detail</query>
+     <column>status</column>
+    </data>
+   </field>
+   <field>
+    <rect>
+     <x>100</x>
+     <y>2</y>
+     <width>55</width>
+     <height>15</height>
+    </rect>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
+    </font>
+    <left/>
+    <top/>
+    <data>
+     <query>detail</query>
+     <column>type</column>
+    </data>
+   </field>
+   <field>
+    <rect>
+     <x>165</x>
+     <y>2</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
+    </font>
+    <left/>
+    <top/>
+    <data>
+     <query>detail</query>
+     <column>priority</column>
+    </data>
+   </field>
+   <field>
+    <rect>
+     <x>540</x>
+     <y>2</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
+    </font>
+    <left/>
+    <vcenter/>
+    <data>
+     <query>detail</query>
+     <column>due</column>
+    </data>
+   </field>
+   <field>
+    <rect>
+     <x>229</x>
+     <y>2</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
+    </font>
+    <left/>
+    <top/>
+    <data>
+     <query>detail</query>
+     <column>name</column>
+    </data>
+   </field>
+  </detail>
+ </section>
+ <pgfoot>
+  <height>16</height>
+  <label>
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>85</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <right/>
+   <vcenter/>
+   <string>Report Date:</string>
+  </label>
+  <label>
+   <rect>
+    <x>615</x>
+    <y>0</y>
+    <width>85</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <right/>
+   <vcenter/>
+   <string>Page:</string>
+  </label>
+  <field>
+   <rect>
+    <x>90</x>
+    <y>0</y>
+    <width>100</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>bold</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <data>
+    <query>Context Query</query>
+    <column>report_date</column>
+   </data>
+  </field>
+  <field>
+   <rect>
+    <x>705</x>
+    <y>0</y>
+    <width>40</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>bold</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <data>
+    <query>Context Query</query>
+    <column>page_number</column>
+   </data>
+  </field>
+ </pgfoot>
+</report>
