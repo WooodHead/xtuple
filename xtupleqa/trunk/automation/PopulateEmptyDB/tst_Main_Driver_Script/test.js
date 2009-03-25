@@ -25,22 +25,22 @@ function main()
     var version = "3.2.1";
     var dbname = "9empty321-mfg";
     var appVersion = "manufacturing"; //"manufacturing"/"postbooks"/"standard"
-// 
-//    loginAppl(version, dbname,"admin"); 
-//    executeChapter1(appVersion);
-//    exitAppl(); //exit and login with new user created
-//    snooze(5);
-//    startApplication("xtuple"); 
-//    snooze(10);
+
+    loginAppl(version, dbname,"admin"); 
+    executeChapter1(appVersion);
+    exitAppl(); //exit and login with new user created
+    snooze(5);
+    startApplication("xtuple"); 
+    snooze(10);
     loginAppl(version, dbname,"user01"); //login with the new user created
-//    executeChapter2(appVersion);
-//    executeChapter3(appVersion);
-//    executeChapter4(appVersion);
-//    executeChapter5(appVersion);
-//    executeChapter6(appVersion);
-//    executeChapter7(appVersion);
-//    executeChapter8(appVersion);
-//    executeChapter9(appVersion);
+    executeChapter2(appVersion);
+    executeChapter3(appVersion);
+    executeChapter4(appVersion);
+    executeChapter5(appVersion);
+    executeChapter6(appVersion);
+    executeChapter7(appVersion);
+    executeChapter8(appVersion);
+    executeChapter9(appVersion);
     executeChapter10(appVersion);
     executeChapter11(appVersion);
     executeChapter12(appVersion);
