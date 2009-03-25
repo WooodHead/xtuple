@@ -2,64 +2,66 @@ function executeChapter10(appVersion)
 {
    source(findFile("scripts","functions.js"));
    
-
-    //--------------Define: Check Formats-------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Check Formats...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Check Formats...");
-    waitForObject(":List Check Formats.New_QPushButton");
-    clickButton(":List Check Formats.New_QPushButton");
-    waitForObject(":_name_XLineEdit_17");
-    type(":_name_XLineEdit_17", "GENERIC-CHECK");
-    type(":Check Format._descrip_XLineEdit", "Generic Check Format");
-    if(findObject(":_report_XComboBox_3").currentText!="APCheck")
-       clickItem(":_report_XComboBox_3", "APCheck",0,0,1,Qt.LeftButton); 
-    clickButton(":Check Format.Save_QPushButton");
-    waitForObject(":List Check Formats._form_XTreeWidget");
-    if(!clickItem(":List Check Formats._form_XTreeWidget", "GENERIC-CHECK", 5, 5, 1, Qt.LeftButton))
-         test.pass("Incident Resolution created : Replace");
-    waitForObject(":List Check Formats.Close_QPushButton");
-    clickButton(":List Check Formats.Close_QPushButton");
-   
- 
-    
-    //------------------Chart Of Accounts------------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-    
-    COA("01","01","1000","01","Cash at eBank","Asset","CA"); 
-    if(!clickItem(":_account_XTreeWidget_2", "Cash at eBank", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Cash at eBank");
-    
-    COA("01","01","1010","01","Cash at EuroBank","Asset","CA"); 
-    if(!clickItem(":_account_XTreeWidget_2", "Cash at EuroBank", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Cash at EuroBank");
-    
-    COA("01","01","6750","01","Finance Fees and Expenses","Expense","EXP"); 
-    if(!clickItem(":_account_XTreeWidget_2", "Finance Fees and Expenses", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Finance Fees and Expenses");
-    
-    COA("01","01","1500","01","Fixed Assets","Asset","FA");
-    if(!clickItem(":_account_XTreeWidget_2", "Fixed Assets", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Fixed Assets");
-    
-    COA("01","01","6400","01","Depreciation Expense","Expense","DXP");
-    if(!clickItem(":_account_XTreeWidget_2", "Depreciation Expense", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Depreciation Expense");
-    
-    COA("01","01","3010","01","Paid-In Capital","Equity","EDC");
-    if(!clickItem(":_account_XTreeWidget_2", "Paid-In Capital", 5,5, 1, Qt.LeftButton))
-        test.pass("COA created: Paid-In Capital");
-    
-    waitForObject(":Chart of Accounts.Close_QPushButton_2");
-    clickButton(":Chart of Accounts.Close_QPushButton_2");
+//
+//    //--------------Define: Check Formats-------------------
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Check Formats...");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Check Formats...");
+//    waitForObject(":List Check Formats.New_QPushButton");
+//    clickButton(":List Check Formats.New_QPushButton");
+//    waitForObject(":_name_XLineEdit_17");
+//    type(":_name_XLineEdit_17", "GENERIC-CHECK");
+//    type(":Check Format._descrip_XLineEdit", "Generic Check Format");
+//    waitForObject(":_report_XComboBox_3");
+//    if(findObject(":_report_XComboBox_3").currentText!="APCheck")        
+//       clickItem(":_report_XComboBox_3", "APCheck",0,0,1,Qt.LeftButton); 
+//    waitForObject(":Check Format.Save_QPushButton");
+//    clickButton(":Check Format.Save_QPushButton");
+//    waitForObject(":List Check Formats._form_XTreeWidget");
+//    if(!clickItem(":List Check Formats._form_XTreeWidget", "GENERIC-CHECK", 5, 5, 1, Qt.LeftButton))
+//         test.pass("Incident Resolution created : Replace");
+//    waitForObject(":List Check Formats.Close_QPushButton");
+//    clickButton(":List Check Formats.Close_QPushButton");
+//   
+// 
+//    
+//    //------------------Chart Of Accounts------------------------
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+//    
+//    COA("01","01","1000","01","Cash at eBank","Asset","CA"); 
+//    if(!clickItem(":_account_XTreeWidget_2", "Cash at eBank", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Cash at eBank");
+//    
+//    COA("01","01","1010","01","Cash at EuroBank","Asset","CA"); 
+//    if(!clickItem(":_account_XTreeWidget_2", "Cash at EuroBank", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Cash at EuroBank");
+//    
+//    COA("01","01","6750","01","Finance Fees and Expenses","Expense","EXP"); 
+//    if(!clickItem(":_account_XTreeWidget_2", "Finance Fees and Expenses", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Finance Fees and Expenses");
+//    
+//    COA("01","01","1500","01","Fixed Assets","Asset","FA");
+//    if(!clickItem(":_account_XTreeWidget_2", "Fixed Assets", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Fixed Assets");
+//    
+//    COA("01","01","6400","01","Depreciation Expense","Expense","DXP");
+//    if(!clickItem(":_account_XTreeWidget_2", "Depreciation Expense", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Depreciation Expense");
+//    
+//    COA("01","01","3010","01","Paid-In Capital","Equity","EDC");
+//    if(!clickItem(":_account_XTreeWidget_2", "Paid-In Capital", 5,5, 1, Qt.LeftButton))
+//        test.pass("COA created: Paid-In Capital");
+//    
+//    waitForObject(":Chart of Accounts.Close_QPushButton_2");
+//    clickButton(":Chart of Accounts.Close_QPushButton_2");
  
     if(appVersion=="manufacturing"||appVersion=="standard")
     {
@@ -91,6 +93,8 @@ function executeChapter10(appVersion)
            type(":Enable ACH Check Printing._achSuffix_QComboBox","<Del>");
            type(":Enable ACH Check Printing._achSuffix_QComboBox",".dat");
         clickButton(":Accounting Configuration.Save_QPushButton");
+        // Verification Point 'VP2'
+        test.compare(findObject(":No_QPushButton").text, "&No");
         waitForObject(":Set Encryption?.No_QPushButton");
         clickButton(":Set Encryption?.No_QPushButton");
         test.log("Accounting for ACH configured");

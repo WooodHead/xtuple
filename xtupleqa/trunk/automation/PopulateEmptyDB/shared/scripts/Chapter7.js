@@ -9,7 +9,7 @@ function executeChapter7(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Purchase...");
     activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Purchase...");
-    waitForObjectItem(":_orderNumGeneration_QComboBox", "Automatic");
+    waitForObject(":_orderNumGeneration_QComboBox");
     if(findObject(":_orderNumGeneration_QComboBox").currentText!="Automatic")
         clickItem(":_orderNumGeneration_QComboBox", "Automatic",0,0,1,Qt.LeftButton);
     type(":_nextPoNumber_XLineEdit", "<Ctrl+A>");

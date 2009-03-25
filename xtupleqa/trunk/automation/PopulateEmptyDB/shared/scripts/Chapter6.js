@@ -1,25 +1,25 @@
 function executeChapter6(appVersion)
 {
-
-    //---------Define: User defined costing element----------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "User-Defined Costing Elements...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "User-Defined Costing Elements...");
-    waitForObject(":List User-Defined Costing Elements.New_QPushButton");
-    clickButton(":List User-Defined Costing Elements.New_QPushButton");
-    waitForObject(":_name_XLineEdit_7");
-    type(":_name_XLineEdit_7", "Special Handling");
-    clickButton(":User Costing Element.Accept P/O Distributions_QCheckBox");
-    clickButton(":User Costing Element.Save_QPushButton");
-    waitForObject(":List User-Defined Costing Elements._costelem_XTreeWidget");
-    if(!clickItem(":List User-Defined Costing Elements._costelem_XTreeWidget", "Special Handling", 5, 5, 1, Qt.LeftButton))    
-        test.pass("Costing Element Created: Special Handling");
-
-    waitForObject(":List User-Defined Costing Elements.Close_QPushButton");
-    clickButton(":List User-Defined Costing Elements.Close_QPushButton");
+//
+//    //---------Define: User defined costing element----------------
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "User-Defined Costing Elements...");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "User-Defined Costing Elements...");
+//    waitForObject(":List User-Defined Costing Elements.New_QPushButton");
+//    clickButton(":List User-Defined Costing Elements.New_QPushButton");
+//    waitForObject(":_name_XLineEdit_7");
+//    type(":_name_XLineEdit_7", "Special Handling");
+//    clickButton(":User Costing Element.Accept P/O Distributions_QCheckBox");
+//    clickButton(":User Costing Element.Save_QPushButton");
+//    waitForObject(":List User-Defined Costing Elements._costelem_XTreeWidget");
+//    if(!clickItem(":List User-Defined Costing Elements._costelem_XTreeWidget", "Special Handling", 5, 5, 1, Qt.LeftButton))    
+//        test.pass("Costing Element Created: Special Handling");
+//
+//    waitForObject(":List User-Defined Costing Elements.Close_QPushButton");
+//    clickButton(":List User-Defined Costing Elements.Close_QPushButton");
       
     
     //-------------Maintain Item Costs------------------
@@ -36,7 +36,7 @@ function executeChapter6(appVersion)
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
     waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
-    waitForObjectItem(":Create Item Cost._costelem_XComboBox", "Material");
+    waitForObject(":Create Item Cost._costelem_XComboBox");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
     if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
@@ -52,7 +52,7 @@ function executeChapter6(appVersion)
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
     waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
-    waitForObjectItem(":Create Item Cost._costelem_XComboBox", "Material");
+    waitForObject(":Create Item Cost._costelem_XComboBox");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
     if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
@@ -68,7 +68,7 @@ function executeChapter6(appVersion)
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
     waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
-    waitForObjectItem(":Create Item Cost._costelem_XComboBox", "Material");
+    waitForObject(":Create Item Cost._costelem_XComboBox");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
     if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
@@ -84,7 +84,7 @@ function executeChapter6(appVersion)
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
     waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
-    waitForObjectItem(":Create Item Cost._costelem_XComboBox", "Material");
+    waitForObject(":Create Item Cost._costelem_XComboBox");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
     if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
@@ -100,7 +100,7 @@ function executeChapter6(appVersion)
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
     waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
-    waitForObjectItem(":Create Item Cost._costelem_XComboBox", "Material");
+    waitForObject(":Create Item Cost._costelem_XComboBox");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
     if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
@@ -116,7 +116,7 @@ function executeChapter6(appVersion)
     type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
     waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
-    waitForObjectItem(":Create Item Cost._costelem_XComboBox", "Material");
+    waitForObject(":Create Item Cost._costelem_XComboBox");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Special Handling")
         clickItem(":Create Item Cost._costelem_XComboBox", "Special",0,0,1,Qt.LeftButton);
     if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")

@@ -227,6 +227,7 @@ function executeChapter9(appVersion)
     clickButton(":List Priorities.New_QPushButton_2");
     waitForObject(":_name_XLineEdit_30");
     type(":_name_XLineEdit_30", "None");
+    findObject(":Priority.qt_spinbox_lineedit_QLineEdit").clear();
     type(":Priority.qt_spinbox_lineedit_QLineEdit", "60");
     type(":Priority._descrip_QTextEdit", "Priority not set.");
     clickButton(":Priority.Save_QPushButton");
