@@ -154,9 +154,10 @@ function executeChapter10(appVersion)
         clickButton(":_useGroup.Used in Accounts Payable_QCheckBox");
     waitForObject(":_useGroup._nextCheckNum_XLineEdit");
     type(":_useGroup._nextCheckNum_XLineEdit", "9000");
+    waitForObject(":_useGroup._form_XComboBox_2");
     if(!findObject(":_useGroup._form_XComboBox_2").currentText!= "GENERIC-CHECK")
          clickItem(":_useGroup._form_XComboBox_2","GENERIC-CHECK",0,0,1,Qt.LeftButton);
-    
+    waitForObject(":_useGroup.Used in Accounts Receivable_QCheckBox");
     if(!findObject(":_useGroup.Used in Accounts Receivable_QCheckBox").checked)
         clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
     type(":_accountGroup._main_XLineEdit", "01-01-1010-01");

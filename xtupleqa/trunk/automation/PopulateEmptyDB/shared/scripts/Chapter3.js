@@ -42,6 +42,7 @@ function executeChapter3(appVersion)
     type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");    
     waitForObject(":_inventoryUOM_XComboBox_3");
     clickItem(":_inventoryUOM_XComboBox_3", "EA", 0, 0, 1, Qt.LeftButton);    
+    waitForObject(":_itemGroup.Pick List_QCheckBox_3");
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
     if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
@@ -108,7 +109,9 @@ function executeChapter3(appVersion)
     type(":Item._description2_XLineEdit_2", "Yellow Type 1");
     clickItem(":_itemtype_QComboBox_2", "Purchased",0, 0, 1, Qt.LeftButton);
     type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
+    waitForObject(":_inventoryUOM_XComboBox_3");
     clickItem(":_inventoryUOM_XComboBox_3", "GL", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_itemGroup.Pick List_QCheckBox_3");
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
     if(!findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
@@ -138,7 +141,9 @@ function executeChapter3(appVersion)
     type(":Item._description2_XLineEdit_2", "Truck Body");
     clickItem(":_itemtype_QComboBox_2", "Purchased", 0, 0, 1, Qt.LeftButton);
     type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
+    waitForObject(":_inventoryUOM_XComboBox_3");
     clickItem(":_inventoryUOM_XComboBox_3", "EA", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_itemGroup.Pick List_QCheckBox_3");
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
     if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
@@ -167,7 +172,9 @@ function executeChapter3(appVersion)
     type(":Item._description2_XLineEdit_2", "Wheels Type 1");
     type(":_itemtype_QComboBox_2", "Purchased");	
     type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
+    waitForObject(":_inventoryUOM_XComboBox_3");
     clickItem(":_inventoryUOM_XComboBox_3", "EA", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_itemGroup.Pick List_QCheckBox_3");
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
     if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
@@ -197,7 +204,9 @@ function executeChapter3(appVersion)
     type(":Item._description2_XLineEdit_2", "Truck Kit");
     clickItem(":_itemtype_QComboBox_2", "Manufactured", 0, 0, 1, Qt.LeftButton);
     type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
+    waitForObject(":_inventoryUOM_XComboBox_3");    
     clickItem(":_inventoryUOM_XComboBox_3", "EA", 0, 0, 1, Qt.LeftButton);    
+    waitForObject(":_itemGroup.Pick List_QCheckBox_3");
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
     if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
@@ -227,7 +236,9 @@ function executeChapter3(appVersion)
     type(":Item._description2_XLineEdit_2", "Product Box");
     clickItem(":_itemtype_QComboBox_2", "Purchased", 0, 0, 1, Qt.LeftButton);    
     type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");
+    waitForObject(":_inventoryUOM_XComboBox_3");       
     clickItem(":_inventoryUOM_XComboBox_3", "EA", 0, 0, 1, Qt.LeftButton);            
+    waitForObject(":_itemGroup.Pick List_QCheckBox_3");
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
     if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
@@ -255,7 +266,9 @@ function executeChapter3(appVersion)
     type(":Item._description2_XLineEdit_2", "Insert Type 1");
     clickItem(":_itemtype_QComboBox_2", "Purchased", 0, 0, 1, Qt.LeftButton);                
     type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS");                
+    waitForObject(":_inventoryUOM_XComboBox_3"); 
     clickItem(":_inventoryUOM_XComboBox_3", "EA", 0, 0, 1, Qt.LeftButton);                    
+    waitForObject(":_itemGroup.Pick List_QCheckBox_3");
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
     if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)

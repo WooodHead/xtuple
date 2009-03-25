@@ -20,7 +20,9 @@ function executeChapter5(appVersion)
     type(":Item._description2_XLineEdit_2", "Truck Type 1");
     clickItem(":_itemtype_QComboBox_2", "Manufactured",0,0,1,Qt.LeftButton);
     clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS-Toy Trucks",0,0,1,Qt.LeftButton);
+    waitForObject(":_inventoryUOM_XComboBox_3");
     clickItem(":_inventoryUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);
+    waitForObject(":_itemGroup.Pick List_QCheckBox_3");
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
     if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
@@ -111,7 +113,9 @@ function executeChapter5(appVersion)
     type(":Item._description2_XLineEdit_2", "Truck Type 1");
     clickItem(":_itemtype_QComboBox_2", "Manufactured",0,0,1,Qt.LeftButton);
     clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS-Toy Trucks",0,0,1,Qt.LeftButton);
+    waitForObject(":_inventoryUOM_XComboBox_3");
     type(":_inventoryUOM_XComboBox_3", "EA");
+    waitForObject(":_itemGroup.Pick List_QCheckBox_3");
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
     if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
@@ -206,7 +210,9 @@ function executeChapter5(appVersion)
     type(":Item._description2_XLineEdit_2", "Truck Type 1");
     clickItem(":_itemtype_QComboBox_2", "Manufactured",0,0,1,Qt.LeftButton);
     clickItem(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS-Toy Trucks",0,0,1,Qt.LeftButton);
+    waitForObject(":_inventoryUOM_XComboBox_3");
     clickItem(":_inventoryUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);
+    waitForObject(":_itemGroup.Pick List_QCheckBox_3");
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
     if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
@@ -312,7 +318,9 @@ function executeChapter5(appVersion)
     clickItem(":_itemtype_QComboBox_2", "Planning",0,0,1,Qt.LeftButton);
     waitForObject(":_itemGroup._classcode_XComboBox_2");
     type(":_itemGroup._classcode_XComboBox_2", "TOY-TRUCKS-Toy Trucks");
+    waitForObject(":_inventoryUOM_XComboBox_3");
     clickItem(":_inventoryUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);
+    waitForObject(":Item.Save_QPushButton_5");
     waitForObject(":Item.Save_QPushButton_5");
     clickButton(":Item.Save_QPushButton_5");
     waitForObject(":_itemGroup.Yes_QPushButton");
