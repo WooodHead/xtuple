@@ -1,4 +1,5 @@
-all:    allknownelemspkg.gz	\
+all:    testxversion \
+        allknownelemspkg.gz	\
         allknownwarnings.gz	\
         badcontentsxml.gz	\
         dependency1.gz		\
@@ -14,7 +15,7 @@ all:    allknownelemspkg.gz	\
 distclean: clean
 
 clean:
-	rm -f *.gz
+	rm -f *.gz testxversion
 
 allknownelemspkg.gz:  allknownelemspkg			\
 	              allknownelemspkg/dropifexists.sql	\
@@ -22,6 +23,7 @@ allknownelemspkg.gz:  allknownelemspkg			\
                       allknownelemspkg/package.xml	\
                       allknownelemspkg/packageschema.sql	\
                       allknownelemspkg/pkgtest.sql	\
+                      allknownelemspkg/pkgtestitem.sql \
                       allknownelemspkg/pkgtesttrigger.sql	\
                       allknownelemspkg/pkgtesttriggerfunction.sql	\
                       allknownelemspkg/pkgtestview.sql	\
@@ -92,3 +94,10 @@ unknownelem.gz: unknownelem			\
 unsupportedprereq.gz: unsupportedprereq			\
                       unsupportedprereq/contents.xml
 	tar czf $@ --exclude .svn $<
+
+testxversion: testxversion.cpp ../lib/libupdatercommon.a
+	g++ -o testxversion testxversion.cpp \
+	                      -g -pipe -Wall \
+	                      -DQT_NO_DEBUG -DQT_CORE_LIB -DQT_SHARED \
+	                      -I../common -I$(QTDIR)/include/QtCore -I$(QTDIR)/include \
+	                      -L../lib    -L$(QTDIR)/lib -lupdatercommon -lQtCore

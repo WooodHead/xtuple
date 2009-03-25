@@ -196,7 +196,6 @@ int main(int argc, char* argv[])
     else
     {
       databaseURL = newdlg._databaseURL;
-      _usrid = newdlg._userid;
       _user = newdlg._user;
       _loggedIn = TRUE;
     }

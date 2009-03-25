@@ -34,6 +34,7 @@
  <script         file="initUpgrade" onerror="Ignore" />
  <finalscript    file="finalize.sql" />
  <createtable    file="pkgtest.sql" name="pkgtest" onerror="Ignore" />
+ <createtable    file="pkgtestitem.sql" name="pkgtestitem" onerror="Ignore" />
  <createfunction file="pkgtesttriggerfunction.sql" name="_pkgtestbefore" />
  <createfunction file="dropifexists.sql" name="dropifexists" />
  <createtrigger  file="pkgtesttrigger.sql" name="pkgtestbefore" />

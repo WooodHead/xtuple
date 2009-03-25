@@ -139,7 +139,6 @@ int CreateFunction::writeToDB(const QByteArray &pdata, const QString pkgname, QS
     int pkgheadid = -1;
     select.prepare("SELECT pkghead_id FROM pkghead WHERE (pkghead_name=:name);");
     select.bindValue(":name", pkgname);
-    select.bindValue(":schema", pkgname);
     select.exec();
     if (select.first())
       pkgheadid = select.value(0).toInt();

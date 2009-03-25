@@ -199,7 +199,7 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
     select.prepare(_pkgitemQueryStr);
   select.bindValue(":name",    _name);
   select.bindValue(":pkgname", pkgname);
-  select.bindValue(":grade",   _grade);
+  // select.bindValue(":grade",   _grade); // TODO: add to _pkgitemQueryStr?
   select.bindValue(":type",    _pkgitemtype);
   select.exec();
   if(select.first())

@@ -91,7 +91,9 @@ HEADERS = data.h \
           pkgschema.h \
           prerequisite.h \
           tarfile.h \
-          gunzip.h
+          gunzip.h \
+          xversion.h
+
 SOURCES = data.cpp \
           package.cpp \
           createdbobj.cpp \
@@ -112,6 +114,7 @@ SOURCES = data.cpp \
           pkgschema.cpp \
           prerequisite.cpp \
           tarfile.cpp \
-          gunzip.cpp
+          gunzip.cpp \
+          xversion.cpp
 
 QT += xml sql

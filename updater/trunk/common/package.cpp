@@ -79,17 +79,17 @@
 #include "prerequisite.h"
 #include "script.h"
 #include "finalscript.h"
+#include "xversion.h"
 
 #define DEBUG false
 
 Package::Package(const QString & id)
-  : _id(id), _majVersion(-1), _minVersion(-1)
+  : _id(id)
 {
 }
 
 Package::Package(const QDomElement & elem, QStringList &msgList,
                  QList<bool> &fatalList)
-  : _majVersion(-1), _minVersion(-1)
 {
   if (elem.tagName() != "package")
   {
@@ -100,12 +100,9 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
 
   if (elem.hasAttribute("updater"))
   {
-    QStringList suffixes;
-    suffixes << "wip" << "alpha" << "beta" << "rc";
-    QRegExp relregex("^(\\d+)\\.(\\d+)\\.(\\d+)(?:(" + suffixes.join("|") + ")(\\d?)?)?");
-
     // _version = updater/builder application global
-    if (relregex.indexIn(_version.toLower()) == -1)
+    XVersion updaterversion(_version);
+    if (! updaterversion.isValid())
     {
       msgList << TR("Could not parse the application's version string %1")
                   .arg(_version);
@@ -113,52 +110,23 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
       return;
     }
 
-    int appmajor = relregex.cap(1).toInt();
-    int appminor = relregex.cap(2).toInt();
-    int apppoint = relregex.cap(3).toInt();
-    int appsuffix= relregex.cap(4).isEmpty() ? suffixes.size() :
-                                      suffixes.indexOf(relregex.cap(4));
-    int appsub   = relregex.cap(5).isEmpty() ? 0 : relregex.cap(5).toInt();
-
-    if (relregex.indexIn(elem.attribute("updater").toLower()) == -1)
+    XVersion requiredversion(elem.attribute("updater"));
+    if (! requiredversion.isValid())
     {
-      if (DEBUG)
-        qDebug("Package::Package() could not parse %s with %s",
-               qPrintable(elem.attribute("updater").toLower()),
-               qPrintable(relregex.pattern()));
       msgList << TR("Could not parse the updater version string %1 required "
                     "by the package") .arg(elem.attribute("updater"));
       fatalList << true;
       return;
     }
 
-    int pkgmajor = relregex.cap(1).toInt();
-    int pkgminor = relregex.cap(2).toInt();
-    int pkgpoint = relregex.cap(3).toInt();
-    int pkgsuffix= relregex.cap(4).isEmpty() ? suffixes.size() :
-                                      suffixes.indexOf(relregex.cap(4));
-    int pkgsub   = relregex.cap(5).isEmpty() ? 0 : relregex.cap(5).toInt();
-
-    if ((appmajor <  pkgmajor) ||
-        (appmajor == pkgmajor && appminor <  pkgminor) ||
-        (appmajor == pkgmajor && appminor == pkgminor && apppoint < pkgpoint) ||
-        (appmajor == pkgmajor && appminor == pkgminor && apppoint== pkgpoint &&
-         appsuffix < pkgsuffix) ||
-        (appmajor == pkgmajor && appminor == pkgminor && apppoint== pkgpoint &&
-         appsuffix== pkgsuffix && appsub  <  pkgsub)
-       )
+    if (updaterversion < requiredversion)
     {
-      if (DEBUG)
-        qDebug("Package::Package() looking for\n%d %d %d %d %d but found\n"
-               "%d %d %d %d %d",
-               appmajor, appminor, apppoint, appsuffix, appsub,
-               pkgmajor, pkgminor, pkgpoint, pkgsuffix, pkgsub);
-
       msgList << TR("This package requires a newer version of the updater "
                     "(%1) than you are currently running (%2). Please get "
                     "a newer updater.")
                   .arg(elem.attribute("updater")).arg(_version);
       fatalList << true;
+      return;
     }
   }
 
@@ -167,28 +135,31 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
   _developer = elem.attribute("developer");
   _descrip = elem.attribute("descrip");
 
-  QString version = elem.attribute("version");
-  if(!version.isEmpty())
-  {
-    int idx = version.indexOf('.');
-    if(idx != -1)
-    {
-      bool ok = FALSE;
-      _majVersion = version.left(idx).toInt(&ok);
-      if(!ok)
-        _majVersion = -1;
-
-      _minVersion = version.right(version.length() - (idx + 1)).toInt(&ok);
-      if(!ok)
-        _minVersion = -1;
-    }
-  }
-
-  QStringList reportedErrorTags;
   bool system = _name.isEmpty() && (_developer == "xTuple" || _developer.isEmpty());
   if (DEBUG)
     qDebug("Package::Package() - _name '%s', _developer '%s' => system %d",
            qPrintable(_name), qPrintable(_developer), system);
+
+  if (elem.hasAttribute("version"))
+  {
+    _pkgversion.setVersion(elem.attribute("version"));
+    if (! _pkgversion.isValid())
+    {
+      msgList << TR("Could not parse the package version string %1.")
+                  .arg(elem.attribute("version"));
+      fatalList << true;
+      return;
+    }
+  }
+  else if (! system)
+  {
+    msgList << TR("Add-on packages must have version numbers but the package "
+                  "element has no version attribute.");
+    fatalList << true;
+    return;
+  }
+
+  QStringList reportedErrorTags;
 
   QDomNodeList nList = elem.childNodes();
   for(int n = 0; n < nList.count(); ++n)
@@ -307,9 +278,7 @@ QDomElement Package::createElement(QDomDocument & doc)
 {
   QDomElement elem = doc.createElement("package");
   elem.setAttribute("id", _id);
-  elem.setAttribute("version", QString("%1.%2")
-                                .arg(_majVersion > 0 ? _majVersion : 0)
-                                .arg(_minVersion > 0 ? _minVersion : 0));
+  elem.setAttribute("version", _pkgversion.toString());
 
   for(QList<Prerequisite>::iterator i = _prerequisites.begin();
       i != _prerequisites.end(); ++i)
@@ -553,8 +522,7 @@ int Package::writeToDB(QString &errMsg)
   upsert.bindValue(":id",        pkgheadid);
   upsert.bindValue(":name",      _name);
   upsert.bindValue(":descrip",   _descrip);
-  upsert.bindValue(":version",   QString::number(_majVersion) + "." +
-                                 QString::number(_minVersion));
+  upsert.bindValue(":version",   _pkgversion.toString());
   upsert.bindValue(":developer", _developer);
   upsert.bindValue(":notes",     _notes);
   if (!upsert.exec())

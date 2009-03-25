@@ -94,7 +94,8 @@ int PkgSchema::create(QString &errMsg)
   int namespaceoid;
   QSqlQuery create;
   create.prepare("SELECT createPkgSchema(:name, :descrip) AS result;");
-  create.bindValue(":name", _name);
+  create.bindValue(":name",    _name);
+  create.bindValue(":descrip", _comment);
 
   create.exec();
   if (create.first())

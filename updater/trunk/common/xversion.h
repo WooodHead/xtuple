@@ -55,87 +55,44 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#ifndef __PACKAGE_H__
-#define __PACKAGE_H__
+#ifndef __XVERSION_H__
+#define __XVERSION_H__
 
 #include <QString>
-#include <QList>
 
-#include "xversion.h"
-
-class QDomDocument;
-class QDomElement;
-
-class CreateFunction;
-class CreateTable;
-class CreateTrigger;
-class CreateView;
-class LoadAppScript;
-class LoadAppUI;
-class LoadCmd;
-class LoadImage;
-class LoadMetasql;
-class LoadPriv;
-class LoadReport;
-class Prerequisite;
-class Script;
-class FinalScript;
-
-class Package
+class XVersion
 {
   public:
-    Package(const QString & id = QString::null);
-    Package(const QDomElement &, QStringList &, QList<bool> &);
+    enum ReleaseStage { WIP, ALPHA, BETA, RC, FINAL, UNKNOWN };
 
-    virtual ~Package();
+    XVersion();
+    XVersion(const QString &);
+    XVersion(const XVersion &);
 
-    QDomElement createElement(QDomDocument &); 
-    int writeToDB(QString &errMsg);
+    ~XVersion();
 
-    QString id() const { return _id; }
-    void setId(const QString & id) { _id = id; }
+    bool         isValid()                const;
+    int          majorNumber(bool &ok)    const;
+    int          minorNumber(bool &ok)    const;
+    int          pointNumber(bool &ok)    const;
+    void         setVersion(const QString &);
+    ReleaseStage stage(bool &ok)          const;
+    int          substageNumber(bool &ok) const;
+    QString      toString()               const;
 
-    QString developer() const { return _developer; }
-    QString name()      const { return _name; }
-    XVersion version()  const { return _pkgversion; }
-
-    QList<CreateFunction> _functions;
-    QList<CreateTable>    _tables;
-    QList<CreateTrigger>  _triggers;
-    QList<CreateView>     _views;
-    QList<LoadAppScript>  _appscripts;
-    QList<LoadAppUI>      _appuis;
-    QList<LoadCmd>        _cmds;
-    QList<LoadImage>      _images;
-    QList<LoadMetasql>    _metasqls;
-    QList<LoadPriv>       _privs;
-    QList<Prerequisite>   _prerequisites;
-    QList<Script>         _scripts;
-    QList<FinalScript>    _finalscripts;
-    QList<LoadReport>     _reports;
-
-    bool containsAppScript(const QString &name)    const;
-    bool containsAppUI(const QString &name)        const;
-    bool containsCmd(const QString &name)          const;
-    bool containsFunction(const QString &name)     const;
-    bool containsImage(const QString &name)        const;
-    bool containsPrerequisite(const QString &name) const;
-    bool containsMetasql(const QString &name)      const;
-    bool containsPriv(const QString &name)         const;
-    bool containsReport(const QString &name)       const;
-    bool containsScript(const QString &name)       const;
-    bool containsFinalScript(const QString &name)  const;
-    bool containsTable(const QString &name)        const;
-    bool containsTrigger(const QString &name)      const;
-    bool containsView(const QString &name)         const;
+    bool operator==(XVersion);
+    bool operator> (XVersion);
+    bool operator>=(XVersion);
+    bool operator< (XVersion);
+    bool operator<=(XVersion);
+    bool operator!=(XVersion);
 
   protected:
-    QString     _developer;
-    QString     _descrip;
-    QString     _id;
-    XVersion    _pkgversion;
-    QString     _name;
-    QString     _notes;
+    int          _major;
+    int          _minor;
+    int          _point;
+    ReleaseStage _stage;
+    int          _substage;
 };
 
 #endif
