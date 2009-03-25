@@ -332,8 +332,11 @@ function executeChapter5(appVersion)
          clickItem(":_warehouse_WComboBox_5", "WH1",0,0,1,Qt.LeftButton);
         
     }
+    waitForObject(":_plannerCode_XComboBox_2");
     clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
+    waitForObject(":_costcat_XComboBox_3");
     clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
+    waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
     if(appVersion=="manufacturing")
     {
