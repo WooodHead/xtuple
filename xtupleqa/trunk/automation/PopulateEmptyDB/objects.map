@@ -123,7 +123,7 @@
 :Calendar_calendar	{name='calendar' type='calendar' visible='1' windowTitle='Calendar'}
 :Cancel.Enabling revision control will create control records for products that contain revision number data.  This change can not be undone.  Do you wish to proceed?_QLabel	{name='qt_msgbox_label' text='Enabling revision control will create control records for products that contain revision number data.  This change can not be undone.  Do you wish to proceed?' type='QLabel' visible='1' window=':Cancel_QMessageBox'}
 :Cancel.Yes_QPushButton	{text='Yes' type='QPushButton' unnamed='1' visible='1' window=':Cancel_QMessageBox'}
-:Cancel_QMessageBox	{aboveWidget=':Products Configuration.Cancel_QPushButton' type='QMessageBox' unnamed='1' visible='1'}
+:Cancel_QMessageBox	{WindowTitle?='*' type='QMessageBox' unnamed='1' visible='1'}
 :Cannot Connect to xTuple ERP Server.OK_QPushButton	{text='OK' type='QPushButton' visible='1' window=':Cannot Connect to xTuple ERP Server_QMessageBox'}
 :Cannot Connect to xTuple ERP Server_QMessageBox	{type='QMessageBox' visible='1' windowTitle='Cannot Connect to xTuple ERP Server'}
 :Cannot Read Configuration.<p>Cannot read encrypted information from database._QLabel	{name='qt_msgbox_label' text='<p>Cannot read encrypted information from database.' type='QLabel' visible='1' window=':Cannot Read Configuration_QMessageBox'}
@@ -1395,6 +1395,8 @@
 :Multiple Sites.Transfer Order # Generation:_QLabel	{container=':_inventory.Multiple Sites_QGroupBox' name='_toNumGenerationLit' text='Transfer Order # Generation:' type='QLabel' visible='1'}
 :Multiple Sites_QComboBoxListView	{container=':_inventory.Multiple Sites_QGroupBox' type='QComboBoxListView' unnamed='1' visible='1'}
 :New Calendar Type?_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='New Calendar Type?'}
+:No_QPushButton	{text='No' type='QPushButton' unnamed='1' visible='1' window=':_QMessageBox_2'}
+:OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':_QMessageBox'}
 :Operation.Add to Group Total_QRadioButton	{container=':Financial Report Group.Operation_QGroupBox' name='_add' text='Add to Group Total' type='QRadioButton' visible='1'}
 :Operation.Add to Group Total_QRadioButton_2	{container=':_selection.Operation_QGroupBox' name='_add' text='Add to Group Total' type='QRadioButton' visible='1'}
 :Operation.Subtract from Group Total_QRadioButton	{container=':Financial Report Group.Operation_QGroupBox' name='_subtract' text='Subtract from Group Total' type='QRadioButton' visible='1'}
@@ -1487,7 +1489,7 @@
 :Products Configuration.Enable Work Center Routings_QGroupBox	{name='_routings' title='Enable Work Center Routings' type='QGroupBox' visible='1' window=':Products Configuration_configurePD'}
 :Products Configuration.Post Item Changes to the Change Log_QCheckBox	{name='_changeLog' text='Post Item Changes to the Change Log' type='QCheckBox' visible='1' window=':Products Configuration_configurePD'}
 :Products Configuration.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Products Configuration_configurePD'}
-:Products Configuration_configurePD	{name='configurePD' type='configurePD' visible='1' windowTitle='Products Configuration'}
+:Products Configuration_configurePD	{name='configurePD' type='configurePD' visible='1' windowTitle?='*'}
 :Prospect_prospect	{name='prospect' type='prospect' visible='1' windowTitle='Prospect'}
 :Purchase Configuration.Check Print P/O on Save by Default_QCheckBox	{name='_printPO' text='Check Print P/O on Save by Default' type='QCheckBox' visible='1' window=':Purchase Configuration_configurePO'}
 :Purchase Configuration.Default P/O Copies:_QGroupBox	{name='_poGroup' title='Default P/O Copies:' type='QGroupBox' visible='1' window=':Purchase Configuration_configurePO'}
@@ -1591,7 +1593,7 @@
 :Select one Account._main_XLineEdit	{container=':_selection.Select one Account_QGroupBox' name='_main' type='XLineEdit' visible='1'}
 :Set Encryption?.No_QPushButton	{text='No' type='QPushButton' unnamed='1' visible='1' window=':Set Encryption?_QMessageBox'}
 :Set Encryption?.Your encryption key is not set. You will not be able to configure electronic checking information for Vendors until you configure encryption. Would you like to do this now?_QLabel	{name='qt_msgbox_label' text='Your encryption key is not set. You will not be able to configure electronic checking information for Vendors until you configure encryption. Would you like to do this now?' type='QLabel' visible='1' window=':Set Encryption?_QMessageBox'}
-:Set Encryption?_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Set Encryption?'}
+:Set Encryption?_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='*'}
 :Settings.Allow Free-Form Bill-To_QCheckBox	{container=':general.Settings_QGroupBox' name='_allowFFBillto' text='Allow Free-Form Bill-To' type='QCheckBox' visible='1'}
 :Settings._sellingWarehouse_WComboBox	{container=':general.Settings_QGroupBox' name='_sellingWarehouse' type='WComboBox' visible='1'}
 :Setup Labor Rate.Select Standard Rate:_QRadioButton	{container=':_costsTab.Setup Labor Rate_QGroupBox' name='_setupUseSelectedRate' text='Select Standard Rate:' type='QRadioButton' visible='1'}
@@ -1900,6 +1902,8 @@
 :Work Center.widget_QWidget	{container=':xTuple ERP: OpenMFG Edition.Work Center_QWorkspaceChild' name='widget' type='QWidget' visible='1'}
 :Work Center_workCenter	{name='workCenter' type='workCenter' visible='1' windowTitle='Work Center'}
 :_DCalendarPopup	{type='DCalendarPopup' unnamed='1' visible='1'}
+:_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' WindowTitle?='*'}
+:_QMessageBox_2	{type='QMessageBox' unnamed='1' visible='1'}
 :_accountGroup._main_XLineEdit	{container=':Bank Account._accountGroup_QGroupBox' name='_main' type='XLineEdit' visible='1'}
 :_accountNumber_XLineEdit	{buddy=':Vendor.Number:_QLabel' name='_accountNumber' type='XLineEdit' visible='1'}
 :_accountNumber_XLineEdit_2	{buddy=':_bankGroup.Account Number:_QLabel' name='_accountNumber' type='XLineEdit' visible='1'}
@@ -2062,6 +2066,8 @@
 :_creditGroup.Place on Credit Warning when Credit Limit/Grace Days is Exceeded_QCheckBox	{container=':credit._creditGroup_QGroupBox' name='_autoUpdateStatus' text='Place on Credit Warning when Credit Limit/Grace Days is Exceeded' type='QCheckBox' visible='1'}
 :_creditGroup._creditRating_XLineEdit	{container=':credit._creditGroup_QGroupBox' name='_creditRating' type='XLineEdit' visible='1'}
 :_creditGroup_XLineEdit	{container=':credit._creditGroup_QGroupBox' type='XLineEdit' unnamed='1' visible='1'}
+:_creditMemoForm.BillingSelections_ListViewItem	{column='0' container=':Customer Form Assignment._creditMemoForm_XComboBox' row='29' text='BillingSelections' type='ListViewItem'}
+:_creditMemoForm.Invoice_ListViewItem	{column='0' container=':Customer Form Assignment._creditMemoForm_XComboBox' row='140' text='Invoice' type='ListViewItem'}
 :_currencyScale_QSpinBox	{buddy=':List Locales.Currency:_QLabel' name='_currencyScale' type='QSpinBox' visible='1'}
 :_currency_XComboBox	{buddy=':_bankGroup.Currency:_QLabel' name='_currency' type='XComboBox' visible='1'}
 :_currency_XComboBox_2	{buddy=':Tax Authority.Currency:_QLabel' name='_currency' type='XComboBox' visible='1'}
@@ -2303,7 +2309,7 @@
 :_itemGroup._planningType_QComboBox_9	{container=':Item._itemGroup_QGroupBox_9' name='_planningType' type='QComboBox' visible='1'}
 :_itemGroup_QComboBoxListView	{container=':Item._itemGroup_QGroupBox' type='QComboBoxListView' unnamed='1' visible='1'}
 :_itemGroup_QComboBoxListView_2	{container=':Item._itemGroup_QGroupBox_3' type='QComboBoxListView' unnamed='1' visible='1'}
-:_itemGroup_QMessageBox	{aboveWidget=':Item._itemGroup_QGroupBox_3' type='QMessageBox' unnamed='1' visible='1'}
+:_itemGroup_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' WindowTitle?='*'}
 :_itemGroup_XLineEdit	{container=':Item._itemGroup_QGroupBox' type='XLineEdit' unnamed='1' visible='1'}
 :_itemGroup_XLineEdit_2	{container=':Item._itemGroup_QGroupBox_2' type='XLineEdit' unnamed='1' visible='1'}
 :_itemGroup_XLineEdit_3	{container=':Item._itemGroup_QGroupBox_3' type='XLineEdit' unnamed='1' visible='1'}
