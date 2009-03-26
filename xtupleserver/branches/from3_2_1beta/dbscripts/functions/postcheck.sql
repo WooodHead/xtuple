@@ -138,12 +138,12 @@ BEGIN
         ( apapply_vend_id, apapply_postdate, apapply_username,
           apapply_source_apopen_id, apapply_source_doctype, apapply_source_docnumber,
           apapply_target_apopen_id, apapply_target_doctype, apapply_target_docnumber,
-          apapply_journalnumber, apapply_amount, apapply_curr_id )
+          apapply_journalnumber, apapply_amount, apapply_curr_id, apapply_checkhead_id )
         VALUES
         ( _p.checkhead_recip_id, _p.checkhead_checkdate, CURRENT_USER,
-          _p.checkhead_id, 'K', _p.checkhead_number,
+          -1, 'K', _p.checkhead_number,
           _r.apopen_id, _r.apopen_doctype, _r.apopen_docnumber,
-          _journalNumber, _r.checkitem_amount, _r.checkitem_curr_id );
+          _journalNumber, _r.checkitem_amount, _r.checkitem_curr_id, _p.checkhead_id );
       END IF; -- if check item's apopen_id is not null
 
       IF (_r.aropen_id IS NOT NULL) THEN
