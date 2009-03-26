@@ -174,11 +174,13 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
                            " WHERE (image_name=:name);")
                           .arg(_system ? "" : "pkg"));
   else
+  {
     select.prepare(_pkgitemQueryStr);
+    select.bindValue(":pkgname", pkgname);
+    // select.bindValue(":grade",   _grade);
+    select.bindValue(":type",    _pkgitemtype);
+  }
   select.bindValue(":name",    _name);
-  select.bindValue(":pkgname", pkgname);
-  select.bindValue(":grade",   _grade);
-  select.bindValue(":type",    _pkgitemtype);
   select.exec();
   if(select.first())
   {
