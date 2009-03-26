@@ -4,7 +4,12 @@
 
 SELECT apapply.*,
        vend_number, vend_name,
-       apapply_source_apopen_id AS apapply_source_docnumber_xtidrole,
+       CASE 
+         WHEN apapply_source_doctype = 'K' THEN
+            apapply_checkhead_id
+         ELSE
+            apapply_source_apopen_id 
+       END AS apapply_source_docnumber_xtidrole,
        CASE WHEN (apapply_source_doctype='C') THEN <? value("creditMemo") ?>
             WHEN (apapply_source_doctype='K') THEN <? value("check") ?>
             ELSE apapply_source_doctype

@@ -142,7 +142,7 @@ BEGIN
           apapply_journalnumber, apapply_amount, apapply_curr_id )
         VALUES
         ( _p.checkhead_recip_id, _p.checkhead_checkdate, CURRENT_USER,
-          _p.checkhead_id, 'K', _p.checkhead_number,
+          -1, 'K', _p.checkhead_number,
           _r.apopen_id, _r.apopen_doctype, _r.apopen_docnumber,
           _journalNumber, _r.checkitem_amount, _r.checkitem_curr_id );
       END IF; -- if check item's apopen_id is not null
