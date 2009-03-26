@@ -1,14 +1,23 @@
 -- Group: quotes
 -- Name: detail
--- Notes: used by dspQuotesByCustomer
+-- Notes:
 
 SELECT quhead.*,
+<? if exists("customersOnly") ?>
        cust_id, cust_number, cust_name,
+<? endif ?>
        ( SELECT MIN(quitem_scheddate)
            FROM quitem
           WHERE (quitem_quhead_id=quhead_id) ) AS min_scheddate
-FROM quhead JOIN cust ON (cust_id=quhead_cust_id)
+FROM quhead
+<? if exists("customersOnly") ?>
+  JOIN custinfo ON (quhead_cust_id=cust_id)
+<? endif ?>
 WHERE ( (1=1)
+<? if not exists("showExpired") ?>
+  AND ((quhead_expire IS NULL) OR (quhead_expire >= CURRENT_DATE))
+<? endif ?>
+<? if exists("customersOnly") ?>
 <? if exists("cust_id") ?>
   AND  (quhead_cust_id=<? value("cust_id") ?>)
 <? endif ?>
@@ -17,6 +26,7 @@ WHERE ( (1=1)
 <? endif ?>
 <? if exists("custtype_pattern") ?>
   AND  (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
+<? endif ?>
 <? endif ?>
 <? if exists("poNumber") ?>
   AND  (quhead_custponumber=<? value("poNumber") ?>)
@@ -27,7 +37,11 @@ WHERE ( (1=1)
   AND   ((SELECT COUNT(*)
          FROM quitem JOIN itemsite ON (itemsite_id=quitem_itemsite_id)
                      JOIN site() ON (warehous_id=itemsite_warehous_id)
-        WHERE (quitem_quhead_id=quhead_id)) > 0) )
+        WHERE (quitem_quhead_id=quhead_id)
+<? if exists("warehous_id") ?>
+  AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+<? endif ?>
+) > 0) )
 <? if exists("orderByCust") ?>
   ORDER BY cust_number, quhead_number;
 <? else ?>
