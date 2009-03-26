@@ -251,9 +251,10 @@ function executeChapter8(appVersion)
     clickButton(":List Shipping Forms.New_QPushButton");
     waitForObject(":_name_XLineEdit_11");
     type(":_name_XLineEdit_11", "STANDARD-PACKING-LIST");
+    waitForObject(":_report_XComboBox");
     if(findObject(":_report_XComboBox").currentText!="PackingList");
       clickItem(":_report_XComboBox", "PackingList",0,0,1,Qt.LeftButton);
-    waitForObject(":Shipping Form.Save_QPushButton");
+      waitForObject(":Shipping Form.Save_QPushButton");
     clickButton(":Shipping Form.Save_QPushButton");
     waitForObject(":List Shipping Forms._bolformat_XTreeWidget");
     if(!clickItem(":List Shipping Forms._bolformat_XTreeWidget", "STANDARD-PACKING-LIST", 97, 3, 1, Qt.LeftButton))
@@ -264,6 +265,7 @@ function executeChapter8(appVersion)
     clickButton(":List Shipping Forms.New_QPushButton");
     waitForObject(":_name_XLineEdit_11");
     type(":_name_XLineEdit_11", "INTRAN-PACKING-LIST");
+    waitForObject(":_report_XComboBox");
     if(findObject(":_report_XComboBox").currentText!="PackingList-Shipment");
       clickItem(":_report_XComboBox", "PackingList-Shipment",0,0,1,Qt.LeftButton);
     waitForObject(":Shipping Form.Save_QPushButton");
@@ -512,7 +514,7 @@ function executeChapter8(appVersion)
     }
     clickButton(":Sales Configuration.Save_QPushButton");
     test.log("Sales Module Configured");
-  
+
 
   
     //------------Sales: Account Assignments-----------------
@@ -520,7 +522,7 @@ function executeChapter8(appVersion)
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Master Information");
     activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_7", "Sales Account Assignments...");
+    waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_7");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_7", "Sales Account Assignments...");
     
     waitForObject(":List Sales Account Assignments.New_QPushButton");
@@ -640,8 +642,6 @@ function executeChapter8(appVersion)
     if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
         clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);
     clickButton(":Ship-To.Save_QPushButton");
-    
-    
     waitForObject(":_addressStack.New_QPushButton");
     clickButton(":_addressStack.New_QPushButton");
     waitForObject(":_shipToNumber_XLineEdit");
@@ -655,8 +655,11 @@ function executeChapter8(appVersion)
     type(":Ship-To.City:_XLineEdit", "Alaska");
     clickItem(":Ship-To.State:_XComboBox", "WDC",0,0,1,Qt.LeftButton);
     type(":Ship-To.Postal Code:_XLineEdit", "345235");
+    waitForObject(":Ship-To.Country:_XComboBox");
     clickItem(":Ship-To.Country:_XComboBox", "United States",0,0,1,Qt.LeftButton);
+    waitForObject(":Ship-To._honorific_XComboBox");
     clickItem(":Ship-To._honorific_XComboBox", "Mr",0,0,1,Qt.LeftButton);
+    waitForObject(":Ship-To._first_XLineEdit");
     type(":Ship-To._first_XLineEdit", "Rakesh");
     type(":Ship-To._middle_XLineEdit", "H");
     type(":Ship-To._last_XLineEdit", "Mittal");
@@ -665,15 +668,19 @@ function executeChapter8(appVersion)
     type(":Ship-To._fax_XLineEdit", "23425");
     type(":Ship-To._email_XLineEdit", "rakesh@test.com");
     type(":_commission_XLineEdit", "7.5");
+    waitForObject(":Defaults:._shipform_XComboBox");
     if(findObject(":Defaults:._shipform_XComboBox").currentText!= "STANDARD-PACKING-LIST")
         clickItem(":Defaults:._shipform_XComboBox", "STANDARD-PACKING-LIST",0,0,1,Qt.LeftButton);
+    waitForObject(":Defaults:._shipchrg_XComboBox");
     if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
-        clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);
+        clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);	
+    snooze(0.5);
+    waitForObject(":Ship-To.Save_QPushButton");
     clickButton(":Ship-To.Save_QPushButton");
-    
     waitForObject(":Customer.Save_QPushButton");
     clickButton(":Customer.Save_QPushButton");
     test.log("Customer: TTOYS created");
+    snooze(1);
   
   
     

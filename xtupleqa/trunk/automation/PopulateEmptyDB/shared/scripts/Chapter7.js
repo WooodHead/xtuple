@@ -320,8 +320,11 @@ function executeChapter7(appVersion)
     type(":_addressStack.Street\nAddress:_XLineEdit_3", "Vengal Rao  Nagar");
     type(":_addressStack.City:_XLineEdit", "Kolkata");
     type(":_addressStack.State:_XComboBox", "WB");
+    waitForObject(":_addressStack.Postal Code:_XLineEdit");
     type(":_addressStack.Postal Code:_XLineEdit", "300838");
+    waitForObject(":_addressStack.Country:_XComboBox");
     clickItem(":_addressStack.Country:_XComboBox", "India",0,0,1,Qt.LeftButton);
+    waitForObject(":Vendor.Save_QPushButton");
     clickButton(":Vendor.Save_QPushButton");
     waitForObject(":List Vendors._vendor_XTreeWidget");
     if(!clickItem(":List Vendors._vendor_XTreeWidget", "TPARTS", 5, 5, 1, Qt.LeftButton))

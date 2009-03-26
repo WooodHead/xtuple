@@ -95,8 +95,6 @@ function executeChapter10(appVersion)
         clickButton(":Accounting Configuration.Save_QPushButton");
         waitForObject(":No_QPushButton");
         clickButton(":No_QPushButton");
-        waitForObject(":Set Encryption?.No_QPushButton");
-        clickButton(":Set Encryption?.No_QPushButton");
         test.log("Accounting for ACH configured");
 
     }

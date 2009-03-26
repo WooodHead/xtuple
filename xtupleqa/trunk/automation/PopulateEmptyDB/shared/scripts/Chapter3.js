@@ -289,7 +289,7 @@ function executeChapter3(appVersion)
    
     waitForObject(":List Items.Close_QPushButton_3");
     clickButton(":List Items.Close_QPushButton_3");
-    
+  
 
   
   //---------------Create Item sites------------------------------ 
@@ -511,7 +511,7 @@ function executeChapter3(appVersion)
     waitForObject(":_itemSite_XTreeWidget_2");
     if(!clickItem(":_itemSite_XTreeWidget_2", "TINSERT1", 5, 5, 1, Qt.LeftButton))
         test.pass("Item Site Created: TINSERT1");
-    
+  
     
     //---------Item site: TWHEEL1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
@@ -527,9 +527,13 @@ function executeChapter3(appVersion)
         clickButton(":Supplied at this Site.Create W/Os to Meet Sales Demand_QCheckBox_3");
     type(":Item Site.Sold from this Site_QGroupBox"," ");
     clickButton(":Costing Method.Standard_QRadioButton_3");
+    waitForObject(":Control._controlMethod_XComboBox_3");
     clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_plannerCode_XComboBox_2");
     clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_costcat_XComboBox_3");
     clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton);    
+    waitForObject(":_inventory.Stocked_QCheckBox_3");
     waitForObject(":_inventory.Stocked_QCheckBox_3");    
     if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
         clickButton(":_inventory.Stocked_QCheckBox_3");
