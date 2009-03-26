@@ -169,13 +169,13 @@ int Loadable::upsertPkgItem(int &pkgitemid, const int pkgheadid,
                    ") VALUES ("
                    "    :id, :headid, :type,"
                    "    :itemid, :name, :descrip);");
+    upsert.bindValue(":headid",  pkgheadid);
+    upsert.bindValue(":type",    _pkgitemtype);
+    upsert.bindValue(":itemid",  itemid);
+    upsert.bindValue(":name",    _name);
   }
 
   upsert.bindValue(":id",      pkgitemid);
-  upsert.bindValue(":headid",  pkgheadid);
-  upsert.bindValue(":type",    _pkgitemtype);
-  upsert.bindValue(":itemid",  itemid);
-  upsert.bindValue(":name",    _name);
   upsert.bindValue(":descrip", _comment);
 
   if (!upsert.exec())
