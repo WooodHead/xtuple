@@ -275,13 +275,13 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
                            "        report_source, report_descrip)"
                            "VALUES (:id, :name, :grade, :source, :notes);")
                           .arg(_system ? "" : "pkg"));
+    upsert.bindValue(":grade",   _grade);
+    upsert.bindValue(":name",    _name);
   }
 
   upsert.bindValue(":id",      reportid);
-  upsert.bindValue(":grade",   _grade);
   upsert.bindValue(":source",  report_src);
   upsert.bindValue(":notes",   _comment);
-  upsert.bindValue(":name",    _name);
 
   if (!upsert.exec())
   {
