@@ -1,0 +1,409 @@
+====================================================================
+CHANGED REPORTS:
+BankrecHistory
+Invoice
+PurchaseOrder
+
+ 
+ ====================================================================
+ REPORT: BankrecHistory
+ QUERY: detail
+ SELECT gltrans_id, formatDate(gltrans_date) AS f_date,
+        gltrans_docnumber,
+-       formatMoney(gltrans_amount * -1) AS f_amount 
++       formatMoney(currtolocal(bankaccnt_curr_id,gltrans_amount,gltrans_date) * -1) AS f_amount 
+   FROM gltrans, bankrecitem 
++    JOIN bankrec ON (bankrecitem_bankrec_id=bankrec_id)
++    JOIN bankaccnt ON (bankaccnt_id=bankrec_bankaccnt_id)
+  WHERE ((bankrecitem_bankrec_id=<? value("bankrec_id") ?>)
+    AND (bankrecitem_source='GL')
+    AND (bankrecitem_source_id=gltrans_id) ) 
+  ORDER BY gltrans_date, gltrans_id;
+ --------------------------------------------------------------------
+   
+ QUERY: head
+ SELECT (bankaccnt_name || '-' || bankaccnt_descrip) AS f_bankaccnt,
+        (formatDate(bankrec_opendate) || '-' || formatDate(bankrec_enddate)) AS f_bankrec,
+        bankrec_username AS f_username, formatDate(bankrec_created) AS f_created,
+        formatDate(bankrec_opendate) AS f_opendate,
+        formatDate(bankrec_enddate) AS f_enddate,
+        formatMoney(bankrec_openbal) AS f_openbal,
+        formatMoney(bankrec_endbal) AS f_endbal,
+        text('Opening Balance') AS f_opendescrip,
+        text('Ending Balance') AS f_enddescrip
+   FROM bankrec, bankaccnt
+  WHERE ((bankrec_bankaccnt_id=bankaccnt_id)
+    AND  (bankrec_id=<? value("bankrec_id") ?>));
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: Invoice
+ QUERY: GroupHead
+ SELECT 
+        --remitto.*,
+ remitto_name,
+ formatAddr(remitto_address1, remitto_address2, remitto_address3, remitto_citystatezip, remitto_country) AS remitto_adr,
+        invchead_invcnumber AS invoicenumber,
+        formatDate(invchead_invcdate) AS f_invoicedate,
+        cust_number,
+        invchead_billto_name,
+        formatAddr(invchead_billto_address1, invchead_billto_address2, invchead_billto_address3, ( invchead_billto_city || '  ' || invchead_billto_state || '  ' || invchead_billto_zipcode ), invchead_billto_country) AS f_billtoaddress,
+        invchead_billto_phone,
+        invchead_shipto_name,
+        formatAddr(invchead_shipto_address1, invchead_shipto_address2, invchead_shipto_address3, ( invchead_shipto_city || '  ' || invchead_shipto_state || ' ' || invchead_shipto_zipcode ), invchead_shipto_country) AS f_shiptoaddress,
+        invchead_ordernumber AS ordernumber,
+        invchead_ponumber,
+        formatDate(invchead_orderdate) AS f_orderdate,
+        formatDate(invchead_shipdate) AS f_shipdate,
+        invchead_fob, terms_descrip, invchead_shipvia
+ FROM remitto, cust, invchead
+      LEFT OUTER JOIN terms ON (invchead_terms_id=terms_id)
+ WHERE ( (invchead_cust_id=cust_id)
+  AND (invchead_id=<? value("invchead_id") ?>) )
+ ORDER BY ordernumber;
+ --------------------------------------------------------------------
+   
+ QUERY: Detail
+ SELECT invcitem_linenumber,
+        formatQty(invcitem_billed) AS f_billed,
+        (select uom_name from uom where uom_id = invcitem_qty_uom_id) AS invuom,
+        CASE WHEN (item_number IS NULL) THEN invcitem_number
+             WHEN (invcitem_custpn != '') THEN invcitem_custpn
+             else item_number
+        END AS number,
+        CASE WHEN (item_number IS NULL) THEN invcitem_descrip
+             WHEN (invcitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip1
+             ELSE item_descrip1
+        END AS descrip1,
+        CASE WHEN (invcitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip2
+             ELSE item_descrip2
+        END AS descrip2,
+        formatPrice(invcitem_qty_invuomratio * invcitem_price / COALESCE(invcitem_price_invuomratio,1)) AS f_unitprice,
+        formatMoney(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / COALESCE(invcitem_price_invuomratio,1)),2)) AS f_extprice,
+        invcitem_notes,
+        getInvcitemLotSerial(invcitem_id) AS lotserial,
+ --Sub-select updated for 3.1 to support kitting
+        characteristicsToString('SI',(SELECT coitem_id FROM coitem, cohead, invchead, itemsite 
+        WHERE (cohead_number=invchead_ordernumber and invchead_id=<? value("invchead_id") ?>
+        and coitem_cohead_id=cohead_id 
+        and invcitem_item_id = item_id
+        and coitem_itemsite_id = itemsite_id
+        and itemsite_item_id = item_id
+        and coitem_linenumber=invcitem_linenumber)
+        ), '=', ', ') 
+        AS coitem_characteristics
+ FROM invcitem LEFT OUTER JOIN (item JOIN uom ON (item_inv_uom_id=uom_id)) ON (invcitem_item_id=item_id) LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=invcitem_custpn)
+ WHERE (invcitem_invchead_id=<? value("invchead_id") ?>)
+ ORDER BY invcitem_linenumber;
+ --------------------------------------------------------------------
+   
+ QUERY: foot
+ SELECT formatMoney(SUM(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / COALESCE(invcitem_price_invuomratio,1)),2))) AS f_extprice
+ FROM invcitem LEFT OUTER JOIN item on (invcitem_item_id=item_id)
+ WHERE (invcitem_invchead_id=<? value("invchead_id") ?>);
+ --------------------------------------------------------------------
+   
+ QUERY: GroupExtended
+ SELECT formatMoney( noNeg(invchead_freight + invchead_misc_amount +
+                           invchead_tax +
+                           COALESCE(SUM(ROUND(((invcitem_billed * invcitem_qty_invuomratio) *
+                                               (invcitem_price / COALESCE(invcitem_price_invuomratio,1))),2)), 0) -
+-                          MAX(total_allocated)) ) AS f_totaldue,
++                          total_allocated) ) AS f_totaldue,
+       formatMoney(invchead_misc_amount) AS f_misc,
+       formatMoney(invchead_tax) AS f_tax,
+       formatMoney(invchead_freight) AS f_freight,
+       formatMoney(invchead_payment +
+                   (SELECT COALESCE(SUM(arapply_applied), 0) AS applied
+                    FROM arapply LEFT OUTER JOIN
+                         invchead ON (arapply_target_docnumber = invchead_invcnumber)
+                    WHERE ((invchead_id = <? value("invchead_id") ?>)
+                       AND (arapply_source_doctype = 'K')))) AS f_payment,
+-      formatMoney(MAX(total_allocated)) AS f_allocated,
++      formatMoney(total_allocated) AS f_allocated,
+       invchead_notes,
+       invchead_misc_descrip
+ FROM invchead
+      LEFT OUTER JOIN invcitem ON (invcitem_invchead_id=invchead_id)
+      LEFT OUTER JOIN item ON (invcitem_item_id=item_id),
+-    (SELECT COALESCE(SUM(CASE WHEN((aropen_amount - aropen_paid) >=
++    (SELECT MAX(total_allocated) AS total_allocated FROM (SELECT COALESCE(SUM(CASE WHEN((aropen_amount - aropen_paid) >=
+                        currToCurr(aropenco_curr_id, aropen_curr_id,
+                           aropenco_amount, aropen_docdate))
+            THEN currToCurr(aropenco_curr_id, invchead_curr_id,
+                    aropenco_amount, aropen_docdate)
+            ELSE currToCurr(aropen_curr_id, invchead_curr_id,
+                    aropen_amount - aropen_paid, aropen_docdate)
+            END),0) AS total_allocated
+      FROM aropenco, aropen, cohead, invchead
+     WHERE ( (aropenco_aropen_id=aropen_id)
+       AND   (aropenco_cohead_id=cohead_id)
+       AND   ((aropen_amount - aropen_paid) > 0)
+       AND   (cohead_number=invchead_ordernumber)
+       AND   (NOT invchead_posted)
+       AND   (invchead_id=<? value("invchead_id") ?>) )
+     UNION
+     SELECT COALESCE(SUM(currToCurr(arapply_curr_id, t.aropen_curr_id,
+                                    arapply_applied, t.aropen_docdate)),0) AS total_allocated
+      FROM arapply, aropen s, aropen t, invchead
+     WHERE ( (s.aropen_id=arapply_source_aropen_id)
+       AND   (arapply_target_aropen_id=t.aropen_id)
+       AND   (arapply_target_doctype='I')
+       AND   (arapply_target_docnumber=invchead_invcnumber)
+       AND   (arapply_source_aropen_id=s.aropen_id)
+       AND   (invchead_posted)
+       AND   (invchead_id=<? value("invchead_id") ?>) )
+-    ) AS totalalloc
++    ) AS data) AS totalalloc
+ WHERE (invchead_id=<? value("invchead_id") ?>)
+ GROUP BY invchead_freight, invchead_misc_amount, invchead_tax, invchead_payment,
+-         invchead_notes, invchead_misc_descrip
++         invchead_notes, invchead_misc_descrip, total_allocated
+ ;
+ --------------------------------------------------------------------
+   
+ QUERY: allocatedCMs
+ SELECT cohead_id,
+        aropen_docnumber,
+        formatMoney(aropen_amount) AS f_total,
+        formatMoney(aropen_paid) AS f_paid,
+        formatMoney(aropen_amount - aropen_paid) AS f_balance,
+        CASE WHEN((aropen_amount - aropen_paid) >= currToCurr(aropenco_curr_id,
+ 							     aropen_curr_id,
+ 							     aropenco_amount,
+ 							     aropen_docdate))
+ 	    THEN currToCurr(aropenco_curr_id, aropen_curr_id,
+ 			    aropenco_amount, aropen_docdate)
+             ELSE (aropen_amount - aropen_paid)
+        END AS allocated,
+        CASE WHEN((aropen_amount - aropen_paid) >= currToCurr(aropenco_curr_id,
+ 							     aropen_curr_id,
+ 							     aropenco_amount,
+ 							     aropen_docdate))
+ 	    THEN formatMoney(currToCurr(aropenco_curr_id, aropen_curr_id,
+ 					aropenco_amount, aropen_docdate))
+             ELSE formatMoney(aropen_amount - aropen_paid)
+        END AS f_allocated,
+        CASE WHEN((aropen_amount - aropen_paid) >= currToCurr(aropenco_curr_id,
+ 							     aropen_curr_id,
+ 							     aropenco_amount,
+ 							     aropen_docdate))
+ 	    THEN currToCurr(aropenco_curr_id, invchead_curr_id,
+ 			    aropenco_amount, aropen_docdate)
+             ELSE currToCurr(aropen_curr_id, invchead_curr_id,
+                             aropen_amount - aropen_paid, aropen_docdate)
+        END AS allocated_invccurr,
+        CASE WHEN((aropen_amount - aropen_paid) >= currToCurr(aropenco_curr_id,
+ 							     aropen_curr_id,
+ 							     aropenco_amount,
+ 							     aropen_docdate))
+ 	    THEN formatMoney(currToCurr(aropenco_curr_id, invchead_curr_id,
+ 					aropenco_amount, aropen_docdate))
+             ELSE formatMoney(currToCurr(aropen_curr_id, invchead_curr_id,
+                                         aropen_amount - aropen_paid,
+                                         aropen_docdate))
+        END AS f_allocated_invccurr,
+        curr_symbol AS aropen_currsymbol
+   FROM aropenco, aropen, cohead, invchead, curr_symbol
+  WHERE ( (aropenco_aropen_id=aropen_id)
+    AND   (aropenco_cohead_id=cohead_id)
+    AND   ((aropen_amount - aropen_paid) > 0)
+    AND   (aropen_curr_id=curr_id)
+    AND   (cohead_number=invchead_ordernumber)
+    AND   (NOT invchead_posted)
+    AND   (invchead_id=<? value("invchead_id") ?>) )
+ UNION
+ SELECT cohead_id,
+        arapply_source_docnumber AS aropen_docnumber,
+        formatMoney(s.aropen_amount) AS f_total,
+        formatMoney(s.aropen_paid -
+                    currToCurr(arapply_curr_id, s.aropen_curr_id,
+                               arapply_applied, arapply_postdate)) AS f_paid,
+        formatMoney(s.aropen_amount - s.aropen_paid +
+                    currToCurr(arapply_curr_id, s.aropen_curr_id,
+                               arapply_applied, arapply_postdate)) AS f_balance,
+        currToCurr(arapply_curr_id, s.aropen_curr_id,
+                   arapply_applied, arapply_postdate) AS allocated,
+        formatMoney(currToCurr(arapply_curr_id, s.aropen_curr_id,
+                               arapply_applied,
+                               arapply_postdate)) AS f_allocated,
+        currToCurr(arapply_curr_id, invchead_curr_id,
+                   arapply_applied, t.aropen_docdate) AS allocated_invccurr,
+        formatMoney(currToCurr(arapply_curr_id, invchead_curr_id,
+                               arapply_applied,
+                               t.aropen_docdate)) AS f_allocated_invccurr,
+        curr_symbol AS aropen_currsymbol
+   FROM arapply, aropen s, aropen t, cohead, invchead, curr_symbol
+  WHERE ( (s.aropen_id=arapply_source_aropen_id)
+    AND   (arapply_target_aropen_id=t.aropen_id)
+    AND   (arapply_target_doctype='I')
+    AND   (arapply_target_docnumber=invchead_invcnumber)
+    AND   (arapply_source_aropen_id=s.aropen_id)
+    AND   (arapply_curr_id=curr_id)
+    AND   (cohead_number=invchead_ordernumber)
+    AND   (invchead_posted)
+    AND   (invchead_id=<? value("invchead_id") ?>) )
+  ORDER BY aropen_docnumber;
+ --------------------------------------------------------------------
+   
+ QUERY: currency
+ SELECT
+  curr_symbol
+ FROM
+     invchead,
+     curr_symbol
+ WHERE (invchead_id = <? value("invchead_id") ?>) AND
+       invchead_curr_id = curr_id;
+ --------------------------------------------------------------------
+   
+ QUERY: logo
+ SELECT image_data 
+ FROM image 
+ WHERE ((image_name='logo'));
+ --------------------------------------------------------------------
+   
+ QUERY: tracknum
+ select formatdate(cosmisc_shipdate) AS f_shipdate, cosmisc_tracknum, cosmisc_shipvia from cohead, cosmisc, invchead 
+ where 
+ cohead_id = cosmisc_cohead_id
+ and cohead_number = invchead_ordernumber
+ and invchead_id = <? value("invchead_id") ?>
+ order by cosmisc_shipdate;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: PurchaseOrder
+ QUERY: Head
+ SELECT pohead_number,
+        formatDate(pohead_orderdate) AS f_orderdate,
+        pohead_fob,
+        pohead_shipvia,
++       terms_descrip,
+        vend_number,
+        vend_name,
+-       formatAddr(vend_address1, vend_address2, vend_address3, (vend_city || '  '  || vend_state || '  ' || vend_zip), vend_country) AS f_address,
++       vend_address1,
++       vend_address2,
++       vend_address3,
++       (vend_city || '  '  || vend_state || '  ' || vend_zip) AS vendcitystatezip,
++       formataddr(vend_address1, vend_address2, vend_address3, (vend_city || '  '  || vend_state || '   ' || vend_zip), vend_country) as vend_address,
+        warehous_descrip,
+-       formatAddr(warehous_addr1, warehous_addr2, warehous_addr3, (warehous_city || '  '  || warehous_state || '  ' || warehous_zip), warehous_country) AS f_shiptoaddress,
+-       CASE WHEN(pohead_terms_id IS NULL OR pohead_terms_id = -1) THEN text('N/A')
+-            ELSE (SELECT terms_code FROM terms WHERE (terms_id=pohead_terms_id) )
+-       END AS f_terms,
++       addr_line1 as warehous_addr1,
++       addr_line2 as warehous_addr2,
++       addr_line3 as warehous_addr3,
++       addr_city  as warehous_addr4,
++       addr_postalcode as zip,
++       addr_state,
++       addr_country,
++       formataddr(addr_line1, addr_line2, addr_line3, (addr_city || ' ' || addr_state || ' ' || addr_postalcode), addr_country) as warehouse_address,
+        pohead_agent_username AS username,
+        pohead_comments,
+        text(<? value("title") ?>) AS title
+-  FROM pohead, vend, warehous
++ FROM pohead
++   LEFT OUTER JOIN terms ON (pohead_terms_id = terms_id),
++   vend, whsinfo
++   LEFT OUTER JOIN addr ON (warehous_addr_id = addr_id)
+  WHERE ((pohead_vend_id=vend_id)
+-   AND (pohead_warehous_id=warehous_id)
++   AND (pohead_warehous_id = warehous_id)
+    AND (pohead_id=<? value("pohead_id") ?>) );
+ --------------------------------------------------------------------
+   
+ QUERY: Detail
+ SELECT poitem_linenumber,
+        poitem_comments,
+        poitem_linenumber AS f_line,
+        item_number,
+        poitem_vend_item_number,
+-       CASE WHEN (poitem_vend_item_descrip LIKE '') THEN (item_descrip1 || ' ' || item_descrip2)
++       CASE WHEN (LENGTH(TRIM(BOTH '	' FROM poitem_vend_item_descrip)) <= 0) THEN
++          (item_descrip1 || '' || item_descrip2)
+             ELSE (poitem_vend_item_descrip)
+        END AS itemdescription,
+        formatQty(poitem_qty_ordered) AS f_ordered,
+        CASE WHEN (poitem_vend_uom LIKE '') THEN (uom_name)
+             ELSE (poitem_vend_uom)
+        END AS itemuom,
+        formatPrice(poitem_unitprice) AS f_price,
+        formatExtPrice(poitem_unitprice * poitem_qty_ordered) AS f_extended,
+-       formatDate(poitem_duedate) AS f_duedate
+-  FROM poitem LEFT OUTER JOIN
+-         ( itemsite JOIN item
+-           ON (itemsite_item_id=item_id) JOIN uom ON (item_inv_uom_id=uom_id))
+-         ON (poitem_itemsite_id=itemsite_id)
+- WHERE (poitem_pohead_id=<? value("pohead_id") ?>)
++       formatDate(poitem_duedate) AS f_duedate,
++       characteristicsToString('PI', poitem_id, '=', ', ') AS poitem_characteristics
++FROM poitem
++	LEFT OUTER JOIN itemsite ON (poitem_itemsite_id = itemsite_id)
++	LEFT OUTER JOIN (item JOIN uom ON (item_inv_uom_id=uom_id)) ON (itemsite_item_id = item_id)
++WHERE 	(poitem_pohead_id=<? value("pohead_id") ?>) 
+ ORDER BY poitem_linenumber;
+ --------------------------------------------------------------------
+   
+ QUERY: Foot
+-SELECT formatExtPrice(COALESCE(SUM(poitem_qty_ordered * poitem_unitprice), 0)) AS f_totaldue
+-  FROM poitem
+- WHERE (poitem_pohead_id=<? value("pohead_id") ?>);
++SELECT formatExtPrice(COALESCE(SUM(poitem_qty_ordered * poitem_unitprice), 0)) AS f_subtotal,
++       formatExtPrice(COALESCE(SUM(poitem_freight)+pohead_freight,0)) AS f_totalfreight,
++       formatExtPrice(COALESCE(pohead_tax,0)) AS f_tax,
++       formatExtPrice(COALESCE(SUM(poitem_qty_ordered * poitem_unitprice), 0)+COALESCE(SUM(poitem_freight)+pohead_freight,0)+COALESCE(pohead_tax,0)) AS f_totaldue
++  FROM poitem, pohead
++ WHERE ( (poitem_pohead_id=<? value("pohead_id") ?>)
++  AND (pohead_id=poitem_pohead_id) )
++ GROUP BY pohead_freight, pohead_tax;
+ --------------------------------------------------------------------
+   
+ QUERY: Logo
+ SELECT image_data
+-  FROM image
+- WHERE (image_name='NSILogo');
++FROM image 
++WHERE ((image_name='logo'));
+ --------------------------------------------------------------------
+   
+-QUERY: FootExt
+-SELECT formatExtPrice(pohead_freight + pohead_tax +
+-         ( SELECT COALESCE(SUM(poitem_qty_ordered * poitem_unitprice), 0)
+-             FROM poitem
+-            WHERE (poitem_pohead_id=<? value("pohead_id") ?>)
+-         )) AS f_total,
+-       formatExtPrice(pohead_tax) AS f_tax,
+-       formatExtPrice(pohead_freight) AS f_freight
+-  FROM pohead
+- WHERE (pohead_id=<? value("pohead_id") ?>)
++QUERY: Currency
++SELECT
++ curr_symbol
++FROM
++    pohead,
++    curr_symbol
++WHERE (pohead_id = <? value("pohead_id") ?>) AND
++      pohead_curr_id = curr_id;
++--------------------------------------------------------------------
++  
++QUERY: Address
++SELECT
++     warehous_descrip,
++     formatAddr(addr_line1, addr_line2, addr_line3, ( addr_city || '  ' || addr_state || '  ' || addr_postalcode), addr_country) AS warehouse_address
++FROM
++     whsinfo, 
++     addr, 
++     pohead
++WHERE 
++     addr_id = warehous_addr_id
++     and pohead_warehous_id = warehous_id
++     AND pohead_id=<? value("pohead_id") ?> ;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
