@@ -63,7 +63,7 @@ VALUES (
     ELSE NULL
   END,
   COALESCE(NEW.ext_reference, ''),
-  COALESCE(NEW.company, ''),
+  NEW.company,
   COALESCE(NEW.allow_posting_to_closed_periods, false),
   COALESCE(NEW.forward_update_trial_balances, false),
   COALESCE(NEW.sub_type, '') );
