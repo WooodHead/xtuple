@@ -182,7 +182,7 @@ CREATE OR REPLACE RULE "_DELETE" AS
 
   DELETE FROM coitem
   WHERE ((coitem_cohead_id=getCoheadId(OLD.order_number))
-  AND (coitem_id=getCoitemId(OLD.order_number,OLD.line_number))
+  AND (coitem_linenumber::text=line_number))
   AND (coitem_subnumber=0));
 
 COMMIT;
