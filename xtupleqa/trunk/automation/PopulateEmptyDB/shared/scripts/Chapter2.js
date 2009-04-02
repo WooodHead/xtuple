@@ -824,7 +824,9 @@ function executeChapter2(appVersion)
         waitForObject(":_description_QLineEdit_2");
         type(":_description_QLineEdit_2", "Christmas "+CurrentYearFull);
         waitForObject(":Site Calendar Exception.XDateEdit_XDateEdit");
+        findObject(":Site Calendar Exception.XDateEdit_XDateEdit").clear();
         type(":Site Calendar Exception.XDateEdit_XDateEdit", "12/25/"+CurrentYear);
+        findObject(":Site Calendar Exception.XDateEdit_XDateEdit_2").clear();
         type(":Site Calendar Exception.XDateEdit_XDateEdit_2", "12/26/"+CurrentYear);
         type(":Site Calendar Exception.XDateEdit_XDateEdit_2", "<Tab>");
         waitForObject(":Exception Type.Closed_QRadioButton_2");
@@ -837,7 +839,7 @@ function executeChapter2(appVersion)
         clickButton(":List Site Calendar Exceptions.Close_QPushButton_2");
  
     }
-    
+  
     if(appVersion=="postbooks"||appVersion=="standard")
     {
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");

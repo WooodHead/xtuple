@@ -5,10 +5,10 @@ function executeChapter1(appVersion)
     var newuser="user01";
 
     //-----implementation-------
-    createDept("MFG","OpenMFG");
-    assignPrivileges();
-    if(appVersion=="manufacturing")
-        createShift("1ST","First");
+//    createDept("MFG","OpenMFG");
+//    assignPrivileges();
+//    if(appVersion=="manufacturing")
+//        createShift("1ST","First");
     createLocale("MYLOCALE","My Locale For Class");
     createGroup("SUPER","Super User Group");
     createUser(newuser);

@@ -30,10 +30,11 @@ function executeChapter6(appVersion)
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
     activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
    
-    waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "TBODY1");
-    waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":Maintain Item Costs...._QPushButton");
+    clickButton(":Maintain Item Costs...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4","TBODY1",0,0,1,Qt.LeftButton);
+    
     waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObject(":Create Item Cost._costelem_XComboBox");
@@ -46,10 +47,11 @@ function executeChapter6(appVersion)
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for TBODY1 defined");    
     
-    waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "TBOX1");
-    waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
+    
+    waitForObject(":Maintain Item Costs...._QPushButton");
+    clickButton(":Maintain Item Costs...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4","TBOX1",0,0,1,Qt.LeftButton);    
     waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObject(":Create Item Cost._costelem_XComboBox");
@@ -62,10 +64,10 @@ function executeChapter6(appVersion)
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for TBOX1 defined");    
       
-    waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "TINSERT1");
-    waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
+    waitForObject(":Maintain Item Costs...._QPushButton");
+    clickButton(":Maintain Item Costs...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4","TINSERT1",0,0,1,Qt.LeftButton);
     waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObject(":Create Item Cost._costelem_XComboBox");
@@ -78,10 +80,11 @@ function executeChapter6(appVersion)
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for TINSERT1 defined");    
     
-    waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "TWHEEL1");
-    waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
+    
+    waitForObject(":Maintain Item Costs...._QPushButton");
+    clickButton(":Maintain Item Costs...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4","TWHEEL1",0,0,1,Qt.LeftButton);
     waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObject(":Create Item Cost._costelem_XComboBox");
@@ -94,10 +97,11 @@ function executeChapter6(appVersion)
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for TWHEEL1 defined");    
     
-    waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "YPAINT1");
-    waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
+  
+    waitForObject(":Maintain Item Costs...._QPushButton");
+    clickButton(":Maintain Item Costs...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4","YPAINT1",0,0,1,Qt.LeftButton);    
     waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObject(":Create Item Cost._costelem_XComboBox");
@@ -110,10 +114,11 @@ function executeChapter6(appVersion)
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for YPAINT1 defined");    
    
-    waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "YPAINT1");
-    waitForObject(":Maintain Item Costs._itemNumber_ItemLineEdit");
-    type(":Maintain Item Costs._itemNumber_ItemLineEdit", "<Tab>");
+   
+    waitForObject(":Maintain Item Costs...._QPushButton");
+    clickButton(":Maintain Item Costs...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4","YPAINT1",0,0,1,Qt.LeftButton);        
     waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObject(":Create Item Cost._costelem_XComboBox");

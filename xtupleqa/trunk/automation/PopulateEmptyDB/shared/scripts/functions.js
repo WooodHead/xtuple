@@ -172,14 +172,15 @@ function createLocale(LocaleCode,LocaleDesc)
     waitForObject(":_code_XLineEdit");
     type(":_code_XLineEdit", LocaleCode);
     type(":_description_XLineEdit", LocaleDesc);   
+    snooze(0.5);
     waitForObject(":_language_XComboBox");
     clickItem(":_language_XComboBox", "English", 0, 0, 1, Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":_country_XComboBox");
     clickItem(":_country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_currencyScale_QSpinBox");
     if(findObject(":_currencyScale_QSpinBox").text!=2)
     {
- 
         type(":_currencyScale_QSpinBox","<Del>");
         type(":_currencyScale_QSpinBox","2");
     }
