@@ -47,6 +47,10 @@ saved
 Values
 * [Sales] Fixed issue leading to incorrect error messaging
 when processing credit card transactions using Authorize.net
+* [Sales] Fixed issue preventing deletion of lines using
+api.salesline
+* [Sales] Fixed issue preventing update of Sales Orders using
+Sales Order view
 * [Schedule] Fixed issue with MRP not creating all required
 planned Work Orders in situation where BOMs were created or
 modified in an arbitrary sequence
