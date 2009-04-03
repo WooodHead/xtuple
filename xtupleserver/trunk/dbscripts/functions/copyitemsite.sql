@@ -86,7 +86,7 @@ BEGIN
     itemsite_costmethod,                itemsite_value,
     itemsite_reorderlevel,		itemsite_ordertoqty,
     itemsite_cyclecountfreq,		itemsite_datelastcount,
-    itemsite_datelastused,              itemsite_planning_type,
+    itemsite_datelastused,
     itemsite_posupply,			itemsite_wosupply,
     itemsite_loccntrl,
     itemsite_safetystock,		itemsite_minordqty,
@@ -105,14 +105,15 @@ BEGIN
     itemsite_ordergroup,		itemsite_disallowblankwip,
     itemsite_maxordqty,			itemsite_mps_timefence,
     itemsite_createwo,			itemsite_warrpurc,
-    itemsite_autoreg
+    itemsite_autoreg,
+    itemsite_planning_type,             itemsite_supply_itemsite_id
   ) VALUES (
     _new.itemsite_id,			_new.itemsite_item_id,
     _new.itemsite_warehous_id,		_new.itemsite_qtyonhand,
     _new.itemsite_costmethod,           _new.itemsite_value,
-    _new.itemsite_reorderlevel,	_new.itemsite_ordertoqty,
+    _new.itemsite_reorderlevel,	        _new.itemsite_ordertoqty,
     _new.itemsite_cyclecountfreq,	_new.itemsite_datelastcount,
-    _new.itemsite_datelastused,         _new.itemsite_planning_type,
+    _new.itemsite_datelastused,
     _new.itemsite_posupply,		_new.itemsite_wosupply,
     _new.itemsite_loccntrl,
     _new.itemsite_safetystock,		_new.itemsite_minordqty,
@@ -131,7 +132,8 @@ BEGIN
     _new.itemsite_ordergroup,		_new.itemsite_disallowblankwip,
     _new.itemsite_maxordqty,		_new.itemsite_mps_timefence,
     _new.itemsite_createwo,   	        _new.itemsite_warrpurc,
-    _new.itemsite_autoreg
+    _new.itemsite_autoreg,
+    _new.itemsite_planning_type,        _new.itemsite_supply_itemsite_id
     );
 
   RETURN _new.itemsite_id;

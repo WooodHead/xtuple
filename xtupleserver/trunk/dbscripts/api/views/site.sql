@@ -83,6 +83,12 @@ BEGIN;
       WHEN warehous_transit THEN
         0
       ELSE
+        warehous_sequence
+    END AS scheduling_sequence,
+    CASE
+      WHEN warehous_transit THEN
+        0
+      ELSE
         (warehous_shipping_commission * 100.0)
     END AS shipping_commission,
     CASE
@@ -243,7 +249,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
     warehous_shipvia_id,
     warehous_shipcomments,
     warehous_costcat_id,
-    warehous_sitetype_id
+    warehous_sitetype_id,
+    warehous_sequence
     )
   VALUES (
     COALESCE(NEW.code, ''),
@@ -423,7 +430,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
       ELSE
         NULL
     END,
-    COALESCE(getSiteTypeId(NEW.type), -1)
+    COALESCE(getSiteTypeId(NEW.type), -1),
+    COALESCE(NEW.scheduling_sequence, 0)
     );
 
 CREATE OR REPLACE RULE "_UPDATE" AS
@@ -632,7 +640,9 @@ CREATE OR REPLACE RULE "_UPDATE" AS
         ELSE
           NULL
       END,
-    warehous_sitetype_id=getSiteTypeId(NEW.type)
+    warehous_sitetype_id=getSiteTypeId(NEW.type),
+    warehous_sequence=NEW.scheduling_sequence
+
   WHERE  (warehous_id=getWarehousId(OLD.code, 'ALL'));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
