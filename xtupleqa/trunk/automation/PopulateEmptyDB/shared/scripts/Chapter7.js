@@ -296,7 +296,7 @@ function executeChapter7(appVersion)
     type(":_contact2Box._last_XLineEdit", "Bhaglani");
     type(":_contact2Box._title_XLineEdit", "Financial Advisor");
     type(":_contact2Box._phone_XLineEdit", "234533534");
-    type(":_contact2Box._fax_XLineEdit", "543677654");
+    type(":_contact2Box._fax_XLineEdit", "5436735654");
     type(":_contact2Box._email_XLineEdit", "sunita@testing.com");
     clickTab(":Vendor.qt_tabwidget_tabbar_QTabBar", "Order Notes");
     waitForObject(":ponotesTab._poComments_QTextEdit");
