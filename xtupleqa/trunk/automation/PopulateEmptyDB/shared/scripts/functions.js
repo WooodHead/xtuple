@@ -1,27 +1,25 @@
-//-***-This script doc contains all the common code libraries/functions required by the Main driver script-***-
+-***-This script doc contains all the common code libraries/functions required by the Main driver script-***-
 
  var iNumberOfModules=10;
 
 //--------Login into Appl----------
-function loginAppl(vrsn,database,usr)
+function loginAppl()
 {
    
-    var set = testData.dataset("login.txt");
-    var url, db, port, version, pwd, user;
-    user=db=version=pwd=user="";
-    for(var records in set)
+    var set = testData.dataset("login.tsv");
+    var url, db, port, pwd, user;
+    user=db=pwd=user="";
+    
+    //---Reads the first entry in login.tsv file-----
+    url=testData.field(set[records],"URL");
+    db=testData.field(set[records],"DB");
+    port=testData.field(set[records],"PORT");
+    user=testData.field(set[records],"USER");
+    pwd=testData.field(set[records],"PASS");
+
+    if(user=="" || vrsn=="" || database=="")
     {
-       url=testData.field(set[records],"URL");
-       db=testData.field(set[records],"DB");
-       port=testData.field(set[records],"PORT");
-       version=testData.field(set[records],"VERSION");
-       user=testData.field(set[records],"USER");
-       pwd=testData.field(set[records],"PASS");
-       if(user==usr && vrsn==version && database==db) break;
-    }
-    if(user!=usr || vrsn!=version || database!=db)
-    {
-        test.fatal("User "+usr+" not found in TestData - login.txt");
+        test.fatal("Please Enter login details in login.tsv file");
         exit(1);
     }
     waitForObject(":Log In.Options_QPushButton");
