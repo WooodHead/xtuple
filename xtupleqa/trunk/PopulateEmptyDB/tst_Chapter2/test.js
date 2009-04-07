@@ -1,7 +1,7 @@
 function main()
 {
 
-    attachToApplication("xtuple");
+   
     
      source(findFile("scripts","functions.js"));
      
