@@ -1,27 +1,32 @@
--***-This script doc contains all the common code libraries/functions required by the Main driver script-***-
+//-***-This script doc contains all the common code libraries/functions required by the Main driver script-***-
 
  var iNumberOfModules=10;
 
 //--------Login into Appl----------
-function loginAppl()
+function loginAppl(user)
 {
    
     var set = testData.dataset("login.tsv");
-    var url, db, port, pwd, user;
-    user=db=pwd=user="";
+    var url, db, port, pwd;
+    db=pwd=port=url="";
     
     //---Reads the first entry in login.tsv file-----
-    url=testData.field(set[records],"URL");
-    db=testData.field(set[records],"DB");
-    port=testData.field(set[records],"PORT");
-    user=testData.field(set[records],"USER");
-    pwd=testData.field(set[records],"PASS");
+    for (var records in set)
+    {
+        url=testData.field(set[records],"URL");
+        db=testData.field(set[records],"DB");
+        port=testData.field(set[records],"PORT");
+        pwd=testData.field(set[records],"PASS");
+        
+    }
 
-    if(user=="" || vrsn=="" || database=="")
+    if(pwd==""||db==""||url==""||port=="")
     {
         test.fatal("Please Enter login details in login.tsv file");
         exit(1);
     }
+    if(user=="user01") pwd="mfgapp";
+    
     waitForObject(":Log In.Options_QPushButton");
     clickButton(":Log In.Options_QPushButton");
     waitForObject(":_server_QLineEdit");
