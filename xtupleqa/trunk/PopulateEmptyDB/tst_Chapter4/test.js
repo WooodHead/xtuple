@@ -1,8 +1,6 @@
 function main()
 {
     
-
-
     source(findFile("scripts","functions.js"));
     
      //---login Application--------

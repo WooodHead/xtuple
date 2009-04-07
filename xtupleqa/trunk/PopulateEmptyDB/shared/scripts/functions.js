@@ -13,10 +13,10 @@ function loginAppl(user)
     //---Reads the first entry in login.tsv file-----
     for (var records in set)
     {
-        url=testData.field(set[records],"URL");
+        url=testData.field(set[records],"HOST");
         db=testData.field(set[records],"DB");
         port=testData.field(set[records],"PORT");
-        pwd=testData.field(set[records],"PASS");
+        pwd=testData.field(set[records],"PASSWORD");
         
     }
 
