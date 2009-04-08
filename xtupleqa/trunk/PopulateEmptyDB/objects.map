@@ -69,6 +69,7 @@
 :Average._setupType_XComboBox_2	{container=':_schedulingTab.Average_QGroupBox_2' name='_setupType' type='XComboBox' visible='1'}
 :Average.qt_spinbox_lineedit_QLineEdit	{container=':_schedulingTab.Average_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
 :Average.qt_spinbox_lineedit_QLineEdit_2	{container=':_schedulingTab.Average_QGroupBox_2' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
+:Background Image...._QPushButton	{container=':_application.Background Image_QGroupBox' name='_backgroundList' text='...' type='QPushButton' visible='1'}
 :Background Image.Image:_QRadioButton	{container=':_application.Background Image_QGroupBox' name='_backgroundImage' text='Image:' type='QRadioButton' visible='1'}
 :Bank Account.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Bank Account_bankAccount'}
 :Bank Account.Description:_QLabel	{name='_descriptionLit' text='Description:' type='QLabel' visible='1' window=':Bank Account_bankAccount'}
@@ -437,6 +438,8 @@
 :Hot Key._action_XTreeWidget	{name='_action' type='XTreeWidget' visible='1' window=':Hot Key_hotkey'}
 :Hot Key._hotkey_XComboBox	{name='_hotkey' type='XComboBox' visible='1' window=':Hot Key_hotkey'}
 :Hot Key_hotkey	{name='hotkey' type='hotkey' visible='1' windowTitle='Hot Key'}
+:Image List._image_XTreeWidget	{name='_image' type='XTreeWidget' visible='1' window=':Image List_imageList'}
+:Image List_imageList	{name='imageList' type='imageList' visible='1' windowTitle='Image List'}
 :Incident Category.Incident Category:_QLabel	{name='_nameLit' text='Incident Category:' type='QLabel' visible='1' window=':Incident Category_incidentCategory'}
 :Incident Category.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Incident Category_incidentCategory'}
 :Incident Category._descrip_QTextEdit	{name='_descrip' type='QTextEdit' visible='1' window=':Incident Category_incidentCategory'}

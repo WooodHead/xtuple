@@ -4,7 +4,7 @@ function main()
     source(findFile("scripts","functions.js"));
     
     //---login Application--------
-     loginAppl("user01");       
+     loginAppl("RUNREGISTER");       
   
     //---------Define: Incident Categories----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");

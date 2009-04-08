@@ -3,30 +3,31 @@
  var iNumberOfModules=10;
 
 //--------Login into Appl----------
-function loginAppl(user)
+function loginAppl(userrole)
 {
    
     var set = testData.dataset("login.tsv");
-    var url, db, port, pwd;
-    db=pwd=port=url="";
-    
-    //---Reads the first entry in login.tsv file-----
-    for (var records in set)
+    var url, db, port, pwd,realname,username;
+    db=pwd=port=url=realname=username="";
+    for(var records in set)
     {
         url=testData.field(set[records],"HOST");
         db=testData.field(set[records],"DB");
         port=testData.field(set[records],"PORT");
         pwd=testData.field(set[records],"PASSWORD");
-        
+        role=testData.field(set[records],"ROLE");
+        username=testData.field(set[records],"USERNAME");
+        realname=testData.field(set[records],"REALNAME");
+        if(userrole==role) break;
+              
     }
 
-    if(pwd==""||db==""||url==""||port=="")
+    if(userrole!=role)
     {
-        test.fatal("Please Enter login details in login.tsv file");
+        test.fatal("Please enter user details in login.tsv for the role: "+userrole);
         exit(1);
     }
-    if(user=="user01") pwd="mfgapp";
-    
+       
     waitForObject(":Log In.Options_QPushButton");
     clickButton(":Log In.Options_QPushButton");
     waitForObject(":_server_QLineEdit");
@@ -46,7 +47,7 @@ function loginAppl(user)
     }
     clickButton(":Login Options.Save_QPushButton");
     waitForObject(":_username_QLineEdit");    
-    type(":_username_QLineEdit", user);
+    type(":_username_QLineEdit", username);
     waitForObject(":_username_QLineEdit");
     type(":_username_QLineEdit", "<Tab>");
     waitForObject(":_password_QLineEdit");
@@ -55,6 +56,8 @@ function loginAppl(user)
     type(":_password_QLineEdit", "<Return>");
     test.log("Logged in Application");
 }
+
+
 
 
 //-----------Assign All Privileges to the Admin User-----------------------
@@ -290,8 +293,31 @@ function createGroup(GrpName, GrpDesc)
 
 
 //-----------------Create New User and assign privileges-------------------
-function createUser(user_created)
+function createUserByRole(userrole)
 {
+    //----Read the new User data from login.tsv based on role---
+    var set = testData.dataset("login.tsv");
+    var realname,username,role,pwd;
+    role=realname=username=pwd="";
+    
+    for (var records in set)
+    {
+        role=testData.field(set[records],"ROLE");
+        username=testData.field(set[records],"USERNAME");
+        realname=testData.field(set[records],"REALNAME");
+        pwd=testData.field(set[records],"PASSWORD");
+        
+        if(role==userrole) break;
+    }
+
+    if(userrole!=role) //User Role not found
+    {
+        test.fatal("Please provide user details in login.tsv for the role: "+userrole);
+        exit(1);
+    }
+    
+    
+    //----Create the new User-------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
@@ -299,12 +325,12 @@ function createUser(user_created)
     waitForObject(":List Users.New_QPushButton");
     clickButton(":List Users.New_QPushButton");
     waitForObject(":_username_XLineEdit");
-    type(":_username_XLineEdit", user_created);
-    type(":_properName_XLineEdit", "Test User");
+    type(":_username_XLineEdit", username);
+    type(":_properName_XLineEdit", realname);
     type(":_initials_XLineEdit", "JS");
     type(":_email_XLineEdit", "demo@openmfg.com");
-    type(":_passwd_XLineEdit", "mfgapp");
-    type(":_verify_XLineEdit", "mfgapp");
+    type(":_passwd_XLineEdit", pwd);
+    type(":_verify_XLineEdit", pwd);
     clickButton(":List Users.Purchasing Agent_QCheckBox");
     clickButton(":List Users.Can Create System Users_QCheckBox");    
     while(findObject(":_locale_XComboBox").currentText!= "MYLOCALE")
@@ -312,7 +338,7 @@ function createUser(user_created)
     waitForObject(":List Users.Save_QPushButton_2");
     clickButton(":List Users.Save_QPushButton_2");
     waitForObject(":List Users._usr_XTreeWidget_2");
-    if(!clickItem(":List Users._usr_XTreeWidget_2",user_created,0,0,1,Qt.LeftButton))
+    if(!clickItem(":List Users._usr_XTreeWidget_2",username,0,0,1,Qt.LeftButton))
         test.pass("User created and assigned Locale");
     
     var sWidgetTreeControl = ":List Users._usr_XTreeWidget_2";
@@ -324,18 +350,18 @@ function createUser(user_created)
     type(sWidgetTreeControl,"<Space>");
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    for(i=1;sNameOfRootItem!=user_created && i<iNumberOfRootItems ;i++)
+    for(i=1;sNameOfRootItem!=username && i<iNumberOfRootItems ;i++)
     {
         waitForObject(sWidgetTreeControl);
         type(sWidgetTreeControl,"<Down>");           
         obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
         sNameOfRootItem = obj_TreeTopLevelItem.text(0);
     }
-    if(sNameOfRootItem==user_created)
-        test.pass(user_created +" created and added 'SUPER' group privilege");
+    if(sNameOfRootItem==username)
+        test.pass(username +" user created and added 'SUPER' group privilege");
     else 
     {
-        test.fail(user_created +" created and added 'SUPER' group privilege");
+        test.fail(username +" user created and added 'SUPER' group privilege");
         exit(1);
     }
     clickButton(":List Users.Edit_QPushButton_2");

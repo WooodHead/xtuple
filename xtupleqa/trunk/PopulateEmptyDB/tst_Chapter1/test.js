@@ -9,10 +9,9 @@ function main()
     
     //-----declarations------
     source(findFile("scripts","functions.js"));
-    var newuser="user01";
-    
+        
     //---login Application--------
-    loginAppl("admin"); 
+    loginAppl("CONFIGURE"); 
 
     //---find Application Edition------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -26,14 +25,14 @@ function main()
     clickButton(":Database Information.Save_QPushButton");
     
     
-    //-----implementation-------
+   //-----create Entities-------
     createDept("MFG","OpenMFG");
     assignPrivileges();
     if(appEdition=="OpenMFG")
         createShift("1ST","First");
     createLocale("MYLOCALE","My Locale For Class");
     createGroup("SUPER","Super User Group");
-    createUser(newuser);
+    createUserByRole("RUNREGISTER");
 
     //-------------Configure: Accounting Module----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -1088,6 +1087,16 @@ function main()
     test.log("Inventory Module Configured");
     
   
+    //----Read Username based on Role------
+    var set = testData.dataset("login.tsv");
+    var username;
+    for (var records in set)
+    {
+        username=testData.field(set[records],"USERNAME");
+        if(role=="RUNREGISTER") break;
+        
+    }
+
     
     //-------------User Preferences------------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -1097,9 +1106,14 @@ function main()
     waitForObject(":User.Selected User:_QRadioButton");
     clickButton(":User.Selected User:_QRadioButton");
     waitForObject(":User._user_XComboBox");
-    clickItem(":User._user_XComboBox", newuser, 0, 0, 1, Qt.LeftButton);
+    clickItem(":User._user_XComboBox", username, 0, 0, 1, Qt.LeftButton);
     waitForObject(":Background Image.Image:_QRadioButton");
     clickButton(":Background Image.Image:_QRadioButton");
+    waitForObject(":Background Image...._QPushButton");
+    clickButton(":Background Image...._QPushButton");    
+    waitForObject(":Image List._image_XTreeWidget");
+    doubleClickItem(":Image List._image_XTreeWidget","BACKGROUND",0,0,1,Qt.LeftButton);
+    waitForObject(":Interface Options.Show windows as free-floating_QRadioButton");
     if(!findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked)
     findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked=true;
     type(":_idleTimeout_QSpinBox", "<Ctrl+A>");
@@ -1174,7 +1188,7 @@ function main()
     waitForObject(":User Preferences.Save_QPushButton");
     clickButton(":User Preferences.Save_QPushButton");
       
-    test.log("User Preferences of "+newuser +":saved");
+    test.log("User Preferences of "+username +":saved");
     
     
 

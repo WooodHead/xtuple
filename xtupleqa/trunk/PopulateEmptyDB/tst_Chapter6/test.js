@@ -3,7 +3,7 @@ function main()
     source(findFile("scripts","functions.js"));    
     
      //---login Application--------
-     loginAppl("user01");     
+     loginAppl("RUNREGISTER");     
 
    
 

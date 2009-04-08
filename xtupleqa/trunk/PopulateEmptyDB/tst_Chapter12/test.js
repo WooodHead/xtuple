@@ -4,7 +4,7 @@ function main()
     source(findFile("scripts","functions.js"));
 
      //---login Application--------
-     loginAppl("user01");       
+     loginAppl("RUNREGISTER");       
 
     //---------Assign Tax Authority for Customer----------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
