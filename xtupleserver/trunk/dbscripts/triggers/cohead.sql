@@ -40,13 +40,8 @@ BEGIN
       IF ((NEW.cohead_number IS NULL) AND (_numGen='M')) THEN
         RAISE EXCEPTION 'You must supply an Order Number.';
       ELSE
-        IF ((NEW.cohead_number IS NOT NULL) AND (_numGen='A')) THEN
-          RAISE EXCEPTION 'You may not supply a new Order Number;
-                          Order number is set for automatic generation.';
-        ELSE
-          IF (NEW.cohead_number IS NULL) THEN
-            SELECT fetchsonumber() INTO NEW.cohead_number;
-          END IF;
+        IF (NEW.cohead_number IS NULL) THEN
+          SELECT fetchsonumber() INTO NEW.cohead_number;
         END IF;
       END IF;
     END IF;
@@ -65,7 +60,7 @@ BEGIN
       SELECT cust_creditstatus,cust_number,cust_usespos,cust_blanketpos,cust_ffbillto,
 	     cust_ffshipto,cust_name,cust_salesrep_id,cust_terms_id,cust_shipvia,
 	     cust_shipchrg_id,cust_shipform_id,cust_commprcnt,cust_curr_id,cust_taxauth_id,
-  	     addr_line1,addr_line2,addr_line3,addr_city,addr_state,addr_postalcode,addr_country,
+  	     cntct.*,addr.*,
 	     shipto_id,shipto_addr_id,shipto_name,shipto_salesrep_id,shipto_shipvia,
 	     shipto_shipchrg_id,shipto_shipform_id,shipto_commission,shipto_taxauth_id INTO _p
       FROM custinfo
@@ -77,7 +72,7 @@ BEGIN
       SELECT cust_creditstatus,cust_number,cust_usespos,cust_blanketpos,cust_ffbillto,
 	     cust_ffshipto,cust_name,cust_salesrep_id,cust_terms_id,cust_shipvia,
 	     cust_shipchrg_id,cust_shipform_id,cust_commprcnt,cust_curr_id,cust_taxauth_id,
-  	     addr_line1,addr_line2,addr_line3,addr_city,addr_state,addr_postalcode,addr_country,
+  	     cntct.*,addr.*,
 	     shipto_id,shipto_addr_id,shipto_name,shipto_salesrep_id,shipto_shipvia,
 	     shipto_shipchrg_id,shipto_shipform_id,shipto_commission,shipto_taxauth_id INTO _p
       FROM shiptoinfo,custinfo
@@ -238,7 +233,16 @@ BEGIN
       -- Deal with Billing Address
       IF (TG_OP = 'INSERT') THEN
         IF (_p.cust_ffbillto) THEN
-          -- If they didn't supply data, we'll put in the bill to address
+          -- If they didn't supply data, we'll put in the bill to contact and address
+          NEW.cohead_billto_cntct_id=COALESCE(NEW.cohead_billto_cntct_id,_p.cntct_id);
+          NEW.cohead_billto_cntct_honorific=COALESCE(NEW.cohead_billto_cntct_honorific,_p.cntct_honorific,'');
+          NEW.cohead_billto_cntct_first_name=COALESCE(NEW.cohead_billto_cntct_first_name,_p.cntct_first_name,'');
+          NEW.cohead_billto_cntct_middle=COALESCE(NEW.cohead_billto_cntct_middle,_p.cntct_middle,'');    
+          NEW.cohead_billto_cntct_last_name=COALESCE(NEW.cohead_billto_cntct_last_name,_p.cntct_last_name,''); 
+          NEW.cohead_billto_cntct_phone=COALESCE(NEW.cohead_billto_cntct_phone,_p.cntct_phone,'');
+          NEW.cohead_billto_cntct_title=COALESCE(NEW.cohead_billto_cntct_title,_p.cntct_title,'');
+          NEW.cohead_billto_cntct_fax=COALESCE(NEW.cohead_billto_cntct_fax,_p.cntct_fax,''); 
+          NEW.cohead_billto_cntct_email=COALESCE(NEW.cohead_billto_cntct_fax,_p.cntct_email,''); 
           NEW.cohead_billtoname=COALESCE(NEW.cohead_billtoname,_p.cust_name,'');
           NEW.cohead_billtoaddress1=COALESCE(NEW.cohead_billtoaddress1,_p.addr_line1,'');
           NEW.cohead_billtoaddress2=COALESCE(NEW.cohead_billtoaddress2,_p.addr_line2,'');
@@ -249,6 +253,15 @@ BEGIN
           NEW.cohead_billtocountry=COALESCE(NEW.cohead_billtocountry,_p.addr_country,'');   
         ELSE
           -- Free form not allowed, we're going to put in the address regardless
+          NEW.cohead_billto_cntct_id=COALESCE(_p.cntct_id,'');
+          NEW.cohead_billto_cntct_honorific=COALESCE(_p.cntct_honorific,'');
+          NEW.cohead_billto_cntct_first_name=COALESCE(_p.cntct_first_name,'');
+          NEW.cohead_billto_cntct_middle=COALESCE(_p.cntct_middle,'');    
+          NEW.cohead_billto_cntct_last_name=COALESCE(_p.cntct_last_name,''); 
+          NEW.cohead_billto_cntct_phone=COALESCE(_p.cntct_phone,'');
+          NEW.cohead_billto_cntct_title=COALESCE(_p.cntct_title,'');
+          NEW.cohead_billto_cntct_fax=COALESCE(_p.cntct_fax,''); 
+          NEW.cohead_billto_cntct_email=COALESCE(_p.cntct_email,''); 
           NEW.cohead_billtoname=COALESCE(_p.cust_name,'');
           NEW.cohead_billtoaddress1=COALESCE(_p.addr_line1,'');
           NEW.cohead_billtoaddress2=COALESCE(_p.addr_line2,'');
@@ -265,6 +278,16 @@ BEGIN
       -- or there is a default address available, let's put in some shipto address data
       IF ((TG_OP = 'INSERT') 
         AND NOT ((NEW.cohead_shipto_id IS NULL) AND NOT _p.cust_ffshipto)
+        AND (NEW.cohead_shipto_cntct_id IS NULL)
+        AND (NEW.cohead_shipto_cntct_honorific IS NULL)
+        AND (NEW.cohead_shipto_cntct_first_name IS NULL)
+        AND (NEW.cohead_shipto_cntct_middle IS NULL)
+        AND (NEW.cohead_shipto_cntct_last_name IS NULL)
+        AND (NEW.cohead_shipto_cntct_suffix IS NULL)
+        AND (NEW.cohead_shipto_cntct_phone IS NULL)
+        AND (NEW.cohead_shipto_cntct_title IS NULL)
+        AND (NEW.cohead_shipto_cntct_fax IS NULL)
+        AND (NEW.cohead_shipto_cntct_email IS NULL)
         AND (NEW.cohead_shiptoname IS NULL)
         AND (NEW.cohead_shiptoaddress1 IS NULL)
         AND (NEW.cohead_shiptoaddress2 IS NULL)
@@ -279,10 +302,21 @@ BEGIN
         END IF;
 
         SELECT * INTO _a 
-        FROM shiptoinfo, addr 
-        WHERE ((shipto_id=_shiptoId)
-        AND (addr_id=shipto_addr_id));
+        FROM shiptoinfo
+          JOIN addr ON (addr_id=shipto_addr_id)
+          JOIN cntct ON (cntct_id=shipto_cntct_id)
+        WHERE (shipto_id=_shiptoId);
 
+        NEW.cohead_shipto_cntct_id := _a.cntct_id;
+        NEW.cohead_shipto_cntct_honorific := COALESCE(_a.cntct_honorific,'');
+        NEW.cohead_shipto_cntct_first_name := COALESCE(_a.cntct_first_name,'');
+        NEW.cohead_shipto_cntct_middle := COALESCE(_a.cntct_middle,'');
+        NEW.cohead_shipto_cntct_last_name := COALESCE(_a.cntct_last_name,'');
+	NEW.cohead_shipto_cntct_suffix := COALESCE(_a.cntct_suffix,'');
+	NEW.cohead_shipto_cntct_phone := COALESCE(_a.cntct_phone,'');
+	NEW.cohead_shipto_cntct_title := COALESCE(_a.cntct_title,'');
+	NEW.cohead_shipto_cntct_fax := COALESCE(_a.cntct_fax,'');
+	NEW.cohead_shipto_cntct_email := COALESCE(_a.cntct_email,'');
         NEW.cohead_shiptoname := COALESCE(_p.shipto_name,'');
         NEW.cohead_shiptoaddress1 := COALESCE(_a.addr_line1,'');
         NEW.cohead_shiptoaddress2 := COALESCE(_a.addr_line2,'');
@@ -322,6 +356,15 @@ BEGIN
             WHERE (shipto_id=NEW.cohead_shipto_id);
             IF (FOUND) THEN
               -- Free form not allowed so we're going to make sure address matches Shipto data
+              NEW.cohead_shipto_cntct_id=COALESCE(_a.cntct_id,'');
+              NEW.cohead_shipto_cntct_honorific=COALESCE(_a.cntct_honorific,'');
+              NEW.cohead_shipto_cntct_first_name=COALESCE(_a.cntct_first_name,'');
+              NEW.cohead_shipto_cntct_middle=COALESCE(_a.cntct_middle,'');    
+              NEW.cohead_shipto_cntct_last_name=COALESCE(_a.cntct_last_name,''); 
+              NEW.cohead_shipto_cntct_phone=COALESCE(_a.cntct_phone,'');
+              NEW.cohead_shipto_cntct_title=COALESCE(_a.cntct_title,'');
+              NEW.cohead_shipto_cntct_fax=COALESCE(_a.cntct_fax,''); 
+              NEW.cohead_shipto_cntct_email=COALESCE(_a.cntct_email,''); 
               NEW.cohead_shiptoname := COALESCE(_a.shipto_name,'');
               NEW.cohead_shiptophone := COALESCE(_a.cntct_phone,'');
               NEW.cohead_shiptoaddress1 := COALESCE(_a.addr_line1,'');

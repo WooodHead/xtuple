@@ -25,6 +25,16 @@ AS
      terms_code AS terms,
      prj_number AS project_number,
      cust_number AS customer_number,
+     bc.cntct_number AS billto_contact_number,
+     cohead_billto_cntct_honorific AS billto_contact_name,
+     cohead_billto_cntct_first_name AS billto_contact_first,
+     cohead_billto_cntct_middle AS billto_contact_middle,
+     cohead_billto_cntct_last_name AS billto_contact_last,
+     cohead_billto_cntct_suffix AS billto_contact_suffix,
+     cohead_billto_cntct_phone AS billto_contact_phone,
+     cohead_billto_cntct_title AS billto_contact_title,
+     cohead_billto_cntct_fax AS billto_contct_fax,
+     cohead_billto_cntct_email AS billto_contact_email,
      cohead_billtoname AS billto_name,
      cohead_billtoaddress1 AS billto_address1,
      cohead_billtoaddress2 AS billto_address2,
@@ -34,6 +44,16 @@ AS
      cohead_billtozipcode AS billto_postal_code,
      cohead_billtocountry AS billto_country,
      shipto_num AS shipto_number,
+     sc.cntct_number AS shipto_contact_number,
+     cohead_shipto_cntct_honorific AS shipto_contact_honorific,
+     cohead_shipto_cntct_first_name AS shipto_contact_first,
+     cohead_shipto_cntct_middle AS shipto_contact_middle,
+     cohead_shipto_cntct_last_name AS shipto_contact_last,
+     cohead_shipto_cntct_suffix AS shipto_contact_suffix,
+     cohead_shipto_cntct_phone AS shipto_contact_phone,
+     cohead_shipto_cntct_title AS shipto_contact_title,
+     cohead_shipto_cntct_fax AS shipto_contact_fax,
+     cohead_shipto_cntct_email AS shipto_contact_email,
      cohead_shiptoname AS shipto_name,
      cohead_shiptophone AS shipto_phone,
      cohead_shiptoaddress1 AS shipto_address1,
@@ -78,6 +98,8 @@ AS
      cohead_shipcomments AS shipping_notes,
      false AS add_to_packing_list_batch
    FROM cohead
+     LEFT OUTER JOIN cntct bc ON (cohead_billto_cntct_id=bc.cntct_id)
+     LEFT OUTER JOIN cntct sc ON (cohead_shipto_cntct_id=sc.cntct_id)
      LEFT OUTER JOIN whsinfo ON (cohead_warehous_id=warehous_id)
      LEFT OUTER JOIN prj ON (cohead_prj_id=prj_id)
      LEFT OUTER JOIN shiptoinfo ON (cohead_shipto_id=shipto_id)
@@ -143,7 +165,27 @@ CREATE OR REPLACE RULE "_INSERT" AS
     cohead_billtocountry,
     cohead_shiptocountry,
     cohead_curr_id,
-    cohead_taxauth_id
+    cohead_taxauth_id,
+    cohead_shipto_cntct_id,
+    cohead_shipto_cntct_honorific,
+    cohead_shipto_cntct_first_name,
+    cohead_shipto_cntct_middle,
+    cohead_shipto_cntct_last_name,
+    cohead_shipto_cntct_suffix,
+    cohead_shipto_cntct_phone,
+    cohead_shipto_cntct_title,
+    cohead_shipto_cntct_fax,
+    cohead_shipto_cntct_email,
+    cohead_billto_cntct_id,
+    cohead_billto_cntct_honorific,
+    cohead_billto_cntct_first_name,
+    cohead_billto_cntct_middle,
+    cohead_billto_cntct_last_name,
+    cohead_billto_cntct_suffix,
+    cohead_billto_cntct_phone,
+    cohead_billto_cntct_title,
+    cohead_billto_cntct_fax,
+    cohead_billto_cntct_email
     )
   VALUES (
     NEW.order_number,
@@ -209,7 +251,28 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.billto_country,
     NEW.shipto_country,
     getCurrId(NEW.currency),
-    getTaxAuthId(NEW.tax_authority));
+    getTaxAuthId(NEW.tax_authority),
+    getCntctId(NEW.shipto_contact_number),
+    NEW.shipto_contact_honorific,
+    NEW.shipto_contact_first,
+    NEW.shipto_contact_middle,
+    NEW.shipto_contact_last,
+    NEW.shipto_contact_suffix,
+    NEW.shipto_contact_phone,
+    NEW.shipto_contact_title,
+    NEW.shipto_contact_fax,
+    NEW.shipto_contact_email,
+    getCntctId(NEW.billto_contact_number),
+    NEW.billto_contact_name,
+    NEW.billto_contact_first,
+    NEW.billto_contact_middle,
+    NEW.billto_contact_last,
+    NEW.billto_contact_suffix,
+    NEW.billto_contact_phone,
+    NEW.billto_contact_title,
+    NEW.billto_contct_fax,
+    NEW.billto_contact_email
+    );
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.salesorder DO INSTEAD
@@ -288,7 +351,27 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     cohead_shiptocountry=NEW.shipto_country,
     cohead_curr_id=getCurrId(NEW.currency),
     cohead_taxauth_id=getTaxAuthId(NEW.tax_authority),
-    cohead_lastupdated=('now'::text)::timestamp(6) with time zone
+    cohead_lastupdated=('now'::text)::timestamp(6) with time zone,
+    cohead_shipto_cntct_id = getCntctId(NEW.shipto_contact_number),
+    cohead_shipto_cntct_honorific = NEW.shipto_contact_honorific,
+    cohead_shipto_cntct_first_name = NEW.shipto_contact_first,
+    cohead_shipto_cntct_middle = NEW.shipto_contact_middle,
+    cohead_shipto_cntct_last_name = NEW.shipto_contact_last,
+    cohead_shipto_cntct_suffix = NEW.shipto_contact_suffix,
+    cohead_shipto_cntct_phone = NEW.shipto_contact_phone,
+    cohead_shipto_cntct_title = NEW.shipto_contact_title,
+    cohead_shipto_cntct_fax = NEW.shipto_contact_fax,
+    cohead_shipto_cntct_email = NEW.shipto_contact_email,
+    cohead_billto_cntct_id = getCntctId(NEW.billto_contact_number),
+    cohead_billto_cntct_honorific = NEW.billto_contact_name,
+    cohead_billto_cntct_first_name = NEW.billto_contact_first,
+    cohead_billto_cntct_middle = NEW.billto_contact_middle,
+    cohead_billto_cntct_last_name = NEW.billto_contact_last,
+    cohead_billto_cntct_suffix = NEW.billto_contact_suffix,
+    cohead_billto_cntct_phone = NEW.billto_contact_phone,
+    cohead_billto_cntct_title = NEW.billto_contact_title,
+    cohead_billto_cntct_fax = NEW.billto_contct_fax,
+    cohead_billto_cntct_email = NEW.billto_contact_email
   WHERE (cohead_number=OLD.order_number);
            
 CREATE OR REPLACE RULE "_DELETE" AS 
