@@ -25,15 +25,15 @@ function main()
     clickButton(":Database Information.Save_QPushButton");
     
     
-   //-----create Entities-------
-    createDept("MFG","OpenMFG");
-    assignPrivileges();
-    if(appEdition=="OpenMFG")
-        createShift("1ST","First");
-    createLocale("MYLOCALE","My Locale For Class");
-    createGroup("SUPER","Super User Group");
-    createUserByRole("RUNREGISTER");
-
+//    //-----create Entities-------
+//    createDept("MFG","OpenMFG");
+//    assignPrivileges();
+//    if(appEdition=="OpenMFG")
+//        createShift("1ST","First");
+//    createLocale("MYLOCALE","My Locale For Class");
+//    createGroup("SUPER","Super User Group");
+//    createUserByRole("RUNREGISTER");
+//
     //-------------Configure: Accounting Module----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -42,33 +42,37 @@ function main()
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
     activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
     waitForObject(":_mainSize_QSpinBox");
-    if(findObject(":_mainSize_QSpinBox").currentText!="4")
+//    if(findObject(":_mainSize_QSpinBox").currentText!="4")
+//    {
+//        type(":_mainSize_QSpinBox", "<Right>");
+//        type(":_mainSize_QSpinBox", "<Ctrl+Backspace>");
+//        type(":_mainSize_QSpinBox", "4");
+//    }
+//    waitForObject(":_gl.Use Company Segment_QGroupBox");
+//    if(!findObject(":_gl.Use Company Segment_QGroupBox").checked)
+//        clickButton(":_gl.Use Company Segment_QGroupBox");
+//    if(findObject(":_companySegmentSize_QSpinBox_2").currentText!="2")
+//    {
+//        type(":_companySegmentSize_QSpinBox_2", "<Right>");
+//        type(":_companySegmentSize_QSpinBox_2", "<Ctrl+Backspace>");
+//        type(":_companySegmentSize_QSpinBox_2", "2");
+//    }
+//   
+//    if(findObject(":_subaccountSize_QSpinBox_2").currentText!="2")
+//    {
+//        type(":_subaccountSize_QSpinBox_2", "<Right>");    
+//        type(":_subaccountSize_QSpinBox_2", "<Ctrl+Backspace>");
+//        type(":_subaccountSize_QSpinBox_2", "2");
+//    }
+//    if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
+//    {
+//        waitForObject(":Use Company Segment.Enable External Company Consolidation_QCheckBox");
+//        if(!findObject(":Use Company Segment.Enable External Company Consolidation_QCheckBox").checked)
+//            clickButton(":Use Company Segment.Enable External Company Consolidation_QCheckBox");
+//    }
+    else if(appEdition=="PostBooks")
     {
-        type(":_mainSize_QSpinBox", "<Right>");
-        type(":_mainSize_QSpinBox", "<Ctrl+Backspace>");
-        type(":_mainSize_QSpinBox", "4");
-    }
-    waitForObject(":_gl.Use Company Segment_QGroupBox");
-    if(!findObject(":_gl.Use Company Segment_QGroupBox").checked)
-        clickButton(":_gl.Use Company Segment_QGroupBox");
-    if(findObject(":_companySegmentSize_QSpinBox_2").currentText!="2")
-    {
-        type(":_companySegmentSize_QSpinBox_2", "<Right>");
-        type(":_companySegmentSize_QSpinBox_2", "<Ctrl+Backspace>");
-        type(":_companySegmentSize_QSpinBox_2", "2");
-    }
-   
-    if(findObject(":_subaccountSize_QSpinBox_2").currentText!="2")
-    {
-        type(":_subaccountSize_QSpinBox_2", "<Right>");    
-        type(":_subaccountSize_QSpinBox_2", "<Ctrl+Backspace>");
-        type(":_subaccountSize_QSpinBox_2", "2");
-    }
-    if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
-    {
-        waitForObject(":Use Company Segment.Enable External Company Consolidation_QCheckBox");
-        if(!findObject(":Use Company Segment.Enable External Company Consolidation_QCheckBox").checked)
-            clickButton(":Use Company Segment.Enable External Company Consolidation_QCheckBox");
+       test.xverify(object.exists(":Use Company Segment.Enable External Company Consolidation_QCheckBox"), "External Company - checkbox not visible");
     }
     waitForObject(":_gl.Use Profit Centers_QGroupBox");
     if(!findObject(":_gl.Use Profit Centers_QGroupBox").checked)
@@ -393,6 +397,15 @@ function main()
         if(!findObject(":Products Configuration.Enable Revision Control_QCheckBox").checked)
         findObject(":Products Configuration.Enable Revision Control_QCheckBox").checked=true;
     }
+    else if(appEdition=="xTupleERP"||appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":Products Configuration.Enable Work Center Routings_QGroupBox"), "Enable Work Center - groupbox not visible");
+        test.xverify(object.exists(":Track Machine Overhead.as Machine Overhead_QRadioButton"), "Machine Overhead - RadioButton not visible"); 
+        test.xverify(object.exists(":Products Configuration.Enable Breeder Bills of Materials_QCheckBox"), "Enable Breeder Bills of Materials - not visible"); 
+        test.xverify(object.exists(":Products Configuration.Enable Transforms_QCheckBox"), "Enable Transforms - not visible"); 
+        test.xverify(object.exists(":Products Configuration.Enable Revision Control_QCheckBox"), "Enable Revision Control - not visible"); 
+    }
+    
     if(!findObject(":Products Configuration.Post Item Changes to the Change Log_QCheckBox").checked)
         findObject(":Products Configuration.Post Item Changes to the Change Log_QCheckBox").checked= true;
     if(findObject(":Products Configuration.Allow Inactive Items to be Added to BOMs_QCheckBox").checked)
@@ -406,6 +419,9 @@ function main()
         waitForObject(":Cancel.Yes_QPushButton");
         clickButton(":Cancel.Yes_QPushButton");
     }
+    else if(appEdition=="xTupleERP"||appEdition=="PostBooks")
+        test.xverify(object.exists(":Cancel.Yes_QPushButton"), "Cancel Yes Button - not visible"); 
+   
     test.log("Product Module Configured");    
 
     
@@ -485,6 +501,13 @@ function main()
             type(":_purgeDays_QSpinBox", "<Ctrl+Backspace>");
             type(":_purgeDays_QSpinBox", "30");
         }
+    }
+    else if(appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":_defaultFromAddress_XLineEdit"), "From Address - not visible");
+        test.xverify(object.exists(":Database Information.Enable Batch Manager_QCheckBox"), "Enable Batch Manager - not visible");
+        test.xverify(object.exists(":Database Information.qt_spinbox_lineedit_QLineEdit"), "PurgeDays spinbox - not visible");
+        
     }
     if(findObject(":_interval_QSpinBox").currentText!="1")
     {
@@ -644,6 +667,10 @@ function main()
         if(!findObject(":Manufacture Configuration.Auto fill Post Operation Qty. to Balance_QCheckBox").checked)
             findObject(":Manufacture Configuration.Auto fill Post Operation Qty. to Balance_QCheckBox").checked=true;
     }
+    else if(appEdition=="xTupleERP"||appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":Manufacture Configuration.Auto fill Post Operation Qty. to Balance_QCheckBox"),"Auto fill Post Operation - not visible");
+    }
     if(!findObject(":Manufacture Configuration.Post Work Order Changes to the Change Log_QCheckBox").checked)
         findObject(":Manufacture Configuration.Post Work Order Changes to the Change Log_QCheckBox").checked=true;     if(!findObject(":Explode W/O's Effective as of:.W/O Start Date_QRadioButton").checked)
         findObject(":Explode W/O's Effective as of:.W/O Start Date_QRadioButton").checked=true;
@@ -656,12 +683,20 @@ function main()
         if(!findObject(":Inventory Item Cost Defaults.Post Labor Variances_QCheckBox").checked)
             findObject(":Inventory Item Cost Defaults.Post Labor Variances_QCheckBox").checked=true;
     }
+    else if(appEdition=="xTupleERP"||appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":Inventory Item Cost Defaults.Post Labor Variances_QCheckBox"),"Post Labor Variances - not visible");
+    }
     if(!findObject(":W/O Item Cost Recognition Defaults.Proportional_QRadioButton").checked)
         findObject(":W/O Item Cost Recognition Defaults.Proportional_QRadioButton").checked=true;
     if(appEdition=="OpenMFG")
     {
         if(!findObject(":Shop Floor Workbench Posts:.Operations_QRadioButton").checked)
             findObject(":Shop Floor Workbench Posts:.Operations_QRadioButton").checked=true;
+    }
+    else if(appEdition=="xTupleERP"||appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":Shop Floor Workbench Posts:.Operations_QRadioButton"),"Shop Floor Workbench Posts Operations - not visible");
     }
     waitForObject(":Manufacture Configuration.Save_QPushButton");
     clickButton(":Manufacture Configuration.Save_QPushButton");
@@ -748,7 +783,7 @@ function main()
         clickButton(":Schedule Configuration.Save_QPushButton");
         test.log("Schedule Module Configured")
     }
-
+   
 
     //----------Create new Title--------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
@@ -1076,6 +1111,15 @@ function main()
         if(!findObject(":_inventory.Enable Lot/Serial Control_QCheckBox").checked)
             findObject(":_inventory.Enable Lot/Serial Control_QCheckBox").checked=true;
     }
+    else if(appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":Multiple Sites.Enable Shipping Interface from Transfer Order screen_QCheckBox"),"Enable Shipping Interface - not visible");
+        test.xverify(object.exists(":Multiple Sites.Post Transfer Order Changes to the Change Log_QCheckBox"),"Post Transfer Order Changes - not visible");
+        test.xverify(object.exists(":_toNumGeneration_QComboBox"),"To Number Generation combobox - not visible");
+        test.xverify(object.exists(":_toNextNum_XLineEdit"),"To Next number - not visible");
+        test.xverify(object.exists(":_inventory.Enable Lot/Serial Control_QCheckBox"),"Enable Lot/Serial Control - not visible");        
+
+    }
     if(!findObject(":Costing Methods Allowed.Average_QCheckBox").checked)
         findObject(":Costing Methods Allowed.Average_QCheckBox").checked=true;
     if(!findObject(":When Count Tag Qty. exceeds Slip Qty..Do Not Post Count Tag_QRadioButton").checked)
@@ -1107,12 +1151,15 @@ function main()
     clickButton(":User.Selected User:_QRadioButton");
     waitForObject(":User._user_XComboBox");
     clickItem(":User._user_XComboBox", username, 0, 0, 1, Qt.LeftButton);
-    waitForObject(":Background Image.Image:_QRadioButton");
-    clickButton(":Background Image.Image:_QRadioButton");
-    waitForObject(":Background Image...._QPushButton");
-    clickButton(":Background Image...._QPushButton");    
-    waitForObject(":Image List._image_XTreeWidget");
-    doubleClickItem(":Image List._image_XTreeWidget","BACKGROUND",0,0,1,Qt.LeftButton);
+    if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
+    {
+        waitForObject(":Background Image.Image:_QRadioButton");
+        clickButton(":Background Image.Image:_QRadioButton");
+        waitForObject(":Background Image...._QPushButton");
+        clickButton(":Background Image...._QPushButton");    
+        waitForObject(":Image List._image_XTreeWidget");
+        doubleClickItem(":Image List._image_XTreeWidget","BACKGROUND",0,0,1,Qt.LeftButton);
+    }
     waitForObject(":Interface Options.Show windows as free-floating_QRadioButton");
     if(!findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked)
     findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked=true;
@@ -1124,6 +1171,8 @@ function main()
         type(":Interface Options.Ignore Missing Translations_QCheckBox"," ");
     if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
         clickButton(":Preferred Site:.Site:_QRadioButton");
+    if(appEdition=="PostBooks")
+        test.xverify(object.exists(":Preferred Site:.Site:_QRadioButton"),"Preferred Site - not visible");
     waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
     clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar", "Menu");
     waitForObject(":_menu.Show Inventory Menu_QCheckBox");
@@ -1140,6 +1189,11 @@ function main()
         clickButton(":_menu.Show Schedule Menu_QCheckBox");
         waitForObject(":_menu.Show Schedule Toolbar_QCheckBox");
         clickButton(":_menu.Show Schedule Toolbar_QCheckBox");
+    }
+    if(appVersion=="xTupleERP"||appVersion=="PostBooks")
+    {
+        test.xverify(object.exists(":_menu.Show Schedule Menu_QCheckBox"),"Show Schedule Menu_QCheckBox - not visible");
+        test.xverify(object.exists(":_menu.Show Schedule Toolbar_QCheckBox"),"Show Schedule Toolbar - not visible");
     }
     waitForObject(":_menu.Show Purchase Menu_QCheckBox");
     clickButton(":_menu.Show Purchase Menu_QCheckBox");
@@ -1190,7 +1244,5 @@ function main()
       
     test.log("User Preferences of "+username +":saved");
     
-    
-
-    
+  
 }

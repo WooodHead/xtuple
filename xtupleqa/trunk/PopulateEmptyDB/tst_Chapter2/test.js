@@ -20,7 +20,7 @@ function main()
         
      
  
-     //-----------Chart Of Accounts-------------------------------
+     //-----------Chart Of Accounts------------------------
      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
      waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
@@ -133,7 +133,9 @@ function main()
     type(":Cost Category._main_XLineEdit", "01-01-1250-01");
     type(":Cost Category._main_XLineEdit_2", "01-01-1210-01");
     if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
-    type(":Cost Category._main_XLineEdit_3", "01-01-1620-01");
+        type(":Cost Category._main_XLineEdit_3", "01-01-1620-01");
+    else if (appEdition=="PostBooks")
+        test.xverify(object.exists(":Cost Category._main_XLineEdit_3"),"Cost Category text field - not visible");
     type(":Cost Category._main_XLineEdit_4", "01-01-1930-01");
     type(":Cost Category._main_XLineEdit_5", "01-01-1460-01");
     type(":Cost Category._main_XLineEdit_6", "01-01-8910-01");
@@ -143,9 +145,13 @@ function main()
     type(":Cost Category._main_XLineEdit_10", "01-01-2490-01");
     type(":Cost Category._main_XLineEdit_11", "01-01-1260-01");
     if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
-    type(":Cost Category._main_XLineEdit_12", "01-01-6550-01");
+        type(":Cost Category._main_XLineEdit_12", "01-01-6550-01");
+    else if (appEdition=="PostBooks")
+        test.xverify(object.exists(":Cost Category._main_XLineEdit_12"),"Cost Category text field - not visible");
     if(appEdition=="OpenMFG")
-    type(":Cost Category._main_XLineEdit_13", "01-01-2480-01");
+        type(":Cost Category._main_XLineEdit_13", "01-01-2480-01");
+    else if(appEdition=="xTupleERP"||appEdition=="PostBooks")
+        test.xverify(object.exists(":Cost Category._main_XLineEdit_13"),"Cost Category text field - not visible");
     waitForObject(":Cost Category.Save_QPushButton");
     clickButton(":Cost Category.Save_QPushButton");
     waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
@@ -279,15 +285,24 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Locations...");
     waitForObject(":List Site Locations.New_QPushButton_2");
     if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
-    if(findObject(":_warehouse._warehouses_WComboBox_3").currentText!= "WH1")
-       clickItem(":_warehouse._warehouses_WComboBox_3", "WH1", 0, 0, 1, Qt.LeftButton);    
+    {
+        if(findObject(":_warehouse._warehouses_WComboBox_3").currentText!= "WH1")
+        {    
+                clickItem(":_warehouse._warehouses_WComboBox_3", "WH1", 0, 0, 1, Qt.LeftButton);    
+        }
+    }
+    else if(appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":_warehouse._warehouses_WComboBox_3"),"warehouses_WComboBox - not visible");
+    }
+    
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
     clickItem(":_whsezone_XComboBox_2", "RM1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
-    findObject(":Location.Netable_QCheckBox").checked=true;
+        findObject(":Location.Netable_QCheckBox").checked=true;
     if(findObject(":Location.Restricted_QCheckBox").checked)
-    findObject(":Location.Restricted_QCheckBox").checked=false;
+        findObject(":Location.Restricted_QCheckBox").checked=false;
     type(":Location._aisle_XLineEdit", "01");
     type(":Location._rack_XLineEdit", "01");
     type(":Location._bin_XLineEdit", "01");
@@ -302,9 +317,9 @@ function main()
     waitForObject(":_whsezone_XComboBox_2");
     clickItem(":_whsezone_XComboBox_2", "RM1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
-    findObject(":Location.Netable_QCheckBox").checked=true;
+        findObject(":Location.Netable_QCheckBox").checked=true;
     if(findObject(":Location.Restricted_QCheckBox").checked)
-    findObject(":Location.Restricted_QCheckBox").checked=false;
+        findObject(":Location.Restricted_QCheckBox").checked=false;
     type(":Location._aisle_XLineEdit", "01");
     type(":Location._rack_XLineEdit", "01");
     type(":Location._bin_XLineEdit", "01");
@@ -314,15 +329,14 @@ function main()
     waitForObject(":List Site Locations._location_XTreeWidget");
     if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-02 in Zone RM1", 5, 5, 1, Qt.LeftButton))
         test.pass("Location 01-01-01-02 in Zone RM1 created");
-   
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
     clickItem(":_whsezone_XComboBox_2", "RM1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
-    findObject(":Location.Netable_QCheckBox").checked=true;
+        findObject(":Location.Netable_QCheckBox").checked=true;
     if(findObject(":Location.Restricted_QCheckBox").checked)
-    findObject(":Location.Restricted_QCheckBox").checked=false;
+        findObject(":Location.Restricted_QCheckBox").checked=false;
     type(":Location._aisle_XLineEdit", "01");
     type(":Location._rack_XLineEdit", "01");
     type(":Location._bin_XLineEdit", "01");
@@ -332,17 +346,14 @@ function main()
     waitForObject(":List Site Locations._location_XTreeWidget");
     if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-03 in Zone RM1", 5, 5, 1, Qt.LeftButton))
         test.pass("Location 01-01-01-03 in Zone RM1 created");
- 
-    
-    
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
     clickItem(":_whsezone_XComboBox_2", "FG1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
-    findObject(":Location.Netable_QCheckBox").checked=true;
+        findObject(":Location.Netable_QCheckBox").checked=true;
     if(findObject(":Location.Restricted_QCheckBox").checked)
-    findObject(":Location.Restricted_QCheckBox").checked=false;
+        findObject(":Location.Restricted_QCheckBox").checked=false;
     type(":Location._aisle_XLineEdit", "99");
     type(":Location._rack_XLineEdit", "01");
     type(":Location._bin_XLineEdit", "01");
@@ -352,8 +363,6 @@ function main()
     waitForObject(":List Site Locations._location_XTreeWidget");
     if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-01 in Zone FG1", 5, 5, 1, Qt.LeftButton))
         test.pass("Location 01-01-01-01 in Zone FG1 created");
- 
-    
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
@@ -425,7 +434,6 @@ function main()
     if(!clickItem(":List Units of Measure._uoms_XTreeWidget_2", "CA", 5, 5, 1, Qt.LeftButton))
         test.pass("UOM: CA created");
 
-    
     
     waitForObject(":List Units of Measure.New_QPushButton_2");
     clickButton(":List Units of Measure.New_QPushButton_2");

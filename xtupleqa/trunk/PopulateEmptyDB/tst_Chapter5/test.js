@@ -1,14 +1,11 @@
 function main()
 {
-    
-
 
     source(findFile("scripts","functions.js"));
     
      //---login Application--------
      loginAppl("RUNREGISTER"); 
 
-    
     
      //---find Application Edition------
      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
