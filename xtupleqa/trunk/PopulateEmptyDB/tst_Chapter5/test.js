@@ -47,6 +47,10 @@ function main()
     type(":_itemGroup_XLineEdit_3", "5.00");
     if(appEdition=="OpenMFG")
         clickItem(":_itemGroup._planningType_QComboBox_3", "MPS",0,0,1,Qt.LeftButton);
+    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+    {
+        test.xverify(object.exists(":_itemGroup._planningType_QComboBox_3"), "Planning Type ComboBox not found");
+    }
     if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
         type(":Item.Item is Sold_QGroupBox_3"," ");
     clickItem(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line",0,0,1,Qt.LeftButton);
@@ -96,6 +100,11 @@ function main()
         type(":_warehouse_WComboBox_5", "WH1");
 
     }
+    else if(appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":_warehouse_WComboBox_5"), "Warehouse ComboBox is not found");
+    }
+    
     clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
     clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
@@ -106,6 +115,11 @@ function main()
         type(":_mrp._mpsTimeFence_QSpinBox_3", "<Del>");
         type(":_mrp._mpsTimeFence_QSpinBox_3", "14");
     }
+    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+    {
+        test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS Time Fence not found");
+    }
+    
     type(":_leadTime_QSpinBox_3", "<Ctrl+A>");
     type(":_leadTime_QSpinBox_3", "<Del>");
     type(":_leadTime_QSpinBox_3", "1");
@@ -115,7 +129,11 @@ function main()
         waitForObject(":Item Site.Cancel_QPushButton");
         clickButton(":Item Site.Cancel_QPushButton");
     }
-        
+    else if(appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":Item Site.Cancel_QPushButton"), "Cancel button not found");
+    }
+      
     waitForObject(":List Items._item_XTreeWidget_3");
     if(!clickItem(":List Items._item_XTreeWidget_3", "RTRUCK1", 5, 5, 1, Qt.LeftButton))
         test.pass("Item Created: RTRUCK1");
@@ -140,6 +158,10 @@ function main()
     type(":_itemGroup_XLineEdit_3", "5.00");
     if(appEdition=="OpenMFG")
         clickItem(":_itemGroup._planningType_QComboBox_3", "MPS",0,0,1,Qt.LeftButton);
+    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+    {
+        test.xverify(object.exists(":_itemGroup._planningType_QComboBox_3"), "Planning Type ComboBox not found");
+    }
     if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
         type(":Item.Item is Sold_QGroupBox_3"," ");
     type(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line");
@@ -190,6 +212,10 @@ function main()
         clickItem(":_warehouse_WComboBox_5", "WH1",0,0,1,Qt.LeftButton);
         
     }
+    else if(appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":_warehouse_WComboBox_5"), "Warehouse ComboBox is not found");
+    }
     clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
     waitForObject(":_costcat_XComboBox_3");
     clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
@@ -202,6 +228,10 @@ function main()
         type(":_mrp._mpsTimeFence_QSpinBox_3", "<Del>");
         type(":_mrp._mpsTimeFence_QSpinBox_3", "14");
     }
+    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+    {
+        test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS Time Fence not found");
+    }
     type(":_leadTime_QSpinBox_3", "<Ctrl+A>");
     type(":_leadTime_QSpinBox_3", "<Del>");
     type(":_leadTime_QSpinBox_3", "1");
@@ -212,7 +242,10 @@ function main()
         waitForObject(":Item Site.Cancel_QPushButton");
         clickButton(":Item Site.Cancel_QPushButton");
     }
-        
+    else if(appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":Item Site.Cancel_QPushButton"), "Cancel button not found");
+    }   
     waitForObject(":List Items._item_XTreeWidget_3");
     if(!clickItem(":List Items._item_XTreeWidget_3", "BTRUCK1", 5, 5, 1, Qt.LeftButton))
         test.pass("Item Created: BTRUCK1");
@@ -237,6 +270,10 @@ function main()
     type(":_itemGroup_XLineEdit_3", "5.00");
     if(appEdition=="OpenMFG")
         type(":_itemGroup._planningType_QComboBox_3", "MPS");
+    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+    {
+        test.xverify(object.exists(":_itemGroup._planningType_QComboBox_3"), "Planning Type ComboBox not found");
+    }
     if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
         type(":Item.Item is Sold_QGroupBox_3"," ");
     clickItem(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line",0,0,1,Qt.LeftButton);
@@ -283,10 +320,13 @@ function main()
     
     if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
     {
-
         waitForObject(":_warehouse_WComboBox_5");
         clickItem(":_warehouse_WComboBox_5", "WH1",0,0,1,Qt.LeftButton);
        
+    }
+    else if(appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":_warehouse_WComboBox_5"), "Warehouse ComboBox is not found");
     }
     waitForObject(":_plannerCode_XComboBox_2");
     clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
@@ -301,6 +341,10 @@ function main()
         type(":_mrp._mpsTimeFence_QSpinBox_3", "<Del>");
         type(":_mrp._mpsTimeFence_QSpinBox_3", "14");
     }
+    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+    {
+        test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS Time Fence not found");
+    }
     type(":_leadTime_QSpinBox_3", "<Ctrl+A>");
     type(":_leadTime_QSpinBox_3", "<Del>");
     type(":_leadTime_QSpinBox_3", "1");
@@ -311,7 +355,11 @@ function main()
         waitForObject(":Item Site.Cancel_QPushButton");
         clickButton(":Item Site.Cancel_QPushButton");
     }
-        
+     else if(appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":Item Site.Cancel_QPushButton"), "Cancel button not found");
+    } 
+    
     waitForObject(":List Items._item_XTreeWidget_3");
     if(!clickItem(":List Items._item_XTreeWidget_3", "WTRUCK1", 5, 5, 1, Qt.LeftButton))
         test.pass("Item Created: WTRUCK1");
@@ -349,6 +397,11 @@ function main()
          clickItem(":_warehouse_WComboBox_5", "WH1",0,0,1,Qt.LeftButton);
         
     }
+    else if(appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":_warehouse_WComboBox_5"), "Warehouse ComboBox is not found");
+    }
+    
     waitForObject(":_plannerCode_XComboBox_2");
     clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
     waitForObject(":_costcat_XComboBox_3");
@@ -365,6 +418,11 @@ function main()
         type(":_mrp._mpsTimeFence_QSpinBox_3", "<Del>");
         type(":_mrp._mpsTimeFence_QSpinBox_3", "0");
     }
+    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+    {
+        test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP Order Group not found");
+    }
+    
     waitForObject(":Item Site.Save_QPushButton");
     clickButton(":Item Site.Save_QPushButton");
     
@@ -373,6 +431,11 @@ function main()
         waitForObject(":Item Site.Cancel_QPushButton");
         clickButton(":Item Site.Cancel_QPushButton");
     }
+     else if(appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":Item Site.Cancel_QPushButton"), "Cancel button not found");
+    }
+     app
     test.log("Planning Item: COLLECTORS-LINE created");
   
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -488,5 +551,7 @@ function main()
 
         
     }
+    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule"), "Schedule menu not found);
     
 }

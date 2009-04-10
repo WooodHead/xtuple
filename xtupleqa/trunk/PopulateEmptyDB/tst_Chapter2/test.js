@@ -865,6 +865,10 @@ function main()
         clickButton(":List Site Calendar Exceptions.Close_QPushButton_2");
  
     }
+    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+  {
+        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule"), "Schedule menu not available");
+    }
   
     if(appEdition=="PostBooks"||appEdition=="xTupleERP")
     {

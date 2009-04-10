@@ -25,15 +25,23 @@ function main()
     clickButton(":Database Information.Save_QPushButton");
     
     
-//    //-----create Entities-------
-//    createDept("MFG","OpenMFG");
-//    assignPrivileges();
-//    if(appEdition=="OpenMFG")
-//        createShift("1ST","First");
-//    createLocale("MYLOCALE","My Locale For Class");
-//    createGroup("SUPER","Super User Group");
-//    createUserByRole("RUNREGISTER");
-//
+    //-----create Entities-------
+    createDept("MFG","OpenMFG");
+    assignPrivileges();
+    if(appEdition=="OpenMFG")
+        createShift("1ST","First");
+    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+    {
+         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+         test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Shifts..."), "Shifts menu not found");
+    }
+    createLocale("MYLOCALE","My Locale For Class");
+    createGroup("SUPER","Super User Group");
+    createUserByRole("RUNREGISTER");
+
     //-------------Configure: Accounting Module----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -42,50 +50,50 @@ function main()
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
     activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
     waitForObject(":_mainSize_QSpinBox");
-//    if(findObject(":_mainSize_QSpinBox").currentText!="4")
-//    {
-//        type(":_mainSize_QSpinBox", "<Right>");
-//        type(":_mainSize_QSpinBox", "<Ctrl+Backspace>");
-//        type(":_mainSize_QSpinBox", "4");
-//    }
-//    waitForObject(":_gl.Use Company Segment_QGroupBox");
-//    if(!findObject(":_gl.Use Company Segment_QGroupBox").checked)
-//        clickButton(":_gl.Use Company Segment_QGroupBox");
-//    if(findObject(":_companySegmentSize_QSpinBox_2").currentText!="2")
-//    {
-//        type(":_companySegmentSize_QSpinBox_2", "<Right>");
-//        type(":_companySegmentSize_QSpinBox_2", "<Ctrl+Backspace>");
-//        type(":_companySegmentSize_QSpinBox_2", "2");
-//    }
-//   
-//    if(findObject(":_subaccountSize_QSpinBox_2").currentText!="2")
-//    {
-//        type(":_subaccountSize_QSpinBox_2", "<Right>");    
-//        type(":_subaccountSize_QSpinBox_2", "<Ctrl+Backspace>");
-//        type(":_subaccountSize_QSpinBox_2", "2");
-//    }
-//    if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
-//    {
-//        waitForObject(":Use Company Segment.Enable External Company Consolidation_QCheckBox");
-//        if(!findObject(":Use Company Segment.Enable External Company Consolidation_QCheckBox").checked)
-//            clickButton(":Use Company Segment.Enable External Company Consolidation_QCheckBox");
-//    }
-    else if(appEdition=="PostBooks")
+    if(findObject(":_mainSize_QSpinBox").currentText!="4")
     {
-       test.xverify(object.exists(":Use Company Segment.Enable External Company Consolidation_QCheckBox"), "External Company - checkbox not visible");
+        type(":_mainSize_QSpinBox", "<Right>");
+        type(":_mainSize_QSpinBox", "<Ctrl+Backspace>");
+        type(":_mainSize_QSpinBox", "4");
     }
-    waitForObject(":_gl.Use Profit Centers_QGroupBox");
-    if(!findObject(":_gl.Use Profit Centers_QGroupBox").checked)
-        type(":_gl.Use Profit Centers_QGroupBox"," ");
-    waitForObject(":Use Profit Centers.Allow Free-Form Profit Centers_QCheckBox");
-    if(!findObject(":Use Profit Centers.Allow Free-Form Profit Centers_QCheckBox").checked)
-        clickButton(":Use Profit Centers.Allow Free-Form Profit Centers_QCheckBox");
-    waitForObject(":_gl.Use Subaccounts_QGroupBox");
-    if(!findObject(":_gl.Use Subaccounts_QGroupBox").checked)
-       type(":_gl.Use Subaccounts_QGroupBox"," ");
-    waitForObject(":Use Subaccounts.Allow Free-Form Subaccounts_QCheckBox");
-    if(findObject(":Use Subaccounts.Allow Free-Form Subaccounts_QCheckBox").checked)
-        findObject(":Use Subaccounts.Allow Free-Form Subaccounts_QCheckBox").checked=false;
+    waitForObject(":_gl.Use Company Segment_QGroupBox");
+    if(!findObject(":_gl.Use Company Segment_QGroupBox").checked)
+        clickButton(":_gl.Use Company Segment_QGroupBox");
+    if(findObject(":_companySegmentSize_QSpinBox_2").currentText!="2")
+    {
+        type(":_companySegmentSize_QSpinBox_2", "<Right>");
+        type(":_companySegmentSize_QSpinBox_2", "<Ctrl+Backspace>");
+        type(":_companySegmentSize_QSpinBox_2", "2");
+    }
+   
+    if(findObject(":_subaccountSize_QSpinBox_2").currentText!="2")
+    {
+        type(":_subaccountSize_QSpinBox_2", "<Right>");    
+        type(":_subaccountSize_QSpinBox_2", "<Ctrl+Backspace>");
+        type(":_subaccountSize_QSpinBox_2", "2");
+    }
+    if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
+    {
+        waitForObject(":Use Company Segment.Enable External Company Consolidation_QCheckBox");
+        if(!findObject(":Use Company Segment.Enable External Company Consolidation_QCheckBox").checked)
+            clickButton(":Use Company Segment.Enable External Company Consolidation_QCheckBox");
+    }
+  else if(appEdition=="PostBooks")
+  {
+     test.xverify(object.exists(":Use Company Segment.Enable External Company Consolidation_QCheckBox"), "External Company - checkbox not visible");
+  }
+  waitForObject(":_gl.Use Profit Centers_QGroupBox");
+  if(!findObject(":_gl.Use Profit Centers_QGroupBox").checked)
+      type(":_gl.Use Profit Centers_QGroupBox"," ");
+  waitForObject(":Use Profit Centers.Allow Free-Form Profit Centers_QCheckBox");
+  if(!findObject(":Use Profit Centers.Allow Free-Form Profit Centers_QCheckBox").checked)
+      clickButton(":Use Profit Centers.Allow Free-Form Profit Centers_QCheckBox");
+  waitForObject(":_gl.Use Subaccounts_QGroupBox");
+  if(!findObject(":_gl.Use Subaccounts_QGroupBox").checked)
+     type(":_gl.Use Subaccounts_QGroupBox"," ");
+  waitForObject(":Use Subaccounts.Allow Free-Form Subaccounts_QCheckBox");
+  if(findObject(":Use Subaccounts.Allow Free-Form Subaccounts_QCheckBox").checked)
+      findObject(":Use Subaccounts.Allow Free-Form Subaccounts_QCheckBox").checked=false;
     if(findObject(":_profitCenterSize_QSpinBox_2").currentText!="2")
     {
         waitForObject(":_profitCenterSize_QSpinBox_2");
@@ -566,6 +574,15 @@ function main()
         test.log("EDI Profiles setup completed");
    
     }
+    
+    else if(appEdition=="PostBooks")
+    {
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "EDI Profiles..."), "EDI Profiles menu not found);
+    }
   
     //----------Create Incident Category-----------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
@@ -586,6 +603,8 @@ function main()
     type(":Incident Category._order_QSpinBox", "90");
     if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
         clickItem(":List Incident Categories._ediprofile_XComboBox", "DUNNING", 0, 0, 1, Qt.LeftButton);
+    else if(appEdition=="PostBooks")
+        test.xverify(object.exists(":List Incident Categories._ediprofile_XComboBox"), "EDI profile ComboBox not found in Dunning Incident categories");
     type(":Incident Category._descrip_QTextEdit", "Dunning Incident");
     clickButton(":Incident Category.Save_QPushButton");
     waitForObject(":List Incident Categories.Close_QPushButton");
@@ -783,7 +802,11 @@ function main()
         clickButton(":Schedule Configuration.Save_QPushButton");
         test.log("Schedule Module Configured")
     }
-   
+    else if(appEdition=="PostBooks" ||appEdition=="xTupleERP)
+    {
+        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Schedule..."), "Schedule Menu not found);
+    }
+    
 
     //----------Create new Title--------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
@@ -1160,6 +1183,8 @@ function main()
         waitForObject(":Image List._image_XTreeWidget");
         doubleClickItem(":Image List._image_XTreeWidget","BACKGROUND",0,0,1,Qt.LeftButton);
     }
+    else if(appEdition=="Postbooks")
+        test.xverify(waitForObject(":Background Image.Image:_QRadioButton"), " Background Image - not visible");
     waitForObject(":Interface Options.Show windows as free-floating_QRadioButton");
     if(!findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked)
     findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked=true;
@@ -1171,7 +1196,7 @@ function main()
         type(":Interface Options.Ignore Missing Translations_QCheckBox"," ");
     if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
         clickButton(":Preferred Site:.Site:_QRadioButton");
-    if(appEdition=="PostBooks")
+    else if(appEdition=="PostBooks")
         test.xverify(object.exists(":Preferred Site:.Site:_QRadioButton"),"Preferred Site - not visible");
     waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
     clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar", "Menu");
@@ -1190,7 +1215,7 @@ function main()
         waitForObject(":_menu.Show Schedule Toolbar_QCheckBox");
         clickButton(":_menu.Show Schedule Toolbar_QCheckBox");
     }
-    if(appVersion=="xTupleERP"||appVersion=="PostBooks")
+   else if(appVersion=="xTupleERP"||appVersion=="PostBooks")
     {
         test.xverify(object.exists(":_menu.Show Schedule Menu_QCheckBox"),"Show Schedule Menu_QCheckBox - not visible");
         test.xverify(object.exists(":_menu.Show Schedule Toolbar_QCheckBox"),"Show Schedule Toolbar - not visible");

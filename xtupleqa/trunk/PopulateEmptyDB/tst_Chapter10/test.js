@@ -115,6 +115,20 @@ function main()
         test.log("Accounting for ACH configured");
 
     }
+    else if(appEdition=="PostBooks")
+    {
+         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
+        
+        waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
+        
+        test.xverify(object.exists(":tab.Enable ACH Check Printing_QGroupBox"), "Enable ACH Check Printing GroupBox not found");
+    }
     
   
     //---------------Define: Bank Accounts------------------

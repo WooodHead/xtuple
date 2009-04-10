@@ -495,7 +495,10 @@ function main()
        type(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox", "Automatic,");
          type(":Sales Configuration._nextRaNumber_XLineEdit", "80000");
    }
-   
+   else if(appEdition=="PostBooks")
+  {
+    test.xverify(Ooject.exists(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox") , "Return Authorization Number Generation ComboBox not found");      
+  }
     if(findObject(":Sales Configuration._creditMemoNumGeneration_QComboBox").currentText!="Automatic, Use C/M #'s")
         type(":Sales Configuration._creditMemoNumGeneration_QComboBox", "Automatic,");
     type(":Sales Configuration._nextCmNumber_XLineEdit", "70000");
@@ -530,6 +533,17 @@ function main()
         if(!findObject(":Enable Return Authorizations.Check Print On Save by Default_QCheckBox").checked)
             clickButton(":Enable Return Authorizations.Check Print On Save by Default_QCheckBox");
     }
+    else if(appEdition=='PostBooks")
+    {
+        test.xverify(object.exists(":_returns.Enable Return Authorizations_QGroupBox"), "Enable Return Atuhorization checkbox not found');
+        test.xverify(object.exists(":Enable Return Authorizations.Post Return Authorization Changes to the Change Log_QCheckBox"), "Post Return Authorization Changes to change log checkbox not found");
+        test.xverify(object.exists(":Enable Return Authorizations._disposition_XComboBox"), " Enable Return Authorization Default Disposition ComboBox not found");
+        test.xverify(object.exists(":Enable Return Authorizations._timing_XComboBox")' "Enable Return Authoraization timing ComboBox not found");
+        test.xverify(object.exists(":Enable Return Authorizations._creditBy_XComboBox"), "Enable Retunr Authorization Credit by ComboBox not found");
+        test.xverify(object.exists(":Enable Return Authorizations.Check Print On Save by Default_QCheckBox"), "Enable Return Authorization Check Print on Save by Default Checkbox not found");
+
+    }
+ 
     clickButton(":Sales Configuration.Save_QPushButton");
     test.log("Sales Module Configured");
 
@@ -557,6 +571,13 @@ function main()
         type(":Sales Account Assignment._main_XLineEdit_5", "01-01-5710-01");
         type(":Sales Account Assignment._main_XLineEdit_6", "01-01-5720-01");
     }
+     else if(appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":Sales Account Assignment._main_XLineEdit_4"), "Sales account assignment not found");
+        test.xverify(object.exists(":Sales Account Assignment._main_XLineEdit_5"), "Sales account assignment not found");
+        test.xverify(object.exists(":Sales Account Assignment._main_XLineEdit_6"), "Sales account assignment not found");
+    }
+    
     clickButton(":Sales Account Assignment.Save_QPushButton");
     waitForObject(":List Sales Account Assignments._salesaccnt_XTreeWidget");
     if(!clickItem(":List Sales Account Assignments._salesaccnt_XTreeWidget", "Any", 5, 5, 1, Qt.LeftButton))
@@ -590,6 +611,11 @@ function main()
         if(findObject(":Settings._sellingWarehouse_WComboBox").currentText!= "WH1");
         clickItem(":Settings._sellingWarehouse_WComboBox", "WH1",0,0,1,Qt.LeftButton);
     }
+    else if(appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":Settings._sellingWarehouse_WComboBox"), "Preferred Selling Site ComboBox not found");
+    }
+    
     clickTab(":Customer.qt_tabwidget_tabbar_QTabBar", "Credit");
     waitForObject(":Defaults._defaultDiscountPrcnt_XLineEdit");
     type(":Defaults._defaultDiscountPrcnt_XLineEdit", "10");
@@ -833,6 +859,9 @@ function main()
     type(":_freightRateGroup_XLineEdit_2", ".50");
     if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
         clickButton(":From.All Sites_QRadioButton_2");
+    else if(appEdition=="PostBooks")
+        test.xverify(object.exists(":From.All Sites_QRadioButton_2"), "From All Sites Radiobutton not found:);
+
     clickButton(":_shipViaFreightGroup.All Ship Vias_QRadioButton_2");
     clickButton(":To.All Shipping Zones_QRadioButton_2");
     clickButton(":_freightClassGroup.Selected:_QRadioButton_2");
@@ -863,6 +892,9 @@ function main()
     type(":_freightRateGroup_XLineEdit_2", ".40");
     if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
         clickButton(":From.All Sites_QRadioButton_2");
+    else if(appEdition=="PostBooks")
+        test.xverify(object.exists(":From.All Sites_QRadioButton_2"), "From All Sites Radiobutton not found:);
+        
     clickButton(":_shipViaFreightGroup.All Ship Vias_QRadioButton_2");
     clickButton(":To.All Shipping Zones_QRadioButton_2");
     clickButton(":_freightClassGroup.Selected:_QRadioButton_2");

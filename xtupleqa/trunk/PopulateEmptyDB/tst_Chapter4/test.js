@@ -340,6 +340,28 @@ function main()
       clickButton(":Bills of Operations.Close_QPushButton");
 
 }
+    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+    {
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates..."), "Standard Labor Rates not found);
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers..."), "Work Centers not found");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations..."), "Standard Operations not found");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations"), "Bill of Operations not found);
+        
+    }
   
    //---------------Create BOM for Items---------------------
   waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -376,6 +398,12 @@ function main()
       waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
       clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
   }
+  else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+  {
+      test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Items not found");
+      test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");
+  }
+
   type(":_ecn_XLineEdit", "initial definition");
   waitForObject(":Bill of Materials Item.Save_QPushButton");
   clickButton(":Bill of Materials Item.Save_QPushButton");
@@ -399,6 +427,12 @@ function main()
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
+   else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+   {
+       test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Item not found");
+       test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");
+   }
+   
   type(":_ecn_XLineEdit", "initial defintion");
   waitForObject(":Bill of Materials Item.Save_QPushButton");
   clickButton(":Bill of Materials Item.Save_QPushButton");
@@ -422,6 +456,12 @@ function main()
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
+   else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+   {
+       test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Item not found");
+       test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");
+   }
+   
   type(":_ecn_XLineEdit", "initial definition");
   waitForObject(":Bill of Materials Item.Save_QPushButton");
   clickButton(":Bill of Materials Item.Save_QPushButton");
@@ -447,6 +487,12 @@ function main()
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
+    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+   {
+       test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Item not found");
+       test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");
+   } 
+   
   type(":_ecn_XLineEdit", "initial defintion");
   waitForObject(":Bill of Materials Item.Save_QPushButton");
   clickButton(":Bill of Materials Item.Save_QPushButton");
@@ -487,6 +533,12 @@ function main()
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
+   else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+   {
+       test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Item not found");
+       test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");
+   } 
+   
   type(":_ecn_XLineEdit", "intial definition");
   waitForObject(":Bill of Materials Item.Save_QPushButton");
   clickButton(":Bill of Materials Item.Save_QPushButton");
@@ -509,6 +561,12 @@ function main()
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
+   else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+   {
+       test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Item not found");
+       test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");
+   } 
+   
   type(":_ecn_XLineEdit", "intial defintion");
   waitForObject(":Bill of Materials Item.Save_QPushButton");
   clickButton(":Bill of Materials Item.Save_QPushButton");
