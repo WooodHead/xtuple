@@ -167,9 +167,10 @@ function createShift(ShiftNum, ShiftName)
 //----------------Create Locale-----------------------
 function createLocale(LocaleCode,LocaleDesc)
 {  
+    
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu","Master Information");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Locales...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Locales...");
@@ -340,31 +341,7 @@ function createUserByRole(userrole)
     waitForObject(":List Users._usr_XTreeWidget_2");
     if(!clickItem(":List Users._usr_XTreeWidget_2",username,0,0,1,Qt.LeftButton))
         test.pass("User created and assigned Locale");
-    
-    var sWidgetTreeControl = ":List Users._usr_XTreeWidget_2";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    test.log("Number of Users"+iNumberOfRootItems);
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    for(i=1;sNameOfRootItem!=username && i<iNumberOfRootItems ;i++)
-    {
-        waitForObject(sWidgetTreeControl);
-        type(sWidgetTreeControl,"<Down>");           
-        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
-        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    }
-    if(sNameOfRootItem==username)
-        test.pass(username +" user created and added 'SUPER' group privilege");
-    else 
-    {
-        test.fail(username +" user created and added 'SUPER' group privilege");
-        exit(1);
-    }
-    clickButton(":List Users.Edit_QPushButton_2");
+    doubleClickItem(":List Users._usr_XTreeWidget_2",username,0,0,0,Qt.LeftButton);
     waitForObject(":List Users.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Users.qt_tabwidget_tabbar_QTabBar", "Groups");
     sWidgetTreeControl = ":_groupTab._availableGroup_XTreeWidget";
@@ -387,7 +364,7 @@ function createUserByRole(userrole)
     clickButton(":_groupTab.Add->_QPushButton");
     waitForObject(":List Users.Save_QPushButton_2");
     clickButton(":List Users.Save_QPushButton_2");
-     waitForObject(":List Users.Close_QPushButton_2");
+    waitForObject(":List Users.Close_QPushButton_2");
     clickButton(":List Users.Close_QPushButton_2");
     
 }

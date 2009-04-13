@@ -2,25 +2,25 @@ function main()
 {
 
 
-    source(findFile("scripts","functions.js"));
-    
-    
-    //---login Application--------
-     loginAppl("RUNREGISTER");       
+  source(findFile("scripts","functions.js"));
+  
+  
+  //---login Application--------
+   loginAppl("RUNREGISTER");       
  
-    
-    //---find Application Edition------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
-    waitForObject(":Database Information.*_QLabel");
-    var appEdition = findObject(":Database Information.*_QLabel").text;
-    clickButton(":Database Information.Save_QPushButton");      
+  
+  //---find Application Edition------
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+  activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+  waitForObject(":Database Information.*_QLabel");
+  var appEdition = findObject(":Database Information.*_QLabel").text;
+  clickButton(":Database Information.Save_QPushButton");      
 
-    //--------------Define: Check Formats-------------------
+  //--------------Define: Check Formats-------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");

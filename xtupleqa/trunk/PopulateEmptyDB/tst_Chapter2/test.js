@@ -485,7 +485,7 @@ function main()
  
     doubleClickItem(":List Units of Measure._uoms_XTreeWidget_2","KG",0,0,1,Qt.LeftButton);
       
-    waitForObject(":Global Conversion Ratios:.New_QPushButton");
+    snooze(1);
     clickButton(":Global Conversion Ratios:.New_QPushButton");
     waitForObject(":Conversion._uomFrom_XComboBox");
     clickItem(":Conversion._uomFrom_XComboBox", "KG", 0, 0, 1, Qt.LeftButton);
@@ -867,7 +867,7 @@ function main()
     }
     else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
   {
-        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule"), "Schedule menu not available");
+        test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule"), "Schedule menu not available");
     }
   
     if(appEdition=="PostBooks"||appEdition=="xTupleERP")

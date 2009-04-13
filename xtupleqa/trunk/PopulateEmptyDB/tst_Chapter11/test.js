@@ -26,7 +26,7 @@ function main()
     doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "Official Income Statement", 5, 5, 0, Qt.LeftButton);
     waitForObjectItem(":frame._layout_XTreeWidget", "INCOME");
     clickItem(":frame._layout_XTreeWidget", "INCOME", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":frame.Delete_QPushButton");
+    snooze(1);
     clickButton(":frame.Delete_QPushButton");
     waitForObject(":frame.Add Top Level Group_QPushButton");
     clickButton(":frame.Add Top Level Group_QPushButton");
@@ -392,10 +392,10 @@ function main()
     doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "Official Balance Sheet", 5, 5, 0, Qt.LeftButton);
     waitForObjectItem(":frame._layout_XTreeWidget", "ASSETS");
     clickItem(":frame._layout_XTreeWidget", "ASSETS", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":frame.Delete_QPushButton");
+    snooze(1);
     clickButton(":frame.Delete_QPushButton");
     clickItem(":frame._layout_XTreeWidget", "LIABILITIES AND OWNERS EQUITY", 81, 10, 1, Qt.LeftButton);
-    waitForObject(":frame.Delete_QPushButton");
+    snooze(1);
     clickButton(":frame.Delete_QPushButton");
     
     clickButton(":frame.Add Top Level Group_QPushButton");

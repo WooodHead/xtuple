@@ -1,31 +1,32 @@
-function main()
+nction main()
 {
-    
-    source(findFile("scripts","functions.js"));
 
-     //---login Application--------
-     loginAppl("RUNREGISTER");       
+source(findFile("scripts","functions.js"));
 
-    //---find Application Edition------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
-    waitForObject(":Database Information.*_QLabel");
-    var appEdition = findObject(":Database Information.*_QLabel").text;
-    clickButton(":Database Information.Save_QPushButton");      
-    
+ //---login Application--------
+ loginAppl("RUNREGISTER");       
 
-    //----------Create Customer Type------------
+ //---find Application Edition------
+ waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+ activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+ waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+ activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+ waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+ activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+ waitForObject(":Database Information.*_QLabel");
+ var appEdition = findObject(":Database Information.*_QLabel").text;
+ clickButton(":Database Information.Save_QPushButton");      
+
+
+  //----------Create Customer Type------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
     activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "Types...");
     activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "Types...");
-    waitForObject(":List Customer Types.New_QPushButton");
+    
+    snooze(1);
     clickButton(":List Customer Types.New_QPushButton");
     waitForObject(":_code_XLineEdit_11");
     type(":_code_XLineEdit_11", "NORMAL");
@@ -33,7 +34,7 @@ function main()
     if(!findObject(":Customer Type.Enable Characteristics Profile_QGroupBox").checked)
         type(":Customer Type.Enable Characteristics Profile_QGroupBox"," ");
    
-    waitForObject(":Enable Characteristics Profile.New_QPushButton");
+    snooze(1);
     clickButton(":Enable Characteristics Profile.New_QPushButton");
     waitForObject(":_char_XComboBox_3");
     if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN")
@@ -44,7 +45,7 @@ function main()
         clickButton(":Customer Characteristic.Default_QCheckBox");
     clickButton(":Customer Characteristic.Save_QPushButton");
     
-    waitForObject(":Enable Characteristics Profile.New_QPushButton");
+    snooze(1);
     clickButton(":Enable Characteristics Profile.New_QPushButton");
     waitForObject(":_char_XComboBox_3");
     if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN")
@@ -55,7 +56,7 @@ function main()
         clickButton(":Customer Characteristic.Default_QCheckBox");
     clickButton(":Customer Characteristic.Save_QPushButton");
     
-    waitForObject(":Enable Characteristics Profile.New_QPushButton");
+    snooze(1);
     clickButton(":Enable Characteristics Profile.New_QPushButton");
     waitForObject(":_char_XComboBox_3");
     if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN")
@@ -66,7 +67,7 @@ function main()
         clickButton(":Customer Characteristic.Default_QCheckBox");
     clickButton(":Customer Characteristic.Save_QPushButton");
        
-    waitForObject(":Customer Type.Save_QPushButton");
+    snooze(1);
     clickButton(":Customer Type.Save_QPushButton");
     waitForObject(":List Customer Types._custtype_XTreeWidget");
     if(!clickItem(":List Customer Types._custtype_XTreeWidget", "NORMAL", 5, 5, 1, Qt.LeftButton))
@@ -497,7 +498,7 @@ function main()
    }
    else if(appEdition=="PostBooks")
   {
-    test.xverify(Ooject.exists(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox") , "Return Authorization Number Generation ComboBox not found");      
+    test.xverify(object.exists(":Sales Configuration._returnAuthorizationNumGeneration_QComboBox") , "Return Authorization Number Generation ComboBox not found");      
   }
     if(findObject(":Sales Configuration._creditMemoNumGeneration_QComboBox").currentText!="Automatic, Use C/M #'s")
         type(":Sales Configuration._creditMemoNumGeneration_QComboBox", "Automatic,");
@@ -533,12 +534,12 @@ function main()
         if(!findObject(":Enable Return Authorizations.Check Print On Save by Default_QCheckBox").checked)
             clickButton(":Enable Return Authorizations.Check Print On Save by Default_QCheckBox");
     }
-    else if(appEdition=='PostBooks")
+    else if(appEdition=="PostBooks")
     {
-        test.xverify(object.exists(":_returns.Enable Return Authorizations_QGroupBox"), "Enable Return Atuhorization checkbox not found');
+        test.xverify(object.exists(":_returns.Enable Return Authorizations_QGroupBox"), "Enable Return Atuhorization checkbox not found");
         test.xverify(object.exists(":Enable Return Authorizations.Post Return Authorization Changes to the Change Log_QCheckBox"), "Post Return Authorization Changes to change log checkbox not found");
-        test.xverify(object.exists(":Enable Return Authorizations._disposition_XComboBox"), " Enable Return Authorization Default Disposition ComboBox not found");
-        test.xverify(object.exists(":Enable Return Authorizations._timing_XComboBox")' "Enable Return Authoraization timing ComboBox not found");
+        test.xverify(object.exists(":Enable Return Authorizations._disposition_XComboBox"), "Enable Return Authorization Default Disposition ComboBox not found");
+        test.xverify(object.exists(":Enable Return Authorizations._timing_XComboBox"), "Enable Return Authoraization timing ComboBox not found");
         test.xverify(object.exists(":Enable Return Authorizations._creditBy_XComboBox"), "Enable Retunr Authorization Credit by ComboBox not found");
         test.xverify(object.exists(":Enable Return Authorizations.Check Print On Save by Default_QCheckBox"), "Enable Return Authorization Check Print on Save by Default Checkbox not found");
 
@@ -860,7 +861,7 @@ function main()
     if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
         clickButton(":From.All Sites_QRadioButton_2");
     else if(appEdition=="PostBooks")
-        test.xverify(object.exists(":From.All Sites_QRadioButton_2"), "From All Sites Radiobutton not found:);
+        test.xverify(object.exists(":From.All Sites_QRadioButton_2"), "From All Sites Radiobutton not found");
 
     clickButton(":_shipViaFreightGroup.All Ship Vias_QRadioButton_2");
     clickButton(":To.All Shipping Zones_QRadioButton_2");
@@ -893,7 +894,7 @@ function main()
     if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
         clickButton(":From.All Sites_QRadioButton_2");
     else if(appEdition=="PostBooks")
-        test.xverify(object.exists(":From.All Sites_QRadioButton_2"), "From All Sites Radiobutton not found:);
+        test.xverify(object.exists(":From.All Sites_QRadioButton_2"), "From All Sites Radiobutton not found");
         
     clickButton(":_shipViaFreightGroup.All Ship Vias_QRadioButton_2");
     clickButton(":To.All Shipping Zones_QRadioButton_2");
@@ -913,13 +914,13 @@ function main()
     clickButton(":List Pricing Schedules.Close_QPushButton");
   
   
-  //-----------Assign Pricing Schedule---------------    
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
-  activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedule Assignments...");
-  activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedule Assignments...");
+//-----------Assign Pricing Schedule---------------    
+waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedule Assignments...");
+activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedule Assignments...");
     
      //----------Pricing Schdule Assignment:BASE----------------
     waitForObject(":List Pricing Schedule Assignments.New_QPushButton");
@@ -946,7 +947,7 @@ function main()
     waitForObject(":List Pricing Schedule Assignments._ipsass_XTreeWidget");
     if(!clickItem(":List Pricing Schedule Assignments._ipsass_XTreeWidget", "FREIGHT-BULK", 5, 5, 1, Qt.LeftButton))
         test.pass("Pricing Schedule Assignment created: FREIGHT-BULK");
-  
+
     //----------Pricing Schdule Assignment: FREIGHT-TTOYS-BULK-----------
     waitForObject(":List Pricing Schedule Assignments.New_QPushButton");
     clickButton(":List Pricing Schedule Assignments.New_QPushButton");
@@ -1033,7 +1034,15 @@ function main()
     
     }
 
-
+   else if(appEdition="PostBooks")
+    {
+       waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+       activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+       waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
+       activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
+       test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List..."), "Inventory Site List not available");
+       
+    } 
 
 
 }

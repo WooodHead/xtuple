@@ -266,8 +266,8 @@ function main()
         waitForObject(":List Standard Operations.Close_QPushButton");
         clickButton(":List Standard Operations.Close_QPushButton");
 
-    
-    //-----------Define BOO for Items---------------
+  
+  //-----------Define BOO for Items---------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
@@ -275,8 +275,8 @@ function main()
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
     activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
     
-      
-        //-----------Define BOO for YTRUCK1---------------
+    
+      //-----------Define BOO for YTRUCK1---------------
         waitForObject(":Bills of Operations.New_QPushButton");
         clickButton(":Bills of Operations.New_QPushButton");
         waitForObject(":itemGroup._itemNumber_ItemLineEdit");
@@ -315,8 +315,8 @@ function main()
         if(!clickItem(":_boo_XTreeWidget", "YTRUCK1", 5, 5, 1, Qt.LeftButton))
             test.pass("BOO created for: YTRUCK1");
       
-      
-      //-----------Define BOO for TKIT1---------------
+    
+    //-----------Define BOO for TKIT1---------------
       waitForObject(":Bills of Operations.New_QPushButton");
       clickButton(":Bills of Operations.New_QPushButton");
       waitForObject(":itemGroup._itemNumber_ItemLineEdit");
@@ -340,26 +340,32 @@ function main()
       clickButton(":Bills of Operations.Close_QPushButton");
 
 }
-    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
-    {
+  else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+  {
+      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+      waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+      activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+      test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates..."), "Standard Labor Rates not found");
+      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+      waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+      activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+      test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers..."), "Work Centers not found");
+      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+      waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+      activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+        test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations..."), "Standard Operations not found");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates..."), "Standard Labor Rates not found);
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers..."), "Work Centers not found");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations..."), "Standard Operations not found");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations"), "Bill of Operations not found);
+        test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations"), "Bill of Operations not found");
         
     }
   

@@ -14,7 +14,8 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "User-Defined Costing Elements...");
     activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "User-Defined Costing Elements...");
-    waitForObject(":List User-Defined Costing Elements.New_QPushButton");
+    
+    snooze(1);
     clickButton(":List User-Defined Costing Elements.New_QPushButton");
     waitForObject(":_name_XLineEdit_7");
     type(":_name_XLineEdit_7", "Special Handling");

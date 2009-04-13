@@ -1,34 +1,34 @@
-function main()
+nction main()
 {
 
-    source(findFile("scripts","functions.js"));
-    
-     //---login Application--------
-     loginAppl("RUNREGISTER"); 
+source(findFile("scripts","functions.js"));
 
-    
-     //---find Application Edition------
-     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
-     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
-     waitForObject(":Database Information.*_QLabel");
-     var appEdition = findObject(":Database Information.*_QLabel").text;
-     clickButton(":Database Information.Save_QPushButton"); 
-    
-    
-    //----------Create Items---------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
-    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
-  
+ //---login Application--------
+ loginAppl("RUNREGISTER"); 
 
-    //-----------Create Item RTRUCK1---------------
+
+ //---find Application Edition------
+ waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+ activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+ waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+ activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+ waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+ activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+ waitForObject(":Database Information.*_QLabel");
+ var appEdition = findObject(":Database Information.*_QLabel").text;
+ clickButton(":Database Information.Save_QPushButton"); 
+
+
+//----------Create Items---------------------
+waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
+activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
+activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
+
+
+  //-----------Create Item RTRUCK1---------------
     waitForObject(":List Items.New_QPushButton_2");
     clickButton(":List Items.New_QPushButton_2");
     waitForObject(":_itemNumber_XLineEdit_3");
@@ -366,8 +366,8 @@ function main()
 
     clickButton(":List Items.Close_QPushButton_3");
 
-  
-  
+
+
     //------------Create Planning Item: COLLECTORS-LINE-----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -435,7 +435,7 @@ function main()
     {
         test.xverify(object.exists(":Item Site.Cancel_QPushButton"), "Cancel button not found");
     }
-     app
+    
     test.log("Planning Item: COLLECTORS-LINE created");
   
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -522,7 +522,8 @@ function main()
             clickItem(":_warehouse_WComboBox_6", "WH1",0,0,1,Qt.LeftButton);
         if(findObject(":_schedtype_QComboBox").currentText!="Forecast Netted to MPS")
             clickItem(":_schedtype_QComboBox", "Forecast Netted to MPS",0,0,1,Qt.LeftButton);
-        waitForObject(":frame.New_QPushButton_3");
+        
+        snooze(1);
         clickButton(":frame.New_QPushButton_3");
         waitForObject(":Production Plan Item...._QPushButton");
         type(":Production Plan Item._itemNumber_ItemLineEdit", "COLLECTORS-LINE");
@@ -531,7 +532,7 @@ function main()
         waitForObject(":Production Plan Item.Save_QPushButton");
         clickButton(":Production Plan Item.Save_QPushButton");
         
-        waitForObject(":frame.New_QPushButton_3");
+        snooze(1);
         clickButton(":frame.New_QPushButton_3");
         waitForObject(":Production Plan Item...._QPushButton");
         type(":Production Plan Item._itemNumber_ItemLineEdit", "COLLECTORS-LINE");
@@ -552,6 +553,6 @@ function main()
         
     }
     else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
-        test.xverify(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule"), "Schedule menu not found);
+        test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule"), "Schedule menu not found");
     
 }
