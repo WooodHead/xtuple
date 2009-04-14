@@ -1,4 +1,4 @@
-nction main()
+function main()
 {
 
 source(findFile("scripts","functions.js"));

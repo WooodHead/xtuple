@@ -21,7 +21,7 @@ function main()
     if(appEdition=="OpenMFG")
     {
 
-        //-------------Standard Labor Rate -------------------
+    //-------------Standard Labor Rate -------------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
@@ -368,11 +368,12 @@ function main()
         test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations"), "Bill of Operations not found");
         
     }
-  
+
    //---------------Create BOM for Items---------------------
   waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
   activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
+  snooze(0.5);
+  waitForObject(":xTuple ERP: OpenMFG Edition.Products_QMenu");
   activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
   waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
   activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");

@@ -1,4 +1,4 @@
-nction main()
+function main()
 {
 
 source(findFile("scripts","functions.js"));
@@ -19,7 +19,7 @@ source(findFile("scripts","functions.js"));
  clickButton(":Database Information.Save_QPushButton"); 
 
 
-//----------Create Items---------------------
+  //----------Create Items---------------------
 waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
 activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
 waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");

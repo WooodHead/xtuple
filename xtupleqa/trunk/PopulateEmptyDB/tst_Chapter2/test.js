@@ -401,7 +401,7 @@ function main()
     waitForObject(":List Site Locations.Close_QPushButton_2");
     clickButton(":List Site Locations.Close_QPushButton_2");
     test.log("Inventory Site Locations created");
-  
+
   
   
   

@@ -592,6 +592,7 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
     activateItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
+    snooze(0.5);
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Categories...");
