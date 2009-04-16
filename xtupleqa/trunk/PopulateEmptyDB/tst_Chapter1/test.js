@@ -36,7 +36,16 @@ function main()
          activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
          waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
          activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-         test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Shifts..."), "Shifts menu not found");
+         
+         menu = waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu");
+         menuItem = "S&hifts...";
+         
+         actions = menu.actions();
+         for(i=0;i<actions.count();i++)
+             if(actions.at(i).text == menuItem || i==actions.count()-1) break;
+         if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
+         else test.pass(menuItem+"not found in "+appEdition);
+         
          waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
          activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
                   
@@ -413,8 +422,7 @@ function main()
         test.xverify(object.exists(":Products Configuration.Enable Work Center Routings_QGroupBox"), "Enable Work Center - groupbox not visible");
         test.xverify(object.exists(":Track Machine Overhead.as Machine Overhead_QRadioButton"), "Machine Overhead - RadioButton not visible"); 
         test.xverify(object.exists(":Products Configuration.Enable Breeder Bills of Materials_QCheckBox"), "Enable Breeder Bills of Materials - not visible"); 
-        test.xverify(object.exists(":Products Configuration.Enable Transforms_QCheckBox"), "Enable Transforms - not visible"); 
-        test.xverify(object.exists(":Products Configuration.Enable Revision Control_QCheckBox"), "Enable Revision Control - not visible"); 
+        
     }
     
     if(!findObject(":Products Configuration.Post Item Changes to the Change Log_QCheckBox").checked)
@@ -517,8 +525,7 @@ function main()
     {
         test.xverify(object.exists(":_defaultFromAddress_XLineEdit"), "From Address - not visible");
         test.xverify(object.exists(":Database Information.Enable Batch Manager_QCheckBox"), "Enable Batch Manager - not visible");
-        test.xverify(object.exists(":Database Information.qt_spinbox_lineedit_QLineEdit"), "PurgeDays spinbox - not visible");
-        
+                
     }
     if(findObject(":_interval_QSpinBox").currentText!="1")
     {
@@ -584,7 +591,19 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "EDI Profiles..."), "EDI Profiles menu not found");
+                
+        menu = waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu");
+        menuItem = "EDI &Profiles...";
+         
+        actions = menu.actions();
+        for(i=0;i<actions.count();i++)
+            if(actions.at(i).text == menuItem || i==actions.count()-1) break;
+        if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
+        else test.pass(menuItem+"not found in "+appEdition);
+        snooze(1);
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        
     }
   
   //----------Create Incident Category-----------
@@ -812,7 +831,18 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Schedule..."), "Schedule Menu not found");
+        
+        
+        menu = waitForObject(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu");
+        menuItem = "Sche&dule...";
+         
+        actions = menu.actions();
+        for(i=0;i<actions.count();i++)
+            if(actions.at(i).text == menuItem || i==actions.count()-1) break;
+        if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
+        else test.pass(menuItem+"not found in "+appEdition);
+        
+        
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     }
@@ -1195,8 +1225,7 @@ function main()
       waitForObject(":Image List._image_XTreeWidget");
       doubleClickItem(":Image List._image_XTreeWidget","BACKGROUND",0,0,1,Qt.LeftButton);
   }
-  else if(appEdition=="Postbooks")
-      test.verify(waitForObject(":Background Image.Image:_QRadioButton"), " Background Image - not visible");
+            
   waitForObject(":Interface Options.Show windows as free-floating_QRadioButton");
   if(!findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked)
   findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked=true;

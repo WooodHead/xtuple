@@ -867,7 +867,15 @@ function main()
     }
     else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
   {
-        test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule"), "Schedule menu not available");
+        menu = waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+         menuItem = "Sche&dule";
+         
+         actions = menu.actions();
+         for(i=0;i<actions.count();i++)
+             if(actions.at(i).text == menuItem || i==actions.count()-1) break;
+         if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
+         else test.pass(menuItem+"not found in "+appEdition);
+         
     }
   
     if(appEdition=="PostBooks"||appEdition=="xTupleERP")
@@ -876,7 +884,7 @@ function main()
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
             activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Planner Codes...");
+            waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6");
             activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Planner Codes...");
             waitForObject(":List Planner Codes.New_QPushButton_2");
             clickButton(":List Planner Codes.New_QPushButton_2");

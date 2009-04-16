@@ -716,6 +716,7 @@ source(findFile("scripts","functions.js"));
     waitForObject(":Defaults:._shipform_XComboBox");
     if(findObject(":Defaults:._shipform_XComboBox").currentText!= "STANDARD-PACKING-LIST")
         clickItem(":Defaults:._shipform_XComboBox", "STANDARD-PACKING-LIST",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Defaults:._shipchrg_XComboBox");
     if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
         clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);	
@@ -1040,7 +1041,16 @@ activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedule Ass
        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
        activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
-       test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List..."), "Inventory Site List not available");
+              
+       menu = waitForObject(":xTuple ERP: OpenMFG Edition.Site_QMenu");
+       menuItem = "&List...";
+         
+         actions = menu.actions();
+         for(i=0;i<actions.count();i++)
+             if(actions.at(i).text == menuItem || i==actions.count()-1) break;
+         if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
+         else test.pass(menuItem+"not found in "+appEdition);
+         
        
     } 
 

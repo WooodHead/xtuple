@@ -55,6 +55,7 @@ function loginAppl(userrole)
     waitForObject(":_password_QLineEdit");
     type(":_password_QLineEdit", "<Return>");
     test.log("Logged in Application");
+    waitForObject(":xTuple ERP: OpenMFG Edition_QWorkspace");
 }
 
 

@@ -442,7 +442,7 @@ activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
     activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
+    waitForObject(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu");
     activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
     waitForObject(":Bills of Materials.New_QPushButton");
     clickButton(":Bills of Materials.New_QPushButton");
@@ -553,6 +553,15 @@ activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
         
     }
     else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
-        test.verify(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule"), "Schedule menu not found");
+    {
+      menu = waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+      menuItem = "Sche&dule";
+         
+         actions = menu.actions();
+         for(i=0;i<actions.count();i++)
+             if(actions.at(i).text == menuItem || i==actions.count()-1) break;
+         if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
+         else test.pass(menuItem+"not found in "+appEdition);
+     }    
     
 }
