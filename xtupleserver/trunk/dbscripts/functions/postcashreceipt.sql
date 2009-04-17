@@ -94,6 +94,11 @@ BEGIN
     RETURN -1;
   END IF;
 
+--  Check to see if the C/R is positive amount
+  IF (_p.cashrcpt_amount <= 0) THEN
+    RETURN -2;
+  END IF;
+
 --  Distribute A/R Applications
   FOR _r IN SELECT aropen_id, aropen_doctype, aropen_docnumber, aropen_docdate,
                    aropen_duedate, aropen_curr_id, aropen_curr_rate,
