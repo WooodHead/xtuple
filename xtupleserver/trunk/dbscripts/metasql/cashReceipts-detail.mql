@@ -2,8 +2,10 @@
 -- Name: detail
 -- Notes: used by dspCashReceipts
 
+-- Posted cash receipts
 SELECT arapply_id, 1 AS type, cust_number, cust_name,
        arapply_postdate AS postdate,
+       formatDate(arapply_postdate) AS f_postdate,
        ( CASE WHEN (arapply_source_doctype='C') THEN <? value("creditMemo") ?>
               WHEN (arapply_source_doctype='R') THEN <? value("cashdeposit") ?>
               WHEN (arapply_fundstype='C') THEN <? value("check") ?>
@@ -25,8 +27,10 @@ SELECT arapply_id, 1 AS type, cust_number, cust_name,
               ELSE <? value("other") ?>
          END || ' ' || TEXT(arapply_target_docnumber) ) AS target,
        arapply_applied AS applied,
+       formatMoney(arapply_applied) AS f_applied,
        'curr' AS applied_xtnumericrole,
        currtobase(arapply_curr_id,arapply_applied,arapply_postdate) AS base_applied,
+       formatMoney(currtobase(arapply_curr_id,arapply_applied,arapply_postdate)) AS f_base_applied,
        'curr' AS base_applied_xtnumericrole,
        0 AS base_applied_xttotalrole,
        currConcat(arapply_curr_id) AS currAbbr,
@@ -43,9 +47,12 @@ WHERE ( (arapply_cust_id=cust_id)
   AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
 <? endif ?>
       )
+
+-- Unposted cash receipts
 UNION
 SELECT cashrcpt_id, 2 AS type, cust_number, cust_name,
        cashrcpt_distdate AS postdate,
+       formatDate(cashrcpt_distdate) AS f_postdate,
        ( CASE WHEN (cashrcpt_fundstype='C') THEN <? value("check") ?>
               WHEN (cashrcpt_fundstype='T') THEN <? value("certifiedCheck") ?>
               WHEN (cashrcpt_fundstype='M') THEN <? value("masterCard") ?>
@@ -57,16 +64,19 @@ SELECT cashrcpt_id, 2 AS type, cust_number, cust_name,
               WHEN (cashrcpt_fundstype='W') THEN <? value("wireTransfer") ?>
               WHEN (cashrcpt_fundstype='O') THEN <? value("other") ?>
          END || ' ' || cashrcpt_docnumber ) AS source,
-       '' AS target,
+       <? value("unposted") ?> AS target,
        cashrcpt_amount AS applied,
+       formatMoney(cashrcpt_amount) AS f_applied,
        'curr' AS applied_xtnumericrole,
        currtobase(cashrcpt_curr_id,cashrcpt_amount,cashrcpt_distdate) AS base_applied,
+       formatMoney(currtobase(cashrcpt_curr_id,cashrcpt_amount,cashrcpt_distdate)) AS f_base_applied,
        'curr' AS base_applied_xtnumericrole,
        0 AS base_applied_xttotalrole,
        currConcat(cashrcpt_curr_id) AS currAbbr,
        cashrcpt_distdate AS sortdate
 FROM cashrcpt, cust
-WHERE ( (cashrcpt_cust_id=cust_id)
+WHERE ( (NOT cashrcpt_posted)
+  AND   (cashrcpt_cust_id=cust_id)
   AND   (cashrcpt_distdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? if exists("cust_id") ?>
   AND   (cust_id=<? value("cust_id") ?>)
@@ -76,9 +86,12 @@ WHERE ( (cashrcpt_cust_id=cust_id)
   AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
 <? endif ?>
       )
+
+-- Cash Advance
 UNION
 SELECT aropen_id, 3 AS type, cust_number, cust_name,
        aropen_docdate AS postdate,
+       formatDate(aropen_docdate) AS f_postdate,
        ( CASE WHEN (substr(aropen_notes, 16, 1)='C') THEN <? value("check") ?>
               WHEN (substr(aropen_notes, 16, 1)='T') THEN <? value("certifiedCheck") ?>
               WHEN (substr(aropen_notes, 16, 1)='M') THEN <? value("masterCard") ?>
@@ -93,8 +106,10 @@ SELECT aropen_id, 3 AS type, cust_number, cust_name,
          substr(aropen_notes, 18) ) AS source,
        <? value("unapplied") ?> AS target,
        aropen_amount AS applied,
+       formatMoney(aropen_amount) AS f_applied,
        'curr' AS applied_xtnumericrole,
        aropen_amount / round(aropen_curr_rate,5) AS base_applied,
+       formatMoney(aropen_amount / round(aropen_curr_rate,5)) AS f_base_applied,
        'curr' AS base_applied_xtnumericrole,
        0 AS base_applied_xttotalrole,
        currConcat(aropen_curr_id) AS currAbbr,

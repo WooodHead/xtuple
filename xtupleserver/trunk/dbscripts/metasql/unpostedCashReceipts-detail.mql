@@ -1,6 +1,6 @@
 -- Group: unpostedCashReceipts
 -- Name: detail
--- Notes:
+-- Notes: Used by arWorkBench, cashReceiptsEditList
 
 SELECT cashrcpt_id, 
        cust_number,
@@ -24,9 +24,10 @@ SELECT cashrcpt_id,
          END AS cashrcpt_fundstype,
        'curr' AS cashrcpt_amount_xtnumericrole 
 FROM cashrcpt, bankaccnt, custinfo, custtype 
-WHERE ((cashrcpt_bankaccnt_id=bankaccnt_id)
-AND (cashrcpt_cust_id=cust_id)
-AND (cust_custtype_id=custtype_id)
+WHERE ( (NOT cashrcpt_posted)
+  AND   (cashrcpt_bankaccnt_id=bankaccnt_id)
+  AND   (cashrcpt_cust_id=cust_id)
+  AND   (cust_custtype_id=custtype_id)
 <? if exists("cust_id") ?>
   AND   (cashrcpt_cust_id=<? value("cust_id") ?>)
 <? endif ?>

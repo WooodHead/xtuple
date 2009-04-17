@@ -145,8 +145,7 @@ round(aropen_paid +
                         (_r.aropen_doctype || '-' || _r.aropen_docnumber),
                         _arAccntid, round(_r.cashrcptitem_amount_base, 2),
                         _p.cashrcpt_distdate, _p.custnote );
-raise exception 'gain/loss= %',arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, _r.cashrcptitem_amount,
-                           _p.cashrcpt_distdate);
+
     _exchGain := arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, _r.cashrcptitem_amount,
                            _p.cashrcpt_distdate);
 
@@ -237,14 +236,10 @@ raise exception 'gain/loss= %',arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, _r.c
 
   PERFORM postGLSeries(_sequence, pJournalNumber);
 
---  Delete the posted cashrcpt
-  DELETE FROM cashrcptitem
-  WHERE (cashrcptitem_cashrcpt_id=pCashrcptid);
-
-  DELETE FROM cashrcptmisc
-  WHERE (cashrcptmisc_cashrcpt_id=pCashrcptid);
-
-  DELETE FROM cashrcpt
+--  Update the posted cashrcpt
+  UPDATE cashrcpt SET cashrcpt_posted=TRUE,
+                      cashrcpt_posteddate=CURRENT_DATE,
+                      cashrcpt_postedby=CURRENT_USER
   WHERE (cashrcpt_id=pCashrcptid);
 
   RETURN 1;

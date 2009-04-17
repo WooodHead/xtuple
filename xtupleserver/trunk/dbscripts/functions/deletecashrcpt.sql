@@ -14,6 +14,13 @@ BEGIN
     RETURN -1;
   END IF;
 
+  IF EXISTS(SELECT cashrcpt_id
+            FROM cashrcpt
+            WHERE ( (cashrcpt_id=pcashrcptid)
+              AND   (cashrcpt_posted) )) THEN
+    RETURN -2;
+  END IF;
+
   DELETE FROM cashrcptitem
   WHERE (cashrcptitem_cashrcpt_id=pcashrcptid);
 
