@@ -716,13 +716,14 @@ source(findFile("scripts","functions.js"));
     waitForObject(":Defaults:._shipform_XComboBox");
     if(findObject(":Defaults:._shipform_XComboBox").currentText!= "STANDARD-PACKING-LIST")
         clickItem(":Defaults:._shipform_XComboBox", "STANDARD-PACKING-LIST",0,0,1,Qt.LeftButton);
-    snooze(0.5);
+    snooze(2);
     waitForObject(":Defaults:._shipchrg_XComboBox");
     if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
         clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);	
-    snooze(0.5);
+    snooze(2);
     waitForObject(":Ship-To.Save_QPushButton");
     clickButton(":Ship-To.Save_QPushButton");
+    snooze(2);
     waitForObject(":Customer.Save_QPushButton");
     clickButton(":Customer.Save_QPushButton");
     test.log("Customer: TTOYS created");

@@ -717,6 +717,7 @@ function main()
     waitForObject(":_group_XComboBox");
     if(findObject(":_group_XComboBox").currentText!="ASSETS")
     clickItem(":_group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Financial Report Group.Save_QPushButton");
     clickButton(":Financial Report Group.Save_QPushButton");
     waitForObject(":frame._layout_XTreeWidget");
