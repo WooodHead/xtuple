@@ -1,5 +1,6 @@
 BEGIN;
 
+ALTER TABLE cashrcpt ADD COLUMN cashrcpt_docdate DATE;
 ALTER TABLE cashrcpt ADD COLUMN cashrcpt_posted BOOLEAN;
 ALTER TABLE cashrcpt ADD COLUMN cashrcpt_posteddate DATE;
 ALTER TABLE cashrcpt ADD COLUMN cashrcpt_postedby TEXT;

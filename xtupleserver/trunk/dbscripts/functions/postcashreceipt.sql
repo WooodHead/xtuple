@@ -134,7 +134,7 @@ round(aropen_paid +
     ( arapply_cust_id,
       arapply_source_aropen_id, arapply_source_doctype, arapply_source_docnumber,
       arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
-      arapply_fundstype, arapply_refnumber,
+      arapply_fundstype, arapply_refnumber, arapply_reftype, arapply_ref_id,
       arapply_applied, arapply_closed,
       arapply_postdate, arapply_distdate, arapply_journalnumber, arapply_username,
       arapply_curr_id )
@@ -142,7 +142,7 @@ round(aropen_paid +
     ( _p.cashrcpt_cust_id,
       -1, 'K', '',
       _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
-      _p.cashrcpt_fundstype, _p.cashrcpt_docnumber,
+      _p.cashrcpt_fundstype, _p.cashrcpt_docnumber, 'CR', _r.cashrcptitem_id,
       round(_r.cashrcptitem_amount, 2), _r.closed,
       CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id );
 

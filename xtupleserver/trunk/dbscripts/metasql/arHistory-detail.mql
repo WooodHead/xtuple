@@ -58,15 +58,17 @@ SELECT aropen_id, applyid,
                 WHEN (arapply_fundstype='W') THEN <? value("wireTransfer") ?>
                 WHEN (arapply_fundstype='O') THEN <? value("other") ?>
            END AS documenttype,
-           arapply_postdate AS docdate,
+           COALESCE(cashrcpt_docdate, arapply_postdate) AS docdate,
            arapply_distdate AS duedate,
            arapply_applied AS amount,
            0 AS balance,
            0 AS base_balance,
            currConcat(arapply_curr_id) AS currAbbr
-     FROM arapply, aropen
+     FROM arapply JOIN aropen ON (arapply_target_aropen_id=aropen_id)
+                  LEFT OUTER JOIN cashrcptitem ON ( (arapply_reftype='CR') AND
+                                                    (arapply_ref_id=cashrcptitem_id) )
+                  LEFT OUTER JOIN cashrcpt ON (cashrcpt_id=cashrcptitem_cashrcpt_id)
     WHERE ( (arapply_target_doctype IN ('I', 'D'))
-      AND   (arapply_target_aropen_id=aropen_id)
       AND   (arapply_cust_id=<? value("cust_id") ?>)
       AND   (aropen_cust_id=<? value("cust_id") ?>)
     <? if exists("startDate") ?>

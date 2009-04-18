@@ -6,4 +6,7 @@ UPDATE arapply SET
 FROM aropen
 WHERE (arapply_target_aropen_id=aropen_id);
 
+ALTER TABLE arapply ADD COLUMN arapply_reftype TEXT;
+ALTER TABLE arapply ADD COLUMN arapply_ref_id INTEGER;
+
 COMMIT;
