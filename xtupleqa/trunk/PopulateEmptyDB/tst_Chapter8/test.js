@@ -687,6 +687,7 @@ source(findFile("scripts","functions.js"));
     if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
         clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);
     clickButton(":Ship-To.Save_QPushButton");
+    snooze(2);
     waitForObject(":_addressStack.New_QPushButton");
     clickButton(":_addressStack.New_QPushButton");
     waitForObject(":_shipToNumber_XLineEdit");

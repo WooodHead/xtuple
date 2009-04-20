@@ -611,7 +611,7 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
     activateItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
-    snooze(0.5);
+    snooze(1);
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Categories...");
@@ -832,7 +832,7 @@ function main()
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
         
-        
+        snooze(1);
         menu = waitForObject(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu");
         menuItem = "Sche&dule...";
          

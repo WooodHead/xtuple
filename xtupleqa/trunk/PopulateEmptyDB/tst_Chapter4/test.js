@@ -342,6 +342,7 @@ function main()
 }
   else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
   {
+     
       waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
       activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
       waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
@@ -408,13 +409,15 @@ function main()
       if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
       else test.pass(menuItem+"not found in "+appEdition);
         
-        
+ 
+      
+       waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+       activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+ 
         
     }
 
    //---------------Create BOM for Items---------------------
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
   waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
   activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
   waitForObject(":xTuple ERP: OpenMFG Edition.Products_QMenu");
