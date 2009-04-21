@@ -184,7 +184,7 @@ source(findFile("scripts","functions.js"));
         type(":Bank Account._bankGroup_QGroupBox","Checking");
     if(!findObject(":_useGroup.Used in Accounts Payable_QCheckBox").checked)
         clickButton(":_useGroup.Used in Accounts Payable_QCheckBox");
-    waitForObject(":_useGroup._nextCheckNum_XLineEdit");
+    waitForObject(":_useGroup._ne`xtCheckNum_XLineEdit");
     type(":_useGroup._nextCheckNum_XLineEdit", "9000");
     waitForObject(":_useGroup._form_XComboBox_2");
     if(!findObject(":_useGroup._form_XComboBox_2").currentText!= "GENERIC-CHECK")
