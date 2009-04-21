@@ -12,6 +12,7 @@ DECLARE
   _sequence		INTEGER;
   _test                 INTEGER;
   _cm                   BOOLEAN;
+  _amount_check         NUMERIC := 0;
 
 BEGIN
 
@@ -109,6 +110,9 @@ BEGIN
                                   checkitem_amount,
                                   COALESCE(checkitem_docdate, _p.checkhead_checkdate)) 
                      END AS checkitem_amount_base,
+                     currTocurr(checkitem_curr_id, _p.checkhead_curr_id,
+                                  checkitem_amount,
+                                  _p.checkhead_checkdate) AS amount_check,
                      apopen_id, apopen_doctype, apopen_docnumber,
                      aropen_id, aropen_doctype, aropen_docnumber,
                      checkitem_curr_id, checkitem_curr_rate, apopen_curr_rate,
@@ -194,10 +198,17 @@ BEGIN
 				    _p.checkhead_checkdate, _gltransNote );
       END IF;
 
+      _amount_check := (_amount_check + _r.amount_check);
       _amount_base := (_amount_base + _r.checkitem_amount_base);
 
     END LOOP;
 
+    IF( (_amount_check - _p.checkhead_amount) <> 0.0 ) THEN 
+      _exchGainTmp := currToBase(_p.checkhead_curr_id,
+                                 _amount_check - _p.checkhead_amount,
+                                 _p.checkhead_checkdate);
+      _exchGain := _exchGain + _exchGainTmp;
+    END IF;
     --  ensure that the check balances, attribute rounding errors to gain/loss
     IF round(_amount_base, 2) - round(_exchGain, 2) <> round(_p.checkhead_amount_base, 2) THEN
       IF round(_amount_base - _exchGain, 2) = round(_p.checkhead_amount_base, 2) THEN
