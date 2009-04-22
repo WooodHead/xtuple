@@ -2,7 +2,13 @@
 -- Name: detail
 -- Notes: used by applyARCreditMemo, cashReceipt
 
-SELECT aropen_id,
+SELECT *,
+       'curr' AS balance_xtnumericrole,
+       'curr' AS applied_xtnumericrole,
+       'curr' AS pending_xtnumericrole,
+       CASE WHEN (pending > balance) THEN 'error' END AS qtforegroundrole
+FROM (SELECT
+      aropen_id,
 <? if exists("cashrcpt_id") ?>
        COALESCE(s.cashrcptitem_id, -1) AS alt_id,
 <? endif ?>
@@ -25,13 +31,7 @@ SELECT aropen_id,
        currConcat(arcreditapply_curr_id) AS applied_curr,
 <? endif ?>
        calcpendingarapplications(aropen_id) AS pending,
-       currConcat(aropen_curr_id) AS pending_curr,
-       'curr' AS balance_xtnumericrole,
-       'curr' AS applied_xtnumericrole,
-       'curr' AS pending_xtnumericrole,
-       CASE WHEN (calcpendingarapplications(aropen_id) >
-                  (aropen_amount - aropen_paid)) THEN 'error'
-       END AS qtforegroundrole
+       currConcat(aropen_curr_id) AS pending_curr
  FROM aropen LEFT OUTER JOIN
  <? if exists("cashrcpt_id") ?>
       cashrcptitem s ON (s.cashrcptitem_aropen_id=aropen_id
@@ -46,4 +46,5 @@ SELECT aropen_id,
  WHERE ( (aropen_open)
    AND (aropen_doctype IN ('D', 'I'))
    AND (aropen_cust_id=<? value("cust_id") ?>) )
- ORDER BY aropen_duedate, (aropen_amount - aropen_paid);
+ ) AS dummy
+ ORDER BY aropen_duedate, balance;
