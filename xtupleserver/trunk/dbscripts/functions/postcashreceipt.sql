@@ -213,16 +213,22 @@ round(aropen_paid +
                                 _p.cashrcpt_distdate, _p.custnote );
     SELECT fetchArMemoNumber() INTO _arMemoNumber;
     IF(_p.cashrcpt_usecustdeposit) THEN
-      -- TODO: post customer deposit
-      PERFORM createARCashDeposit(_p.cashrcpt_cust_id, _arMemoNumber, '',
-                                  _p.cashrcpt_distdate, (_p.cashrcpt_amount - _posted),
-                                  _comment, pJournalNumber, _p.cashrcpt_curr_id);
-    ELSE
-      PERFORM createARCreditMemo(_p.cashrcpt_cust_id, _arMemoNumber, '',
+      -- Post Customer Deposit
+      SELECT createARCashDeposit(_p.cashrcpt_cust_id, _arMemoNumber, '',
                                  _p.cashrcpt_distdate, (_p.cashrcpt_amount - _posted),
-                                 _comment, -1, -1, -1, _p.cashrcpt_distdate, -1, -1, 0,
-                                 pJournalNumber, _p.cashrcpt_curr_id);
+                                 _comment, pJournalNumber, _p.cashrcpt_curr_id) INTO _aropenid;
+    ELSE
+      -- Post A/R Credit Memo
+      SELECT createARCreditMemo(_p.cashrcpt_cust_id, _arMemoNumber, '',
+                                _p.cashrcpt_distdate, (_p.cashrcpt_amount - _posted),
+                                _comment, -1, -1, -1, _p.cashrcpt_distdate, -1, -1, 0,
+                                pJournalNumber, _p.cashrcpt_curr_id) INTO _aropenid;
     END IF;
+    -- Create Cash Receipt Item to capture posting
+    INSERT INTO cashrcptitem
+      ( cashrcptitem_cashrcpt_id, cashrcptitem_aropen_id, cashrcptitem_amount )
+    VALUES
+      ( pCashrcptid, _aropenid, (_p.cashrcpt_amount - _posted) );
 
   ELSIF (round(_posted_base, 2) > round(_p.cashrcpt_amount_base, 2)) THEN
     PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CR',

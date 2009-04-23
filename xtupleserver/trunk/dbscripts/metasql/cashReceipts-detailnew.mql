@@ -1,0 +1,102 @@
+-- Group: cashReceipts
+-- Name: detailnew
+-- Notes: used by dspCashReceipts
+
+SELECT id, type, cust_number, cust_name,
+       postdate,
+       formatDate(postdate) AS f_postdate,
+       source,
+       target,
+       applied,
+       formatMoney(applied) AS f_applied,
+       base_applied,
+       formatMoney(base_applied) AS f_base_applied,
+       currAbbr,
+       sortdate,
+       'curr' AS applied_xtnumericrole,
+       'curr' AS base_applied_xtnumericrole,
+       0 AS base_applied_xttotalrole,
+       type AS xtindentrole
+FROM (
+
+--  Cash Receipt headers
+SELECT cashrcpt_id AS id, 0 AS type, cust_number, cust_name,
+       cashrcpt_distdate AS postdate,
+       ( CASE WHEN (cashrcpt_fundstype='C') THEN <? value("check") ?>
+              WHEN (cashrcpt_fundstype='T') THEN <? value("certifiedCheck") ?>
+              WHEN (cashrcpt_fundstype='M') THEN <? value("masterCard") ?>
+              WHEN (cashrcpt_fundstype='V') THEN <? value("visa") ?>
+              WHEN (cashrcpt_fundstype='A') THEN <? value("americanExpress") ?>
+              WHEN (cashrcpt_fundstype='D') THEN <? value("discoverCard") ?>
+              WHEN (cashrcpt_fundstype='R') THEN <? value("otherCreditCard") ?>
+              WHEN (cashrcpt_fundstype='K') THEN <? value("cash") ?>
+              WHEN (cashrcpt_fundstype='W') THEN <? value("wireTransfer") ?>
+              WHEN (cashrcpt_fundstype='O') THEN <? value("other") ?>
+         END || ' ' || cashrcpt_docnumber ) AS source,
+       '' AS target,
+       cashrcpt_amount AS applied,
+       0 AS base_applied,
+       currConcat(cashrcpt_curr_id) AS currAbbr,
+       cashrcpt_distdate AS sortdate
+FROM cashrcpt JOIN cust ON (cust_id=cashrcpt_cust_id)
+WHERE ( (cashrcpt_distdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+<? if exists("cust_id") ?>
+  AND   (cust_id=<? value("cust_id") ?>)
+<? elseif exists("custtype_id") ?>
+  AND   (cust_custtype_id=<? value("custtype_id") ?>)
+<? elseif exists("custtype_pattern") ?>
+  AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
+<? endif ?>
+      )
+
+--  Cash Receipt items
+UNION
+SELECT cashrcpt_id AS id, 1 AS type, '', '',
+       cashrcpt_distdate AS postdate,
+       '' AS source,
+       ( CASE WHEN (aropen_doctype='D') THEN <? value("debitMemo") ?>
+              WHEN (aropen_doctype='I') THEN <? value("invoice") ?>
+              WHEN (aropen_doctype='C') THEN <? value("creditMemo") ?>
+              WHEN (aropen_doctype='R') THEN <? value("cashdeposit") ?>
+              ELSE <? value("other") ?>
+         END || ' ' || TEXT(aropen_docnumber) ) AS target,
+       cashrcptitem_amount AS applied,
+       currtobase(cashrcpt_curr_id,cashrcptitem_amount,cashrcpt_distdate) AS base_applied,
+       currConcat(cashrcpt_curr_id) AS currAbbr,
+       cashrcpt_distdate AS sortdate
+FROM cashrcpt JOIN cust ON (cust_id=cashrcpt_cust_id)
+              JOIN cashrcptitem ON (cashrcptitem_cashrcpt_id=cashrcpt_id)
+              JOIN aropen ON (aropen_id=cashrcptitem_aropen_id)
+WHERE ( (cashrcpt_distdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+<? if exists("cust_id") ?>
+  AND   (cust_id=<? value("cust_id") ?>)
+<? elseif exists("custtype_id") ?>
+  AND   (cust_custtype_id=<? value("custtype_id") ?>)
+<? elseif exists("custtype_pattern") ?>
+  AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
+<? endif ?>
+      )
+
+--  Cash Receipt misc
+UNION
+SELECT cashrcpt_id AS id, 1 AS type, '', '',
+       cashrcpt_distdate AS postdate,
+       '' AS source,
+       formatGLAccount(cashrcptmisc_accnt_id) AS target,
+       cashrcptmisc_amount AS applied,
+       currtobase(cashrcpt_curr_id,cashrcptmisc_amount,cashrcpt_distdate) AS base_applied,
+       currConcat(cashrcpt_curr_id) AS currAbbr,
+       cashrcpt_distdate AS sortdate
+FROM cashrcpt JOIN cust ON (cust_id=cashrcpt_cust_id)
+              JOIN cashrcptmisc ON (cashrcptmisc_cashrcpt_id=cashrcpt_id)
+WHERE ( (cashrcpt_distdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+<? if exists("cust_id") ?>
+  AND   (cust_id=<? value("cust_id") ?>)
+<? elseif exists("custtype_id") ?>
+  AND   (cust_custtype_id=<? value("custtype_id") ?>)
+<? elseif exists("custtype_pattern") ?>
+  AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
+<? endif ?>
+      )
+  ) AS data
+ORDER BY sortdate, id, type, target;
