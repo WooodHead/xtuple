@@ -96,7 +96,7 @@ FROM itemsite, item, warehous AS whs1, invhist LEFT OUTER JOIN
 WHERE ( (invhist_itemsite_id=itemsite_id)
   AND  (itemsite_item_id=item_id) 
   AND  (itemsite_warehous_id=whs1.warehous_id)
-  AND  (DATE(invhist_transdate) BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+  AND  (invhist_transdate BETWEEN <? value("startDate") ?> AND DATE <? value("endDate") ?> + 1)
   AND  (transType(invhist_transtype, <? value("transType") ?>))
 <? if exists("warehous_id") ?>
   AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
@@ -148,7 +148,7 @@ WHERE ((invhist_hasdetail)
   AND (itemsite_item_id=item_id)
   AND (itemsite_warehous_id=whs1.warehous_id)
   AND (invdetail_invhist_id=invhist_id)
-  AND (DATE(invhist_transdate) BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+  AND  (invhist_transdate BETWEEN <? value("startDate") ?> AND DATE <? value("endDate") ?> + 1)
   AND (transType(invhist_transtype, <? value("transType") ?>))
 <? if exists("warehous_id")  ?>
   AND (itemsite_warehous_id=<? value("warehous_id") ?>)
