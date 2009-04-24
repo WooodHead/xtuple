@@ -167,7 +167,9 @@ SELECT cashrcpt_id AS id, 0 AS type, cust_number, cust_name,
               WHEN (cashrcpt_fundstype='W') THEN <? value("wireTransfer") ?>
               WHEN (cashrcpt_fundstype='O') THEN <? value("other") ?>
          END || ' ' || cashrcpt_docnumber ) AS source,
-       '' AS target,
+       CASE WHEN (NOT cashrcpt_posted) THEN <? value("unposted") ?>
+            ELSE                           ''
+       END AS target,
        cashrcpt_amount AS applied,
        0 AS base_applied,
        currConcat(cashrcpt_curr_id) AS currAbbr,
