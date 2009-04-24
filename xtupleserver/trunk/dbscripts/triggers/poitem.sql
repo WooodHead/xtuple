@@ -11,6 +11,7 @@ BEGIN
   IF ( (TG_OP = 'UPDATE') AND
        (NOT checkPrivilege('MaintainPurchaseOrders')) AND
        (NOT checkPrivilege('ChangePurchaseOrderQty')) AND
+       (NOT checkPrivilege('EnterReceipts')) AND
        (NOT checkPrivilege('PostVouchers')) ) THEN
     RAISE EXCEPTION 'You do not have privileges to alter a Purchase Order.';
   END IF;
