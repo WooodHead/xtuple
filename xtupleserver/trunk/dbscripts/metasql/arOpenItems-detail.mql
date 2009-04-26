@@ -44,16 +44,13 @@ SELECT aropen_id AS id,
             WHEN (aropen_doctype='R') THEN <? value("cashdeposit") ?>
             ELSE <? value("other") ?>
        END AS doctype,
-       (aropen_paid + COALESCE(prepared,0.0)) AS applied,
-       CASE WHEN (aropen_doctype IN ('C', 'R')) THEN ((aropen_amount - aropen_paid - COALESCE(prepared,0.0)) * -1)
-            WHEN (aropen_doctype IN ('I', 'D')) THEN (aropen_amount - aropen_paid)
-            ELSE (aropen_amount - aropen_paid)
-       END AS balance,
+        (COALESCE(SUM(arapply_target_paid),0) *
+        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) AS applied,
+        (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0))) *
+        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) AS balance,
        currConcat(aropen_curr_id) AS currAbbr,
-       CASE WHEN (aropen_doctype IN ('C', 'R')) THEN ((aropen_amount - aropen_paid - COALESCE(prepared,0.0)) * -1)
-         WHEN (aropen_doctype IN ('I', 'D')) THEN (aropen_amount - aropen_paid)
-         ELSE (aropen_amount - aropen_paid)
-       END / round(aropen_curr_rate,5) AS base_balance,
+        (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/round(aropen_curr_rate,5) *
+        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END)  AS base_balance,
        cust_id, cust_number, cust_name,
        'curr' AS aropen_amount_xtnumericrole,
        'curr' AS aropen_paid_xtnumericrole,
@@ -66,14 +63,14 @@ SELECT aropen_id AS id,
        0 AS xtindentrole
 FROM aropen LEFT OUTER JOIN custinfo ON (aropen_cust_id=cust_id)
             LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
-            LEFT OUTER JOIN (SELECT aropen_id AS prepared_aropen_id,
-                               SUM(checkitem_amount + checkitem_discount) AS prepared
-                             FROM checkhead JOIN checkitem ON (checkitem_checkhead_id=checkhead_id)
-                                            JOIN aropen ON (checkitem_aropen_id=aropen_id)
-                             WHERE ((NOT checkhead_posted)
-                             AND  (NOT checkhead_void))
-                             GROUP BY aropen_id) AS sub1 ON (aropen_id=prepared_aropen_id)
-WHERE ( (aropen_open)
+            LEFT OUTER JOIN arapply ON (((aropen_id=arapply_source_aropen_id)
+                             OR (aropen_id=arapply_target_aropen_id))
+                     AND (arapply_distdate>COALESCE(<? value("asofDate") ?>,current_date)))
+WHERE ((COALESCE(aropen_closedate, date <? value ("asofDate") ?> + integer '1', current_date + 1) > COALESCE(<? value("asofDate") ?>, current_date)) 
+  AND   (aropen_docdate <= COALESCE(<? value ("asofDate") ?>,current_date))
+<? if not exists("showClosed") ?>
+  AND (aropen_open)
+<? endif ?>
 <? if exists("debitsOnly") ?>
   AND   (NOT aropen_doctype IN ('C', 'R'))
 <? endif ?>
@@ -102,6 +99,17 @@ WHERE ( (aropen_open)
   AND ((SELECT count(*) from incdt WHERE (incdt_aropen_id=aropen_id)) > 0)
 <? endif ?>
       )
+  GROUP BY id,                      altId,
+           aropen_docdate,          aropen_duedate,         aropen_terms_id,
+           aropen_cust_id,          aropen_doctype,         aropen_docnumber,
+           aropen_applyto,          aropen_ponumber,        aropen_amount,
+           aropen_notes,            aropen_posted,          aropen_salesrep_id,
+           aropen_commission_due,   aropen_commission_paid, aropen_ordernumber,
+           aropen_cobmisc_id,       aropen_journalnumber,   aropen_paid,
+           aropen_open,             aropen_username,        aropen_rsncode_id,
+           aropen_salescat_id,      aropen_accnt_id,        aropen_curr_id,
+           aropen_closedate,        aropen_curr_rate,
+           cust_id, 		    cust_number,            cust_name
 UNION
 SELECT -1,
        incdt_id,
@@ -109,7 +117,7 @@ SELECT -1,
        NULL,   NULL,    aropen_docnumber,
        NULL,   NULL,    NULL,
        NULL,   NULL,    NULL,
-       NULL,   NULL,    NULL,
+       NULL,   NULL,    CAST(incdt_number AS text),
        NULL,   NULL,    NULL,
        NULL,   NULL,    NULL,
        NULL,   NULL,    NULL,
@@ -119,7 +127,7 @@ SELECT -1,
        NULL AS balance,
        NULL AS currAbbr,
        NULL AS base_balance,
-       NULL, CAST(incdt_number AS TEXT), incdt_summary,
+       NULL,incdt_assigned_username, incdt_summary,
        'curr' AS aropen_amount_xtnumericrole,
        'curr' AS aropen_paid_xtnumericrole,
        'curr' AS applied_xtnumericrole,
@@ -132,7 +140,11 @@ SELECT -1,
 FROM incdt JOIN aropen ON (aropen_id=incdt_aropen_id)
            LEFT OUTER JOIN custinfo ON (aropen_cust_id=cust_id)
            LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
-WHERE ( (aropen_open)
+WHERE ( (COALESCE(aropen_closedate, date <? value ("asofDate") ?> + integer '1', current_date + 1) > COALESCE(<? value("asofDate") ?>,current_date)) 
+  AND   (aropen_docdate <= COALESCE(<? value ("asofDate") ?>,current_date))
+<? if not exists("showClosed") ?>
+  AND (aropen_open)
+<? endif ?>
 <? if exists("debitsOnly") ?>
   AND   (NOT aropen_doctype IN ('C', 'R'))
 <? endif ?>
