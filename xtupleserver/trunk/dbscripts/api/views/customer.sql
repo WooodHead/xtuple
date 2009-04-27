@@ -95,7 +95,7 @@ BEGIN;
     cust_comments AS notes,
     CASE 
       WHEN (cust_soediprofile_id IS NOT NULL) THEN
-        sedi.ediprofile_name
+        getEdiProfileName(cust_soediprofile_id)
       WHEN (cust_soemaildelivery) THEN
         'Custom Email'
       ELSE
@@ -108,7 +108,7 @@ BEGIN;
     cust_soediemailbody AS so_edi_emailbody,
     CASE 
       WHEN (cust_ediprofile_id IS NOT NULL) THEN
-        iedi.ediprofile_name
+        getEdiProfileName(cust_ediprofile_id)
       WHEN (cust_emaildelivery) THEN
         'Custom Email'
       ELSE
@@ -123,8 +123,6 @@ BEGIN;
     custinfo
       LEFT OUTER JOIN shipchrg ON (cust_shipchrg_id=shipchrg_id)
       LEFT OUTER JOIN whsinfo ON (cust_preferred_warehous_id=warehous_id)
-      LEFT OUTER JOIN ediprofile sedi ON (cust_ediprofile_id=sedi.ediprofile_id)
-      LEFT OUTER JOIN ediprofile iedi ON (cust_ediprofile_id=iedi.ediprofile_id)
       LEFT OUTER JOIN cntct mc ON (cust_cntct_id=mc.cntct_id)
       LEFT OUTER JOIN addr m ON (mc.cntct_addr_id=m.addr_id)
       LEFT OUTER JOIN cntct cc ON (cust_corrcntct_id=cc.cntct_id)

@@ -44,13 +44,12 @@ AS
        WHEN shipto_ediprofile_id = -2 THEN
          'Use Customer Master'
        ELSE
-         ediprofile_name
+         getEdiProfileName(shipto_ediprofile_id)
      END AS edi_profile,
      shipto_comments AS general_notes,
      shipto_shipcomments AS shipping_notes
      FROM custinfo, shiptoinfo
 	LEFT OUTER JOIN shipchrg ON (shipto_shipchrg_id=shipchrg_id)
-	LEFT OUTER JOIN ediprofile ON (shipto_ediprofile_id=ediprofile_id)
 	LEFT OUTER JOIN cntct ON (shipto_cntct_id=cntct_id)
 	LEFT OUTER JOIN addr ON (shipto_addr_id=addr_id)
         LEFT OUTER JOIN taxauth ON (shipto_taxauth_id=taxauth_id)
