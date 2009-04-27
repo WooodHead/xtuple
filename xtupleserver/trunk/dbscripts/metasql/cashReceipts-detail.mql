@@ -149,7 +149,7 @@ SELECT id, type, cust_number, cust_name,
        sortdate,
        'curr' AS applied_xtnumericrole,
        'curr' AS base_applied_xtnumericrole,
-       0 AS base_applied_xttotalrole,
+       base_applied_xttotalrole,
        type AS xtindentrole
 FROM (
 
@@ -171,9 +171,10 @@ SELECT cashrcpt_id AS id, 0 AS type, cust_number, cust_name,
             ELSE                           ''
        END AS target,
        cashrcpt_amount AS applied,
-       0 AS base_applied,
+       currtobase(cashrcpt_curr_id,cashrcpt_amount,cashrcpt_distdate) AS base_applied,
        currConcat(cashrcpt_curr_id) AS currAbbr,
-       cashrcpt_distdate AS sortdate
+       cashrcpt_distdate AS sortdate,
+       0 AS base_applied_xttotalrole
 FROM cashrcpt JOIN cust ON (cust_id=cashrcpt_cust_id)
 WHERE ( (cashrcpt_distdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? if exists("cust_id") ?>
@@ -199,7 +200,8 @@ SELECT cashrcpt_id AS id, 1 AS type, '', '',
        cashrcptitem_amount AS applied,
        currtobase(cashrcpt_curr_id,cashrcptitem_amount,cashrcpt_distdate) AS base_applied,
        currConcat(cashrcpt_curr_id) AS currAbbr,
-       cashrcpt_distdate AS sortdate
+       cashrcpt_distdate AS sortdate,
+       -1 AS base_applied_xttotalrole
 FROM cashrcpt JOIN cust ON (cust_id=cashrcpt_cust_id)
               JOIN cashrcptitem ON (cashrcptitem_cashrcpt_id=cashrcpt_id)
               JOIN aropen ON (aropen_id=cashrcptitem_aropen_id)
@@ -222,7 +224,8 @@ SELECT cashrcpt_id AS id, 1 AS type, '', '',
        cashrcptmisc_amount AS applied,
        currtobase(cashrcpt_curr_id,cashrcptmisc_amount,cashrcpt_distdate) AS base_applied,
        currConcat(cashrcpt_curr_id) AS currAbbr,
-       cashrcpt_distdate AS sortdate
+       cashrcpt_distdate AS sortdate,
+       -1 AS base_applied_xttotalrole
 FROM cashrcpt JOIN cust ON (cust_id=cashrcpt_cust_id)
               JOIN cashrcptmisc ON (cashrcptmisc_cashrcpt_id=cashrcpt_id)
 WHERE ( (cashrcpt_distdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
