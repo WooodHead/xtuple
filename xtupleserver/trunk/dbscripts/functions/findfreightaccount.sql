@@ -7,7 +7,7 @@ BEGIN
 
 --  Check for a Customer Type specific Account
   SELECT araccnt_freight_accnt_id INTO _accntid
-  FROM araccnt, cust
+  FROM araccnt, custinfo
   WHERE ( (araccnt_custtype_id=cust_custtype_id)
    AND (cust_id=pCustid) );
   IF (FOUND) THEN
@@ -16,7 +16,7 @@ BEGIN
 
 --  Check for a Customer Type pattern
   SELECT araccnt_freight_accnt_id INTO _accntid
-  FROM araccnt, cust, custtype
+  FROM araccnt, custinfo, custtype
   WHERE ( (custtype_code ~ araccnt_custtype)
    AND (cust_custtype_id=custtype_id)
    AND (araccnt_custtype_id=-1)
