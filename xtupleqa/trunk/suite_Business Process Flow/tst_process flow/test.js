@@ -3,7 +3,7 @@ function main()
     waitForObject(":_username_QLineEdit");
     type(":_username_QLineEdit", "admin");
     type(":_username_QLineEdit", "<Tab>");
-    type(":_password_QLineEdit", "zenx2plE");
+    type(":_password_QLineEdit", "");
     type(":_password_QLineEdit", "<Return>");
     
     //---Checking Inventory Items---
