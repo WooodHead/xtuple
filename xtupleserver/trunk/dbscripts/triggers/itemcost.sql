@@ -78,3 +78,61 @@ $$ LANGUAGE 'plpgsql';
 
 DROP TRIGGER itemCostTrigger ON itemcost;
 CREATE TRIGGER itemCostTrigger BEFORE INSERT OR UPDATE OR DELETE ON itemcost FOR EACH ROW EXECUTE PROCEDURE _itemCostTrigger();
+
+
+
+CREATE OR REPLACE FUNCTION _itemCostAfterTrigger() RETURNS TRIGGER AS $$
+DECLARE
+  _itemNumber TEXT;
+  _maxCost NUMERIC;
+  _costElem TEXT;
+BEGIN
+
+--  Create Event if Standard or Actual Cost is greater than Max Cost
+
+  SELECT item_number, item_maxcost INTO _itemNumber, _maxCost
+  FROM item
+  WHERE (item_id=NEW.itemcost_item_id);
+
+  SELECT costelem_type INTO _costElem
+  FROM costelem
+  WHERE (costelem_id=NEW.itemcost_costelem_id);
+
+  IF (_maxCost > 0.0) THEN
+    IF (stdCost(NEW.itemcost_item_id) > _maxCost) THEN
+      INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
+                            evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number,
+                            evntlog_newvalue, evntlog_oldvalue )
+      SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
+             '', NEW.itemcost_item_id, itemsite_warehous_id,
+             (_itemNumber || '-' || _costElem || '-' || 'Standard' || ' ' || formatCost(stdCost(NEW.itemcost_item_id))),
+             NEW.itemcost_stdcost, OLD.itemcost_stdcost
+      FROM evntnot, evnttype, itemsite
+      WHERE ( (evntnot_evnttype_id=evnttype_id)
+        AND   (itemsite_item_id=NEW.itemcost_item_id)
+        AND   (evntnot_warehous_id=itemsite_warehous_id)
+        AND   (evnttype_name='CostExceedsMaxDesired') );
+    END IF;
+    IF (actCost(NEW.itemcost_item_id) > _maxCost) THEN
+      INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
+                            evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number,
+                            evntlog_newvalue, evntlog_oldvalue )
+      SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
+             '', NEW.itemcost_item_id, itemsite_warehous_id,
+             (_itemNumber || '-' || _costElem || '-' || 'Actual' || ' ' || formatCost(actCost(NEW.itemcost_item_id))),
+             NEW.itemcost_actcost, OLD.itemcost_actcost
+      FROM evntnot, evnttype, itemsite
+      WHERE ( (evntnot_evnttype_id=evnttype_id)
+        AND   (itemsite_item_id=NEW.itemcost_item_id)
+        AND   (evntnot_warehous_id=itemsite_warehous_id)
+        AND   (evnttype_name='CostExceedsMaxDesired') );
+    END IF;
+  END IF;
+
+  RETURN NEW;
+
+END;
+$$ LANGUAGE 'plpgsql';
+
+DROP TRIGGER itemCostAfterTrigger ON itemcost;
+CREATE TRIGGER itemCostAfterTrigger AFTER INSERT OR UPDATE ON itemcost FOR EACH ROW EXECUTE PROCEDURE _itemCostAfterTrigger();
