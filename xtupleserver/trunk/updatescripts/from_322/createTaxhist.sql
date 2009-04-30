@@ -26,6 +26,8 @@ COMMENT ON COLUMN taxhist.taxhist_tax IS 'Calculated tax amount.';
 COMMENT ON COLUMN taxhist.taxhist_docdate IS 'The date of the parent document.';
 COMMENT ON COLUMN taxhist.taxhist_distdate IS 'The G/L distribution date of the parent document.';
 
+GRANT ALL ON SEQUENCE taxhist_taxhist_id_seq TO xtrole;
+
 CREATE TABLE asohisttax
 (
     PRIMARY KEY (taxhist_id),
