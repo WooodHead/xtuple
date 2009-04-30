@@ -16,5 +16,6 @@ CREATE TABLE obsolete_tax
 WITH (OIDS=FALSE);
 ALTER TABLE obsolete_tax OWNER TO "admin";
 GRANT ALL ON TABLE obsolete_tax TO "admin";
+GRANT ALL ON SEQUENCE tax_tax_id_seq TO xtrole;
 COMMENT ON TABLE obsolete_tax IS 'Tax information. Obsolete table structure.';
 COMMENT ON COLUMN obsolete_tax.tax_freight IS 'Deprecated in 2.1 and moved to taxsel table where taxtype is the system defined Freight.';

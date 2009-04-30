@@ -6,6 +6,7 @@ CREATE TABLE taxclass
   taxclass_sequence integer
 );
 GRANT ALL ON TABLE taxclass TO xtrole;
+GRANT ALL ON SEQUENCE taxclass_taxclass_id_seq TO xtrole;
 COMMENT ON TABLE taxclass IS 'Tax class information';
 COMMENT ON COLUMN taxclass.taxclass_id IS 'Primary key';
 COMMENT ON COLUMN taxclass.taxclass_code IS 'Code';
