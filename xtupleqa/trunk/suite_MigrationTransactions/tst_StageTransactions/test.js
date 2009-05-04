@@ -59,589 +59,589 @@ function main()
 
     
     
-//    
-//    //---Create Quote----
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    waitForObjectItem(":xTuple ERP:*.Sales_QMenu", "Quote");
-//    activateItem(":xTuple ERP:*.Sales_QMenu", "Quote");
-//    waitForObjectItem(":xTuple ERP:*.Quote_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Quote_QMenu", "List...");
-//    
-//    waitForObject(":frame.New_QPushButton_3");
-//    clickButton(":frame.New_QPushButton_3");
-//    waitForObject(":_headerPage._customerNumber_CLineEdit");
-//    mouseClick(":_headerPage._customerNumber_CLineEdit", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_headerPage...._QPushButton_3");
-//    clickButton(":_headerPage...._QPushButton_3");
-//    waitForObject(":_listTab_XTreeWidget_3");
-//    doubleClickItem(":_listTab_XTreeWidget_3", "TTOYS", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":Quote.qt_tabwidget_tabbar_QTabBar", "Line Items");
-//    waitForObject(":_lineItemsPage.New_QPushButton_3");
-//    clickButton(":_lineItemsPage.New_QPushButton_3");
-//    waitForObject(":_itemGroup...._QPushButton_3");
-//    clickButton(":_itemGroup...._QPushButton_3");
-//    waitForObject(":_item_XTreeWidget_3");
-//    doubleClickItem(":_item_XTreeWidget_3", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_qtyOrdered_XLineEdit_3");
-//    type(":_qtyOrdered_XLineEdit_3", "100");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_3");
-//    type(":_schedGroup.XDateEdit_XDateEdit_3", "+9");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_3");
-//    type(":_schedGroup.XDateEdit_XDateEdit_3", "<Tab>");
-//    waitForObject(":Quote.Save_QPushButton");
-//    clickButton(":Quote.Save_QPushButton");
-//    waitForObject(":Quote.Close_QPushButton");
-//    clickButton(":Quote.Close_QPushButton");
-//    waitForObject(":Quote.Save_QPushButton_2");
-//    clickButton(":Quote.Save_QPushButton_2");
-//    waitForObject(":Quote.Cancel_QPushButton");
-//    clickButton(":Quote.Cancel_QPushButton");
-//        
-//    waitForObject(":_quote_XTreeWidget");
-//    clickItem(":_quote_XTreeWidget", "40011", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":List Quotes.Close_QPushButton");
-//    clickButton(":List Quotes.Close_QPushButton");
-//    
-//    
-//    //---Create Sales Order---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    waitForObjectItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
-//    activateItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
-//    waitForObjectItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
-//    activateItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
-//    
-//    waitForObject(":frame.New_QPushButton_2");
-//    clickButton(":frame.New_QPushButton_2");
-//    waitForObject(":_headerPage...._QPushButton_2");
-//    clickButton(":_headerPage...._QPushButton_2");
-//    waitForObject(":_listTab_XTreeWidget_2");
-//    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar_2");
-//    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar_2", "Line Items");
-//    waitForObject(":_lineItemsPage.New_QPushButton_2");
-//    clickButton(":_lineItemsPage.New_QPushButton_2");
-//    waitForObject(":_itemGroup...._QPushButton_2");
-//    clickButton(":_itemGroup...._QPushButton_2");
-//    waitForObject(":_item_XTreeWidget_2");
-//    doubleClickItem(":_item_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_qtyOrdered_XLineEdit_2");
-//    type(":_qtyOrdered_XLineEdit_2", "100");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "<Tab>");
-//    waitForObject(":Sales Order.Save_QPushButton_3");
-//    clickButton(":Sales Order.Save_QPushButton_3");
-//    waitForObject(":Sales Order.Close_QPushButton_2");
-//    clickButton(":Sales Order.Close_QPushButton_2");
-//    waitForObject(":Sales Order.Save_QPushButton_4");
-//    clickButton(":Sales Order.Save_QPushButton_4");
-//    waitForObject(":Sales Order.Cancel_QPushButton_2");
-//    clickButton(":Sales Order.Cancel_QPushButton_2");
-//    waitForObject(":frame._so_XTreeWidget_2");
-//    clickItem(":frame._so_XTreeWidget_2", "50194", 5, 5, 1, Qt.LeftButton);
-//    
-//    waitForObject(":frame.New_QPushButton_2");
-//    clickButton(":frame.New_QPushButton_2");
-//    waitForObject(":_headerPage...._QPushButton_2");
-//    clickButton(":_headerPage...._QPushButton_2");
-//    waitForObject(":_listTab_XTreeWidget_2");
-//    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar_2");
-//    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar_2", "Line Items");
-//    waitForObject(":_lineItemsPage.New_QPushButton_2");
-//    clickButton(":_lineItemsPage.New_QPushButton_2");
-//    waitForObject(":_itemGroup...._QPushButton_2");
-//    clickButton(":_itemGroup...._QPushButton_2");
-//    waitForObject(":_item_XTreeWidget_2");
-//    doubleClickItem(":_item_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_qtyOrdered_XLineEdit_2");
-//    type(":_qtyOrdered_XLineEdit_2", "100");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "<Tab>");
-//    waitForObject(":Sales Order.Save_QPushButton_3");
-//    clickButton(":Sales Order.Save_QPushButton_3");
-//    waitForObject(":Sales Order.Close_QPushButton_2");
-//    clickButton(":Sales Order.Close_QPushButton_2");
-//    waitForObject(":Sales Order.Save_QPushButton_4");
-//    clickButton(":Sales Order.Save_QPushButton_4");
-//    waitForObject(":Sales Order.Cancel_QPushButton_2");
-//    clickButton(":Sales Order.Cancel_QPushButton_2");
-//    waitForObject(":frame._so_XTreeWidget_2");
-//    clickItem(":frame._so_XTreeWidget_2", "50195", 5, 5, 1, Qt.LeftButton);
-//    
-//    
-//    waitForObject(":frame.New_QPushButton_2");
-//    clickButton(":frame.New_QPushButton_2");
-//    waitForObject(":_headerPage...._QPushButton_2");
-//    clickButton(":_headerPage...._QPushButton_2");
-//    waitForObject(":_listTab_XTreeWidget_2");
-//    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar_2");
-//    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar_2", "Line Items");
-//    waitForObject(":_lineItemsPage.New_QPushButton_2");
-//    clickButton(":_lineItemsPage.New_QPushButton_2");
-//    waitForObject(":_itemGroup...._QPushButton_2");
-//    clickButton(":_itemGroup...._QPushButton_2");
-//    waitForObject(":_item_XTreeWidget_2");
-//    doubleClickItem(":_item_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_qtyOrdered_XLineEdit_2");
-//    type(":_qtyOrdered_XLineEdit_2", "100");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "<Tab>");
-//    waitForObject(":Sales Order.Save_QPushButton_3");
-//    clickButton(":Sales Order.Save_QPushButton_3");
-//    waitForObject(":Sales Order.Close_QPushButton_2");
-//    clickButton(":Sales Order.Close_QPushButton_2");
-//    waitForObject(":Sales Order.Save_QPushButton_4");
-//    clickButton(":Sales Order.Save_QPushButton_4");
-//    waitForObject(":Sales Order.Cancel_QPushButton_2");
-//    clickButton(":Sales Order.Cancel_QPushButton_2");
-//    waitForObject(":frame._so_XTreeWidget_2");
-//    clickItem(":frame._so_XTreeWidget_2", "50196", 5, 5, 1, Qt.LeftButton);
-//    
-//    
-//    waitForObject(":frame.New_QPushButton_2");
-//    clickButton(":frame.New_QPushButton_2");
-//    waitForObject(":_headerPage...._QPushButton_2");
-//    clickButton(":_headerPage...._QPushButton_2");
-//    waitForObject(":_listTab_XTreeWidget_2");
-//    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar_2");
-//    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar_2", "Line Items");
-//    waitForObject(":_lineItemsPage.New_QPushButton_2");
-//    clickButton(":_lineItemsPage.New_QPushButton_2");
-//    waitForObject(":_itemGroup...._QPushButton_2");
-//    clickButton(":_itemGroup...._QPushButton_2");
-//    waitForObject(":_item_XTreeWidget_2");
-//    doubleClickItem(":_item_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_qtyOrdered_XLineEdit_2");
-//    type(":_qtyOrdered_XLineEdit_2", "100");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "<Tab>");
-//    waitForObject(":Sales Order.Save_QPushButton_3");
-//    clickButton(":Sales Order.Save_QPushButton_3");
-//    waitForObject(":Sales Order.Close_QPushButton_2");
-//    clickButton(":Sales Order.Close_QPushButton_2");
-//    waitForObject(":Sales Order.Save_QPushButton_4");
-//    clickButton(":Sales Order.Save_QPushButton_4");
-//    waitForObject(":Sales Order.Cancel_QPushButton_2");
-//    clickButton(":Sales Order.Cancel_QPushButton_2");
-//    waitForObject(":frame._so_XTreeWidget_2");
-//    clickItem(":frame._so_XTreeWidget_2", "50197", 5, 5, 1, Qt.LeftButton);
-//    
-//    
-//    waitForObject(":frame.New_QPushButton_2");
-//    clickButton(":frame.New_QPushButton_2");
-//    waitForObject(":_headerPage...._QPushButton_2");
-//    clickButton(":_headerPage...._QPushButton_2");
-//    waitForObject(":_listTab_XTreeWidget_2");
-//    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar_2");
-//    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar_2", "Line Items");
-//    waitForObject(":_lineItemsPage.New_QPushButton_2");
-//    clickButton(":_lineItemsPage.New_QPushButton_2");
-//    waitForObject(":_itemGroup...._QPushButton_2");
-//    clickButton(":_itemGroup...._QPushButton_2");
-//    waitForObject(":_item_XTreeWidget_2");
-//    doubleClickItem(":_item_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_qtyOrdered_XLineEdit_2");
-//    type(":_qtyOrdered_XLineEdit_2", "100");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "<Tab>");
-//    waitForObject(":Sales Order.Save_QPushButton_3");
-//    clickButton(":Sales Order.Save_QPushButton_3");
-//    waitForObject(":Sales Order.Close_QPushButton_2");
-//    clickButton(":Sales Order.Close_QPushButton_2");
-//    waitForObject(":Sales Order.Save_QPushButton_4");
-//    clickButton(":Sales Order.Save_QPushButton_4");
-//    waitForObject(":Sales Order.Cancel_QPushButton_2");
-//    clickButton(":Sales Order.Cancel_QPushButton_2");
-//    waitForObject(":frame._so_XTreeWidget_2");
-//    clickItem(":frame._so_XTreeWidget_2", "50198", 5, 5, 1, Qt.LeftButton);
-//    
-//    
-//    waitForObject(":frame.New_QPushButton_2");
-//    clickButton(":frame.New_QPushButton_2");
-//    waitForObject(":_headerPage...._QPushButton_2");
-//    clickButton(":_headerPage...._QPushButton_2");
-//    waitForObject(":_listTab_XTreeWidget_2");
-//    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar_2");
-//    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar_2", "Line Items");
-//    waitForObject(":_lineItemsPage.New_QPushButton_2");
-//    clickButton(":_lineItemsPage.New_QPushButton_2");
-//    waitForObject(":_itemGroup...._QPushButton_2");
-//    clickButton(":_itemGroup...._QPushButton_2");
-//    waitForObject(":_item_XTreeWidget_2");
-//    doubleClickItem(":_item_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_qtyOrdered_XLineEdit_2");
-//    type(":_qtyOrdered_XLineEdit_2", "100");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "<Tab>");
-//    waitForObject(":Sales Order.Save_QPushButton_3");
-//    clickButton(":Sales Order.Save_QPushButton_3");
-//    waitForObject(":Sales Order.Close_QPushButton_2");
-//    clickButton(":Sales Order.Close_QPushButton_2");
-//    waitForObject(":Sales Order.Save_QPushButton_4");
-//    clickButton(":Sales Order.Save_QPushButton_4");
-//    waitForObject(":Sales Order.Cancel_QPushButton_2");
-//    clickButton(":Sales Order.Cancel_QPushButton_2");
-//    waitForObject(":frame._so_XTreeWidget_2");
-//    clickItem(":frame._so_XTreeWidget_2", "50199", 5, 5, 1, Qt.LeftButton);
-//    
-//    waitForObject(":List Open Sales Orders.Close_QPushButton_2");
-//    clickButton(":List Open Sales Orders.Close_QPushButton_2");
-//    
-//    //---Scheduling---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
-//    waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
-//    activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
-//    waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "Run MRP");
-//    activateItem(":xTuple ERP:*.Scheduling_QMenu", "Run MRP");
-//    waitForObjectItem(":xTuple ERP:*.Run MRP_QMenu", "by Planner Code...");
-//    activateItem(":xTuple ERP:*.Run MRP_QMenu", "by Planner Code...");
-//    waitForObject(":Run MRP by Planner Code.XDateEdit_XDateEdit");
-//    type(":Run MRP by Planner Code.XDateEdit_XDateEdit", "+30");
-//    waitForObject(":Run MRP by Planner Code.XDateEdit_XDateEdit");
-//    type(":Run MRP by Planner Code.XDateEdit_XDateEdit", "<Tab>");
-//    waitForObject(":Run MRP by Planner Code.Create_QPushButton");
-//    clickButton(":Run MRP by Planner Code.Create_QPushButton");
-//    
-//    //---Create Planned Order----
-//    waitForObject(":xTuple ERP:*_QMenuBar_2");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
-//    waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
-//    activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
-//    waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
-//    activateItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
-//    waitForObject(":Planned Order...._QPushButton");
-//    clickButton(":Planned Order...._QPushButton");
-//    waitForObject(":_item_XTreeWidget_5");
-//    doubleClickItem(":_item_XTreeWidget_5", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Planned Order._qty_XLineEdit");
-//    type(":Planned Order._qty_XLineEdit", "100");
-//    waitForObject(":Planned Order.XDateEdit_XDateEdit");
-//    type(":Planned Order.XDateEdit_XDateEdit", "+9");
-//    waitForObject(":Planned Order.XDateEdit_XDateEdit");
-//    type(":Planned Order.XDateEdit_XDateEdit", "<Tab>");
-//    waitForObject(":Planned Order.Create_QPushButton");
-//    clickButton(":Planned Order.Create_QPushButton");
-//    waitForObject(":Planned Order.Close_QPushButton");
-//    clickButton(":Planned Order.Close_QPushButton");
-//    
-//    //---Create Planned Order----
-//    waitForObject(":xTuple ERP:*_QMenuBar_2");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
-//    waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
-//    activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
-//    waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
-//    activateItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
-//    waitForObject(":Planned Order...._QPushButton");
-//    clickButton(":Planned Order...._QPushButton");
-//    waitForObject(":_item_XTreeWidget_5");
-//    doubleClickItem(":_item_XTreeWidget_5", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Planned Order._qty_XLineEdit");
-//    type(":Planned Order._qty_XLineEdit", "100");
-//    waitForObject(":Planned Order.XDateEdit_XDateEdit");
-//    type(":Planned Order.XDateEdit_XDateEdit", "+9");
-//    waitForObject(":Planned Order.XDateEdit_XDateEdit");
-//    type(":Planned Order.XDateEdit_XDateEdit", "<Tab>");
-//    waitForObject(":Planned Order.Create_QPushButton");
-//    clickButton(":Planned Order.Create_QPushButton");
-//    waitForObject(":Planned Order.Close_QPushButton");
-//    clickButton(":Planned Order.Close_QPushButton");
-//    
-//    
-//    //---Release Planned Order---------
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
-//    waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
-//    activateItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
-//    waitForObjectItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders");
-//    activateItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders");
-//    waitForObjectItem(":xTuple ERP:*.Planned Orders_QMenu", "by Planner Code...");
-//    activateItem(":xTuple ERP:*.Planned Orders_QMenu", "by Planner Code...");
-//
-//    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
-//    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
-//    type(":Planned Orders by Planner Code.Query_QPushButton", "<Down>");
-//    type(":frame._planord_XTreeWidget", " ");
-//    sendEvent("QContextMenuEvent", ":frame._planord_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
-//    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release Order...");
-//    activateItem(":xTuple ERP:*._menu_QMenu", "Release Order...");
-//    waitForObject(":Planned Orders by Planner Code.Create_QPushButton");
-//    clickButton(":Planned Orders by Planner Code.Create_QPushButton");
-//  
-//    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
-//    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-//  
-//    //----Create Purchase Order--------
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
-//    waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-//    activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-//    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-//    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-//    
-//    waitForObject(":List Unposted Purchase Orders.New_QPushButton");
-//    clickButton(":List Unposted Purchase Orders.New_QPushButton");
-//    waitForObject(":_headerPage...._QPushButton_4");
-//    clickButton(":_headerPage...._QPushButton_4");
-//    waitForObject(":_listTab_XTreeWidget_7");
-//    doubleClickItem(":_listTab_XTreeWidget_7", "TPARTS", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Purchase Order.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
-//    waitForObject(":_lineItemsPage.New_QPushButton_4");
-//    clickButton(":_lineItemsPage.New_QPushButton_4");
-//    waitForObject(":_typeGroup...._QPushButton");
-//    clickButton(":_typeGroup...._QPushButton");
-//    waitForObject(":_item_XTreeWidget_6");
-//    doubleClickItem(":_item_XTreeWidget_6", "TBOX1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_ordered_XLineEdit_2");
-//    type(":_ordered_XLineEdit_2", "100");
-//    waitForObject(":_ordered_XLineEdit_2");
-//    type(":_ordered_XLineEdit_2", "<Tab>");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_5");
-//    type(":_schedGroup.XDateEdit_XDateEdit_5", "+9");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_5");
-//    type(":_schedGroup.XDateEdit_XDateEdit_5", "<Tab>");
-//    waitForObject(":Purchase Order Item.Save_QPushButton");
-//    clickButton(":Purchase Order Item.Save_QPushButton");
-//    waitForObject(":Purchase Order.Save_QPushButton");
-//    clickButton(":Purchase Order.Save_QPushButton");
-//    waitForObject(":Purchase Order.Close_QPushButton");
-//    clickButton(":Purchase Order.Close_QPushButton");
-//    
-//    waitForObject(":List Unposted Purchase Orders.New_QPushButton");
-//    clickButton(":List Unposted Purchase Orders.New_QPushButton");    
-//    waitForObject(":_headerPage...._QPushButton_4");
-//    clickButton(":_headerPage...._QPushButton_4");
-//    waitForObject(":_listTab_XTreeWidget_7");
-//    doubleClickItem(":_listTab_XTreeWidget_7", "TPARTS", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Purchase Order.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
-//    waitForObject(":_lineItemsPage.New_QPushButton_4");
-//    clickButton(":_lineItemsPage.New_QPushButton_4");
-//    waitForObject(":_typeGroup...._QPushButton");
-//    clickButton(":_typeGroup...._QPushButton");
-//    waitForObject(":_item_XTreeWidget_6");
-//    doubleClickItem(":_item_XTreeWidget_6", "TBOX1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_ordered_XLineEdit_2");
-//    type(":_ordered_XLineEdit_2", "100");
-//    waitForObject(":_ordered_XLineEdit_2");
-//    type(":_ordered_XLineEdit_2", "<Tab>");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_5");
-//    type(":_schedGroup.XDateEdit_XDateEdit_5", "+9");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_5");
-//    type(":_schedGroup.XDateEdit_XDateEdit_5", "<Tab>");
-//    waitForObject(":Purchase Order Item.Save_QPushButton");
-//    clickButton(":Purchase Order Item.Save_QPushButton");
-//    waitForObject(":Purchase Order.Save_QPushButton");
-//    clickButton(":Purchase Order.Save_QPushButton");
-//    waitForObject(":Purchase Order.Close_QPushButton");
-//    clickButton(":Purchase Order.Close_QPushButton");
-//    
-//    waitForObject(":List Unposted Purchase Orders.New_QPushButton");
-//    clickButton(":List Unposted Purchase Orders.New_QPushButton");    
-//    waitForObject(":_headerPage...._QPushButton_4");
-//    clickButton(":_headerPage...._QPushButton_4");
-//    waitForObject(":_listTab_XTreeWidget_7");
-//    doubleClickItem(":_listTab_XTreeWidget_7", "TPARTS", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Purchase Order.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
-//    waitForObject(":_lineItemsPage.New_QPushButton_4");
-//    clickButton(":_lineItemsPage.New_QPushButton_4");
-//    waitForObject(":_typeGroup...._QPushButton");
-//    clickButton(":_typeGroup...._QPushButton");
-//    waitForObject(":_item_XTreeWidget_6");
-//    doubleClickItem(":_item_XTreeWidget_6", "TBOX1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_ordered_XLineEdit_2");
-//    type(":_ordered_XLineEdit_2", "100");
-//    waitForObject(":_ordered_XLineEdit_2");
-//    type(":_ordered_XLineEdit_2", "<Tab>");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_5");
-//    type(":_schedGroup.XDateEdit_XDateEdit_5", "+9");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_5");
-//    type(":_schedGroup.XDateEdit_XDateEdit_5", "<Tab>");
-//    waitForObject(":Purchase Order Item.Save_QPushButton");
-//    clickButton(":Purchase Order Item.Save_QPushButton");
-//    waitForObject(":Purchase Order.Save_QPushButton");
-//    clickButton(":Purchase Order.Save_QPushButton");
-//    waitForObject(":Purchase Order.Close_QPushButton");
-//    clickButton(":Purchase Order.Close_QPushButton");
-//    
-//    waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
-//    clickButton(":List Unposted Purchase Orders.Close_QPushButton");
-//
-//    
-//    //------List Unposted Purchase Order------
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
-//    waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-//    activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-//    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-//    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-//    waitForObjectItem(":List Unposted Purchase Orders._pohead_XTreeWidget", "20065");
-//    clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", "20065", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":List Unposted Purchase Orders.Post P/O_QPushButton");
-//    clickButton(":List Unposted Purchase Orders.Post P/O_QPushButton");
-//    waitForObject(":List Unposted Purchase Orders.Yes_QPushButton");
-//    clickButton(":List Unposted Purchase Orders.Yes_QPushButton");
-//    waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
-//    clickButton(":List Unposted Purchase Orders.Close_QPushButton");
-//   
-//    
-//    
-//     //------List Unposted Purchase Order------
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
-//    waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-//    activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-//    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-//    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-//    waitForObjectItem(":List Unposted Purchase Orders._pohead_XTreeWidget", "20066");
-//    clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", "20066", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":List Unposted Purchase Orders.Post P/O_QPushButton");
-//    clickButton(":List Unposted Purchase Orders.Post P/O_QPushButton");
-//    waitForObject(":List Unposted Purchase Orders.Yes_QPushButton");
-//    clickButton(":List Unposted Purchase Orders.Yes_QPushButton");
-//    waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
-//    clickButton(":List Unposted Purchase Orders.Close_QPushButton");
-//   
-//      
-//    //----Create Receipt----
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
-//    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Receiving");
-//    activateItem(":xTuple ERP:*.Inventory_QMenu", "Receiving");
-//    waitForObjectItem(":xTuple ERP:*.Receiving_QMenu", "List Unposted Receipts...");
-//    activateItem(":xTuple ERP:*.Receiving_QMenu", "List Unposted Receipts...");
-//    
-//    waitForObject(":List Unposted Receipts.New_QPushButton");
-//    clickButton(":List Unposted Receipts.New_QPushButton");
-//    waitForObject(":Enter Order Receipts...._QPushButton");
-//    clickButton(":Enter Order Receipts...._QPushButton");
-//    waitForObject(":_listTab_XTreeWidget_5");
-//    doubleClick(":_listTab_XTreeWidget_5", 69, 11, 0, Qt.LeftButton);
-//    waitForObject(":List Unposted Receipts.Close_QPushButton");
-//    clickButton(":List Unposted Receipts.Close_QPushButton");
-//      
-//  
-//  
-// 
-//  
-//    
-//    //----Create Misc Invoice-----
-//    waitForObject(":xTuple ERP:*_QMenuBar_2");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-//    waitForObject(":xTuple ERP:*.Accounting_QMenu");
-//    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Receivable");
-//    waitForObject(":xTuple ERP:*.Accounts Receivable_QMenu");
-//    activateItem(":xTuple ERP:*.Accounts Receivable_QMenu", "Invoice");
-//    waitForObject(":xTuple ERP:*.Invoice_QMenu");
-//    activateItem(":xTuple ERP:*.Invoice_QMenu", "List Unposted...");
-//    
-//    waitForObject(":List Unposted Invoices.New_QPushButton");
-//    clickButton(":List Unposted Invoices.New_QPushButton");
-//    waitForObject(":headerTab...._QPushButton");
-//    clickButton(":headerTab...._QPushButton");
-//    waitForObject(":_listTab_XTreeWidget_6");
-//    clickItem(":_listTab_XTreeWidget_6", "TTOYS", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_listTab_XTreeWidget_6");
-//    doubleClickItem(":_listTab_XTreeWidget_6", "TTOYS", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
-//    waitForObject(":lineItemsTab.New_QPushButton");
-//    clickButton(":lineItemsTab.New_QPushButton");
-//    waitForObject(":Item...._QPushButton");
-//    clickButton(":Item...._QPushButton");
-//    waitForObject(":_item_XTreeWidget_4");
-//    doubleClickItem(":_item_XTreeWidget_4", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_ordered_XLineEdit");
-//    type(":_ordered_XLineEdit", "100");
-//    waitForObject(":_billed_XLineEdit");
-//    type(":_billed_XLineEdit", "100");
-//    type(":_billed_XLineEdit","<Tab>");
-//    waitForObject(":Invoice.Save_QPushButton");
-//    clickButton(":Invoice.Save_QPushButton");
-//    waitForObject(":Invoice.Save_QPushButton_2");
-//    clickButton(":Invoice.Save_QPushButton_2");
-//    waitForObject(":_invchead_XTreeWidget");
-//    clickItem(":_invchead_XTreeWidget", "60079", 5, 5, 1, Qt.LeftButton);
-//    
-//    
-//    waitForObject(":List Unposted Invoices.New_QPushButton");
-//    clickButton(":List Unposted Invoices.New_QPushButton");
-//    waitForObject(":headerTab...._QPushButton");
-//    clickButton(":headerTab...._QPushButton");
-//    waitForObject(":_listTab_XTreeWidget_6");
-//    clickItem(":_listTab_XTreeWidget_6", "TTOYS", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_listTab_XTreeWidget_6");
-//    doubleClickItem(":_listTab_XTreeWidget_6", "TTOYS", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
-//    waitForObject(":lineItemsTab.New_QPushButton");
-//    clickButton(":lineItemsTab.New_QPushButton");
-//    waitForObject(":Item...._QPushButton");
-//    clickButton(":Item...._QPushButton");
-//    waitForObject(":_item_XTreeWidget_4");
-//    doubleClickItem(":_item_XTreeWidget_4", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_ordered_XLineEdit");
-//    type(":_ordered_XLineEdit", "100");
-//    waitForObject(":_billed_XLineEdit");    
-//    type(":_billed_XLineEdit", "100");
-//    type(":_billed_XLineEdit","<Tab>");
-//    waitForObject(":Invoice.Save_QPushButton");
-//    clickButton(":Invoice.Save_QPushButton");
-//    waitForObject(":Invoice.Save_QPushButton_2");
-//    clickButton(":Invoice.Save_QPushButton_2");
-//    waitForObject(":_invchead_XTreeWidget");
-//    clickItem(":_invchead_XTreeWidget", "60080", 5, 5, 1, Qt.LeftButton);
-//    
-//   
-//    waitForObject(":List Unposted Invoices.New_QPushButton");
-//    clickButton(":List Unposted Invoices.New_QPushButton");
-//    waitForObject(":headerTab...._QPushButton");
-//    clickButton(":headerTab...._QPushButton");
-//    waitForObject(":_listTab_XTreeWidget_6");
-//    clickItem(":_listTab_XTreeWidget_6", "TTOYS", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_listTab_XTreeWidget_6");
-//    doubleClickItem(":_listTab_XTreeWidget_6", "TTOYS", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
-//    waitForObject(":lineItemsTab.New_QPushButton");
-//    clickButton(":lineItemsTab.New_QPushButton");
-//    waitForObject(":Item...._QPushButton");
-//    clickButton(":Item...._QPushButton");
-//    waitForObject(":_item_XTreeWidget_4");
-//    doubleClickItem(":_item_XTreeWidget_4", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_ordered_XLineEdit");
-//    type(":_ordered_XLineEdit", "100");
-//    waitForObject(":_billed_XLineEdit");
-//    type(":_billed_XLineEdit", "100");
-//    type(":_billed_XLineEdit","<Tab>");
-//    waitForObject(":Invoice.Save_QPushButton");
-//    clickButton(":Invoice.Save_QPushButton");
-//    waitForObject(":Invoice.Save_QPushButton_2");
-//    clickButton(":Invoice.Save_QPushButton_2");
-//    waitForObject(":_invchead_XTreeWidget");
-//    clickItem(":_invchead_XTreeWidget", "60081", 5, 5, 1, Qt.LeftButton);
-//       
+    
+    //---Create Quote----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    waitForObjectItem(":xTuple ERP:*.Sales_QMenu", "Quote");
+    activateItem(":xTuple ERP:*.Sales_QMenu", "Quote");
+    waitForObjectItem(":xTuple ERP:*.Quote_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Quote_QMenu", "List...");
+    
+    waitForObject(":frame.New_QPushButton_3");
+    clickButton(":frame.New_QPushButton_3");
+    waitForObject(":_headerPage._customerNumber_CLineEdit");
+    mouseClick(":_headerPage._customerNumber_CLineEdit", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_headerPage...._QPushButton_3");
+    clickButton(":_headerPage...._QPushButton_3");
+    waitForObject(":_listTab_XTreeWidget_3");
+    doubleClickItem(":_listTab_XTreeWidget_3", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Quote.qt_tabwidget_tabbar_QTabBar", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton_3");
+    clickButton(":_lineItemsPage.New_QPushButton_3");
+    waitForObject(":_itemGroup...._QPushButton_3");
+    clickButton(":_itemGroup...._QPushButton_3");
+    waitForObject(":_item_XTreeWidget_3");
+    doubleClickItem(":_item_XTreeWidget_3", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_qtyOrdered_XLineEdit_3");
+    type(":_qtyOrdered_XLineEdit_3", "100");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_3");
+    type(":_schedGroup.XDateEdit_XDateEdit_3", "+9");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_3");
+    type(":_schedGroup.XDateEdit_XDateEdit_3", "<Tab>");
+    waitForObject(":Quote.Save_QPushButton");
+    clickButton(":Quote.Save_QPushButton");
+    waitForObject(":Quote.Close_QPushButton");
+    clickButton(":Quote.Close_QPushButton");
+    waitForObject(":Quote.Save_QPushButton_2");
+    clickButton(":Quote.Save_QPushButton_2");
+    waitForObject(":Quote.Cancel_QPushButton");
+    clickButton(":Quote.Cancel_QPushButton");
+        
+    waitForObject(":_quote_XTreeWidget");
+    clickItem(":_quote_XTreeWidget", "40011", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":List Quotes.Close_QPushButton");
+    clickButton(":List Quotes.Close_QPushButton");
+    
+    
+    //---Create Sales Order---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    waitForObjectItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
+    activateItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
+    waitForObjectItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
+    activateItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
+    
+    waitForObject(":frame.New_QPushButton_2");
+    clickButton(":frame.New_QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton_2");
+    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_2");
+    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar_2");
+    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar_2", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton_2");
+    clickButton(":_lineItemsPage.New_QPushButton_2");
+    waitForObject(":_itemGroup...._QPushButton_2");
+    clickButton(":_itemGroup...._QPushButton_2");
+    waitForObject(":_item_XTreeWidget_2");
+    doubleClickItem(":_item_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_qtyOrdered_XLineEdit_2");
+    type(":_qtyOrdered_XLineEdit_2", "100");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "<Tab>");
+    waitForObject(":Sales Order.Save_QPushButton_3");
+    clickButton(":Sales Order.Save_QPushButton_3");
+    waitForObject(":Sales Order.Close_QPushButton_2");
+    clickButton(":Sales Order.Close_QPushButton_2");
+    waitForObject(":Sales Order.Save_QPushButton_4");
+    clickButton(":Sales Order.Save_QPushButton_4");
+    waitForObject(":Sales Order.Cancel_QPushButton_2");
+    clickButton(":Sales Order.Cancel_QPushButton_2");
+    waitForObject(":frame._so_XTreeWidget_2");
+    clickItem(":frame._so_XTreeWidget_2", "50194", 5, 5, 1, Qt.LeftButton);
+    
+    waitForObject(":frame.New_QPushButton_2");
+    clickButton(":frame.New_QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton_2");
+    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_2");
+    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar_2");
+    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar_2", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton_2");
+    clickButton(":_lineItemsPage.New_QPushButton_2");
+    waitForObject(":_itemGroup...._QPushButton_2");
+    clickButton(":_itemGroup...._QPushButton_2");
+    waitForObject(":_item_XTreeWidget_2");
+    doubleClickItem(":_item_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_qtyOrdered_XLineEdit_2");
+    type(":_qtyOrdered_XLineEdit_2", "100");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "<Tab>");
+    waitForObject(":Sales Order.Save_QPushButton_3");
+    clickButton(":Sales Order.Save_QPushButton_3");
+    waitForObject(":Sales Order.Close_QPushButton_2");
+    clickButton(":Sales Order.Close_QPushButton_2");
+    waitForObject(":Sales Order.Save_QPushButton_4");
+    clickButton(":Sales Order.Save_QPushButton_4");
+    waitForObject(":Sales Order.Cancel_QPushButton_2");
+    clickButton(":Sales Order.Cancel_QPushButton_2");
+    waitForObject(":frame._so_XTreeWidget_2");
+    clickItem(":frame._so_XTreeWidget_2", "50195", 5, 5, 1, Qt.LeftButton);
+    
+    
+    waitForObject(":frame.New_QPushButton_2");
+    clickButton(":frame.New_QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton_2");
+    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_2");
+    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar_2");
+    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar_2", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton_2");
+    clickButton(":_lineItemsPage.New_QPushButton_2");
+    waitForObject(":_itemGroup...._QPushButton_2");
+    clickButton(":_itemGroup...._QPushButton_2");
+    waitForObject(":_item_XTreeWidget_2");
+    doubleClickItem(":_item_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_qtyOrdered_XLineEdit_2");
+    type(":_qtyOrdered_XLineEdit_2", "100");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "<Tab>");
+    waitForObject(":Sales Order.Save_QPushButton_3");
+    clickButton(":Sales Order.Save_QPushButton_3");
+    waitForObject(":Sales Order.Close_QPushButton_2");
+    clickButton(":Sales Order.Close_QPushButton_2");
+    waitForObject(":Sales Order.Save_QPushButton_4");
+    clickButton(":Sales Order.Save_QPushButton_4");
+    waitForObject(":Sales Order.Cancel_QPushButton_2");
+    clickButton(":Sales Order.Cancel_QPushButton_2");
+    waitForObject(":frame._so_XTreeWidget_2");
+    clickItem(":frame._so_XTreeWidget_2", "50196", 5, 5, 1, Qt.LeftButton);
+    
+    
+    waitForObject(":frame.New_QPushButton_2");
+    clickButton(":frame.New_QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton_2");
+    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_2");
+    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar_2");
+    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar_2", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton_2");
+    clickButton(":_lineItemsPage.New_QPushButton_2");
+    waitForObject(":_itemGroup...._QPushButton_2");
+    clickButton(":_itemGroup...._QPushButton_2");
+    waitForObject(":_item_XTreeWidget_2");
+    doubleClickItem(":_item_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_qtyOrdered_XLineEdit_2");
+    type(":_qtyOrdered_XLineEdit_2", "100");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "<Tab>");
+    waitForObject(":Sales Order.Save_QPushButton_3");
+    clickButton(":Sales Order.Save_QPushButton_3");
+    waitForObject(":Sales Order.Close_QPushButton_2");
+    clickButton(":Sales Order.Close_QPushButton_2");
+    waitForObject(":Sales Order.Save_QPushButton_4");
+    clickButton(":Sales Order.Save_QPushButton_4");
+    waitForObject(":Sales Order.Cancel_QPushButton_2");
+    clickButton(":Sales Order.Cancel_QPushButton_2");
+    waitForObject(":frame._so_XTreeWidget_2");
+    clickItem(":frame._so_XTreeWidget_2", "50197", 5, 5, 1, Qt.LeftButton);
+    
+    
+    waitForObject(":frame.New_QPushButton_2");
+    clickButton(":frame.New_QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton_2");
+    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_2");
+    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar_2");
+    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar_2", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton_2");
+    clickButton(":_lineItemsPage.New_QPushButton_2");
+    waitForObject(":_itemGroup...._QPushButton_2");
+    clickButton(":_itemGroup...._QPushButton_2");
+    waitForObject(":_item_XTreeWidget_2");
+    doubleClickItem(":_item_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_qtyOrdered_XLineEdit_2");
+    type(":_qtyOrdered_XLineEdit_2", "100");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "<Tab>");
+    waitForObject(":Sales Order.Save_QPushButton_3");
+    clickButton(":Sales Order.Save_QPushButton_3");
+    waitForObject(":Sales Order.Close_QPushButton_2");
+    clickButton(":Sales Order.Close_QPushButton_2");
+    waitForObject(":Sales Order.Save_QPushButton_4");
+    clickButton(":Sales Order.Save_QPushButton_4");
+    waitForObject(":Sales Order.Cancel_QPushButton_2");
+    clickButton(":Sales Order.Cancel_QPushButton_2");
+    waitForObject(":frame._so_XTreeWidget_2");
+    clickItem(":frame._so_XTreeWidget_2", "50198", 5, 5, 1, Qt.LeftButton);
+    
+    
+    waitForObject(":frame.New_QPushButton_2");
+    clickButton(":frame.New_QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton_2");
+    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_2");
+    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar_2");
+    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar_2", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton_2");
+    clickButton(":_lineItemsPage.New_QPushButton_2");
+    waitForObject(":_itemGroup...._QPushButton_2");
+    clickButton(":_itemGroup...._QPushButton_2");
+    waitForObject(":_item_XTreeWidget_2");
+    doubleClickItem(":_item_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_qtyOrdered_XLineEdit_2");
+    type(":_qtyOrdered_XLineEdit_2", "100");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "<Tab>");
+    waitForObject(":Sales Order.Save_QPushButton_3");
+    clickButton(":Sales Order.Save_QPushButton_3");
+    waitForObject(":Sales Order.Close_QPushButton_2");
+    clickButton(":Sales Order.Close_QPushButton_2");
+    waitForObject(":Sales Order.Save_QPushButton_4");
+    clickButton(":Sales Order.Save_QPushButton_4");
+    waitForObject(":Sales Order.Cancel_QPushButton_2");
+    clickButton(":Sales Order.Cancel_QPushButton_2");
+    waitForObject(":frame._so_XTreeWidget_2");
+    clickItem(":frame._so_XTreeWidget_2", "50199", 5, 5, 1, Qt.LeftButton);
+    
+    waitForObject(":List Open Sales Orders.Close_QPushButton_2");
+    clickButton(":List Open Sales Orders.Close_QPushButton_2");
+    
+    //---Scheduling---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
+    waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
+    activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
+    waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "Run MRP");
+    activateItem(":xTuple ERP:*.Scheduling_QMenu", "Run MRP");
+    waitForObjectItem(":xTuple ERP:*.Run MRP_QMenu", "by Planner Code...");
+    activateItem(":xTuple ERP:*.Run MRP_QMenu", "by Planner Code...");
+    waitForObject(":Run MRP by Planner Code.XDateEdit_XDateEdit");
+    type(":Run MRP by Planner Code.XDateEdit_XDateEdit", "+30");
+    waitForObject(":Run MRP by Planner Code.XDateEdit_XDateEdit");
+    type(":Run MRP by Planner Code.XDateEdit_XDateEdit", "<Tab>");
+    waitForObject(":Run MRP by Planner Code.Create_QPushButton");
+    clickButton(":Run MRP by Planner Code.Create_QPushButton");
+    
+    //---Create Planned Order----
+    waitForObject(":xTuple ERP:*_QMenuBar_2");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
+    waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
+    activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
+    waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
+    activateItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
+    waitForObject(":Planned Order...._QPushButton");
+    clickButton(":Planned Order...._QPushButton");
+    waitForObject(":_item_XTreeWidget_5");
+    doubleClickItem(":_item_XTreeWidget_5", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Planned Order._qty_XLineEdit");
+    type(":Planned Order._qty_XLineEdit", "100");
+    waitForObject(":Planned Order.XDateEdit_XDateEdit");
+    type(":Planned Order.XDateEdit_XDateEdit", "+9");
+    waitForObject(":Planned Order.XDateEdit_XDateEdit");
+    type(":Planned Order.XDateEdit_XDateEdit", "<Tab>");
+    waitForObject(":Planned Order.Create_QPushButton");
+    clickButton(":Planned Order.Create_QPushButton");
+    waitForObject(":Planned Order.Close_QPushButton");
+    clickButton(":Planned Order.Close_QPushButton");
+    
+    //---Create Planned Order----
+    waitForObject(":xTuple ERP:*_QMenuBar_2");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
+    waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
+    activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
+    waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
+    activateItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
+    waitForObject(":Planned Order...._QPushButton");
+    clickButton(":Planned Order...._QPushButton");
+    waitForObject(":_item_XTreeWidget_5");
+    doubleClickItem(":_item_XTreeWidget_5", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Planned Order._qty_XLineEdit");
+    type(":Planned Order._qty_XLineEdit", "100");
+    waitForObject(":Planned Order.XDateEdit_XDateEdit");
+    type(":Planned Order.XDateEdit_XDateEdit", "+9");
+    waitForObject(":Planned Order.XDateEdit_XDateEdit");
+    type(":Planned Order.XDateEdit_XDateEdit", "<Tab>");
+    waitForObject(":Planned Order.Create_QPushButton");
+    clickButton(":Planned Order.Create_QPushButton");
+    waitForObject(":Planned Order.Close_QPushButton");
+    clickButton(":Planned Order.Close_QPushButton");
+    
+    
+    //---Release Planned Order---------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
+    waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
+    activateItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
+    waitForObjectItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders");
+    activateItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders");
+    waitForObjectItem(":xTuple ERP:*.Planned Orders_QMenu", "by Planner Code...");
+    activateItem(":xTuple ERP:*.Planned Orders_QMenu", "by Planner Code...");
+
+    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
+    type(":Planned Orders by Planner Code.Query_QPushButton", "<Down>");
+    type(":frame._planord_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":frame._planord_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release Order...");
+    activateItem(":xTuple ERP:*._menu_QMenu", "Release Order...");
+    waitForObject(":Planned Orders by Planner Code.Create_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Create_QPushButton");
+  
+    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
+  
+    //----Create Purchase Order--------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
+    waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
+    activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
+    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+    
+    waitForObject(":List Unposted Purchase Orders.New_QPushButton");
+    clickButton(":List Unposted Purchase Orders.New_QPushButton");
+    waitForObject(":_headerPage...._QPushButton_4");
+    clickButton(":_headerPage...._QPushButton_4");
+    waitForObject(":_listTab_XTreeWidget_7");
+    doubleClickItem(":_listTab_XTreeWidget_7", "TPARTS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Purchase Order.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton_4");
+    clickButton(":_lineItemsPage.New_QPushButton_4");
+    waitForObject(":_typeGroup...._QPushButton");
+    clickButton(":_typeGroup...._QPushButton");
+    waitForObject(":_item_XTreeWidget_6");
+    doubleClickItem(":_item_XTreeWidget_6", "TBOX1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_ordered_XLineEdit_2");
+    type(":_ordered_XLineEdit_2", "100");
+    waitForObject(":_ordered_XLineEdit_2");
+    type(":_ordered_XLineEdit_2", "<Tab>");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_5");
+    type(":_schedGroup.XDateEdit_XDateEdit_5", "+9");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_5");
+    type(":_schedGroup.XDateEdit_XDateEdit_5", "<Tab>");
+    waitForObject(":Purchase Order Item.Save_QPushButton");
+    clickButton(":Purchase Order Item.Save_QPushButton");
+    waitForObject(":Purchase Order.Save_QPushButton");
+    clickButton(":Purchase Order.Save_QPushButton");
+    waitForObject(":Purchase Order.Close_QPushButton");
+    clickButton(":Purchase Order.Close_QPushButton");
+    
+    waitForObject(":List Unposted Purchase Orders.New_QPushButton");
+    clickButton(":List Unposted Purchase Orders.New_QPushButton");    
+    waitForObject(":_headerPage...._QPushButton_4");
+    clickButton(":_headerPage...._QPushButton_4");
+    waitForObject(":_listTab_XTreeWidget_7");
+    doubleClickItem(":_listTab_XTreeWidget_7", "TPARTS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Purchase Order.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton_4");
+    clickButton(":_lineItemsPage.New_QPushButton_4");
+    waitForObject(":_typeGroup...._QPushButton");
+    clickButton(":_typeGroup...._QPushButton");
+    waitForObject(":_item_XTreeWidget_6");
+    doubleClickItem(":_item_XTreeWidget_6", "TBOX1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_ordered_XLineEdit_2");
+    type(":_ordered_XLineEdit_2", "100");
+    waitForObject(":_ordered_XLineEdit_2");
+    type(":_ordered_XLineEdit_2", "<Tab>");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_5");
+    type(":_schedGroup.XDateEdit_XDateEdit_5", "+9");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_5");
+    type(":_schedGroup.XDateEdit_XDateEdit_5", "<Tab>");
+    waitForObject(":Purchase Order Item.Save_QPushButton");
+    clickButton(":Purchase Order Item.Save_QPushButton");
+    waitForObject(":Purchase Order.Save_QPushButton");
+    clickButton(":Purchase Order.Save_QPushButton");
+    waitForObject(":Purchase Order.Close_QPushButton");
+    clickButton(":Purchase Order.Close_QPushButton");
+    
+    waitForObject(":List Unposted Purchase Orders.New_QPushButton");
+    clickButton(":List Unposted Purchase Orders.New_QPushButton");    
+    waitForObject(":_headerPage...._QPushButton_4");
+    clickButton(":_headerPage...._QPushButton_4");
+    waitForObject(":_listTab_XTreeWidget_7");
+    doubleClickItem(":_listTab_XTreeWidget_7", "TPARTS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Purchase Order.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton_4");
+    clickButton(":_lineItemsPage.New_QPushButton_4");
+    waitForObject(":_typeGroup...._QPushButton");
+    clickButton(":_typeGroup...._QPushButton");
+    waitForObject(":_item_XTreeWidget_6");
+    doubleClickItem(":_item_XTreeWidget_6", "TBOX1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_ordered_XLineEdit_2");
+    type(":_ordered_XLineEdit_2", "100");
+    waitForObject(":_ordered_XLineEdit_2");
+    type(":_ordered_XLineEdit_2", "<Tab>");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_5");
+    type(":_schedGroup.XDateEdit_XDateEdit_5", "+9");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_5");
+    type(":_schedGroup.XDateEdit_XDateEdit_5", "<Tab>");
+    waitForObject(":Purchase Order Item.Save_QPushButton");
+    clickButton(":Purchase Order Item.Save_QPushButton");
+    waitForObject(":Purchase Order.Save_QPushButton");
+    clickButton(":Purchase Order.Save_QPushButton");
+    waitForObject(":Purchase Order.Close_QPushButton");
+    clickButton(":Purchase Order.Close_QPushButton");
+    
+    waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
+    clickButton(":List Unposted Purchase Orders.Close_QPushButton");
+
+    
+    //------List Unposted Purchase Order------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
+    waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
+    activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
+    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+    waitForObjectItem(":List Unposted Purchase Orders._pohead_XTreeWidget", "20065");
+    clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", "20065", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":List Unposted Purchase Orders.Post P/O_QPushButton");
+    clickButton(":List Unposted Purchase Orders.Post P/O_QPushButton");
+    waitForObject(":List Unposted Purchase Orders.Yes_QPushButton");
+    clickButton(":List Unposted Purchase Orders.Yes_QPushButton");
+    waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
+    clickButton(":List Unposted Purchase Orders.Close_QPushButton");
+   
+    
+    
+     //------List Unposted Purchase Order------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
+    waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
+    activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
+    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+    waitForObjectItem(":List Unposted Purchase Orders._pohead_XTreeWidget", "20066");
+    clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", "20066", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":List Unposted Purchase Orders.Post P/O_QPushButton");
+    clickButton(":List Unposted Purchase Orders.Post P/O_QPushButton");
+    waitForObject(":List Unposted Purchase Orders.Yes_QPushButton");
+    clickButton(":List Unposted Purchase Orders.Yes_QPushButton");
+    waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
+    clickButton(":List Unposted Purchase Orders.Close_QPushButton");
+   
+      
+    //----Create Receipt----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Receiving");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Receiving");
+    waitForObjectItem(":xTuple ERP:*.Receiving_QMenu", "List Unposted Receipts...");
+    activateItem(":xTuple ERP:*.Receiving_QMenu", "List Unposted Receipts...");
+    
+    waitForObject(":List Unposted Receipts.New_QPushButton");
+    clickButton(":List Unposted Receipts.New_QPushButton");
+    waitForObject(":Enter Order Receipts...._QPushButton");
+    clickButton(":Enter Order Receipts...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_5");
+    doubleClick(":_listTab_XTreeWidget_5", 69, 11, 0, Qt.LeftButton);
+    waitForObject(":List Unposted Receipts.Close_QPushButton");
+    clickButton(":List Unposted Receipts.Close_QPushButton");
+      
+  
+  
+ 
+  
+    
+    //----Create Misc Invoice-----
+    waitForObject(":xTuple ERP:*_QMenuBar_2");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    waitForObject(":xTuple ERP:*.Accounting_QMenu");
+    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Receivable");
+    waitForObject(":xTuple ERP:*.Accounts Receivable_QMenu");
+    activateItem(":xTuple ERP:*.Accounts Receivable_QMenu", "Invoice");
+    waitForObject(":xTuple ERP:*.Invoice_QMenu");
+    activateItem(":xTuple ERP:*.Invoice_QMenu", "List Unposted...");
+    
+    waitForObject(":List Unposted Invoices.New_QPushButton");
+    clickButton(":List Unposted Invoices.New_QPushButton");
+    waitForObject(":headerTab...._QPushButton");
+    clickButton(":headerTab...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_6");
+    clickItem(":_listTab_XTreeWidget_6", "TTOYS", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_listTab_XTreeWidget_6");
+    doubleClickItem(":_listTab_XTreeWidget_6", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
+    waitForObject(":lineItemsTab.New_QPushButton");
+    clickButton(":lineItemsTab.New_QPushButton");
+    waitForObject(":Item...._QPushButton");
+    clickButton(":Item...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_ordered_XLineEdit");
+    type(":_ordered_XLineEdit", "100");
+    waitForObject(":_billed_XLineEdit");
+    type(":_billed_XLineEdit", "100");
+    type(":_billed_XLineEdit","<Tab>");
+    waitForObject(":Invoice.Save_QPushButton");
+    clickButton(":Invoice.Save_QPushButton");
+    waitForObject(":Invoice.Save_QPushButton_2");
+    clickButton(":Invoice.Save_QPushButton_2");
+    waitForObject(":_invchead_XTreeWidget");
+    clickItem(":_invchead_XTreeWidget", "60079", 5, 5, 1, Qt.LeftButton);
+    
+    
+    waitForObject(":List Unposted Invoices.New_QPushButton");
+    clickButton(":List Unposted Invoices.New_QPushButton");
+    waitForObject(":headerTab...._QPushButton");
+    clickButton(":headerTab...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_6");
+    clickItem(":_listTab_XTreeWidget_6", "TTOYS", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_listTab_XTreeWidget_6");
+    doubleClickItem(":_listTab_XTreeWidget_6", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
+    waitForObject(":lineItemsTab.New_QPushButton");
+    clickButton(":lineItemsTab.New_QPushButton");
+    waitForObject(":Item...._QPushButton");
+    clickButton(":Item...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_ordered_XLineEdit");
+    type(":_ordered_XLineEdit", "100");
+    waitForObject(":_billed_XLineEdit");    
+    type(":_billed_XLineEdit", "100");
+    type(":_billed_XLineEdit","<Tab>");
+    waitForObject(":Invoice.Save_QPushButton");
+    clickButton(":Invoice.Save_QPushButton");
+    waitForObject(":Invoice.Save_QPushButton_2");
+    clickButton(":Invoice.Save_QPushButton_2");
+    waitForObject(":_invchead_XTreeWidget");
+    clickItem(":_invchead_XTreeWidget", "60080", 5, 5, 1, Qt.LeftButton);
+    
+   
+    waitForObject(":List Unposted Invoices.New_QPushButton");
+    clickButton(":List Unposted Invoices.New_QPushButton");
+    waitForObject(":headerTab...._QPushButton");
+    clickButton(":headerTab...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_6");
+    clickItem(":_listTab_XTreeWidget_6", "TTOYS", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_listTab_XTreeWidget_6");
+    doubleClickItem(":_listTab_XTreeWidget_6", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
+    waitForObject(":lineItemsTab.New_QPushButton");
+    clickButton(":lineItemsTab.New_QPushButton");
+    waitForObject(":Item...._QPushButton");
+    clickButton(":Item...._QPushButton");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_ordered_XLineEdit");
+    type(":_ordered_XLineEdit", "100");
+    waitForObject(":_billed_XLineEdit");
+    type(":_billed_XLineEdit", "100");
+    type(":_billed_XLineEdit","<Tab>");
+    waitForObject(":Invoice.Save_QPushButton");
+    clickButton(":Invoice.Save_QPushButton");
+    waitForObject(":Invoice.Save_QPushButton_2");
+    clickButton(":Invoice.Save_QPushButton_2");
+    waitForObject(":_invchead_XTreeWidget");
+    clickItem(":_invchead_XTreeWidget", "60081", 5, 5, 1, Qt.LeftButton);
+     
     
     
     //----Post Invoice---------
@@ -877,7 +877,7 @@ function main()
     clickButton(":Miscellaneous Voucher.Save_QPushButton_2");
     waitForObject(":Miscellaneous Voucher.Cancel_QPushButton");
     clickButton(":Miscellaneous Voucher.Cancel_QPushButton");
-    
+  
     
     //-------Post Vouchers---------
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -951,7 +951,7 @@ function main()
     waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
     activateItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
     
-    waitForObject(":Prepare Check Run._bankaccnt_XComboBox", "EBANK-eBank Checking Account");
+    waitForObject(":Prepare Check Run._bankaccnt_XComboBox");
     clickItem(":Prepare Check Run._bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
     waitForObject(":Prepare Check Run.Prepare_QPushButton");
     clickButton(":Prepare Check Run.Prepare_QPushButton");
@@ -977,7 +977,7 @@ function main()
     clickButton(":Select Payments.Save_QPushButton");
     waitForObject(":Select Payments.Close_QPushButton");
     clickButton(":Select Payments.Close_QPushButton");
-    
+  
     
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -988,7 +988,7 @@ function main()
     waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
     activateItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
     
-    waitForObject(":Prepare Check Run._bankaccnt_XComboBox", "EBANK-eBank Checking Account");
+    waitForObject(":Prepare Check Run._bankaccnt_XComboBox");
     clickItem(":Prepare Check Run._bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
     waitForObject(":Prepare Check Run.Prepare_QPushButton");
     clickButton(":Prepare Check Run.Prepare_QPushButton");
@@ -1012,7 +1012,7 @@ function main()
 
 
     
-    
+   
     //----Manufacture- new Work Order----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
@@ -1171,13 +1171,16 @@ function main()
     waitForObjectItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
     activateItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
     
+    waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
+    clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
+    
     waitForObject(":frame._wo_XTreeWidget");
     var sWidgetTreeControl = ":frame._wo_XTreeWidget";
     waitForObject(sWidgetTreeControl);
     var obj_TreeWidget = findObject(sWidgetTreeControl);
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
+    type(":frame._wo_XTreeWidget","<Space>");
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
     for(i=0;i<iNumberOfRootItems ;i++)
@@ -1195,6 +1198,8 @@ function main()
     
         
     //-------Post Operation---------
+    waitForObject(":frame._wo_XTreeWidget");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
     for(i=0;i<iNumberOfRootItems ;i++)
     {
@@ -1211,13 +1216,15 @@ function main()
     waitForObject(":W/O Schedule by Planner Code.Post_QPushButton");
     clickButton(":W/O Schedule by Planner Code.Post_QPushButton");
     waitForObject(":W/O Schedule by Planner Code._itemloc_XTreeWidget");
-    doubleClick(":W/O Schedule by Planner Code._itemloc_XTreeWidget","No" ,5, 5, 0, Qt.LeftButton);
+    doubleClickItem(":W/O Schedule by Planner Code._itemloc_XTreeWidget","No" ,5, 5, 0, Qt.LeftButton);
     waitForObject(":W/O Schedule by Planner Code.Distribute_QPushButton");
     clickButton(":W/O Schedule by Planner Code.Distribute_QPushButton");
     waitForObject(":W/O Schedule by Planner Code.Post_QPushButton_2");
     clickButton(":W/O Schedule by Planner Code.Post_QPushButton_2");
     
     //-------Post Operation---------
+        waitForObject(":frame._wo_XTreeWidget");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
     for(i=0;i<iNumberOfRootItems ;i++)
     {
@@ -1234,7 +1241,7 @@ function main()
     waitForObject(":W/O Schedule by Planner Code.Post_QPushButton");
     clickButton(":W/O Schedule by Planner Code.Post_QPushButton");
     waitForObject(":W/O Schedule by Planner Code._itemloc_XTreeWidget");
-    doubleClick(":W/O Schedule by Planner Code._itemloc_XTreeWidget","No" ,5, 5, 0, Qt.LeftButton);
+    doubleClickItem(":W/O Schedule by Planner Code._itemloc_XTreeWidget","No" ,5, 5, 0, Qt.LeftButton);
     waitForObject(":W/O Schedule by Planner Code.Distribute_QPushButton");
     clickButton(":W/O Schedule by Planner Code.Distribute_QPushButton");
     waitForObject(":W/O Schedule by Planner Code.Post_QPushButton_2");
@@ -1243,6 +1250,8 @@ function main()
     
     
     //------Post Operation--------
+    waitForObject(":frame._wo_XTreeWidget");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
     for(i=0;i<iNumberOfRootItems ;i++)
     {
@@ -1259,7 +1268,7 @@ function main()
     waitForObject(":W/O Schedule by Planner Code.Post_QPushButton");
     clickButton(":W/O Schedule by Planner Code.Post_QPushButton");
     waitForObject(":W/O Schedule by Planner Code._itemloc_XTreeWidget");
-    doubleClick(":W/O Schedule by Planner Code._itemloc_XTreeWidget","No" ,5, 5, 0, Qt.LeftButton);
+    doubleClickItem(":W/O Schedule by Planner Code._itemloc_XTreeWidget","No" ,5, 5, 0, Qt.LeftButton);
     waitForObject(":W/O Schedule by Planner Code.Distribute_QPushButton");
     clickButton(":W/O Schedule by Planner Code.Distribute_QPushButton");
     waitForObject(":W/O Schedule by Planner Code.Post_QPushButton_2");
@@ -1291,6 +1300,7 @@ function main()
     waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
     clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
     waitForObject(":frame._wo_XTreeWidget");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
     for(i=0;i<iNumberOfRootItems ;i++)
     {
