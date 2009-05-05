@@ -25,8 +25,10 @@ WHERE ( (aropen_open)
 
 -- Get invoices
 <? if not exists("creditsOnly") ?>
-SELECT COALESCE(aropen_id,-1) AS id,
+SELECT COALESCE(aropen_id,0) AS id,
        0 AS altId,   
+       invchead_id AS source_id_xtidrole,
+       invchead_invcnumber AS source_number_xtidrole,
        invchead_invcdate AS docdate,   
        aropen_duedate,
        invchead_invcnumber AS docnumber,
@@ -110,8 +112,10 @@ UNION
 
 -- Get credit memos
 <? if not exists("debitsOnly") ?>
-SELECT COALESCE(aropen_id,-1) AS id,
+SELECT COALESCE(aropen_id,0) AS id,
        1 AS altId,   
+       cmhead_id AS source_id_xtidrole,
+       cmhead_number AS source_number_xtidrole,
        cmhead_docdate AS docdate,   
        aropen_duedate,
        cmhead_number AS docnumber,
@@ -200,6 +204,8 @@ SELECT aropen_id AS id,
             WHEN (aropen_doctype='R') THEN 3
             ELSE -1
        END AS altId,
+       -1 AS source_id_xtidrole,
+       aropen_docnumber AS source_number_xtidrole,
        aropen_docdate AS docdate,
        aropen_duedate,
        aropen_docnumber AS docnumber,
@@ -290,6 +296,8 @@ WHERE ((cmhead_id IS NULL)
 UNION
 SELECT -1,
        incdt_id,
+       aropen_id AS source_id_xtidrole,
+       aropen_docnumber AS source_number_xtidrole,
        aropen_docdate AS docdate,
        NULL AS aropen_duedate,
        aropen_docnumber AS docnumber,
