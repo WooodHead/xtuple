@@ -59,7 +59,7 @@ function main()
 
     
     
-    
+  
     //---Create Quote----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
@@ -542,9 +542,6 @@ function main()
     clickButton(":List Unposted Receipts.Close_QPushButton");
       
   
-  
- 
-  
     
     //----Create Misc Invoice-----
     waitForObject(":xTuple ERP:*_QMenuBar_2");
@@ -641,7 +638,7 @@ function main()
     clickButton(":Invoice.Save_QPushButton_2");
     waitForObject(":_invchead_XTreeWidget");
     clickItem(":_invchead_XTreeWidget", "60081", 5, 5, 1, Qt.LeftButton);
-     
+   
     
     
     //----Post Invoice---------
@@ -655,10 +652,24 @@ function main()
     activateItem(":xTuple ERP:*.Invoice_QMenu", "List Unposted...");
   
     waitForObject(":_invchead_XTreeWidget");
-    clickItem(":_invchead_XTreeWidget", "60080",5,5,1,Qt.LeftButton);
-    snooze(2);
-    waitForObject(":List Unposted Invoices.Post_QPushButton");
-    clickButton(":List Unposted Invoices.Post_QPushButton");
+    var sWidgetTreeControl = ":_invchead_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(":_invchead_XTreeWidget","<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    for(i=0;i<iNumberOfRootItems ;i++)
+    {
+        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
+        sNameOfRootItem = obj_TreeTopLevelItem.text(1);
+        if(sNameOfRootItem=="60080") break;
+        type(sWidgetTreeControl,"<Down>"); 
+    }
+    sendEvent("QContextMenuEvent", ":_invchead_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post...");
+    activateItem(":xTuple ERP:*._menu_QMenu", "Post...");
     waitForObject(":List Unposted Invoices.Alternate Date:_QRadioButton");
     clickButton(":List Unposted Invoices.Alternate Date:_QRadioButton");
     waitForObject(":List Unposted Invoices.Continue_QPushButton");
@@ -667,10 +678,17 @@ function main()
     
     //---Post Invoice--- 
     waitForObject(":_invchead_XTreeWidget");
-    clickItem(":_invchead_XTreeWidget", "60081",5,5,1,Qt.LeftButton);
-    snooze(2);
-    waitForObject(":List Unposted Invoices.Post_QPushButton");
-    clickButton(":List Unposted Invoices.Post_QPushButton");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+    for(i=0;i<iNumberOfRootItems ;i++)
+    {
+        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
+        sNameOfRootItem = obj_TreeTopLevelItem.text(1);
+        if(sNameOfRootItem=="60081") break;
+        type(sWidgetTreeControl,"<Down>"); 
+    }
+    sendEvent("QContextMenuEvent", ":_invchead_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post...");
     waitForObject(":List Unposted Invoices.Alternate Date:_QRadioButton");
     clickButton(":List Unposted Invoices.Alternate Date:_QRadioButton");
     waitForObject(":List Unposted Invoices.Continue_QPushButton");
@@ -679,7 +697,7 @@ function main()
     waitForObject(":List Unposted Invoices.Close_QPushButton");
     clickButton(":List Unposted Invoices.Close_QPushButton");
 
-   
+ 
     //--------Create Cash receipt and apply-----------
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -1313,8 +1331,8 @@ function main()
     waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release W/O");
     activateItem(":xTuple ERP:*._menu_QMenu", "Release W/O");
     
-    
-    
+  
+  
     
       
     
