@@ -36,11 +36,19 @@
 		  <? if not exists("completed") ?>
 		  AND   (todoitem_status != 'C')
 		  <? endif ?>
+		  <? if exists("ownedBy") ?> 
+		  <? if exists("username") ?> 
+		  AND (todoitem_owner_username=<? value("username") ?>) 
+		  <? elseif exists("usr_pattern" ?>
+		  AND (todoitem_owner_username ~ <? value("usr_pattern") ?>) 
+                  <? endif ?>
+                  <? else ?>
 		  <? if exists("username") ?> 
 		  AND (todoitem_username=<? value("username") ?>) 
 		  <? elseif exists("usr_pattern" ?>
 		  AND (todoitem_username ~ <? value("usr_pattern") ?>) 
 		  <? endif ?>
+                  <? endif ?>
 		  <? if not exists("completed") ?>AND (todoitem_active) <? endif ?>
 		       ) 
                 <? endif ?>
@@ -72,10 +80,18 @@
 		  <? if not exists("completed") ?> 
 		  AND (incdt_status != 'L')
 		  <? endif ?>
+		  <? if exists("ownedBy") ?> 
 		  <? if exists("username") ?> 
-		  AND (incdt_assigned_username=<? value("username") ?>) 
+		  AND (incdt_owner_username=<? value("username") ?>) 
+		  <? elseif exists("usr_pattern" ?>
+		  AND (incdt_owner_username ~ <? value("usr_pattern") ?>) 
+                  <? endif ?>
+                  <? else ?>	
+		  <? if exists("username") ?> 	  
+                  AND (incdt_assigned_username=<? value("username") ?>) 
 		  <? elseif exists("usr_pattern" ?>
 		  AND (incdt_assigned_username ~ <? value("usr_pattern") ?>) 
+                  <? endif ?>
 		  <? endif ?>
 		       ) 
 		<? endif ?>
@@ -112,11 +128,19 @@
 		  <? if not exists("completed") ?> 
 		  AND (prjtask_status != 'C')
 		  <? endif ?>
+		  <? if exists("ownedBy") ?> 
+		  <? if exists("username") ?> 
+		  AND (prjtask_owner_username=<? value("username") ?>) 
+		  <? elseif exists("usr_pattern" ?>
+		  AND (prjtask_owner_username ~ <? value("usr_pattern") ?>) 
+                  <? endif ?>
+                  <? else ?>	
 		  <? if exists("username") ?> 
 		  AND (prjtask_username=<? value("username") ?>) 
 		  <? elseif exists("usr_pattern" ?>
 		  AND (prjtask_username ~ <? value("usr_pattern") ?>) 
 		  <? endif ?>
+                  <? endif ?>
 		       ) 
   	         UNION 
 		SELECT prj_id AS id, 4 AS altId, prj_owner_username AS owner, 
@@ -144,11 +168,19 @@
 		  <? if not exists("completed") ?> 
 		  AND (prj_status != 'C')
 		  <? endif ?>
+		  <? if exists("ownedBy") ?> 
+		  <? if exists("username") ?> 
+		  AND (prj_owner_username=<? value("username") ?>) 
+		  <? elseif exists("usr_pattern" ?>
+		  AND (prj_owner_username ~ <? value("usr_pattern") ?>) 
+                  <? endif ?>
+                  <? else ?>	
 		  <? if exists("username") ?> 
 		  AND (prj_username=<? value("username") ?>) 
 		  <? elseif exists("usr_pattern" ?>
 		  AND (prj_username ~ <? value("usr_pattern") ?>) 
 		  <? endif ?>
+                  <? endif ?>
 		       ) 
 		<? endif ?> 
                 <? endif ?>
