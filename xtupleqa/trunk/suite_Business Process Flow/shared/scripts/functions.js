@@ -27,7 +27,8 @@ function loginAppl(userrole)
         test.fatal("Please enter user details in login.tsv for the role: "+userrole);
         exit(1);
     }
-       
+     
+ 
     waitForObject(":Log In.Options_QPushButton");
     clickButton(":Log In.Options_QPushButton");
     waitForObject(":_server_QLineEdit");
