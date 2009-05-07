@@ -28,6 +28,9 @@ BEGIN
     END IF;
   END IF;
 
+  --This first query gets all the distinct tax zone and type groupings as if it were its own table.
+  --This allows us to have a level 0 record as pictured in Tax Assignments window that code assignements will
+  --Subordinate to.
   FOR _x IN  EXECUTE _qry
   LOOP
     --Map values to _row here
@@ -37,12 +40,13 @@ BEGIN
     _row.taxassign_zone_code = _x.taxzone_code;
     _row.taxassign_type_descrip = _x.taxtype_name;
     _row.taxassign_taxclass_code = '';
+    _row.taxassign_taxclass_sequence = NULL;
     RETURN NEXT _row; --so we get a level tax zone/type 0 record.
   
     -- Now get all the tax code assignments that belong to this Zone and Type pair
     FOR _y IN
-      SELECT taxass_id, taxzone_id, tax_id,
-      tax_code, tax_descrip, taxtype_id, taxzone_code, 
+      SELECT taxass_id, COALESCE(taxzone_id, -1) AS taxzone_id, tax_id,
+      tax_code, tax_descrip, COALESCE(taxtype_id, -1) AS taxtype_id, taxzone_code, 
       taxtype_descrip, taxclass_code, 
       COALESCE(taxclass_sequence, 0) AS taxclass_sequence
       FROM taxass JOIN tax 
