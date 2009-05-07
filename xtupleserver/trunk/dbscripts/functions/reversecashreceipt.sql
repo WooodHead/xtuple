@@ -38,7 +38,7 @@ BEGIN
     END IF;
   END IF;
 
-  SELECT cashrcpt_cust_id, (cust_number||'-'||cust_name) AS custnote,
+  SELECT cashrcpt_cust_id, ('Reverse Cash Receipt posting for ' || cust_number||'-'||cust_name) AS custnote,
          cashrcpt_fundstype, cashrcpt_docnumber,
          cashrcpt_distdate, cashrcpt_amount,
          currToBase(cashrcpt_curr_id, cashrcpt_amount, cashrcpt_distdate) AS cashrcpt_amount_base,
