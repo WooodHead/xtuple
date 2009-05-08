@@ -40,7 +40,7 @@ BEGIN
       _row.warehous_shipping_commission:=_r.warehous_shipping_commission;
       _row.warehous_cntct_id:=_r.warehous_cntct_id;
       _row.warehous_addr_id:=_r.warehous_addr_id;
-      _row.warehous_taxauth_id:=_r.warehous_taxauth_id;
+      _row.warehous_taxzone_id:=_r.warehous_taxzone_id;
       _row.warehous_transit:=_r.warehous_transit;
       _row.warehous_shipform_id:=_r.warehous_shipform_id;
       _row.warehous_shipvia_id:=_r.warehous_shipvia_id;
@@ -77,7 +77,7 @@ BEGIN
       _row.warehous_shipping_commission:=_r.warehous_shipping_commission;
       _row.warehous_cntct_id:=_r.warehous_cntct_id;
       _row.warehous_addr_id:=_r.warehous_addr_id;
-      _row.warehous_taxauth_id:=_r.warehous_taxauth_id;
+      _row.warehous_taxzone_id:=_r.warehous_taxzone_id;
       _row.warehous_transit:=_r.warehous_transit;
       _row.warehous_shipform_id:=_r.warehous_shipform_id;
       _row.warehous_shipvia_id:=_r.warehous_shipvia_id;

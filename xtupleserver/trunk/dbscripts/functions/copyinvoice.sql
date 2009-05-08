@@ -5,6 +5,9 @@ DECLARE
   _invcnumber TEXT;
   _invcdate DATE := COALESCE($2, CURRENT_DATE);
   _i RECORD;
+  _l RECORD;
+  _invcitemid INTEGER;
+
 BEGIN
   SELECT *
     INTO _i
@@ -35,22 +38,14 @@ BEGIN
          invchead_shipto_phone, invchead_salesrep_id,
          invchead_commission,
          invchead_terms_id, invchead_freight,
-         invchead_tax, invchead_misc_amount,
+         invchead_misc_amount,
          invchead_misc_descrip, invchead_misc_accnt_id,
          invchead_payment, invchead_paymentref,
-         invchead_notes, invchead_tax_ratea,
-         invchead_tax_rateb, invchead_tax_ratec,
+         invchead_notes,
          invchead_billto_country, invchead_shipto_country,
          invchead_prj_id, invchead_curr_id,
-         invchead_taxauth_id, invchead_tax_curr_id,
-         invchead_adjtax_id, invchead_adjtaxtype_id,
-         invchead_adjtax_pcta, invchead_adjtax_pctb,
-         invchead_adjtax_pctc, invchead_adjtax_ratea,
-         invchead_adjtax_rateb, invchead_adjtax_ratec,
-         invchead_freighttax_id, invchead_freighttaxtype_id,
-         invchead_freighttax_pcta, invchead_freighttax_pctb,
-         invchead_freighttax_pctc, invchead_freighttax_ratea,
-         invchead_freighttax_rateb, invchead_freighttax_ratec )
+         invchead_taxzone_id, invchead_taxtype_id,
+         invchead_adjtaxtype_id, invchead_freighttaxtype_id )
   VALUES(_invcheadid,
          _i.invchead_cust_id, _i.invchead_shipto_id,
          _i.invchead_ordernumber, _i.invchead_orderdate,
@@ -68,56 +63,97 @@ BEGIN
          _i.invchead_shipto_phone, _i.invchead_salesrep_id,
          _i.invchead_commission,
          _i.invchead_terms_id, _i.invchead_freight,
-         _i.invchead_tax, _i.invchead_misc_amount,
+         _i.invchead_misc_amount,
          _i.invchead_misc_descrip, _i.invchead_misc_accnt_id,
          _i.invchead_payment, _i.invchead_paymentref,
-         _i.invchead_notes, _i.invchead_tax_ratea,
-         _i.invchead_tax_rateb, _i.invchead_tax_ratec,
+         _i.invchead_notes,
          _i.invchead_billto_country, _i.invchead_shipto_country,
          _i.invchead_prj_id, _i.invchead_curr_id,
-         _i.invchead_taxauth_id, _i.invchead_tax_curr_id,
-         _i.invchead_adjtax_id, _i.invchead_adjtaxtype_id,
-         _i.invchead_adjtax_pcta, _i.invchead_adjtax_pctb,
-         _i.invchead_adjtax_pctc, _i.invchead_adjtax_ratea,
-         _i.invchead_adjtax_rateb, _i.invchead_adjtax_ratec,
-         _i.invchead_freighttax_id, _i.invchead_freighttaxtype_id,
-         _i.invchead_freighttax_pcta, _i.invchead_freighttax_pctb,
-         _i.invchead_freighttax_pctc, _i.invchead_freighttax_ratea,
-         _i.invchead_freighttax_rateb, _i.invchead_freighttax_ratec );
+         _i.invchead_taxzone_id, _i.invchead_taxtype_id,
+         _i.invchead_adjtaxtype_id, _i.invchead_freighttaxtype_id );
 
-  INSERT INTO invcitem
-        (invcitem_invchead_id,
+  INSERT INTO invcheadtax ( taxhist_parent_id,
+                            taxhist_taxtype_id,
+                            taxhist_tax_id,
+                            taxhist_basis,
+                            taxhist_basis_tax_id,
+                            taxhist_sequence,
+                            taxhist_percent,
+                            taxhist_amount,
+                            taxhist_tax,
+                            taxhist_docdate,
+                            taxhist_distdate )
+  SELECT _invcheadid,
+         taxhist_taxtype_id,
+         taxhist_tax_id,
+         taxhist_basis,
+         taxhist_basis_tax_id,
+         taxhist_sequence,
+         taxhist_percent,
+         taxhist_amount,
+         taxhist_tax,
+         taxhist_docdate,
+         taxhist_distdate
+  FROM invcheadtax
+  WHERE (taxhist_parent_id=pInvcheadid);
+
+  FOR _l IN SELECT *
+            FROM invcitem
+            WHERE (invcitem_invchead_id=pInvcheadid) LOOP
+    SELECT NEXTVAL('invcitem_invcitem_id_seq') INTO _invcitemid;
+
+    INSERT INTO invcitem
+        (invcitem_id, invcitem_invchead_id,
          invcitem_linenumber, invcitem_item_id,
          invcitem_warehous_id, invcitem_custpn,
          invcitem_number, invcitem_descrip,
          invcitem_ordered, invcitem_billed,
          invcitem_custprice, invcitem_price,
          invcitem_notes, invcitem_salescat_id,
-         invcitem_tax_id, invcitem_taxtype_id,
-         invcitem_tax_pcta, invcitem_tax_pctb,
-         invcitem_tax_pctc, invcitem_tax_ratea,
-         invcitem_tax_rateb, invcitem_tax_ratec,
+         invcitem_taxtype_id,
          invcitem_qty_uom_id, invcitem_qty_invuomratio,
          invcitem_price_uom_id, invcitem_price_invuomratio,
          invcitem_coitem_id)
-  SELECT _invcheadid,
-         invcitem_linenumber, invcitem_item_id,
-         invcitem_warehous_id, invcitem_custpn,
-         invcitem_number, invcitem_descrip,
-         invcitem_ordered, invcitem_billed,
-         invcitem_custprice, invcitem_price,
-         invcitem_notes, invcitem_salescat_id,
-         invcitem_tax_id, invcitem_taxtype_id,
-         invcitem_tax_pcta, invcitem_tax_pctb,
-         invcitem_tax_pctc, invcitem_tax_ratea,
-         invcitem_tax_rateb, invcitem_tax_ratec,
-         invcitem_qty_uom_id, invcitem_qty_invuomratio,
-         invcitem_price_uom_id, invcitem_price_invuomratio,
-         invcitem_coitem_id
-    FROM invcitem
-   WHERE(invcitem_invchead_id=pInvcheadid);
+    VALUES
+        (_invcitemid, _l.invcitem_invchead_id,
+         _l.invcitem_linenumber, _l.invcitem_item_id,
+         _l.invcitem_warehous_id, _l.invcitem_custpn,
+         _l.invcitem_number, _l.invcitem_descrip,
+         _l.invcitem_ordered, _l.invcitem_billed,
+         _l.invcitem_custprice, _l.invcitem_price,
+         _l.invcitem_notes, _l.invcitem_salescat_id,
+         _l.invcitem_taxtype_id,
+         _l.invcitem_qty_uom_id, _l.invcitem_qty_invuomratio,
+         _l.invcitem_price_uom_id, _l.invcitem_price_invuomratio,
+         _l.invcitem_coitem_id);
 
-  PERFORM changeInvoiceTaxAuth(_invcheadid, _i.invchead_taxauth_id);
+    INSERT INTO invcitemtax ( taxhist_parent_id,
+                              taxhist_taxtype_id,
+                              taxhist_tax_id,
+                              taxhist_basis,
+                              taxhist_basis_tax_id,
+                              taxhist_sequence,
+                              taxhist_percent,
+                              taxhist_amount,
+                              taxhist_tax,
+                              taxhist_docdate,
+                              taxhist_distdate )
+    SELECT _invcitemid,
+           taxhist_taxtype_id,
+           taxhist_tax_id,
+           taxhist_basis,
+           taxhist_basis_tax_id,
+           taxhist_sequence,
+           taxhist_percent,
+           taxhist_amount,
+           taxhist_tax,
+           taxhist_docdate,
+           taxhist_distdate
+    FROM invcitemtax
+    WHERE (taxhist_parent_id=_l.invcitemid);
+  END LOOP;
+
+  PERFORM changeInvoiceTaxZone(_invcheadid, _i.invchead_taxzone_id);
 
   RETURN _invcheadid;
 END;

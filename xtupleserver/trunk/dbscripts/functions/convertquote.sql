@@ -91,7 +91,7 @@ BEGIN
     cohead_ordercomments, cohead_shipcomments,
     cohead_freight, cohead_misc, cohead_misc_accnt_id, cohead_misc_descrip,
     cohead_holdtype, cohead_wasquote, cohead_quote_number, cohead_prj_id,
-    cohead_curr_id, cohead_taxauth_id,
+    cohead_curr_id, cohead_taxzone_id, cohead_taxtype_id,
     cohead_shipto_cntct_id, cohead_shipto_cntct_honorific, cohead_shipto_cntct_first_name,
     cohead_shipto_cntct_middle, cohead_shipto_cntct_last_name, cohead_shipto_cntct_suffix,
     cohead_shipto_cntct_phone, cohead_shipto_cntct_title, cohead_shipto_cntct_fax, 
@@ -117,7 +117,7 @@ BEGIN
          quhead_ordercomments, quhead_shipcomments,
          quhead_freight, quhead_misc, quhead_misc_accnt_id, quhead_misc_descrip,
          'N', TRUE, quhead_number, quhead_prj_id,
-	 quhead_curr_id, quhead_taxauth_id,
+	 quhead_curr_id, quhead_taxzone_id, quhead_taxtype_id,
 	 quhead_shipto_cntct_id, quhead_shipto_cntct_honorific,
 	 quhead_shipto_cntct_first_name, quhead_shipto_cntct_middle, quhead_shipto_cntct_last_name,
 	 quhead_shipto_cntct_suffix, quhead_shipto_cntct_phone, quhead_shipto_cntct_title,
@@ -148,7 +148,7 @@ BEGIN
       coitem_qty_uom_id, coitem_qty_invuomratio,
       coitem_price_uom_id, coitem_price_invuomratio,
       coitem_unitcost,
-      coitem_custpn, coitem_memo, coitem_prcost, coitem_tax_id )
+      coitem_custpn, coitem_memo, coitem_prcost, coitem_taxtype_id )
     VALUES
     ( _soitemid, _soheadid, _r.quitem_linenumber, _r.quitem_itemsite_id,
       'O', _r.quitem_scheddate, _r.quitem_promdate,
@@ -157,7 +157,7 @@ BEGIN
       _r.quitem_qty_uom_id, _r.quitem_qty_invuomratio,
       _r.quitem_price_uom_id, _r.quitem_price_invuomratio,
       stdcost(_r.itemsite_item_id),
-      _r.quitem_custpn, _r.quitem_memo, _r.quitem_prcost, _r.quitem_tax_id );
+      _r.quitem_custpn, _r.quitem_memo, _r.quitem_prcost, _r.quitem_taxtype_id );
 
     INSERT INTO charass
           (charass_target_type, charass_target_id, charass_char_id, charass_value, charass_default, charass_price)

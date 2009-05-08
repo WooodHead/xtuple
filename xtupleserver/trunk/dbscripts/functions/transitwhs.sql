@@ -41,7 +41,7 @@ BEGIN
       --warehous_shipping_commission,
       --warehous_cntct_id,
       --warehous_addr_id,
-      warehous_taxauth_id
+      warehous_taxzone_id
      ) VALUES (
        _id,
       ''TRANSIT'',

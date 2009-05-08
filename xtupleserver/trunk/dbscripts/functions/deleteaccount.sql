@@ -82,9 +82,7 @@ BEGIN
 --  Check to see if the passed accnt is used in a Tax Code
   SELECT tax_id INTO _check
   FROM tax
-  WHERE ((tax_sales_accnt_id=pAccntid)
-     OR  (tax_salesb_accnt_id=pAccntid)
-     OR  (tax_salesc_accnt_id=pAccntid))
+  WHERE (tax_sales_accnt_id=pAccntid)
   LIMIT 1;
   IF (FOUND) THEN
     RETURN -7;

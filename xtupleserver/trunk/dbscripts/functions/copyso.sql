@@ -19,7 +19,7 @@ BEGIN
     cohead_billtocity, cohead_billtostate, cohead_billtozipcode,
     cohead_misc_accnt_id, cohead_misc_descrip, cohead_misc, cohead_freight, cohead_commission,
     cohead_ordercomments, cohead_shipcomments,
-    cohead_imported, cohead_curr_id, cohead_taxauth_id )
+    cohead_imported, cohead_curr_id, cohead_taxzone_id, cohead_taxtype_id )
   SELECT _soheadid, fetchSoNumber(), cohead_cust_id, cohead_prj_id,
          CURRENT_DATE, cohead_packdate, cohead_origin, cohead_fob,
          cohead_warehous_id, cohead_terms_id, cohead_salesrep_id,
@@ -30,7 +30,7 @@ BEGIN
          cohead_billtocity, cohead_billtostate, cohead_billtozipcode,
          cohead_misc_accnt_id, cohead_misc_descrip, cohead_misc, cohead_freight, cohead_commission,
          cohead_ordercomments, cohead_shipcomments,
-         FALSE, cohead_curr_id, cohead_taxauth_id
+         FALSE, cohead_curr_id, cohead_taxzone_id, cohead_taxtype_id
   FROM cohead
   WHERE (cohead_id=pSoheadid);
 
@@ -44,7 +44,7 @@ BEGIN
     coitem_qty_invuomratio, coitem_price_invuomratio,
     coitem_order_type, coitem_order_id,
     coitem_memo, coitem_custpn,
-    coitem_imported, coitem_tax_id )
+    coitem_imported, coitem_taxtype_id )
   SELECT _soheadid, coitem_linenumber, coitem_subnumber, coitem_itemsite_id, 'O',
          COALESCE(pSchedDate, coitem_scheddate),
          coitem_promdate,
@@ -54,7 +54,7 @@ BEGIN
          coitem_qty_invuomratio, coitem_price_invuomratio,
          coitem_order_type, -1,
          coitem_memo, coitem_custpn,
-         FALSE, coitem_tax_id
+         FALSE, coitem_taxtype_id
   FROM coitem, itemsite
   WHERE ( (coitem_itemsite_id=itemsite_id)
    AND (coitem_status <> 'X')

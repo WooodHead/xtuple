@@ -13,12 +13,20 @@ BEGIN
     RETURN -1;
   END IF;
 
-  SELECT taxsel_id
+  SELECT taxass_id
     INTO _result
-    FROM taxsel
-   WHERE (taxsel_taxtype_id=pTaxtypeid);
+    FROM taxass
+   WHERE (taxass_taxtype_id=pTaxtypeid);
   IF (FOUND) THEN
     RETURN -2;
+  END IF;
+
+  SELECT taxhist_id
+    INTO _result
+    FROM taxhist
+   WHERE (taxhist_taxtype_id=pTaxtypeid);
+  IF (FOUND) THEN
+    RETURN -3;
   END IF;
 
   DELETE

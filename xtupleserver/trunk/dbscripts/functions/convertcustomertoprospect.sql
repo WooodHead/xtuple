@@ -25,11 +25,11 @@ CREATE OR REPLACE FUNCTION convertCustomerToProspect(INTEGER) RETURNS INTEGER AS
 
     INSERT INTO prospect (
           prospect_id, prospect_active, prospect_number,
-          prospect_name, prospect_cntct_id, prospect_taxauth_id,
+          prospect_name, prospect_cntct_id, prospect_taxzone_id,
           prospect_salesrep_id, prospect_warehous_id, prospect_comments
     ) VALUES (
          _c.cust_id, _c.cust_active, _c.cust_number,
-         _c.cust_name, _c.cust_cntct_id, _c.cust_taxauth_id,
+         _c.cust_name, _c.cust_cntct_id, _c.cust_taxzone_id,
          CASE WHEN(_c.cust_salesrep_id > 0) THEN _c.cust_salesrep_id
               ELSE NULL
          END,

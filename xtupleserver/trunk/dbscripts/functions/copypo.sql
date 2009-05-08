@@ -33,18 +33,20 @@ BEGIN
   INSERT INTO pohead (pohead_status, pohead_number,
 		      pohead_orderdate,
 		      pohead_fob, pohead_shipvia,
-		      pohead_freight, pohead_printed, pohead_tax,
+		      pohead_freight, pohead_printed,
 		      pohead_terms_id, pohead_warehous_id,
 		      pohead_vendaddr_id, pohead_agent_username,
-		      pohead_curr_id, pohead_saved, pohead_vend_id
+		      pohead_curr_id, pohead_saved, pohead_vend_id,
+                      pohead_taxtype_id, pohead_taxzone_id
 	      ) VALUES (
 		      ''U'', fetchPoNumber(),
 		      _orderdate,
 		      _head.pohead_fob, _head.pohead_shipvia,
-		      _head.pohead_freight, false, _head.pohead_tax,
+		      _head.pohead_freight, false,
 		      _head.pohead_terms_id, _head.pohead_warehous_id,
 		      _head.pohead_vendaddr_id, _head.pohead_agent_username,
-		      _head.pohead_curr_id, true, _head.pohead_vend_id);	-- should pohead_saved be false?
+		      _head.pohead_curr_id, true, _head.pohead_vend_id,
+                      _head.pohead_taxtype_id, _head.pohead_taxzone_id);	-- should pohead_saved be false?
 
   _tgtid := CURRVAL(''pohead_pohead_id_seq'');
 
@@ -113,7 +115,8 @@ BEGIN
 			  poitem_stdcost,
 			  poitem_manuf_name,
 			  poitem_manuf_item_number,
-			  poitem_manuf_item_descrip
+			  poitem_manuf_item_descrip,
+                          poitem_taxtype_id
 		    ) VALUES (
 			  ''U'', _tgtid, _lineitem.poitem_linenumber,
 			  _orderdate + COALESCE(_itemsrc.itemsrc_leadtime, 0),
@@ -135,7 +138,8 @@ BEGIN
 		          COALESCE(_itemsrc.itemsrc_manuf_item_number,
 				   _lineitem.poitem_manuf_item_number),
 			  COALESCE(_itemsrc.itemsrc_manuf_item_descrip,
-				   _lineitem.poitem_manuf_item_descrip));
+				   _lineitem.poitem_manuf_item_descrip),
+                          _lineitem.poitem_taxtype_id);
 
     END LOOP;
   ELSE
@@ -147,7 +151,8 @@ BEGIN
 			poitem_vend_item_number, poitem_comments,
 			poitem_expcat_id, poitem_itemsrc_id, poitem_freight,
 			poitem_stdcost, poitem_manuf_name, 
-			poitem_manuf_item_number, poitem_manuf_item_descrip
+			poitem_manuf_item_number, poitem_manuf_item_descrip,
+                        poitem_taxtype_id
 		) SELECT ''U'', _tgtid, poitem_linenumber,
 			_orderdate + COALESCE(itemsrc_leadtime, 0), poitem_itemsite_id,
 			poitem_vend_item_descrip, poitem_vend_uom,
@@ -156,7 +161,8 @@ BEGIN
 			poitem_vend_item_number, poitem_comments,
 			poitem_expcat_id, poitem_itemsrc_id, poitem_freight,
 			stdcost(itemsite_item_id), poitem_manuf_name,
-			poitem_manuf_item_number, poitem_manuf_item_descrip
+			poitem_manuf_item_number, poitem_manuf_item_descrip,
+                        poitem_taxtype_id
 		  FROM poitem
 		    LEFT OUTER JOIN itemsrc ON (itemsrc_id=poitem_itemsrc_id)
 		    LEFT OUTER JOIN itemsite ON (itemsite_id=poitem_itemsite_id)

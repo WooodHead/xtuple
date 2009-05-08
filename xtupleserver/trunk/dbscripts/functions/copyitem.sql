@@ -42,8 +42,8 @@ BEGIN
   AND (url_source=''I''));
 
   INSERT INTO itemtax
-        (itemtax_item_id, itemtax_taxauth_id, itemtax_taxtype_id)
-  SELECT _itemid, itemtax_taxauth_id, itemtax_taxtype_id
+        (itemtax_item_id, itemtax_taxzone_id, itemtax_taxtype_id)
+  SELECT _itemid, itemtax_taxzone_id, itemtax_taxtype_id
     FROM itemtax
    WHERE(itemtax_item_id=pSItemid);
 

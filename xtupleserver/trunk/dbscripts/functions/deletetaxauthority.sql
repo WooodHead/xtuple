@@ -4,12 +4,20 @@ DECLARE
   _result INTEGER;
 BEGIN
 
-  SELECT taxsel_id
+  SELECT tax_id
     INTO _result
-    FROM taxsel
-   WHERE (taxsel_taxauth_id=pTaxauthid);
+    FROM tax
+   WHERE (tax_taxauth_id=pTaxauthid);
   IF (FOUND) THEN
     RETURN -1;
+  END IF;
+
+  SELECT taxreg_id
+    INTO _result
+    FROM taxreg
+   WHERE (taxreg_taxauth_id=pTaxauthid);
+  IF (FOUND) THEN
+    RETURN -2;
   END IF;
 
   SELECT checkhead_recip_id INTO _result

@@ -31,7 +31,7 @@ CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER) RETURNS INTEGER AS
 
     INSERT INTO custinfo (
           cust_id, cust_active, cust_number,
-          cust_name, cust_cntct_id, cust_taxauth_id,
+          cust_name, cust_cntct_id, cust_taxzone_id,
           cust_comments, cust_creditstatus,
           cust_salesrep_id, cust_preferred_warehous_id,
           cust_terms_id,
@@ -47,7 +47,7 @@ CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER) RETURNS INTEGER AS
           cust_soemaildelivery) 
     SELECT
         _p.prospect_id, _p.prospect_active, _p.prospect_number,
-        _p.prospect_name, _p.prospect_cntct_id, _p.prospect_taxauth_id,
+        _p.prospect_name, _p.prospect_cntct_id, _p.prospect_taxzone_id,
         _p.prospect_comments, 'G',
         COALESCE(_p.prospect_salesrep_id, salesrep_id),
         COALESCE(_p.prospect_warehous_id, -1),

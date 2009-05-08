@@ -8,6 +8,9 @@ BEGIN
   IF EXISTS(SELECT taxass_id FROM taxass WHERE (taxass_tax_id=ptaxid)) THEN
     RETURN -10;
   END IF;
+  IF EXISTS(SELECT taxhist_id FROM taxhist WHERE (taxhist_tax_id=ptaxid)) THEN
+    RETURN -20;
+  END IF;
 
   DELETE FROM taxrate WHERE (taxrate_tax_id = ptaxid);
   DELETE FROM tax WHERE (tax_id = ptaxid);
