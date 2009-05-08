@@ -1,5 +1,6 @@
 BEGIN;
 
+SELECT dropIfExists('VIEW', 'invoice', 'api', true);
 CREATE OR REPLACE VIEW api.invoice
 AS
 	SELECT
@@ -10,7 +11,8 @@ AS
 		invchead_orderdate AS order_date,
 		salesrep_number as sales_rep,
 		invchead_commission AS commission,
-		COALESCE(taxauth_code, 'None') AS tax_authority,
+		COALESCE(taxzone_code, 'None') AS tax_zone,
+		COALESCE(taxtype_name, 'None') AS tax_type,
 		terms_code AS terms,
 		cust_number AS customer_number,
 		invchead_billto_name AS billto_name,
@@ -44,15 +46,6 @@ AS
 		END AS misc_charge_account_number,
 		invchead_freight AS freight,
 		curr.curr_abbr AS currency,
-		taxcurr.curr_abbr as tax_currency, 
-		COALESCE(adjtax.tax_code, 'None') AS misc_tax_adjustment_code,
-		invchead_adjtax_ratea AS misc_tax_adjustment_amount_a,
-		invchead_adjtax_rateb AS misc_tax_adjustment_amount_b,
-		invchead_adjtax_ratec AS misc_tax_adjustment_amount_c,
-		COALESCE(frttax.tax_code, 'None') AS freight_tax_code,
-		invchead_freighttax_ratea AS freight_tax_amount_a,
-		invchead_freighttax_rateb AS freight_tax_amount_b,
-		invchead_freighttax_ratec AS freight_tax_amount_c,
 		invchead_payment AS payment,
 		invchead_notes AS notes
 	FROM invchead
@@ -60,12 +53,10 @@ AS
 		LEFT OUTER JOIN shiptoinfo ON (shipto_id=invchead_shipto_id)
 		LEFT OUTER JOIN prj ON (prj_id=invchead_prj_id)
 		LEFT OUTER JOIN curr_symbol AS curr ON (curr.curr_id=invchead_curr_id)
-		LEFT OUTER JOIN curr_symbol AS taxcurr ON (taxcurr.curr_id=invchead_tax_curr_id)
 		LEFT OUTER JOIN salesrep ON (salesrep_id=invchead_salesrep_id)
 		LEFT OUTER JOIN terms ON (terms_id=invchead_terms_id)
-		LEFT OUTER JOIN tax AS adjtax ON (adjtax.tax_id=invchead_adjtax_id)
-		LEFT OUTER JOIN tax AS frttax ON (frttax.tax_id=invchead_adjtax_id)
-		LEFT OUTER JOIN taxauth ON (taxauth_id=invchead_taxauth_id);
+		LEFT OUTER JOIN taxzone ON (taxzone_id=invchead_taxzone_id)
+		LEFT OUTER JOIN taxtype ON (taxtype_id=invchead_taxtype_id);
 	
 GRANT ALL ON TABLE api.invoice TO xtrole;
 COMMENT ON VIEW api.invoice IS '
@@ -92,7 +83,8 @@ BEGIN
 		invchead_posted,
 		invchead_salesrep_id,
 		invchead_commission,
-		invchead_taxauth_id,
+		invchead_taxzone_id,
+		invchead_taxtype_id,
 		invchead_terms_id,
 		invchead_cust_id,
 		invchead_billto_name,
@@ -123,16 +115,6 @@ BEGIN
 		invchead_misc_accnt_id,
 		invchead_freight,
 		invchead_curr_id,
-		invchead_tax,
-		invchead_tax_curr_id,
-		invchead_adjtax_id,
-		invchead_adjtax_ratea,
-		invchead_adjtax_rateb,
-		invchead_adjtax_ratec,
-		invchead_freighttax_id,
-		invchead_freighttax_ratea,
-		invchead_freighttax_rateb,
-		invchead_freighttax_ratec,
 		invchead_payment,
 		invchead_notes
 	) SELECT
@@ -149,8 +131,12 @@ BEGIN
 		COALESCE(getSalesRepId(pNew.sales_rep),shipto_salesrep_id,cust_salesrep_id),
 		COALESCE(pNew.commission, 0),
 		CASE
-			WHEN pNew.tax_authority = 'None' THEN NULL
-			ELSE COALESCE(getTaxAuthId(pNew.tax_authority),shipto_taxauth_id,cust_taxauth_id)
+			WHEN pNew.tax_zone = 'None' THEN NULL
+			ELSE COALESCE(getTaxZoneId(pNew.tax_zone),shipto_taxzone_id,cust_taxzone_id)
+		END,
+		CASE
+			WHEN pNew.tax_type = 'None' THEN NULL
+			ELSE getTaxTypeId(pNew.tax_type)
 		END,
 		COALESCE(getTermsId(pNew.terms),cust_terms_id),
 		(SELECT getCustId(pNew.customer_number)),
@@ -195,20 +181,6 @@ BEGIN
 			FROM custinfo
 			WHERE (cust_id=(SELECT getCustId(pNew.customer_number)))
 		),basecurrid()),
-		0, -- invchead_tax has a NOT NULL constraint (will be recalculated by trigger)
-		COALESCE(getCurrId(pNew.tax_currency),getCurrId(pNew.currency),(
-			SELECT cust_curr_id
-			FROM custinfo
-			WHERE (cust_id=(SELECT getCustId(pNew.customer_number)))
-		),basecurrid()),
-		getTaxId(NULLIF(pNew.misc_tax_adjustment_code,'None')),
-		COALESCE(pNew.misc_tax_adjustment_amount_a,0),
-		COALESCE(pNew.misc_tax_adjustment_amount_b,0),
-		COALESCE(pNew.misc_tax_adjustment_amount_c,0),
-		getTaxId(NULLIF(pNew.freight_tax_code,'None')),
-		COALESCE(pNew.freight_tax_amount_a,0),
-		COALESCE(pNew.freight_tax_amount_b,0),
-		COALESCE(pNew.freight_tax_amount_c,0),
 		COALESCE(pNew.payment,0),
 		COALESCE(pNew.notes,'')
 	FROM custinfo
@@ -244,7 +216,8 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 		invchead_orderdate=NEW.order_date,
 		invchead_salesrep_id=getSalesRepId(NEW.sales_rep),
 		invchead_commission=NEW.commission,
-		invchead_taxauth_id=getTaxAuthId(NULLIF(NEW.tax_authority, 'None')),
+		invchead_taxzone_id=getTaxZoneId(NULLIF(NEW.tax_zone, 'None')),
+		invchead_taxtype_id=getTaxTypeId(NULLIF(NEW.tax_type, 'None')),
 		invchead_terms_id=getTermsId(NEW.terms),
 		invchead_cust_id=(SELECT getCustId(NEW.customer_number)),
 		invchead_billto_name=NEW.billto_name,
@@ -275,15 +248,6 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 		invchead_misc_accnt_id=COALESCE(getGlAccntId(NEW.misc_charge_account_number),-1),
 		invchead_freight=NEW.freight,
 		invchead_curr_id=COALESCE(getCurrId(NEW.currency),-1),
-		invchead_tax_curr_id=COALESCE(getCurrId(NEW.tax_currency),-1),
-		invchead_adjtax_id=getTaxId(NULLIF(NEW.misc_tax_adjustment_code,'None')),
-		invchead_adjtax_ratea=NEW.misc_tax_adjustment_amount_a,
-		invchead_adjtax_rateb=NEW.misc_tax_adjustment_amount_b,
-		invchead_adjtax_ratec=NEW.misc_tax_adjustment_amount_c,
-		invchead_freighttax_id=getTaxId(NULLIF(NEW.freight_tax_code, 'None')),
-		invchead_freighttax_ratea=NEW.freight_tax_amount_a,
-		invchead_freighttax_rateb=NEW.freight_tax_amount_b,
-		invchead_freighttax_ratec=NEW.freight_tax_amount_c,
 		invchead_payment=NEW.payment,
 		invchead_notes=NEW.notes
 	WHERE (invchead_invcnumber=OLD.invoice_number)

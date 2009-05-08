@@ -2,7 +2,7 @@ BEGIN;
 
   --Prospect View
 
-  SELECT dropIfExists('VIEW', 'prospect', 'api');
+  SELECT dropIfExists('VIEW', 'prospect', 'api', true);
   CREATE OR REPLACE VIEW api.prospect AS
  
   SELECT 
@@ -11,7 +11,7 @@ BEGIN;
     prospect_active AS active,
     salesrep_number AS sales_rep,
     warehous_code AS site_code,
-    taxauth_code AS default_tax_authority,
+    taxzone_code AS default_tax_zone,
     prospect_comments AS notes,
 
     cntct_number AS contact_number,
@@ -40,7 +40,7 @@ BEGIN;
     prospect
       LEFT OUTER JOIN cntct ON (prospect_cntct_id=cntct_id)
       LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
-      LEFT OUTER JOIN taxauth ON (prospect_taxauth_id=taxauth_id)
+      LEFT OUTER JOIN taxzone ON (prospect_taxzone_id=taxzone_id)
       LEFT OUTER JOIN salesrep ON (prospect_salesrep_id=salesrep_id)
       LEFT OUTER JOIN whsinfo ON (prospect_warehous_id=warehous_id);
 
@@ -58,7 +58,7 @@ INSERT INTO prospect
         prospect_name,
         prospect_active,
         prospect_cntct_id,
-        prospect_taxauth_id,
+        prospect_taxzone_id,
         prospect_salesrep_id,
         prospect_warehous_id,
   	prospect_comments)
@@ -93,7 +93,7 @@ INSERT INTO prospect
           NEW.contact_job_title,
           NEW.contact_change
           ),
-        getTaxAuthId(NEW.default_tax_authority),
+        getTaxZoneId(NEW.default_tax_zone),
         getSalesRepId(NEW.sales_rep),
         getWarehousId(NEW.site_code,'ACTIVE'),
         COALESCE(NEW.notes,''));
@@ -132,7 +132,7 @@ UPDATE prospect SET
           NEW.contact_job_title,
           NEW.contact_change
           ),
-        prospect_taxauth_id=getTaxAuthId(NEW.default_tax_authority),
+        prospect_taxzone_id=getTaxZoneId(NEW.default_tax_zone),
         prospect_salesrep_id=getSalesRepId(NEW.sales_rep),
         prospect_warehous_id=getWarehousId(NEW.site_code,'ACTIVE'),
   	prospect_comments=NEW.notes

@@ -2,7 +2,7 @@ BEGIN;
 
   --Customer View
 
-  SELECT dropIfExists('VIEW', 'customer', 'api');
+  SELECT dropIfExists('VIEW', 'customer', 'api', true);
   CREATE OR REPLACE VIEW api.customer AS
  
   SELECT 
@@ -20,7 +20,7 @@ BEGIN;
     cust_ffshipto AS allow_free_form_shipto,
     cust_ffbillto AS allow_free_form_billto,
     warehous_code AS preferred_selling_site,
-    taxauth_code AS default_tax_authority,
+    taxzone_code AS default_tax_zone,
     terms_code AS default_terms,
     CASE 
       WHEN cust_balmethod='B' THEN
@@ -127,7 +127,7 @@ BEGIN;
       LEFT OUTER JOIN addr m ON (mc.cntct_addr_id=m.addr_id)
       LEFT OUTER JOIN cntct cc ON (cust_corrcntct_id=cc.cntct_id)
       LEFT OUTER JOIN addr c ON (cc.cntct_addr_id=c.addr_id)
-      LEFT OUTER JOIN taxauth ON (cust_taxauth_id=taxauth_id),
+      LEFT OUTER JOIN taxzone ON (cust_taxzone_id=taxzone_id),
     custtype,salesrep,shipform,
     curr_symbol dc, curr_symbol clc, terms
   WHERE ((cust_custtype_id=custtype_id)
@@ -183,7 +183,7 @@ INSERT INTO custinfo
         cust_creditlmt_curr_id,
         cust_cntct_id,
         cust_corrcntct_id,
-        cust_taxauth_id,
+        cust_taxzone_id,
         cust_soemaildelivery,
         cust_soediemail,
         cust_soedisubject,
@@ -307,7 +307,7 @@ INSERT INTO custinfo
           NEW.correspond_contact_job_title,
           NEW.correspond_contact_change
           ),
-        getTaxAuthId(NEW.default_tax_authority),
+        getTaxZoneId(NEW.default_tax_zone),
         CASE
 	  WHEN (NEW.so_edi_profile='Custom Email') THEN
 	    true
@@ -448,7 +448,7 @@ UPDATE custinfo SET
           NEW.correspond_contact_job_title,
           NEW.correspond_contact_change
           ),
-        cust_taxauth_id=getTaxAuthId(NEW.default_tax_authority),
+        cust_taxzone_id=getTaxZoneId(NEW.default_tax_zone),
         cust_soemaildelivery=
           CASE
 	    WHEN (NEW.so_edi_profile='Custom Email') THEN

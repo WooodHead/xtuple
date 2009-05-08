@@ -1,5 +1,6 @@
 BEGIN;
 
+  SELECT dropIfExists('VIEW', 'creditmemo', 'api', true);
   CREATE OR REPLACE VIEW api.creditmemo AS
     SELECT cmhead_number AS memo_number,
            CASE
@@ -13,7 +14,7 @@ BEGIN;
            END AS status,
            salesrep_number AS sales_rep,
            cmhead_commission AS commission,
-           COALESCE(taxauth_code, 'None') AS tax_authority,
+           COALESCE(taxzone_code, 'None') AS tax_zone,
            COALESCE(rsncode_code, 'None') AS reason_code,
            cmhead_hold AS on_hold,
            cust_number AS customer_number,
@@ -49,7 +50,7 @@ BEGIN;
            LEFT OUTER JOIN shiptoinfo ON (shipto_id=cmhead_shipto_id)
            LEFT OUTER JOIN curr_symbol AS curr ON (curr.curr_id=cmhead_curr_id)
            LEFT OUTER JOIN salesrep ON (salesrep_id=cmhead_salesrep_id)
-           LEFT OUTER JOIN taxauth ON (taxauth_id=cmhead_taxauth_id)
+           LEFT OUTER JOIN taxzone ON (taxzone_id=cmhead_taxzone_id)
            LEFT OUTER JOIN rsncode ON (rsncode_id=cmhead_rsncode_id);
 	
 GRANT ALL ON TABLE api.creditmemo TO xtrole;
@@ -81,7 +82,6 @@ BEGIN
 		cmhead_shipto_zipcode,
 		cmhead_shipto_country,
 		cmhead_salesrep_id,
-                cmhead_tax_id,
 		cmhead_freight,
 		cmhead_misc,
 		cmhead_comments,
@@ -98,30 +98,11 @@ BEGIN
 		cmhead_commission,
 		cmhead_misc_accnt_id,
 		cmhead_misc_descrip,
-                cmhead_tax,
-                cmhead_tax_ratea,
-                cmhead_tax_rateb,
-                cmhead_tax_ratec,
 		cmhead_rsncode_id,
 		cmhead_curr_id,
-		cmhead_taxauth_id,
-		cmhead_tax_curr_id,
-		cmhead_adjtax_id,
+		cmhead_taxzone_id,
                 cmhead_adjtaxtype_id,
-		cmhead_adjtax_pcta,
-		cmhead_adjtax_pctb,
-		cmhead_adjtax_pctc,
-		cmhead_adjtax_ratea,
-		cmhead_adjtax_rateb,
-		cmhead_adjtax_ratec,
-		cmhead_freighttax_id,
                 cmhead_freighttaxtype_id,
-		cmhead_freighttax_pcta,
-		cmhead_freighttax_pctb,
-		cmhead_freighttax_pctc,
-		cmhead_freighttax_ratea,
-		cmhead_freighttax_rateb,
-		cmhead_freighttax_ratec,
                 cmhead_gldistdate,
                 cmhead_rahead_id
 		)
@@ -145,7 +126,6 @@ BEGIN
 		pNew.shipto_postal_code,
 		pNew.shipto_country,
 		COALESCE(getSalesRepId(pNew.sales_rep),shipto_salesrep_id,cust_salesrep_id),
-                NULL,
 		COALESCE(pNew.freight, 0),
 		COALESCE(pNew.misc_charge_amount, 0),
 		pNew.notes,
@@ -162,36 +142,11 @@ BEGIN
 		COALESCE(pNew.commission, 0),
 		COALESCE(getGlAccntId(pNew.misc_charge_credit_account),-1),
 		pNew.misc_charge_description,
-                0,
-                0,
-                0,
-                0,
 		(SELECT rsncode_id FROM rsncode WHERE rsncode_code = pNew.reason_code),
 		COALESCE(getCurrId(pNew.currency),cust_curr_id,basecurrid()),
-		CASE
-			WHEN pNew.tax_authority = 'None' THEN NULL
-			ELSE COALESCE(getTaxAuthId(pNew.tax_authority),shipto_taxauth_id,cust_taxauth_id)
-		END,
-                CASE
-                        WHEN pNew.tax_authority = 'None' THEN COALESCE(getCurrId(pNew.currency),cust_curr_id,basecurrid())
-                        ELSE (SELECT taxauth_curr_id FROM taxauth WHERE (taxauth_id=getTaxAuthId(pNew.tax_authority)))
-                END,
-		NULL,
+                COALESCE(getTaxZoneID(pNew.tax_zone),cust_taxzone_id),
                 NULL,
-                0,
-                0,
-                0,
-		0,
-		0,
-		0,
 		NULL,
-                NULL,
-                0,
-                0,
-                0,
-		0,
-		0,
-		0,
                 NULL,
                 NULL
 	FROM custinfo
@@ -250,8 +205,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 		cmhead_misc_descrip=NEW.misc_charge_description,
 		cmhead_rsncode_id=(SELECT rsncode_id FROM rsncode WHERE rsncode_code = NEW.reason_code),
 		cmhead_curr_id=COALESCE(getCurrId(NEW.currency),-1),
-                cmhead_tax_curr_id=(SELECT taxauth_curr_id FROM taxauth WHERE (taxauth_id=getTaxAuthId(NULLIF(NEW.tax_authority, 'None')))),
-		cmhead_taxauth_id=getTaxAuthId(NULLIF(NEW.tax_authority, 'None'))
+		cmhead_taxzone_id=getTaxZoneId(NULLIF(NEW.tax_zone, 'None'))
 	WHERE (cmhead_number=OLD.memo_number)
 		AND (cmhead_posted = FALSE);
 

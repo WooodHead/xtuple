@@ -21,7 +21,8 @@ AS
      END AS originated_by,
      salesrep_number AS sales_rep,
      cohead_commission AS commission,
-     taxauth_code AS tax_authority,
+     taxzone_code AS tax_zone,
+     taxtype_name AS tax_type,
      terms_code AS terms,
      prj_number AS project_number,
      cust_number AS customer_number,
@@ -104,7 +105,8 @@ AS
      LEFT OUTER JOIN prj ON (cohead_prj_id=prj_id)
      LEFT OUTER JOIN shiptoinfo ON (cohead_shipto_id=shipto_id)
      LEFT OUTER JOIN shipchrg ON (cohead_shipchrg_id=shipchrg_id)
-     LEFT OUTER JOIN taxauth ON (cohead_taxauth_id=taxauth_id),
+     LEFT OUTER JOIN taxzone ON (cohead_taxzone_id=taxzone_id)
+     LEFT OUTER JOIN taxtype ON (cohead_taxtype_id=taxtype_id),
      custinfo,shipform,salesrep,terms,curr_symbol
    WHERE ((cohead_cust_id=cust_id)
    AND (cohead_shipform_id=shipform_id)
@@ -165,7 +167,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
     cohead_billtocountry,
     cohead_shiptocountry,
     cohead_curr_id,
-    cohead_taxauth_id,
+    cohead_taxzone_id,
+    cohead_taxtype_id,
     cohead_shipto_cntct_id,
     cohead_shipto_cntct_honorific,
     cohead_shipto_cntct_first_name,
@@ -251,7 +254,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.billto_country,
     NEW.shipto_country,
     getCurrId(NEW.currency),
-    getTaxAuthId(NEW.tax_authority),
+    getTaxZoneId(NEW.tax_zone),
+    getTaxTypeId(NEW.tax_type),
     getCntctId(NEW.shipto_contact_number),
     NEW.shipto_contact_honorific,
     NEW.shipto_contact_first,
@@ -350,7 +354,8 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     cohead_billtocountry=NEW.billto_country,
     cohead_shiptocountry=NEW.shipto_country,
     cohead_curr_id=getCurrId(NEW.currency),
-    cohead_taxauth_id=getTaxAuthId(NEW.tax_authority),
+    cohead_taxzone_id=getTaxZoneId(NEW.tax_zone),
+    cohead_taxtype_id=getTaxTypeId(NEW.tax_type),
     cohead_lastupdated=('now'::text)::timestamp(6) with time zone,
     cohead_shipto_cntct_id = getCntctId(NEW.shipto_contact_number),
     cohead_shipto_cntct_honorific = NEW.shipto_contact_honorific,

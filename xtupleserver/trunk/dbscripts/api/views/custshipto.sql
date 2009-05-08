@@ -2,7 +2,7 @@ BEGIN;
 
 -- Customer Shipto
 
-DROP VIEW api.custshipto;
+SELECT dropIfExists('VIEW', 'custshipto', 'api', true);
 CREATE VIEW api.custshipto
 AS 
    SELECT 
@@ -34,7 +34,7 @@ AS
      salesrep_number AS sales_rep,
      (shipto_commission * 100.0) AS commission,
      shipzone_name AS zone,
-     taxauth_code AS tax_authority,
+     taxzone_code AS tax_zone,
      shipto_shipvia AS ship_via,
      shipform_name AS ship_form,
      shipchrg_name AS shipping_charges,
@@ -52,7 +52,7 @@ AS
 	LEFT OUTER JOIN shipchrg ON (shipto_shipchrg_id=shipchrg_id)
 	LEFT OUTER JOIN cntct ON (shipto_cntct_id=cntct_id)
 	LEFT OUTER JOIN addr ON (shipto_addr_id=addr_id)
-        LEFT OUTER JOIN taxauth ON (shipto_taxauth_id=taxauth_id)
+        LEFT OUTER JOIN taxzone ON (shipto_taxzone_id=taxzone_id)
         LEFT OUTER JOIN shipzone ON (shipto_shipzone_id=shipzone_id)
 	,salesrep,shipform
      WHERE ((cust_id=shipto_cust_id)
@@ -84,7 +84,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     shipto_ediprofile_id,
     shipto_cntct_id,
     shipto_addr_id,
-    shipto_taxauth_id
+    shipto_taxzone_id
     )
   VALUES (
     getCustId(NEW.customer_number),
@@ -151,8 +151,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
       NEW.postal_code,
       NEW.country,
       NEW.address_change),
-    COALESCE(getTaxAuthId(NEW.tax_authority),(
-      SELECT cust_taxauth_id
+    COALESCE(getTaxZoneId(NEW.tax_zone),(
+      SELECT cust_taxzone_id
       FROM custinfo
       WHERE (cust_id=getCustId(NEW.customer_number)))));
 
@@ -209,7 +209,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
       NEW.postal_code,
       NEW.country,
       NEW.address_change),
-    shipto_taxauth_id=getTaxAuthId(NEW.tax_authority)      
+    shipto_taxzone_id=getTaxZoneId(NEW.tax_zone)      
   WHERE  (shipto_id=getShiptoId(OLD.customer_number,OLD.shipto_number));
            
 CREATE OR REPLACE RULE "_DELETE" AS 

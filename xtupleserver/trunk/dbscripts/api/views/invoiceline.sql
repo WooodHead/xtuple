@@ -1,5 +1,6 @@
 BEGIN;
 
+SELECT dropIfExists('VIEW', 'invoiceline', 'api', true);
 CREATE OR REPLACE VIEW api.invoiceline
 AS
 	SELECT
@@ -14,10 +15,6 @@ AS
 		invcitem_billed AS qty_billed,
 		invcitem_price AS net_unit_price,
 		COALESCE(taxtype_name, 'None') AS tax_type,
-		COALESCE(tax_code, 'None') AS tax_code,
-		invcitem_tax_ratea AS tax_amount_a,
-		invcitem_tax_rateb AS tax_amount_b,
-		invcitem_tax_ratec AS tax_amount_c,
 		COALESCE(qty_uom.uom_name, 'None') AS qty_uom,
 		COALESCE(price_uom.uom_name, 'None') AS price_uom,
 		invcitem_notes AS notes
@@ -26,7 +23,6 @@ AS
 		LEFT OUTER JOIN item ON (item_id=invcitem_item_id)
 		LEFT OUTER JOIN salescat ON (salescat_id=invcitem_salescat_id)
 		LEFT OUTER JOIN taxtype ON (taxtype_id=invcitem_taxtype_id)
-		LEFT OUTER JOIN tax ON (tax_id=invcitem_tax_id)
 		LEFT OUTER JOIN uom AS qty_uom ON (qty_uom.uom_id=invcitem_qty_uom_id)
 		LEFT OUTER JOIN uom AS price_uom ON (price_uom.uom_id=invcitem_price_uom_id);
 	
@@ -57,14 +53,7 @@ BEGIN
 		invcitem_price,
 		invcitem_notes,
 		invcitem_salescat_id,
-		invcitem_tax_id,
 		invcitem_taxtype_id,
-		invcitem_tax_pcta,
-		invcitem_tax_pctb,
-		invcitem_tax_pctc,
-		invcitem_tax_ratea,
-		invcitem_tax_rateb,
-		invcitem_tax_ratec,
 		invcitem_qty_uom_id,
 		invcitem_qty_invuomratio,
 		invcitem_price_uom_id,
@@ -91,17 +80,7 @@ BEGIN
 				(SELECT salescat_id FROM salescat WHERE salescat_name = pNew.sales_category)
 			ELSE NULL
 		END,
-		tax_id,
 		taxtype_id,
-		tax_ratea,
-		tax_rateb,
-		tax_ratec,
-		COALESCE(pNew.tax_amount_a, (tax_ratea * COALESCE(pNew.net_unit_price,itemPrice(
-			item_id,invchead_cust_id,invchead_shipto_id,pNew.qty_ordered,invchead_curr_id,invchead_orderdate))), 0),
-		COALESCE(pNew.tax_amount_b, (tax_rateb * COALESCE(pNew.net_unit_price,itemPrice(
-			item_id,invchead_cust_id,invchead_shipto_id,pNew.qty_ordered,invchead_curr_id,invchead_orderdate))), 0),
-		COALESCE(pNew.tax_amount_c, (tax_ratec * COALESCE(pNew.net_unit_price,itemPrice(
-			item_id,invchead_cust_id,invchead_shipto_id,pNew.qty_ordered,invchead_curr_id,invchead_orderdate))), 0),
 		CASE
 			WHEN item_id IS NOT NULL THEN
 				COALESCE((SELECT uom_id FROM uom WHERE (uom_name=pNew.qty_uom)), item_price_uom_id)
@@ -135,12 +114,6 @@ BEGIN
 			WHEN pNew.tax_type = 'None' THEN NULL
 			ELSE (SELECT taxtype_id FROM taxtype WHERE taxtype_name=pNew.tax_type)
 		END)
-		LEFT OUTER JOIN tax ON (tax_id=CASE 
-			WHEN pNew.tax_code IS NULL THEN getTaxSelection(
-				invchead_taxauth_id,getItemTaxType(item_id,invchead_taxauth_id))
-			WHEN pNew.tax_code = 'None' THEN NULL
-			ELSE getTaxId(pNew.tax_code)
-		END)
 	WHERE (invchead_invcnumber=pNew.invoice_number) AND (invchead_posted=FALSE);
 	RETURN TRUE;
 END;
@@ -171,16 +144,6 @@ BEGIN
 			ELSE NULL
 		END,
 		invcitem_taxtype_id=taxtype_id,
-		invcitem_tax_id=tax_id,
-		invcitem_tax_pcta=tax_ratea,
-		invcitem_tax_pctb=tax_rateb,
-		invcitem_tax_pctc=tax_ratec,
-		invcitem_tax_ratea=COALESCE(pNew.tax_amount_a, (tax_ratea * COALESCE(pNew.net_unit_price,itemPrice(
-			item_id,invchead_cust_id,invchead_shipto_id,pNew.qty_ordered,invchead_curr_id,invchead_orderdate))), 0),
-		invcitem_tax_rateb=COALESCE(pNew.tax_amount_b, (tax_rateb * COALESCE(pNew.net_unit_price,itemPrice(
-			item_id,invchead_cust_id,invchead_shipto_id,pNew.qty_ordered,invchead_curr_id,invchead_orderdate))), 0),
-		invcitem_tax_ratec=COALESCE(pNew.tax_amount_c, (tax_ratec * COALESCE(pNew.net_unit_price,itemPrice(
-			item_id,invchead_cust_id,invchead_shipto_id,pNew.qty_ordered,invchead_curr_id,invchead_orderdate))), 0),
 		invcitem_qty_uom_id=CASE
 			WHEN item_id IS NOT NULL THEN
 				COALESCE((SELECT uom_id FROM uom WHERE (uom_name=pNew.qty_uom)), item_price_uom_id)
@@ -213,12 +176,6 @@ BEGIN
 			WHEN pNew.tax_type IS NULL THEN getItemTaxType(item_id,invchead_taxauth_id)
 			WHEN pNew.tax_type = 'None' THEN NULL
 			ELSE (SELECT taxtype_id FROM taxtype WHERE taxtype_name=pNew.tax_type)
-		END)
-		LEFT OUTER JOIN tax ON (tax_id=CASE 
-			WHEN pNew.tax_code IS NULL THEN getTaxSelection(
-				invchead_taxauth_id,getItemTaxType(item_id,invchead_taxauth_id))
-			WHEN pNew.tax_code = 'None' THEN NULL
-			ELSE getTaxId(pNew.tax_code)
 		END)
 	WHERE invcitem_invchead_id=invchead_id
 		AND invcitem_linenumber=pOld.line_number

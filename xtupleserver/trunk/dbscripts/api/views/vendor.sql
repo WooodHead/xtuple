@@ -34,7 +34,7 @@ SELECT
   vend_qualified AS qualified,
   vend_match AS matching_vo_po_amounts,
   vend_1099 AS receives_1099,
-  taxauth_code AS default_tax_authority,
+  taxzone_code AS default_tax_zone,
   c1.cntct_number AS contact1_number,
   c1.cntct_honorific AS contact1_honorific,
   c1.cntct_first_name AS contact1_first,
@@ -74,7 +74,7 @@ FROM
     LEFT OUTER JOIN addr ON (vend_addr_id=addr_id)
     LEFT OUTER JOIN cntct c1 ON (vend_cntct1_id=c1.cntct_id)
     LEFT OUTER JOIN cntct c2 ON (vend_cntct2_id=c2.cntct_id)
-    LEFT OUTER JOIN taxauth ON (vend_taxauth_id=taxauth_id)
+    LEFT OUTER JOIN taxzone ON (vend_taxzone_id=taxzone_id)
     LEFT OUTER JOIN curr_symbol ON (vend_curr_id=curr_id)
     LEFT OUTER JOIN terms ON (vend_terms_id=terms_id)
     LEFT OUTER JOIN vendtype ON (vend_vendtype_id=vendtype_id)
@@ -117,7 +117,7 @@ INSERT INTO vendinfo (
   vend_cntct2_id,
   vend_addr_id,
   vend_match,
-  vend_taxauth_id,
+  vend_taxzone_id,
   vend_ach_routingnumber,
   vend_ach_accntnumber )
 VALUES (
@@ -196,7 +196,7 @@ VALUES (
             NEW.country,
             NEW.address_change ),
   COALESCE(NEW.matching_vo_po_amounts, false),
-  getTaxAuthId(NEW.default_tax_authority),
+  getTaxZoneId(NEW.default_tax_zone),
             '',
             '');
 
@@ -283,7 +283,7 @@ UPDATE vendinfo SET
             NEW.country,
             NEW.address_change ),
   vend_match=NEW.matching_vo_po_amounts,
-  vend_taxauth_id=getTaxAuthId(NEW.default_tax_authority)
+  vend_taxzone_id=getTaxZoneId(NEW.default_tax_zone)
 WHERE vend_id=getVendId(OLD.vendor_number);
 
 CREATE OR REPLACE RULE "_DELETE" AS

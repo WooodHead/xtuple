@@ -22,8 +22,7 @@ AS
      COALESCE((
        SELECT taxtype_name
        FROM taxtype
-       WHERE (taxtype_id=getItemTaxType(l.item_id, cohead_taxauth_id))),'None') AS tax_type,
-     COALESCE(tax_code,'None') AS tax_code,
+       WHERE (taxtype_id=getItemTaxType(l.item_id, cohead_taxzone_id))),'None') AS tax_type,
      CASE
        WHEN coitem_price = 0 THEN
          '100'
@@ -47,8 +46,7 @@ AS
      END AS alternate_cos_account
   FROM cohead, coitem
     LEFT OUTER JOIN itemsite isb ON (coitem_substitute_item_id=isb.itemsite_id)
-    LEFT OUTER JOIN item s ON (isb.itemsite_item_id=s.item_id)
-    LEFT OUTER JOIN tax ON (coitem_tax_id=tax_id),
+    LEFT OUTER JOIN item s ON (isb.itemsite_item_id=s.item_id),
   itemsite il, item l, whsinfo, uom q, uom p
   WHERE ((cohead_id=coitem_cohead_id)
   AND (coitem_itemsite_id=il.itemsite_id)
@@ -90,7 +88,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     coitem_order_type,
     coitem_substitute_item_id,
     coitem_prcost,
-    coitem_tax_id,
+    coitem_taxtype_id,
     coitem_warranty,
     coitem_cos_accnt_id)
   SELECT
@@ -127,8 +125,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     END,
     getItemsiteId(warehous_code,NEW.substitute_for),
     NEW.overwrite_po_price,
-    COALESCE(getTaxId(NEW.tax_code),getTaxSelection(cohead_taxauth_id,
-	           getItemTaxType(itemsite_item_id, cohead_taxauth_id))),
+    COALESCE(getTaxTypeId(NEW.tax_type), getItemTaxType(itemsite_item_id, cohead_taxzone_id)),
     NEW.warranty,
     getGlAccntId(NEW.alternate_cos_account)
   FROM cohead, itemsite, item, whsinfo
@@ -163,11 +160,11 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     END,
     coitem_substitute_item_id=getItemsiteId(NEW.sold_from_site,NEW.item_number),
     coitem_prcost=NEW.overwrite_po_price,
-    coitem_tax_id=
+    coitem_taxtype_id=
     CASE
-      WHEN (NEW.tax_code='None') THEN
+      WHEN (NEW.tax_type='None') THEN
         NULL
-      ELSE getTaxId(NEW.tax_code)
+      ELSE getTaxTypeId(NEW.tax_type)
     END,
     coitem_warranty=NEW.warranty,
     coitem_cos_accnt_id=getGlAccntId(NEW.alternate_cos_account)

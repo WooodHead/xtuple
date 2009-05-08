@@ -19,8 +19,7 @@ AS
      COALESCE((
        SELECT taxtype_name
        FROM taxtype
-       WHERE (taxtype_id=getItemTaxType(l.item_id, quhead_taxauth_id))),'None') AS tax_type,
-     COALESCE(tax_code,'None') AS tax_code,
+       WHERE (taxtype_id=getItemTaxType(l.item_id, quhead_taxzone_id))),'None') AS tax_type,
      CASE
        WHEN quitem_price = 0 THEN
          '100'
@@ -34,7 +33,6 @@ AS
      quitem_prcost AS overwrite_po_price,
      quitem_memo AS notes
   FROM quhead, uom q, uom p, quitem
-    LEFT OUTER JOIN tax ON (quitem_tax_id=tax_id)
     LEFT OUTER JOIN whsinfo s ON (quitem_order_warehous_id=s.warehous_id),
   itemsite il, item l, whsinfo i
   WHERE ((quhead_id=quitem_quhead_id)
@@ -70,7 +68,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     quitem_order_warehous_id,
     quitem_item_id,
     quitem_prcost,
-    quitem_tax_id,
+    quitem_taxtype_id,
     quitem_qty_uom_id,
     quitem_qty_invuomratio,
     quitem_price_uom_id,
@@ -99,8 +97,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     COALESCE(getWarehousId(NEW.supplying_site,'SHIPPING'),itemsite_warehous_id),
     getItemId(NEW.item_number),
     COALESCE(NEW.overwrite_po_price,0),
-    COALESCE(getTaxId(NEW.tax_code),getTaxSelection(quhead_taxauth_id,
-	           getItemTaxType(itemsite_item_id, quhead_taxauth_id))),
+    COALESCE(getTaxTypeId(NEW.tax_type), getItemTaxType(itemsite_item_id, quhead_taxzone_id)),
     COALESCE(getUomId(NEW.qty_uom),item_inv_uom_id),
     itemuomtouomratio(item_id,COALESCE(getUomId(NEW.qty_uom),item_inv_uom_id),item_inv_uom_id),
     COALESCE(getUomId(NEW.price_uom),item_price_uom_id),
@@ -135,7 +132,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     quitem_createorder=NEW.create_order,
     quitem_order_warehous_id=getWarehousId(NEW.supplying_site,'SHIPPING'),
     quitem_prcost=NEW.overwrite_po_price,
-    quitem_tax_id=getTaxId(NEW.tax_code)
+    quitem_taxtype_id=getTaxTypeId(NEW.tax_type)
    FROM item
    WHERE ((quitem_quhead_id=getQuoteId(OLD.quote_number::text))
    AND (quitem_linenumber=OLD.line_number));

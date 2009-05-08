@@ -2,20 +2,20 @@ BEGIN;
 
 -- Item Tax Type
 
-DROP VIEW api.itemtaxtype;
+SELECT dropIfExists('VIEW', 'itemtaxtype', 'api', true);
 CREATE VIEW api.itemtaxtype
 AS 
    SELECT 
      item_number::varchar AS item_number,
      CASE
-       WHEN (taxauth_id IS NULL) THEN
+       WHEN (taxzone_id IS NULL) THEN
          'Any'::varchar
        ELSE
-         taxauth_code::varchar
-     END AS tax_authority,
+         taxzone_code::varchar
+     END AS tax_zone,
      taxtype_name AS tax_type
    FROM item, itemtax
-     LEFT OUTER JOIN taxauth ON (itemtax_taxauth_id=taxauth_id),
+     LEFT OUTER JOIN taxzone ON (itemtax_taxzone_id=taxzone_id),
      taxtype
    WHERE ((item_id=itemtax_item_id)
    AND (itemtax_taxtype_id=taxtype_id));
@@ -30,15 +30,15 @@ CREATE OR REPLACE RULE "_INSERT" AS
 
   INSERT INTO itemtax (
     itemtax_item_id,
-    itemtax_taxauth_id,
+    itemtax_taxzone_id,
     itemtax_taxtype_id)
   VALUES (
     getItemId(NEW.item_number),
     CASE
-      WHEN (NEW.tax_authority = 'Any') THEN
+      WHEN (NEW.tax_zone = 'Any') THEN
         NULL
       ELSE
-        getTaxAuthId(NEW.tax_authority)
+        getTaxZoneId(NEW.tax_zone)
     END,
     getTaxTypeId(NEW.tax_type));
 
@@ -46,19 +46,19 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO api.itemtaxtype DO INSTEAD
 
   UPDATE itemtax SET
-    itemtax_taxauth_id=
+    itemtax_taxzone_id=
     CASE
-      WHEN (NEW.tax_authority = 'Any') THEN
+      WHEN (NEW.tax_zone = 'Any') THEN
         NULL
       ELSE
-        getTaxAuthId(NEW.tax_authority)
+        getTaxZoneId(NEW.tax_zone)
     END,
     itemtax_taxtype_id=getTaxTypeId(NEW.tax_type)
   WHERE  ((itemtax_item_id=getItemId(OLD.item_number))
-  AND (CASE WHEN (OLD.tax_authority = 'Any') THEN
-              itemtax_taxauth_id IS NULL
+  AND (CASE WHEN (OLD.tax_zone = 'Any') THEN
+              itemtax_taxzone_id IS NULL
             ELSE
-              itemtax_taxauth_id=getTaxAuthId(OLD.tax_authority) END)
+              itemtax_taxzone_id=getTaxZoneId(OLD.tax_zone) END)
   AND (itemtax_taxtype_id=getTaxTypeId(OLD.tax_type)));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
@@ -66,10 +66,10 @@ CREATE OR REPLACE RULE "_DELETE" AS
 
   DELETE FROM itemtax
   WHERE  ((itemtax_item_id=getItemId(OLD.item_number))
-  AND (CASE WHEN (OLD.tax_authority = 'Any') THEN
-              itemtax_taxauth_id IS NULL
+  AND (CASE WHEN (OLD.tax_zone = 'Any') THEN
+              itemtax_taxzone_id IS NULL
             ELSE
-              itemtax_taxauth_id=getTaxAuthId(OLD.tax_authority) END)
+              itemtax_taxzone_id=getTaxZoneId(OLD.tax_zone) END)
   AND (itemtax_taxtype_id=getTaxTypeId(OLD.tax_type)));
 
 COMMIT;

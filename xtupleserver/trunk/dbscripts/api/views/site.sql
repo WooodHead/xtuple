@@ -95,8 +95,8 @@ BEGIN;
       WHEN warehous_transit THEN
         ''
       ELSE
-        t.taxauth_code
-    END AS tax_authority,
+        t.taxzone_code
+    END AS tax_zone,
     CASE
       WHEN warehous_transit THEN
         ''
@@ -203,7 +203,7 @@ BEGIN;
       LEFT OUTER JOIN addr m ON (warehous_addr_id=m.addr_id)
       LEFT OUTER JOIN cntct c ON (warehous_cntct_id=c.cntct_id)
       LEFT OUTER JOIN accnt a ON (warehous_default_accnt_id=a.accnt_id)
-      LEFT OUTER JOIN taxauth t ON (warehous_taxauth_id=t.taxauth_id)
+      LEFT OUTER JOIN taxzone t ON (warehous_taxzone_id=t.taxzone_id)
       LEFT OUTER JOIN shipvia s ON (warehous_shipvia_id=s.shipvia_id)
       LEFT OUTER JOIN shipform f ON (warehous_shipform_id=f.shipform_id)
       LEFT OUTER JOIN costcat cc ON (warehous_costcat_id=cc.costcat_id)
@@ -243,7 +243,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     warehous_shipping_commission,
     warehous_cntct_id,
     warehous_addr_id,
-    warehous_taxauth_id,
+    warehous_taxzone_id,
     warehous_transit,
     warehous_shipform_id,
     warehous_shipvia_id,
@@ -394,7 +394,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
       NEW.address_change),
     CASE
       WHEN NEW.inventory_type THEN
-        COALESCE(getTaxAuthId(NEW.tax_authority), -1)
+        COALESCE(getTaxZoneId(NEW.tax_zone), -1)
       ELSE
         NULL
     END,
@@ -596,10 +596,10 @@ CREATE OR REPLACE RULE "_UPDATE" AS
         NEW.postal_code,
         NEW.country,
         NEW.address_change),
-    warehous_taxauth_id=
+    warehous_taxzone_id=
       CASE
         WHEN NEW.inventory_type THEN
-          getTaxAuthId(NEW.tax_authority)
+          getTaxZoneId(NEW.tax_zone)
         ELSE
           NULL
       END,
