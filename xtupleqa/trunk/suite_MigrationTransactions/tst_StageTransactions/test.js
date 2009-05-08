@@ -640,7 +640,7 @@ function main()
     clickItem(":_invchead_XTreeWidget", "60081", 5, 5, 1, Qt.LeftButton);
    
     
-    
+  
     //----Post Invoice---------
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -1220,26 +1220,26 @@ function main()
     clickButton(":Work Order.Create_QPushButton");
 
     
-    //----implode work Order----
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
-    waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
-    activateItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
-    waitForObjectItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
-    activateItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
-    waitForObjectItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
-    activateItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
-    
-    waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
-    clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
-    
-    waitForObject(":frame._wo_XTreeWidget");
-    var sWidgetTreeControl = ":frame._wo_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(":frame._wo_XTreeWidget","<Space>");
+  //----implode work Order----
+  waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
+  activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
+  waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
+  activateItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
+  waitForObjectItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
+  activateItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
+  waitForObjectItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
+  activateItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
+  
+  waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
+  clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
+  
+  waitForObject(":frame._wo_XTreeWidget");
+  var sWidgetTreeControl = ":frame._wo_XTreeWidget";
+  waitForObject(sWidgetTreeControl);
+  var obj_TreeWidget = findObject(sWidgetTreeControl);
+  var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+  var iNumberOfRootItems = obj_TreeRootItem.childCount();
+  type(":frame._wo_XTreeWidget","<Space>");
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
     for(i=0;i<iNumberOfRootItems ;i++)
@@ -1306,7 +1306,7 @@ function main()
     waitForObject(":W/O Schedule by Planner Code.Post_QPushButton_2");
     clickButton(":W/O Schedule by Planner Code.Post_QPushButton_2");
     
-  
+    
     
     //------Post Operation--------
     waitForObject(":frame._wo_XTreeWidget");
@@ -1373,6 +1373,12 @@ function main()
     activateItem(":xTuple ERP:*._menu_QMenu", "Release W/O");
     
   
+  
+    
+      
+    
+   
+
     
 
 }

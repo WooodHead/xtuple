@@ -107,10 +107,12 @@ function main()
     waitForObject(":Issue to Shipping...._QPushButton");
     clickButton(":Issue to Shipping...._QPushButton");
     waitForObject(":_listTab_XTreeWidget_4");
-    clickItem(":_listTab_XTreeWidget_4", "50194", 5, 5, 1, Qt.LeftButton);
+    doubleClickItem(":_listTab_XTreeWidget_4", "50195", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Issue to Shipping.Ship Order_QPushButton");
     clickButton(":Issue to Shipping.Ship Order_QPushButton");
-    aitForObject(":Issue to Shipping.Close_QPushButton");
+    waitForObject(":Issue to Shipping.Ship_QPushButton");
+    clickButton(":Issue to Shipping.Ship_QPushButton");
+    waitForObject(":Issue to Shipping.Close_QPushButton");
     clickButton(":Issue to Shipping.Close_QPushButton");
     
     //----------Select Order for Billing--------
@@ -210,7 +212,7 @@ function main()
     waitForObject(":Cash Receipt.Save_QPushButton_2");
     clickButton(":Cash Receipt.Save_QPushButton_2");
 
-    
+  	  
     //---Release Planned Order---------
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
@@ -232,8 +234,8 @@ function main()
   
     waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
     clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-     
-    
+  
+  
   
     //------Release Purchase Request-------
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
@@ -247,10 +249,14 @@ function main()
     clickButton(":Purchase Requests by Planner Code.Query_QPushButton");
     waitForObject(":Purchase Requests by Planner Code._pr_XTreeWidget");
     clickItem(":Purchase Requests by Planner Code._pr_XTreeWidget","10054", 5, 5, 1,Qt.RightButton);
-    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release P/R...");
+    sendEvent("QContextMenuEvent", ":Purchase Requests by Planner Code._pr_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    waitForObject(":xTuple ERP:*._menu_QMenu");
     activateItem(":xTuple ERP:*._menu_QMenu", "Release P/R...");
     waitForObject(":_frame._itemsrc_XTreeWidget");
     doubleClickItem(":_frame._itemsrc_XTreeWidget", "Toy Parts Inc\\.", 5, 5, 0, Qt.LeftButton);
+    snooze(2);
+    if(object.exists(":An Open Purchase Order Exists.An Open Purchase Order already exists for this Vendor.\nWould you like to use this Purchase Order?\nClick Yes to use the existing Purchase Order otherwise a new one will be created._QLabel"))
+        clickButton(":An Open Purchase Order Exists.Yes_QPushButton");
     waitForObject(":Purchase Order Item.Save_QPushButton");
     clickButton(":Purchase Order Item.Save_QPushButton");
     waitForObject(":Purchase Order.Save_QPushButton");
@@ -260,7 +266,7 @@ function main()
     
     waitForObject(":Purchase Requests by Planner Code.Close_QPushButton");
     clickButton(":Purchase Requests by Planner Code.Close_QPushButton");    
-    
+  
     
     //------List Unposted Purchase Order------
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
@@ -683,10 +689,8 @@ function main()
     clickButton(":W/O Schedule by Planner Code.Close Work Order_QPushButton");
 
     
-    
-    
-/*************    
-    
+
+   
     
     //----Issue stock to Shipping and Ship the Order----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
@@ -814,11 +818,6 @@ function main()
     
     
     
-  
-*****************/
-
-    
-   
     
 
     
