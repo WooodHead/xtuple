@@ -661,6 +661,9 @@ function main()
   doubleClickItem(":_item_XTreeWidget", "YTRUCK1", 5, 5 , 0, Qt.LeftButton);
   waitForObject(":_qtyOrdered_XLineEdit_2");
   type(":_qtyOrdered_XLineEdit_2", "100");
+  
+  var quantityordered = findObject(":_qtyOrdered_XLineEdit_2").text;
+  
   waitForObject(":_amountGroup. ... _QPushButton_2");
   clickButton(":_amountGroup. ... _QPushButton_2");
   waitForObject(":_price_XTreeWidget_2");
@@ -1109,6 +1112,38 @@ function main()
     waitForObject(":Post Production.Close_QPushButton");
     clickButton(":Post Production.Close_QPushButton");
     
+    //---Verification of QOH by item---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Reports");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Reports");
+    waitForObjectItem(":xTuple ERP:*.Reports_QMenu_5", "Quantities On Hand");
+    activateItem(":xTuple ERP:*.Reports_QMenu_5", "Quantities On Hand");
+    waitForObjectItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
+    activateItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
+   
+    waitForObject(":Quantities on Hand by Item...._QPushButton");
+    clickButton(":Quantities on Hand by Item...._QPushButton");
+    waitForObject(":_item_XTreeWidget_6");
+    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 36, 9, 0, Qt.LeftButton);
+    waitForObjectItem(":_warehouse._warehouses_WComboBox_6", "WH1");
+    clickItem(":_warehouse._warehouses_WComboBox_6", "WH1", 60, 3, 1, Qt.LeftButton);
+    waitForObject(":Quantities on Hand by Item.Query_QPushButton");
+    clickButton(":Quantities on Hand by Item.Query_QPushButton");
+    
+    waitForObject(":_qoh_XTreeWidget");
+    var sWidgetTreeControl = ":_qoh_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(3);
+    
+    waitForObject(":Quantities on Hand by Item.Close_QPushButton");
+    clickButton(":Quantities on Hand by Item.Close_QPushButton");
+
+    
     //---Issue Stock to Shipping---
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
@@ -1128,11 +1163,48 @@ function main()
     waitForObject(":groupBox.Select for Billing_QCheckBox");
     clickButton(":groupBox.Select for Billing_QCheckBox");
     waitForObject(":groupBox.Print Packing List_XCheckBox");
-    clickButton(":groupBox.Print Packing List_XCheckBox");
+    if(findObject(":groupBox.Print Packing List_XCheckBox").checked)
+      clickButton(":groupBox.Print Packing List_XCheckBox");
     waitForObject(":Issue to Shipping.Ship_QPushButton");
     clickButton(":Issue to Shipping.Ship_QPushButton");
     waitForObject(":Issue to Shipping.Close_QPushButton");
     clickButton(":Issue to Shipping.Close_QPushButton");
+    
+    //---Verification of updated QOH by item---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Reports");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Reports");
+    waitForObjectItem(":xTuple ERP:*.Reports_QMenu_5", "Quantities On Hand");
+    activateItem(":xTuple ERP:*.Reports_QMenu_5", "Quantities On Hand");
+    waitForObjectItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
+    activateItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
+   
+    waitForObject(":Quantities on Hand by Item...._QPushButton");
+    clickButton(":Quantities on Hand by Item...._QPushButton");
+    waitForObject(":_item_XTreeWidget_6");
+    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 36, 9, 0, Qt.LeftButton);
+    waitForObjectItem(":_warehouse._warehouses_WComboBox_6", "WH1");
+    clickItem(":_warehouse._warehouses_WComboBox_6", "WH1", 60, 3, 1, Qt.LeftButton);
+    waitForObject(":Quantities on Hand by Item.Query_QPushButton");
+    clickButton(":Quantities on Hand by Item.Query_QPushButton");
+    
+    waitForObject(":_qoh_XTreeWidget");
+    var sWidgetTreeControl = ":_qoh_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3);
+    
+    if(sNameOfRootItem2 == sNameOfRootItem - quantityordered)
+        test.pass(" QOH updated correctly");
+    else test.fail("QOH updated incorrectly");
+    
+    waitForObject(":Quantities on Hand by Item.Close_QPushButton");
+    clickButton(":Quantities on Hand by Item.Close_QPushButton");
+
    
     //---Select Order for Billing---
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
