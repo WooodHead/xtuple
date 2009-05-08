@@ -1,11 +1,5 @@
 BEGIN;
 
--- Insert the existing records of taxauth into taxzone
-
-INSERT INTO taxzone(taxzone_id, taxzone_code, taxzone_descrip)
-SELECT taxauth_id, taxauth_code, taxauth_name 
-FROM taxauth;
-
 -- Populate taxzone column in documents
 
 -- UPDATE asohist
@@ -30,12 +24,13 @@ UPDATE whsinfo      SET warehous_taxzone_id=warehous_taxauth_id;
 
 -- Populate taxclass with legacy A, B, and C classes
 
+DELETE FROM taxclass WHERE (taxclass_code IN ('1', '2', '3'));
 INSERT INTO taxclass
   ( taxclass_code, taxclass_descrip, taxclass_sequence )
 VALUES
-  ( 'A', 'Legacy A Class', 1 ),
-  ( 'B', 'Legacy B Class', 1 ),
-  ( 'C', 'Legacy C Class', 1 );
+  ( '1', 'Legacy Class 1', 0 ),
+  ( '2', 'Legacy Class 2', 0 ),
+  ( '3', 'Legacy Class 3', 0 );
 
 -- Populate taxtype column in documents
 
@@ -80,6 +75,13 @@ DECLARE
 
 BEGIN
 
+-- Clean tables
+  DELETE FROM taxhist;
+  DELETE FROM taxass;
+  DELETE FROM taxrate;
+  DELETE FROM tax WHERE (tax_taxclass_id IS NOT NULL);
+
+-- Split legacy tax codes into A, B, C tax codes
   FOR _r IN SELECT * FROM obsolete_tax LOOP
 
 -- A rate
@@ -90,7 +92,7 @@ BEGIN
     SELECT _taxid, (_r.tax_code || '-A'), _r.tax_descrip, _r.tax_sales_accnt_id,
            taxclass_id, NULL, NULL
     FROM taxclass
-    WHERE (taxclass_code='A');
+    WHERE (taxclass_code='1');
 
     INSERT INTO taxrate
       ( taxrate_tax_id, taxrate_percent, taxrate_curr_id,
@@ -110,9 +112,9 @@ BEGIN
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
         taxhist_percent, taxhist_amount, taxhist_tax,
         taxhist_docdate, taxhist_distdate )
-    SELECT asohist_id, COALESCE(asohist_taxtype_id, -1), _taxid,
-           (asohist_qtyshipped * asohist_unitprice), NULL, 0,
-           asohist_tax_pcta, 0, asohist_tax_ratea,
+    SELECT asohist_id, asohist_taxtype_id, _taxid,
+           COALESCE((asohist_qtyshipped * asohist_unitprice), 0), NULL, 0,
+           COALESCE(asohist_tax_pcta, 0), 0, COALESCE(asohist_tax_ratea, 0),
            asohist_invcdate, asohist_invcdate
     FROM asohist
     WHERE (asohist_tax_id=_r.tax_id);
@@ -122,9 +124,9 @@ BEGIN
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
         taxhist_percent, taxhist_amount, taxhist_tax,
         taxhist_docdate, taxhist_distdate )
-    SELECT cmhead_id, COALESCE(cmhead_taxtype_id, -1), _taxid,
-           cmhead_freight, NULL, 0,
-           cmhead_freighttax_pcta, 0, cmhead_freighttax_ratea,
+    SELECT cmhead_id, cmhead_taxtype_id, _taxid,
+           COALESCE(cmhead_freight, 0), NULL, 0,
+           COALESCE(cmhead_freighttax_pcta, 0), 0, COALESCE(cmhead_freighttax_ratea, 0),
            cmhead_docdate, cmhead_gldistdate
     FROM cmhead
     WHERE (cmhead_freighttax_id=_r.tax_id);
@@ -134,9 +136,9 @@ BEGIN
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
         taxhist_percent, taxhist_amount, taxhist_tax,
         taxhist_docdate, taxhist_distdate )
-    SELECT cmhead_id, COALESCE(cmhead_taxtype_id, -1), _taxid,
+    SELECT cmhead_id, cmhead_taxtype_id, _taxid,
            0, NULL, 0,
-           cmhead_adjtax_pcta, 0, cmhead_adjtax_ratea,
+           COALESCE(cmhead_adjtax_pcta, 0), 0, COALESCE(cmhead_adjtax_ratea, 0),
            cmhead_docdate, cmhead_gldistdate
     FROM cmhead
     WHERE (cmhead_adjtax_id=_r.tax_id);
@@ -146,9 +148,9 @@ BEGIN
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
         taxhist_percent, taxhist_amount, taxhist_tax,
         taxhist_docdate, taxhist_distdate )
-    SELECT cmitem_id, COALESCE(cmitem_taxtype_id, -1), _taxid,
-           (cmitem_qtycredit * cmitem_unitprice), NULL, 0,
-           cmitem_tax_pcta, 0, cmitem_tax_ratea,
+    SELECT cmitem_id, cmitem_taxtype_id, _taxid,
+           COALESCE(round((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio), 2), 0), NULL, 0,
+           COALESCE(cmitem_tax_pcta, 0), 0, COALESCE(cmitem_tax_ratea, 0),
            cmhead_docdate, cmhead_gldistdate
     FROM cmitem JOIN cmhead ON (cmhead_id=cmitem_cmhead_id)
     WHERE (cmitem_tax_id=_r.tax_id);
@@ -158,34 +160,36 @@ BEGIN
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
         taxhist_percent, taxhist_amount, taxhist_tax,
         taxhist_docdate, taxhist_distdate )
-    SELECT cobill_id, COALESCE(cobill_taxtype_id, -1), _taxid,
-           (cobill_qty * coitem_price), NULL, 0,
-           cobill_tax_pcta, 0, cobill_tax_ratea,
+    SELECT cobill_id, cobill_taxtype_id, _taxid,
+           COALESCE(round((cobill_qty * coitem_qty_invuomratio) * (coitem_price / coitem_price_invuomratio), 2), 0), NULL, 0,
+           COALESCE(cobill_tax_pcta, 0), 0, COALESCE(cobill_tax_ratea, 0),
            cobmisc_invcdate, cobmisc_invcdate
     FROM cobill JOIN cobmisc ON (cobmisc_id=cobill_cobmisc_id)
                 JOIN coitem ON (coitem_id=cobill_coitem_id)
     WHERE (cobill_tax_id=_r.tax_id);
 
+-- cobmisc_tax_ratea/b/c is a duplicate of freight
     INSERT INTO cobmisctax
       ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
         taxhist_percent, taxhist_amount, taxhist_tax,
         taxhist_docdate, taxhist_distdate )
-    SELECT cobmisc_id, COALESCE(cobmisc_taxtype_id, -1), _taxid,
-           cobmisc_freight, NULL, 0,
-           cobmisc_freighttax_pcta, 0, cobmisc_freighttax_ratea,
+    SELECT cobmisc_id, cobmisc_taxtype_id, _taxid,
+           COALESCE(cobmisc_freight, 0), NULL, 0,
+           COALESCE(cobmisc_freighttax_pcta, 0), 0, COALESCE(cobmisc_freighttax_ratea, 0),
            cobmisc_invcdate, cobmisc_invcdate
     FROM cobmisc
     WHERE (cobmisc_freighttax_id=_r.tax_id);
 
+-- Don't think cobmisc_adjtax_id is ever set
     INSERT INTO cobmisctax
       ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
         taxhist_percent, taxhist_amount, taxhist_tax,
         taxhist_docdate, taxhist_distdate )
-    SELECT cobmisc_id, COALESCE(cobmisc_taxtype_id, -1), _taxid,
+    SELECT cobmisc_id, cobmisc_taxtype_id, _taxid,
            0, NULL, 0,
-           cobmisc_adjtax_pcta, 0, cobmisc_adjtax_ratea,
+           COALESCE(cobmisc_adjtax_pcta, 0), 0, COALESCE(cobmisc_adjtax_ratea, 0),
            cobmisc_invcdate, cobmisc_invcdate
     FROM cobmisc
     WHERE (cobmisc_adjtax_id=_r.tax_id);
@@ -195,8 +199,8 @@ BEGIN
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
         taxhist_percent, taxhist_amount, taxhist_tax,
         taxhist_docdate, taxhist_distdate )
-    SELECT cohist_id, COALESCE(cohist_taxtype_id, -1), _taxid,
-           (cohist_qtyshipped * cohist_unitprice), NULL, 0,
+    SELECT cohist_id, cohist_taxtype_id, _taxid,
+           COALESCE((cohist_qtyshipped * cohist_unitprice), 0), NULL, 0,
            COALESCE(cohist_tax_pcta, 0), 0, COALESCE(cohist_tax_ratea, 0),
            cohist_invcdate, cohist_invcdate
     FROM cohist
@@ -207,9 +211,9 @@ BEGIN
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
         taxhist_percent, taxhist_amount, taxhist_tax,
         taxhist_docdate, taxhist_distdate )
-    SELECT invchead_id, COALESCE(invchead_taxtype_id, -1), _taxid,
-           invchead_freight, NULL, 0,
-           invchead_freighttax_pcta, 0, invchead_freighttax_ratea,
+    SELECT invchead_id, invchead_taxtype_id, _taxid,
+           COALESCE(invchead_freight, 0), NULL, 0,
+           COALESCE(invchead_freighttax_pcta, 0), 0, COALESCE(invchead_freighttax_ratea, 0),
            invchead_invcdate, invchead_gldistdate
     FROM invchead
     WHERE (invchead_freighttax_id=_r.tax_id);
@@ -219,9 +223,9 @@ BEGIN
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
         taxhist_percent, taxhist_amount, taxhist_tax,
         taxhist_docdate, taxhist_distdate )
-    SELECT invchead_id, COALESCE(invchead_taxtype_id, -1), _taxid,
+    SELECT invchead_id, invchead_taxtype_id, _taxid,
            0, NULL, 0,
-           invchead_adjtax_pcta, 0, invchead_adjtax_ratea,
+           COALESCE(invchead_adjtax_pcta, 0), 0, COALESCE(invchead_adjtax_ratea, 0),
            invchead_invcdate, invchead_gldistdate
     FROM invchead
     WHERE (invchead_adjtax_id=_r.tax_id);
@@ -231,9 +235,9 @@ BEGIN
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
         taxhist_percent, taxhist_amount, taxhist_tax,
         taxhist_docdate, taxhist_distdate )
-    SELECT invcitem_id, COALESCE(invcitem_taxtype_id, -1), _taxid,
-           (invcitem_billed * invcitem_price), NULL, 0,
-           invcitem_tax_pcta, 0, invcitem_tax_ratea,
+    SELECT invcitem_id, invcitem_taxtype_id, _taxid,
+           COALESCE(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio), 2), 0), NULL, 0,
+           COALESCE(invcitem_tax_pcta, 0), 0, COALESCE(invcitem_tax_ratea, 0),
            invchead_invcdate, invchead_gldistdate
     FROM invcitem JOIN invchead ON (invchead_id=invcitem_invchead_id)
     WHERE (invcitem_tax_id=_r.tax_id);
@@ -243,9 +247,9 @@ BEGIN
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
         taxhist_percent, taxhist_amount, taxhist_tax,
         taxhist_docdate, taxhist_distdate )
-    SELECT tohead_id, COALESCE(tohead_taxtype_id, -1), _taxid,
-           tohead_freight, NULL, 0,
-           tohead_freighttax_pcta, 0, tohead_freighttax_ratea,
+    SELECT tohead_id, tohead_taxtype_id, _taxid,
+           COALESCE(tohead_freight, 0), NULL, 0,
+           COALESCE(tohead_freighttax_pcta, 0), 0, COALESCE(tohead_freighttax_ratea, 0),
            tohead_orderdate, tohead_orderdate
     FROM tohead
     WHERE (tohead_freighttax_id=_r.tax_id);
@@ -255,20 +259,20 @@ BEGIN
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
         taxhist_percent, taxhist_amount, taxhist_tax,
         taxhist_docdate, taxhist_distdate )
-    SELECT toitem_id, COALESCE(toitem_taxtype_id, -1), _taxid,
-           toitem_freight, NULL, 0,
-           toitem_freighttax_pcta, 0, toitem_freighttax_ratea,
+    SELECT toitem_id, toitem_taxtype_id, _taxid,
+           COALESCE(toitem_freight, 0), NULL, 0,
+           COALESCE(toitem_freighttax_pcta, 0), 0, COALESCE(toitem_freighttax_ratea, 0),
            tohead_orderdate, tohead_orderdate
     FROM toitem JOIN tohead ON (tohead_id=toitem_tohead_id)
     WHERE (toitem_freighttax_id=_r.tax_id);
 
--- vohead taxes not populated?
+-- vohead, voitem taxes not populated?
 --    INSERT INTO voheadtax
 --      ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
 --        taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
 --        taxhist_percent, taxhist_amount, taxhist_tax,
 --        taxhist_docdate, taxhist_distdate )
---    SELECT vohead_id, COALESCE(vohead_taxtype_id, -1), _taxid,
+--    SELECT vohead_id, vohead_taxtype_id, _taxid,
 --           vohead_freight, NULL, 0,
 --           vohead_freighttax_pcta, 0, vohead_freighttax_ratea,
 --           vohead_docdate, vohead_gldistdate
@@ -280,25 +284,25 @@ BEGIN
 --        taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
 --        taxhist_percent, taxhist_amount, taxhist_tax,
 --        taxhist_docdate, taxhist_distdate )
---    SELECT vohead_id, COALESCE(vohead_taxtype_id, -1), _taxid,
+--    SELECT vohead_id, vohead_taxtype_id, _taxid,
 --           0, NULL, 0,
 --           vohead_adjtax_pcta, 0, vohead_adjtax_ratea,
 --           vohead_docdate, vohead_gldistdate
 --    FROM vohead
 --    WHERE (vohead_adjtax_id=_r.tax_id);
-
-    INSERT INTO voitemtax
-      ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
-        taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
-        taxhist_percent, taxhist_amount, taxhist_tax,
-        taxhist_docdate, taxhist_distdate )
-    SELECT voitem_id, COALESCE(voitem_taxtype_id, -1), _taxid,
-           (voitem_qty * poitem_unitprice), NULL, 0,
-           voitem_tax_pcta, 0, voitem_tax_ratea,
-           vohead_docdate, vohead_gldistdate
-    FROM voitem JOIN vohead ON (vohead_id=voitem_vohead_id)
-                JOIN poitem ON (poitem_id=voitem_poitem_id)
-    WHERE (voitem_tax_id=_r.tax_id);
+--
+--    INSERT INTO voitemtax
+--      ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+--        taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+--        taxhist_percent, taxhist_amount, taxhist_tax,
+--        taxhist_docdate, taxhist_distdate )
+--    SELECT voitem_id, voitem_taxtype_id, _taxid,
+--           (voitem_qty * poitem_unitprice), NULL, 0,
+--           voitem_tax_pcta, 0, voitem_tax_ratea,
+--           vohead_docdate, vohead_gldistdate
+--    FROM voitem JOIN vohead ON (vohead_id=voitem_vohead_id)
+--                JOIN poitem ON (poitem_id=voitem_poitem_id)
+--    WHERE (voitem_tax_id=_r.tax_id);
 
 
 -- B rate
@@ -310,13 +314,178 @@ BEGIN
       SELECT _taxid, (_r.tax_code || '-B'), _r.tax_descrip, _r.tax_salesb_accnt_id,
              taxclass_id, NULL, NULL
       FROM taxclass
-      WHERE (taxclass_code='B');
+      WHERE (taxclass_code=CASE WHEN (_r.tax_cumulative) THEN '2' ELSE '1' END);
+
       INSERT INTO taxrate
         ( taxrate_tax_id, taxrate_percent, taxrate_curr_id,
           taxrate_amount, taxrate_effective, taxrate_expires )
       VALUES
         ( _taxid, _r.tax_rateb, baseCurrid(),
           0, '01/01/1970', '12/31/2100' );
+
+      INSERT INTO taxass
+        ( taxass_id, taxass_taxzone_id, taxass_taxtype_id, taxass_tax_id )
+      SELECT taxsel_id, taxsel_taxauth_id, taxsel_taxtype_id, _taxid
+      FROM taxsel
+      WHERE (taxsel_tax_id=_r.tax_id);
+
+      INSERT INTO asohisttax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT asohist_id, asohist_taxtype_id, _taxid,
+             COALESCE((asohist_qtyshipped * asohist_unitprice), 0), NULL, 0,
+             COALESCE(asohist_tax_pctb, 0), 0, COALESCE(asohist_tax_rateb, 0),
+             asohist_invcdate, asohist_invcdate
+      FROM asohist
+      WHERE (asohist_tax_id=_r.tax_id);
+
+      INSERT INTO cmheadtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cmhead_id, cmhead_taxtype_id, _taxid,
+             COALESCE(cmhead_freight, 0), NULL, 0,
+             COALESCE(cmhead_freighttax_pctb, 0), 0, COALESCE(cmhead_freighttax_rateb, 0),
+             cmhead_docdate, cmhead_gldistdate
+      FROM cmhead
+      WHERE (cmhead_freighttax_id=_r.tax_id);
+
+      INSERT INTO cmheadtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cmhead_id, cmhead_taxtype_id, _taxid,
+             0, NULL, 0,
+             COALESCE(cmhead_adjtax_pctb, 0), 0, COALESCE(cmhead_adjtax_rateb, 0),
+             cmhead_docdate, cmhead_gldistdate
+      FROM cmhead
+      WHERE (cmhead_adjtax_id=_r.tax_id);
+
+      INSERT INTO cmitemtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cmitem_id, cmitem_taxtype_id, _taxid,
+             COALESCE(round((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio), 2), 0), NULL, 0,
+             COALESCE(cmitem_tax_pctb, 0), 0, COALESCE(cmitem_tax_rateb, 0),
+             cmhead_docdate, cmhead_gldistdate
+      FROM cmitem JOIN cmhead ON (cmhead_id=cmitem_cmhead_id)
+      WHERE (cmitem_tax_id=_r.tax_id);
+
+      INSERT INTO cobilltax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cobill_id, cobill_taxtype_id, _taxid,
+             COALESCE(round((cobill_qty * coitem_qty_invuomratio) * (coitem_price / coitem_price_invuomratio), 2), 0), NULL, 0,
+             COALESCE(cobill_tax_pctb, 0), 0, COALESCE(cobill_tax_rateb, 0),
+             cobmisc_invcdate, cobmisc_invcdate
+      FROM cobill JOIN cobmisc ON (cobmisc_id=cobill_cobmisc_id)
+                  JOIN coitem ON (coitem_id=cobill_coitem_id)
+      WHERE (cobill_tax_id=_r.tax_id);
+
+      INSERT INTO cobmisctax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cobmisc_id, cobmisc_taxtype_id, _taxid,
+             COALESCE(cobmisc_freight, 0), NULL, 0,
+             COALESCE(cobmisc_freighttax_pctb, 0), 0, COALESCE(cobmisc_freighttax_rateb, 0),
+             cobmisc_invcdate, cobmisc_invcdate
+      FROM cobmisc
+      WHERE (cobmisc_freighttax_id=_r.tax_id);
+
+      INSERT INTO cobmisctax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cobmisc_id, cobmisc_taxtype_id, _taxid,
+             0, NULL, 0,
+             COALESCE(cobmisc_adjtax_pctb, 0), 0, COALESCE(cobmisc_adjtax_rateb, 0),
+             cobmisc_invcdate, cobmisc_invcdate
+      FROM cobmisc
+      WHERE (cobmisc_adjtax_id=_r.tax_id);
+
+      INSERT INTO cohisttax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cohist_id, cohist_taxtype_id, _taxid,
+             COALESCE((cohist_qtyshipped * cohist_unitprice), 0), NULL, 0,
+             COALESCE(cohist_tax_pctb, 0), 0, COALESCE(cohist_tax_rateb, 0),
+             cohist_invcdate, cohist_invcdate
+      FROM cohist
+      WHERE (cohist_tax_id=_r.tax_id);
+
+      INSERT INTO invcheadtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT invchead_id, invchead_taxtype_id, _taxid,
+             COALESCE(invchead_freight, 0), NULL, 0,
+             COALESCE(invchead_freighttax_pctb, 0), 0, COALESCE(invchead_freighttax_rateb, 0),
+             invchead_invcdate, invchead_gldistdate
+      FROM invchead
+      WHERE (invchead_freighttax_id=_r.tax_id);
+
+      INSERT INTO invcheadtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT invchead_id, invchead_taxtype_id, _taxid,
+             0, NULL, 0,
+             COALESCE(invchead_adjtax_pctb, 0), 0, COALESCE(invchead_adjtax_rateb, 0),
+             invchead_invcdate, invchead_gldistdate
+      FROM invchead
+      WHERE (invchead_adjtax_id=_r.tax_id);
+
+      INSERT INTO invcitemtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT invcitem_id, invcitem_taxtype_id, _taxid,
+             COALESCE(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio), 2), 0), NULL, 0,
+             COALESCE(invcitem_tax_pctb, 0), 0, COALESCE(invcitem_tax_rateb, 0),
+             invchead_invcdate, invchead_gldistdate
+      FROM invcitem JOIN invchead ON (invchead_id=invcitem_invchead_id)
+      WHERE (invcitem_tax_id=_r.tax_id);
+
+      INSERT INTO toheadtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT tohead_id, tohead_taxtype_id, _taxid,
+             COALESCE(tohead_freight, 0), NULL, 0,
+             COALESCE(tohead_freighttax_pctb, 0), 0, COALESCE(tohead_freighttax_rateb, 0),
+             tohead_orderdate, tohead_orderdate
+      FROM tohead
+      WHERE (tohead_freighttax_id=_r.tax_id);
+
+      INSERT INTO toitemtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT toitem_id, toitem_taxtype_id, _taxid,
+             COALESCE(toitem_freight, 0), NULL, 0,
+             COALESCE(toitem_freighttax_pctb, 0), 0, COALESCE(toitem_freighttax_rateb, 0),
+             tohead_orderdate, tohead_orderdate
+      FROM toitem JOIN tohead ON (tohead_id=toitem_tohead_id)
+      WHERE (toitem_freighttax_id=_r.tax_id);
+
     END IF;
 
 -- C rate
@@ -328,13 +497,178 @@ BEGIN
       SELECT _taxid, (_r.tax_code || '-C'), _r.tax_descrip, _r.tax_salesc_accnt_id,
              taxclass_id, NULL, NULL
       FROM taxclass
-      WHERE (taxclass_code='C');
+      WHERE (taxclass_code=CASE WHEN (_r.tax_cumulative) THEN '3' ELSE '1' END);
+
       INSERT INTO taxrate
         ( taxrate_tax_id, taxrate_percent, taxrate_curr_id,
           taxrate_amount, taxrate_effective, taxrate_expires )
       VALUES
         ( _taxid, _r.tax_ratec, baseCurrid(),
           0, '01/01/1970', '12/31/2100' );
+
+      INSERT INTO taxass
+        ( taxass_id, taxass_taxzone_id, taxass_taxtype_id, taxass_tax_id )
+      SELECT taxsel_id, taxsel_taxauth_id, taxsel_taxtype_id, _taxid
+      FROM taxsel
+      WHERE (taxsel_tax_id=_r.tax_id);
+
+      INSERT INTO asohisttax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT asohist_id, asohist_taxtype_id, _taxid,
+             COALESCE((asohist_qtyshipped * asohist_unitprice), 0), NULL, 0,
+             COALESCE(asohist_tax_pctc, 0), 0, COALESCE(asohist_tax_ratec, 0),
+             asohist_invcdate, asohist_invcdate
+      FROM asohist
+      WHERE (asohist_tax_id=_r.tax_id);
+
+      INSERT INTO cmheadtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cmhead_id, cmhead_taxtype_id, _taxid,
+             COALESCE(cmhead_freight, 0), NULL, 0,
+             COALESCE(cmhead_freighttax_pctc, 0), 0, COALESCE(cmhead_freighttax_ratec, 0),
+             cmhead_docdate, cmhead_gldistdate
+      FROM cmhead
+      WHERE (cmhead_freighttax_id=_r.tax_id);
+
+      INSERT INTO cmheadtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cmhead_id, cmhead_taxtype_id, _taxid,
+             0, NULL, 0,
+             COALESCE(cmhead_adjtax_pctc, 0), 0, COALESCE(cmhead_adjtax_ratec, 0),
+             cmhead_docdate, cmhead_gldistdate
+      FROM cmhead
+      WHERE (cmhead_adjtax_id=_r.tax_id);
+
+      INSERT INTO cmitemtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cmitem_id, cmitem_taxtype_id, _taxid,
+             COALESCE(round((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio), 2), 0), NULL, 0,
+             COALESCE(cmitem_tax_pctc, 0), 0, COALESCE(cmitem_tax_ratec, 0),
+             cmhead_docdate, cmhead_gldistdate
+      FROM cmitem JOIN cmhead ON (cmhead_id=cmitem_cmhead_id)
+      WHERE (cmitem_tax_id=_r.tax_id);
+
+      INSERT INTO cobilltax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cobill_id, cobill_taxtype_id, _taxid,
+             COALESCE(round((cobill_qty * coitem_qty_invuomratio) * (coitem_price / coitem_price_invuomratio), 2), 0), NULL, 0,
+             COALESCE(cobill_tax_pctc, 0), 0, COALESCE(cobill_tax_ratec, 0),
+             cobmisc_invcdate, cobmisc_invcdate
+      FROM cobill JOIN cobmisc ON (cobmisc_id=cobill_cobmisc_id)
+                  JOIN coitem ON (coitem_id=cobill_coitem_id)
+      WHERE (cobill_tax_id=_r.tax_id);
+
+      INSERT INTO cobmisctax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cobmisc_id, cobmisc_taxtype_id, _taxid,
+             COALESCE(cobmisc_freight, 0), NULL, 0,
+             COALESCE(cobmisc_freighttax_pctc, 0), 0, COALESCE(cobmisc_freighttax_ratec, 0),
+             cobmisc_invcdate, cobmisc_invcdate
+      FROM cobmisc
+      WHERE (cobmisc_freighttax_id=_r.tax_id);
+
+      INSERT INTO cobmisctax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cobmisc_id, cobmisc_taxtype_id, _taxid,
+             0, NULL, 0,
+             COALESCE(cobmisc_adjtax_pctc, 0), 0, COALESCE(cobmisc_adjtax_ratec, 0),
+             cobmisc_invcdate, cobmisc_invcdate
+      FROM cobmisc
+      WHERE (cobmisc_adjtax_id=_r.tax_id);
+
+      INSERT INTO cohisttax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT cohist_id, cohist_taxtype_id, _taxid,
+             COALESCE((cohist_qtyshipped * cohist_unitprice), 0), NULL, 0,
+             COALESCE(cohist_tax_pctc, 0), 0, COALESCE(cohist_tax_ratec, 0),
+             cohist_invcdate, cohist_invcdate
+      FROM cohist
+      WHERE (cohist_tax_id=_r.tax_id);
+
+      INSERT INTO invcheadtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT invchead_id, invchead_taxtype_id, _taxid,
+             COALESCE(invchead_freight, 0), NULL, 0,
+             COALESCE(invchead_freighttax_pctc, 0), 0, COALESCE(invchead_freighttax_ratec, 0),
+             invchead_invcdate, invchead_gldistdate
+      FROM invchead
+      WHERE (invchead_freighttax_id=_r.tax_id);
+
+      INSERT INTO invcheadtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT invchead_id, invchead_taxtype_id, _taxid,
+             0, NULL, 0,
+             COALESCE(invchead_adjtax_pctc, 0), 0, COALESCE(invchead_adjtax_ratec, 0),
+             invchead_invcdate, invchead_gldistdate
+      FROM invchead
+      WHERE (invchead_adjtax_id=_r.tax_id);
+
+      INSERT INTO invcitemtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT invcitem_id, invcitem_taxtype_id, _taxid,
+             COALESCE(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio), 2), 0), NULL, 0,
+             COALESCE(invcitem_tax_pctc, 0), 0, COALESCE(invcitem_tax_ratec, 0),
+             invchead_invcdate, invchead_gldistdate
+      FROM invcitem JOIN invchead ON (invchead_id=invcitem_invchead_id)
+      WHERE (invcitem_tax_id=_r.tax_id);
+
+      INSERT INTO toheadtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT tohead_id, tohead_taxtype_id, _taxid,
+             COALESCE(tohead_freight, 0), NULL, 0,
+             COALESCE(tohead_freighttax_pctc, 0), 0, COALESCE(tohead_freighttax_ratec, 0),
+             tohead_orderdate, tohead_orderdate
+      FROM tohead
+      WHERE (tohead_freighttax_id=_r.tax_id);
+
+      INSERT INTO toitemtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT toitem_id, toitem_taxtype_id, _taxid,
+             COALESCE(toitem_freight, 0), NULL, 0,
+             COALESCE(toitem_freighttax_pctc, 0), 0, COALESCE(toitem_freighttax_ratec, 0),
+             tohead_orderdate, tohead_orderdate
+      FROM toitem JOIN tohead ON (tohead_id=toitem_tohead_id)
+      WHERE (toitem_freighttax_id=_r.tax_id);
+
     END IF;
   END LOOP;
 
@@ -345,8 +679,5 @@ $$ LANGUAGE 'plpgsql';
 
 SELECT fixTax();
 DROP FUNCTION fixTax();
-
--- Need to delete old tax information after conversion
--- DELETE FROM tax;
 
 COMMIT;

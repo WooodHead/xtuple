@@ -2,7 +2,7 @@ CREATE TABLE taxhist
 (
   taxhist_id serial PRIMARY KEY,
   taxhist_parent_id integer NOT NULL,
-  taxhist_taxtype_id integer NOT NULL REFERENCES taxtype (taxtype_id),
+  taxhist_taxtype_id integer REFERENCES taxtype (taxtype_id),
   taxhist_tax_id integer NOT NULL REFERENCES tax (tax_id),
   taxhist_basis numeric (16,2) NOT NULL,
   taxhist_basis_tax_id integer,
@@ -32,6 +32,7 @@ CREATE TABLE asohisttax
 (
     PRIMARY KEY (taxhist_id),
     FOREIGN KEY (taxhist_parent_id) REFERENCES asohist (asohist_id) ON DELETE CASCADE,
+    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
     FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
     FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
 )
@@ -42,6 +43,7 @@ CREATE TABLE cmheadtax
 (
     PRIMARY KEY (taxhist_id),
     FOREIGN KEY (taxhist_parent_id) REFERENCES cmhead (cmhead_id) ON DELETE CASCADE,
+    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
     FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
     FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
 )
@@ -52,6 +54,7 @@ CREATE TABLE cmitemtax
 (
     PRIMARY KEY (taxhist_id),
     FOREIGN KEY (taxhist_parent_id) REFERENCES cmitem (cmitem_id) ON DELETE CASCADE,
+    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
     FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
     FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
 )
@@ -62,6 +65,7 @@ CREATE TABLE cobilltax
 (
     PRIMARY KEY (taxhist_id),
     FOREIGN KEY (taxhist_parent_id) REFERENCES cobill (cobill_id) ON DELETE CASCADE,
+    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
     FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
     FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
 )
@@ -72,6 +76,7 @@ CREATE TABLE cobmisctax
 (
     PRIMARY KEY (taxhist_id),
     FOREIGN KEY (taxhist_parent_id) REFERENCES cobmisc (cobmisc_id) ON DELETE CASCADE,
+    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
     FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
     FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
 )
@@ -82,6 +87,7 @@ CREATE TABLE cohisttax
 (
     PRIMARY KEY (taxhist_id),
     FOREIGN KEY (taxhist_parent_id) REFERENCES cohist (cohist_id) ON DELETE CASCADE,
+    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
     FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
     FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
 )
@@ -92,6 +98,7 @@ CREATE TABLE invcheadtax
 (
     PRIMARY KEY (taxhist_id),
     FOREIGN KEY (taxhist_parent_id) REFERENCES invchead (invchead_id) ON DELETE CASCADE,
+    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
     FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
     FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
 )
@@ -102,6 +109,7 @@ CREATE TABLE invcitemtax
 (
     PRIMARY KEY (taxhist_id),
     FOREIGN KEY (taxhist_parent_id) REFERENCES invcitem (invcitem_id) ON DELETE CASCADE,
+    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
     FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
     FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
 )
@@ -112,6 +120,7 @@ CREATE TABLE toheadtax
 (
     PRIMARY KEY (taxhist_id),
     FOREIGN KEY (taxhist_parent_id) REFERENCES tohead (tohead_id) ON DELETE CASCADE,
+    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
     FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
     FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
 )
@@ -122,6 +131,7 @@ CREATE TABLE toitemtax
 (
     PRIMARY KEY (taxhist_id),
     FOREIGN KEY (taxhist_parent_id) REFERENCES toitem (toitem_id) ON DELETE CASCADE,
+    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
     FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
     FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
 )
@@ -132,6 +142,7 @@ CREATE TABLE voheadtax
 (
     PRIMARY KEY (taxhist_id),
     FOREIGN KEY (taxhist_parent_id) REFERENCES vohead (vohead_id) ON DELETE CASCADE,
+    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
     FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
     FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
 )
@@ -142,6 +153,7 @@ CREATE TABLE voitemtax
 (
     PRIMARY KEY (taxhist_id),
     FOREIGN KEY (taxhist_parent_id) REFERENCES voitem (voitem_id) ON DELETE CASCADE,
+    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
     FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
     FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
 )
