@@ -23,31 +23,31 @@ WHERE ( (aropen_open)
 ;
 <? else ?>
 
--- Get invoices
+-- Get unposted and zero invoices
 <? if not exists("creditsOnly") ?>
-SELECT COALESCE(aropen_id,-1) AS id,
+SELECT -1 AS id,
        0 AS altId,  
        invchead_invcnumber AS docnumber,
        invchead_id AS docnumber_xtidrole,
        invchead_posted AS posted,
-       CAST(invchead_posted AS int) AS posted_xtidrole, 
        invchead_invcdate AS docdate,   
        aropen_duedate,
        invchead_ordernumber AS ordernumber,
+       cohead_id AS ordernumber_xtidrole,
        <? value("invoice") ?>  AS doctype,
-       COALESCE(aropen_amount,invoicetotal(invchead_id)) AS amount,
-       COALESCE(SUM(arapply_target_paid),0) AS paid,
-       COALESCE((((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))),0) AS balance,
+       invoicetotal(invchead_id) AS amount,
+       0 AS paid,
+       0 AS balance,
        currConcat(invchead_curr_id) AS currAbbr,
-       COALESCE((((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/round(aropen_curr_rate,5)),0)  AS base_balance,
+       0 AS base_balance,
        formatDate(invchead_invcdate) AS f_docdate,
        formatDate(aropen_duedate) AS f_duedate,
-       formatMoney(COALESCE(aropen_amount,invoicetotal(invchead_id))) AS f_amount,
-       formatMoney(COALESCE(SUM(arapply_target_paid),0)) AS f_paid,
-       formatMoney(COALESCE((((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))),0)) AS f_balance,
+       formatMoney(0) AS f_amount,
+       formatMoney(0) AS f_paid,
+       formatMoney(0) AS f_balance,
        cust_id, cust_number, cust_name,
        invchead_recurring AS recurring,
-       COALESCE(aropen_open,false) AS open,
+       false AS open,
        'curr' AS amount_xtnumericrole,
        'curr' AS balance_xtnumericrole,
        'curr' AS paid_xtnumericrole,
@@ -56,29 +56,28 @@ SELECT COALESCE(aropen_id,-1) AS id,
        NULL AS aropen_docnumber_qtdisplayrole,
        NULL AS aropen_docdate_qtdisplayrole,
        0 AS xtindentrole,
-       CASE WHEN ((COALESCE(aropen_duedate,current_date) < current_date) AND COALESCE(aropen_open,FALSE)) THEN 'error' 
-       END AS aropen_duedate_qtforegroundrole
+       '' AS aropen_duedate_qtforegroundrole
 FROM invchead
-<? if exists("incidentsOnly") ?>
-            JOIN aropen ON ((aropen_docnumber=invchead_invcnumber)
-                        AND (aropen_doctype='I'))
-            JOIN incdt ON (incdt_aropen_id=aropen_id)
-<? else ?>
-            LEFT OUTER JOIN aropen ON ((aropen_docnumber=invchead_invcnumber)
+           LEFT OUTER JOIN aropen ON ((aropen_docnumber=invchead_invcnumber)
                              AND (aropen_doctype='I'))
+           LEFT OUTER JOIN cohead ON (invchead_ordernumber=cohead_number)
+           LEFT OUTER JOIN custinfo ON (invchead_cust_id=cust_id)
+           LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
+WHERE ((aropen_id IS NULL)
+<? if not exists("showUnposted") ?>
+<? if not exists("showClosed") ?>
+  AND (FALSE)
 <? endif ?>
-            LEFT OUTER JOIN custinfo ON (invchead_cust_id=cust_id)
-            LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
-            LEFT OUTER JOIN arapply ON (((aropen_id=arapply_source_aropen_id)
-                             OR (aropen_id=arapply_target_aropen_id))
-                             AND (arapply_distdate>COALESCE(<? value("asofDate") ?>,current_date)))
-WHERE ((true)
+<? endif ?>
+<? if exists("showUnposted") ?>
+<? if not exists("showClosed") ?>
+  AND (NOT invchead_posted)
+<? endif ?>
+<? endif ?>
+<? if exists("showClosed") ?>
 <? if not exists("showUnposted") ?>
   AND (invchead_posted)
 <? endif ?>
-<? if not exists("showClosed") ?>
-  AND (invchead_invcdate <= COALESCE(<? value ("asofDate") ?>,current_date))
-  AND (COALESCE(aropen_closedate, date <? value ("asofDate") ?> + integer '1', current_date + 1) > COALESCE(<? value("asofDate") ?>, current_date)) 
 <? endif ?>
 <? if exists("cust_id") ?>
   AND   (invchead_cust_id=<? value("cust_id") ?>)
@@ -105,36 +104,37 @@ WHERE ((true)
            aropen_duedate,          aropen_doctype,         aropen_amount,
            aropen_paid,             aropen_open,            aropen_curr_id,
            aropen_closedate,        aropen_curr_rate,       invchead_ordernumber,
-           cust_id, 		    cust_number,            cust_name
+           cust_id, 		    cust_number,            cust_name,
+           cohead_id
           
 UNION
 <? endif ?>
 
--- Get credit memos
+-- Get zero and unposted credit memos
 <? if not exists("debitsOnly") ?>
-SELECT COALESCE(aropen_id,-1) AS id,
+SELECT -1 AS id,
        1 AS altId,   
        cmhead_number AS docnumber,
        cmhead_id AS docnumber_xtidrole,
        cmhead_posted AS posted,
-       CAST(cmhead_posted AS int) AS posted_xtidrole,
        cmhead_docdate AS docdate,   
        aropen_duedate,
        aropen_ordernumber AS ordernumber,
+       -1 AS ordernumber_xtidrole,
        <? value("creditMemo") ?>  AS doctype,
-       COALESCE(aropen_amount,creditmemototal(cmhead_id)) AS amount,
-       COALESCE(SUM(arapply_target_paid),0) * -1 AS paid,
-       COALESCE((((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))),0) * -1 AS balance,
+       creditmemototal(cmhead_id) AS amount,
+       0 AS paid,
+       0 AS balance,
        currConcat(cmhead_curr_id) AS currAbbr,
-       COALESCE((((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/round(aropen_curr_rate,5)),0) * -1  AS base_balance,
+       0  AS base_balance,
        formatDate(cmhead_docdate) AS f_docdate,
        formatDate(aropen_duedate) AS f_duedate,
-       formatMoney(COALESCE(aropen_amount,creditmemototal(cmhead_id))) AS f_amount,
-       formatMoney(COALESCE(SUM(arapply_target_paid),0) * -1) AS f_paid,
-       formatMoney(COALESCE((((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))),0) * -1) AS f_balance,
+       formatMoney(creditmemototal(cmhead_id)) AS f_amount,
+       formatMoney(0) AS f_paid,
+       formatMoney(0) AS f_balance,
        cust_id, cust_number, cust_name,
        false AS recurring,
-       COALESCE(aropen_open,false) AS open,
+       false AS open,
        'curr' AS amount_xtnumericrole,
        'curr' AS balance_xtnumericrole,
        'curr' AS paid_xtnumericrole,
@@ -143,29 +143,27 @@ SELECT COALESCE(aropen_id,-1) AS id,
        NULL AS aropen_docnumber_qtdisplayrole,
        NULL AS aropen_docdate_qtdisplayrole,
        0 AS xtindentrole,
-       CASE WHEN ((COALESCE(aropen_duedate,current_date) < current_date) AND COALESCE(aropen_open,FALSE)) THEN 'error' 
-       END AS aropen_duedate_qtforegroundrole
+       '' AS aropen_duedate_qtforegroundrole
 FROM cmhead
-<? if exists("incidentsOnly") ?>
-            JOIN aropen ON ((aropen_docnumber=cmhead_number)
-                        AND (aropen_doctype='I'))
-            JOIN incdt ON (incdt_aropen_id=aropen_id)
-<? else ?>
             LEFT OUTER JOIN aropen ON ((aropen_docnumber=cmhead_number)
                              AND (aropen_doctype='C'))
-<? endif ?>
             LEFT OUTER JOIN custinfo ON (cmhead_cust_id=cust_id)
             LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
-            LEFT OUTER JOIN arapply ON (((aropen_id=arapply_source_aropen_id)
-                             OR (aropen_id=arapply_target_aropen_id))
-                             AND (arapply_distdate>COALESCE(<? value("asofDate") ?>,current_date)))
-WHERE ((true)
+WHERE ((aropen_id IS NULL)
+<? if not exists("showUnposted") ?>
+<? if not exists("showClosed") ?>
+  AND (FALSE)
+<? endif ?>
+<? endif ?>
+<? if exists("showUnposted") ?>
+<? if not exists("showClosed") ?>
+  AND (NOT cmhead_posted)
+<? endif ?>
+<? endif ?>
+<? if exists("showClosed") ?>
 <? if not exists("showUnposted") ?>
   AND (cmhead_posted)
 <? endif ?>
-<? if not exists("showClosed") ?>
-  AND (cmhead_docdate <= COALESCE(<? value ("asofDate") ?>,current_date))
-  AND (COALESCE(aropen_closedate, date <? value ("asofDate") ?> + integer '1', current_date + 1) > COALESCE(<? value("asofDate") ?>, current_date)) 
 <? endif ?>
 <? if exists("cust_id") ?>
   AND   (cmhead_cust_id=<? value("cust_id") ?>)
@@ -199,19 +197,21 @@ UNION
 
 -- Get other A/R Open
 SELECT aropen_id AS id,
-       CASE WHEN (aropen_doctype='C') THEN 1
+       CASE WHEN (aropen_doctype='I') THEN 0
+            WHEN (aropen_doctype='C') THEN 1
             WHEN (aropen_doctype='D') THEN 2
             WHEN (aropen_doctype='R') THEN 3
             ELSE -1
        END AS altId,
        aropen_docnumber AS docnumber,
-       -1 AS docnumber_xtidrole,
+       COALESCE(invchead_id,cmhead_id,-1) AS docnumber_xtidrole,
        true AS posted,
-       1 AS posted_xtidrole,
        aropen_docdate AS docdate,
        aropen_duedate,
        aropen_ordernumber AS ordernumber,
-       CASE WHEN (aropen_doctype='C') THEN <? value("creditMemo") ?>
+       COALESCE(cohead_id,-1) AS ordernumber_xtidrole,
+       CASE WHEN (aropen_doctype='I') THEN <? value("invoice") ?>
+            WHEN (aropen_doctype='C') THEN <? value("creditMemo") ?>
             WHEN (aropen_doctype='D') THEN <? value("debitMemo") ?>
             WHEN (aropen_doctype='R') THEN <? value("cashdeposit") ?>
             ELSE <? value("other") ?>
@@ -250,22 +250,23 @@ FROM aropen
 <? endif ?>
             LEFT OUTER JOIN custinfo ON (aropen_cust_id=cust_id)
             LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
+            LEFT OUTER JOIN invchead ON ((aropen_docnumber=invchead_invcnumber)
+                                   AND (aropen_doctype='I'))
+            LEFT OUTER JOIN cohead ON (invchead_ordernumber=cohead_number)
+            LEFT OUTER JOIN cmhead ON ((aropen_docnumber=cmhead_number)
+                                   AND (aropen_doctype='C'))
             LEFT OUTER JOIN arapply ON (((aropen_id=arapply_source_aropen_id)
                              OR (aropen_id=arapply_target_aropen_id))
                              AND (arapply_distdate>COALESCE(<? value("asofDate") ?>,current_date)))
-            LEFT OUTER JOIN cmhead ON ((aropen_docnumber=cmhead_number)
-                                   AND (aropen_doctype='C'))
-WHERE ((cmhead_id IS NULL)
+WHERE ((true)
 <? if not exists("showClosed") ?>
   AND (aropen_docdate <= COALESCE(<? value ("asofDate") ?>,current_date))
   AND (COALESCE(aropen_closedate, date <? value ("asofDate") ?> + integer '1', current_date + 1) > COALESCE(<? value("asofDate") ?>, current_date)) 
 <? endif ?>
 <? if exists("debitsOnly") ?>
-  AND   (aropen_doctype = 'D')
+  AND   (aropen_doctype IN ('D','I'))
 <? elseif exists("creditsOnly") ?>
   AND   (aropen_doctype IN ('C', 'R'))
-<? else ?>
-  AND   (aropen_doctype IN ('D','C','R'))
 <? endif ?>
 <? if exists("cust_id") ?>
   AND   (aropen_cust_id=<? value("cust_id") ?>)
@@ -286,23 +287,24 @@ WHERE ((cmhead_id IS NULL)
   AND   (aropen_duedate <= <? value("endDueDate") ?>)
 <? endif ?>
       )
-  GROUP BY id,                      altId,
+  GROUP BY id,                      altId,	            invchead_id,
            aropen_docdate,          aropen_duedate,         aropen_doctype,         
-           aropen_docnumber,        aropen_amount,
+           aropen_docnumber,        aropen_amount,          
            aropen_notes,            aropen_posted,          aropen_ordernumber,
            aropen_paid,             aropen_open,            aropen_curr_id,
-           aropen_closedate,        aropen_curr_rate,
-           cust_id, 		    cust_number,            cust_name
+           aropen_closedate,        aropen_curr_rate,       cmhead_id,
+           cust_id, 		    cust_number,            cust_name,
+           cohead_id
 UNION
 SELECT -1,
        4 AS altId,
        aropen_docnumber AS docnumber,
-       incdt_id AS docnumber_xtidrole,
+       -1 AS docnumber_xtidrole,
        NULL AS posted, 
-       0 AS posted_xtidrole,
        aropen_docdate AS docdate,
        NULL AS aropen_duedate,
        CAST(incdt_number AS text) AS ordernumber,
+       incdt_id AS ordernumber_xtidrole,
        NULL AS doctype,
        NULL AS amount,
        NULL AS paid,
