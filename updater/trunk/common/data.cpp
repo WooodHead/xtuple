@@ -39,7 +39,7 @@
  * EXHIBIT B.  Attribution Information
  * 
  * Attribution Copyright Notice: 
- * Copyright (c) 1999-2008 by OpenMFG, LLC, d/b/a xTuple
+ * Copyright (c) 1999-2009 by OpenMFG, LLC, d/b/a xTuple
  * 
  * Attribution Phrase: 
  * Powered by xTuple ERP: PostBooks Edition
@@ -70,8 +70,8 @@ QString _name = QObject::tr("Update Manager");
 #endif
 
 
-QString _copyright = QObject::tr("Copyright (c) 2004-2008 OpenMFG, LLC., d/b/a xTuple.");
-QString _version = QObject::tr("2.1.0WIP");
+QString _copyright = QObject::tr("Copyright (c) 2004-2009 OpenMFG, LLC., d/b/a xTuple.");
+QString _version = QObject::tr("2.1.0");
 
 QString _user;
 int     _usrid;
