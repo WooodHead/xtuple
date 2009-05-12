@@ -8,6 +8,7 @@
 :Cash Receipt.Cash Receipt_QWorkspaceTitleBar	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='Cash Receipt'}
 :Cash Receipt.Save_QPushButton	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='_save' occurrence='2' text='Save' type='QPushButton' visible='1'}
 :Cash Receipt.Save_QPushButton_2	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
+:Cash Receipt.Yes_QPushButton	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' text='Yes' type='QPushButton' unnamed='1' visible='1'}
 :Cash Receipt._amountGroup_QGroupBox	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='_amountGroup' type='QGroupBox' visible='1'}
 :Cash Receipt._titleLit_QLabel	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='_titleLit' type='QLabel' visible='1'}
 :Cash Receipt.qt_tabwidget_stackedwidget_QStackedWidget	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
@@ -134,6 +135,7 @@
 :Miscellaneous Voucher.Miscellaneous Voucher_QWorkspaceTitleBar	{container=':xTuple ERP:*.Miscellaneous Voucher_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='Miscellaneous Voucher'}
 :Miscellaneous Voucher.Save_QPushButton	{container=':xTuple ERP:*.Miscellaneous Voucher_QWorkspaceChild' name='_save' occurrence='2' text='Save' type='QPushButton' visible='1'}
 :Miscellaneous Voucher.Save_QPushButton_2	{container=':xTuple ERP:*.Miscellaneous Voucher_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
+:Miscellaneous Voucher.Yes_QPushButton	{container=':xTuple ERP:*.Miscellaneous Voucher_QWorkspaceChild' text='Yes' type='QPushButton' unnamed='1' visible='1'}
 :Miscellaneous Voucher._amountGroup_QGroupBox	{container=':xTuple ERP:*.Miscellaneous Voucher_QWorkspaceChild' name='_amountGroup' type='QGroupBox' visible='1'}
 :Miscellaneous Voucher._dateGroup_QGroupBox	{container=':xTuple ERP:*.Miscellaneous Voucher_QWorkspaceChild' name='_dateGroup' type='QGroupBox' visible='1'}
 :Miscellaneous Voucher._groupButton_QGroupBox	{container=':xTuple ERP:*.Miscellaneous Voucher_QWorkspaceChild' name='_groupButton' type='QGroupBox' visible='1'}
@@ -242,6 +244,7 @@
 :View Check Run.Order Checks By Name_XCheckBox	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' name='_orderByName' text='Order Checks By Name' type='XCheckBox' visible='1'}
 :View Check Run.Print_QPushButton	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' name='_print' occurrence='2' text='Print' type='QPushButton' visible='1'}
 :View Check Run.Yes_QPushButton	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' name='_yes' text='Yes' type='QPushButton' visible='1'}
+:View Check Run.Yes_QPushButton_2	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' text='Yes' type='QPushButton' unnamed='1' visible='1'}
 :View Check Run._frame_QFrame	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' name='_frame' type='QFrame' visible='1'}
 :View Check Run._nextCheckNum_QLineEdit	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' name='_nextCheckNum' type='QLineEdit' visible='1'}
 :View Check Run._numberOfChecks_QSpinBox	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' name='_numberOfChecks' type='QSpinBox' visible='1'}
@@ -249,6 +252,8 @@
 :Voucher.OK_QPushButton	{container=':xTuple ERP:*.Voucher_QWorkspaceChild' text='OK' type='QPushButton' unnamed='1' visible='1'}
 :Voucher.Purchase Orders:_QLabel	{container=':xTuple ERP:*.Voucher_QWorkspaceChild' name='_poheadLit' text='Purchase Orders:' type='QLabel' visible='1'}
 :Voucher.Save_QPushButton	{container=':xTuple ERP:*.Voucher_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
+:Voucher.Voucher_QWorkspaceTitleBar	{container=':xTuple ERP:*.Voucher_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='Voucher'}
+:Voucher._amount_QGroupBox	{container=':xTuple ERP:*.Voucher_QWorkspaceChild' name='_amount' type='QGroupBox' visible='1'}
 :Voucher._dateGroup_QGroupBox	{container=':xTuple ERP:*.Voucher_QWorkspaceChild' name='_dateGroup' type='QGroupBox' visible='1'}
 :Voucher._referenceGroup_QGroupBox	{container=':xTuple ERP:*.Voucher_QWorkspaceChild' name='_referenceGroup' type='QGroupBox' visible='1'}
 :Voucher._voucherGroup_QGroupBox	{container=':xTuple ERP:*.Voucher_QWorkspaceChild' name='_voucherGroup' type='QGroupBox' visible='1'}
@@ -279,6 +284,8 @@
 :_QMenu	{type='QMenu' unnamed='1' visible='1'}
 :_amountGroup_XLineEdit	{container=':Miscellaneous Voucher._amountGroup_QGroupBox' type='XLineEdit' unnamed='1' visible='1'}
 :_amountGroup_XLineEdit_2	{container=':Cash Receipt._amountGroup_QGroupBox' type='XLineEdit' unnamed='1' visible='1'}
+:_amount_XLineEdit	{container=':Voucher._amount_QGroupBox' type='XLineEdit' unnamed='1' visible='1'}
+:_amount_XLineEdit_2	{container=':Voucher._amount_QGroupBox' occurrence='2' type='XLineEdit' unnamed='1' visible='1'}
 :_applicationsTab.Apply_QPushButton	{container=':qt_tabwidget_stackedwidget._applicationsTab_QWidget' name='_apply' text='Apply' type='QPushButton' visible='1'}
 :_applicationsTab._aropen_XTreeWidget	{container=':qt_tabwidget_stackedwidget._applicationsTab_QWidget' name='_aropen' type='XTreeWidget' visible='1'}
 :_availabilityStack.Availability_QGroupBox	{container=':supplyTab._availabilityStack_QStackedWidget' name='_availabilityGroup' title='Availability' type='QGroupBox' visible='1'}
@@ -363,6 +370,8 @@
 :_password_QLineEdit	{buddy=':_frame.Password:_QLabel' name='_password' type='QLineEdit' visible='1'}
 :_pohead_XTreeWidget	{buddy=':Voucher.Purchase Orders:_QLabel' name='_pohead' type='XTreeWidget' visible='1'}
 :_poitems.Distribute All_QPushButton	{container=':qt_tabwidget_stackedwidget._poitems_QWidget' name='_distributeall' text='Distribute All' type='QPushButton' visible='1'}
+:_poitems.Distribute Line_QPushButton	{container=':qt_tabwidget_stackedwidget._poitems_QWidget' name='_distributeline' text='Distribute Line' type='QPushButton' visible='1'}
+:_poitems._poitem_XTreeWidget	{container=':qt_tabwidget_stackedwidget._poitems_QWidget' name='_poitem' type='XTreeWidget' visible='1'}
 :_port_QLineEdit	{buddy=':Login Options.Port:_QLabel' name='_port' type='QLineEdit' visible='1'}
 :_priceGroup_2_XLineEdit	{container=':Invoice._priceGroup_2_QGroupBox' type='XLineEdit' unnamed='1' visible='1'}
 :_priceGroup_XLineEdit	{container=':Purchase Order._priceGroup_QGroupBox' type='XLineEdit' unnamed='1' visible='1'}

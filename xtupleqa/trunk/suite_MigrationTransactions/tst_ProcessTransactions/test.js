@@ -57,7 +57,7 @@ function main()
     test.log("Logged in Application");
     waitForObject(":xTuple ERP:*.Products Tools_QWorkspace");
 
-    
+  
     
     //-------Convert Quote to Sales Order-------
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
@@ -96,7 +96,7 @@ function main()
     clickButton(":Issue to Shipping.Ship_QPushButton");
     waitForObject(":Issue to Shipping.Close_QPushButton");
     clickButton(":Issue to Shipping.Close_QPushButton");
-  
+
     //----Ship Order----        
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
@@ -225,7 +225,8 @@ function main()
 
     waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
     clickButton(":Planned Orders by Planner Code.Query_QPushButton");
-    clickItem(":Planned Orders by Planner Code.Query_QPushButton", "90314-1",5,5,1,Qt.LeftButton);
+    waitForObject(":frame._planord_XTreeWidget");
+    clickItem(":frame._planord_XTreeWidget", "90314-1",5,5,1,Qt.LeftButton);
     sendEvent("QContextMenuEvent", ":frame._planord_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
     waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release Order...");
     activateItem(":xTuple ERP:*._menu_QMenu", "Release Order...");
@@ -261,8 +262,6 @@ function main()
     clickButton(":Purchase Order Item.Save_QPushButton");
     waitForObject(":Purchase Order.Save_QPushButton");
     clickButton(":Purchase Order.Save_QPushButton");
-    waitForObject(":Purchase Order.Close_QPushButton");
-    clickButton(":Purchase Order.Close_QPushButton");
     
     waitForObject(":Purchase Requests by Planner Code.Close_QPushButton");
     clickButton(":Purchase Requests by Planner Code.Close_QPushButton");    
@@ -351,7 +350,7 @@ function main()
     waitForObject(":List Unposted Receipts.Close_QPushButton");
     clickButton(":List Unposted Receipts.Close_QPushButton");
 
-    
+  
     //----Post Invoice---------
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -414,8 +413,12 @@ function main()
     type(":_amountGroup_XLineEdit_2", amt);
     waitForObject(":Cash Receipt.Save_QPushButton_2");
     clickButton(":Cash Receipt.Save_QPushButton_2");
+    snooze(0.5);
+    if(object.exists(":Cash Receipt.Yes_QPushButton")
+        clickButton(":Cash Receipt.Yes_QPushButton");
     
-    //-------Check entry in Invoice Register--------
+  
+    //-------Check entry in Invoice Register--------    
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
     waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Receivable");
@@ -447,6 +450,16 @@ function main()
     waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
     activateItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
 
+    waitForObject(":List Open Vouchers._vohead_XTreeWidget");
+    doubleClickItem(":List Open Vouchers._vohead_XTreeWidget", "30070", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_poitems._poitem_XTreeWidget");
+    clickItem(":_poitems._poitem_XTreeWidget", "Open", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_poitems.Distribute Line_QPushButton");
+    clickButton(":_poitems.Distribute Line_QPushButton");
+    waitForObject(":_amount_XLineEdit");
+    type(":_amount_XLineEdit", findObject(":_amount_XLineEdit_2").text);
+    waitForObject(":Voucher.Save_QPushButton");
+    clickButton(":Voucher.Save_QPushButton");
     waitForObject(":List Open Vouchers._vohead_XTreeWidget");
     clickItem(":List Open Vouchers._vohead_XTreeWidget", "30070", 5, 5, 1, Qt.LeftButton);
     waitForObject(":List Open Vouchers.Post_QPushButton");
@@ -482,6 +495,7 @@ function main()
     waitForObject(":Select Payments.Close_QPushButton");
     clickButton(":Select Payments.Close_QPushButton");
     
+    
     //--------Post Check------------
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -489,16 +503,28 @@ function main()
     activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
     waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
     activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Post Check...");
-    activateItem(":xTuple ERP:*.Payments_QMenu", "Post Check...");
+    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "View Check Run...");
+    activateItem(":xTuple ERP:*.Payments_QMenu", "View Check Run...");
     
-    waitForObject(":Post Check._check_XComboBox");
-    type(":Post Check._check_XComboBox", "<Down>");
-    waitForObject(":Post Check.Post_QPushButton");
-    clickButton(":Post Check.Post_QPushButton");
-    waitForObject(":Post Check_postCheck");
-    sendEvent("QCloseEvent", ":Post Check_postCheck");
-
+    waitForObject(":_frame._check_XTreeWidget");
+    clickItem(":_frame._check_XTreeWidget", "No", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_frame.Print_QPushButton");
+    sendEvent("QMouseEvent", ":_frame.Print_QPushButton", QEvent.MouseButtonPress, 5, 5, Qt.LeftButton, 0); 	waitForObjectItem(":_QMenu", "Check Run...");
+    activateItem(":_QMenu", "Check Run...");
+    waitForObject(":View Check Run.Create ACH File_QPushButton");
+    clickButton(":View Check Run.Create ACH File_QPushButton");
+    waitForObject(":xTuple ERP:*_QPushButton");
+    sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonPress, 5, 5, Qt.LeftButton, 0);
+    waitForObject(":xTuple ERP:*_QPushButton");
+    sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonRelease, 5, 5, Qt.LeftButton, 1);    
+    snooze(1);
+    if(object.exists(":View Check Run.Yes_QPushButton_2"))
+        clickButton(":View Check Run.Yes_QPushButton_2");
+    waitForObject(":View Check Run.Close_QPushButton");
+    clickButton(":View Check Run.Close_QPushButton");
+    
+    
+    
   
     //----implode work Order----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
@@ -565,9 +591,13 @@ function main()
         if(sNameOfRootItem=="10063-1") break;
         type(sWidgetTreeControl,"<Down>"); 
     }
-    sendEvent("QContextMenuEvent", ":frame._wo_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
-    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release W/O");
-    activateItem(":xTuple ERP:*._menu_QMenu", "Release W/O");
+    sendEvent("QContextMenuEvent", ":frame._wo_XTreeWidget", QContextMenuEvent.Keyboard, 0, 0, 0);
+    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Edit W/O");
+    type(":xTuple ERP:*._menu_QMenu","<Down>");
+    type(":xTuple ERP:*._menu_QMenu","<Down>");    
+    type(":xTuple ERP:*._menu_QMenu","<Down>");
+    type(":xTuple ERP:*._menu_QMenu","<Enter>");
+    
 
     
     //----Issue Material------
@@ -689,8 +719,10 @@ function main()
     clickButton(":W/O Schedule by Planner Code.Close Work Order_QPushButton");
 
     
-
-   
+    
+    
+/*************    
+    
     
     //----Issue stock to Shipping and Ship the Order----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
@@ -818,6 +850,11 @@ function main()
     
     
     
+  
+*****************/
+
+    
+   
     
 
     

@@ -380,7 +380,7 @@ function main()
     waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
     clickButton(":Planned Orders by Planner Code.Query_QPushButton");
     type(":Planned Orders by Planner Code.Query_QPushButton", "<Down>");
-    type(":frame._planord_XTreeWidget", " ");
+    clickItem(":frame._planord_XTreeWidget", "10054",5,5,1,Qt.LeftButton);
     sendEvent("QContextMenuEvent", ":frame._planord_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
     waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release Order...");
     activateItem(":xTuple ERP:*._menu_QMenu", "Release Order...");
@@ -502,18 +502,8 @@ function main()
     clickButton(":List Unposted Purchase Orders.Post P/O_QPushButton");
     waitForObject(":List Unposted Purchase Orders.Yes_QPushButton");
     clickButton(":List Unposted Purchase Orders.Yes_QPushButton");
-    waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
-    clickButton(":List Unposted Purchase Orders.Close_QPushButton");
    
     
-    
-     //------List Unposted Purchase Order------
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
-    waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-    activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
     waitForObjectItem(":List Unposted Purchase Orders._pohead_XTreeWidget", "20066");
     clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", "20066", 5, 5, 1, Qt.LeftButton);
     waitForObject(":List Unposted Purchase Orders.Post P/O_QPushButton");
@@ -522,9 +512,26 @@ function main()
     clickButton(":List Unposted Purchase Orders.Yes_QPushButton");
     waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
     clickButton(":List Unposted Purchase Orders.Close_QPushButton");
-   
-      
-    //----Create Receipt----
+ 
+  
+    //----Issue stock to Shipping and Ship Order----        
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Shipping");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Shipping");
+    waitForObjectItem(":xTuple ERP:*.Shipping_QMenu", "Issue to Shipping...");
+    activateItem(":xTuple ERP:*.Shipping_QMenu", "Issue to Shipping...");
+    waitForObject(":Issue to Shipping...._QPushButton");
+    clickButton(":Issue to Shipping...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_4");
+    doubleClickItem(":_listTab_XTreeWidget_4", "50195", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":frame.Issue All Bal._QPushButton");
+    clickButton(":frame.Issue All Bal._QPushButton");
+    waitForObject(":Issue to Shipping.Close_QPushButton");
+    clickButton(":Issue to Shipping.Close_QPushButton");
+
+    
+      //----Create Receipt----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
     waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Receiving");
@@ -537,9 +544,16 @@ function main()
     waitForObject(":Enter Order Receipts...._QPushButton");
     clickButton(":Enter Order Receipts...._QPushButton");
     waitForObject(":_listTab_XTreeWidget_5");
-    doubleClick(":_listTab_XTreeWidget_5", 69, 11, 0, Qt.LeftButton);
+    doubleClickItem(":_listTab_XTreeWidget_5", "20066", 5,5, 0, Qt.LeftButton);
+    
+    waitForObject(":Enter Order Receipts.Receive All_QPushButton");
+    clickButton(":Enter Order Receipts.Receive All_QPushButton");
+  
+    waitForObject(":Enter Order Receipts.Save_QPushButton");
+    clickButton(":Enter Order Receipts.Save_QPushButton");
     waitForObject(":List Unposted Receipts.Close_QPushButton");
     clickButton(":List Unposted Receipts.Close_QPushButton");
+
       
   
     
@@ -641,16 +655,7 @@ function main()
    
     
   
-    //----Post Invoice---------
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Receivable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Receivable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Receivable_QMenu", "Invoice");
-    activateItem(":xTuple ERP:*.Accounts Receivable_QMenu", "Invoice");
-    waitForObjectItem(":xTuple ERP:*.Invoice_QMenu", "List Unposted...");
-    activateItem(":xTuple ERP:*.Invoice_QMenu", "List Unposted...");
-  
+    //-----Post Invoice--------
     waitForObject(":_invchead_XTreeWidget");
     var sWidgetTreeControl = ":_invchead_XTreeWidget";
     waitForObject(sWidgetTreeControl);
@@ -804,6 +809,9 @@ function main()
     clickButton(":Miscellaneous Voucher.Save_QPushButton_2");
     waitForObject(":Miscellaneous Voucher.Cancel_QPushButton");
     clickButton(":Miscellaneous Voucher.Cancel_QPushButton");
+    waitForObject(":List Open Vouchers.Close_QPushButton");
+    clickButton(":List Open Vouchers.Close_QPushButton");
+
     
     
     //----Accounting - Misc Voucher----
@@ -848,9 +856,12 @@ function main()
     type(":_referenceGroup._reference_XLineEdit", "ref - VO 30072");
     waitForObject(":Miscellaneous Voucher.Save_QPushButton_2");
     clickButton(":Miscellaneous Voucher.Save_QPushButton_2");
+    snooze(1);
+    if(object.exists(":Miscellaneous Voucher.Yes_QPushButton"))
+        clickButton(":Miscellaneous Voucher.Yes_QPushButton");
     waitForObject(":Miscellaneous Voucher.Cancel_QPushButton");
     clickButton(":Miscellaneous Voucher.Cancel_QPushButton");
-    
+  
     
     //----Accounting - Misc Voucher----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -894,27 +905,30 @@ function main()
     type(":_referenceGroup._reference_XLineEdit", "ref - VO 30072");
     waitForObject(":Miscellaneous Voucher.Save_QPushButton_2");
     clickButton(":Miscellaneous Voucher.Save_QPushButton_2");
+    snooze(1);
+    if(object.exists(":Miscellaneous Voucher.Yes_QPushButton"))
+        clickButton(":Miscellaneous Voucher.Yes_QPushButton");
     waitForObject(":Miscellaneous Voucher.Cancel_QPushButton");
     clickButton(":Miscellaneous Voucher.Cancel_QPushButton");
   
-    
-    //-------Post Vouchers---------
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
-    activateItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
+  
+  //-------Post Vouchers---------
+  waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+  activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+  waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+  activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+  waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+  activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+  waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
+  activateItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
 
-    waitForObject(":List Open Vouchers._vohead_XTreeWidget");
-    var sWidgetTreeControl = ":List Open Vouchers._vohead_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(":List Open Vouchers._vohead_XTreeWidget","<Space>");
+  waitForObject(":List Open Vouchers._vohead_XTreeWidget");
+  var sWidgetTreeControl = ":List Open Vouchers._vohead_XTreeWidget";
+  waitForObject(sWidgetTreeControl);
+  var obj_TreeWidget = findObject(sWidgetTreeControl);
+  var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+  var iNumberOfRootItems = obj_TreeRootItem.childCount();
+  type(":List Open Vouchers._vohead_XTreeWidget","<Space>");
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
     for(i=0;i<iNumberOfRootItems ;i++)
@@ -1065,9 +1079,10 @@ function main()
     waitForObject(":xTuple ERP:*_QPushButton");
     sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonPress, 5, 5, Qt.LeftButton, 0);
     waitForObject(":xTuple ERP:*_QPushButton");
-    sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonRelease, 5, 5, Qt.LeftButton, 1);
-    waitForObject(":View Check Run.Yes_QPushButton");
-    clickButton(":View Check Run.Yes_QPushButton");
+    sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonRelease, 5, 5, Qt.LeftButton, 1);    
+    snooze(1);
+    if(object.exists(":View Check Run.Yes_QPushButton_2"))
+        clickButton(":View Check Run.Yes_QPushButton_2");
     waitForObject(":View Check Run.Close_QPushButton");
     clickButton(":View Check Run.Close_QPushButton");
     
