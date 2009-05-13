@@ -253,7 +253,7 @@ BEGIN
           NEW.cohead_billtocountry=COALESCE(NEW.cohead_billtocountry,_p.addr_country,'');   
         ELSE
           -- Free form not allowed, we're going to put in the address regardless
-          NEW.cohead_billto_cntct_id=COALESCE(_p.cntct_id,'');
+          NEW.cohead_billto_cntct_id=_p.cntct_id;
           NEW.cohead_billto_cntct_honorific=COALESCE(_p.cntct_honorific,'');
           NEW.cohead_billto_cntct_first_name=COALESCE(_p.cntct_first_name,'');
           NEW.cohead_billto_cntct_middle=COALESCE(_p.cntct_middle,'');    
