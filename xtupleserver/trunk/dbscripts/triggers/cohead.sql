@@ -59,10 +59,10 @@ BEGIN
     IF (NEW.cohead_shipto_id IS NULL) THEN
       SELECT cust_creditstatus,cust_number,cust_usespos,cust_blanketpos,cust_ffbillto,
 	     cust_ffshipto,cust_name,cust_salesrep_id,cust_terms_id,cust_shipvia,
-	     cust_shipchrg_id,cust_shipform_id,cust_commprcnt,cust_curr_id,cust_taxauth_id,
+	     cust_shipchrg_id,cust_shipform_id,cust_commprcnt,cust_curr_id,cust_taxzone_id,
   	     cntct.*,addr.*,
 	     shipto_id,shipto_addr_id,shipto_name,shipto_salesrep_id,shipto_shipvia,
-	     shipto_shipchrg_id,shipto_shipform_id,shipto_commission,shipto_taxauth_id INTO _p
+	     shipto_shipchrg_id,shipto_shipform_id,shipto_commission,shipto_taxzone_id INTO _p
       FROM custinfo
         LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
         LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
@@ -71,10 +71,10 @@ BEGIN
     ELSE
       SELECT cust_creditstatus,cust_number,cust_usespos,cust_blanketpos,cust_ffbillto,
 	     cust_ffshipto,cust_name,cust_salesrep_id,cust_terms_id,cust_shipvia,
-	     cust_shipchrg_id,cust_shipform_id,cust_commprcnt,cust_curr_id,cust_taxauth_id,
+	     cust_shipchrg_id,cust_shipform_id,cust_commprcnt,cust_curr_id,cust_taxzone_id,
   	     cntct.*,addr.*,
 	     shipto_id,shipto_addr_id,shipto_name,shipto_salesrep_id,shipto_shipvia,
-	     shipto_shipchrg_id,shipto_shipform_id,shipto_commission,shipto_taxauth_id INTO _p
+	     shipto_shipchrg_id,shipto_shipform_id,shipto_commission,shipto_taxzone_id INTO _p
       FROM shiptoinfo,custinfo
         LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
         LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
@@ -123,11 +123,11 @@ BEGIN
           NEW.cohead_shipvia		:= COALESCE(NEW.cohead_shipvia,_p.shipto_shipvia,_p.cust_shipvia);
           NEW.cohead_shipchrg_id	:= COALESCE(NEW.cohead_shipchrg_id,_p.shipto_shipchrg_id,_p.cust_shipchrg_id);
           NEW.cohead_shipform_id	:= COALESCE(NEW.cohead_shipform_id,_p.shipto_shipform_id,_p.cust_shipform_id);
-          NEW.cohead_commission	:= COALESCE(NEW.cohead_commission,_p.shipto_commission,_p.cust_commprcnt);
+          NEW.cohead_commission		:= COALESCE(NEW.cohead_commission,_p.shipto_commission,_p.cust_commprcnt);
           NEW.cohead_orderdate		:= COALESCE(NEW.cohead_orderdate,current_date);
           NEW.cohead_packdate		:= COALESCE(NEW.cohead_packdate,NEW.cohead_orderdate);
           NEW.cohead_curr_id		:= COALESCE(NEW.cohead_curr_id,_p.cust_curr_id,basecurrid());
-          NEW.cohead_taxauth_id	:= COALESCE(NEW.cohead_taxauth_id,_p.shipto_taxauth_id,_p.cust_taxauth_id);
+          NEW.cohead_taxzone_id		:= COALESCE(NEW.cohead_taxzone_id,_p.shipto_taxzone_id,_p.cust_taxzone_id);
           NEW.cohead_freight		:= COALESCE(NEW.cohead_freight,0);
           NEW.cohead_custponumber	:= COALESCE(NEW.cohead_custponumber,'');
           NEW.cohead_ordercomments	:= COALESCE(NEW.cohead_ordercomments,'');

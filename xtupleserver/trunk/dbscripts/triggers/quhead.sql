@@ -55,10 +55,10 @@ BEGIN
       SELECT * INTO _p FROM (
       SELECT cust_number,cust_usespos,cust_blanketpos,cust_ffbillto,
 	     cust_ffshipto,cust_name,cust_salesrep_id,cust_terms_id,cust_shipvia,
-	     cust_commprcnt,cust_curr_id,cust_taxauth_id,
+	     cust_commprcnt,cust_curr_id,cust_taxzone_id,
   	     addr_line1,addr_line2,addr_line3,addr_city,addr_state,addr_postalcode,addr_country,
 	     shipto_id,shipto_addr_id,shipto_name,shipto_salesrep_id,shipto_shipvia,
-	     shipto_shipchrg_id,shipto_shipform_id,shipto_commission,shipto_taxauth_id
+	     shipto_shipchrg_id,shipto_shipform_id,shipto_commission,shipto_taxzone_id
       FROM custinfo
         LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
         LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
@@ -67,7 +67,7 @@ BEGIN
       UNION
       SELECT prospect_number,false,false,true,
 	     true,prospect_name,prospect_salesrep_id,null,null,
-	     null,null,prospect_taxauth_id,
+	     null,null,prospect_taxzone_id,
   	     addr_line1,addr_line2,addr_line3,addr_city,addr_state,addr_postalcode,addr_country,
 	     null,null,null,null,null,
 	     null,null,null,null
@@ -78,10 +78,10 @@ BEGIN
     ELSE
       SELECT cust_creditstatus,cust_number,cust_usespos,cust_blanketpos,cust_ffbillto,
 	     cust_ffshipto,cust_name,cust_salesrep_id,cust_terms_id,cust_shipvia,
-	     cust_shipchrg_id,cust_shipform_id,cust_commprcnt,cust_curr_id,cust_taxauth_id,
+	     cust_shipchrg_id,cust_shipform_id,cust_commprcnt,cust_curr_id,cust_taxzone_id,
   	     addr_line1,addr_line2,addr_line3,addr_city,addr_state,addr_postalcode,addr_country,
 	     shipto_id,shipto_addr_id,shipto_name,shipto_salesrep_id,shipto_shipvia,
-	     shipto_shipchrg_id,shipto_shipform_id,shipto_commission,shipto_taxauth_id INTO _p
+	     shipto_shipchrg_id,shipto_shipform_id,shipto_commission,shipto_taxzone_id INTO _p
       FROM shiptoinfo,custinfo
         LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
         LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
@@ -94,15 +94,15 @@ BEGIN
       -- Only check PO number for imports because UI checks when whole quote is saved
       IF (TG_OP = ''INSERT'') THEN
           -- Set to defaults if values not provided
-          NEW.quhead_shipto_id 	:= COALESCE(NEW.quhead_shipto_id,_p.shipto_id);
+          NEW.quhead_shipto_id		:= COALESCE(NEW.quhead_shipto_id,_p.shipto_id);
 	  NEW.quhead_salesrep_id 	:= COALESCE(NEW.quhead_salesrep_id,_p.shipto_salesrep_id,_p.cust_salesrep_id);
           NEW.quhead_terms_id		:= COALESCE(NEW.quhead_terms_id,_p.cust_terms_id);
           NEW.quhead_shipvia		:= COALESCE(NEW.quhead_shipvia,_p.shipto_shipvia,_p.cust_shipvia);
-          NEW.quhead_commission	:= COALESCE(NEW.quhead_commission,_p.shipto_commission,_p.cust_commprcnt);
+          NEW.quhead_commission		:= COALESCE(NEW.quhead_commission,_p.shipto_commission,_p.cust_commprcnt);
           NEW.quhead_quotedate		:= COALESCE(NEW.quhead_quotedate,current_date);
           NEW.quhead_packdate		:= COALESCE(NEW.quhead_packdate,NEW.quhead_quotedate);
           NEW.quhead_curr_id		:= COALESCE(NEW.quhead_curr_id,_p.cust_curr_id,basecurrid());
-          NEW.quhead_taxauth_id	:= COALESCE(NEW.quhead_taxauth_id,_p.shipto_taxauth_id,_p.cust_taxauth_id);
+          NEW.quhead_taxzone_id		:= COALESCE(NEW.quhead_taxzone_id,_p.shipto_taxzone_id,_p.cust_taxzone_id);
           NEW.quhead_freight		:= COALESCE(NEW.quhead_freight,0);
           NEW.quhead_custponumber	:= COALESCE(NEW.quhead_custponumber,'''');
           NEW.quhead_ordercomments	:= COALESCE(NEW.quhead_ordercomments,'''');

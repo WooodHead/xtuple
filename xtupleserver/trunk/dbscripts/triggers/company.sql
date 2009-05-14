@@ -58,8 +58,6 @@ BEGIN
                   UNION SELECT DISTINCT salescat_sales_accnt_id FROM salescat
                   UNION SELECT DISTINCT stdjrnlitem_accnt_id FROM stdjrnlitem
                   UNION SELECT DISTINCT tax_sales_accnt_id FROM tax
-                  UNION SELECT DISTINCT tax_salesb_accnt_id FROM tax
-                  UNION SELECT DISTINCT tax_salesc_accnt_id FROM tax
                   UNION SELECT DISTINCT taxauth_accnt_id FROM taxauth
                   UNION SELECT DISTINCT vodist_accnt_id FROM vodist
                   UNION SELECT DISTINCT warehous_default_accnt_id FROM whsinfo

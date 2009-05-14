@@ -405,10 +405,10 @@ BEGIN
            WHERE((raitem_new_coitem_id=NEW.coitem_id)
              AND (COALESCE(raitem_cos_accnt_id,-1) != COALESCE(NEW.coitem_cos_accnt_id,-1)));
         END IF;
-        IF (OLD.coitem_tax_id <> NEW.coitem_tax_id) THEN
-          UPDATE raitem SET raitem_tax_id = NEW.coitem_tax_id
+        IF (OLD.coitem_taxtype_id <> NEW.coitem_taxtype_id) THEN
+          UPDATE raitem SET raitem_taxtype_id = NEW.coitem_taxtype_id
            WHERE((raitem_new_coitem_id=NEW.coitem_id)
-             AND (COALESCE(raitem_tax_id,-1) != COALESCE(NEW.coitem_tax_id,-1)));
+             AND (COALESCE(raitem_taxtype_id,-1) != COALESCE(NEW.coitem_taxtype_id,-1)));
         END IF;
         IF (OLD.coitem_scheddate <> NEW.coitem_scheddate) THEN
           UPDATE raitem SET raitem_scheddate = NEW.coitem_scheddate

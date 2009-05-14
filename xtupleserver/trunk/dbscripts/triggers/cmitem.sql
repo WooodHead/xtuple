@@ -44,11 +44,6 @@ DECLARE
 
 BEGIN
   IF (TG_OP = ''DELETE'') THEN
-    IF((COALESCE(OLD.cmitem_tax_ratea,0.0)
-      + COALESCE(OLD.cmitem_tax_rateb,0.0)
-      + COALESCE(OLD.cmitem_tax_ratec,0.0)) <> 0.0) THEN
-      PERFORM recalculateCmheadTaxTotal(OLD.cmitem_cmhead_id);
-    END IF;
 
 --  If this was created by a return, reset return values
     IF (OLD.cmitem_raitem_id) IS NOT NULL THEN
@@ -59,23 +54,6 @@ BEGIN
       WHERE (raitem_id=OLD.cmitem_raitem_id);
     END IF;
     RETURN OLD;
-  END IF;
-  IF (TG_OP = ''INSERT'') THEN
-    IF((COALESCE(NEW.cmitem_tax_ratea,0.0)
-      + COALESCE(NEW.cmitem_tax_rateb,0.0)
-      + COALESCE(NEW.cmitem_tax_ratec,0.0)) <> 0.0) THEN
-      PERFORM recalculateCmheadTaxTotal(NEW.cmitem_cmhead_id);
-    END IF;
-  ELSE
-    IF((COALESCE(NEW.cmitem_tax_ratea,0.0)
-      + COALESCE(NEW.cmitem_tax_rateb,0.0)
-      + COALESCE(NEW.cmitem_tax_ratec,0.0))
-       <> 
-       (COALESCE(OLD.cmitem_tax_ratea,0.0)
-      + COALESCE(OLD.cmitem_tax_rateb,0.0)
-      + COALESCE(OLD.cmitem_tax_ratec,0.0)) ) THEN
-      PERFORM recalculateCmheadTaxTotal(NEW.cmitem_cmhead_id);
-    END IF;
   END IF;
   RETURN NEW;
 END;
