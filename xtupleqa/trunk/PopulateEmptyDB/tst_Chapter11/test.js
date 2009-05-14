@@ -24,7 +24,8 @@ function main()
     clickButton(":Copy Financial Report.OK_QPushButton");
     waitForObject(":List Financial Reports._flhead_XTreeWidget");
     doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "Official Income Statement", 5, 5, 0, Qt.LeftButton);
-    waitForObjectItem(":frame._layout_XTreeWidget", "INCOME");
+    snooze(1);
+    waitForObject(":frame._layout_XTreeWidget");
     clickItem(":frame._layout_XTreeWidget", "INCOME", 5, 5, 1, Qt.LeftButton);
     snooze(1);
     clickButton(":frame.Delete_QPushButton");

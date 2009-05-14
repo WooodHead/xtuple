@@ -300,9 +300,9 @@ function main()
     waitForObject(":_whsezone_XComboBox_2");
     clickItem(":_whsezone_XComboBox_2", "RM1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
-        findObject(":Location.Netable_QCheckBox").checked=true;
+        clickButton(":Location.Netable_QCheckBox");
     if(findObject(":Location.Restricted_QCheckBox").checked)
-        findObject(":Location.Restricted_QCheckBox").checked=false;
+        clickButton(":Location.Restricted_QCheckBox");
     type(":Location._aisle_XLineEdit", "01");
     type(":Location._rack_XLineEdit", "01");
     type(":Location._bin_XLineEdit", "01");
@@ -317,9 +317,9 @@ function main()
     waitForObject(":_whsezone_XComboBox_2");
     clickItem(":_whsezone_XComboBox_2", "RM1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
-        findObject(":Location.Netable_QCheckBox").checked=true;
+        clickButton(":Location.Netable_QCheckBox");
     if(findObject(":Location.Restricted_QCheckBox").checked)
-        findObject(":Location.Restricted_QCheckBox").checked=false;
+        clickButton(":Location.Restricted_QCheckBox");
     type(":Location._aisle_XLineEdit", "01");
     type(":Location._rack_XLineEdit", "01");
     type(":Location._bin_XLineEdit", "01");
@@ -334,9 +334,9 @@ function main()
     waitForObject(":_whsezone_XComboBox_2");
     clickItem(":_whsezone_XComboBox_2", "RM1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
-        findObject(":Location.Netable_QCheckBox").checked=true;
+        clickButton(":Location.Netable_QCheckBox");
     if(findObject(":Location.Restricted_QCheckBox").checked)
-        findObject(":Location.Restricted_QCheckBox").checked=false;
+        clickButton(":Location.Restricted_QCheckBox");
     type(":Location._aisle_XLineEdit", "01");
     type(":Location._rack_XLineEdit", "01");
     type(":Location._bin_XLineEdit", "01");
@@ -351,9 +351,9 @@ function main()
     waitForObject(":_whsezone_XComboBox_2");
     clickItem(":_whsezone_XComboBox_2", "FG1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
-        findObject(":Location.Netable_QCheckBox").checked=true;
+        clickButton(":Location.Netable_QCheckBox");
     if(findObject(":Location.Restricted_QCheckBox").checked)
-        findObject(":Location.Restricted_QCheckBox").checked=false;
+        clickButton(":Location.Restricted_QCheckBox");
     type(":Location._aisle_XLineEdit", "99");
     type(":Location._rack_XLineEdit", "01");
     type(":Location._bin_XLineEdit", "01");
@@ -368,9 +368,9 @@ function main()
     waitForObject(":_whsezone_XComboBox_2");
     clickItem(":_whsezone_XComboBox_2", "FG1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
-    findObject(":Location.Netable_QCheckBox").checked=true;
+        clickButton(":Location.Netable_QCheckBox");
     if(findObject(":Location.Restricted_QCheckBox").checked)
-    findObject(":Location.Restricted_QCheckBox").checked=false;
+        clickButton(":Location.Restricted_QCheckBox");
     type(":Location._aisle_XLineEdit", "99");
     type(":Location._rack_XLineEdit", "01");
     type(":Location._bin_XLineEdit", "01");
@@ -385,9 +385,9 @@ function main()
     waitForObject(":_whsezone_XComboBox_2");
     clickItem(":_whsezone_XComboBox_2", "FG1", 0, 0, 1, Qt.LeftButton);
     if(!findObject(":Location.Netable_QCheckBox").checked)
-    findObject(":Location.Netable_QCheckBox").checked=true;
+        clickButton(":Location.Netable_QCheckBox");
     if(findObject(":Location.Restricted_QCheckBox").checked)
-    findObject(":Location.Restricted_QCheckBox").checked=false;
+        clickButton(":Location.Restricted_QCheckBox");
     type(":Location._aisle_XLineEdit", "99");
     type(":Location._rack_XLineEdit", "01");
     type(":Location._bin_XLineEdit", "01");
@@ -494,7 +494,7 @@ function main()
     waitForObject(":Conversion._toValue_XLineEdit");
     type(":Conversion._toValue_XLineEdit", "2.20462262");
     if(!findObject(":Conversion.Fractional_QCheckBox").checked)
-        findObject(":Conversion.Fractional_QCheckBox").checked=true;
+        clickButton(":Conversion.Fractional_QCheckBox");
     
     waitForObject(":Conversion.Save_QPushButton");
     clickButton(":Conversion.Save_QPushButton");
@@ -647,7 +647,7 @@ function main()
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "I-COLOR");
     if(!findObject(":May be used for:.Item Characteristics_QCheckBox_2").checked)
-        findObject(":May be used for:.Item Characteristics_QCheckBox_2").checked=true;
+        clickButton(":May be used for:.Item Characteristics_QCheckBox_2");
     waitForObject(":_description_QTextEdit_4");
     type(":_description_QTextEdit_4", "Product Color");
     waitForObject(":Characteristic.Save_QPushButton");
@@ -662,7 +662,7 @@ function main()
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "SUPPORT-PLAN");
     if(!findObject(":May be used for:.Customer Characteristics_QCheckBox_2").checked)
-        findObject(":May be used for:.Customer Characteristics_QCheckBox_2").checked=true;
+        clickButton(":May be used for:.Customer Characteristics_QCheckBox_2");
     waitForObject(":_description_QTextEdit_4");
     type(":_description_QTextEdit_4", "Customer Feedback");
     waitForObject(":Characteristic.Save_QPushButton");
@@ -677,7 +677,7 @@ function main()
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "SALES-VOLUME");
     if(!findObject(":May be used for:.Customer Characteristics_QCheckBox_2").checked)
-        findObject(":May be used for:.Customer Characteristics_QCheckBox_2").checked=true;
+        clickButton(":May be used for:.Customer Characteristics_QCheckBox_2");
     waitForObject(":_description_QTextEdit_4");
     type(":_description_QTextEdit_4", "Customer Sales Volume");
     waitForObject(":Characteristic.Save_QPushButton");
@@ -691,7 +691,7 @@ function main()
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "CRM-ACCOUNT-REGION");
     if(!findObject(":May be used for:.CRM Account Characteristics_QCheckBox_2").checked)
-        findObject(":May be used for:.CRM Account Characteristics_QCheckBox_2").checked=true;
+        clickButton(":May be used for:.CRM Account Characteristics_QCheckBox_2");
     waitForObject(":_description_QTextEdit_4");
     type(":_description_QTextEdit_4", "Account Region");
     waitForObject(":Characteristic.Save_QPushButton");
@@ -706,7 +706,7 @@ function main()
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "ADR-ROUTE");
     if(!findObject(":May be used for:.Address Characteristics_QCheckBox_2").checked)
-        findObject(":May be used for:.Address Characteristics_QCheckBox_2").checked=true;
+        clickButton(":May be used for:.Address Characteristics_QCheckBox_2");
     waitForObject(":_description_QTextEdit_4");
     type(":_description_QTextEdit_4", "Delivery Route");
     waitForObject(":Characteristic.Save_QPushButton");
@@ -721,7 +721,7 @@ function main()
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "CTC-BDAY");
     if(!findObject(":May be used for:.Contact Characteristics_QCheckBox_2").checked)
-        findObject(":May be used for:.Contact Characteristics_QCheckBox_2").checked=true;
+        clickButton(":May be used for:.Contact Characteristics_QCheckBox_2");
     waitForObject(":_description_QTextEdit_4");
     type(":_description_QTextEdit_4", "Birthday");
     waitForObject(":Characteristic.Save_QPushButton");
@@ -736,7 +736,7 @@ function main()
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "LOT-QA-TEST1");
     if(!findObject(":May be used for:.Lot/Serial Characteristics_QCheckBox_2").checked)
-        findObject(":May be used for:.Lot/Serial Characteristics_QCheckBox_2").checked=true;
+        clickButton(":May be used for:.Lot/Serial Characteristics_QCheckBox_2");
     waitForObject(":_description_QTextEdit_4");
     type(":_description_QTextEdit_4", "QA Results for Test Type 1");
     waitForObject(":Characteristic.Save_QPushButton");
@@ -766,9 +766,9 @@ function main()
         type(":_code_XLineEdit_6", "MPS-ITEMS");
         type(":_description_XLineEdit_16", "MPS Items");
         if(!findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked)
-            findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked=true;
-        if(!findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked);
-        findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked=true;
+            clickButton(":Planner Code.Automatically Explode Planned Orders_QCheckBox");
+        if(!findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked)
+            clickButton(":_explosionGroup.Multiple Level Explosion_QRadioButton_2");
         waitForObject(":Planner Code.Save_QPushButton");
         clickButton(":Planner Code.Save_QPushButton");
         waitForObject(":List Planner Codes._plancode_XTreeWidget");
@@ -782,9 +782,9 @@ function main()
         type(":_code_XLineEdit_6", "MRP-ITEMS");
         type(":_description_XLineEdit_16", "MRP Items");
         if(!findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked)
-            findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked=true;
-        if(!findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked);
-        findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked=true;
+            clickButton(":Planner Code.Automatically Explode Planned Orders_QCheckBox");
+        if(!findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked)
+            clickButton(":_explosionGroup.Multiple Level Explosion_QRadioButton_2");
         waitForObject(":Planner Code.Save_QPushButton");
         clickButton(":Planner Code.Save_QPushButton");
         waitForObject(":List Planner Codes._plancode_XTreeWidget");
@@ -809,21 +809,21 @@ function main()
         clickItem(":_warehouse._warehouses_WComboBox_4", "WH1", 0, 0, 1, Qt.LeftButton);
         waitForObject(":Site Work Week.Sunday_QCheckBox_2");
         if(findObject(":Site Work Week.Sunday_QCheckBox_2").checked)
-            findObject(":Site Work Week.Sunday_QCheckBox_2").checked=false;
+            clickButton(":Site Work Week.Sunday_QCheckBox_2");
         if(!findObject(":Site Work Week.Monday_QCheckBox_2").checked)
-            findObject(":Site Work Week.Monday_QCheckBox_2").checked=true;
+            clickButton(":Site Work Week.Monday_QCheckBox_2");
         if(!findObject(":Site Work Week.Monday_QCheckBox_2").checked)
-            findObject(":Site Work Week.Monday_QCheckBox_2").checked=true;
+            clickButton(":Site Work Week.Monday_QCheckBox_2");
         if(!findObject(":Site Work Week.Tuesday_QCheckBox_2").checked)
-            findObject(":Site Work Week.Tuesday_QCheckBox_2").checked=true;
+            clickButton(":Site Work Week.Tuesday_QCheckBox_2");
         if(!findObject(":Site Work Week.Wednesday_QCheckBox_2").checked)
-            findObject(":Site Work Week.Wednesday_QCheckBox_2").checked=true;
+            clickButton(":Site Work Week.Wednesday_QCheckBox_2");
         if(!findObject(":Site Work Week.Thursday_QCheckBox_2").checked)
-            findObject(":Site Work Week.Thursday_QCheckBox_2").checked=true;
+            clickButton(":Site Work Week.Thursday_QCheckBox_2");
         if(!findObject(":Site Work Week.Friday_QCheckBox_2").checked)
-            findObject(":Site Work Week.Friday_QCheckBox_2").checked=true;
+            clickButton(":Site Work Week.Friday_QCheckBox_2");
         if(findObject(":Site Work Week.Saturday_QCheckBox_2").checked)
-            findObject(":Site Work Week.Saturday_QCheckBox_2").checked=false;
+            clickButton(":Site Work Week.Saturday_QCheckBox_2");
         waitForObject(":Site Work Week.Save_QPushButton_2");
         clickButton(":Site Work Week.Save_QPushButton_2");
         test.log("Site Week created");

@@ -37,6 +37,7 @@ source(findFile("scripts","functions.js"));
        clickItem(":_report_XComboBox_3", "APCheck",0,0,1,Qt.LeftButton); 
     waitForObject(":Check Format.Save_QPushButton");
     clickButton(":Check Format.Save_QPushButton");
+    snooze(2);//allow to save
     waitForObject(":List Check Formats._form_XTreeWidget");
     if(!clickItem(":List Check Formats._form_XTreeWidget", "GENERIC-CHECK", 5, 5, 1, Qt.LeftButton))
          test.pass("Incident Resolution created : Replace");
@@ -184,7 +185,7 @@ source(findFile("scripts","functions.js"));
         type(":Bank Account._bankGroup_QGroupBox","Checking");
     if(!findObject(":_useGroup.Used in Accounts Payable_QCheckBox").checked)
         clickButton(":_useGroup.Used in Accounts Payable_QCheckBox");
-    waitForObject(":_useGroup._ne`xtCheckNum_XLineEdit");
+    waitForObject(":_useGroup._nextCheckNum_XLineEdit");
     type(":_useGroup._nextCheckNum_XLineEdit", "9000");
     waitForObject(":_useGroup._form_XComboBox_2");
     if(!findObject(":_useGroup._form_XComboBox_2").currentText!= "GENERIC-CHECK")

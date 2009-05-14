@@ -331,6 +331,7 @@ function main()
     clickItem(":_addressStack.Country:_XComboBox", "India",0,0,1,Qt.LeftButton);
     waitForObject(":Vendor.Save_QPushButton");
     clickButton(":Vendor.Save_QPushButton");
+    snooze(2); //delay for allowing to save
     waitForObject(":List Vendors._vendor_XTreeWidget");
     if(!clickItem(":List Vendors._vendor_XTreeWidget", "TPARTS", 5, 5, 1, Qt.LeftButton))
         test.pass("Accounts Assignment created for: All");
