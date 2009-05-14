@@ -93,9 +93,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     coitem_cos_accnt_id)
   SELECT
     cohead_id,
-    COALESCE(NEW.line_number::INTEGER,(SELECT (COALESCE(MAX(coitem_linenumber), 0) + 1)
-                                      FROM coitem
-                                      WHERE (coitem_cohead_id=cohead_id))),
+    NEW.line_number::INTEGER,
     itemsite_id,
     NEW.status,
     NEW.scheduled_date,
