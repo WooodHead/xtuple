@@ -13,8 +13,9 @@ BEGIN
 		RAISE EXCEPTION 'You do not have privileges to maintain Price Schedules.';
 	ELSE
 		-- Disable the triggers
-		ALTER TABLE ipsitem DISABLE TRIGGER ipsitembeforetrigger;
-		ALTER TABLE ipsitemchar DISABLE TRIGGER ipsitemcharbeforetrigger;
+-- this can't be done unless the user is an admin
+--		ALTER TABLE ipsitem DISABLE TRIGGER ipsitembeforetrigger;
+--		ALTER TABLE ipsitemchar DISABLE TRIGGER ipsitemcharbeforetrigger;
 	END IF;
 
 	-- Get the current user's currency precision
@@ -127,8 +128,8 @@ BEGIN
 	END IF;
 
 	-- Enable the triggers
-	ALTER TABLE ipsitem ENABLE TRIGGER ipsitembeforetrigger;
-	ALTER TABLE ipsitemchar ENABLE TRIGGER ipsitemcharbeforetrigger;
+	--ALTER TABLE ipsitem ENABLE TRIGGER ipsitembeforetrigger;
+	--ALTER TABLE ipsitemchar ENABLE TRIGGER ipsitemcharbeforetrigger;
 	
 	RETURN _itemRows + _charRows;
 
