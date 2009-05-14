@@ -726,6 +726,7 @@ function main()
     waitForObject(":_group_XComboBox");
     if(findObject(":_group_XComboBox").currentText!="ASSETS")
         clickItem(":_group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     clickButton(":Financial Report Group.Save_QPushButton");
     
     waitForObject(":frame._layout_XTreeWidget");
@@ -733,6 +734,7 @@ function main()
     waitForObject(":_group_XComboBox");
     if(findObject(":_group_XComboBox").currentText!="ASSETS")
        clickItem(":_group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Financial Report Group.Save_QPushButton");    
     clickButton(":Financial Report Group.Save_QPushButton");
     
@@ -742,6 +744,7 @@ function main()
     waitForObject(":_group_XComboBox");
     if(findObject(":_group_XComboBox").currentText!="ASSETS")
        clickItem(":_group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Financial Report Group.Save_QPushButton");  
     clickButton(":Financial Report Group.Save_QPushButton");
     
@@ -750,6 +753,7 @@ function main()
     waitForObject(":_group_XComboBox");
     if(findObject(":_group_XComboBox").currentText!="ASSETS")
        clickItem(":_group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Financial Report Group.Save_QPushButton");  
     clickButton(":Financial Report Group.Save_QPushButton");
     
@@ -758,6 +762,7 @@ function main()
     waitForObject(":_group_XComboBox");
     if(findObject(":_group_XComboBox").currentText!="ASSETS")
       clickItem(":_group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Financial Report Group.Save_QPushButton");  
     clickButton(":Financial Report Group.Save_QPushButton");
     
@@ -765,6 +770,7 @@ function main()
     doubleClickItem(":frame._layout_XTreeWidget", "LIABILITIES AND OWNERS EQUITY.LIABILITIES", 5, 5, 0, Qt.LeftButton);    waitForObject(":_group_XComboBox");
     if(findObject(":_group_XComboBox").currentText!="ASSETS")
        clickItem(":_group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Financial Report Group.Save_QPushButton");  
     clickButton(":Financial Report Group.Save_QPushButton");
 
@@ -781,6 +787,7 @@ function main()
     waitForObject(":_group_XComboBox");
     if(findObject(":_group_XComboBox").currentText!="ASSETS")
         clickItem(":_group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Financial Report Group.Save_QPushButton");  
     clickButton(":Financial Report Group.Save_QPushButton");
 
@@ -789,6 +796,7 @@ function main()
     waitForObject(":_group_XComboBox");
     if(findObject(":_group_XComboBox").currentText!="ASSETS")
         clickItem(":_group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Financial Report Group.Save_QPushButton");  
     clickButton(":Financial Report Group.Save_QPushButton");
     
@@ -798,6 +806,7 @@ function main()
     waitForObject(":_group_XComboBox");
     if(findObject(":_group_XComboBox").currentText!="ASSETS")
         clickItem(":_group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Financial Report Group.Save_QPushButton");  
     clickButton(":Financial Report Group.Save_QPushButton");
     
@@ -807,6 +816,7 @@ function main()
     waitForObject(":_group_XComboBox");
     if(findObject(":_group_XComboBox").currentText!="ASSETS")
         clickItem(":_group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Financial Report Group.Save_QPushButton");  
     clickButton(":Financial Report Group.Save_QPushButton");
     
@@ -815,6 +825,7 @@ function main()
     waitForObject(":_group_XComboBox");
     if(findObject(":_group_XComboBox").currentText!="ASSETS")
         clickItem(":_group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Financial Report Group.Save_QPushButton");  
     clickButton(":Financial Report Group.Save_QPushButton");
         
@@ -846,6 +857,7 @@ function main()
     waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="ASSETS");
         clickItem(":_options._group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+        snooze(0.5);
     waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
@@ -872,6 +884,7 @@ function main()
     waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="ASSETS");
       clickItem(":_options._group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+      snooze(0.5);
     waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
@@ -897,6 +910,7 @@ function main()
     waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="ASSETS");
        clickItem(":_options._group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+       snooze(0.5);
     waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
@@ -924,6 +938,7 @@ function main()
     waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="ASSETS");
       clickItem(":_options._group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+      snooze(0.5);
     waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
@@ -948,6 +963,8 @@ function main()
     waitForObject(":_options._group_XComboBox");
     if(findObject(":_options._group_XComboBox").currentText!="ASSETS");
        clickItem(":_options._group_XComboBox", "ASSETS",0,0,1,Qt.LeftButton);
+       snooze(0.5);
+    waitForObject(":Financial Report Item.Save_QPushButton");
     clickButton(":Financial Report Item.Save_QPushButton");
     
     
@@ -1203,6 +1220,7 @@ function main()
     waitForObject(":_altSubtotalLabel_QLineEdit");
     type(":_altSubtotalLabel_QLineEdit", "Total Net Revenue");
     clickButton(":Operation.Add to Group Total_QRadioButton");
+    waitForObject(":Financial Report Group.Save_QPushButton");
     clickButton(":Financial Report Group.Save_QPushButton");
 
    

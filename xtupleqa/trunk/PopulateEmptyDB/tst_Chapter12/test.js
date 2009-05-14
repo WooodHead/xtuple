@@ -24,11 +24,13 @@ function main()
     doubleClickItem(":_addressStack._shipto_XTreeWidget_2", "Old Towne Store 1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Ship-To._taxauth_XComboBox");
     clickItem(":Ship-To._taxauth_XComboBox", "TAX-AUTH1",0,0,1,Qt.LeftButton);
+    waitForObject(":Ship-To.Save_QPushButton");
     clickButton(":Ship-To.Save_QPushButton");
     waitForObject(":_addressStack._shipto_XTreeWidget_2");
     doubleClickItem(":_addressStack._shipto_XTreeWidget_2", "Old Towne Store 2", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Ship-To._taxauth_XComboBox");
     clickItem(":Ship-To._taxauth_XComboBox", "TAX-AUTH1",0,0,1,Qt.LeftButton);
+    waitForObject(":Ship-To.Save_QPushButton");
     clickButton(":Ship-To.Save_QPushButton");
     waitForObject(":Customer.Save_QPushButton");
     clickButton(":Customer.Save_QPushButton");
