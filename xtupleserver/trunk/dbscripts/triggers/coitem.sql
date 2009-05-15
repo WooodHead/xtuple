@@ -113,10 +113,6 @@ BEGIN
         IF(_shipped) THEN
           RAISE EXCEPTION 'You can not delete this Sales Order Line as it has several sub components that have already been shipped.';
         END IF;
-        DELETE FROM coitem
-         WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
-           AND (coitem_linenumber=OLD.coitem_linenumber)
-           AND (coitem_subnumber > 0));
       END IF;
 
       DELETE FROM comment
@@ -529,6 +525,13 @@ BEGIN
             AND (coitem_subnumber > 0));
         END IF;
       END IF;
+    END IF;
+    IF (TG_OP = 'DELETE') THEN
+  -- Delete Sub Lines for Kit Components
+      DELETE FROM coitem
+       WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
+         AND (coitem_linenumber=OLD.coitem_linenumber)
+         AND (coitem_subnumber > 0));
     END IF;
   END IF;
            
