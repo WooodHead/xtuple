@@ -30,6 +30,7 @@
 :Incident Workbench.Status_QGroupBox	{container=':xTuple ERP:*.Incident Workbench_QWorkspaceChild' name='_statusGroup' title='Status' type='QGroupBox' visible='1'}
 :Invoice Item_invoiceItem	{name='invoiceItem' type='invoiceItem' visible='1' windowTitle='Invoice Item'}
 :Invoice Register.Close_QPushButton	{container=':xTuple ERP:*.Invoice Register_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
+:Invoice Register.Invoice Register_QWorkspaceTitleBar	{container=':xTuple ERP:*.Invoice Register_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='Invoice Register'}
 :Invoice Register.Query_QPushButton	{container=':xTuple ERP:*.Invoice Register_QWorkspaceChild' name='_query' text='Query' type='QPushButton' visible='1'}
 :Invoice Register.XDateEdit_XDateEdit	{container=':xTuple ERP:*.Invoice Register_QWorkspaceChild' name='XDateEdit' type='XDateEdit' visible='1'}
 :Invoice Register.XDateEdit_XDateEdit_2	{container=':xTuple ERP:*.Invoice Register_QWorkspaceChild' name='XDateEdit' occurrence='2' type='XDateEdit' visible='1'}
@@ -97,6 +98,7 @@
 :List Quotes.Close_QPushButton	{container=':xTuple ERP:*.List Quotes_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Quotes.frame_QFrame	{container=':xTuple ERP:*.List Quotes_QWorkspaceChild' name='frame' type='QFrame' visible='1'}
 :List Unposted Invoices.Alternate Date:_QRadioButton	{container=':xTuple ERP:*.List Unposted Invoices_QWorkspaceChild' name='_particular' text='Alternate Date:' type='QRadioButton' visible='1'}
+:List Unposted Invoices.Alternate Date:_QRadioButton_2	{container=':xTuple ERP:*.List Unposted Invoices_QWorkspaceChild_2' name='_particular' text='Alternate Date:' type='QRadioButton' visible='1'}
 :List Unposted Invoices.Close_QPushButton	{container=':xTuple ERP:*.List Unposted Invoices_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Unposted Invoices.Continue_QPushButton	{container=':xTuple ERP:*.List Unposted Invoices_QWorkspaceChild' name='_continue' text='Continue' type='QPushButton' visible='1'}
 :List Unposted Invoices.List Unposted Invoices_QWorkspaceTitleBar	{container=':xTuple ERP:*.List Unposted Invoices_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='List Unposted Invoices'}
@@ -242,6 +244,7 @@
 :View Check Run.Close_QPushButton	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :View Check Run.Create ACH File_QPushButton	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' name='_createACH' text='Create ACH File' type='QPushButton' visible='1'}
 :View Check Run.Order Checks By Name_XCheckBox	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' name='_orderByName' text='Order Checks By Name' type='XCheckBox' visible='1'}
+:View Check Run.Post_QPushButton	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' name='_post' text='Post' type='QPushButton' visible='1'}
 :View Check Run.Print_QPushButton	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' name='_print' occurrence='2' text='Print' type='QPushButton' visible='1'}
 :View Check Run.Yes_QPushButton	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' name='_yes' text='Yes' type='QPushButton' visible='1'}
 :View Check Run.Yes_QPushButton_2	{container=':xTuple ERP:*.View Check Run_QWorkspaceChild' text='Yes' type='QPushButton' unnamed='1' visible='1'}
@@ -300,10 +303,12 @@
 :_dateGroup.XDateEdit_XDateEdit	{container=':Voucher._dateGroup_QGroupBox' name='XDateEdit' type='XDateEdit' visible='1'}
 :_dateGroup.XDateEdit_XDateEdit_2	{container=':Miscellaneous Voucher._dateGroup_QGroupBox' name='XDateEdit' type='XDateEdit' visible='1'}
 :_frame.Password:_QLabel	{container=':Log In._frame_QFrame' name='_passwordLit' text='Password:' type='QLabel' visible='1'}
+:_frame.Post_QPushButton	{container=':View Check Run._frame_QFrame' name='_postCheck' text='Post' type='QPushButton' visible='1'}
 :_frame.Print_QPushButton	{container=':View Check Run._frame_QFrame' name='_print' text='Print' type='QPushButton' visible='1'}
 :_frame.Username:_QLabel	{container=':Log In._frame_QFrame' name='_usernameLit' text='Username:' type='QLabel' visible='1'}
 :_frame._check_XTreeWidget	{container=':View Check Run._frame_QFrame' name='_check' type='XTreeWidget' visible='1'}
 :_frame._itemsrc_XTreeWidget	{container=':Item Sources._frame_QFrame' name='_itemsrc' type='XTreeWidget' visible='1'}
+:_gltrans_QScrollBar	{container=':frame._gltrans_XTreeWidget' type='QScrollBar' unnamed='1' visible='1'}
 :_groupButton...._QPushButton	{container=':Miscellaneous Voucher._groupButton_QGroupBox' name='_list' text='...' type='QPushButton' visible='1'}
 :_groupButton.Expense Categories_QLabel	{container=':Miscellaneous Voucher._groupButton_QGroupBox' name='_titleLit' text='Expense Categories' type='QLabel' visible='1'}
 :_groupButton.Expense Category:_QRadioButton	{container=':Miscellaneous Voucher._groupButton_QGroupBox' name='_expcatSelected' text='Expense Category:' type='QRadioButton' visible='1'}
@@ -484,6 +489,7 @@
 :xTuple ERP:*.List Open_QToolButton	{text='List Open' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP:*_GUIClient'}
 :xTuple ERP:*.List Quotes_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='List Quotes'}
 :xTuple ERP:*.List Unposted Invoices_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='List Unposted Invoices'}
+:xTuple ERP:*.List Unposted Invoices_QWorkspaceChild_2	{name='qt_workspacechild' occurrence?='*' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='List Unposted Invoices'}
 :xTuple ERP:*.List Unposted Purchase Orders_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='List Unposted Purchase Orders'}
 :xTuple ERP:*.List Unposted Receipts_QToolButton	{text='List Unposted Receipts' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP:*_GUIClient'}
 :xTuple ERP:*.List Unposted Receipts_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='List Unposted Receipts'}
