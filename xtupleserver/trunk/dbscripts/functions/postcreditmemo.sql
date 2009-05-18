@@ -101,7 +101,7 @@ BEGIN
 				      0 - COALESCE(_r.cmitem_tax_ratea,0.0),
 				      0 - COALESCE(_r.cmitem_tax_rateb,0.0),
 				      0 - COALESCE(_r.cmitem_tax_ratec,0.0),
-                                      ('Tax liability for ' || _p.cmhead_billtoname));
+                                      (_p.cmhead_billtoname));
     IF (_taxBaseValue IS NULL) THEN
       PERFORM deleteGLSeries(_sequence);
       RETURN -13;

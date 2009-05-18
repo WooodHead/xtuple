@@ -130,7 +130,7 @@ BEGIN
 				      COALESCE(_r.invcitem_tax_ratea,0.0),
 				      COALESCE(_r.invcitem_tax_rateb,0.0),
 				      COALESCE(_r.invcitem_tax_ratec,0.0),
-                                      ('Tax liability for ' || _p.invchead_billto_name));
+                                      (_p.invchead_billto_name));
     IF (_taxBaseValue IS NULL) THEN
       PERFORM deleteGLSeries(_p.sequence);
       DELETE FROM cohist
