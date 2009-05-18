@@ -8,14 +8,15 @@ SELECT itemsite_id, altId,
        item_number, (item_descrip1 || ' ' || item_descrip2) AS itemdescrip,
        uom_name,
        warehous_id, warehous_code, itemsite_leadtime,
-       qoh, allocated, noNeg(qoh - allocated) AS unallocated,
-       ordered, reorderlevel, outlevel,
+       qoh, allocated, noNeg(qoh - allocated) AS unallocated, 
+       ordered, requests, reorderlevel, outlevel,
        (qoh - allocated + ordered) AS available,
        vend_number,
        'qty' AS qoh_xtnumericrole,
        'qty' AS allocated_xtnumericrole,
-       'qty' AS unallocated_xtnumericrole,
+       'qty' AS unallocated_xtnumericrole,       
        'qty' AS ordered_xtnumericrole,
+       'qty' AS requests_xtnumericrole,
        'qty' AS reorderlevel_xtnumericrole,
        'qty' AS outlevel_xtnumericrole,
        'qty' AS available_xtnumericrole,
@@ -46,16 +47,20 @@ FROM (SELECT itemsite_id,
              <? endif ?>
              <? if exists("byLeadTime") ?>
                qtyAllocated(itemsite_id, itemsite_leadtime) AS allocated,
-               qtyOrdered(itemsite_id,   itemsite_leadtime) AS ordered 
+               qtyOrdered(itemsite_id,   itemsite_leadtime) AS ordered, 
+               qtypr(itemsite_id,   itemsite_leadtime) AS requests
              <? elseif exists("byDays") ?>
                qtyAllocated(itemsite_id, CAST(<? value("byDays") ?> AS INTEGER)) AS allocated,
-               qtyOrdered(itemsite_id,   CAST(<? value("byDays") ?> AS INTEGER)) AS ordered 
+               qtyOrdered(itemsite_id,   CAST(<? value("byDays") ?> AS INTEGER)) AS ordered,
+               qtypr(itemsite_id,   CAST(<? value("byDays") ?> AS INTEGER)) AS requests  
              <? elseif exists("byDate") ?>
                qtyAllocated(itemsite_id, (<? value("byDate") ?> - CURRENT_DATE)) AS allocated,
-               qtyOrdered(itemsite_id,   (<? value("byDate") ?> - CURRENT_DATE)) AS ordered 
+               qtyOrdered(itemsite_id,   (<? value("byDate") ?> - CURRENT_DATE)) AS ordered,
+               qtypr(itemsite_id,   (<? value("byDate") ?> - CURRENT_DATE)) AS requests 
              <? elseif exists("byDates") ?>
                qtyAllocated(itemsite_id, <? value("startDate") ?>, <? value("endDate") ?>) AS allocated,
-               qtyOrdered(itemsite_id,   <? value("startDate") ?>, <? value("endDate") ?>) AS ordered 
+               qtyOrdered(itemsite_id,   <? value("startDate") ?>, <? value("endDate") ?>) AS ordered,
+               qtypr(itemsite_id,   <? value("startDate") ?>, <? value("endDate") ?>) AS requests
              <? endif ?>
       FROM item, itemsite, warehous 
            <? if exists("byVend") ?>
