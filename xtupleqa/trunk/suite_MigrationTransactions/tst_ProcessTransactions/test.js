@@ -182,6 +182,9 @@ function main()
     clickButton(":List Unposted Invoices.Alternate Date:_QRadioButton");
     waitForObject(":List Unposted Invoices.Continue_QPushButton");
     clickButton(":List Unposted Invoices.Continue_QPushButton");
+    waitForObject(":List Unposted Invoices.Close_QPushButton");
+    clickButton(":List Unposted Invoices.Close_QPushButton");
+
 
 
     //--------Create Cash receipt and apply-----------
@@ -372,15 +375,15 @@ function main()
     activateItem(":xTuple ERP:*.Invoice_QMenu", "List Unposted...");
   
     waitForObject(":_invchead_XTreeWidget");
-    openItemContextMenu(":_invchead_XTreeWidget", "60081", 5, 5, 0);
-    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post...");
-    activateItem(":xTuple ERP:*._menu_QMenu", "Post...");
-    if(object.exists(":List Unposted Invoices.Alternate Date:_QRadioButton_2"))
-        clickButton(":List Unposted Invoices.Alternate Date:_QRadioButton_2");
-    if(object.exists(":List Unposted Invoices.Alternate Date:_QRadioButton"))
-        clickButton(":List Unposted Invoices.Alternate Date:_QRadioButton");
+    clickItem(":_invchead_XTreeWidget", "60081", 5, 5, 1, Qt.LeftButton);
+    snooze(2);//wait for the Post button to be enabled
+    waitForObject(":List Unposted Invoices.Post_QPushButton");
+    clickButton(":List Unposted Invoices.Post_QPushButton");
+    waitForObject(":List Unposted Invoices.Alternate Date:_QRadioButton");
+    clickButton(":List Unposted Invoices.Alternate Date:_QRadioButton");
     waitForObject(":List Unposted Invoices.Continue_QPushButton");
     clickButton(":List Unposted Invoices.Continue_QPushButton");
+        snooze(0.5);
     waitForObject(":List Unposted Invoices.Close_QPushButton");
     clickButton(":List Unposted Invoices.Close_QPushButton");
 
@@ -416,7 +419,7 @@ function main()
     snooze(0.5);
     if(object.exists(":Cash Receipt.Yes_QPushButton"))
         clickButton(":Cash Receipt.Yes_QPushButton");
-  
+
 
     //-------Check entry in Invoice Register--------    
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -435,7 +438,14 @@ function main()
     waitForObject(":Invoice Register.Query_QPushButton");
     clickButton(":Invoice Register.Query_QPushButton");
     waitForObject(":frame._gltrans_XTreeWidget");
-    clickItem(":frame._gltrans_XTreeWidget", "*60083*", 5, 5, 1, Qt.LeftButton);
+    var d = new Date();
+    var dyear= d.getFullYear();
+    var dmonth = d.getMonth();
+    var dday = d.getDate();
+    dmonth++;
+    var dformat = dyear +"-"+(dmonth>10?dmonth:"0"+dmonth)+"-"+(dday>10?dday:"0"+dday);
+    dformat+="\.60083\_1";
+    clickItem(":frame._gltrans_XTreeWidget", dformat, 5, 5, 1, Qt.LeftButton);
     waitForObject(":Invoice Register.Close_QPushButton");
     clickButton(":Invoice Register.Close_QPushButton");
 
@@ -453,7 +463,7 @@ function main()
     waitForObject(":List Open Vouchers._vohead_XTreeWidget");
     doubleClickItem(":List Open Vouchers._vohead_XTreeWidget", "30070", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_poitems._poitem_XTreeWidget");
-    clickItem(":_poitems._poitem_XTreeWidget", "Open", 5, 5, 1, Qt.LeftButton);
+    clickItem(":_poitems._poitem_XTreeWidget", "Received", 5, 5, 1, Qt.LeftButton);
     waitForObject(":_poitems.Distribute Line_QPushButton");
     clickButton(":_poitems.Distribute Line_QPushButton");
     waitForObject(":_amount_XLineEdit");
@@ -473,8 +483,6 @@ function main()
     clickButton(":List Open Vouchers.Close_QPushButton");
 
 
-  
-    
     
     //--------Post Check------------
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -502,6 +510,9 @@ function main()
         clickButton(":View Check Run.Yes_QPushButton_2");
     if(object.exists(":View Check Run.Yes_QPushButton_2"))
         clickButton(":View Check Run.Yes_QPushButton_2");
+    
+    waitForObject(":View Check Run.Yes_QPushButton_2");
+    clickButton(":View Check Run.Yes_QPushButton_2");
     
     waitForObject(":_frame.Post_QPushButton");
     clickButton(":_frame.Post_QPushButton");
@@ -680,11 +691,6 @@ function main()
     waitForObject(":W/O Schedule by Planner Code.Close_QPushButton");
     clickButton(":W/O Schedule by Planner Code.Close_QPushButton");
     
-    
-    
-
-    
-   
     
 
     

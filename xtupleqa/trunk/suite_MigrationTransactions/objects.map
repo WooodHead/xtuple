@@ -1,3 +1,4 @@
+:*.Cancel_QPushButton	{container=':xTuple ERP:*.List Unposted Invoices_QWorkspaceChild' name='_cancel' text='Cancel' type='QPushButton' visible='1'}
 :Active Manufactured Items_itemList	{type='itemList' unnamed='1' visible='1' windowTitle='Active Manufactured Items'}
 :An Open Purchase Order Exists.An Open Purchase Order already exists for this Vendor.\nWould you like to use this Purchase Order?\nClick Yes to use the existing Purchase Order otherwise a new one will be created._QLabel	{name='qt_msgbox_label' text='An Open Purchase Order already exists for this Vendor.\nWould you like to use this Purchase Order?\nClick Yes to use the existing Purchase Order otherwise a new one will be created.' type='QLabel' visible='1' window=':An Open Purchase Order Exists_QMessageBox'}
 :An Open Purchase Order Exists.Yes_QPushButton	{text='Yes' type='QPushButton' unnamed='1' visible='1' window=':An Open Purchase Order Exists_QMessageBox'}
@@ -25,6 +26,7 @@
 :Enter Order Receipts.Post_QPushButton	{container=':xTuple ERP:*.Enter Order Receipts_QWorkspaceChild' name='_post' text='Post' type='QPushButton' visible='1'}
 :Enter Order Receipts.Receive All_QPushButton	{container=':xTuple ERP:*.Enter Order Receipts_QWorkspaceChild' name='_all' text='Receive All' type='QPushButton' visible='1'}
 :Enter Order Receipts.Save_QPushButton	{container=':xTuple ERP:*.Enter Order Receipts_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
+:Get G/L Distribution Date_getGLDistDate	{name='getGLDistDate' type='getGLDistDate' visible='1' windowTitle='Get G/L Distribution Date'}
 :Incident Workbench.Close_QPushButton	{container=':xTuple ERP:*.Incident Workbench_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :Incident Workbench.Query_QPushButton	{container=':xTuple ERP:*.Incident Workbench_QWorkspaceChild' name='_query' text='Query' type='QPushButton' visible='1'}
 :Incident Workbench.Status_QGroupBox	{container=':xTuple ERP:*.Incident Workbench_QWorkspaceChild' name='_statusGroup' title='Status' type='QGroupBox' visible='1'}
@@ -488,8 +490,8 @@
 :xTuple ERP:*.List Open Vouchers_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='List Open Vouchers'}
 :xTuple ERP:*.List Open_QToolButton	{text='List Open' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP:*_GUIClient'}
 :xTuple ERP:*.List Quotes_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='List Quotes'}
-:xTuple ERP:*.List Unposted Invoices_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='List Unposted Invoices'}
-:xTuple ERP:*.List Unposted Invoices_QWorkspaceChild_2	{name='qt_workspacechild' occurrence?='*' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='List Unposted Invoices'}
+:xTuple ERP:*.List Unposted Invoices_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle?='*'}
+:xTuple ERP:*.List Unposted Invoices_QWorkspaceChild_2	{name='qt_workspacechild' occurrence?='*' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle?='*'}
 :xTuple ERP:*.List Unposted Purchase Orders_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='List Unposted Purchase Orders'}
 :xTuple ERP:*.List Unposted Receipts_QToolButton	{text='List Unposted Receipts' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP:*_GUIClient'}
 :xTuple ERP:*.List Unposted Receipts_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='List Unposted Receipts'}

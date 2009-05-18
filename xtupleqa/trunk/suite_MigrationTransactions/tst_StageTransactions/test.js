@@ -59,7 +59,7 @@ function main()
 
     
     
-  
+
     //---Create Quote----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
@@ -1053,14 +1053,6 @@ function main()
     waitForObject(":List Open Vouchers.Continue_QPushButton");
     clickButton(":List Open Vouchers.Continue_QPushButton");
     
-    waitForObject(":List Open Vouchers._vohead_XTreeWidget");
-    openItemContextMenu(":List Open Vouchers._vohead_XTreeWidget", "30072", 5, 5, 0);
-    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
-    activateItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
-    waitForObject(":List Open Vouchers.Alternate Date:_QRadioButton");
-    clickButton(":List Open Vouchers.Alternate Date:_QRadioButton");
-    waitForObject(":List Open Vouchers.Continue_QPushButton");
-    clickButton(":List Open Vouchers.Continue_QPushButton");
 
     waitForObject(":List Open Vouchers._vohead_XTreeWidget");
     openItemContextMenu(":List Open Vouchers._vohead_XTreeWidget", "30073", 5, 5, 0);
@@ -1075,41 +1067,6 @@ function main()
     clickButton(":List Open Vouchers.Close_QPushButton");
 
 
-    //--------Select--------
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Select...");
-    activateItem(":xTuple ERP:*.Payments_QMenu", "Select...");
-
-    waitForObject(":frame._apopen_XTreeWidget");
-    clickItem(":frame._apopen_XTreeWidget", "30072", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":frame.Select..._QPushButton");
-    clickButton(":frame.Select..._QPushButton");
-    waitForObjectItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account");
-    clickItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":Select Payments.Save_QPushButton");
-    clickButton(":Select Payments.Save_QPushButton");
-    waitForObject(":Select Payments.Close_QPushButton");
-    clickButton(":Select Payments.Close_QPushButton");
-    
-    
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
-    activateItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
-    
-    waitForObject(":Prepare Check Run._bankaccnt_XComboBox");
-    clickItem(":Prepare Check Run._bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":Prepare Check Run.Prepare_QPushButton");
-    clickButton(":Prepare Check Run.Prepare_QPushButton");
 
     
     //-----prepare check run, post check------
@@ -1174,10 +1131,77 @@ function main()
     if(object.exists(":View Check Run.Yes_QPushButton_2"))    
         clickButton(":View Check Run.Yes_QPushButton_2");
    
+    waitForObject(":View Check Run.Yes_QPushButton");
+    clickButton(":View Check Run.Yes_QPushButton");
+    
+    waitForObject(":View Check Run.Cancel_QPushButton");
+    clickButton(":View Check Run.Cancel_QPushButton");
+    
     waitForObject(":View Check Run.Close_QPushButton");
     clickButton(":View Check Run.Close_QPushButton");
+
   
-   
+    //-------Post Vouchers---------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
+    activateItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
+
+    waitForObject(":List Open Vouchers._vohead_XTreeWidget");
+    openItemContextMenu(":List Open Vouchers._vohead_XTreeWidget", "30072", 5, 5, 0);
+    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
+    activateItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
+    waitForObject(":List Open Vouchers.Alternate Date:_QRadioButton");
+    clickButton(":List Open Vouchers.Alternate Date:_QRadioButton");
+    waitForObject(":List Open Vouchers.Continue_QPushButton");
+    clickButton(":List Open Vouchers.Continue_QPushButton");
+  
+    //--------Select--------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Select...");
+    activateItem(":xTuple ERP:*.Payments_QMenu", "Select...");
+
+    waitForObject(":frame._apopen_XTreeWidget");
+    clickItem(":frame._apopen_XTreeWidget", "30072", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":frame.Select..._QPushButton");
+    clickButton(":frame.Select..._QPushButton");
+    waitForObjectItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account");
+    clickItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Select Payments.Save_QPushButton");
+    clickButton(":Select Payments.Save_QPushButton");
+    waitForObject(":Select Payments.Close_QPushButton");
+    clickButton(":Select Payments.Close_QPushButton");
+    
+    waitForObject(":List Open Vouchers.Close_QPushButton");
+    clickButton(":List Open Vouchers.Close_QPushButton");
+
+    
+    
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
+    activateItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
+    
+    waitForObject(":Prepare Check Run._bankaccnt_XComboBox");
+    clickItem(":Prepare Check Run._bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Prepare Check Run.Prepare_QPushButton");
+    clickButton(":Prepare Check Run.Prepare_QPushButton");
+    
+    
+    
     //----Manufacture- new Work Order----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
@@ -1327,17 +1351,17 @@ function main()
 
     
     //----implode work Order----
-  waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
-  activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
-  waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
-  activateItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
-  waitForObjectItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
-  activateItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
-  waitForObjectItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
-  activateItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
-
-  waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
-  clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
+    waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
+    activateItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
+    waitForObjectItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
+    activateItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
+    waitForObjectItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
+    activateItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
+    
+    waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
+    clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
     
     waitForObject(":frame._wo_XTreeWidget");
     openItemContextMenu(":frame._wo_XTreeWidget", "10062-1", 5, 5, 0);
@@ -1364,40 +1388,40 @@ function main()
   
     
   
-  //------Post Operation--------
-  waitForObject(":frame._wo_XTreeWidget");
-  openItemContextMenu(":frame._wo_XTreeWidget", "10067-1", 5, 5, 0);
-  waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
-  activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
-  waitForObject(":_operationGroup._wooper_XComboBox");
-  clickItem(":_operationGroup._wooper_XComboBox", "20 - Standard Paint Operation ",0,0,1,Qt.LeftButton);
-  waitForObject(":W/O Schedule by Planner Code.Post_QPushButton");
-  clickButton(":W/O Schedule by Planner Code.Post_QPushButton");
-  waitForObject(":W/O Schedule by Planner Code._itemloc_XTreeWidget");
-  doubleClickItem(":W/O Schedule by Planner Code._itemloc_XTreeWidget","No" ,5, 5, 0, Qt.LeftButton);
-  waitForObject(":W/O Schedule by Planner Code.Distribute_QPushButton");
-  clickButton(":W/O Schedule by Planner Code.Distribute_QPushButton");
-  waitForObject(":W/O Schedule by Planner Code.Post_QPushButton_2");
-  clickButton(":W/O Schedule by Planner Code.Post_QPushButton_2");
-  waitForObject(":frame._wo_XTreeWidget");
-  openItemContextMenu(":frame._wo_XTreeWidget", "10065-1", 5, 5, 0);
-  waitForObject(":xTuple ERP:*._menu_QMenu");
-  activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
-  waitForObject(":_operationGroup._wooper_XComboBox");
-  clickItem(":_operationGroup._wooper_XComboBox", "30 - Standard Operation - Assembly Assembly",0,0,1,Qt.LeftButton);
-  waitForObject(":W/O Schedule by Planner Code.Post_QPushButton");
-  clickButton(":W/O Schedule by Planner Code.Post_QPushButton");
-  waitForObject(":frame._wo_XTreeWidget");
-  openItemContextMenu(":frame._wo_XTreeWidget", "10065-1", 5, 5, 0);
-  waitForObject(":xTuple ERP:*._menu_QMenu");
-  activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
-  waitForObject(":_operationGroup._wooper_XComboBox");
-  clickItem(":_operationGroup._wooper_XComboBox", "40 - SHIPPING ",0,0,1,Qt.LeftButton);
-  waitForObject(":W/O Schedule by Planner Code.Post_QPushButton");
-  clickButton(":W/O Schedule by Planner Code.Post_QPushButton");
-  waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
-  clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
-
+    //------Post Operation--------
+    waitForObject(":frame._wo_XTreeWidget");
+    openItemContextMenu(":frame._wo_XTreeWidget", "10067-1", 5, 5, 0);
+    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
+    activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
+    waitForObject(":_operationGroup._wooper_XComboBox");
+    clickItem(":_operationGroup._wooper_XComboBox", "20 - Standard Paint Operation ",0,0,1,Qt.LeftButton);
+    waitForObject(":W/O Schedule by Planner Code.Post_QPushButton");
+    clickButton(":W/O Schedule by Planner Code.Post_QPushButton");
+    waitForObject(":W/O Schedule by Planner Code._itemloc_XTreeWidget");
+    doubleClickItem(":W/O Schedule by Planner Code._itemloc_XTreeWidget","No" ,5, 5, 0, Qt.LeftButton);
+    waitForObject(":W/O Schedule by Planner Code.Distribute_QPushButton");
+    clickButton(":W/O Schedule by Planner Code.Distribute_QPushButton");
+    waitForObject(":W/O Schedule by Planner Code.Post_QPushButton_2");
+    clickButton(":W/O Schedule by Planner Code.Post_QPushButton_2");
+    waitForObject(":frame._wo_XTreeWidget");
+    openItemContextMenu(":frame._wo_XTreeWidget", "10065-1", 5, 5, 0);
+    waitForObject(":xTuple ERP:*._menu_QMenu");
+    activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
+    waitForObject(":_operationGroup._wooper_XComboBox");
+    clickItem(":_operationGroup._wooper_XComboBox", "30 - Standard Operation - Assembly Assembly",0,0,1,Qt.LeftButton);
+    waitForObject(":W/O Schedule by Planner Code.Post_QPushButton");
+    clickButton(":W/O Schedule by Planner Code.Post_QPushButton");
+    waitForObject(":frame._wo_XTreeWidget");
+    openItemContextMenu(":frame._wo_XTreeWidget", "10065-1", 5, 5, 0);
+    waitForObject(":xTuple ERP:*._menu_QMenu");
+    activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
+    waitForObject(":_operationGroup._wooper_XComboBox");
+    clickItem(":_operationGroup._wooper_XComboBox", "40 - SHIPPING ",0,0,1,Qt.LeftButton);
+    waitForObject(":W/O Schedule by Planner Code.Post_QPushButton");
+    clickButton(":W/O Schedule by Planner Code.Post_QPushButton");
+    waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
+    clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
+    
     
     //----Release Work Order---
     waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
@@ -1412,11 +1436,4 @@ function main()
     clickButton(":W/O Schedule by Planner Code.Close_QPushButton");
   
   
-    
-      
-    
-   
-
-    
-
 }
