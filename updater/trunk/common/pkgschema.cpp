@@ -11,9 +11,10 @@
 #include "pkgschema.h"
 
 #include <QMessageBox>
-#include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>     // used by QSqlQuery::bindValue()
+#include <QVariant>     // used by XSqlQuery::bindValue()
+
+#include <xsqlquery.h>
 
 #define TR(a) QObject::tr(a)
 
@@ -45,13 +46,15 @@ int PkgSchema::create(QString &errMsg)
   }
 
   int namespaceoid;
-  QSqlQuery create;
+  XSqlQuery create;
   // Issue 8835: This SQL looks for an existing schema first.  Would be best if the createPkgSchema 
   // function did this correctly so it could be smart enough to add new tables if necessary,
   // but we can't work that out until it becomes required in a subsequent xTuple ERP release.
-  create.prepare("SELECT COALESCE(oid,createPkgSchema(:name, :descrip)) AS result "
+  create.prepare("SELECT COALESCE( "
+                 " (SELECT oid "
                  "  FROM pg_namespace "
-                 "  WHERE (LOWER(nspname)=LOWER(:name));"); 
+                 "  WHERE (LOWER(nspname)=LOWER(:name))), "
+                 " createPkgSchema(:name, :descrip)) AS result;"); 
   create.bindValue(":name",    _name);
   create.bindValue(":descrip", _comment);
 
@@ -75,7 +78,7 @@ int PkgSchema::create(QString &errMsg)
 
 int PkgSchema::getPath(QString &path, QString &errMsg)
 {
-  QSqlQuery pathq;
+  XSqlQuery pathq;
   pathq.exec("SELECT CURRENT_SCHEMAS(false);");
   if (pathq.first())
     path = pathq.value(0).toString();
@@ -106,7 +109,7 @@ int PkgSchema::setPath(QString &errMsg)
   if (result < 0)
     return result;
 
-  QSqlQuery schemaq;
+  XSqlQuery schemaq;
   schemaq.exec(QString("SET SEARCH_PATH TO %1,%2;")
                  .arg(_name.toLower()).arg(path));
   if (schemaq.lastError().type() != QSqlError::NoError)
@@ -129,7 +132,7 @@ int PkgSchema::clearPath(QString &errMsg)
 
   path.remove(QRegExp("\\s*" + _name + ",", Qt::CaseInsensitive));
 
-  QSqlQuery schemaq;
+  XSqlQuery schemaq;
   schemaq.exec(QString("SET SEARCH_PATH TO %1;").arg(path));
   if (schemaq.lastError().type() != QSqlError::NoError)
   {
