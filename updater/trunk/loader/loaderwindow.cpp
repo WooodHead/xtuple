@@ -19,7 +19,6 @@
 #include <QRegExp>
 #include <QSqlDatabase>
 #include <QSqlError>
-#include <QSqlQuery>
 #include <QTimerEvent>
 
 #include <gunzip.h>
@@ -43,6 +42,8 @@
 #include <xsqlquery.h>
 
 #include "data.h"
+
+#include "xsqlquery.h"
 
 #define DEBUG false
 
@@ -267,7 +268,7 @@ void LoaderWindow::fileOpen()
   QString str;
   QStringList strlist;
   QStringList::Iterator slit;
-  QSqlQuery qry;
+  XSqlQuery qry;
   for(QList<Prerequisite>::iterator i = _package->_prerequisites.begin();
       i != _package->_prerequisites.end(); ++i)
   {
@@ -429,7 +430,7 @@ void LoaderWindow::timerEvent( QTimerEvent * e )
   {
     QSqlDatabase db = QSqlDatabase::database(QSqlDatabase::defaultConnection,FALSE);
     if(db.isValid())
-      QSqlQuery qry("SELECT CURRENT_DATE;");
+      XSqlQuery qry("SELECT CURRENT_DATE;");
     // if we are not connected then we have some problems!
   }
 }
@@ -450,7 +451,7 @@ void LoaderWindow::sStart()
   if(!_package->id().isEmpty())
     prefix = _package->id() + "/";
 
-  QSqlQuery qry;
+  XSqlQuery qry;
   if(!_multitrans && !_premultitransfile)
     qry.exec("begin;");
 
@@ -929,7 +930,7 @@ int LoaderWindow::applySql(Script &pscript, const QByteArray psql)
     qDebug("LoaderWindow::applySql() - running script %s in file %s",
            qPrintable(pscript.name()), qPrintable(pscript.filename()));
 
-  QSqlQuery qry;
+  XSqlQuery qry;
   bool again     = false;
   int  returnVal = 0;
   do {
@@ -1037,7 +1038,7 @@ int LoaderWindow::applyLoadable(Loadable &pscript, const QByteArray psql)
            qPrintable(pscript.name()), qPrintable(pscript.filename()),
            psql.data());
 
-  QSqlQuery qry;
+  XSqlQuery qry;
   bool again     = false;
   int  returnVal = 0;
   do {
