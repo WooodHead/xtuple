@@ -442,7 +442,7 @@ function main()
     var dyear= d.getFullYear();
     var dmonth = d.getMonth();
     var dday = d.getDate();
-    dmonth++;
+    dmonth++; 
     var dformat = dyear +"-"+(dmonth>10?dmonth:"0"+dmonth)+"-"+(dday>10?dday:"0"+dday);
     dformat+="\.60083\_1";
     clickItem(":frame._gltrans_XTreeWidget", dformat, 5, 5, 1, Qt.LeftButton);
@@ -502,22 +502,22 @@ function main()
     waitForObject(":View Check Run.Create ACH File_QPushButton");
     clickButton(":View Check Run.Create ACH File_QPushButton");
     waitForObject(":xTuple ERP:*_QPushButton");
-    sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonPress, 5, 5, Qt.LeftButton, 0);
-    waitForObject(":xTuple ERP:*_QPushButton");
-    sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonRelease, 5, 5, Qt.LeftButton, 1);    
+    clickButton(":xTuple ERP:*_QPushButton");
     snooze(1);
     if(object.exists(":View Check Run.Yes_QPushButton_2"))
         clickButton(":View Check Run.Yes_QPushButton_2");
+
+    waitForObject(":View Check Run.Yes_QPushButton");
+    clickButton(":View Check Run.Yes_QPushButton");
+    
+    if(object.exists(":View Check Run.Yes_QPushButton_2"))
+        clickButton(":View Check Run.Yes_QPushButton_2");
     if(object.exists(":View Check Run.Yes_QPushButton_2"))
         clickButton(":View Check Run.Yes_QPushButton_2");
     
-    waitForObject(":View Check Run.Yes_QPushButton_2");
-    clickButton(":View Check Run.Yes_QPushButton_2");
-    
-    waitForObject(":_frame.Post_QPushButton");
-    clickButton(":_frame.Post_QPushButton");
-    waitForObject(":View Check Run.Post_QPushButton");
-    clickButton(":View Check Run.Post_QPushButton");
+    test.compare(findObject(":View Check Run.Cancel_QPushButton").text, "&Cancel");
+    waitForObject(":View Check Run.Cancel_QPushButton");
+    clickButton(":View Check Run.Cancel_QPushButton");
 
     waitForObject(":View Check Run.Close_QPushButton");
     clickButton(":View Check Run.Close_QPushButton");
