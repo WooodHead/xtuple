@@ -13,10 +13,12 @@
 #include <QApplication>
 #include <QDomDocument>
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QList>
 #include <QMessageBox>
 #include <QProcess>
 #include <QRegExp>
+#include <QSettings>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QTimerEvent>
@@ -124,18 +126,24 @@ void LoaderWindow::fileNew()
 void LoaderWindow::fileOpen()
 {
   fileNew();
+  
+  QSettings settings("xTuple.com", "Updater");
+  QString path = settings.value("LastDirectory").toString();
 
-  QString filename = QFileDialog::getOpenFileName(this);
-  if(filename.isEmpty())
+  QFileInfo fi(QFileDialog::getOpenFileName(this,tr("Open Package"), path, 
+                     tr("Package Files (*.gz);;All Files (*.*)")));
+  if(fi.filePath().isEmpty())
     return;
+    
+  settings.setValue("LastDirectory", fi.path());
 
-  QByteArray data = gunzipFile(filename);
+  QByteArray data = gunzipFile(fi.filePath());
   if(data.isEmpty())
   {
     QMessageBox::warning(this, tr("Error Opening File"),
                          tr("<p>The file %1 appears to be empty or it is not "
                             "compressed in the expected format.")
-                         .arg(filename));
+                         .arg(fi.filePath()));
     return;
   }
 
@@ -145,7 +153,7 @@ void LoaderWindow::fileOpen()
     QMessageBox::warning(this, tr("Error Opening file"),
                          tr("<p>The file %1 does not appear to contain a valid "
                             "update package (not a valid TAR file?).")
-                         .arg(filename));
+                         .arg(fi.filePath()));
     delete _files;
     _files = 0;
     return;
@@ -169,7 +177,7 @@ void LoaderWindow::fileOpen()
                                tr("<p>Multiple %1 files found in %2. "
                                   "Currently only packages containing a single "
                                   "content.xml file are supported.")
-                               .arg(contentsnames.at(i)).arg(filename));
+                               .arg(contentsnames.at(i)).arg(fi.filePath()));
           delete _files;
           _files = 0;
           return;
@@ -186,7 +194,7 @@ void LoaderWindow::fileOpen()
   {
     QMessageBox::warning(this, tr("Error Opening file"),
                          tr("<p>No %1 file was found in package %2.")
-                         .arg(contentsnames.join(" or ")).arg(filename));
+                         .arg(contentsnames.join(" or ")).arg(fi.filePath()));
     delete _files;
     _files = 0;
     return;
@@ -251,7 +259,7 @@ void LoaderWindow::fileOpen()
                            tr("the package developer") : _package->developer());
   }
 
-  _pkgname->setText(tr("Package %1 (%2)").arg(_package->id()).arg(filename));
+  _pkgname->setText(tr("Package %1 (%2)").arg(_package->id()).arg(fi.filePath()));
 
   _progress->setValue(0);
   _progress->setMaximum(_files->_list.count() - 1);
@@ -326,7 +334,7 @@ void LoaderWindow::fileOpen()
   multiple transactions.
   */
   _premultitransfile = false;
-  QString destver = filename;
+  QString destver = fi.filePath();
   // if follows OpenMFG/xTuple naming convention
   if (destver.contains(QRegExp(".*/?[12][0123][0-9]((alpha|beta|rc)[1-9])?"
 			       "to"
