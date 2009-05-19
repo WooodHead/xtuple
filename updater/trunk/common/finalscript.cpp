@@ -12,7 +12,6 @@
 
 #include <QDomDocument>
 #include <QSqlError>
-#include <QSqlQuery>
 
 #define DEBUG false
 

@@ -12,9 +12,10 @@
 
 #include <QDomDocument>
 #include <QMessageBox>
-#include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>     // used by QSqlQuery::bindValue()
+#include <QVariant>     // used by XSqlQuery::bindValue()
+
+#include "xsqlquery.h"
 
 #define DEBUG false
 
@@ -60,7 +61,7 @@ int CreateView::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
 
   if (! pkgname.isEmpty())
   {
-    QSqlQuery select;
+    XSqlQuery select;
     int pkgheadid = -1;
     select.prepare("SELECT pkghead_id FROM pkghead WHERE (pkghead_name=:name);");
     select.bindValue(":name", pkgname);

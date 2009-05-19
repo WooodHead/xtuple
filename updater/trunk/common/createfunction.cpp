@@ -12,9 +12,10 @@
 
 #include <QDomDocument>
 #include <QMessageBox>
-#include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>     // used by QSqlQuery::bindValue()
+#include <QVariant>     // used by XSqlQuery::bindValue()
+
+#include "xsqlquery.h"
 
 #define DEBUG false
 
@@ -45,7 +46,7 @@ int CreateFunction::writeToDB(const QByteArray &pdata, const QString pkgname, QS
     qDebug("CreateFunction::writeToDb(%s, %s, &errMsg)",
            pdata.data(), qPrintable(pkgname));
 
-  QSqlQuery oidq;
+  XSqlQuery oidq;
   QMap<QString,int> oldoids;
 
   if (! pkgname.isEmpty())
@@ -88,7 +89,7 @@ int CreateFunction::writeToDB(const QByteArray &pdata, const QString pkgname, QS
 
   if (! pkgname.isEmpty())
   {
-    QSqlQuery select;
+    XSqlQuery select;
     int pkgheadid = -1;
     select.prepare("SELECT pkghead_id FROM pkghead WHERE (pkghead_name=:name);");
     select.bindValue(":name", pkgname);
@@ -151,7 +152,7 @@ int CreateFunction::upsertPkgItem(const int pkgheadid,
 
   int pkgitemid = -1;
 
-  QSqlQuery select;
+  XSqlQuery select;
   select.prepare("SELECT pkgitem_id "
                  "FROM pkgitem "
                  "WHERE ((pkgitem_pkghead_id=:headid)"
@@ -171,7 +172,7 @@ int CreateFunction::upsertPkgItem(const int pkgheadid,
     return -20;
   }
 
-  QSqlQuery upsert;
+  XSqlQuery upsert;
 
   if (pkgitemid >= 0)
     upsert.prepare("UPDATE pkgitem SET pkgitem_descrip=:descrip,"

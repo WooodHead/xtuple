@@ -13,9 +13,10 @@
 #include <QDomDocument>
 #include <QMessageBox>
 #include <QRegExp>
-#include <QSqlQuery>
 #include <QSqlError>
 #include <QVariant>
+
+#include "xsqlquery.h"
 
 CreateDBObj::CreateDBObj()
 {
@@ -91,7 +92,7 @@ int CreateDBObj::upsertPkgItem(const int pkgheadid, const int itemid,
 
   int pkgitemid = -1;
 
-  QSqlQuery select;
+  XSqlQuery select;
   select.prepare("SELECT pkgitem_id "
                  "FROM pkgitem "
                  "WHERE ((pkgitem_pkghead_id=:headid)"
@@ -111,7 +112,7 @@ int CreateDBObj::upsertPkgItem(const int pkgheadid, const int itemid,
     return -20;
   }
 
-  QSqlQuery upsert;
+  XSqlQuery upsert;
 
   if (pkgitemid >= 0)
     upsert.prepare("UPDATE pkgitem SET pkgitem_descrip=:descrip,"
