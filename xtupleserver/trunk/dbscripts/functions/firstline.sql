@@ -1,8 +1,8 @@
 
-CREATE OR REPLACE FUNCTION firstLine(TEXT) RETURNS TEXT IMMUTABLE AS '
+CREATE OR REPLACE FUNCTION firstLine(TEXT) RETURNS TEXT IMMUTABLE AS $$
 DECLARE
   pSource ALIAS FOR $1;
-  _result TEXT := '''';
+  _result TEXT := '';
   _cursor INTEGER := 1;
   _state INTEGER := 0;
   _length INTEGER;
@@ -17,14 +17,17 @@ BEGIN
   WHILE ( (_state <> 2) AND (_cursor <= _length) ) LOOP
     _character := substr(pSource, _cursor, 1);
 
-    IF (_state = 0) THEN
-      IF (_character NOT IN  (''\n'', '' '')) THEN
+    IF (_character IN (E'\r')) THEN
+      -- SKIP this character
+
+    ELSIF (_state = 0) THEN
+      IF (_character NOT IN  (E'\n', ' ')) THEN
         _state := 1;
         _result = (_result || _character);
       END IF;
 
     ELSIF (_state = 1) THEN
-      IF (_character = ''\n'') THEN
+      IF (_character = E'\n') THEN
         _state := 2;
       ELSE
         _result = (_result || _character);
@@ -38,5 +41,5 @@ BEGIN
   RETURN _result;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
