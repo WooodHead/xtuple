@@ -14,7 +14,6 @@
 #include <QList>
 #include <QMessageBox>
 #include <QSqlError>
-#include <QSqlQuery>
 #include <QVariant>
 
 #include "createfunction.h"
@@ -32,6 +31,7 @@
 #include "prerequisite.h"
 #include "script.h"
 #include "finalscript.h"
+#include "xsqlquery.h"
 #include "xversion.h"
 
 #define DEBUG false
@@ -425,8 +425,8 @@ bool Package::containsView(const QString &pname) const
 
 int Package::writeToDB(QString &errMsg)
 {
-  QSqlQuery select;
-  QSqlQuery upsert;
+  XSqlQuery select;
+  XSqlQuery upsert;
   QString sqlerrtxt = TR("<font color=red>The following error was "
                          "encountered while trying to import %1 into "
                          "the database:<br>%2<br>%3</font>");

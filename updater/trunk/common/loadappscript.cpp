@@ -11,10 +11,11 @@
 #include "loadappscript.h"
 
 #include <QDomElement>
-#include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>     // used by QSqlQuery::bindValue()
+#include <QVariant>     // used by XSqlQuery::bindValue()
 #include <limits.h>
+
+#include "xsqlquery.h"
 
 LoadAppScript::LoadAppScript(const QString &name, const int order,
                              const bool system, const bool enabled,
@@ -99,7 +100,7 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
 
   if (_grade == INT_MIN)
   {
-    QSqlQuery minOrder;
+    XSqlQuery minOrder;
     minOrder.prepare("SELECT MIN(script_order) AS min "
                      "FROM script "
                      "WHERE (script_name=:name);");
@@ -118,7 +119,7 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
   }
   else if (_grade == INT_MAX)
   {
-    QSqlQuery maxOrder;
+    XSqlQuery maxOrder;
     maxOrder.prepare("SELECT MAX(script_order) AS max "
                      "FROM script "
                      "WHERE (script_name=:name);");
@@ -136,8 +137,8 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
       _grade = 0;
   }
 
-  QSqlQuery select;
-  QSqlQuery upsert;
+  XSqlQuery select;
+  XSqlQuery upsert;
 
   int scriptid  = -1;
   int pkgheadid = -1;

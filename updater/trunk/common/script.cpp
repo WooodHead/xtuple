@@ -12,7 +12,8 @@
 
 #include <QDomDocument>
 #include <QSqlError>
-#include <QSqlQuery>
+
+#include "xsqlquery.h"
 
 #define DEBUG false
 
@@ -108,7 +109,7 @@ int Script::writeToDB(const QByteArray &pdata, const QString annotation, QString
     return -1;
   }
 
-  QSqlQuery create;
+  XSqlQuery create;
   create.exec(QString(pdata));
   if (create.lastError().type() != QSqlError::NoError)
   {

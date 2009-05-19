@@ -14,11 +14,12 @@
 #include <QDomElement>
 #include <QImage>
 #include <QImageWriter>
-#include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>     // used by QSqlQuery::bindValue()
+#include <QVariant>     // used by XSqlQuery::bindValue()
 
 #include <quuencode.h>
+
+#include "xsqlquery.h"
 
 #define DEBUG false
 
@@ -115,8 +116,8 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
                       qPrintable(encodeddata.left(160)));
   }
 
-  QSqlQuery select;
-  QSqlQuery upsert;
+  XSqlQuery select;
+  XSqlQuery upsert;
 
   int imageid  = -1;
   int pkgheadid = -1;

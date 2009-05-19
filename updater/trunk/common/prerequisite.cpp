@@ -13,9 +13,9 @@
 #include <QDomDocument>
 #include <QList>
 #include <QSqlError>
-#include <QSqlQuery>
 
 #include "licensewindow.h"
+#include "xsqlquery.h"
 
 #define TR(a) QObject::tr(a)
 
@@ -280,7 +280,7 @@ bool Prerequisite::met(QString &errMsg)
   {
     case Query:
       {
-      QSqlQuery query;
+      XSqlQuery query;
       query.exec(_query);
       if (query.first())
       {
@@ -316,7 +316,7 @@ bool Prerequisite::met(QString &errMsg)
         sql += "AND (pkghead_developer=:developer) ";
       sql += ");";
 
-      QSqlQuery query;
+      XSqlQuery query;
       query.prepare(sql);
       query.bindValue(":name",      _dependency->name());
       query.bindValue(":version",   _dependency->version());
@@ -356,7 +356,7 @@ int Prerequisite::writeToDB(const QString pkgname, QString &errMsg)
 
   if (! pkgname.isEmpty() && _dependency)
   {
-    QSqlQuery select;
+    XSqlQuery select;
     int pkgheadid = -1;
     select.prepare("SELECT pkghead_id FROM pkghead WHERE (pkghead_name=:name);");
     select.bindValue(":name", pkgname);
@@ -424,7 +424,7 @@ int Prerequisite::writeToDB(const QString pkgname, QString &errMsg)
       return -4;
     }
 
-    QSqlQuery upsert;
+    XSqlQuery upsert;
     if (pkgdepid > 0)
       upsert.prepare("UPDATE pkgdep "
                      "SET pkgdep_pkghead_id=:pkgheadid,"

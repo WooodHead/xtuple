@@ -11,9 +11,10 @@
 #include "loadpriv.h"
 
 #include <QDomDocument>
-#include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>     // used by QSqlQuery::bindValue()
+#include <QVariant>     // used by XSqlQuery::bindValue()
+
+#include "xsqlquery.h"
 
 #include "loadable.h"
 
@@ -80,8 +81,8 @@ int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
                .arg(_name);
   }
 
-  QSqlQuery select;
-  QSqlQuery upsert;
+  XSqlQuery select;
+  XSqlQuery upsert;
 
   int privid    = -1;
   int pkgheadid = -1;

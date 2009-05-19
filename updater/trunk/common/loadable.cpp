@@ -12,10 +12,11 @@
 
 #include <QDomDocument>
 #include <QRegExp>
-#include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>     // used by QSqlQuery::value()
+#include <QVariant>     // used by XSqlQuery::value()
 #include <limits.h>
+
+#include "xsqlquery.h"
 
 QRegExp Loadable::trueRegExp("^t(rue)?$",   Qt::CaseInsensitive);
 QRegExp Loadable::falseRegExp("^f(alse)?$", Qt::CaseInsensitive);
@@ -99,8 +100,8 @@ int Loadable::upsertPkgItem(int &pkgitemid, const int pkgheadid,
   if (pkgheadid < 0)
     return 0;
 
-  QSqlQuery select;
-  QSqlQuery upsert;
+  XSqlQuery select;
+  XSqlQuery upsert;
 
   if (pkgitemid >= 0)
     upsert.prepare("UPDATE pkgitem SET pkgitem_descrip=:descrip "

@@ -11,9 +11,10 @@
 #include "loadmetasql.h"
 
 #include <QDomDocument>
-#include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>     // used by QSqlQuery::bindValue()
+#include <QVariant>     // used by XSqlQuery::bindValue()
+
+#include "xsqlquery.h"
 
 #define DEBUG false
 
@@ -111,7 +112,7 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
            qPrintable(_name), qPrintable(_group), qPrintable(_comment),
            qPrintable(metasqlStr));
 
-  QSqlQuery upsert;
+  XSqlQuery upsert;
   int metasqlid = -1;
 
   upsert.prepare("SELECT saveMetasql(:group, :name, :notes, :query, :system) AS result;");
@@ -150,7 +151,7 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
 
   if (! pkgname.isEmpty())
   {
-    QSqlQuery select;
+    XSqlQuery select;
     int pkgitemid = -1;
     int pkgheadid = -1;
     select.prepare(_pkgitemQueryStr);

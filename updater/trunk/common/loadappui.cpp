@@ -11,10 +11,11 @@
 #include "loadappui.h"
 
 #include <QDomDocument>
-#include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>     // used by QSqlQuery::bindValue()
+#include <QVariant>     // used by XSqlQuery::bindValue()
 #include <limits.h>
+
+#include "xsqlquery.h"
 
 #define DEBUG false
 
@@ -116,7 +117,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
 
   if (_grade == INT_MIN)
   {
-    QSqlQuery minOrder;
+    XSqlQuery minOrder;
     minOrder.prepare("SELECT MIN(uiform_order) AS min "
                      "FROM uiform "
                      "WHERE (uiform_name=:name);");
@@ -135,7 +136,7 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   }
   else if (_grade == INT_MAX)
   {
-    QSqlQuery maxOrder;
+    XSqlQuery maxOrder;
     maxOrder.prepare("SELECT MAX(uiform_order) AS max "
                      "FROM uiform "
                      "WHERE (uiform_name=:name);");
@@ -153,8 +154,8 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
       _grade = 0;
   }
 
-  QSqlQuery select;
-  QSqlQuery upsert;
+  XSqlQuery select;
+  XSqlQuery upsert;
 
   int formid    = -1;
   int pkgheadid = -1;

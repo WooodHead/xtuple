@@ -11,12 +11,12 @@
 #include "loadcmd.h"
 
 #include <QDomDocument>
-#include <QSqlQuery>
 #include <QSqlError>
 #include <QStringList>
-#include <QVariant>     // used by QSqlQuery::bindValue()
+#include <QVariant>     // used by XSqlQuery::bindValue()
 
 #include "loadable.h"
+#include "xsqlquery.h"
 
 #define DEBUG false
 
@@ -130,8 +130,8 @@ QDomElement LoadCmd::createElement(QDomDocument &doc)
 
 int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
 {
-  QSqlQuery select;
-  QSqlQuery upsert;
+  XSqlQuery select;
+  XSqlQuery upsert;
 
   int cmdid     = -1;
   int pkgheadid = -1;
@@ -203,7 +203,7 @@ int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
     return -7;
   }
 
-  QSqlQuery delargs;
+  XSqlQuery delargs;
   delargs.prepare(QString("DELETE FROM %1cmdarg WHERE (cmdarg_cmd_id=:cmd_id);")
                           .arg(_system ? "" : "pkg"));
   delargs.bindValue(":cmd_id", cmdid);
@@ -216,7 +216,7 @@ int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
 
   if (_args.size() > 0)
   {
-    QSqlQuery insargs;
+    XSqlQuery insargs;
     insargs.prepare(QString("INSERT INTO %1cmdarg (cmdarg_cmd_id, cmdarg_order, "
                             "cmdarg_arg) VALUES (:cmd_id, :order, :arg);")
                           .arg(_system ? "" : "pkg"));

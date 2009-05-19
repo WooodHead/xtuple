@@ -12,10 +12,11 @@
 
 #include <QDomDocument>
 #include <QMessageBox>
-#include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>     // used by QSqlQuery::bindValue()
+#include <QVariant>     // used by XSqlQuery::bindValue()
 #include <limits.h>
+
+#include "xsqlquery.h"
 
 LoadReport::LoadReport(const QString &name, const int grade, const bool system,
                        const QString &comment, const QString &filename)
@@ -79,7 +80,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
 
   if (_grade == INT_MIN)
   {
-    QSqlQuery minOrder;
+    XSqlQuery minOrder;
     minOrder.prepare("SELECT MIN(report_grade) AS min "
                      "FROM report "
                      "WHERE (report_name=:name);");
@@ -98,7 +99,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
   }
   else if (_grade == INT_MAX)
   {
-    QSqlQuery maxOrder;
+    XSqlQuery maxOrder;
     maxOrder.prepare("SELECT MAX(report_grade) AS max "
                      "FROM report "
                      "WHERE (report_name=:name);");
@@ -116,8 +117,8 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
       _grade = 0;
   }
 
-  QSqlQuery select;
-  QSqlQuery upsert;
+  XSqlQuery select;
+  XSqlQuery upsert;
 
   int reportid  = -1;
   int pkgheadid = -1;
@@ -176,7 +177,7 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
       if(select.first())
       {
         // then insert a new one with a higher grade
-        QSqlQuery next;
+        XSqlQuery next;
         next.prepare("SELECT MIN(sequence_value) AS next "
                          "FROM sequence "
                          "WHERE ((sequence_value NOT IN ("
