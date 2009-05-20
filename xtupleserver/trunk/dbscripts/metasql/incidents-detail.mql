@@ -39,7 +39,8 @@ SELECT incdt_id,
 	        <? if exists("isclosed") ?>, 'L' <? endif ?> 
 	       ))
 	       <? if exists("pattern") ?> 
-	       AND ((incdt_summary ~* <? value("pattern") ?>)
+	       AND ((incdt_number::text ~* <? value("pattern") ?>)
+                OR  (incdt_summary ~* <? value("pattern") ?>)
 	        OR  (incdt_descrip ~* <? value("pattern") ?>)
 	        OR  (incdt_id IN (SELECT comment_source_id
 	                   FROM comment
