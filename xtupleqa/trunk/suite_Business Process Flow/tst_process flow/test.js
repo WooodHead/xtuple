@@ -2,918 +2,916 @@ function main()
 {
 
 
-    //-----includes--------
- //   source(findFile("scripts","functions.js"));
-        
-    //---login Application--------
-  //  loginAppl("CONFIGURE"); 
-     
+  //-----includes--------
+/   source(findFile("scripts","functions.js"));
+      
+  //---login Application--------
+//  loginAppl("CONFIGURE"); 
+   
+  waitForObject(":_username_QLineEdit");
+  type(":_username_QLineEdit", "admin");
+  type(":_username_QLineEdit", "<Tab>");
+  type(":_password_QLineEdit", "zenx2plE");
+  type(":_password_QLineEdit", "<Return>");
+   waitForObject(":xTuple ERP:*.Products Tools_QWorkspace");
+ 
+  //---Variable declaration---
+  var sonumber, ponumber, vounumber, invoice, amount, quote, quotequantity, quotechange, soquantity;
+
+    //---Setting Encryption Key---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "System");
+    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Master Information");
+    activateItem(":xTuple ERP:*.System_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP:*.Master Information_QMenu", "Encryption...");
+    activateItem(":xTuple ERP:*.Master Information_QMenu", "Encryption...");
+    waitForObject(":OK_QPushButton");
+    clickButton(":OK_QPushButton");
+    waitForObject(":_ccEncKeyName_QLineEdit");
+    if(findObject(":_ccEncKeyName_QLineEdit").text!="xTuple.key")
+    {
+        type(":_ccEncKeyName_QLineEdit", "<Right>");
+        type(":_ccEncKeyName_QLineEdit", "<Ctrl+Backspace>");
+        type(":_ccEncKeyName_QLineEdit", "xTuple.key");
+        test.log("Encryption: key name changed");
+    }
+    if(findObject(":Encryption Configuration_FileLineEdit").text!="c:\\crypto")
+    {
+        type(":Encryption Configuration_FileLineEdit", "<Right>");
+        type(":Encryption Configuration_FileLineEdit", "<Ctrl+Backspace>");
+        type(":Encryption Configuration_FileLineEdit", "c:\\crypto");
+        test.log("Encryption: Windows location changed");
+    }
+    if(findObject(":Encryption Configuration_FileLineEdit_2").text!="\\home\\crypto")
+    {
+        type(":Encryption Configuration_FileLineEdit_2", "<Right>");
+        type(":Encryption Configuration_FileLineEdit_2", "<Ctrl+Backspace>");
+        type(":Encryption Configuration_FileLineEdit_2", "\\home\\crypto");
+        test.log("Encryption: Linux location changed");
+    }
+    if(findObject(":Encryption Configuration_FileLineEdit_3").text!="/Users/crypto")
+    {
+        type(":Encryption Configuration_FileLineEdit_3", "<Right>");
+        type(":Encryption Configuration_FileLineEdit_3", "<Ctrl+Backspace>");
+        type(":Encryption Configuration_FileLineEdit_3", "/Users/crypto");
+        test.log("Encryption: Mac location changed");
+    }
+    clickButton(":Encryption Configuration.Save_QPushButton");
+    test.log("Encryption defined");
+   
+ 
+    snooze(5);
+    
+    startApplication("xtuple");
+    
+    snooze(5);
+    
     waitForObject(":_username_QLineEdit");
     type(":_username_QLineEdit", "admin");
     type(":_username_QLineEdit", "<Tab>");
     type(":_password_QLineEdit", "zenx2plE");
     type(":_password_QLineEdit", "<Return>");
-     waitForObject(":xTuple ERP:*.Products Tools_QWorkspace");
  
-    //---Variable declaration---
-    var sonumber, ponumber, vounumber, invoice, amount, quote, quotequantity, quotechange, soquantity;
-
-//    //---Setting Encryption Key---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "System");
-//    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Master Information");
-//    activateItem(":xTuple ERP:*.System_QMenu", "Master Information");
-//    waitForObjectItem(":xTuple ERP:*.Master Information_QMenu", "Encryption...");
-//    activateItem(":xTuple ERP:*.Master Information_QMenu", "Encryption...");
-//    waitForObject(":OK_QPushButton");
-//    clickButton(":OK_QPushButton");
-//    waitForObject(":_ccEncKeyName_QLineEdit");
-//    if(findObject(":_ccEncKeyName_QLineEdit").text!="xTuple.key")
-//    {
-//        type(":_ccEncKeyName_QLineEdit", "<Right>");
-//        type(":_ccEncKeyName_QLineEdit", "<Ctrl+Backspace>");
-//        type(":_ccEncKeyName_QLineEdit", "xTuple.key");
-//        test.log("Encryption: key name changed");
-//    }
-//    if(findObject(":Encryption Configuration_FileLineEdit").text!="c:\\crypto")
-//    {
-//        type(":Encryption Configuration_FileLineEdit", "<Right>");
-//        type(":Encryption Configuration_FileLineEdit", "<Ctrl+Backspace>");
-//        type(":Encryption Configuration_FileLineEdit", "c:\\crypto");
-//        test.log("Encryption: Windows location changed");
-//    }
-//    if(findObject(":Encryption Configuration_FileLineEdit_2").text!="\\home\\crypto")
-//    {
-//        type(":Encryption Configuration_FileLineEdit_2", "<Right>");
-//        type(":Encryption Configuration_FileLineEdit_2", "<Ctrl+Backspace>");
-//        type(":Encryption Configuration_FileLineEdit_2", "\\home\\crypto");
-//        test.log("Encryption: Linux location changed");
-//    }
-//    if(findObject(":Encryption Configuration_FileLineEdit_3").text!="/Users/crypto")
-//    {
-//        type(":Encryption Configuration_FileLineEdit_3", "<Right>");
-//        type(":Encryption Configuration_FileLineEdit_3", "<Ctrl+Backspace>");
-//        type(":Encryption Configuration_FileLineEdit_3", "/Users/crypto");
-//        test.log("Encryption: Mac location changed");
-//    }
-//    clickButton(":Encryption Configuration.Save_QPushButton");
-//    test.log("Encryption defined");
-//   
-// 
-//    snooze(5);
-//    
-//    startApplication("xtuple");
-//    
-//    snooze(5);
-//    
-//    waitForObject(":_username_QLineEdit");
-//    type(":_username_QLineEdit", "admin");
-//    type(":_username_QLineEdit", "<Tab>");
-//    type(":_password_QLineEdit", "zenx2plE");
-//    type(":_password_QLineEdit", "<Return>");
-// 
+  
+ 
+  //---login Application--------
+    loginAppl("CONFIGURE"); 
+  
+    //---Verification of Unbalanced QOH Items---
+    waitForObject(":xTuple ERP:*_QMenuBar_2");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Utilities");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Utilities");
+    waitForObjectItem(":xTuple ERP:*.Utilities_QMenu", "Unbalanced QOH...");
+    activateItem(":xTuple ERP:*.Utilities_QMenu", "Unbalanced QOH...");
+    
+    waitForObject(":_classCode.All Class Codes_QRadioButton");
+    clickButton(":_classCode.All Class Codes_QRadioButton");
+    waitForObject(":_warehouse.All Sites_QRadioButton_4");
+    clickButton(":_warehouse.All Sites_QRadioButton_4");
+    waitForObject(":Unbalanced QOH by Class Code.Query_QPushButton");
+    clickButton(":Unbalanced QOH by Class Code.Query_QPushButton");
+    waitForObject(":_itemsite_XTreeWidget");
+    waitForObject(":_classCode.Selected:_QRadioButton");
+    type(":_classCode.Selected:_QRadioButton", "<Down>");
+    waitForObject(":_classCode.All Class Codes_QRadioButton");
+    type(":_classCode.All Class Codes_QRadioButton", " ");
+    
+    if(findObject(":_itemsite_XTreeWidget").topLevelItemCount != 0)
+        test.fail(" Items have Unbalanced QOH ");
+    else test.pass(" Items have Balanced QOH ");
+    
+    waitForObject(":Unbalanced QOH by Class Code.Close_QPushButton");
+    clickButton(":Unbalanced QOH by Class Code.Close_QPushButton");
+    
+    //---Creation of Items---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Products");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Products");
+    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Item");
+    activateItem(":xTuple ERP:*.Products_QMenu", "Item");
+    waitForObjectItem(":xTuple ERP:*.Item_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Item_QMenu", "List...");
+   
+    //--- (UC_BPF_CI_01:AF1) Co-Product Item Type---
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    
+    waitForObject(":_itemNumber_XLineEdit");
+    type(":_itemNumber_XLineEdit", "zen co-product");
+    waitForObject(":_description1_XLineEdit");
+    type(":_description1_XLineEdit", "Zen Co-Product Item Type");
+    waitForObject(":_itemtype_QComboBox");
+    clickItem(":_itemtype_QComboBox", "Co-Product", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_itemGroup._classcode_XComboBox");
+    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_inventoryUOM_XComboBox");
+    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_prodcat_XComboBox");
+    clickItem(":_prodcat_XComboBox", "CLASSIC-METAL - Classic Metal Product Line", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Item is Sold._listprice_XLineEdit");
+    type(":Item is Sold._listprice_XLineEdit", "5.66");
+    waitForObject(":_prodWeight_XLineEdit");
+    type(":_prodWeight_XLineEdit", "2");
+    waitForObject(":_packWeight_XLineEdit");
+    type(":_packWeight_XLineEdit", "0.5");
+    waitForObject(":Item.Save_QPushButton");
+    clickButton(":Item.Save_QPushButton");
+    
+    waitForObject(":Item.Yes_QPushButton");
+    clickButton(":Item.Yes_QPushButton");
+   
+    waitForObject(":_warehouse_WComboBox");
+    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Control._controlMethod_XComboBox");
+    clickItem(":Control._controlMethod_XComboBox", "Regular", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_plannerCode_XComboBox");
+    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_costcat_XComboBox");
+    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
+    
+    waitForObject(":Item.Save_QPushButton_2");
+    clickButton(":Item.Save_QPushButton_2");
+    waitForObject(":Item.Cancel_QPushButton");
+    clickButton(":Item.Cancel_QPushButton");
+    
+    waitForObject(":List Items._item_XTreeWidget");
+    if(!clickItem(":List Items._item_XTreeWidget", "ZEN CO-PRODUCT", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: ZEN CO-PRODUCT");
+      
+    //---(UC_BPF_CI_01:AF1) By-Product Item Type---
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    
+    waitForObject(":_itemNumber_XLineEdit");
+    type(":_itemNumber_XLineEdit", "zen by-product");
+    waitForObject(":_description1_XLineEdit");
+    type(":_description1_XLineEdit", "Zen By-Product Item Type");
+    waitForObject(":_itemtype_QComboBox");
+    clickItem(":_itemtype_QComboBox", "By-Product", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_itemGroup._classcode_XComboBox");
+    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_inventoryUOM_XComboBox");
+    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_prodcat_XComboBox");
+    clickItem(":_prodcat_XComboBox", "CLASSIC-METAL - Classic Metal Product Line", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Item is Sold._listprice_XLineEdit");
+    type(":Item is Sold._listprice_XLineEdit", "10.8"); 
+    waitForObject(":_prodWeight_XLineEdit");
+    type(":_prodWeight_XLineEdit", "3");
+    waitForObject(":_packWeight_XLineEdit");
+    type(":_packWeight_XLineEdit", "0.2");
+    waitForObject(":Item.Save_QPushButton");
+    clickButton(":Item.Save_QPushButton");
+   
+    waitForObject(":Item.Yes_QPushButton");
+    clickButton(":Item.Yes_QPushButton");
+    
+    waitForObject(":_warehouse_WComboBox");
+    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Control._controlMethod_XComboBox");
+    clickItem(":Control._controlMethod_XComboBox", "Regular", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_plannerCode_XComboBox");
+    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_costcat_XComboBox");
+    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
+   
+    waitForObject(":Item.Save_QPushButton_2");
+    clickButton(":Item.Save_QPushButton_2");
+    waitForObject(":Item.Cancel_QPushButton");
+    clickButton(":Item.Cancel_QPushButton");
+    
+     waitForObject(":List Items._item_XTreeWidget");
+    if(!clickItem(":List Items._item_XTreeWidget", "ZEN BY-PRODUCT", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: ZEN BY-PRODUCT");
+    
+    //---(UC_BPF_CI_01:AF2) Job Item Type---
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    
+    waitForObject(":_itemNumber_XLineEdit");
+    type(":_itemNumber_XLineEdit", "Zen Job");
+    waitForObject(":_description1_XLineEdit");
+    type(":_description1_XLineEdit", "Zen Job Item Type");
+    waitForObject(":_itemtype_QComboBox");
+    clickItem(":_itemtype_QComboBox", "Job", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_itemGroup._classcode_XComboBox");
+    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_inventoryUOM_XComboBox");
+    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_prodcat_XComboBox");
+    clickItem(":_prodcat_XComboBox", "CLASSIC-METAL - Classic Metal Product Line", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Item is Sold._listprice_XLineEdit");
+    type(":Item is Sold._listprice_XLineEdit", "7");
+    waitForObject(":_prodWeight_XLineEdit");
+    type(":_prodWeight_XLineEdit", "5");
+    waitForObject(":_packWeight_XLineEdit");
+    type(":_packWeight_XLineEdit", "0.1");
+    waitForObject(":Item.Save_QPushButton");
+    clickButton(":Item.Save_QPushButton");
+   
+    waitForObject(":Item.Yes_QPushButton");
+    clickButton(":Item.Yes_QPushButton");
+    
+    waitForObject(":_warehouse_WComboBox");
+    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_plannerCode_XComboBox");
+    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_costcat_XComboBox");
+    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
+     
+    waitForObject(":Item.Save_QPushButton_2");
+    clickButton(":Item.Save_QPushButton_2");
+    waitForObject(":Item.Cancel_QPushButton");
+    clickButton(":Item.Cancel_QPushButton");
+    
+     waitForObject(":List Items._item_XTreeWidget");
+    if(!clickItem(":List Items._item_XTreeWidget", "ZEN JOB", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: ZEN JOB");
+   
+    //---(UC_BPF_CI_01:AF3) Refernce Item Type---
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    
+    waitForObject(":_itemNumber_XLineEdit");
+    type(":_itemNumber_XLineEdit", "zen reference");
+    waitForObject(":_description1_XLineEdit");
+    type(":_description1_XLineEdit", "Zen Reference Item Type");
+    waitForObject(":_itemtype_QComboBox");
+    clickItem(":_itemtype_QComboBox", "Reference", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_itemGroup._classcode_XComboBox");
+    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-OTHER-Toys Other Items", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_inventoryUOM_XComboBox");
+    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_prodcat_XComboBox");
+    clickItem(":_prodcat_XComboBox", "CLASSIC-METAL - Classic Metal Product Line", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Item is Sold._listprice_XLineEdit");
+    type(":Item is Sold._listprice_XLineEdit", "6");
+    waitForObject(":_prodWeight_XLineEdit");
+    type(":_prodWeight_XLineEdit", "5");
+    waitForObject(":_packWeight_XLineEdit");
+    type(":_packWeight_XLineEdit", "2.3");
+    waitForObject(":Item.Save_QPushButton");
+    clickButton(":Item.Save_QPushButton");
+    
+    waitForObject(":Item.Yes_QPushButton");
+    clickButton(":Item.Yes_QPushButton");
+    
+    waitForObject(":_warehouse_WComboBox");
+    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_plannerCode_XComboBox");
+    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_costcat_XComboBox");
+    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
+    
+    waitForObject(":Item.Save_QPushButton_2");
+    clickButton(":Item.Save_QPushButton_2");
+    waitForObject(":Item.Cancel_QPushButton");
+    clickButton(":Item.Cancel_QPushButton");
+    
+     waitForObject(":List Items._item_XTreeWidget");
+    if(!clickItem(":List Items._item_XTreeWidget", "ZEN REFERENCE", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: ZEN REFERENCE");
+    
+    //---(UC_BPF_CI_01:AF4) Costing Item Type---
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    
+    waitForObject(":_itemNumber_XLineEdit");
+    type(":_itemNumber_XLineEdit", "zen costing");
+    waitForObject(":_description1_XLineEdit");
+    type(":_description1_XLineEdit", "Zen Costing Item Type");
+    waitForObject(":_itemtype_QComboBox");
+    clickItem(":_itemtype_QComboBox", "Costing", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_itemGroup._classcode_XComboBox");
+    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-OTHER-Toys Other Items", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_inventoryUOM_XComboBox");
+    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Item.Save_QPushButton");
+    clickButton(":Item.Save_QPushButton");
+    
+    waitForObject(":Item.Yes_QPushButton");
+    clickButton(":Item.Yes_QPushButton");
+    
+    waitForObject(":_warehouse_WComboBox");
+    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Control._controlMethod_XComboBox");
+    clickItem(":Control._controlMethod_XComboBox", "Regular", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_plannerCode_XComboBox");
+    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5,5, 1, Qt.LeftButton);
+    waitForObject(":_costcat_XComboBox");
+    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
+    
+    waitForObject(":Item.Save_QPushButton_2");
+    clickButton(":Item.Save_QPushButton_2");
+    waitForObject(":Item.Cancel_QPushButton");
+    clickButton(":Item.Cancel_QPushButton");
+    
+     waitForObject(":List Items._item_XTreeWidget");
+    if(!clickItem(":List Items._item_XTreeWidget", "ZEN COSTING", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: ZEN COSTING");      
+   
+    //---(UC_BPF_CI_01:AF5) Tooling Item Type---
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    
+    waitForObject(":_itemNumber_XLineEdit");
+    type(":_itemNumber_XLineEdit", "zen tooling");
+    waitForObject(":_description1_XLineEdit");
+    type(":_description1_XLineEdit", "Zen Tooling Item Type");
+    waitForObject(":_itemtype_QComboBox");
+    clickItem(":_itemtype_QComboBox", "Tooling", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_itemGroup._classcode_XComboBox");
+    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_inventoryUOM_XComboBox");
+    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_prodWeight_XLineEdit");
+    type(":_prodWeight_XLineEdit", "3");
+    waitForObject(":_packWeight_XLineEdit");
+    type(":_packWeight_XLineEdit", "0.5");
+    waitForObject(":Item.Save_QPushButton");
+    clickButton(":Item.Save_QPushButton");
+    
+    waitForObject(":Item.Yes_QPushButton");
+    clickButton(":Item.Yes_QPushButton");
+    
+    waitForObject(":_warehouse_WComboBox");
+    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Control._controlMethod_XComboBox");
+    clickItem(":Control._controlMethod_XComboBox", "Regular", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_plannerCode_XComboBox");
+    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_costcat_XComboBox");
+    clickItem(":_costcat_XComboBox", "MATERIALS-Materials - WH1", 5, 5, 1, Qt.LeftButton);
+    
+    waitForObject(":Item.Save_QPushButton_2");
+    clickButton(":Item.Save_QPushButton_2");
+    waitForObject(":Item.Cancel_QPushButton");
+    clickButton(":Item.Cancel_QPushButton");
+    
+    waitForObject(":List Items._item_XTreeWidget");
+    if(!clickItem(":List Items._item_XTreeWidget", "ZEN TOOLING", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: ZEN TOOLING");  
+     
+    //---(UC_BPF_CI_01:AF6) Outside Process Item Type---
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    
+    waitForObject(":_itemNumber_XLineEdit");
+    type(":_itemNumber_XLineEdit", "zen outside process");
+    waitForObject(":_description1_XLineEdit");
+    type(":_description1_XLineEdit", "Zen Outisde Process Item Type");
+    waitForObject(":_itemtype_QComboBox");
+    clickItem(":_itemtype_QComboBox", "Outside Process", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_itemGroup._classcode_XComboBox");
+    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_inventoryUOM_XComboBox");
+    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Item.Save_QPushButton");
+    clickButton(":Item.Save_QPushButton");
+    
+    waitForObject(":Item.Yes_QPushButton");
+    clickButton(":Item.Yes_QPushButton");
+    
+    waitForObject(":_warehouse_WComboBox");
+    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Control._controlMethod_XComboBox");
+    clickItem(":Control._controlMethod_XComboBox", "Regular", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_plannerCode_XComboBox");
+    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_costcat_XComboBox");
+    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
+    
+    waitForObject(":Item.Save_QPushButton_2");
+    clickButton(":Item.Save_QPushButton_2");
+    waitForObject(":Item.Cancel_QPushButton");
+    clickButton(":Item.Cancel_QPushButton");
+    
+    waitForObject(":List Items._item_XTreeWidget");
+    if(!clickItem(":List Items._item_XTreeWidget", "ZEN OUTSIDE PROCESS", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: ZEN OUTSIDE PROCESS"); 
+    
+    //---(UC_BPF_CI_01:AF7) Breeder Item Type---
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+   
+    waitForObject(":_itemNumber_XLineEdit");
+    type(":_itemNumber_XLineEdit", "zen breeder");
+    waitForObject(":_description1_XLineEdit");
+    type(":_description1_XLineEdit", "Zen Breeder Item Type");
+    waitForObject(":_itemtype_QComboBox");
+    clickItem(":_itemtype_QComboBox", "Breeder", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_itemGroup._classcode_XComboBox");
+    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_inventoryUOM_XComboBox");
+    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Item.Save_QPushButton");
+    clickButton(":Item.Save_QPushButton");
+   
+    waitForObject(":Item.Yes_QPushButton");
+    clickButton(":Item.Yes_QPushButton");
+    
+    waitForObject(":_warehouse_WComboBox");
+    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_plannerCode_XComboBox");
+    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_plannerCode_XComboBox");
+    clickItem(":_plannerCode_XComboBox", "OP-Outside Processing Items", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_costcat_XComboBox");
+    clickItem(":_costcat_XComboBox", "MATERIALS-Materials - WH1", 5, 5, 1, Qt.LeftButton);
+    
+    waitForObject(":Item.Save_QPushButton_2");
+    clickButton(":Item.Save_QPushButton_2");
+    waitForObject(":Item.Cancel_QPushButton");
+    clickButton(":Item.Cancel_QPushButton");
+    
+    waitForObject(":List Items._item_XTreeWidget");
+    if(!clickItem(":List Items._item_XTreeWidget", "ZEN BREEDER", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: ZEN BREEDER");
+    
+    //---(UC_BPF_CI_01:AF8) Planning Item Type---
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    
+    waitForObject(":_itemNumber_XLineEdit");
+    type(":_itemNumber_XLineEdit", "zen planning");
+    waitForObject(":_description1_XLineEdit");
+    type(":_description1_XLineEdit", "Zen Planning Item Type");
+    waitForObject(":_itemtype_QComboBox");
+    clickItem(":_itemtype_QComboBox", "Planning", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_itemGroup._classcode_XComboBox");
+    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_inventoryUOM_XComboBox");
+    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Item.Save_QPushButton");
+    clickButton(":Item.Save_QPushButton");
+    
+    waitForObject(":Item.Yes_QPushButton");
+    clickButton(":Item.Yes_QPushButton");
+    
+    waitForObject(":_warehouse_WComboBox");
+    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_plannerCode_XComboBox");
+    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_costcat_XComboBox");
+    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
+   
+    waitForObject(":Item.Save_QPushButton_2");
+    clickButton(":Item.Save_QPushButton_2");
+    waitForObject(":Item.Cancel_QPushButton");
+    clickButton(":Item.Cancel_QPushButton");
+    
+    waitForObject(":List Items._item_XTreeWidget");
+    if(!clickItem(":List Items._item_XTreeWidget", "ZEN PLANNING", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: ZEN PLANNING");
+    
+    //---(UC_BPF_CI_01:AF9) Phantom Item Type---
+    waitForObject(":List Items.New_QPushButton");
+    clickButton(":List Items.New_QPushButton");
+    
+    waitForObject(":_itemNumber_XLineEdit");
+    type(":_itemNumber_XLineEdit", "zen phantom");
+    waitForObject(":_description1_XLineEdit");
+    type(":_description1_XLineEdit", "Zen Phantom Item Type");
+    waitForObject(":_itemtype_QComboBox");
+    clickItem(":_itemtype_QComboBox", "Phantom", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_itemGroup._classcode_XComboBox");
+    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_inventoryUOM_XComboBox");
+    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Item.Save_QPushButton");
+    clickButton(":Item.Save_QPushButton");
+   
+    waitForObject(":Item.Yes_QPushButton");
+    clickButton(":Item.Yes_QPushButton");
+    
+    waitForObject(":_warehouse_WComboBox");
+    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_plannerCode_XComboBox");
+    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_costcat_XComboBox");
+    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
+    
+    waitForObject(":Item.Save_QPushButton_2");
+    clickButton(":Item.Save_QPushButton_2");
+    waitForObject(":Item.Cancel_QPushButton");
+    clickButton(":Item.Cancel_QPushButton");
+     
+    waitForObject(":List Items._item_XTreeWidget");
+    if(!clickItem(":List Items._item_XTreeWidget", "ZEN PHANTOM", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: ZEN PHANTOM");
+   
+    waitForObject(":List Items.Close_QPushButton");
+    clickButton(":List Items.Close_QPushButton");
+    
+    //---(UC_BPF_CI_01:AF10) Bill of Materials---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Products");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Products");
+    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
+    activateItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
+    waitForObjectItem(":xTuple ERP:*.Bill Of Materials_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Bill Of Materials_QMenu", "List...");
+    
+    waitForObject(":Bills of Materials.New_QPushButton");
+    clickButton(":Bills of Materials.New_QPushButton");
+    waitForObject(":_itemGroup...._QPushButton_3");
+    clickButton(":_itemGroup...._QPushButton_3");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4", "ZEN BREEDER", 5, 5, 0, Qt.LeftButton);
+    
+    waitForObject(":frame_2.New_QPushButton");
+    clickButton(":frame_2.New_QPushButton");
+    waitForObject(":Bill of Materials...._QPushButton");
+    clickButton(":Bill of Materials...._QPushButton");
+    waitForObject(":_item_XTreeWidget_5");
+    doubleClickItem(":_item_XTreeWidget_5", "ZEN CO-PRODUCT", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_qtyPer_XLineEdit");
+    type(":_qtyPer_XLineEdit", "6.2");
+    waitForObject(":_scrap_XLineEdit");
+    type(":_scrap_XLineEdit", "1.5");
+    waitForObject(":Bill of Materials.Save_QPushButton");
+    clickButton(":Bill of Materials.Save_QPushButton");
+    
+    waitForObject(":Bill of Materials.Save_QPushButton_2");
+    clickButton(":Bill of Materials.Save_QPushButton_2");
+    
+    waitForObject(":Bills of Materials._bom_XTreeWidget");
+    if(!clickItem(":Bills of Materials._bom_XTreeWidget", "ZEN BREEDER", 5, 5, 1, Qt.LeftButton))
+        test.pass("Bill of Materials Created: ZEN BREEDER");
+  
+    waitForObject(":Bills of Materials.Close_QPushButton");
+    clickButton(":Bills of Materials.Close_QPushButton");
+       
+    //---(UC_BPF_CI_02) Update Actual Costs---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Products");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Products");
+    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Costing");
+    activateItem(":xTuple ERP:*.Products_QMenu", "Costing");
+    waitForObjectItem(":xTuple ERP:*.Costing_QMenu", "Update Actual Costs");
+    activateItem(":xTuple ERP:*.Costing_QMenu", "Update Actual Costs");
+    waitForObjectItem(":xTuple ERP:*.Update Actual Costs_QMenu", "by Item...");
+    activateItem(":xTuple ERP:*.Update Actual Costs_QMenu", "by Item...");
+     
+    waitForObject(":Update Actual Costs by Item...._QPushButton");
+    clickButton(":Update Actual Costs by Item...._QPushButton");
+    waitForObject(":_item_XTreeWidget_6");
+    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Update Actual Costs by Item.Select all Costs_QPushButton");
+    clickButton(":Update Actual Costs by Item.Select all Costs_QPushButton");
+    waitForObject(":Update Actual Costs by Item.Roll Up Actual Costs_QCheckBox");
+    clickButton(":Update Actual Costs by Item.Roll Up Actual Costs_QCheckBox");
+    waitForObject(":Update Actual Costs by Item.Update_QPushButton");
+    clickButton(":Update Actual Costs by Item.Update_QPushButton");
+    waitForObject(":Update Actual Costs by Item.Close_QPushButton");
+    clickButton(":Update Actual Costs by Item.Close_QPushButton");
+    test.log("Updated Actual Costs by item - YTRUCK1");
+   
+    //---(UC_BPF_CI_03) Post Actual Costs---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Products");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Products");
+    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Costing");
+    activateItem(":xTuple ERP:*.Products_QMenu", "Costing");
+    waitForObjectItem(":xTuple ERP:*.Costing_QMenu", "Post Actual Costs");
+    activateItem(":xTuple ERP:*.Costing_QMenu", "Post Actual Costs");
+    waitForObjectItem(":xTuple ERP:*.Post Actual Costs_QMenu", "by Item...");
+    activateItem(":xTuple ERP:*.Post Actual Costs_QMenu", "by Item...");
+   
+    waitForObject(":Post Actual Costs by Item...._QPushButton");
+    clickButton(":Post Actual Costs by Item...._QPushButton");
+    waitForObject(":_item_XTreeWidget_6");
+    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Post Actual Costs by Item.Select all Costs_QPushButton");
+    clickButton(":Post Actual Costs by Item.Select all Costs_QPushButton");
+    waitForObject(":Post Actual Costs by Item.Roll Up Standard Costs_QCheckBox");
+    clickButton(":Post Actual Costs by Item.Roll Up Standard Costs_QCheckBox");
+    waitForObject(":Post Actual Costs by Item.Post_QPushButton");
+    clickButton(":Post Actual Costs by Item.Post_QPushButton");
+    waitForObject(":Post Actual Costs by Item.Close_QPushButton");
+    clickButton(":Post Actual Costs by Item.Close_QPushButton");
+    test.log("Posted Actual Costs by item - YTRUCK1");
+   
+    //---(UC_BPF_CI_04) Post Standard Costs---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Products");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Products");
+    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Costing");
+    activateItem(":xTuple ERP:*.Products_QMenu", "Costing");
+    waitForObjectItem(":xTuple ERP:*.Costing_QMenu", "Post Standard Costs");
+    activateItem(":xTuple ERP:*.Costing_QMenu", "Post Standard Costs");
+    waitForObjectItem(":xTuple ERP:*.Post Standard Costs_QMenu", "by Item...");
+    activateItem(":xTuple ERP:*.Post Standard Costs_QMenu", "by Item...");
+    
+    waitForObject(":Update Standard Costs By Item...._QPushButton");
+    clickButton(":Update Standard Costs By Item...._QPushButton");
+    waitForObject(":_item_XTreeWidget_6");
+    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Update Standard Costs By Item.Select all Costs_QPushButton");
+    clickButton(":Update Standard Costs By Item.Select all Costs_QPushButton");
+    waitForObject(":Update Standard Costs By Item.Roll Up Standard Costs_QCheckBox");
+    clickButton(":Update Standard Costs By Item.Roll Up Standard Costs_QCheckBox");
+    waitForObject(":Update Standard Costs By Item.Update_QPushButton");
+    clickButton(":Update Standard Costs By Item.Update_QPushButton");
+    waitForObject(":Update Standard Costs By Item.Close_QPushButton");
+    clickButton(":Update Standard Costs By Item.Close_QPushButton");
+    test.log("Posted Standard Costs by item - YTRUCK1");
+    
+    //---Verify standard and actual cost in Intended Costed BOM---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Products");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Products");
+    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Costing");
+    activateItem(":xTuple ERP:*.Products_QMenu", "Costing");
+    waitForObjectItem(":xTuple ERP:*.Costing_QMenu", "Reports");
+    activateItem(":xTuple ERP:*.Costing_QMenu", "Reports");
+    waitForObjectItem(":xTuple ERP:*.Reports_QMenu_4", "Costed BOM");
+    activateItem(":xTuple ERP:*.Reports_QMenu_4", "Costed BOM");
+    waitForObjectItem(":xTuple ERP:*.Costed BOM_QMenu", "Indented...");
+    activateItem(":xTuple ERP:*.Costed BOM_QMenu", "Indented...");
+    waitForObject(":Costed Indented Bill of Materials...._QPushButton");
+    clickButton(":Costed Indented Bill of Materials...._QPushButton");
+    waitForObject(":_item_XTreeWidget_7");
+    doubleClickItem(":_item_XTreeWidget_7", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_costsGroup.Use Actual Costs_QRadioButton");
+    clickButton(":_costsGroup.Use Actual Costs_QRadioButton");
+    
+    var actlcost= grabWidget(findObject(":Costed Bill of Materials._bomitem_XTreeWidget"));
+    actlcost.save("actlcost.png");
+    waitForObject(":_costsGroup.Use Standard Costs_QRadioButton");
+    clickButton(":_costsGroup.Use Standard Costs_QRadioButton");
+    var strdcost= grabWidget(findObject(":Costed Bill of Materials._bomitem_XTreeWidget"));
+    strdcost.save("strdcost.png");
+    if(actlcost.toImage()==strdcost.toImage()) test.pass("Actual costs are equal to Standard costs");
+    else test.fail("Actual costs are not equal to Standard costs");
+    
+    waitForObject(":Costed Indented Bill of Materials.Close_QPushButton");
+    clickButton(":Costed Indented Bill of Materials.Close_QPushButton");
+    
+    //---Creating a Prospect---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Prospect");
+    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Prospect");
+    waitForObjectItem(":xTuple ERP:*.Prospect_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Prospect_QMenu", "List...");
+    
+    waitForObject(":List Prospects.New_QPushButton");
+    clickButton(":List Prospects.New_QPushButton");
+    waitForObject(":_number_XLineEdit");
+    type(":_number_XLineEdit", "prospect1"); 
+    waitForObject(":_name_QLineEdit");
+    type(":_name_QLineEdit", "Zen Prospect1");
+    waitForObject(":_salesrep_XComboBox");
+    clickItem(":_salesrep_XComboBox", "1000-Sam Masters", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Prospect...._QPushButton");
+    clickButton(":Prospect...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_8");
+    doubleClickItem(":_listTab_XTreeWidget_8", "Susie", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_taxauth_XComboBox");
+    clickItem(":_taxauth_XComboBox", "NC TAX", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Prospect.Save_QPushButton");
+    clickButton(":Prospect.Save_QPushButton");
+  
+    waitForObject(":List Prospects._prospect_XTreeWidget");
+    if(!clickItem(":List Prospects._prospect_XTreeWidget", "PROSPECT1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Prospect Created: ZEN PROSPECT3");
+      
+    waitForObject(":List Prospects.Close_QPushButton");
+    clickButton(":List Prospects.Close_QPushButton");
+      
+    //---Creating a Quote using Prospect---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
+    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
+    waitForObjectItem(":xTuple ERP:*.Quote_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Quote_QMenu", "List...");
+    
+    waitForObject(":frame.New_QPushButton_3");
+    clickButton(":frame.New_QPushButton_3");
+    waitForObject(":_headerPage...._QPushButton_2");
+    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_2");
+    doubleClickItem(":_listTab_XTreeWidget_2", "PROSPECT1", 5, 5, 0, Qt.LeftButton);
+    
+    quote = findObject(":_headerPage._orderNumber_XLineEdit_3").text;
+    
+    waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar_3");
+    clickTab(":Quote.qt_tabwidget_tabbar_QTabBar_3", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton");
+    clickButton(":_lineItemsPage.New_QPushButton");
+    waitForObject(":_itemGroup...._QPushButton_2");
+    clickButton(":_itemGroup...._QPushButton_2");
+    waitForObject(":_item_XTreeWidget_2");
+    doubleClickItem(":_item_XTreeWidget_2", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_qtyOrdered_XLineEdit");
+    type(":_qtyOrdered_XLineEdit", "100");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit");
+    type(":_schedGroup.XDateEdit_XDateEdit", "+7");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "+8");  
+   
+    waitForObject(":Quote.Save_QPushButton");
+    clickButton(":Quote.Save_QPushButton");
+  
+    waitForObject(":Quote*.Close_QPushButton");
+    clickButton(":Quote*.Close_QPushButton");
+   
+    waitForObject(":Quote.Save_QPushButton_2");
+    clickButton(":Quote.Save_QPushButton_2");
+    waitForObject(":Quote.Cancel_QPushButton_3");
+    clickButton(":Quote.Cancel_QPushButton_3");
+    
+    waitForObject(":List Quotes.Show Quotes For Prospects_XCheckBox");
+    if(!findObject(":List Quotes.Show Quotes For Prospects_XCheckBox").checked)
+        clickButton(":List Quotes.Show Quotes For Prospects_XCheckBox");
+    waitForObject(":_quote_XTreeWidget");
+    if(!clickItem(":_quote_XTreeWidget", quote, 5, 5, 1, Qt.LeftButton))
+        test.pass("Quote with customer as prospect created successfully");
+       
+    waitForObject(":List Quotes.Close_QPushButton");
+    clickButton(":List Quotes.Close_QPushButton");
+    
+    //---Converting Quote to Sales Order---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
+    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
+    waitForObjectItem(":xTuple ERP:*.Quote_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Quote_QMenu", "List...");
+    
+    waitForObject(":List Quotes.Show Quotes For Prospects_XCheckBox");
+    if(!findObject(":List Quotes.Show Quotes For Prospects_XCheckBox").checked)
+        clickButton(":List Quotes.Show Quotes For Prospects_XCheckBox");
+    waitForObject(":_quote_XTreeWidget");
+    clickItem(":_quote_XTreeWidget", quote, 5, 5, 1, Qt.LeftButton);
+    waitForObject(":frame.Convert_QPushButton");
+    clickButton(":frame.Convert_QPushButton");
+    waitForObject(":List Quotes.Yes_QPushButton");
+    clickButton(":List Quotes.Yes_QPushButton");
+    snooze(5);
+    waitForObject(":List Quotes.Yes_QPushButton");
+    clickButton(":List Quotes.Yes_QPushButton");
+    waitForObject(":Sales Order.Save_QPushButton_2");
+    clickButton(":Sales Order.Save_QPushButton_2");
+    waitForObject(":List Quotes.Close_QPushButton");
+    clickButton(":List Quotes.Close_QPushButton");
+    
+    //---Verify - Quote conversion to Sales Order---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Sales Order");
+    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Sales Order");
+    waitForObjectItem(":xTuple ERP:*.Sales Order_QMenu_2", "List Open...");
+    activateItem(":xTuple ERP:*.Sales Order_QMenu_2", "List Open...");
+    
+     waitForObject(":frame._so_XTreeWidget");
+    if(!clickItem(":frame._so_XTreeWidget", quote, 5, 5, 1, Qt.LeftButton))
+        test.pass("Quote converted to Sales Order successfully");
+   
+    waitForObject(":List Open Sales Orders.Close_QPushButton");
+    clickButton(":List Open Sales Orders.Close_QPushButton");
+      
+    //---Verify - Prospect converted to Customer---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Customer");
+    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Customer");
+    waitForObjectItem(":xTuple ERP:*.Customer_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Customer_QMenu", "List...");
+   
+    waitForObject(":List Customers._cust_XTreeWidget");
+    if(!clickItem(":List Customers._cust_XTreeWidget", "PROSPECT1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Zen Prospect successfully converted to Customer");
+    else test.fail(" Zen Prospect didn't convert to Customer");
+    
+    waitForObject(":List Customers.Close_QPushButton");
+    clickButton(":List Customers.Close_QPushButton");
+    
+    //---Creating and Editing a Quote---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
+    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
+    waitForObjectItem(":xTuple ERP:*.Quote_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Quote_QMenu", "List...");
+    
+    waitForObject(":frame.New_QPushButton_3");
+    clickButton(":frame.New_QPushButton_3");
+    waitForObject(":_headerPage...._QPushButton_2");
+    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_2");
+    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    
+    quote = findObject(":_headerPage._orderNumber_XLineEdit_3").text;
+   
+    waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar_3");
+    clickTab(":Quote.qt_tabwidget_tabbar_QTabBar_3", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton");
+    clickButton(":_lineItemsPage.New_QPushButton");
+    waitForObject(":_itemGroup...._QPushButton_2");
+    clickButton(":_itemGroup...._QPushButton_2");
+    waitForObject(":_item_XTreeWidget_2");
+    doubleClickItem(":_item_XTreeWidget_2", "CTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_qtyOrdered_XLineEdit");
+    type(":_qtyOrdered_XLineEdit", "100");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit");
+    type(":_schedGroup.XDateEdit_XDateEdit", "+7");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
+    waitForObject(":Quote.Save_QPushButton");
+    clickButton(":Quote.Save_QPushButton");
+    waitForObject(":Quote*.Close_QPushButton");
+    clickButton(":Quote*.Close_QPushButton");
+   
+    waitForObject(":Quote.Save_QPushButton_2");
+    clickButton(":Quote.Save_QPushButton_2");
+    waitForObject(":Quote.Cancel_QPushButton_4");
+    clickButton(":Quote.Cancel_QPushButton_4");
+    
+    waitForObject(":_quote_XTreeWidget");
+    doubleClickItem(":_quote_XTreeWidget", quote, 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar_3");
+    clickTab(":Quote.qt_tabwidget_tabbar_QTabBar_3", "Line Items");
+    waitForObject(":_lineItemsPage._soitem_XTreeWidget");
+    doubleClickItem(":_lineItemsPage._soitem_XTreeWidget", "CTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_qtyOrdered_XLineEdit");
+    type(":_qtyOrdered_XLineEdit", "50");
+   
+    quotequantity = findObject(":_qtyOrdered_XLineEdit").text;
+    
+    waitForObject(":Quote.Save_QPushButton");
+    clickButton(":Quote.Save_QPushButton");
+    waitForObject(":Quote.Yes_QPushButton_2");
+    clickButton(":Quote.Yes_QPushButton_2");
+    waitForObject(":Quote.Save_QPushButton");
+    clickButton(":Quote.Save_QPushButton"); 
+   
+    waitForObject(":Quote.Close_QPushButton_3");
+    clickButton(":Quote.Close_QPushButton_3");
+    waitForObject(":Quote.Save_QPushButton_2");
+    clickButton(":Quote.Save_QPushButton_2");
     
    
-    //---login Application--------
-//    loginAppl("CONFIGURE"); 
-    
-//    //---Verification of Unbalanced QOH Items---
-//    waitForObject(":xTuple ERP:*_QMenuBar_2");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
-//    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Utilities");
-//    activateItem(":xTuple ERP:*.Inventory_QMenu", "Utilities");
-//    waitForObjectItem(":xTuple ERP:*.Utilities_QMenu", "Unbalanced QOH...");
-//    activateItem(":xTuple ERP:*.Utilities_QMenu", "Unbalanced QOH...");
-//    
-//    waitForObject(":_classCode.All Class Codes_QRadioButton");
-//    clickButton(":_classCode.All Class Codes_QRadioButton");
-//    waitForObject(":_warehouse.All Sites_QRadioButton_4");
-//    clickButton(":_warehouse.All Sites_QRadioButton_4");
-//    waitForObject(":Unbalanced QOH by Class Code.Query_QPushButton");
-//    clickButton(":Unbalanced QOH by Class Code.Query_QPushButton");
-//    waitForObject(":_itemsite_XTreeWidget");
-//    waitForObject(":_classCode.Selected:_QRadioButton");
-//    type(":_classCode.Selected:_QRadioButton", "<Down>");
-//    waitForObject(":_classCode.All Class Codes_QRadioButton");
-//    type(":_classCode.All Class Codes_QRadioButton", " ");
-//    
-//    if(findObject(":_itemsite_XTreeWidget").topLevelItemCount != 0)
-//        test.fail(" Items have Unbalanced QOH ");
-//    else test.pass(" Items have Balanced QOH ");
-//    
-//    waitForObject(":Unbalanced QOH by Class Code.Close_QPushButton");
-//    clickButton(":Unbalanced QOH by Class Code.Close_QPushButton");
-//    
-//    //---Creation of Items---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Products");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Products");
-//    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Item");
-//    activateItem(":xTuple ERP:*.Products_QMenu", "Item");
-//    waitForObjectItem(":xTuple ERP:*.Item_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Item_QMenu", "List...");
-//   
-//    //--- (UC_BPF_CI_01:AF1) Co-Product Item Type---
-//    waitForObject(":List Items.New_QPushButton");
-//    clickButton(":List Items.New_QPushButton");
-//    
-//    waitForObject(":_itemNumber_XLineEdit");
-//    type(":_itemNumber_XLineEdit", "zen co-product");
-//    waitForObject(":_description1_XLineEdit");
-//    type(":_description1_XLineEdit", "Zen Co-Product Item Type");
-//    waitForObject(":_itemtype_QComboBox");
-//    clickItem(":_itemtype_QComboBox", "Co-Product", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_itemGroup._classcode_XComboBox");
-//    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_inventoryUOM_XComboBox");
-//    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_prodcat_XComboBox");
-//    clickItem(":_prodcat_XComboBox", "CLASSIC-METAL - Classic Metal Product Line", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Item is Sold._listprice_XLineEdit");
-//    type(":Item is Sold._listprice_XLineEdit", "5.66");
-//    waitForObject(":_prodWeight_XLineEdit");
-//    type(":_prodWeight_XLineEdit", "2");
-//    waitForObject(":_packWeight_XLineEdit");
-//    type(":_packWeight_XLineEdit", "0.5");
-//    waitForObject(":Item.Save_QPushButton");
-//    clickButton(":Item.Save_QPushButton");
-//    
-//    waitForObject(":Item.Yes_QPushButton");
-//    clickButton(":Item.Yes_QPushButton");
-//   
-//    waitForObject(":_warehouse_WComboBox");
-//    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Control._controlMethod_XComboBox");
-//    clickItem(":Control._controlMethod_XComboBox", "Regular", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_plannerCode_XComboBox");
-//    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_costcat_XComboBox");
-//    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
-//    
-//    waitForObject(":Item.Save_QPushButton_2");
-//    clickButton(":Item.Save_QPushButton_2");
-//    waitForObject(":Item.Cancel_QPushButton");
-//    clickButton(":Item.Cancel_QPushButton");
-//    
-//    waitForObject(":List Items._item_XTreeWidget");
-//    if(!clickItem(":List Items._item_XTreeWidget", "ZEN CO-PRODUCT", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Item Created: ZEN CO-PRODUCT");
-//      
-//    //---(UC_BPF_CI_01:AF1) By-Product Item Type---
-//    waitForObject(":List Items.New_QPushButton");
-//    clickButton(":List Items.New_QPushButton");
-//    
-//    waitForObject(":_itemNumber_XLineEdit");
-//    type(":_itemNumber_XLineEdit", "zen by-product");
-//    waitForObject(":_description1_XLineEdit");
-//    type(":_description1_XLineEdit", "Zen By-Product Item Type");
-//    waitForObject(":_itemtype_QComboBox");
-//    clickItem(":_itemtype_QComboBox", "By-Product", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_itemGroup._classcode_XComboBox");
-//    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_inventoryUOM_XComboBox");
-//    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_prodcat_XComboBox");
-//    clickItem(":_prodcat_XComboBox", "CLASSIC-METAL - Classic Metal Product Line", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Item is Sold._listprice_XLineEdit");
-//    type(":Item is Sold._listprice_XLineEdit", "10.8"); 
-//    waitForObject(":_prodWeight_XLineEdit");
-//    type(":_prodWeight_XLineEdit", "3");
-//    waitForObject(":_packWeight_XLineEdit");
-//    type(":_packWeight_XLineEdit", "0.2");
-//    waitForObject(":Item.Save_QPushButton");
-//    clickButton(":Item.Save_QPushButton");
-//   
-//    waitForObject(":Item.Yes_QPushButton");
-//    clickButton(":Item.Yes_QPushButton");
-//    
-//    waitForObject(":_warehouse_WComboBox");
-//    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Control._controlMethod_XComboBox");
-//    clickItem(":Control._controlMethod_XComboBox", "Regular", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_plannerCode_XComboBox");
-//    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_costcat_XComboBox");
-//    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
-//   
-//    waitForObject(":Item.Save_QPushButton_2");
-//    clickButton(":Item.Save_QPushButton_2");
-//    waitForObject(":Item.Cancel_QPushButton");
-//    clickButton(":Item.Cancel_QPushButton");
-//    
-//     waitForObject(":List Items._item_XTreeWidget");
-//    if(!clickItem(":List Items._item_XTreeWidget", "ZEN BY-PRODUCT", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Item Created: ZEN BY-PRODUCT");
-//    
-//    //---(UC_BPF_CI_01:AF2) Job Item Type---
-//    waitForObject(":List Items.New_QPushButton");
-//    clickButton(":List Items.New_QPushButton");
-//    
-//    waitForObject(":_itemNumber_XLineEdit");
-//    type(":_itemNumber_XLineEdit", "Zen Job");
-//    waitForObject(":_description1_XLineEdit");
-//    type(":_description1_XLineEdit", "Zen Job Item Type");
-//    waitForObject(":_itemtype_QComboBox");
-//    clickItem(":_itemtype_QComboBox", "Job", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_itemGroup._classcode_XComboBox");
-//    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_inventoryUOM_XComboBox");
-//    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_prodcat_XComboBox");
-//    clickItem(":_prodcat_XComboBox", "CLASSIC-METAL - Classic Metal Product Line", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Item is Sold._listprice_XLineEdit");
-//    type(":Item is Sold._listprice_XLineEdit", "7");
-//    waitForObject(":_prodWeight_XLineEdit");
-//    type(":_prodWeight_XLineEdit", "5");
-//    waitForObject(":_packWeight_XLineEdit");
-//    type(":_packWeight_XLineEdit", "0.1");
-//    waitForObject(":Item.Save_QPushButton");
-//    clickButton(":Item.Save_QPushButton");
-//   
-//    waitForObject(":Item.Yes_QPushButton");
-//    clickButton(":Item.Yes_QPushButton");
-//    
-//    waitForObject(":_warehouse_WComboBox");
-//    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_plannerCode_XComboBox");
-//    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_costcat_XComboBox");
-//    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
-//     
-//    waitForObject(":Item.Save_QPushButton_2");
-//    clickButton(":Item.Save_QPushButton_2");
-//    waitForObject(":Item.Cancel_QPushButton");
-//    clickButton(":Item.Cancel_QPushButton");
-//    
-//     waitForObject(":List Items._item_XTreeWidget");
-//    if(!clickItem(":List Items._item_XTreeWidget", "ZEN JOB", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Item Created: ZEN JOB");
-//   
-//    //---(UC_BPF_CI_01:AF3) Refernce Item Type---
-//    waitForObject(":List Items.New_QPushButton");
-//    clickButton(":List Items.New_QPushButton");
-//    
-//    waitForObject(":_itemNumber_XLineEdit");
-//    type(":_itemNumber_XLineEdit", "zen reference");
-//    waitForObject(":_description1_XLineEdit");
-//    type(":_description1_XLineEdit", "Zen Reference Item Type");
-//    waitForObject(":_itemtype_QComboBox");
-//    clickItem(":_itemtype_QComboBox", "Reference", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_itemGroup._classcode_XComboBox");
-//    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-OTHER-Toys Other Items", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_inventoryUOM_XComboBox");
-//    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_prodcat_XComboBox");
-//    clickItem(":_prodcat_XComboBox", "CLASSIC-METAL - Classic Metal Product Line", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Item is Sold._listprice_XLineEdit");
-//    type(":Item is Sold._listprice_XLineEdit", "6");
-//    waitForObject(":_prodWeight_XLineEdit");
-//    type(":_prodWeight_XLineEdit", "5");
-//    waitForObject(":_packWeight_XLineEdit");
-//    type(":_packWeight_XLineEdit", "2.3");
-//    waitForObject(":Item.Save_QPushButton");
-//    clickButton(":Item.Save_QPushButton");
-//    
-//    waitForObject(":Item.Yes_QPushButton");
-//    clickButton(":Item.Yes_QPushButton");
-//    
-//    waitForObject(":_warehouse_WComboBox");
-//    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_plannerCode_XComboBox");
-//    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_costcat_XComboBox");
-//    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
-//    
-//    waitForObject(":Item.Save_QPushButton_2");
-//    clickButton(":Item.Save_QPushButton_2");
-//    waitForObject(":Item.Cancel_QPushButton");
-//    clickButton(":Item.Cancel_QPushButton");
-//    
-//     waitForObject(":List Items._item_XTreeWidget");
-//    if(!clickItem(":List Items._item_XTreeWidget", "ZEN REFERENCE", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Item Created: ZEN REFERENCE");
-//    
-//    //---(UC_BPF_CI_01:AF4) Costing Item Type---
-//    waitForObject(":List Items.New_QPushButton");
-//    clickButton(":List Items.New_QPushButton");
-//    
-//    waitForObject(":_itemNumber_XLineEdit");
-//    type(":_itemNumber_XLineEdit", "zen costing");
-//    waitForObject(":_description1_XLineEdit");
-//    type(":_description1_XLineEdit", "Zen Costing Item Type");
-//    waitForObject(":_itemtype_QComboBox");
-//    clickItem(":_itemtype_QComboBox", "Costing", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_itemGroup._classcode_XComboBox");
-//    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-OTHER-Toys Other Items", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_inventoryUOM_XComboBox");
-//    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Item.Save_QPushButton");
-//    clickButton(":Item.Save_QPushButton");
-//    
-//    waitForObject(":Item.Yes_QPushButton");
-//    clickButton(":Item.Yes_QPushButton");
-//    
-//    waitForObject(":_warehouse_WComboBox");
-//    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Control._controlMethod_XComboBox");
-//    clickItem(":Control._controlMethod_XComboBox", "Regular", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_plannerCode_XComboBox");
-//    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5,5, 1, Qt.LeftButton);
-//    waitForObject(":_costcat_XComboBox");
-//    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
-//    
-//    waitForObject(":Item.Save_QPushButton_2");
-//    clickButton(":Item.Save_QPushButton_2");
-//    waitForObject(":Item.Cancel_QPushButton");
-//    clickButton(":Item.Cancel_QPushButton");
-//    
-//     waitForObject(":List Items._item_XTreeWidget");
-//    if(!clickItem(":List Items._item_XTreeWidget", "ZEN COSTING", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Item Created: ZEN COSTING");      
-//   
-//    //---(UC_BPF_CI_01:AF5) Tooling Item Type---
-//    waitForObject(":List Items.New_QPushButton");
-//    clickButton(":List Items.New_QPushButton");
-//    
-//    waitForObject(":_itemNumber_XLineEdit");
-//    type(":_itemNumber_XLineEdit", "zen tooling");
-//    waitForObject(":_description1_XLineEdit");
-//    type(":_description1_XLineEdit", "Zen Tooling Item Type");
-//    waitForObject(":_itemtype_QComboBox");
-//    clickItem(":_itemtype_QComboBox", "Tooling", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_itemGroup._classcode_XComboBox");
-//    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_inventoryUOM_XComboBox");
-//    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_prodWeight_XLineEdit");
-//    type(":_prodWeight_XLineEdit", "3");
-//    waitForObject(":_packWeight_XLineEdit");
-//    type(":_packWeight_XLineEdit", "0.5");
-//    waitForObject(":Item.Save_QPushButton");
-//    clickButton(":Item.Save_QPushButton");
-//    
-//    waitForObject(":Item.Yes_QPushButton");
-//    clickButton(":Item.Yes_QPushButton");
-//    
-//    waitForObject(":_warehouse_WComboBox");
-//    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Control._controlMethod_XComboBox");
-//    clickItem(":Control._controlMethod_XComboBox", "Regular", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_plannerCode_XComboBox");
-//    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_costcat_XComboBox");
-//    clickItem(":_costcat_XComboBox", "MATERIALS-Materials - WH1", 5, 5, 1, Qt.LeftButton);
-//    
-//    waitForObject(":Item.Save_QPushButton_2");
-//    clickButton(":Item.Save_QPushButton_2");
-//    waitForObject(":Item.Cancel_QPushButton");
-//    clickButton(":Item.Cancel_QPushButton");
-//    
-//    waitForObject(":List Items._item_XTreeWidget");
-//    if(!clickItem(":List Items._item_XTreeWidget", "ZEN TOOLING", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Item Created: ZEN TOOLING");  
-//     
-//    //---(UC_BPF_CI_01:AF6) Outside Process Item Type---
-//    waitForObject(":List Items.New_QPushButton");
-//    clickButton(":List Items.New_QPushButton");
-//    
-//    waitForObject(":_itemNumber_XLineEdit");
-//    type(":_itemNumber_XLineEdit", "zen outside process");
-//    waitForObject(":_description1_XLineEdit");
-//    type(":_description1_XLineEdit", "Zen Outisde Process Item Type");
-//    waitForObject(":_itemtype_QComboBox");
-//    clickItem(":_itemtype_QComboBox", "Outside Process", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_itemGroup._classcode_XComboBox");
-//    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_inventoryUOM_XComboBox");
-//    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Item.Save_QPushButton");
-//    clickButton(":Item.Save_QPushButton");
-//    
-//    waitForObject(":Item.Yes_QPushButton");
-//    clickButton(":Item.Yes_QPushButton");
-//    
-//    waitForObject(":_warehouse_WComboBox");
-//    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Control._controlMethod_XComboBox");
-//    clickItem(":Control._controlMethod_XComboBox", "Regular", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_plannerCode_XComboBox");
-//    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_costcat_XComboBox");
-//    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
-//    
-//    waitForObject(":Item.Save_QPushButton_2");
-//    clickButton(":Item.Save_QPushButton_2");
-//    waitForObject(":Item.Cancel_QPushButton");
-//    clickButton(":Item.Cancel_QPushButton");
-//    
-//    waitForObject(":List Items._item_XTreeWidget");
-//    if(!clickItem(":List Items._item_XTreeWidget", "ZEN OUTSIDE PROCESS", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Item Created: ZEN OUTSIDE PROCESS"); 
-//    
-//    //---(UC_BPF_CI_01:AF7) Breeder Item Type---
-//    waitForObject(":List Items.New_QPushButton");
-//    clickButton(":List Items.New_QPushButton");
-//   
-//    waitForObject(":_itemNumber_XLineEdit");
-//    type(":_itemNumber_XLineEdit", "zen breeder");
-//    waitForObject(":_description1_XLineEdit");
-//    type(":_description1_XLineEdit", "Zen Breeder Item Type");
-//    waitForObject(":_itemtype_QComboBox");
-//    clickItem(":_itemtype_QComboBox", "Breeder", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_itemGroup._classcode_XComboBox");
-//    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_inventoryUOM_XComboBox");
-//    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Item.Save_QPushButton");
-//    clickButton(":Item.Save_QPushButton");
-//   
-//    waitForObject(":Item.Yes_QPushButton");
-//    clickButton(":Item.Yes_QPushButton");
-//    
-//    waitForObject(":_warehouse_WComboBox");
-//    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_plannerCode_XComboBox");
-//    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_plannerCode_XComboBox");
-//    clickItem(":_plannerCode_XComboBox", "OP-Outside Processing Items", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_costcat_XComboBox");
-//    clickItem(":_costcat_XComboBox", "MATERIALS-Materials - WH1", 5, 5, 1, Qt.LeftButton);
-//    
-//    waitForObject(":Item.Save_QPushButton_2");
-//    clickButton(":Item.Save_QPushButton_2");
-//    waitForObject(":Item.Cancel_QPushButton");
-//    clickButton(":Item.Cancel_QPushButton");
-//    
-//    waitForObject(":List Items._item_XTreeWidget");
-//    if(!clickItem(":List Items._item_XTreeWidget", "ZEN BREEDER", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Item Created: ZEN BREEDER");
-//    
-//    //---(UC_BPF_CI_01:AF8) Planning Item Type---
-//    waitForObject(":List Items.New_QPushButton");
-//    clickButton(":List Items.New_QPushButton");
-//    
-//    waitForObject(":_itemNumber_XLineEdit");
-//    type(":_itemNumber_XLineEdit", "zen planning");
-//    waitForObject(":_description1_XLineEdit");
-//    type(":_description1_XLineEdit", "Zen Planning Item Type");
-//    waitForObject(":_itemtype_QComboBox");
-//    clickItem(":_itemtype_QComboBox", "Planning", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_itemGroup._classcode_XComboBox");
-//    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_inventoryUOM_XComboBox");
-//    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Item.Save_QPushButton");
-//    clickButton(":Item.Save_QPushButton");
-//    
-//    waitForObject(":Item.Yes_QPushButton");
-//    clickButton(":Item.Yes_QPushButton");
-//    
-//    waitForObject(":_warehouse_WComboBox");
-//    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_plannerCode_XComboBox");
-//    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_costcat_XComboBox");
-//    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
-//   
-//    waitForObject(":Item.Save_QPushButton_2");
-//    clickButton(":Item.Save_QPushButton_2");
-//    waitForObject(":Item.Cancel_QPushButton");
-//    clickButton(":Item.Cancel_QPushButton");
-//    
-//    waitForObject(":List Items._item_XTreeWidget");
-//    if(!clickItem(":List Items._item_XTreeWidget", "ZEN PLANNING", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Item Created: ZEN PLANNING");
-//    
-//    //---(UC_BPF_CI_01:AF9) Phantom Item Type---
-//    waitForObject(":List Items.New_QPushButton");
-//    clickButton(":List Items.New_QPushButton");
-//    
-//    waitForObject(":_itemNumber_XLineEdit");
-//    type(":_itemNumber_XLineEdit", "zen phantom");
-//    waitForObject(":_description1_XLineEdit");
-//    type(":_description1_XLineEdit", "Zen Phantom Item Type");
-//    waitForObject(":_itemtype_QComboBox");
-//    clickItem(":_itemtype_QComboBox", "Phantom", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_itemGroup._classcode_XComboBox");
-//    clickItem(":_itemGroup._classcode_XComboBox", "TOYS-COMP-Toy Components", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_inventoryUOM_XComboBox");
-//    clickItem(":_inventoryUOM_XComboBox", "EA", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Item.Save_QPushButton");
-//    clickButton(":Item.Save_QPushButton");
-//   
-//    waitForObject(":Item.Yes_QPushButton");
-//    clickButton(":Item.Yes_QPushButton");
-//    
-//    waitForObject(":_warehouse_WComboBox");
-//    clickItem(":_warehouse_WComboBox", "WH1", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_plannerCode_XComboBox");
-//    clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":_costcat_XComboBox");
-//    clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 5, 5, 1, Qt.LeftButton);
-//    
-//    waitForObject(":Item.Save_QPushButton_2");
-//    clickButton(":Item.Save_QPushButton_2");
-//    waitForObject(":Item.Cancel_QPushButton");
-//    clickButton(":Item.Cancel_QPushButton");
-//     
-//    waitForObject(":List Items._item_XTreeWidget");
-//    if(!clickItem(":List Items._item_XTreeWidget", "ZEN PHANTOM", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Item Created: ZEN PHANTOM");
-//   
-//    waitForObject(":List Items.Close_QPushButton");
-//    clickButton(":List Items.Close_QPushButton");
-//    
-//    //---(UC_BPF_CI_01:AF10) Bill of Materials---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Products");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Products");
-//    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
-//    activateItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
-//    waitForObjectItem(":xTuple ERP:*.Bill Of Materials_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Bill Of Materials_QMenu", "List...");
-//    
-//    waitForObject(":Bills of Materials.New_QPushButton");
-//    clickButton(":Bills of Materials.New_QPushButton");
-//    waitForObject(":_itemGroup...._QPushButton_3");
-//    clickButton(":_itemGroup...._QPushButton_3");
-//    waitForObject(":_item_XTreeWidget_4");
-//    doubleClickItem(":_item_XTreeWidget_4", "ZEN BREEDER", 5, 5, 0, Qt.LeftButton);
-//    
-//    waitForObject(":frame_2.New_QPushButton");
-//    clickButton(":frame_2.New_QPushButton");
-//    waitForObject(":Bill of Materials...._QPushButton");
-//    clickButton(":Bill of Materials...._QPushButton");
-//    waitForObject(":_item_XTreeWidget_5");
-//    doubleClickItem(":_item_XTreeWidget_5", "ZEN CO-PRODUCT", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_qtyPer_XLineEdit");
-//    type(":_qtyPer_XLineEdit", "6.2");
-//    waitForObject(":_scrap_XLineEdit");
-//    type(":_scrap_XLineEdit", "1.5");
-//    waitForObject(":Bill of Materials.Save_QPushButton");
-//    clickButton(":Bill of Materials.Save_QPushButton");
-//    
-//    waitForObject(":Bill of Materials.Save_QPushButton_2");
-//    clickButton(":Bill of Materials.Save_QPushButton_2");
-//    
-//    waitForObject(":Bills of Materials._bom_XTreeWidget");
-//    if(!clickItem(":Bills of Materials._bom_XTreeWidget", "ZEN BREEDER", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Bill of Materials Created: ZEN BREEDER");
-//  
-//    waitForObject(":Bills of Materials.Close_QPushButton");
-//    clickButton(":Bills of Materials.Close_QPushButton");
-//       
-//    //---(UC_BPF_CI_02) Update Actual Costs---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Products");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Products");
-//    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Costing");
-//    activateItem(":xTuple ERP:*.Products_QMenu", "Costing");
-//    waitForObjectItem(":xTuple ERP:*.Costing_QMenu", "Update Actual Costs");
-//    activateItem(":xTuple ERP:*.Costing_QMenu", "Update Actual Costs");
-//    waitForObjectItem(":xTuple ERP:*.Update Actual Costs_QMenu", "by Item...");
-//    activateItem(":xTuple ERP:*.Update Actual Costs_QMenu", "by Item...");
-//     
-//    waitForObject(":Update Actual Costs by Item...._QPushButton");
-//    clickButton(":Update Actual Costs by Item...._QPushButton");
-//    waitForObject(":_item_XTreeWidget_6");
-//    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Update Actual Costs by Item.Select all Costs_QPushButton");
-//    clickButton(":Update Actual Costs by Item.Select all Costs_QPushButton");
-//    waitForObject(":Update Actual Costs by Item.Roll Up Actual Costs_QCheckBox");
-//    clickButton(":Update Actual Costs by Item.Roll Up Actual Costs_QCheckBox");
-//    waitForObject(":Update Actual Costs by Item.Update_QPushButton");
-//    clickButton(":Update Actual Costs by Item.Update_QPushButton");
-//    waitForObject(":Update Actual Costs by Item.Close_QPushButton");
-//    clickButton(":Update Actual Costs by Item.Close_QPushButton");
-//    test.log("Updated Actual Costs by item - YTRUCK1");
-//   
-//    //---(UC_BPF_CI_03) Post Actual Costs---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Products");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Products");
-//    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Costing");
-//    activateItem(":xTuple ERP:*.Products_QMenu", "Costing");
-//    waitForObjectItem(":xTuple ERP:*.Costing_QMenu", "Post Actual Costs");
-//    activateItem(":xTuple ERP:*.Costing_QMenu", "Post Actual Costs");
-//    waitForObjectItem(":xTuple ERP:*.Post Actual Costs_QMenu", "by Item...");
-//    activateItem(":xTuple ERP:*.Post Actual Costs_QMenu", "by Item...");
-//   
-//    waitForObject(":Post Actual Costs by Item...._QPushButton");
-//    clickButton(":Post Actual Costs by Item...._QPushButton");
-//    waitForObject(":_item_XTreeWidget_6");
-//    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Post Actual Costs by Item.Select all Costs_QPushButton");
-//    clickButton(":Post Actual Costs by Item.Select all Costs_QPushButton");
-//    waitForObject(":Post Actual Costs by Item.Roll Up Standard Costs_QCheckBox");
-//    clickButton(":Post Actual Costs by Item.Roll Up Standard Costs_QCheckBox");
-//    waitForObject(":Post Actual Costs by Item.Post_QPushButton");
-//    clickButton(":Post Actual Costs by Item.Post_QPushButton");
-//    waitForObject(":Post Actual Costs by Item.Close_QPushButton");
-//    clickButton(":Post Actual Costs by Item.Close_QPushButton");
-//    test.log("Posted Actual Costs by item - YTRUCK1");
-//   
-//    //---(UC_BPF_CI_04) Post Standard Costs---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Products");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Products");
-//    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Costing");
-//    activateItem(":xTuple ERP:*.Products_QMenu", "Costing");
-//    waitForObjectItem(":xTuple ERP:*.Costing_QMenu", "Post Standard Costs");
-//    activateItem(":xTuple ERP:*.Costing_QMenu", "Post Standard Costs");
-//    waitForObjectItem(":xTuple ERP:*.Post Standard Costs_QMenu", "by Item...");
-//    activateItem(":xTuple ERP:*.Post Standard Costs_QMenu", "by Item...");
-//    
-//    waitForObject(":Update Standard Costs By Item...._QPushButton");
-//    clickButton(":Update Standard Costs By Item...._QPushButton");
-//    waitForObject(":_item_XTreeWidget_6");
-//    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Update Standard Costs By Item.Select all Costs_QPushButton");
-//    clickButton(":Update Standard Costs By Item.Select all Costs_QPushButton");
-//    waitForObject(":Update Standard Costs By Item.Roll Up Standard Costs_QCheckBox");
-//    clickButton(":Update Standard Costs By Item.Roll Up Standard Costs_QCheckBox");
-//    waitForObject(":Update Standard Costs By Item.Update_QPushButton");
-//    clickButton(":Update Standard Costs By Item.Update_QPushButton");
-//    waitForObject(":Update Standard Costs By Item.Close_QPushButton");
-//    clickButton(":Update Standard Costs By Item.Close_QPushButton");
-//    test.log("Posted Standard Costs by item - YTRUCK1");
-//    
-//    //---Verify standard and actual cost in Intended Costed BOM---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Products");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Products");
-//    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Costing");
-//    activateItem(":xTuple ERP:*.Products_QMenu", "Costing");
-//    waitForObjectItem(":xTuple ERP:*.Costing_QMenu", "Reports");
-//    activateItem(":xTuple ERP:*.Costing_QMenu", "Reports");
-//    waitForObjectItem(":xTuple ERP:*.Reports_QMenu_4", "Costed BOM");
-//    activateItem(":xTuple ERP:*.Reports_QMenu_4", "Costed BOM");
-//    waitForObjectItem(":xTuple ERP:*.Costed BOM_QMenu", "Indented...");
-//    activateItem(":xTuple ERP:*.Costed BOM_QMenu", "Indented...");
-//    waitForObject(":Costed Indented Bill of Materials...._QPushButton");
-//    clickButton(":Costed Indented Bill of Materials...._QPushButton");
-//    waitForObject(":_item_XTreeWidget_7");
-//    doubleClickItem(":_item_XTreeWidget_7", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_costsGroup.Use Actual Costs_QRadioButton");
-//    clickButton(":_costsGroup.Use Actual Costs_QRadioButton");
-//    
-//    var actlcost= grabWidget(findObject(":Costed Bill of Materials._bomitem_XTreeWidget"));
-//    actlcost.save("actlcost.png");
-//    waitForObject(":_costsGroup.Use Standard Costs_QRadioButton");
-//    clickButton(":_costsGroup.Use Standard Costs_QRadioButton");
-//    var strdcost= grabWidget(findObject(":Costed Bill of Materials._bomitem_XTreeWidget"));
-//    strdcost.save("strdcost.png");
-//    if(actlcost.toImage()==strdcost.toImage()) test.pass("Actual costs are equal to Standard costs");
-//    else test.fail("Actual costs are not equal to Standard costs");
-//    
-//    waitForObject(":Costed Indented Bill of Materials.Close_QPushButton");
-//    clickButton(":Costed Indented Bill of Materials.Close_QPushButton");
-//    
-//    //---Creating a Prospect---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Prospect");
-//    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Prospect");
-//    waitForObjectItem(":xTuple ERP:*.Prospect_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Prospect_QMenu", "List...");
-//    
-//    waitForObject(":List Prospects.New_QPushButton");
-//    clickButton(":List Prospects.New_QPushButton");
-//    waitForObject(":_number_XLineEdit");
-//    type(":_number_XLineEdit", "prospect1"); 
-//    waitForObject(":_name_QLineEdit");
-//    type(":_name_QLineEdit", "Zen Prospect1");
-//    waitForObject(":_salesrep_XComboBox");
-//    clickItem(":_salesrep_XComboBox", "1000-Sam Masters", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Prospect...._QPushButton");
-//    clickButton(":Prospect...._QPushButton");
-//    waitForObject(":_listTab_XTreeWidget_8");
-//    doubleClickItem(":_listTab_XTreeWidget_8", "Susie", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_taxauth_XComboBox");
-//    clickItem(":_taxauth_XComboBox", "NC TAX", 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":Prospect.Save_QPushButton");
-//    clickButton(":Prospect.Save_QPushButton");
-//  
-//    waitForObject(":List Prospects._prospect_XTreeWidget");
-//    if(!clickItem(":List Prospects._prospect_XTreeWidget", "PROSPECT1", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Prospect Created: ZEN PROSPECT3");
-//      
-//    waitForObject(":List Prospects.Close_QPushButton");
-//    clickButton(":List Prospects.Close_QPushButton");
-//      
-//    //---Creating a Quote using Prospect---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
-//    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
-//    waitForObjectItem(":xTuple ERP:*.Quote_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Quote_QMenu", "List...");
-//    
-//    waitForObject(":frame.New_QPushButton_3");
-//    clickButton(":frame.New_QPushButton_3");
-//    waitForObject(":_headerPage...._QPushButton_2");
-//    clickButton(":_headerPage...._QPushButton_2");
-//    waitForObject(":_listTab_XTreeWidget_2");
-//    doubleClickItem(":_listTab_XTreeWidget_2", "PROSPECT1", 5, 5, 0, Qt.LeftButton);
-//    
-//    quote = findObject(":_headerPage._orderNumber_XLineEdit_3").text;
-//    
-//    waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar_3");
-//    clickTab(":Quote.qt_tabwidget_tabbar_QTabBar_3", "Line Items");
-//    waitForObject(":_lineItemsPage.New_QPushButton");
-//    clickButton(":_lineItemsPage.New_QPushButton");
-//    waitForObject(":_itemGroup...._QPushButton_2");
-//    clickButton(":_itemGroup...._QPushButton_2");
-//    waitForObject(":_item_XTreeWidget_2");
-//    doubleClickItem(":_item_XTreeWidget_2", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_qtyOrdered_XLineEdit");
-//    type(":_qtyOrdered_XLineEdit", "100");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit");
-//    type(":_schedGroup.XDateEdit_XDateEdit", "+7");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "+8");  
-//   
-//    waitForObject(":Quote.Save_QPushButton");
-//    clickButton(":Quote.Save_QPushButton");
-//  
-//    waitForObject(":Quote*.Close_QPushButton");
-//    clickButton(":Quote*.Close_QPushButton");
-//   
-//    waitForObject(":Quote.Save_QPushButton_2");
-//    clickButton(":Quote.Save_QPushButton_2");
-//    waitForObject(":Quote.Cancel_QPushButton_3");
-//    clickButton(":Quote.Cancel_QPushButton_3");
-//    
-//    waitForObject(":List Quotes.Show Quotes For Prospects_XCheckBox");
-//    if(!findObject(":List Quotes.Show Quotes For Prospects_XCheckBox").checked)
-//        clickButton(":List Quotes.Show Quotes For Prospects_XCheckBox");
-//    waitForObject(":_quote_XTreeWidget");
-//    if(!clickItem(":_quote_XTreeWidget", quote, 5, 5, 1, Qt.LeftButton))
-//        test.pass("Quote with customer as prospect created successfully");
-//       
-//    waitForObject(":List Quotes.Close_QPushButton");
-//    clickButton(":List Quotes.Close_QPushButton");
-//    
-//    //---Converting Quote to Sales Order---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
-//    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
-//    waitForObjectItem(":xTuple ERP:*.Quote_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Quote_QMenu", "List...");
-//    
-//    waitForObject(":List Quotes.Show Quotes For Prospects_XCheckBox");
-//    if(!findObject(":List Quotes.Show Quotes For Prospects_XCheckBox").checked)
-//        clickButton(":List Quotes.Show Quotes For Prospects_XCheckBox");
-//    waitForObject(":_quote_XTreeWidget");
-//    clickItem(":_quote_XTreeWidget", quote, 5, 5, 1, Qt.LeftButton);
-//    waitForObject(":frame.Convert_QPushButton");
-//    clickButton(":frame.Convert_QPushButton");
-//    waitForObject(":List Quotes.Yes_QPushButton");
-//    clickButton(":List Quotes.Yes_QPushButton");
-//    snooze(5);
-//    waitForObject(":List Quotes.Yes_QPushButton");
-//    clickButton(":List Quotes.Yes_QPushButton");
-//    waitForObject(":Sales Order.Save_QPushButton_2");
-//    clickButton(":Sales Order.Save_QPushButton_2");
-//    waitForObject(":List Quotes.Close_QPushButton");
-//    clickButton(":List Quotes.Close_QPushButton");
-//    
-//    //---Verify - Quote conversion to Sales Order---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Sales Order");
-//    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Sales Order");
-//    waitForObjectItem(":xTuple ERP:*.Sales Order_QMenu_2", "List Open...");
-//    activateItem(":xTuple ERP:*.Sales Order_QMenu_2", "List Open...");
-//    
-//     waitForObject(":frame._so_XTreeWidget");
-//    if(!clickItem(":frame._so_XTreeWidget", quote, 5, 5, 1, Qt.LeftButton))
-//        test.pass("Quote converted to Sales Order successfully");
-//   
-//    waitForObject(":List Open Sales Orders.Close_QPushButton");
-//    clickButton(":List Open Sales Orders.Close_QPushButton");
-//      
-//    //---Verify - Prospect converted to Customer---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Customer");
-//    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Customer");
-//    waitForObjectItem(":xTuple ERP:*.Customer_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Customer_QMenu", "List...");
-//   
-//    waitForObject(":List Customers._cust_XTreeWidget");
-//    if(!clickItem(":List Customers._cust_XTreeWidget", "PROSPECT1", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Zen Prospect successfully converted to Customer");
-//    else test.fail(" Zen Prospect didn't convert to Customer");
-//    
-//    waitForObject(":List Customers.Close_QPushButton");
-//    clickButton(":List Customers.Close_QPushButton");
-//    
-//    //---Creating and Editing a Quote---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
-//    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
-//    waitForObjectItem(":xTuple ERP:*.Quote_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Quote_QMenu", "List...");
-//    
-//    waitForObject(":frame.New_QPushButton_3");
-//    clickButton(":frame.New_QPushButton_3");
-//    waitForObject(":_headerPage...._QPushButton_2");
-//    clickButton(":_headerPage...._QPushButton_2");
-//    waitForObject(":_listTab_XTreeWidget_2");
-//    doubleClickItem(":_listTab_XTreeWidget_2", "TTOYS", 5, 5, 0, Qt.LeftButton);
-//    
-//    quote = findObject(":_headerPage._orderNumber_XLineEdit_3").text;
-//   
-//    waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar_3");
-//    clickTab(":Quote.qt_tabwidget_tabbar_QTabBar_3", "Line Items");
-//    waitForObject(":_lineItemsPage.New_QPushButton");
-//    clickButton(":_lineItemsPage.New_QPushButton");
-//    waitForObject(":_itemGroup...._QPushButton_2");
-//    clickButton(":_itemGroup...._QPushButton_2");
-//    waitForObject(":_item_XTreeWidget_2");
-//    doubleClickItem(":_item_XTreeWidget_2", "CTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_qtyOrdered_XLineEdit");
-//    type(":_qtyOrdered_XLineEdit", "100");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit");
-//    type(":_schedGroup.XDateEdit_XDateEdit", "+7");
-//    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
-//    type(":_schedGroup.XDateEdit_XDateEdit_2", "+9");
-//    waitForObject(":Quote.Save_QPushButton");
-//    clickButton(":Quote.Save_QPushButton");
-//    waitForObject(":Quote*.Close_QPushButton");
-//    clickButton(":Quote*.Close_QPushButton");
-//   
-//    waitForObject(":Quote.Save_QPushButton_2");
-//    clickButton(":Quote.Save_QPushButton_2");
-//    waitForObject(":Quote.Cancel_QPushButton_4");
-//    clickButton(":Quote.Cancel_QPushButton_4");
-//    
-//    waitForObject(":_quote_XTreeWidget");
-//    doubleClickItem(":_quote_XTreeWidget", quote, 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar_3");
-//    clickTab(":Quote.qt_tabwidget_tabbar_QTabBar_3", "Line Items");
-//    waitForObject(":_lineItemsPage._soitem_XTreeWidget");
-//    doubleClickItem(":_lineItemsPage._soitem_XTreeWidget", "CTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_qtyOrdered_XLineEdit");
-//    type(":_qtyOrdered_XLineEdit", "50");
-//   
-//    quotequantity = findObject(":_qtyOrdered_XLineEdit").text;
-//    
-//    waitForObject(":Quote.Save_QPushButton");
-//    clickButton(":Quote.Save_QPushButton");
-//    waitForObject(":Quote.Yes_QPushButton_2");
-//    clickButton(":Quote.Yes_QPushButton_2");
-//    waitForObject(":Quote.Save_QPushButton");
-//    clickButton(":Quote.Save_QPushButton"); 
-//   
-//    waitForObject(":Quote.Close_QPushButton_3");
-//    clickButton(":Quote.Close_QPushButton_3");
-//    waitForObject(":Quote.Save_QPushButton_2");
-//    clickButton(":Quote.Save_QPushButton_2");
-//    
-//   
-//    waitForObject(":_quote_XTreeWidget");
-//    doubleClickItem(":_quote_XTreeWidget", quote, 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar_3");
-//    clickTab(":Quote.qt_tabwidget_tabbar_QTabBar_3", "Line Items");
-//    waitForObject(":_lineItemsPage._soitem_XTreeWidget");
-//    doubleClickItem(":_lineItemsPage._soitem_XTreeWidget", "CTRUCK1", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":Quote.Save_QPushButton");
-//   
-//    quotechange = findObject(":_qtyOrdered_XLineEdit").text;
-//    
-//    waitForObject(":Quote.Close_QPushButton_3");
-//    clickButton(":Quote.Close_QPushButton_3");
-//    waitForObject(":Quote.Save_QPushButton_2");
-//    clickButton(":Quote.Save_QPushButton_2");
-//    
-//    if(parseInt(quotequantity.toString()) == parseInt(quotechange.toString()))
-//        test.pass("Quote edit successful");
-//    else test.fail("Quote edit failed");
-//   
-//    waitForObject(":List Quotes.Close_QPushButton");
-//    clickButton(":List Quotes.Close_QPushButton");
-//   
-//    //---Deleting a Quote---
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
-//    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
-//    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
-//    waitForObjectItem(":xTuple ERP:*.Quote_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Quote_QMenu", "List...");
-//    
-//    waitForObject(":_quote_XTreeWidget");
-//    clickItem(":_quote_XTreeWidget", quote, 5, 5, 0, Qt.LeftButton);  
-//    waitForObject(":frame.Delete_QPushButton");
-//    clickButton(":frame.Delete_QPushButton");
-//    waitForObject(":List Quotes.Yes_QPushButton");
-//    clickButton(":List Quotes.Yes_QPushButton");
-//    
-//    test.log("Quote delete successful");
-//      
-//    waitForObject(":List Quotes.Close_QPushButton");
-//    clickButton(":List Quotes.Close_QPushButton");
-//
-    
-    
+    waitForObject(":_quote_XTreeWidget");
+    doubleClickItem(":_quote_XTreeWidget", quote, 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar_3");
+    clickTab(":Quote.qt_tabwidget_tabbar_QTabBar_3", "Line Items");
+    waitForObject(":_lineItemsPage._soitem_XTreeWidget");
+    doubleClickItem(":_lineItemsPage._soitem_XTreeWidget", "CTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Quote.Save_QPushButton");
    
+    quotechange = findObject(":_qtyOrdered_XLineEdit").text;
+    
+    waitForObject(":Quote.Close_QPushButton_3");
+    clickButton(":Quote.Close_QPushButton_3");
+    waitForObject(":Quote.Save_QPushButton_2");
+    clickButton(":Quote.Save_QPushButton_2");
+    
+    if(parseInt(quotequantity.toString()) == parseInt(quotechange.toString()))
+        test.pass("Quote edit successful");
+    else test.fail("Quote edit failed");
+   
+    waitForObject(":List Quotes.Close_QPushButton");
+    clickButton(":List Quotes.Close_QPushButton");
+   
+    //---Deleting a Quote---
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
+    waitForObjectItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
+    activateItem(":xTuple ERP:*.Sales_QMenu_2", "Quote");
+    waitForObjectItem(":xTuple ERP:*.Quote_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Quote_QMenu", "List...");
+    
+    waitForObject(":_quote_XTreeWidget");
+    clickItem(":_quote_XTreeWidget", quote, 5, 5, 0, Qt.LeftButton);  
+    waitForObject(":frame.Delete_QPushButton");
+    clickButton(":frame.Delete_QPushButton");
+    waitForObject(":List Quotes.Yes_QPushButton");
+    clickButton(":List Quotes.Yes_QPushButton");
+    
+    test.log("Quote delete successful");
+      
+    waitForObject(":List Quotes.Close_QPushButton");
+    clickButton(":List Quotes.Close_QPushButton")
+    
+    //---Sales Order Numner---
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
     activateItem(":xTuple ERP:*_QMenuBar_2", "System");
     waitForObjectItem(":xTuple ERP:*.System_QMenu", "Configure Modules");
@@ -927,8 +925,6 @@ function main()
     
     waitForObject(":Sales Configuration.Cancel_QPushButton");
     clickButton(":Sales Configuration.Cancel_QPushButton");
-    
-    
     
     //---Creating a Sales Order---
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
