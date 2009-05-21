@@ -127,18 +127,21 @@ BEGIN
     _posted := _posted + _r.cashrcptitem_amount;
 
 --  Record the cashrcpt application
-    DELETE FROM arapply
-    WHERE ( (arapply_cust_id=_p.cashrcpt_cust_id)
-      AND   (arapply_source_aropen_id=-1)
-      AND   (arapply_source_doctype='K')
-      AND   (arapply_source_docnumber='')
-      AND   (arapply_target_aropen_id=_r.aropen_id)
-      AND   (arapply_target_doctype=_r.aropen_doctype)
-      AND   (arapply_target_docnumber=_r.aropen_docnumber)
-      AND   (arapply_fundstype=_p.cashrcpt_fundstype)
-      AND   (arapply_refnumber=_p.cashrcpt_docnumber)
-      AND   (arapply_reftype='CR')
-      AND   (arapply_ref_id=_r.cashrcptitem_id) );
+    INSERT INTO arapply
+    ( arapply_cust_id,
+      arapply_source_aropen_id, arapply_source_doctype, arapply_source_docnumber,
+      arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
+      arapply_fundstype, arapply_refnumber, arapply_reftype, arapply_ref_id,
+      arapply_applied, arapply_closed,
+      arapply_postdate, arapply_distdate, arapply_journalnumber, arapply_username,
+      arapply_curr_id )
+    VALUES
+    ( _p.cashrcpt_cust_id,
+      -1, 'K', '',
+      _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
+      _p.cashrcpt_fundstype, _p.cashrcpt_docnumber, 'CRA', _r.cashrcptitem_id,
+      (round(_r.cashrcptitem_amount, 2) * -1.0), _r.closed,
+      CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id );
 
     PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR',
                         (_r.aropen_doctype || '-' || _r.aropen_docnumber),
@@ -172,16 +175,22 @@ BEGIN
     _posted := (_posted + _r.cashrcptmisc_amount);
 
 --  Record the cashrcpt application
-    DELETE FROM arapply
-    WHERE ( (arapply_cust_id=_p.cashrcpt_cust_id)
-      AND   (arapply_source_aropen_id=-1)
-      AND   (arapply_source_doctype='K')
-      AND   (arapply_source_docnumber='')
-      AND   (arapply_target_aropen_id=-1)
-      AND   (arapply_target_doctype='Misc.')
-      AND   (arapply_target_docnumber='')
-      AND   (arapply_fundstype=_p.cashrcpt_fundstype)
-      AND   (arapply_refnumber=_p.cashrcpt_docnumber) );
+    INSERT INTO arapply
+    ( arapply_cust_id,
+      arapply_source_aropen_id, arapply_source_doctype, arapply_source_docnumber,
+      arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
+      arapply_fundstype, arapply_refnumber,
+      arapply_applied, arapply_closed,
+      arapply_postdate, arapply_distdate, arapply_journalnumber, arapply_username,
+      arapply_curr_id, arapply_reftype, arapply_ref_id )
+    VALUES
+    ( _p.cashrcpt_cust_id,
+      -1, 'K', '',
+      -1, 'Misc.', '',
+      _p.cashrcpt_fundstype, _p.cashrcpt_docnumber,
+      (round(_r.cashrcptmisc_amount, 2) * -1.0), TRUE,
+      CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, 
+      _r.cashrcpt_curr_id, 'CRD', _r.cashrcptmisc_id );
 
     PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR', _r.cashrcptmisc_notes,
                                 _r.cashrcptmisc_accnt_id,

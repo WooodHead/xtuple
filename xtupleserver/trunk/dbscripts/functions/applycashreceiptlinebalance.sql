@@ -35,7 +35,11 @@ RAISE NOTICE 'Amount (%)', _amount;
 --  Determine Line balance
         SELECT  ((aropen_amount - aropen_paid) / 
                  (1 / round(currRate(pCurrId,cashrcpt_distdate),5) / round(aropen_curr_rate,5))) -
-                 COALESCE((SELECT SUM(cashrcptitem_amount) FROM cashrcptitem WHERE cashrcptitem_aropen_id=pAropenId), 0) INTO _balance
+                 COALESCE((SELECT SUM(cashrcptitem_amount)
+                           FROM cashrcptitem, cashrcpt
+                           WHERE ((cashrcpt_id=cashrcptitem_cashrcpt_id)
+                             AND  (NOT cashrcpt_void)
+                             AND  (cashrcptitem_aropen_id=pAropenId))), 0) INTO _balance
             FROM aropen, cashrcpt
             WHERE ((aropen_id=pAropenId)
             AND (cashrcpt_id=pCashrcptId));

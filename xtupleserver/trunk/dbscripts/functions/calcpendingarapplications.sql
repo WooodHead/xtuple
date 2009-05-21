@@ -14,6 +14,8 @@ BEGIN
                         cashrcptitem_amount, CURRENT_DATE)) INTO _cashrcptsum
   FROM cashrcptitem, cashrcpt
   WHERE ((cashrcptitem_cashrcpt_id=cashrcpt_id)
+    AND  (NOT cashrcpt_posted)
+    AND  (NOT cashrcpt_void)
     AND  (cashrcptitem_aropen_id=paropenid)
     );
 

@@ -48,6 +48,8 @@ BEGIN
             WHERE ( (aropen_cust_id=cashrcpt_cust_id)
              AND (aropen_doctype IN ('I', 'D'))
              AND (aropen_open)
+             AND (NOT cashrcpt_posted)
+             AND (NOT cashrcpt_void)
              AND (cashrcpt_id=pCashrcptid) )
             ORDER BY aropen_duedate, aropen_amount, balance LOOP
 

@@ -21,6 +21,24 @@ BEGIN
     RETURN -2;
   END IF;
 
+  -- If there are applications for this Cash Receipt then
+  -- it has been posted and reversed.  Void instead of delete.
+  IF EXISTS(SELECT cashrcpt_id
+            FROM cashrcpt JOIN cashrcptitem ON (cashrcptitem_cashrcpt_id=cashrcpt_id)
+                          JOIN arapply ON ((arapply_reftype='CRA') AND
+                                           (arapply_ref_id=cashrcptitem_id))
+            WHERE (cashrcpt_id=pcashrcptid))
+     OR
+     EXISTS(SELECT cashrcpt_id
+            FROM cashrcpt JOIN cashrcptmisc ON (cashrcptmisc_cashrcpt_id=cashrcpt_id)
+                          JOIN arapply ON ((arapply_reftype='CRD') AND
+                                           (arapply_ref_id=cashrcptmisc_id))
+            WHERE (cashrcpt_id=pcashrcptid)) THEN
+    UPDATE cashrcpt SET cashrcpt_void = TRUE
+    WHERE (cashrcpt_id=pcashrcptid);
+    RETURN 1;
+  END IF;
+
   DELETE FROM cashrcptitem
   WHERE (cashrcptitem_cashrcpt_id=pcashrcptid);
 
