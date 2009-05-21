@@ -42,7 +42,7 @@ WHERE ( (1=1)
   AND  (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
 <? endif ?>
 <? if exists("poNumber") ?>
-  AND  (cohead_custponumber=<? value("poNumber") ?>)
+  AND  (cohead_custponumber~*<? value("poNumber") ?>)
 <? endif ?>
 <? if exists("startDate") ?>
   AND  (cohead_orderdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
