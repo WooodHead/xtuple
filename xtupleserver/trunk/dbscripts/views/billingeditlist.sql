@@ -10,23 +10,15 @@ SELECT cohead_id AS orderid, -2 AS itemid,
        '' AS item, '' AS itemdescrip, '' AS iteminvuom,
        CAST(NULL AS NUMERIC) AS qtytobill, '' AS f_qtytobill,
        CAST(NULL AS NUMERIC) AS price, '' AS f_price,
-       SUM(round((cobill_qty * coitem_qty_invuomratio) * (coitem_price / coitem_price_invuomratio),2)) +
-                       cobmisc_freight + cobmisc_misc + cobmisc_tax AS extprice,
-       formatMoney( SUM(round((cobill_qty * coitem_qty_invuomratio) * (coitem_price / coitem_price_invuomratio),2)) +
-                       cobmisc_freight + cobmisc_misc + cobmisc_tax ) AS f_extprice,
+       (calcCobmiscAmt(cobmisc_id) + cobmisc_freight + cobmisc_misc + calcCobmiscTax(cobmisc_id)) AS extprice,
+       formatMoney(calcCobmiscAmt(cobmisc_id) + cobmisc_freight + cobmisc_misc + calcCobmiscTax(cobmisc_id)) AS f_extprice,
        'Debit' AS sence,
        COALESCE(formatGLAccountLong(findARAccount(cust_id)), 'Not Assigned') AS account,
        cobmisc_curr_id AS curr_id
-FROM cohead, custinfo,
-     cobmisc
-     LEFT OUTER JOIN cobill ON (cobill_cobmisc_id=cobmisc_id)
-     JOIN coitem ON (cobill_coitem_id=coitem_id)
+FROM cohead, custinfo, cobmisc
 WHERE ( (cobmisc_cohead_id=cohead_id)
  AND (cohead_cust_id=cust_id)
  AND (NOT cobmisc_posted) )
-GROUP BY cohead_id, cobmisc_id, cobmisc_invcnumber,
-         cust_id, cust_number, cohead_billtoname, cohead_number,
-         cobmisc_freight, cobmisc_misc, cobmisc_tax, cobmisc_curr_id
 
 UNION SELECT cohead_id AS orderid, -1 AS itemid,
              '' AS documentnumber,
@@ -68,8 +60,8 @@ UNION SELECT cohead_id AS orderid, coitem_id AS itemid,
              item_number AS item, item_descrip1 AS itemdescrip, uom_name AS iteminvuom,
              cobill_qty AS qtytobill, formatQty(cobill_qty) AS f_qtytobill,
              coitem_price AS price, formatPrice(coitem_price) AS f_price,
-             round((cobill_qty * coitem_qty_invuomratio) * (coitem_price / coitem_price_invuomratio),2) AS extprice,
-             formatMoney(round((cobill_qty * coitem_qty_invuomratio) * (coitem_price / coitem_price_invuomratio),2)) AS f_extprice,
+             calcCobillAmt(cobill_id) AS extprice,
+             formatMoney(calcCobillAmt(cobill_id)) AS f_extprice,
              'Credit' AS sence,
              COALESCE( ( SELECT formatGLAccountLong(salesaccnt_sales_accnt_id)
                          FROM salesaccnt

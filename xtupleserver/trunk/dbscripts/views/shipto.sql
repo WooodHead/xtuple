@@ -8,7 +8,7 @@ CREATE OR REPLACE VIEW shipto AS
         m.addr_city     AS shipto_city,
         m.addr_state    AS shipto_state,
         m.addr_postalcode AS shipto_zipcode,
-        shipto_taxcode_id,
+        shipto_taxzone_id,
         shipto_salesrep_id,
         c1.cntct_phone  AS shipto_phone,
         shipto_comments,
