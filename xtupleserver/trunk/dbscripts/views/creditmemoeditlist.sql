@@ -9,26 +9,19 @@ SELECT cmhead_id AS orderid, -2 AS itemid,
              '' AS item, '' AS itemdescrip, '' AS iteminvuom,
              '' AS qtytobill,
              '' AS price,
-             formatMoney( SUM(round((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio),2)) +
-                             cmhead_freight + cmhead_misc + cmhead_tax ) AS extprice,
+             formatMoney( calcCmheadAmt(cmhead_id) +
+                          cmhead_freight +
+                          cmhead_misc +
+                          calcCmheadTax(cmhead_id) ) AS extprice,
              'Credit' AS sence,
              COALESCE( ( SELECT formatGLAccountLong(accnt_id)
                          FROM accnt
                          WHERE (accnt_id=findARAccount(cust_id)) ), 'Not Assigned') AS account
-FROM custinfo,
-     cmhead LEFT OUTER JOIN
-      (cmitem JOIN
-       (itemsite JOIN item
-        ON (itemsite_item_id=item_id) )
-       ON (cmitem_itemsite_id=itemsite_id) )
-      ON (cmitem_cmhead_id=cmhead_id)
+FROM custinfo, cmhead
 WHERE ( (cmhead_cust_id=cust_id)
  AND (cmhead_cust_id=cust_id)
  AND (NOT cmhead_posted)
  AND (NOT cmhead_hold) )
-GROUP BY cmhead_id,
-         cust_id, cust_number, cmhead_billtoname, cmhead_number,
-         cmhead_freight, cmhead_misc, cmhead_tax
 
 UNION SELECT cmhead_id AS orderid, -1 AS itemid,
              '' AS documentnumber,
@@ -66,6 +59,7 @@ WHERE ( (NOT cmhead_posted)
  AND (NOT cmhead_hold)
  AND (cmhead_misc <> 0) )
 
+-- Cmhead tax
 UNION SELECT cmhead_id AS orderid, -1 AS itemid,
              '' AS documentnumber,
              '' AS cust_number,
@@ -74,20 +68,39 @@ UNION SELECT cmhead_id AS orderid, -1 AS itemid,
              -1 AS linenumber,
              'Sales Tax' AS item, tax_descrip AS itemdescrip, '' AS iteminvuom,
              '' AS qtytobill,
-             formatMoney(cmhead_tax) AS price,
-             formatMoney(cmhead_tax) AS extprice,
+             formatMoney(taxhist_tax) AS price,
+             formatMoney(taxhist_tax) AS extprice,
              'Debit' AS sence,
              CASE WHEN (accnt_id IS NULL) THEN 'Not Assigned'
                   ELSE (formatGLAccountLong(accnt_id) || ' - ' || accnt_descrip)
              END AS account
-FROM cmhead,
-     tax,
-     accnt
-WHERE ( (cmhead_tax_id=tax_id)
- AND (tax_sales_accnt_id = accnt_id)
- AND (NOT cmhead_posted)
- AND (NOT cmhead_hold)
- AND (cmhead_tax <> 0) )
+FROM cmhead JOIN cmheadtax ON (taxhist_parent_id=cmhead_id)
+            JOIN tax ON (tax_id=taxhist_tax_id)
+            LEFT OUTER JOIN accnt ON (accnt_id=tax_sales_accnt_id)
+WHERE ( (NOT cmhead_posted)
+ AND (NOT cmhead_hold) )
+
+-- Cmitem tax
+UNION SELECT cmhead_id AS orderid, -1 AS itemid,
+             '' AS documentnumber,
+             '' AS cust_number,
+             '' AS billtoname,
+             cmhead_number::TEXT AS ordernumber,
+             -1 AS linenumber,
+             'Sales Tax' AS item, tax_descrip AS itemdescrip, '' AS iteminvuom,
+             '' AS qtytobill,
+             formatMoney(taxhist_tax) AS price,
+             formatMoney(taxhist_tax) AS extprice,
+             'Debit' AS sence,
+             CASE WHEN (accnt_id IS NULL) THEN 'Not Assigned'
+                  ELSE (formatGLAccountLong(accnt_id) || ' - ' || accnt_descrip)
+             END AS account
+FROM cmhead JOIN cmitem ON (cmitem_cmhead_id=cmhead_id)
+            JOIN cmitemtax ON (taxhist_parent_id=cmitem_id)
+            JOIN tax ON (tax_id=taxhist_tax_id)
+            LEFT OUTER JOIN accnt ON (accnt_id=tax_sales_accnt_id)
+WHERE ( (NOT cmhead_posted)
+ AND (NOT cmhead_hold) )
 
 UNION SELECT cmhead_id AS orderid, cmitem_id AS itemid,
              '' AS documentnumber,
@@ -98,7 +111,7 @@ UNION SELECT cmhead_id AS orderid, cmitem_id AS itemid,
              item_number AS item, item_descrip1 AS itemdescrip, uom_name AS iteminvuom,
              formatQty(cmitem_qtycredit * cmitem_qty_invuomratio) AS qtytobill,
              formatPrice(cmitem_unitprice / cmitem_price_invuomratio) AS price,
-             formatMoney(round((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio),2)) AS extprice,
+             formatMoney(calcCmitemAmt(cmitem_id)) AS extprice,
              'Debit' AS sence,
              COALESCE( ( SELECT formatGLAccountLong(accnt_id)
                          FROM accnt, salesaccnt

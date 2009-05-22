@@ -117,6 +117,10 @@ BEGIN
   ELSIF (UPPER(pType) = 'TYPE') THEN
     _query = 'DROP TYPE ' || quote_ident(LOWER(pSchema)) || '.' ||
                                quote_ident(LOWER(pObject));
+    IF (pCascade) THEN
+      _query = _query || ' CASCADE';
+    END IF;
+    
     BEGIN
       EXECUTE _query;
     EXCEPTION WHEN undefined_object THEN
