@@ -1140,7 +1140,25 @@ function main()
     waitForObject(":Prepare Check Run.Prepare_QPushButton");
     clickButton(":Prepare Check Run.Prepare_QPushButton");
     test.log("Prepared Check Run");
-
+    
+    var linuxPath, winPath;
+       
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "System");
+    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Master Information");
+    activateItem(":xTuple ERP:*.System_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP:*.Master Information_QMenu", "Encryption...");
+    activateItem(":xTuple ERP:*.Master Information_QMenu", "Encryption...");
+    
+    waitForObject(":Encryption Configuration_FileLineEdit");
+    winPath = findObject(":Encryption Configuration_FileLineEdit").text;
+    
+    
+    waitForObject(":Encryption Configuration_FileLineEdit_2");
+    linuxPath = findObject(":Encryption Configuration_FileLineEdit_2").text;
+    waitForObject(":Encryption Configuration.Cancel_QPushButton");
+    clickButton(":Encryption Configuration.Cancel_QPushButton");
+      
     //--------Post Check------------
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -1158,12 +1176,22 @@ function main()
     activateItem(":_QMenu", "Check Run...");
     waitForObject(":View Check Run.Create ACH File_QPushButton");
     clickButton(":View Check Run.Create ACH File_QPushButton");
+    if(object.exists(":View Check Run.Yes_QPushButton_2"))    
+        clickButton(":View Check Run.Yes_QPushButton_2");
+    waitForObject(":fileNameEdit_QLineEdit");
+
+    if(OS.name=="Linux")
+        findObject(":fileNameEdit_QLineEdit").text = linuxPath.toString()+"/achFile.ach";
+    else if(OS.name=="Windows")
+        findObject(":fileNameEdit_QLineEdit").text = winPath.toString()+"/achFile.ach";
+
+ 
     waitForObject(":xTuple ERP:*_QPushButton");
     sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonPress, 5, 5, Qt.LeftButton, 0);
     waitForObject(":xTuple ERP:*_QPushButton");
-    sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonRelease, 5, 5, Qt.LeftButton, 1);    snooze(1);
-    waitForObject(":View Check Run.Yes_QPushButton_2");
-        clickButton(":View Check Run.Yes_QPushButton_2");
+    sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonRelease, 5, 5, Qt.LeftButton, 1);    snooze(3);
+   
+   
     if(object.exists(":View Check Run.Yes_QPushButton_2"))    
         clickButton(":View Check Run.Yes_QPushButton_2");
    
