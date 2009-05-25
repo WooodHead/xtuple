@@ -33,7 +33,8 @@ function loginAppl(userrole)
     clickButton(":Log In.Options_QPushButton");
     waitForObject(":_server_QLineEdit");
     if(findObject(":_server_QLineEdit").text!= url)
-    {findObject(":_server_QLineEdit").text=url;
+    {
+        findObject(":_server_QLineEdit").text=url;
         test.log("URL Changed to: "+url);
     }
     if(findObject(":_database_QLineEdit").text!=db)
