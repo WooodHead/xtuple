@@ -50,6 +50,7 @@ Loadable::Loadable(const QDomElement & elem, const bool system,
 {
   _system = system;
   _nodename = elem.nodeName();
+  _grade = 0;
 
   if (elem.hasAttribute("name"))
     _name   = elem.attribute("name");
