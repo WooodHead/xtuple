@@ -64,7 +64,7 @@ BEGIN
       END IF;
 
 --  Forward update if we should
-      IF (_r.accnt_forwardupdate AND fetmetricbool('ManualForwardUpdate')) THEN
+      IF (_r.accnt_forwardupdate AND fetchmetricbool('ManualForwardUpdate')) THEN
         PERFORM forwardUpdateTrialBalance(_trialbalid);
       END IF;
 
