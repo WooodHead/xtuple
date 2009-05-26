@@ -186,7 +186,8 @@ if $BUILD ; then
 fi
 
 cd "$BASEDIR"/loader
-./fixPackage
+./fixPackage -pID ../bin/updater.app
+
 
 cd "$BASEDIR"/bin
 
