@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION postIntoTrialBalance(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postIntoTrialBalance(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pSequence ALIAS FOR $1;
   _trialbalid INTEGER;
@@ -44,7 +44,7 @@ BEGIN
       ELSE
 
 --  No existing trialbal, make one
-        SELECT NEXTVAL(''trialbal_trialbal_id_seq'') INTO _trialbalid;
+        SELECT NEXTVAL('trialbal_trialbal_id_seq') INTO _trialbalid;
         INSERT INTO trialbal
         ( trialbal_id, trialbal_accnt_id, trialbal_period_id,
           trialbal_beginning, trialbal_dirty,
@@ -64,7 +64,7 @@ BEGIN
       END IF;
 
 --  Forward update if we should
-      IF (_r.accnt_forwardupdate) THEN
+      IF (_r.accnt_forwardupdate AND fetmetricbool('ManualForwardUpdate')) THEN
         PERFORM forwardUpdateTrialBalance(_trialbalid);
       END IF;
 
@@ -80,5 +80,5 @@ BEGIN
   RETURN 1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
