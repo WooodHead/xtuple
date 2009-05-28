@@ -19,7 +19,7 @@ DECLARE
 
 BEGIN
 
-  /*IF (pTaxZoneId IS NULL) THEN 
+  IF (pTaxZoneId IS NULL) THEN 
 	RAISE EXCEPTION 'Supply  a tax zone id...';
   END IF;
 
@@ -37,7 +37,7 @@ BEGIN
   	
   IF (pAmount IS NULL) THEN
 	RAISE EXCEPTION 'Supply amount...';
-  END IF;*/	
+  END IF;
 
 
   SELECT DISTINCT
@@ -60,9 +60,9 @@ BEGIN
   AND    (COALESCE(taxass_taxtype_id, pTaxTypeId) = pTaxTypeId))
   ORDER BY sequence LIMIT 1;
   
-  /*IF (NOT FOUND) THEN
+  IF (NOT FOUND) THEN
     RAISE EXCEPTION 'No tax assignment found..';
-  END IF;*/
+  END IF;
 
   --Now loop through each tax detail record and return calculated result
   FOR _y IN
@@ -119,7 +119,7 @@ BEGIN
     _row.taxdetail_taxclass_sequence := _y.taxclass_sequence;
     _row.taxdetail_tax := _tax;
     _row.taxdetail_curr_id := _y.curr_id;
-    _row.taxdetail_curr_abbr :=	_y.curr_abbr;
+    _row.taxdetail_curr_abbr := _y.curr_abbr;
   
     RETURN NEXT _row;
 
@@ -145,7 +145,7 @@ BEGIN
     _row.taxdetail_taxclass_sequence := _z.taxdetail_taxclass_sequence;
     _row.taxdetail_tax := _z.taxdetail_tax;
     _row.taxdetail_curr_id := _z.taxdetail_curr_id;
-    _row.taxdetail_curr_abbr :=	_z.taxdetail_curr_abbr;
+    _row.taxdetail_curr_abbr := _z.taxdetail_curr_abbr;
 
      RETURN NEXT _row;
      --Add to cumulative counter (_curcum)
