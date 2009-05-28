@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section596450">
+  <title><indexterm significance="normal">
+      <primary>backlog</primary>
+      <secondary>by customer group</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customer groups</primary>
+      <secondary>backlog for</secondary>
+    </indexterm>Backlog by Customer Group</title>
+  <para>To view Backlog by Customer Group, select the "Backlog by Customer
+  Group" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspBacklogByCustomerGroup.png" />
+        </imageobject>
+        <caption>Backlog by Customer Group</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Backlog by Customer Group, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Customer Groups</term>
+      <listitem>
+        <para>Select to display Backlog for all Customer Groups.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Customer Group whose Backlog you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Customer Group pattern to select a range of Customer
+        Groups. Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Backlog by Customer Group entered on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Backlog by Customer Group entered on and before this date will
+        be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Prices</term>
+      <listitem>
+        <para>Select to include pricing information in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display Backlog by Customer Group for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Backlog by Customer Group you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Backlog</term>
+      <listitem>
+        <para>Display lists Backlog by Customer Group, using the specified
+        parameters. This display is a nested list, with a plus ("+") sign
+        located to the far left of the display next to each line that may be
+        expanded to lower levels. By clicking your mouse on a plus sign, you
+        reveal lower levels of information related to the Documents. If the
+        "Show Prices" option is selected, an additional column showing the
+        amount of the backlog, with Prices normalized to the Base Currency
+        using the Currency Exchange Rate effective on the Order Date, will
+        display. The total backlog will also be shown.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Sales Order Line Item in the Backlog list enables
+  you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditOrder)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewSalesOrder)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditItem)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewItem)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPrintPackingList)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+</section>

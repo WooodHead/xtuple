@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="importXML">
+  <title id="importXML.title"><indexterm significance="normal">
+      <primary>XML</primary>
+      <secondary>importing data</secondary>
+    </indexterm><indexterm>
+      <primary>importing data</primary>
+      <secondary>XML</secondary>
+    </indexterm><indexterm>
+      <primary>data import</primary>
+    </indexterm>Import XML</title>
+  <para>Use the Import XML window to import data from XML files into a
+  database for the xTuple applications. If you try to open this window without
+  first configuring the system for importing XML data, you will be given the
+  opportunity to go directly to the <xref endterm="configureIE.title"
+  linkend="configureIE.title" /> window.</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/importXML.png" id="importXML.screenshot" />
+        </imageobject>
+        <caption id="importXML.screenshot.caption">Import XML</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When you open the Import XML window the table on the window is
+  populated with a list of all XML files in the default XML directory for your
+  computer (see <xref linkend="configureIE.title" />). To the far right of the
+  screen, the following buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Close</term>
+      <listitem>
+        <para>Close this window without doing any more work.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Add To List</term>
+      <listitem>
+        <para>Add another file to the list of files to be processed.</para>
+        <para>This file is not permanently added to the list; it will be
+        removed when either it has been imported successfully or you close the
+        window, whichever comes first.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Delete From List</term>
+      <listitem>
+        <para>Remove a file from the list of files to be processed.</para>
+        <para>This file is not permanently removed from the list; it will
+        reappear after you try to import data from other files, click the
+        <guibutton>Reset List</guibutton> button, or close and reopen this
+        window. The only way to permanently remove a file from this list is to
+        remove it from the default import directory. You can do this by
+        importing the file successfully or by manually removing the
+        file.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reset List</term>
+      <listitem>
+        <para>Rescan the default import directory and refresh the contents of
+        the on-screen table.</para>
+        <para>Files that have been imported successfully will be removed from
+        the list, unless you selected the <xref
+        endterm="configureIE.filehandling.donothing"
+        linkend="configureIE.filehandling.donothing" /> option in Configure
+        Import and Export. Any files you have added to the list with the
+        <guibutton>Add To List</guibutton> button will be removed. Any files
+        you have removed from the list with the <guibutton>Delete From
+        List</guibutton> button will be put back.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Clear Status</term>
+      <listitem>
+        <para>The Status column in the on-screen table will be set to blank on
+        all rows.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Import Selected</term>
+      <listitem>
+        <para>Import all of the files in the on-screen table that are
+        currently selected. Each file is imported in its own
+        transaction.</para>
+        <para>Read any error messages that appear carefully. Some of them
+        explicitly state that the error will be ignored and that processing
+        will continue after you acknowledge the message. These warn you of
+        unexpected conditions in the imported data that do not appear as
+        though they will cause problems.</para>
+        <para>Errors that are not marked as being ignored will cause the
+        import of that one file to be rolled back but the other files will be
+        processed until all selected files have been tried. This allows you to
+        fix any problems with importing a particular XML file without having
+        to retry all of the others as well.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Import All</term>
+      <listitem>
+        <para>Import all of the files in the on-screen table. This behaves
+        exactly the same way as the <guibutton>Import Selected</guibutton>
+        button except it processes all of the listed files, not just the
+        selected ones.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

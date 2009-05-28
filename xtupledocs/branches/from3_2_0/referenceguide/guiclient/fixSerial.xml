@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section975148">
+  <title>Serial Columns</title>
+  <para>When data is imported into database tables, it is possible to overlook
+  or disrupt the auto-numbering sequence for a particular table. The Serial
+  Columns utility was designed to identify and correct problems caused by this
+  scenario. To identify and correct sequence problems, select the "Serial
+  Columns" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/fixSerial.png"/>
+        </imageobject>
+        <caption>Fix Serial Columns</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When identifying and correcting sequence problems, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Only Show Problems</term>
+      <listitem>
+        <para>Select to include only tables which have sequencing problems in
+        the display. No problems will exist as long as the "Next Key" value is
+        equal to or greater than the "Largest Key Used" value. A problem
+        exists if the "Largest Key Used" value is greater than the "Next Key"
+        value.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tables</term>
+      <listitem>
+        <para>Display lists the complete set of database tables and
+        corresponding sequences. If the "Only Show Problems" option is
+        selected, then only those tables which have sequence problems will be
+        included in the display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the list, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>FIX ALL</term>
+      <listitem>
+        <para>Select to fix all the sequence problems in all the
+        tables.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>FIX</term>
+      <listitem>
+        <para>Highlight a table and then select this option to fix only the
+        highlighted sequence problem.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

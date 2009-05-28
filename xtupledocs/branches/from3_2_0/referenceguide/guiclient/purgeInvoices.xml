@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657192">
+   <title>
+       
+      <indexterm significance="normal">
+         <primary>invoices</primary>
+         <secondary>purging records for</secondary>
+      </indexterm>Purge Invoices</title>
+   <para>Purging Invoice records is one method for freeing up
+    disk storage space&mdash;without losing important sales history. To purge
+    Invoice records, select the "Purge Invoice Records" option. The following
+    screen will appear:</para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/purgeInvoices.png"/>
+            </imageobject>
+            <caption>Purge Invoice Records</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <note>
+      <para>The consequence of purging Invoice records is that
+      any purged Invoice records can no longer be re-printed.</para>
+   </note>
+   <para>When purging Invoice records, you are presented with
+    the following options:</para>
+   <variablelist>
+      <varlistentry>
+         <term>Cut Off Date</term>
+         <listitem>
+            <para>Invoice records created before and including this date will be
+          purged.</para>
+         </listitem>
+      </varlistentry>
+   </variablelist>
+   <para>To the far right of the screen, the following
+    buttons are available:</para>
+   <variablelist>
+      <varlistentry>
+         <term>CANCEL</term>
+         <listitem>
+            <para>Closes the screen without purging any Invoice records,
+          returning you to the application desktop.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>PURGE</term>
+         <listitem>
+            <para>Purges the Invoice records.</para>
+         </listitem>
+      </varlistentry>
+   </variablelist>
+</section>

@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section923250">
+  <title><indexterm significance="normal">
+      <primary>configuration</primary>
+      <secondary>of sales module</secondary>
+    </indexterm>Configure Sales</title>
+  <para>To configure the Sales module, select the "Configure Sales" option.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureSO.png"
+                     id="configureSO.imagedata" />
+        </imageobject>
+        <caption id="configureSO.caption">General Sales Configuration
+        Options</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When configuring the S/O module, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>numbering of</secondary>
+        </indexterm>Sales Order # Generation</term>
+      <listitem>
+        <para>Select one of the available Sales Order Number generation
+        methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Manual</term>
+            <listitem>
+              <para>Sales Order Numbers must be entered manually whenever you
+              create a new Sales Order.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic</term>
+            <listitem>
+              <para>Sales Order Numbers will be automatically incremented by 1
+              each time a new Sales Order is created. These
+              automatically-generated numbers may not be edited. They are
+              read-only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Allow Override</term>
+            <listitem>
+              <para>Sales Order Numbers will be automatically generated and
+              incremented, as under the "Automatic" option described above.
+              However, this option also allows you to manually override the
+              Sales Order Number at the time of Sales Order creation.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Next #</term>
+      <listitem>
+        <para>The next sequentially available Sales Order Number will display
+        here. You may change the number—creating a new basis for the next
+        Sales Order Number—by typing the new number into this field. Any
+        changes you make here will be reflected the next time a new Sales
+        Order is created in the S/O module.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>quotes</primary>
+          <secondary>numbering of</secondary>
+        </indexterm>Quote # Generation</term>
+      <listitem>
+        <para>Select one of the available Quote Number generation
+        methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Manual</term>
+            <listitem>
+              <para>Quote Numbers must be entered manually whenever you create
+              a new Quote.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Use Quote #'s</term>
+            <listitem>
+              <para>Quote Numbers will be automatically incremented by 1 each
+              time a new Quote is created. These automatically-generated
+              numbers may not be edited. They are read-only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Use Quote #'s, Allow Override</term>
+            <listitem>
+              <para>Quote Numbers will be automatically generated and
+              incremented, as under the "Automatic" option described above.
+              However, this option also allows you to manually override the
+              Quote Number at the time of Quote creation.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Use S/O #'s</term>
+            <listitem>
+              <para>Quote Numbers will be automatically incremented by 1 each
+              time a new Quote is created, using the same number generation
+              method specified for the creation of Sales Order Numbers. These
+              automatically-generated numbers may not be edited. They are
+              read-only.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Next #</term>
+      <listitem>
+        <para>The next sequentially available Quote Number will display here.
+        You may change the number—creating a new basis for the next Quote
+        Number—by typing the new number into this field. Any changes you make
+        here will be reflected the next time a new Quote is created in the S/O
+        module.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>return authorizations</primary>
+          <secondary>numbering of</secondary>
+        </indexterm>Return Auth. # Generation</term>
+      <listitem>
+        <para>Select one of the available Return Authorization Number
+        generation methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Manual</term>
+            <listitem>
+              <para>Return Authorization Numbers must be entered manually
+              whenever you create a new Return Authorization.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Use R/A #'s</term>
+            <listitem>
+              <para>Return Authorization Numbers will be automatically
+              incremented by 1 each time a new Return Authorization is
+              created. These automatically-generated numbers may not be
+              edited. They are read-only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Use R/A #s, Allow Override</term>
+            <listitem>
+              <para>Return Authorization Numbers will be automatically
+              generated and incremented, as under the "Automatic" option
+              described above. However, this option also allows you to
+              manually override the Return Authorization Number at the time of
+              Return Authorization creation.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>credit memos</primary>
+          <secondary>numbering of</secondary>
+        </indexterm>Credit Memo # Generation</term>
+      <listitem>
+        <para>Select one of the available Credit Memo Number generation
+        methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Manual</term>
+            <listitem>
+              <para>Credit Memo Numbers must be entered manually whenever you
+              create a new Credit Memo.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Use C/M #'s</term>
+            <listitem>
+              <para>Credit Memo Numbers will be automatically incremented by 1
+              each time you issue a new Credit Memo. These
+              automatically-generated numbers may not be edited. They are
+              read-only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Use C/M #"s, Allow Override</term>
+            <listitem>
+              <para>Credit Memo Numbers will be automatically generated and
+              incremented, as under the "Automatic" option described above.
+              However, this option also allows you to manually override the
+              Credit Memo Number at the time of Credit Memo creation.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Use S/O #'s</term>
+            <listitem>
+              <para>Credit Memo Numbers will be automatically incremented by 1
+              each time a new Credit Memo is created, using the same number
+              generation method specified for the creation of Sales Order
+              Numbers. These automatically-generated numbers may not be
+              edited. They are read-only.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Next #</term>
+      <listitem>
+        <para>The next sequentially available Credit Memo Number will display
+        here. You may change the number—creating a new basis for the next
+        Credit Memo Number—by typing the new number into this field. Any
+        changes you make here will be reflected the next time you issue a new
+        Credit Memo within the S/O module.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>invoices</primary>
+          <secondary>numbering of</secondary>
+        </indexterm>Invoice # Generation</term>
+      <listitem>
+        <para>By default, Invoice Numbers are automatically generated. This
+        system setting cannot be changed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Next #</term>
+      <listitem>
+        <para>The next sequentially available Invoice Number will display
+        here. You may change the number—creating a new basis for the next
+        Invoice Number—by typing the new number into this field. Any changes
+        you make here will be reflected the next time you create a new Invoice
+        within the S/O module.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To establish general settings for the S/O module, select the "General"
+  tab. The following options will appear:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Check Print Sales Order on Save by Default</term>
+      <listitem>
+        <para>Select to prompt users to print Sales Orders whenever Sales
+        Orders are saved. If selected, users will be presented with a Sales
+        Order print screen whenever a Sales Order is saved. To bypass this
+        feature, do not select this option.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Price Control</term>
+      <listitem>
+        <para>Select from the following price control options:</para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>sales orders</primary>
+                <secondary>discount defaults for</secondary>
+              </indexterm>Allow Price Discounts</term>
+            <listitem>
+              <para>Check this option to allow pricing discounts for select
+              customers. This option instructs the system to verify whether
+              any Pricing Discounts have been established for a Customer,
+              prior to calculating the Line Item Price for of an Item within a
+              Sales Order. If this option is unchecked, then the system will
+              apply the full List Price for an Item within a Sales
+              Order.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Disallow Override of Sales Price on Sales Order Entry</term>
+            <listitem>
+              <para>Select to prevent all users from overriding the Sales
+              Price when entering Sales Order Line Items. This is a
+              system-wide setting, affecting all users. Do not select this
+              option if you want to selectively prevent users from overriding
+              Sales Prices. Individual users may be granted the ability to
+              override Sales Prices, use the S/O module's OverridePrice
+              privilege.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Hide Misc. Charges on Sales Order screen</term>
+            <listitem>
+              <para>Select to hide all fields related to Miscellaneous Charges
+              on the Sales Order Line Item tab. If your site does not use
+              Misc. Charges when entering Sales Orders, it may make sense to
+              hide this functionality to avoid confusion.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pricing on Editing Line Items</term>
+      <listitem>
+        <para>Select one of the following as your preferred response when
+        users change Sales Order Line Item quantities:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Update Price on Line Item Edit</term>
+            <listitem>
+              <para>If selected, the system will automatically update the Net
+              Unit Price for the Line Item, adjusting to accommodate the
+              newly-entered quantity.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Prompt before Updating Price</term>
+            <listitem>
+              <para>If selected, the system will ask users if they want to
+              update the Net Unit Price (YES/NO). If they answer "YES" because
+              they do want to update the Price, then they will have to
+              manually make the Price adjustment.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Do not Update Price on Line Edit</term>
+            <listitem>
+              <para>If selected, the Net Unit Price will not be changed when
+              Line Item quantity is changed on EDIT—and users will not be
+              prompted to consider changing the Price.</para>
+              <note>
+                <para>The Sales Order Line Item pricing options apply only
+                when editing Line Item quantity.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Date Control</term>
+      <listitem>
+        <para>Select from the following date control options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Allow ASAP Schedule Dates</term>
+            <listitem>
+              <para>Selecting this option will cause Sales Order Line Items to
+              default to the current date if no schedule date is
+              entered.</para>
+              <note>
+                <para>The allocation of available Credit Memos occurs only
+                once—when a Sales Order is saved for the first time.
+                Subsequent saves will not result in additional
+                allocations.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Enable Promise Dates</term>
+            <listitem>
+              <para>Select to display a Promised Date field on the Sales Order
+              Line Item screen, by default. If not selected, there will be no
+              Promised Date field shown on that screen.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Enable S/O Reservations</term>
+      <listitem>
+        <para>Select to enable the Sales Order Reservations functionality
+        system-wide. This feature allows for the hard allocation of quantity
+        to Sales Orders. If not selected, the Sales Order reservation options
+        will be hidden from view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reserve by Location</term>
+      <listitem>
+        <para>Select to set S/O Reservations for discrete locations and lots.
+        The hard allocation of quantity will be for particular locations and
+        will prevent other orders from issuing reserved inventory. The S/O
+        Pick List will print the reserved location to expedite inventory
+        picking. You may choose the order of precedence for selecting
+        locations; Lowest Quantity First, Highest Quantity First, or Alpha by
+        Location Name.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Lowest Quantity First</term>
+            <listitem>
+              <para>Locations for the Item will be sorted ascending by
+              quantity. Reservations will start with the Location with the
+              lowest quantity and continue until the quantity required is
+              fully reserved or there is insufficient quantity on hand.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Highest Quantity First</term>
+            <listitem>
+              <para>Locations for the Item will be sorted descending by
+              quantity. Reservations will start with the Location with the
+              highest quantity and continue until the quantity required is
+              fully reserved or there is insufficient quantity on hand.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Alpha by Location Name</term>
+            <listitem>
+              <para>Locations for the Item will be sorted ascending
+              alphabetically by the Location Name. Reservations will start
+              with the first Location and continue until the quantity required
+              is fully reserved or there is insufficient quantity on
+              hand.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <note>
+          <para>The change of Reserve by Location from a state of enabled to
+          disabled will remove all location reservations.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Control</term>
+      <listitem>
+        <para>Select from the following ship control options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Always show "Save and Add to Packing List" button on Sales
+            Order screen</term>
+            <listitem>
+              <para>Select if you want the SAVE AND ADD TO PACKING LIST button
+              to always be displayed on the Sales Order header screen. If this
+              option is not selected, the SAVE AND ADD TO PACKING LIST button
+              will only be displayed for newly-entered Sales Orders which have
+              not yet been saved.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Enable Shipping interface from Sales Order screen</term>
+            <listitem>
+              <para>Select to enable the performance of limited Shipping
+              functionality from the Sales Order header. If selected, users
+              will be able to issue Stock to Shipping and also return Stock
+              from Shipping directly from the Sales Order header. If not
+              selected, these Shipping options will not be available on the
+              Sales Order header.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatically check "Select for Billing" option on Ship
+            Order screen</term>
+            <listitem>
+              <para>Select if you want the "Select for Billing" option to be
+              selected by default whenever you ship Sales Order Line Items.
+              Selecting this option reduces steps in the billing process.
+              Specifically, if an Order is selected for billing when it is
+              shipped, you do not then have to take the extra step of
+              independently selecting the Order for billing. This can save
+              time and also ensure your shipped Orders are selected for
+              billing at the time of shipment.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Change Log</term>
+      <listitem>
+        <para>Select from the following change log options</para>
+        <variablelist>
+          <varlistentry>
+            <term>Post Customer Changes to the Change Log</term>
+            <listitem>
+              <para>Select to post to the Change Log any changes made to
+              Customer masters.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Post Sales Order Changes to the Change Log</term>
+            <listitem>
+              <para>Select to post to the Change Log any changes made to Sales
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Control</term>
+      <listitem>
+        <para>Select from the following credit control options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Restrict Credit Memos to Items that appear on their Apply-To
+            Document</term>
+            <listitem>
+              <para>Select if you want to restrict Credit Memo Items to their
+              Apply-To Document. Selecting this option narrows the Credit Memo
+              Item selection process to only those Items which appeared on the
+              Invoice the Credit Memo is being applied to. If not selected, a
+              sold Item master list will appear instead when selecting Credit
+              Memo Items for Credit Memos applied to a specific Invoice. This
+              setting has no bearing on unapplied Credit Memos.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatically Allocate Credit Memos to New Sales Order on
+            Save</term>
+            <listitem>
+              <para>Select to have open Credit Memos for a Customer
+              automatically allocated to any new Sales Orders entered for that
+              Customer. This functionality helps reduce Customer credit
+              balances by ensuring that Customer credits are consumed when new
+              Sales Orders are entered. Any available, open Credit Memos are
+              eligible for allocation. The allocation of available Credit
+              Memos occurs only once—when a Sales Order is saved for the first
+              time. Subsequent saves will not result in additional
+              allocations. Credit Memos which have been allocated to a Sales
+              Order are applied at the point when the Invoice resulting from
+              the Sales Order is posted. Once the full balance of a Credit
+              Memo has been applied, the Credit Memo is then closed. The
+              printed Invoice the Customer receives will indicate whether
+              Credit Memos have been applied. In addition, the total due from
+              the Customer will be automatically adjusted to reflect any
+              applied credits.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Cancels any configuration settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the configuration settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To establish Invoice and Credit Memo settings, select the "Invoice"
+  tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureSO_invoice.png" />
+        </imageobject>
+        <caption>Invoice Configuration Options</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When establishing Invoice and Credit Memo settings, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Invoice Date Source</term>
+      <listitem>
+        <para>Select one of the following Invoice date options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Current Date</term>
+            <listitem>
+              <para>If selected, the Invoice date on the Invoice header will
+              be the same date as the Sales order date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipped Date</term>
+            <listitem>
+              <para>If selected, the Invoice date on the Invoice header will
+              be the same date as the Sales Order ship date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Scheduled Date</term>
+            <listitem>
+              <para>If selected, the Invoice date on the Invoice header will
+              be the same date as the Sales Order scheduled date.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Invoice Copies</term>
+      <listitem>
+        <para>Indicate how you want invoice copies to print.</para>
+        <variablelist>
+          <varlistentry>
+            <term># of Copies</term>
+            <listitem>
+              <para>Indicate the number of copies you want to print.
+              Information about the specified copies will display
+              below.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Credit Memo Copies</term>
+      <listitem>
+        <para>Indicate how you want credit memo copies to print.</para>
+        <variablelist>
+          <varlistentry>
+            <term># of Copies</term>
+            <listitem>
+              <para>Indicate the number of copies you want to print.
+              Information about the specified copies will display
+              below.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>default configuration for</secondary>
+    </indexterm>To establish default settings to be used whenever new
+  Customers are entered, select the "Customer Defaults" tab. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureSO_customerDefault.png" />
+        </imageobject>
+        <caption>Default Customer Configuration Options</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When establishing Customer master default settings, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer Type</term>
+      <listitem>
+        <para>Specify a default Customer Type to be used whenever new
+        Customers are created. The default Customer Type may be changed when
+        entering or editing new Customers.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Rep</term>
+      <listitem>
+        <para>Specify a default Sales Representative to be used whenever new
+        Customers are created. The Sales Rep may be changed when entering or
+        editing new Customers.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Via</term>
+      <listitem>
+        <para>Specify a default Ship Via.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipping Form</term>
+      <listitem>
+        <para>Specify a default Shipping Form.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Terms</term>
+      <listitem>
+        <para>Specify the default billing Terms to be used whenever new
+        Customers are created. The default Terms may be changed when entering
+        or editing new Customers.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Balance Method</term>
+      <listitem>
+        <para>Specify a default procedure for handling cash receipts from
+        Customers. This notation is informational only. Balance Forward:
+        Select to apply cash receipts to the Customer's current balance
+        due.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Limit</term>
+      <listitem>
+        <para>Specify the default credit limit to be used for all
+        Customers.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Rating</term>
+      <listitem>
+        <para>Specify the default credit rating to be used for all
+        Customers.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Accepts Partial Shipments</term>
+      <listitem>
+        <para>Select to indicate Customers accept partial shipments by
+        default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Accepts Backorders</term>
+      <listitem>
+        <para>Select to indicate Customers accept backorders by
+        default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Allow Free Form Ship-Tos</term>
+      <listitem>
+        <para>Select to indicate Customers allow free-form Ship-Tos by
+        default. This default appears on the Customer master.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para role="standard"><indexterm significance="normal">
+      <primary>return authorizations</primary>
+      <secondary>configuration for</secondary>
+    </indexterm>To define your system's Return Authorization configuration,
+  select the "Return" tab. The following screen will appear:</para>
+  <screenshot role="standard">
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/configureSO_returns.png" />
+      </imageobject>
+      <caption><para>Returns Configuration Options</para></caption>
+    </mediaobject>
+  </screenshot>
+  <para role="standard">When configuring Return Authorization settings, you
+  are presented with the following options:</para>
+  <variablelist role="standard">
+    <varlistentry>
+      <term>Enable Return Authorizations</term>
+      <listitem>
+        <para>Select to enable the system's Return Authorizations capability.
+        If not selected, users will be prevented from performing any tasks
+        related to Return Authorizations—and related functionality will be
+        hidden from view. For systems where Return Authorizations are enabled,
+        this option will be hidden.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Return Authorization Changes to the Change Log</term>
+      <listitem>
+        <para>Select to record changes made to Return Authorizations in the
+        Return Authorization change log. If not selected, the Return
+        Authorization changelog will not contain change information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Disposition</term>
+      <listitem>
+        <para>Specify one of the following default methods for handling Return
+        Authorizations:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Credit</term>
+            <listitem>
+              <para>Select if, by default, you want to issue credit to
+              Customers for authorized Line Items and quantities. No return is
+              required or expected. Return Authorization Line Items will close
+              when an associated Credit Memo is posted.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Return</term>
+            <listitem>
+              <para>Select if, by default, you want to authorize returns from
+              Customers. Return Authorization Items will close when an
+              associated Credit Memo is posted, or when all Items on a line
+              have been returned, whichever comes last.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Replace</term>
+            <listitem>
+              <para>Select if, by default, you want to replace Items returned
+              by Customers. Authorized quantities will be added as additional
+              order quantity to an associated Sales Order line, which in turn
+              should be reopened if closed. Return Authorization Items will
+              close when all Items on the line have been returned or all
+              authorized Items on the line have been shipped, whichever comes
+              last. No money should be involved when invoicing replacement
+              Items.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Service</term>
+            <listitem>
+              <para>Select if, by default, you want to repair or service Items
+              returned by Customers. Service or repair items will first be
+              received by a Return Authorization. Then a new Sales Order with
+              linked Work Order(s) will be created to track work and shipping
+              on the repair or service. The new Sales Order will be on RMA
+              Hold until Items have been received by the Return
+              Authorization.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Substitute</term>
+            <listitem>
+              <para>Select if, by default, you want to authorize the
+              substitution of Items returned by Customers. Under this option,
+              when an original Sales Order is imported into the Return
+              Authorization, the Return Authorization Line Items will default
+              to the Return disposition. Any new Line Items added beyond the
+              original ones will have a default disposition of Ship.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit/Ship</term>
+      <listitem>
+        <para>Specify the default timetable for Customer credits and/or
+        returns:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Immediately</term>
+            <listitem>
+              <para>Select to issue credit or send returns to Customers
+              immediately by default.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Upon Receipt</term>
+            <listitem>
+              <para>Select to issue credit or send returns to Customers only
+              after you have received returned goods from them by
+              default.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Credit Method</term>
+      <listitem>
+        <para>Specify one of the following default credit method
+        options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>None</term>
+            <listitem>
+              <para>Select if, by default, you do not issue credit for
+              Customer returns.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit Memo</term>
+            <listitem>
+              <para>Select if, by default, you credit Customer returns with a
+              Credit Memo to the Customer's account. This option will result
+              in the automatic creation of a sales Credit Memo.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Check</term>
+            <listitem>
+              <para>Select if, by default, you credit Customer returns by
+              sending them a Check. This option will create a Credit Memo,
+              then a Misc. Check that applies to the Credit Memo.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit Card</term>
+            <listitem>
+              <para>Select if, by default, you credit Customer returns with a
+              refund on their Credit Card.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
