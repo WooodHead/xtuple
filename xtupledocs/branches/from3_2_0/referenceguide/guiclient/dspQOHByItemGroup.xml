@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section614864">
+  <title><indexterm significance="normal">
+      <primary>quantity on hand</primary>
+      <secondary>by class code</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>class codes</primary>
+      <secondary>quantity on hand for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>QOH</primary>
+      <see>quantity on hand</see>
+    </indexterm>Quantities on Hand by Item Group</title>
+  <para>To view Quantities on Hand by Item Group, select the "Quantities on
+  Hand by Item Group" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspQOHByItemGroup.png" />
+        </imageobject>
+        <caption>Quantities on Hand by Item Group</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Quantities on Hand by Item Group, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Item Groups</term>
+      <listitem>
+        <para>Select to display Quantities on Hand for all Item Groups.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Item Group whose Quantities on Hand you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter an Item Group pattern to select a range of Item Groups.
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display Quantities on Hand by Item Group for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Quantities on Hand by Item Group you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order By</term>
+      <listitem>
+        <para>Order the output by one of the following methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item Number</term>
+            <listitem>
+              <para>Select to order the display by Item Number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Value</term>
+            <listitem>
+              <para>Select to order the display by value.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show All Quantities</term>
+      <listitem>
+        <para>Select to show all Quantities on Hand in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Only Show Positive QOHs</term>
+      <listitem>
+        <para>Select to show only Inventory with a positive Quantity on Hand
+        in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Only Show Negative QOHs</term>
+      <listitem>
+        <para>Select to show only Inventory with a negative Quantity on Hand
+        in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Inventory Value</term>
+      <listitem>
+        <para>Select to include the Inventory value of Quantities on Hand by
+        Item Group in the display. Specify whether to display Inventory value
+        using Standard Costs or Actual Costs.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use Posted Costs</term>
+            <listitem>
+              <para>Select to show Inventory value based on the costing method
+              defined for the Item Site. Item Sites may use the following
+              costing methods, depending on the Item Type: Standard, Average,
+              Job (i.e., Job Items), and None (i.e., Reference Items and any
+              Items having a control method = None).</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Standard Costs</term>
+            <listitem>
+              <para>Select to show Inventory value based on Standard
+              Costs.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Actual Costs</term>
+            <listitem>
+              <para>Select to show Inventory value based on Actual
+              Costs.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Quantities on Hand</term>
+      <listitem>
+        <para>Display lists Quantities on Hand by Item Group, using the
+        specified parameters. If the "Show Inventory Value" box is selected,
+        the display will also show unit Cost, value, and non-netable value.
+        Totals for each column will be calculated at the bottom of the
+        display. If a Quantity on Hand value displays in the color orange,
+        this means the actual or projected Quantity on Hand is at or below the
+        Reorder Level. If the color is red, the current or projected Quantity
+        on Hand is below 0.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on an Item in the Quantities on Hand list enables you
+  to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickTransfertoanotherWarehouse)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickAdjustthisQOH)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickResetthisQOHto0)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditMisc.Count)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueCountTag)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+</section>

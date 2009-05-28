@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="voucherItemDistrib">
+  <title>
+<indexterm significance="normal">
+      <primary>vouchers</primary>
+      <secondary>costing elements associated with</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>vouchers</primary>
+      <secondary>automatic updating of actual costs</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>actual costs</primary>
+      <secondary>automatic updating of at vouchering</secondary>
+    </indexterm>Voucher Item Distribution</title>
+  <para>To distribute purchasing Costs to specific Costing Elements for the
+  Item quantity being vouchered, select the NEW button. The following screen
+  will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/voucherItemDistrib.png"/>
+        </imageobject>
+        <caption>Distributing Costs to Costing
+        Element</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>An Item's per unit Actual Cost will be automatically updated after a
+    Voucher is posted if the vouchered Cost differs from the Item's current
+    Actual Cost. The vouchered Cost for an Item is determined by dividing the
+    amount to distribute by the quantity to voucher.</para>
+  </note>
+  <para>When distributing purchasing Costs to a specific Costing Element, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Costing Element</term>
+      <listitem>
+        <para>Specify the Costing Element you want to distribute purchasing
+        Costs to. The "Material" Costing Element will be selected by default
+        once Line Item quantity has been tagged. You may distribute Costs to
+        more than one Costing Element per Voucher Item. The list of available
+        Costing Elements includes the system-defined "Material" Costing
+        Element, as well as any user-defined Costing Elements designated as
+        available to accept Purchase Order distributions.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Be sure to specify the amount to distribute based on the pricing
+    found on the Purchase Order. The system will automatically handle any
+    calculations required to accommodate Inventory/Vendor Unit of Measure
+    (UOM) ratios which are not 1:1.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Amount to Distribute</term>
+      <listitem>
+        <para>Specify the purchasing amount to distribute to the specified
+        Costing Element. By default, the extended Price for the Purchase Order
+        Line Item will be entered here once Line Item quantity has been
+        tagged. Any difference between the distribution amount and the current
+        Actual Cost amount for the Costing Element will result in the posting
+        of automatic updates to the current Actual Cost when the Voucher is
+        posted.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the distribution information and adds it to the
+        distribution list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

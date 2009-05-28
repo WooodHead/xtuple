@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>credit memos</primary>
+      <secondary>adding line items to</secondary>
+    </indexterm>Credit Memo Item</title>
+  <para>To create a new Credit Memo Line Item, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/creditMemoItem.png" />
+        </imageobject>
+        <caption>Create New Credit Memo Line Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Credit Memo Line Item, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Order #</term>
+      <listitem>
+        <para>Displays the Credit Memo number for the current Credit
+        Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Line #</term>
+      <listitem>
+        <para>Displays the line number assigned to the Credit Memo
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item you want to add to the Credit
+        Memo. If the Credit Memo is being applied to an Invoice, only those
+        Line Items which appeared on the Invoice will be available for
+        selection—that is, if the appropriate setting is selected at the
+        system level. Invoices are selected for application by a Credit Memo
+        using the "Apply To" feature on the Credit Memo header screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>The system-level configuration which determines whether Credit Memo
+    Items will be restricted to relevant Invoice Items is the setting
+    "Restrict Credit Memos to Items that appear on their Apply-To Document."
+    Selecting this option narrows the Credit Memo Item selection process to
+    only those Items which appeared on the Invoice the Credit Memo is being
+    applied to. If not selected, a sold Item master list will appear instead
+    when selecting Credit Memo Items for Credit Memos applied to a specific
+    Invoice. This setting has no bearing on unapplied Credit Memos.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Receiving Site</term>
+      <listitem>
+        <para>Specify the Site returned Inventory will be received into. Items
+        designated as Multiple Location Control Items may be received into
+        multiple Sites. If this is the case, be sure to specify the correct
+        receiving Site when entering a Credit Memo Line Item. The receiving
+        Site will not necessarily be the same Site as the Site the Item was
+        shipped from.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reason Code</term>
+      <listitem>
+        <para>Specify the reason why an adjustment is being made to a
+        Customer's account.</para>
+        <para><note>
+            <para>By default, the Reason Code on the Credit Memo header will
+            be used at the Line Item level. However, you may change the Reason
+            Code for individual Line Items.</para>
+          </note></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Returned</term>
+      <listitem>
+        <para>Enter the quantity of the Item returned for credit.</para>
+        <note>
+          <para>If the Credit Memo is created from a Return Authorization, the
+          quantity returned will be zero on the Credit Memo Item screen.
+          Return Authorization returns are handled separately, outside of the
+          normal sales Credit Memo Inventory handling process.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. To Credit</term>
+      <listitem>
+        <para>Enter the quantity of the Item you plan to give the Customer
+        credit for. The quantity entered here may equal the quantity returned.
+        However, you have the flexibility to credit the Customer for a
+        quantity different from the returned quantity. The quantity credited
+        is multiplied by the Net Unit Price to determine the amount of the
+        credit.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty UOM</term>
+      <listitem>
+        <para>The unit of measure being returned and credited in.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Shipped</term>
+      <listitem>
+        <para>Displays the quantity of the Item shipped to date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discount % from Sale</term>
+      <listitem>
+        <para>Specify a percentage to reduce the credited amount by. The
+        discount will be deducted from the sale Price, thereby reducing the
+        amount of the credit by the specified percentage.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>credit memos</primary>
+          <secondary>pricing of</secondary>
+        </indexterm>Net Unit Price</term>
+      <listitem>
+        <para>Specify the Net Unit Price to assign the quantity being
+        credited. If the Credit Memo is being applied to a specific Invoice,
+        then the system will automatically enter the Item's Net Unit Price as
+        it appeared on the referring Invoice. If no Invoice is being
+        applied-to, then select the appropriate Net Unit Price from the Price
+        list, using the browse button located to the right of the
+        field.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If there is only one Unit Price available for the Item, then that
+    Price will be entered automatically when you select the browse button
+    located to the right of the field.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Pricing UOM</term>
+      <listitem>
+        <para>Displays the Item's Price UOM.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Extended Price</term>
+      <listitem>
+        <para>Displays the Extended Price. The Extended Price for a Credit
+        Memo Item is based on the quantity credited multiplied by the
+        Price.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Unit Cost</term>
+      <listitem>
+        <para>Displays the Standard Cost per unit.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>List Price</term>
+      <listitem>
+        <para>Displays the Item's List Price per unit displays.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sale Price</term>
+      <listitem>
+        <para>Displays the sold Price for the Item at the time of sale.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax Type</term>
+      <listitem>
+        <para>Specify the Tax Type for the Credit Memo Item. By default, the
+        Item's Tax Type corresponding to the Credit Memo's Tax Authority will
+        be presented here. The link between Tax Types and Tax Authorities is
+        made on the Item master. If the Item master does not have a Tax Type
+        for the Credit Memo's Tax Authority, then no Tax will be
+        charged.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax Code</term>
+      <listitem>
+        <para>Specify the Tax Code to be applied to the Credit Memo Item. By
+        default, the Tax Code specified in the Tax Selection matrix will be
+        displayed here. For a Tax Code to be used, the matrix must have an
+        entry which matches both the Item's Tax Type definition and the Tax
+        Authority specified on the Credit Memo header. If no Tax Selection
+        match exists, then no Tax Code will be used—meaning no Tax will be
+        charged.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>The relationship between Tax Authorities, Tax Types, and Tax Codes
+    is established in the Tax Selection matrix.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>Displays the amount of Tax to be charged for the Credit Memo
+        Line Item quantity. Sales Tax is calculated at the Credit Memo Line
+        Item level. To get a detailed view of the Tax calculation, click on
+        the Tax link using your mouse.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>credit memos</primary>
+          <secondary>discount pricing for</secondary>
+        </indexterm>Discount % from List</term>
+      <listitem>
+        <para>The default Customer discount (if any) will display here.
+        Default Customer discount percentages are defined in the Customer
+        master.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Credit Memo Item,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the new Credit Memo Item and adds it to the list of
+        Credit Memo Line Items.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Click on the notes tab to enter notes and you will be presented with
+  the following screen:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/creditMemoItem_notes.png" />
+      </imageobject>
+      <caption>Create New Credit Memo Line Item Notes</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Credit Memo Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section541765">
+  <title>
+<indexterm significance="normal">
+      <primary>item list price</primary>
+    </indexterm> <indexterm significance="normal">
+      <primary>list prices</primary>
+      <secondary>by item</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>list prices for</secondary>
+    </indexterm>Item List Price</title>
+  <para>To create or modify the List Price for an Item, select the "Item List
+  Price" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemListPrice.png"/>
+        </imageobject>
+        <caption>Item List Price</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>List Prices may also be created or modified in the Item master for
+    an Item. Changes made to an Item's List Price in either location will be
+    reflected application-wide.</para>
+  </note>
+  <para>When creating an Item List Price, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item you want to create or modify a
+        List Price for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>List Price</term>
+      <listitem>
+        <para>Enter the List Price for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Price UOM</term>
+      <listitem>
+        <para>Displays the Price UOM for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Inv./Price Ratio</term>
+      <listitem>
+        <para>Displays the ratio between the Price and Inventory Units of
+        Measure for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Inventory UOM Price</term>
+      <listitem>
+        <para>Displays the Inventory Unit of Measure Price for the
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cost</term>
+      <listitem>
+        <para>Displays Standard Cost and Actual Cost for the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Extended Cost</term>
+      <listitem>
+        <para>Displays the extended Standard Cost and extended Actual Cost for
+        the Item. The extended Cost is equal to the List Price multiplied by
+        the Price/Inventory UOM ratio. If the Price/Inv. Ratio = 1, then the
+        Cost and Extended Cost will be the same.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Margin</term>
+      <listitem>
+        <para>Displays the profit margin. The margin is determined by the
+        following formula: Price - Cost / Price.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Item List Price.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section567308">
+  <title><indexterm significance="normal">
+      <primary>bank accounts</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Bank Accounts</title>
+  <para>Bank Accounts are established to define the Asset Account to be used
+  when receiving or making payments. To access the master list of Bank
+  Accounts, select the "Bank Accounts" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/bankAccounts.png"
+                     id="bankAccounts.imagedata" />
+        </imageobject>
+        <caption>Bank Accounts Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Bank Accounts" screen displays information on all existing Bank
+  Accounts, including period start date, period end date, and closed
+  status.</para>
+  <para>To the far right of the list, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Bank Account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Bank Account. The edit screen is
+        the same as that for creating a new Bank Account&mdash;except that when
+        editing, the fields will contain Bank Account information.
+        Double-clicking on a Bank Account will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Bank Account and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Bank Account and then select this button to remove
+        the Bank Account from the list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>bank accounts</primary>
+          <secondary>posting service charge to</secondary>
+        </indexterm>POST SRVC. CHRG.</term>
+      <listitem>
+        <para>Highlight a Bank Account and then select this button to post a
+        service charge to the account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>bank accounts</primary>
+          <secondary>posting adjustment to</secondary>
+        </indexterm>POST ADJUSTMENT</term>
+      <listitem>
+        <para>Highlight a Bank Account and then select this button to post an
+        adjustment to the account.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="bankAccount.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519415">
+  <title><indexterm significance="normal">
+      <primary>bills of materials</primary>
+      <secondary>master list of</secondary>
+    </indexterm>List Bills of Materials</title>
+  <para>To access the master list of Bills of Materials, select the "List
+  Bills of Materials" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/bomList.png" />
+        </imageobject>
+        <caption>Bills of Materials Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>At the top of the screen is a "Search For" field. To search for an
+  Item, begin typing in the search field. As you type, the "Bills of
+  Materials" list will automatically scroll toward the Item Number you are
+  typing. You can also search for Items manually by using the scroll bar to
+  the right of the "Bills of Materials" list. You may also show Bills of
+  Materials for inactive Items by selecting that option.</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Brings up the new Bill of Materials screen, described earlier in
+        this chapter. For details, see <xref linkend="Anchor37267" />. Once a
+        new Bill of Materials is created it appears on the master Bills of
+        Materials list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit a Bill of Materials. Highlight the Item
+        whose Bill of Materials you want to edit and then hit the EDIT
+        button&mdash;or double-click on the Item to enter the edit mode. The
+        edit screen is the same as that for creating a new Bill of
+        Materials&mdash;except that when editing, the fields will contain
+        existing information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an Item and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>COPY</term>
+      <listitem>
+        <para>Highlight an Item and then select this button to reach the
+        "Copy" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Item and then select this button to remove the Item
+        from the list.</para>
+        <tip role="standard">
+          <para>You may not delete a Bill of Materials (BOM) if the Item in
+          question has any Revision history. You must make the BOM inactive
+          instead </para>
+        </tip>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

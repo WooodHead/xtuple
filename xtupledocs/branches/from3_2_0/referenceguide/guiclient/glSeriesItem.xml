@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="glSeriesItem">
+  <title>
+<indexterm significance="normal">
+      <primary>series</primary>
+      <secondary>adding transactions to</secondary>
+    </indexterm>
+<indexterm significance="normal">
+      <primary>general ledger</primary>
+      <secondary>adding to series in</secondary>
+    </indexterm>
+<indexterm significance="normal">
+      <primary>transactions</primary>
+      <secondary>adding to g/l series</secondary>
+    </indexterm>Series Journal Entry Item</title>
+  <para>To add a new G/L transaction to the series, select the
+  NEW button. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/glSeriesItem.png"/>
+        </imageobject>
+        <caption>Add Transaction to Series</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When adding a new G/L transaction item to the series,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Amount</term>
+      <listitem>
+        <para>Specify the monetary value of the transaction item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sense</term>
+      <listitem>
+        <para>Choose one of the following options:</para>
+        <para>Debit: Select if transaction item Debits
+        specified Account.</para>
+        <para>Credit: Select if transaction item Credits
+        specified Account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Account</term>
+      <listitem>
+        <para>Specify the Account to be used for the transaction item
+        record.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without adding a new transaction item to the
+        series, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the transaction item and adds it to the series.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
