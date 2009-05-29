@@ -125,7 +125,7 @@
         module.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term><indexterm significance="normal">
           <primary>return authorizations</primary>
           <secondary>numbering of</secondary>
@@ -738,150 +738,152 @@
   </screenshot>
   <para role="standard">When configuring Return Authorization settings, you
   are presented with the following options:</para>
-  <variablelist role="standard">
-    <varlistentry>
-      <term>Enable Return Authorizations</term>
-      <listitem>
-        <para>Select to enable the system's Return Authorizations capability.
-        If not selected, users will be prevented from performing any tasks
-        related to Return Authorizations—and related functionality will be
-        hidden from view. For systems where Return Authorizations are enabled,
-        this option will be hidden.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Post Return Authorization Changes to the Change Log</term>
-      <listitem>
-        <para>Select to record changes made to Return Authorizations in the
-        Return Authorization change log. If not selected, the Return
-        Authorization changelog will not contain change information.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Default Disposition</term>
-      <listitem>
-        <para>Specify one of the following default methods for handling Return
-        Authorizations:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Credit</term>
-            <listitem>
-              <para>Select if, by default, you want to issue credit to
-              Customers for authorized Line Items and quantities. No return is
-              required or expected. Return Authorization Line Items will close
-              when an associated Credit Memo is posted.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Return</term>
-            <listitem>
-              <para>Select if, by default, you want to authorize returns from
-              Customers. Return Authorization Items will close when an
-              associated Credit Memo is posted, or when all Items on a line
-              have been returned, whichever comes last.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Replace</term>
-            <listitem>
-              <para>Select if, by default, you want to replace Items returned
-              by Customers. Authorized quantities will be added as additional
-              order quantity to an associated Sales Order line, which in turn
-              should be reopened if closed. Return Authorization Items will
-              close when all Items on the line have been returned or all
-              authorized Items on the line have been shipped, whichever comes
-              last. No money should be involved when invoicing replacement
-              Items.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Service</term>
-            <listitem>
-              <para>Select if, by default, you want to repair or service Items
-              returned by Customers. Service or repair items will first be
-              received by a Return Authorization. Then a new Sales Order with
-              linked Work Order(s) will be created to track work and shipping
-              on the repair or service. The new Sales Order will be on RMA
-              Hold until Items have been received by the Return
-              Authorization.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Substitute</term>
-            <listitem>
-              <para>Select if, by default, you want to authorize the
-              substitution of Items returned by Customers. Under this option,
-              when an original Sales Order is imported into the Return
-              Authorization, the Return Authorization Line Items will default
-              to the Return disposition. Any new Line Items added beyond the
-              original ones will have a default disposition of Ship.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Credit/Ship</term>
-      <listitem>
-        <para>Specify the default timetable for Customer credits and/or
-        returns:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Immediately</term>
-            <listitem>
-              <para>Select to issue credit or send returns to Customers
-              immediately by default.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Upon Receipt</term>
-            <listitem>
-              <para>Select to issue credit or send returns to Customers only
-              after you have received returned goods from them by
-              default.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Default Credit Method</term>
-      <listitem>
-        <para>Specify one of the following default credit method
-        options:</para>
-        <variablelist>
-          <varlistentry>
-            <term>None</term>
-            <listitem>
-              <para>Select if, by default, you do not issue credit for
-              Customer returns.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Credit Memo</term>
-            <listitem>
-              <para>Select if, by default, you credit Customer returns with a
-              Credit Memo to the Customer's account. This option will result
-              in the automatic creation of a sales Credit Memo.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Check</term>
-            <listitem>
-              <para>Select if, by default, you credit Customer returns by
-              sending them a Check. This option will create a Credit Memo,
-              then a Misc. Check that applies to the Credit Memo.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Credit Card</term>
-            <listitem>
-              <para>Select if, by default, you credit Customer returns with a
-              refund on their Credit Card.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term>Enable Return Authorizations</term>
+        <listitem>
+          <para>Select to enable the system's Return Authorizations
+          capability. If not selected, users will be prevented from performing
+          any tasks related to Return Authorizations—and related functionality
+          will be hidden from view. For systems where Return Authorizations
+          are enabled, this option will be hidden.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Post Return Authorization Changes to the Change Log</term>
+        <listitem>
+          <para>Select to record changes made to Return Authorizations in the
+          Return Authorization change log. If not selected, the Return
+          Authorization changelog will not contain change information.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Default Disposition</term>
+        <listitem>
+          <para>Specify one of the following default methods for handling
+          Return Authorizations:</para>
+          <variablelist>
+            <varlistentry>
+              <term>Credit</term>
+              <listitem>
+                <para>Select if, by default, you want to issue credit to
+                Customers for authorized Line Items and quantities. No return
+                is required or expected. Return Authorization Line Items will
+                close when an associated Credit Memo is posted.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Return</term>
+              <listitem>
+                <para>Select if, by default, you want to authorize returns
+                from Customers. Return Authorization Items will close when an
+                associated Credit Memo is posted, or when all Items on a line
+                have been returned, whichever comes last.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Replace</term>
+              <listitem>
+                <para>Select if, by default, you want to replace Items
+                returned by Customers. Authorized quantities will be added as
+                additional order quantity to an associated Sales Order line,
+                which in turn should be reopened if closed. Return
+                Authorization Items will close when all Items on the line have
+                been returned or all authorized Items on the line have been
+                shipped, whichever comes last. No money should be involved
+                when invoicing replacement Items.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Service</term>
+              <listitem>
+                <para>Select if, by default, you want to repair or service
+                Items returned by Customers. Service or repair items will
+                first be received by a Return Authorization. Then a new Sales
+                Order with linked Work Order(s) will be created to track work
+                and shipping on the repair or service. The new Sales Order
+                will be on RMA Hold until Items have been received by the
+                Return Authorization.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Substitute</term>
+              <listitem>
+                <para>Select if, by default, you want to authorize the
+                substitution of Items returned by Customers. Under this
+                option, when an original Sales Order is imported into the
+                Return Authorization, the Return Authorization Line Items will
+                default to the Return disposition. Any new Line Items added
+                beyond the original ones will have a default disposition of
+                Ship.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Credit/Ship</term>
+        <listitem>
+          <para>Specify the default timetable for Customer credits and/or
+          returns:</para>
+          <variablelist>
+            <varlistentry>
+              <term>Immediately</term>
+              <listitem>
+                <para>Select to issue credit or send returns to Customers
+                immediately by default.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Upon Receipt</term>
+              <listitem>
+                <para>Select to issue credit or send returns to Customers only
+                after you have received returned goods from them by
+                default.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Default Credit Method</term>
+        <listitem>
+          <para>Specify one of the following default credit method
+          options:</para>
+          <variablelist>
+            <varlistentry>
+              <term>None</term>
+              <listitem>
+                <para>Select if, by default, you do not issue credit for
+                Customer returns.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Credit Memo</term>
+              <listitem>
+                <para>Select if, by default, you credit Customer returns with
+                a Credit Memo to the Customer's account. This option will
+                result in the automatic creation of a sales Credit
+                Memo.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Check</term>
+              <listitem>
+                <para>Select if, by default, you credit Customer returns by
+                sending them a Check. This option will create a Credit Memo,
+                then a Misc. Check that applies to the Credit Memo.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Credit Card</term>
+              <listitem>
+                <para>Select if, by default, you credit Customer returns with
+                a refund on their Credit Card.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
 </section>
