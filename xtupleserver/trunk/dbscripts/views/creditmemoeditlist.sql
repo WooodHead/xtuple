@@ -1,6 +1,7 @@
 SELECT dropIfExists('view', 'creditMemoEditList');
 
 CREATE VIEW creditMemoEditList AS
+-- Total A/R
 SELECT cmhead_id AS orderid, -2 AS itemid,
              ('C/M-' || formatCreditMemoNumber(cmhead_id)) AS documentnumber,
              cust_number,
@@ -23,6 +24,7 @@ WHERE ( (cmhead_cust_id=cust_id)
  AND (NOT cmhead_posted)
  AND (NOT cmhead_hold) )
 
+-- Freight
 UNION SELECT cmhead_id AS orderid, -1 AS itemid,
              '' AS documentnumber,
              '' AS cust_number,
@@ -42,6 +44,7 @@ WHERE ( (NOT cmhead_posted)
  AND (NOT cmhead_hold)
  AND (cmhead_freight <> 0) )
 
+-- Misc. Charges
 UNION SELECT cmhead_id AS orderid, -1 AS itemid,
              '' AS documentnumber,
              '' AS cust_number,
@@ -59,7 +62,7 @@ WHERE ( (NOT cmhead_posted)
  AND (NOT cmhead_hold)
  AND (cmhead_misc <> 0) )
 
--- Cmhead tax
+-- Freight Tax and Tax Adjustments
 UNION SELECT cmhead_id AS orderid, -1 AS itemid,
              '' AS documentnumber,
              '' AS cust_number,
@@ -109,18 +112,17 @@ UNION SELECT cmhead_id AS orderid, cmitem_id AS itemid,
              cmhead_number::TEXT AS ordernumber,
              cmitem_linenumber AS linenumber,
              item_number AS item, item_descrip1 AS itemdescrip, uom_name AS iteminvuom,
-             formatQty(cmitem_qtycredit * cmitem_qty_invuomratio) AS qtytobill,
-             formatPrice(cmitem_unitprice / cmitem_price_invuomratio) AS price,
-             formatMoney(calcCmitemAmt(cmitem_id)) AS extprice,
+             formatQty(creditmemoitem.qty) AS qtytobill,
+             formatPrice(creditmemoitem.unitprice) AS price,
+             formatMoney(creditmemoitem.extprice) AS extprice,
              'Debit' AS sence,
              COALESCE( ( SELECT formatGLAccountLong(accnt_id)
                          FROM accnt, salesaccnt
                          WHERE ((salesaccnt_sales_accnt_id=accnt_id)
-                          AND (salesaccnt_id=findSalesAccnt(itemsite_id, cmhead_cust_id)))), 'Not Assigned') AS account
-FROM item, itemsite, cmhead, cmitem, uom
-WHERE ( (cmitem_itemsite_id=itemsite_id)
- AND (cmitem_cmhead_id=cmhead_id)
- AND (itemsite_item_id=item_id)
+                          AND (salesaccnt_id=findSalesAccnt(cmitem_itemsite_id, cmhead_cust_id)))), 'Not Assigned') AS account
+FROM item, cmhead, creditmemoitem, uom
+WHERE ( (cmitem_cmhead_id=cmhead_id)
+ AND (creditmemoitem.item_id=item.item_id)
  AND (item_inv_uom_id=uom_id)
  AND (NOT cmhead_posted)
  AND (NOT cmhead_hold) )
