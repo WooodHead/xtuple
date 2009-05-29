@@ -147,11 +147,11 @@
       <listitem>
         <para>Select a Project Number to associate with the Purchase Order
         Line Item. If the Purchase Order Line Item is being created from a
-        Purchase Request driven by Sales Order demand&mdash;and the parent
-        Sales Order had a Project Number associated with it&mdash;then the
-        Project Number from the parent Sales Order will automatically be
-        entered here. In this way, Sales Orders and Purchase Order Line Items
-        may be linked to the same Project.</para>
+        Purchase Request driven by Sales Order demand—and the parent Sales
+        Order had a Project Number associated with it—then the Project Number
+        from the parent Sales Order will automatically be entered here. In
+        this way, Sales Orders and Purchase Order Line Items may be linked to
+        the same Project.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -208,10 +208,10 @@
                 <para>The Inv./Vendor UOM Ratio specifies the ratio between
                 Inventory and Vendor Units of Measure (UOM). For example, if
                 you store an Item in single units, but a Vendor sells you the
-                Item in cases of 12, then the ratio would be 12&mdash;or 12:1.
-                When an Inv./Vend. ratio is specified, the system allows you
-                to purchase Items using the Vendor's UOM; however, when the
-                Items are received, the system will automatically convert the
+                Item in cases of 12, then the ratio would be 12—or 12:1. When
+                an Inv./Vend. ratio is specified, the system allows you to
+                purchase Items using the Vendor's UOM; however, when the Items
+                are received, the system will automatically convert the
                 Inventory to your Inventory UOM.</para>
               </note>
             </listitem>
@@ -409,7 +409,7 @@
         pre-defined Value; 3) manually enter a new Value in place of the
         pre-defined Value; or 4) make no selection. Making no selection means
         the Characteristics will not be associated with the Purchase Order
-        Item&mdash;except in the case of Characteristics inherited from Sales
+        Item—except in the case of Characteristics inherited from Sales
         Orders, by way of Purchase Requests.</para>
       </listitem>
     </varlistentry>
@@ -427,17 +427,16 @@
       <caption>Line Item Revisions</caption>
     </mediaobject>
   </screenshot>
-  <note>
-    <para role="standard">You may create Purchase Order Items for pending
-    Revisions. For Purchase Order purposes, a pending Revision is considered
-    to be the same as an inactive Revision. The Revision status of a pending
-    Revision will not be changed if a Purchase Order Item is created for
-    it.</para>
-  </note>
+  <para role="standard"><note>
+      <para>You may create Purchase Order Items for pending Revisions. For
+      Purchase Order purposes, a pending Revision is considered to be the same
+      as an inactive Revision. The Revision status of a pending Revision will
+      not be changed if a Purchase Order Item is created for it.</para>
+    </note></para>
   <para role="standard">When specifying Revision information for a Purchase
   Order Item, you are presented with the following options:</para>
-  <variablelist role="standard">
-    <varlistentry>
+  <variablelist>
+    <varlistentry role="standard">
       <term>Bill of Materials</term>
       <listitem>
         <para>Specify the BOM Revision you want to use for the Purchase Order
