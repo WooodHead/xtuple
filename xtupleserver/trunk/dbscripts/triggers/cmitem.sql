@@ -86,7 +86,8 @@ BEGIN
     IF ( (NEW.cmitem_qtycredit <> OLD.cmitem_qtycredit) OR
          (NEW.cmitem_qty_invuomratio <> OLD.cmitem_qty_uomratio) OR
          (NEW.cmitem_unitprice <> OLD.cmitem_unitprice) OR
-         (NEW.cmitem_price_invuomratio <> OLD.cmitem_price_uomratio) ) THEN
+         (NEW.cmitem_price_invuomratio <> OLD.cmitem_price_uomratio) OR
+         (NEW.cmitem_taxtype_id <> OLD.cmitem_taxtype_id) ) THEN
       PERFORM calculateTaxHist( ''cmitemtax'',
                                 NEW.cmitem_id,
                                 COALESCE(_r.cmhead_taxzone_id, -1),
