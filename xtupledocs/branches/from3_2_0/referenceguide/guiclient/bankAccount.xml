@@ -144,48 +144,48 @@
   </mediaobject>
   <para>When adding Transmission details to the bank account, you are
   presented with the following options:</para>
-  <variablelist role="standard">
-    <varlistentry>
-      <term>Enable ACH Check Printing</term>
-      <listitem>
-        <para>Select to enable online processing or Automated Clearing House
-        (ACH) Check printing.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Routing Number</term>
-            <listitem>
-              <para>Bank Account Routing Number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Settlement Lead Time</term>
-            <listitem>
-              <para>Number of days prior to funds transfer.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Create Check Number for ACH Checks</term>
-            <listitem>
-              <para>Select to create Check number for automated
-              transactions.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Immediate Origin Name and Number</term>
-            <listitem>
-              <para>Number used by the financial institution of origin, either
-              routing or other, specified by ACH gateway.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Immediate Destination Name and Number</term>
-            <listitem>
-              <para>Number used by the destination financial institution,
-              routing or other, specified by ACH gateway.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term>Enable ACH Check Printing</term>
+        <listitem>
+          <para>Select to enable online processing or Automated Clearing House
+          (ACH) Check printing.</para>
+          <variablelist>
+            <varlistentry>
+              <term>Routing Number</term>
+              <listitem>
+                <para>Bank Account Routing Number.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Settlement Lead Time</term>
+              <listitem>
+                <para>Number of days prior to funds transfer.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Create Check Number for ACH Checks</term>
+              <listitem>
+                <para>Select to create Check number for automated
+                transactions.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Immediate Origin Name and Number</term>
+              <listitem>
+                <para>Number used by the financial institution of origin,
+                either routing or other, specified by ACH gateway.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Immediate Destination Name and Number</term>
+              <listitem>
+                <para>Number used by the destination financial institution,
+                routing or other, specified by ACH gateway.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
 </section>

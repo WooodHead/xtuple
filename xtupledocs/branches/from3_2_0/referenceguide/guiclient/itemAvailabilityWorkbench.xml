@@ -61,8 +61,8 @@
         display.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term id="Para678033" role="manufacturing">Show Planned Orders</term>
+    <varlistentry role="manufacturing">
+      <term id="Para678033">Show Planned Orders</term>
       <listitem>
         <para>Select to show Planned Orders in the display. Planned Orders
         will display in blue type.</para>
@@ -128,24 +128,24 @@
   options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewWorkOrderDetails)" />
+                xpointer="element(rightclickViewWorkOrderDetails)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>If you right-click on a Planned Order, the following additional option
   will also be available:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickFirmOrder)" />
+                xpointer="element(rightclickFirmOrder)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReleaseOrder)" />
+                xpointer="element(rightclickReleaseOrder)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickDeleteOrder)" />
+                xpointer="element(rightclickDeleteOrder)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para id="Para678051">To view Inventory Availability for the specified Item,
   select the "Inventory" tab. The following screen will appear:</para>
@@ -243,8 +243,7 @@
     <varlistentry>
       <term id="Para678068">All Sites</term>
       <listitem>
-        <para>Select to display Inventory Availability for all
-        Sites.</para>
+        <para>Select to display Inventory Availability for all Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -301,43 +300,43 @@
   options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewInventoryHistory)" />
+                xpointer="element(rightclickViewInventoryHistory)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewAllocations)" />
+                xpointer="element(rightclickViewAllocations)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewOrders)" />
+                xpointer="element(rightclickViewOrders)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickRunningAvailability)" />
+                xpointer="element(rightclickRunningAvailability)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickIssueCountTag)" />
+                xpointer="element(rightclickIssueCountTag)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewSubstituteAvailability)" />
+                xpointer="element(rightclickViewSubstituteAvailability)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para id="Para678086">The following additional options are available for
   purchased Items:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCreatePR)" />
+                xpointer="element(rightclickCreatePR)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCreatePO)" />
+                xpointer="element(rightclickCreatePO)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para id="Para678089">The following additional option is available for
   manufactured Items:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCreateWO)" />
+                xpointer="element(rightclickCreateWO)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para id="Para678091">To view a Costed Indented Bill of Materials for the
   specified Item, select the "Costed Indented BOM" tab. The following screen
@@ -377,7 +376,7 @@
         <para>Select to display Standard Costs for component Items in the
         specified Item's Bill of Materials. Both the Unit Cost and Extended
         Cost for each component Item, expressed in terms of Standard Cost,
-        will display&mdash;assuming Standard Costs have been defined for each
+        will display—assuming Standard Costs have been defined for each
         component Item.</para>
       </listitem>
     </varlistentry>
@@ -387,8 +386,8 @@
         <para>Select to display Actual Costs for component Items in the
         specified Item's Bill of Materials. Both the Unit Cost and Extended
         Cost for each component Item, expressed in terms of Actual Cost, will
-        display&mdash;assuming Actual Costs have been defined for each
-        component Item.</para>
+        display—assuming Actual Costs have been defined for each component
+        Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -454,14 +453,14 @@
   Materials list enables you to select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickMaintainItemCosts)" />
+                xpointer="element(rightclickMaintainItemCosts)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewItemCosting)" />
+                xpointer="element(rightclickViewItemCosting)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para id="Para678120">To view Inventory History for the specified Item,
   select the "History" tab. The following screen will appear:</para>
@@ -528,8 +527,8 @@
           <varlistentry role="standard">
             <term>Transfers</term>
             <listitem>
-              <para>Displays Inter-Site Transfers and Location and
-              Lot/Serial Number reassignments.</para>
+              <para>Displays Inter-Site Transfers and Location and Lot/Serial
+              Number reassignments.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -616,14 +615,14 @@
   History list enables you to select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewTransactionInformation)" />
+                xpointer="element(rightclickViewTransactionInformation)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditTransactionInfo)" />
+                xpointer="element(rightclickEditTransactionInfo)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para id="Para678158">When editing transaction information, you may choose
   to exclude a transaction from Inventory analysis. Not including a
@@ -634,8 +633,8 @@
   the following additional menu option will also be available:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewWorkOrderInfo)" />
+                xpointer="element(rightclickViewWorkOrderInfo)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para id="Para678164" role="standard">To view Lot/Serial and/or Location
   information for the specified Item, select the "Inventory Detail" tab. The
@@ -650,43 +649,43 @@
     </screenshot></para>
   <para id="Para678170" role="standard">When displaying detailed Inventory
   information, you are presented with the following options:</para>
-  <variablelist role="standard">
-    <varlistentry>
-      <term id="Para678171">Item Number</term>
-      <listitem>
-        <para>Enter the Item Number of the Item whose detailed
-        Location/Lot/Serial Number information you want to display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term id="Para678172">UOM</term>
-      <listitem>
-        <para>Inventory Unit of Measure.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term id="Para678173">All Sites</term>
-      <listitem>
-        <para>Select to display detailed Location/Lot/Serial Number
-        information for all Sites.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term id="Para678174">Selected</term>
-      <listitem>
-        <para>Specify Site whose detailed Location/Lot/Serial Number
-        information you want to display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term id="Para678175">Locations</term>
-      <listitem>
-        <para>Display lists Location/Lot/Serial Number detail, using the
-        specified parameters. Items will display in red type if the quantity
-        in question has expired.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term id="Para678171">Item Number</term>
+        <listitem>
+          <para>Enter the Item Number of the Item whose detailed
+          Location/Lot/Serial Number information you want to display.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term id="Para678172">UOM</term>
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term id="Para678173">All Sites</term>
+        <listitem>
+          <para>Select to display detailed Location/Lot/Serial Number
+          information for all Sites.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term id="Para678174">Selected</term>
+        <listitem>
+          <para>Specify Site whose detailed Location/Lot/Serial Number
+          information you want to display.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term id="Para678175">Locations</term>
+        <listitem>
+          <para>Display lists Location/Lot/Serial Number detail, using the
+          specified parameters. Items will display in red type if the quantity
+          in question has expired.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para id="Para678177">To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
@@ -806,19 +805,19 @@
   Items list enables you to select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditBOM)" />
+                xpointer="element(rightclickEditBOM)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditBOO)" />
+                xpointer="element(rightclickEditBOO)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditItemMaster)" />
+                xpointer="element(rightclickEditItemMaster)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewItemInvHistory)" />
+                xpointer="element(rightclickViewItemInvHistory)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>

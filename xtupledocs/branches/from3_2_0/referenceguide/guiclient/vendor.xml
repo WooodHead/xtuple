@@ -252,9 +252,9 @@
       <listitem>
         <para>Enables you to edit highlighted Vendor Tax Registration Numbers.
         The edit screen is the same as that for creating a new Vendor Tax
-        Registration Number&mdash;except that when editing, the fields will
-        contain Vendor Tax Registration Number information. Double-clicking on
-        a Vendor Tax Registration Number will also bring you to the editing
+        Registration Number—except that when editing, the fields will contain
+        Vendor Tax Registration Number information. Double-clicking on a
+        Vendor Tax Registration Number will also bring you to the editing
         screen.</para>
       </listitem>
     </varlistentry>
@@ -359,9 +359,8 @@
     <varlistentry>
       <term>Contact 1</term>
       <listitem>
-        <para>Manually enter Contact information in the fields below&mdash;or
-        use the browse button to select pre-existing Contact
-        information.</para>
+        <para>Manually enter Contact information in the fields below—or use
+        the browse button to select pre-existing Contact information.</para>
         <variablelist>
           <varlistentry>
             <term>Title</term>
@@ -411,9 +410,8 @@
     <varlistentry>
       <term>Contact 2</term>
       <listitem>
-        <para>Manually enter Contact information in the fields below&mdash;or
-        use the browse button to select pre-existing Contact
-        information.</para>
+        <para>Manually enter Contact information in the fields below—or use
+        the browse button to select pre-existing Contact information.</para>
         <variablelist>
           <varlistentry>
             <term>Title</term>
@@ -480,9 +478,9 @@
       <term>Main</term>
       <listitem>
         <para>Select to present primary address used by Vendor. Manually enter
-        Address information in the fields below&mdash;or use the browse button
-        to select pre-existing Address information. By default, this address
-        will appear as the main address when entering Purchase Orders for the
+        Address information in the fields below—or use the browse button to
+        select pre-existing Address information. By default, this address will
+        appear as the main address when entering Purchase Orders for the
         Vendor.</para>
         <variablelist>
           <varlistentry>
@@ -544,8 +542,8 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Vendor Address. The edit screen
-        is the same as that for creating a new Vendor Address&mdash;except
-        that when editing, the fields will contain Vendor Address information.
+        is the same as that for creating a new Vendor Address—except that when
+        editing, the fields will contain Vendor Address information.
         Double-clicking on a Vendor Address will also bring you to the editing
         screen.</para>
       </listitem>
@@ -603,8 +601,8 @@
     <varlistentry>
       <term>Address</term>
       <listitem>
-        <para>Manually enter Address information in the fields below&mdash;or
-        use the browse button to select pre-existing Address information. By
+        <para>Manually enter Address information in the fields below—or use
+        the browse button to select pre-existing Address information. By
         default, this address will appear as the main address when entering
         Purchase Orders for the Vendor.</para>
         <variablelist>
@@ -644,9 +642,8 @@
     <varlistentry>
       <term>Contact</term>
       <listitem>
-        <para>Manually enter Contact information in the fields below&mdash;or
-        use the browse button to select pre-existing Contact
-        information.</para>
+        <para>Manually enter Contact information in the fields below—or use
+        the browse button to select pre-existing Contact information.</para>
         <variablelist>
           <varlistentry>
             <term>Title</term>
@@ -931,57 +928,57 @@
   <para>To enable online processing or Automated Clearing House (ACH) Check
   printing for the Vendor, select the "Checks" radio button. The following
   options will appear:</para>
-  <variablelist role="standard">
-    <varlistentry>
-      <term>Enable ACH Check Printing</term>
-      <listitem>
-        <para>Select to enable online processing or Automated Clearing House
-        (ACH) Check printing.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Routing Number</term>
-            <listitem>
-              <para>Enter Bank Account Routing Number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Account Number</term>
-            <listitem>
-              <para>Enter Bank Account Check Number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Account Type</term>
-            <listitem>
-              <para>Select type of Bank Account associated with Routing and
-              Account numbers.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Use Instead of Vendor Number and Name</term>
-      <listitem>
-        <para>Select to use alternative Vendor identification information
-        other than Vendor Number and Name.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Identification Number</term>
-            <listitem>
-              <para>Enter alternate Vendor identification number (i.e., tax ID
-              number).</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Name</term>
-            <listitem>
-              <para>Enter alternate Vendor name (i.e., name of parent
-              company).</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term>Enable ACH Check Printing</term>
+        <listitem>
+          <para>Select to enable online processing or Automated Clearing House
+          (ACH) Check printing.</para>
+          <variablelist>
+            <varlistentry>
+              <term>Routing Number</term>
+              <listitem>
+                <para>Enter Bank Account Routing Number.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Account Number</term>
+              <listitem>
+                <para>Enter Bank Account Check Number.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Account Type</term>
+              <listitem>
+                <para>Select type of Bank Account associated with Routing and
+                Account numbers.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Use Instead of Vendor Number and Name</term>
+        <listitem>
+          <para>Select to use alternative Vendor identification information
+          other than Vendor Number and Name.</para>
+          <variablelist>
+            <varlistentry>
+              <term>Identification Number</term>
+              <listitem>
+                <para>Enter alternate Vendor identification number (i.e., tax
+                ID number).</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Name</term>
+              <listitem>
+                <para>Enter alternate Vendor name (i.e., name of parent
+                company).</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
 </section>
