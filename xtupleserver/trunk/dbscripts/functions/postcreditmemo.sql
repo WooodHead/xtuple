@@ -23,6 +23,7 @@ DECLARE
   _r RECORD;
   _p RECORD;
   _aropenid INTEGER;
+  _cohistid INTEGER;
   _sequence INTEGER;
   _itemlocSeries INTEGER;
   _invhistid INTEGER;
@@ -37,7 +38,17 @@ DECLARE
 BEGIN
 
 --  Cache some parameters
-  SELECT cmhead.*, findARAccount(cmhead_cust_id) AS ar_accnt_id INTO _p
+  SELECT cmhead.*,
+         findARAccount(cmhead_cust_id) AS ar_accnt_id,
+         ( SELECT COALESCE(SUM(taxhist_tax), 0)
+           FROM cmheadtax
+           WHERE ( (taxhist_parent_id = cmhead_id)
+             AND   (taxhist_taxtype_id = getFreightTaxtypeId()) ) ) AS freighttax,
+         ( SELECT COALESCE(SUM(taxhist_tax), 0)
+           FROM cmheadtax
+           WHERE ( (taxhist_parent_id = cmhead_id)
+             AND   (taxhist_taxtype_id = getAdjustmentTaxtypeId()) ) ) AS adjtax
+         INTO _p
   FROM cmhead
   WHERE (cmhead_id=pCmheadid);
 
@@ -55,52 +66,38 @@ BEGIN
 
   SELECT fetchGLSequence() INTO _sequence;
 
-  FOR _r IN SELECT cmitem.*,
-                   (cmitem_unitprice / cmitem_price_invuomratio) AS unitprice,
-                   ((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio)) AS amount,
-                   itemsite_id AS itemsite_id,
-                   cmhead_number, cmhead_commission,
-                   cmhead_cust_id AS cust_id,
-                   cmhead_rahead_id,
-                   stdCost(item_id) AS cost
-            FROM cmhead, cmitem, itemsite, item
-            WHERE ( (cmitem_cmhead_id=cmhead_id)
-             AND (cmitem_itemsite_id=itemsite_id)
-             AND (itemsite_item_id=item_id)
-             AND (NOT cmhead_posted)
-             AND (cmhead_id=pCmheadid)
-             AND (cmitem_qtycredit <> 0 ) ) LOOP
+  FOR _r IN SELECT *
+            FROM creditmemoitem
+            WHERE ( (cmitem_cmhead_id=pCmheadid)
+              AND   (cmitem_qtycredit <> 0 ) ) LOOP
 
 --  Calcuate the Commission to be debited
-    _commissionDue := (_commissionDue + (_r.amount * _r.cmhead_commission));
+    _commissionDue := (_commissionDue + (_r.extprice * _p.cmhead_commission));
 
-    IF (_r.amount <> 0) THEN
+    IF (_r.extprice <> 0) THEN
 --  Debit the Sales Account for the current cmitem
-      SELECT insertIntoGLSeries( _sequence, 'A/R', 'CM', _r.cmhead_number,
-                                 CASE WHEN _r.cmhead_rahead_id IS NULL THEN
+      SELECT insertIntoGLSeries( _sequence, 'A/R', 'CM', _p.cmhead_number,
+                                 CASE WHEN _p.cmhead_rahead_id IS NULL THEN
                                    salesaccnt_credit_accnt_id
                                  ELSE
                                    salesaccnt_returns_accnt_id
                                  END,
                                round(currToBase(_p.cmhead_curr_id,
-                                                _r.amount * -1,
+                                                _r.extprice * -1,
                                                 _p.cmhead_docdate), 2),
                                  _glDate, _p.cmhead_billtoname) INTO _test
       FROM salesaccnt
-      WHERE (salesaccnt_id=findSalesAccnt(_r.itemsite_id, _r.cust_id));
+      WHERE (salesaccnt_id=findSalesAccnt(_r.cmitem_itemsite_id, _p.cmhead_cust_id));
       IF (NOT FOUND) THEN
         PERFORM deleteGLSeries(_sequence);
         RETURN -12;
       END IF;
     END IF;
 
-    _taxBaseValue := addTaxToGLSeries(_sequence, _p.cmhead_tax_curr_id,
+    _taxBaseValue := addTaxToGLSeries(_sequence,
 				      'A/R', 'CM', _p.cmhead_number,
-				      _glDate, _p.cmhead_docdate,
-				      _r.cmitem_tax_id,
-				      0 - COALESCE(_r.cmitem_tax_ratea,0.0),
-				      0 - COALESCE(_r.cmitem_tax_rateb,0.0),
-				      0 - COALESCE(_r.cmitem_tax_ratec,0.0),
+				      _p.cmhead_curr_id, _p.cmhead_docdate, _glDate,
+                                      'cmitemtax', _r.cmitem_id,
                                       (_p.cmhead_billtoname));
     IF (_taxBaseValue IS NULL) THEN
       PERFORM deleteGLSeries(_sequence);
@@ -108,8 +105,9 @@ BEGIN
     END IF;
 
 --  Record Sales History for this C/M Item
+    SELECT nextval('cohist_cohist_id_seq') INTO _cohistid;
     INSERT INTO cohist
-    ( cohist_cust_id, cohist_itemsite_id, cohist_shipto_id, cohist_tax_id,
+    ( cohist_id, cohist_cust_id, cohist_itemsite_id, cohist_shipto_id,
       cohist_shipdate, cohist_shipvia,
       cohist_ordernumber, cohist_ponumber, cohist_orderdate,
       cohist_doctype, cohist_invcnumber, cohist_invcdate,
@@ -121,32 +119,34 @@ BEGIN
       cohist_shiptoname, cohist_shiptoaddress1,
       cohist_shiptoaddress2, cohist_shiptoaddress3,
       cohist_shiptocity, cohist_shiptostate, cohist_shiptozip,
-      cohist_curr_id,	cohist_taxtype_id,
-      cohist_tax_pcta,	cohist_tax_pctb,	cohist_tax_pctc,
-      cohist_tax_ratea,	cohist_tax_rateb,	cohist_tax_ratec)
+      cohist_curr_id, cohist_taxtype_id, cohist_taxzone_id )
     VALUES
-    ( _p.cmhead_cust_id, _r.itemsite_id, _p.cmhead_shipto_id, _r.cmitem_tax_id,
+    ( _cohistid, _p.cmhead_cust_id, _r.cmitem_itemsite_id, _p.cmhead_shipto_id,
       _p.cmhead_docdate, '',
       _p.cmhead_number, _p.cmhead_custponumber, _p.cmhead_docdate,
       'C', _p.cmhead_invcnumber, _p.cmhead_docdate,
-      (_r.cmitem_qtycredit * _r.cmitem_qty_invuomratio * -1), _r.unitprice, _r.cost,
-      _p.cmhead_salesrep_id, (_r.cmhead_commission * _r.amount * -1), FALSE,
+      (_r.qty * -1), _r.unitprice, _r.unitcost,
+      _p.cmhead_salesrep_id, (_p.cmhead_commission * _r.extprice * -1), FALSE,
       _p.cmhead_billtoname, _p.cmhead_billtoaddress1,
       _p.cmhead_billtoaddress2, _p.cmhead_billtoaddress3,
       _p.cmhead_billtocity, _p.cmhead_billtostate, _p.cmhead_billtozip,
       _p.cmhead_shipto_name, _p.cmhead_shipto_address1,
       _p.cmhead_shipto_address2, _p.cmhead_shipto_address3,
       _p.cmhead_shipto_city, _p.cmhead_shipto_state, _p.cmhead_shipto_zipcode,
-      _p.cmhead_curr_id,	_r.cmitem_taxtype_id,
-      _r.cmitem_tax_pcta,	_r.cmitem_tax_pctb,	_r.cmitem_tax_pctc,
-      COALESCE(_r.cmitem_tax_ratea * -1,0.0), COALESCE(_r.cmitem_tax_rateb * -1,0.0), COALESCE(_r.cmitem_tax_ratec * -1,0.0));
+      _p.cmhead_curr_id,	_r.cmitem_taxtype_id, _p.cmhead_taxzone_id );
+    INSERT INTO cohisttax
+    ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+      taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+      taxhist_percent, taxhist_amount, taxhist_tax,
+      taxhist_docdate, taxhist_distdate )
+    SELECT _cohistid, taxhist_taxtype_id, taxhist_tax_id,
+           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+           taxhist_percent, taxhist_amount, taxhist_tax,
+           taxhist_docdate, taxhist_distdate
+    FROM cmitemtax
+    WHERE (taxhist_parent_id=_r.cmitem_id);
 
-    _totalAmount := _totalAmount + round(_r.amount, 2) + currToCurr(_p.cmhead_tax_curr_id,
-							  _p.cmhead_curr_id,
-							  COALESCE(_r.cmitem_tax_ratea,0.0) +
-							  COALESCE(_r.cmitem_tax_rateb,0.0) +
-							  COALESCE(_r.cmitem_tax_ratec,0.0),
-							  _p.cmhead_docdate);
+    _totalAmount := _totalAmount + round(_r.extprice, 2) + round(_r.tax, 2);
 
   END LOOP;
 
@@ -168,7 +168,7 @@ BEGIN
 
 --  Record the Sales History for any Misc. Charge
     INSERT INTO cohist
-    ( cohist_cust_id, cohist_itemsite_id, cohist_shipto_id, cohist_tax_id,
+    ( cohist_cust_id, cohist_itemsite_id, cohist_shipto_id,
       cohist_misc_type, cohist_misc_descrip, cohist_misc_id,
       cohist_shipdate, cohist_shipvia,
       cohist_ordernumber, cohist_ponumber, cohist_orderdate,
@@ -183,7 +183,7 @@ BEGIN
       cohist_shiptocity, cohist_shiptostate, cohist_shiptozip,
       cohist_curr_id )
     VALUES
-    ( _p.cmhead_cust_id, -1, _p.cmhead_shipto_id, _p.cmhead_adjtax_id,
+    ( _p.cmhead_cust_id, -1, _p.cmhead_shipto_id,
       'M', _p.cmhead_misc_descrip, _p.cmhead_misc_accnt_id,
       _p.cmhead_docdate, '',
       _p.cmhead_number, _p.cmhead_custponumber, _p.cmhead_docdate,
@@ -203,30 +203,11 @@ BEGIN
   END IF;
 
   -- Credit Tax Adjustments
-  IF (COALESCE(_p.cmhead_adjtax_ratea,0.0) != 0 OR COALESCE(_p.cmhead_adjtax_rateb,0.0) != 0 OR
-      COALESCE(_p.cmhead_adjtax_ratec,0.0) != 0) THEN
-    _taxBaseValue := addTaxToGLSeries(_sequence, _p.cmhead_tax_curr_id,
-				      'A/R', 'CM', _p.cmhead_number,
-				      _glDate, _p.cmhead_docdate,
-				      _p.cmhead_adjtax_id,
-				      0 - COALESCE(_p.cmhead_adjtax_ratea,0.0),
-				      0 - COALESCE(_p.cmhead_adjtax_rateb,0.0),
-				      0 - COALESCE(_p.cmhead_adjtax_ratec,0.0),
-                                      ('Tax liability for ' || _p.cmhead_billtoname));
-    IF (_taxBaseValue IS NULL) THEN
-      PERFORM deleteGLSeries(_sequence);
-      RETURN -15;
-    END IF;
-
-    _totalAmount := _totalAmount + currToCurr(_p.cmhead_tax_curr_id,
-					      _p.cmhead_curr_id,
-					      COALESCE(_p.cmhead_adjtax_ratea,0.0) +
-					      COALESCE(_p.cmhead_adjtax_rateb,0.0) +
-					      COALESCE(_p.cmhead_adjtax_ratec,0.0),
-					      _p.cmhead_docdate);
-  --  Record the Sales History for misc tax adjustment
+  IF (_p.adjtax <> 0) THEN
+  --  Record the Sales History for Tax Adjustment
+    SELECT nextval('cohist_cohist_id_seq') INTO _cohistid;
     INSERT INTO cohist
-    ( cohist_cust_id, cohist_itemsite_id, cohist_shipto_id, cohist_tax_id,
+    ( cohist_id, cohist_cust_id, cohist_itemsite_id, cohist_shipto_id,
       cohist_misc_type, cohist_misc_descrip,
       cohist_shipdate, cohist_shipvia,
       cohist_ordernumber, cohist_ponumber, cohist_orderdate,
@@ -239,11 +220,9 @@ BEGIN
       cohist_shiptoname, cohist_shiptoaddress1,
       cohist_shiptoaddress2, cohist_shiptoaddress3,
       cohist_shiptocity, cohist_shiptostate, cohist_shiptozip,
-      cohist_curr_id,	cohist_taxtype_id,
-      cohist_tax_pcta,	cohist_tax_pctb,	cohist_tax_pctc,
-      cohist_tax_ratea,	cohist_tax_rateb,	cohist_tax_ratec)
+      cohist_curr_id,	cohist_taxtype_id, cohist_taxzone_id )
     VALUES
-    ( _p.cmhead_cust_id, -1, _p.cmhead_shipto_id, _p.cmhead_adjtax_id,
+    ( _cohistid, _p.cmhead_cust_id, -1, _p.cmhead_shipto_id,
       'T', 'Misc Tax Adjustment',
       _p.cmhead_docdate, '',
       _p.cmhead_number, _p.cmhead_custponumber, _p.cmhead_docdate,
@@ -256,9 +235,19 @@ BEGIN
       _p.cmhead_shipto_name, _p.cmhead_shipto_address1,
       _p.cmhead_shipto_address2, _p.cmhead_shipto_address3,
       _p.cmhead_shipto_city, _p.cmhead_shipto_state, _p.cmhead_shipto_zipcode,
-      _p.cmhead_curr_id,      _p.cmhead_adjtaxtype_id,
-      _p.cmhead_adjtax_pcta,  _p.cmhead_adjtax_pctb,  _p.cmhead_adjtax_pctc,
-      COALESCE(_p.cmhead_adjtax_ratea * -1,0.0), COALESCE(_p.cmhead_adjtax_rateb * -1,0.0), COALESCE(_p.cmhead_adjtax_ratec * -1,0.0));
+      _p.cmhead_curr_id, getAdjustmentTaxtypeId(), _p.cmhead_taxzone_id );
+    INSERT INTO cohisttax
+    ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+      taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+      taxhist_percent, taxhist_amount, taxhist_tax,
+      taxhist_docdate, taxhist_distdate )
+    SELECT _cohistid, taxhist_taxtype_id, taxhist_tax_id,
+           (taxhist_basis * -1), taxhist_basis_tax_id, taxhist_sequence,
+           taxhist_percent, taxhist_amount, (taxhist_tax * -1),
+           taxhist_docdate, taxhist_distdate
+    FROM cmheadtax
+    WHERE ( (taxhist_parent_id=_p.cmhead_id)
+      AND   (taxhist_taxtype_id=getAdjustmentTaxtypeId()) );
 
   END IF;
 
@@ -279,30 +268,13 @@ BEGIN
       RETURN -16;
     END IF;
 
-    _taxBaseValue := addTaxToGLSeries(_sequence, _p.cmhead_tax_curr_id,
-				      'A/R', 'CM', _p.cmhead_number,
-				      _glDate, _p.cmhead_docdate,
-				      _p.cmhead_freighttax_id,
-				      0 - COALESCE(_p.cmhead_freighttax_ratea,0.0),
-				      0 - COALESCE(_p.cmhead_freighttax_rateb,0.0),
-				      0 - COALESCE(_p.cmhead_freighttax_ratec,0.0),
-                                      ('Tax liability for ' || _p.cmhead_billtoname));
-    IF (_taxBaseValue IS NULL) THEN
-      PERFORM deleteGLSeries(_sequence);
-      RETURN -17;
-    END IF;
-
 --  Cache the Amount Distributed to Freight
-    _totalAmount := _totalAmount + _p.cmhead_freight +
-		    currToCurr(_p.cmhead_tax_curr_id, _p.cmhead_curr_id,
-			       COALESCE(_p.cmhead_freighttax_ratea,0.0) +
-			       COALESCE(_p.cmhead_freighttax_rateb,0.0) +
-			       COALESCE(_p.cmhead_freighttax_ratec,0.0),
-			       _p.cmhead_docdate);
+    _totalAmount := _totalAmount + _p.cmhead_freight;
 
 --  Record the Sales History for any Freight
+    SELECT nextval('cohist_cohist_id_seq') INTO _cohistid;
     INSERT INTO cohist
-    ( cohist_cust_id, cohist_itemsite_id, cohist_shipto_id, cohist_tax_id,
+    ( cohist_id, cohist_cust_id, cohist_itemsite_id, cohist_shipto_id,
       cohist_misc_type, cohist_misc_descrip,
       cohist_shipdate, cohist_shipvia,
       cohist_ordernumber, cohist_ponumber, cohist_orderdate,
@@ -315,11 +287,9 @@ BEGIN
       cohist_shiptoname, cohist_shiptoaddress1,
       cohist_shiptoaddress2, cohist_shiptoaddress3,
       cohist_shiptocity, cohist_shiptostate, cohist_shiptozip,
-      cohist_curr_id,	cohist_taxtype_id,
-      cohist_tax_pcta,	cohist_tax_pctb,	cohist_tax_pctc,
-      cohist_tax_ratea,	cohist_tax_rateb,	cohist_tax_ratec)
+      cohist_curr_id, cohist_taxtype_id, cohist_taxzone_id )
     VALUES
-    ( _p.cmhead_cust_id, -1, _p.cmhead_shipto_id, _p.cmhead_freighttax_id,
+    ( _cohistid, _p.cmhead_cust_id, -1, _p.cmhead_shipto_id,
       'F', 'Freight Charge',
       _p.cmhead_docdate, '',
       _p.cmhead_number, _p.cmhead_custponumber, _p.cmhead_docdate,
@@ -332,11 +302,34 @@ BEGIN
       _p.cmhead_shipto_name, _p.cmhead_shipto_address1,
       _p.cmhead_shipto_address2, _p.cmhead_shipto_address3,
       _p.cmhead_shipto_city, _p.cmhead_shipto_state, _p.cmhead_shipto_zipcode,
-      _p.cmhead_curr_id,	  _p.cmhead_freighttaxtype_id,
-      _p.cmhead_freighttax_pcta,  _p.cmhead_freighttax_pctb,  _p.cmhead_freighttax_pctc,
-      COALESCE(_p.cmhead_freighttax_ratea * -1,0.0), COALESCE(_p.cmhead_freighttax_rateb * -1,0.0), COALESCE(_p.cmhead_freighttax_ratec * -1,0.0));
+      _p.cmhead_curr_id, getFreightTaxtypeId(), _p.cmhead_taxzone_id );
+    INSERT INTO cohisttax
+    ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+      taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+      taxhist_percent, taxhist_amount, taxhist_tax,
+      taxhist_docdate, taxhist_distdate )
+    SELECT _cohistid, taxhist_taxtype_id, taxhist_tax_id,
+           (taxhist_basis * -1), taxhist_basis_tax_id, taxhist_sequence,
+           taxhist_percent, taxhist_amount, (taxhist_tax * -1),
+           taxhist_docdate, taxhist_distdate
+    FROM cmheadtax
+    WHERE ( (taxhist_parent_id=_p.cmhead_id)
+      AND   (taxhist_taxtype_id=getFreightTaxtypeId()) );
 
   END IF;
+
+-- Post all Cmhead taxes (Freight and Adjustments) to the GL
+  _taxBaseValue := addTaxToGLSeries(_sequence,
+				      'A/R', 'CM', _p.cmhead_number,
+				      _p.cmhead_curr_id, _p.cmhead_docdate, _glDate,
+                                      'cmheadtax', _p.cmhead_id,
+                                      ('Tax liability for ' || _p.cmhead_billtoname));
+  IF (_taxBaseValue IS NULL) THEN
+    PERFORM deleteGLSeries(_sequence);
+    RETURN -15;
+  END IF;
+
+  _totalAmount := _totalAmount + _p.freighttax + _p.adjtax;
 
 --  Credit the A/R for the total Amount
   IF (_totalAmount <> 0) THEN

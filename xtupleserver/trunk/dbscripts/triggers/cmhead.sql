@@ -67,6 +67,51 @@ BEGIN
     END IF;
     RETURN OLD;
   END IF;
+
+-- Insert new row
+  IF (TG_OP = ''INSERT'') THEN
+
+  -- Calculate Freight Tax
+    IF (NEW.cmhead_freight <> 0) THEN
+      PERFORM calculateTaxHist( ''cmheadtax'',
+                                NEW.cmhead_id,
+                                NEW.cmhead_taxzone_id,
+                                getFreightTaxtypeId(),
+                                NEW.cmhead_docdate,
+                                NEW.cmhead_curr_id,
+                                NEW.cmhead_freight );
+    END IF;
+  END IF;
+
+-- Update row
+  IF (TG_OP = ''UPDATE'') THEN
+
+  -- Calculate Freight Tax
+    IF ( (NEW.cmhead_freight <> OLD.cmhead_freight) OR
+         (NEW.cmhead_taxzone_id <> OLD.cmhead_taxzone_id) OR
+         (NEW.cmhead_docdate <> OLD.cmhead_docdate) OR
+         (NEW.cmhead_curr_id <> OLD.cmhead_curr_id) ) THEN
+      PERFORM calculateTaxHist( ''cmheadtax'',
+                                NEW.cmhead_id,
+                                NEW.cmhead_taxzone_id,
+                                getFreightTaxtypeId(),
+                                NEW.cmhead_docdate,
+                                NEW.cmhead_curr_id,
+                                NEW.cmhead_freight );
+      PERFORM calculateTaxHist( ''cmitemtax'',
+                                cmitem_id,
+                                NEW.cmhead_taxzone_id,
+                                cmitem_taxtype_id,
+                                NEW.cmhead_docdate,
+                                NEW.cmhead_curr_id,
+                                (cmitem_qtycredit * cmitem_qty_invuomratio) *
+                                (cmitem_unitprice / cmitem_price_invuomratio) )
+      FROM cmitem
+      WHERE (cmitem_cmhead_id = NEW.cmhead_id);
+    END IF;
+  END IF;
+
+
   RETURN NEW;
 END;
 ' LANGUAGE 'plpgsql';

@@ -1,74 +1,55 @@
--- convenience function for use in postInvoices
 -- add tax information to a GL Series
 -- return the base currency value of the GL Series records inserted
 --	  NULL if there has been an error
+
 SELECT dropIfExists ('FUNCTION', 'addTaxToGLSeries(INTEGER, INTEGER, TEXT, TEXT, TEXT, DATE, DATE, INTEGER, NUMERIC, NUMERIC, NUMERIC)');
-CREATE OR REPLACE FUNCTION addTaxToGLSeries(INTEGER, INTEGER, TEXT, TEXT, TEXT, DATE, DATE, INTEGER, NUMERIC, NUMERIC, NUMERIC,TEXT) RETURNS NUMERIC AS $$
+SELECT dropIfExists ('FUNCTION', 'addTaxToGLSeries(INTEGER, INTEGER, TEXT, TEXT, TEXT, DATE, DATE, INTEGER, NUMERIC, NUMERIC, NUMERIC, TEXT)');
+
+CREATE OR REPLACE FUNCTION addTaxToGLSeries(INTEGER, TEXT, TEXT, TEXT, INTEGER, DATE, DATE, TEXT, INTEGER, TEXT) RETURNS NUMERIC AS $$
   DECLARE
     pSequence	ALIAS FOR $1;
-    pTaxCurrId	ALIAS FOR $2;
-    pSource	ALIAS FOR $3;
-    pDocType	ALIAS FOR $4;
-    pDocNumber	ALIAS FOR $5;
-    pGLDate	ALIAS FOR $6;
-    pExchDate	ALIAS FOR $7;
-    pTaxId	ALIAS FOR $8;
-    pAvalue	ALIAS FOR $9;
-    pBvalue	ALIAS FOR $10;
-    pCvalue	ALIAS FOR $11;
-    pNotes	ALIAS FOR $12;
+    pSource	ALIAS FOR $2;
+    pDocType	ALIAS FOR $3;
+    pDocNumber	ALIAS FOR $4;
+    pCurrId     ALIAS FOR $5;
+    pExchDate	ALIAS FOR $6;
+    pDistDate	ALIAS FOR $7;
+    pTableName	ALIAS FOR $8;
+    pParentId	ALIAS FOR $9;
+    pNotes	ALIAS FOR $10;
 
-    _count	INTEGER;
-    _returnVal	NUMERIC;
+    _count	INTEGER := 0;
+    _baseTax	NUMERIC := 0;
+    _returnVal	NUMERIC := 0;
     _t		RECORD;
-    _test	INTEGER;
+    _test	INTEGER := 0;
+
   BEGIN
-    _count := 0;
-    _returnVal := 0;
 
-    -- if there's no tax then there's nothing to add
-    IF (COALESCE(pAvalue,0) = 0
-        AND COALESCE(pBvalue,0) = 0
-        AND COALESCE(pCvalue,0) = 0) THEN
-      RETURN 0;
-    -- if there IS tax but no tax_id to use for account lookup then fail
-    ELSIF (pTaxId IS NULL) THEN
-      RETURN NULL;
-    END IF;
+-- This is just a fancy select statement on taxhist.
+-- Because all tax records tables inherit from taxhist,
+-- we can use the same select statement for all.
+-- https://www.postgresql.org/docs/8.1/static/ddl-inherit.html
+-- pTableName in the where clause narrows down the selection
+-- to the correct sub table.
 
-    FOR _t in SELECT tax_sales_accnt_id AS tax_accnt_id,
-		     currToBase(pTaxCurrId, pAvalue, pExchDate) AS tax_baseval
-	      FROM tax
-	      WHERE tax_id=pTaxId
-	        AND pAvalue <> 0
-	      UNION
-	      SELECT tax_salesb_accnt_id AS tax_accnt_id,
-		     currToBase(pTaxCurrId, pBvalue, pExchDate) AS tax_baseval
-	      FROM tax
-	      WHERE tax_id=pTaxId
-	        AND pBvalue <> 0
-	      UNION
-	      SELECT tax_salesc_accnt_id AS tax_accnt_id,
-		     currToBase(pTaxCurrId, pCvalue, pExchDate) AS tax_baseval
-	      FROM tax
-	      WHERE tax_id=pTaxId
-	        AND pCvalue <> 0 LOOP
+    FOR _t IN SELECT *
+              FROM taxhist JOIN tax ON (tax_id = taxhist_tax_id)
+                           JOIN pg_class ON (pg_class.oid = taxhist.tableoid)
+              WHERE ( (taxhist_parent_id = pParentId)
+                AND   (relname = pTableName) ) LOOP
+
       _count := _count + 1;
-      IF (_t.tax_accnt_id IS NOT NULL AND _t.tax_accnt_id > 0) THEN
-	_t.tax_baseval := ROUND(_t.tax_baseval, 2);
-	SELECT insertIntoGLSeries( pSequence, pSource, pDocType, pDocNumber,
-				   _t.tax_accnt_id, _t.tax_baseval,
-				   pGLDate, pNotes ) INTO _test;
-	IF (_test < 0) THEN
-	  RETURN NULL;	-- error: insertIntoGLSeries failed
-	END IF;
-	_returnVal := _returnVal + _t.tax_baseval;
+      _baseTax := currToBase(pCurrId, _t.taxhist_tax, pExchDate);
+      IF ( (pTableName = 'cmheadtax') OR (pTableName = 'cmitemtax') ) THEN
+        _baseTax := _baseTax * -1;
       END IF;
-    END LOOP;
+      _returnVal := _returnVal + _baseTax;
+      PERFORM insertIntoGLSeries( pSequence, pSource, pDocType, pDocNumber,
+                                  _t.tax_sales_accnt_id, _baseTax,
+                                  pDistDate, pNotes );
 
-    IF (_count = 0 AND (pAvalue + pBvalue + pCvalue) <> 0) THEN
-      RETURN NULL; -- error: if there is a tax value then we must find the accounts
-    END IF;
+    END LOOP;
 
     RETURN _returnVal;
   END;
