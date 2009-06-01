@@ -34,9 +34,9 @@ BEGIN
 
   -- Calculate Tax
     IF ( (NEW.invcitem_billed <> OLD.invcitem_billed) OR
-         (NEW.invcitem_qty_invuomratio <> OLD.invcitem_qty_uomratio) OR
+         (NEW.invcitem_qty_invuomratio <> OLD.invcitem_qty_invuomratio) OR
          (NEW.invcitem_price <> OLD.invcitem_price) OR
-         (NEW.invcitem_price_invuomratio <> OLD.invcitem_price_uomratio) OR
+         (NEW.invcitem_price_invuomratio <> OLD.invcitem_price_invuomratio) OR
          (NEW.invcitem_taxtype_id <> OLD.invcitem_taxtype_id) ) THEN
       PERFORM calculateTaxHist( ''invcitemtax'',
                                 NEW.invcitem_id,
