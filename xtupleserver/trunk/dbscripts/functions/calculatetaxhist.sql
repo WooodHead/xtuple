@@ -1,4 +1,6 @@
-CREATE OR REPLACE FUNCTION calculateTaxHist(text, integer, integer, integer, date, integer, numeric) RETURNS BOOLEAN AS $$
+CREATE OR REPLACE FUNCTION calculatetaxhist(text, integer, integer, integer, date, integer, numeric)
+  RETURNS boolean AS
+$BODY$
 DECLARE
   pTableName ALIAS FOR $1;
   pParentId  ALIAS FOR $2;
@@ -21,7 +23,7 @@ BEGIN
   END IF;
 
   -- Build a query that deletes any previous tax history for this document record
-  _qry := 'DELETE FROM ' || pTableName || ' WHERE taxhist_parent_id = ' || pParentId || ';';
+  _qry := 'DELETE FROM ' || pTableName || ' WHERE taxhist_parent_id = ' || pParentId || ' AND taxhist_taxtype_id <> getadjustmenttaxtypeid();';
   EXECUTE _qry;
 
   -- Next, build and execute query that inserts new rows.
@@ -37,4 +39,5 @@ BEGIN
 
   RETURN true;
 END;
-$$ LANGUAGE 'plpgsql';
+$BODY$
+  LANGUAGE 'plpgsql' VOLATILE;

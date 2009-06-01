@@ -1,38 +1,43 @@
-CREATE OR REPLACE FUNCTION recalculateInvcheadTaxTotal(INTEGER) RETURNS VOID AS '
+CREATE OR REPLACE FUNCTION recalculateinvcheadtaxtotal(integer)
+  RETURNS void AS
+$BODY$
 DECLARE
   pInvcheadid ALIAS FOR $1;
   _r RECORD;
+  _tax NUMERIC := 0.0;
 BEGIN
-  SELECT COALESCE(invchead_adjtax_ratea, 0.0) +
-	 COALESCE(invchead_freighttax_ratea, 0.0) +
-	 COALESCE(SUM(COALESCE(invcitem_tax_ratea, 0.0)), 0.0) AS rateA,
-         COALESCE(invchead_adjtax_rateb, 0.0) +
-	 COALESCE(invchead_freighttax_rateb, 0.0) +
-	 COALESCE(SUM(COALESCE(invcitem_tax_rateb, 0.0)), 0.0) AS rateB,
-         COALESCE(invchead_adjtax_ratec, 0.0) +
-	 COALESCE(invchead_freighttax_ratec, 0.0) +
-	 COALESCE(SUM(COALESCE(invcitem_tax_ratec, 0.0)), 0.0) AS rateC
+
+    SELECT SUM(tax) as tax
     INTO _r
-    FROM invchead LEFT OUTER JOIN invcitem ON (invcitem_invchead_id=invchead_id)
-   WHERE (invchead_id=pInvcheadid)
-   GROUP BY invchead_adjtax_ratea, invchead_freighttax_ratea,
-            invchead_adjtax_rateb, invchead_freighttax_rateb,
-            invchead_adjtax_ratec, invchead_freighttax_ratec;
-  -- invchead_tax and invchead_tax_rate[abc] have been retained for
-  -- backward-compatibility, so put them in the invoice currency
+    FROM
+	(
+        SELECT COALESCE(taxhist_tax, 0.0)  AS tax
+	FROM invchead 
+	LEFT OUTER JOIN invcheadtax ON (invchead_id=taxhist_parent_id)
+				AND (invchead_freighttaxtype_id = taxhist_taxtype_id)
+	WHERE    (invchead_id=pInvcheadid)
+	UNION ALL                 
+	SELECT COALESCE(SUM(COALESCE(taxhist_tax, 0.0)), 0.0) AS tax
+	FROM invchead 
+	LEFT OUTER JOIN invcheadtax ON (invchead_id=taxhist_parent_id)
+				AND (invchead_adjtaxtype_id = taxhist_taxtype_id)
+	WHERE (invchead_id=pInvcheadid)
+	UNION ALL                 
+	SELECT COALESCE(SUM(COALESCE(taxhist_tax, 0.0)), 0.0) AS tax
+	FROM invcitem 
+	LEFT OUTER JOIN invcheadtax ON (invcitem_id=taxhist_parent_id)
+	WHERE (invcitem_invchead_id=pInvcheadid)
+        ) AS tax;
+    
+   
   IF (FOUND) THEN
     UPDATE invchead
-       SET invchead_tax = currToCurr(invchead_tax_curr_id, invchead_curr_id,
-			    _r.rateA + _r.rateB + _r.rateC, invchead_invcdate),
-           invchead_tax_ratea = currToCurr(invchead_tax_curr_id,
-				invchead_curr_id, _r.rateA, invchead_invcdate),
-           invchead_tax_rateb = currToCurr(invchead_tax_curr_id,
-				invchead_curr_id, _r.rateB, invchead_invcdate),
-           invchead_tax_ratec = currToCurr(invchead_tax_curr_id,
-				invchead_curr_id, _r.rateC, invchead_invcdate)
+       SET invchead_tax = 
+       currToCurr(invchead_tax_curr_id, invchead_curr_id,_r.tax, invchead_invcdate)
      WHERE (invchead_id=pInvcheadid);
   END IF;
 
   RETURN;
 END;
-' LANGUAGE 'plpgsql';
+$BODY$
+  LANGUAGE 'plpgsql' VOLATILE;
