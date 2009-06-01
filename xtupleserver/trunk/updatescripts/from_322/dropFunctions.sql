@@ -22,5 +22,11 @@ SELECT dropIfExists('FUNCTION', 'revokeAllModulePriv(INTEGER, TEXT)');
 SELECT dropIfExists('FUNCTION', 'itemPrice(INTEGER, INTEGER, NUMERIC)');
 SELECT dropIfExists('FUNCTION', 'itemPrice(INTEGER, INTEGER, INTEGER, NUMERIC)');
 SELECT dropIfExists('FUNCTION', 'itemPrice(INTEGER, INTEGER, INTEGER, NUMERIC, INTEGER)');
+SELECT dropIfExists('FUNCTION', 'getFreightTaxSelection(INTEGER)');
+SELECT dropIfExists('FUNCTION', 'changeInvoiceTaxAuth(INTEGER, INTEGER)');
+SELECT dropIfExists('FUNCTION', 'changeCobTaxAuth(INTEGER, INTEGER)');
+SELECT dropIfExists('FUNCTION', 'getTaxSelection(INTEGER, INTEGER)');
+SELECT dropIfExists('FUNCTION', 'calculatetax(integer, numeric, numeric, bpchar)');
+SELECT dropIfExists('FUNCTION', 'calculatetax(integer, numeric, numeric)');
 
 COMMIT;
