@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section537055" role="manufacturing">
+<section id="Section537055">
   <title>MRP Detail</title>
   <para>To display a time-phased view of Material Requirements Planning (MRP)
   detail, select the "MRP Detail" option. The following screen will
@@ -140,14 +140,14 @@
   select from the following context-sensitive options.</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewAllocations)" />
+                xpointer="element(rightclickViewAllocations)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewOrders)" />
+                xpointer="element(rightclickViewOrders)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>You will only be able to view Allocations if Allocations are showing a
   positive value in the period where you right-click your mouse. Similarly,
@@ -156,17 +156,17 @@
   purchased Item, the following additional options will be available:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickIssuePR)" />
+                xpointer="element(rightclickIssuePR)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickIssuePO)" />
+                xpointer="element(rightclickIssuePO)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>If the Line Item is a manufactured Item, the following additional
   option will be available:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickIssueWO)" />
+                xpointer="element(rightclickIssueWO)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>

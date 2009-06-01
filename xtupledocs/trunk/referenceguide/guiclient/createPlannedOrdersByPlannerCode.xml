@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section551404" role="manufacturing">
+<section id="Section551404">
   <title>Run MRP by Planner Code</title>
   <para>When you run MRP by Planner Code, you are running the Material
   Requirements Planning (MRP) system. This utility creates Planned
@@ -10,8 +10,7 @@
   Replenishment Orders will be created whenever a Planned Availability for an
   Item Site falls below its Reorder Level. The quantity of the Replenishment
   Order will be enough to restore Planned Availability back to the Reorder
-  Level&mdash;or to the Order Up To (OUT) Level, if the OUT Level is
-  greater.</para>
+  Level—or to the Order Up To (OUT) Level, if the OUT Level is greater.</para>
   <note>
     <para>Running MRP by Planner Code may be used to generate Planned Orders
     for both parent-level manufactured Items and also lower level purchased
@@ -83,9 +82,9 @@
   </variablelist>
   <tip>
     <para>If you schedule an MRP or MPS job submitted to the Batch Manager to
-    run on a periodic basis&mdash;daily, weekly, monthly&mdash;the cutoff date
-    used for the run will automatically be updated by the number of days in
-    the specified reschedule interval (Day = +1, Week = +7, and Month =
+    run on a periodic basis—daily, weekly, monthly—the cutoff date used for
+    the run will automatically be updated by the number of days in the
+    specified reschedule interval (Day = +1, Week = +7, and Month =
     +30).</para>
   </tip>
   <variablelist>

@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section role="standard">
+<section>
   <title><indexterm significance="normal">
       <primary>return authorizations</primary>
       <secondary>adding line items to</secondary>
@@ -153,8 +153,8 @@
           <secondary>receiving sites for</secondary>
         </indexterm>Recv. Site</term>
       <listitem>
-        <para>Specify the Site where you want the returned Item quantity
-        to be received.</para>
+        <para>Specify the Site where you want the returned Item quantity to be
+        received.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -166,10 +166,10 @@
           <secondary>shipping sites for</secondary>
         </indexterm>Ship Site</term>
       <listitem>
-        <para>Specify the Site where you want authorized Return
-        Authorization quantity to be shipped from. This option is only
-        available for Line Items having a disposition which requires creation
-        of a new Sales Order (i.e., Replace, Service, Ship).</para>
+        <para>Specify the Site where you want authorized Return Authorization
+        quantity to be shipped from. This option is only available for Line
+        Items having a disposition which requires creation of a new Sales
+        Order (i.e., Replace, Service, Ship).</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -311,12 +311,11 @@
               <para>Displays the quantity allocated to current Sales Orders
               and/or Work Orders in the system. An Item is considered
               allocated to a Sales Order if a Sales Order Line Item exists for
-              the Item&mdash;and that Line Item has not yet been issued to
-              Shipping. An Item is considered allocated to a Work Order if the
-              Item is a material requirement&mdash;and the material has not
-              yet been issued to the Work Order. Once the current Line Item is
-              saved, the "Allocated" value will increase by the quantity
-              ordered.</para>
+              the Item—and that Line Item has not yet been issued to Shipping.
+              An Item is considered allocated to a Work Order if the Item is a
+              material requirement—and the material has not yet been issued to
+              the Work Order. Once the current Line Item is saved, the
+              "Allocated" value will increase by the quantity ordered.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -378,8 +377,8 @@
         Demand" flag on the Item Site master is selected. A Work Order created
         automatically from a Return Authorization Line Item will assume the
         same Order Number as the new Sales Order the Return Authorization Line
-        Item is associated with&mdash;even if that Order Number has already
-        been used by a previous Work Order.</para>
+        Item is associated with—even if that Order Number has already been
+        used by a previous Work Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -466,7 +465,7 @@
       <listitem>
         <para>Enables you to edit highlighted Lot/Serial authorization. The
         edit screen is the same as that for creating a new Lot/Serial
-        authorization&mdash;except that when editing, the fields will contain
+        authorization—except that when editing, the fields will contain
         Lot/Serial authorization information. Double-clicking on a Lot/Serial
         authorization will also bring you to the editing screen.</para>
       </listitem>
@@ -555,7 +554,7 @@
               have an entry which matches both the Item's Tax Type definition
               and the Tax Authority specified on the Return Authorization
               header. If no Tax Selection match exists, then no Tax Code will
-              be used&mdash;meaning no Tax will be charged.</para>
+              be used—meaning no Tax will be charged.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -628,7 +627,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="returnAuthItemLotSerial.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="returnAuthItemLotSerial.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

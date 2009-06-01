@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section537763" role="manufacturing">
+<section id="Section537763">
   <title>New Production Plan</title>
   <para>Production Plans are used for loading sales Forecasts into the system.
   These Forecasts are then accounted for when the Master Production Scheduling
@@ -78,8 +78,8 @@
         situation where load leveling or continuous production is desired.
         With this setting, MPS may release more, but never less, than the
         quantity dictated in a Cumulative MPS Schedule. Inside the Demand Time
-        Fence, Cumulative Schedules are ignored&mdash;and only actual demand
-        is considered. Outside the Demand Time Fence, Planned Orders for
+        Fence, Cumulative Schedules are ignored—and only actual demand is
+        considered. Outside the Demand Time Fence, Planned Orders for
         Cumulative Schedules are created per the greater of schedule quantity
         or net actual demand. The system interprets "net actual demand" to
         mean that it will use, for a given period, the larger of A) Cumulative
@@ -156,9 +156,9 @@
       <listitem>
         <para>Enables you to edit highlighted Production Plan Items. The edit
         screen is the same as that for creating a new Production Plan
-        Item&mdash;except that when editing, the fields will contain
-        Production Plan Item information. Double-clicking on a Production Plan
-        Item will also bring you to the editing screen.</para>
+        Item—except that when editing, the fields will contain Production Plan
+        Item information. Double-clicking on a Production Plan Item will also
+        bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -193,10 +193,10 @@
     <para>You can reduce clutter (and simplify) your Production Plans by
     taking advantage of the Planning Item Type. A Planning Item is an Item
     whose Bill of Materials (BOM) groups together other Items so that a
-    Production Plan may be defined for the Planning Item&mdash;and then
-    exploded down to the lower level Items during a Master Production
-    Scheduling (MPS) run. Planning Items are frequently used to group together
-    product families or product lines of MPS Items.</para>
+    Production Plan may be defined for the Planning Item—and then exploded
+    down to the lower level Items during a Master Production Scheduling (MPS)
+    run. Planning Items are frequently used to group together product families
+    or product lines of MPS Items.</para>
   </tip>
   <para>When creating a new Production Plan Item, you are presented with the
   following options:</para>
