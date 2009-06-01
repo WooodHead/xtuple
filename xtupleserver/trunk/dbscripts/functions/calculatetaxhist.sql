@@ -34,7 +34,7 @@ BEGIN
            SELECT ' || pParentId || ',' || pTaxTypeId || ', taxdetail_tax_id,' || pAmount || ', 
              taxdetail_tax_basis_tax_id, taxdetail_taxclass_sequence, taxdetail_taxrate_percent,
              taxdetail_taxrate_amount, taxdetail_tax, ''' || pDate || '''
-           FROM calculatetaxdetail(' || pTaxZoneId || ',' || pTaxTypeId ||',''' || pDate || ''',' || pCurrId || ',' || pAmount || ');';
+           FROM calculatetaxdetail(' || COALESCE(pTaxZoneId,-1) || ',' || COALESCE(pTaxTypeId,-1) ||',''' || pDate || ''',' || pCurrId || ',' || pAmount || ');';
   EXECUTE _qry;
 
   RETURN true;
