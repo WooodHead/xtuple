@@ -23,7 +23,8 @@ WHERE ( (aropen_open)
 ;
 <? else ?>
 
--- Get unposted and zero invoices
+-- Get unposted invoices
+<? if exists("showUnposted") ?>
 <? if not exists("creditsOnly") ?>
 SELECT -1 AS id,
        0 AS altId,  
@@ -31,7 +32,7 @@ SELECT -1 AS id,
        invchead_id AS docnumber_xtidrole,
        invchead_posted AS posted,
        invchead_invcdate AS docdate,   
-       aropen_duedate,
+       NULL::date AS aropen_duedate,
        invchead_ordernumber AS ordernumber,
        cohead_id AS ordernumber_xtidrole,
        <? value("invoice") ?>  AS doctype,
@@ -41,7 +42,7 @@ SELECT -1 AS id,
        currConcat(invchead_curr_id) AS currAbbr,
        0 AS base_balance,
        formatDate(invchead_invcdate) AS f_docdate,
-       formatDate(aropen_duedate) AS f_duedate,
+       NULL::text AS f_duedate,
        formatMoney(0) AS f_amount,
        formatMoney(0) AS f_paid,
        formatMoney(0) AS f_balance,
@@ -53,32 +54,15 @@ SELECT -1 AS id,
        'curr' AS paid_xtnumericrole,
        'curr' AS base_balance_xtnumericrole,
        0 AS base_balance_xttotalrole,
-       NULL AS aropen_docnumber_qtdisplayrole,
-       NULL AS aropen_docdate_qtdisplayrole,
+       NULL::text AS aropen_docnumber_qtdisplayrole,
+       NULL::text AS aropen_docdate_qtdisplayrole,
        0 AS xtindentrole,
        '' AS aropen_duedate_qtforegroundrole
 FROM invchead
-           LEFT OUTER JOIN aropen ON ((aropen_docnumber=invchead_invcnumber)
-                             AND (aropen_doctype='I'))
            LEFT OUTER JOIN cohead ON (invchead_ordernumber=cohead_number)
            LEFT OUTER JOIN custinfo ON (invchead_cust_id=cust_id)
            LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
-WHERE ((aropen_id IS NULL)
-<? if not exists("showUnposted") ?>
-<? if not exists("showClosed") ?>
-  AND (FALSE)
-<? endif ?>
-<? endif ?>
-<? if exists("showUnposted") ?>
-<? if not exists("showClosed") ?>
-  AND (NOT invchead_posted)
-<? endif ?>
-<? endif ?>
-<? if exists("showClosed") ?>
-<? if not exists("showUnposted") ?>
-  AND (invchead_posted)
-<? endif ?>
-<? endif ?>
+WHERE ((NOT invchead_posted)
 <? if exists("cust_id") ?>
   AND   (invchead_cust_id=<? value("cust_id") ?>)
 <? endif ?>
@@ -91,26 +75,19 @@ WHERE ((aropen_id IS NULL)
 <? if exists("startDate") ?>
   AND   (invchead_invcdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? endif ?>
-<? if exists("startDueDate") ?>
-  AND   (aropen_duedate >= <? value("startDueDate") ?>)
-<? endif ?>
-<? if exists("endDueDate") ?>
-  AND   (aropen_duedate <= <? value("endDueDate") ?>)
-<? endif ?>
       )
   GROUP BY id,                      altId,                  invchead_id,
            invchead_invcdate,       invchead_posted,        invchead_curr_id,
            invchead_recurring,      invchead_invcnumber,    invchead_posted,
-           aropen_duedate,          aropen_doctype,         aropen_amount,
-           aropen_paid,             aropen_open,            aropen_curr_id,
-           aropen_closedate,        aropen_curr_rate,       invchead_ordernumber,
-           cust_id, 		    cust_number,            cust_name,
-           cohead_id
+           invchead_ordernumber,    cohead_id,
+           cust_id, 		    cust_number,            cust_name
           
 UNION
 <? endif ?>
+<? endif ?>
 
--- Get zero and unposted credit memos
+-- Get unposted credit memos
+<? if exists("showUnposted") ?>
 <? if not exists("debitsOnly") ?>
 SELECT -1 AS id,
        1 AS altId,   
@@ -118,8 +95,8 @@ SELECT -1 AS id,
        cmhead_id AS docnumber_xtidrole,
        cmhead_posted AS posted,
        cmhead_docdate AS docdate,   
-       aropen_duedate,
-       aropen_ordernumber AS ordernumber,
+       NULL::date AS aropen_duedate,
+       NULL::text AS ordernumber,
        -1 AS ordernumber_xtidrole,
        <? value("creditMemo") ?>  AS doctype,
        creditmemototal(cmhead_id) AS amount,
@@ -128,7 +105,7 @@ SELECT -1 AS id,
        currConcat(cmhead_curr_id) AS currAbbr,
        0  AS base_balance,
        formatDate(cmhead_docdate) AS f_docdate,
-       formatDate(aropen_duedate) AS f_duedate,
+       NULL::text AS f_duedate,
        formatMoney(creditmemototal(cmhead_id)) AS f_amount,
        formatMoney(0) AS f_paid,
        formatMoney(0) AS f_balance,
@@ -140,31 +117,14 @@ SELECT -1 AS id,
        'curr' AS paid_xtnumericrole,
        'curr' AS base_balance_xtnumericrole,
        0 AS base_balance_xttotalrole,
-       NULL AS aropen_docnumber_qtdisplayrole,
-       NULL AS aropen_docdate_qtdisplayrole,
+       NULL::text AS aropen_docnumber_qtdisplayrole,
+       NULL::text AS aropen_docdate_qtdisplayrole,
        0 AS xtindentrole,
        '' AS aropen_duedate_qtforegroundrole
 FROM cmhead
-            LEFT OUTER JOIN aropen ON ((aropen_docnumber=cmhead_number)
-                             AND (aropen_doctype='C'))
             LEFT OUTER JOIN custinfo ON (cmhead_cust_id=cust_id)
             LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
-WHERE ((aropen_id IS NULL)
-<? if not exists("showUnposted") ?>
-<? if not exists("showClosed") ?>
-  AND (FALSE)
-<? endif ?>
-<? endif ?>
-<? if exists("showUnposted") ?>
-<? if not exists("showClosed") ?>
-  AND (NOT cmhead_posted)
-<? endif ?>
-<? endif ?>
-<? if exists("showClosed") ?>
-<? if not exists("showUnposted") ?>
-  AND (cmhead_posted)
-<? endif ?>
-<? endif ?>
+WHERE ((NOT cmhead_posted)
 <? if exists("cust_id") ?>
   AND   (cmhead_cust_id=<? value("cust_id") ?>)
 <? endif ?>
@@ -177,25 +137,17 @@ WHERE ((aropen_id IS NULL)
 <? if exists("startDate") ?>
   AND   (cmhead_docdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? endif ?>
-<? if exists("startDueDate") ?>
-  AND   (aropen_duedate >= <? value("startDueDate") ?>)
-<? endif ?>
-<? if exists("endDueDate") ?>
-  AND   (aropen_duedate <= <? value("endDueDate") ?>)
-<? endif ?>
       )
   GROUP BY id,                      altId,                  cmhead_id,
            cmhead_docdate,          cmhead_posted,          cmhead_curr_id,
-           cmhead_number,          cmhead_posted,           aropen_ordernumber,
-           aropen_duedate,          aropen_doctype,         aropen_amount,
-           aropen_paid,             aropen_open,            aropen_curr_id,
-           aropen_closedate,        aropen_curr_rate,
+           cmhead_number,           cmhead_posted, 
            cust_id, 		    cust_number,            cust_name
 
 UNION
 <? endif ?>
+<? endif ?>
 
--- Get other A/R Open
+-- Get Posted AR Open
 SELECT aropen_id AS id,
        CASE WHEN (aropen_doctype='I') THEN 0
             WHEN (aropen_doctype='C') THEN 1
