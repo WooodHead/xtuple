@@ -503,30 +503,28 @@ BEGIN
     RETURN _test;
   END IF;
 
-  IF (round(_totalAmount, 2) <> 0) THEN
 --  Create the Invoice aropen item
-    SELECT nextval('aropen_aropen_id_seq') INTO _aropenid;
-    INSERT INTO aropen
-    ( aropen_id, aropen_username, aropen_journalnumber,
-      aropen_open, aropen_posted,
-      aropen_cust_id, aropen_ponumber,
-      aropen_docnumber, aropen_applyto, aropen_doctype,
-      aropen_docdate, aropen_duedate, aropen_distdate, aropen_terms_id,
-      aropen_amount, aropen_paid,
-      aropen_salesrep_id, aropen_commission_due, aropen_commission_paid,
-      aropen_ordernumber, aropen_notes, aropen_cobmisc_id,
-      aropen_curr_id )
-    VALUES
-    ( _aropenid, CURRENT_USER, pJournalNumber,
-      TRUE, FALSE,
-      _p.invchead_cust_id, _p.invchead_ponumber,
-      _p.invchead_invcnumber, _p.invchead_invcnumber, 'I',
-      _p.invchead_invcdate, determineDueDate(_p.invchead_terms_id, _p.invchead_invcdate), _glDate, _p.invchead_terms_id,
-      round(_totalAmount, 2), 0, 
-      _p.invchead_salesrep_id, _commissionDue, FALSE,
-      _p.invchead_ordernumber::text, _p.invchead_notes, pInvcheadid,
-      _p.invchead_curr_id );
-  END IF;
+  SELECT nextval('aropen_aropen_id_seq') INTO _aropenid;
+  INSERT INTO aropen
+  ( aropen_id, aropen_username, aropen_journalnumber,
+    aropen_open, aropen_posted,
+    aropen_cust_id, aropen_ponumber,
+    aropen_docnumber, aropen_applyto, aropen_doctype,
+    aropen_docdate, aropen_duedate, aropen_distdate, aropen_terms_id,
+    aropen_amount, aropen_paid,
+    aropen_salesrep_id, aropen_commission_due, aropen_commission_paid,
+    aropen_ordernumber, aropen_notes, aropen_cobmisc_id,
+    aropen_curr_id )
+  VALUES
+  ( _aropenid, CURRENT_USER, pJournalNumber,
+    TRUE, FALSE,
+    _p.invchead_cust_id, _p.invchead_ponumber,
+    _p.invchead_invcnumber, _p.invchead_invcnumber, 'I',
+    _p.invchead_invcdate, determineDueDate(_p.invchead_terms_id, _p.invchead_invcdate), _glDate, _p.invchead_terms_id,
+    round(_totalAmount, 2), 0, 
+    _p.invchead_salesrep_id, _commissionDue, FALSE,
+    _p.invchead_ordernumber::text, _p.invchead_notes, pInvcheadid,
+    _p.invchead_curr_id );
 
 --  Mark the invoice as posted
   UPDATE invchead
