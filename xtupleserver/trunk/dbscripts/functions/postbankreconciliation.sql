@@ -65,8 +65,9 @@ BEGIN
      AND   (gltrans_accnt_id=_accntid) ) ;
 
 -- Mark the bankrec record as posted
-  UPDATE bankrec
-     SET bankrec_posted = TRUE
+  UPDATE bankrec SET 
+    bankrec_posted = TRUE,
+    bankrec_postdate = current_date
    WHERE (bankrec_id=pBankrecid);
 
   RETURN pBankrecid;
