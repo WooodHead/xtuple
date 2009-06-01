@@ -323,7 +323,7 @@ BEGIN
 				      'A/R', 'CM', _p.cmhead_number,
 				      _p.cmhead_curr_id, _p.cmhead_docdate, _glDate,
                                       'cmheadtax', _p.cmhead_id,
-                                      ('Tax liability for ' || _p.cmhead_billtoname));
+                                      (_p.cmhead_billtoname));
   IF (_taxBaseValue IS NULL) THEN
     PERFORM deleteGLSeries(_sequence);
     RETURN -15;
