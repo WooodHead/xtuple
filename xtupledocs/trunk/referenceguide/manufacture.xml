@@ -42,9 +42,9 @@
         <secondary>relation to production</secondary>
       </indexterm>Work Order</title>
     <para>A Work Order is a document which authorizes the production of
-    manufactured Items. Work Orders can exist in five different
-    states&mdash;from creation to completion. The five different states of
-    Work Orders are listed below:</para>
+    manufactured Items. Work Orders can exist in five different states—from
+    creation to completion. The five different states of Work Orders are
+    listed below:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem>
         <para>Open ("O"): This is the initial state a Work Order receives when
@@ -70,30 +70,23 @@
     </orderedlist>
     <para>The creation and control of Work Orders is handled by the "W/O
     Control" section.</para>
-    <xi:include href="guiclient/workOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/explodeWo.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/implodeWo.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/workOrder.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/explodeWo.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/implodeWo.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/releaseWorkOrdersByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/closeWo.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/reprioritizeWo.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/rescheduleWo.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/changeWoQty.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/closeWo.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/reprioritizeWo.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/rescheduleWo.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/changeWoQty.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section518789">
     <title><indexterm significance="normal">
@@ -110,12 +103,10 @@
       at creation, Work Order Material Requirements will also be created
       automatically at explosion.</para>
     </note>
-    <xi:include href="guiclient/woMaterialItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/workOrderMaterials.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/woMaterialItem.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/workOrderMaterials.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section519172" role="manufacturing">
     <title>Operations</title>
@@ -126,12 +117,11 @@
       creation, Work Order Operations will also be created automatically at
       explosion.</para>
     </note>
-    <xi:include href="guiclient/woOperation.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/woOperation.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/workOrderOperations.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
     <title>Transactions</title>
@@ -140,65 +130,56 @@
       <title>Issue Material</title>
       <para>Issue Material transactions section.</para>
       <xi:include href="guiclient/issueWoMaterialBatch.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/issueWoMaterialItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <section>
       <title>Return Material</title>
       <para>Return Material transaction section.</para>
       <xi:include href="guiclient/returnWoMaterialBatch.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/returnWoMaterialItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <xi:include href="guiclient/scrapWoMaterialFromWIP.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/woTimeClock.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/postOperations.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/woTimeClock.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/postOperations.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/correctOperationsPosting.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/postProduction.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/postProduction.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/correctProductionPosting.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/closeWo.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/postMiscProduction.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/closeWo.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/postMiscProduction.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
     <title>Forms</title>
     <para>Manufacturing Forms section.</para>
-    <xi:include href="guiclient/printWoTraveler.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printWoPickList.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printWoRouting.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printWoForm.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/printWoTraveler.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/printWoPickList.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/printWoRouting.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/printWoForm.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/printProductionEntrySheet.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="manufactureReports">
     <title>Reports</title>
@@ -207,153 +188,151 @@
       <title>Work Order Schedule</title>
       <para>Manufacturing Schedule Reports section.</para>
       <xi:include href="guiclient/dspWoScheduleByPlannerCode.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspWoScheduleByClassCode.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspWoScheduleByWorkCenter.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspWoScheduleByItemGroup.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspWoScheduleByItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspWoScheduleByWorkOrder.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <section>
       <title>Work Order Status</title>
       <para>Manufacturing Buffer Status Reports section.</para>
       <xi:include href="guiclient/dspWoBufferStatusByPlannerCode.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspWoBufferStatusByClassCode.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspWoBufferStatusByItemGroup.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <section>
       <title>Material Requirements</title>
       <para>Work Order Material Requirements Reports section.</para>
       <xi:include href="guiclient/dspWoMaterialsByWorkOrder.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspWoMaterialsByItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <xi:include href="guiclient/dspInventoryAvailabilityByWorkOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/dspPendingAvailability.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <section>
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section role="manufacturing">
       <title>Operations</title>
       <para>Work Order Operations Reports section.</para>
       <xi:include href="guiclient/dspWoOperationsByWorkCenter.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspWoOperationsByWorkOrder.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <xi:include href="guiclient/dspWoOperationBufrStsByWorkCenter.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <section>
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section role="standard">
       <title>Production Time Clock</title>
       <para>Production Time Clock Reports section.</para>
       <xi:include href="guiclient/dspWoEffortByUser.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspWoEffortByWorkOrder.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <section>
       <title>History</title>
       <para>Manufacturing History Reports section.</para>
       <xi:include href="guiclient/dspWoHistoryByClassCode.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspWoHistoryByItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspWoHistoryByNumber.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <xi:include href="guiclient/dspJobCosting.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspJobCosting.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
       <title>Material Usage Variance</title>
       <para>Material Usage Variance Reports section.</para>
       <xi:include href="guiclient/dspMaterialUsageVarianceByWarehouse.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspMaterialUsageVarianceByItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspMaterialUsageVarianceByBOMItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspMaterialUsageVarianceByComponentItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspMaterialUsageVarianceByWorkOrder.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <section role="manufacturing">
       <title>Labor Variance</title>
       <para>Labor Variance Reports section.</para>
       <xi:include href="guiclient/dspLaborVarianceByWorkCenter.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspLaborVarianceByItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspLaborVarianceByBOOItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspLaborVarianceByWorkOrder.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <section role="manufacturing">
       <title>Breeder Distribution Variance</title>
       <para>Breeder Distribution Variance Reports section.</para>
       <xi:include href="guiclient/dspBreederDistributionVarianceByWarehouse.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspBreederDistributionVarianceByItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <section>
       <title>Open Work Orders</title>
       <para>Open Work Orders Reports section.</para>
       <xi:include href="guiclient/dspWoSoStatusMismatch.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
-      <xi:include href="guiclient/dspWoSoStatus.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspWoSoStatus.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
   <section>
     <title>Utilities</title>
     <para>Manufacturing Utilities section.</para>
     <xi:include href="guiclient/purgeClosedWorkOrders.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
 </chapter>

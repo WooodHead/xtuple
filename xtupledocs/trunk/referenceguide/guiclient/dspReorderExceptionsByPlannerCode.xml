@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section519080" role="manufacturing">
+<section id="Section519080">
   <title>Reorder Exceptions by Planner Code</title>
   <para>A Reorder Exception is an indication that an Item Site's projected
   Availability will drop below the Reorder Level for that Item Site. To view a
@@ -105,17 +105,17 @@
   you to select from the following options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewRunningAvailability)" />
+                xpointer="element(rightclickViewRunningAvailability)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>If the selected Item is a manufactured Item, the following additional
   option will also be available:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCreateWorkOrder)" />
+                xpointer="element(rightclickCreateWorkOrder)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>

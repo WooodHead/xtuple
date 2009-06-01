@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section519851" role="manufacturing">
+<section id="Section519851">
   <title>W/O Operations by Work Order</title>
   <para>To view Work Order Operations by Work Order, select the "W/O
   Operations by Work Order" option. The following screen will appear:</para>
@@ -79,16 +79,16 @@
   from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewOperation)" />
+                xpointer="element(rightclickViewOperation)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditOperation)" />
+                xpointer="element(rightclickEditOperation)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickDeleteOperation)" />
+                xpointer="element(rightclickDeleteOperation)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>
