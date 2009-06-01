@@ -128,7 +128,7 @@
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
-    <varlistentry role="manufacturing">
+    <varlistentry>
       <term>SUBMIT</term>
       <listitem>
         <para>Select to submit report to the Batch Manager.</para>
@@ -139,10 +139,10 @@
   from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewDemand)" />
+                xpointer="element(rightclickViewDemand)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>
