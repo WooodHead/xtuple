@@ -1,26 +1,38 @@
-CREATE OR REPLACE FUNCTION recalculateCobmiscTaxTotal(INTEGER) RETURNS VOID AS '
+CREATE OR REPLACE FUNCTION recalculatecobmisctaxtotal(integer)
+  RETURNS void AS
+$BODY$
 DECLARE
   pCobmiscid ALIAS FOR $1;
   _r RECORD;
 BEGIN
-  SELECT COALESCE(cobmisc_adjtax_ratea, 0.0) + COALESCE(cobmisc_freighttax_ratea, 0.0) + COALESCE(SUM(COALESCE(cobill_tax_ratea, 0.0)), 0.0) AS rateA,
-         COALESCE(cobmisc_adjtax_rateb, 0.0) + COALESCE(cobmisc_freighttax_rateb, 0.0) + COALESCE(SUM(COALESCE(cobill_tax_rateb, 0.0)), 0.0) AS rateB,
-         COALESCE(cobmisc_adjtax_ratec, 0.0) + COALESCE(cobmisc_freighttax_ratec, 0.0) + COALESCE(SUM(COALESCE(cobill_tax_ratec, 0.0)), 0.0) AS rateC
+   SELECT SUM(tax) as tax
     INTO _r
-    FROM cobmisc LEFT OUTER JOIN cobill ON (cobill_cobmisc_id=cobmisc_id)
+   FROM
+	(SELECT COALESCE(taxhist_tax, 0.0)  AS tax
+	FROM cobmisc 
+	LEFT OUTER JOIN cobmisctax ON (cobmisc_id=taxhist_parent_id)
+				AND (cobmisc_freighttaxtype_id = taxhist_taxtype_id)
+   WHERE    (cobmisc_id = pCobmiscid)
+   UNION ALL                 
+   SELECT COALESCE(SUM(COALESCE(taxhist_tax, 0.0)), 0.0) AS tax
+   FROM cobmisc 
+   LEFT OUTER JOIN cobmisctax ON (cobmisc_id=taxhist_parent_id )
+			AND (cobmisc_adjtaxtype_id = taxhist_taxtype_id)
    WHERE (cobmisc_id=pCobmiscid)
-   GROUP BY cobmisc_adjtax_ratea, cobmisc_freighttax_ratea,
-            cobmisc_adjtax_rateb, cobmisc_freighttax_rateb,
-            cobmisc_adjtax_ratec, cobmisc_freighttax_ratec;
+   UNION ALL                 
+   SELECT COALESCE(SUM(COALESCE(taxhist_tax, 0.0)), 0.0) AS tax
+   FROM cobill
+   LEFT OUTER JOIN cobilltax ON (cobill_id=taxhist_parent_id )
+   WHERE (cobill_cobmisc_id=pCobmiscid)) AS tax;
+
+            
   IF (FOUND) THEN
     UPDATE cobmisc
-       SET cobmisc_tax = _r.rateA + _r.rateB + _r.rateC,
-           cobmisc_tax_ratea = _r.rateA,
-           cobmisc_tax_rateb = _r.rateB,
-           cobmisc_tax_ratec = _r.rateC
+       SET cobmisc_tax = currToCurr(cobmisc_tax_curr_id, cobmisc_curr_id,_r.tax, cobmisc_invcdate)
      WHERE (cobmisc_id=pCobmiscid);
   END IF;
 
   RETURN;
 END;
-' LANGUAGE 'plpgsql';
+$BODY$
+  LANGUAGE 'plpgsql' VOLATILE;

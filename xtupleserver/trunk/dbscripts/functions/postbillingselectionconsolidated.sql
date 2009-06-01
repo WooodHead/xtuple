@@ -1,4 +1,6 @@
-CREATE OR REPLACE FUNCTION postBillingSelectionConsolidated(INTEGER) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION postbillingselectionconsolidated(integer)
+  RETURNS integer AS
+$BODY$
 DECLARE
   pCustid ALIAS FOR $1;
   _invcheadid INTEGER;
@@ -26,34 +28,26 @@ BEGIN
                    cohead_terms_id,
                    cobmisc_misc_accnt_id,
                    cohead_prj_id, cobmisc_curr_id,
-                   cobmisc_taxauth_id, cobmisc_tax_curr_id,
-                   cobmisc_adjtax_id, cobmisc_adjtaxtype_id,
-                   cobmisc_adjtax_pcta, cobmisc_adjtax_pctb, cobmisc_adjtax_pctc,
-                   cobmisc_freighttax_id, cobmisc_freighttaxtype_id,
-                   cobmisc_freighttax_pcta, cobmisc_freighttax_pctb, cobmisc_freighttax_pctc,
--- the following are consolidated values to use in creating the header
+                   cobmisc_taxzone_id, cobmisc_tax_curr_id,
+                   cobmisc_adjtaxtype_id,
+                   cobmisc_freighttaxtype_id,
+                   
+		-- the following are consolidated values to use in creating the header
                    MIN(cohead_number) AS cohead_number,
                    MIN(cohead_orderdate) AS cohead_orderdate,
                    MIN(cobmisc_invcdate) AS cobmisc_invcdate,
                    MIN(cobmisc_shipdate) AS cobmisc_shipdate,
                    SUM(cobmisc_freight) AS cobmisc_freight,
                    COALESCE(SUM(cobmisc_tax), 0) AS cobmisc_tax,
-                   SUM(cobmisc_tax_ratea) AS cobmisc_tax_ratea,
-                   SUM(cobmisc_tax_rateb) AS cobmisc_tax_rateb,
-                   SUM(cobmisc_tax_ratec) AS cobmisc_tax_ratec,
                    SUM(cobmisc_misc) AS cobmisc_misc,
-                   SUM(cobmisc_payment) AS cobmisc_payment,
-                   SUM(cobmisc_adjtax_ratea) AS cobmisc_adjtax_ratea,
-                   SUM(cobmisc_adjtax_rateb) AS cobmisc_adjtax_rateb,
-                   SUM(cobmisc_adjtax_ratec) AS cobmisc_adjtax_ratec,
-                   SUM(cobmisc_freighttax_ratea) AS cobmisc_freighttax_ratea,
-                   SUM(cobmisc_freighttax_rateb) AS cobmisc_freighttax_rateb,
-                   SUM(cobmisc_freighttax_ratec) AS cobmisc_freighttax_ratec
+                   SUM(cobmisc_payment) AS cobmisc_payment
+                   
               FROM cobmisc, cohead, cust
              WHERE((cobmisc_cohead_id=cohead_id)
                AND (cohead_cust_id=cust_id)
                AND (NOT cobmisc_posted)
-               AND (cohead_cust_id=pCustid))
+               AND (cohead_cust_id=pCustid)
+               )
           GROUP BY cohead_billtoname, cohead_billtoaddress1,
                    cohead_billtoaddress2, cohead_billtoaddress3,
                    cohead_billtocity, cohead_billtostate,
@@ -63,11 +57,10 @@ BEGIN
                    cohead_terms_id,
                    cobmisc_misc_accnt_id,
                    cohead_prj_id, cobmisc_curr_id,
-                   cobmisc_taxauth_id, cobmisc_tax_curr_id,
-                   cobmisc_adjtax_id, cobmisc_adjtaxtype_id,
-                   cobmisc_adjtax_pcta, cobmisc_adjtax_pctb, cobmisc_adjtax_pctc,
-                   cobmisc_freighttax_id, cobmisc_freighttaxtype_id,
-                   cobmisc_freighttax_pcta, cobmisc_freighttax_pctb, cobmisc_freighttax_pctc LOOP
+                   cobmisc_taxzone_id, cobmisc_tax_curr_id,
+                   cobmisc_adjtaxtype_id,
+                   cobmisc_freighttaxtype_id
+		LOOP
 
     IF(_c.cnt = 1) THEN
       PERFORM postBillingSelection(_c.cobmisc_id);
@@ -95,17 +88,11 @@ BEGIN
         invchead_salesrep_id, invchead_commission,
         invchead_terms_id,
         invchead_freight, invchead_tax,
-        invchead_tax_ratea, invchead_tax_rateb, invchead_tax_ratec,
         invchead_misc_amount, invchead_misc_descrip, invchead_misc_accnt_id,
         invchead_payment, invchead_paymentref,
         invchead_notes, invchead_prj_id, invchead_curr_id,
-        invchead_taxauth_id, invchead_tax_curr_id,
-        invchead_adjtax_id, invchead_adjtaxtype_id,
-        invchead_adjtax_pcta, invchead_adjtax_pctb, invchead_adjtax_pctc,
-        invchead_adjtax_ratea, invchead_adjtax_rateb, invchead_adjtax_ratec,
-        invchead_freighttax_id, invchead_freighttaxtype_id,
-        invchead_freighttax_pcta, invchead_freighttax_pctb, invchead_freighttax_pctc,
-        invchead_freighttax_ratea, invchead_freighttax_rateb, invchead_freighttax_ratec )
+        invchead_taxzone_id, invchead_tax_curr_id,
+        invchead_adjtaxtype_id, invchead_freighttaxtype_id )
       VALUES(_invcheadid,
              pCustid, -1,
              NULL, _c.cohead_orderdate,
@@ -121,19 +108,15 @@ BEGIN
              _c.cohead_salesrep_id, COALESCE(_c.cohead_commission, 0),
              _c.cohead_terms_id,
              _c.cobmisc_freight, _c.cobmisc_tax,
-             _c.cobmisc_tax_ratea, _c.cobmisc_tax_rateb, _c.cobmisc_tax_ratec,
              _c.cobmisc_misc, CASE WHEN(_c.cobmisc_misc <> 0) THEN 'Multiple' ELSE '' END,
              _c.cobmisc_misc_accnt_id,
              _c.cobmisc_payment, '',
              'Multiple Sales Order # Invoice', _c.cohead_prj_id, _c.cobmisc_curr_id,
-             _c.cobmisc_taxauth_id, _c.cobmisc_tax_curr_id,
-             _c.cobmisc_adjtax_id, _c.cobmisc_adjtaxtype_id,
-             _c.cobmisc_adjtax_pcta, _c.cobmisc_adjtax_pctb, _c.cobmisc_adjtax_pctc,
-             _c.cobmisc_adjtax_ratea, _c.cobmisc_adjtax_rateb, _c.cobmisc_adjtax_ratec,
-             _c.cobmisc_freighttax_id, _c.cobmisc_freighttaxtype_id,
-             _c.cobmisc_freighttax_pcta, _c.cobmisc_freighttax_pctb, _c.cobmisc_freighttax_pctc,
-             _c.cobmisc_freighttax_ratea, _c.cobmisc_freighttax_rateb, _c.cobmisc_freighttax_ratec);
-  
+             _c.cobmisc_taxzone_id, _c.cobmisc_tax_curr_id,
+             _c.cobmisc_adjtaxtype_id,
+             _c.cobmisc_freighttaxtype_id
+             );
+ 
     _lastlinenumber := 0;
     FOR _i IN SELECT cobmisc_id
                 FROM cobmisc, cohead, cust
@@ -156,18 +139,11 @@ BEGIN
                  AND (COALESCE(cobmisc_misc_accnt_id, 0)     = COALESCE(_c.cobmisc_misc_accnt_id, 0))
                  AND (COALESCE(cohead_prj_id, 0)             = COALESCE(_c.cohead_prj_id, 0))
                  AND (COALESCE(cobmisc_curr_id, 0)           = COALESCE(_c.cobmisc_curr_id, 0))
-                 AND (COALESCE(cobmisc_taxauth_id, 0)        = COALESCE(_c.cobmisc_taxauth_id, 0))
+                 AND (COALESCE(cobmisc_taxzone_id, 0)        = COALESCE(_c.cobmisc_taxzone_id, 0))
                  AND (COALESCE(cobmisc_tax_curr_id, 0)       = COALESCE(_c.cobmisc_tax_curr_id, 0))
-                 AND (COALESCE(cobmisc_adjtax_id, 0)         = COALESCE(_c.cobmisc_adjtax_id, 0))
                  AND (COALESCE(cobmisc_adjtaxtype_id, 0)     = COALESCE(_c.cobmisc_adjtaxtype_id, 0))
-                 AND (COALESCE(cobmisc_adjtax_pcta, 0)       = COALESCE(_c.cobmisc_adjtax_pcta, 0))
-                 AND (COALESCE(cobmisc_adjtax_pctb, 0)       = COALESCE(_c.cobmisc_adjtax_pctb, 0))
-                 AND (COALESCE(cobmisc_adjtax_pctc, 0)       = COALESCE(_c.cobmisc_adjtax_pctc, 0))
-                 AND (COALESCE(cobmisc_freighttax_id, 0)     = COALESCE(_c.cobmisc_freighttax_id, 0))
                  AND (COALESCE(cobmisc_freighttaxtype_id, 0) = COALESCE(_c.cobmisc_freighttaxtype_id, 0))
-                 AND (COALESCE(cobmisc_freighttax_pcta, 0)   = COALESCE(_c.cobmisc_freighttax_pcta, 0))
-                 AND (COALESCE(cobmisc_freighttax_pctb, 0)   = COALESCE(_c.cobmisc_freighttax_pctb, 0))
-                 AND (COALESCE(cobmisc_freighttax_pctc, 0)   = COALESCE(_c.cobmisc_freighttax_pctc, 0))) LOOP
+                ) LOOP
 
     --  Give this selection a number if it has not been assigned one
         UPDATE cobmisc
@@ -182,9 +158,7 @@ BEGIN
                          coitem_price_uom_id, coitem_price_invuomratio,
                          coitem_memo,
                          itemsite_item_id, itemsite_warehous_id,
-                         cobill_tax_id, cobill_taxtype_id,
-                         cobill_tax_pcta, cobill_tax_pctb, cobill_tax_pctc,
-                         cobill_tax_ratea, cobill_tax_rateb, cobill_tax_ratec
+                         cobill_taxtype_id
                     FROM coitem, cobill, itemsite
                    WHERE((cobill_coitem_id=coitem_id)
                      AND (coitem_itemsite_id=itemsite_id)
@@ -200,9 +174,7 @@ BEGIN
             invcitem_custprice, invcitem_price,
             invcitem_price_uom_id, invcitem_price_invuomratio,
             invcitem_notes,
-            invcitem_tax_id, invcitem_taxtype_id,
-            invcitem_tax_pcta, invcitem_tax_pctb, invcitem_tax_pctc,
-            invcitem_tax_ratea, invcitem_tax_rateb, invcitem_tax_ratec,
+            invcitem_taxtype_id,
             invcitem_coitem_id )
           VALUES
           ( _invcitemid, _invcheadid,
@@ -214,9 +186,7 @@ BEGIN
             _r.coitem_custprice, _r.coitem_price,
             _r.coitem_price_uom_id, _r.coitem_price_invuomratio,
             _r.coitem_memo,
-            _r.cobill_tax_id, _r.cobill_taxtype_id,
-            _r.cobill_tax_pcta, _r.cobill_tax_pctb, _r.cobill_tax_pctc,
-            _r.cobill_tax_ratea, _r.cobill_tax_rateb, _r.cobill_tax_ratec,
+            _r.cobill_taxtype_id,
             _r.coitem_id );
       
       --  Find and mark any Lot/Serial invdetail records associated with this bill
@@ -297,4 +267,5 @@ BEGIN
   END LOOP;
   RETURN _count;
 END;
-$$ LANGUAGE 'plpgsql';
+$BODY$
+  LANGUAGE 'plpgsql' VOLATILE;
