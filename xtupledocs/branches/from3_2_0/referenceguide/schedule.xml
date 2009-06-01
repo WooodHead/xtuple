@@ -4,8 +4,8 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="Chapter550363">
   <title>Schedule Module</title>
-  <para>In this chapter, we describe the Schedule module. This module enables
-  you to develop your <indexterm significance="normal">
+  <para role="manufacturing">In this chapter, we describe the Schedule module.
+  This module enables you to develop your <indexterm significance="normal">
       <primary>production plans</primary>
       <secondary>in master scheduling</secondary>
     </indexterm> <indexterm significance="normal">
@@ -14,29 +14,29 @@
     </indexterm>Production Plan and balance supply and demand throughout your
   manufacturing process. The following Manufacturing Scheduling categories
   will be covered:</para>
-  <itemizedlist>
-    <listitem>
-      <para><indexterm significance="normal">
-          <primary>MPS</primary>
-          <see>master production scheduling</see>
-        </indexterm>Master Production Scheduling (MPS)</para>
-    </listitem>
-    <listitem>
-      <para><indexterm significance="normal">
-          <primary>MRP</primary>
-          <see>material requirements planning</see>
-        </indexterm>Material Requirements Planning (MRP)</para>
-    </listitem>
-    <listitem>
-      <para>Constraint Management</para>
-    </listitem>
-    <listitem>
-      <para>Planned Orders</para>
-    </listitem>
-    <listitem>
-      <para>Planner Codes</para>
-    </listitem>
-  </itemizedlist>
+  <para role="manufacturing"><itemizedlist>
+      <listitem>
+        <para><indexterm significance="normal">
+            <primary>MPS</primary>
+            <see>master production scheduling</see>
+          </indexterm>Master Production Scheduling (MPS)</para>
+      </listitem>
+      <listitem>
+        <para><indexterm significance="normal">
+            <primary>MRP</primary>
+            <see>material requirements planning</see>
+          </indexterm>Material Requirements Planning (MRP)</para>
+      </listitem>
+      <listitem>
+        <para>Constraint Management</para>
+      </listitem>
+      <listitem>
+        <para>Planned Orders</para>
+      </listitem>
+      <listitem>
+        <para>Planner Codes</para>
+      </listitem>
+    </itemizedlist></para>
   <section id="Section539566" role="manufacturing">
     <title>Production Plan</title>
     <para>The Master Production Scheduling (MPS) system serves several
@@ -104,35 +104,35 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section539268" role="manufacturing">
+  <section id="Section539268">
     <title>Constraint Management</title>
-    <para>Manufacturing managers frequently look for tools and methods to help
-    them identify actions requiring immediate attention. In this way, they can
-    help ensure production output matches Customer demand. This is where the
-    Constraint Management system comes in. Constraint Management is used to
-    evaluate Items, Work Orders, Purchase Orders, and Work Centers-and then
-    prioritize each, identifying which should be worked on and/or addressed
-    first.</para>
-    <para>The Constraint Management system reports on the following three
-    types of buffers:</para>
-    <itemizedlist>
-      <listitem>
-        <para>Stock buffer: An accumulation of Items stored in Inventory that
-        act as a hedge against demand where the required service time is
-        shorter than a time buffer for that Item would allow. The buffer size
-        is determined by the Reorder Level at the Item Site.</para>
-      </listitem>
-      <listitem>
-        <para>Time buffer: The lead time, measured in working days, of a
-        supply order for an Item that is not stocked.</para>
-      </listitem>
-      <listitem>
-        <para>Capacity buffer: The relative load of a resource (i.e., Work
-        Center) compared to the desired lead time of Items coming out of that
-        resource.</para>
-      </listitem>
-    </itemizedlist>
-    <section>
+    <para role="manufacturing">Manufacturing managers frequently look for
+    tools and methods to help them identify actions requiring immediate
+    attention. In this way, they can help ensure production output matches
+    Customer demand. This is where the Constraint Management system comes in.
+    Constraint Management is used to evaluate Items, Work Orders, Purchase
+    Orders, and Work Centers-and then prioritize each, identifying which
+    should be worked on and/or addressed first.</para>
+    <para role="manufacturing">The Constraint Management system reports on the
+    following three types of buffers:</para>
+    <para role="manufacturing"><itemizedlist>
+        <listitem>
+          <para>Stock buffer: An accumulation of Items stored in Inventory
+          that act as a hedge against demand where the required service time
+          is shorter than a time buffer for that Item would allow. The buffer
+          size is determined by the Reorder Level at the Item Site.</para>
+        </listitem>
+        <listitem>
+          <para>Time buffer: The lead time, measured in working days, of a
+          supply order for an Item that is not stocked.</para>
+        </listitem>
+        <listitem>
+          <para>Capacity buffer: The relative load of a resource (i.e., Work
+          Center) compared to the desired lead time of Items coming out of
+          that resource.</para>
+        </listitem>
+      </itemizedlist></para>
+    <section role="manufacturing">
       <title>Update</title>
       <para>Update Buffer Status section.</para>
       <xi:include href="guiclient/createBufferStatusByPlannerCode.xml"
@@ -144,7 +144,7 @@
     </section>
     <section>
       <title>Inventory</title>
-      <para>Inventory Buffer Status section.</para>
+      <para role="manufacturing">Inventory Buffer Status section.</para>
       <xi:include href="guiclient/dspInventoryBufferStatusByPlannerCode.xml"
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -160,7 +160,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
       <title>Work Order</title>
-      <para>Work Order Buffer Status section.</para>
+      <para role="manufacturing">Work Order Buffer Status section.</para>
       <xi:include href="guiclient/dspWoBufferStatusByPlannerCode.xml"
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -249,11 +249,14 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section role="manufacturing">
+  <section>
     <title>Master Information</title>
-    <para>Schedule Master Information section.</para>
-    <xi:include href="guiclient/plannerCodes.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <para role="manufacturing">Schedule Master Information section.</para>
+    <section role="manufacturing">
+      <title>Planner Codes</title>
+      <xi:include href="guiclient/plannerCodes.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
     <xi:include href="guiclient/whseWeek.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/whseCalendars.xml" xpointer="element(/1)"
