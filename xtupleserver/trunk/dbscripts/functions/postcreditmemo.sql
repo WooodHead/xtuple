@@ -349,36 +349,34 @@ BEGIN
 --  Commit the GLSeries;
   PERFORM postGLSeries(_sequence, pJournalNumber);
 
-  IF (_totalAmount <> 0) THEN
 --  Create the Invoice aropen item
-    SELECT NEXTVAL('aropen_aropen_id_seq') INTO _aropenid;
-    INSERT INTO aropen
-    ( aropen_id, aropen_username, aropen_journalnumber,
-      aropen_open, aropen_posted,
-      aropen_cust_id, aropen_ponumber,
-      aropen_docnumber,
-      aropen_applyto, aropen_doctype,
-      aropen_docdate, aropen_duedate, aropen_distdate, aropen_terms_id,
-      aropen_amount, aropen_paid,
-      aropen_salesrep_id, aropen_commission_due, aropen_commission_paid,
-      aropen_ordernumber, aropen_notes,
-      aropen_rsncode_id, aropen_curr_id )
-    SELECT _aropenid, CURRENT_USER, pJournalNumber,
-           TRUE, FALSE,
-           cmhead_cust_id, cmhead_custponumber,
-           cmhead_number,
-           CASE WHEN (cmhead_invcnumber='-1') THEN 'OPEN'
-                ELSE (cmhead_invcnumber::TEXT)
-           END,
-           'C',
-           cmhead_docdate, cmhead_docdate, _glDate, -1,
-           _totalAmount, 0,
-           cmhead_salesrep_id, (_commissionDue * -1), FALSE,
-           cmhead_number::TEXT, cmhead_comments,
-           cmhead_rsncode_id, cmhead_curr_id
-    FROM cmhead
-    WHERE (cmhead_id=pCmheadid);
-  END IF;
+  SELECT NEXTVAL('aropen_aropen_id_seq') INTO _aropenid;
+  INSERT INTO aropen
+  ( aropen_id, aropen_username, aropen_journalnumber,
+    aropen_open, aropen_posted,
+    aropen_cust_id, aropen_ponumber,
+    aropen_docnumber,
+    aropen_applyto, aropen_doctype,
+    aropen_docdate, aropen_duedate, aropen_distdate, aropen_terms_id,
+    aropen_amount, aropen_paid,
+    aropen_salesrep_id, aropen_commission_due, aropen_commission_paid,
+    aropen_ordernumber, aropen_notes,
+    aropen_rsncode_id, aropen_curr_id )
+  SELECT _aropenid, CURRENT_USER, pJournalNumber,
+         TRUE, FALSE,
+         cmhead_cust_id, cmhead_custponumber,
+         cmhead_number,
+         CASE WHEN (cmhead_invcnumber='-1') THEN 'OPEN'
+              ELSE (cmhead_invcnumber::TEXT)
+         END,
+         'C',
+         cmhead_docdate, cmhead_docdate, _glDate, -1,
+         _totalAmount, 0,
+         cmhead_salesrep_id, (_commissionDue * -1), FALSE,
+         cmhead_number::TEXT, cmhead_comments,
+         cmhead_rsncode_id, cmhead_curr_id
+  FROM cmhead
+  WHERE (cmhead_id=pCmheadid);
 
 -- Handle the Inventory and G/L Transactions for any returned Inventory
   FOR _r IN SELECT cmitem_itemsite_id AS itemsite_id, cmitem_id,
