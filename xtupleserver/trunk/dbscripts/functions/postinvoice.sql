@@ -209,7 +209,7 @@ BEGIN
 				      'A/R', 'IN', _p.invchead_invcnumber,
 				      _p.invchead_curr_id, _firstExchDate, _glDate,
                                       'invcitemtax', _r.invcitem_id,
-                                      ('Tax liability for ' || _p.invchead_billto_name));
+                                      (_p.invchead_billto_name));
     IF (_taxBaseValue IS NULL) THEN
       PERFORM deleteGLSeries(_p.sequence);
       DELETE FROM cohist
@@ -450,7 +450,7 @@ BEGIN
 				      'A/R', 'IN', _p.invchead_invcnumber,
 				      _p.invchead_curr_id, _firstExchDate, _glDate,
                                       'invcheadtax', _p.invchead_id,
-                                      ('Tax liability for ' || _p.invchead_billto_name));
+                                      (_p.invchead_billto_name));
   IF (_taxBaseValue IS NULL) THEN
     PERFORM deleteGLSeries(_p.sequence);
     DELETE FROM cohist
