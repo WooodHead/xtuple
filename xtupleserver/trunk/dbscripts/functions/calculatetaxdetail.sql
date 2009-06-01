@@ -56,8 +56,8 @@ BEGIN
     END AS sequence
     INTO _x
   FROM taxass
-  WHERE  ((COALESCE(taxass_taxzone_id, pTaxZoneId) = pTaxZoneId)
-  AND    (COALESCE(taxass_taxtype_id, pTaxTypeId) = pTaxTypeId))
+  WHERE  ((COALESCE(taxass_taxzone_id, pTaxZoneId, -1) = COALESCE(pTaxZoneId,-1))
+  AND    (COALESCE(taxass_taxtype_id, pTaxTypeId, -1) = COALESCE(pTaxTypeId,-1)))
   ORDER BY sequence LIMIT 1;
   
 /*
