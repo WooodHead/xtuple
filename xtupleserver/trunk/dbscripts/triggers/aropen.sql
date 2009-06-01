@@ -21,7 +21,7 @@ BEGIN
     RAISE EXCEPTION 'You must enter a valid Document # for this A/R Memo.';
   END IF;
 
-  IF ( (NEW.aropen_amount IS NOT NULL) AND (NEW.aropen_amount <= 0) ) THEN
+  IF ( (NEW.aropen_amount IS NOT NULL) AND (NEW.aropen_amount < 0) ) THEN
     RAISE EXCEPTION 'You must enter a positive Amount for this A/R Memo.';
   END IF;
 
