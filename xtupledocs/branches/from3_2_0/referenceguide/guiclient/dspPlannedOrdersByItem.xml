@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section518747" role="manufacturing">
+<section id="Section518747">
   <title>Planned Orders by Item</title>
   <para>To view Planned Orders by Item, select the "Planned Orders by Item"
   option. The following screen will appear:</para>
@@ -40,7 +40,7 @@
   </variablelist>
   <note>
     <para>In the case of Planned Purchase Orders, the quantity will always be
-    represented in the Inventory Unit of Measure (UOM)&mdash;regardless of the
+    represented in the Inventory Unit of Measure (UOM)—regardless of the
     Vendor UOM used on any existing Purchase Orders.</para>
   </note>
   <variablelist>
@@ -98,29 +98,29 @@
   to select from the following menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickRunningAvailability)" />
+                xpointer="element(rightclickRunningAvailability)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickFirmOrder)" />
+                xpointer="element(rightclickFirmOrder)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickChangeOrderType)" />
+                xpointer="element(rightclickChangeOrderType)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReleaseOrder)" />
+                xpointer="element(rightclickReleaseOrder)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickDeleteOrder)" />
+                xpointer="element(rightclickDeleteOrder)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(xtreewidget.menu.exportcontents)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>If the selected Order is firmed, the following option will be
   available:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickSoftenOrder)" />
+                xpointer="element(rightclickSoftenOrder)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>
