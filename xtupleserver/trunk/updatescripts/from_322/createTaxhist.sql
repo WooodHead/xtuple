@@ -116,28 +116,6 @@ CREATE TABLE invcitemtax
 INHERITS (taxhist);
 GRANT ALL ON TABLE invcitemtax TO xtrole;
 
-CREATE TABLE toheadtax
-(
-    PRIMARY KEY (taxhist_id),
-    FOREIGN KEY (taxhist_parent_id) REFERENCES tohead (tohead_id) ON DELETE CASCADE,
-    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
-    FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
-    FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
-)
-INHERITS (taxhist);
-GRANT ALL ON TABLE toheadtax TO xtrole;
-
-CREATE TABLE toitemtax
-(
-    PRIMARY KEY (taxhist_id),
-    FOREIGN KEY (taxhist_parent_id) REFERENCES toitem (toitem_id) ON DELETE CASCADE,
-    FOREIGN KEY (taxhist_taxtype_id) REFERENCES taxtype (taxtype_id),
-    FOREIGN KEY (taxhist_tax_id) REFERENCES tax (tax_id),
-    FOREIGN KEY (taxhist_basis_tax_id) REFERENCES tax (tax_id)
-)
-INHERITS (taxhist);
-GRANT ALL ON TABLE toitemtax TO xtrole;
-
 CREATE TABLE voheadtax
 (
     PRIMARY KEY (taxhist_id),
