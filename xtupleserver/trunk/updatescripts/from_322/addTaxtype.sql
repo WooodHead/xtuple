@@ -16,8 +16,6 @@ ALTER TABLE pohead ADD COLUMN pohead_taxtype_id INTEGER REFERENCES taxtype (taxt
 ALTER TABLE poitem ADD COLUMN poitem_taxtype_id INTEGER REFERENCES taxtype (taxtype_id);
 ALTER TABLE quhead ADD COLUMN quhead_taxtype_id INTEGER REFERENCES taxtype (taxtype_id);
 ALTER TABLE quitem ADD COLUMN quitem_taxtype_id INTEGER REFERENCES taxtype (taxtype_id);
-ALTER TABLE rahead ADD COLUMN rahead_taxtype_id INTEGER REFERENCES taxtype (taxtype_id);
--- ALTER TABLE raitem ADD COLUMN raitem_taxtype_id INTEGER REFERENCES taxtype (taxtype_id);
 ALTER TABLE vohead ADD COLUMN vohead_taxtype_id INTEGER REFERENCES taxtype (taxtype_id);
 -- ALTER TABLE voitem ADD COLUMN voitem_taxtype_id INTEGER REFERENCES taxtype (taxtype_id);
 
