@@ -13,7 +13,6 @@ UPDATE itemtax      SET itemtax_taxzone_id=itemtax_taxauth_id;
 UPDATE prospect     SET prospect_taxzone_id=prospect_taxauth_id;
 -- UPDATE pohead
 UPDATE quhead       SET quhead_taxzone_id=quhead_taxauth_id;
-UPDATE rahead       SET rahead_taxzone_id=rahead_taxauth_id;
 UPDATE shiptoinfo   SET shipto_taxzone_id=shipto_taxauth_id;
 UPDATE taxreg       SET taxreg_taxzone_id = taxreg_taxauth_id;
 UPDATE vendaddrinfo SET vendaddr_taxzone_id=vendaddr_taxauth_id;
@@ -55,8 +54,6 @@ UPDATE quitem SET quitem_taxtype_id=(SELECT getItemTaxType(itemsite_item_id, quh
                                      FROM itemsite, quhead
                                      WHERE ( (itemsite_id=quitem_itemsite_id)
                                        AND   (quhead_id=quitem_quhead_id) ));
-UPDATE rahead SET rahead_taxtype_id=getFreightTaxTypeId();
--- UPDATE raitem
 UPDATE vohead SET vohead_taxtype_id=getFreightTaxTypeId();
 -- UPDATE voitem
 

@@ -13,7 +13,6 @@ ALTER TABLE itemtax      ADD COLUMN itemtax_taxzone_id  INTEGER REFERENCES taxzo
 ALTER TABLE prospect     ADD COLUMN prospect_taxzone_id INTEGER REFERENCES taxzone (taxzone_id);
 ALTER TABLE pohead       ADD COLUMN pohead_taxzone_id   INTEGER REFERENCES taxzone (taxzone_id);
 ALTER TABLE quhead       ADD COLUMN quhead_taxzone_id   INTEGER REFERENCES taxzone (taxzone_id);
-ALTER TABLE rahead       ADD COLUMN rahead_taxzone_id   INTEGER REFERENCES taxzone (taxzone_id);
 ALTER TABLE shiptoinfo   ADD COLUMN shipto_taxzone_id   INTEGER REFERENCES taxzone (taxzone_id);
 ALTER TABLE vendaddrinfo ADD COLUMN vendaddr_taxzone_id INTEGER REFERENCES taxzone (taxzone_id);
 ALTER TABLE vendinfo     ADD COLUMN vend_taxzone_id     INTEGER REFERENCES taxzone (taxzone_id);

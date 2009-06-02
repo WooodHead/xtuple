@@ -21,7 +21,6 @@ COMMENT ON COLUMN invchead.invchead_taxauth_id IS 'Deprecated column - DO NOT US
 COMMENT ON COLUMN itemtax.itemtax_taxauth_id IS 'Deprecated column - DO NOT USE';
 COMMENT ON COLUMN prospect.prospect_taxauth_id IS 'Deprecated column - DO NOT USE';
 COMMENT ON COLUMN quhead.quhead_taxauth_id IS 'Deprecated column - DO NOT USE';
-COMMENT ON COLUMN rahead.rahead_taxauth_id IS 'Deprecated column - DO NOT USE';
 COMMENT ON COLUMN shiptoinfo.shipto_taxauth_id IS 'Deprecated column - DO NOT USE';
 COMMENT ON COLUMN vendaddrinfo.vendaddr_taxauth_id IS 'Deprecated column - DO NOT USE';
 COMMENT ON COLUMN vendinfo.vend_taxauth_id IS 'Deprecated column - DO NOT USE';
@@ -32,7 +31,6 @@ COMMENT ON COLUMN whsinfo.warehous_taxauth_id IS 'Deprecated column - DO NOT USE
 
 COMMENT ON COLUMN coitem.coitem_tax_id IS 'Deprecated column - DO NOT USE';
 COMMENT ON COLUMN quitem.quitem_tax_id IS 'Deprecated column - DO NOT USE';
-COMMENT ON COLUMN raitem.raitem_tax_id IS 'Deprecated column - DO NOT USE';
 
 COMMENT ON COLUMN custinfo.cust_tax_id IS 'Deprecated column - DO NOT USE';
 COMMENT ON COLUMN custinfo.cust_taxidnum IS 'Deprecated column - DO NOT USE';
