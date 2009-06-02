@@ -16,7 +16,6 @@ UPDATE quhead       SET quhead_taxzone_id=quhead_taxauth_id;
 UPDATE rahead       SET rahead_taxzone_id=rahead_taxauth_id;
 UPDATE shiptoinfo   SET shipto_taxzone_id=shipto_taxauth_id;
 UPDATE taxreg       SET taxreg_taxzone_id = taxreg_taxauth_id;
-UPDATE tohead       SET tohead_taxzone_id=tohead_taxauth_id;
 UPDATE vendaddrinfo SET vendaddr_taxzone_id=vendaddr_taxauth_id;
 UPDATE vendinfo     SET vend_taxzone_id=vend_taxauth_id;
 UPDATE vohead       SET vohead_taxzone_id=vohead_taxauth_id;
@@ -58,10 +57,6 @@ UPDATE quitem SET quitem_taxtype_id=(SELECT getItemTaxType(itemsite_item_id, quh
                                        AND   (quhead_id=quitem_quhead_id) ));
 UPDATE rahead SET rahead_taxtype_id=getFreightTaxTypeId();
 -- UPDATE raitem
-UPDATE tohead SET tohead_taxtype_id=getFreightTaxTypeId();
-UPDATE toitem SET toitem_taxtype_id=(SELECT getItemTaxType(toitem_item_id, tohead_taxzone_id)
-                                     FROM tohead
-                                     WHERE (tohead_id=toitem_tohead_id));
 UPDATE vohead SET vohead_taxtype_id=getFreightTaxTypeId();
 -- UPDATE voitem
 
@@ -241,30 +236,6 @@ BEGIN
            invchead_invcdate, invchead_gldistdate
     FROM invcitem JOIN invchead ON (invchead_id=invcitem_invchead_id)
     WHERE (invcitem_tax_id=_r.tax_id);
-
-    INSERT INTO toheadtax
-      ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
-        taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
-        taxhist_percent, taxhist_amount, taxhist_tax,
-        taxhist_docdate, taxhist_distdate )
-    SELECT tohead_id, tohead_taxtype_id, _taxid,
-           COALESCE(tohead_freight, 0), NULL, 0,
-           COALESCE(tohead_freighttax_pcta, 0), 0, COALESCE(tohead_freighttax_ratea, 0),
-           tohead_orderdate, tohead_orderdate
-    FROM tohead
-    WHERE (tohead_freighttax_id=_r.tax_id);
-
-    INSERT INTO toitemtax
-      ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
-        taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
-        taxhist_percent, taxhist_amount, taxhist_tax,
-        taxhist_docdate, taxhist_distdate )
-    SELECT toitem_id, toitem_taxtype_id, _taxid,
-           COALESCE(toitem_freight, 0), NULL, 0,
-           COALESCE(toitem_freighttax_pcta, 0), 0, COALESCE(toitem_freighttax_ratea, 0),
-           tohead_orderdate, tohead_orderdate
-    FROM toitem JOIN tohead ON (tohead_id=toitem_tohead_id)
-    WHERE (toitem_freighttax_id=_r.tax_id);
 
 -- vohead, voitem taxes not populated?
 --    INSERT INTO voheadtax
@@ -462,30 +433,6 @@ BEGIN
       FROM invcitem JOIN invchead ON (invchead_id=invcitem_invchead_id)
       WHERE (invcitem_tax_id=_r.tax_id);
 
-      INSERT INTO toheadtax
-        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
-          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
-          taxhist_percent, taxhist_amount, taxhist_tax,
-          taxhist_docdate, taxhist_distdate )
-      SELECT tohead_id, tohead_taxtype_id, _taxid,
-             COALESCE(tohead_freight, 0), NULL, 0,
-             COALESCE(tohead_freighttax_pctb, 0), 0, COALESCE(tohead_freighttax_rateb, 0),
-             tohead_orderdate, tohead_orderdate
-      FROM tohead
-      WHERE (tohead_freighttax_id=_r.tax_id);
-
-      INSERT INTO toitemtax
-        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
-          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
-          taxhist_percent, taxhist_amount, taxhist_tax,
-          taxhist_docdate, taxhist_distdate )
-      SELECT toitem_id, toitem_taxtype_id, _taxid,
-             COALESCE(toitem_freight, 0), NULL, 0,
-             COALESCE(toitem_freighttax_pctb, 0), 0, COALESCE(toitem_freighttax_rateb, 0),
-             tohead_orderdate, tohead_orderdate
-      FROM toitem JOIN tohead ON (tohead_id=toitem_tohead_id)
-      WHERE (toitem_freighttax_id=_r.tax_id);
-
     END IF;
 
 -- C rate
@@ -644,30 +591,6 @@ BEGIN
              invchead_invcdate, invchead_gldistdate
       FROM invcitem JOIN invchead ON (invchead_id=invcitem_invchead_id)
       WHERE (invcitem_tax_id=_r.tax_id);
-
-      INSERT INTO toheadtax
-        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
-          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
-          taxhist_percent, taxhist_amount, taxhist_tax,
-          taxhist_docdate, taxhist_distdate )
-      SELECT tohead_id, tohead_taxtype_id, _taxid,
-             COALESCE(tohead_freight, 0), NULL, 0,
-             COALESCE(tohead_freighttax_pctc, 0), 0, COALESCE(tohead_freighttax_ratec, 0),
-             tohead_orderdate, tohead_orderdate
-      FROM tohead
-      WHERE (tohead_freighttax_id=_r.tax_id);
-
-      INSERT INTO toitemtax
-        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
-          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
-          taxhist_percent, taxhist_amount, taxhist_tax,
-          taxhist_docdate, taxhist_distdate )
-      SELECT toitem_id, toitem_taxtype_id, _taxid,
-             COALESCE(toitem_freight, 0), NULL, 0,
-             COALESCE(toitem_freighttax_pctc, 0), 0, COALESCE(toitem_freighttax_ratec, 0),
-             tohead_orderdate, tohead_orderdate
-      FROM toitem JOIN tohead ON (tohead_id=toitem_tohead_id)
-      WHERE (toitem_freighttax_id=_r.tax_id);
 
     END IF;
   END LOOP;

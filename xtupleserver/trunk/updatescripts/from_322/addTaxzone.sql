@@ -15,7 +15,6 @@ ALTER TABLE pohead       ADD COLUMN pohead_taxzone_id   INTEGER REFERENCES taxzo
 ALTER TABLE quhead       ADD COLUMN quhead_taxzone_id   INTEGER REFERENCES taxzone (taxzone_id);
 ALTER TABLE rahead       ADD COLUMN rahead_taxzone_id   INTEGER REFERENCES taxzone (taxzone_id);
 ALTER TABLE shiptoinfo   ADD COLUMN shipto_taxzone_id   INTEGER REFERENCES taxzone (taxzone_id);
-ALTER TABLE tohead       ADD COLUMN tohead_taxzone_id   INTEGER REFERENCES taxzone (taxzone_id);
 ALTER TABLE vendaddrinfo ADD COLUMN vendaddr_taxzone_id INTEGER REFERENCES taxzone (taxzone_id);
 ALTER TABLE vendinfo     ADD COLUMN vend_taxzone_id     INTEGER REFERENCES taxzone (taxzone_id);
 ALTER TABLE vohead       ADD COLUMN vohead_taxzone_id   INTEGER REFERENCES taxzone (taxzone_id);

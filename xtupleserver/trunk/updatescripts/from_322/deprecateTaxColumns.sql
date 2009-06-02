@@ -23,7 +23,6 @@ COMMENT ON COLUMN prospect.prospect_taxauth_id IS 'Deprecated column - DO NOT US
 COMMENT ON COLUMN quhead.quhead_taxauth_id IS 'Deprecated column - DO NOT USE';
 COMMENT ON COLUMN rahead.rahead_taxauth_id IS 'Deprecated column - DO NOT USE';
 COMMENT ON COLUMN shiptoinfo.shipto_taxauth_id IS 'Deprecated column - DO NOT USE';
-COMMENT ON COLUMN tohead.tohead_taxauth_id IS 'Deprecated column - DO NOT USE';
 COMMENT ON COLUMN vendaddrinfo.vendaddr_taxauth_id IS 'Deprecated column - DO NOT USE';
 COMMENT ON COLUMN vendinfo.vend_taxauth_id IS 'Deprecated column - DO NOT USE';
 COMMENT ON COLUMN vohead.vohead_taxauth_id IS 'Deprecated column - DO NOT USE';
