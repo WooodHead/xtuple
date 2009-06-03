@@ -1,5 +1,0 @@
-BEGIN;
-
-DROP TABLE taxsel CASCADE;
-
-COMMIT;
