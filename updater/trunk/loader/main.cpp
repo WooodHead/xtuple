@@ -36,6 +36,7 @@ int main(int argc, char* argv[])
   bool    haveDatabaseURL = FALSE;
   _loggedIn        = FALSE;
   bool multitrans = false;
+  bool debugpkg   = false;
 
   QString databaseURL = "";
 
@@ -88,6 +89,8 @@ int main(int argc, char* argv[])
       }
       else if (argument.toLower() == "-multitrans")
         multitrans = true;
+      else if (argument.toLower() == "-debug")
+        debugpkg = true;
 
     }
 
@@ -184,6 +187,7 @@ int main(int argc, char* argv[])
 
   LoaderWindow * mainwin = new LoaderWindow();
   mainwin->setMultipleTransactions(multitrans);
+  mainwin->setDebugPkg(debugpkg);
   mainwin->show();
 
   return app.exec();
