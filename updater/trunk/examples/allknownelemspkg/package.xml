@@ -15,7 +15,7 @@
   </pkgnotes>
 
  <prerequisite type="Query" name="Checking SQL DB Server" >
-  <query>SELECT metric_value = 'OpenMFG' OR metric_value = 'PostBooks'
+  <query>SELECT metric_value IN ('Manufacturing', 'PostBooks', 'Standard')
          FROM metric
          WHERE metric_name = 'Application';</query>
   <message>
