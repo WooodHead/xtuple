@@ -122,21 +122,14 @@ void LoaderWindow::fileNew()
   _start->setEnabled(false);
 }
 
-
-void LoaderWindow::fileOpen()
+bool LoaderWindow::openFile(QString pfilename)
 {
   fileNew();
   
-  QSettings settings("xTuple.com", "Updater");
-  QString path = settings.value("LastDirectory").toString();
-
-  QFileInfo fi(QFileDialog::getOpenFileName(this,tr("Open Package"), path, 
-                     tr("Package Files (*.gz);;All Files (*.*)")));
-  if(fi.filePath().isEmpty())
-    return;
+  QFileInfo fi(pfilename);
+  if (fi.filePath().isEmpty())
+    return false;
     
-  settings.setValue("LastDirectory", fi.path());
-
   QByteArray data = gunzipFile(fi.filePath());
   if(data.isEmpty())
   {
@@ -144,7 +137,7 @@ void LoaderWindow::fileOpen()
                          tr("<p>The file %1 appears to be empty or it is not "
                             "compressed in the expected format.")
                          .arg(fi.filePath()));
-    return;
+    return false;
   }
 
   _files = new TarFile(data);
@@ -156,7 +149,7 @@ void LoaderWindow::fileOpen()
                          .arg(fi.filePath()));
     delete _files;
     _files = 0;
-    return;
+    return false;
   }
 
   // find the content file
@@ -180,7 +173,7 @@ void LoaderWindow::fileOpen()
                                .arg(contentsnames.at(i)).arg(fi.filePath()));
           delete _files;
           _files = 0;
-          return;
+          return false;
         }
         contentFile = *mit;
       }
@@ -197,7 +190,7 @@ void LoaderWindow::fileOpen()
                          .arg(contentsnames.join(" or ")).arg(fi.filePath()));
     delete _files;
     _files = 0;
-    return;
+    return false;
   }
   else if (! contentFile.endsWith(contentsnames.at(0)))
   {
@@ -221,7 +214,7 @@ void LoaderWindow::fileOpen()
                          .arg(errLine).arg(errCol));
     delete _files;
     _files = 0;
-    return;
+    return false;
   }
 
   _text->clear();
@@ -248,7 +241,7 @@ void LoaderWindow::fileOpen()
     {
       _text->append(tr("<p><font color=\"red\">The %1 file appears "
                        "to be invalid.</font></p>").arg(contentFile));
-      return;
+      return false;
     }
     else
       delayedWarning = tr("<p><font color=\"orange\">The %1 file "
@@ -310,7 +303,7 @@ void LoaderWindow::fileOpen()
   if(!allOk)
   {
     _status->setText(tr("<p><b>Checking Prerequisites!</b></p><p>One or more prerequisites <b>FAILED</b>. These prerequisites must be satisified before continuing.</p>"));
-    return;
+    return false;
   }
 
   _status->setText(tr("<p><b>Checking Prerequisites!</b></p><p>Check completed.</p>"));
@@ -359,6 +352,25 @@ void LoaderWindow::fileOpen()
   }
 
   _start->setEnabled(true);
+  return true;
+}
+
+void LoaderWindow::fileOpen()
+{
+  fileNew();
+  
+  QSettings settings("xTuple.com", "Updater");
+  QString path = settings.value("LastDirectory").toString();
+
+  QString filename = QFileDialog::getOpenFileName(this,
+                                                  tr("Open Package"), path,
+                                                  tr("Package Files (*.gz);;All Files (*.*)"));
+
+  if (! openFile(filename))
+    return;
+    
+  QFileInfo fi(filename);
+  settings.setValue("LastDirectory", fi.path());
 }
 
 
