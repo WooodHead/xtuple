@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="financialLayoutGroup">
+  <title><indexterm significance="normal">
+      <primary>financial reports</primary>
+      <secondary>adding groups to</secondary>
+    </indexterm> Financial Report Group</title>
+  <para>To add a new Financial Report Group, select either the ADD TOP LEVEL
+  GROUP or ADD GROUP buttons. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/financialLayoutGroup.png"
+                     />
+        </imageobject>
+        <caption>Add Financial Report Group</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>To add a sub-group to a top level group, simply highlight a top
+    level group using your mouse, then select the ADD GROUP button. The screen
+    for adding a sub-group is the same as the one for adding a top level
+    group.</para>
+  </tip>
+  <para>When creating a new Financial Report Group, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a name to identify the Financial Report Group.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a brief description of the Financial Report Group.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Subtotal/Summarize</term>
+      <listitem>
+        <para>Specify whether you want to subtotal or summarize the Financial
+        Report Group. If either is selected, specify which of the following
+        display options you want to include subtotals or summaries for:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show Subtotal</term>
+            <listitem>
+              <para>Will show subtotals for all included Accounts when the
+              Financial Report is generated.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Alt. Label</term>
+            <listitem>
+              <para>Select if you want to replace the word "Subtotal" with an
+              alternate label when the report is run. The text for the
+              alternate label is entered below.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Summarized</term>
+            <listitem>
+              <para>Will summarize the information for all included Accounts
+              and roll that information up to the group's top level when the
+              Financial Report is generated.</para>
+              <tip>
+                <para>A Financial Report can show either a subtotal or a
+                summary&mdash;but not both. If neither is specified, the additional
+                options will be unavailable.</para>
+              </tip>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Show Beginning Balance</term>
+            <listitem>
+              <para>Will show the subtotal or summary for all beginning
+              balances included in the group when the Financial Report is
+              generated. If selected, you also have the option to show the
+              beginning balance as a percentage of the group total. Not
+              selecting means the system will not calculate the beginning
+              balance for the group.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Show Ending Balance</term>
+            <listitem>
+              <para>Will show the subtotal or summary for all ending balances
+              included in the group when the Financial Report is generated. If
+              selected, you also have the option to show the ending balance as
+              a percentage of the group total. Not selecting means the system
+              will not calculate the ending balance for the group.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Show Debits/Credits</term>
+            <listitem>
+              <para>Will show the subtotal or summary for all Debit/Credit
+              balances included in the group when the Financial Report is
+              generated. If selected, you also have the option to show Debits
+              and Credits as a percentage of the group total. Not selecting
+              means the system will not calculate the Debit/Credit balances
+              for the group.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Show Budget</term>
+            <listitem>
+              <para>Will show the subtotal or summary for all Budget balances
+              included in the group when the Financial Report is generated. If
+              selected, you also have the option to show Budgets as a
+              percentage of the group total. Not selecting means the system
+              will not calculate the Budget balance for the group.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Show Difference</term>
+            <listitem>
+              <para>Will show the difference between Debits and Credits
+              included in the group when the Financial Report is generated. If
+              selected, you also have the option to show the difference as a
+              percentage of the group total. Not selecting means the system
+              will not calculate the difference between Debits and Credits for
+              the group.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Show Custom Column</term>
+            <listitem>
+              <para>Will show Custom column details included in the group when
+              the Financial Report is generated. If selected, you also have
+              the option to show Custom column details as a percentage of the
+              group total. Not selecting means the system will not calculate
+              the Custom column balance for the group.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Group for % Total calculation</term>
+            <listitem>
+              <para>Indicate which group to use if percentage of group total
+              calculations are specified. By default, the system will use the
+              parent group for these calculations. The parent group is
+              understood to be the group within which the group is immediately
+              located. If you prefer to determine percentage of total
+              calculations using a different group than the parent group,
+              select that group from the list. All groups defined for the
+              Financial Report will be available for selection.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Alt. Subtotal Label</term>
+            <listitem>
+              <para>Enter the label text you want to replace the word
+              "Subtotal" with when the report is run.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Operation</term>
+            <listitem>
+              <para>Specify how the Financial Report Group should operate in
+              relation to the group specified under the "Use Group"
+              option:</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Add to Group Total</term>
+            <listitem>
+              <para>Select if you want the group to be added to the specified
+              group's total. If selected, a "+" will appear next to the group
+              as it appears in the Financial Report.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Subtract from Group Total</term>
+            <listitem>
+              <para>Select if you want the group to be subtracted from the
+              specified group's total. If selected, a "-" will appear next to
+              the group as it appears in the Financial Report.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a Financial Report Group,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Financial Report Group and adds it to the Financial
+        Report.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="financialLayoutItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

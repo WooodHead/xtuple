@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section548229">
+  <title>
+<indexterm significance="normal">
+      <primary>crm</primary>
+      <secondary>contact titles for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>titles</primary>
+      <secondary>introduced</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>contacts</primary>
+      <secondary>titles for</secondary>
+    </indexterm>Titles</title>
+  <para>Titles are used at the beginning of a Contact's name. Examples of
+  titles include Dr., Mr., Ms., etc. When Titles are entered in the Master
+  Information section, these Titles are then available for use wherever
+  Contact information may be edited. To access the master list of Titles,
+  select the "Titles" option. The following screen will appear.</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/honorifics.png"/>
+        </imageobject>
+        <caption>Titles Master List</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>The "Titles" screen displays information on all existing Titles,
+  including the Title's name.</para>
+  <para>To the far right of the list, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Title.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="honirificsEDIT">
+        <para>Enables you to edit highlighted Titles. The edit screen is the
+        same as that for creating a new Title&mdash;except that when editing, the
+        fields will contain Title information. Double-clicking on a Title will
+        also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="honorificsVIEW">
+        <para>Highlight a Title and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="honorificsDELETE">
+        <para>Highlight a Title and then select this button to remove the
+        Title from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Title in the Titles list enables you to select
+  from the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Edit</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(honirificsEDIT)"/>
+    </varlistentry>
+    <varlistentry>
+      <term>View</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(honorificsVIEW)"/>
+    </varlistentry>
+    <varlistentry>
+      <term>Delete</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(honorificsDELETE)"/>
+    </varlistentry>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="honorific.xml" xpointer="element(/1)"/>
+</section>

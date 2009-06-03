@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>groups</primary>
+      <secondary>creating new</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>xtuple administrators</primary>
+      <secondary>new groups created by</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>administrators</primary>
+      <see>xtuple administrators</see>
+    </indexterm> <indexterm significance="normal">
+      <primary>system administrators</primary>
+      <see>xtuple administrators</see>
+    </indexterm>Group</title>
+  <para>To create a new user group, select the NEW button. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/group.png" />
+        </imageobject>
+        <caption>User Group Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new user group, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>groups</primary>
+          <secondary>creating names for</secondary>
+        </indexterm>Name</term>
+      <listitem>
+        <para>Enter a name for the user group. For example, you might name a
+        group according to a specific functional area (e.g., Sales,
+        Purchasing, etc.).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a brief description to describe the user group.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Module</term>
+      <listitem>
+        <para>Select an individual module to assign privileges for that
+        module. Assign privileges to the user group on a module-by-module
+        basis. Select one module, assign the appropriate privileges, and then
+        repeat for each subsequent module users in the group will need access
+        to. All application modules are included in the list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>privileges</primary>
+          <secondary>list of available</secondary>
+        </indexterm>Available Privileges</term>
+      <listitem>
+        <para>Select appropriate privileges from list of available privileges.
+        The privileges listed in this column represent the full range of
+        privileges available for the specified module. The list of available
+        privileges will change as different modules are specified. To grant
+        privileges to a user group, highlight an available privilege and then
+        click the ADD button. The highlighted privilege will be added to the
+        user group's list of granted privileges. Double-clicking on a
+        privilege will also move it to the granted privileges column. You can
+        grant all privileges for a specified module by clicking on the ADD ALL
+        button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>privileges</primary>
+          <secondary>list of granted</secondary>
+        </indexterm>Granted Privileges</term>
+      <listitem>
+        <para>Displays granted privileges for the specified user group. To
+        remove a user group's granted privileges for a specified module,
+        highlight a granted privilege and then click the REVOKE button. The
+        highlighted privilege will be removed from the user group's list of
+        granted privileges. Double-clicking on a privilege will also remove it
+        from the granted privileges column. You can remove all granted
+        privileges for a specified module by clicking on the REVOKE ALL
+        button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are located between the Available Privileges and
+  Granted Privileges columns:</para>
+  <variablelist>
+    <varlistentry>
+      <term>ADD-&gt;</term>
+      <listitem>
+        <para>Highlight a specific privilege in the available privileges
+        column, then select this button to transfer the privilege to the
+        granted privileges column. Double-clicking on an available privilege
+        will also transfer it to the granted privileges column.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ADD ALL-&gt;&gt;</term>
+      <listitem>
+        <para>Select this button to automatically transfer all available
+        privileges to the granted privileges column.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>&lt;-REVOKE</term>
+      <listitem>
+        <para>Highlight a specific privilege in the granted privileges column,
+        then select this button to remove the privilege from the granted
+        privileges column. Double-clicking on a granted privilege will also
+        remove it from the granted privileges column.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>&lt;&lt;-REVOKE ALL</term>
+      <listitem>
+        <para>Select this button to automatically remove all granted
+        privileges from the granted privileges column.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the specified user group's information and adds it to the
+        list of registered users.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen without saving any changes, returning you to
+        the previous screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

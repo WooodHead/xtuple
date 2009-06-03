@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518917">
+  <title>
+<indexterm significance="normal">
+      <primary>purchase orders</primary>
+      <secondary>line items by vendor</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>vendors</primary>
+      <secondary>p/o line item details for</secondary>
+    </indexterm>P/O Items by Vendor</title>
+  <para>To view Purchase Order Items by Vendor, select the "P/O Items by
+  Vendor" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspPoItemsByVendor.png"/>
+        </imageobject>
+        <caption>Purchase Order Items by Vendor</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <tip>
+    <para>A Purchase Order will remain open if at least one of its Line Items
+    is open. Once all Line Items are closed, the Purchase Order will also be
+    closed. To reopen a closed Purchase Order, simply open one of its closed
+    Line Items.</para>
+  </tip>
+  <para>When displaying Purchase Order Items by Vendor, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Vendor #</term>
+      <listitem>
+        <para>Enter the Vendor Number of the Vendor whose Purchase Order Items
+        you want to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Items</term>
+      <listitem>
+        <para>Select to include all Purchase Order Items by Vendor in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Open Items</term>
+      <listitem>
+        <para>Select to include open Purchase Order Items by Vendor in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Closed Items</term>
+      <listitem>
+        <para>Select to include closed Purchase Order Items by Vendor in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display Purchase Order Items by Vendor for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Purchase Order Items by Vendor you want
+        to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Purchasing Agents</term>
+      <listitem>
+        <para>Select to display Purchase Order Items by Vendor for all
+        Purchasing Agents.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Purchasing Agent whose Purchase Order Items by Vendor
+        you want to display. Users may be designated as Purchasing Agents at
+        the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All PO #s</term>
+      <listitem>
+        <para>Select to display Purchase Order Items by Vendor for all
+        Purchase Order Numbers.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected PO #</term>
+      <listitem>
+        <para>Specify Purchase Order Number whose Purchase Order Items by
+        Vendor you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>P/O Items</term>
+      <listitem>
+        <para>Display lists Purchase Order Items by Vendor, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Line Item in the Purchase Order list enables you
+  to select from the following menu options:</para>
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewPurchaseOrder)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickRunningAvailability)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewPOItem2)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickReschedulePO)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickChangeQty)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickCloseItem)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+  </variablelist>
+  <para>If the Line Item is closed, the following option will be
+  available:</para>
+  <variablelist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickOpenItem)"/>
+  </variablelist>
+</section>

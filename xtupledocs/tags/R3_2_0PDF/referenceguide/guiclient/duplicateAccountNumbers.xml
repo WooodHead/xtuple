@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section605738">
+   <title>
+       
+      <indexterm significance="normal">
+         <primary>accounts</primary>
+         <secondary>duplication of</secondary>
+      </indexterm>Duplicate Account Numbers</title>
+   <para>The Duplicate Account Numbers utility provides a
+    method for duplicating (i.e., copying) Account Numbers and saving them
+    with altered segments. To access the utility, select the "Duplicate
+    Account Numbers" option. The following screen will appear:</para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/duplicateAccountNumbers.png"/>
+            </imageobject>
+            <caption>Duplicate Account Numbers
+          Utility</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <para>When duplicating (i.e., copying) Account Numbers,
+    you are presented with the following options:</para>
+   <variablelist>
+      <varlistentry>
+         <term>Change Company Number</term>
+         <listitem>
+            <para>Select if you want the Company segment to be different in the
+          duplicate Account Number.</para>
+            <para>Specify the number you want the Company
+          segment to be changed to. Not selecting this option means the
+          Company segment will not be changed when the Account Number(s) is
+          duplicated.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>Change Profit Center Number</term>
+         <listitem>
+            <para>Select if you want the Profit Center segment to be different
+          in the duplicate Account Number.</para>
+            <para>Specify the number you want the Profit Center
+          segment to be changed to. Not selecting this option means the Profit
+          Center segment will not be changed when the Account Number(s) is
+          duplicated.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>Change Sub. Accnt. Number</term>
+         <listitem>
+            <para>Select if you want the Subaccount Number segment to be
+          different in the duplicate Account Number.</para>
+            <para>Specify the number you want the Subaccount
+          Number segment to be changed to. Not selecting this option means the
+          Subaccount Number segment will not be changed when the Account
+          Number(s) is duplicated.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>Append to Description</term>
+         <listitem>
+            <para>Enter any text you want to have appended to the duplicate
+          Account Number's description.</para>
+            <para>The text entered here will be added to the end
+          of the already-existing Account Number description.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>Select Account Numbers to Duplicate</term>
+         <listitem>
+            <para>Select one or multiple Account Numbers using your mouse and a
+          combination of the SHIFT and/or CTRL keys.</para>
+         </listitem>
+      </varlistentry>
+   </variablelist>
+   <para>To the far right of the screen, the following
+    buttons are available:</para>
+   <variablelist>
+      <varlistentry>
+         <term>CLOSE</term>
+         <listitem>
+            <para>Closes the screen, returning you to the application
+          desktop.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>DUPLICATE</term>
+         <listitem>
+            <para>Duplicates the selected Account Numbers and creates new
+          Account Numbers, using the specified parameters.</para>
+         </listitem>
+      </varlistentry>
+   </variablelist>
+</section>
