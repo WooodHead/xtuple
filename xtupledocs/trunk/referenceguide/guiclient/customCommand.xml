@@ -61,9 +61,8 @@
         Having an action name also makes it possible to create a Hot Key for
         the Custom Command. Because of the Hot Key feature, you should
         consider using an action name which conforms to the already-existing
-        naming convention for Hot Key actions. The <xref
-        linkend="hotkeyTitle" /> section contains more information on Hot
-        Keys.</para>
+        naming convention for Hot Key actions. For more information see <xref
+        linkend="hotkeyTitle" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -215,27 +214,35 @@
         </row>
         <row>
           <entry><para>-noAuth</para></entry>
-          <entry><para>This argument tell RPTrender that not all login fields, if any, are required and it will attempt to login to the specified database without presenting the login screen.</para><para><emphasis
+          <entry><para>This argument tell RPTrender that not all login fields,
+          if any, are required and it will attempt to login to the specified
+          database without presenting the login screen.</para><para><emphasis
           role="bold">Example</emphasis>:</para><para><code>-noAuth</code></para></entry>
         </row>
         <row>
           <entry><para>-loadfromdb=</para></entry>
-          <entry><para>This argument specifies the name a report definition to load from the database that is being connected to.</para><para><emphasis
+          <entry><para>This argument specifies the name a report definition to
+          load from the database that is being connected
+          to.</para><para><emphasis
           role="bold">Example</emphasis>:</para><para><code>-loadfromdb=SomeReportName</code></para></entry>
         </row>
         <row>
           <entry><para>-printerName=</para></entry>
-          <entry><para>This argument specified the printer to print to by it's name. Names vary from system to system and you must determine the correct name for this option.</para><para><emphasis
+          <entry><para>This argument specified the printer to print to by it's
+          name. Names vary from system to system and you must determine the
+          correct name for this option.</para><para><emphasis
           role="bold">Example</emphasis>:</para><para><code>-printerName=default</code></para></entry>
         </row>
         <row>
           <entry><para>-pdf</para></entry>
-          <entry><para>This argument specifies that you want the output to be in .pdf format.</para><para><emphasis
+          <entry><para>This argument specifies that you want the output to be
+          in .pdf format.</para><para><emphasis
           role="bold">Example</emphasis>:</para><para><code>-pdf</code></para></entry>
         </row>
         <row>
           <entry><para>-outpdf=</para></entry>
-          <entry><para>This argument specifies the name you want pdf output to be sent to.</para><para><emphasis
+          <entry><para>This argument specifies the name you want pdf output to
+          be sent to.</para><para><emphasis
           role="bold">Example</emphasis>:</para><para><code>-outpdf=myreport.pdf</code></para></entry>
         </row>
       </tbody>
@@ -262,9 +269,9 @@
       <listitem>
         <para>Enables you to edit highlighted argument definitions. The edit
         screen is the same as that for creating a new argument
-        definition&mdash;except that when editing, the fields will contain
-        argument information. Double-clicking on an argument definition will
-        also bring you to the editing screen.</para>
+        definition—except that when editing, the fields will contain argument
+        information. Double-clicking on an argument definition will also bring
+        you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -275,7 +282,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="customCommandArgument.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="customCommandArgument.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
