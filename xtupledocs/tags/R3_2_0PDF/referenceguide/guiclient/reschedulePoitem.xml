@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>Reschedule Purchase Order Item</title>
+  <section id="Section940909">
+    <title>Reschedule Purchase Order Item</title>
+    <para>To reschedule a Purchase Order Item, select the "Reschedule Purchase
+    Order Item" option. The following screen will appear:</para>
+    <para>
+<screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/reschedulePoitem.png"/>
+          </imageobject>
+          <caption>Reschedule Purchase Order Item</caption>
+        </mediaobject>
+      </screenshot>
+</para>
+    <note>
+      <para>You may reschedule a Purchase Order Line Item after a Purchase
+      Order has been posted&mdash;as long as the Line Item has not been
+      closed.</para>
+    </note>
+    <para>When rescheduling a Purchase Order Line Item, you are presented with
+    the following options:</para>
+    <variablelist>
+      <varlistentry>
+        <term>P/O #</term>
+        <listitem>
+          <para>Enter the Purchase Order Number of the Purchase Order whose
+          Line Item you want to reschedule.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Line Item</term>
+        <listitem>
+          <para>Specify the Purchase Order Line Item you want to
+          reschedule.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Due Date</term>
+        <listitem>
+          <para>Enter the date you want to reschedule the Purchase Order Line
+          Item to. The original and current scheduled dates will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>To the far right of the screen, the following buttons are
+    available:</para>
+    <variablelist>
+      <varlistentry>
+        <term>CANCEL</term>
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>RESCHEDULE</term>
+        <listitem>
+          <para>Reschedules the Purchase Order Line Item using the specified
+          rescheduled date.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</section>

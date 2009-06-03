@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section955035">
+  <title>
+<indexterm significance="normal">
+      <primary>purchase orders</primary>
+      <secondary>copying of</secondary>
+    </indexterm>Copy Purchase Order</title>
+  <para>To copy a Purchase Order, select the COPY button on the "Purchase
+  Order History" display screen. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/copyPurchaseOrder.png"/>
+        </imageobject>
+        <caption>Copy Purchase Order</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <tip>
+    <para>The copy functionality can be used as a <indexterm significance="normal">
+        <primary>purchase orders</primary>
+        <secondary>templates for</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>purchase orders</primary>
+        <secondary>handling repetitive</secondary>
+      </indexterm>templating mechanism for repetitive Purchase Orders.
+    Consider creating a template P/O and then simply copy it whenever you need
+    to send out a new one.</para>
+  </tip>
+  <para>When copying Purchase Order history, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Purchase Order #</term>
+      <listitem>
+        <para>Displays the Purchase Order Number for the Purchase Order you
+        are copying.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Date</term>
+      <listitem>
+        <para>Displays the original Order date for the Purchase Order you are
+        copying.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor #</term>
+      <listitem>
+        <para>Displays the Vendor Number for the Purchase Order you are
+        copying. The Vendor name and phone number will also display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Original Line Items</term>
+      <listitem>
+        <para>Display lists the Line Items which originally appeared on the
+        Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Today's Date</term>
+      <listitem>
+        <para>Select to use today's date as the Order date for the Purchase
+        Order copy. Due dates for Purchase Order Line Items will be adjusted
+        automatically from today's date using Item Source Lead Times, if
+        any.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Schedule Purchase Order for</term>
+      <listitem>
+        <para>Specify a date to use as the Order date for the Purchase Order
+        copy. Due dates for Purchase Order Line Items will be adjusted
+        automatically from the specified date using Item Source Lead Times, if
+        any.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use latest Item Sources and Prices</term>
+      <listitem>
+        <para>Select to use the most current Item Source information,
+        including up-to-date Item Source Prices. If not selected, the Purchase
+        Order copy will use the Item Source information, including Item Source
+        Prices, in effect at the time of the original Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without copying the Purchase Order, returning
+        you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>COPY</term>
+      <listitem>
+        <para>Creates a copy of the Purchase Order and places the copy&mdash;with a
+        new Purchase Order Number&mdash;on the List Unposted Purchase Orders
+        screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

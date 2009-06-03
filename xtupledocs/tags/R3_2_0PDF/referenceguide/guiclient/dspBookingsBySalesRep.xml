@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="dspBookingsBySalesRep">
+  <title><indexterm significance="normal">
+      <primary>bookings</primary>
+      <secondary>by sales representative</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>sales representatives</primary>
+      <secondary>booking details for</secondary>
+    </indexterm>Bookings by Sales Rep</title>
+  <para><indexterm significance="normal">
+      <primary>sales rep</primary>
+      <see>sales representatives</see>
+    </indexterm>To view Bookings by Sales Representative, select the "Bookings
+  by Sales Rep" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspBookingsBySalesRep.png" />
+        </imageobject>
+        <caption>Bookings by Sales Representative</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Bookings by Sales Representative, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Sales Rep.</term>
+      <listitem>
+        <para>Specify the Sales Representative whose bookings you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display Bookings by Sales Representative for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Bookings by Sales Representative you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Product Categories</term>
+      <listitem>
+        <para>Select to display Bookings by Sales Representative for all
+        Product Categories.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Product Category whose Bookings by Sales Representative
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Product Category pattern to select a range of Product
+        Categories. Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Bookings by Sales Representative generated on or after this date
+        will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Bookings by Sales Representative generated on or before this
+        date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bookings</term>
+      <listitem>
+        <para>Display lists Bookings by Sales Representative, using the
+        specified parameters. Prices are normalized to the Base Currency using
+        the Currency Exchange Rate effective on the Order Date.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

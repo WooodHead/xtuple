@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560368">
+  <title><indexterm significance="normal">
+      <primary>incidents</primary>
+      <secondary>creating new</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customer relationship management</primary>
+      <secondary>creating incidents for</secondary>
+    </indexterm>New Incident</title>
+  <para>To enter a new Incident, select the "New Incident" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident.png" />
+        </imageobject>
+        <caption>Create New Incident</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When entering a new Incident, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Incident #</term>
+      <listitem>
+        <para>Displays the Incident Number. You may set a beginning Incident
+        Number at the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a few words to briefly describe the Incident</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Category</term>
+      <listitem>
+        <para>Specify a user-defined Category to assign the Incident.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CRM Account</term>
+      <listitem>
+        <para>Specify the CRM Account the Incident is associated with.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Assigned To</term>
+      <listitem>
+        <para>Specify the user you want to assign the Incident to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Specify a system-defined Incident status to assign to the
+        Incident from the available options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>New</term>
+            <listitem>
+              <para>This is the default Incident status when a new Incident is
+              entered.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Feedback</term>
+            <listitem>
+              <para>This status can be used for Incidents which require more
+              information before they can be confirmed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Confirmed</term>
+            <listitem>
+              <para>A confirmed Incident is ready to be acted on.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Assigned</term>
+            <listitem>
+              <para>When Incidents are assigned to a user, they become that
+              user's responsibility.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Resolve</term>
+            <listitem>
+              <para>A resolved Incident is ready to be closed. Typically,
+              users work to resolve the Incidents assigned to them.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Closed:</term>
+            <listitem>
+              <para>This is the final status and indicates an Incident
+              requires no further action. It is completed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Severity</term>
+      <listitem>
+        <para>Specify a user-defined Severity to assign the Incident.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Priority</term>
+      <listitem>
+        <para>Specify a user-defined Priority to assign the Incident.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Resolution</term>
+      <listitem>
+        <para>Specify a user-defined Resolution to assign the Incident.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Contact</term>
+      <listitem>
+        <para>Manually enter Contact information in the fields below&mdash;or
+        use the browse button to select pre-existing Contact information. If
+        the Contact you select is linked to a CRM Account, the Account will be
+        filled in automatically.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        general Notes related to the Incident.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To views or edit links an Incident has to other records, select the
+  "Relationships" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident_relationshipsTab.png" />
+        </imageobject>
+        <caption>Incident Relationships Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When linking an Incident to a specific Item or Lot/Serial Number, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item (if any) you want to associate
+        with the Incident.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Lot/Serial #</term>
+      <listitem>
+        <para>Manually enter a Lot/Serial Number (if any) to associate with
+        the Item&mdash;or use the browse button to select pre-existing
+        Lot/Serial Number information.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Incidents may be linked to a specific Receivable Item from the A/R
+  Open Items and A/R Open Items by Customer displays. When an Incident is
+  linked to a specific Receivable Item, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Displays the type of document associated with the Incident.
+        Document types would include Credit Memo, Debit Memo, Invoice, and
+        Cash Deposit.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc #</term>
+      <listitem>
+        <para>Displays the identifying number of the Document.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following button is
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="incidentVIEWAR">
+        <para>Select this button to view the details of the Receivable
+        Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view or associate To-Dos with an Incident, select the "To-Do List
+  Items" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident_todoTab.png" />
+        </imageobject>
+        <caption>Incident To-Dos</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>To-Do List Items</term>
+      <listitem>
+        <para>Display lists To-Do List Items associated with the
+        Incident.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem id="incidentNEW">
+        <para>Opens screen for creating a new To-Do List item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="incidentEDIT">
+        <para>Enables you to edit highlighted To-Do List items. The edit
+        screen is the same as that for creating a new To-Do List
+        item&mdash;except that when editing, the fields will contain To-Do
+        List item information. Double-clicking on a To-Do List item will also
+        bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="incidentVIEW">
+        <para>Highlight a To-Do List item and then select this button to reach
+        a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="incidentDELETE">
+        <para>Highlight a To-Do List item and then select this button to
+        remove the association between the To-Do List item and the
+        Incident.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a To-Do item in the list enables you to select from
+  the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>New</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(incidentNEW)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Edit</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(incidentEDIT)" />
+    </varlistentry>
+    <varlistentry>
+      <term>View</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(incidentVIEW)" />
+    </varlistentry>
+    <varlistentry>
+      <term>Delete</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(incidentDELETE)" />
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>To view the history associated with an Incident, select the "History"
+  tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident_historyTab.png" />
+        </imageobject>
+        <caption>Incident History</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "History" screen displays information related to the Incident,
+  including username of Incident creator, created date, status, and
+  description.</para>
+  <para>To view system-generated Comments associated with an Incident&mdash;or
+  to add new Comments of your own&mdash;select the "Comments" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident_commentsTab.png" />
+        </imageobject>
+        <caption>Incident Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>Display lists the date Comment entered, Comment Type, user who
+        entered Comment, and a content preview.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Comment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Comment and then select this button to reach a
+        read-only view of the Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Comment, select the NEW button. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CommentNew.png" />
+        </imageobject>
+        <caption>Create New Comment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Comment, returning you to
+        the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Comment and adds it to the list of Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view the documents associated with an Incident, select the
+  "Documents" tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/incident_documentsTab.png" />
+    </imageobject>
+    <caption>Incident Documents</caption>
+  </mediaobject>
+  <variablelist>
+    <varlistentry>
+      <term>Images</term>
+      <listitem>
+        <para>Display lists information about stored incident Images. To enter
+        Images associated with an Item, select the "Images" radio
+        button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>VIEW IMAGE</term>
+      <listitem>
+        <para>Highlight an Image and then select this button to preview the
+        Image.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens master list of stored Item Images.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Image definitions. The edit
+        screen is the same as that for creating a new Image
+        definition&mdash;except that when editing, the fields will contain
+        Image information. Double-clicking on an Image definition will also
+        bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an Image and then select this button to view the Image
+        assignment for the Image.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Image definition and then select this button to
+        remove the Item Image from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>incident images</primary>
+      <secondary>master list of</secondary>
+    </indexterm>To specify an assignment for an Image, select the NEW button.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemImage.png" />
+        </imageobject>
+        <caption>Image Assignments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When specifying an assignment for an Image, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Purpose</term>
+      <listitem>
+        <para>Select one of the available purposes an Image might
+        serve:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Inventory Description</term>
+            <listitem>
+              <para>Select if the Image describes Inventory.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Product Description</term>
+            <listitem>
+              <para>Select if the Image describes a Product.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Engineering Reference</term>
+            <listitem>
+              <para>Select if the Image serves as an engineering
+              reference.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Miscellaneous</term>
+            <listitem>
+              <para>Select if the Image is a miscellaneous Image.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>An Incident may have multiple Images associated with it, but only
+    one Image per purpose.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Highlight an Image, then select the SAVE button to associate the
+        Image with the specified Item and purpose.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for adding a new Image to the master list of stored
+        Images.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Allows user to view image.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>images</primary>
+      <secondary>adding new</secondary>
+    </indexterm>To add a new Image to the master list of stored Images, select
+  the NEW button. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/image.png" />
+        </imageobject>
+        <caption>Create New Image</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding a new Image to the master list of stored Images, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>File Name</term>
+      <listitem>
+        <para>Enter the physical directory location of the Image. The browse
+        button enables you to search your system for the physical directory
+        location of the Image file. Once you locate the file, simply select it
+        to have it entered into the "File Name" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a unique name for the Image.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a description to further identify the Image.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without adding a new Image to the master list
+        of stored Images.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Image and adds it to the master list of stored
+        Images.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Files</term>
+      <listitem>
+        <para>Display lists the title and URL for any Files related to the
+        Item. To enter Files associated with an Item, select the "Files" radio
+        button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>OPEN FILE</term>
+      <listitem>
+        <para>Highlight an Item File definition and then select this button to
+        open the URL in a web browser.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Item File.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Item File definitions. The edit
+        screen is the same as that for creating a new Item File
+        definition&mdash;except that when editing, the fields will contain
+        Item File definition information. Double-clicking on an Item File
+        definition will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an Item File definition and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Item File definition and then select this button to
+        remove the Item File definition from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Item File, select the NEW button. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemFile.png" />
+        </imageobject>
+        <caption>Create New Item File</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Item File, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>File</term>
+      <listitem>
+        <para>Select radio button to add file URL from local source.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Internet</term>
+      <listitem>
+        <para>Select radio button to add file URL from the Internet.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Title</term>
+      <listitem>
+        <para>Enter a title to identify the File.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>URL</term>
+      <listitem>
+        <para>Enter the URL indicating where the File is located. Users will
+        be able to access the file within a web browser when they select the
+        OPEN button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating an File, returning you to the
+        previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the File and adds it to the list of Files.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view the alarms associated with an Incident, select the "Alarms"
+  tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/incident_alarmTab.png" />
+    </imageobject>
+    <caption>Incident Alarms</caption>
+  </mediaobject>
+  <para>Upon selecting Alarms you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Alarms</term>
+      <listitem>
+        <para>Displays a list of Alarms you can create to send reminders to
+        various users associated with an event or system message.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for entering new Alarm information..</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Alarm. The edit screen is the
+        same as that for entering new Alarm information&mdash;except that when
+        editing, the fields will contain Alarm information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an Alarm and then select this button to reach a
+        read-only view of the "Edit" screen. Double-clicking on an Alarm will
+        also bring you to the view screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Alarm Item and then select this button to remove
+        the Alarm Item from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/alarmMaint.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>
