@@ -26,9 +26,9 @@
   same name; however, only the lowest enabled screen is used. In addition, you
   must export or import the UI file (i.e., you cannot edit the UI file
   directly on the database). And, creating a screen does not automatically
-  make it available to users. You must first create a <xref
-  linkend="customCommandTitle" /> to makes sure the screen is added to the
-  menu structure.</para>
+  make it available to users. You must first create a custom command to make
+  sure the screen is added to the menu structure, as described here: <xref
+  linkend="customCommandTitle" />.</para>
   <note>
     <para>Because screens are very limited in what they can be made to do
     without code or scripting, it will almost always be necessary to write one
@@ -67,8 +67,8 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted custom screens. The edit window
-        is the same as that for creating a new custom screen&mdash;except that
-        when editing, the fields will contain screen information.</para>
+        is the same as that for creating a new custom screen—except that when
+        editing, the fields will contain screen information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -90,6 +90,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="uiform.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="uiform.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
