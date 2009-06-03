@@ -36,6 +36,7 @@ public slots:
     virtual void helpAbout();
 
     virtual void setMultipleTransactions(bool);
+    virtual void setDebugPkg(bool);
 
 protected:
     Package * _package;

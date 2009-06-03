@@ -908,7 +908,12 @@ void LoaderWindow::sStart()
     }
   }
 
-  if(!_multitrans && !_premultitransfile)
+  if (_alwaysrollback->isChecked())
+  {
+    _text->append(tr("<p>The Update has been rolled back.</p>"));
+    qry.exec("rollback;");
+  }
+  else if(!_multitrans && !_premultitransfile)
     qry.exec("commit;");
 
   _text->append(tr("<p>The Update is now complete!</p>"));
@@ -930,6 +935,12 @@ void LoaderWindow::sStart()
 void LoaderWindow::setMultipleTransactions(bool mt)
 {
   _multitrans = mt;
+}
+
+void LoaderWindow::setDebugPkg(bool p)
+{
+  _alwaysrollback->setVisible(p);
+  _alwaysrollback->setEnabled(p);
 }
 
 int LoaderWindow::applySql(Script &pscript, const QByteArray psql)
@@ -1028,7 +1039,7 @@ int LoaderWindow::applySql(Script &pscript, const QByteArray psql)
     else
       _text->append(tr("Import of %1 was successful.").arg(pscript.filename()));
   } while (again);
-  if(_multitrans || _premultitransfile)
+  if ((_multitrans || _premultitransfile) && ! _alwaysrollback->isChecked())
     qry.exec("commit;");
   else
     qry.exec("RELEASE SAVEPOINT updaterFile;");
@@ -1131,7 +1142,7 @@ int LoaderWindow::applyLoadable(Loadable &pscript, const QByteArray psql)
     else
       _text->append(tr("Import of %1 was successful.").arg(pscript.filename()));
   } while (again);
-  if(_multitrans || _premultitransfile)
+  if ((_multitrans || _premultitransfile) && ! _alwaysrollback->isChecked())
     qry.exec("commit;");
   else
     qry.exec("RELEASE SAVEPOINT updaterFile;");
