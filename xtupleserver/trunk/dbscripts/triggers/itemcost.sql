@@ -85,6 +85,8 @@ CREATE OR REPLACE FUNCTION _itemCostAfterTrigger() RETURNS TRIGGER AS $$
 DECLARE
   _itemNumber TEXT;
   _maxCost NUMERIC;
+  _oldStdCost NUMERIC;
+  _oldActCost NUMERIC;
   _costElem TEXT;
 BEGIN
 
@@ -100,13 +102,20 @@ BEGIN
 
   IF (_maxCost > 0.0) THEN
     IF (stdCost(NEW.itemcost_item_id) > _maxCost) THEN
+      IF (TG_OP = 'INSERT') THEN
+        _oldStdCost := 0;
+        _oldActCost := 0;
+      ELSE
+        _oldStdCost := OLD.itemcost_stdcost;
+        _oldActCost := OLD.itemcost_stdcost;
+      END IF; 
       INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
                             evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number,
                             evntlog_newvalue, evntlog_oldvalue )
       SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
              '', NEW.itemcost_item_id, itemsite_warehous_id,
              (_itemNumber || '-' || _costElem || '-' || 'Standard' || ' ' || formatCost(stdCost(NEW.itemcost_item_id))),
-             NEW.itemcost_stdcost, OLD.itemcost_stdcost
+             NEW.itemcost_stdcost, _oldStdCost
       FROM evntnot, evnttype, itemsite
       WHERE ( (evntnot_evnttype_id=evnttype_id)
         AND   (itemsite_item_id=NEW.itemcost_item_id)
@@ -120,7 +129,7 @@ BEGIN
       SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
              '', NEW.itemcost_item_id, itemsite_warehous_id,
              (_itemNumber || '-' || _costElem || '-' || 'Actual' || ' ' || formatCost(actCost(NEW.itemcost_item_id))),
-             NEW.itemcost_actcost, OLD.itemcost_actcost
+             NEW.itemcost_actcost, _oldActCost
       FROM evntnot, evnttype, itemsite
       WHERE ( (evntnot_evnttype_id=evnttype_id)
         AND   (itemsite_item_id=NEW.itemcost_item_id)
