@@ -1,29 +1,29 @@
-CREATE OR REPLACE FUNCTION _cmheadBeforeTrigger() RETURNS "trigger" AS '
+CREATE OR REPLACE FUNCTION _cmheadBeforeTrigger() RETURNS "trigger" AS $$
 DECLARE
   _check BOOLEAN;
   _id INTEGER;
 BEGIN
   -- Checks
   -- Start with privileges
-  SELECT checkPrivilege(''MaintainCreditMemos'') INTO _check;
+  SELECT checkPrivilege('MaintainCreditMemos') INTO _check;
   IF NOT (_check) THEN
-    RAISE EXCEPTION ''You do not have privileges to maintain Credit Memos.'';
+    RAISE EXCEPTION 'You do not have privileges to maintain Credit Memos.';
   END IF;
 
-  IF (TG_OP = ''DELETE'') THEN
+  IF (TG_OP = 'DELETE') THEN
     RETURN OLD;
   END IF;
 
   IF ( (NEW.cmhead_number IS NULL) OR (LENGTH(NEW.cmhead_number) = 0) ) THEN
-    RAISE EXCEPTION ''You must enter a valid Memo # for this Credit Memo.'';
+    RAISE EXCEPTION 'You must enter a valid Memo # for this Credit Memo.';
   END IF;
 
-  IF (TG_OP = ''INSERT'') THEN
+  IF (TG_OP = 'INSERT') THEN
     SELECT cmhead_id INTO _id
     FROM cmhead
     WHERE (cmhead_number=NEW.cmhead_number);
     IF (FOUND) THEN
-      RAISE EXCEPTION ''The Memo # is already in use.'';
+      RAISE EXCEPTION 'The Memo # is already in use.';
     END IF;
   END IF;
 
@@ -32,17 +32,17 @@ BEGIN
     FROM custinfo
     WHERE (cust_id=NEW.cmhead_cust_id);
     IF (NOT FOUND) THEN
-      RAISE EXCEPTION ''You must enter a valid Customer # for this Credit Memo.'';
+      RAISE EXCEPTION 'You must enter a valid Customer # for this Credit Memo.';
     END IF;
   END IF;
 
   IF ( (NEW.cmhead_misc > 0) AND (NEW.cmhead_misc_accnt_id = -1) ) THEN
-    RAISE EXCEPTION ''You may not enter a Misc. Charge without indicating the G/L Sales Account.'';
+    RAISE EXCEPTION 'You may not enter a Misc. Charge without indicating the G/L Sales Account.';
   END IF;
 
   RETURN NEW;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'cmheadbeforetrigger');
 CREATE TRIGGER cmheadbeforetrigger
@@ -52,9 +52,9 @@ CREATE TRIGGER cmheadbeforetrigger
   EXECUTE PROCEDURE _cmheadBeforeTrigger();
 
 
-CREATE OR REPLACE FUNCTION _cmheadTrigger() RETURNS "trigger" AS '
+CREATE OR REPLACE FUNCTION _cmheadTrigger() RETURNS "trigger" AS $$
 BEGIN
-  IF (TG_OP = ''DELETE'') THEN
+  IF (TG_OP = 'DELETE') THEN
     -- If this was created by a return, then reset the return
     IF (OLD.cmhead_rahead_id IS NOT NULL) THEN
       UPDATE rahead SET
@@ -62,18 +62,18 @@ BEGIN
       WHERE (rahead_id=OLD.cmhead_rahead_id);
       DELETE FROM rahist
       WHERE ((rahist_rahead_id=OLD.cmhead_rahead_id)
-      AND (rahist_source=''CM'')
+      AND (rahist_source='CM')
       AND (rahist_source_id=OLD.cmhead_id));
     END IF;
     RETURN OLD;
   END IF;
 
 -- Insert new row
-  IF (TG_OP = ''INSERT'') THEN
+  IF (TG_OP = 'INSERT') THEN
 
   -- Calculate Freight Tax
     IF (NEW.cmhead_freight <> 0) THEN
-      PERFORM calculateTaxHist( ''cmheadtax'',
+      PERFORM calculateTaxHist( 'cmheadtax',
                                 NEW.cmhead_id,
                                 NEW.cmhead_taxzone_id,
                                 getFreightTaxtypeId(),
@@ -84,21 +84,21 @@ BEGIN
   END IF;
 
 -- Update row
-  IF (TG_OP = ''UPDATE'') THEN
+  IF (TG_OP = 'UPDATE') THEN
 
   -- Calculate Freight Tax
     IF ( (NEW.cmhead_freight <> OLD.cmhead_freight) OR
          (NEW.cmhead_taxzone_id <> OLD.cmhead_taxzone_id) OR
          (NEW.cmhead_docdate <> OLD.cmhead_docdate) OR
          (NEW.cmhead_curr_id <> OLD.cmhead_curr_id) ) THEN
-      PERFORM calculateTaxHist( ''cmheadtax'',
+      PERFORM calculateTaxHist( 'cmheadtax',
                                 NEW.cmhead_id,
                                 NEW.cmhead_taxzone_id,
                                 getFreightTaxtypeId(),
                                 NEW.cmhead_docdate,
                                 NEW.cmhead_curr_id,
                                 NEW.cmhead_freight );
-      PERFORM calculateTaxHist( ''cmitemtax'',
+      PERFORM calculateTaxHist( 'cmitemtax',
                                 cmitem_id,
                                 NEW.cmhead_taxzone_id,
                                 cmitem_taxtype_id,
@@ -114,7 +114,7 @@ BEGIN
 
   RETURN NEW;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'cmheadtrigger');
 CREATE TRIGGER cmheadtrigger

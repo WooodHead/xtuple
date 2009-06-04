@@ -1,34 +1,34 @@
-CREATE OR REPLACE FUNCTION _cmitemBeforeTrigger() RETURNS "trigger" AS '
+CREATE OR REPLACE FUNCTION _cmitemBeforeTrigger() RETURNS "trigger" AS $$
 DECLARE
   _check BOOLEAN;
   _id INTEGER;
 BEGIN
   -- Checks
   -- Start with privileges
-  SELECT checkPrivilege(''MaintainCreditMemos'') INTO _check;
+  SELECT checkPrivilege('MaintainCreditMemos') INTO _check;
   IF NOT (_check) THEN
-    RAISE EXCEPTION ''You do not have privileges to maintain Credit Memos.'';
+    RAISE EXCEPTION 'You do not have privileges to maintain Credit Memos.';
   END IF;
 
-  IF (TG_OP = ''DELETE'') THEN
+  IF (TG_OP = 'DELETE') THEN
     RETURN OLD;
   END IF;
 
-  IF (TG_OP = ''INSERT'') THEN
+  IF (TG_OP = 'INSERT') THEN
     IF ( (NEW.cmitem_qtycredit IS NULL) OR (NEW.cmitem_qtycredit = 0) ) THEN
-      RAISE EXCEPTION ''Quantity to Credit must be greater than zero.'';
+      RAISE EXCEPTION 'Quantity to Credit must be greater than zero.';
     END IF;
     SELECT cmitem_id INTO _id
     FROM cmitem
     WHERE ( (cmitem_cmhead_id=NEW.cmitem_cmhead_id) AND (cmitem_linenumber=NEW.cmitem_linenumber) );
     IF (FOUND) THEN
-      RAISE EXCEPTION ''The Memo Line Number is already in use.'';
+      RAISE EXCEPTION 'The Memo Line Number is already in use.';
     END IF;
   END IF;
 
   RETURN NEW;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'cmitembeforetrigger');
 CREATE TRIGGER cmitembeforetrigger
@@ -38,13 +38,13 @@ CREATE TRIGGER cmitembeforetrigger
   EXECUTE PROCEDURE _cmitemBeforeTrigger();
 
 
-CREATE OR REPLACE FUNCTION _cmitemTrigger() RETURNS "trigger" AS '
+CREATE OR REPLACE FUNCTION _cmitemTrigger() RETURNS "trigger" AS $$
 DECLARE
   _ext NUMERIC;
   _r RECORD;
 
 BEGIN
-  IF (TG_OP = ''DELETE'') THEN
+  IF (TG_OP = 'DELETE') THEN
 
 --  If this was created by a return, reset return values
     IF (OLD.cmitem_raitem_id) IS NOT NULL THEN
@@ -62,14 +62,14 @@ BEGIN
   FROM cmhead
   WHERE (cmhead_id=NEW.cmitem_cmhead_id);
   IF (NOT FOUND) THEN
-    RAISE EXCEPTION ''Credit Memo head not found'';
+    RAISE EXCEPTION 'Credit Memo head not found';
   END IF;
 
 -- Insert new row
-  IF (TG_OP = ''INSERT'') THEN
+  IF (TG_OP = 'INSERT') THEN
 
   -- Calculate Tax
-      PERFORM calculateTaxHist( ''cmitemtax'',
+      PERFORM calculateTaxHist( 'cmitemtax',
                                 NEW.cmitem_id,
                                 COALESCE(_r.cmhead_taxzone_id, -1),
                                 NEW.cmitem_taxtype_id,
@@ -80,15 +80,15 @@ BEGIN
   END IF;
 
 -- Update row
-  IF (TG_OP = ''UPDATE'') THEN
+  IF (TG_OP = 'UPDATE') THEN
 
   -- Calculate Tax
     IF ( (NEW.cmitem_qtycredit <> OLD.cmitem_qtycredit) OR
-         (NEW.cmitem_qty_invuomratio <> OLD.cmitem_qty_uomratio) OR
+         (NEW.cmitem_qty_invuomratio <> OLD.cmitem_qty_invuomratio) OR
          (NEW.cmitem_unitprice <> OLD.cmitem_unitprice) OR
-         (NEW.cmitem_price_invuomratio <> OLD.cmitem_price_uomratio) OR
+         (NEW.cmitem_price_invuomratio <> OLD.cmitem_price_invuomratio) OR
          (NEW.cmitem_taxtype_id <> OLD.cmitem_taxtype_id) ) THEN
-      PERFORM calculateTaxHist( ''cmitemtax'',
+      PERFORM calculateTaxHist( 'cmitemtax',
                                 NEW.cmitem_id,
                                 COALESCE(_r.cmhead_taxzone_id, -1),
                                 NEW.cmitem_taxtype_id,
@@ -102,7 +102,7 @@ BEGIN
 
   RETURN NEW;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'cmitemtrigger');
 CREATE TRIGGER cmitemtrigger
