@@ -6,9 +6,17 @@ DECLARE
 BEGIN
 
   SELECT noNeg(invchead_freight + invchead_misc_amount +
-                          invchead_tax +
-                          COALESCE(SUM(ROUND(((invcitem_billed * invcitem_qty_invuomratio) *
-                                              (invcitem_price / COALESCE(invcitem_price_invuomratio,1))),2)), 0) -
+         ( SELECT COALESCE(SUM(taxhist_tax),0.0) 
+             FROM invcheadtax
+            WHERE (taxhist_parent_id=pInvoiceId)
+           ) +
+         ( SELECT COALESCE(SUM(taxhist_tax), 0.0) 
+             FROM invcitemtax
+               JOIN invcitem ON (invcitem_id=taxhist_parent_id)
+            WHERE (invcitem_invchead_id=pInvoiceId)
+           ) +
+         COALESCE(SUM(ROUND(((invcitem_billed * invcitem_qty_invuomratio) *
+                             (invcitem_price / COALESCE(invcitem_price_invuomratio,1))),2)), 0) -
                           MAX(total_allocated)) into _result
   FROM invchead
      LEFT OUTER JOIN invcitem ON (invcitem_invchead_id=invchead_id)
