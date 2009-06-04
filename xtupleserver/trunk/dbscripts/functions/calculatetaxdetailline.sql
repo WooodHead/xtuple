@@ -39,16 +39,6 @@ BEGIN
      _totaltax = _totaltax + _y.taxhist_tax;
      RETURN NEXT _row;
    END LOOP;
-  
-   IF _totaltax > 0.0 THEN
-     _row.taxdetail_tax_id=-1;
-     _row.taxdetail_tax_code = 'Total';
-     _row.taxdetail_tax_descrip = NULL;
-     _row.taxdetail_tax = _totaltax;
-     _row.taxdetail_level=0;
-     _row.taxdetail_taxclass_sequence= NULL;
-     RETURN NEXT _row;
-   END IF;
  END;
 $BODY$
   LANGUAGE 'plpgsql' VOLATILE;

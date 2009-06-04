@@ -107,13 +107,13 @@ BEGIN
              FROM cobmisc, cobilltax LEFT OUTER JOIN tax ON (taxhist_tax_id=tax_id)
              LEFT OUTER JOIN cobill ON (cobill_id=taxhist_parent_id)
              WHERE cobill_cobmisc_id = ' || pOrderId || ' 
-             AND cobmisc_id = cobill_cobmisc_id';
+             AND cobmisc_id = cobill_cobmisc_id ';
    ELSIF pOrderType = 'CM' AND (pDisplayType IN ('L','T')) THEN
     _qry := 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, taxhist_tax, taxhist_sequence
              FROM cmhead, cmitemtax LEFT OUTER JOIN tax ON (taxhist_tax_id=tax_id)
              LEFT OUTER JOIN cmitem ON (cmitem_id=taxhist_parent_id)
              WHERE cmitem_cmhead_id = ' || pOrderId || ' 
-             AND cmhead_id = cmitem_cmhead_id';
+             AND cmhead_id = cmitem_cmhead_id ';
    END IF;
    IF pDisplayType IN ('F','T') THEN
      IF (length(_qry) > 0) THEN
@@ -151,15 +151,6 @@ BEGIN
      _totaltax = _totaltax + _y.taxhist_tax;
      RETURN NEXT _row;
    END LOOP;
- END IF;
- IF _totaltax <> 0.0 THEN
-   _row.taxdetail_tax_id=-1;
-   _row.taxdetail_tax_code = 'Total';
-   _row.taxdetail_tax_descrip = NULL;
-   _row.taxdetail_tax = _totaltax;
-   _row.taxdetail_level=0;
-   _row.taxdetail_taxclass_sequence= NULL;
-   RETURN NEXT _row;
  END IF;
  END;
 $BODY$
