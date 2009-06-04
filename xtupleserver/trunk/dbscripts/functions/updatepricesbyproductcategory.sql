@@ -11,11 +11,11 @@ BEGIN
 
 	IF NOT (checkPrivilege('MaintainPricingSchedules')) THEN
 		RAISE EXCEPTION 'You do not have privileges to maintain Price Schedules.';
-	ELSE
-		-- Disable the triggers
--- this can't be done unless the user is an admin
---		ALTER TABLE ipsitem DISABLE TRIGGER ipsitembeforetrigger;
---		ALTER TABLE ipsitemchar DISABLE TRIGGER ipsitemcharbeforetrigger;
+	ELSIF has_schema_privilege(current_user, current_schema(), 'CREATE') THEN
+		-- This can only be done by a user with schema CREATE privileges (typically admin or a superuser)
+		-- Disable the triggers for performance
+		ALTER TABLE ipsitem DISABLE TRIGGER ipsitembeforetrigger;
+		ALTER TABLE ipsitemchar DISABLE TRIGGER ipsitemcharbeforetrigger;
 	END IF;
 
 	-- Get the current user's currency precision
@@ -127,10 +127,13 @@ BEGIN
 
 	END IF;
 
-	-- Enable the triggers
-	--ALTER TABLE ipsitem ENABLE TRIGGER ipsitembeforetrigger;
-	--ALTER TABLE ipsitemchar ENABLE TRIGGER ipsitemcharbeforetrigger;
-	
+	IF has_schema_privilege(current_user, current_schema(), 'CREATE') THEN
+		-- This can only be done by a user with schema CREATE privileges (typically admin or a superuser)
+		-- Enable the triggers disabled previously
+		ALTER TABLE ipsitem ENABLE TRIGGER ipsitembeforetrigger;
+		ALTER TABLE ipsitemchar ENABLE TRIGGER ipsitemcharbeforetrigger;
+	END IF;
+
 	RETURN _itemRows + _charRows;
 
 END;
