@@ -1,61 +1,152 @@
-BEGIN;
+CREATE OR REPLACE FUNCTION populateTaxZoneAndType() RETURNS INTEGER AS $$
+DECLARE
+  _edition      INTEGER;
+  _tables       TEXT[] := ARRAY['cmhead',
+                                'cobmisc',
+                                'cohead',
+                                'coitem',
+                                'custinfo',
+                                'invchead',
+                                'itemtax',
+                                'pohead',
+                                'poitem',
+                                'prospect',
+                                'quhead',
+                                'quitem',
+                                'shiptoinfo',
+                                'taxreg',
+                                'vendaddrinfo',
+                                'vendinfo',
+                                'vohead',
+                                'whsinfo'
+                          ];
+BEGIN
+  SELECT CASE WHEN fetchMetricText('Application') = 'Manufacturing' THEN 3
+              WHEN fetchMetricText('Application') = 'Standard'      THEN 2
+              ELSE 1
+          END INTO _edition;
 
--- Populate taxzone column in documents
+  IF (_edition > 1) THEN
+    _tables := _tables || ARRAY['rahead', 'tohead', 'toitem'];
+  END IF;
 
--- UPDATE asohist
-UPDATE cmhead       SET cmhead_taxzone_id=cmhead_taxauth_id;
-UPDATE cobmisc      SET cobmisc_taxzone_id=cobmisc_taxauth_id;
-UPDATE cohead       SET cohead_taxzone_id=cohead_taxauth_id;
--- UPDATE cohist
-UPDATE custinfo     SET cust_taxzone_id=cust_taxauth_id;
-UPDATE invchead     SET invchead_taxzone_id=invchead_taxauth_id;
-UPDATE itemtax      SET itemtax_taxzone_id=itemtax_taxauth_id;
-UPDATE prospect     SET prospect_taxzone_id=prospect_taxauth_id;
--- UPDATE pohead
-UPDATE quhead       SET quhead_taxzone_id=quhead_taxauth_id;
-UPDATE shiptoinfo   SET shipto_taxzone_id=shipto_taxauth_id;
-UPDATE taxreg       SET taxreg_taxzone_id = taxreg_taxauth_id;
-UPDATE vendaddrinfo SET vendaddr_taxzone_id=vendaddr_taxauth_id;
-UPDATE vendinfo     SET vend_taxzone_id=vend_taxauth_id;
-UPDATE vohead       SET vohead_taxzone_id=vohead_taxauth_id;
-UPDATE whsinfo      SET warehous_taxzone_id=warehous_taxauth_id;
+  FOR i IN ARRAY_LOWER(_tables,1)..ARRAY_UPPER(_tables,1) LOOP
+    EXECUTE 'ALTER TABLE ' || _tables[i] || ' DISABLE TRIGGER USER;' ;
+  END LOOP;
 
--- Populate taxclass with legacy A, B, and C classes
+  -- Populate taxzone and taxtype columns in documents
 
-DELETE FROM taxclass WHERE (taxclass_code IN ('1', '2', '3'));
-INSERT INTO taxclass
+  -- UPDATE asohist
+  RAISE NOTICE 'updating cmhead';
+  UPDATE cmhead       SET cmhead_taxzone_id=cmhead_taxauth_id,
+                          cmhead_taxtype_id=getFreightTaxTypeId();
+
+  RAISE NOTICE 'updating cobmisc';
+  UPDATE cobmisc      SET cobmisc_taxzone_id=cobmisc_taxauth_id,
+                          cobmisc_taxtype_id=getFreightTaxTypeId();
+
+  RAISE NOTICE 'updating cohead';
+  UPDATE cohead       SET cohead_taxzone_id=cohead_taxauth_id,
+                          cohead_taxtype_id=getFreightTaxTypeId();
+  -- UPDATE cohist
+
+  RAISE NOTICE 'updating custinfo';
+  UPDATE custinfo     SET cust_taxzone_id=cust_taxauth_id;
+
+  RAISE NOTICE 'updating invchead';
+  UPDATE invchead     SET invchead_taxzone_id=invchead_taxauth_id,
+                          invchead_taxtype_id=getFreightTaxTypeId();
+
+  RAISE NOTICE 'updating itemtax';
+  UPDATE itemtax      SET itemtax_taxzone_id=itemtax_taxauth_id;
+
+  RAISE NOTICE 'updating prospect';
+  UPDATE prospect     SET prospect_taxzone_id=prospect_taxauth_id;
+
+  RAISE NOTICE 'updating pohead';
+  UPDATE pohead       SET pohead_taxtype_id=getFreightTaxTypeId();
+
+  RAISE NOTICE 'updating quhead';
+  UPDATE quhead       SET quhead_taxzone_id=quhead_taxauth_id,
+                          quhead_taxtype_id=getFreightTaxTypeId();
+
+  IF (_edition > 1) THEN
+    RAISE NOTICE 'updating rahead';
+    UPDATE rahead       SET rahead_taxzone_id=rahead_taxauth_id,
+                            rahead_taxtype_id=getFreightTaxTypeId();
+  END IF;
+
+  RAISE NOTICE 'updating shiptoinfo';
+  UPDATE shiptoinfo   SET shipto_taxzone_id=shipto_taxauth_id;
+
+  RAISE NOTICE 'updating taxreg';
+  UPDATE taxreg       SET taxreg_taxzone_id = taxreg_taxauth_id;
+
+  IF (_edition > 1) THEN
+    RAISE NOTICE 'updating tohead';
+    UPDATE tohead       SET tohead_taxzone_id=tohead_taxauth_id,
+                            tohead_taxtype_id=getFreightTaxTypeId();
+  END IF;
+
+  RAISE NOTICE 'updating vendaddrinfo';
+  UPDATE vendaddrinfo SET vendaddr_taxzone_id=vendaddr_taxauth_id;
+
+  RAISE NOTICE 'updating vendinfo';
+  UPDATE vendinfo     SET vend_taxzone_id=vend_taxauth_id;
+
+  RAISE NOTICE 'updating vohead';
+  UPDATE vohead       SET vohead_taxzone_id=vohead_taxauth_id,
+                          vohead_taxtype_id=getFreightTaxTypeId();
+
+  RAISE NOTICE 'updating whsinfo';
+  UPDATE whsinfo      SET warehous_taxzone_id=warehous_taxauth_id;
+
+  -- Populate taxclass with legacy A, B, and C classes
+
+  DELETE FROM taxclass WHERE (taxclass_code IN ('1', '2', '3'));
+  INSERT INTO taxclass
   ( taxclass_code, taxclass_descrip, taxclass_sequence )
-VALUES
+  VALUES
   ( '1', 'Legacy Class 1', 0 ),
   ( '2', 'Legacy Class 2', 0 ),
   ( '3', 'Legacy Class 3', 0 );
 
--- Populate taxtype column in documents
+  -- Populate taxtype column in line item records
 
--- UPDATE asohist
-UPDATE cmhead SET cmhead_taxtype_id=getFreightTaxTypeId();
--- UPDATE cmitem
--- UPDATE cobill
-UPDATE cobmisc SET cobmisc_taxtype_id=getFreightTaxTypeId();
-UPDATE cohead SET cohead_taxtype_id=getFreightTaxTypeId();
-UPDATE coitem SET coitem_taxtype_id=(SELECT getItemTaxType(itemsite_item_id, cohead_taxzone_id)
+  -- UPDATE cmitem
+  -- UPDATE cobill
+  UPDATE coitem SET coitem_taxtype_id=(SELECT getItemTaxType(itemsite_item_id, cohead_taxzone_id)
                                      FROM itemsite, cohead
                                      WHERE ( (itemsite_id=coitem_itemsite_id)
                                        AND   (cohead_id=coitem_cohead_id) ));
-UPDATE invchead SET invchead_taxtype_id=getFreightTaxTypeId();
--- UPDATE invcitem
-UPDATE pohead SET pohead_taxtype_id=getFreightTaxTypeId();
-UPDATE poitem SET poitem_taxtype_id=(SELECT getItemTaxType(itemsite_item_id, pohead_taxzone_id)
+  -- UPDATE invcitem
+  UPDATE poitem SET poitem_taxtype_id=(SELECT getItemTaxType(itemsite_item_id, pohead_taxzone_id)
                                      FROM itemsite, pohead
                                      WHERE ( (itemsite_id=poitem_itemsite_id)
                                        AND   (pohead_id=poitem_pohead_id) ));
-UPDATE quhead SET quhead_taxtype_id=getFreightTaxTypeId();
-UPDATE quitem SET quitem_taxtype_id=(SELECT getItemTaxType(itemsite_item_id, quhead_taxzone_id)
+  UPDATE quitem SET quitem_taxtype_id=(SELECT getItemTaxType(itemsite_item_id, quhead_taxzone_id)
                                      FROM itemsite, quhead
                                      WHERE ( (itemsite_id=quitem_itemsite_id)
                                        AND   (quhead_id=quitem_quhead_id) ));
-UPDATE vohead SET vohead_taxtype_id=getFreightTaxTypeId();
--- UPDATE voitem
+  if (_edition > 1) THEN
+    -- UPDATE raitem
+    UPDATE toitem SET toitem_taxtype_id=(SELECT getItemTaxType(toitem_item_id, tohead_taxzone_id)
+                                     FROM tohead
+                                     WHERE (tohead_id=toitem_tohead_id));
+  END IF;
+  -- UPDATE voitem
+
+  FOR i IN ARRAY_LOWER(_tables,1)..ARRAY_UPPER(_tables,1) LOOP
+    EXECUTE 'ALTER TABLE ' || _tables[i] || ' ENABLE TRIGGER USER;' ;
+  END LOOP;
+
+  return 0;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT populateTaxZoneAndType();
+DROP FUNCTION populateTaxZoneAndType();
+
 
 -- Split legacy tax A,B,C rates into separate records
 
@@ -64,8 +155,13 @@ DECLARE
   _r RECORD;
   _taxid INTEGER;
   _result INTEGER;
+  _edition      INTEGER;
 
 BEGIN
+  SELECT CASE WHEN fetchMetricText('Application') = 'Manufacturing' THEN 3
+              WHEN fetchMetricText('Application') = 'Standard'      THEN 2
+              ELSE 1
+          END INTO _edition;
 
 -- Clean tables
   DELETE FROM taxhist;
@@ -81,7 +177,9 @@ BEGIN
     INSERT INTO tax
       ( tax_id, tax_code, tax_descrip, tax_sales_accnt_id,
         tax_taxclass_id, tax_taxauth_id, tax_basis_tax_id )
-    SELECT _taxid, (_r.tax_code || '-A'), _r.tax_descrip, _r.tax_sales_accnt_id,
+    SELECT _taxid, (_r.tax_code || '-A'), _r.tax_descrip,
+           CASE WHEN _r.tax_sales_accnt_id < 0 THEN NULL
+                ELSE _r.tax_sales_accnt_id END,
            taxclass_id, NULL, NULL
     FROM taxclass
     WHERE (taxclass_code='1');
@@ -91,7 +189,7 @@ BEGIN
         taxrate_amount, taxrate_effective, taxrate_expires )
     VALUES
       ( _taxid, _r.tax_ratea, baseCurrid(),
-        0, '01/01/1970', '12/31/2100' );
+        0, '1970-01-01', '2100-12-31' );
 
     INSERT INTO taxass
       ( taxass_id, taxass_taxzone_id, taxass_taxtype_id, taxass_tax_id )
@@ -99,6 +197,7 @@ BEGIN
     FROM taxsel
     WHERE (taxsel_tax_id=_r.tax_id);
 
+    RAISE NOTICE 'inserting A into asohisttax';
     INSERT INTO asohisttax
       ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -111,6 +210,7 @@ BEGIN
     FROM asohist
     WHERE (asohist_tax_id=_r.tax_id);
 
+    RAISE NOTICE 'inserting freight A into cmheadtax';
     INSERT INTO cmheadtax
       ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -123,6 +223,7 @@ BEGIN
     FROM cmhead
     WHERE (cmhead_freighttax_id=_r.tax_id);
 
+    RAISE NOTICE 'inserting adj A into cmheadtax';
     INSERT INTO cmheadtax
       ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -135,6 +236,7 @@ BEGIN
     FROM cmhead
     WHERE (cmhead_adjtax_id=_r.tax_id);
 
+    RAISE NOTICE 'inserting A into cmitemtax';
     INSERT INTO cmitemtax
       ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -147,6 +249,7 @@ BEGIN
     FROM cmitem JOIN cmhead ON (cmhead_id=cmitem_cmhead_id)
     WHERE (cmitem_tax_id=_r.tax_id);
 
+    RAISE NOTICE 'inserting A into cobilltax';
     INSERT INTO cobilltax
       ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -161,6 +264,7 @@ BEGIN
     WHERE (cobill_tax_id=_r.tax_id);
 
 -- cobmisc_tax_ratea/b/c is a duplicate of freight
+    RAISE NOTICE 'inserting freight A into cobmisctax';
     INSERT INTO cobmisctax
       ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -174,6 +278,7 @@ BEGIN
     WHERE (cobmisc_freighttax_id=_r.tax_id);
 
 -- Don't think cobmisc_adjtax_id is ever set
+    RAISE NOTICE 'inserting adj A into cobmisctax';
     INSERT INTO cobmisctax
       ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -186,6 +291,7 @@ BEGIN
     FROM cobmisc
     WHERE (cobmisc_adjtax_id=_r.tax_id);
 
+    RAISE NOTICE 'inserting A into cohisttax';
     INSERT INTO cohisttax
       ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -198,6 +304,7 @@ BEGIN
     FROM cohist
     WHERE (cohist_tax_id=_r.tax_id);
 
+    RAISE NOTICE 'inserting freight A into invcheadtax';
     INSERT INTO invcheadtax
       ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -210,6 +317,7 @@ BEGIN
     FROM invchead
     WHERE (invchead_freighttax_id=_r.tax_id);
 
+    RAISE NOTICE 'inserting adj A into invcheadtax';
     INSERT INTO invcheadtax
       ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -222,6 +330,7 @@ BEGIN
     FROM invchead
     WHERE (invchead_adjtax_id=_r.tax_id);
 
+    RAISE NOTICE 'inserting A into invcitemtax';
     INSERT INTO invcitemtax
       ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -233,6 +342,34 @@ BEGIN
            invchead_invcdate, invchead_gldistdate
     FROM invcitem JOIN invchead ON (invchead_id=invcitem_invchead_id)
     WHERE (invcitem_tax_id=_r.tax_id);
+
+    IF (_edition > 1) THEN
+      RAISE NOTICE 'inserting A into toheadtax';
+    INSERT INTO toheadtax
+      ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+        taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+        taxhist_percent, taxhist_amount, taxhist_tax,
+        taxhist_docdate, taxhist_distdate )
+    SELECT tohead_id, tohead_taxtype_id, _taxid,
+           COALESCE(tohead_freight, 0), NULL, 0,
+           COALESCE(tohead_freighttax_pcta, 0), 0, COALESCE(tohead_freighttax_ratea, 0),
+           tohead_orderdate, tohead_orderdate
+    FROM tohead
+    WHERE (tohead_freighttax_id=_r.tax_id);
+
+      RAISE NOTICE 'inserting A into toitemtax';
+    INSERT INTO toitemtax
+      ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+        taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+        taxhist_percent, taxhist_amount, taxhist_tax,
+        taxhist_docdate, taxhist_distdate )
+    SELECT toitem_id, toitem_taxtype_id, _taxid,
+           COALESCE(toitem_freight, 0), NULL, 0,
+           COALESCE(toitem_freighttax_pcta, 0), 0, COALESCE(toitem_freighttax_ratea, 0),
+           tohead_orderdate, tohead_orderdate
+    FROM toitem JOIN tohead ON (tohead_id=toitem_tohead_id)
+    WHERE (toitem_freighttax_id=_r.tax_id);
+    END IF;
 
 -- vohead, voitem taxes not populated?
 --    INSERT INTO voheadtax
@@ -289,7 +426,7 @@ BEGIN
           taxrate_amount, taxrate_effective, taxrate_expires )
       VALUES
         ( _taxid, _r.tax_rateb, baseCurrid(),
-          0, '01/01/1970', '12/31/2100' );
+          0, '1970-01-01', '2100-12-31' );
 
       INSERT INTO taxass
         ( taxass_id, taxass_taxzone_id, taxass_taxtype_id, taxass_tax_id )
@@ -297,6 +434,7 @@ BEGIN
       FROM taxsel
       WHERE (taxsel_tax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting B into asohisttax';
       INSERT INTO asohisttax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -309,6 +447,7 @@ BEGIN
       FROM asohist
       WHERE (asohist_tax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting freight B into cmheadtax';
       INSERT INTO cmheadtax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -321,6 +460,7 @@ BEGIN
       FROM cmhead
       WHERE (cmhead_freighttax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting adj B into cmheadtax';
       INSERT INTO cmheadtax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -333,6 +473,7 @@ BEGIN
       FROM cmhead
       WHERE (cmhead_adjtax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting B into cmitemtax';
       INSERT INTO cmitemtax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -345,6 +486,7 @@ BEGIN
       FROM cmitem JOIN cmhead ON (cmhead_id=cmitem_cmhead_id)
       WHERE (cmitem_tax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting B into cobilltax';
       INSERT INTO cobilltax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -358,6 +500,7 @@ BEGIN
                   JOIN coitem ON (coitem_id=cobill_coitem_id)
       WHERE (cobill_tax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting freight B into cobmisc';
       INSERT INTO cobmisctax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -370,6 +513,7 @@ BEGIN
       FROM cobmisc
       WHERE (cobmisc_freighttax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting adj B into cobmisctax';
       INSERT INTO cobmisctax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -382,6 +526,7 @@ BEGIN
       FROM cobmisc
       WHERE (cobmisc_adjtax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting B into cohisttax';
       INSERT INTO cohisttax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -394,6 +539,7 @@ BEGIN
       FROM cohist
       WHERE (cohist_tax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting freight B into invcheadtax';
       INSERT INTO invcheadtax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -406,6 +552,7 @@ BEGIN
       FROM invchead
       WHERE (invchead_freighttax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting adj B into invcheadtax';
       INSERT INTO invcheadtax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -418,6 +565,7 @@ BEGIN
       FROM invchead
       WHERE (invchead_adjtax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting B into invcitemtax';
       INSERT INTO invcitemtax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -429,6 +577,34 @@ BEGIN
              invchead_invcdate, invchead_gldistdate
       FROM invcitem JOIN invchead ON (invchead_id=invcitem_invchead_id)
       WHERE (invcitem_tax_id=_r.tax_id);
+
+      IF (_edition > 1) THEN
+        RAISE NOTICE 'inserting B into toheadtax';
+      INSERT INTO toheadtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT tohead_id, tohead_taxtype_id, _taxid,
+             COALESCE(tohead_freight, 0), NULL, 0,
+             COALESCE(tohead_freighttax_pctb, 0), 0, COALESCE(tohead_freighttax_rateb, 0),
+             tohead_orderdate, tohead_orderdate
+      FROM tohead
+      WHERE (tohead_freighttax_id=_r.tax_id);
+
+        RAISE NOTICE 'inserting B into toitemtax';
+      INSERT INTO toitemtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT toitem_id, toitem_taxtype_id, _taxid,
+             COALESCE(toitem_freight, 0), NULL, 0,
+             COALESCE(toitem_freighttax_pctb, 0), 0, COALESCE(toitem_freighttax_rateb, 0),
+             tohead_orderdate, tohead_orderdate
+      FROM toitem JOIN tohead ON (tohead_id=toitem_tohead_id)
+      WHERE (toitem_freighttax_id=_r.tax_id);
+      END IF;
 
     END IF;
 
@@ -448,7 +624,7 @@ BEGIN
           taxrate_amount, taxrate_effective, taxrate_expires )
       VALUES
         ( _taxid, _r.tax_ratec, baseCurrid(),
-          0, '01/01/1970', '12/31/2100' );
+          0, '1970-01-01', '2100-12-31' );
 
       INSERT INTO taxass
         ( taxass_id, taxass_taxzone_id, taxass_taxtype_id, taxass_tax_id )
@@ -456,6 +632,7 @@ BEGIN
       FROM taxsel
       WHERE (taxsel_tax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting C into asohisttax';
       INSERT INTO asohisttax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -468,6 +645,7 @@ BEGIN
       FROM asohist
       WHERE (asohist_tax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting freight C into cmheadtax';
       INSERT INTO cmheadtax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -480,6 +658,7 @@ BEGIN
       FROM cmhead
       WHERE (cmhead_freighttax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting adj C into cmheadtax';
       INSERT INTO cmheadtax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -492,6 +671,7 @@ BEGIN
       FROM cmhead
       WHERE (cmhead_adjtax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting C into cmitemtax';
       INSERT INTO cmitemtax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -504,6 +684,7 @@ BEGIN
       FROM cmitem JOIN cmhead ON (cmhead_id=cmitem_cmhead_id)
       WHERE (cmitem_tax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting C into cobilltax';
       INSERT INTO cobilltax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -517,6 +698,7 @@ BEGIN
                   JOIN coitem ON (coitem_id=cobill_coitem_id)
       WHERE (cobill_tax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting freight C into cobmisctax';
       INSERT INTO cobmisctax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -529,6 +711,7 @@ BEGIN
       FROM cobmisc
       WHERE (cobmisc_freighttax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting adj C into cobmisctax';
       INSERT INTO cobmisctax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -541,6 +724,7 @@ BEGIN
       FROM cobmisc
       WHERE (cobmisc_adjtax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting C into cohisttax';
       INSERT INTO cohisttax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -553,6 +737,7 @@ BEGIN
       FROM cohist
       WHERE (cohist_tax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting freight C into invcheadtax';
       INSERT INTO invcheadtax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -565,6 +750,7 @@ BEGIN
       FROM invchead
       WHERE (invchead_freighttax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting adj C into invcheadtax';
       INSERT INTO invcheadtax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -577,6 +763,7 @@ BEGIN
       FROM invchead
       WHERE (invchead_adjtax_id=_r.tax_id);
 
+      RAISE NOTICE 'inserting C into invcitemtax';
       INSERT INTO invcitemtax
         ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
           taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -589,6 +776,34 @@ BEGIN
       FROM invcitem JOIN invchead ON (invchead_id=invcitem_invchead_id)
       WHERE (invcitem_tax_id=_r.tax_id);
 
+      IF (_edition > 1) THEN
+        RAISE NOTICE 'inserting C into toheadtax';
+      INSERT INTO toheadtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT tohead_id, tohead_taxtype_id, _taxid,
+             COALESCE(tohead_freight, 0), NULL, 0,
+             COALESCE(tohead_freighttax_pctc, 0), 0, COALESCE(tohead_freighttax_ratec, 0),
+             tohead_orderdate, tohead_orderdate
+      FROM tohead
+      WHERE (tohead_freighttax_id=_r.tax_id);
+
+        RAISE NOTICE 'inserting C into toitemtax';
+      INSERT INTO toitemtax
+        ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+          taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+          taxhist_percent, taxhist_amount, taxhist_tax,
+          taxhist_docdate, taxhist_distdate )
+      SELECT toitem_id, toitem_taxtype_id, _taxid,
+             COALESCE(toitem_freight, 0), NULL, 0,
+             COALESCE(toitem_freighttax_pctc, 0), 0, COALESCE(toitem_freighttax_ratec, 0),
+             tohead_orderdate, tohead_orderdate
+      FROM toitem JOIN tohead ON (tohead_id=toitem_tohead_id)
+      WHERE (toitem_freighttax_id=_r.tax_id);
+      END IF;
+
     END IF;
   END LOOP;
 
@@ -600,4 +815,3 @@ $$ LANGUAGE 'plpgsql';
 SELECT fixTax();
 DROP FUNCTION fixTax();
 
-COMMIT;
