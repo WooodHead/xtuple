@@ -8,56 +8,47 @@ DECLARE
   _qry text;
   _totaltax numeric;
   _y RECORD;
+  _table text;
   
 BEGIN
    _totaltax=0.0;
 
-   IF pOrderType = 'II'  THEN
-    _qry := 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, taxhist_tax, taxhist_sequence ';
-    _qry := _qry || 'FROM invcitemtax LEFT OUTER JOIN tax ON (taxhist_tax_id=tax_id) ';
-    _qry := _qry || 'LEFT OUTER JOIN invcitem ON (invcitem_id=taxhist_parent_id) ';
-    _qry := _qry || ' Where invcitem_id = ' || pOrderId ;
+   IF pOrderType = 'II' THEN
+     _table := 'invcitemtax';
+   ELSIF pOrderType = 'BI' THEN
+     _table := 'cobilltax';
+   ELSIF pOrderType = 'CI' THEN
+     _table := 'cmitemtax';
+   END IF;
+     
+   _qry := 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, taxhist_tax, taxhist_sequence
+            FROM taxhist 
+             JOIN tax ON (taxhist_tax_id=tax_id) 
+             JOIN pg_class ON (pg_class.oid=taxhist.tableoid) 
+            WHERE ( (taxhist_parent_id = ' || pOrderId || ')
+             AND (relname=''' || _table || ''') );';
     
    FOR _y IN  EXECUTE _qry
    LOOP
-   _row.taxdetail_tax_id=_y.tax_id;
-   _row.taxdetail_tax_code = _y.tax_code;
-   _row.taxdetail_tax_descrip = _y.tax_descrip;
-   _row.taxdetail_tax = _y.taxhist_tax;
-   _row.taxdetail_level= 0 ;
-   _row.taxdetail_taxclass_sequence= _y.taxhist_sequence;
-   _totaltax = _totaltax + _y.taxhist_tax;
-   RETURN NEXT _row;
+     _row.taxdetail_tax_id=_y.tax_id;
+     _row.taxdetail_tax_code = _y.tax_code;
+     _row.taxdetail_tax_descrip = _y.tax_descrip;
+     _row.taxdetail_tax = _y.taxhist_tax;
+     _row.taxdetail_level= 0 ;
+     _row.taxdetail_taxclass_sequence= _y.taxhist_sequence;
+     _totaltax = _totaltax + _y.taxhist_tax;
+     RETURN NEXT _row;
    END LOOP;
- END IF;
   
-  IF pOrderType = 'BI' THEN
-    _qry := 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, COALESE(taxhist_tax, taxhist_amount, taxhist_sequence ';
-    _qry := _qry || 'FROM cobilltax LEFT OUTER JOIN tax ON (taxhist_tax_id=tax_id) ';
-    _qry := _qry || 'LEFT OUTER JOIN cobill ON (cobill_id=taxhist_parent_id) ';
-    _qry := _qry || ' Where cobill_id = ' || pOrderId ;
-   FOR _y IN  EXECUTE _qry
-   LOOP
-   _row.taxdetail_tax_id=_y.tax_id;
-   _row.taxdetail_tax_code = _y.tax_code;
-   _row.taxdetail_tax_descrip = _y.tax_descrip;
-   _row.taxdetail_tax = _y.taxhist_tax;
-   _row.taxdetail_level= 0 ;
-   _row.taxdetail_taxclass_sequence= _y.taxhist_sequence;
-   _totaltax = _totaltax + _y.taxhist_tax;
-   RETURN NEXT _row;
-   END LOOP;
- END IF;
-  
- IF _totaltax > 0.0 THEN
-  _row.taxdetail_tax_id=-1;
-  _row.taxdetail_tax_code = 'Total';
-  _row.taxdetail_tax_descrip = NULL;
-  _row.taxdetail_tax = _totaltax;
-  _row.taxdetail_level=0;
-  _row.taxdetail_taxclass_sequence= NULL;
-  RETURN NEXT _row;
- END IF;
+   IF _totaltax > 0.0 THEN
+     _row.taxdetail_tax_id=-1;
+     _row.taxdetail_tax_code = 'Total';
+     _row.taxdetail_tax_descrip = NULL;
+     _row.taxdetail_tax = _totaltax;
+     _row.taxdetail_level=0;
+     _row.taxdetail_taxclass_sequence= NULL;
+     RETURN NEXT _row;
+   END IF;
  END;
 $BODY$
   LANGUAGE 'plpgsql' VOLATILE;
