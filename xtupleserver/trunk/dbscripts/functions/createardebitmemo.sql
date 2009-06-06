@@ -9,7 +9,7 @@ DECLARE
   pNotes ALIAS FOR $6;
 
 BEGIN
-  RETURN createARDebitMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, -1, -1, -1, pDocDate, -1, -1, 0, baseCurrId() );
+  RETURN createARDebitMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, -1, -1, -1, pDocDate, -1, -1, 0, baseCurrId(), NULL, NULL, 0 );
 END;
 ' LANGUAGE 'plpgsql';
 
@@ -24,7 +24,7 @@ DECLARE
   pCurrId ALIAS FOR $7;
 
 BEGIN
-  RETURN createARDebitMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, -1, -1, -1, pDocDate, -1, -1, 0, pCurrId);
+  RETURN createARDebitMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, -1, -1, -1, pDocDate, -1, -1, 0, pCurrId, NULL, NULL, 0);
 END;
 ' LANGUAGE 'plpgsql';
 
@@ -40,7 +40,7 @@ DECLARE
   pSalescatid ALIAS FOR $8;
   pAccntid ALIAS FOR $9;
 BEGIN
-  RETURN createARDebitMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDocDate, -1, -1, 0, baseCurrId() );
+  RETURN createARDebitMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDocDate, -1, -1, 0, baseCurrId(), NULL, NULL, 0 );
 END;
 ' LANGUAGE 'plpgsql';
 
@@ -61,7 +61,7 @@ DECLARE
   pCommissiondue ALIAS FOR $13;
 
 BEGIN
-  RETURN createARDebitMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, baseCurrId() );
+  RETURN createARDebitMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, baseCurrId(), NULL, NULL, 0 );
 END;
 ' LANGUAGE 'plpgsql';
 
@@ -82,7 +82,7 @@ DECLARE
   pCommissiondue ALIAS FOR $13;
   pCurrId ALIAS FOR $14;
 BEGIN
-  RETURN createARDebitMemo(pCustid, fetchJournalNumber(''AR-MISC''), pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, pCurrId );
+  RETURN createARDebitMemo(pCustid, fetchJournalNumber(''AR-MISC''), pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, pCurrId, NULL, NULL, 0 );
 END;
 ' LANGUAGE 'plpgsql';
 
@@ -103,14 +103,67 @@ DECLARE
   pSalesrepid		ALIAS FOR $13;
   pCommissiondue	ALIAS FOR $14;
   pCurrId		ALIAS FOR $15;
+BEGIN
+  RETURN createARDebitMemo(pCustid, pJournalNumber, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, pCurrId, NULL, NULL, 0 );
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION createARDebitMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER, INTEGER, INTEGER, NUMERIC) RETURNS INTEGER AS '
+DECLARE
+  pCustid ALIAS FOR $1;
+  pDocNumber ALIAS FOR $2;
+  pOrderNumber ALIAS FOR $3;
+  pDocDate ALIAS FOR $4;
+  pAmount ALIAS FOR $5;
+  pNotes ALIAS FOR $6;
+  pRsncodeid ALIAS FOR $7;
+  pSalescatid ALIAS FOR $8;
+  pAccntid ALIAS FOR $9;
+  pDueDate ALIAS FOR $10;
+  pTermsid ALIAS FOR $11;
+  pSalesrepid ALIAS FOR $12;
+  pCommissiondue ALIAS FOR $13;
+  pCurrId ALIAS FOR $14;
+  pTaxzoneId ALIAS FOR $15;
+  pTaxtypeId ALIAS FOR $16;
+  pTax ALIAS FOR $17;
+BEGIN
+  RETURN createARDebitMemo(pCustid, fetchJournalNumber(''AR-MISC''), pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, pCurrId, pTaxzoneId, pTaxtypeId, pTax);
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION createARDebitMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER, INTEGER, INTEGER, NUMERIC) RETURNS INTEGER AS '
+DECLARE
+  pCustid		ALIAS FOR $1;
+  pJournalNumber	ALIAS FOR $2;
+  pDocNumber		ALIAS FOR $3;
+  pOrderNumber		ALIAS FOR $4;
+  pDocDate		ALIAS FOR $5;
+  pAmount		ALIAS FOR $6;
+  pNotes		ALIAS FOR $7;
+  pRsncodeid		ALIAS FOR $8;
+  pSalescatid		ALIAS FOR $9;
+  pAccntid		ALIAS FOR $10;
+  pDueDate		ALIAS FOR $11;
+  pTermsid		ALIAS FOR $12;
+  pSalesrepid		ALIAS FOR $13;
+  pCommissiondue	ALIAS FOR $14;
+  pCurrId		ALIAS FOR $15;
+  pTaxzoneId		ALIAS FOR $16;
+  pTaxtypeId		ALIAS FOR $17;
+  pTax			ALIAS FOR $18;
   _custName TEXT;
   _journalNumber INTEGER;
+  _arAccntid INTEGER;
   _prepaidAccntid INTEGER;
   _salescatid INTEGER;
   _accntid INTEGER;
   _glSequence INTEGER;
   _aropenid INTEGER;
+  _cohistid INTEGER;
   _tmp INTEGER;
+  _test INTEGER;
+  _taxBaseValue NUMERIC;
 
 BEGIN
 
@@ -118,6 +171,7 @@ BEGIN
     RETURN 0;
   END IF;
 
+  SELECT findARAccount(pCustid) INTO _arAccntid;
   SELECT findPrepaidAccount(pCustid) INTO _prepaidAccntid;
 
   _accntid := pAccntid;
@@ -153,20 +207,11 @@ BEGIN
     _journalNumber := pJournalNumber;
   END IF;
 
+  SELECT fetchGLSequence() INTO _glSequence;
+
   SELECT NEXTVAL(''aropen_aropen_id_seq'') INTO _aropenid;
 
-  SELECT insertGLTransaction( _journalNumber, ''A/R'', ''DM'',
-                              pDocNumber, (_custName || '' '' || pNotes), cr.accnt_id, db.accnt_id,
-                              _aropenid,
-                              round(currToBase(pCurrId, pAmount, pDocDate), 2),
-                              pDocDate) INTO _glSequence
-  FROM accnt AS db, accnt AS cr
-  WHERE ( (db.accnt_id = findARAccount(pCustid))
-   AND (cr.accnt_id = _prepaidAccntid) );
-  IF (NOT FOUND) THEN
-    RETURN -1;
-  END IF;
-
+  -- Create aropen for full amount
   INSERT INTO aropen
   ( aropen_id, aropen_username, aropen_journalnumber,
     aropen_cust_id, aropen_docnumber, aropen_doctype, aropen_ordernumber,
@@ -183,6 +228,76 @@ BEGIN
     '''', '''', -1,
     TRUE, pNotes, pRsncodeid,
     _salescatid, _accntid, pCurrId );
+
+  -- Calculate taxes based on basis amount
+  PERFORM calculateTaxHist( ''aropentax'',
+                            _aropenid,
+                            COALESCE(pTaxzoneId, -1),
+                            COALESCE(pTaxtypeId, -1),
+                            COALESCE(pDocDate, CURRENT_DATE),
+                            COALESCE(pCurrId, -1),
+                            (pAmount - pTax) );
+
+  -- Debit the A/R account for the full amount
+  SELECT insertIntoGLSeries ( _glSequence, ''A/R'', ''DM'',
+                              pDocNumber, _arAccntid,
+                              round(currToBase(pCurrId, pAmount, pDocDate) * -1, 2),
+                              pDocDate, (_custName || '' '' || pNotes)) INTO _test;
+
+  -- Credit the Prepaid account for the basis amount
+  SELECT insertIntoGLSeries ( _glSequence, ''A/R'', ''DM'',
+                              pDocNumber, _prepaidAccntid,
+                              round(currToBase(pCurrId, (pAmount - pTax), pDocDate), 2),
+                              pDocDate, (_custName || '' '' || pNotes)) INTO _test;
+
+  -- Credit the Tax account for the tax amount
+  _taxBaseValue := addTaxToGLSeries(_glSequence,
+				      ''A/R'', ''DM'', pDocNumber,
+				      pCurrId, pDocDate, pDocDate,
+                                      ''aropentax'', _aropenid,
+                                      _custName);
+
+  --  Commit the GLSeries;
+  SELECT postGLSeries(_glSequence, _journalNumber) INTO _test;
+  IF (_test < 0) THEN
+    DELETE FROM aropen WHERE (aropen_id=_aropenid);
+    PERFORM deleteGLSeries(_glSequence);
+    RAISE EXCEPTION ''postGLSeries commit failed with %'', _test;
+  END IF;
+
+  --  Record Sales History
+  SELECT nextval(''cohist_cohist_id_seq'') INTO _cohistid;
+  INSERT INTO cohist
+  ( cohist_id, cohist_cust_id, cohist_itemsite_id, cohist_shipto_id,
+    cohist_misc_type, cohist_misc_descrip,
+    cohist_shipdate, cohist_shipvia,
+    cohist_ordernumber, cohist_ponumber, cohist_orderdate,
+    cohist_doctype, cohist_invcnumber, cohist_invcdate,
+    cohist_qtyshipped, cohist_unitprice, cohist_unitcost,
+    cohist_salesrep_id, cohist_commission, cohist_commissionpaid,
+    cohist_curr_id, cohist_sequence, cohist_taxtype_id, cohist_taxzone_id )
+  SELECT
+    _cohistid, cust_id, -1, -1,
+    ''M'', ''A/R Misc Debit Memo'',
+    pDocDate, '''',
+    '''', '''', pDocDate,
+    ''M'', pDocNumber, pDocDate,
+    1, (pAmount - pTax), 0,
+    cust_salesrep_id, (cust_commprcnt * (pAmount - pTax)), FALSE,
+    pCurrId, _glSequence, pTaxtypeId, pTaxzoneId
+  FROM custinfo
+  WHERE (cust_id=pCustid);
+  INSERT INTO cohisttax
+  ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
+    taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+    taxhist_percent, taxhist_amount, taxhist_tax,
+    taxhist_docdate, taxhist_distdate )
+  SELECT _cohistid, taxhist_taxtype_id, taxhist_tax_id,
+         taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
+         taxhist_percent, taxhist_amount, taxhist_tax,
+         taxhist_docdate, taxhist_distdate
+  FROM aropentax
+  WHERE (taxhist_parent_id=_aropenid);
 
   RETURN _aropenid;
 

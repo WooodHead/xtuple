@@ -7,9 +7,17 @@ DECLARE
   pAmount ALIAS FOR $5;
   _result INTEGER;
   _x RECORD;
-  _tax NUMERIC := 0;         -- Running amount
-  _amount NUMERIC := 0;      -- Calculated base amount
+  _debug BOOLEAN := false;
+  _amount NUMERIC := 0;      -- Calculated tax
 BEGIN
+
+  IF (_debug) THEN
+    RAISE NOTICE 'calculateTaxBasis, pTaxZoneId=%', pTaxZoneId;
+    RAISE NOTICE 'calculateTaxBasis, pTaxTypeId=%', pTaxTypeId;
+    RAISE NOTICE 'calculateTaxBasis, pDate=%', pDate;
+    RAISE NOTICE 'calculateTaxBasis, pCurrId=%', pCurrId;
+    RAISE NOTICE 'calculateTaxBasis, pAmount=%', pAmount;
+  END IF;
 
 --  Check for valid inputs, throw an error if anything missing
   SELECT taxzone_id INTO _result
@@ -45,10 +53,20 @@ BEGIN
     GROUP BY taxdetail_taxclass_sequence, taxdetail_level
     ORDER BY taxdetail_taxclass_sequence DESC, taxdetail_level DESC
   LOOP
+    IF (_debug) THEN
+      RAISE NOTICE 'calculateTaxBasis, tax_amount=%', _x.tax_amount;
+      RAISE NOTICE 'calculateTaxBasis, tax_percent=%',_x.tax_percent;
+    END IF;
     -- Calculate backward
     _amount := _amount - round((_amount - _x.tax_amount) / (1 + _x.tax_percent), 2);
+    IF (_debug) THEN
+      RAISE NOTICE 'calculateTaxBasis, _amount=%', _amount;
+    END IF;
   END LOOP;
 
+  IF (_debug) THEN
+    RAISE NOTICE 'calculateTaxBasis, return _amount=%', _amount;
+  END IF;
   RETURN _amount;
 
 END;

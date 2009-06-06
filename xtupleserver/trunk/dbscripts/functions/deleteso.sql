@@ -48,12 +48,12 @@ BEGIN
     RETURN _result;
   END IF;
 
+  DELETE FROM cohead
+  WHERE (cohead_id=pSoheadid);
+
   DELETE FROM prj
   WHERE ((prj_id=_r.cohead_prj_id)
   AND (prj_status IS NULL));
-
-  DELETE FROM cohead
-  WHERE (cohead_id=pSoheadid);
 
   DELETE FROM aropenco
   WHERE (aropenco_cohead_id=pSoheadid);
