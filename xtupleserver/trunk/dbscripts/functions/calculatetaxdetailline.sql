@@ -21,6 +21,8 @@ BEGIN
      _table := 'cmitemtax';
    ELSIF pOrderType = 'VI' THEN
      _table := 'voitemtax';
+   ELSIF pOrderType = 'TI' THEN
+     _table := 'toitemtax';
    END IF;
      
    _qry := 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, taxhist_tax, taxhist_sequence
