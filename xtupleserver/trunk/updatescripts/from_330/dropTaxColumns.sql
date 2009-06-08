@@ -70,6 +70,8 @@ ALTER TABLE cmhead        DROP COLUMN cmhead_freighttax_pctc CASCADE;
 ALTER TABLE cmhead        DROP COLUMN cmhead_freighttax_ratea CASCADE;
 ALTER TABLE cmhead        DROP COLUMN cmhead_freighttax_rateb CASCADE;
 ALTER TABLE cmhead        DROP COLUMN cmhead_freighttax_ratec CASCADE;
+ALTER TABLE cmhead        DROP COLUMN cmhead_adjtaxtype_id CASCADE;
+ALTER TABLE cmhead        DROP COLUMN cmhead_freighttax_id  CASCADE;
 ALTER TABLE cmitem        DROP COLUMN cmitem_tax_id CASCADE;
 ALTER TABLE cmitem        DROP COLUMN cmitem_tax_pcta CASCADE;
 ALTER TABLE cmitem        DROP COLUMN cmitem_tax_pctb CASCADE;

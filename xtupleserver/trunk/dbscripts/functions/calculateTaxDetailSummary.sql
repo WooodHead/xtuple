@@ -94,7 +94,7 @@ BEGIN
   END IF;
   
 
- ELSEIF pOrderType IN ('I','B','CM', 'VO') THEN
+ ELSEIF pOrderType IN ('I','B','CM', 'VO','TO') THEN
    IF (pOrderType='I') THEN
      _table := 'invcheadtax';
    ELSIF (pOrderType='B') THEN
@@ -103,6 +103,8 @@ BEGIN
      _table := 'cmheadtax';
    ELSIF (pOrderType='VO') THEN
      _table := 'voheadtax';
+   ELSIF (pOrderType='TO') THEN
+     _table := 'tohead';
    END IF;
    
    IF pOrderType = 'I' AND (pDisplayType IN ('L','T')) THEN
@@ -129,6 +131,12 @@ BEGIN
              LEFT OUTER JOIN voitem ON (voitem_id=taxhist_parent_id)
              WHERE voitem_vohead_id = ' || pOrderId || ' 
              AND vohead_id = voitem_vohead_id ';
+   ELSIF pOrderType = 'TO' AND (pDisplayType IN ('L','T')) THEN
+    _qry := 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, taxhist_tax, taxhist_sequence
+             FROM tohead, toitemtax LEFT OUTER JOIN tax ON (taxhist_tax_id=tax_id)
+             LEFT OUTER JOIN toitem ON (toitem_id=taxhist_parent_id)
+             WHERE toitem_tohead_id = ' || pOrderId || ' 
+             AND tohead_id = toitem_tohead_id ';
    END IF;
    IF pDisplayType IN ('F','T') AND pOrderType <> 'VO' THEN
      IF (length(_qry) > 0) THEN
