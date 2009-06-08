@@ -15,7 +15,7 @@ DECLARE
   
 BEGIN
  _totaltax=0.0;
- IF pOrderType IN ('S','Q','RA') THEN
+ IF pOrderType IN ('S','Q','RA','PO') THEN
    
    IF pOrderType = 'S' THEN
      _qry := 'SELECT ' || 'COALESCE(cohead_taxzone_id, -1) AS taxzone_id, cohead_orderdate AS order_date,
@@ -37,7 +37,14 @@ BEGIN
                 ROUND((raitem_qtyauthorized * raitem_qty_invuomratio) * (raitem_unitprice / raitem_price_invuomratio),2) AS amount
               FROM rahead, raitem 
               WHERE ( (raitem_rahead_id = ' || pOrderId || ')
-               AND (rahead_id = raitem_rahead_id) )'; 
+               AND (rahead_id = raitem_rahead_id) )';
+   ELSEIF  pOrderType = 'PO' THEN
+     _qry := 'SELECT ' || 'COALESCE(pohead_taxzone_id, -1) AS taxzone_id, pohead_orderdate AS order_date,
+                pohead_curr_id AS curr_id, COALESCE(poitem_taxtype_id, -1) AS taxtype_id, 
+                ROUND(poitem_qty_ordered * poitem_unitprice, 2) AS amount
+              FROM pohead, poitem 
+              WHERE ( (poitem_pohead_id = ' || pOrderId || ')
+               AND (pohead_id = poitem_pohead_id) )'; 
   END IF;
      
   FOR _x IN EXECUTE _qry
@@ -56,7 +63,7 @@ BEGIN
     END LOOP;
   END LOOP;
 
-  IF pDisplayType = 'T' THEN
+  IF pDisplayType = 'T' AND pOrderType <> 'PO' THEN
    IF pOrderType = 'S' THEN 
     _qry := 'SELECT COALESCE(cohead_taxzone_id, -1) AS taxzone_id, cohead_orderdate AS order_date,
                cohead_curr_id AS curr_id, cohead_freight AS freight
@@ -87,13 +94,15 @@ BEGIN
   END IF;
   
 
- ELSEIF pOrderType IN ('I','B','CM') THEN
+ ELSEIF pOrderType IN ('I','B','CM', 'VO') THEN
    IF (pOrderType='I') THEN
      _table := 'invcheadtax';
    ELSIF (pOrderType='B') THEN
      _table := 'cobmisctax';
    ELSIF (pOrderType='CM') THEN
      _table := 'cmheadtax';
+   ELSIF (pOrderType='VO') THEN
+     _table := 'voheadtax';
    END IF;
    
    IF pOrderType = 'I' AND (pDisplayType IN ('L','T')) THEN
@@ -114,10 +123,16 @@ BEGIN
              LEFT OUTER JOIN cmitem ON (cmitem_id=taxhist_parent_id)
              WHERE cmitem_cmhead_id = ' || pOrderId || ' 
              AND cmhead_id = cmitem_cmhead_id ';
+   ELSIF pOrderType = 'VO' AND (pDisplayType IN ('L','T')) THEN
+    _qry := 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, taxhist_tax, taxhist_sequence
+             FROM vohead, voitemtax LEFT OUTER JOIN tax ON (taxhist_tax_id=tax_id)
+             LEFT OUTER JOIN voitem ON (voitem_id=taxhist_parent_id)
+             WHERE voitem_vohead_id = ' || pOrderId || ' 
+             AND vohead_id = voitem_vohead_id ';
    END IF;
-   IF pDisplayType IN ('F','T') THEN
+   IF pDisplayType IN ('F','T') AND pOrderType <> 'VO' THEN
      IF (length(_qry) > 0) THEN
-       _qry := _qry || 'UNION ALL ';
+       _qry := _qry || ' UNION ALL ';
      END IF;
      _qry := _qry || 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, taxhist_tax, taxhist_sequence
               FROM taxhist 
@@ -129,7 +144,7 @@ BEGIN
    END IF;
    IF pDisplayType IN ('A','T') THEN
      IF (length(_qry) > 0) THEN
-       _qry := _qry || 'UNION ALL ';
+       _qry := _qry || ' UNION ALL ';
      END IF;
      _qry := _qry || 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, taxhist_tax, taxhist_sequence
               FROM taxhist 
