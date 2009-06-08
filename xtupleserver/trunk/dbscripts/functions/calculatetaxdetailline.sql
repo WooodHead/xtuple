@@ -19,6 +19,8 @@ BEGIN
      _table := 'cobilltax';
    ELSIF pOrderType = 'CI' THEN
      _table := 'cmitemtax';
+   ELSIF pOrderType = 'VI' THEN
+     _table := 'voitemtax';
    END IF;
      
    _qry := 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, taxhist_tax, taxhist_sequence
