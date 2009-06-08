@@ -148,4 +148,45 @@
   WHERE (raitem_rahead_id=<? value("rahead_id") ?>)
   GROUP BY number, rahead_taxzone_id, curr_id, tax_curr_id,
          date, freight, freightTax;
+<? elseif exists("pohead_id") ?>
+  SELECT pohead_number AS number,
+         pohead_taxzone_id AS taxzone_id,
+         pohead_curr_id AS curr_id,
+         pohead_curr_id AS tax_curr_id,
+         pohead_orderdate AS date,
+         COALESCE(SUM(ROUND(poitem_unitprice * poitem_qty_ordered, 2)),0) AS line,
+         COALESCE(SUM(ROUND(calculateTax(pohead_taxzone_id, poitem_taxtype_id, pohead_orderdate, pohead_curr_id, ROUND(poitem_unitprice * poitem_qty_ordered, 2)),2)),0) as total_tax,   
+         (COALESCE(SUM(poitem_freight),0)+COALESCE(pohead_freight,0)) AS freight,
+         taxtype_id AS freightTax,
+         0 AS freighttaxamt
+  FROM pohead 
+    LEFT OUTER JOIN poitem ON (poitem_pohead_id=pohead_id)
+    LEFT OUTER JOIN taxzone ON (pohead_taxzone_id=taxzone_id) 
+    LEFT OUTER JOIN taxtype ON (taxtype_id=getFreightTaxTypeId())
+  WHERE (poitem_pohead_id=<? value("pohead_id") ?>)
+  GROUP BY number, pohead_taxzone_id, curr_id, tax_curr_id,
+         date, pohead_freight, freightTax;
+<? elseif exists("vohead_id") ?>
+  SELECT head.*, linetax.*, adjtax.* 
+  FROM
+  (SELECT 
+      vohead_number AS number, vohead_taxzone_id AS taxzone_id, 
+      vohead_curr_id AS curr_id, vohead_curr_id AS tax_curr_id, vohead_docdate AS date, 
+      COALESCE(SUM(ROUND(voitem_qty * poitem_unitprice, 2)), 0) AS line, 
+      COALESCE(SUM(voitem_freight), 0) AS freight,  
+      getAdjustmentTaxTypeId() AS adjTax 
+  FROM voitem 
+      LEFT OUTER JOIN poitem ON (voitem_poitem_id=poitem_id) 
+      LEFT OUTER JOIN vohead ON (voitem_vohead_id=vohead_id) 
+  WHERE (voitem_vohead_id=<? value("vohead_id") ?>) 
+  GROUP BY number, taxzone_id, curr_id, tax_curr_id, date, adjTax) head, 
+  (SELECT SUM(voitemtax.taxhist_tax) AS total_tax 
+   FROM voitemtax 
+    LEFT OUTER JOIN voitem ON (taxhist_parent_id = voitem_id) 
+   WHERE (voitem_vohead_id=<? value("vohead_id") ?>)) linetax,
+  (SELECT  SUM(taxhist_tax) AS adjtaxamt 
+   FROM vohead 
+    LEFT OUTER JOIN voheadtax ON (taxhist_parent_id = vohead_id 
+                                AND taxhist_taxtype_id = getadjustmenttaxtypeid()) 
+   WHERE vohead_id=<? value("vohead_id") ?>) adjtax;
 <? endif ?>;
