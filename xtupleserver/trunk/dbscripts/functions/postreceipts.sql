@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION postReceipts(TEXT, INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postReceipts(TEXT, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pordertype		ALIAS FOR $1;
   porderid		ALIAS FOR $2;
@@ -10,8 +10,8 @@ DECLARE
 
 BEGIN
 
-  _multiWhs := fetchMetricBool(''MultiWhs'');
-  _returnauth := fetchMetricBool(''EnableReturnAuth'');
+  _multiWhs := fetchMetricBool('MultiWhs');
+  _returnauth := fetchMetricBool('EnableReturnAuth');
 
   SELECT SUM(qtyToReceive(pordertype, recv_orderitem_id)) INTO _qtyToRecv
   FROM recv, orderitem
@@ -25,7 +25,7 @@ BEGIN
   END IF;
 
   IF (_itemlocSeries IS NULL OR _itemlocSeries <= 0) THEN
-    _itemlocSeries := NEXTVAL(''itemloc_series_seq'');
+    _itemlocSeries := NEXTVAL('itemloc_series_seq');
   END IF;
 
   FOR _r IN SELECT postReceipt(recv_id, _itemlocSeries) AS postResult
@@ -44,4 +44,4 @@ BEGIN
 
   RETURN _itemlocSeries;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
