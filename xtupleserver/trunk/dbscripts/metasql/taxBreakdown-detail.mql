@@ -12,10 +12,10 @@
       (CASE WHEN(item_id IS NULL) THEN 1 ELSE invcitem_price_invuomratio END)), 2)) AS line, 
       invchead_freight AS freight, 
       getFreightTaxTypeId() AS freightTax, getAdjustmentTaxTypeId() AS adjTax 
-  FROM invcitem 
+  FROM invchead
+      LEFT OUTER JOIN invcitem ON (invcitem_invchead_id=invchead_id)  
       LEFT OUTER JOIN item ON (invcitem_item_id=item_id) 
-      LEFT OUTER JOIN invchead ON (invcitem_invchead_id=invchead_id) 
-  WHERE (invcitem_invchead_id=<? value("invchead_id") ?>) 
+  WHERE (invchead_id=<? value("invchead_id") ?>) 
   GROUP BY number, taxzone_id, curr_id, tax_curr_id, date, freight, freightTax, adjTax) head, 
   (SELECT SUM(invcitemtax.taxhist_tax) AS total_tax 
    FROM invcitemtax 
@@ -25,7 +25,7 @@
    FROM invchead 
    LEFT OUTER JOIN invcheadtax ON (taxhist_parent_id = invchead_id 
    AND taxhist_taxtype_id = getfreighttaxtypeid()) 
-   WHERE invchead_id=<? value("invchead_id") ?>) freighttax, 
+   WHERE invchead_id=<? value("invchead_id") ?>) freighttax,  
   (SELECT  SUM(taxhist_tax) AS adjtaxamt 
    FROM invchead 
     LEFT OUTER JOIN invcheadtax ON (taxhist_parent_id = invchead_id 

@@ -12,7 +12,6 @@ AS
 		salesrep_number as sales_rep,
 		invchead_commission AS commission,
 		COALESCE(taxzone_code, 'None') AS tax_zone,
-		COALESCE(taxtype_name, 'None') AS tax_type,
 		terms_code AS terms,
 		cust_number AS customer_number,
 		invchead_billto_name AS billto_name,
@@ -55,8 +54,7 @@ AS
 		LEFT OUTER JOIN curr_symbol AS curr ON (curr.curr_id=invchead_curr_id)
 		LEFT OUTER JOIN salesrep ON (salesrep_id=invchead_salesrep_id)
 		LEFT OUTER JOIN terms ON (terms_id=invchead_terms_id)
-		LEFT OUTER JOIN taxzone ON (taxzone_id=invchead_taxzone_id)
-		LEFT OUTER JOIN taxtype ON (taxtype_id=invchead_taxtype_id);
+		LEFT OUTER JOIN taxzone ON (taxzone_id=invchead_taxzone_id);
 	
 GRANT ALL ON TABLE api.invoice TO xtrole;
 COMMENT ON VIEW api.invoice IS '
@@ -84,7 +82,6 @@ BEGIN
 		invchead_salesrep_id,
 		invchead_commission,
 		invchead_taxzone_id,
-		invchead_taxtype_id,
 		invchead_terms_id,
 		invchead_cust_id,
 		invchead_billto_name,
@@ -133,10 +130,6 @@ BEGIN
 		CASE
 			WHEN pNew.tax_zone = 'None' THEN NULL
 			ELSE COALESCE(getTaxZoneId(pNew.tax_zone),shipto_taxzone_id,cust_taxzone_id)
-		END,
-		CASE
-			WHEN pNew.tax_type = 'None' THEN NULL
-			ELSE getTaxTypeId(pNew.tax_type)
 		END,
 		COALESCE(getTermsId(pNew.terms),cust_terms_id),
 		(SELECT getCustId(pNew.customer_number)),
@@ -217,7 +210,6 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 		invchead_salesrep_id=getSalesRepId(NEW.sales_rep),
 		invchead_commission=NEW.commission,
 		invchead_taxzone_id=getTaxZoneId(NULLIF(NEW.tax_zone, 'None')),
-		invchead_taxtype_id=getTaxTypeId(NULLIF(NEW.tax_type, 'None')),
 		invchead_terms_id=getTermsId(NEW.terms),
 		invchead_cust_id=(SELECT getCustId(NEW.customer_number)),
 		invchead_billto_name=NEW.billto_name,

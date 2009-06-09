@@ -113,6 +113,8 @@ ALTER TABLE cohist        DROP COLUMN cohist_tax_ratea CASCADE;
 ALTER TABLE cohist        DROP COLUMN cohist_tax_rateb CASCADE;
 ALTER TABLE cohist        DROP COLUMN cohist_tax_ratec CASCADE;
 ALTER TABLE invchead      DROP COLUMN invchead_tax CASCADE;
+ALTER TABLE invchead      DROP COLUMN invchead_freighttaxtype_id CASCADE;
+ALTER TABLE invchead      DROP COLUMN invchead_adjtaxtype_id CASCADE;
 ALTER TABLE invchead      DROP COLUMN invchead_tax_ratea CASCADE;
 ALTER TABLE invchead      DROP COLUMN invchead_tax_rateb CASCADE;
 ALTER TABLE invchead      DROP COLUMN invchead_tax_ratec CASCADE;
