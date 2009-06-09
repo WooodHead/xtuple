@@ -23,6 +23,8 @@ BEGIN
      _table := 'voitemtax';
    ELSIF pOrderType = 'TI' THEN
      _table := 'toitemtax';
+   ELSIF pOrderType = 'AR' THEN
+     _table := 'aropentax';
    END IF;
      
    _qry := 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, taxhist_tax, taxhist_sequence
