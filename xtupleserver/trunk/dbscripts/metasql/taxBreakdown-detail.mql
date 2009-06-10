@@ -68,12 +68,13 @@
      (CASE WHEN(item_id IS NULL) THEN 1 ELSE coitem_price_invuomratio END), 2)) AS line, 
      cobmisc_freight AS freight, 
      getFreightTaxTypeId() AS freightTax, getAdjustmentTaxTypeId() AS adjTax 	         
-    FROM coitem JOIN cobill ON (cobill_coitem_id=coitem_id) 
-     JOIN cobmisc ON (cobill_cobmisc_id=cobmisc_id) 
-     JOIN cohead  ON (coitem_cohead_id=cohead_id) 
+    FROM cobmisc
+     JOIN cohead  ON (cobmisc_cohead_id=cohead_id) 
+     LEFT OUTER JOIN cobill ON (cobill_cobmisc_id=cobmisc_id) 
+     LEFT OUTER JOIN coitem ON (cobill_coitem_id=coitem_id) 
      LEFT OUTER JOIN itemsite ON (coitem_itemsite_id=itemsite_id) 
      LEFT OUTER JOIN item ON (itemsite_item_id=item_id) 
-    WHERE (cobill_cobmisc_id=<? value("cobmisc_id") ?>) 
+    WHERE (cobmisc_id=<? value("cobmisc_id") ?>) 
     GROUP BY number, cobmisc_taxzone_id, curr_id, tax_curr_id, 
       date, freight, freightTax,adjTax) head, 
    (SELECT SUM(cobilltax.taxhist_tax) AS total_tax FROM cobilltax LEFT OUTER JOIN 
