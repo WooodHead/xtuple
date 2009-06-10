@@ -499,3 +499,19 @@ $$ LANGUAGE 'plpgsql';
 
 DROP TRIGGER soheadTrigger ON cohead;
 CREATE TRIGGER soheadTrigger BEFORE INSERT OR UPDATE OR DELETE ON cohead FOR EACH ROW EXECUTE PROCEDURE _soheadTrigger();
+
+CREATE OR REPLACE FUNCTION _soheadTriggerAfter() RETURNS TRIGGER AS $$
+BEGIN
+  IF (COALESCE(NEW.cohead_taxzone_id,-1) <> COALESCE(OLD.cohead_taxzone_id,-1)) THEN
+    UPDATE coitem SET coitem_taxtype_id=getItemTaxType(itemsite_item_id,NEW.cohead_taxzone_id)
+    FROM itemsite 
+    WHERE ((itemsite_id=coitem_itemsite_id)
+     AND (coitem_cohead_id=NEW.cohead_id));
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropifexists('TRIGGER','soheadTriggerAfter');
+CREATE TRIGGER soheadTriggerAfter AFTER UPDATE ON cohead FOR EACH ROW EXECUTE PROCEDURE _soheadTriggerAfter();

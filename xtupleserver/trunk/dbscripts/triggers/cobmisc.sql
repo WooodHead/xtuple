@@ -1,16 +1,16 @@
-CREATE OR REPLACE FUNCTION _cobmiscTrigger() RETURNS "trigger" AS '
+CREATE OR REPLACE FUNCTION _cobmiscTrigger() RETURNS "trigger" AS $$
 BEGIN
-  IF (TG_OP = ''DELETE'') THEN
+  IF (TG_OP = 'DELETE') THEN
     -- Something can go here
     RETURN OLD;
   END IF;
 
 -- Insert new row
-  IF (TG_OP = ''INSERT'') THEN
+  IF (TG_OP = 'INSERT') THEN
 
   -- Calculate Freight Tax
     IF (NEW.cobmisc_freight <> 0) THEN
-      PERFORM calculateTaxHist( ''cobmisctax'',
+      PERFORM calculateTaxHist( 'cobmisctax',
                                 NEW.cobmisc_id,
                                 NEW.cobmisc_taxzone_id,
                                 getFreightTaxtypeId(),
@@ -21,21 +21,21 @@ BEGIN
   END IF;
 
 -- Update row
-  IF (TG_OP = ''UPDATE'') THEN
+  IF (TG_OP = 'UPDATE') THEN
 
   -- Calculate Freight Tax
     IF ( (NEW.cobmisc_freight <> OLD.cobmisc_freight) OR
          (NEW.cobmisc_taxzone_id <> OLD.cobmisc_taxzone_id) OR
          (NEW.cobmisc_invcdate <> OLD.cobmisc_invcdate) OR
          (NEW.cobmisc_curr_id <> OLD.cobmisc_curr_id) ) THEN
-      PERFORM calculateTaxHist( ''cobmisctax'',
+      PERFORM calculateTaxHist( 'cobmisctax',
                                 NEW.cobmisc_id,
                                 NEW.cobmisc_taxzone_id,
                                 getFreightTaxtypeId(),
                                 NEW.cobmisc_invcdate,
                                 NEW.cobmisc_curr_id,
                                 NEW.cobmisc_freight );
-      PERFORM calculateTaxHist( ''cobilltax'',
+      PERFORM calculateTaxHist( 'cobilltax',
                                 cobill_id,
                                 NEW.cobmisc_taxzone_id,
                                 cobill_taxtype_id,
@@ -50,7 +50,7 @@ BEGIN
 
   RETURN NEW;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 DROP TRIGGER cobmisctrigger ON cobmisc;
 CREATE TRIGGER cobmisctrigger

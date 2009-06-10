@@ -87,8 +87,15 @@ BEGIN
   IF (TG_OP = 'UPDATE') THEN
 
   -- Calculate Freight Tax
+    IF (COALESCE(NEW.cmhead_taxzone_id,-1) <> COALESCE(OLD.cmhead_taxzone_id,-1)) THEN
+      UPDATE cmitem SET cmitem_taxtype_id=getItemTaxType(itemsite_item_id,NEW.cmhead_taxzone_id)
+      FROM itemsite 
+      WHERE ((itemsite_id=cmitem_itemsite_id)
+       AND (cmitem_cmhead_id=NEW.cmhead_id));
+    END IF;
+  
     IF ( (NEW.cmhead_freight <> OLD.cmhead_freight) OR
-         (NEW.cmhead_taxzone_id <> OLD.cmhead_taxzone_id) OR
+         (COALESCE(NEW.cmhead_taxzone_id,-1) <> COALESCE(OLD.cmhead_taxzone_id,-1)) OR
          (NEW.cmhead_docdate <> OLD.cmhead_docdate) OR
          (NEW.cmhead_curr_id <> OLD.cmhead_curr_id) ) THEN
       PERFORM calculateTaxHist( 'cmheadtax',

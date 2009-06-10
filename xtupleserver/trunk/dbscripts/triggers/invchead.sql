@@ -23,9 +23,14 @@ BEGIN
 -- Update row
   IF (TG_OP = 'UPDATE') THEN
 
-  -- Calculate Freight Tax
+  -- Calculate Tax
+    IF (COALESCE(NEW.invchead_taxzone_id,-1) <> COALESCE(OLD.invchead_taxzone_id,-1)) THEN
+      UPDATE invcitem SET invcitem_taxtype_id=getItemTaxType(invcitem_item_id,NEW.invchead_taxzone_id)
+      WHERE (invcitem_invchead_id=NEW.invchead_id);
+    END IF;
+  
     IF ( (NEW.invchead_freight <> OLD.invchead_freight) OR
-         (NEW.invchead_taxzone_id <> OLD.invchead_taxzone_id) OR
+         (COALESCE(NEW.invchead_taxzone_id,-1) <> COALESCE(OLD.invchead_taxzone_id,-1)) OR
          (NEW.invchead_invcdate <> OLD.invchead_invcdate) OR
          (NEW.invchead_curr_id <> OLD.invchead_curr_id) ) THEN
       PERFORM calculateTaxHist( 'invcheadtax',
