@@ -31,7 +31,13 @@ BEGIN
              taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id, taxhist_basis,
              taxhist_basis_tax_id, taxhist_sequence, taxhist_percent, 
              taxhist_amount, taxhist_tax, taxhist_docdate)
-           SELECT ' || pParentId || ',' || pTaxTypeId || ', taxdetail_tax_id,' || pAmount || ', 
+           SELECT ' || pParentId || ',';
+  IF (pTaxTypeId IS NULL) THEN
+    _qry := _qry || 'NULL';
+  ELSE
+    _qry := _qry || pTaxTypeId;
+  END If;
+  _qry := _qry || ', taxdetail_tax_id,' || pAmount || ', 
              taxdetail_tax_basis_tax_id, taxdetail_taxclass_sequence, taxdetail_taxrate_percent,
              taxdetail_taxrate_amount, taxdetail_tax, ''' || pDate || '''
            FROM calculatetaxdetail(' || COALESCE(pTaxZoneId,-1) || ',' || COALESCE(pTaxTypeId,-1) ||',''' || pDate || ''',' || pCurrId || ',' || pAmount || ');';
