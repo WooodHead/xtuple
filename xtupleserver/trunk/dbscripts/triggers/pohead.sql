@@ -59,3 +59,19 @@ $$ LANGUAGE 'plpgsql';
 
 DROP TRIGGER poheadTrigger ON pohead;
 CREATE TRIGGER poheadTrigger BEFORE INSERT OR UPDATE OR DELETE ON pohead FOR EACH ROW EXECUTE PROCEDURE _poheadTrigger();
+
+CREATE OR REPLACE FUNCTION _poheadTriggerAfter() RETURNS TRIGGER AS $$
+BEGIN
+  IF (COALESCE(NEW.pohead_taxzone_id,-1) <> COALESCE(OLD.pohead_taxzone_id,-1)) THEN
+    UPDATE poitem SET poitem_taxtype_id=getItemTaxType(itemsite_item_id,NEW.pohead_taxzone_id)
+    FROM itemsite 
+    WHERE ((itemsite_id=poitem_itemsite_id)
+     AND (poitem_pohead_id=NEW.pohead_id));
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropifexists('TRIGGER','poheadTriggerAfter');
+CREATE TRIGGER poheadTriggerAfter AFTER UPDATE ON pohead FOR EACH ROW EXECUTE PROCEDURE _poheadTriggerAfter();
