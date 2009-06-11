@@ -25,6 +25,8 @@ BEGIN
      _table := 'toitemtax';
    ELSIF pOrderType = 'AR' THEN
      _table := 'aropentax';
+   ELSIF pOrderType = 'AP' THEN
+     _table := 'apopentax';
    END IF;
      
    _qry := 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, taxhist_tax, taxhist_sequence

@@ -41,7 +41,9 @@ CREATE OR REPLACE FUNCTION addTaxToGLSeries(INTEGER, TEXT, TEXT, TEXT, INTEGER, 
 
       _count := _count + 1;
       _baseTax := currToBase(pCurrId, _t.taxhist_tax, pExchDate);
-      IF ( (pTableName = 'cmheadtax') OR (pTableName = 'cmitemtax') ) THEN
+      IF ( (pTableName = 'cmheadtax') OR (pTableName = 'cmitemtax') OR
+           ( (pTableName = 'aropentax') AND (pDocType = 'CM') ) OR
+           ( (pTableName = 'apopentax') AND (pDocType = 'DM') ) ) THEN
         _baseTax := _baseTax * -1;
       END IF;
       _returnVal := _returnVal + _baseTax;
