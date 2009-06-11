@@ -166,11 +166,11 @@ BEGIN
     ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
       taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
       taxhist_percent, taxhist_amount, taxhist_tax,
-      taxhist_docdate, taxhist_distdate )
+      taxhist_docdate, taxhist_distdate, taxhist_curr_id, taxhist_curr_rate )
     SELECT _cohistid, taxhist_taxtype_id, taxhist_tax_id,
            taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
            taxhist_percent, taxhist_amount, taxhist_tax,
-           taxhist_docdate, taxhist_distdate
+           taxhist_docdate, taxhist_distdate, taxhist_curr_id, taxhist_curr_rate
     FROM invcitemtax
     WHERE (taxhist_parent_id=_r.invcitem_id);
 
@@ -257,11 +257,11 @@ BEGIN
     ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
       taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
       taxhist_percent, taxhist_amount, taxhist_tax,
-      taxhist_docdate, taxhist_distdate )
+      taxhist_docdate, taxhist_distdate, taxhist_curr_id, taxhist_curr_rate )
     SELECT _cohistid, taxhist_taxtype_id, taxhist_tax_id,
            taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
            taxhist_percent, taxhist_amount, taxhist_tax,
-           taxhist_docdate, taxhist_distdate
+           taxhist_docdate, taxhist_distdate, taxhist_curr_id, taxhist_curr_rate
     FROM invcitemtax
     WHERE (taxhist_parent_id=_r.invcitem_id);
 
@@ -329,11 +329,11 @@ BEGIN
     ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
       taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
       taxhist_percent, taxhist_amount, taxhist_tax,
-      taxhist_docdate, taxhist_distdate )
+      taxhist_docdate, taxhist_distdate, taxhist_curr_id, taxhist_curr_rate )
     SELECT _cohistid, taxhist_taxtype_id, taxhist_tax_id,
            taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
            taxhist_percent, taxhist_amount, taxhist_tax,
-           taxhist_docdate, taxhist_distdate
+           taxhist_docdate, taxhist_distdate, taxhist_curr_id, taxhist_curr_rate
     FROM invcheadtax
     WHERE ( (taxhist_parent_id=_p.invchead_id)
       AND   (taxhist_taxtype_id=getFreightTaxtypeId()) );
@@ -434,11 +434,11 @@ BEGIN
     ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
       taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
       taxhist_percent, taxhist_amount, taxhist_tax,
-      taxhist_docdate, taxhist_distdate )
+      taxhist_docdate, taxhist_distdate, taxhist_curr_id, taxhist_curr_rate )
     SELECT _cohistid, taxhist_taxtype_id, taxhist_tax_id,
            taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
            taxhist_percent, taxhist_amount, taxhist_tax,
-           taxhist_docdate, taxhist_distdate
+           taxhist_docdate, taxhist_distdate, taxhist_curr_id, taxhist_curr_rate
     FROM invcheadtax
     WHERE ( (taxhist_parent_id=_p.invchead_id)
       AND   (taxhist_taxtype_id=getAdjustmentTaxtypeId()) );
