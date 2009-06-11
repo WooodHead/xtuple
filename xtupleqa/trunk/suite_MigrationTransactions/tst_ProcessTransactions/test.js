@@ -66,8 +66,8 @@ function main()
     activateItem(":xTuple ERP:*.Sales_QMenu", "Quote");
     waitForObjectItem(":xTuple ERP:*.Quote_QMenu", "List...");
     activateItem(":xTuple ERP:*.Quote_QMenu", "List...");
-    waitForObject(":_quote_XTreeWidget");
-    clickItem(":_quote_XTreeWidget", "40011", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_quote_XTreeWidget_2");
+    clickItem(":_quote_XTreeWidget_2", "40011", 5, 5, 1, Qt.LeftButton);
     waitForObject(":frame.Convert_QPushButton");
     clickButton(":frame.Convert_QPushButton");
     waitForObject(":xTuple ERP:*_QPushButton");
@@ -154,7 +154,7 @@ function main()
     clickButton(":Select Order for Billing.Close_QPushButton");
     test.log("Selected for Billing: 50196");
 
-    
+   
     //-------Post Billing Selections-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
