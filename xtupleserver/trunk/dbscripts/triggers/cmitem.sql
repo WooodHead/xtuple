@@ -50,6 +50,7 @@ BEGIN
     IF (OLD.cmitem_raitem_id) IS NOT NULL THEN
       _ext := ROUND((OLD.cmitem_qtycredit * OLD.cmitem_qty_invuomratio) *  (OLD.cmitem_unitprice / OLD.cmitem_price_invuomratio),2);
       UPDATE raitem SET
+        raitem_status = 'O',
         raitem_qtycredited = raitem_qtycredited-OLD.cmitem_qtycredit,
         raitem_amtcredited = raitem_amtcredited-_ext
       WHERE (raitem_id=OLD.cmitem_raitem_id);
