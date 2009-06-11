@@ -400,6 +400,7 @@
 :_qtyOrdered_XLineEdit_3	{buddy=':_invGroup.Qty. Ordered:_QLabel_3' name='_qtyOrdered' type='XLineEdit' visible='1'}
 :_qty_XLineEdit	{buddy=':_qtyGroup.Qty. to Post:_QLabel' name='_qty' type='XLineEdit' visible='1'}
 :_quote_XTreeWidget	{buddy=':frame.Quotes:_QLabel' name='_quote' type='XTreeWidget' visible='1'}
+:_quote_XTreeWidget_2	{buddy=':frame.Quotes:_QLabel_2' name='_quote' type='XTreeWidget' visible='1'}
 :_recv_XTreeWidget	{buddy=':List Unposted Receipts.Unposted Receipts:_QLabel' name='_recv' type='XTreeWidget' visible='1'}
 :_referenceGroup.Reference:_QLabel	{container=':Voucher._referenceGroup_QGroupBox' name='_referenceLit' text='Reference:' type='QLabel' visible='1'}
 :_referenceGroup.Vendor Invoice #:_QLabel	{container=':Voucher._referenceGroup_QGroupBox' name='_invoiceNumLit' text='Vendor Invoice #:' type='QLabel' visible='1'}
@@ -433,6 +434,7 @@
 :frame.New_QPushButton_2	{container=':List Open Sales Orders.frame_QFrame_2' name='_new' text='New' type='QPushButton' visible='1'}
 :frame.New_QPushButton_3	{container=':List Quotes.frame_QFrame' name='_new' text='New' type='QPushButton' visible='1'}
 :frame.Quotes:_QLabel	{container=':List Quotes.frame_QFrame' name='_QuotesLit' text='Quotes:' type='QLabel' visible='1'}
+:frame.Quotes:_QLabel_2	{container=':List Quotes.frame_QFrame' name='_quoteLit' text='Quotes:' type='QLabel' visible='1'}
 :frame.Select..._QPushButton	{container=':Select Payments.frame_QFrame' name='_select' text='Select...' type='QPushButton' visible='1'}
 :frame._apopen_XTreeWidget	{container=':Select Payments.frame_QFrame' name='_apopen' type='XTreeWidget' visible='1'}
 :frame._gltrans_XTreeWidget	{container=':Invoice Register.frame_QFrame' name='_gltrans' type='XTreeWidget' visible='1'}
