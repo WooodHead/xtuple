@@ -48,6 +48,17 @@ CREATE OR REPLACE FUNCTION addTaxToGLSeries(INTEGER, TEXT, TEXT, TEXT, INTEGER, 
       PERFORM insertIntoGLSeries( pSequence, pSource, pDocType, pDocNumber,
                                   _t.tax_sales_accnt_id, _baseTax,
                                   pDistDate, pNotes );
+                                  
+      UPDATE taxhist SET 
+        taxhist_docdate=pExchDate,
+        taxhist_distdate=pDistDate,
+        taxhist_curr_id=pCurrId,
+        taxhist_curr_rate=curr_rate
+      FROM curr_rate
+      WHERE ((taxhist_id=_t.taxhist_id)
+        AND (pCurrId=curr_id)
+        AND ( pExchDate BETWEEN curr_effective 
+                            AND curr_expires) );
 
     END LOOP;
 
