@@ -23,9 +23,17 @@ BEGIN
 -- Update row
   IF (TG_OP = 'UPDATE') THEN
 
-  -- Calculate Freight Tax
+  -- Calculate Tax
+    IF (COALESCE(NEW.cobmisc_taxzone_id,-1) <> COALESCE(OLD.cobmisc_taxzone_id,-1)) THEN
+      UPDATE cobill SET cobill_taxtype_id=getItemTaxType(itemsite_item_id,NEW.cobmisc_taxzone_id)
+      FROM coitem
+        JOIN itemsite ON (coitem_itemsite_id=itemsite_id)
+      WHERE ((coitem_id=cobill_coitem_id)
+       AND (cobill_cobmisc_id=NEW.cobmisc_id));
+    END IF;
+    
     IF ( (NEW.cobmisc_freight <> OLD.cobmisc_freight) OR
-         (NEW.cobmisc_taxzone_id <> OLD.cobmisc_taxzone_id) OR
+         (COALESCE(NEW.cobmisc_taxzone_id,-1) <> COALESCE(OLD.cobmisc_taxzone_id,-1)) OR
          (NEW.cobmisc_invcdate <> OLD.cobmisc_invcdate) OR
          (NEW.cobmisc_curr_id <> OLD.cobmisc_curr_id) ) THEN
       PERFORM calculateTaxHist( 'cobmisctax',
