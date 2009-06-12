@@ -282,7 +282,7 @@ BEGIN
     'M', 'A/R Misc Debit Memo',
     pDocDate, '',
     '', '', pDocDate,
-    'M', pDocNumber, pDocDate,
+    'D', pDocNumber, pDocDate,
     1, (pAmount - _taxBaseValue), 0,
     cust_salesrep_id, (cust_commprcnt * (pAmount - _taxBaseValue)), FALSE,
     pCurrId, _glSequence
