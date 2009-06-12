@@ -1,0 +1,56 @@
+-- Group: taxHistory
+-- Name: detail
+-- Notes:
+
+SELECT 
+  cohisttax.*, 
+  tax_code, COALESCE(taxtype_code,<? value("none") ?>) AS taxtype, 
+  COALESCE(taxclass_code,<? value("none") ?>) AS taxclass, 
+  COALESCE(taxauth_code,<? value("none") ?>) AS taxauth, 
+  COALESCE(taxzone_code,<? value("none") ?>) AS taxzone, curr_abbr,
+  cohist_invcnumber AS docnumber, 
+  CASE
+    WHEN (cohist_doctype='I') THEN
+      <? value("invoice") ?>
+    WHEN (cohist_doctype='C' THEN
+      <? value("creditmemo") ?> 
+    WHEN (cohist_doctype='D' THEN
+      <? value("debitmemo") ?>
+    ELSE
+      <? value("other") ?>
+  END AS doctype,
+  item_number, COALESCE(item_descrip,cohist_misc_descrip) AS description,
+  cohist_ordernumber AS ordernumber, cohist_invcdate AS docdate,
+  cohist_billtoname AS name, cohist_qtyshipped AS qty, 
+  cohist_unitprice AS unitprice, (cohist_qtyshipped * unitprice) AS extension,
+  taxhist_tax / round(taxhist_curr_rate, 5) AS tax_base
+FROM taxhist
+ JOIN taxtype ON (taxtype_id=taxhist_taxtype_id)
+ JOIN tax ON (tax_id=taxhist_tax_id)
+ LEFT OUTER JOIN taxclass ON (tax_taxclass_id=taxhist_taxclass_id)
+ LEFT OUTER JOIN taxauth ON (tax_taxauth_id=taxauth_id)
+ JOIN cohisttax ON (cohist_id=taxhist_parent_id)
+ LEFT OUTER JOIN itemsite ON (cohist_itemsite_id=itemsite_id)
+ LEFT OUTER JOIN item ON (itemsite_item_id=item_id)
+<? if exists("distDate") ?>
+WHERE ((taxhist_distdate BETWEEN <? value("startDate") ?>
+                             AND <? value("endDate") ?>)
+<? else ?>
+WHERE ((taxhist_docdate BETWEEN <? value("startDate") ?>
+                             AND <? value("endDate") ?>)
+<? end ?>
+<? if exists("taxcode_id") ?>
+ AND taxhist_taxcode_id=<? value("taxcode_id") ?>
+<? endif ?>
+<? if exists("taxtype_id") ?>
+ AND taxhist_taxtype_id=<? value("taxtype_id") ?>
+<? endif ?>
+<? if exists("taxclass_id") ?>
+ AND taxhist_taxclass_id=<? value("taxclass_id") ?>
+<? endif ?>
+<? if exists("taxauth_id") ?>
+ AND taxhist_taxauth_id=<? value("taxauth_id") ?>
+<? endif ?>
+<? if exists("taxcode_id") ?>
+ AND taxhist_taxcode_id=<? value("taxcode_id") ?>
+<? endif ?>
