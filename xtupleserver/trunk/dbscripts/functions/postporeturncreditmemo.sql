@@ -61,7 +61,7 @@ BEGIN
   
 
 --  Grab the G/L Accounts
-  IF (_p.poitem_itemsite_id = -1) THEN
+  IF (COALESCE(_p.poitem_itemsite_id, -1) = -1) THEN
     SELECT pp.accnt_id AS pp_accnt_id,
            lb.accnt_id AS lb_accnt_id INTO _a
     FROM expcat, accnt AS pp, accnt AS lb
