@@ -19,7 +19,6 @@ BEGIN
     END IF;
   END IF;
 
-  RETURN NEW;
   IF (TG_OP = 'INSERT' OR TG_OP = 'UPDATE') THEN
     IF (NOT EXISTS (SELECT checkrecip_id
 		    FROM checkrecip
