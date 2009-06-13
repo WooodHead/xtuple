@@ -17,18 +17,18 @@ BEGIN
   -- Checks
   -- Start with privileges
   IF (TG_OP = 'INSERT') THEN
-    SELECT checkPrivilege('MaintainSalesOrders') INTO _check;
-    IF NOT (_check) THEN
+    IF (NOT checkPrivilege('MaintainSalesOrders')) THEN
       RAISE EXCEPTION 'You do not have privileges to create a Sales Order.';
     END IF;
   ELSIF (TG_OP = 'UPDATE') THEN
     IF ( (NOT checkPrivilege('MaintainSalesOrders')) AND
+         (NOT checkPrivilege('IssueStockToShipping')) AND
          (NEW.cohead_holdtype = OLD.cohead_holdtype) ) THEN
       RAISE EXCEPTION 'You do not have privileges to alter a Sales Order.';
     END IF;
   ELSE
-    SELECT checkPrivilege('MaintainSalesOrders') INTO _check;
-    IF NOT (_check) THEN
+    IF ( (NOT checkPrivilege('MaintainSalesOrders')) AND
+         (NOT checkPrivilege('IssueStockToShipping')) ) THEN
       RAISE EXCEPTION 'You do not have privileges to alter a Sales Order.';
     END IF;
   END IF;
