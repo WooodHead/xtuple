@@ -1,143 +1,112 @@
 
 CREATE OR REPLACE FUNCTION hasAlarms() RETURNS BOOLEAN AS $$
 DECLARE
-  _whsId INTEGER := -1;
-  _fromEmail TEXT := '';
-  _batchId INTEGER := -1;
-  _msgId INTEGER;
-  _alarm RECORD;
-  _todoitem RECORD;
-  _incdt RECORD;
-  _prjtask RECORD;
-  _recipient TEXT;
-  _recipientPart INTEGER;
-  _returnVal BOOLEAN := FALSE;
-BEGIN
+  _alarm          RECORD;
+  _batchId        INTEGER;
+  _evntlogordtype TEXT;
+  _evnttypeid     INTEGER;
+  _evnttypename   TEXT;
+  _fromEmail      TEXT;
+  _itemid         INTEGER;
+  _longsource     TEXT;
+  _msgId          INTEGER;
+  _recipient      TEXT;
+  _recipientPart  INTEGER;
+  _returnVal      BOOLEAN := FALSE;
+  _summary        TEXT;
+  _whsId          INTEGER := -1;
 
-  FOR _alarm IN SELECT * FROM alarm
-  WHERE ( (alarm_creator=CURRENT_USER)
-   AND (CURRENT_TIMESTAMP > alarm_trigger) ) LOOP
+BEGIN
+  FOR _alarm IN SELECT *
+                FROM alarm
+                WHERE ((alarm_creator=CURRENT_USER)
+                   AND (CURRENT_TIMESTAMP > alarm_trigger)) LOOP
     _returnVal := TRUE;
+
+    IF (_alarm.alarm_source = 'TODO') THEN
+      SELECT (todoitem_name || '-' || todoitem_description),
+             'T', 'TodoAlarm', 'To-Do Item'
+      INTO _summary, _evntlogordtype, _evnttypename, _longsource
+      FROM todoitem
+      WHERE (todoitem_id = _alarm.alarm_source_id);
+
+    ELSIF (_alarm.alarm_source = 'INCDT') THEN
+      SELECT (incdt_number || '-' || incdt_summary),
+             'I', 'IncidentAlarm', 'Incident'
+      INTO _summary, _evntlogordtype, _evnttypename, _longsource
+      FROM incdt
+      WHERE (incdt_id = _alarm.alarm_source_id);
+
+    ELSIF (_alarm.alarm_source = 'J') THEN
+      SELECT (prj_number || ' ' || prj_name || '-' || prjtask_name),
+              'J', 'TaskAlarm', 'Project Task'
+      INTO _summary, _evntlogordtype, _evnttypename, _longsource
+      FROM prjtask JOIN prj ON (prj_id=prjtask_prj_id)
+      WHERE (prjtask_id = _alarm.alarm_source_id);
+
+    ELSE
+      CONTINUE; -- there's nothing to do for this iteration of the loop
+    END IF;
+
+    -- if event alarm
     IF (_alarm.alarm_event) THEN
--- Event alarm
--- Loop thru the event recipients
+      SELECT evnttype_id INTO _evnttypeid
+      FROM evnttype
+      WHERE (evnttype_name=_evnttypename);
+
       _recipientPart := 1;
       LOOP
         _recipient := SPLIT_PART(_alarm.alarm_event_recipient, ',', _recipientPart);
-        IF (LENGTH(_recipient) = 0) THEN
-          EXIT;
-        END IF;
--- Find the warehouse for the recipient
-        SELECT usrpref_value  INTO _whsId
+        EXIT WHEN (LENGTH(_recipient) = 0);
+
+        SELECT usrpref_value INTO _whsId
         FROM usrpref
         WHERE ( (usrpref_username = _recipient)
           AND   (usrpref_name = 'PreferredWarehouse') );
-        IF (_alarm.alarm_source = 'TODO') THEN
-          INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
-                                evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number )
-          SELECT CURRENT_TIMESTAMP, _recipient, evnttype_id,
-                 'T', todoitem_id, _whsId, (todoitem_name || '-' || todoitem_description)
-          FROM evnttype, todoitem
-          WHERE ( (todoitem_id=_alarm.alarm_source_id)
-            AND   (evnttype_name='TodoAlarm') );
-        END IF;
-        IF (_alarm.alarm_source = 'INCDT') THEN
-          INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
-                                evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number )
-          SELECT CURRENT_TIMESTAMP, _recipient, evnttype_id,
-                 'I', incdt_id, _whsId, (incdt_number || '-' || incdt_summary)
-          FROM evnttype, incdt
-          WHERE ( (incdt_id=_alarm.alarm_source_id)
-            AND   (evnttype_name='IncidentAlarm') );
-        END IF;
-        IF (_alarm.alarm_source = 'J') THEN
-          INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
-                                evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number )
-          SELECT CURRENT_TIMESTAMP, _recipient, evnttype_id,
-                 'J', prjtask_id, _whsId, (prj_number || ' ' || prj_name || '-' || prjtask_name)
-          FROM evnttype, prjtask, prj
-          WHERE ( (prjtask_id=_alarm.alarm_source_id)
-            AND   (prj_id=prjtask_prj_id)
-            AND   (evnttype_name='TaskAlarm') );
-        END IF;
+
+        INSERT INTO evntlog (evntlog_evnttime, evntlog_username,
+                             evntlog_evnttype_id, evntlog_ordtype,
+                             evntlog_ord_id, evntlog_warehous_id, evntlog_number
+                   ) VALUES (CURRENT_TIMESTAMP, _recipient,
+                             _evnttypeid, _evntlogordtype,
+                             _alarm.alarm_source_id, _whsId, _summary);
+
         _recipientPart := _recipientPart + 1;
       END LOOP;
     END IF;
+
     IF (_alarm.alarm_email) THEN
--- Email alarm
--- Loop thru the email recipients
+      SELECT usr_email INTO _fromEmail
+      FROM usr
+      WHERE (usr_username = _alarm.alarm_creator);
+
       _recipientPart := 1;
       LOOP
         _recipient := SPLIT_PART(_alarm.alarm_email_recipient, ',', _recipientPart);
-        IF (LENGTH(_recipient) = 0) THEN
-          EXIT;
-        END IF;
--- Find the email address for the creator
-        SELECT usr_email INTO _fromEmail
-        FROM usr
-        WHERE (usr_username = _alarm.alarm_creator);
-        IF (_alarm.alarm_source = 'TODO') THEN
-          SELECT * INTO _todoitem
-          FROM todoitem
-          WHERE (todoitem_id = _alarm.alarm_source_id);
-          SELECT submitEmailToBatch(_fromEmail, _recipient, '', (_todoitem.todoitem_name || '-' || _todoitem.todoitem_description),
-                                    'Alarm reminder for To-Do Item.',
-                                    NULL, CURRENT_TIMESTAMP, FALSE) INTO _batchId;
-        END IF;
-        IF (_alarm.alarm_source = 'INCDT') THEN
-          SELECT * INTO _incdt
-          FROM incdt
-          WHERE (incdt_id = _alarm.alarm_source_id);
-          SELECT submitEmailToBatch(_fromEmail, _recipient, '', (_incdt.incdt_number || '-' || _incdt.incdt_summary),
-                                    'Alarm reminder for Incident.',
-                                    NULL, CURRENT_TIMESTAMP, FALSE) INTO _batchId;
-        END IF;
-        IF (_alarm.alarm_source = 'J') THEN
-          SELECT * INTO _prjtask
-          FROM prjtask JOIN prj ON (prj_id=prjtask_prj_id)
-          WHERE (prjtask_id = _alarm.alarm_source_id);
-          SELECT submitEmailToBatch(_fromEmail, _recipient, '', (_prjtask.prj_number || ' ' || _prjtask.prj_name || '-' || _prjtask.prjtask_name),
-                                    'Alarm reminder for Project Task.',
-                                    NULL, CURRENT_TIMESTAMP, FALSE) INTO _batchId;
-        END IF;
+        EXIT WHEN (LENGTH(_recipient) <= 0);
+        _batchId := xtbatch.submitEmailToBatch(_fromEmail, _recipient, '',
+                                               _summary,
+                                               'Alarm reminder for '
+                                               || _longsource || '.',
+                                               NULL, CURRENT_TIMESTAMP,
+                                               FALSE, NULL, NULL);
         _recipientPart := _recipientPart + 1;
       END LOOP;
     END IF;
+
     IF (_alarm.alarm_sysmsg) THEN
--- System Message alarm
--- Loop thru the sysmsg recipients
       _recipientPart := 1;
       LOOP
         _recipient := SPLIT_PART(_alarm.alarm_sysmsg_recipient, ',', _recipientPart);
-        IF (LENGTH(_recipient) = 0) THEN
-          EXIT;
-        END IF;
-        IF (_alarm.alarm_source = 'TODO') THEN
-          SELECT * INTO _todoitem
-          FROM todoitem
-          WHERE (todoitem_id = _alarm.alarm_source_id);
-          SELECT postMessage(_recipient, ('ToDo - ' || _todoitem.todoitem_name || '-' || _todoitem.todoitem_description)) INTO _msgId;
-        END IF;
-        IF (_alarm.alarm_source = 'INCDT') THEN
-          SELECT * INTO _incdt
-          FROM incdt
-          WHERE (incdt_id = _alarm.alarm_source_id);
-          SELECT postMessage(_recipient, ('Incident - ' || _incdt.incdt_number || '-' || _incdt.incdt_summary)) INTO _msgId;
-        END IF;
-        IF (_alarm.alarm_source = 'J') THEN
-          SELECT * INTO _prjtask
-          FROM prjtask JOIN prj ON (prj_id=prjtask_prj_id)
-          WHERE (prjtask_id = _alarm.alarm_source_id);
-          SELECT postMessage(_recipient, ('Project Task - ' || _prjtask.prj_number || ' ' || _prjtask.prj_name || '-' || _prjtask.prjtask_name)) INTO _msgId;
-        END IF;
+        EXIT WHEN (LENGTH(_recipient) <= 0);
+        _msgId := postMessage(_recipient, (_longsource || ' - ' || _summary));
         _recipientPart := _recipientPart + 1;
       END LOOP;
     END IF;
--- Delete alarm
+
     DELETE FROM alarm WHERE alarm_id=_alarm.alarm_id;
   END LOOP;
   RETURN _returnVal;
 
 END;
 $$ LANGUAGE 'plpgsql';
-
