@@ -30,12 +30,15 @@ CREATE VIEW orderhead AS
 	 NULL			AS orderhead_from_id,
 	 ''			AS orderhead_from,
 	 cohead_cust_id		AS orderhead_to_id,
-	 cust_name		AS orderhead_to,
+	 CASE 
+	   WHEN (length(cohead_shiptoname) > 0) THEN
+	     cohead_shiptoname
+	   ELSE cohead_billtoname
+	 END     		AS orderhead_to,
 	 cohead_curr_id		AS orderhead_curr_id,
 	 ''			AS orderhead_agent_username,
 	 cohead_shipvia		AS orderhead_shipvia
-  FROM cohead LEFT OUTER JOIN custinfo ON (cohead_cust_id=cust_id)
-              LEFT OUTER JOIN coitem ON ((cohead_id=coitem_cohead_id)
+  FROM cohead LEFT OUTER JOIN coitem ON ((cohead_id=coitem_cohead_id)
                                      AND (coitem_status='O'));
 REVOKE ALL ON TABLE orderhead FROM PUBLIC;
 GRANT  ALL ON TABLE orderhead TO GROUP xtrole;
