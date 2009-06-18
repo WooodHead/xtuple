@@ -77,7 +77,7 @@ BEGIN
                                 COALESCE(_r.cmhead_docdate, CURRENT_DATE),
                                 COALESCE(_r.cmhead_curr_id, -1),
                                 (NEW.cmitem_qtycredit * NEW.cmitem_qty_invuomratio) *
-                                (NEW.cmitem_unitprice / NEW.cmitem_price_invuomratio) );
+                                (NEW.cmitem_unitprice / NEW.cmitem_price_invuomratio) * -1);
   END IF;
 
 -- Update row
@@ -96,7 +96,7 @@ BEGIN
                                 COALESCE(_r.cmhead_docdate, CURRENT_DATE),
                                 COALESCE(_r.cmhead_curr_id, -1),
                                 (NEW.cmitem_qtycredit * NEW.cmitem_qty_invuomratio) *
-                                (NEW.cmitem_unitprice / NEW.cmitem_price_invuomratio) );
+                                (NEW.cmitem_unitprice / NEW.cmitem_price_invuomratio) * -1);
     END IF;
   END IF;
 
