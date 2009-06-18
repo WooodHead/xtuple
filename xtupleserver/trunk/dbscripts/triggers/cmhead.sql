@@ -79,7 +79,7 @@ BEGIN
                                 getFreightTaxtypeId(),
                                 NEW.cmhead_docdate,
                                 NEW.cmhead_curr_id,
-                                NEW.cmhead_freight );
+                                NEW.cmhead_freight * -1 );
     END IF;
   END IF;
 
@@ -104,7 +104,7 @@ BEGIN
                                 getFreightTaxtypeId(),
                                 NEW.cmhead_docdate,
                                 NEW.cmhead_curr_id,
-                                NEW.cmhead_freight );
+                                NEW.cmhead_freight * -1 );
       PERFORM calculateTaxHist( 'cmitemtax',
                                 cmitem_id,
                                 NEW.cmhead_taxzone_id,
@@ -112,7 +112,7 @@ BEGIN
                                 NEW.cmhead_docdate,
                                 NEW.cmhead_curr_id,
                                 (cmitem_qtycredit * cmitem_qty_invuomratio) *
-                                (cmitem_unitprice / cmitem_price_invuomratio) )
+                                (cmitem_unitprice / cmitem_price_invuomratio) * -1)
       FROM cmitem
       WHERE (cmitem_cmhead_id = NEW.cmhead_id);
     END IF;
