@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION getPrjId(text) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION getPrjId(text) RETURNS INTEGER AS $$
 DECLARE
   pPrjNumber ALIAS FOR $1;
   _returnVal INTEGER;
@@ -12,9 +12,9 @@ BEGIN
   WHERE (prj_number=pPrjNumber);
 
   IF (_returnVal IS NULL) THEN
-	RAISE EXCEPTION ''Project Number % not found.'', pPrjNumber;
+	RAISE EXCEPTION 'Project Number % not found.', pPrjNumber;
   END IF;
 
   RETURN _returnVal;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql' STABLE;

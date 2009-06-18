@@ -87,6 +87,8 @@ ALTER TABLE cobill        DROP COLUMN cobill_tax_ratea CASCADE;
 ALTER TABLE cobill        DROP COLUMN cobill_tax_rateb CASCADE;
 ALTER TABLE cobill        DROP COLUMN cobill_tax_ratec CASCADE;
 ALTER TABLE cobmisc       DROP COLUMN cobmisc_tax CASCADE;
+ALTER TABLE cobmisc       DROP COLUMN cobmisc_adjtaxtype_id CASCADE;
+ALTER TABLE cobmisc       DROP COLUMN cobmisc_freighttaxtype_id CASCADE;
 ALTER TABLE cobmisc       DROP COLUMN cobmisc_tax_ratea CASCADE;
 ALTER TABLE cobmisc       DROP COLUMN cobmisc_tax_rateb CASCADE;
 ALTER TABLE cobmisc       DROP COLUMN cobmisc_tax_ratec CASCADE;
