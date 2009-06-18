@@ -329,7 +329,7 @@ BEGIN
     RETURN -15;
   END IF;
 
-  _totalAmount := _totalAmount + _p.freighttax + _p.adjtax;
+  _totalAmount := _totalAmount + _p.freighttax * -1 + _p.adjtax * -1;
 
 --  Credit the A/R for the total Amount
   IF (_totalAmount <> 0) THEN
