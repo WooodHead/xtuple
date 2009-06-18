@@ -146,7 +146,7 @@ BEGIN
     FROM cmitemtax
     WHERE (taxhist_parent_id=_r.cmitem_id);
 
-    _totalAmount := _totalAmount + round(_r.extprice, 2) + round(_r.tax, 2);
+    _totalAmount := _totalAmount + round(_r.extprice, 2) + round(_r.tax * -1, 2);
 
   END LOOP;
 
