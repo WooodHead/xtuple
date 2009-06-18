@@ -45,16 +45,16 @@
       LEFT OUTER JOIN cmhead ON (cmitem_cmhead_id=cmhead_id) 
   WHERE (cmitem_cmhead_id=<? value("cmhead_id") ?>) 
   GROUP BY number, taxzone_id, curr_id, tax_curr_id, date, freight, freightTax, adjTax) head, 
-  (SELECT SUM(cmitemtax.taxhist_tax) AS total_tax 
+  (SELECT SUM(cmitemtax.taxhist_tax * -1) AS total_tax 
    FROM cmitemtax 
     LEFT OUTER JOIN cmitem ON (taxhist_parent_id = cmitem_id) 
    WHERE (cmitem_cmhead_id=<? value("cmhead_id") ?>)) linetax,
-  (SELECT SUM(taxhist_tax) AS freighttaxamt 
+  (SELECT SUM(taxhist_tax * -1) AS freighttaxamt 
    FROM cmhead 
    LEFT OUTER JOIN cmheadtax ON (taxhist_parent_id = cmhead_id 
    AND taxhist_taxtype_id = getfreighttaxtypeid()) 
    WHERE cmhead_id=<? value("cmhead_id") ?>) freighttax, 
-  (SELECT  SUM(taxhist_tax) AS adjtaxamt 
+  (SELECT  SUM(taxhist_tax * -1) AS adjtaxamt 
    FROM cmhead 
     LEFT OUTER JOIN cmheadtax ON (taxhist_parent_id = cmhead_id 
                                 AND taxhist_taxtype_id = getadjustmenttaxtypeid()) 
@@ -199,11 +199,11 @@
       LEFT OUTER JOIN vohead ON (voitem_vohead_id=vohead_id) 
   WHERE (voitem_vohead_id=<? value("vohead_id") ?>) 
   GROUP BY number, taxzone_id, curr_id, tax_curr_id, date, adjTax) head, 
-  (SELECT SUM(voitemtax.taxhist_tax) AS total_tax 
+  (SELECT SUM(voitemtax.taxhist_tax * -1) AS total_tax 
    FROM voitemtax 
     LEFT OUTER JOIN voitem ON (taxhist_parent_id = voitem_id) 
    WHERE (voitem_vohead_id=<? value("vohead_id") ?>)) linetax,
-  (SELECT  SUM(taxhist_tax) AS adjtaxamt 
+  (SELECT  SUM(taxhist_tax * -1) AS adjtaxamt 
    FROM vohead 
     LEFT OUTER JOIN voheadtax ON (taxhist_parent_id = vohead_id 
                                 AND taxhist_taxtype_id = getadjustmenttaxtypeid()) 
