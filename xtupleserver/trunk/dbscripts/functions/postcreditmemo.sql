@@ -202,6 +202,13 @@ BEGIN
     _totalAmount := _totalAmount + _p.cmhead_misc;
   END IF;
 
+-- Post all Cmhead taxes (Freight and Adjustments) to the GL
+  _taxBaseValue := addTaxToGLSeries(_sequence,
+				      'A/R', 'CM', _p.cmhead_number,
+				      _p.cmhead_curr_id, _p.cmhead_docdate, _glDate,
+                                      'cmheadtax', _p.cmhead_id,
+                                      (_p.cmhead_billtoname));
+
   -- Credit Tax Adjustments
   IF (_p.adjtax <> 0) THEN
   --  Record the Sales History for Tax Adjustment
@@ -243,7 +250,7 @@ BEGIN
       taxhist_docdate, taxhist_distdate, taxhist_curr_id, taxhist_curr_rate  )
     SELECT _cohistid, taxhist_taxtype_id, taxhist_tax_id,
            (taxhist_basis * -1), taxhist_basis_tax_id, taxhist_sequence,
-           taxhist_percent, taxhist_amount, (taxhist_tax * -1),
+           taxhist_percent, taxhist_amount, taxhist_tax,
            taxhist_docdate, taxhist_distdate, taxhist_curr_id, taxhist_curr_rate 
     FROM cmheadtax
     WHERE ( (taxhist_parent_id=_p.cmhead_id)
@@ -310,7 +317,7 @@ BEGIN
       taxhist_docdate, taxhist_distdate, taxhist_curr_id, taxhist_curr_rate  )
     SELECT _cohistid, taxhist_taxtype_id, taxhist_tax_id,
            (taxhist_basis * -1), taxhist_basis_tax_id, taxhist_sequence,
-           taxhist_percent, taxhist_amount, (taxhist_tax * -1),
+           taxhist_percent, taxhist_amount, taxhist_tax,
            taxhist_docdate, taxhist_distdate, taxhist_curr_id, taxhist_curr_rate 
     FROM cmheadtax
     WHERE ( (taxhist_parent_id=_p.cmhead_id)
@@ -318,12 +325,6 @@ BEGIN
 
   END IF;
 
--- Post all Cmhead taxes (Freight and Adjustments) to the GL
-  _taxBaseValue := addTaxToGLSeries(_sequence,
-				      'A/R', 'CM', _p.cmhead_number,
-				      _p.cmhead_curr_id, _p.cmhead_docdate, _glDate,
-                                      'cmheadtax', _p.cmhead_id,
-                                      (_p.cmhead_billtoname));
   IF (_taxBaseValue IS NULL) THEN
     PERFORM deleteGLSeries(_sequence);
     RETURN -15;

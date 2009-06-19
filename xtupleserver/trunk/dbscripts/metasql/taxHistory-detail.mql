@@ -2,14 +2,33 @@
 -- Name: detail
 -- Notes:
 
+<? if exists("summary") ?>
+SELECT <? literal("groupBy") ?>, 
+  <? literal("groupBy") ?>_descrip AS description, 
+  SUM(salesbase) AS salesbase,
+  SUM(freightbase) AS freightbase, 
+  CASE WHEN (SUM(freighttax) > 0) THEN true ELSE false END AS freighttax, 
+  SUM(salestaxbase) AS salestaxbase,
+  SUM(purchasebase) AS purhasebase,
+  SUM(purchasetaxbase) AS purchasetaxbase, 
+  SUM(salestaxbase) - SUM(purchasetaxbase) AS nettaxbase,
+  'curr' AS salesbase_xtnumericrole,
+  'curr' AS freightbase_xtnumericrole,
+  'curr' AS salestaxbase_xtnumericrole,
+  'curr' AS purchasebase_xtnumericrole,
+  'curr' AS purchasetaxbase_xtnumericrole,
+  'curr' AS nettaxbase_xtnumericrole
+FROM (
+<? endif ?>
 
 <? if exists("showSales") ?>
 SELECT 
   cohisttax.*, 
-  tax_code, COALESCE(taxtype_name,<? value("none") ?>) AS taxtype, 
-  COALESCE(taxclass_code,<? value("none") ?>) AS taxclass, 
-  COALESCE(taxauth_code,<? value("none") ?>) AS taxauth, 
-  COALESCE(taxzone_code,<? value("none") ?>) AS taxzone, curr_abbr,
+  tax_code AS tax, tax_descrip,
+  COALESCE(taxtype_name,<? value("none") ?>) AS taxtype, taxtype_descrip,
+  COALESCE(taxclass_code,<? value("none") ?>) AS taxclass, taxclass_descrip,
+  COALESCE(taxauth_code,<? value("none") ?>) AS taxauth, taxauth_name AS taxauth_descrip,
+  COALESCE(taxzone_code,<? value("none") ?>) AS taxzone, curr_abbr, taxzone_descrip,
   CASE
     WHEN (cohist_doctype != 'C') THEN
       cohist_invcnumber
@@ -34,9 +53,26 @@ SELECT
   cohist_billtoname AS name, 
   cohist_qtyshipped AS qty, 
   cohist_unitprice AS unitprice, (cohist_qtyshipped * cohist_unitprice) AS extension,
-  taxhist_tax * CASE WHEN cohist_doctype != 'C' THEN 1 ELSE -1 END AS tax_local,
-  taxhist_tax / round(taxhist_curr_rate, 5) * 
-  CASE WHEN cohist_doctype != 'C' THEN 1 ELSE -1 END AS tax_base,
+  CASE
+    WHEN (cohist_misc_type IS NULL OR cohist_misc_type = 'M') THEN
+      currToBase(cohist_curr_id, cohist_qtyshipped * cohist_unitprice, cohist_invcdate) 
+    ELSE 0
+  END AS salesbase,
+  CASE
+    WHEN (cohist_misc_type = 'F') THEN
+      currToBase(cohist_curr_id, cohist_qtyshipped * cohist_unitprice, cohist_invcdate) 
+    ELSE 0
+  END AS freightbase,
+  CASE
+    WHEN (cohist_misc_type = 'F') THEN
+      taxhist_tax / round(taxhist_curr_rate, 5)
+    ELSE 0
+  END AS freighttax,
+  0 AS purchasebase,
+  taxhist_tax AS tax_local,
+  taxhist_tax / round(taxhist_curr_rate, 5) AS taxbase,
+  taxhist_tax / round(taxhist_curr_rate, 5) AS salestaxbase,
+  0 AS purchasetaxbase,
   'qty' AS qty_xtnumericrole,
   'saleprice' AS unitprice_xtnumericrole,
   'extprice' AS extension_xtnumericrole,
@@ -77,6 +113,7 @@ WHERE ((taxhist_docdate BETWEEN <? value("startDate") ?>
 <? endif ?>
 )
 <? endif ?>
+ORDER BY docdate DESC, docnumber DESC
 
 <? if exists("showPurchases") ?>
 <? if exists("showSales") ?>
@@ -85,5 +122,10 @@ UNION
 <? endif ?>
 
 <? if exists("showPurchases") ?>
+<? endif ?>
+
+<? if exists("summary") ?>
+) AS data
+GROUP BY <? literal("groupBy") ?>, <? literal("groupBy") ?>_descrip
 <? endif ?>
 
