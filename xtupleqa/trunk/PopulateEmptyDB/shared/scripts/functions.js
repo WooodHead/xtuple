@@ -329,6 +329,9 @@ function createUserByRole(userrole)
     waitForObject(":_username_XLineEdit");
     type(":_username_XLineEdit", username);
     type(":_properName_XLineEdit", realname);
+
+    if(!findObject(":List Users.Active_QCheckBox").checked)
+        clickButton(":List Users.Active_QCheckBox");
     type(":_initials_XLineEdit", "JS");
     type(":_email_XLineEdit", "demo@openmfg.com");
     type(":_passwd_XLineEdit", pwd);
@@ -485,9 +488,9 @@ function defineTaxation()
     type(":Tax Authority.Street\nAddress:_XLineEdit_2", "Street addr line2");
     type(":Tax Authority.Street\nAddress:_XLineEdit_3", "Street Addr line3");
     type(":Tax Authority.City:_XLineEdit", "VA");
-    type(":Tax Authority.State:_XComboBox", "State1");
-    type(":Tax Authority.Postal Code:_XLineEdit", "323525");
-    type(":Tax Authority.Country:_XComboBox", "United States");
+    type(":_state_QLineEdit_3", "State1");
+    type(":groupBox.Postal Code:_XLineEdit", "323525");
+    type(":_country_QLineEdit_3", "United States");
     clickButton(":Tax Authority.Save_QPushButton");
     waitForObject(":List Tax Authorities._taxauth_XTreeWidget");
     if(!clickItem(":List Tax Authorities._taxauth_XTreeWidget", "TAX-AUTH1", 5, 5, 1, Qt.LeftButton))
@@ -511,8 +514,15 @@ function defineTaxation()
     waitForObject(":_code_XLineEdit_12");
     type(":_code_XLineEdit_12", "TAXAUTH1-GM");
     type(":_description_XLineEdit_23", "Tax Authority 1 General Merchandise");
-    type(":_taxRateA_XLineEdit", "10");
-    type(":frame._main_XLineEdit", "01-01-4050-01");
+    type(":Tax Code._main_XLineEdit","01-01-4050-01");
+    waitForObject(":Tax Code._taxClass_XComboBox");
+    clickItem(":Tax Code._taxClass_XComboBox","1-Legacy Class 1",1,0,0,Qt.LeftButton);
+    waitForObject(":Tax Code._taxauth_XComboBox");
+    clickItem(":Tax Code._taxauth_XComboBox","TAX-AUTH1",1,0,0,Qt.LeftButton);
+    clickButton(":_frame.New_QPushButton_2");
+    waitForObject(":_rateGroup._percent_XLineEdit");
+    type(":_rateGroup._percent_XLineEdit", "10");
+    clickButton(":Tax Code Rate.Save_QPushButton");
     waitForObject(":Tax Code.Save_QPushButton");
     clickButton(":Tax Code.Save_QPushButton");
     waitForObject(":List Tax Codes._tax_XTreeWidget");
@@ -525,8 +535,15 @@ function defineTaxation()
     waitForObject(":_code_XLineEdit_12");
     type(":_code_XLineEdit_12", "TAXAUTH1-EDU");
     type(":_description_XLineEdit_23", "Tax Authority 1 Educational Merchandise");
-    type(":_taxRateA_XLineEdit", "1");
-    type(":frame._main_XLineEdit", "01-01-4050-01");
+    type(":Tax Code._main_XLineEdit","01-01-4050-01");
+    waitForObject(":Tax Code._taxClass_XComboBox");
+    clickItem(":Tax Code._taxClass_XComboBox","1-Legacy Class 1",1,0,0,Qt.LeftButton);
+    waitForObject(":Tax Code._taxauth_XComboBox");
+    clickItem(":Tax Code._taxauth_XComboBox","TAX-AUTH1",1,0,0,Qt.LeftButton);
+    clickButton(":_frame.New_QPushButton_2");
+    waitForObject(":_rateGroup._percent_XLineEdit");
+    type(":_rateGroup._percent_XLineEdit", "1");
+    clickButton(":Tax Code Rate.Save_QPushButton");
     waitForObject(":Tax Code.Save_QPushButton");
     clickButton(":Tax Code.Save_QPushButton");
     waitForObject(":List Tax Codes._tax_XTreeWidget");
@@ -570,43 +587,63 @@ function defineTaxation()
     waitForObject(":List Tax Types.Close_QPushButton_2");
     clickButton(":List Tax Types.Close_QPushButton_2");
  
-  
-    
-    //------------Create: Tax Selections--------------------
-     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    //----Define Tax Zones----
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Selections...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Selections...");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Zones...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Zones...");
     
-    waitForObject(":List Tax Selections.New_QPushButton_2");
-    clickButton(":List Tax Selections.New_QPushButton_2");
-    waitForObject(":_taxauth_XComboBox_4");
-    clickItem(":_taxauth_XComboBox_4", "TAX-AUTH1", 0, 0, 1, Qt.LeftButton);
-    clickItem(":_taxtype_XComboBox_3", "GM", 0, 0, 1, Qt.LeftButton);
-    type(":_tax_XComboBox_2", "TAXAUTH1-GM");
-    waitForObject(":Tax Selection.Save_QPushButton");
-    clickButton(":Tax Selection.Save_QPushButton");
-    waitForObject(":List Tax Selections._taxsel_XTreeWidget");
-    if(!clickItem(":List Tax Selections._taxsel_XTreeWidget", "TAXAUTH1-GM", 30, 9, 1, Qt.LeftButton))
-        test.pass("Tax Selections done with:TAXAUTH1-GM");
-
+    waitForObject(":List Tax Zones.New_QPushButton_2");
+    clickButton(":List Tax Zones.New_QPushButton_2");
     
-    waitForObject(":List Tax Selections.New_QPushButton_2");
-    clickButton(":List Tax Selections.New_QPushButton_2");
-    waitForObject(":_taxauth_XComboBox_4");
-    clickItem(":_taxauth_XComboBox_4", "TAX-AUTH1", 0, 0, 1, Qt.LeftButton);
-    clickItem(":_taxtype_XComboBox_3", "EDU", 0, 0, 1, Qt.LeftButton);
-    type(":_tax_XComboBox_2", "TAXAUTH1-EDU");
-    waitForObject(":Tax Selection.Save_QPushButton");
-    clickButton(":Tax Selection.Save_QPushButton");
-    waitForObject(":List Tax Selections._taxsel_XTreeWidget");
-    if(!clickItem(":List Tax Selections._taxsel_XTreeWidget", "TAXAUTH1-EDU", 30, 9, 1, Qt.LeftButton))
-        test.pass("Tax Selections done with:TAXAUTH1-EDU");
-     
-    waitForObject(":List Tax Selections.Close_QPushButton_2");
-    clickButton(":List Tax Selections.Close_QPushButton_2");
+    waitForObject(":_taxZone_XLineEdit_2");
+    type(":_taxZone_XLineEdit_2", "TZONE1");
+    type(":_description_XLineEdit_40", "Tax Zone1");
+    waitForObject(":Tax Zone.Save_QPushButton");
+    clickButton(":Tax Zone.Save_QPushButton");
+    
+    waitForObject(":List Tax Zones.Close_QPushButton_2");
+    clickButton(":List Tax Zones.Close_QPushButton_2");
+   
+    
+    //--------Tax Assignments-------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
+    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Assignments...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Assignments...");
+   
+    waitForObject(":_frame.New_QPushButton_4");
+    clickButton(":_frame.New_QPushButton_4");
+    waitForObject(":Tax Assignment._taxZone_XComboBox");
+    clickItem(":Tax Assignment._taxZone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
+    waitForObjectItem(":Tax Assignment._taxType_XComboBox", "EDU");
+    clickItem(":Tax Assignment._taxType_XComboBox", "EDU", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_frame._taxCodeOption_XTreeWidget_2");
+    clickItem(":_frame._taxCodeOption_XTreeWidget_2", "TAXAUTH1-EDU", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_frame.Add->_QPushButton_2");
+    clickButton(":_frame.Add->_QPushButton_2");
+    waitForObject(":Tax Assignment.Close_QPushButton");
+    clickButton(":Tax Assignment.Close_QPushButton");
+    
+    waitForObject(":_frame.New_QPushButton_4");
+    clickButton(":_frame.New_QPushButton_4");
+    waitForObject(":Tax Assignment._taxZone_XComboBox");
+    clickItem(":Tax Assignment._taxZone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
+    waitForObjectItem(":Tax Assignment._taxType_XComboBox", "GM");
+    clickItem(":Tax Assignment._taxType_XComboBox", "GM", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_frame._taxCodeOption_XTreeWidget_2");
+    clickItem(":_frame._taxCodeOption_XTreeWidget_2", "TAXAUTH1-GM", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_frame.Add->_QPushButton_2");
+    clickButton(":_frame.Add->_QPushButton_2");    
+    waitForObject(":Tax Assignment.Close_QPushButton");
+    clickButton(":Tax Assignment.Close_QPushButton");
+      
+    waitForObject(":List Tax Assignments.Close_QPushButton_3");
+    clickButton(":List Tax Assignments.Close_QPushButton_3");
   
     
     //----------Create: Tax Registrations--------------
@@ -616,16 +653,23 @@ function defineTaxation()
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Registrations...");
     activateItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Registrations...");
+  
     waitForObject(":List Tax Registrations.New_QPushButton_2");
     clickButton(":List Tax Registrations.New_QPushButton_2");
-    waitForObject(":Tax Registration Information._taxauth_XComboBox");
-    clickItem(":Tax Registration Information._taxauth_XComboBox", "TAX-AUTH1", 0, 0, 1, Qt.LeftButton);
-    type(":Tax Registration Information._number_QLineEdit", "AUTH1-0101");
+    
+    waitForObject(":Tax Registration Information._taxZone_XComboBox");
+    clickItem(":Tax Registration Information._taxZone_XComboBox", "TZONE1-Tax Zone1", 5, 5, 1, Qt.LeftButton);
+    waitForObjectItem(":Tax Registration Information._taxauth_XComboBox", "TAX-AUTH1");
+    clickItem(":Tax Registration Information._taxauth_XComboBox", "TAX-AUTH1", 5, 8, 1, Qt.LeftButton);
+    waitForObject(":Tax Registration Information._number_QLineEdit");
+    mouseClick(":Tax Registration Information._number_QLineEdit", 5, 5, 1, Qt.LeftButton);
+   
+    waitForObject(":Tax Registration Information._number_QLineEdit");
+    type(":Tax Registration Information._number_QLineEdit", "tax reg1");
+    waitForObject(":_frame._notes_XTextEdit_2");
+    type(":_frame._notes_XTextEdit_2", "tax reg1");
     waitForObject(":Tax Registration Information.Save_QPushButton");
     clickButton(":Tax Registration Information.Save_QPushButton");
-    waitForObject(":_taxreg_XTreeWidget");
-    if(!clickItem(":_taxreg_XTreeWidget", "TAX-AUTH1", 5, 5, 1, Qt.LeftButton))
-        test.pass("Tax Registrations done");
     waitForObject(":List Tax Registrations.Close_QPushButton_2");
     clickButton(":List Tax Registrations.Close_QPushButton_2");
  
