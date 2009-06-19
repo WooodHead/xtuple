@@ -11,6 +11,9 @@ BEGIN
   END IF;
 
   IF (TG_OP = 'DELETE') THEN
+    DELETE FROM cmitemtax
+    WHERE (taxhist_parent_id=OLD.cmitem_id);
+
     RETURN OLD;
   END IF;
 

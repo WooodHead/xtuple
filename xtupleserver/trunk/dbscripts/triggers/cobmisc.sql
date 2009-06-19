@@ -1,3 +1,25 @@
+CREATE OR REPLACE FUNCTION _cobmiscBeforeTrigger() RETURNS "trigger" AS $$
+DECLARE
+
+BEGIN
+  IF (TG_OP = 'DELETE') THEN
+    DELETE FROM cobmisctax
+    WHERE (taxhist_parent_id=OLD.cobmisc_id);
+
+    RETURN OLD;
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'cobmiscBeforeTrigger');
+CREATE TRIGGER cobmiscBeforeTrigger
+  BEFORE INSERT OR UPDATE OR DELETE
+  ON cobmisc
+  FOR EACH ROW
+  EXECUTE PROCEDURE _cobmiscBeforeTrigger();
+
 CREATE OR REPLACE FUNCTION _cobmiscTrigger() RETURNS "trigger" AS $$
 BEGIN
   IF (TG_OP = 'DELETE') THEN
@@ -60,7 +82,7 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-DROP TRIGGER cobmisctrigger ON cobmisc;
+SELECT dropIfExists('TRIGGER', 'cobmisctrigger');
 CREATE TRIGGER cobmisctrigger
   AFTER INSERT OR UPDATE OR DELETE
   ON cobmisc
