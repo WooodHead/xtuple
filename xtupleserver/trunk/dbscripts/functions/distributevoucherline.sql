@@ -1,6 +1,5 @@
-CREATE OR REPLACE FUNCTION distributevoucherline(integer, integer, integer)
-  RETURNS integer AS
-$BODY$
+<<<<<<< .mine
+CREATE OR REPLACE FUNCTION distributeVoucherLine(INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS '
 DECLARE
   pVoucherId ALIAS FOR $1;
   pPoitemId ALIAS FOR $2;
@@ -8,12 +7,10 @@ DECLARE
   _count INTEGER;
   _costelemId INTEGER;
   _close BOOLEAN;
-  _flag BOOLEAN;
   _r RECORD;
   _qtyOrdered NUMERIC;
-  _distAmt NUMERIC;
   _voitemId INTEGER;
-  _taxtypeId INTEGER;
+  _taxtypeid INTEGER;
 
 BEGIN
 
@@ -48,7 +45,7 @@ BEGIN
         ELSE
                 SELECT costelem_id INTO _costelemId
                         FROM costelem
-                        WHERE (costelem_type='Material');
+                        WHERE (costelem_type=''Material'');
         END IF;
 
 
@@ -57,7 +54,7 @@ BEGIN
         UPDATE recv SET recv_vohead_id=NULL, recv_voitem_id=NULL
                 WHERE ((recv_vohead_id=pVoucherId)
                 AND (recv_orderitem_id=pPoitemId)
-		AND (recv_order_type='PO'));
+		AND (recv_order_type=''PO''));
         UPDATE poreject SET poreject_vohead_id=NULL, poreject_voitem_id=NULL
                 WHERE ((poreject_vohead_id=pVoucherId)
                 AND (poreject_poitem_id=pPoitemId));
@@ -85,7 +82,7 @@ BEGIN
                 WHERE ( (recv_vohead_id IS NULL)
                         AND (poitem_id=recv_orderitem_id)
                         AND (NOT recv_invoiced)
-			AND (recv_order_type='PO')
+			AND (recv_order_type=''PO'')
                         AND (recv_orderitem_id=pPoitemId) )
 
                 UNION ALL
@@ -135,34 +132,28 @@ BEGIN
         END IF;
 
 
--- Create voucher item
-        SELECT NEXTVAL('voitem_voitem_id_seq') INTO _voitemId;
-
-        SELECT poitem_taxtype_id INTO _taxtypeId 
-        FROM poitem 
-        WHERE (poitem_id=pPoitemId);
-
-        INSERT INTO voitem (voitem_id,voitem_vohead_id,voitem_poitem_id,voitem_taxtype_id,voitem_close,voitem_qty,voitem_freight)
-                VALUES (_voitemId,pVoucherId,pPoitemId,_taxtypeId,_close,(_r.qty_received -_r.qty_rejected),_r.freight);
-
 -- Create distribution
 
         INSERT INTO vodist
                 (vodist_poitem_id,vodist_vohead_id,vodist_costelem_id,vodist_amount,vodist_qty,vodist_expcat_id)
                 VALUES (pPoitemId,pVoucherId,_costelemId,_r.balance,(_r.qty_received -_r.qty_rejected),-1);
 
--- Create line item tax
-        SELECT COALESCE(SUM(vodist_amount),0) INTO _distAmt FROM vodist WHERE vodist_vohead_id=pVoucherId AND vodist_poitem_id=pPoitemId;
-        SELECT calculatetaxhist('voitemtax', _voitemId, vohead_taxzone_id, _taxtypeId, COALESCE(vohead_docdate, CURRENT_DATE), vohead_curr_id, _distAmt) INTO _flag
-        FROM    vohead
-        WHERE   vohead_id=pVoucherId;
+-- Create voucher item
+        SELECT poitem_taxtype_id INTO _taxtypeid
+        FROM poitem
+        WHERE (poitem_id=pPoitemId);
+
+        SELECT NEXTVAL(''voitem_voitem_id_seq'') INTO _voitemId;
+
+        INSERT INTO voitem (voitem_id,voitem_vohead_id,voitem_poitem_id,voitem_close,voitem_qty,voitem_freight, voitem_taxtype_id)
+                VALUES (_voitemId,pVoucherId,pPoitemId,_close,(_r.qty_received -_r.qty_rejected),_r.freight, _taxtypeid);
 
 -- Tag receipt records
 
         UPDATE recv
         SET recv_vohead_id=pVoucherId, recv_voitem_id=_voitemId
         WHERE ((recv_orderitem_id=pPoitemId)
-	  AND  (recv_order_type='PO')
+	  AND  (recv_order_type=''PO'')
           AND  (recv_vohead_id IS NULL));
 
         UPDATE poreject
@@ -174,5 +165,4 @@ BEGIN
   RETURN 1;
 
 END;
-$BODY$
-  LANGUAGE 'plpgsql' VOLATILE;
+' LANGUAGE 'plpgsql';

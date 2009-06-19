@@ -34,6 +34,7 @@ DECLARE
   _pExplain BOOLEAN;
   _pLowLevel BOOLEAN;
   _exchGainFreight NUMERIC;
+  _taxBaseValue NUMERIC;
   _firstExchDateFreight	DATE;
   _tmpTotal		NUMERIC;
   _glDate		DATE;
@@ -73,9 +74,22 @@ BEGIN
       FROM recv
       WHERE (recv_vohead_id = pVoheadid);
 
-  SELECT SUM(vodist_amount) INTO _tmpTotal
+  SELECT SUM(amount) INTO _tmpTotal
+  FROM (
+  SELECT SUM(vodist_amount) AS amount
     FROM vodist
-   WHERE (vodist_vohead_id=pVoheadid);
+   WHERE ( (vodist_vohead_id=pVoheadid)
+     AND   (vodist_tax_id=-1) )
+  UNION ALL
+  SELECT SUM(taxhist_tax * -1) AS amount
+    FROM voheadtax
+   WHERE (taxhist_parent_id=pVoheadid)
+  UNION ALL
+  SELECT SUM(taxhist_tax * -1) AS amount
+    FROM voitem JOIN voitemtax ON (taxhist_parent_id=voitem_id)
+   WHERE (voitem_vohead_id=pVoheadid)
+      ) AS data;
+
   IF (_tmpTotal IS NULL OR _tmpTotal <= 0) THEN
     RAISE EXCEPTION 'Cannot Post Voucher #% with negative or zero distributions (%).',
 			_p.vohead_number, _tmpTotal;
@@ -100,7 +114,7 @@ BEGIN
 
 --  Loop through the vodist records for the passed vohead that
 --  are posted against a P/O Item
-  FOR _g IN SELECT DISTINCT poitem_id, voitem_qty, poitem_expcat_id,
+  FOR _g IN SELECT DISTINCT poitem_id, voitem_id, voitem_qty, poitem_expcat_id,
                             poitem_invvenduomratio,
                             COALESCE(itemsite_id, -1) AS itemsiteid,
                             COALESCE(itemsite_costcat_id, -1) AS costcatid,
@@ -191,11 +205,18 @@ BEGIN
 
     END LOOP;
 
+--  Distribute the voitem tax
+    _taxBaseValue := addTaxToGLSeries(_sequence,
+				      'A/P', 'VO', text(_p.vohead_number),
+				      _p.vohead_curr_id, _glDate, _glDate,
+                                      'voitemtax', _g.voitem_id, _p.glnotes);
+
 --  Distribute from the clearing account
     PERFORM insertIntoGLSeries( _sequence, 'A/P', 'VO', text(_p.vohead_number),
 		_a.lb_accnt_id,
 		round(_g.value_base + _g.vouchered_freight_base, 2) * -1,
 		_glDate, _p.glnotes );
+
 
 --  Attribute the correct portion to currency gain/loss
     _exchGainFreight := 0;
@@ -228,8 +249,8 @@ BEGIN
     END IF;
 
 --  Add the distribution amount to the total amount to distribute
-    _totalAmount_base := (_totalAmount_base + _itemAmount_base + _g.voitem_freight_base);
-    _totalAmount := (_totalAmount + _itemAmount + _g.voitem_freight);
+    _totalAmount_base := (_totalAmount_base + _itemAmount_base + _g.voitem_freight_base - _taxBaseValue);
+    _totalAmount := (_totalAmount + _itemAmount + _g.voitem_freight - currToCurr(baseCurrId(), _p.vohead_curr_id, _taxBaseValue, _glDate));
 
 --  Post all the Tagged Receivings for this P/O Item as Invoiced and
 --  record the purchase and receive costs
@@ -258,8 +279,19 @@ BEGIN
 
   END LOOP;
 
+--  Distribute the vohead tax
+    _taxBaseValue := addTaxToGLSeries(_sequence,
+				      'A/P', 'VO', text(_p.vohead_number),
+				      _p.vohead_curr_id, _glDate, _glDate,
+                                      'voheadtax', _p.vohead_id, _p.glnotes);
+
+--  Add the tax amount to the total amount to distribute
+    _totalAmount_base := (_totalAmount_base - _taxBaseValue);
+    _totalAmount := (_totalAmount - currToCurr(baseCurrId(), _p.vohead_curr_id, _taxBaseValue, _glDate));
+
 --  Loop through the vodist records for the passed vohead that
 --  are not posted against a P/O Item
+--  Skip the tax distributions
   FOR _d IN SELECT vodist_id,
 		   currToBase(_p.vohead_curr_id, vodist_amount,
 			      _p.vohead_distdate) AS vodist_amount_base,
@@ -267,7 +299,8 @@ BEGIN
 		   vodist_accnt_id, vodist_expcat_id
             FROM vodist
             WHERE ( (vodist_vohead_id=pVoheadid)
-             AND (vodist_poitem_id=-1) ) LOOP
+             AND (vodist_poitem_id=-1)
+             AND (vodist_tax_id=-1) ) LOOP
 
 --  Distribute from the misc. account
     IF (_d.vodist_accnt_id = -1) THEN

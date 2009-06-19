@@ -1,3 +1,25 @@
+CREATE OR REPLACE FUNCTION _invcitemBeforeTrigger() RETURNS "trigger" AS $$
+DECLARE
+
+BEGIN
+  IF (TG_OP = 'DELETE') THEN
+    DELETE FROM invcitemtax
+    WHERE (taxhist_parent_id=OLD.invcitem_id);
+
+    RETURN OLD;
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'invcitemBeforeTrigger');
+CREATE TRIGGER invcitemBeforeTrigger
+  BEFORE INSERT OR UPDATE OR DELETE
+  ON invcitem
+  FOR EACH ROW
+  EXECUTE PROCEDURE _invcitemBeforeTrigger();
+
 CREATE OR REPLACE FUNCTION _invcitemTrigger() RETURNS "trigger" AS '
 DECLARE
   _r RECORD;
@@ -53,7 +75,7 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-DROP TRIGGER invcitemtrigger ON invcitem;
+SELECT dropIfExists('TRIGGER', 'invcitemtrigger');
 CREATE TRIGGER invcitemtrigger
   AFTER INSERT OR UPDATE OR DELETE
   ON invcitem

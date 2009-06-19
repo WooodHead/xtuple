@@ -1,3 +1,25 @@
+CREATE OR REPLACE FUNCTION _invcheadBeforeTrigger() RETURNS "trigger" AS $$
+DECLARE
+
+BEGIN
+  IF (TG_OP = 'DELETE') THEN
+    DELETE FROM invcheadtax
+    WHERE (taxhist_parent_id=OLD.invchead_id);
+
+    RETURN OLD;
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'invcheadBeforeTrigger');
+CREATE TRIGGER invcheadBeforeTrigger
+  BEFORE INSERT OR UPDATE OR DELETE
+  ON invchead
+  FOR EACH ROW
+  EXECUTE PROCEDURE _invcheadBeforeTrigger();
+
 CREATE OR REPLACE FUNCTION _invcheadTrigger() RETURNS "trigger" AS $$
 BEGIN
   IF (TG_OP = 'DELETE') THEN
@@ -57,7 +79,7 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-DROP TRIGGER invcheadtrigger ON invchead;
+SELECT dropIfExists('TRIGGER', 'invcheadtrigger');
 CREATE TRIGGER invcheadtrigger
   AFTER INSERT OR UPDATE OR DELETE
   ON invchead
