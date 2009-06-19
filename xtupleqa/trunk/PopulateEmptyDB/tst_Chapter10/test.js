@@ -2,25 +2,25 @@ function main()
 {
 
 
-source(findFile("scripts","functions.js"));
+    source(findFile("scripts","functions.js"));
 
 
-//---login Application--------
- loginAppl("RUNREGISTER");       
+    //---login Application--------
+    loginAppl("RUNREGISTER");       
  
 
-  //---find Application Edition------
- waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
- activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
- waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
- activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
- waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
- activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
- waitForObject(":Database Information.*_QLabel");
- var appEdition = findObject(":Database Information.*_QLabel").text;
- clickButton(":Database Information.Save_QPushButton");      
+    //---find Application Edition------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+    waitForObject(":Database Information.*_QLabel");
+    var appEdition = findObject(":Database Information.*_QLabel").text;
+    clickButton(":Database Information.Save_QPushButton");      
 
-  //--------------Define: Check Formats-------------------
+    //--------------Define: Check Formats-------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
@@ -81,7 +81,7 @@ source(findFile("scripts","functions.js"));
     waitForObject(":Chart of Accounts.Close_QPushButton_2");
     clickButton(":Chart of Accounts.Close_QPushButton_2");
  
-    if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
     {
      
         //---------------Configure ACH in Accounting-------------
@@ -111,8 +111,6 @@ source(findFile("scripts","functions.js"));
            type(":Enable ACH Check Printing._achSuffix_QComboBox","<Del>");
            type(":Enable ACH Check Printing._achSuffix_QComboBox",".dat");
         clickButton(":Accounting Configuration.Save_QPushButton");
-        waitForObject(":No_QPushButton");
-        clickButton(":No_QPushButton");
         test.log("Accounting for ACH configured");
 
     }

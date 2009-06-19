@@ -47,9 +47,9 @@ function main()
     waitForObject(":Create Item Cost._costelem_XComboBox");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
-    if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
-        clickItem(":Create Item Cost_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
-    type(":Create Item Cost_XLineEdit", "1.0");
+    if(findObject(":Create Item Cost._currency_XComboBox").currentText!="USD - $")
+        clickItem(":Create Item Cost._currency_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
+    type(":Create Item Cost._currency_XLineEdit", "1.0");
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for TBODY1 defined");    
@@ -64,9 +64,9 @@ function main()
     waitForObject(":Create Item Cost._costelem_XComboBox");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
-    if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
-        clickItem(":Create Item Cost_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
-    type(":Create Item Cost_XLineEdit", "0.25");
+    if(findObject(":Create Item Cost._currency_XComboBox").currentText!="USD - $")
+        clickItem(":Create Item Cost._currency_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
+    type(":Create Item Cost._currency_XLineEdit", "0.25");
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for TBOX1 defined");    
@@ -80,9 +80,9 @@ function main()
     waitForObject(":Create Item Cost._costelem_XComboBox");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
-    if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
-        clickItem(":Create Item Cost_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
-    type(":Create Item Cost_XLineEdit", "0.5");
+    if(findObject(":Create Item Cost._currency_XComboBox").currentText!="USD - $")
+        clickItem(":Create Item Cost._currency_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
+    type(":Create Item Cost._currency_XLineEdit", "0.5");
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for TINSERT1 defined");    
@@ -97,9 +97,9 @@ function main()
     waitForObject(":Create Item Cost._costelem_XComboBox");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
-    if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
-        clickItem(":Create Item Cost_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
-    type(":Create Item Cost_XLineEdit", "0.10");
+    if(findObject(":Create Item Cost._currency_XComboBox").currentText!="USD - $")
+        clickItem(":Create Item Cost._currency_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
+    type(":Create Item Cost._currency_XLineEdit", "0.10");
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for TWHEEL1 defined");    
@@ -114,9 +114,9 @@ function main()
     waitForObject(":Create Item Cost._costelem_XComboBox");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
         clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
-    if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
-        clickItem(":Create Item Cost_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
-    type(":Create Item Cost_XLineEdit", "5.00");
+    if(findObject(":Create Item Cost._currency_XComboBox").currentText!="USD - $")
+        clickItem(":Create Item Cost._currency_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
+    type(":Create Item Cost._currency_XLineEdit", "5.00");
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for YPAINT1 defined");    
@@ -130,10 +130,10 @@ function main()
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObject(":Create Item Cost._costelem_XComboBox");
     if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Special Handling")
-        clickItem(":Create Item Cost._costelem_XComboBox", "Special",0,0,1,Qt.LeftButton);
-    if(findObject(":Create Item Cost_XComboBox").currentText!="USD - $")
-        clickItem(":Create Item Cost_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
-    type(":Create Item Cost_XLineEdit", "2.00");
+        clickItem(":Create Item Cost._costelem_XComboBox", "Special Handling",0,0,1,Qt.LeftButton);
+    if(findObject(":Create Item Cost._currency_XComboBox").currentText!="USD - $")
+        clickItem(":Create Item Cost._currency_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
+    type(":Create Item Cost._currency_XLineEdit", "2.00");
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Special Handling cost for YPAINT1 defined");    

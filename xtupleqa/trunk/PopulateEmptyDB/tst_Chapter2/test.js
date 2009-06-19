@@ -132,7 +132,7 @@ function main()
     type(":Cost Category._description_XLineEdit", "Warehouse 1");
     type(":Cost Category._main_XLineEdit", "01-01-1250-01");
     type(":Cost Category._main_XLineEdit_2", "01-01-1210-01");
-    if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
         type(":Cost Category._main_XLineEdit_3", "01-01-1620-01");
     else if (appEdition=="PostBooks")
         test.xverify(object.exists(":Cost Category._main_XLineEdit_3"),"Cost Category text field - not visible");
@@ -144,11 +144,11 @@ function main()
     type(":Cost Category._main_XLineEdit_9", "01-01-2320-01");
     type(":Cost Category._main_XLineEdit_10", "01-01-2490-01");
     type(":Cost Category._main_XLineEdit_11", "01-01-1260-01");
-    if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
         type(":Cost Category._main_XLineEdit_12", "01-01-6550-01");
     else if (appEdition=="PostBooks")
         test.xverify(object.exists(":Cost Category._main_XLineEdit_12"),"Cost Category text field - not visible");
-    if(appEdition=="OpenMFG")
+    if(appEdition=="Manufacturing")
         type(":Cost Category._main_XLineEdit_13", "01-01-2480-01");
     else if(appEdition=="xTupleERP"||appEdition=="PostBooks")
         test.xverify(object.exists(":Cost Category._main_XLineEdit_13"),"Cost Category text field - not visible");
@@ -284,7 +284,7 @@ function main()
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Locations...");
     activateItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Locations...");
     waitForObject(":List Site Locations.New_QPushButton_2");
-    if(appEdition=="OpenMFG"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
     {
         if(findObject(":_warehouse._warehouses_WComboBox_3").currentText!= "WH1")
         {    
@@ -749,7 +749,7 @@ function main()
     clickButton(":List Characteristics.Close_QPushButton_2");
     
     
-  if(appEdition=="OpenMFG")
+  if(appEdition=="Manufacturing")
   {
     
         //----------------Schedule: Create Planner Code----------------

@@ -265,6 +265,7 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Vendor");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Vendor_QMenu", "List...");
     activateItem(":xTuple ERP: OpenMFG Edition.Vendor_QMenu", "List...");
+   
     waitForObject(":List Vendors.New_QPushButton");
     clickButton(":List Vendors.New_QPushButton");
     waitForObject(":_number_XLineEdit_4");
@@ -307,16 +308,7 @@ function main()
     waitForObject(":ponotesTab._poComments_QTextEdit");
     type(":ponotesTab._poComments_QTextEdit", "Default Vendor Notes From Vendor Master");
  
-    clickTab(":Vendor.qt_tabwidget_tabbar_QTabBar", "Transmission");
-    waitForObject(":_transmitStack.Email Purchase Order Delivery_QGroupBox");
-    if(!findObject(":_transmitStack.Email Purchase Order Delivery_QGroupBox").checked)
-        type(":_transmitStack.Email Purchase Order Delivery_QGroupBox"," ");
-    waitForObject(":Email Purchase Order Delivery._ediEmail_XLineEdit_2");
-    type(":Email Purchase Order Delivery._ediEmail_XLineEdit_2", "demo@openmfg.com");
-    type(":Email Purchase Order Delivery._ediCC_XLineEdit_2", "matherton@openmfg.com");
-    type(":Email Purchase Order Delivery._ediSubject_XLineEdit_2", "Purchase Order </docnumber> Enclosed");
-    type(":Email Purchase Order Delivery._ediFilename_XLineEdit_2", "PO</docnumber>");
-    type(":Email Purchase Order Delivery._ediEmailBody_QTextEdit_2", "Dear TPARTS: Attached please find PO </docnumber>. Sincerely - Prodiem Toys");
+
 
     clickTab(":Vendor.qt_tabwidget_tabbar_QTabBar", "Addresses"); 
     waitForObject(":_addressStack.Street\nAddress:_XLineEdit");
@@ -324,11 +316,11 @@ function main()
     type(":_addressStack.Street\nAddress:_XLineEdit_2", "Alpha Industries PVt ltd");
     type(":_addressStack.Street\nAddress:_XLineEdit_3", "Vengal Rao  Nagar");
     type(":_addressStack.City:_XLineEdit", "Kolkata");
-    type(":_addressStack.State:_XComboBox", "WB");
+    type(":_state_QLineEdit_4", "WB");
     waitForObject(":_addressStack.Postal Code:_XLineEdit");
     type(":_addressStack.Postal Code:_XLineEdit", "300838");
-    waitForObject(":_addressStack.Country:_XComboBox");
-    clickItem(":_addressStack.Country:_XComboBox", "India",0,0,1,Qt.LeftButton);
+    waitForObject(":_country_QLineEdit_4");
+    type(":_country_QLineEdit_4", "India");
     waitForObject(":Vendor.Save_QPushButton");
     clickButton(":Vendor.Save_QPushButton");
     snooze(2); //delay for allowing to save
