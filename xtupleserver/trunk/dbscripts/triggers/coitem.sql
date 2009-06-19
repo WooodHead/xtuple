@@ -551,7 +551,7 @@ BEGIN
             AND (coitem_status = 'O'))) > 0) THEN
       _pstat := 'O';
     ELSE
-      _pstat := 'C';
+      _pstat := _rec.coitem_status;
     END IF;
   END IF;
 
