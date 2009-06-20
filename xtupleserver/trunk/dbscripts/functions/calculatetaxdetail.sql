@@ -18,27 +18,6 @@ DECLARE
   _taxbasis numeric := 0;  -- Used for calculating sub taxes
 
 BEGIN
-/*
-  IF (pTaxZoneId IS NULL) THEN 
-	RAISE EXCEPTION 'Supply  a tax zone id...';
-  END IF;
-
-  IF (pTaxTypeId IS NULL) THEN
-	RAISE EXCEPTION 'Supply tax type id...';
-  END IF;
-  	
-  IF (pDate IS NULL) THEN
-	RAISE EXCEPTION 'Supply date...';
-  END IF;	
-  
-  IF (pCurrId IS NULL) THEN
-	RAISE EXCEPTION 'Supply currency...';
-  END IF;
-  	
-  IF (pAmount IS NULL) THEN
-	RAISE EXCEPTION 'Supply amount...';
-  END IF;
-*/
 
   SELECT DISTINCT
     COALESCE(taxass_taxzone_id, -1) AS taxzone_id,
@@ -59,12 +38,6 @@ BEGIN
   WHERE  ((COALESCE(taxass_taxzone_id, pTaxZoneId, -1) = COALESCE(pTaxZoneId,-1))
   AND    (COALESCE(taxass_taxtype_id, pTaxTypeId, -1) = COALESCE(pTaxTypeId,-1)))
   ORDER BY sequence LIMIT 1;
-  
-/*
-  IF (NOT FOUND) THEN
-    RAISE EXCEPTION 'No tax assignment found..';
-  END IF;
-*/
 
   --Now loop through each tax detail record and return calculated result
   FOR _y IN

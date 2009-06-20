@@ -29,7 +29,7 @@ BEGIN
      _table := 'apopentax';
    END IF;
      
-   _qry := 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, taxhist_tax, taxhist_sequence
+   _qry := 'SELECT taxhist_tax_id as tax_id, tax_code, tax_descrip, taxhist_tax, COALESCE(taxhist_sequence,0) AS taxhist_sequence
             FROM taxhist 
              JOIN tax ON (taxhist_tax_id=tax_id) 
              JOIN pg_class ON (pg_class.oid=taxhist.tableoid) 

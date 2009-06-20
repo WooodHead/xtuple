@@ -170,7 +170,7 @@ BEGIN
      _row.taxdetail_tax_descrip = _y.tax_descrip;
      _row.taxdetail_tax = _y.taxhist_tax;
      _row.taxdetail_level= 0 ;
-     _row.taxdetail_taxclass_sequence= _y.taxhist_sequence;
+     _row.taxdetail_taxclass_sequence= COALESCE(_y.taxhist_sequence,0);
      _totaltax = _totaltax + _y.taxhist_tax;
      RETURN NEXT _row;
    END LOOP;
