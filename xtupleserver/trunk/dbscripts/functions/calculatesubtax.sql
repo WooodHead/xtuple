@@ -18,7 +18,7 @@ BEGIN
 
   SELECT tax_id, tax_code, tax_descrip, tax_basis_tax_id,
     taxrate_id, taxrate_percent, taxrate_curr_id, taxrate_amount,  
-    taxclass_id, taxclass_code, taxclass_sequence,
+    taxclass_id, taxclass_code, COALESCE(taxclass_sequence,0) AS taxclass_sequence,
     curr_id, curr_abbr
   FROM tax, taxrate, taxclass, curr_symbol
   WHERE ((tax_id = taxrate_tax_id)
