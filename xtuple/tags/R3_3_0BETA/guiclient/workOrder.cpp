@@ -1,0 +1,1814 @@
+/*
+ * This file is part of the xTuple ERP: PostBooks Edition, a free and
+ * open source Enterprise Resource Planning software suite,
+ * Copyright (c) 1999-2009 by OpenMFG LLC, d/b/a xTuple.
+ * It is licensed to you under the Common Public Attribution License
+ * version 1.0, the full text of which (including xTuple-specific Exhibits)
+ * is available at www.xtuple.com/CPAL.  By using this software, you agree
+ * to be bound by its terms.
+ */
+
+#include "workOrder.h"
+
+#include <QVariant>
+#include <QMessageBox>
+#include <QSqlError>
+#include <QValidator>
+#include <QMessageBox>
+#include "changeWoQty.h"
+#include "closeWo.h"
+#include "correctOperationsPosting.h"
+#include "correctProductionPosting.h"
+#include "dspInventoryAvailabilityByWorkOrder.h"
+#include "dspRunningAvailability.h"
+#include "dspWoEffortByWorkOrder.h"
+#include "dspInventoryAvailabilityByItem.h"
+#include "dspSubstituteAvailabilityByItem.h"
+#include "distributeInventory.h"
+#include "explodeWo.h"
+#include "itemCharacteristicDelegate.h"
+#include "implodeWo.h"
+#include "inputManager.h"
+#include "issueWoMaterialItem.h"
+#include "postOperations.h"
+#include "postProduction.h"
+#include "printWoTraveler.h"
+#include "printWoTraveler.h"
+#include "returnWoMaterialBatch.h"
+#include "returnWoMaterialItem.h"
+#include "reprioritizeWo.h"
+#include "rescheduleWo.h"
+#include "returnWoMaterialItem.h"
+#include "storedProcErrorLookup.h"
+#include "substituteList.h"
+#include "scrapWoMaterialFromWIP.h"
+#include "woMaterialItem.h"
+
+
+workOrder::workOrder(QWidget* parent, const char* name, Qt::WFlags fl)
+    : XWidget(parent, name, fl)
+{
+  setupUi(this);
+
+
+  connect(_close, SIGNAL(clicked()), this, SLOT(sClose()));
+  connect(_create, SIGNAL(clicked()), this, SLOT(sCreate()));
+  connect(_warehouse, SIGNAL(newID(int)), this, SLOT(sPopulateLeadTime(int)));
+  connect(_item, SIGNAL(newId(int)), this, SLOT(sPopulateItemChar(int)));
+  connect(_dueDate, SIGNAL(newDate(const QDate&)), this, SLOT(sUpdateStartDate()));
+  connect(_leadTime, SIGNAL(valueChanged(int)), this, SLOT(sUpdateStartDate()));
+  connect(_assembly, SIGNAL(toggled(bool)), this, SLOT(sHandleButtons()));
+  connect(_showMaterials, SIGNAL(clicked()), this, SLOT(sFillList()));
+  connect(_singleLevel, SIGNAL(clicked()), this, SLOT(sFillList()));
+  connect(_indented, SIGNAL(clicked()), this, SLOT(sFillList()));
+
+
+  _bomRevision->setMode(RevisionLineEdit::Use);
+  _bomRevision->setType("BOM");
+  _booRevision->setMode(RevisionLineEdit::Use);
+  _booRevision->setType("BOO");
+
+  _captive = FALSE;
+  _planordid = -1;
+  _woid = -1;
+  _sense = 1;
+
+  _lastWarehousid = _warehouse->id();
+  _lastItemid = -1;
+  _comments->setReadOnly(TRUE);
+  _woNumber->setValidator(omfgThis->orderVal());
+  _qty->setValidator(omfgThis->qtyVal());
+  _qtyReceived->setPrecision(omfgThis->qtyVal());
+  _postedValue->setPrecision(omfgThis->costVal());
+  _wipValue->setPrecision(omfgThis->costVal());
+  _rcvdValue->setPrecision(omfgThis->costVal());
+
+  _printTraveler->setEnabled(_privileges->check("PrintWorkOrderPaperWork"));
+
+  _project->setType(ProjectLineEdit::WorkOrder);
+  if(!_metrics->boolean("UseProjects"))
+    _project->hide();
+
+  _itemchar = new QStandardItemModel(0, 2, this);
+  _itemchar->setHeaderData( 0, Qt::Horizontal, tr("Name"), Qt::DisplayRole);
+  _itemchar->setHeaderData( 1, Qt::Horizontal, tr("Value"), Qt::DisplayRole);
+
+  _itemcharView->setModel(_itemchar);
+  ItemCharacteristicDelegate * delegate = new ItemCharacteristicDelegate(this);
+  _itemcharView->setItemDelegate(delegate);
+
+  //If not multi-warehouse hide whs control
+  if (!_metrics->boolean("MultiWhs"))
+  {
+    _warehouseLit->hide();
+    _warehouse->hide();
+  }
+
+  //If not Routing, hide controls
+  if (!_metrics->boolean("Routings"))
+   _booGroup->hide();
+
+  //If not Revision Control, hide controls
+  if (!_metrics->boolean("RevControl"))
+   _tabs->removeTab(_tabs->indexOf(_revision));
+   
+  //If not cost privileges, hide tab
+  if (!_privileges->boolean("ViewCosts"))
+  {
+   //_tabs->removeTab(_tabs->indexOf(_costing));
+   _costGroup->hide();
+  }
+
+  _woIndentedList->addColumn(tr("WO#"),          110,  Qt::AlignLeft      , true,  "wonumber");
+  _woIndentedList->addColumn(tr("Item#"),        100,  Qt::AlignLeft      , true,  "item_number" );
+  _woIndentedList->addColumn(tr("Description"),  200,  Qt::AlignLeft      , true,  "itemdescrip");
+  _woIndentedList->addColumn(tr("Status"),        55,  Qt::AlignCenter    , true,  "wodata_status");
+  _woIndentedList->addColumn(tr("QOH"),           70,  Qt::AlignRight     , true,  "qoh");
+  _woIndentedList->addColumn(tr("Qty Iss."),      70,  Qt::AlignRight     , true,  "qtyiss");
+  _woIndentedList->addColumn(tr("Scrap"),         70,  Qt::AlignRight     , true,  "scrap");
+  _woIndentedList->addColumn(tr("Matl Qty Per."), 70,  Qt::AlignRight     , true,  "qtyper");
+  _woIndentedList->addColumn(tr("Qty Ord/Req."),  80,  Qt::AlignRight     , true,  "qtyordreq");
+  _woIndentedList->addColumn(tr("Qty Rcv."),      70,  Qt::AlignRight     , true,  "qtyrcv");
+  _woIndentedList->addColumn(tr("Qty Short."),    70,  Qt::AlignRight     , true,  "short");
+  _woIndentedList->addColumn(tr("Start Date"),    80,  Qt::AlignCenter    , true,  "wodata_startdate");
+  _woIndentedList->addColumn(tr("Due Date"),      80,  Qt::AlignCenter    , true,  "wodata_duedate");
+  _woIndentedList->addColumn(tr("Ref"),           100, Qt::AlignLeft      , true,  "wodata_ref");
+  _woIndentedList->addColumn(tr("Notes"),         100, Qt::AlignLeft      , false, "wodata_notes");
+}
+
+/*
+ *  Destroys the object and frees any allocated resources
+ */
+workOrder::~workOrder()
+{
+    // no need to delete child widgets, Qt does it all for us
+}
+
+/*
+ *  Sets the strings of the subwidgets using the current
+ *  language.
+ */
+void workOrder::languageChange()
+{
+    retranslateUi(this);
+}
+
+enum SetResponse workOrder::set(const ParameterList &pParams)
+{
+  _captive = TRUE;
+
+  QString  returnValue;
+  QVariant param;
+  bool     valid;
+
+  param = pParams.value("itemsite_id", &valid);
+  if (valid)
+  {
+    _item->setItemsiteid(param.toInt());
+    _item->setEnabled(FALSE);
+    _warehouse->setEnabled(FALSE);
+
+    _qty->setFocus();
+  }
+
+  param = pParams.value("qty", &valid);
+  if (valid)
+    _qty->setText(formatQty(param.toDouble()));
+
+  param = pParams.value("dueDate", &valid);
+  if (valid)
+  {
+    _dueDate->setDate(param.toDate());
+    sUpdateStartDate();
+  }
+
+  param = pParams.value("wo_id", &valid);
+  if (valid)
+    _woid = param.toInt();
+
+  param = pParams.value("planord_id", &valid);
+  if (valid)
+    _planordid = param.toInt();
+
+  param = pParams.value("mode", &valid);
+  if (valid)
+  {
+    if (param.toString() == "new")
+    {
+      _mode = cNew;
+
+      _item->setType(ItemLineEdit::cGeneralPurchased | ItemLineEdit::cGeneralManufactured | ItemLineEdit::cActive);
+      _item->setDefaultType(ItemLineEdit::cGeneralManufactured | ItemLineEdit::cActive);
+      _qtyReceivedLit->clear();
+      _assembly->setEnabled(true);
+      _disassembly->setEnabled(true);
+
+      populateWoNumber();
+      connect(_woIndentedList, SIGNAL(populateMenu(QMenu*,QTreeWidgetItem*,int)), this, SLOT(sPopulateMenu(QMenu*, QTreeWidgetItem*)));
+    }
+    else if (param.toString() == "edit")
+    {
+      _mode = cEdit;
+
+      _item->setType(ItemLineEdit::cGeneralPurchased | ItemLineEdit::cGeneralManufactured |
+                         ItemLineEdit::cJob | ItemLineEdit::cActive);
+      XSqlQuery wo;
+      wo.prepare( "SELECT wo_itemsite_id, wo_priority, wo_status,"
+                  "       formatWoNumber(wo_id) AS f_wonumber,"
+                  "       wo_qtyord,"
+                  "       wo_qtyrcv,"
+                  "       wo_startdate, wo_duedate,"
+                  "       wo_wipvalue,"
+                  "       wo_postedvalue,"
+                  "       wo_postedvalue-wo_wipvalue AS rcvdvalue,"
+                  "       wo_prodnotes, wo_prj_id, "
+                  "       wo_bom_rev_id, wo_boo_rev_id, "
+                  "       wo_cosmethod "
+                  "FROM wo "
+                  "WHERE (wo_id=:wo_id);" );
+      wo.bindValue(":wo_id", _woid);
+      wo.exec();
+      if (wo.first())
+      {
+        _oldPriority = wo.value("wo_priority").toInt();
+        _oldStartDate = wo.value("wo_startdate").toDate();
+        _oldDueDate = wo.value("wo_duedate").toDate();
+        _oldQty = wo.value("wo_qtyord").toDouble();
+
+        _woNumber->setText(wo.value("f_wonumber").toString());
+        _item->setItemsiteid(wo.value("wo_itemsite_id").toInt());
+        _priority->setValue(_oldPriority);
+        _postedValue->setText(wo.value("wo_postedvalue").toDouble());
+        _rcvdValue->setText(wo.value("rcvdvalue").toDouble());
+        _wipValue->setText(wo.value("wo_wipvalue").toDouble());
+        if (wo.value("wo_qtyord").toDouble() < 0)
+          _disassembly->setChecked(true);
+        _qty->setText(wo.value("wo_qtyord").toDouble() * _sense);
+        _qtyReceived->setText(wo.value("wo_qtyrcv").toDouble());
+        _startDate->setDate(_oldStartDate);
+        _dueDate->setDate(_oldDueDate);
+        _productionNotes->setText(wo.value("wo_prodnotes").toString());
+        _comments->setId(_woid);
+        _project->setId(wo.value("wo_prj_id").toInt());
+        _bomRevision->setId(wo.value("wo_bom_rev_id").toInt());
+        _booRevision->setId(wo.value("wo_boo_rev_id").toInt());
+
+        if (wo.value("wo_cosmethod").toString() == "D")
+          _todate->setChecked(TRUE);
+        else if (wo.value("wo_cosmethod").toString() == "P")
+          _proportional->setChecked(TRUE);
+        else
+          _jobCosGroup->hide();
+        connect(_woIndentedList, SIGNAL(populateMenu(QMenu*,QTreeWidgetItem*,int)), this, SLOT(sPopulateMenu(QMenu*, QTreeWidgetItem*)));
+        sFillList();
+
+        // If the W/O is closed or Released don't allow changing some items.
+        if(wo.value("wo_status").toString() == "C" || wo.value("wo_status") == "R")
+        {
+          _priority->setEnabled(false);
+          _qty->setEnabled(false);
+          _dueDate->setEnabled(false);
+          _startDate->setEnabled(false);
+        }
+
+        _startDate->setEnabled(true);
+        _woNumber->setEnabled(false);
+        _item->setReadOnly(true);
+        _bomRevision->setEnabled(wo.value("wo_status").toString() == "O");
+        _booRevision->setEnabled(wo.value("wo_status").toString() == "O");
+        _warehouse->setEnabled(false);
+        _comments->setReadOnly(false);
+        _leadTimeLit->hide();
+        _leadTime->hide();
+        _daysLit->hide();
+        _printTraveler->hide();
+        _bottomSpacer->hide();
+        _create->setText(tr("&Save"));
+
+        _close->setFocus();
+      }
+      else
+      {
+        systemError(this, tr("A System Error occurred at %1::%2, W/O ID %3.")
+                          .arg(__FILE__)
+                          .arg(__LINE__)
+                          .arg(_woid) );
+        close();
+      }
+    }
+    else if (param.toString() == "view")
+    {
+      _mode = cView;
+
+      _item->setQuery("SELECT DISTINCT item_id, item_number, item_descrip1, item_descrip2,"
+                      "       item_active, item_config, item_type, uom_name "
+                      "FROM item JOIN uom ON (item_inv_uom_id=uom_id) "
+                      "WHERE (item_type IN ('M', 'B', 'J')) ");
+      XSqlQuery wo;
+      wo.prepare( "SELECT wo_itemsite_id, wo_priority,"
+                  "       formatWoNumber(wo_id) AS f_wonumber,"
+                  "       wo_qtyord,"
+                  "       wo_qtyrcv,"
+                  "       wo_startdate, wo_duedate,"
+                  "       wo_wipvalue,"
+                  "       wo_postedvalue,"
+                  "       wo_postedvalue-wo_wipvalue AS rcvdvalue,"
+                  "       wo_prodnotes, wo_prj_id, wo_bom_rev_id, "
+                  "       wo_boo_rev_id, wo_cosmethod "
+                  "FROM wo "
+                  "WHERE (wo_id=:wo_id);" );
+      wo.bindValue(":wo_id", _woid);
+      wo.exec();
+      if (wo.first())
+      {
+        _mode = cView;
+
+        _woNumber->setText(wo.value("f_wonumber").toString());
+        _item->setItemsiteid(wo.value("wo_itemsite_id").toInt());
+        _priority->setValue(wo.value("wo_priority").toInt());
+        _postedValue->setText(wo.value("wo_postedvalue").toDouble());
+        _rcvdValue->setText(wo.value("rcvdvalue").toDouble());
+        _wipValue->setText(wo.value("wo_wipvalue").toDouble());
+        if (wo.value("wo_qtyord").toDouble() < 0)
+          _disassembly->setChecked(true);
+        _qty->setText(wo.value("wo_qtyord").toDouble() * _sense);
+        _qtyReceived->setText(wo.value("wo_qtyrcv").toDouble());
+        _startDate->setDate(wo.value("wo_startdate").toDate());
+        _dueDate->setDate(wo.value("wo_duedate").toDate());
+        _productionNotes->setText(wo.value("wo_prodnotes").toString());
+        _comments->setId(_woid);
+        _project->setId(wo.value("wo_prj_id").toInt());
+        _bomRevision->setId(wo.value("wo_bom_rev_id").toInt());
+        _booRevision->setId(wo.value("wo_boo_rev_id").toInt());
+
+        if (wo.value("wo_cosmethod").toString() == "D")
+          _todate->setChecked(TRUE);
+        else if (wo.value("wo_cosmethod").toString() == "P")
+          _proportional->setChecked(TRUE);
+        else
+          _jobCosGroup->hide();
+ 
+        _woNumber->setEnabled(FALSE);
+        _item->setReadOnly(TRUE);
+        _bomRevision->setEnabled(FALSE);
+        _booRevision->setEnabled(FALSE);
+        _warehouse->setEnabled(FALSE);
+        _priority->setEnabled(FALSE);
+        _qty->setEnabled(FALSE);
+        _startDate->setEnabled(FALSE);
+        _dueDate->setEnabled(FALSE);
+        _productionNotes->setReadOnly(TRUE);
+        _create->hide();
+        _leadTimeLit->hide();
+        _leadTime->hide();
+        _daysLit->hide();
+        _printTraveler->hide();
+        _bottomSpacer->hide();
+        _close->setText(tr("&Close"));
+        _project->setEnabled(FALSE);
+        _itemcharView->setEnabled(false);
+        _jobCosGroup->setEnabled(FALSE);
+        sFillList();
+        
+        _close->setFocus();
+      }
+      else
+      {
+        systemError(this, tr("A System Error occurred at %1::%2, W/O ID %3.")
+                          .arg(__FILE__)
+                          .arg(__LINE__)
+                          .arg(_woid) );
+        close();
+      }
+    }
+    else if (param.toString() == "release")
+    {
+      _mode = cRelease;
+      //_tabs->removePage(_tabs->page(3));
+
+      q.prepare( "SELECT planord_itemsite_id, planord_duedate,"
+                 "       CASE WHEN(planord_mps) THEN 'P'"
+                 "            ELSE 'M'"
+                 "       END AS sourcetype,"
+                 "       CASE WHEN(planord_mps) THEN planord_pschitem_id"
+                 "            ELSE planord_id"
+                 "       END AS sourceid,"
+                 "       formatQty(planord_qty) AS qty "
+                 "FROM planord "
+                 "WHERE (planord_id=:planord_id);" );
+      q.bindValue(":planord_id", _planordid);
+      q.exec();
+      if (q.first())
+      {
+        _item->setReadOnly(TRUE);
+        _warehouse->setEnabled(FALSE);
+
+        _planordtype=q.value("sourcetype").toString();
+        _sourceid=q.value("sourceid").toInt();
+        _qty->setText(q.value("qty").toString());
+        _dueDate->setDate(q.value("planord_duedate").toDate());
+        _item->setItemsiteid(q.value("planord_itemsite_id").toInt());
+
+        sUpdateStartDate();
+        populateWoNumber();
+
+        _qty->setEnabled(FALSE);
+        _qtyReceivedLit->clear();
+        _startDate->setEnabled(FALSE);
+        _dueDate->setEnabled(FALSE);
+        _wipValueLit->hide();
+        _wipValue->hide();
+        _leadTimeLit->hide();
+        _leadTime->hide();
+        _daysLit->hide();
+
+        _create->setFocus();
+      }
+      else
+      {
+        systemError(this, tr("A System Error occurred at %1::%2, Planned Order ID %3.")
+                          .arg(__FILE__)
+                          .arg(__LINE__)
+                          .arg(_planordid) );
+        close();
+      }
+    }
+  }
+  
+  return NoError;
+}
+
+void workOrder::sCreate()
+{
+  if(cRelease == _mode || cNew == _mode)
+  {
+    if (!_woNumber->text().length())
+    {
+      QMessageBox::information( this, tr("Cannot Create Work Order"),
+                                tr("You must enter a valid Work Order number before creating this Work Order")  );
+      _woNumber->setFocus();
+      return;
+    }
+  
+    if (!(_item->isValid()))
+    {
+      QMessageBox::information( this, tr("Cannot Create Work Order"),
+                                tr("You must enter or select a valid Item number before creating this Work Order")  );
+      return;
+    }
+  
+    if ((!_qty->text().length()) || (_qty->toDouble() == 0.0))
+    {
+      QMessageBox::information( this, tr("Cannot Create Work Order"),
+                                tr( "You have entered an invalid Qty. Ordered.\n"
+                                    "Please correct before creating this Work Order"  ) );
+      _qty->setFocus();
+      return;
+    }
+  
+    if (!_dueDate->isValid())
+    {
+      QMessageBox::information( this, tr("Cannot Create Work Order"),
+                                tr( "You have entered an invalid Due Date.\n"
+                                    "Please correct before creating this Work Order"  ) );
+      _dueDate->setFocus();
+      return;
+    }
+  
+    q.prepare( "SELECT itemsite_id "
+               "FROM itemsite "
+               "WHERE ( (itemsite_item_id=:item_id)"
+               " AND (itemsite_warehous_id=:warehous_id) );" );
+    q.bindValue(":item_id", _item->id());
+    q.bindValue(":warehous_id", _warehouse->id());
+    q.exec();
+    if (!q.first())
+    {
+      QMessageBox::warning(this, tr("Invalid Site"),
+          tr("The Site which you selected for this Item is not\n"
+             "a \"Supplied At\" Site. You must select a different\n"
+             " Site before creating this Work Order.") );
+      return;
+    }
+  
+    int itemsiteid = q.value("itemsite_id").toInt();
+    double orderQty = _qty->toDouble();
+  
+    if (_assembly->isChecked())
+    {
+      q.prepare("SELECT validateOrderQty(:itemsite_id, :qty, TRUE) AS qty;");
+      q.bindValue(":itemsite_id", itemsiteid);
+      q.bindValue(":qty", _qty->toDouble());
+      q.exec();
+      if (!q.first())
+      {
+        systemError(this, tr("A System Error occurred at %1::%2.")
+                          .arg(__FILE__)
+                          .arg(__LINE__) );
+        return;
+      }
+  
+      orderQty = q.value("qty").toDouble();
+      if (orderQty != _qty->toDouble())
+      {
+        if ( QMessageBox::warning( this, tr("Invalid Order Quantitiy"),
+                                   tr( "Order Parameters for this Item do not allow a quantitiy of %1 to be created.\n"
+                                       "You must create an order for at least %2 of this item.\n"
+                                       "Do you want to update the order quantity and create the order?" )
+                                   .arg(formatQty(_qty->toDouble()))
+                                   .arg(formatQty(orderQty)),
+                                   tr("&Yes"), tr("&No"), 0, 1 ) == 1)
+          return; 
+      }
+    }
+  
+    q.prepare( "SELECT createWo( :woNumber, :itemsite_id, :priority, :orderQty * :sense,"
+               "                 date(:dueDate) - :leadTime, :dueDate, :productionNotes, :ordtype, :ordid, :prj_id,"
+               "                 :bom_rev_id, :boo_rev_id, :wo_cosmethod) AS result;" );
+    q.bindValue(":woNumber", _woNumber->text().toInt());
+    q.bindValue(":itemsite_id", itemsiteid);
+    q.bindValue(":priority", _priority->value());
+    q.bindValue(":orderQty", orderQty);
+    q.bindValue(":sense", _sense);
+    q.bindValue(":leadTime", _leadTime->value());
+    q.bindValue(":dueDate", _dueDate->date());
+    q.bindValue(":productionNotes", _productionNotes->toPlainText());
+    q.bindValue(":prj_id", _project->id());
+    q.bindValue(":bom_rev_id", _bomRevision->id());
+    q.bindValue(":boo_rev_id", _booRevision->id());
+    if (_todate->isChecked() && _jobCosGroup->isEnabled())
+      q.bindValue(":wo_cosmethod",QString("D"));
+    else if (_proportional->isChecked() && _jobCosGroup->isEnabled())
+      q.bindValue(":wo_cosmethod",QString("P"));
+
+    if(cRelease == _mode)
+    {
+      q.bindValue(":ordtype", _planordtype);
+      q.bindValue(":ordid", _sourceid);
+    }
+    else
+    {
+      q.bindValue(":ordtype", QString(""));
+      q.bindValue(":ordid", -1);
+    }
+    q.exec();
+    if (!q.first())
+    {
+      systemError(this, tr("A System Error occurred at %1::%2.")
+                        .arg(__FILE__)
+                        .arg(__LINE__) );
+      return;
+    }
+  
+    _woid = q.value("result").toInt();
+  
+    q.prepare("SELECT updateCharAssignment('W', :target_id, :char_id, :char_value);");
+  
+    QModelIndex idx1, idx2;
+    for(int i = 0; i < _itemchar->rowCount(); i++)
+    {
+      idx1 = _itemchar->index(i, 0);
+      idx2 = _itemchar->index(i, 1);
+      q.bindValue(":target_id", _woid);
+      q.bindValue(":char_id", _itemchar->data(idx1, Qt::UserRole));
+      q.bindValue(":char_value", _itemchar->data(idx2, Qt::DisplayRole));
+      q.exec();
+    }
+  
+  
+    if (_mode == cRelease)
+    {
+      q.prepare("SELECT releasePlannedOrder(:planord_id, FALSE) AS result;");
+      q.bindValue(":planord_id", _planordid);
+      q.exec();
+    }
+  
+    if (_woid == -1)
+      QMessageBox::critical( this, tr("Work Order not Exploded"),
+                             tr( "The Work Order was created but not Exploded as there is no valid Bill of Materials for the selected Item.\n"
+                                 "You must create a valid Bill of Materials before you may explode this Work Order." ));
+    else if (_woid == -2)
+      QMessageBox::critical( this, tr("Work Order not Exploded"),
+                             tr( "The Work Order was created but not Exploded as Component Items defined in the Bill of Materials for\n"
+                                 "the selected Work Order Item do not exist in the selected  Work Order Site.\n"
+                                 "You must create Item Sites for these Component Items before you may explode this Work Order." ));
+    else
+    {
+      if (_printTraveler->isChecked())
+      {
+        ParameterList params;
+        params.append("wo_id", _woid);
+  
+        printWoTraveler newdlg(this, "", TRUE);
+        newdlg.set(params);
+        newdlg.exec();
+      }
+    }
+  }
+  else if(cEdit == _mode)
+  {
+    if ((!_qty->text().length()) || (_qty->toDouble() == 0.0))
+    {
+      QMessageBox::information( this, tr("Cannot Create Work Order"),
+                                tr( "You have entered an invalid Qty. Ordered.\n"
+                                    "Please correct before creating this Work Order"  ) );
+      _qty->setFocus();
+      return;
+    }
+  
+    if (!_dueDate->isValid())
+    {
+      QMessageBox::information( this, tr("Cannot Create Work Order"),
+                                tr( "You have entered an invalid Due Date.\n"
+                                    "Please correct before updating this Work Order"  ) );
+      _dueDate->setFocus();
+      return;
+    }
+  
+    if (!_startDate->isValid())
+    {
+      QMessageBox::information( this, tr("Cannot Create Work Order"),
+                                tr( "You have entered an invalid Start Date.\n"
+                                    "Please correct before updating this Work Order"  ) );
+      _dueDate->setFocus();
+      return;
+    }
+
+    q.prepare("UPDATE wo"
+              "   SET wo_prodnotes=:productionNotes,"
+              "       wo_prj_id=:prj_id,"
+              "       wo_bom_rev_id=:bom_rev_id,"
+              "       wo_boo_rev_id=:boo_rev_id,"
+              "       wo_cosmethod=:wo_cosmethod"
+              " WHERE (wo_id=:wo_id); ");
+    q.bindValue(":wo_id", _woid);
+    q.bindValue(":productionNotes", _productionNotes->toPlainText());
+    q.bindValue(":prj_id", _project->id());
+    q.bindValue(":bom_rev_id", _bomRevision->id());
+    q.bindValue(":boo_rev_id", _booRevision->id());
+    if (_todate->isChecked() && _jobCosGroup->isEnabled())
+      q.bindValue(":wo_cosmethod",QString("D"));
+    else if (_proportional->isChecked() && _jobCosGroup->isEnabled())
+      q.bindValue(":wo_cosmethod",QString("P"));
+    q.exec();
+
+    q.prepare("SELECT updateCharAssignment('W', :target_id, :char_id, :char_value);");
+    QModelIndex idx1, idx2;
+    for(int i = 0; i < _itemchar->rowCount(); i++)
+    {
+      idx1 = _itemchar->index(i, 0);
+      idx2 = _itemchar->index(i, 1);
+      q.bindValue(":target_id", _woid);
+      q.bindValue(":char_id", _itemchar->data(idx1, Qt::UserRole));
+      q.bindValue(":char_value", _itemchar->data(idx2, Qt::DisplayRole));
+      q.exec();
+    }
+
+    if(_startDate->date() != _oldStartDate || _dueDate->date() != _oldDueDate)
+    {
+      q.prepare("SELECT changeWoDates(:wo_id, :startDate, :dueDate, :rescheduleChildren);");
+      q.bindValue(":wo_id", _woid);
+      q.bindValue(":startDate", _startDate->date());
+      q.bindValue(":dueDate", _dueDate->date());
+      q.bindValue(":rescheduleChildren", QVariant(true, 0));
+      q.exec();
+    }
+
+    if(_priority->value() != _oldPriority)
+    {
+      q.prepare("SELECT reprioritizeWo(:wo_id, :newPriority, :reprioritizeChildren);");
+      q.bindValue(":wo_id", _woid);
+      q.bindValue(":newPriority", _priority->value());
+      q.bindValue(":reprioritizeChildren", QVariant(true, 0));
+      q.exec();
+    }
+
+    if(_qty->text().toDouble() != _oldQty)
+    {
+      double newQty = _qty->toDouble();
+      q.prepare( "SELECT validateOrderQty(wo_itemsite_id, :qty, TRUE) AS qty "
+                 "FROM wo "
+                 "WHERE (wo_id=:wo_id);" );
+      q.bindValue(":wo_id", _woid);
+      q.bindValue(":qty", newQty);
+      q.exec();
+      if (q.first())
+      {
+        if (q.value("qty").toDouble() != newQty)
+        {
+          if ( QMessageBox::warning( this, tr("Invalid Order Qty"),
+                                     tr( "The new Order Quantity that you have entered does not meet the Order Parameters set\n"
+                                         "for the parent Item Site for this Work Order.  In order to meet the Item Site Order\n"
+                                         "Parameters the new Order Quantity must be increased to %1.\n"
+                                         "Do you want to change the Order Quantity for this Work Order to %2?" )
+                                     .arg(formatQty(q.value("qty").toDouble()))
+                                     .arg(formatQty(q.value("qty").toDouble())),
+                                     tr("&Yes"), tr("&No"), QString::null, 0, 1 ) == 1 )
+            return;
+          else
+            newQty = q.value("qty").toDouble();
+        }
+
+        q.prepare("SELECT changeWoQty(:wo_id, :qty * :sense, TRUE);");
+        q.bindValue(":wo_id", _woid);
+        q.bindValue(":qty", newQty);
+        q.bindValue(":sense", _sense);
+        q.exec();
+      }
+    }
+  }
+  
+  omfgThis->sWorkOrdersUpdated(_woid, TRUE);
+  
+  if (_captive)
+  {
+    if(cNew == _mode)
+    {
+        _close->setText(tr("&Close"));
+        _create->setVisible(false);
+        _item->setEnabled(false);
+        _warehouse->setEnabled(false);
+        _comments->setReadOnly(false);
+        _assembly->setEnabled(false);
+        _disassembly->setEnabled(false);
+        _warehouse->setEnabled(false);
+        sFillList();
+    }
+    else
+    close();
+  }
+  else
+  {
+    populateWoNumber();
+    _item->setId(-1);
+    _qty->clear();
+    _dueDate->setNull();
+    _leadTime->setValue(0);
+    _startDate->clear();
+    _productionNotes->clear();
+    _itemchar->removeRows(0, _itemchar->rowCount());
+    _close->setText(tr("&Close"));
+    _item->setFocus();
+  }
+
+}
+
+void workOrder::sUpdateStartDate()
+{
+  XSqlQuery startDate;
+  startDate.prepare("SELECT (DATE(:dueDate) - :leadTime) AS startdate;");
+  startDate.bindValue(":dueDate", _dueDate->date());
+  startDate.bindValue(":leadTime", _leadTime->value());
+  startDate.exec();
+  if (startDate.first())
+    _startDate->setDate(startDate.value("startdate").toDate());
+  else
+    systemError(this, tr("A System Error occurred at %1::%2.")
+                      .arg(__FILE__)
+                      .arg(__LINE__) );
+}
+
+void workOrder::sPopulateItemChar( int pItemid )
+{
+  _itemchar->removeRows(0, _itemchar->rowCount());
+  if (pItemid != -1)
+  {
+    q.prepare( "SELECT DISTINCT char_id, char_name,"
+               "       COALESCE(b.charass_value, (SELECT c.charass_value FROM charass c WHERE ((c.charass_target_type='I') AND (c.charass_target_id=:item_id) AND (c.charass_default) AND (c.charass_char_id=char_id)) LIMIT 1)) AS charass_value"
+               "  FROM charass a, char "
+               "    LEFT OUTER JOIN charass b"
+               "      ON (b.charass_target_type='W'"
+               "      AND b.charass_target_id=:wo_id"
+               "      AND b.charass_char_id=char_id) "
+               " WHERE ( (a.charass_char_id=char_id)"
+               "   AND   (a.charass_target_type='I')"
+               "   AND   (a.charass_target_id=:item_id) ) "
+               " ORDER BY char_name;" );
+    q.bindValue(":item_id", pItemid);
+    q.bindValue(":wo_id", _woid);
+    q.exec();
+    int row = 0;
+    QModelIndex idx;
+    while(q.next())
+    {
+      _itemchar->insertRow(_itemchar->rowCount());
+      idx = _itemchar->index(row, 0);
+      _itemchar->setData(idx, q.value("char_name"), Qt::DisplayRole);
+      _itemchar->setData(idx, q.value("char_id"), Qt::UserRole);
+      idx = _itemchar->index(row, 1);
+      _itemchar->setData(idx, q.value("charass_value"), Qt::DisplayRole);
+      _itemchar->setData(idx, pItemid, Qt::UserRole);
+      row++;
+    }
+  }
+}
+
+void workOrder::sPopulateLeadTime(int pWarehousid)
+{
+  if(_lastWarehousid==pWarehousid && _lastItemid==_item->id())
+    return;
+
+  _lastItemid = _item->id();
+  _lastWarehousid = pWarehousid;
+
+  q.prepare( "SELECT itemsite_leadtime "
+             "FROM itemsite "
+             "WHERE ( (itemsite_item_id=:item_id)"
+             " AND (itemsite_warehous_id=:warehous_id) );" );
+  q.bindValue(":item_id", _item->id());
+  q.bindValue(":warehous_id", pWarehousid);
+  q.exec();
+
+  if (q.first())
+    _leadTime->setValue(q.value("itemsite_leadtime").toInt());
+  else
+  {
+    QMessageBox::warning(this, tr("Invalid Site"),
+        tr("The selected Site for this Work Order is not\n"
+           "a \"Supplied At\" Site. You must select a different\n"
+           "Site before creating the Work Order.") );
+    _warehouse->setEnabled(TRUE);
+  }
+}
+
+void workOrder::populateWoNumber()
+{
+  QString generationMethod = _metrics->value("WONumberGeneration");
+
+  if ((generationMethod == "A") || (generationMethod == "O"))
+  {
+    q.exec("SELECT fetchWoNumber() AS woNumber;");
+    if (q.first())
+      _woNumber->setText(q.value("woNumber").toString());
+    else
+    {
+      _woNumber->setText("Error");
+
+      systemError(this, tr("A System Error occurred at %1::%2.")
+                        .arg(__FILE__)
+                        .arg(__LINE__) );
+
+      return;
+    }
+  }
+
+  if (generationMethod == "M")
+  {
+    _woNumber->setEnabled(TRUE);
+    _woNumber->setFocus();
+  }
+  else if (generationMethod == "O")
+  {
+    _woNumber->setEnabled(TRUE);
+    _item->setFocus();
+  }
+  else if (generationMethod == "A")
+  {
+    _woNumber->setEnabled(FALSE);
+    _item->setFocus();
+  } 
+}
+
+void workOrder::sClose()
+{
+  if ( ( (_mode == cNew) || (_mode == cRelease)) &&
+       ((_metrics->value("WONumberGeneration") == "A") || (_metrics->value("WONumberGeneration") == "O")) )
+  {
+    q.prepare("SELECT releaseWoNumber(:woNumber);");
+    q.bindValue(":woNumber", _woNumber->text().toInt());
+    q.exec();
+  }
+
+  close();
+}
+
+void workOrder::sHandleButtons()
+{
+  if (_assembly->isChecked())
+    _sense = 1;
+  else
+    _sense = -1;
+}
+
+void workOrder::sFillList()
+{
+   //The wodata_id_type column is used to indicate the source of the wodata_id
+   //there are three different tables used wo, womatl and womatlvar
+   //wodata_id_type = 1 = wo_id
+   //wodata_id_type = 2 = womatl_id
+   //wodata_id_type = 3 = womatlvar_id
+   QString sql(
+   "     SELECT wodata_id, "
+    "           wodata_id_type, "
+    "           wodata_number || '-' || wodata_subnumber AS wonumber, "
+    "           item_number, "
+    "           item_descrip1 || ' ' || item_descrip2 AS itemdescrip, "
+    "           wodata_status, "
+    "           wodata_startdate, "
+    "           wodata_duedate, "
+    "           wodata_adhoc,    "
+    "           wodata_itemsite_id, "
+    "           formatqty(wodata_qoh) AS qoh, "
+    "           formatqty(wodata_short) AS short, "
+    "           CASE WHEN wodata_qtyper IS NULL THEN null "
+    "                ELSE formatqty(wodata_qtyper) END AS qtyper, "
+    "           formatqty(wodata_qtyiss) AS qtyiss,    "
+    "           formatqty(wodata_qtyrcv) AS qtyrcv,  "
+    "           formatqty(wodata_qtyordreq) AS qtyordreq, "
+    "           CASE WHEN wodata_scrap IS NULL THEN null "
+    "                ELSE formatscrap(wodata_scrap) END AS scrap, "
+    "           wodata_notes, "
+    "           wodata_ref, "
+    "           CASE WHEN (wodata_qoh = 0) THEN 'warning' "
+    "                WHEN (wodata_qoh < 0) THEN 'error' "
+    "                ELSE null "
+    "           END AS qoh_qtforegroundrole, "
+    "           CASE WHEN (wodata_qtyiss = 0) THEN 'warning' "
+    "                ELSE null "
+    "           END AS qtyiss_qtforegroundrole, "
+    "           CASE WHEN (wodata_short > 0) THEN 'error' "
+    "                ELSE null "
+    "           END AS short_qtforegroundrole, "
+    "           CASE WHEN (wodata_startdate <= current_date) THEN 'error' "
+    "                ELSE null "
+    "           END AS wodata_startdate_qtforegroundrole,   "
+    "           CASE WHEN (wodata_duedate <= current_date) THEN 'error' "
+    "                ELSE null "
+    "           END AS wodata_duedate_qtforegroundrole,   "
+    "           CASE WHEN (wodata_id_type = 1) THEN text('lightskyblue') "
+    "                WHEN (wodata_status = 'C') THEN text('lightgray') "
+    "           ELSE null END AS qtbackgroundrole, "
+    "           wodata_level AS xtindentrole "
+    "    FROM indentedwo(:wo_id, :showindent, :showmatl), item, itemsite "
+    "    WHERE wodata_itemsite_id = itemsite_id "
+    "    AND item_id = itemsite_item_id "
+    "    ORDER BY wodata_number, wodata_subnumber, wodata_level, item_number " );
+  q.prepare(sql);
+  q.bindValue(":wo_id", _woid);
+  q.bindValue(":showindent", QVariant(_indented->isChecked()));
+  q.bindValue(":showmatl", QVariant(_showMaterials->isChecked()));
+  q.exec();
+  _woIndentedList->populate(q, true);
+  _woIndentedList->expandAll();
+  if (q.lastError().type() != QSqlError::NoError)
+  {
+    systemError(this, q.lastError().databaseText(), __FILE__, __LINE__);
+    return;
+  }
+}
+
+void workOrder::sPostProduction()
+{
+  ParameterList params;
+  params.append("wo_id", _woIndentedList->id());
+
+  postProduction newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+  int currentId = _woIndentedList->id();
+  sFillList();
+  _woIndentedList->setId(currentId);
+}
+
+void workOrder::sCorrectProductionPosting()
+{
+  ParameterList params;
+  params.append("wo_id", _woIndentedList->id());
+
+  correctProductionPosting newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+  int currentId = _woIndentedList->id();
+  sFillList();
+  _woIndentedList->setId(currentId);
+}
+
+void workOrder::sPostOperations()
+{
+  ParameterList params;
+  params.append("wo_id", _woIndentedList->id());
+
+  postOperations newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+  int currentId = _woIndentedList->id();
+  sFillList();
+  _woIndentedList->setId(currentId);
+}
+
+void workOrder::sCorrectOperationsPosting()
+{
+  ParameterList params;
+  params.append("wo_id", _woIndentedList->id());
+
+  correctOperationsPosting newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+  int currentId = _woIndentedList->id();
+  sFillList();
+  _woIndentedList->setId(currentId);
+}
+
+void workOrder::sReleaseWO()
+{
+  q.prepare("SELECT releaseWo(:wo_id, FALSE);");
+  q.bindValue(":wo_id", _woIndentedList->id());
+  q.exec();
+
+  omfgThis->sWorkOrdersUpdated(_woIndentedList->id(), TRUE);
+  int currentId = _woIndentedList->id();
+  sFillList();
+  _woIndentedList->setId(currentId);
+}
+
+void workOrder::sRecallWO()
+{
+  q.prepare("SELECT recallWo(:wo_id, FALSE);");
+  q.bindValue(":wo_id", _woIndentedList->id());
+  q.exec();
+
+  omfgThis->sWorkOrdersUpdated(_woIndentedList->id(), TRUE);
+  int currentId = _woIndentedList->id();
+  sFillList();
+  _woIndentedList->setId(currentId);
+}
+
+void workOrder::sExplodeWO()
+{
+  ParameterList params;
+  params.append("wo_id", _woIndentedList->id());
+
+  explodeWo newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+  int currentId = _woIndentedList->id();
+  sFillList();
+  _woIndentedList->setId(currentId);
+}
+
+void workOrder::sImplodeWO()
+{
+  ParameterList params;
+  params.append("wo_id", _woIndentedList->id());
+
+  implodeWo newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+  int currentId = _woIndentedList->id();
+  sFillList();
+  _woIndentedList->setId(currentId);
+}
+
+void workOrder::sDeleteWO()
+{
+  q.prepare( "SELECT wo_ordtype "
+             "FROM wo "
+             "WHERE (wo_id=:wo_id);" );
+  q.bindValue(":wo_id", _woIndentedList->id());
+  q.exec();
+  if (q.first())
+  {
+    QString question;
+    if (q.value("wo_ordtype") == "W")
+      question = tr("<p>The Work Order that you selected to delete is a child "
+		    "of another Work Order.  If you delete the selected Work "
+		    "Order then the Work Order Materials Requirements for the "
+		    "Component Item will remain but the Work Order to relieve "
+		    "that demand will not. Are you sure that you want to "
+		    "delete the selected Work Order?" );
+    else if (q.value("wo_ordtype") == "S")
+      question = tr("<p>The Work Order that you selected to delete was created "
+		    "to satisfy Sales Order demand. If you delete the selected "
+		    "Work Order then the Sales Order demand will remain but "
+		    "the Work Order to relieve that demand will not. Are you "
+		    "sure that you want to delete the selected Work Order?" );
+    else
+      question = tr("<p>Are you sure that you want to delete the selected "
+		    "Work Order?");
+    if (QMessageBox::question(this, tr("Delete Work Order?"),
+                              question,
+                              QMessageBox::Yes,
+                              QMessageBox::No | QMessageBox::Default) == QMessageBox::No)
+    {
+      return;
+    }
+
+    q.prepare("SELECT deleteWo(:wo_id, TRUE) AS returnVal;");
+    q.bindValue(":wo_id", _woIndentedList->id());
+    q.exec();
+
+    if (q.first())
+    {
+      int result = q.value("returnVal").toInt();
+      if (result < 0)
+      {
+	systemError(this, storedProcErrorLookup("deleteWo", result));
+	return;
+      }
+    }
+    else if (q.lastError().type() != QSqlError::NoError)
+      systemError(this, q.lastError().databaseText(), __FILE__, __LINE__);
+
+    omfgThis->sWorkOrdersUpdated(-1, TRUE);
+  }
+  else if (q.lastError().type() != QSqlError::NoError)
+  {
+    systemError(this, q.lastError().databaseText(), __FILE__, __LINE__);
+    return;
+  }
+  sFillList();
+}
+
+void workOrder::sCloseWO()
+{
+  ParameterList params;
+  params.append("wo_id", _woIndentedList->id());
+
+  closeWo newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+  sFillList();
+}
+
+void workOrder::sPrintTraveler()
+{
+  ParameterList params;
+  params.append("wo_id", _woIndentedList->id());
+
+  printWoTraveler newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+}
+
+void workOrder::sInventoryAvailabilityByWorkOrder()
+{
+  ParameterList params;
+  params.append("wo_id", _woIndentedList->id());
+  params.append("run");
+
+  dspInventoryAvailabilityByWorkOrder *newdlg = new dspInventoryAvailabilityByWorkOrder();
+  newdlg->set(params);
+  omfgThis->handleNewWindow(newdlg);
+}
+
+void workOrder::sReprioritizeWo()
+{
+  ParameterList params;
+  params.append("wo_id", _woIndentedList->id());
+
+  reprioritizeWo newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+  sFillList();
+}
+
+void workOrder::sRescheduleWO()
+{
+  ParameterList params;
+  params.append("wo_id", _woIndentedList->id());
+
+  rescheduleWo newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+  sFillList();
+}
+
+void workOrder::sChangeWOQty()
+{
+  ParameterList params;
+  params.append("wo_id", _woIndentedList->id());
+
+  changeWoQty newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+  sFillList();
+}
+
+void workOrder::sDspRunningAvailability()
+{
+  q.prepare("SELECT wo_itemsite_id FROM wo WHERE (wo_id=:id);");
+  q.bindValue(":id", _woid);
+  q.exec();
+  if (q.first())
+  {
+    ParameterList params;
+    params.append("itemsite_id", q.value("wo_itemsite_id"));
+    params.append("run");
+
+    dspRunningAvailability *newdlg = new dspRunningAvailability();
+    newdlg->set(params);
+    omfgThis->handleNewWindow(newdlg);
+  }
+  else if (q.lastError().type() != QSqlError::NoError)
+  {
+    systemError(this, q.lastError().databaseText(), __FILE__, __LINE__);
+    return;
+  }
+}
+
+void workOrder::sReturnMatlBatch()
+{
+   q.prepare( "SELECT wo_qtyrcv "
+             "FROM wo "
+             "WHERE (wo_id=:wo_id);" );
+  q.bindValue(":wo_id", _woIndentedList->id());
+  q.exec();
+  if (q.first())
+  {
+    if (q.value("wo_qtyrcv").toDouble() != 0)
+    {
+      QMessageBox::warning( this, tr("Cannot return Work Order Material"),
+                            tr( "This Work Order has had material received against it\n"
+                                "and thus the material issued against it cannot be returned.\n"
+                                "You must instead return each Work Order Material item individually.\n" ) );
+    }
+    else
+    {
+      XSqlQuery rollback;
+      rollback.prepare("ROLLBACK;");
+
+      q.exec("BEGIN;");	// because of possible lot, serial, or location distribution cancelations
+      q.prepare("SELECT returnWoMaterialBatch(:wo_id) AS result;");
+      q.bindValue(":wo_id", _woIndentedList->id());
+      q.exec();
+      if (q.first())
+      {
+        if (q.value("result").toInt() < 0)
+        {
+          rollback.exec();
+          systemError( this, tr("A System Error occurred at returnWoMaterialBatch::%1, W/O ID #%2, Error #%3.")
+                             .arg(__LINE__)
+                             .arg(_woIndentedList->id())
+                             .arg(q.value("result").toInt()) );
+        }
+        else if (distributeInventory::SeriesAdjust(q.value("result").toInt(), this) == XDialog::Rejected)
+        {
+          rollback.exec();
+          QMessageBox::information( this, tr("Material Return"), tr("Transaction Canceled") );
+          return;
+        }
+
+        q.exec("COMMIT;");
+      }
+      else
+      {
+        rollback.exec();
+        systemError( this, tr("A System Error occurred at returnWoMaterialBatch::%1, W/O ID #%2.")
+                           .arg(__LINE__)
+                           .arg(_woIndentedList->id()) );
+        return;
+      }
+    }
+  }
+  sFillList();
+}
+
+void workOrder::sIssueMatlBatch()
+{
+  XSqlQuery issue;
+  issue.prepare("SELECT itemsite_id, "
+                "       item_number, "
+                "       warehous_code, "
+                "       (COALESCE((SELECT SUM(itemloc_qty) "
+                "                    FROM itemloc "
+                "                   WHERE (itemloc_itemsite_id=itemsite_id)), 0.0) "
+                "        >= roundQty(item_fractional, noNeg(itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq - womatl_qtyiss)))) AS isqtyavail "
+                "  FROM womatl, itemsite, item, warehous "
+                " WHERE ( (womatl_itemsite_id=itemsite_id) "
+                "   AND (itemsite_item_id=item_id) "
+                "   AND (itemsite_warehous_id=warehous_id) "
+                "   AND (NOT ((item_type = 'R') OR (itemsite_controlmethod = 'N'))) "
+                "   AND ((itemsite_controlmethod IN ('L', 'S')) OR (itemsite_loccntrl)) "
+                "   AND (womatl_issuemethod IN ('S', 'M')) "
+                "   AND (womatl_wo_id=:wo_id)); ");
+  issue.bindValue(":wo_id", _woIndentedList->id());
+  issue.exec();
+  while(issue.next())
+  {
+    if(!(issue.value("isqtyavail").toBool()))
+    {
+      QMessageBox::critical(this, tr("Insufficient Inventory"),
+        tr("Item Number %1 in Site %2 is a Multiple Location or\n"
+           "Lot/Serial controlled Item which is short on Inventory.\n"
+           "This transaction cannot be completed as is. Please make\n"
+           "sure there is sufficient Quantity on Hand before proceeding.")
+          .arg(issue.value("item_number").toString())
+          .arg(issue.value("warehous_code").toString()));
+      return;
+    }
+  }
+
+  XSqlQuery rollback;
+  rollback.prepare("ROLLBACK;");
+
+  issue.exec("BEGIN;");	// because of possible lot, serial, or location distribution cancelations
+  issue.prepare("SELECT issueWoMaterialBatch(:wo_id) AS result;");
+  issue.bindValue(":wo_id", _woIndentedList->id());
+  issue.exec();
+  omfgThis->sWorkOrdersUpdated(_woIndentedList->id(), TRUE);
+
+  if (issue.first())
+  {
+    if (issue.value("result").toInt() < 0)
+    {
+      rollback.exec();
+      systemError( this, tr("A System Error occurred at issueWoMaterialBatch::%1, Work Order ID #%2, Error #%3.")
+                         .arg(__LINE__)
+                         .arg(_woIndentedList->id())
+                         .arg(issue.value("result").toInt()) );
+      return;
+    }
+    else
+    {
+      if (distributeInventory::SeriesAdjust(issue.value("result").toInt(), this) == XDialog::Rejected)
+      {
+        rollback.exec();
+        QMessageBox::information( this, tr("Material Issue"), tr("Transaction Canceled") );
+        return;
+      }
+
+      issue.exec("COMMIT;");
+    }
+  }
+  else
+  {
+    rollback.exec();
+    systemError( this, tr("A System Error occurred at issueWoMaterialBatch::%1, Work Order ID #%2.")
+                       .arg(__LINE__)
+                       .arg(_woIndentedList->id()) );
+    return;
+  }
+  sFillList();
+}
+
+void workOrder::sIssueMatl()
+{
+  issueWoMaterialItem newdlg(this);
+  ParameterList params;
+  q.prepare("SELECT womatl_wo_id AS wo_id FROM womatl "
+            " WHERE (womatl_id=:womatl_id) ");
+        q.bindValue(":womatl_id", _woIndentedList->id());
+        q.exec();
+        if (q.first())
+            params.append("wo_id", q.value("wo_id").toInt());
+  params.append("womatl_id", _woIndentedList->id());
+  if (newdlg.set(params) == NoError)
+    newdlg.exec();
+  int currentId = _woIndentedList->id();
+  sFillList();
+  _woIndentedList->setId(currentId);
+}
+
+void workOrder::sReturnMatl()
+{
+  returnWoMaterialItem newdlg(this);
+  ParameterList params;
+  params.append("womatl_id", _woIndentedList->id());
+  if (newdlg.set(params) == NoError)
+    newdlg.exec();
+  int currentId = _woIndentedList->id();
+  sFillList();
+  _woIndentedList->setId(currentId);
+}
+
+void workOrder::sScrapMatl()
+{
+  scrapWoMaterialFromWIP newdlg(this);
+  ParameterList params;
+  params.append("womatl_id", _woIndentedList->id());
+  if (newdlg.set(params) == NoError)
+    newdlg.exec();
+  int currentId = _woIndentedList->id();
+  sFillList();
+  _woIndentedList->setId(currentId);
+}
+
+void workOrder::sNewMatl()
+{
+  ParameterList params;
+  params.append("mode", "new");
+  params.append("wo_id", _woid);
+
+  woMaterialItem newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+  int currentId = _woIndentedList->id();
+  sFillList();
+  _woIndentedList->setId(currentId);
+}
+
+void workOrder::sEditMatl()
+{
+  ParameterList params;
+  params.append("mode", "edit");
+  params.append("womatl_id", _woIndentedList->id());
+
+  woMaterialItem newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+  int currentId = _woIndentedList->id();
+  sFillList();
+  _woIndentedList->setId(currentId);
+}
+
+void workOrder::sViewMatl()
+{
+  ParameterList params;
+  params.append("mode", "view");
+  params.append("womatl_id", _woIndentedList->id());
+  woMaterialItem newdlg(this, "", TRUE);
+  newdlg.set(params);
+  newdlg.exec();
+}
+
+void workOrder::sDeleteMatl()
+{
+  int womatlid = _woIndentedList->id();
+  if (_woIndentedList->currentItem()->data(5, Qt::UserRole).toMap().value("raw").toDouble() > 0)
+  {
+    if(_privileges->check("ReturnWoMaterials"))
+    {
+      if (QMessageBox::question(this, tr("W/O Material Requirement cannot be Deleted"),
+				tr("<p>This W/O Material Requirement cannot "
+				   "be deleted as it has has material issued "
+				   "to it. You must return this material to "
+				   "stock before you can delete this Material "
+				   "Requirement. Would you like to return this "
+				   "material to stock now?"  ),
+				QMessageBox::Yes,
+				QMessageBox::No | QMessageBox::Default) == QMessageBox::Yes)
+      {
+        ParameterList params;
+        params.append("womatl_id", womatlid);
+
+        returnWoMaterialItem newdlg(omfgThis, "", TRUE);
+        newdlg.set(params);
+
+        newdlg.exec();
+        sFillList();
+
+        q.prepare("SELECT womatl_qtyiss AS qtyissued "
+                  "FROM womatl "
+                  "WHERE (womatl_id=:womatl_id) ");
+        q.bindValue(":womatl_id", womatlid);
+        q.exec();
+        if (!q.first() || q.value("qtyissued").toInt() != 0)
+          return;
+      }
+      else
+        return;
+    }
+    else
+    {
+      QMessageBox::critical( this, tr("W/O Material Requirement cannot be Deleted"),
+                             tr("<p>This W/O Material Requirement cannot be "
+				"deleted as it has material issued to it. "
+                                "You must return this material to stock before "
+				"you can delete this Material Requirement." ) );
+      return;
+    }
+  }
+
+  q.prepare("SELECT deleteWoMaterial(:womatl_id);");
+  q.bindValue(":womatl_id", womatlid);
+  q.exec();
+  if (q.first())
+  {
+    int result = q.value("result").toInt();
+    if (result < 0)
+    {
+      systemError(this, storedProcErrorLookup("deleteWoMaterial", result), __FILE__, __LINE__);
+      return;
+    }
+  }
+  else if (q.lastError().type() != QSqlError::NoError)
+  {
+    systemError(this, q.lastError().databaseText(), __FILE__, __LINE__);
+    return;
+  }
+  q.prepare("SELECT womatl_wo_id AS woid "
+                  "FROM womatl "
+                  "WHERE (womatl_id=:womatl_id) ");
+        q.bindValue(":womatl_id", womatlid);
+        q.exec();
+        if (q.first())
+           omfgThis->sWorkOrderMaterialsUpdated(q.value("woid").toInt(), womatlid, TRUE);
+  sFillList();
+}
+
+void workOrder::sViewMatlAvailability()
+{
+  q.prepare( "SELECT womatl_itemsite_id, womatl_duedate "
+             "FROM womatl "
+             "WHERE (womatl_id=:womatl_id);" );
+  q.bindValue(":womatl_id", _woIndentedList->id());
+  q.exec();
+  if (q.first())
+  {
+    ParameterList params;
+    params.append("itemsite_id", q.value("womatl_itemsite_id"));
+    params.append("byDate", q.value("womatl_duedate"));
+    params.append("run");
+
+    dspInventoryAvailabilityByItem *newdlg = new dspInventoryAvailabilityByItem();
+    newdlg->set(params);
+    omfgThis->handleNewWindow(newdlg);
+  }
+  else if (q.lastError().type() != QSqlError::NoError)
+  {
+    systemError(this, q.lastError().databaseText(), __FILE__, __LINE__);
+    return;
+  }
+}
+
+void workOrder::sViewMatlSubstituteAvailability()
+{
+  q.prepare( "SELECT womatl_itemsite_id, womatl_duedate "
+             "FROM womatl "
+             "WHERE (womatl_id=:womatl_id);" );
+  q.bindValue(":womatl_id", _woIndentedList->id());
+  q.exec();
+  if (q.first())
+  {
+    ParameterList params;
+    params.append("itemsite_id", q.value("womatl_itemsite_id"));
+    params.append("byDate", q.value("womatl_duedate"));
+    params.append("run");
+
+    dspSubstituteAvailabilityByItem *newdlg = new dspSubstituteAvailabilityByItem();
+    newdlg->set(params);
+    omfgThis->handleNewWindow(newdlg);
+  }
+  else if (q.lastError().type() != QSqlError::NoError)
+  {
+    systemError(this, q.lastError().databaseText(), __FILE__, __LINE__);
+    return;
+  }
+}
+
+void workOrder::sSubstituteMatl()
+{
+  int womatlid = _woIndentedList->id();
+
+  XSqlQuery sub;
+  sub.prepare( "SELECT itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyper) AS qtyper, womatl_wo_id,"
+               "       womatl_scrap, womatl_issuemethod,"
+               "       womatl_duedate, womatl_bomitem_id, "
+               "       womatl_notes, womatl_ref "
+               "FROM womatl JOIN itemsite ON (womatl_itemsite_id=itemsite_id) "
+               "WHERE (womatl_id=:womatl_id);" );
+  sub.bindValue(":womatl_id", womatlid);
+  sub.exec();
+  if (sub.first())
+  {
+    ParameterList params;
+    params.append("womatl_id", womatlid);
+    params.append("byDate", sub.value("womatl_duedate"));
+    params.append("run");
+
+    substituteList substitute(this, "", TRUE);
+    substitute.set(params);
+    int result = substitute.exec();
+    if (result != XDialog::Rejected)
+    {
+      ParameterList params;
+      params.append("mode", "new");
+      params.append("wo_id", sub.value("womatl_wo_id"));
+      params.append("bomitem_id", sub.value("womatl_bomitem_id"));
+      params.append("item_id", result);
+      params.append("qtyPer", (sub.value("qtyper").toDouble() * substitute._uomratio));
+      params.append("scrap", sub.value("womatl_scrap"));
+      params.append("notes", sub.value("womatl_notes"));
+      params.append("reference", sub.value("womatl_ref"));
+
+      if (sub.value("womatl_issuemethod").toString() == "S")
+        params.append("issueMethod", "push");
+      else if (sub.value("womatl_issuemethod").toString() == "L")
+        params.append("issueMethod", "pull");
+      else if (sub.value("womatl_issuemethod").toString() == "M")
+        params.append("issueMethod", "mixed");
+
+      woMaterialItem newdlg(this, "", TRUE);
+      newdlg.set(params);
+      if (newdlg.exec() != XDialog::Rejected)
+      {
+        q.prepare( "DELETE FROM womatl "
+                   "WHERE (womatl_id=:womatl_id);" );
+        q.bindValue(":womatl_id", womatlid);
+        q.exec();
+
+        q.prepare("SELECT womatl_wo_id AS woid "
+                  "FROM womatl "
+                  "WHERE (womatl_id=:womatl_id) ");
+        q.bindValue(":womatl_id", womatlid);
+        q.exec();
+        if (q.first())
+           omfgThis->sWorkOrderMaterialsUpdated(q.value("woid").toInt(), womatlid, TRUE);
+      }
+    }
+  }
+  else if (q.lastError().type() != QSqlError::NoError)
+  {
+    systemError(this, q.lastError().databaseText(), __FILE__, __LINE__);
+    return;
+  }
+  sFillList();
+}
+
+void workOrder::sPopulateMenu(QMenu *pMenu,  QTreeWidgetItem *selected)
+{
+  QString status(selected->text(3));
+  int     menuItem;
+
+  //Check if row is a work order and id is vaild
+  if(_woIndentedList->altId() == 1 && _woIndentedList->id() > -1)
+  {
+      if (status == "O" ||status == "E" || status == "R" || status == "I")
+      {
+        if (_privileges->check("MaintainWoMaterials"))
+            menuItem = pMenu->insertItem(tr("New Matl..."), this, SLOT(sNewMatl()), 0);
+        if (_privileges->check("IssueWoMaterials"))
+            menuItem = pMenu->insertItem(tr("Issue Matl Batch..."), this, SLOT(sIssueMatlBatch()), 0);
+        if (status == "I")
+        {
+         if (_privileges->check("ReturnWoMaterials"))
+            menuItem = pMenu->insertItem(tr("Return Matl Batch..."), this, SLOT(sReturnMatlBatch()), 0);
+        }
+        pMenu->insertSeparator();
+      }
+
+      if (status == "E")
+      {
+        menuItem = pMenu->insertItem(tr("Release W/O"), this, SLOT(sReleaseWO()), 0);
+        if (!_privileges->check("ReleaseWorkOrders"))
+          pMenu->setItemEnabled(menuItem, FALSE);
+      }
+      else if (status == "R")
+      {
+        menuItem = pMenu->insertItem(tr("Recall W/O"), this, SLOT(sRecallWO()), 0);
+        if (!_privileges->check("RecallWorkOrders"))
+          pMenu->setItemEnabled(menuItem, FALSE);
+      }
+
+      if ((status == "E") || (status == "R") || (status == "I"))
+      {
+        menuItem = pMenu->insertItem(tr("Post W/O Production..."), this, SLOT(sPostProduction()), 0);
+        if (!_privileges->check("PostProduction"))
+          pMenu->setItemEnabled(menuItem, FALSE);
+
+        if (status != "E")
+        {
+          menuItem = pMenu->insertItem(tr("Correct W/O Production Posting..."), this, SLOT(sCorrectProductionPosting()), 0);
+          if (!_privileges->check("PostProduction"))
+            pMenu->setItemEnabled(menuItem, FALSE);
+        }
+
+        if (_metrics->boolean("Routings"))
+        {
+          menuItem = pMenu->insertItem(tr("Post W/O Operations..."), this, SLOT(sPostOperations()), 0);
+          if (!_privileges->check("PostWoOperations"))
+            pMenu->setItemEnabled(menuItem, FALSE);
+
+          if (status != "E")
+          {
+            menuItem = pMenu->insertItem(tr("Correct W/O Operations Posting..."), this, SLOT(sCorrectOperationsPosting()), 0);
+            if (!_privileges->check("PostWoOperations"))
+              pMenu->setItemEnabled(menuItem, FALSE);
+          }
+        }
+
+        pMenu->insertSeparator();
+      }
+
+      if (status == "O")
+      {
+        menuItem = pMenu->insertItem(tr("Explode W/O..."), this, SLOT(sExplodeWO()), 0);
+        if (!_privileges->check("ExplodeWorkOrders"))
+          pMenu->setItemEnabled(menuItem, FALSE);
+      }
+      else if (status == "E")
+      {
+        menuItem = pMenu->insertItem(tr("Implode W/O..."), this, SLOT(sImplodeWO()), 0);
+        if (!_privileges->check("ImplodeWorkOrders"))
+          pMenu->setItemEnabled(menuItem, FALSE);
+      }
+
+      if ((status == "O") || (status == "E"))
+      {
+        menuItem = pMenu->insertItem(tr("Delete W/O..."), this, SLOT(sDeleteWO()), 0);
+        if (!_privileges->check("DeleteWorkOrders"))
+          pMenu->setItemEnabled(menuItem, FALSE);
+      }
+      else
+      {
+       if ((status != "C"))
+       {
+         menuItem = pMenu->insertItem(tr("Close W/O..."), this, SLOT(sCloseWO()), 0);
+         if (!_privileges->check("CloseWorkOrders"))
+           pMenu->setItemEnabled(menuItem, FALSE);
+       }
+      }
+
+      pMenu->insertSeparator();
+
+      if ((status == "E") || (status == "R") || (status == "I"))
+      {
+        if (_metrics->boolean("Routings"))
+        {
+          menuItem = pMenu->insertItem(tr("View W/O Operations..."), this, SLOT(sViewWooper()), 0);
+          if (!_privileges->check("ViewWoOperations"))
+            pMenu->setItemEnabled(menuItem, FALSE);
+        }
+
+        menuItem = pMenu->insertItem(tr("Inventory Availability by Work Order..."), this, SLOT(sInventoryAvailabilityByWorkOrder()), 0);
+        if (!_privileges->check("ViewInventoryAvailability"))
+          pMenu->setItemEnabled(menuItem, FALSE);
+
+        pMenu->insertSeparator();
+
+        menuItem = pMenu->insertItem(tr("Print Traveler..."), this, SLOT(sPrintTraveler()), 0);
+        if (!_privileges->check("PrintWorkOrderPaperWork"))
+          pMenu->setItemEnabled(menuItem, FALSE);
+
+      }
+
+      if ((status == "O") || (status == "E"))
+      {
+        pMenu->insertSeparator();
+
+        menuItem = pMenu->insertItem(tr("Reprioritize W/O..."), this, SLOT(sReprioritizeWo()), 0);
+        if (!_privileges->check("ReprioritizeWorkOrders"))
+          pMenu->setItemEnabled(menuItem, FALSE);
+
+        menuItem = pMenu->insertItem(tr("Reschedule W/O..."), this, SLOT(sRescheduleWO()), 0);
+        if (!_privileges->check("RescheduleWorkOrders"))
+          pMenu->setItemEnabled(menuItem, FALSE);
+
+        menuItem = pMenu->insertItem(tr("Change W/O Quantity..."), this, SLOT(sChangeWOQty()), 0);
+        if (!_privileges->check("ChangeWorkOrderQty"))
+          pMenu->setItemEnabled(menuItem, FALSE);
+      }
+
+      pMenu->insertSeparator();
+
+      menuItem = pMenu->insertItem(tr("Running WO Availability..."), this, SLOT(sDspRunningAvailability()), 0);
+  }
+  //Check a womatl row is selected and the id is vaild
+  if(_woIndentedList->altId() == 2 && _woIndentedList->id() > -1)
+  {
+
+    if (status == "O" || status == "E" || status == "R" || status == "I")
+    {
+      if (_privileges->check("MaintainWoMaterials"))
+      {
+         menuItem = pMenu->insertItem(tr("Edit Matl..."), this, SLOT(sEditMatl()), 0);
+      }
+    }
+      menuItem = pMenu->insertItem(tr("View Matl..."), this, SLOT(sViewMatl()), 0);
+    if (status == "O" || status == "E")
+    {
+      if (_privileges->check("MaintainWoMaterials"))
+      {
+         menuItem = pMenu->insertItem(tr("Delete Matl..."), this, SLOT(sDeleteMatl()), 0);
+      }
+    }
+    if (status == "O" || status == "E" || status == "R" || status == "I")
+    {
+      if (_privileges->check("IssueWoMaterials"))
+      {
+         menuItem = pMenu->insertItem(tr("Issue Matl..."), this, SLOT(sIssueMatl()), 0);
+      }
+    }
+    if (status == "I")
+    {
+      if (_privileges->check("ReturnWoMaterials"))
+      {
+         menuItem = pMenu->insertItem(tr("Return Matl..."), this, SLOT(sReturnMatl()), 0);
+      }
+      if (_privileges->check("ScrapWoMaterials"))
+      {
+         menuItem = pMenu->insertItem(tr("Scrap Matl..."), this, SLOT(sScrapMatl()), 0);
+      }
+    }
+    pMenu->insertSeparator();
+
+    menuItem = pMenu->insertItem(tr("View Matl Availability..."), this, SLOT(sViewMatlAvailability()), 0);
+
+    pMenu->insertSeparator();
+
+    menuItem = pMenu->insertItem(tr("View Matl Item-Defined Subsitute Availability..."), this, SLOT(sViewMatlSubstituteAvailability()), 0);
+    if (status == "O" || status == "E")
+    {
+        if (_privileges->check("MaintainWoMaterials"))
+        {
+             menuItem = pMenu->insertItem(tr("Substitute Matl..."), this, SLOT(sSubstituteMatl()), 0);
+        }
+    }
+
+  }
+
+}
+
+
+
+
