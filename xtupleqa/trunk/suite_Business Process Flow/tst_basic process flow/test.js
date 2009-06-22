@@ -481,6 +481,65 @@ function main()
         waitForObject(":Quantities on Hand by Item.Close_QPushButton");
         clickButton(":Quantities on Hand by Item.Close_QPushButton");
         
+        //-----Verification of G/L transaction (Receiving PO)-----
+        waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+        activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+        waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+        activateItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+        waitForObjectItem(":*.General Ledger_QMenu", "Reports");
+        activateItem(":*.General Ledger_QMenu", "Reports");
+        waitForObjectItem(":*.Reports_QMenu_2", "Transactions...");
+        activateItem(":*.Reports_QMenu_2", "Transactions...");
+        
+        waitForObject(":_accountGroup.All Accounts_QRadioButton");
+        clickButton(":_accountGroup.All Accounts_QRadioButton");
+        waitForObject(":_dateGroup.XDateEdit_XDateEdit_12");
+        type(":_dateGroup.XDateEdit_XDateEdit_12", "-3");
+        waitForObject(":_dateGroup.XDateEdit_XDateEdit_13");
+        type(":_dateGroup.XDateEdit_XDateEdit_13", "0");
+        waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
+        clickButton(":_sourceGroup.Selected Source:_QRadioButton");
+        waitForObject(":_sourceGroup._source_XComboBox");
+        clickItem(":_sourceGroup._source_XComboBox", "S/R", 5, 5, 1, Qt.LeftButton);
+        waitForObject(":General Ledger Transactions.Query_QPushButton");
+        clickButton(":General Ledger Transactions.Query_QPushButton");
+        
+        waitForObject(":_gltrans_XTreeWidget");
+        var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+        waitForObject(sWidgetTreeControl);
+        var obj_TreeWidget = findObject(sWidgetTreeControl);
+        var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+        var iNumberOfRootItems = obj_TreeRootItem.childCount();
+        type(sWidgetTreeControl,"<Space>");
+        var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+        var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+        if(sNameOfRootItem == "PO")
+            test.pass("Receiving PO has a GL entry");
+        else test.fail(" Receiving PO has no GL entry");
+        
+        waitForObject(":_gltrans_XTreeWidget");
+        type(":_gltrans_XTreeWidget", "<Down>");
+        waitForObject(":_gltrans_XTreeWidget");
+        type(":_gltrans_XTreeWidget", " ");
+        sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+        
+        waitForObject(":_gltrans_XTreeWidget");
+        var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+        waitForObject(sWidgetTreeControl);
+        var obj_TreeWidget = findObject(sWidgetTreeControl);
+        var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+        var iNumberOfRootItems = obj_TreeRootItem.childCount();
+        type(sWidgetTreeControl,"<Space>");
+        var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+        var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+        if(sNameOfRootItem == "PO")
+            test.pass("Receiving PO has a GL entry");
+        else test.fail(" Receiving PO has no GL entry");
+        
+        
+        waitForObject(":*.Close_QPushButton");
+        clickButton(":*.Close_QPushButton");     
+        
         //-----Entering a Voucher-----
         waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
         activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -702,6 +761,64 @@ function main()
         waitForObject(":Quantities on Hand by Item.Close_QPushButton");
         clickButton(":Quantities on Hand by Item.Close_QPushButton");
         
+        //-----Verification of G/L transaction (Receiving PO)-----
+        waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+        activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+        waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+        activateItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+        waitForObjectItem(":*.General Ledger_QMenu", "Reports");
+        activateItem(":*.General Ledger_QMenu", "Reports");
+        waitForObjectItem(":*.Reports_QMenu_2", "Transactions...");
+        activateItem(":*.Reports_QMenu_2", "Transactions...");
+        
+        waitForObject(":_accountGroup.All Accounts_QRadioButton");
+        clickButton(":_accountGroup.All Accounts_QRadioButton");
+        waitForObject(":_dateGroup.XDateEdit_XDateEdit_12");
+        type(":_dateGroup.XDateEdit_XDateEdit_12", "-3");
+        waitForObject(":_dateGroup.XDateEdit_XDateEdit_13");
+        type(":_dateGroup.XDateEdit_XDateEdit_13", "0");
+        waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
+        clickButton(":_sourceGroup.Selected Source:_QRadioButton");
+        waitForObjectItem(":_sourceGroup._source_XComboBox", "S/R");
+        clickItem(":_sourceGroup._source_XComboBox", "S/R", 5, 5, 1, Qt.LeftButton);
+        waitForObject(":General Ledger Transactions.Query_QPushButton");
+        clickButton(":General Ledger Transactions.Query_QPushButton");
+        
+        waitForObject(":_gltrans_XTreeWidget");
+        var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+        waitForObject(sWidgetTreeControl);
+        var obj_TreeWidget = findObject(sWidgetTreeControl);
+        var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+        var iNumberOfRootItems = obj_TreeRootItem.childCount();
+        type(sWidgetTreeControl,"<Space>");
+        var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+        var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+        if(sNameOfRootItem == "PO")
+            test.pass("Receiving PO has a GL entry");
+        else test.fail(" Receiving PO has no GL entry");
+        
+        waitForObject(":_gltrans_XTreeWidget");
+        type(":_gltrans_XTreeWidget", "<Down>");
+        waitForObject(":_gltrans_XTreeWidget");
+        type(":_gltrans_XTreeWidget", " ");
+        sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+        
+        waitForObject(":_gltrans_XTreeWidget");
+        var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+        waitForObject(sWidgetTreeControl);
+        var obj_TreeWidget = findObject(sWidgetTreeControl);
+        var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+        var iNumberOfRootItems = obj_TreeRootItem.childCount();
+        type(sWidgetTreeControl,"<Space>");
+        var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+        var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+        if(sNameOfRootItem == "PO")
+            test.pass("Receiving PO has a GL entry");
+        else test.fail(" Receiving PO has no GL entry");
+        
+        waitForObject(":*.Close_QPushButton");
+        clickButton(":*.Close_QPushButton");
+        
         //-----Entering a Voucher-----
         waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
         activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -773,6 +890,84 @@ function main()
     waitForObject(":List Open Vouchers.Close_QPushButton");
     clickButton(":List Open Vouchers.Close_QPushButton");
     test.log("Posted Voucher successfully");
+    
+    
+    //-----Verification of G/L transaction (Posting Vouchers)-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    activateItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    waitForObjectItem(":*.General Ledger_QMenu", "Reports");
+    activateItem(":*.General Ledger_QMenu", "Reports");
+    waitForObjectItem(":*.Reports_QMenu_2", "Transactions...");
+    activateItem(":*.Reports_QMenu_2", "Transactions...");
+    
+    waitForObject(":_accountGroup.All Accounts_QRadioButton");
+    clickButton(":_accountGroup.All Accounts_QRadioButton");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_12");
+    type(":_dateGroup.XDateEdit_XDateEdit_12", "-3");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_13");
+    type(":_dateGroup.XDateEdit_XDateEdit_13", "0");
+    waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
+    clickButton(":_sourceGroup.Selected Source:_QRadioButton");
+    waitForObject(":_sourceGroup._source_XComboBox");
+    clickItem(":_sourceGroup._source_XComboBox", "A/P", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":General Ledger Transactions.Query_QPushButton");
+    clickButton(":General Ledger Transactions.Query_QPushButton");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "VO")
+        test.pass("Posting of voucher has a GL entry");
+    else test.fail("Posting of voucher has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "VO")
+        test.pass("Posting of voucher has a GL entry");
+    else test.fail("Posting of voucher has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "VO")
+        test.pass("Posting of voucher has a GL entry");
+    else test.fail("Posting of voucher has no GL entry");
+    
+    waitForObject(":*.Close_QPushButton");
+    clickButton(":*.Close_QPushButton");                  
     
     //---Selecting Voucher for Payment---
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -895,6 +1090,64 @@ function main()
     clickButton(":View Check Run.Close_QPushButton");
     test.log("Posted Check for Voucher: 30070");
     
+    //-----Verification of G/L transaction (Posting Checks)-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    activateItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    waitForObjectItem(":*.General Ledger_QMenu", "Reports");
+    activateItem(":*.General Ledger_QMenu", "Reports");
+    waitForObjectItem(":*.Reports_QMenu_2", "Transactions...");
+    activateItem(":*.Reports_QMenu_2", "Transactions...");
+    
+    waitForObject(":_accountGroup.All Accounts_QRadioButton");
+    clickButton(":_accountGroup.All Accounts_QRadioButton");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_12");
+    type(":_dateGroup.XDateEdit_XDateEdit_12", "-3");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_13");
+    type(":_dateGroup.XDateEdit_XDateEdit_13", "0");
+    waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
+    clickButton(":_sourceGroup.Selected Source:_QRadioButton");
+    waitForObject(":_sourceGroup._source_XComboBox");
+    clickItem(":_sourceGroup._source_XComboBox", "A/P", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":General Ledger Transactions.Query_QPushButton");
+    clickButton(":General Ledger Transactions.Query_QPushButton");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "CK")
+        test.pass("Posting of Checks has a GL entry");
+    else test.fail("Posting of Checks has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "CK")
+        test.pass("Posting of Checks has a GL entry");
+    else test.fail("Posting of Checks has no GL entry");
+    
+    waitForObject(":*.Close_QPushButton");
+    clickButton(":*.Close_QPushButton");                  
+    
     //-----Releasing WorkOrders-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
@@ -914,7 +1167,7 @@ function main()
     waitForObject(":Release Work Orders by Planner Code.Release_QPushButton");
     clickButton(":Release Work Orders by Planner Code.Release_QPushButton");
     test.log("Work Orders released successfully");
-      
+    
     //-----Issuing Work Order Materials-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
@@ -933,7 +1186,122 @@ function main()
     waitForObject(":Issue Work Order Material Batch.Post_QPushButton");
     clickButton(":Issue Work Order Material Batch.Post_QPushButton");
     test.log("Work order materials issued successfully");
-   
+    
+    //-----Verification of G/L transaction (Issue WO materials)-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    activateItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    waitForObjectItem(":*.General Ledger_QMenu", "Reports");
+    activateItem(":*.General Ledger_QMenu", "Reports");
+    waitForObjectItem(":*.Reports_QMenu_2", "Transactions...");
+    activateItem(":*.Reports_QMenu_2", "Transactions...");
+    
+    waitForObject(":_accountGroup.All Accounts_QRadioButton");
+    clickButton(":_accountGroup.All Accounts_QRadioButton");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_12");
+    type(":_dateGroup.XDateEdit_XDateEdit_12", "-3");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_13");
+    type(":_dateGroup.XDateEdit_XDateEdit_13", "0");
+    waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
+    clickButton(":_sourceGroup.Selected Source:_QRadioButton");
+    waitForObject(":_sourceGroup._source_XComboBox");
+    clickItem(":_sourceGroup._source_XComboBox", "W/O", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":General Ledger Transactions.Query_QPushButton");
+    clickButton(":General Ledger Transactions.Query_QPushButton");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "WO")
+        test.pass("Material Issue for TWHEEL1 has a GL entry");
+    else test.fail("Material Issue for TWHEEL1 has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "WO")
+        test.pass("Material Issue for TKIT1 has a GL entry");
+    else test.fail("Material Issue for TKIT1 has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "WO")
+        test.pass("Material Issue for YPAINT1 has a GL entry");
+    else test.fail("Material Issue for YPAINT1 has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "WO")
+        test.pass("Material Issue for TBODY1 has a GL entry");
+    else test.fail("Material Issue for TBODY1 has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "WO")
+        test.pass("Material Issue for TINSERT1 has a GL entry");
+    else test.fail("Material Issue for TINSERT1 has no GL entry");
+    
+    waitForObject(":*.Close_QPushButton");
+    clickButton(":*.Close_QPushButton");                  
+    
     //-----Verification of QOH by Item (Post Production)-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
@@ -1031,6 +1399,64 @@ function main()
     
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
+    
+    //-----Verification of G/L transaction (Post Production)-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    activateItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    waitForObjectItem(":*.General Ledger_QMenu", "Reports");
+    activateItem(":*.General Ledger_QMenu", "Reports");
+    waitForObjectItem(":*.Reports_QMenu_2", "Transactions...");
+    activateItem(":*.Reports_QMenu_2", "Transactions...");
+    
+    waitForObject(":_accountGroup.All Accounts_QRadioButton");
+    clickButton(":_accountGroup.All Accounts_QRadioButton");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_12");
+    type(":_dateGroup.XDateEdit_XDateEdit_12", "-3");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_13");
+    type(":_dateGroup.XDateEdit_XDateEdit_13", "0");
+    waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
+    clickButton(":_sourceGroup.Selected Source:_QRadioButton");
+    waitForObject(":_sourceGroup._source_XComboBox");
+    clickItem(":_sourceGroup._source_XComboBox", "W/O", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":General Ledger Transactions.Query_QPushButton");
+    clickButton(":General Ledger Transactions.Query_QPushButton");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "WO")
+        test.pass("Post Production has a GL entry");
+    else test.fail("Post Production has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "WO")
+        test.pass("Post Production has a GL entry");
+    else test.fail("Post Production has no GL entry");
+    
+    waitForObject(":*.Close_QPushButton");
+    clickButton(":*.Close_QPushButton");
     
     //-----Verification of QOH by Item (BackFlush Items)-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
@@ -1230,6 +1656,130 @@ function main()
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
     
+    //-----Verification of G/L transaction (Issue Stock to Shipping)-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    activateItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    waitForObjectItem(":*.General Ledger_QMenu", "Reports");
+    activateItem(":*.General Ledger_QMenu", "Reports");
+    waitForObjectItem(":*.Reports_QMenu_2", "Transactions...");
+    activateItem(":*.Reports_QMenu_2", "Transactions...");
+    
+    waitForObject(":_accountGroup.All Accounts_QRadioButton");
+    clickButton(":_accountGroup.All Accounts_QRadioButton");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_12");
+    type(":_dateGroup.XDateEdit_XDateEdit_12", "-3");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_13");
+    type(":_dateGroup.XDateEdit_XDateEdit_13", "0");
+    waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
+    clickButton(":_sourceGroup.Selected Source:_QRadioButton");
+    waitForObject(":_sourceGroup._source_XComboBox");
+    clickItem(":_sourceGroup._source_XComboBox", "S/R", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":General Ledger Transactions.Query_QPushButton");
+    clickButton(":General Ledger Transactions.Query_QPushButton");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "SO")
+        test.pass("Issue stock for SO has a GL entry");
+    else test.fail("Issue stock for SO has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "SO")
+        test.pass("Issue stock for SO has a GL entry");
+    else test.fail("Issue stock for SO has no GL entry");
+    
+    waitForObject(":*.Close_QPushButton");
+    clickButton(":*.Close_QPushButton");
+    
+    //-----Verification of G/L transaction (Ship Order)-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    activateItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    waitForObjectItem(":*.General Ledger_QMenu", "Reports");
+    activateItem(":*.General Ledger_QMenu", "Reports");
+    waitForObjectItem(":*.Reports_QMenu_2", "Transactions...");
+    activateItem(":*.Reports_QMenu_2", "Transactions...");
+    
+    waitForObject(":_accountGroup.All Accounts_QRadioButton");
+    clickButton(":_accountGroup.All Accounts_QRadioButton");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_12");
+    type(":_dateGroup.XDateEdit_XDateEdit_12", "-3");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_13");
+    type(":_dateGroup.XDateEdit_XDateEdit_13", "0");
+    waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
+    clickButton(":_sourceGroup.Selected Source:_QRadioButton");
+    waitForObject(":_sourceGroup._source_XComboBox");
+    clickItem(":_sourceGroup._source_XComboBox", "S/R", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":General Ledger Transactions.Query_QPushButton");
+    clickButton(":General Ledger Transactions.Query_QPushButton");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "SH")
+        test.pass("SO Shipping has a GL entry");
+    else test.fail("SO Shipping has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "SH")
+        test.pass("SO Shipping has a GL entry");
+    else test.fail("SO Shipping has no GL entry");
+    
+    waitForObject(":*.Close_QPushButton");
+    clickButton(":*.Close_QPushButton");
+    
     //-----Select Order for Billing-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Sales");
@@ -1308,6 +1858,102 @@ function main()
     clickButton(":*.Close_QPushButton");
     test.log("Invoice posted successful");
     
+    //-----Verification of G/L transaction (Posting Invoice)-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    activateItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    waitForObjectItem(":*.General Ledger_QMenu", "Reports");
+    activateItem(":*.General Ledger_QMenu", "Reports");
+    waitForObjectItem(":*.Reports_QMenu_2", "Transactions...");
+    activateItem(":*.Reports_QMenu_2", "Transactions...");
+    
+    waitForObject(":_accountGroup.All Accounts_QRadioButton");
+    clickButton(":_accountGroup.All Accounts_QRadioButton");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_12");
+    type(":_dateGroup.XDateEdit_XDateEdit_12", "-3");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_13");
+    type(":_dateGroup.XDateEdit_XDateEdit_13", "0");
+    waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
+    clickButton(":_sourceGroup.Selected Source:_QRadioButton");
+    waitForObject(":_sourceGroup._source_XComboBox");
+    clickItem(":_sourceGroup._source_XComboBox", "A/R", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":General Ledger Transactions.Query_QPushButton");
+    clickButton(":General Ledger Transactions.Query_QPushButton");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "IN")
+        test.pass("Posting Invoice has a GL entry");
+    else test.fail("Posting Invoice has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "IN")
+        test.pass("Posting Invoice has a GL entry");
+    else test.fail("Posting Invoice has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "IN")
+        test.pass("Posting Invoice has a GL entry");
+    else test.fail("Posting Invoice has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "IN")
+        test.pass("Posting Invoice has a GL entry");
+    else test.fail("Posting Invoice has no GL entry");
+    
+    waitForObject(":*.Close_QPushButton");
+    clickButton(":*.Close_QPushButton");
+    
     //-----Entering Cash Receipts-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -1359,6 +2005,64 @@ function main()
     clickButton(":Receivables Workbench.Close_QPushButton");
     test.log("Cash receipt posted successful");
     
+    //-----Verification of G/L transaction (Posting Cash Receipts)-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    activateItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
+    waitForObjectItem(":*.General Ledger_QMenu", "Reports");
+    activateItem(":*.General Ledger_QMenu", "Reports");
+    waitForObjectItem(":*.Reports_QMenu_2", "Transactions...");
+    activateItem(":*.Reports_QMenu_2", "Transactions...");
+    
+    waitForObject(":_accountGroup.All Accounts_QRadioButton");
+    clickButton(":_accountGroup.All Accounts_QRadioButton");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_12");
+    type(":_dateGroup.XDateEdit_XDateEdit_12", "-3");
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_13");
+    type(":_dateGroup.XDateEdit_XDateEdit_13", "0");
+    waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
+    clickButton(":_sourceGroup.Selected Source:_QRadioButton");
+    waitForObject(":_sourceGroup._source_XComboBox");
+    clickItem(":_sourceGroup._source_XComboBox", "A/R", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":General Ledger Transactions.Query_QPushButton");
+    clickButton(":General Ledger Transactions.Query_QPushButton");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "CR")
+        test.pass("Posting Cash Receipts has a GL entry");
+    else test.fail("Posting Cash Receipts has no GL entry");
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", "<Down>");
+    waitForObject(":_gltrans_XTreeWidget");
+    type(":_gltrans_XTreeWidget", " ");
+    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
+    
+    waitForObject(":_gltrans_XTreeWidget");
+    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    type(sWidgetTreeControl,"<Space>");
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
+    if(sNameOfRootItem == "CR")
+        test.pass("Posting Cash Receipts has a GL entry");
+    else test.fail("Posting Cash Receipts has no GL entry");
+    
+    waitForObject(":*.Close_QPushButton");
+    clickButton(":*.Close_QPushButton");
+    
     //-----Customer History-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -1384,6 +2088,7 @@ function main()
     waitForObject(":Customer History._custhist_XTreeWidget");
     if(!clickItem(":Customer History._custhist_XTreeWidget", invoice, 5, 5, 1, Qt.LeftButton))
         test.pass(" Invoice posted and available in Customer History");
+    else test.fail("Invoice not available in Customer History");
     
     waitForObject(":*.Close_QPushButton");
     clickButton(":*.Close_QPushButton");
