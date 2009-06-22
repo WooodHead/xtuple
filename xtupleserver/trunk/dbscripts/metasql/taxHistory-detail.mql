@@ -61,7 +61,7 @@ SELECT
   cohist_qtyshipped AS qty, 
   cohist_unitprice AS unitprice, (cohist_qtyshipped * cohist_unitprice) AS amount,
   CASE
-    WHEN (cohist_misc_type IS NULL OR cohist_misc_type = 'M') THEN
+    WHEN (cohist_misc_type IS NULL OR cohist_misc_type IN ('M','F')) THEN
       currToBase(cohist_curr_id, cohist_qtyshipped * cohist_unitprice, cohist_invcdate) 
     ELSE 0
   END AS salesbase,
