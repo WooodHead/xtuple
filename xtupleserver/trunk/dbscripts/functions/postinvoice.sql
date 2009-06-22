@@ -267,6 +267,20 @@ BEGIN
 
   END LOOP;
 
+-- Post all Invchead taxes (Freight and Adjustments) to the GL
+  _taxBaseValue := addTaxToGLSeries(_p.sequence,
+				      'A/R', 'IN', _p.invchead_invcnumber,
+				      _p.invchead_curr_id, _firstExchDate, _glDate,
+                                      'invcheadtax', _p.invchead_id,
+                                      (_p.invchead_billto_name));
+  IF (_taxBaseValue IS NULL) THEN
+    PERFORM deleteGLSeries(_p.sequence);
+    DELETE FROM cohist
+     WHERE ((cohist_sequence=_p.sequence)
+       AND  (cohist_invcnumber=_p.invchead_invcnumber));
+    RETURN -15;
+  END IF;
+
 --  Credit the Freight Account for Freight Charges
   IF (_p.invchead_freight <> 0) THEN
     IF (_p.freightaccntid <> -1) THEN
@@ -445,19 +459,6 @@ BEGIN
 
   END IF;
 
--- Post all Invchead taxes (Freight and Adjustments) to the GL
-  _taxBaseValue := addTaxToGLSeries(_p.sequence,
-				      'A/R', 'IN', _p.invchead_invcnumber,
-				      _p.invchead_curr_id, _firstExchDate, _glDate,
-                                      'invcheadtax', _p.invchead_id,
-                                      (_p.invchead_billto_name));
-  IF (_taxBaseValue IS NULL) THEN
-    PERFORM deleteGLSeries(_p.sequence);
-    DELETE FROM cohist
-     WHERE ((cohist_sequence=_p.sequence)
-       AND  (cohist_invcnumber=_p.invchead_invcnumber));
-    RETURN -15;
-  END IF;
   _totalAmount := _totalAmount + _p.freighttax + _p.adjtax;
   _totalRoundedBase := _totalRoundedBase + _taxBaseValue;
 
