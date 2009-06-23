@@ -15,6 +15,27 @@ Distribution Resource Planning (DRP)
 
 Improved VAT and international tax support
   * Full spec: http://www.xtuple.org/EnhancedTaxInternationalization
+  * Beta adds the following
+	- Support for tax on Return Authorization
+	- Support for tax on Credit Memo
+	- Support for tax on A/R Misc Credit Memo
+	- Support for tax on A/R Misc Debit Memo
+	- Support for tax on Purchase Order
+	- Support for tax on Voucher
+	- Support for tax on A/P Misc Credit Memo
+	- Support for tax on A/P Misc Debit Memo
+	- New Tax History Report 
+
+EDI Profiles Revision
+  * Full spec: http://www.xtuple.org/EDIProfilesRevision
+  * Beta adds support for 
+	- Incidents
+	- Sales Order Acknowledgements
+	- Invoices
+	- A/R Statements
+	- Purchase Orders
+  * Bcc now working
+  * EDI Profiles on Customers now working
 
 Multiple Accounting features
   * Re-allocation of AR applications
@@ -22,9 +43,6 @@ Multiple Accounting features
   * Reverse Cash Receipts
   * Printing AR Memos
   * And more....
-
-EDI Profiles Revision
-  * Full spec: http://www.xtuple.org/EDIProfilesRevision
 
 Translation
   * Support for translating extension packages
@@ -39,27 +57,37 @@ Simply go to the Issue Tracker and select the Changelog option.
 
 New Features:
 
-* [Accounting] Allow cash receipts to distinguish between distribution 
+* [Accounting] Add tax code to A/R misc. memos
+* [Accounting] Allow multiple tax distributions for Misc Credit and 
+Debit Memos
+* [Accounting] Allow cash receipts to distinguish between distribution
 date of receipt, and application date to documents
-* [Accounting] Credit Card pre-authorizations create cash receipts as 
+* [Accounting] Credit Card pre-authorizations create cash receipts as
 "Credit Memo" not "Customer Deposit"
-* [Accounting] Specify globally whether credit cards should generate 
+* [Accounting] Specify globally whether credit cards should generate
 credit memos or customer deposits
 * [Accounting] Add text search to Enter Order Receipt window
-* [Inventory] The "To" name on the order cluster search should show the 
+* [Inventory] The "To" name on the order cluster search should show the
 ship to name if one exists
-* [Inventory] Add right-click menu Print Receipt Label to PO Receipt 
+* [Inventory] Add right-click menu Print Receipt Label to PO Receipt
 screens
-* [Manufacture] Indented Work Order screen tab to edit and issue 
+* [Manufacture] Indented Work Order screen tab to edit and issue
 materials
-* [Manufacture] Add filter check box "Item Not In Stock” to Inventory 
+* [Manufacture] Add filter check box "Item Not In Stock” to Inventory
 Availability By Work Order
-* [Purchase] Add List Search to "Unposted Purchase Order” screen 
-* [Purchase] Add a list filter and vend item# column to "PO Items By 
-Vendor” Report 
+* [Purchase] Tax calculation needed on PO
+* [Purchase] Add tax calculations to Purchase Orders
+* [Purchase] Add List Search to "Unposted Purchase Order” screen
+* [Purchase] Add a list filter and vend item# column to "PO Items By
+Vendor” Report
 * [Purchase] Add Vendor description column to quick order entry tab
-* [Sales] Add ability for new/edit Characteristic Assignments to 
+* [Sales] Enhance Tax handling - omnibus
+* [Sales] Add ability for new/edit Characteristic Assignments to
 Customers by Characteristic report
+* [System] Global EDI profiles don't allow a way to default e-mail 
+address
+* [System] Add From and BCC address to EDI profiles
+* [System] Add Bcc: option to EDI profiles
 * [System] Password change utility
 * [System] Enforce Characteristics input mask and regex validator
 * [System] Add ScriptToolbox::getTempDir() method
@@ -70,64 +98,65 @@ Bug Fixes:
 
 * [All] Issue Stock to Shipping permission does not work alone
 * [Accounting] potential issue with trigger _checkheadbeforetrigger()
-* [Accounting] It is not possible to enter Start Date for General Ledger 
+* [Accounting] It is not possible to enter Start Date for General Ledger
 Series
-* [Accounting] Remove column options in AR Applications report 
-* [Accounting] Number -1 on cash receipt 
-* [Accounting] Tax - Item Tax Type/Tax Auth - Select Should be Most 
+* [Accounting] Remove column options in AR Applications report
+* [Accounting] Number -1 on cash receipt
+* [Accounting] Tax - Item Tax Type/Tax Auth - Select Should be Most
 Specific
 * [Accounting] Not able to save Purchase Order Comments
 * [Accounting] Privilege hole in Sales Order
 * [CRM] Tab order in ToDo item entry skips "owner” and "assigned to”
-* [CRM] Selecting to associate a CRM account with a customer displays 
+* [CRM] Selecting to associate a CRM account with a customer displays
 error
 * [CRM] Selecting to Edit and Save an Opportunity creates a new one
 * [CRM] User is able to edit "Use of Contacts” in Contact's view mode
-* [Inventory] External Shipping List: User is unable to create a new 
+* [Inventory] External Shipping List: User is unable to create a new
 external shipping maintenance
 * [Inventory] External Shipping List: Wrong window display in View mode
-* [Inventory] User is able to save expense category without name and 
+* [Inventory] User is able to save expense category without name and
 description
-* [Inventory] Ship order: Selecting "Create and Print Invoice” and 
+* [Inventory] Ship order: Selecting "Create and Print Invoice” and
 "Print Packing List” displays an error for a Job Item
-* [Inventory] Posting PO Receipts requires "MaintainPurchaseOrders” 
+* [Inventory] Posting PO Receipts requires "MaintainPurchaseOrders”
 privilege but is an inventory function
 * [Inventory] Slow query performance in larger databases at Shipping
-* [Manufacture] Selecting to correct operations posting displays an 
+* [Manufacture] Selecting to correct operations posting displays an
 error
-* [Products] It is possible to add Conversion, new Sites and Sources for 
+* [Products] It is possible to add Conversion, new Sites and Sources for
 an Item in VIEW mode
 * [Products] Selecting to create a Item cost for an Item displays error
-* [Purchase] Incorrect message when printing PO 
+* [Purchase] Incorrect message when printing PO
 * [Purchase] Incorrect alter quantity message on a non-inventory item
  * [Purchase] Database error selecting postPoReturnCreditMemo
 * [Purchase] It is possible to save Terms without specifying any code
+* [Sales] Email EDI profiles on customers do not work
 * [Sales] Canceling Kit Item closes all SO lines
-* [Sales] Ability to comment a line item on Sales Order 
-* [Sales] Customer info disconnected on Sales lookup report 
-* [Sales] Sales History by Customer link to Invoice Information does not 
+* [Sales] Ability to comment a line item on Sales Order
+* [Sales] Customer info disconnected on Sales lookup report
+* [Sales] Sales History by Customer link to Invoice Information does not
 work
 * [Sales] Lockup/crash when opening sales order
 * [Sales] User is able to create duplicate records for Sales
-* [Sales] It is possible to save Sales Category without specifying name 
-* [Sales] Sales Representative: Selecting to associate employee doesn't 
+* [Sales] It is possible to save Sales Category without specifying name
+* [Sales] Sales Representative: Selecting to associate employee doesn't
 save
 * [Sales] It is possible to create empty Customer groups
 * [Sales] Sales history archived by error cannot be restored
 * [Sales] A/R Account Assignments: User is allowed to duplicate records
-* [Sales] Packing List Batch: Selecting "X” button to add SO generates DB 
+* [Sales] Packing List Batch: Selecting "X” button to add SO generates DB
 log error
 * [Sales] Possible to have no SO orderdate on cohead
 * [Sales] Error canceling Sales Order when projects are auto-created
 * [Sales] User is unable to create new Prospect
-* [Sales] Selecting to print a Quote generates DB log error 
-* [Sales] Sales order print displays blank page and generates DB log error 
-* [Sales] Update Prices does not update Characteristic prices 
-* [System] User is allowed to add/revoke privileges to a group in view mode 
-* [System] Grant access to only selected sites gives an error 
-* [System] It is not possible to save a new employee record 
-* [System] Error message when editing users 
-* [System] Mismatched variable naming in getshiptonumberfrominfo 
+* [Sales] Selecting to print a Quote generates DB log error
+* [Sales] Sales order print displays blank page and generates DB log error
+* [Sales] Update Prices does not update Characteristic prices
+* [System] User is allowed to add/revoke privileges to a group in view mode
+* [System] Grant access to only selected sites gives an error
+* [System] It is not possible to save a new employee record
+* [System] Error message when editing users
+* [System] Mismatched variable naming in getshiptonumberfrominfo
 * [System] Missing sort directive in getshiptonumberfrominfo
 * [System] Issues with getshiptonumberfrominfo function
 
@@ -137,35 +166,6 @@ xTuple ERP
 PostBooks, Standard, and Manufacturing Editions
 Version 3.3.0Alpha
 June 03, 2009
-==================================
-
-This is the Alpha release of version 3.3.0. We are especially eager
-to hear feedback from alpha testers on the following new areas of
-functionality:
-
-Distribution Resource Planning (DRP)
-  * Full spec: http://www.xtuple.org/DistributionResourcePlanning
-
-Improved VAT and international tax support
-  * Full spec: http://www.xtuple.org/EnhancedTaxInternationalization
-
-Multiple Accounting features
-  * Re-allocation of AR applications
-  * Automated forward-updating
-  * Reverse Cash Receipts
-  * Printing AR Memos
-  * And more....
-
-EDI Profiles Revision
-  * Full spec: http://www.xtuple.org/EDIProfilesRevision
-  * PLEASE NOTE: This spec is partially-implemented only
-  * For a preview, see
-       - Sales > Customer > Customer Master > Transmission Tab
-	 - Sales > Forms > E-mail Sales Order Form
-
-Translation
-  * Support for translating extension packages
-
 ==================================
 
 The following features and bug fixes have been added to the applications
