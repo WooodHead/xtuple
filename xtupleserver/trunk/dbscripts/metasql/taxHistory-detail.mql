@@ -110,13 +110,13 @@ WHERE ((taxhist_docdate BETWEEN <? value("startDate") ?>
  AND (taxhist_taxtype_id=<? value("taxtype_id") ?>)
 <? endif ?>
 <? if exists("taxclass_id") ?>
- AND (taxhist_taxclass_id=<? value("taxclass_id") ?>)
+ AND (taxclass_id=<? value("taxclass_id") ?>)
 <? endif ?>
 <? if exists("taxauth_id") ?>
- AND (taxhist_taxauth_id=<? value("taxauth_id") ?>)
+ AND (taxauth_id=<? value("taxauth_id") ?>)
 <? endif ?>
 <? if exists("taxzone_id") ?>
- AND (taxhist_taxzone_id=<? value("taxzone_id") ?>)
+ AND (taxzone_id=<? value("taxzone_id") ?>)
 <? endif ?>
 )
 <? endif ?>
@@ -188,10 +188,10 @@ WHERE ((taxhist_docdate BETWEEN <? value("startDate") ?>
  AND (taxhist_taxtype_id=<? value("taxtype_id") ?>)
 <? endif ?>
 <? if exists("taxclass_id") ?>
- AND (taxhist_taxclass_id=<? value("taxclass_id") ?>)
+ AND (taxclass_id=<? value("taxclass_id") ?>)
 <? endif ?>
 <? if exists("taxauth_id") ?>
- AND (taxhist_taxauth_id=<? value("taxauth_id") ?>)
+ AND (taxauth_id=<? value("taxauth_id") ?>)
 <? endif ?>
 <? if exists("taxzone_id") ?>
  AND (false)
@@ -253,13 +253,13 @@ WHERE ((taxhist_docdate BETWEEN <? value("startDate") ?>
  AND (taxhist_taxtype_id=<? value("taxtype_id") ?>)
 <? endif ?>
 <? if exists("taxclass_id") ?>
- AND (taxhist_taxclass_id=<? value("taxclass_id") ?>)
+ AND (taxclass_id=<? value("taxclass_id") ?>)
 <? endif ?>
 <? if exists("taxauth_id") ?>
- AND (taxhist_taxauth_id=<? value("taxauth_id") ?>)
+ AND (taxauth_id=<? value("taxauth_id") ?>)
 <? endif ?>
 <? if exists("taxzone_id") ?>
- AND (taxhist_taxzone_id=<? value("taxzone_id") ?>)
+ AND (taxzone_id=<? value("taxzone_id") ?>)
 <? endif ?>
  AND (taxhist_distdate IS NOT NULL)
 )
@@ -325,13 +325,13 @@ WHERE ((taxhist_docdate BETWEEN <? value("startDate") ?>
  AND (taxhist_taxtype_id=<? value("taxtype_id") ?>)
 <? endif ?>
 <? if exists("taxclass_id") ?>
- AND (taxhist_taxclass_id=<? value("taxclass_id") ?>)
+ AND (taxclass_id=<? value("taxclass_id") ?>)
 <? endif ?>
 <? if exists("taxauth_id") ?>
- AND (taxhist_taxauth_id=<? value("taxauth_id") ?>)
+ AND (taxauth_id=<? value("taxauth_id") ?>)
 <? endif ?>
 <? if exists("taxzone_id") ?>
- AND (taxhist_taxzone_id=<? value("taxzone_id") ?>)
+ AND (taxzone_id=<? value("taxzone_id") ?>)
 <? endif ?>
  AND (taxhist_distdate IS NOT NULL)
 )
