@@ -18,8 +18,10 @@ BEGIN
   DELETE FROM cmheadtax;
   DELETE FROM cobmisctax;
   DELETE FROM invcheadtax;
-  DELETE FROM toheadtax;
-  DELETE FROM toitemtax;
+  IF (_edition > 1) THEN
+    DELETE FROM toheadtax;
+    DELETE FROM toitemtax;
+  END IF;
 
   DELETE FROM asohisttax
   WHERE (taxhist_parent_id IN (SELECT asohist_id
