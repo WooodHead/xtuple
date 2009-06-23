@@ -17,7 +17,7 @@ AS
        WHEN (prj_status = 'P') THEN
          'Concept'
        WHEN (prj_status = 'O') THEN
-         'In Process'
+         'In-Process'
        WHEN (prj_status = 'C') THEN
          'Closed'
        ELSE

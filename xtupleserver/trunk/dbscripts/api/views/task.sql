@@ -11,7 +11,7 @@ AS
        WHEN (prjtask_status = 'P') THEN
          'Concept'
        WHEN (prjtask_status = 'O') THEN
-         'In Process'
+         'In-Process'
        WHEN (prjtask_status = 'C') THEN
          'Closed'
        ELSE
