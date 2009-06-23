@@ -51,7 +51,7 @@ BEGIN
 
       ELSIF (_p.checkhead_recip_type = 'C') THEN
 	PERFORM createARDebitMemo(_p.checkhead_recip_id, pJournalNumber,
-				  fetchARMemoNumber(), '',
+				  fetchARMemoNumber(),
 				  pVoidDate, _p.checkhead_amount,
 				  _gltransNote || ' '|| _p.checkhead_notes,
 				  -1, -1, -1, pVoidDate, -1, -1, 0.0,
