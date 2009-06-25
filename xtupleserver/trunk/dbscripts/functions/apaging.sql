@@ -50,10 +50,11 @@ BEGIN
         CASE WHEN apopen_doctype IN ('C', 'R') 
         THEN (apopen_amount * -1) / round(apopen_curr_rate,5)
         ELSE apopen_amount / round(apopen_curr_rate,5) END AS apopen_amount,
-
+        
         apopen_docdate,
         apopen_duedate,
         apopen_ponumber,
+        apopen_invcnumber,
         apopen_docnumber,
         apopen_doctype,
         vend_id,
@@ -72,7 +73,7 @@ BEGIN
         AND (vend_vendtype_id=vendtype_id)
         AND (CASE WHEN (pUseDocDate) THEN apopen_docdate ELSE apopen_distdate END <= _asOfDate)
         AND (COALESCE(apopen_closedate,_asOfDate+1)>_asOfDate) )
-        GROUP BY apopen_id,apopen_docdate,apopen_duedate,apopen_ponumber,apopen_docnumber,apopen_doctype,apopen_paid,
+        GROUP BY apopen_id,apopen_docdate,apopen_duedate,apopen_ponumber, apopen_invcnumber, apopen_docnumber,apopen_doctype,apopen_paid,
                  apopen_curr_id,apopen_amount,vend_id,vend_name,vend_number,vend_vendtype_id,vendtype_code,terms_descrip,
                  apopen_curr_rate
         ORDER BY vend_number, apopen_duedate
@@ -80,6 +81,7 @@ BEGIN
         _row.apaging_docdate := _x.apopen_docdate;
         _row.apaging_duedate := _x.apopen_duedate;
         _row.apaging_ponumber := _x.apopen_ponumber;
+        _row.apaging_invcnumber := _x.apopen_invcnumber;
         _row.apaging_docnumber := _x.apopen_docnumber;
         _row.apaging_doctype := _x.apopen_doctype;
         _row.apaging_vend_id := _x.vend_id;
