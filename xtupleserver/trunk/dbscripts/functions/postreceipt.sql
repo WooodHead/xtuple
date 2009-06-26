@@ -37,26 +37,45 @@ BEGIN
 
   ELSIF (_r.recv_order_type ='PO') THEN
     _ordertypeabbr := ('P/O for ' || _r.vend_name);
+
+    SELECT pohead_number AS orderhead_number, poitem_id AS orderitem_id,
+	   currToBase(pohead_curr_id, poitem_unitprice,
+		    recv_date::DATE) AS item_unitprice_base,
+	   poitem_invvenduomratio AS invvenduomratio,
+	   pohead_orderdate AS orderdate INTO _o
+    FROM recv, pohead, poitem
+    WHERE ((recv_orderitem_id=poitem_id)
+      AND  (poitem_pohead_id=pohead_id)
+      AND  (NOT recv_posted)
+      AND  (recv_id=precvid));
   ELSIF (_r.recv_order_type ='RA') THEN
     _ordertypeabbr := 'R/A';
+
+    SELECT rahead_number AS orderhead_number, raitem_id AS orderitem_id,
+	   currToBase(rahead_curr_id, raitem_unitprice,
+		    recv_date::DATE) AS item_unitprice_base,
+	   raitem_qty_invuomratio AS invvenduomratio,
+	   rahead_authdate AS orderdate INTO _o
+    FROM recv, rahead, raitem
+    WHERE ((recv_orderitem_id=raitem_id)
+      AND  (raitem_rahead_id=rahead_id)
+      AND  (NOT recv_posted)
+      AND  (recv_id=precvid));
   ELSIF (_r.recv_order_type ='TO') THEN
-    _ordertypeabbr := 'T/O';
+     _ordertypeabbr := 'T/O';
+
+    SELECT tohead_number AS orderhead_number, toitem_id AS orderitem_id,
+	   toitem_stdcost AS item_unitprice_base,
+	   1 AS invvenduomratio,
+	   tohead_orderdate AS orderdate INTO _o
+    FROM recv, tohead, toitem
+    WHERE ((recv_orderitem_id=toitem_id)
+      AND  (toitem_tohead_id=tohead_id)
+      AND  (NOT recv_posted)
+      AND  (recv_id=precvid));
   ELSE
     RETURN -13;	-- don't know how to handle this order type
   END IF;
-
-  SELECT orderhead_number, orderitem_id,
-	 currToBase(orderitem_unitcost_curr_id, orderitem_unitcost,
-		    recv_date::DATE) AS item_unitprice_base,
-	 orderitem_qty_invuomratio AS invvenduomratio,
-	 orderhead_orderdate AS orderdate INTO _o
-  FROM recv, orderhead, orderitem
-  WHERE ((recv_orderitem_id=orderitem_id)
-    AND  (recv_order_type=orderitem_orderhead_type)
-    AND  (orderitem_orderhead_id=orderhead_id)
-    AND  (orderitem_orderhead_type=orderhead_type)
-    AND  (NOT recv_posted)
-    AND  (recv_id=precvid));
 
   IF (NOT FOUND) THEN
     IF (_itemlocSeries = 0) THEN
