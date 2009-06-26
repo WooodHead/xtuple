@@ -14,6 +14,7 @@ DECLARE
   _numGen CHAR(1);
 
 BEGIN
+
   -- Checks
   -- Start with privileges
   IF (TG_OP = 'INSERT') THEN
@@ -118,16 +119,10 @@ BEGIN
 
           -- Set to defaults if values not provided
           NEW.cohead_shipto_id 	:= COALESCE(NEW.cohead_shipto_id,_p.shipto_id);
-	  NEW.cohead_salesrep_id 	:= COALESCE(NEW.cohead_salesrep_id,_p.shipto_salesrep_id,_p.cust_salesrep_id);
           NEW.cohead_terms_id		:= COALESCE(NEW.cohead_terms_id,_p.cust_terms_id);
-          NEW.cohead_shipvia		:= COALESCE(NEW.cohead_shipvia,_p.shipto_shipvia,_p.cust_shipvia);
-          NEW.cohead_shipchrg_id	:= COALESCE(NEW.cohead_shipchrg_id,_p.shipto_shipchrg_id,_p.cust_shipchrg_id);
-          NEW.cohead_shipform_id	:= COALESCE(NEW.cohead_shipform_id,_p.shipto_shipform_id,_p.cust_shipform_id);
-          NEW.cohead_commission		:= COALESCE(NEW.cohead_commission,_p.shipto_commission,_p.cust_commprcnt);
           NEW.cohead_orderdate		:= COALESCE(NEW.cohead_orderdate,current_date);
           NEW.cohead_packdate		:= COALESCE(NEW.cohead_packdate,NEW.cohead_orderdate);
           NEW.cohead_curr_id		:= COALESCE(NEW.cohead_curr_id,_p.cust_curr_id,basecurrid());
-          NEW.cohead_taxzone_id		:= COALESCE(NEW.cohead_taxzone_id,_p.shipto_taxzone_id,_p.cust_taxzone_id);
           NEW.cohead_freight		:= COALESCE(NEW.cohead_freight,0);
           NEW.cohead_custponumber	:= COALESCE(NEW.cohead_custponumber,'');
           NEW.cohead_ordercomments	:= COALESCE(NEW.cohead_ordercomments,'');
@@ -136,6 +131,30 @@ BEGIN
           NEW.cohead_misc		:= COALESCE(NEW.cohead_misc,0);
           NEW.cohead_misc_descrip	:= COALESCE(NEW.cohead_misc_descrip,'');
           NEW.cohead_shipcomplete	:= COALESCE(NEW.cohead_shipcomplete,false);
+
+          IF (_p.shipto_id IS NOT NULL) THEN -- Pull in over ride values
+	    NEW.cohead_salesrep_id 	:= COALESCE(NEW.cohead_salesrep_id,_p.shipto_salesrep_id);
+	    NEW.cohead_shipvia		:= COALESCE(NEW.cohead_shipvia,_p.shipto_shipvia);
+	    NEW.cohead_shipchrg_id	:= COALESCE(NEW.cohead_shipchrg_id,_p.shipto_shipchrg_id);
+	    NEW.cohead_shipform_id	:= COALESCE(NEW.cohead_shipform_id,_p.shipto_shipform_id);
+	    NEW.cohead_commission	:= COALESCE(NEW.cohead_commission,_p.shipto_commission);
+	    IF (NEW.cohead_taxzone_id=-1) THEN
+	      NEW.cohead_taxzone_id 	:= NULL;
+	    ELSE
+	      NEW.cohead_taxzone_id	:= COALESCE(NEW.cohead_taxzone_id,_p.shipto_taxzone_id);
+	    END IF;
+	  ELSE
+	    NEW.cohead_salesrep_id 	:= COALESCE(NEW.cohead_salesrep_id,_p.cust_salesrep_id);
+	    NEW.cohead_shipvia		:= COALESCE(NEW.cohead_shipvia,_p.cust_shipvia);
+	    NEW.cohead_shipchrg_id	:= COALESCE(NEW.cohead_shipchrg_id,_p.cust_shipchrg_id);
+	    NEW.cohead_shipform_id	:= COALESCE(NEW.cohead_shipform_id,_p.cust_shipform_id);
+	    NEW.cohead_commission	:= COALESCE(NEW.cohead_commission,_p.cust_commprcnt);
+	    IF (NEW.cohead_taxzone_id=-1) THEN
+	      NEW.cohead_taxzone_id 	:= NULL;
+	    ELSE
+	      NEW.cohead_taxzone_id	:= COALESCE(NEW.cohead_taxzone_id,_p.cust_taxzone_id);
+	    END IF;
+          END IF;
 
           IF ((NEW.cohead_warehous_id IS NULL) OR (NEW.cohead_fob IS NULL)) THEN
             IF (NEW.cohead_warehous_id IS NULL) THEN
@@ -484,7 +503,6 @@ BEGIN
       AND  (NOT shiphead_shipped));
     END IF;
   END IF;
-
 
   IF (TG_OP = 'DELETE') THEN
     RETURN OLD;
