@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION postBankReconciliation(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postBankReconciliation(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pBankrecid ALIAS FOR $1;
   _accntid INTEGER;
@@ -27,7 +27,7 @@ BEGIN
 -- Post any bankadj items that were marked as cleared and convert the bankrecitem
   FOR _r IN SELECT bankrecitem_id, bankrecitem_source_id
               FROM bankrecitem, bankadj
-             WHERE ( (bankrecitem_source = ''AD'')
+             WHERE ( (bankrecitem_source = 'AD')
                AND   (bankrecitem_source_id=bankadj_id)
                AND   (bankrecitem_cleared)
                AND   (NOT bankadj_posted)
@@ -48,7 +48,7 @@ BEGIN
     END IF;
 
     UPDATE bankrecitem
-       SET bankrecitem_source = ''GL'',
+       SET bankrecitem_source = 'GL',
            bankrecitem_source_id=_gltransid
      WHERE (bankrecitem_id=_r.bankrecitem_id);
 
@@ -59,7 +59,7 @@ BEGIN
      SET gltrans_rec = TRUE
    WHERE ( (gltrans_id IN (SELECT bankrecitem_source_id
                              FROM bankrecitem
-                            WHERE ((bankrecitem_source = ''GL'')
+                            WHERE ((bankrecitem_source = 'GL')
                               AND  (bankrecitem_cleared)
                               AND  (bankrecitem_bankrec_id=pBankrecid) ) ) )
      AND   (gltrans_accnt_id=_accntid) ) ;
@@ -67,10 +67,10 @@ BEGIN
 -- Mark the bankrec record as posted
   UPDATE bankrec SET 
     bankrec_posted = TRUE,
-    bankrec_postdate = current_date
+    bankrec_postdate = now()
    WHERE (bankrec_id=pBankrecid);
 
   RETURN pBankrecid;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
