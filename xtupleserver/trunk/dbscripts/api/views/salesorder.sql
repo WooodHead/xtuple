@@ -21,8 +21,7 @@ AS
      END AS originated_by,
      salesrep_number AS sales_rep,
      cohead_commission AS commission,
-     taxzone_code AS tax_zone,
-     taxtype_name AS tax_type,
+     COALESCE(taxzone_code,'None') AS tax_zone,
      terms_code AS terms,
      prj_number AS project_number,
      cust_number AS customer_number,
@@ -105,8 +104,7 @@ AS
      LEFT OUTER JOIN prj ON (cohead_prj_id=prj_id)
      LEFT OUTER JOIN shiptoinfo ON (cohead_shipto_id=shipto_id)
      LEFT OUTER JOIN shipchrg ON (cohead_shipchrg_id=shipchrg_id)
-     LEFT OUTER JOIN taxzone ON (cohead_taxzone_id=taxzone_id)
-     LEFT OUTER JOIN taxtype ON (cohead_taxtype_id=taxtype_id),
+     LEFT OUTER JOIN taxzone ON (cohead_taxzone_id=taxzone_id),
      custinfo,shipform,salesrep,terms,curr_symbol
    WHERE ((cohead_cust_id=cust_id)
    AND (cohead_shipform_id=shipform_id)
@@ -168,7 +166,6 @@ CREATE OR REPLACE RULE "_INSERT" AS
     cohead_shiptocountry,
     cohead_curr_id,
     cohead_taxzone_id,
-    cohead_taxtype_id,
     cohead_shipto_cntct_id,
     cohead_shipto_cntct_honorific,
     cohead_shipto_cntct_first_name,
@@ -190,7 +187,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     cohead_billto_cntct_fax,
     cohead_billto_cntct_email
     )
-  VALUES (
+  SELECT
     NEW.order_number,
     getCustId(NEW.customer_number),
     NEW.cust_po_number,
@@ -254,8 +251,12 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.billto_country,
     NEW.shipto_country,
     getCurrId(NEW.currency),
-    getTaxZoneId(NEW.tax_zone),
-    getTaxTypeId(NEW.tax_type),
+    CASE 
+      WHEN NEW.tax_zone = 'None' THEN
+        -1
+      ELSE 
+        getTaxZoneId(NEW.tax_zone)
+    END,
     getCntctId(NEW.shipto_contact_number),
     NEW.shipto_contact_honorific,
     NEW.shipto_contact_first,
@@ -276,7 +277,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.billto_contact_title,
     NEW.billto_contct_fax,
     NEW.billto_contact_email
-    );
+   FROM custinfo
+   WHERE (cust_number=NEW.customer_number);
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.salesorder DO INSTEAD
@@ -355,7 +357,6 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     cohead_shiptocountry=NEW.shipto_country,
     cohead_curr_id=getCurrId(NEW.currency),
     cohead_taxzone_id=getTaxZoneId(NEW.tax_zone),
-    cohead_taxtype_id=getTaxTypeId(NEW.tax_type),
     cohead_lastupdated=('now'::text)::timestamp(6) with time zone,
     cohead_shipto_cntct_id = getCntctId(NEW.shipto_contact_number),
     cohead_shipto_cntct_honorific = NEW.shipto_contact_honorific,
