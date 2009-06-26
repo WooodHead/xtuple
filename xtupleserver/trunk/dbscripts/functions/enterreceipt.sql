@@ -26,72 +26,78 @@ BEGIN
     AND  (recv_orderitem_id=porderitemid) );
 
   IF (pQty > 0) THEN
-    IF (fetchmetricbool('MultiWhs')) THEN
-      SELECT orderhead_number,
-  	   orderitem_id,
-	   orderhead_agent_username,
-	   CASE WHEN (orderitem_itemsite_id = -1) THEN NULL
-		WHEN (pordertype='TO') THEN
-		     (SELECT itemsite_id
-		      FROM itemsite, tohead, toitem
-		      WHERE ((itemsite_warehous_id=tohead_dest_warehous_id)
-			AND  (tohead_id=toitem_tohead_id)
-			AND  (itemsite_item_id=toitem_item_id)
-			AND  (toitem_id=orderitem_id)))
-		ELSE orderitem_itemsite_id
+    IF (pordertype='PO') THEN
+      SELECT pohead_number AS orderhead_number,
+  	   poitem_id AS orderitem_id,
+	   pohead_agent_username AS orderhead_agent_username,
+	   CASE WHEN (poitem_itemsite_id = -1) THEN NULL
+		ELSE poitem_itemsite_id
 	   END AS itemsite_id,
-	   CASE WHEN (pordertype='PO') THEN orderhead_from_id
-		ELSE NULL
-	   END AS vend_id,
+	   vend_id,
 	   COALESCE(poitem_vend_item_number, '') AS vend_item_number,
 	   COALESCE(poitem_vend_item_descrip, '') AS vend_item_descrip,
 	   COALESCE(poitem_vend_uom, '') AS vend_uom,
-	   orderitem_scheddate AS duedate,
-	   orderitem_unitcost,
-	   orderitem_unitcost_curr_id,
-	   orderhead_curr_id AS freight_curr_id INTO _o
-        FROM orderhead, orderitemdata(pordertype, NULL, porderitemid) AS orderitem LEFT OUTER JOIN
-	   poitem ON (orderitem_orderhead_type='PO' AND orderitem_id=poitem_id)
-        WHERE ((orderhead_id=orderitem_orderhead_id)
-          AND  (orderhead_type=orderitem_orderhead_type));
-
-        --Make sure user has site privileges
-        IF ((FOUND) AND (_o.itemsite_id IS NOT NULL)) THEN
-          SELECT warehous_id INTO _warehouseid
-          FROM itemsite,site()
-          WHERE ((itemsite_id=_o.itemsite_id)
-          AND (warehous_id=itemsite_warehous_id));
-          
-          IF (NOT FOUND) THEN
-            RETURN 0;
-          END IF;
-        END IF;
-    ELSE
-     SELECT orderhead_number,
-	   orderitem_id,
-	   orderhead_agent_username,
-	   CASE WHEN (orderitem_itemsite_id = -1) THEN NULL
-           ELSE orderitem_itemsite_id
-	   END AS itemsite_id,
-	   CASE WHEN (pordertype='PO') THEN orderhead_from_id
-		ELSE NULL
-	   END AS vend_id,
-	   COALESCE(poitem_vend_item_number, '') AS vend_item_number,
-	   COALESCE(poitem_vend_item_descrip, '') AS vend_item_descrip,
-	   COALESCE(poitem_vend_uom, '') AS vend_uom,
-	   orderitem_scheddate AS duedate,
-	   orderitem_unitcost,
-	   orderitem_unitcost_curr_id,
-	   orderhead_curr_id AS freight_curr_id INTO _o
-        FROM orderhead, orderitemdata(pordertype, NULL, porderitemid) AS orderitem LEFT OUTER JOIN
-	   poitem ON (orderitem_orderhead_type='PO' AND orderitem_id=poitem_id)
-        WHERE ((orderhead_id=orderitem_orderhead_id)
-          AND  (orderhead_type=orderitem_orderhead_type));
+	   poitem_duedate AS duedate,
+	   poitem_unitprice AS orderitem_unitcost,
+	   pohead_curr_id AS orderitem_unitcost_curr_id,
+	   pohead_curr_id AS freight_curr_id INTO _o
+        FROM pohead
+          JOIN poitem ON (pohead_id=poitem_pohead_id)
+          JOIN vendinfo ON (pohead_vend_id=vend_id)
+        WHERE (poitem_id=porderitemid);
+        
+    ELSIF (pordertype='RA') THEN
+       SELECT rahead_number AS orderhead_number,
+  	   raitem_id AS orderitem_id,
+	   ''::text AS orderhead_agent_username,
+	   raitem_itemsite_id AS itemsite_id,
+	   NULL::integer AS vend_id,
+	   ''::text AS vend_item_number,
+	   ''::text AS vend_item_descrip,
+	   ''::text AS vend_uom,
+	   raitem_scheddate AS duedate,
+	   raitem_unitprice AS orderitem_unitcost,
+	   rahead_curr_id AS orderitem_unitcost_curr_id,
+	   rahead_curr_id AS freight_curr_id INTO _o
+        FROM rahead
+          JOIN raitem ON (rahead_id=raitem_rahead_id)
+        WHERE (raitem_id=porderitemid);
+        
+    ELSIF (pordertype='TO') THEN
+         SELECT tohead_number AS orderhead_number,
+  	   toitem_id AS orderitem_id,
+	   tohead_agent_username AS orderhead_agent_username,
+	   itemsite_id,
+	   NULL::integer AS vend_id,
+	   ''::text AS vend_item_number,
+	   ''::text AS vend_item_descrip,
+	   ''::text AS vend_uom,
+	   toitem_duedate AS duedate,
+	   toitem_stdcost AS orderitem_unitcost,
+	   baseCurrId() AS orderitem_unitcost_curr_id,
+	   toitem_freight_curr_id AS freight_curr_id INTO _o
+        FROM itemsite, tohead
+          JOIN toitem ON (tohead_id=toitem_tohead_id)
+        WHERE ((toitem_id=porderitemid)
+          AND  (tohead_dest_warehous_id=itemsite_warehous_id)
+          AND  (toitem_item_id=itemsite_item_id));
     END IF;
 
-      IF (NOT FOUND) THEN
-	RETURN -1;
-      END IF;
+    --Make sure user has site privileges
+     IF ((FOUND) AND (_o.itemsite_id IS NOT NULL)) THEN
+       SELECT warehous_id INTO _warehouseid
+       FROM itemsite,site()
+       WHERE ((itemsite_id=_o.itemsite_id)
+         AND (warehous_id=itemsite_warehous_id));
+          
+       IF (NOT FOUND) THEN
+         RETURN 0;
+        END IF;
+      END IF;   
+
+    IF (NOT FOUND) THEN
+      RETURN -1;
+    END IF;
 
     INSERT INTO recv
     ( recv_id, recv_date,
