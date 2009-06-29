@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION calcpendingarapplications(INTEGER) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION calcpendingarapplications(INTEGER) RETURNS NUMERIC AS $$
 DECLARE
   paropenid     ALIAS FOR $1;
   _arcreditsum  NUMERIC;
@@ -25,6 +25,6 @@ BEGIN
   WHERE ((arcreditapply_target_aropen_id=paropenid)
     );
 
-  RETURN COALESCE(_cashrcptsum, 0) + COALESCE(_arcreditsum, 0);
+  RETURN round(COALESCE(_cashrcptsum, 0) + COALESCE(_arcreditsum, 0),2);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

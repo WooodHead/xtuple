@@ -33,18 +33,18 @@ RAISE NOTICE 'Amount (%)', _amount;
   END IF;
 
 --  Determine Line balance
-        SELECT  ((aropen_amount - aropen_paid) / 
-                 (1 / round(currRate(pCurrId,cashrcpt_distdate),5) / round(aropen_curr_rate,5))) -
-                 COALESCE((SELECT SUM(cashrcptitem_amount)
+        SELECT currToCurr(aropen_curr_id, 1,
+               aropen_amount - aropen_paid, aropen_docdate) -
+               COALESCE((SELECT SUM(cashrcptitem_amount)
                            FROM cashrcptitem, cashrcpt
                            WHERE ((cashrcpt_id=cashrcptitem_cashrcpt_id)
                              AND  (NOT cashrcpt_void)
+                             AND  (NOT cashrcpt_posted)
+                             AND  (cashrcpt_id != pCashrcptId)
                              AND  (cashrcptitem_aropen_id=pAropenId))), 0) INTO _balance
             FROM aropen, cashrcpt
             WHERE ((aropen_id=pAropenId)
             AND (cashrcpt_id=pCashrcptId));
-
-RAISE NOTICE 'Line Bal (%)', _balance;
 
 --  Determine the amount to apply
     IF (_balance > _amount) THEN
