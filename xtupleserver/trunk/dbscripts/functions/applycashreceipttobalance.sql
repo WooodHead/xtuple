@@ -37,19 +37,21 @@ BEGIN
 --  Loop through the aropen item in order of due date, searching only for
 --  aropen items that are open, for the current customer and have an outstanding balance
   FOR _r IN SELECT aropen_id,
-              ((aropen_amount - aropen_paid) / 
-                (1 / round(currRate(cashrcpt_curr_id,cashrcpt_distdate),5) / round(aropen_curr_rate,5))) -
-                (SELECT COALESCE(SUM(p.cashrcptitem_amount), 0) 
-                 FROM cashrcptitem p
-                 WHERE p.cashrcptitem_aropen_id=aropen_id) AS balance,
-              s.cashrcptitem_id AS cashrcptitem_id
+               currToCurr(aropen_curr_id, 1,
+               aropen_amount - aropen_paid, aropen_docdate) -
+               COALESCE((SELECT SUM(cashrcptitem_amount)
+                           FROM cashrcptitem, cashrcpt
+                           WHERE ((cashrcpt_id=cashrcptitem_cashrcpt_id)
+                             AND  (NOT cashrcpt_void)
+                             AND  (NOT cashrcpt_posted)
+                             AND  (cashrcpt_id != pCashrcptId)
+                             AND  (cashrcptitem_aropen_id=aropen_id))), 0) AS balance,
+                   s.cashrcptitem_id AS cashrcptitem_id
             FROM cashrcpt, aropen LEFT OUTER JOIN
                  cashrcptitem s ON (s.cashrcptitem_aropen_id=aropen_id AND s.cashrcptitem_cashrcpt_id=pCashrcptId)
             WHERE ( (aropen_cust_id=cashrcpt_cust_id)
              AND (aropen_doctype IN ('I', 'D'))
              AND (aropen_open)
-             AND (NOT cashrcpt_posted)
-             AND (NOT cashrcpt_void)
              AND (cashrcpt_id=pCashrcptid) )
             ORDER BY aropen_duedate, aropen_amount, balance LOOP
 

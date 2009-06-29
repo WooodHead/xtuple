@@ -21,15 +21,15 @@ RETURNS NUMERIC AS $$
 	    RETURN 0;
 	END IF;
 
-        SELECT aropen_docdate, aropen_curr_rate
+        SELECT aropen_docdate, aropen_curr_id, aropen_curr_rate
           INTO _r
         FROM aropen
         WHERE (aropen_id=pAropenId);
 
 	IF (_r.aropen_docdate > pDate) THEN
-	  _gain := currToBase(pCurrId, pValue, pDate) - pValue / round(_r.aropen_curr_rate,5) * -1;
+	  _gain := currToBase(pCurrId, pValue, pDate) - currToCurr(pCurrId,_r.aropen_curr_id, pValue, pDate) / round(_r.aropen_curr_rate,5) * -1;
 	ELSE
-          _gain := pValue / round(_r.aropen_curr_rate,5) - currToBase(pCurrId, pValue, pDate);
+          _gain := currToCurr(pCurrId,_r.aropen_curr_id, pValue, pDate) / round(_r.aropen_curr_rate,5) - currToBase(pCurrId, pValue, pDate);
 	END IF;
         
     	IF (_gain IS NULL) THEN
