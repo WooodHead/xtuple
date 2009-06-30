@@ -134,7 +134,7 @@ BEGIN
       arapply_fundstype, arapply_refnumber, arapply_reftype, arapply_ref_id,
       arapply_applied, arapply_closed,
       arapply_postdate, arapply_distdate, arapply_journalnumber, arapply_username,
-      arapply_curr_id, arapply_target_paid
+      arapply_curr_id
       )
     VALUES
     ( _p.cashrcpt_cust_id,
@@ -142,8 +142,7 @@ BEGIN
       _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
       _p.cashrcpt_fundstype, _p.cashrcpt_docnumber, 'CRA', _r.cashrcptitem_id,
       (round(_r.cashrcptitem_amount, 2) * -1.0), _r.closed,
-      CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id,
-      round(currToCurr(_p.cashrcpt_curr_id,_r.aropen_curr_id, _r.cashrcptitem_amount, _p.cashrcpt_distdate),2) * -1  );
+      CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id );
 
 
     _exchGain := arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, _r.cashrcptitem_amount,
