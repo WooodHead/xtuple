@@ -109,7 +109,7 @@ BEGIN
                    cashrcptitem_id, cashrcptitem_amount,
                    currToBase(_p.cashrcpt_curr_id, cashrcptitem_amount,
                               aropen_docdate) AS cashrcptitem_amount_base,
-                   round(aropen_paid + 
+                   round(aropen_paid - 
                       currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,cashrcptitem_amount,_p.cashrcpt_distdate),2) AS new_paid
             FROM cashrcptitem JOIN aropen ON ( (cashrcptitem_aropen_id=aropen_id) AND (aropen_doctype IN ('I', 'D')) )
             WHERE (cashrcptitem_cashrcpt_id=pCashrcptid) LOOP
@@ -117,7 +117,7 @@ BEGIN
 --raise exception 'new paid %', _r.new_paid;
 --  Update the aropen item to post the paid amount
     UPDATE aropen
-    SET aropen_paid = round(aropen_paid - currToCurr(_p.cashrcpt_curr_id, aropen_curr_id, _r.cashrcptitem_amount, _p.cashrcpt_distdate), 2),
+    SET aropen_paid = _r.new_paid,
         aropen_open = TRUE,
         aropen_closedate = NULL
     WHERE (aropen_id=_r.aropen_id);
@@ -134,29 +134,32 @@ BEGIN
       arapply_fundstype, arapply_refnumber, arapply_reftype, arapply_ref_id,
       arapply_applied, arapply_closed,
       arapply_postdate, arapply_distdate, arapply_journalnumber, arapply_username,
-      arapply_curr_id )
+      arapply_curr_id, arapply_target_paid
+      )
     VALUES
     ( _p.cashrcpt_cust_id,
       -1, 'K', '',
       _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
       _p.cashrcpt_fundstype, _p.cashrcpt_docnumber, 'CRA', _r.cashrcptitem_id,
       (round(_r.cashrcptitem_amount, 2) * -1.0), _r.closed,
-      CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id );
+      CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id,
+      round(currToCurr(_p.cashrcpt_curr_id,_r.aropen_curr_id, _r.cashrcptitem_amount, _p.cashrcpt_distdate),2) * -1  );
 
-    PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR',
-                        (_r.aropen_doctype || '-' || _r.aropen_docnumber),
-                        _arAccntid, (round(_r.cashrcptitem_amount_base, 2) * -1.0),
-                        _p.cashrcpt_distdate, _p.custnote );
 
     _exchGain := arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, _r.cashrcptitem_amount,
                            _p.cashrcpt_distdate);
+
+    PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR',
+                        (_r.aropen_doctype || '-' || _r.aropen_docnumber),
+                        _arAccntid, (round(_r.cashrcptitem_amount_base + _exchGain, 2) * -1.0),
+                        _p.cashrcpt_distdate, _p.custnote );
 
     IF (_exchGain <> 0) THEN
         PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CR',
                _r.aropen_doctype || '-' || _r.aropen_docnumber,
                getGainLossAccntId(), round(_exchGain, 2),
                _p.cashrcpt_distdate, _p.custnote);
-        _posted_base := _posted_base - _exchGain;
+
     END IF;
 
   END LOOP;
