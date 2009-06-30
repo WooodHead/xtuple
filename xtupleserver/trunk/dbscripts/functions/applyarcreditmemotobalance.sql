@@ -44,14 +44,14 @@ BEGIN
              AND (target.aropen_open)
              AND (source.aropen_id=pAropenid) )
             ORDER BY target.aropen_duedate, target.aropen_docnumber LOOP
+
 --  Determine the amount to apply
     IF (_r.balance > _amount) THEN
       _applyAmount := _amount;
-      _applycurrid := _amountcurrid;
     ELSE
       _applyAmount := _r.balance;
-      _applycurrid := _r.curr_id;
     END IF;
+    _applycurrid := _amountcurrid;
 
 --  Does an arcreditapply record already exist?
     SELECT arcreditapply_id,

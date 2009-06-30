@@ -117,14 +117,12 @@ BEGIN
                                  AS closed,
                      cashrcptitem_id, cashrcptitem_amount,
                        currToBase(_p.cashrcpt_curr_id, cashrcptitem_amount,
-                                aropen_docdate) AS cashrcptitem_amount_base,
-  
+                                _p.cashrcpt_distdate) AS cashrcptitem_amount_base,
                      round(aropen_paid + 
                        currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,cashrcptitem_amount,_p.cashrcpt_distdate),2) AS new_paid
               FROM cashrcptitem JOIN aropen ON ( (aropen_id=cashrcptitem_aropen_id) AND (aropen_doctype IN ('I', 'D')) )
               WHERE (cashrcptitem_cashrcpt_id=pCashrcptid) LOOP
   
- -- raise exception 'new paid %', _r.new_paid;
   --  Update the aropen item to post the paid amount
       UPDATE aropen
       SET aropen_paid = _r.new_paid,
@@ -144,20 +142,18 @@ BEGIN
         arapply_fundstype, arapply_refnumber, arapply_reftype, arapply_ref_id,
         arapply_applied, arapply_closed,
         arapply_postdate, arapply_distdate, arapply_journalnumber, arapply_username,
-        arapply_curr_id, arapply_target_paid )
+        arapply_curr_id )
       VALUES
       ( _p.cashrcpt_cust_id,
         -1, 'K', '',
         _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
         _p.cashrcpt_fundstype, _p.cashrcpt_docnumber, 'CRA', _r.cashrcptitem_id,
         round(_r.cashrcptitem_amount, 2), _r.closed,
-        CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id,
-        round(currToCurr(_p.cashrcpt_curr_id,_r.aropen_curr_id, _r.cashrcptitem_amount, _p.cashrcpt_distdate),2) );
+        CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id);
   
   
       _exchGain := arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, _r.cashrcptitem_amount,
                              _p.cashrcpt_distdate);
-   --   raise exception 'exch gain %', _exchGain;
 
        PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR',
                           (_r.aropen_doctype || '-' || _r.aropen_docnumber),

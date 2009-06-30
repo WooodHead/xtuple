@@ -88,9 +88,9 @@ BEGIN
     WHERE (arcreditapply_id=_r.arcreditapply_id);
 
     IF (_r.aropen_docdate > _p.aropen_docdate) THEN
-      _exchGain := (_totalTarget / round(_r.aropen_curr_rate,5) - _totalTarget / round(_p.aropen_curr_rate,5)) * -1;
+      _exchGain := (_totalTarget / round(_r.aropen_curr_rate,5) - _totalAmount / round(_p.aropen_curr_rate,5)) * -1;
     ELSE
-      _exchGain := _totalTarget / round(_p.aropen_curr_rate,5) - _totalTarget / round(_r.aropen_curr_rate,5);
+      _exchGain := _totalAmount / round(_p.aropen_curr_rate,5) - _totalTarget / round(_r.aropen_curr_rate,5);
     END IF;
 
     IF (_exchGain <> 0) THEN
