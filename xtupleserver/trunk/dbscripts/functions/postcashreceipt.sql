@@ -161,7 +161,7 @@ BEGIN
 
        PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR',
                           (_r.aropen_doctype || '-' || _r.aropen_docnumber),
-                          _arAccntid, round(_r.cashrcptitem_amount_base, 2) + _exchGain,
+                          _arAccntid, round(_r.cashrcptitem_amount_base + _exchGain, 2),
                           _p.cashrcpt_distdate, _p.custnote );
                           
       IF (_exchGain <> 0) THEN
