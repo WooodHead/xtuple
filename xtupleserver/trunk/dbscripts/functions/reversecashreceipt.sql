@@ -108,7 +108,7 @@ BEGIN
                                AS closed,
                    cashrcptitem_id, cashrcptitem_amount,
                    currToBase(_p.cashrcpt_curr_id, cashrcptitem_amount,
-                              aropen_docdate) AS cashrcptitem_amount_base,
+                              _p.cashrcpt_distdate) AS cashrcptitem_amount_base,
                    round(aropen_paid - 
                       currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,cashrcptitem_amount,_p.cashrcpt_distdate),2) AS new_paid
             FROM cashrcptitem JOIN aropen ON ( (cashrcptitem_aropen_id=aropen_id) AND (aropen_doctype IN ('I', 'D')) )
