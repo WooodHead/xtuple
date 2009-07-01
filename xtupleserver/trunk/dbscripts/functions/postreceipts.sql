@@ -5,13 +5,8 @@ DECLARE
   _itemlocSeries	INTEGER	:= $3;
   _qtyToRecv		NUMERIC;
   _r			RECORD;
-  _multiWhs             BOOLEAN;
-  _returnauth           BOOLEAN;
 
 BEGIN
-
-  _multiWhs := fetchMetricBool('MultiWhs');
-  _returnauth := fetchMetricBool('EnableReturnAuth');
 
   SELECT SUM(qtyToReceive(pordertype, recv_orderitem_id)) INTO _qtyToRecv
   FROM recv, orderitem
