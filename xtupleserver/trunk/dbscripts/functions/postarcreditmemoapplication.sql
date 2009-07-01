@@ -2,6 +2,15 @@
 CREATE OR REPLACE FUNCTION postARCreditMemoApplication(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pAropenid ALIAS FOR $1;
+BEGIN
+  RETURN postARCreditMemoApplication(pAropenid, CURRENT_DATE);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION postARCreditMemoApplication(INTEGER, DATE) RETURNS INTEGER AS $$
+DECLARE
+  pAropenid ALIAS FOR $1;
+  _applyDate DATE := COALESCE($2, CURRENT_DATE);
   _p RECORD;
   _r RECORD;
   _totalAmount NUMERIC := 0;
@@ -15,7 +24,7 @@ BEGIN
          ROUND(aropen_amount - aropen_paid, 2) AS balance,
          aropen_open, aropen_curr_rate,
          ROUND(SUM(currToCurr(arcreditapply_curr_id, aropen_curr_id,
-              COALESCE(arcreditapply_amount, 0), CURRENT_DATE)), 2) AS toApply INTO _p
+              COALESCE(arcreditapply_amount, 0), _applyDate)), 2) AS toApply INTO _p
   FROM aropen, arcreditapply
   WHERE ( (arcreditapply_source_aropen_id=aropen_id)
    AND (aropen_id=pAropenid) )
@@ -40,7 +49,7 @@ BEGIN
   FOR _r IN SELECT arcreditapply_id, arcreditapply_target_aropen_id,
                    arcreditapply_amount AS arcreditapply_amountSource,
                    currToCurr(arcreditapply_curr_id, aropen_curr_id,
-                              arcreditapply_amount, CURRENT_DATE) AS arcreditapply_amountTarget,
+                              arcreditapply_amount, _applyDate) AS arcreditapply_amountTarget,
                    aropen_id, aropen_doctype, aropen_docnumber, aropen_docdate, aropen_curr_rate
             FROM arcreditapply, aropen
             WHERE ( (arcreditapply_source_aropen_id=pAropenid)
@@ -78,7 +87,7 @@ BEGIN
         pAropenid, _p.aropen_doctype, _p.aropen_docnumber,
         _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
         '', '',
-        round(_r.arcreditapply_amountSource, 2), TRUE, CURRENT_DATE, CURRENT_DATE,
+        round(_r.arcreditapply_amountSource, 2), TRUE, _applyDate, _applyDate,
         0, CURRENT_USER, _p.aropen_curr_id );
 
     END IF;
@@ -102,7 +111,7 @@ BEGIN
                                         ELSE _p.aropen_accnt_id
                                         END,
                                     getGainLossAccntId(),
-                                    -1, _exchGain * -1, CURRENT_DATE);
+                                    -1, _exchGain * -1, _applyDate);
     END IF;
 
   END LOOP;
@@ -114,7 +123,7 @@ BEGIN
                                'CD', _p.aropen_doctype, _p.aropen_docnumber,
                                cr.accnt_id, db.accnt_id, -1,
                                currToBase(_p.aropen_curr_id, _totalAmount, _p.aropen_docdate),
-                               CURRENT_DATE)
+                               _applyDate)
       INTO _result
       FROM accnt AS cr, accnt AS db
      WHERE ((db.accnt_id = findDeferredAccount(_p.aropen_cust_id))
