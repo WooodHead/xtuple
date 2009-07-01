@@ -64,7 +64,7 @@ BEGIN
     END IF;
   ELSE
     IF (pNew.document_type = 'Debit Memo') THEN
-      SELECT createARDebitMemo( getCustId(pNew.customer_number),
+      SELECT createARDebitMemo( null, getCustId(pNew.customer_number),
                                 pNew.journal_number,
                                 pNew.document_number,
                                 pNew.order_number,
