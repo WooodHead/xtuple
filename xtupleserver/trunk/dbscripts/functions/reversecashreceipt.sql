@@ -212,7 +212,7 @@ BEGIN
                                 _p.cashrcpt_distdate, _p.custnote );
     SELECT fetchArMemoNumber() INTO _arMemoNumber;
     -- Post A/R Credit Memo
-    SELECT createARDebitMemo(_p.cashrcpt_cust_id, pJournalNumber, _arMemoNumber,
+    SELECT createARDebitMemo(NULL, _p.cashrcpt_cust_id, pJournalNumber, _arMemoNumber, '',
                               _p.cashrcpt_distdate, (_p.cashrcpt_amount - _posted),
                               _comment, -1, -1, -1, _p.cashrcpt_distdate, -1, -1, 0,
                               _p.cashrcpt_curr_id) INTO _aropenid;

@@ -64,10 +64,11 @@ BEGIN
 	_credit_glaccnt := findAPPrepaidAccount(_p.checkhead_recip_id);
 
       ELSIF (_p.checkhead_recip_type = 'C') THEN
-	PERFORM createARDebitMemo(_p.checkhead_recip_id,
+	PERFORM createARDebitMemo(NULL, _p.checkhead_recip_id, NULL,
 	  			     fetchARMemoNumber(), '',
 				     _p.checkhead_checkdate, _p.checkhead_amount,
 				     _gltransNote || ' ' || _p.checkhead_notes,
+                                     -1, -1, -1, _p.checkhead_checkdate, -1, -1, 0,
 				     _p.checkhead_curr_id );
         _credit_glaccnt := findPrepaidAccount(_p.checkhead_recip_id);
       ELSIF (_p.checkhead_recip_type = 'T') THEN
