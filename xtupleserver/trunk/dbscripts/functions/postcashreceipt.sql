@@ -149,7 +149,7 @@ BEGIN
         _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
         _p.cashrcpt_fundstype, _p.cashrcpt_docnumber, 'CRA', _r.cashrcptitem_id,
         round(_r.cashrcptitem_amount, 2), _r.closed,
-        CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id);
+        _p.applydate, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id);
   
   
       _exchGain := arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, _r.cashrcptitem_amount,
@@ -198,7 +198,7 @@ BEGIN
       -1, 'Misc.', '',
       _p.cashrcpt_fundstype, _p.cashrcpt_docnumber,
       round(_r.cashrcptmisc_amount, 2), TRUE,
-      CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, 
+      _p.applydate, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, 
       _r.cashrcpt_curr_id, 'CRD', _r.cashrcptmisc_id );
     PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR', _r.cashrcptmisc_notes,
                                 _r.cashrcptmisc_accnt_id,
@@ -266,7 +266,7 @@ BEGIN
                                  _r.cashrcptitem_amount, _p.cashrcpt_curr_id);
       _posted := (_posted + _r.cashrcptitem_amount);
     END LOOP;
-    PERFORM postArCreditMemoApplication(_aropenid);
+    PERFORM postArCreditMemoApplication(_aropenid, _p.applydate);
     -- If there is any left over go ahead and create an additional cashrcptitem record for it with the amount
     IF (round(_posted, 2) < round(_p.cashrcpt_amount, 2)) THEN
       INSERT INTO cashrcptitem
