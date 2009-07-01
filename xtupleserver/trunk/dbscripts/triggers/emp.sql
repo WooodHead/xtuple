@@ -116,7 +116,11 @@ BEGIN
 
     IF ((NOT FOUND AND NEW.emp_username IS NOT NULL) OR
         (FOUND     AND COALESCE(NEW.emp_username, _username) !=_username)) THEN
-      RAISE EXCEPTION 'This Employee Code is associated with a User Name and may not be changed.';
+      IF(NOT FOUND) THEN
+        RAISE EXCEPTION 'You have specified a user name for this employee that does not exist.';
+      ELSE
+        RAISE EXCEPTION 'This Employee Code is associated with a User Name and may not be changed.';
+      END IF;
     ELSIF (FOUND AND COALESCE(NEW.emp_username, _username) != _username) THEN
       RAISE EXCEPTION 'This Employee Code is already in use as a User Name. Please choose a different Employee Code.';
     END IF;
