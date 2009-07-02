@@ -78,6 +78,7 @@ BEGIN
     FOR _r IN SELECT item_id, item_fractional,
                       itemsite_id, itemsite_warehous_id,
                       itemsite_controlmethod, itemsite_loccntrl,
+                      itemsite_costmethod,
                       womatl_id, womatl_qtyper, womatl_scrap,
                       womatl_issuemethod, womatl_uom_id
                FROM womatl, wo, itemsite, item
@@ -106,8 +107,14 @@ BEGIN
 
 --  Decrease the parent W/O's WIP value by the value of the returned components
       UPDATE wo
-      SET wo_wipvalue = (wo_wipvalue - ((stdcost(_r.item_id) * _invqty))),
-          wo_postedvalue = (wo_postedvalue - ((stdcost(_r.item_id) * _invqty)))
+      SET wo_wipvalue = (wo_wipvalue -
+                         (CASE WHEN(_r.itemsite_costmethod='A')
+                                      THEN avgcost(_r.itemsite_id)
+                                      ELSE stdcost(_r.item_id) END * _invqty)),
+          wo_postedvalue = (wo_postedvalue -
+                            (CASE WHEN(_r.itemsite_costmethod='A')
+                                      THEN avgcost(_r.itemsite_id)
+                                      ELSE stdcost(_r.item_id) END * _invqty))
       WHERE (wo_id=pWoid);
 
       UPDATE womatl
