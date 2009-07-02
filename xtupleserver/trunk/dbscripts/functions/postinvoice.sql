@@ -90,6 +90,35 @@ BEGIN
     _totalRoundedBase := _totalRoundedBase + _r.taxbasevalue;  
   END LOOP;
 
+-- Update item tax records with posting data
+    UPDATE invcitemtax SET 
+      taxhist_docdate=_firstExchDate,
+      taxhist_distdate=_glDate,
+      taxhist_curr_id=_p.invchead_curr_id,
+      taxhist_curr_rate=curr_rate,
+      taxhist_journalnumber=pJournalNumber
+    FROM invchead
+     JOIN invcitem ON (invchead_id=invcitem_invchead_id), 
+     curr_rate
+    WHERE ((invchead_id=pInvcheadId)
+      AND (taxhist_parent_id=invcitem_id)
+      AND (_p.invchead_curr_id=curr_id)
+      AND ( _firstExchDate BETWEEN curr_effective 
+                           AND curr_expires) );
+
+-- Update Invchead taxes (Freight and Adjustments) with posting data
+    UPDATE invcheadtax SET 
+      taxhist_docdate=_firstExchDate,
+      taxhist_distdate=_glDate,
+      taxhist_curr_id=_p.invchead_curr_id,
+      taxhist_curr_rate=curr_rate,
+      taxhist_journalnumber=pJournalNumber
+    FROM curr_rate
+    WHERE ((taxhist_parent_id=pInvcheadid)
+      AND (_p.invchead_curr_id=curr_id)
+      AND ( _firstExchDate BETWEEN curr_effective 
+                           AND curr_expires) );
+
 --  March through the Non-Misc. Invcitems
   FOR _r IN SELECT *
             FROM invoiceitem
@@ -255,32 +284,6 @@ BEGIN
     WHERE (taxhist_parent_id=_r.invcitem_id);
 
   END LOOP;
-
--- Update item tax records with posting data
-    UPDATE invcitemtax SET 
-      taxhist_docdate=_firstExchDate,
-      taxhist_distdate=_glDate,
-      taxhist_curr_id=_p.invchead_curr_id,
-      taxhist_curr_rate=curr_rate,
-      taxhist_journalnumber=pJournalNumber
-    FROM curr_rate
-    WHERE ((taxhist_parent_id=_r.invcitem_id)
-      AND (_p.invchead_curr_id=curr_id)
-      AND ( _firstExchDate BETWEEN curr_effective 
-                           AND curr_expires) );
-
--- Update Invchead taxes (Freight and Adjustments) with posting data
-    UPDATE invcheadtax SET 
-      taxhist_docdate=_firstExchDate,
-      taxhist_distdate=_glDate,
-      taxhist_curr_id=_p.invchead_curr_id,
-      taxhist_curr_rate=curr_rate,
-      taxhist_journalnumber=pJournalNumber
-    FROM curr_rate
-    WHERE ((taxhist_parent_id=_r.invcitem_id)
-      AND (_p.invchead_curr_id=curr_id)
-      AND ( _firstExchDate BETWEEN curr_effective 
-                           AND curr_expires) );
 
 --  Credit the Freight Account for Freight Charges
   IF (_p.invchead_freight <> 0) THEN
