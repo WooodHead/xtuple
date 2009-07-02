@@ -1,4 +1,4 @@
-SELECT dropIfExists('view', 'creditMemoEditList');
+SELECT dropIfExists('view', 'creditMemoEditList'); 
 
 CREATE VIEW creditMemoEditList AS
 -- Total A/R

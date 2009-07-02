@@ -11,7 +11,7 @@ DECLARE
   
 BEGIN
 
-  SELECT SUM(taxdetail_tax)
+  SELECT ROUND(SUM(taxdetail_tax),6)
     INTO _tottax 
   FROM calculateTaxDetail(pTaxZoneId, pTaxTypeId, pDate, pCurrId, pAmount);
 

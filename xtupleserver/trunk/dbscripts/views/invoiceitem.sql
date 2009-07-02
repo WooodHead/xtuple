@@ -1,4 +1,4 @@
-SELECT dropIfExists('view', 'invoiceitem');
+SELECT dropIfExists('view', 'invoiceitem'); 
 CREATE VIEW invoiceitem AS
 SELECT invcitem.*, itemsite_id,
        COALESCE((invcitem_billed * invcitem_qty_invuomratio), 0) AS qty,

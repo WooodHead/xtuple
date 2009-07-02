@@ -10,7 +10,7 @@ CREATE TYPE taxdetail AS
   taxdetail_taxclass_id integer,
   taxdetail_taxclass_code text,
   taxdetail_taxclass_sequence integer,
-  taxdetail_tax numeric (16,2),
+  taxdetail_tax numeric (16,6),
   taxdetail_curr_id integer,
   taxdetail_curr_abbr text
 );

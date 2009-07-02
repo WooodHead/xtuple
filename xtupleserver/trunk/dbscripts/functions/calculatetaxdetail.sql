@@ -74,7 +74,7 @@ BEGIN
 
     -- Calculate the tax amount.  Convert currency for flat rate amounts
     SELECT 
-    ROUND((_y.taxrate_percent * (pAmount + _prevcum) + currToCurr(_y.curr_id, pCurrId, _y.taxrate_amount, pDate)), 2) 
+    ROUND((_y.taxrate_percent * (pAmount + _prevcum) + currToCurr(_y.curr_id, pCurrId, _y.taxrate_amount, pDate)), 6) 
     INTO _tax
     FROM tax JOIN  taxrate ON (tax_id = taxrate_tax_id)
     WHERE (tax_id=_x.taxass_tax_id)
