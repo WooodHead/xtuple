@@ -1,4 +1,4 @@
-SELECT dropIfExists('view', 'creditmemoitem');
+SELECT dropIfExists('view', 'creditmemoitem'); 
 CREATE VIEW creditmemoitem AS
 SELECT cmitem.*, itemsite_item_id AS item_id,
        COALESCE((cmitem_qtycredit * cmitem_qty_invuomratio), 0) AS qty,

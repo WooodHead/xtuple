@@ -34,7 +34,6 @@ DECLARE
   _firstExchDate        DATE;
   _glDate		DATE;
   _exchGain             NUMERIC := 0;
-  _taxBaseValue		NUMERIC := 0;
 
 BEGIN
 
@@ -73,6 +72,23 @@ BEGIN
       FROM cohead JOIN invchead ON (cohead_number = invchead_ordernumber)
       WHERE (invchead_id = pInvcheadid);
   END IF;
+
+--  Start by handling taxes
+  FOR _r IN SELECT tax_sales_accnt_id, 
+              round(sum(taxdetail_tax),2) AS tax,
+              currToBase(_p.invchead_curr_id, round(sum(taxdetail_tax),2), _firstExchDate) AS taxbasevalue
+            FROM tax 
+             JOIN calculateTaxDetailSummary('I', pInvcheadid, 'T') ON (taxdetail_tax_id=tax_id)
+	    GROUP BY tax_id, tax_sales_accnt_id LOOP
+
+    PERFORM insertIntoGLSeries( _p.sequence, 'A/R', 'IN', _p.invchead_invcnumber,
+                                _r.tax_sales_accnt_id, 
+                                _r.taxbasevalue,
+                                _glDate, _p.invchead_billto_name );
+
+    _totalAmount := _totalAmount + _r.tax;
+    _totalRoundedBase := _totalRoundedBase + _r.taxbasevalue;  
+  END LOOP;
 
 --  March through the Non-Misc. Invcitems
   FOR _r IN SELECT *
@@ -116,20 +132,8 @@ BEGIN
       _commissionDue := (_commissionDue + (_amount * _p.invchead_commission));
     END IF;
 
-    _taxBaseValue := addTaxToGLSeries(_p.sequence,
-				      'A/R', 'IN', _p.invchead_invcnumber,
-				      _p.invchead_curr_id, _firstExchDate, _glDate,
-                                      'invcitemtax', _r.invcitem_id,
-                                      (_p.invchead_billto_name));
-    IF (_taxBaseValue IS NULL) THEN
-      PERFORM deleteGLSeries(_p.sequence);
-      DELETE FROM cohist
-       WHERE ((cohist_sequence=_p.sequence)
-	 AND  (cohist_invcnumber=_p.invchead_invcnumber));
-      RETURN -12;
-    END IF;
-    _totalAmount := _totalAmount + _r.tax;
-    _totalRoundedBase := _totalRoundedBase + _taxBaseValue;
+    _totalAmount := _totalAmount;
+    _totalRoundedBase := _totalRoundedBase;
 
 --  Record Sales History for this S/O Item
     SELECT nextval('cohist_cohist_id_seq') INTO _cohistid;
@@ -205,21 +209,6 @@ BEGIN
       _commissionDue := (_commissionDue + (_amount * _p.invchead_commission));
     END IF;
 
-    _taxBaseValue := addTaxToGLSeries(_p.sequence,
-				      'A/R', 'IN', _p.invchead_invcnumber,
-				      _p.invchead_curr_id, _firstExchDate, _glDate,
-                                      'invcitemtax', _r.invcitem_id,
-                                      (_p.invchead_billto_name));
-    IF (_taxBaseValue IS NULL) THEN
-      PERFORM deleteGLSeries(_p.sequence);
-      DELETE FROM cohist
-       WHERE ((cohist_sequence=_p.sequence)
-	 AND  (cohist_invcnumber=_p.invchead_invcnumber));
-      RETURN -13;
-    END IF;
-    _totalAmount := _totalAmount + _r.tax;
-    _totalRoundedBase := _totalRoundedBase + _taxBaseValue;
-
 --  Record Sales History for this S/O Item
     SELECT nextval('cohist_cohist_id_seq') INTO _cohistid;
     INSERT INTO cohist
@@ -267,19 +256,31 @@ BEGIN
 
   END LOOP;
 
--- Post all Invchead taxes (Freight and Adjustments) to the GL
-  _taxBaseValue := addTaxToGLSeries(_p.sequence,
-				      'A/R', 'IN', _p.invchead_invcnumber,
-				      _p.invchead_curr_id, _firstExchDate, _glDate,
-                                      'invcheadtax', _p.invchead_id,
-                                      (_p.invchead_billto_name));
-  IF (_taxBaseValue IS NULL) THEN
-    PERFORM deleteGLSeries(_p.sequence);
-    DELETE FROM cohist
-     WHERE ((cohist_sequence=_p.sequence)
-       AND  (cohist_invcnumber=_p.invchead_invcnumber));
-    RETURN -15;
-  END IF;
+-- Update item tax records with posting data
+    UPDATE invcitemtax SET 
+      taxhist_docdate=_firstExchDate,
+      taxhist_distdate=_glDate,
+      taxhist_curr_id=_p.invchead_curr_id,
+      taxhist_curr_rate=curr_rate,
+      taxhist_journalnumber=pJournalNumber
+    FROM curr_rate
+    WHERE ((taxhist_parent_id=_r.invcitem_id)
+      AND (_p.invchead_curr_id=curr_id)
+      AND ( _firstExchDate BETWEEN curr_effective 
+                           AND curr_expires) );
+
+-- Update Invchead taxes (Freight and Adjustments) with posting data
+    UPDATE invcheadtax SET 
+      taxhist_docdate=_firstExchDate,
+      taxhist_distdate=_glDate,
+      taxhist_curr_id=_p.invchead_curr_id,
+      taxhist_curr_rate=curr_rate,
+      taxhist_journalnumber=pJournalNumber
+    FROM curr_rate
+    WHERE ((taxhist_parent_id=_r.invcitem_id)
+      AND (_p.invchead_curr_id=curr_id)
+      AND ( _firstExchDate BETWEEN curr_effective 
+                           AND curr_expires) );
 
 --  Credit the Freight Account for Freight Charges
   IF (_p.invchead_freight <> 0) THEN
@@ -458,9 +459,6 @@ BEGIN
       AND   (taxhist_taxtype_id=getAdjustmentTaxtypeId()) );
 
   END IF;
-
-  _totalAmount := _totalAmount + _p.freighttax + _p.adjtax;
-  _totalRoundedBase := _totalRoundedBase + _taxBaseValue;
 
 -- ToDo: handle rounding errors
     _exchGain := currGain(_p.invchead_curr_id, _totalAmount,

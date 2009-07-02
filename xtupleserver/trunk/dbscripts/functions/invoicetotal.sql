@@ -5,16 +5,14 @@ DECLARE
 
 BEGIN
 
-  SELECT noNeg(invchead_freight + invchead_misc_amount +
-         ( SELECT COALESCE(SUM(taxhist_tax),0.0) 
-             FROM invcheadtax
-            WHERE (taxhist_parent_id=pInvoiceId)
-           ) +
-         ( SELECT COALESCE(SUM(taxhist_tax), 0.0) 
-             FROM invcitemtax
-               JOIN invcitem ON (invcitem_id=taxhist_parent_id)
-            WHERE (invcitem_invchead_id=pInvoiceId)
-           ) +
+  SELECT noNeg(invchead_freight + invchead_misc_amount + COALESCE(
+         ( SELECT SUM(tax) AS tax 
+           FROM (
+                SELECT ROUND(SUM(taxdetail_tax),2) AS tax 
+                FROM tax 
+                 JOIN calculateTaxDetailSummary('I', pInvoiceId, 'T') ON (taxdetail_tax_id=tax_id)
+	        GROUP BY tax_id) AS data
+           ),0) +
          COALESCE(SUM(ROUND(((invcitem_billed * invcitem_qty_invuomratio) *
                              (invcitem_price / COALESCE(invcitem_price_invuomratio,1))),2)), 0) -
                           MAX(total_allocated)) into _result

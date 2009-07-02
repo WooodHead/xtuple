@@ -30,7 +30,7 @@ BEGIN
   
   LOOP
     SELECT 
-      ROUND((_x.taxrate_percent * pAmount + currToCurr(_x.curr_id, pCurrId, _x.taxrate_amount, pDate)), 2) 
+      ROUND((_x.taxrate_percent * pAmount + currToCurr(_x.curr_id, pCurrId, _x.taxrate_amount, pDate)), 6) 
     INTO _calc_tax;
 
     _row.taxdetail_tax_id = _x.tax_id;
