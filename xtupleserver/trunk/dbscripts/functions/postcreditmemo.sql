@@ -66,6 +66,52 @@ BEGIN
 
   SELECT fetchGLSequence() INTO _sequence;
 
+--  Start by handling taxes
+  FOR _r IN SELECT tax_sales_accnt_id, 
+              round(sum(taxdetail_tax),2) AS tax,
+              currToBase(_p.cmhead_curr_id, round(sum(taxdetail_tax),2), _p.cmhead_docdate) AS taxbasevalue
+            FROM tax 
+             JOIN calculateTaxDetailSummary('CM', pCmheadid, 'T') ON (taxdetail_tax_id=tax_id)
+	    GROUP BY tax_id, tax_sales_accnt_id LOOP
+
+    PERFORM insertIntoGLSeries( _sequence, 'A/R', 'IN', _p.cmhead_invcnumber,
+                                _r.tax_sales_accnt_id, 
+                                _r.taxbasevalue,
+                                _glDate, _p.cmhead_billtoname );
+
+    _totalAmount := _totalAmount + _r.tax;
+  END LOOP;
+
+-- Update item tax records with posting data
+  UPDATE cmitemtax SET 
+    taxhist_docdate=_p.cmhead_docdate,
+    taxhist_distdate=_glDate,
+    taxhist_curr_id=_p.cmhead_curr_id,
+    taxhist_curr_rate=curr_rate,
+    taxhist_journalnumber=pJournalNumber
+  FROM cmhead
+   JOIN cmitem ON (cmhead_id=cmitem_cmhead_id),
+   curr_rate
+  WHERE ((cmhead_id=pCmheadId)
+    AND (taxhist_parent_id=cmitem_id)
+    AND (_p.cmhead_curr_id=curr_id)
+    AND (_p.cmhead_docdate BETWEEN curr_effective 
+                           AND curr_expires) );
+
+-- Update Invchead taxes (Freight and Adjustments) with posting data
+  UPDATE cmheadtax SET 
+    taxhist_docdate=_p.cmhead_docdate,
+    taxhist_distdate=_glDate,
+    taxhist_curr_id=_p.cmhead_curr_id,
+    taxhist_curr_rate=curr_rate,
+    taxhist_journalnumber=pJournalNumber
+  FROM curr_rate
+  WHERE ((taxhist_parent_id=pCmheadId)
+    AND (_p.cmhead_curr_id=curr_id)
+    AND (_p.cmhead_docdate BETWEEN curr_effective 
+                           AND curr_expires) );
+
+-- Process line items
   FOR _r IN SELECT *
             FROM creditmemoitem
             WHERE ( (cmitem_cmhead_id=pCmheadid)
@@ -92,16 +138,6 @@ BEGIN
         PERFORM deleteGLSeries(_sequence);
         RETURN -12;
       END IF;
-    END IF;
-
-    _taxBaseValue := addTaxToGLSeries(_sequence,
-				      'A/R', 'CM', _p.cmhead_number,
-				      _p.cmhead_curr_id, _p.cmhead_docdate, _glDate,
-                                      'cmitemtax', _r.cmitem_id,
-                                      (_p.cmhead_billtoname));
-    IF (_taxBaseValue IS NULL) THEN
-      PERFORM deleteGLSeries(_sequence);
-      RETURN -13;
     END IF;
 
 --  Record Sales History for this C/M Item
@@ -201,13 +237,6 @@ BEGIN
 --  Cache the Misc. Amount distributed
     _totalAmount := _totalAmount + _p.cmhead_misc;
   END IF;
-
--- Post all Cmhead taxes (Freight and Adjustments) to the GL
-  _taxBaseValue := addTaxToGLSeries(_sequence,
-				      'A/R', 'CM', _p.cmhead_number,
-				      _p.cmhead_curr_id, _p.cmhead_docdate, _glDate,
-                                      'cmheadtax', _p.cmhead_id,
-                                      (_p.cmhead_billtoname));
 
   -- Credit Tax Adjustments
   IF (_p.adjtax <> 0) THEN
@@ -323,11 +352,6 @@ BEGIN
     WHERE ( (taxhist_parent_id=_p.cmhead_id)
       AND   (taxhist_taxtype_id=getFreightTaxtypeId()) );
 
-  END IF;
-
-  IF (_taxBaseValue IS NULL) THEN
-    PERFORM deleteGLSeries(_sequence);
-    RETURN -15;
   END IF;
 
   _totalAmount := _totalAmount + _p.freighttax * -1 + _p.adjtax * -1;
