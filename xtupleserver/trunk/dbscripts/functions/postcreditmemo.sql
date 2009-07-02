@@ -74,12 +74,12 @@ BEGIN
              JOIN calculateTaxDetailSummary('CM', pCmheadid, 'T') ON (taxdetail_tax_id=tax_id)
 	    GROUP BY tax_id, tax_sales_accnt_id LOOP
 
-    PERFORM insertIntoGLSeries( _sequence, 'A/R', 'IN', _p.cmhead_invcnumber,
+    PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CM', _p.cmhead_number,
                                 _r.tax_sales_accnt_id, 
                                 _r.taxbasevalue,
                                 _glDate, _p.cmhead_billtoname );
 
-    _totalAmount := _totalAmount + _r.tax;
+    _totalAmount := _totalAmount + _r.tax * -1;
   END LOOP;
 
 -- Update item tax records with posting data
@@ -98,7 +98,7 @@ BEGIN
     AND (_p.cmhead_docdate BETWEEN curr_effective 
                            AND curr_expires) );
 
--- Update Invchead taxes (Freight and Adjustments) with posting data
+-- Update Header taxes (Freight and Adjustments) with posting data
   UPDATE cmheadtax SET 
     taxhist_docdate=_p.cmhead_docdate,
     taxhist_distdate=_glDate,
@@ -182,7 +182,7 @@ BEGIN
     FROM cmitemtax
     WHERE (taxhist_parent_id=_r.cmitem_id);
 
-    _totalAmount := _totalAmount + round(_r.extprice, 2) + round(_r.tax * -1, 2);
+    _totalAmount := _totalAmount + round(_r.extprice, 2);
 
   END LOOP;
 
