@@ -24,6 +24,7 @@ DECLARE
   _totalAmount NUMERIC;
   _itemAmount_base NUMERIC;
   _itemAmount NUMERIC;
+  _totalDiscountableAmount NUMERIC;
   _test INTEGER;
   _a RECORD;
   _d RECORD;
@@ -44,6 +45,7 @@ BEGIN
   _pPostCosts := TRUE;
   _totalAmount_base := 0;
   _totalAmount := 0;
+  _totalDiscountableAmount := 0;
   SELECT fetchGLSequence() INTO _sequence;
 
 --  Cache Voucher Infomation
@@ -115,7 +117,7 @@ BEGIN
 --  Loop through the vodist records for the passed vohead that
 --  are posted against a P/O Item
   FOR _g IN SELECT DISTINCT poitem_id, voitem_id, voitem_qty, poitem_expcat_id,
-                            poitem_invvenduomratio,
+                            poitem_invvenduomratio, vodist_discountable,
                             COALESCE(itemsite_id, -1) AS itemsiteid,
                             COALESCE(itemsite_costcat_id, -1) AS costcatid,
                             COALESCE(itemsite_item_id, -1) AS itemsite_item_id,
@@ -251,6 +253,9 @@ BEGIN
 --  Add the distribution amount to the total amount to distribute
     _totalAmount_base := (_totalAmount_base + _itemAmount_base + _g.voitem_freight_base - _taxBaseValue);
     _totalAmount := (_totalAmount + _itemAmount + _g.voitem_freight - currToCurr(baseCurrId(), _p.vohead_curr_id, _taxBaseValue, _glDate));
+    IF (_g.vodist_discountable) THEN
+      _totalDiscountableAmount := (_totalDiscountableAmount + _itemAmount);
+    END IF;
 
 --  Post all the Tagged Receivings for this P/O Item as Invoiced and
 --  record the purchase and receive costs
@@ -292,7 +297,7 @@ BEGIN
 --  Loop through the vodist records for the passed vohead that
 --  are not posted against a P/O Item
 --  Skip the tax distributions
-  FOR _d IN SELECT vodist_id,
+  FOR _d IN SELECT vodist_id, vodist_discountable,
 		   currToBase(_p.vohead_curr_id, vodist_amount,
 			      _p.vohead_distdate) AS vodist_amount_base,
 		   vodist_amount,
@@ -320,6 +325,9 @@ BEGIN
 --  Add the Distribution Amount to the Total Amount
     _totalAmount_base := _totalAmount_base + ROUND(_d.vodist_amount_base, 2);
     _totalAmount := _totalAmount + _d.vodist_amount;
+    IF (_d.vodist_discountable) THEN
+      _totalDiscountableAmount := (_totalDiscountableAmount + _d.vodist_amount);
+    END IF;
 
   END LOOP;
 
@@ -341,12 +349,13 @@ BEGIN
     apopen_terms_id, apopen_vend_id, apopen_doctype,
     apopen_docnumber, apopen_invcnumber, apopen_ponumber, apopen_reference,
     apopen_amount, apopen_paid, apopen_notes, apopen_username, apopen_posted,
-    apopen_curr_id )
+    apopen_curr_id, apopen_discountable_amount )
 -- TODO: 
   SELECT pJournalNumber, vohead_docdate, vohead_duedate, _glDate, TRUE,
          vohead_terms_id, vohead_vend_id, 'V',
          vohead_number, vohead_invcnumber, COALESCE(TEXT(pohead_number), 'Misc.'), vohead_reference,
-         round(_totalAmount, 2), 0, '', CURRENT_USER, FALSE, vohead_curr_id
+         round(_totalAmount, 2), 0, '', CURRENT_USER, FALSE,
+         vohead_curr_id, round(_totalDiscountableAmount, 2)
   FROM vohead LEFT OUTER JOIN pohead ON (vohead_pohead_id=pohead_id)
   WHERE (vohead_id=pVoheadid);
 
