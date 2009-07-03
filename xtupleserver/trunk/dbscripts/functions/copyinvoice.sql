@@ -44,7 +44,7 @@ BEGIN
          invchead_notes,
          invchead_billto_country, invchead_shipto_country,
          invchead_prj_id, invchead_curr_id,
-         invchead_taxzone_id, invchead_taxtype_id,
+         invchead_taxzone_id,
          invchead_adjtaxtype_id, invchead_freighttaxtype_id )
   VALUES(_invcheadid,
          _i.invchead_cust_id, _i.invchead_shipto_id,
@@ -69,7 +69,7 @@ BEGIN
          _i.invchead_notes,
          _i.invchead_billto_country, _i.invchead_shipto_country,
          _i.invchead_prj_id, _i.invchead_curr_id,
-         _i.invchead_taxzone_id, _i.invchead_taxtype_id,
+         _i.invchead_taxzone_id,
          _i.invchead_adjtaxtype_id, _i.invchead_freighttaxtype_id );
 
   INSERT INTO invcheadtax ( taxhist_parent_id,
