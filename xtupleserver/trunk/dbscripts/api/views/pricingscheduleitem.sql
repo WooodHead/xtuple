@@ -2,7 +2,7 @@ BEGIN;
 
 -- Pricing Schedule Item
 
-DROP VIEW api.pricingscheduleitem;
+SELECT dropIfExists('VIEW', 'pricingscheduleitem', 'api', true);
 CREATE OR REPLACE VIEW api.pricingscheduleitem AS 
  SELECT 
    ipshead_name::VARCHAR AS pricing_schedule, 
