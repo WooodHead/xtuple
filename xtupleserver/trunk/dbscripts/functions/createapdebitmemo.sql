@@ -228,6 +228,9 @@ BEGIN
                                       'apopentax', _apopenid,
                                       _vendName);
 
+  UPDATE apopentax SET taxhist_journalnumber = _journalNumber
+  WHERE taxhist_parent_id=_apopenid;
+
   -- Debit the Prepaid account for the basis amount
   -- Note, the taxBaseValue is negative so it is added
   SELECT insertIntoGLSeries ( _glSequence, 'A/P', 'DM',

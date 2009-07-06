@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION calculatetaxdetailline(text, integer)
+CREATE OR REPLACE FUNCTION calculatetaxdetailline(text, integer) 
   RETURNS SETOF taxdetail AS
 $BODY$
 DECLARE
