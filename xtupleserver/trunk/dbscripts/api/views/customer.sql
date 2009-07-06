@@ -92,33 +92,7 @@ BEGIN;
     c.addr_postalcode AS correspond_contact_postalcode,
     c.addr_country AS correspond_contact_country,
     (''::TEXT) AS correspond_contact_address_change,
-    cust_comments AS notes,
-    CASE 
-      WHEN (cust_soediprofile_id IS NOT NULL) THEN
-        getEdiProfileName(cust_soediprofile_id)
-      WHEN (cust_soemaildelivery) THEN
-        'Custom Email'
-      ELSE
-        'No EDI'
-    END AS so_edi_profile,
-    cust_soediemail AS so_edi_email,
-    cust_soedicc AS so_edi_cc,
-    cust_soedisubject AS so_edi_subject,
-    cust_soedifilename AS so_edi_filename,
-    cust_soediemailbody AS so_edi_emailbody,
-    CASE 
-      WHEN (cust_ediprofile_id IS NOT NULL) THEN
-        getEdiProfileName(cust_ediprofile_id)
-      WHEN (cust_emaildelivery) THEN
-        'Custom Email'
-      ELSE
-        'No EDI'
-    END AS invc_edi_profile,
-    cust_ediemail AS invc_edi_email,
-    cust_edicc AS invc_edi_cc,
-    cust_edisubject AS invc_edi_subject,
-    cust_edifilename AS invc_edi_filename,
-    cust_ediemailbody AS invc_edi_emailbody           
+    cust_comments AS notes         
   FROM
     custinfo
       LEFT OUTER JOIN shipchrg ON (cust_shipchrg_id=shipchrg_id)
@@ -169,28 +143,14 @@ INSERT INTO custinfo
         cust_ffbillto,
         cust_usespos,
         cust_number,
-        cust_emaildelivery,
-        cust_ediemail,
-        cust_edisubject,
-        cust_edifilename,
-        cust_ediemailbody,
         cust_autoupdatestatus,
         cust_autoholdorders,
-        cust_edicc,
-        cust_ediprofile_id,
         cust_preferred_warehous_id,
         cust_curr_id,
         cust_creditlmt_curr_id,
         cust_cntct_id,
         cust_corrcntct_id,
         cust_taxzone_id,
-        cust_soemaildelivery,
-        cust_soediemail,
-        cust_soedisubject,
-        cust_soedifilename,
-        cust_soediemailbody,
-        cust_soedicc,
-        cust_soediprofile_id,
         cust_gracedays )
         VALUES (
 	COALESCE(NEW.active,true),
@@ -232,24 +192,8 @@ INSERT INTO custinfo
         COALESCE(NEW.allow_free_form_billto,false),
         COALESCE(NEW.uses_purchase_orders,false),
         COALESCE(UPPER(NEW.customer_number),CAST(fetchCRMAccountNumber() AS text)),
-        CASE
-	  WHEN (NEW.invc_edi_profile='Custom Email') THEN
-	    true
-	  ELSE
-	    false
-        END,
-        COALESCE(NEW.invc_edi_email,''),
-        COALESCE(NEW.invc_edi_subject,''),
-        COALESCE(NEW.invc_edi_filename,''),
-        COALESCE(NEW.invc_edi_emailbody,''),	
         COALESCE(NEW.credit_status_exceed_warn,false),
         COALESCE(NEW.credit_status_exceed_hold,false),
-        COALESCE(NEW.invc_edi_cc,''),
-        CASE WHEN (NEW.invc_edi_profile IN ('Custom Email','No EDI')) THEN
-          NULL
-        ELSE
-          getEdiProfileId(NEW.invc_edi_profile)
-        END,
         COALESCE(getWarehousId(NEW.preferred_selling_site,'ACTIVE'),-1),
         COALESCE(getCurrId(NEW.default_currency),basecurrid()),
         COALESCE(getCurrID(NEW.credit_limit_currency),basecurrid()),
@@ -308,22 +252,6 @@ INSERT INTO custinfo
           NEW.correspond_contact_change
           ),
         getTaxZoneId(NEW.default_tax_zone),
-        CASE
-	  WHEN (NEW.so_edi_profile='Custom Email') THEN
-	    true
-	  ELSE
-	    false
-        END,
-        COALESCE(NEW.so_edi_email,''),
-        COALESCE(NEW.so_edi_subject,''),
-        COALESCE(NEW.so_edi_filename,''),
-        COALESCE(NEW.so_edi_emailbody,''),
-        COALESCE(NEW.so_edi_cc,''),
-        CASE WHEN (NEW.so_edi_profile IN ('Custom Email','No EDI')) THEN
-          NULL
-        ELSE
-          getEdiProfileId(NEW.so_edi_profile)
-        END,
         CASE WHEN (COALESCE(NEW.alternate_grace_days, 0) > 0) THEN NEW.alternate_grace_days
              ELSE NULL
         END
@@ -371,26 +299,8 @@ UPDATE custinfo SET
         cust_ffbillto=NEW.allow_free_form_billto,
         cust_usespos=NEW.uses_purchase_orders,
         cust_number=NEW.customer_number,
-        cust_emaildelivery=
-          CASE
-	    WHEN (NEW.invc_edi_profile='Custom Email') THEN
-	      true
-	    ELSE
-	      false
-          END,
-        cust_ediemail=NEW.invc_edi_email,
-        cust_edisubject=NEW.invc_edi_subject,
-        cust_edifilename=NEW.invc_edi_filename,
-        cust_ediemailbody=NEW.invc_edi_emailbody,
         cust_autoupdatestatus=NEW.credit_status_exceed_warn,
         cust_autoholdorders=NEW.credit_status_exceed_hold,
-        cust_edicc=NEW.invc_edi_cc,
-        cust_ediprofile_id=
-          CASE WHEN (NEW.invc_edi_profile IN ('Custom Email','No EDI')) THEN
-            NULL
-          ELSE
-            getEdiProfileId(NEW.invc_edi_profile)
-          END,
         cust_preferred_warehous_id=COALESCE(getWarehousId(NEW.preferred_selling_site,'ACTIVE'),-1),
         cust_curr_id=getCurrId(NEW.default_currency),
         cust_creditlmt_curr_id=getCurrId(NEW.credit_limit_currency),
@@ -449,24 +359,6 @@ UPDATE custinfo SET
           NEW.correspond_contact_change
           ),
         cust_taxzone_id=getTaxZoneId(NEW.default_tax_zone),
-        cust_soemaildelivery=
-          CASE
-	    WHEN (NEW.so_edi_profile='Custom Email') THEN
-	      true
-	    ELSE
-	      false
-          END,
-        cust_soediemail=NEW.so_edi_email,
-        cust_soedisubject=NEW.so_edi_subject,
-        cust_soedifilename=NEW.so_edi_filename,
-        cust_soediemailbody=NEW.so_edi_emailbody,
-        cust_soedicc=NEW.so_edi_cc,
-        cust_soediprofile_id=
-          CASE WHEN (NEW.so_edi_profile IN ('Custom Email','No EDI')) THEN
-           NULL
-          ELSE
-            getEdiProfileId(NEW.so_edi_profile)
-          END,
         cust_gracedays=
           CASE WHEN (COALESCE(NEW.alternate_grace_days, 0) > 0) THEN NEW.alternate_grace_days
           END

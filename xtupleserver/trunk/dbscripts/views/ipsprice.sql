@@ -1,5 +1,5 @@
 
-DROP VIEW ipsprice;
+SELECT dropIfExists('VIEW', 'ipsprice', 'public', true);
 CREATE OR REPLACE VIEW ipsprice AS
   SELECT ipsitem_id AS ipsprice_id,
          'I' AS ipsprice_source,

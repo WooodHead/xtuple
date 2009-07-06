@@ -1,5 +1,5 @@
 
-DROP VIEW cust;
+SELECT dropIfExists('VIEW', 'cust', 'public', true);
 CREATE VIEW cust AS
   SELECT cust_id, cust_active, cust_custtype_id, cust_salesrep_id,
         cust_commprcnt, cust_name,
