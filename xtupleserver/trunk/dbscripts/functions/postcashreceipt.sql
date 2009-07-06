@@ -65,7 +65,7 @@ BEGIN
   IF (_p.cashrcpt_fundstype IN ('A', 'D', 'M', 'V')) THEN
     IF NOT EXISTS(SELECT ccpay_id
                   FROM ccpay
-                  WHERE ((ccpay_order_number=CAST(pCashrcptid AS TEXT))
+                  WHERE ((ccpay_order_number IN (CAST(pCashrcptid AS TEXT), _p.cashrcpt_docnumber))
                      AND (ccpay_status IN ('C', 'A')))) THEN
       RETURN -8;
     END IF;
