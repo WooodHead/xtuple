@@ -32,9 +32,8 @@ BEGIN
             UNION
             SELECT cohead_id, coitem_id, coitem_qtyord AS qty,
                    coitem_price, coitem_price_invuomratio AS invpricerat, coitem_qty_invuomratio, item_id,
-                   ( ((SELECT count(*) FROM coitem AS sub WHERE sub.coitem_linenumber=kit.coitem_linenumber AND sub.coitem_subnumber > 0 AND (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) > 0) <= 0)
-                    OR (NOT cust_partialship) ) AS toclose, coitem_tax_id
-              FROM cosmisc, coitem AS kit, cohead, custinfo, itemsite, item
+                   true AS toclose, coitem_tax_id
+              FROM cosmisc, cohead, custinfo, itemsite, item, coitem AS kit
              WHERE((cosmisc_cohead_id=cohead_id)
                AND (coitem_cohead_id=cohead_id)
                AND (cosmisc_shipped)
@@ -42,7 +41,16 @@ BEGIN
                AND (itemsite_item_id=item_id)
                AND (cohead_cust_id=cust_id)
                AND (item_type = 'K')
-               AND (cosmisc_id=pCosmiscid) )
+               AND (cosmisc_id=pCosmiscid)
+               AND (coitem_linenumber NOT IN  
+                      (SELECT sub.coitem_linenumber
+                       FROM coitem AS sub 
+                       WHERE sub.coitem_cohead_id=kit.coitem_cohead_id
+                        AND sub.coitem_linenumber=kit.coitem_linenumber 
+                        AND sub.coitem_subnumber > 0 
+                        AND ((sub.coitem_qtyord - sub.coitem_qtyshipped + sub.coitem_qtyreturned) > 0)
+                        LIMIT 1)
+               ))
              GROUP BY cohead_id, coitem_id, cust_partialship, coitem_tax_id,
                       coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
                       coitem_price, invpricerat, coitem_qty_invuomratio, item_id, coitem_linenumber LOOP
