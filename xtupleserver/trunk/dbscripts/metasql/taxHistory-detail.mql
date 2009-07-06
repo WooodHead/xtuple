@@ -29,7 +29,7 @@ FROM (
 ------------BEGIN SALES--------------
 -- All sales tax history including memos 
 SELECT 
-  taxhist_distdate, 
+  taxhist_distdate, taxhist_journalnumber,
   tax_code AS tax, tax_descrip,
   COALESCE(taxtype_name,<? value("none") ?>) AS taxtype, taxtype_descrip,
   COALESCE(taxclass_code,<? value("none") ?>) AS taxclass, taxclass_descrip,
@@ -131,7 +131,7 @@ UNION ALL
 <? if exists("showPurchases") ?>
 -- A/P Memo history
 SELECT 
-  taxhist_distdate, 
+  taxhist_distdate, taxhist_journalnumber,
   tax_code AS tax, tax_descrip,
   COALESCE(taxtype_name,<? value("none") ?>) AS taxtype, taxtype_descrip,
   COALESCE(taxclass_code,<? value("none") ?>) AS taxclass, taxclass_descrip,
@@ -201,7 +201,7 @@ WHERE ((taxhist_docdate BETWEEN <? value("startDate") ?>
 UNION ALL
 --Voucher Header History
 SELECT 
-  taxhist_distdate, 
+  taxhist_distdate, taxhist_journalnumber,
   tax_code AS tax, tax_descrip,
   COALESCE(taxtype_name,<? value("none") ?>) AS taxtype, taxtype_descrip,
   COALESCE(taxclass_code,<? value("none") ?>) AS taxclass, taxclass_descrip,
@@ -266,7 +266,7 @@ WHERE ((taxhist_docdate BETWEEN <? value("startDate") ?>
 UNION ALL
 --Voucher Line Item
 SELECT 
-  taxhist_distdate, 
+  taxhist_distdate, taxhist_journalnumber,
   tax_code AS tax, tax_descrip,
   COALESCE(taxtype_name,<? value("none") ?>) AS taxtype, taxtype_descrip,
   COALESCE(taxclass_code,<? value("none") ?>) AS taxclass, taxclass_descrip,
@@ -341,7 +341,7 @@ GROUP BY taxhist_id,taxhist_distdate,tax_code,tax_descrip,
   vohead_number,pohead_number,item_number,item_descrip1,
   vohead_curr_id,vohead_distdate,vohead_docdate,vend_name,
   expcat_code,expcat_descrip,taxhist_tax,taxhist_curr_rate,
-  voitem_qty
+  voitem_qty, taxhist_journalnumber
 <? endif ?>
 -------------END PURCHASE--------------
 ORDER BY docdate DESC, docnumber DESC

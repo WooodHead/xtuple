@@ -228,6 +228,9 @@ BEGIN
                                       'apopentax', _apopenid,
                                       _vendName);
 
+  UPDATE apopentax SET taxhist_journalnumber = _journalNumber
+  WHERE taxhist_parent_id=_apopenid;
+
   -- Credit the Prepaid account for the basis amount
   SELECT insertIntoGLSeries ( _glSequence, 'A/P', 'CM',
                               pDocNumber, _prepaidAccntid,
