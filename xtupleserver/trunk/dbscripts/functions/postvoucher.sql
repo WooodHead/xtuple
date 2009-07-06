@@ -30,6 +30,7 @@ DECLARE
   _d RECORD;
   _g RECORD;
   _p RECORD;
+  _r RECORD;
   _costx RECORD;
   _pPostCosts BOOLEAN;
   _pExplain BOOLEAN;
@@ -83,14 +84,15 @@ BEGIN
    WHERE ( (vodist_vohead_id=pVoheadid)
      AND   (vodist_tax_id=-1) )
   UNION ALL
-  SELECT SUM(taxhist_tax * -1) AS amount
-    FROM voheadtax
-   WHERE (taxhist_parent_id=pVoheadid)
-  UNION ALL
-  SELECT SUM(taxhist_tax * -1) AS amount
-    FROM voitem JOIN voitemtax ON (taxhist_parent_id=voitem_id)
-   WHERE (voitem_vohead_id=pVoheadid)
-      ) AS data;
+  SELECT SUM(tax)
+  FROM 
+    (SELECT round(sum(taxdetail_tax),2) AS tax,
+              currToBase(_p.vohead_curr_id, round(sum(taxdetail_tax),2), _p.vohead_docdate) AS taxbasevalue
+     FROM tax 
+     JOIN calculateTaxDetailSummary('VO', pVoheadid, 'T') ON (taxdetail_tax_id=tax_id)
+     GROUP BY tax_id, tax_sales_accnt_id
+    ) AS taxdata
+  ) AS data;
 
   IF (_tmpTotal IS NULL OR _tmpTotal <= 0) THEN
     RAISE EXCEPTION 'Cannot Post Voucher #% with negative or zero distributions (%).',
@@ -113,6 +115,53 @@ BEGIN
     RAISE EXCEPTION 'Cannot Post Voucher #% as one or more of the line items have already been fully vouchered. Check P/O Line #%.',
          _p.vohead_number, _test;
   END IF;
+
+--  Start by handling taxes
+  FOR _r IN SELECT tax_sales_accnt_id, 
+              round(sum(taxdetail_tax),2) AS tax,
+              currToBase(_p.vohead_curr_id, round(sum(taxdetail_tax),2), _p.vohead_docdate) AS taxbasevalue
+            FROM tax 
+             JOIN calculateTaxDetailSummary('VO', pVoheadid, 'T') ON (taxdetail_tax_id=tax_id)
+	    GROUP BY tax_id, tax_sales_accnt_id LOOP
+
+    PERFORM insertIntoGLSeries( _sequence, 'A/P', 'VO', _p.vohead_number,
+                                _r.tax_sales_accnt_id, 
+                                _r.taxbasevalue,
+                                _glDate, _p.glnotes );
+
+    _totalAmount_base := (_totalAmount_base - _r.taxbasevalue);
+    _totalAmount := (_totalAmount - _r.tax);
+     
+  END LOOP;
+
+-- Update item tax records with posting data
+    UPDATE voitemtax SET 
+      taxhist_docdate=_p.vohead_docdate,
+      taxhist_distdate=_glDate,
+      taxhist_curr_id=_p.vohead_curr_id,
+      taxhist_curr_rate=curr_rate,
+      taxhist_journalnumber=pJournalNumber
+    FROM vohead
+     JOIN voitem ON (vohead_id=voitem_vohead_id), 
+     curr_rate
+    WHERE ((vohead_id=pVoheadId)
+      AND (taxhist_parent_id=voitem_id)
+      AND (_p.vohead_curr_id=curr_id)
+      AND (_p.vohead_docdate BETWEEN curr_effective 
+                           AND curr_expires) );
+
+-- Update Misc distributions with posting data
+    UPDATE voheadtax SET 
+      taxhist_docdate=_p.vohead_docdate,
+      taxhist_distdate=_glDate,
+      taxhist_curr_id=_p.vohead_curr_id,
+      taxhist_curr_rate=curr_rate,
+      taxhist_journalnumber=pJournalNumber
+    FROM curr_rate
+    WHERE ((taxhist_parent_id=pVoheadid)
+      AND (_p.vohead_curr_id=curr_id)
+      AND (_p.vohead_docdate BETWEEN curr_effective 
+                           AND curr_expires) );
 
 --  Loop through the vodist records for the passed vohead that
 --  are posted against a P/O Item
@@ -207,12 +256,6 @@ BEGIN
 
     END LOOP;
 
---  Distribute the voitem tax
-    _taxBaseValue := addTaxToGLSeries(_sequence,
-				      'A/P', 'VO', text(_p.vohead_number),
-				      _p.vohead_curr_id, _glDate, _glDate,
-                                      'voitemtax', _g.voitem_id, _p.glnotes);
-
 --  Distribute from the clearing account
     PERFORM insertIntoGLSeries( _sequence, 'A/P', 'VO', text(_p.vohead_number),
 		_a.lb_accnt_id,
@@ -251,7 +294,7 @@ BEGIN
     END IF;
 
 --  Add the distribution amount to the total amount to distribute
-    _totalAmount_base := (_totalAmount_base + _itemAmount_base + _g.voitem_freight_base - _taxBaseValue);
+    _totalAmount_base := (_totalAmount_base + _itemAmount_base + _g.voitem_freight_base);
     _totalAmount := (_totalAmount + _itemAmount + _g.voitem_freight - currToCurr(baseCurrId(), _p.vohead_curr_id, _taxBaseValue, _glDate));
     IF (_g.vodist_discountable) THEN
       _totalDiscountableAmount := (_totalDiscountableAmount + _itemAmount);
@@ -283,16 +326,6 @@ BEGIN
      WHERE (poitem_id=_g.poitem_id);
 
   END LOOP;
-
---  Distribute the vohead tax
-    _taxBaseValue := addTaxToGLSeries(_sequence,
-				      'A/P', 'VO', text(_p.vohead_number),
-				      _p.vohead_curr_id, _glDate, _glDate,
-                                      'voheadtax', _p.vohead_id, _p.glnotes);
-
---  Add the tax amount to the total amount to distribute
-    _totalAmount_base := (_totalAmount_base - _taxBaseValue);
-    _totalAmount := (_totalAmount - currToCurr(baseCurrId(), _p.vohead_curr_id, _taxBaseValue, _glDate));
 
 --  Loop through the vodist records for the passed vohead that
 --  are not posted against a P/O Item
