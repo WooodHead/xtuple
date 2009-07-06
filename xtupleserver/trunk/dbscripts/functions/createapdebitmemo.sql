@@ -201,6 +201,7 @@ BEGIN
       apopen_closedate=CASE WHEN (pAmount = 0) THEN pDocdate END
     WHERE apopen_id = _apopenid;
   ELSE
+    SELECT NEXTVAL('apopen_apopen_id_seq') INTO _apopenid;
     INSERT INTO apopen
     ( apopen_id, apopen_username, apopen_journalnumber,
       apopen_vend_id, apopen_docnumber, apopen_doctype, apopen_ponumber,
