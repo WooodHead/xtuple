@@ -7,10 +7,11 @@ July 07, 2009
 
 This is the second Beta release of version 3.3.0. Thanks to all
 in the community who have contributed feedback on the earlier
-releases in this beta cycle. Keep up the good work! 
+releases in this beta cycle. Keep up the good work!
 
-For anyone who has been tracking the EDI Profiles development, the 
-following new features are available for testing in this release:
+For anyone who has been tracking the EDI Profiles and International
+Tax development, the following new features/fixes are available for 
+testing in this release:
 
 EDI Profiles Revision
   * Beta2 adds support for
@@ -18,104 +19,109 @@ EDI Profiles Revision
 	- Sales Order Credit Memos
   * Full spec: http://www.xtuple.org/EDIProfilesRevision
 
+Improved VAT and international tax support
+  * Beta2 adds fixes for
+      - Multiple rounding problems
+  * Full spec: http://www.xtuple.org/EnhancedTaxInternationalization
+
 ==================================
 
-The following features and bug fixes have been added to the 
-applications since the release of 3.3.0Beta. Additional detail for 
-each item listed below may be found on our community website 
-(www.xtuple.org). Simply go to the Issue Tracker and select the 
+The following features and bug fixes have been added to the
+applications since the release of 3.3.0Beta. Additional detail for
+each item listed below may be found on our community website
+(www.xtuple.org). Simply go to the Issue Tracker and select the
 Changelog option.
 
 New Features:
 
-* [Accounting] Add Journal number to taxhist tables for 
+* [Accounting] Add Journal number to taxhist tables for
 reconciliation
-* [Accounting] Allow multiple distributions for Misc. Credit and 
-Debit Memos 
-* [Accounting] Improve flexibility of discount for quick payment 
+* [Accounting] Allow multiple distributions for Misc. Credit and
+Debit Memos
+* [Accounting] Improve flexibility of discount for quick payment
 on Vouchers
-* [Accounting] Change the GL transactions screen to default to a 
+* [Accounting] Change the GL transactions screen to default to a
 single account
 * [Accounting] Add ability to e-mail Credit Memos and AR Statements
 * [Accounting] Bank Reconciliation history report needs improvement
-* [Accounting] After initial Bank Reconciliation, automatically fill 
+* [Accounting] After initial Bank Reconciliation, automatically fill
 in opening balance and starting date
-* [Accounting] Opening balance when reconciling Bank Accounts should 
+* [Accounting] Opening balance when reconciling Bank Accounts should
 be automatically populated
-* [Sales] Add the ability to create a new Customer from the Sales 
+* [Sales] Add the ability to create a new Customer from the Sales
 Order window
-* [System] Create API views for Projects 
-* [System] Drop-down selection of database on login screen 
+* [System] Create API views for Projects
+* [System] Drop-down selection of database on login screen
 
 
 Bug Fixes:
 
-* [Accounting] Tax code rate does not support 4 decimal places 
+* [Accounting] Tax code rate does not support 4 decimal places
 * [Accounting] Failed stored procedure when posting Cash Receipt
-* [Accounting] The automatic "Select for Billing" option takes effect 
-for kit items when nothing has shipped 
-* [Accounting] Posting A/P Debit Memo generates db log error 
-* [Accounting] Selecting to save a Tax Registration generates db log 
-* [Accounting] Tax calculations confused when manually changing the 
-currency on a Misc. Invoice. 
-* [Accounting] It is possible to enter a duplicate registration for 
-the Tax Zone and Authority 
-* [Accounting] Selecting to cancel creating a new Tax Code creates 
-an empty one 
-* [Accounting] Voucher head not found on new Misc. Voucher 
-* [Accounting] Selecting to create recurring Invoices generates db 
-log 
-* [Accounting] A/R open records should use fixed exchange rate 
-instead of floating when calculating gain/loss 
+* [Accounting] The automatic "Select for Billing" option takes effect
+for kit items when nothing has shipped
+* [Accounting] Posting A/P Debit Memo generates db log error
+* [Accounting] Selecting to save a Tax Registration generates db log
+* [Accounting] Tax calculations confused when manually changing the
+currency on a Misc. Invoice.
+* [Accounting] It is possible to enter a duplicate registration for
+the Tax Zone and Authority
+* [Accounting] Selecting to cancel creating a new Tax Code creates
+an empty one
+* [Accounting] Voucher head not found on new Misc. Voucher
+* [Accounting] Selecting to create recurring Invoices generates db
+log
+* [Accounting] A/R open records should use fixed exchange rate
+instead of floating when calculating gain/loss
 * [Accounting] Tax History for a selection displays erro
-* [Accounting] Cash receipt that resulted in credit does not reverse 
+* [Accounting] Cash receipt that resulted in credit does not reverse
 * [Accounting] Attempting to edit unposted Invoice causes crash
-* [Accounting] Rounding errors on Tax 
+* [Accounting] Rounding errors on Tax
 * [Accounting] Printed report missing for tax histor
-* [Accounting] Selecting to print Bank Reconciliation History 
-generates db log 
-* [Accounting] SO Line Entry appears to change header Tax Zone 
-* [Accounting] Date fields will not take mm/dd/yy like they used to 
-* [Accounting] Unposted Receipts window takes a long time to query 
-on large dataset 
-* [Accounting] The AP Aging report does not show the Vendor's 
+* [Accounting] Selecting to print Bank Reconciliation History
+generates db log
+* [Accounting] SO Line Entry appears to change header Tax Zone
+* [Accounting] Date fields will not take mm/dd/yy like they used to
+* [Accounting] Unposted Receipts window takes a long time to query
+on large dataset
+* [Accounting] The AP Aging report does not show the Vendor's
 invoice numbers
 * [Accounting] User is unable to create a new Voucher
 * [CRM] Search box not functioning correctly
 * [Inventory] Stock distribution error message in MLC
 * [Inventory] Able to save Expense Category with no PPV account
-* [Inventory] Deadlock possible shipping Job Items 
-* [Inventory] Creating and editing inventory receipt Items takes a 
-very long time on large datasets 
-* [Inventory] Receiving raw material inventory - post receipt- takes 
+* [Inventory] Deadlock possible shipping Job Items
+* [Inventory] Creating and editing inventory receipt Items takes a
+very long time on large datasets
+* [Inventory] Receiving raw material inventory - post receipt- takes
 too long
 * [Inventory] Selecting to print Item location displays error
-* [Inventory] Selecting to view item locations displays error 
-* [Manufacture] Correct production sets Work Order posted and WIP 
+* [Inventory] Selecting to view item locations displays error
+* [Manufacture] Correct production sets Work Order posted and WIP
 values incorrectly for average-costed Items
 * [Products] Selecting to create a revision displays error
-* [Products] Extended cost is rounding incorrectly in the single 
-level Bill of Materials 
-* [Products] Many costs being formatted, ignoring Locale 
+* [Products] Extended cost is rounding incorrectly in the single
+level Bill of Materials
+* [Products] Many costs being formatted, ignoring Locale
 * [Purchase] PO non-inventory line item with Tax not on header
 * [Purchase] Selecting to create PO line item generates db log error
-* [Sales] Post SO Credit Memo via Print Credit Memo screen does not 
-prompt for lot/serial number 
-* [Sales] Selecting to create a Sales Rep displays error 
+* [Sales] Post SO Credit Memo via Print Credit Memo screen does not
+prompt for lot/serial number
+* [Sales] Selecting to create a Sales Rep displays error
 * [Sales] Selecting to print Quote list generates db log erro
-* [Sales] Tax calculation rounding to 2 decimals even though 
+* [Sales] Tax calculation rounding to 2 decimals even though
 precision is set to 4 digits
 * [Sales] Unable to enter freight on unposted Invoice
 * [Sales] Erroneous rounding on Tax calculation
 * [Sales] Cannot search on RA item or CM item
-* [Sales] Post Receipt for RA takes a long time and other operations 
+* [Sales] Post Receipt for RA takes a long time and other operations
 are all frozen
-* [System] User is allowed to create duplicate records for Label 
-Forms 
-* [System] Setting the validator to blank on Characteristics renders 
+* [System] User is allowed to create duplicate records for Label
+Forms
+* [System] Setting the validator to blank on Characteristics renders
 the characteristic uneditable
 * [System] Report definition missing for Comment Types
-* [System] Set English as the default language in Quickstart and Demo 
+* [System] Set English as the default language in Quickstart and Demo
 databases so date formatting is consistent
 
 ==================================
