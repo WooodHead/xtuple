@@ -9,6 +9,7 @@ DECLARE
   _gltransNote		TEXT;
   _p			RECORD;
   _r			RECORD;
+  _t			RECORD;
   _sequence		INTEGER;
   _test                 INTEGER;
   _cm                   BOOLEAN;
@@ -25,20 +26,48 @@ BEGIN
 
   SELECT checkhead.*,
          checkhead_amount / round(checkhead_curr_rate,5) AS checkhead_amount_base,
-         bankaccnt_accnt_id AS bankaccntid,
-         checkrecip.* INTO _p
-  FROM bankaccnt, checkhead LEFT OUTER JOIN
-       checkrecip ON ((checkrecip_type=checkhead_recip_type)
-		  AND (checkrecip_id=checkhead_recip_id))
-  WHERE ((checkhead_bankaccnt_id=bankaccnt_id)
-    AND  (checkhead_id=pcheckid) );
+         bankaccnt_accnt_id AS bankaccntid INTO _p
+  FROM checkhead
+   JOIN bankaccnt ON (checkhead_bankaccnt_id=bankaccnt_id)
+  WHERE (checkhead_id=pcheckid);
+
+  IF (FOUND) THEN
+    IF (_p.checkhead_recip_type = 'V') THEN
+      SELECT
+        vend_number AS checkrecip_number,
+        vend_name AS checkrecip_name,
+        findAPAccount(vend_id) AS checkrecip_accnt_id,
+        'A/P'::text AS checkrecip_gltrans_source
+        INTO _t
+      FROM vendinfo
+      WHERE (vend_id=_p.checkhead_recip_id);
+    ELSIF (_p.checkhead_recip_type = 'C') THEN
+      SELECT
+        cust_number AS checkrecip_number,
+        cust_name AS checkrecip_name,
+        findARAccount(cust_id) AS checkrecip_accnt_id,
+        'A/R'::text AS checkrecip_gltrans_source
+        INTO _t
+      FROM custinfo
+      WHERE (cust_id=_p.checkhead_recip_id); 
+    ELSIF (_p.checkhead_recip_type = 'T') THEN
+      SELECT
+        taxauth_code AS checkrecip_number,
+        taxauth_name AS checkrecip_name,
+        taxauth_accnt_id AS checkrecip_accnt_id,
+        'G/L'::text AS checkrecip_gltrans_source
+        INTO _t
+      FROM taxauth
+      WHERE (taxauth_id=_p.checkhead_recip_id);
+    ELSE
+      RETURN -11;
+    END IF;
+  ELSE
+    RETURN -11;
+  END IF;
 
   IF (_p.checkhead_posted) THEN
     RETURN -10;
-  END IF;
-
-  IF (_p.checkrecip_id IS NULL) THEN	-- outer join failed
-    RETURN -11;
   END IF;
 
   IF (_p.checkhead_recip_type = 'C') THEN
@@ -50,7 +79,7 @@ BEGIN
     END IF;
   END IF;
 
-  _gltransNote := _p.checkrecip_number || '-' || _p.checkrecip_name;
+  _gltransNote := _t.checkrecip_number || '-' || _t.checkrecip_name;
 
   IF (_p.checkhead_misc AND NOT _cm) THEN
     IF (COALESCE(_p.checkhead_expcat_id, -1) < 0) THEN
@@ -73,7 +102,7 @@ BEGIN
         _credit_glaccnt := findPrepaidAccount(_p.checkhead_recip_id);
       ELSIF (_p.checkhead_recip_type = 'T') THEN
 	-- TODO: should we create a credit memo for the tax authority? how?
-	_credit_glaccnt := _p.checkrecip_accnt_id;
+	_credit_glaccnt := _t.checkrecip_accnt_id;
 
       END IF; -- recip type
 
@@ -94,7 +123,7 @@ BEGIN
       RETURN -13;
     END IF;
 
-    PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source, 'CK',
+    PERFORM insertIntoGLSeries( _sequence, _t.checkrecip_gltrans_source, 'CK',
 				CAST(_p.checkhead_number AS TEXT),
 				_credit_glaccnt,
 				round(_p.checkhead_amount_base, 2) * -1,
@@ -187,13 +216,13 @@ BEGIN
       END IF;
       _exchGain := _exchGain + _exchGainTmp;
 
-      PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
+      PERFORM insertIntoGLSeries( _sequence, _t.checkrecip_gltrans_source,
 				  'CK', CAST(_p.checkhead_number AS TEXT),
-                                  _p.checkrecip_accnt_id,
+                                  _t.checkrecip_accnt_id,
                                   round(_r.checkitem_amount_base, 2) * -1,
                                   _p.checkhead_checkdate, _gltransNote );
       IF (_exchGainTmp <> 0) THEN
-	PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
+	PERFORM insertIntoGLSeries( _sequence, _t.checkrecip_gltrans_source,
 				    'CK', CAST(_p.checkhead_number AS TEXT),
 				    getGainLossAccntId(), round(_exchGainTmp,2),
 				    _p.checkhead_checkdate, _gltransNote );
@@ -213,7 +242,7 @@ BEGIN
     --  ensure that the check balances, attribute rounding errors to gain/loss
     IF round(_amount_base, 2) - round(_exchGain, 2) <> round(_p.checkhead_amount_base, 2) THEN
       IF round(_amount_base - _exchGain, 2) = round(_p.checkhead_amount_base, 2) THEN
-	PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
+	PERFORM insertIntoGLSeries( _sequence, _t.checkrecip_gltrans_source,
 				    'CK',
 				    CAST(_p.checkhead_number AS TEXT),
                                     getGainLossAccntId(),
@@ -228,7 +257,7 @@ BEGIN
     END IF;
   END IF;
 
-  PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source, 'CK',
+  PERFORM insertIntoGLSeries( _sequence, _t.checkrecip_gltrans_source, 'CK',
 			      CAST(_p.checkhead_number AS TEXT),
                               _p.bankaccntid,
 			      round(_p.checkhead_amount_base, 2),
