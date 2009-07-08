@@ -2,11 +2,11 @@ CREATE OR REPLACE FUNCTION formatNumeric(NUMERIC, TEXT) RETURNS TEXT IMMUTABLE A
 DECLARE
   _value        NUMERIC := $1;
   _type         TEXT    := LOWER(COALESCE($2, 'curr'));
-  _abs          NUMERIC := ABS(_value);
-  _magnitudecnt NUMERIC(1000) := TRUNC(_abs / 10);
-  _whole        NUMERIC(1000) := TRUNC(_abs);
+  _abs          NUMERIC;
+  _magnitudecnt NUMERIC(1000);
+  _whole        NUMERIC(1000);
   _wholefmt     TEXT    := '9';
-  _fractional   NUMERIC := _abs - _whole;
+  _fractional   NUMERIC;
   _scale        INTEGER;
   _neg          TEXT;
   _decimal      TEXT;
@@ -43,6 +43,12 @@ BEGIN
                    ELSE 2
               END;
 
+  _value        := round(_value, _scale);
+  _abs          := ABS(_value);
+  _magnitudecnt := TRUNC(_abs / 10);
+  _whole        := TRUNC(_abs);
+  _fractional   := _abs - _whole;
+
   IF (_debug) THEN
     RAISE NOTICE '_value % _abs % _whole % _fractional % _scale % _neg % _decimal % _group % ',
                  _value, _abs, _whole, _fractional, _scale, _decimal, _group, _scale;
@@ -69,11 +75,7 @@ BEGIN
     FOR _scale IN REVERSE _scale..1 LOOP
       _fractional := (_fractional - TRUNC(_fractional, 0)) * 10;
       IF _debug THEN RAISE NOTICE '_fractional is now %', _fractional; END IF;
-      IF (_scale = 1) THEN
-        _string := _string || CAST(ROUND(_fractional) AS TEXT);
-      ELSE
-        _string := _string || CAST(TRUNC(_fractional) AS TEXT);
-      END IF;
+      _string := _string || CAST(TRUNC(_fractional) AS TEXT);
     END LOOP;
   END IF;
 
