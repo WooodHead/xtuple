@@ -1170,10 +1170,10 @@ function main()
     type(":Alternate Labels._altTotalText_QLineEdit", "Net Income");
     type(":_customText_QLineEdit", "Income Statement");
     clickButton(":Financial Report.Save_QPushButton");
-    
-    waitForObject(":List Financial Reports._flhead_XTreeWidget");
-    doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "INCOME\\_STATEMENT", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":frame.Add Top Level Group_QPushButton");
+  
+  waitForObject(":List Financial Reports._flhead_XTreeWidget");
+  doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "INCOME\\_STATEMENT", 5, 5, 0, Qt.LeftButton);
+  waitForObject(":frame.Add Top Level Group_QPushButton");
     clickButton(":frame.Add Top Level Group_QPushButton");
     waitForObject(":_name_XLineEdit_20");
     type(":_name_XLineEdit_20", "REVENUE");
@@ -1430,7 +1430,7 @@ function main()
     type(":_altSubtotalLabel_QLineEdit", "Total General Expenses");
     clickButton(":Operation.Add to Group Total_QRadioButton");
     clickButton(":Financial Report Group.Save_QPushButton");
-  
+
     waitForObject(":frame._layout_XTreeWidget");
     clickItem(":frame._layout_XTreeWidget", "REVENUE.Sales", 5, 5, 1, Qt.LeftButton);
     waitForObject(":frame.Add Account_QPushButton");

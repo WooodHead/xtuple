@@ -81,7 +81,8 @@ function main()
     waitForObject(":_characteristicsTab.New_QPushButton_6");
     clickButton(":_characteristicsTab.New_QPushButton_6");
     waitForObject(":_char_XComboBox_2");
-    clickItem(":_char_XComboBox_2", "I-COLOR", 0, 0, 1, Qt.LeftButton);
+    clickItem(":_char_XComboBox_2", "I-COLOR - Product Color", 0, 0, 1, Qt.LeftButton);
+    findObject(":_value_XLineEdit_3").clear();
     type(":_value_XLineEdit_3", "PL-126");
     if(!findObject(":Item Characteristic.Default_QCheckBox").checked)
         clickButton(":Item Characteristic.Default_QCheckBox");
@@ -90,7 +91,8 @@ function main()
     waitForObject(":_characteristicsTab.New_QPushButton_6");
     clickButton(":_characteristicsTab.New_QPushButton_6");
     waitForObject(":_char_XComboBox_2");
-    clickItem(":_char_XComboBox_2", "I-COLOR", 0, 0, 1, Qt.LeftButton);
+    clickItem(":_char_XComboBox_2", "I-COLOR - Product Color", 0, 0, 1, Qt.LeftButton);
+    findObject(":_value_XLineEdit_3").clear();    
     type(":_value_XLineEdit_3", "PL-227");
     if(findObject(":Item Characteristic.Default_QCheckBox").checked)
         clickButton(":Item Characteristic.Default_QCheckBox");
@@ -100,8 +102,8 @@ function main()
     clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8","Tax Types");    
     waitForObject(":_taxtypesTab.New_QPushButton_10");
     clickButton(":_taxtypesTab.New_QPushButton_10");
-    waitForObject(":_taxauth_XComboBox_5");
-    clickItem(":_taxauth_XComboBox_5", "TAX-AUTH1", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_taxzone_XComboBox");
+    clickItem(":_taxzone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
     clickItem(":_taxtype_XComboBox_4", "EDU", 0, 0, 1, Qt.LeftButton);
     waitForObject(":Item Tax.Save_QPushButton");
     clickButton(":Item Tax.Save_QPushButton");

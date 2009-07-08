@@ -266,17 +266,17 @@ function main()
         waitForObject(":List Standard Operations.Close_QPushButton");
         clickButton(":List Standard Operations.Close_QPushButton");
 
-  
-  //-----------Define BOO for Items---------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
-    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
+
+        //-----------Define BOO for Items---------------
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
+        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
     
     
-      //-----------Define BOO for YTRUCK1---------------
+        //-----------Define BOO for YTRUCK1---------------
         waitForObject(":Bills of Operations.New_QPushButton");
         clickButton(":Bills of Operations.New_QPushButton");
         waitForObject(":itemGroup._itemNumber_ItemLineEdit");
@@ -314,34 +314,34 @@ function main()
         waitForObject(":_boo_XTreeWidget");
         if(!clickItem(":_boo_XTreeWidget", "YTRUCK1", 5, 5, 1, Qt.LeftButton))
             test.pass("BOO created for: YTRUCK1");
-      
-    
-    //-----------Define BOO for TKIT1---------------
-      waitForObject(":Bills of Operations.New_QPushButton");
-      clickButton(":Bills of Operations.New_QPushButton");
-      waitForObject(":itemGroup._itemNumber_ItemLineEdit");
-      type(":itemGroup._itemNumber_ItemLineEdit", "TKIT1");
-      type(":itemGroup._itemNumber_ItemLineEdit", "<Tab>");
-      waitForObject(":frame.New_QPushButton_2");
-      clickButton(":frame.New_QPushButton_2");
-      waitForObject(":_stdopn_XComboBox");
-      clickItem(":_stdopn_XComboBox", "ASSEMBLY", 0, 0, 1, Qt.LeftButton);
-      waitForObject(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");      
-      waitForObject(":_optionsGroup.Receive Inventory at this Operation_QCheckBox");
-      clickButton(":_optionsGroup.Receive Inventory at this Operation_QCheckBox");
-      clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
-      clickButton(":Bill of Operations Item.Save_QPushButton");
-      waitForObject(":Bill of Operations.Save_QPushButton");
-      clickButton(":Bill of Operations.Save_QPushButton");
-      waitForObject(":_boo_XTreeWidget");
-      if(!clickItem(":_boo_XTreeWidget", "TKIT1", 5, 5, 1, Qt.LeftButton))
-          test.pass("BOO created for: TKIT1");
-      waitForObject(":Bills of Operations.Close_QPushButton");
-      clickButton(":Bills of Operations.Close_QPushButton");
+        
+        
+        //-----------Define BOO for TKIT1---------------
+        waitForObject(":Bills of Operations.New_QPushButton");
+        clickButton(":Bills of Operations.New_QPushButton");
+        waitForObject(":itemGroup._itemNumber_ItemLineEdit");
+        type(":itemGroup._itemNumber_ItemLineEdit", "TKIT1");
+        type(":itemGroup._itemNumber_ItemLineEdit", "<Tab>");
+        waitForObject(":frame.New_QPushButton_2");
+        clickButton(":frame.New_QPushButton_2");
+        waitForObject(":_stdopn_XComboBox");
+        clickItem(":_stdopn_XComboBox", "ASSEMBLY", 0, 0, 1, Qt.LeftButton);
+        waitForObject(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");      
+        waitForObject(":_optionsGroup.Receive Inventory at this Operation_QCheckBox");
+        clickButton(":_optionsGroup.Receive Inventory at this Operation_QCheckBox");
+        clickButton(":_optionsGroup.Auto. Issue Components at this Operation_QCheckBox");
+        clickButton(":Bill of Operations Item.Save_QPushButton");
+        waitForObject(":Bill of Operations.Save_QPushButton");
+        clickButton(":Bill of Operations.Save_QPushButton");
+        waitForObject(":_boo_XTreeWidget");
+        if(!clickItem(":_boo_XTreeWidget", "TKIT1", 5, 5, 1, Qt.LeftButton))
+            test.pass("BOO created for: TKIT1");
+        waitForObject(":Bills of Operations.Close_QPushButton");
+        clickButton(":Bills of Operations.Close_QPushButton");
 
 }
-  else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
-  {
+else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+{
      
       waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
       activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");

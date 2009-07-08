@@ -632,8 +632,8 @@ function main()
     waitForObject(":List Freight Classes.Close_QPushButton_2");
     clickButton(":List Freight Classes.Close_QPushButton_2");
     test.log("Freight Class: BULK created");
-    
-    
+  
+
     //-----------Products: create Characteristics--------------------    
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -646,10 +646,12 @@ function main()
     clickButton(":List Characteristics.New_QPushButton_2");
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "I-COLOR");
-    if(!findObject(":May be used for:.Item Characteristics_QCheckBox_2").checked)
-        clickButton(":May be used for:.Item Characteristics_QCheckBox_2");
-    waitForObject(":_description_QTextEdit_4");
-    type(":_description_QTextEdit_4", "Product Color");
+    if(!findObject(":May be used on:.Item_QCheckBox_2").checked)
+        clickButton(":May be used on:.Item_QCheckBox_2");
+    waitForObject(":_description_QTextEdit_6");
+    type(":_description_QTextEdit_6", "Product Color");
+    waitForObject(":_mask_QLineEdit");
+    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
     waitForObject(":List Characteristics._char_XTreeWidget");
@@ -661,10 +663,12 @@ function main()
     clickButton(":List Characteristics.New_QPushButton_2");
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "SUPPORT-PLAN");
-    if(!findObject(":May be used for:.Customer Characteristics_QCheckBox_2").checked)
-        clickButton(":May be used for:.Customer Characteristics_QCheckBox_2");
-    waitForObject(":_description_QTextEdit_4");
-    type(":_description_QTextEdit_4", "Customer Feedback");
+    if(!findObject(":May be used on:.Customer_QCheckBox_2").checked)
+        clickButton(":May be used on:.Customer_QCheckBox_2");
+    waitForObject(":_description_QTextEdit_6");
+    type(":_description_QTextEdit_6", "Customer Feedback");
+    waitForObject(":_mask_QLineEdit");
+    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
     waitForObject(":List Characteristics._char_XTreeWidget");
@@ -676,10 +680,12 @@ function main()
     clickButton(":List Characteristics.New_QPushButton_2");
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "SALES-VOLUME");
-    if(!findObject(":May be used for:.Customer Characteristics_QCheckBox_2").checked)
-        clickButton(":May be used for:.Customer Characteristics_QCheckBox_2");
-    waitForObject(":_description_QTextEdit_4");
-    type(":_description_QTextEdit_4", "Customer Sales Volume");
+    if(!findObject(":May be used on:.Customer_QCheckBox_2").checked)
+        clickButton(":May be used on:.Customer_QCheckBox_2");
+    waitForObject(":_description_QTextEdit_6");
+    type(":_description_QTextEdit_6", "Customer Sales Volume");
+    waitForObject(":_mask_QLineEdit");
+    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
     waitForObject(":List Characteristics._char_XTreeWidget");
@@ -690,10 +696,12 @@ function main()
     clickButton(":List Characteristics.New_QPushButton_2");
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "CRM-ACCOUNT-REGION");
-    if(!findObject(":May be used for:.CRM Account Characteristics_QCheckBox_2").checked)
-        clickButton(":May be used for:.CRM Account Characteristics_QCheckBox_2");
-    waitForObject(":_description_QTextEdit_4");
-    type(":_description_QTextEdit_4", "Account Region");
+    if(!findObject(":May be used on:.CRM Account_QCheckBox_2").checked)
+        clickButton(":May be used on:.CRM Account_QCheckBox_2");
+    waitForObject(":_description_QTextEdit_6");
+    type(":_description_QTextEdit_6", "Account Region");
+    waitForObject(":_mask_QLineEdit");
+    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
     waitForObject(":List Characteristics._char_XTreeWidget");
@@ -705,10 +713,12 @@ function main()
     clickButton(":List Characteristics.New_QPushButton_2");
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "ADR-ROUTE");
-    if(!findObject(":May be used for:.Address Characteristics_QCheckBox_2").checked)
-        clickButton(":May be used for:.Address Characteristics_QCheckBox_2");
-    waitForObject(":_description_QTextEdit_4");
-    type(":_description_QTextEdit_4", "Delivery Route");
+    if(!findObject(":May be used on:.Address_QCheckBox_2").checked)
+        clickButton(":May be used on:.Address_QCheckBox_2");
+    waitForObject(":_description_QTextEdit_6");
+    type(":_description_QTextEdit_6", "Delivery Route");
+    waitForObject(":_mask_QLineEdit");
+    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
     waitForObject(":List Characteristics._char_XTreeWidget");
@@ -720,10 +730,12 @@ function main()
     clickButton(":List Characteristics.New_QPushButton_2");
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "CTC-BDAY");
-    if(!findObject(":May be used for:.Contact Characteristics_QCheckBox_2").checked)
-        clickButton(":May be used for:.Contact Characteristics_QCheckBox_2");
-    waitForObject(":_description_QTextEdit_4");
-    type(":_description_QTextEdit_4", "Birthday");
+    if(!findObject(":May be used on:.Contact_QCheckBox_2").checked)
+        clickButton(":May be used on:.Contact_QCheckBox_2");
+    waitForObject(":_description_QTextEdit_6");
+    type(":_description_QTextEdit_6", "Birthday");
+    waitForObject(":_mask_QLineEdit");
+    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton"); 
     waitForObject(":List Characteristics._char_XTreeWidget");
@@ -735,10 +747,12 @@ function main()
     clickButton(":List Characteristics.New_QPushButton_2");
     waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "LOT-QA-TEST1");
-    if(!findObject(":May be used for:.Lot/Serial Characteristics_QCheckBox_2").checked)
-        clickButton(":May be used for:.Lot/Serial Characteristics_QCheckBox_2");
-    waitForObject(":_description_QTextEdit_4");
-    type(":_description_QTextEdit_4", "QA Results for Test Type 1");
+    if(!findObject(":May be used on:.Lot/Serial_QCheckBox_2").checked)
+        clickButton(":May be used on:.Lot/Serial_QCheckBox_2");
+    waitForObject(":_description_QTextEdit_6");
+    type(":_description_QTextEdit_6", "QA Results for Test Type 1");
+    waitForObject(":_mask_QLineEdit");
+    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton"); 
     waitForObject(":List Characteristics._char_XTreeWidget");

@@ -140,7 +140,7 @@ function main()
     waitForObject(":Maintain Item Costs.Close_QPushButton");
     clickButton(":Maintain Item Costs.Close_QPushButton");
     
-    
+  
      //---------Update Actual Costs-------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
