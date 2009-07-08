@@ -24,6 +24,7 @@ function main()
     var appEdition = findObject(":Database Information.*_QLabel").text;
     clickButton(":Database Information.Save_QPushButton");
     
+
     
     //-----create Entities-------
     createDept("MFG","Manufacturing");
@@ -131,7 +132,6 @@ function main()
     //-------Create Company: Prodiem---------
     createCompany("01","Prodiem");
     
-
 
     //-------------Accounting-Profit Center Number---------------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -542,10 +542,111 @@ function main()
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
 
+    //----Configure EDI Profile-----------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "EDI Profiles...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "EDI Profiles...");
     
+    waitForObject(":List EDI Profiles.New_QPushButton");
+    clickButton(":List EDI Profiles.New_QPushButton");
+    waitForObject(":List EDI Profiles._name_QLineEdit");
+    type(":List EDI Profiles._name_QLineEdit", "DUNNING");
+    waitForObjectItem(":_type_XComboBox_2", "EMail");
+    clickItem(":_type_XComboBox_2", "EMail", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_emailFrom_QLineEdit");
+    type(":_emailFrom_QLineEdit", "demo@openmfg.com");
+    waitForObject(":_emailReplyTo_QLineEdit");
+    type(":_emailReplyTo_QLineEdit", "demo@openmfg.com");
+    waitForObject(":_emailTo_QLineEdit");
+    type(":_emailTo_QLineEdit", "<");
+    type(":_emailTo_QLineEdit", "/email3>");
+    waitForObject(":_emailCC_QLineEdit");
+    type(":_emailCC_QLineEdit", "<");
+    type(":_emailCC_QLineEdit", "/email1></email2>");
+    waitForObject(":_emailSubject_QLineEdit");
+    type(":_emailSubject_QLineEdit", "ProDiem Toys Invoice");
+    waitForObject(":_emailBody_QTextEdit");
+    type(":_emailBody_QTextEdit", "There is an issue with your invoice.  Please contact us and reference </docnumber> and </description>.  Thank You,ProDiem Accounts Receivable ");
+    waitForObject(":_stack.Review Before Sending_QCheckBox");
+    clickButton(":_stack.Review Before Sending_QCheckBox");
+    waitForObject(":List EDI Profiles.Save_QPushButton");
+    clickButton(":List EDI Profiles.Save_QPushButton");
+   
+    
+    waitForObject(":List EDI Profiles.New_QPushButton");
+    clickButton(":List EDI Profiles.New_QPushButton");
+    waitForObject(":List EDI Profiles._name_QLineEdit");
+    type(":List EDI Profiles._name_QLineEdit", "CRM");
+    waitForObjectItem(":_type_XComboBox_2", "EMail");
+    clickItem(":_type_XComboBox_2", "EMail", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_emailFrom_QLineEdit");
+    mouseClick(":_emailFrom_QLineEdit", 24, 8, 1, Qt.LeftButton);
+    waitForObject(":_emailFrom_QLineEdit");
+    type(":_emailFrom_QLineEdit", "demo@opemfg.com");
+    waitForObject(":_emailFrom_QLineEdit");
+    type(":_emailFrom_QLineEdit", "<Tab>");
+    waitForObject(":_emailReplyTo_QLineEdit");
+    type(":_emailReplyTo_QLineEdit", "demo@openmfg.com");
+    waitForObject(":_emailTo_QLineEdit");
+    type(":_emailTo_QLineEdit", "demo@openmfg.com");
+    waitForObject(":_emailCC_QLineEdit");
+    type(":_emailCC_QLineEdit", "demo@opemfg.com");
+    waitForObject(":_emailSubject_QLineEdit");
+    type(":_emailSubject_QLineEdit", "CRM Incident</docnumber>");
+    waitForObject(":_emailBody_QTextEdit");
+    type(":_emailBody_QTextEdit", "<");
+     type(":_emailBody_QTextEdit", "/comments></description>");
+    waitForObject(":List EDI Profiles.Save_QPushButton");
+    clickButton(":List EDI Profiles.Save_QPushButton");
+   
+    
+    waitForObject(":List EDI Profiles.New_QPushButton");
+    clickButton(":List EDI Profiles.New_QPushButton");
+    waitForObject(":List EDI Profiles._name_QLineEdit");
+    type(":List EDI Profiles._name_QLineEdit", "PO");
+    waitForObjectItem(":_type_XComboBox_2", "EMail");
+    clickItem(":_type_XComboBox_2", "EMail", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_emailFrom_QLineEdit");
+    type(":_emailFrom_QLineEdit", "demo@openmfg.com");
+    waitForObject(":_emailReplyTo_QLineEdit");
+    type(":_emailReplyTo_QLineEdit", "demo@openmfg.com");
+    waitForObject(":_emailTo_QLineEdit");
+    type(":_emailTo_QLineEdit", "demo@openmfg.com");
+    waitForObject(":_emailCC_QLineEdit");
+    type(":_emailCC_QLineEdit", "demo@openmfg.com");
+    waitForObject(":_emailSubject_QLineEdit");
+    type(":_emailSubject_QLineEdit", "ProDiem Toys Invoice PO </docnumber>");
+    waitForObject(":_emailBody_QTextEdit");
+    type(":_emailBody_QTextEdit", " Dear </povendor>: Please see attached PO </docnumber> from ProDiem Toys for product to be shipped to our warehouse </powarehous> via </poshipvia>.  We entered this PO on </podate>. ");
+    waitForObject(":_stack.Review Before Sending_QCheckBox");
+    clickButton(":_stack.Review Before Sending_QCheckBox");
+    waitForObject(":List EDI Profiles.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":List EDI Profiles.qt_tabwidget_tabbar_QTabBar", "Forms");
+    waitForObject(":forms.New_QPushButton_2");
+    clickButton(":forms.New_QPushButton_2");
+    waitForObject(":List EDI Profiles.OK_QPushButton_2");
+    clickButton(":List EDI Profiles.OK_QPushButton_2");
+    waitForObjectItem(":_type_XComboBox_3", "Purchase Order");
+    clickItem(":_type_XComboBox_3", "Purchase Order", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":List EDI Profiles._file_QLineEdit");
+    type(":List EDI Profiles._file_QLineEdit", " PO</docnumber>_</poshipvia>");
+    waitForObject(":List EDI Profiles._query_QTextEdit");
+    type(":List EDI Profiles._query_QTextEdit", "SELECT pohead_orderdate AS podate, pohead_shipvia AS poshipvia, warehous_descrip AS powarehous, vend_name AS povendor FROM pohead, warehous, vendinfo WHERE pohead_id = <? value(“docid”) ?> AND pohead_warehous_id = warehous_id AND pohead_vend_id = vend_id; ");
+    waitForObjectItem(":_reportReport_XComboBox", "PurchaseOrder");
+    clickItem(":_reportReport_XComboBox", "PurchaseOrder", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":List EDI Profiles.OK_QPushButton");
+    clickButton(":List EDI Profiles.OK_QPushButton");
+    waitForObject(":List EDI Profiles.Save_QPushButton");
+    clickButton(":List EDI Profiles.Save_QPushButton");
+    waitForObject(":List EDI Profiles.Close_QPushButton");
+    clickButton(":List EDI Profiles.Close_QPushButton");
+    test.log("EDI Profile configured");
   
   
-  //----------Create Incident Category-----------
+    //----------Create Incident Category-----------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
@@ -1134,7 +1235,7 @@ function main()
     waitForObject(":Inventory Configuration.Save_QPushButton");
     clickButton(":Inventory Configuration.Save_QPushButton");
     test.log("Inventory Module Configured");
-    
+  
   
   //----Read Username based on Role------
   var set = testData.dataset("login.tsv");
@@ -1223,22 +1324,25 @@ function main()
   clickButton(":_menu.Show Accountng Toolbar_QCheckBox");
      
   waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
-  clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar", "Events");
-      
-  var sWidgetTreeControl = ":_events._event_XTreeWidget";
-  waitForObject(sWidgetTreeControl);
-  var obj_TreeWidget = findObject(sWidgetTreeControl);
-  var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-  var iNumberOfRootItems = obj_TreeRootItem.childCount();
-  type(sWidgetTreeControl,"<Space>");
-  var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-  var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-  for(i=0; i<=iNumberOfRootItems ;i++)
+  if(appEdition=="manufacturing")
   {
-      clickItem(":_events._warehouses_XTreeWidget", "WH1", 5, 5, 1, Qt.LeftButton);
-      type(sWidgetTreeControl,"<Down>"); 
-  }
-  clickItem(":_events._warehouses_XTreeWidget", "WH1", 5, 5, 1, Qt.LeftButton); 
+      clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar", "Events");
+      
+      var sWidgetTreeControl = ":_events._event_XTreeWidget";
+      waitForObject(sWidgetTreeControl);
+      var obj_TreeWidget = findObject(sWidgetTreeControl);
+      var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+      var iNumberOfRootItems = obj_TreeRootItem.childCount();
+      type(sWidgetTreeControl,"<Space>");
+      var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+      var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+      for(i=0; i<=iNumberOfRootItems ;i++)
+      {
+          clickItem(":_events._warehouses_XTreeWidget", "WH1", 5, 5, 1, Qt.LeftButton);
+          type(sWidgetTreeControl,"<Down>"); 
+      }
+      clickItem(":_events._warehouses_XTreeWidget", "WH1", 5, 5, 1, Qt.LeftButton); 
+  }	
   waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
   clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar","Alarms");
   waitForObject(":Default Actions.Event_XCheckBox");

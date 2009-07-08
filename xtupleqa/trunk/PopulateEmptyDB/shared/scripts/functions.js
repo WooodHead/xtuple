@@ -28,8 +28,8 @@ function loginAppl(userrole)
         exit(1);
     }
        
-    waitForObject(":Log In.Options_QPushButton");
-    clickButton(":Log In.Options_QPushButton");
+    waitForObject(":Log In.Options..._QPushButton");
+    clickButton(":Log In.Options..._QPushButton");
     waitForObject(":_server_QLineEdit");
     if(findObject(":_server_QLineEdit").text!= url)
     {findObject(":_server_QLineEdit").text=url;
@@ -472,8 +472,10 @@ function defineTaxation()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Authorities...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Authorities...");
+    waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Authorities...");
+    activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Authorities...");
+    
+    
     waitForObject(":List Tax Authorities.New_QPushButton");
     clickButton(":List Tax Authorities.New_QPushButton");
     waitForObject(":_code_XLineEdit_15");
@@ -506,8 +508,8 @@ function defineTaxation()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Codes...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Codes...");
+    waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Codes...");
+    activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Codes...");
         
     waitForObject(":List Tax Codes.New_QPushButton");
     clickButton(":List Tax Codes.New_QPushButton");
@@ -561,8 +563,8 @@ function defineTaxation()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Types...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Types...");
+    waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Types...");
+    activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Types...");
     waitForObject(":List Tax Types.New_QPushButton_2");
     clickButton(":List Tax Types.New_QPushButton_2");
     waitForObject(":Tax Type._name_XLineEdit");
@@ -592,8 +594,8 @@ function defineTaxation()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Zones...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Zones...");
+    waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Zones...");
+    activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Zones...");
     
     waitForObject(":List Tax Zones.New_QPushButton_2");
     clickButton(":List Tax Zones.New_QPushButton_2");
@@ -613,8 +615,8 @@ function defineTaxation()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Assignments...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Assignments...");
+    waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Assignments...");
+    activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Assignments...");
    
     waitForObject(":_frame.New_QPushButton_4");
     clickButton(":_frame.New_QPushButton_4");
@@ -651,8 +653,8 @@ function defineTaxation()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Registrations...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Tax_QMenu", "Tax Registrations...");
+    waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Registrations...");
+    activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Registrations...");
   
     waitForObject(":List Tax Registrations.New_QPushButton_2");
     clickButton(":List Tax Registrations.New_QPushButton_2");
