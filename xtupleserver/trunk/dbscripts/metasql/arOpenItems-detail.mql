@@ -41,11 +41,13 @@ SELECT -1 AS id,
        0 AS balance,
        currConcat(invchead_curr_id) AS currAbbr,
        0 AS base_balance,
+<? if exists("includeFormatted") ?>
        formatDate(invchead_invcdate) AS f_docdate,
        NULL::text AS f_duedate,
        formatMoney(0) AS f_amount,
        formatMoney(0) AS f_paid,
        formatMoney(0) AS f_balance,
+<? endif ?>
        cust_id, cust_number, cust_name,
        invchead_recurring AS recurring,
        false AS open,
@@ -60,8 +62,8 @@ SELECT -1 AS id,
        '' AS aropen_duedate_qtforegroundrole
 FROM invchead
            LEFT OUTER JOIN cohead ON (invchead_ordernumber=cohead_number)
-           LEFT OUTER JOIN custinfo ON (invchead_cust_id=cust_id)
-           LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
+           JOIN custinfo ON (invchead_cust_id=cust_id)
+           JOIN custtype ON (cust_custtype_id=custtype_id)
 WHERE ((NOT invchead_posted)
 <? if exists("cust_id") ?>
   AND   (invchead_cust_id=<? value("cust_id") ?>)
@@ -104,11 +106,13 @@ SELECT -1 AS id,
        0 AS balance,
        currConcat(cmhead_curr_id) AS currAbbr,
        0  AS base_balance,
+<? if exists("includeFormatted") ?>
        formatDate(cmhead_docdate) AS f_docdate,
        NULL::text AS f_duedate,
        formatMoney(creditmemototal(cmhead_id)) AS f_amount,
        formatMoney(0) AS f_paid,
        formatMoney(0) AS f_balance,
+<? endif ?>
        cust_id, cust_number, cust_name,
        false AS recurring,
        false AS open,
@@ -122,8 +126,8 @@ SELECT -1 AS id,
        0 AS xtindentrole,
        '' AS aropen_duedate_qtforegroundrole
 FROM cmhead
-            LEFT OUTER JOIN custinfo ON (cmhead_cust_id=cust_id)
-            LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
+            JOIN custinfo ON (cmhead_cust_id=cust_id)
+            JOIN custtype ON (cust_custtype_id=custtype_id)
 WHERE ((NOT cmhead_posted)
 <? if exists("cust_id") ?>
   AND   (cmhead_cust_id=<? value("cust_id") ?>)
@@ -176,6 +180,7 @@ SELECT aropen_id AS id,
        currConcat(aropen_curr_id) AS currAbbr,
         (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/round(aropen_curr_rate,5) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END)  AS base_balance,
+<? if exists("includeFormatted") ?>
        formatDate(aropen_docdate) AS f_docdate,
        formatDate(aropen_duedate) AS f_duedate,
        formatMoney(aropen_amount) AS f_amount,
@@ -183,6 +188,7 @@ SELECT aropen_id AS id,
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END)) AS f_paid,
        formatMoney((((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0))) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END)) AS f_balance,
+<? endif ?>
        cust_id, cust_number, cust_name,
        false AS recurring,
        aropen_open AS open,
@@ -200,8 +206,8 @@ FROM aropen
 <? if exists("incidentsOnly") ?>
             JOIN incdt ON (incdt_aropen_id=aropen_id)
 <? endif ?>
-            LEFT OUTER JOIN custinfo ON (aropen_cust_id=cust_id)
-            LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
+            JOIN custinfo ON (aropen_cust_id=cust_id)
+            JOIN custtype ON (cust_custtype_id=custtype_id)
             LEFT OUTER JOIN invchead ON ((aropen_docnumber=invchead_invcnumber)
                                    AND (aropen_doctype='I'))
             LEFT OUTER JOIN cohead ON (invchead_ordernumber=cohead_number)
@@ -263,11 +269,13 @@ SELECT -1,
        NULL AS balance,
        NULL AS currAbbr,
        NULL AS base_balance,
+<? if exists("includeFormatted") ?>
        NULL AS f_docdate,
        NULL AS f_duedate,
        NULL AS f_amount,
        NULL AS f_paid,
        NULL AS f_balance,
+<? endif ?>
        NULL,incdt_assigned_username, incdt_summary,
        NULL AS recurring, NULL AS open,
        'curr' AS amount_xtnumericrole,
@@ -281,8 +289,8 @@ SELECT -1,
        CASE WHEN ((COALESCE(aropen_duedate,current_date) < current_date) AND COALESCE(aropen_open,FALSE)) THEN 'error' 
        END AS aropen_duedate_qtforegroundrole
 FROM incdt JOIN aropen ON (aropen_id=incdt_aropen_id)
-           LEFT OUTER JOIN custinfo ON (aropen_cust_id=cust_id)
-           LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
+           JOIN custinfo ON (aropen_cust_id=cust_id)
+           JOIN custtype ON (cust_custtype_id=custtype_id)
 WHERE ((true)
 <? if not exists("showClosed") ?>
   AND (aropen_docdate <= COALESCE(<? value ("asofDate") ?>,current_date))
