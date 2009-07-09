@@ -4,9 +4,7 @@ DECLARE
   _type         TEXT    := LOWER(COALESCE($2, 'curr'));
   _abs          NUMERIC;
   _magnitudecnt NUMERIC(1000);
-  _whole        NUMERIC(1000);
   _wholefmt     TEXT    := '9';
-  _fractional   NUMERIC;
   _scale        INTEGER;
   _neg          TEXT;
   _decimal      TEXT;
@@ -46,12 +44,10 @@ BEGIN
   _value        := round(_value, _scale);
   _abs          := ABS(_value);
   _magnitudecnt := TRUNC(_abs / 10);
-  _whole        := TRUNC(_abs);
-  _fractional   := _abs - _whole;
 
   IF (_debug) THEN
-    RAISE NOTICE '_value % _abs % _whole % _fractional % _scale % _neg % _decimal % _group % ',
-                 _value, _abs, _whole, _fractional, _scale, _decimal, _group, _scale;
+    RAISE NOTICE '_value % _abs % _scale % _neg % _decimal % _group % ',
+                 _value, _abs, _scale, _decimal, _group, _scale;
   END IF;
 
   IF (_value < 0) THEN
@@ -68,16 +64,13 @@ BEGIN
     _wholefmt := '9' || _wholefmt;
   END LOOP;
 
-  _string := _string || to_char(_whole, _wholefmt);
-
   IF (_scale > 0) THEN
-    _string := _string || _decimal;
-    FOR _scale IN REVERSE _scale..1 LOOP
-      _fractional := (_fractional - TRUNC(_fractional, 0)) * 10;
-      IF _debug THEN RAISE NOTICE '_fractional is now %', _fractional; END IF;
-      _string := _string || CAST(TRUNC(_fractional) AS TEXT);
-    END LOOP;
+    _abs := TRUNC(_abs * (10 ^ _scale));
+    _wholefmt := _wholefmt || '"' || _decimal || '"' || REPEAT('0', _scale);
   END IF;
+
+  _wholefmt := 'FM' || _wholefmt;
+  _string := _string || to_char(_abs, _wholefmt);
 
   RETURN _string;
 END;$$
