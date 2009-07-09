@@ -11,8 +11,6 @@
 -- Posted cash receipts
 SELECT arapply_id, 1 AS type, '' AS cashrcpt_number, cust_number, cust_name,
        false AS voided, true AS posted, arapply_postdate AS postdate,
-       formatDate(arapply_postdate) AS f_postdate,
-       
        ( CASE WHEN (arapply_source_doctype='C') THEN <? value("creditMemo") ?>
               WHEN (arapply_source_doctype='R') THEN <? value("cashdeposit") ?>
               WHEN (arapply_fundstype='C') THEN <? value("check") ?>
@@ -36,10 +34,13 @@ SELECT arapply_id, 1 AS type, '' AS cashrcpt_number, cust_number, cust_name,
          END || ' ' || TEXT(arapply_target_docnumber) ) AS target,
        COALESCE(arapply_target_aropen_id,-1) AS target_xtidrole,
        arapply_applied AS applied,
-       formatMoney(arapply_applied) AS f_applied,
        'curr' AS applied_xtnumericrole,
        currtobase(arapply_curr_id,arapply_applied,arapply_postdate) AS base_applied,
+<? if exists("includeFormatted") ?>
+       formatDate(arapply_postdate) AS f_postdate,
+       formatMoney(arapply_applied) AS f_applied,
        formatMoney(currtobase(arapply_curr_id,arapply_applied,arapply_postdate)) AS f_base_applied,
+<? endif ?>
        'curr' AS base_applied_xtnumericrole,
        0 AS base_applied_xttotalrole,
        currConcat(arapply_curr_id) AS currAbbr,
@@ -65,7 +66,6 @@ WHERE ( (arapply_cust_id=cust_id)
 UNION
 SELECT cashrcpt_id, 2 AS type, '' AS cashrcpt_number, cust_number, cust_name,
        false AS voided, false AS posted, cashrcpt_distdate AS postdate,
-       formatDate(cashrcpt_distdate) AS f_postdate,
        ( CASE WHEN (cashrcpt_fundstype='C') THEN <? value("check") ?>
               WHEN (cashrcpt_fundstype='T') THEN <? value("certifiedCheck") ?>
               WHEN (cashrcpt_fundstype='M') THEN <? value("masterCard") ?>
@@ -81,10 +81,13 @@ SELECT cashrcpt_id, 2 AS type, '' AS cashrcpt_number, cust_number, cust_name,
        <? value("unposted") ?> AS target,
        -1 AS target_xtidrole,
        cashrcpt_amount AS applied,
-       formatMoney(cashrcpt_amount) AS f_applied,
        'curr' AS applied_xtnumericrole,
        currtobase(cashrcpt_curr_id,cashrcpt_amount,cashrcpt_distdate) AS base_applied,
+<? if exists("includeFormatted") ?>
+       formatDate(cashrcpt_distdate) AS f_postdate,
+       formatMoney(cashrcpt_amount) AS f_applied,
        formatMoney(currtobase(cashrcpt_curr_id,cashrcpt_amount,cashrcpt_distdate)) AS f_base_applied,
+<? endif ?>
        'curr' AS base_applied_xtnumericrole,
        0 AS base_applied_xttotalrole,
        currConcat(cashrcpt_curr_id) AS currAbbr,
@@ -106,7 +109,6 @@ WHERE ( (NOT cashrcpt_posted)
 UNION
 SELECT aropen_id, 3 AS type, '' AS cashrcpt_number, cust_number, cust_name,
        false AS voided, true AS posted, aropen_docdate AS postdate,
-       formatDate(aropen_docdate) AS f_postdate,
        ( CASE WHEN (substr(aropen_notes, 16, 1)='C') THEN <? value("check") ?>
               WHEN (substr(aropen_notes, 16, 1)='T') THEN <? value("certifiedCheck") ?>
               WHEN (substr(aropen_notes, 16, 1)='M') THEN <? value("masterCard") ?>
@@ -126,10 +128,13 @@ SELECT aropen_id, 3 AS type, '' AS cashrcpt_number, cust_number, cust_name,
        END AS target,
        aropen_id AS target_xtidrole,
        aropen_amount AS applied,
-       formatMoney(aropen_amount) AS f_applied,
        'curr' AS applied_xtnumericrole,
        aropen_amount / round(aropen_curr_rate,5) AS base_applied,
+<? if exists("includeFormatted") ?>
+       formatDate(aropen_docdate) AS f_postdate,
+       formatMoney(aropen_amount) AS f_applied,
        formatMoney(aropen_amount / round(aropen_curr_rate,5)) AS f_base_applied,
+<? endif ?>
        'curr' AS base_applied_xtnumericrole,
        0 AS base_applied_xttotalrole,
        currConcat(aropen_curr_id) AS currAbbr,
@@ -156,13 +161,15 @@ ORDER BY sortdate, source;
 SELECT id, type, cashrcpt_number, cust_number, cust_name,
        postdate, posted, voided,
        source, source_xtidrole,
-       formatDate(postdate) AS f_postdate,
        posted,
        target, target_xtidrole,
        applied,
-       formatMoney(applied) AS f_applied,
        base_applied,
+<? if exists("includeFormatted") ?>
+       formatDate(postdate) AS f_postdate,
+       formatMoney(applied) AS f_applied,
        formatMoney(base_applied) AS f_base_applied,
+<? endif ?>
        currAbbr,
        sortdate,
        'curr' AS applied_xtnumericrole,
