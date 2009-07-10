@@ -51,6 +51,13 @@ BEGIN
                                    (vodist_poitem_id=voitem_poitem_id) )
       WHERE (voitem_vohead_id = NEW.vohead_id);
     END IF;
+
+  -- Touch any Misc Tax Distributions so voheadtax is recalculated
+    IF (NEW.vohead_docdate <> OLD.vohead_docdate) THEN
+      UPDATE vodist SET vodist_vohead_id=NEW.vohead_id
+      WHERE ( (vodist_vohead_id=OLD.vohead_id)
+        AND   (vodist_tax_id <> -1) );
+    END IF;
   END IF;
 
   RETURN NEW;
