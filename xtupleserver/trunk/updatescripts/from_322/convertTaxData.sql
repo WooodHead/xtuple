@@ -192,8 +192,8 @@ BEGIN
         0, '1970-01-01', '2100-12-31' );
 
     INSERT INTO taxass
-      ( taxass_id, taxass_taxzone_id, taxass_taxtype_id, taxass_tax_id )
-    SELECT taxsel_id, taxsel_taxauth_id, taxsel_taxtype_id, _taxid
+      ( taxass_taxzone_id, taxass_taxtype_id, taxass_tax_id )
+    SELECT taxsel_taxauth_id, taxsel_taxtype_id, _taxid
     FROM taxsel
     WHERE (taxsel_tax_id=_r.tax_id);
 
@@ -429,8 +429,8 @@ BEGIN
           0, '1970-01-01', '2100-12-31' );
 
       INSERT INTO taxass
-        ( taxass_id, taxass_taxzone_id, taxass_taxtype_id, taxass_tax_id )
-      SELECT taxsel_id, taxsel_taxauth_id, taxsel_taxtype_id, _taxid
+        ( taxass_taxzone_id, taxass_taxtype_id, taxass_tax_id )
+      SELECT taxsel_taxauth_id, taxsel_taxtype_id, _taxid
       FROM taxsel
       WHERE (taxsel_tax_id=_r.tax_id);
 
@@ -627,8 +627,8 @@ BEGIN
           0, '1970-01-01', '2100-12-31' );
 
       INSERT INTO taxass
-        ( taxass_id, taxass_taxzone_id, taxass_taxtype_id, taxass_tax_id )
-      SELECT taxsel_id, taxsel_taxauth_id, taxsel_taxtype_id, _taxid
+        ( taxass_taxzone_id, taxass_taxtype_id, taxass_tax_id )
+      SELECT taxsel_taxauth_id, taxsel_taxtype_id, _taxid
       FROM taxsel
       WHERE (taxsel_tax_id=_r.tax_id);
 
