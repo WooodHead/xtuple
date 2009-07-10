@@ -21,7 +21,7 @@ BEGIN
     _cost := 0;
 
     FOR _r IN SELECT cs.itemsite_id AS c_itemsite_id,
-                     roundQty(item_fractional, (pQty * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)))) AS qty
+                     roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id), (bomitem_qtyper * pQty * (1 + bomitem_scrap))) AS qty
               FROM itemsite AS cs, itemsite AS ps, item, bomitem
               WHERE ( (cs.itemsite_item_id=item_id)
                AND (cs.itemsite_warehous_id=ps.itemsite_warehous_id)
