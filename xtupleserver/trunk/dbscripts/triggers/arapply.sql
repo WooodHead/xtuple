@@ -8,19 +8,17 @@ BEGIN
   IF (TG_OP = 'INSERT') THEN
     IF (NEW.arapply_target_doctype != 'K') THEN 
       SELECT round(currtocurr(NEW.arapply_curr_id,aropen_curr_id,NEW.arapply_applied,NEW.arapply_postdate),2) 
-        INTO _tpaid
+        INTO NEW.arapply_target_paid
       FROM aropen
       WHERE ( aropen_id=NEW.arapply_target_aropen_id );
     ELSE
       SELECT round(currtocurr(NEW.arapply_curr_id,aropen_curr_id,NEW.arapply_applied,NEW.arapply_postdate),2) 
-        INTO _tpaid
+        INTO NEW.arapply_target_paid
       FROM aropen
       WHERE ( aropen_id=NEW.arapply_source_aropen_id );
     END IF;
-    IF (FOUND) THEN
-      NEW.arapply_target_paid := _tpaid;
-    ELSE
-      RAISE EXCEPTION 'Error calculating paid amount on application';
+    IF NOT FOUND THEN
+      NEW.arapply_target_paid := NEW.arapply_applied;
     END IF;
   END IF;
 
