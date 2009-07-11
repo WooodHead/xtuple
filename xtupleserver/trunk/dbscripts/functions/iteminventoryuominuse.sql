@@ -16,6 +16,13 @@ BEGIN
     RETURN TRUE;
   END IF;
 
+  SELECT itemsite_id INTO _result
+  FROM itemsite WHERE ( (itemsite_item_id=pItemid)
+                  AND   ((itemsite_qtyonhand <> 0) OR (itemsite_nnqoh <> 0)) )
+  LIMIT 1;
+  IF (FOUND) THEN
+    RETURN TRUE;
+  END IF;
 
   RETURN FALSE;
 END;
