@@ -12,12 +12,13 @@ DECLARE
 
 BEGIN
 
+--  All calculation performed in currency of Cash Receipt
+
 --  Clear previously applied
   DELETE FROM cashrcptitem WHERE ((cashrcptitem_cashrcpt_id=pCashrcptId) AND (cashrcptitem_aropen_id=pAropenId));
 
 --  Find the balance to apply
-  SELECT (currToCurr(pCurrId, cashrcpt_curr_id, pAmount, cashrcpt_distdate) -
-              COALESCE(SUM(cashrcptitem_amount), 0)) INTO _amount
+  SELECT (pAmount - COALESCE(SUM(cashrcptitem_amount), 0)) INTO _amount
   FROM cashrcpt LEFT OUTER JOIN cashrcptitem ON (cashrcptitem_cashrcpt_id = cashrcpt_id)
   WHERE (cashrcpt_id=pCashrcptid)
   GROUP BY cashrcpt_curr_id, cashrcpt_distdate;
@@ -33,7 +34,7 @@ RAISE NOTICE 'Amount (%)', _amount;
   END IF;
 
 --  Determine Line balance
-        SELECT currToCurr(aropen_curr_id, 1,
+        SELECT currToCurr(aropen_curr_id, cashrcpt_curr_id,
                aropen_amount - aropen_paid, aropen_docdate) -
                COALESCE((SELECT SUM(cashrcptitem_amount)
                            FROM cashrcptitem, cashrcpt
