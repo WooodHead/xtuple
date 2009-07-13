@@ -60,11 +60,11 @@
    (SELECT cohead_id, 1 AS xtindentrole, NULL, NULL, 
    shiphead_number AS cohead_number, 
    CASE WHEN (shiphead_shipped IS NULL) THEN ''           
-   WHEN (shiphead_shipped) THEN 'green'            
-   WHEN (NOT shiphead_shipped) THEN 'blue' 
+   WHEN (shiphead_shipped) THEN 'altemphasis'            
+   WHEN (NOT shiphead_shipped) THEN 'emphasis' 
    WHEN ( (COALESCE(cobmisc_cohead_id,0) > 0)       
    AND (SUM(noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned)) > 0)       
-   ) THEN 'red'       
+   ) THEN 'error'       
    END AS qtforegroundrole, 
    COALESCE(shiphead_shipvia, ''), NULL, shiphead_shipdate AS cohead_orderdate, 
    NULL, NULL,

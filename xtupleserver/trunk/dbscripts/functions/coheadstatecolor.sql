@@ -27,12 +27,12 @@ BEGIN
         WHEN ((shiphead_shipped) 
          AND (COALESCE(shiphead_order_id,0) > 0) 
          AND (SUM(noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned)) <= 0)) THEN 
-           'green'
+           'altemphasis'
         WHEN ((COALESCE(cobmisc_cohead_id,0) > 0)       
          AND (SUM(noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned)) > 0)) THEN 
-           'red' 
+           'error' 
         WHEN (NOT shiphead_shipped) THEN 
-          'blue' 
+          'emphasis' 
        END INTO _result
     FROM cohead
       JOIN coitem ON (cohead_id=coitem_cohead_id)
@@ -44,7 +44,7 @@ BEGIN
     GROUP BY shiphead_id,shiphead_shipped,shiphead_order_id,cobmisc_cohead_id
     ORDER BY shiphead_id DESC;
   ELSE
-    _result := 'black';
+    _result := '';
   END IF;
   
   RETURN _result;
