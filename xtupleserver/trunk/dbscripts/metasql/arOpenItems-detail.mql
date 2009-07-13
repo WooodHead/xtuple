@@ -51,6 +51,7 @@ SELECT -1 AS id,
        cust_id, cust_number, cust_name,
        invchead_recurring AS recurring,
        false AS open,
+       NULL AS ccard_number,
        'curr' AS amount_xtnumericrole,
        'curr' AS balance_xtnumericrole,
        'curr' AS paid_xtnumericrole,
@@ -59,7 +60,8 @@ SELECT -1 AS id,
        NULL::text AS aropen_docnumber_qtdisplayrole,
        NULL::text AS aropen_docdate_qtdisplayrole,
        0 AS xtindentrole,
-       '' AS aropen_duedate_qtforegroundrole
+       '' AS aropen_duedate_qtforegroundrole,
+       NULL AS ccard_number_xtidrole
 FROM invchead
            LEFT OUTER JOIN cohead ON (invchead_ordernumber=cohead_number)
            JOIN custinfo ON (invchead_cust_id=cust_id)
@@ -116,6 +118,7 @@ SELECT -1 AS id,
        cust_id, cust_number, cust_name,
        false AS recurring,
        false AS open,
+       NULL AS ccard_number,
        'curr' AS amount_xtnumericrole,
        'curr' AS balance_xtnumericrole,
        'curr' AS paid_xtnumericrole,
@@ -124,7 +127,8 @@ SELECT -1 AS id,
        NULL::text AS aropen_docnumber_qtdisplayrole,
        NULL::text AS aropen_docdate_qtdisplayrole,
        0 AS xtindentrole,
-       '' AS aropen_duedate_qtforegroundrole
+       '' AS aropen_duedate_qtforegroundrole,
+       NULL AS ccard_number_xtidrole
 FROM cmhead
             JOIN custinfo ON (cmhead_cust_id=cust_id)
             JOIN custtype ON (cust_custtype_id=custtype_id)
@@ -192,6 +196,8 @@ SELECT aropen_id AS id,
        cust_id, cust_number, cust_name,
        false AS recurring,
        aropen_open AS open,
+       formatccnumber(decrypt(setbytea(ccard_number),
+                              setbytea(<? value("key") ?>), 'bf')) AS ccard_number,
        'curr' AS amount_xtnumericrole,
        'curr' AS balance_xtnumericrole,
        'curr' AS paid_xtnumericrole,
@@ -201,7 +207,8 @@ SELECT aropen_id AS id,
        NULL AS aropen_docdate_qtdisplayrole,
        0 AS xtindentrole,
        CASE WHEN ((COALESCE(aropen_duedate,current_date) < current_date) AND COALESCE(aropen_open,FALSE)) THEN 'error' 
-       END AS aropen_duedate_qtforegroundrole
+       END AS aropen_duedate_qtforegroundrole,
+       ccpay_id AS ccard_number_xtidrole
 FROM aropen 
 <? if exists("incidentsOnly") ?>
             JOIN incdt ON (incdt_aropen_id=aropen_id)
@@ -216,6 +223,9 @@ FROM aropen
             LEFT OUTER JOIN arapply ON (((aropen_id=arapply_source_aropen_id)
                              OR (aropen_id=arapply_target_aropen_id))
                              AND (arapply_distdate>COALESCE(<? value("asofDate") ?>,current_date)))
+            LEFT OUTER JOIN payaropen ON (payaropen_aropen_id=aropen_id)
+            LEFT OUTER JOIN ccpay     ON (payaropen_ccpay_id=ccpay_id)
+            LEFT OUTER JOIN ccard     ON (ccpay_ccard_id=ccard_id)
 WHERE ((true)
 <? if not exists("showClosed") ?>
   AND (aropen_docdate <= COALESCE(<? value ("asofDate") ?>,current_date))
@@ -252,7 +262,7 @@ WHERE ((true)
            aropen_paid,             aropen_open,            aropen_curr_id,
            aropen_closedate,        aropen_curr_rate,       cmhead_id,
            cust_id, 		    cust_number,            cust_name,
-           cohead_id
+           cohead_id,               ccpay_id,               ccard_number
 UNION
 SELECT -1,
        4 AS altId,
@@ -278,6 +288,7 @@ SELECT -1,
 <? endif ?>
        NULL,incdt_assigned_username, incdt_summary,
        NULL AS recurring, NULL AS open,
+       NULL AS ccard_number,
        'curr' AS amount_xtnumericrole,
        'curr' AS paid_xtnumericrole,
        'curr' AS balance_xtnumericrole,
@@ -287,7 +298,8 @@ SELECT -1,
        '' AS aropen_docdate_qtdisplayrole,
        1 AS xtindentrole,
        CASE WHEN ((COALESCE(aropen_duedate,current_date) < current_date) AND COALESCE(aropen_open,FALSE)) THEN 'error' 
-       END AS aropen_duedate_qtforegroundrole
+       END AS aropen_duedate_qtforegroundrole,
+       NULL AS ccard_xtidrole
 FROM incdt JOIN aropen ON (aropen_id=incdt_aropen_id)
            JOIN custinfo ON (aropen_cust_id=cust_id)
            JOIN custtype ON (cust_custtype_id=custtype_id)
