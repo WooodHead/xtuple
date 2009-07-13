@@ -17,7 +17,7 @@ DECLARE
 BEGIN
 
   -- Return actual cost in the given currency at the current conversion rate
-  SELECT SUM(currToCurr(itemcost_curr_id, pCurrid, itemcost_actcost, CURRENT_DATE)) INTO _cost
+  SELECT SUM(ROUND(currToCurr(itemcost_curr_id, pCurrid, itemcost_actcost, CURRENT_DATE), 6)) INTO _cost
   FROM itemcost
   WHERE (itemcost_item_id=pItemid);
 
