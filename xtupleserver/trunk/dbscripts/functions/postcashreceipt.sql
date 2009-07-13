@@ -2,6 +2,7 @@ CREATE OR REPLACE FUNCTION postCashReceipt(INTEGER, INTEGER) RETURNS INTEGER AS 
 DECLARE
   pCashrcptid ALIAS FOR $1;
   pJournalNumber ALIAS FOR $2;
+  _ccpayid  INTEGER;
   _p RECORD;
   _r RECORD;
   _postToAR NUMERIC;
@@ -63,10 +64,12 @@ BEGIN
   _predist := COALESCE(_p.cashrcpt_distdate < _p.applydate, false);
 
   IF (_p.cashrcpt_fundstype IN ('A', 'D', 'M', 'V')) THEN
-    IF NOT EXISTS(SELECT ccpay_id
-                  FROM ccpay
-                  WHERE ((ccpay_order_number IN (CAST(pCashrcptid AS TEXT), _p.cashrcpt_docnumber))
-                     AND (ccpay_status IN ('C', 'A')))) THEN
+    SELECT ccpay_id INTO _ccpayid
+    FROM ccpay
+    WHERE ((ccpay_order_number IN (CAST(pCashrcptid AS TEXT), _p.cashrcpt_docnumber))
+       AND (ccpay_status IN ('C', 'A')));
+
+    IF (NOT FOUND) THEN
       RETURN -8;
     END IF;
     _debitAccntid := findPrepaidAccount(_p.cashrcpt_cust_id);
@@ -230,6 +233,14 @@ BEGIN
                                 _comment, -1, -1, -1, _p.cashrcpt_distdate, -1, -1, 0,
                                 pJournalNumber, _p.cashrcpt_curr_id) INTO _aropenid;
     END IF;
+
+    IF (_ccpayid IS NOT NULL) THEN
+      INSERT INTO payaropen (payaropen_ccpay_id, payaropen_aropen_id,
+                             payaropen_amount,   payaropen_curr_id
+                   ) VALUES (_ccpayid,           _aropenid,
+                             _p.cashrcpt_amount, _p.cashrcpt_curr_id);
+    END IF;
+
     -- Create Cash Receipt Item to capture posting
     IF (_predist=false) THEN
       INSERT INTO cashrcptitem
