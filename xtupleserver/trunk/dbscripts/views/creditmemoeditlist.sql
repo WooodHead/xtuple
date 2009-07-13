@@ -105,6 +105,7 @@ FROM cmhead JOIN cmitem ON (cmitem_cmhead_id=cmhead_id)
 WHERE ( (NOT cmhead_posted)
  AND (NOT cmhead_hold) )
 
+-- Cmitem
 UNION SELECT cmhead_id AS orderid, cmitem_id AS itemid,
              '' AS documentnumber,
              '' AS cust_number,
@@ -112,17 +113,19 @@ UNION SELECT cmhead_id AS orderid, cmitem_id AS itemid,
              cmhead_number::TEXT AS ordernumber,
              cmitem_linenumber AS linenumber,
              item_number AS item, item_descrip1 AS itemdescrip, uom_name AS iteminvuom,
-             formatQty(creditmemoitem.qty) AS qtytobill,
-             formatPrice(creditmemoitem.unitprice) AS price,
-             formatMoney(creditmemoitem.extprice) AS extprice,
+             formatQty(COALESCE((cmitem_qtycredit * cmitem_qty_invuomratio), 0)) AS qtytobill,
+             formatPrice(COALESCE((cmitem_unitprice / cmitem_price_invuomratio), 0)) AS price,
+             formatMoney(COALESCE(round((cmitem_qtycredit * cmitem_qty_invuomratio) *
+                                        (cmitem_unitprice / cmitem_price_invuomratio), 2), 0)) AS extprice,
              'Debit' AS sence,
              COALESCE( ( SELECT formatGLAccountLong(accnt_id)
                          FROM accnt, salesaccnt
                          WHERE ((salesaccnt_sales_accnt_id=accnt_id)
                           AND (salesaccnt_id=findSalesAccnt(cmitem_itemsite_id, cmhead_cust_id)))), 'Not Assigned') AS account
-FROM item, cmhead, creditmemoitem, uom
+FROM item, itemsite, cmhead, cmitem, uom
 WHERE ( (cmitem_cmhead_id=cmhead_id)
- AND (creditmemoitem.item_id=item.item_id)
+ AND (cmitem_itemsite_id=itemsite_id)
+ AND (itemsite_item_id=item_id)
  AND (item_inv_uom_id=uom_id)
  AND (NOT cmhead_posted)
  AND (NOT cmhead_hold) )
