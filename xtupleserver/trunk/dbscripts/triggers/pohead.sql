@@ -2,14 +2,25 @@ CREATE OR REPLACE FUNCTION _poheadTrigger() RETURNS TRIGGER AS $$
 DECLARE
   _cmnttypeid 	INTEGER;
   _check	BOOLEAN;
+  _maint        BOOLEAN := TRUE;
 
 BEGIN
 
+-- Check if we are doing maintenance
+  IF (TG_OP = 'UPDATE') THEN
+    IF (OLD.pohead_status           != NEW.pohead_status) THEN
+      _maint := FALSE;
+    END IF;
+  END IF;
+
   -- Check
-  IF ( (TG_OP = 'UPDATE') AND (NOT checkPrivilege('MaintainPurchaseOrders')) AND (NOT checkPrivilege('PostVouchers')) ) THEN
+  IF ( (NOT _maint) AND (NOT checkPrivilege('MaintainPurchaseOrders'))
+                    AND (NOT checkPrivilege('PostPurchaseOrders'))
+                    AND (NOT checkPrivilege('PostVouchers')) ) THEN
     RAISE EXCEPTION 'You do not have privileges to alter a Purchase Order.';
   END IF;
-  IF ( ( (TG_OP = 'INSERT') OR (TG_OP = 'DELETE') ) AND (NOT checkPrivilege('MaintainPurchaseOrders')) ) THEN
+
+  IF ( _maint AND (NOT checkPrivilege('MaintainPurchaseOrders')) ) THEN
     RAISE EXCEPTION 'You do not have privileges to alter a Purchase Order.';
   END IF;
 
