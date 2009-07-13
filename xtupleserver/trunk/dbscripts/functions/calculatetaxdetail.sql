@@ -99,7 +99,9 @@ BEGIN
     RETURN NEXT _row;
 
     -- Increment cumulative balance and sequence number
-    _currcum := _currcum + _tax;
+    IF(_y.taxclass_sequence <> 0) THEN
+      _currcum := _currcum + _tax;
+    END IF;
     _currseq := _y.taxclass_sequence;
 
     -- Loop to Calculate sub taxes
