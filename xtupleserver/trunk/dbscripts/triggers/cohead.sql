@@ -217,8 +217,8 @@ BEGIN
         IF (_check) THEN
           SELECT NEXTVAL('prj_prj_id_seq') INTO _prjId;
           NEW.cohead_prj_id := _prjId;
-          INSERT INTO prj (prj_id, prj_number, prj_name, prj_descrip, prj_so, prj_wo, prj_po)
-               VALUES(_prjId, NEW.cohead_number, NEW.cohead_number, 'Auto Generated Project from Sales Order.', TRUE, TRUE, TRUE);
+          INSERT INTO prj (prj_id, prj_number, prj_name, prj_descrip, prj_status, prj_so, prj_wo, prj_po)
+               VALUES(_prjId, NEW.cohead_number, NEW.cohead_number, 'Auto Generated Project from Sales Order.', 'O', TRUE, TRUE, TRUE);
         END IF;
       END IF;
 
