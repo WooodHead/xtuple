@@ -80,7 +80,6 @@ BEGIN
       SELECT getItemTaxType(_r.item_id, cobmisc_taxzone_id) INTO _taxtypeid
         FROM cobmisc
        WHERE (cobmisc_id=_cobmiscid);
-     END IF;
 
       INSERT INTO cobill
       ( cobill_cobmisc_id, cobill_coitem_id,
@@ -92,6 +91,7 @@ BEGIN
         CURRENT_DATE, CURRENT_USER,
         _r.qty, _r.toclose,
          _taxtypeid );
+     END IF;      
 
   END LOOP;
 
