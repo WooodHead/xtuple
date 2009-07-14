@@ -61,7 +61,7 @@ SELECT -1 AS id,
        NULL::text AS aropen_docdate_qtdisplayrole,
        0 AS xtindentrole,
        '' AS aropen_duedate_qtforegroundrole,
-       NULL AS ccard_number_xtidrole
+       NULL::integer AS ccard_number_xtidrole
 FROM invchead
            LEFT OUTER JOIN cohead ON (invchead_ordernumber=cohead_number)
            JOIN custinfo ON (invchead_cust_id=cust_id)
@@ -128,7 +128,7 @@ SELECT -1 AS id,
        NULL::text AS aropen_docdate_qtdisplayrole,
        0 AS xtindentrole,
        '' AS aropen_duedate_qtforegroundrole,
-       NULL AS ccard_number_xtidrole
+       NULL::integer AS ccard_number_xtidrole
 FROM cmhead
             JOIN custinfo ON (cmhead_cust_id=cust_id)
             JOIN custtype ON (cust_custtype_id=custtype_id)
@@ -299,7 +299,7 @@ SELECT -1,
        1 AS xtindentrole,
        CASE WHEN ((COALESCE(aropen_duedate,current_date) < current_date) AND COALESCE(aropen_open,FALSE)) THEN 'error' 
        END AS aropen_duedate_qtforegroundrole,
-       NULL AS ccard_xtidrole
+       NULL::integer AS ccard_xtidrole
 FROM incdt JOIN aropen ON (aropen_id=incdt_aropen_id)
            JOIN custinfo ON (aropen_cust_id=cust_id)
            JOIN custtype ON (cust_custtype_id=custtype_id)
