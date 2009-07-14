@@ -427,7 +427,8 @@ BEGIN
     SELECT postInvTrans( itemsite_id, 'RS', _r.qty,
                          'S/O', 'CM', _r.cmhead_number, '',
                          ('Credit Return ' || _r.item_number),
-                         costcat_asset_accnt_id, resolveCOSAccount(itemsite_id, _r.cust_id), _itemlocSeries ) INTO _invhistid
+                         costcat_asset_accnt_id, resolveCOSAccount(itemsite_id, _r.cust_id), 
+                         _itemlocSeries, _glDate) INTO _invhistid
     FROM itemsite, costcat
     WHERE ( (itemsite_costcat_id=costcat_id)
      AND (itemsite_id=_r.itemsite_id) );
