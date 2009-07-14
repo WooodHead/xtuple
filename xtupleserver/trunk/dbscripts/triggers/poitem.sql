@@ -190,6 +190,14 @@ BEGIN
   END IF;
 
   IF (TG_OP = 'DELETE') THEN
+    IF (EXISTS(SELECT recv_id
+               FROM recv
+               WHERE ((recv_order_type='PO')
+                  AND (recv_orderitem_id=OLD.poitem_id)
+                  AND (recv_qty>0)))) THEN
+      RAISE EXCEPTION 'Cannot delete an P/O Item which has been received';
+    END IF;
+
     DELETE FROM comment
      WHERE ( (comment_source='PI')
        AND   (comment_source_id=OLD.poitem_id) );
