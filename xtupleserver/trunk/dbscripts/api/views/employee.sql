@@ -142,7 +142,7 @@ CREATE OR REPLACE RULE "_INSERT" AS ON INSERT TO api.employee DO INSTEAD
 
       getDeptId(NEW.department),
       getShiftId(NEW.shift),
-      NEW.code,
+      (SELECT usename::text FROM pg_user WHERE usename=NEW.code),
       getImageId(NEW.image),
       COALESCE(NEW.notes,'')
     );
@@ -196,7 +196,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS ON UPDATE TO api.employee DO INSTEAD
                     END,
     emp_dept_id=getDeptId(NEW.department),
     emp_shift_id=getShiftId(NEW.shift),
-    emp_username=NEW.code,
+    emp_username=(SELECT usename::text FROM pg_user WHERE usename=NEW.code),
     emp_image_id=getImageId(NEW.image),
     emp_notes=COALESCE(NEW.notes,'')
   WHERE emp_code=OLD.code;
