@@ -19,7 +19,7 @@ BEGIN
   SELECT fetchGLSequence() INTO _sequence;
 
   SELECT checkhead.*,
-         checkhead_amount / round(checkhead_curr_rate,5) AS checkhead_amount_base,
+         checkhead_amount / checkhead_curr_rate AS checkhead_amount_base,
          bankaccnt_accnt_id AS bankaccntid,
 	 checkrecip.* INTO _p
   FROM bankaccnt, checkhead LEFT OUTER JOIN
@@ -88,7 +88,7 @@ BEGIN
   ELSE
     FOR _r IN SELECT checkitem_amount, checkitem_discount,
                      CASE WHEN (checkitem_apopen_id IS NOT NULL) THEN
-                       checkitem_amount / round(apopen_curr_rate,5)
+                       checkitem_amount / apopen_curr_rate
                      ELSE
                        currToBase(checkitem_curr_id,
                                   checkitem_amount,
@@ -131,13 +131,13 @@ BEGIN
           PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
 				      'DS', _r.apopen_docnumber,
                                       findAPDiscountAccount(_p.checkhead_recip_id),
-                                      round(_r.checkitem_discount / round(_r.apopen_curr_rate,5), 2) * -1,
+                                      round(_r.checkitem_discount / _r.apopen_curr_rate, 2) * -1,
                                       pVoidDate, _gltransNote);
 
           PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
 				      'DS', _r.apopen_docnumber,
                                       findAPAccount(_p.checkhead_recip_id),
-                                      round(_r.checkitem_discount / round(_r.apopen_curr_rate,5), 2),
+                                      round(_r.checkitem_discount / _r.apopen_curr_rate, 2),
                                       pVoidDate, _gltransNote);
 
 	  --  Post the application

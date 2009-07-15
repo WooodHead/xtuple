@@ -26,7 +26,7 @@ BEGIN
 
     -- if we owe this vendor anything (we might not) then create a check
     IF ((SELECT 
-                SUM(apselect_amount * round(_check_curr_rate,5) / round(apopen_curr_rate,5))          
+                SUM(apselect_amount * _check_curr_rate / apopen_curr_rate)          
 	 FROM apselect, apopen
 	 WHERE ((apselect_apopen_id=apopen_id)
 	   AND  (apopen_vend_id=_v.vend_id)
@@ -54,7 +54,7 @@ BEGIN
 	  _r.apopen_docnumber, _r.apopen_invcnumber, _r.apopen_ponumber,
 	  _r.apselect_amount, _r.apselect_discount, _r.apopen_docdate,
 	  _r.apselect_curr_id, 
-          1 / (round(_check_curr_rate,5) / round(currRate(_r.apselect_curr_id, pCheckdate),5))  );
+          1 / (_check_curr_rate / currRate(_r.apselect_curr_id, pCheckdate))  );
 
 	DELETE FROM apselect
 	WHERE (apselect_id=_r.apselect_id);
@@ -63,7 +63,7 @@ BEGIN
 
       -- one check can pay for purchases on multiple dates in multiple currencies
       UPDATE checkhead
-      SET checkhead_amount = (SELECT SUM(checkitem_amount / round(checkitem_curr_rate,5))
+      SET checkhead_amount = (SELECT SUM(checkitem_amount / checkitem_curr_rate)
 			      FROM checkitem
 			      WHERE (checkitem_checkhead_id=checkhead_id))
       WHERE (checkhead_id=_checkid);

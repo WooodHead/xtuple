@@ -45,7 +45,7 @@ BEGIN
 
   SELECT fetchGLSequence() INTO _sequence;
 
-  _discountDateAmt = round(pAmount / round(_ap.apopen_curr_rate,5), 2);
+  _discountDateAmt = round(pAmount / _ap.apopen_curr_rate, 2);
   PERFORM insertIntoGLSeries( _sequence, 'A/P', 'DS', _ap.apopen_docnumber,
                               _dbAccnt,
                               _discountDateAmt * -1,

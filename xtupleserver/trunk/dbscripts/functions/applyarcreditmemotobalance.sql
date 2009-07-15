@@ -16,7 +16,7 @@ BEGIN
                                                   aropen_curr_id,
                                                   arcreditapply_amount,
                                                   aropen_docdate)), 0) - aropen_paid - COALESCE(prepared,0.0)),
-         aropen_curr_id, round(aropen_curr_rate,5) INTO _amount, _amountcurrid, _curr_rate
+         aropen_curr_id, aropen_curr_rate INTO _amount, _amountcurrid, _curr_rate
   FROM aropen LEFT OUTER JOIN arcreditapply ON (arcreditapply_source_aropen_id=aropen_id)
 	      LEFT OUTER JOIN (SELECT aropen_id AS prepared_aropen_id,
                                 SUM(checkitem_amount + checkitem_discount) AS prepared
@@ -57,7 +57,7 @@ BEGIN
     SELECT arcreditapply_id,
            arcreditapply_amount,
            arcreditapply_amount * _curr_rate / 
-                 round(currRate(arcreditapply_curr_id,_r.docdate),5) AS
+                 currRate(arcreditapply_curr_id,_r.docdate) AS
                       arcreditapply_amount_applycurr INTO _p
     FROM arcreditapply
     WHERE ( (arcreditapply_target_aropen_id=_r.aropenid)
@@ -73,7 +73,7 @@ BEGIN
 --  Update the arcreditapply with the new amount to apply
       UPDATE arcreditapply
       SET arcreditapply_amount = (arcreditapply_amount + 
-          _applyAmount *  round(currRate(arcreditapply_curr_id,5)) / _curr_rate)
+          _applyAmount *  currRate(arcreditapply_curr_id) / _curr_rate)
       WHERE (arcreditapply_id=_p.arcreditapply_id);
 
     ELSE
