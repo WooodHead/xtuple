@@ -11,7 +11,7 @@ DECLARE
   
 BEGIN
 
-  SELECT ROUND(SUM(taxdetail_tax),6)
+  SELECT COALESCE(ROUND(SUM(taxdetail_tax),6),0)
     INTO _tottax 
   FROM calculateTaxDetail(pTaxZoneId, pTaxTypeId, pDate, pCurrId, pAmount);
 
