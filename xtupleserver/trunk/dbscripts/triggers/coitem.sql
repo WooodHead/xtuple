@@ -216,6 +216,11 @@ BEGIN
     END IF;
 
     IF ((NEW.coitem_status = 'X') AND (OLD.coitem_status <> 'X')) THEN
+      -- Delete any associated P/R
+      IF (OLD.coitem_order_type = 'R') THEN 
+        PERFORM deletePr(OLD.coitem_order_id);
+      END IF;
+
       NEW.coitem_qtyreserved := 0;
 
       IF (_cmnttypeid <> -1) THEN
