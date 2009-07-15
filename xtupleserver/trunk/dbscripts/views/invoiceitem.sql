@@ -14,7 +14,10 @@ SELECT invcitem.*, itemsite_id,
          WHERE (taxhist_parent_id = invcitem_id) ) AS tax,
        ( SELECT COALESCE(SUM(shipitem_value), 0)
          FROM shipitem
-         WHERE (shipitem_invcitem_id = invcitem_id) ) / (invcitem_billed * invcitem_qty_invuomratio) AS unitcost
+         WHERE (shipitem_invcitem_id = invcitem_id) ) / 
+         (CASE WHEN (invcitem_billed != 0) THEN
+           (invcitem_billed * invcitem_qty_invuomratio) 
+         ELSE 1 END) AS unitcost
 FROM invcitem JOIN invchead ON (invchead_id = invcitem_invchead_id)
               LEFT OUTER JOIN itemsite ON ( (itemsite_item_id = invcitem_item_id)
                                        AND  (itemsite_warehous_id = invcitem_warehous_id) );
