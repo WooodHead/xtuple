@@ -24,7 +24,7 @@ CREATE OR REPLACE FUNCTION currToCurr(INTEGER, INTEGER, NUMERIC, DATE)
 	    RETURN 0;
 	END IF;
 
-	SELECT round(curr_rate, 5) INTO _fromRate
+	SELECT curr_rate INTO _fromRate
 	FROM curr_rate
 	WHERE curr_id = pFromCurr
 	  AND pEffective BETWEEN curr_effective AND curr_expires;
@@ -33,7 +33,7 @@ CREATE OR REPLACE FUNCTION currToCurr(INTEGER, INTEGER, NUMERIC, DATE)
 	  RAISE EXCEPTION ''No exchange rate for % on %'', pFromCurr, pEffective;
 	END IF;
 
-	SELECT round(curr_rate, 5) INTO _toRate
+	SELECT curr_rate INTO _toRate
 	FROM curr_rate
 	WHERE curr_id = pToCurr
 	  AND pEffective BETWEEN curr_effective AND curr_expires;

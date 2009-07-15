@@ -20,7 +20,7 @@ CREATE OR REPLACE FUNCTION currToBase (integer, numeric, date) RETURNS NUMERIC A
 	IF pValue = 0 OR pValue IS NULL THEN
 	    _output := 0;
 	ELSE
-	    SELECT pValue / round(curr_rate, 5)
+	    SELECT pValue / curr_rate
 		INTO  _output
 		FROM  curr_rate
 		WHERE curr_id = pId

@@ -4,8 +4,8 @@
 
 <? if exists("totalOnly") ?>
 SELECT SUM(CASE WHEN (aropen_doctype IN ('C', 'R')) THEN
-                    (aropen_amount - aropen_paid) / round(aropen_curr_rate,5) * -1
-                ELSE (aropen_amount - aropen_paid) / round(aropen_curr_rate,5)
+                    (aropen_amount - aropen_paid) / aropen_curr_rate * -1
+                ELSE (aropen_amount - aropen_paid) / aropen_curr_rate
            END) AS total_balance
 FROM aropen JOIN custinfo ON (aropen_cust_id=cust_id)
             LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
@@ -182,7 +182,7 @@ SELECT aropen_id AS id,
         (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0))) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) AS balance,
        currConcat(aropen_curr_id) AS currAbbr,
-        (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/round(aropen_curr_rate,5) *
+        (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/aropen_curr_rate *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END)  AS base_balance,
 <? if exists("includeFormatted") ?>
        formatDate(aropen_docdate) AS f_docdate,

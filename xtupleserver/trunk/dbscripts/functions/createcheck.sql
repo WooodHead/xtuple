@@ -97,7 +97,7 @@ BEGIN
                            checkitem_ranumber, checkitem_curr_rate)
     SELECT _checkid, currToCurr(checkhead_curr_id, aropen_curr_id, pAmount, checkhead_checkdate),
       0,cmhead_custponumber,pAropenid,aropen_docdate,aropen_curr_id,cmhead_number,rahead_number,
-      1 / (round(_check_curr_rate,5) / round(aropen_curr_rate,5))
+      1 / (_check_curr_rate / aropen_curr_rate)
     FROM checkhead, aropen
       LEFT OUTER JOIN cmhead ON (aropen_docnumber=cmhead_number)
       LEFT OUTER JOIN rahead ON (cmhead_rahead_id=rahead_id)
@@ -109,7 +109,7 @@ BEGIN
                            checkitem_ranumber, checkitem_curr_rate)
     SELECT _checkid,currToCurr(checkhead_curr_id, aropen_curr_id, pAmount, checkhead_checkdate),
       0,cmhead_custponumber,pAropenid,aropen_docdate,aropen_curr_id,cmhead_number,NULL,
-      1 / (round(_check_curr_rate,5) / round(aropen_curr_rate,5))
+      1 / (_check_curr_rate / aropen_curr_rate)
     FROM checkhead, aropen
       LEFT OUTER JOIN cmhead ON (aropen_docnumber=cmhead_number)
     WHERE ((aropen_id=pAropenid)

@@ -545,10 +545,10 @@ BEGIN
     -- get a list of allocated CMs
     FOR _r IN SELECT aropen_id,
 		     CASE WHEN((aropen_amount - aropen_paid) >=
-                                aropenco_amount / (1 / round(aropen_curr_rate,5) / 
-                                round(currRate(aropenco_curr_id,_firstExchDate),5))) THEN
-			      aropenco_amount / (1 / round(aropen_curr_rate,5) / 
-                                round(currRate(aropenco_curr_id,_firstExchDate),5))
+                                aropenco_amount / (1 / aropen_curr_rate / 
+                                currRate(aropenco_curr_id,_firstExchDate))) THEN
+			      aropenco_amount / (1 / aropen_curr_rate / 
+                                currRate(aropenco_curr_id,_firstExchDate))
 			  ELSE (aropen_amount - aropen_paid)
 		     END AS balance,
 		     aropen_curr_id, aropen_curr_rate
@@ -558,8 +558,8 @@ BEGIN
                  AND   (cohead_number=_p.invchead_ordernumber) ) LOOP
 
       _appliedAmount := _r.balance;
-      IF (_totalAmount < _appliedAmount / (1 / round(currRate(_r.aropen_curr_id,_firstExchDate),5) /
-                        round(_r.aropen_curr_rate,5))) THEN
+      IF (_totalAmount < _appliedAmount / (1 / currRate(_r.aropen_curr_id,_firstExchDate) /
+                        _r.aropen_curr_rate)) THEN
         _appliedAmount := _totalAmount;
 	_tmpCurrId := _p.invchead_curr_id;
       ELSE

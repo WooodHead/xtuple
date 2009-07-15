@@ -16,7 +16,7 @@ BEGIN
                                                   apopen_curr_id,
                                                   apcreditapply_amount,
                                                   apopen_docdate)), 0)),
-          apopen_curr_id, round(apopen_curr_rate,5), apopen_docdate INTO _amount, _curr_id, _curr_rate, _docdate
+          apopen_curr_id, apopen_curr_rate, apopen_docdate INTO _amount, _curr_id, _curr_rate, _docdate
   FROM apopen 
     LEFT OUTER JOIN apcreditapply ON (apcreditapply_source_apopen_id=apopen_id)
     LEFT OUTER JOIN (SELECT apopen_id AS selected_apopen_id,
@@ -73,7 +73,7 @@ BEGIN
 --  Does an apcreditapply record already exist?
     SELECT apcreditapply_id, 
               apcreditapply_amount * _curr_rate / 
-                 round(currRate(apcreditapply_curr_id,_docdate),5) AS apcreditapply_amount
+                 currRate(apcreditapply_curr_id,_docdate) AS apcreditapply_amount
       INTO _p
     FROM apcreditapply
     WHERE ( (apcreditapply_target_apopen_id=_r.apopenid)
@@ -89,7 +89,7 @@ BEGIN
 --  Update the apcreditapply with the new amount to apply
       UPDATE apcreditapply
       SET apcreditapply_amount = (apcreditapply_amount + 
-          _applyAmount *  round(currRate(apcreditapply_curr_id,5)) / _curr_rate)
+          _applyAmount *  currRate(apcreditapply_curr_id) / _curr_rate)
       WHERE (apcreditapply_id=_p.apcreditapply_id);
 
     ELSE

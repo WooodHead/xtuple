@@ -129,11 +129,11 @@ SELECT aropen_id, 3 AS type, '' AS cashrcpt_number, cust_number, cust_name,
        aropen_id AS target_xtidrole,
        aropen_amount AS applied,
        'curr' AS applied_xtnumericrole,
-       aropen_amount / round(aropen_curr_rate,5) AS base_applied,
+       aropen_amount / aropen_curr_rate AS base_applied,
 <? if exists("includeFormatted") ?>
        formatDate(aropen_docdate) AS f_postdate,
        formatMoney(aropen_amount) AS f_applied,
-       formatMoney(aropen_amount / round(aropen_curr_rate,5)) AS f_base_applied,
+       formatMoney(aropen_amount / aropen_curr_rate) AS f_base_applied,
 <? endif ?>
        'curr' AS base_applied_xtnumericrole,
        0 AS base_applied_xttotalrole,

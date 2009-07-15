@@ -18,38 +18,38 @@ BEGIN
 
         --today and greater base:
         CASE WHEN((apopen_duedate >= DATE(_asOfDate)))
-        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/round(apopen_curr_rate,5) *
+        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/apopen_curr_rate *
         CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS cur_val,
 
         --0 to 30 base
         CASE WHEN((apopen_duedate >= DATE(_asOfDate)-30) AND (apopen_duedate < DATE(_asOfDate)))
-        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/round(apopen_curr_rate,5) *
+        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/apopen_curr_rate *
         CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS thirty_val,
 
         --30-60 base
         CASE WHEN((apopen_duedate >= DATE(_asOfDate)-60) AND (apopen_duedate < DATE(_asOfDate) - 30 ))
-        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/round(apopen_curr_rate,5) *
+        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/apopen_curr_rate *
         CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS sixty_val,
 
         --60-90 base
         CASE WHEN((apopen_duedate >= DATE(_asOfDate)-90) AND (apopen_duedate < DATE(_asOfDate) - 60))
-        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/round(apopen_curr_rate,5) *
+        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/apopen_curr_rate *
         CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS ninety_val,
 
         --greater than 90 base:
         CASE WHEN((apopen_duedate > DATE(_asOfDate)-10000) AND (apopen_duedate < DATE(_asOfDate) - 90))
-        THEN (((apopen_amount-apopen_paid + COALESCE(SUM(apapply_target_paid),0)))/round(apopen_curr_rate,5) *
+        THEN (((apopen_amount-apopen_paid + COALESCE(SUM(apapply_target_paid),0)))/apopen_curr_rate *
         CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS plus_val,
 
         --total amount base:
         CASE WHEN((apopen_duedate > DATE(_asOfDate)-10000))
-        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/round(apopen_curr_rate,5) *
+        THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/apopen_curr_rate *
         CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS total_val,
 
         --AR Open Amount base
         CASE WHEN apopen_doctype IN ('C', 'R') 
-        THEN (apopen_amount * -1) / round(apopen_curr_rate,5)
-        ELSE apopen_amount / round(apopen_curr_rate,5) END AS apopen_amount,
+        THEN (apopen_amount * -1) / apopen_curr_rate
+        ELSE apopen_amount / apopen_curr_rate END AS apopen_amount,
         
         apopen_docdate,
         apopen_duedate,

@@ -99,9 +99,9 @@ BEGIN
     AND (apopen_amount <= apopen_paid) );
 
   IF (_r.apopen_docdate > _src.apopen_docdate) THEN
-    _exchGain := (_totalAmount / round(_r.apopen_curr_rate,5) - _totalAmount / round(_src.apopen_curr_rate,5)) * -1;
+    _exchGain := (_totalAmount / _r.apopen_curr_rate - _totalAmount / _src.apopen_curr_rate) * -1;
   ELSE
-    _exchGain := _totalAmount / round(_src.apopen_curr_rate,5) - _totalAmount / round(_r.apopen_curr_rate,5);
+    _exchGain := _totalAmount / _src.apopen_curr_rate - _totalAmount / _r.apopen_curr_rate;
   END IF;
 
   PERFORM insertGLTransaction(fetchJournalNumber('AP-MISC'), 'A/P', 'CM',

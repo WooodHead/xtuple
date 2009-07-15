@@ -25,7 +25,7 @@ BEGIN
   END IF;
 
   SELECT checkhead.*,
-         checkhead_amount / round(checkhead_curr_rate,5) AS checkhead_amount_base,
+         checkhead_amount / checkhead_curr_rate AS checkhead_amount_base,
          bankaccnt_accnt_id AS bankaccntid INTO _p
   FROM checkhead
    JOIN bankaccnt ON (checkhead_bankaccnt_id=bankaccnt_id)
@@ -134,7 +134,7 @@ BEGIN
   ELSE
     FOR _r IN SELECT checkitem_amount, checkitem_discount,
                      CASE WHEN (checkitem_apopen_id IS NOT NULL) THEN
-                       checkitem_amount / round(apopen_curr_rate,5)
+                       checkitem_amount / apopen_curr_rate
                      ELSE
                        currToBase(checkitem_curr_id,
                                   checkitem_amount,

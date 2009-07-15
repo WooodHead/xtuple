@@ -7,9 +7,9 @@
 
 SELECT curr_rate_id, currConcat(curr_id) AS f_curr,
 <? if exists("invert") ?>
-       ROUND((1.0 / curr_rate), 5) AS rate,
+       round((1.0 / curr_rate),5) AS rate,
 <? else ?>
-       ROUND(curr_rate, 5) AS rate,
+       round(curr_rate,5) AS rate,
 <? endif ?>
        curr_effective, curr_expires
 FROM curr_symbol NATURAL JOIN curr_rate

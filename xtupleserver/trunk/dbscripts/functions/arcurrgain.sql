@@ -27,9 +27,9 @@ RETURNS NUMERIC AS $$
         WHERE (aropen_id=pAropenId);
 
 	IF (_r.aropen_docdate > pDate) THEN
-	  _gain := (currToBase(pCurrId, pValue, pDate) - currToCurr(pCurrId,_r.aropen_curr_id, pValue, pDate) / round(_r.aropen_curr_rate,5)) * -1;
+	  _gain := (currToBase(pCurrId, pValue, pDate) - currToCurr(pCurrId,_r.aropen_curr_id, pValue, pDate) / _r.aropen_curr_rate) * -1;
 	ELSE
-          _gain := currToCurr(pCurrId,_r.aropen_curr_id, pValue, pDate) / round(_r.aropen_curr_rate,5) - currToBase(pCurrId, pValue, pDate);
+          _gain := currToCurr(pCurrId,_r.aropen_curr_id, pValue, pDate) / _r.aropen_curr_rate - currToBase(pCurrId, pValue, pDate);
 	END IF;
 
     	IF (_gain IS NULL) THEN
