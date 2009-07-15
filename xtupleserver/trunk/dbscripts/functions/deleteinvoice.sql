@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION deleteInvoice(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION deleteInvoice(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pInvcheadid ALIAS FOR $1;
 
@@ -9,8 +9,8 @@ BEGIN
     AND  (shipitem_invcitem_id=invcitem_id)
     AND  (invcitem_invchead_id=pInvcheadid));
 
-  UPDATE coitem SET coitem_status = ''O''
-  WHERE ((coitem_status = ''C'')
+  UPDATE coitem SET coitem_status = 'O'
+  WHERE ((coitem_status = 'C')
     AND  (coitem_id IN (SELECT cobill_coitem_id
 		        FROM cobill, invcitem
 			WHERE ((cobill_invcitem_id=invcitem_id)
@@ -19,6 +19,11 @@ BEGIN
   UPDATE cobill SET cobill_invcnum=NULL, cobill_invcitem_id=NULL
   FROM invcitem
   WHERE ((cobill_invcitem_id=invcitem_id)
+    AND  (invcitem_invchead_id=pInvcheadid));
+
+  UPDATE invdetail SET invdetail_invcitem_id=NULL
+  FROM invcitem
+  WHERE ((invdetail_invcitem_id=invcitem_id)
     AND  (invcitem_invchead_id=pInvcheadid));
 
   UPDATE cobmisc SET cobmisc_invcnumber=NULL, cobmisc_invchead_id=NULL,
@@ -34,5 +39,5 @@ BEGIN
   RETURN pInvcheadid;
 
 END;
-' LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql;
 
