@@ -25,7 +25,7 @@ BEGIN
   END IF;
 
   IF ( (TG_OP = 'INSERT') OR (TG_op = 'UPDATE') ) THEN
-    IF (NOT ISNUMERIC(NEW.pohead_number)) THEN
+    IF (NOT ISNUMERIC(NEW.pohead_number) AND NEW.pohead_saved) THEN
       RAISE EXCEPTION 'Purchase Order Number must be numeric.';
     END IF;
   END IF;
