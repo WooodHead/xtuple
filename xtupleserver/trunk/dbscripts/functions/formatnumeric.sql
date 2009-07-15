@@ -30,7 +30,7 @@ BEGIN
 
   _scale   := CASE WHEN _type = 'cost'       THEN _r.locale_cost_scale
                    WHEN _type = 'extprice'   THEN _r.locale_extprice_scale
-                   WHEN _type = 'percent'    THEN 2
+                   WHEN _type = 'percent'    THEN _r.locale_percent_scale
                    WHEN _type = 'purchprice' THEN _r.locale_purchprice_scale
                    WHEN _type = 'qty'        THEN _r.locale_qty_scale
                    WHEN _type = 'qtyper'     THEN _r.locale_qtyper_scale
