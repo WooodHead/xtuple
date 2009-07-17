@@ -4,8 +4,7 @@ DECLARE
 
 BEGIN
 
-  IF ( SELECT (checkhead_void OR checkhead_posted OR checkhead_replaced
-               OR (checkhead_ach_batch IS NOT NULL AND checkhead_printed))
+  IF ( SELECT (checkhead_void OR checkhead_posted OR checkhead_replaced)
        FROM checkhead
        WHERE (checkhead_id=pCheckid) ) THEN
     RETURN -1;
