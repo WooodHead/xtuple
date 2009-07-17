@@ -40,6 +40,16 @@ BEGIN
     END IF;
   END IF;
 
+-- Cannot delete if any inventory history
+  SELECT invhist_id INTO _result
+  FROM invhist
+  WHERE ( (invhist_ordnumber=formatSoNumber(pSoitemid))
+    AND   (invhist_ordtype='SO') )
+  LIMIT 1;
+  IF (FOUND) THEN
+    RETURN -105;
+  END IF;
+
   SELECT (item_type='J') INTO _jobItem
   FROM coitem JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
               JOIN item ON (item_id=itemsite_item_id)
