@@ -1,28 +1,22 @@
-CREATE OR REPLACE FUNCTION scrapWoMaterial(INTEGER, NUMERIC) RETURNS INTEGER AS '
-DECLARE
-  pWomatlid ALIAS FOR $1;
-  pQty ALIAS FOR $2;
-
-BEGIN
-  RETURN scrapWoMaterial(pWomatlid, pQty, FALSE);
-END;
-' LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION scrapWoMaterial(INTEGER, NUMERIC, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION scrapWoMaterial(INTEGER, NUMERIC) RETURNS INTEGER AS $$
 DECLARE
   pWomatlid	ALIAS FOR $1;
   pQty		ALIAS FOR $2;
-  pIssueRepl	ALIAS FOR $3;
-  _toIssue		NUMERIC;
-  _toScrap		NUMERIC;
-  _preAlloc		NUMERIC;
-  _wipScrap		NUMERIC;
-  _itemlocSeries	INTEGER;
-  _itemid               INTEGER;
-  _uomid                INTEGER;
-  _r                    RECORD;
+  _costmethod         	CHAR(1);
+  _scrapValue		NUMERIC;
+  _r                   	RECORD;
 
 BEGIN
+  -- Validate
+  IF (pQty <= 0) THEN
+    RAISE EXCEPTION 'Scrap quantity must be a positive number';
+  ELSIF ( ( SELECT (womatl_qtyiss < pQty)
+	     FROM womatl
+	     WHERE (womatl_id=pWomatlid) ) ) THEN
+    RAISE EXCEPTION 'You may not scrap more material than has been issued';
+  END IF;
+
+  -- Get the wip G/L account
   SELECT costcat_wip_accnt_id
     INTO _r
     FROM womatl, wo, itemsite, costcat
@@ -31,65 +25,62 @@ BEGIN
      AND (itemsite_costcat_id=costcat_id)
      AND (womatl_id=pWomatlid));
 
-  IF (pIssueRepl) THEN
-    SELECT womatl_qtyreq - roundQty(itemuomfractionalbyuom(itemsite_item_id, womatl_uom_id), womatl_qtyper * wo_qtyord),
-	   womatl_qtywipscrap, itemsite_item_id, womatl_uom_id INTO _preAlloc, _wipScrap, _itemid, _uomid
-    FROM womatl, wo, itemsite, item
-    WHERE ((womatl_id=pWomatlid)
-      AND  (womatl_wo_id=wo_id)
-      AND  (womatl_itemsite_id=itemsite_id)
-      AND  (itemsite_item_id=item_id));
-    _toIssue := pQty - NoNeg(_preAlloc - _wipScrap);
+  -- Calculate scrap value
+  SELECT itemsite_costmethod INTO _costmethod
+  FROM womatl
+    JOIN itemsite ON (womatl_itemsite_id=itemsite_id)
+  WHERE (womatl_id=pWomatlid);
 
-    IF (_toIssue > 0) THEN
-      _itemlocSeries := issueWoMaterial(pWomatlid, _toIssue);
-      IF (_itemlocSeries < 0) THEN
-	RETURN -1;
-      END IF;
-
-      PERFORM insertGLTransaction( ''W/O'', ''WO'', formatWoNumber(womatl_wo_id),
-                                   (''Scrap '' || item_number || '' from Work Order''),
-				   _r.costcat_wip_accnt_id, costcat_mfgscrap_accnt_id, -1,
-				   (stdCost(itemsite_item_id) * itemuomtouom(_itemid, _uomid, NULL, _toIssue)), CURRENT_DATE )
-      FROM womatl, itemsite, item, costcat
-      WHERE ( (womatl_itemsite_id=itemsite_id)
-       AND (itemsite_item_id=item_id)
-       AND (itemsite_costcat_id=costcat_id)
-       AND (womatl_id=pWomatlid) );
-    END IF;
-
-    _toScrap = pQty;
-
-  ELSIF ( ( SELECT (womatl_qtyiss >= pQty)
-	     FROM womatl
-	     WHERE (womatl_id=pWomatlid) ) ) THEN
-
-    --  Distribute to G/L
-    PERFORM insertGLTransaction( ''W/O'', ''WO'', formatWoNumber(womatl_wo_id),
-				 (''Scrap '' || item_number || '' from Work Order''),
-				 _r.costcat_wip_accnt_id, costcat_mfgscrap_accnt_id, -1,
-				 (stdCost(itemsite_item_id) * itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)), CURRENT_DATE )
-    FROM womatl, itemsite, item, costcat
-    WHERE ( (womatl_itemsite_id=itemsite_id)
-     AND (itemsite_item_id=item_id)
-     AND (itemsite_costcat_id=costcat_id)
-     AND (womatl_id=pWomatlid) );
-
-    _toScrap = pQty;
-
-  ELSE
-    _toScrap = 0;
-  END IF;
-
-  IF (_toScrap > 0) THEN
-    UPDATE womatl
-    SET womatl_qtywipscrap=(womatl_qtywipscrap + _toScrap),
-	womatl_qtyiss=(womatl_qtyiss - _toScrap)
+  IF (_costmethod = 'S') THEN
+    SELECT ROUND((stdCost(itemsite_item_id) * itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)),2)
+    INTO _scrapValue
+    FROM womatl
+      JOIN itemsite ON (womatl_itemsite_id=itemsite_id)
     WHERE (womatl_id=pWomatlid);
-
-    RETURN pWomatlid;
+     
+  ELSIF (_costmethod = 'A') THEN
+    SELECT ROUND((SUM(invhist_invqty * invhist_unitcost)-womatl_scrapvalue)/
+            (CASE WHEN (SUM(invhist_invqty)-itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtywipscrap) = 0) THEN
+              1
+            ELSE
+              SUM(invhist_invqty)-itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtywipscrap)
+            END),2) * itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)
+      INTO _scrapValue
+    FROM womatl
+        JOIN womatlpost ON (womatl_id=womatlpost_womatl_id)
+        JOIN invhist ON (womatlpost_invhist_id=invhist_id)
+        JOIN itemsite ON (womatl_itemsite_id=itemsite_id)
+    WHERE (womatl_id=pWomatlid)
+    GROUP BY itemsite_item_id,womatl_uom_id,womatl_qtywipscrap,womatl_scrapvalue;
+  ELSE
+    RAISE EXCEPTION 'Cost method not supported to scrap this item';
   END IF;
 
-  RETURN 0;
+  --  Distribute to G/L
+  PERFORM insertGLTransaction( 'W/O', 'WO', formatWoNumber(womatl_wo_id),
+		 ('Scrap ' || item_number || ' from Work Order'),
+		 _r.costcat_wip_accnt_id, costcat_mfgscrap_accnt_id, -1,
+		 _scrapValue, CURRENT_DATE )
+  FROM womatl, itemsite, item, costcat
+  WHERE ( (womatl_itemsite_id=itemsite_id)
+   AND (itemsite_item_id=item_id)
+   AND (itemsite_costcat_id=costcat_id)
+   AND (womatl_id=pWomatlid) );
+
+  UPDATE womatl
+  SET womatl_qtywipscrap=(womatl_qtywipscrap + pQty),
+    womatl_scrapvalue = womatl_scrapvalue + _scrapValue,
+    womatl_qtyiss=(womatl_qtyiss - pQty)
+  WHERE (womatl_id=pWomatlid);
+
+  UPDATE wo
+  SET wo_wipvalue = wo_wipvalue-_scrapValue,
+    wo_postedvalue = wo_postedvalue-_scrapValue
+  FROM womatl
+  WHERE ((womatl_id=pWomatlid)
+   AND (wo_id=womatl_wo_id));
+
+  RETURN pWomatlid;
+
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
