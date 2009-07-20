@@ -177,7 +177,7 @@ SELECT aropen_id AS id,
             ELSE <? value("other") ?>
        END AS doctype,
        aropen_amount AS amount,
-        (COALESCE(SUM(arapply_target_paid),0) *
+       (aropen_paid + (COALESCE(SUM(arapply_target_paid),0)) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) AS paid,
         (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0))) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) AS balance,
