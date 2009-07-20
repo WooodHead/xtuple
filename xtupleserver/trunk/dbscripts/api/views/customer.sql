@@ -198,7 +198,7 @@ INSERT INTO custinfo
         COALESCE(getCurrId(NEW.default_currency),basecurrid()),
         COALESCE(getCurrID(NEW.credit_limit_currency),basecurrid()),
         saveCntct(
-          getCntctId(NEW.billing_contact_number),
+          getCntctId(NEW.billing_contact_number,false),
           NEW.billing_contact_number,
           saveAddr(
             getAddrId(NEW.billing_contact_address_number),
@@ -225,7 +225,7 @@ INSERT INTO custinfo
           NEW.billing_contact_change
           ),
         saveCntct(
-          getCntctId(NEW.correspond_contact_number),
+          getCntctId(NEW.correspond_contact_number,false),
           NEW.correspond_contact_number,
           saveAddr(
             getAddrId(NEW.correspond_contact_address_number),
@@ -305,7 +305,7 @@ UPDATE custinfo SET
         cust_curr_id=getCurrId(NEW.default_currency),
         cust_creditlmt_curr_id=getCurrId(NEW.credit_limit_currency),
         cust_cntct_id=saveCntct(
-          getCntctId(NEW.billing_contact_number),
+          getCntctId(NEW.billing_contact_number,false),
           NEW.billing_contact_number,
           saveAddr(
             getAddrId(NEW.billing_contact_address_number),
@@ -332,7 +332,7 @@ UPDATE custinfo SET
           NEW.billing_contact_change
           ),
         cust_corrcntct_id=saveCntct(
-          getCntctId(NEW.correspond_contact_number),
+          getCntctId(NEW.correspond_contact_number,false),
           NEW.correspond_contact_number,
           saveAddr(
             getAddrId(NEW.correspond_contact_address_number),
