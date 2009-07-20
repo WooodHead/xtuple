@@ -159,6 +159,7 @@ DECLARE
   _glSequence INTEGER;
   _journalNumber INTEGER;
   _apopenid INTEGER;
+  _baseAmount NUMERIC;
   _taxBaseValue NUMERIC;
   _test INTEGER;
 
@@ -216,10 +217,12 @@ BEGIN
       CASE WHEN (pAmount = 0) THEN pDocDate END );
   END IF;
 
+  _baseAmount := round(currToBase(pCurrId, pAmount, pDocDate), 2);
+
   -- Credit the A/P account for the full amount
   SELECT insertIntoGLSeries ( _glSequence, 'A/P', 'DM',
                               pDocNumber, _apAccntid,
-                              round(currToBase(pCurrId, pAmount, pDocDate), 2),
+                              _baseAmount,
                               pDocDate, (_vendName || ' ' || pNotes) ) INTO _test;
 
   -- Debit the Tax account for the tax amount
@@ -236,7 +239,7 @@ BEGIN
   -- Note, the taxBaseValue is negative so it is added
   SELECT insertIntoGLSeries ( _glSequence, 'A/P', 'DM',
                               pDocNumber, _prepaidAccntid,
-                              round(currToBase(pCurrId, (pAmount + _taxBaseValue) * -1, pDocDate), 2),
+                              (_baseAmount + _taxBaseValue),
                               pDocDate, (_vendName || ' ' || pNotes) ) INTO _test;
 
   --  Commit the GLSeries;
