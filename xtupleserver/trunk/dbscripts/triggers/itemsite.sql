@@ -313,7 +313,7 @@ BEGIN
         WHERE (itemloc_itemsite_id=OLD.itemsite_id);
       END IF;
 
-     IF (NEW.itemsite_qtyonhand > 0) THEN
+     IF (NEW.itemsite_qtyonhand != 0) THEN
 --  Handle detail creation
 --  Create itemloc records if they do not exist
        IF (_state IN (23, 32, 33)) THEN
