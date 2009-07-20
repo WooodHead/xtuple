@@ -1,9 +1,21 @@
-CREATE OR REPLACE FUNCTION getCntctId(text) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION getCntctId(text) RETURNS INTEGER AS $$
 DECLARE
   pContactNumber ALIAS FOR $1;
   _returnVal INTEGER;
 BEGIN
-  IF (COALESCE(TRIM(pContactNumber), '''') = '''') THEN
+  SELECT getCntctId(pContactNumber,true);
+
+  RETURN _returnVal;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION getCntctId(text,boolean) RETURNS INTEGER AS $$
+DECLARE
+  pContactNumber ALIAS FOR $1;
+  pNotFoundErr ALIAS FOR $2;
+  _returnVal INTEGER;
+BEGIN
+  IF (COALESCE(TRIM(pContactNumber), '') = '') THEN
     RETURN NULL;
   END IF;
 
@@ -11,10 +23,12 @@ BEGIN
   FROM cntct
   WHERE (cntct_number=pContactNumber);
 
-  IF (_returnVal IS NULL) THEN
-    RAISE EXCEPTION ''Contact Number % not found.'', pContactNumber;
+  IF (_returnVal IS NULL AND pNotFoundErr) THEN
+    RAISE EXCEPTION 'Contact Number % not found.', pContactNumber;
+  ELSIF (_returnVal IS NULL) THEN
+    RETURN NULL;
   END IF;
 
   RETURN _returnVal;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
