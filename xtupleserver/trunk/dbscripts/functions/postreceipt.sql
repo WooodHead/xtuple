@@ -200,7 +200,7 @@ BEGIN
 			       WHEN (_ra.raitem_warranty) THEN resolveCOWAccount(_r.itemsite_id,_ra.rahead_cust_id)
 			       ELSE resolveCORAccount(_r.itemsite_id,_ra.rahead_cust_id)
 			  END,
-			  _itemlocSeries, _glDate, COALESCE(_o.unitcost,stdcost(itemsite_item_id))) INTO _tmp
+			  _itemlocSeries, _glDate, COALESCE(_o.unitcost,stdcost(itemsite_item_id)) * _r.recv_qty * _o.invvenduomratio) INTO _tmp
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_r.itemsite_id) );
