@@ -5,6 +5,7 @@ DECLARE
   _itemlocSeries INTEGER;
   _p RECORD;
   _returnval	INTEGER;
+  _value NUMERIC;
 
 BEGIN
 
@@ -17,7 +18,7 @@ BEGIN
                    COALESCE(itemsite_id, -1) AS itemsiteid, poitem_invvenduomratio,
 		   COALESCE(stdcost(itemsite_id),currToBase(pohead_curr_id,poitem_unitprice,current_date)) AS stdcost,
                    SUM(poreject_qty) AS totalqty,
-                   itemsite_item_id
+                   itemsite_item_id, itemsite_costmethod
             FROM poreject, pohead, poitem 
 		LEFT OUTER JOIN itemsite ON (poitem_itemsite_id=itemsite_id)
             WHERE ( (poreject_poitem_id=poitem_id)
@@ -27,7 +28,7 @@ BEGIN
             GROUP BY poreject_id, pohead_number, poreject_poitem_id, poitem_id,
 		     poitem_expcat_id, poitem_unitprice, pohead_curr_id,
 		     pohead_orderdate, itemsite_id, poitem_invvenduomratio,
-                    itemsite_item_id LOOP
+                    itemsite_item_id, itemsite_costmethod LOOP
 
     IF (_p.itemsiteid = -1) THEN
         SELECT insertGLTransaction( 'S/R', 'PO', _p.pohead_number, 'Return Non-Inventory to P/O',
@@ -46,9 +47,24 @@ BEGIN
         SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
       END IF;
 
+      IF (_p.itemsite_costmethod = 'A') THEN -- Calculate average of receipts
+        SELECT ROUND(SUM(invhist_invqty * invhist_unitcost)/
+            (CASE WHEN (SUM(invhist_invqty) = 0) THEN
+              1
+            ELSE
+              SUM(invhist_invqty)
+            END) * _p.totalqty * _p.poitem_invvenduomratio,2)
+          INTO _value
+        FROM invhist
+        WHERE ((invhist_transtype='RP')
+         AND (invhist_ordtype='PO')
+         AND (invhist_ordnumber=_p.pohead_number)
+         AND (invhist_itemsite_id=_p.itemsiteid));
+      END IF;
+
       SELECT postInvTrans( itemsite_id, 'RP', (_p.totalqty * _p.poitem_invvenduomratio * -1),
                            'S/R', 'PO', _p.pohead_number, '', 'Return Inventory to P/O',
-                           costcat_asset_accnt_id, costcat_liability_accnt_id, _itemlocSeries, CURRENT_TIMESTAMP, round(_p.poitem_unitprice_base * _p.totalqty * -1, 2) ) INTO _returnval
+                           costcat_asset_accnt_id, costcat_liability_accnt_id, _itemlocSeries, CURRENT_TIMESTAMP, _value ) INTO _returnval
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_p.itemsiteid) );
