@@ -95,6 +95,13 @@ BEGIN
 --  Remove any aropenco regards that reference this aropen item
     DELETE FROM aropenco WHERE (aropenco_aropen_id=NEW.aropen_id);
   END IF;
+
+  IF (TG_OP = 'INSERT') THEN
+    IF (NEW.aropen_open=FALSE) 
+    AND (NEW.aropen_closedate IS NULL) THEN
+      NEW.aropen_closedate=current_date;
+    END IF;
+  END IF;
   
   IF (TG_OP = 'UPDATE') THEN
     IF ((OLD.aropen_open=TRUE) 
