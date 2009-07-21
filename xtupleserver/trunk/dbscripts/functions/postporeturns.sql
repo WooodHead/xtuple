@@ -47,19 +47,8 @@ BEGIN
         SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
       END IF;
 
-      IF (_p.itemsite_costmethod = 'A') THEN -- Calculate average of receipts
-        SELECT ROUND(SUM(invhist_invqty * invhist_unitcost)/
-            (CASE WHEN (SUM(invhist_invqty) = 0) THEN
-              1
-            ELSE
-              SUM(invhist_invqty)
-            END) * _p.totalqty * _p.poitem_invvenduomratio,2)
-          INTO _value
-        FROM invhist
-        WHERE ((invhist_transtype='RP')
-         AND (invhist_ordtype='PO')
-         AND (invhist_ordnumber=_p.pohead_number)
-         AND (invhist_itemsite_id=_p.itemsiteid));
+      IF (_p.itemsite_costmethod = 'A') THEN
+        SELECT avgcost(_p.itemsiteid) * _p.totalqty * _p.poitem_invvenduomratio INTO _value;
       END IF;
 
       SELECT postInvTrans( itemsite_id, 'RP', (_p.totalqty * _p.poitem_invvenduomratio * -1),
