@@ -109,7 +109,7 @@ BEGIN
       recv_notes, recv_freight, recv_freight_curr_id
     ) VALUES (
       _recvid, _timestamp,
-      _o.orderhead_number::INTEGER, pordertype, _o.orderitem_id::INTEGER,
+      _o.orderhead_number, pordertype, _o.orderitem_id::INTEGER,
       CURRENT_USER, _o.orderhead_agent_username, _o.itemsite_id::INTEGER,
       _o.vend_id::INTEGER, _o.vend_item_number, _o.vend_item_descrip,
       _o.vend_uom, pQty, _o.duedate,
