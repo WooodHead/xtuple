@@ -55,7 +55,8 @@ BEGIN
 	   currToBase(rahead_curr_id, raitem_unitprice,
 		    recv_date::DATE) AS item_unitprice_base,
 	   raitem_qty_invuomratio AS invvenduomratio,
-	   rahead_authdate AS orderdate INTO _o
+	   rahead_authdate AS orderdate,
+	   raitem_unitcost AS unitcost INTO _o
     FROM recv, rahead, raitem
     WHERE ((recv_orderitem_id=raitem_id)
       AND  (raitem_rahead_id=rahead_id)
@@ -67,7 +68,8 @@ BEGIN
     SELECT tohead_number AS orderhead_number, toitem_id AS orderitem_id,
 	   toitem_stdcost AS item_unitprice_base,
 	   1 AS invvenduomratio,
-	   tohead_orderdate AS orderdate INTO _o
+	   tohead_orderdate AS orderdate
+	   INTO _o
     FROM recv, tohead, toitem
     WHERE ((recv_orderitem_id=toitem_id)
       AND  (toitem_tohead_id=tohead_id)
@@ -198,7 +200,7 @@ BEGIN
 			       WHEN (_ra.raitem_warranty) THEN resolveCOWAccount(_r.itemsite_id,_ra.rahead_cust_id)
 			       ELSE resolveCORAccount(_r.itemsite_id,_ra.rahead_cust_id)
 			  END,
-			  _itemlocSeries, _glDate) INTO _tmp
+			  _itemlocSeries, _glDate, COALESCE(_o.unitcost,stdcost(itemsite_item_id))) INTO _tmp
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_r.itemsite_id) );
