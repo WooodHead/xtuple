@@ -77,27 +77,44 @@
     clickButton(":List Customer Types.Close_QPushButton");
      
     
-    //---------------Create Sales Reps----------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_7", "Sales Reps...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_7", "Sales Reps...");
-    waitForObject(":List Sales Representatives.New_QPushButton");
-    clickButton(":List Sales Representatives.New_QPushButton");
-    waitForObject(":_number_XLineEdit_5");
-    type(":_number_XLineEdit_5", "1000");
-    type(":_name_XLineEdit_9", "Sam Masters");
+    //----Read Username based on Role------
+    var set = testData.dataset("login.tsv");
+    var username="";
+    for (var records in set)
+    {
+        username=testData.field(set[records],"USERNAME");
+        role=testData.field(set[records],"ROLE");
+        
+        if(role=="RUNREGISTER") break;
+     }
+  
+    //----Define Sales Rep---
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Employees");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Employees");
+    waitForObjectItem(":xTuple ERP: *.Employees_QMenu", "List...");
+    activateItem(":xTuple ERP: *.Employees_QMenu", "List...");
+  
+     waitForObject(":_frame._emp_XTreeWidget_2");
+    doubleClickItem(":_frame._emp_XTreeWidget_2", username, 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Employee.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Employee.qt_tabwidget_tabbar_QTabBar", "Detail");
+    waitForObject(":_relationshipsGroup._salesrep_XCheckBox_2");
+    clickButton(":_relationshipsGroup._salesrep_XCheckBox_2");
+    waitForObject(":_relationshipsGroup.Sales Rep..._QPushButton_2");
+    clickButton(":_relationshipsGroup.Sales Rep..._QPushButton_2");
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
+    waitForObject(":_name_XLineEdit_9");
+    type(":_name_XLineEdit_9", username);
+    waitForObject(":_commPrcnt_XLineEdit");
     type(":_commPrcnt_XLineEdit", "7.5");
     waitForObject(":Sales Representative.Save_QPushButton");
     clickButton(":Sales Representative.Save_QPushButton");
-    waitForObject(":List Sales Representatives._salesrep_XTreeWidget");
-    if(!clickItem(":List Sales Representatives._salesrep_XTreeWidget", "1000", 5, 5, 1, Qt.LeftButton))
-        test.pass("Customer Type created: NORMAL");
-    
-    waitForObject(":List Sales Representatives.Close_QPushButton");
-    clickButton(":List Sales Representatives.Close_QPushButton");
+    waitForObject(":_frame.Close_QPushButton");
+    clickButton(":_frame.Close_QPushButton");
+
  
  
     //---------------Create Shipping Zone--------------------
@@ -231,7 +248,43 @@
     waitForObject(":List Shipping Charge Types.Close_QPushButton");
     clickButton(":List Shipping Charge Types.Close_QPushButton");
 
-       
+    
+    //------Define Tax Authorities-------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
+    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
+    waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Authorities...");
+    activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Authorities...");
+    
+    
+    waitForObject(":List Tax Authorities.New_QPushButton");
+    clickButton(":List Tax Authorities.New_QPushButton");
+    waitForObject(":_code_XLineEdit_15");
+    findObject(":_code_XLineEdit_15").clear();
+    type(":_code_XLineEdit_15", "VA-IRS");
+    type(":_name_XLineEdit_22", "Virginia IRS");
+    type(":_extref_XLineEdit", "Smith");
+    if(findObject(":_currency_XComboBox_2").currentText!= "USD - $")
+        type(":_currency_XComboBox_2", "USD");
+    type(":Tax Authority._county_QLineEdit", "United States");
+    type(":Tax Authority.Street\nAddress:_XLineEdit", "Street Addr Line1");
+    type(":Tax Authority.Street\nAddress:_XLineEdit_2", "Street addr line2");
+    type(":Tax Authority.Street\nAddress:_XLineEdit_3", "Street Addr line3");
+    type(":Tax Authority.City:_XLineEdit", "Richmond");
+    type(":_state_QLineEdit_3", "VA");
+    type(":groupBox.Postal Code:_XLineEdit", "24186");
+    type(":_country_QLineEdit_3", "United States");
+    clickButton(":Tax Authority.Save_QPushButton");
+    waitForObject(":List Tax Authorities._taxauth_XTreeWidget");
+    if(!clickItem(":List Tax Authorities._taxauth_XTreeWidget", "TAX-AUTH1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Tax Authority created:TAX-AUTH1");
+    
+    waitForObject(":List Tax Authorities.Close_QPushButton");
+    clickButton(":List Tax Authorities.Close_QPushButton");
+    
+ 
+    
     //---------------Define: Tax Codes-----------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -250,7 +303,7 @@
     waitForObject(":Tax Code._taxClass_XComboBox");
     clickItem(":Tax Code._taxClass_XComboBox","1-Legacy Class 1",1,0,0,Qt.LeftButton);
     waitForObject(":Tax Code._taxauth_XComboBox");
-    clickItem(":Tax Code._taxauth_XComboBox","TAX-AUTH1",1,0,0,Qt.LeftButton);
+    clickItem(":Tax Code._taxauth_XComboBox","VA-IRS",1,0,0,Qt.LeftButton);
     clickButton(":_frame.New_QPushButton_2");
     waitForObject(":_rateGroup._percent_XLineEdit");
     type(":_rateGroup._percent_XLineEdit", "5");
@@ -264,6 +317,27 @@
     waitForObject(":List Tax Codes.Close_QPushButton");
     clickButton(":List Tax Codes.Close_QPushButton");
  
+    
+    //----Define Tax Zones----
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
+    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
+    waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Zones...");
+    activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Zones...");
+    
+    waitForObject(":List Tax Zones.New_QPushButton_2");
+    clickButton(":List Tax Zones.New_QPushButton_2");
+    
+    waitForObject(":_taxZone_XLineEdit_2");
+    type(":_taxZone_XLineEdit_2", "VA-SALES-TAX-ZONE");
+    type(":_description_XLineEdit_40", "Virginia Sales Tax Zone");
+    waitForObject(":Tax Zone.Save_QPushButton");
+    clickButton(":Tax Zone.Save_QPushButton");
+    
+    waitForObject(":List Tax Zones.Close_QPushButton_2");
+    clickButton(":List Tax Zones.Close_QPushButton_2");
+    
 
   
     //----------------Define: Shipping Forms---------------------
@@ -598,7 +672,7 @@
   
 
 
-  //----------------Create new Customer---------------
+    //----------------Create new Customer---------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");

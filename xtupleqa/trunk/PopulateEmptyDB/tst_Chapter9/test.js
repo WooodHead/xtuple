@@ -239,7 +239,7 @@ function main()
     clickButton(":List Priorities.Close_QPushButton_2");
     test.log("CRM Priorities created");
     
-//    
+    
     
     //-------------CRM Characteristics-----------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");

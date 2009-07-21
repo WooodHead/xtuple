@@ -53,7 +53,7 @@ function main()
     }
     createLocale("MYLOCALE","My Locale For Class");
     createGroup("SUPER","Super User Group");
-    createUserByRole("RUNREGISTER");
+  
 
     //-------------Configure: Accounting Module----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -1235,14 +1235,17 @@ function main()
     waitForObject(":Inventory Configuration.Save_QPushButton");
     clickButton(":Inventory Configuration.Save_QPushButton");
     test.log("Inventory Module Configured");
+
   
-  
-  //----Read Username based on Role------
+  //---Create User by Role--
+    createUserByRole("RUNREGISTER");
+//----Read Username based on Role------
   var set = testData.dataset("login.tsv");
   var username;
   for (var records in set)
   {
       username=testData.field(set[records],"USERNAME");
+      role=testData.field(set[records],"ROLE");
       if(role=="RUNREGISTER") break;
       
   }
@@ -1324,7 +1327,7 @@ function main()
   clickButton(":_menu.Show Accountng Toolbar_QCheckBox");
      
   waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
-  if(appEdition=="manufacturing")
+  if(appEdition=="Manufacturing")
   {
       clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar", "Events");
       
