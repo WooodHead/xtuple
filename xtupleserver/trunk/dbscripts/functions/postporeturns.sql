@@ -5,7 +5,6 @@ DECLARE
   _itemlocSeries INTEGER;
   _p RECORD;
   _returnval	INTEGER;
-  _value NUMERIC;
 
 BEGIN
 
@@ -47,13 +46,9 @@ BEGIN
         SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
       END IF;
 
-      IF (_p.itemsite_costmethod = 'A') THEN
-        SELECT avgcost(_p.itemsiteid) * _p.totalqty * _p.poitem_invvenduomratio INTO _value;
-      END IF;
-
       SELECT postInvTrans( itemsite_id, 'RP', (_p.totalqty * _p.poitem_invvenduomratio * -1),
                            'S/R', 'PO', _p.pohead_number, '', 'Return Inventory to P/O',
-                           costcat_asset_accnt_id, costcat_liability_accnt_id, _itemlocSeries, CURRENT_TIMESTAMP, _value ) INTO _returnval
+                           costcat_asset_accnt_id, costcat_liability_accnt_id, _itemlocSeries, CURRENT_TIMESTAMP) INTO _returnval
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_p.itemsiteid) );
