@@ -317,60 +317,98 @@ function createUserByRole(userrole)
         test.fatal("Please provide user details in login.tsv for the role: "+userrole);
         exit(1);
     }
-    
-    
-    //----Create the new User-------
-    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
-    waitForObject(":List Users.New_QPushButton");
-    clickButton(":List Users.New_QPushButton");
-    waitForObject(":_username_XLineEdit");
-    type(":_username_XLineEdit", username);
-    type(":_properName_XLineEdit", realname);
-
-    if(!findObject(":List Users.Active_QCheckBox").checked)
-        clickButton(":List Users.Active_QCheckBox");
-    type(":_initials_XLineEdit", "JS");
-    type(":_email_XLineEdit", "demo@openmfg.com");
-    type(":_passwd_XLineEdit", pwd);
-    type(":_verify_XLineEdit", pwd);
-    clickButton(":List Users.Purchasing Agent_QCheckBox");
-    clickButton(":List Users.Can Create System Users_QCheckBox");    
-    while(findObject(":_locale_XComboBox").currentText!= "MYLOCALE")
-    type(":_locale_XComboBox", "<Down>");
-    waitForObject(":List Users.Save_QPushButton_2");
-    clickButton(":List Users.Save_QPushButton_2");
-    waitForObject(":List Users._usr_XTreeWidget_2");
-    if(!clickItem(":List Users._usr_XTreeWidget_2",username,0,0,1,Qt.LeftButton))
-        test.pass("User created and assigned Locale");
-    doubleClickItem(":List Users._usr_XTreeWidget_2",username,0,0,0,Qt.LeftButton);
-    waitForObject(":List Users.qt_tabwidget_tabbar_QTabBar");
-    clickTab(":List Users.qt_tabwidget_tabbar_QTabBar", "Groups");
-    sWidgetTreeControl = ":_groupTab._availableGroup_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    obj_TreeWidget = findObject(sWidgetTreeControl);
-    obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    for(i=1;sNameOfRootItem!="SUPER" || i<iNumberOfRootItems ;i++)
-    {
-       
-        waitForObject(sWidgetTreeControl); 
-        type(sWidgetTreeControl,"<Down>");           
-        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
-        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    }
-    waitForObject(":_groupTab.Add->_QPushButton");
-    clickButton(":_groupTab.Add->_QPushButton");
-    waitForObject(":List Users.Save_QPushButton_2");
-    clickButton(":List Users.Save_QPushButton_2");
-    waitForObject(":List Users.Close_QPushButton_2");
-    clickButton(":List Users.Close_QPushButton_2");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Employees");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Employees");
+    waitForObjectItem(":xTuple ERP: *.Employees_QMenu", "List...");
+    activateItem(":xTuple ERP: *.Employees_QMenu", "List...");
     
+    waitForObject(":_frame.New_QPushButton_5");
+    clickButton(":_frame.New_QPushButton_5");
+    waitForObject(":_code_XLineEdit_16");
+    type(":_code_XLineEdit_16", username);
+    waitForObject(":List Employees._number_XLineEdit");
+    type(":List Employees._number_XLineEdit", "50082");
+    waitForObject(":_contactTab._honorific_XComboBox");
+    type(":_contactTab._honorific_XComboBox", "MR");
+    waitForObject(":_contactTab._first_XLineEdit");
+    type(":_contactTab._first_XLineEdit", "Susanta");
+    waitForObject(":_contactTab._middle_XLineEdit");
+    type(":_contactTab._middle_XLineEdit", "R");
+    waitForObject(":_contactTab._last_XLineEdit");
+    type(":_contactTab._last_XLineEdit", "Misra");
+    waitForObject(":_contactTab._title_XLineEdit");
+    type(":_contactTab._title_XLineEdit", "student");
+    waitForObject(":_contactTab._phone_XLineEdit");
+    type(":_contactTab._phone_XLineEdit", "234234");
+    waitForObject(":_contactTab._phone2_XLineEdit");
+    type(":_contactTab._phone2_XLineEdit", "234234");
+    waitForObject(":_contactTab._fax_XLineEdit");
+    type(":_contactTab._fax_XLineEdit", "234223");
+    waitForObject(":_contactTab._email_XLineEdit");
+    type(":_contactTab._email_XLineEdit", "susanta@test.com");
+    waitForObject(":_contactTab.Street\nAddress:_XLineEdit");
+    type(":_contactTab.Street\nAddress:_XLineEdit", "addr line1");
+    waitForObject(":_contactTab.Street\nAddress:_XLineEdit_2");
+    type(":_contactTab.Street\nAddress:_XLineEdit_2", "addr line2");
+    waitForObject(":_contactTab.City:_XLineEdit");
+    type(":_contactTab.City:_XLineEdit", "city1");
+    waitForObject(":_contactTab.City:_XLineEdit");
+    type(":_contactTab._state_XComboBox", "state1");
+    waitForObject(":_contactTab.Postal Code:_XLineEdit");
+    type(":_contactTab.Postal Code:_XLineEdit", "23423");
+    waitForObject(":_contactTab._country_XComboBox");
+    type(":_contactTab._country_XComboBox", "india");
+    waitForObject(":Employee.qt_tabwidget_tabbar_QTabBar");
+    
+    clickTab(":Employee.qt_tabwidget_tabbar_QTabBar", "Detail");
+    waitForObjectItem(":_memberGroup._site_WComboBox", "WH1");
+    clickItem(":_memberGroup._site_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_timeclockGroup.VirtualClusterLineEdit_DeptClusterLineEdit");
+    type(":_timeclockGroup.VirtualClusterLineEdit_DeptClusterLineEdit", "MFG");
+    waitForObject(":_timeclockGroup.VirtualClusterLineEdit_ShiftClusterLineEdit");
+    type(":_timeclockGroup.VirtualClusterLineEdit_ShiftClusterLineEdit", "1ST");
+    waitForObject(":_rateGroup._wagetype_XComboBox");
+    clickItem(":_rateGroup._wagetype_XComboBox", "Hourly", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_rateGroup_XLineEdit");
+    type(":_rateGroup_XLineEdit", "100000");
+    waitForObject(":_rateGroup._per_XComboBox");
+    clickItem(":_rateGroup._per_XComboBox", "Year", 0, 0, 1, Qt.LeftButton);
+    if(!findObject(":_relationshipsGroup._user_XCheckBox").checked)
+        clickButton(":_relationshipsGroup._user_XCheckBox");
+    waitForObject(":_relationshipsGroup.User..._QPushButton");
+    clickButton(":_relationshipsGroup.User..._QPushButton");
+    waitForObject(":List Employees.Yes_QPushButton");
+    clickButton(":List Employees.Yes_QPushButton");
+    waitForObject(":List Employees.Active_QCheckBox");
+    if(!findObject(":List Employees.Active_QCheckBox").checked)
+        clickButton(":List Employees.Active_QCheckBox");
+    waitForObject(":_properName_XLineEdit_2");
+    type(":_properName_XLineEdit_2",realname);
+    type(":_initials_XLineEdit_2", "JS");
+    type(":_email_XLineEdit_2", "demo@openmfg.com");
+    type(":_passwd_XLineEdit_2", pwd);
+    type(":_verify_XLineEdit_2", pwd);
+    clickButton(":List Employees.Purchasing Agent_QCheckBox");
+    clickButton(":List Employees.Can Create System Users_QCheckBox");  
+    clickItem(":_locale_XComboBox_2","MYLOCALE",0,0,1,Qt.LeftButton);
+    waitForObject(":List Employees.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":List Employees.qt_tabwidget_tabbar_QTabBar", "Groups");
+    sWidgetTreeControl = ":_groupTab._availableGroup_XTreeWidget_2";
+    clickItem(":_groupTab._availableGroup_XTreeWidget_2","SUPER",0,0,1,Qt.LeftButton);
+    waitForObject(":_groupTab.Add->_QPushButton_2");
+    clickButton(":_groupTab.Add->_QPushButton_2");
+    waitForObject(":List Employees.Save_QPushButton");
+    clickButton(":List Employees.Save_QPushButton");
+    waitForObject(":Employee.Save_QPushButton");
+    clickButton(":Employee.Save_QPushButton");
+    waitForObject(":_frame._emp_XTreeWidget");
+    clickItem(":_frame._emp_XTreeWidget", username, 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_frame.Close_QPushButton");
+    clickButton(":_frame.Close_QPushButton");
+
 }
 
  

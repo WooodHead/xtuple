@@ -35,7 +35,7 @@ function main()
     
     waitForObject(":Chart of Accounts.Close_QPushButton_2");
     clickButton(":Chart of Accounts.Close_QPushButton_2");
-
+    
     //-----Define Taxation------
     defineTaxation();
 
@@ -66,7 +66,7 @@ function main()
     if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
          type(":_itemGroup.Fractional_QCheckBox_3"," ");
     type(":_itemGroup_XLineEdit_3", "5.00");
-;
+
     if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
         type(":Item.Item is Sold_QGroupBox_3"," ");
     type(":_prodcat_XComboBox_2", "CLASSIC-METAL");
@@ -117,7 +117,6 @@ function main()
       test.pass("Item Created: YTRUCK1");
     
   
-
 
     //----------Create Item YPAINT1------------
     waitForObject(":List Items.New_QPushButton_2");
