@@ -46,7 +46,9 @@ BEGIN
   END IF;
 
   IF (NEW.itemsite_qtyonhand < 0 AND NEW.itemsite_costmethod = 'A') THEN
-    RAISE EXCEPTION 'Itemsite (%) is setup to use average costing and is not allowed to have a negative quantity on hand.', NEW.itemsite_id;
+    RAISE EXCEPTION 'Itemsite (%) is set to use average costing and is not allowed to have a negative quantity on hand.', NEW.itemsite_id;
+  ELSIF (NEW.itemsite_value < 0 AND NEW.itemsite_costmethod = 'A') THEN
+    RAISE EXCEPTION 'This transaction results in a negative itemsite value.  Itemsite (%) is set to use average costing and is not allowed to have a negative value.', NEW.itemsite_id;
   END IF;
 
 --  Handle the ChangeLog
