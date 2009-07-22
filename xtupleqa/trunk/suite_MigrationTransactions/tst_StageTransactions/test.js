@@ -29,8 +29,10 @@ function main()
     }
     
     
-    waitForObject(":Log In.Options..._QPushButton");
-    clickButton(":Log In.Options..._QPushButton");
+    waitForObject(":Log In.Options_QPushButton");
+    clickButton(":Log In.Options_QPushButton");
+//    waitForObject(":Log In.Options..._QPushButton");
+//    clickButton(":Log In.Options..._QPushButton");
     waitForObject(":_server_QLineEdit");
     if(findObject(":_server_QLineEdit").text!= url)
     {findObject(":_server_QLineEdit").text=url;
@@ -100,7 +102,7 @@ function main()
     clickButton(":Quote.Cancel_QPushButton");
     
     waitForObject(":_quote_XTreeWidget_2");
-    if(!clickItem(":_quote_XTreeWidget_2", "40012", 5, 5, 1, Qt.LeftButton))
+    if(!clickItem(":_quote_XTreeWidget_2", "40011", 5, 5, 1, Qt.LeftButton))
         test.pass("Quote created: 40011");
     waitForObject(":List Quotes.Close_QPushButton");
     clickButton(":List Quotes.Close_QPushButton");
@@ -890,384 +892,384 @@ function main()
     
     
     
-    //---Create Voucher------
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
-    activateItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
-    
-    waitForObject(":List Open Vouchers.New_QPushButton");
-    clickButton(":List Open Vouchers.New_QPushButton");
-    waitForObject(":_voucherGroup...._QPushButton");
-    clickButton(":_voucherGroup...._QPushButton");
-    waitForObject(":_pohead_XTreeWidget");
-    doubleClickItem(":_pohead_XTreeWidget", "20065", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":_poitems.Distribute All_QPushButton");
-    clickButton(":_poitems.Distribute All_QPushButton");
-    waitForObject(":_poitems.Distribute All_QPushButton");
-    clickButton(":_poitems.Distribute All_QPushButton");
-    waitForObject(":_dateGroup.XDateEdit_XDateEdit");
-    type(":_dateGroup.XDateEdit_XDateEdit", "0");
-    waitForObject(":_dateGroup.XDateEdit_XDateEdit");
-    type(":_dateGroup.XDateEdit_XDateEdit", "<Tab>");
-    waitForObject(":_invoiceNum_XLineEdit");
-    type(":_invoiceNum_XLineEdit", "VO for PO 20065");
-    waitForObject(":_reference_XLineEdit");
-    type(":_reference_XLineEdit", "ref - VO for PO 20065");
-    waitForObject(":Voucher.Save_QPushButton");
-    clickButton(":Voucher.Save_QPushButton");
-    waitForObject(":Voucher.Cancel_QPushButton");
-    clickButton(":Voucher.Cancel_QPushButton");
-    test.log("Voucher created for PO: 20065");
-    
-
-    
-    //----Accounting - Misc Voucher----
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "New Miscellaneous...");
-    activateItem(":xTuple ERP:*.Voucher_QMenu", "New Miscellaneous...");
-    
-    waitForObject(":xTuple ERP:*_QPushButton");
-    clickButton(":xTuple ERP:*_QPushButton");
-    waitForObject(":_listTab_XTreeWidget_8");
-    doubleClickItem(":_listTab_XTreeWidget_8", "TPARTS", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":List Unposted Invoices.New_QPushButton");
-    clickButton(":List Unposted Invoices.New_QPushButton");
-    waitForObject(":_groupButton.Expense Category_QRadioButton");
-    clickButton(":_groupButton.Expense Category_QRadioButton");
-    waitForObject(":_expenseGroup...._QPushButton");
-    clickButton(":_expenseGroup...._QPushButton");
-    waitForObject(":_listTab_XTreeWidget_13");
-    doubleClickItem(":_listTab_XTreeWidget_13", "OFFICE", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":Miscellaneous Voucher_XLineEdit");
-    type(":Miscellaneous Voucher_XLineEdit", "34");
-    waitForObject(":Miscellaneous Voucher.Save_QPushButton");
-    clickButton(":Miscellaneous Voucher.Save_QPushButton");
-    waitForObject(":_amountGroup_XLineEdit");
-    type(":_amountGroup_XLineEdit", "34");
-    waitForObject(":_dateGroup.XDateEdit_XDateEdit_2");
-    type(":_dateGroup.XDateEdit_XDateEdit_2", "0");
-    waitForObject(":_dateGroup.XDateEdit_XDateEdit_2");
-    type(":_dateGroup.XDateEdit_XDateEdit_2", "<Tab>");
-    waitForObject(":_referenceGroup._invoiceNum_XLineEdit");
-    type(":_referenceGroup._invoiceNum_XLineEdit", "VO 30071");
-    waitForObject(":_referenceGroup._reference_XLineEdit");
-    type(":_referenceGroup._reference_XLineEdit", "ref - VO 30071");
-    waitForObject(":Miscellaneous Voucher.Save_QPushButton_2");
-    clickButton(":Miscellaneous Voucher.Save_QPushButton_2");
-    waitForObject(":Miscellaneous Voucher.Cancel_QPushButton");
-    clickButton(":Miscellaneous Voucher.Cancel_QPushButton");
-    waitForObject(":List Open Vouchers.Close_QPushButton");
-    clickButton(":List Open Vouchers.Close_QPushButton");
-    test.log("Misc Voucher created: 30071");
-    
-    
-    //----Accounting - Misc Voucher----
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "New Miscellaneous...");
-    activateItem(":xTuple ERP:*.Voucher_QMenu", "New Miscellaneous...");
-    
-    waitForObject(":xTuple ERP:*_QPushButton");
-    clickButton(":xTuple ERP:*_QPushButton");
-    waitForObject(":_listTab_XTreeWidget_8");
-    doubleClickItem(":_listTab_XTreeWidget_8", "TPARTS", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":Miscellaneous Voucher._voucherGroup_QGroupBox");
-    mouseClick(":Miscellaneous Voucher._voucherGroup_QGroupBox", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":List Unposted Invoices.New_QPushButton");
-    clickButton(":List Unposted Invoices.New_QPushButton");
-    waitForObject(":_groupButton.Expense Category:_QRadioButton");
-    clickButton(":_groupButton.Expense Category:_QRadioButton");
-    waitForObject(":_groupButton._expcat_ExpenseCluster");
-    mouseClick(":_groupButton._expcat_ExpenseCluster", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":_groupButton...._QPushButton");
-    clickButton(":_groupButton...._QPushButton");
-    waitForObject(":_listTab_XTreeWidget_9");
-    doubleClickItem(":_listTab_XTreeWidget_9", "OFFICE", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":Miscellaneous Voucher_XLineEdit");
-    type(":Miscellaneous Voucher_XLineEdit", "34");
-    waitForObject(":Miscellaneous Voucher.Save_QPushButton");
-    clickButton(":Miscellaneous Voucher.Save_QPushButton");
-    waitForObject(":_amountGroup_XLineEdit");
-    type(":_amountGroup_XLineEdit", "34");
-    waitForObject(":_dateGroup.XDateEdit_XDateEdit_2");
-    type(":_dateGroup.XDateEdit_XDateEdit_2", "0");
-    waitForObject(":_dateGroup.XDateEdit_XDateEdit_2");
-    type(":_dateGroup.XDateEdit_XDateEdit_2", "<Tab>");
-    waitForObject(":_referenceGroup._invoiceNum_XLineEdit");
-    type(":_referenceGroup._invoiceNum_XLineEdit", "VO 30072");
-    waitForObject(":_referenceGroup._reference_XLineEdit");
-    type(":_referenceGroup._reference_XLineEdit", "ref - VO 30072");
-    waitForObject(":Miscellaneous Voucher.Save_QPushButton_2");
-    clickButton(":Miscellaneous Voucher.Save_QPushButton_2");
-    snooze(1);
-    if(object.exists(":Miscellaneous Voucher.Yes_QPushButton"))
-        clickButton(":Miscellaneous Voucher.Yes_QPushButton");
-    waitForObject(":Miscellaneous Voucher.Cancel_QPushButton");
-    clickButton(":Miscellaneous Voucher.Cancel_QPushButton");
-    test.log("Misc Voucher created: 30072");
-    
-    
-    //----Accounting - Misc Voucher----
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObject(":xTuple ERP:*.Accounting_QMenu");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "New Miscellaneous...");
-    activateItem(":xTuple ERP:*.Voucher_QMenu", "New Miscellaneous...");
-    
-    waitForObject(":xTuple ERP:*_QPushButton");
-    clickButton(":xTuple ERP:*_QPushButton");
-    waitForObject(":_listTab_XTreeWidget_8");
-    doubleClickItem(":_listTab_XTreeWidget_8", "TPARTS", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":Miscellaneous Voucher._voucherGroup_QGroupBox");
-    mouseClick(":Miscellaneous Voucher._voucherGroup_QGroupBox", 50, 80, 1, Qt.LeftButton);
-    waitForObject(":List Unposted Invoices.New_QPushButton");
-    clickButton(":List Unposted Invoices.New_QPushButton");
-    waitForObject(":_groupButton.Expense Category:_QRadioButton");
-    clickButton(":_groupButton.Expense Category:_QRadioButton");
-    waitForObject(":_groupButton._expcat_ExpenseCluster");
-    mouseClick(":_groupButton._expcat_ExpenseCluster", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":_groupButton...._QPushButton");
-    clickButton(":_groupButton...._QPushButton");
-    waitForObject(":_listTab_XTreeWidget_9");
-    doubleClickItem(":_listTab_XTreeWidget_9", "OFFICE", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":Miscellaneous Voucher_XLineEdit");
-    type(":Miscellaneous Voucher_XLineEdit", "34");
-    waitForObject(":Miscellaneous Voucher.Save_QPushButton");
-    clickButton(":Miscellaneous Voucher.Save_QPushButton");
-    waitForObject(":_amountGroup_XLineEdit");
-    type(":_amountGroup_XLineEdit", "34");
-    waitForObject(":_dateGroup.XDateEdit_XDateEdit_2");
-    type(":_dateGroup.XDateEdit_XDateEdit_2", "0");
-    waitForObject(":_dateGroup.XDateEdit_XDateEdit_2");
-    type(":_dateGroup.XDateEdit_XDateEdit_2", "<Tab>");
-    waitForObject(":_referenceGroup._invoiceNum_XLineEdit");
-    type(":_referenceGroup._invoiceNum_XLineEdit", "VO 30073");
-    waitForObject(":_referenceGroup._reference_XLineEdit");
-    type(":_referenceGroup._reference_XLineEdit", "ref - VO 30073");
-    waitForObject(":Miscellaneous Voucher.Save_QPushButton_2");
-    clickButton(":Miscellaneous Voucher.Save_QPushButton_2");
-    snooze(1);
-    if(object.exists(":Miscellaneous Voucher.Yes_QPushButton"))
-        clickButton(":Miscellaneous Voucher.Yes_QPushButton");
-    waitForObject(":Miscellaneous Voucher.Cancel_QPushButton");
-    clickButton(":Miscellaneous Voucher.Cancel_QPushButton");
-    test.log("Misc Voucher created: 30073");
-   
-    
-    //-------Post Vouchers---------
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
-    activateItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
-    
-    waitForObject(":List Open Vouchers._vohead_XTreeWidget");
-    openItemContextMenu(":List Open Vouchers._vohead_XTreeWidget", "30071", 5, 5, 0);
-    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
-    activateItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
-    waitForObject(":List Open Vouchers.Alternate Date:_QRadioButton");
-    clickButton(":List Open Vouchers.Alternate Date:_QRadioButton");
-    waitForObject(":List Open Vouchers.Continue_QPushButton");
-    clickButton(":List Open Vouchers.Continue_QPushButton");
-    test.log("Posted Voucher: 30071");
-    
-    
-    waitForObject(":List Open Vouchers._vohead_XTreeWidget");
-    openItemContextMenu(":List Open Vouchers._vohead_XTreeWidget", "30073", 5, 5, 0);
-    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
-    activateItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
-    waitForObject(":List Open Vouchers.Alternate Date:_QRadioButton");
-    clickButton(":List Open Vouchers.Alternate Date:_QRadioButton");
-    waitForObject(":List Open Vouchers.Continue_QPushButton");
-    clickButton(":List Open Vouchers.Continue_QPushButton");
-    test.log("Posted Voucher: 30073");
-    
-    waitForObject(":List Open Vouchers.Close_QPushButton");
-    clickButton(":List Open Vouchers.Close_QPushButton");
-    
-      
-    //-----prepare check run, post check------
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Select...");
-    activateItem(":xTuple ERP:*.Payments_QMenu", "Select...");
-    
-    waitForObject(":frame._apopen_XTreeWidget");
-    clickItem(":frame._apopen_XTreeWidget", "30074", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":frame.Select..._QPushButton");
-    clickButton(":frame.Select..._QPushButton");
-    waitForObjectItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account");
-    clickItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":Select Payments.Save_QPushButton");
-    clickButton(":Select Payments.Save_QPushButton");
-    waitForObject(":Select Payments.Close_QPushButton");
-    clickButton(":Select Payments.Close_QPushButton");
-    test.log("Selected for Payment: 30074");
-    
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
-    activateItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
-    
-    waitForObject(":Prepare Check Run._bankaccnt_XComboBox");
-    clickItem(":Prepare Check Run._bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":Prepare Check Run.Prepare_QPushButton");
-    clickButton(":Prepare Check Run.Prepare_QPushButton");
-    test.log("Prepared Check Run");
-    
-    var linuxPath, winPath;
-    
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "System");
-    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Master Information");
-    activateItem(":xTuple ERP:*.System_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP:*.Master Information_QMenu", "Encryption...");
-    activateItem(":xTuple ERP:*.Master Information_QMenu", "Encryption...");
-    
-    waitForObject(":Encryption Configuration_FileLineEdit");
-    winPath = findObject(":Encryption Configuration_FileLineEdit").text;
-    
-    
-    waitForObject(":Encryption Configuration_FileLineEdit_2");
-    linuxPath = findObject(":Encryption Configuration_FileLineEdit_2").text;
-    waitForObject(":Encryption Configuration.Cancel_QPushButton");
-    clickButton(":Encryption Configuration.Cancel_QPushButton");
-   
-    
-    //--------Post Check------------
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "View Check Run...");
-    activateItem(":xTuple ERP:*.Payments_QMenu", "View Check Run...");
-    
-    waitForObjectItem(":_frame._check_XTreeWidget", "No");
-    clickItem(":_frame._check_XTreeWidget", "No", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":_frame.Print_QPushButton");
-    sendEvent("QMouseEvent", ":_frame.Print_QPushButton", QEvent.MouseButtonPress, 5, 5, Qt.LeftButton, 0); 	waitForObjectItem(":_QMenu", "Check Run...");
-    activateItem(":_QMenu", "Check Run...");
-    waitForObject(":View Check Run.Create ACH File_QPushButton");
-    clickButton(":View Check Run.Create ACH File_QPushButton");
-    if(object.exists(":View Check Run.Yes_QPushButton_2"))    
-        clickButton(":View Check Run.Yes_QPushButton_2");
-    waitForObject(":fileNameEdit_QLineEdit");
-    
-    if(OS.name=="Linux")
-        findObject(":fileNameEdit_QLineEdit").text = linuxPath.toString()+"/achFile.ach";
-    else if(OS.name=="Windows")
-        findObject(":fileNameEdit_QLineEdit").text = winPath.toString()+"/achFile.ach";
-        
-    waitForObject(":xTuple ERP:*_QPushButton");
-    sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonPress, 5, 5, Qt.LeftButton, 0);
-    waitForObject(":xTuple ERP:*_QPushButton");
-    sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonRelease, 5, 5, Qt.LeftButton, 1);    snooze(3);
-     
-    if(object.exists(":View Check Run.Yes_QPushButton_2"))    
-        clickButton(":View Check Run.Yes_QPushButton_2");
-    
-    waitForObject(":View Check Run.Yes_QPushButton");
-    clickButton(":View Check Run.Yes_QPushButton");
-    
-    waitForObject(":View Check Run.Cancel_QPushButton");
-    clickButton(":View Check Run.Cancel_QPushButton");
-    
-    waitForObject(":View Check Run.Close_QPushButton");
-    clickButton(":View Check Run.Close_QPushButton");
-    test.log("Posted Check for Voucher: 30073");
-    
-    
-    //-------Post Vouchers---------
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
-    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
-    activateItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
-    
-    waitForObject(":List Open Vouchers._vohead_XTreeWidget");
-    openItemContextMenu(":List Open Vouchers._vohead_XTreeWidget", "30072", 5, 5, 0);
-    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
-    activateItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
-    waitForObject(":List Open Vouchers.Alternate Date:_QRadioButton");
-    clickButton(":List Open Vouchers.Alternate Date:_QRadioButton");
-    waitForObject(":List Open Vouchers.Continue_QPushButton");
-    clickButton(":List Open Vouchers.Continue_QPushButton");
-    test.log("Posted Voucher: 30072");
-  
-    
-    //--------Select--------
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Select...");
-    activateItem(":xTuple ERP:*.Payments_QMenu", "Select...");
-    
-    waitForObject(":frame._apopen_XTreeWidget");
-    clickItem(":frame._apopen_XTreeWidget", "30072", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":frame.Select..._QPushButton");
-    clickButton(":frame.Select..._QPushButton");
-    waitForObjectItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account");
-    clickItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":Select Payments.Save_QPushButton");
-    clickButton(":Select Payments.Save_QPushButton");
-    waitForObject(":Select Payments.Close_QPushButton");
-    clickButton(":Select Payments.Close_QPushButton");
-    
-    waitForObject(":List Open Vouchers.Close_QPushButton");
-    clickButton(":List Open Vouchers.Close_QPushButton");
-    test.log("Selected Payment for Voucher: 30072");  
-    
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
-    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
-    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
-    activateItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
-    
-    waitForObject(":Prepare Check Run._bankaccnt_XComboBox");
-    clickItem(":Prepare Check Run._bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":Prepare Check Run.Prepare_QPushButton");
-    clickButton(":Prepare Check Run.Prepare_QPushButton");
-    test.log("Prepared Check Run");
-    
+//    //---Create Voucher------
+//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+//    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+//    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
+//    activateItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
+//    
+//    waitForObject(":List Open Vouchers.New_QPushButton");
+//    clickButton(":List Open Vouchers.New_QPushButton");
+//    waitForObject(":_voucherGroup...._QPushButton");
+//    clickButton(":_voucherGroup...._QPushButton");
+//    waitForObject(":_pohead_XTreeWidget");
+//    doubleClickItem(":_pohead_XTreeWidget", "20065", 5, 5, 0, Qt.LeftButton);
+//    waitForObject(":_poitems.Distribute All_QPushButton");
+//    clickButton(":_poitems.Distribute All_QPushButton");
+//    waitForObject(":_poitems.Distribute All_QPushButton");
+//    clickButton(":_poitems.Distribute All_QPushButton");
+//    waitForObject(":_dateGroup.XDateEdit_XDateEdit");
+//    type(":_dateGroup.XDateEdit_XDateEdit", "0");
+//    waitForObject(":_dateGroup.XDateEdit_XDateEdit");
+//    type(":_dateGroup.XDateEdit_XDateEdit", "<Tab>");
+//    waitForObject(":_invoiceNum_XLineEdit");
+//    type(":_invoiceNum_XLineEdit", "VO for PO 20065");
+//    waitForObject(":_reference_XLineEdit");
+//    type(":_reference_XLineEdit", "ref - VO for PO 20065");
+//    waitForObject(":Voucher.Save_QPushButton");
+//    clickButton(":Voucher.Save_QPushButton");
+//    waitForObject(":Voucher.Cancel_QPushButton");
+//    clickButton(":Voucher.Cancel_QPushButton");
+//    test.log("Voucher created for PO: 20065");
+//    
+//
+//    
+//    //----Accounting - Misc Voucher----
+//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+//    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+//    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "New Miscellaneous...");
+//    activateItem(":xTuple ERP:*.Voucher_QMenu", "New Miscellaneous...");
+//    
+//    waitForObject(":xTuple ERP:*_QPushButton");
+//    clickButton(":xTuple ERP:*_QPushButton");
+//    waitForObject(":_listTab_XTreeWidget_8");
+//    doubleClickItem(":_listTab_XTreeWidget_8", "TPARTS", 5, 5, 0, Qt.LeftButton);
+//    waitForObject(":List Unposted Invoices.New_QPushButton");
+//    clickButton(":List Unposted Invoices.New_QPushButton");
+//    waitForObject(":_groupButton.Expense Category_QRadioButton");
+//    clickButton(":_groupButton.Expense Category_QRadioButton");
+//    waitForObject(":_expenseGroup...._QPushButton");
+//    clickButton(":_expenseGroup...._QPushButton");
+//    waitForObject(":_listTab_XTreeWidget_13");
+//    doubleClickItem(":_listTab_XTreeWidget_13", "OFFICE", 5, 5, 0, Qt.LeftButton);
+//    waitForObject(":Miscellaneous Voucher_XLineEdit");
+//    type(":Miscellaneous Voucher_XLineEdit", "34");
+//    waitForObject(":Miscellaneous Voucher.Save_QPushButton");
+//    clickButton(":Miscellaneous Voucher.Save_QPushButton");
+//    waitForObject(":_amountGroup_XLineEdit");
+//    type(":_amountGroup_XLineEdit", "34");
+//    waitForObject(":_dateGroup.XDateEdit_XDateEdit_2");
+//    type(":_dateGroup.XDateEdit_XDateEdit_2", "0");
+//    waitForObject(":_dateGroup.XDateEdit_XDateEdit_2");
+//    type(":_dateGroup.XDateEdit_XDateEdit_2", "<Tab>");
+//    waitForObject(":_referenceGroup._invoiceNum_XLineEdit");
+//    type(":_referenceGroup._invoiceNum_XLineEdit", "VO 30071");
+//    waitForObject(":_referenceGroup._reference_XLineEdit");
+//    type(":_referenceGroup._reference_XLineEdit", "ref - VO 30071");
+//    waitForObject(":Miscellaneous Voucher.Save_QPushButton_2");
+//    clickButton(":Miscellaneous Voucher.Save_QPushButton_2");
+//    waitForObject(":Miscellaneous Voucher.Cancel_QPushButton");
+//    clickButton(":Miscellaneous Voucher.Cancel_QPushButton");
+//    waitForObject(":List Open Vouchers.Close_QPushButton");
+//    clickButton(":List Open Vouchers.Close_QPushButton");
+//    test.log("Misc Voucher created: 30071");
+//    
+//    
+//    //----Accounting - Misc Voucher----
+//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+//    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+//    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "New Miscellaneous...");
+//    activateItem(":xTuple ERP:*.Voucher_QMenu", "New Miscellaneous...");
+//    
+//    waitForObject(":xTuple ERP:*_QPushButton");
+//    clickButton(":xTuple ERP:*_QPushButton");
+//    waitForObject(":_listTab_XTreeWidget_8");
+//    doubleClickItem(":_listTab_XTreeWidget_8", "TPARTS", 5, 5, 0, Qt.LeftButton);
+//    waitForObject(":Miscellaneous Voucher._voucherGroup_QGroupBox");
+//    mouseClick(":Miscellaneous Voucher._voucherGroup_QGroupBox", 5, 5, 1, Qt.LeftButton);
+//    waitForObject(":List Unposted Invoices.New_QPushButton");
+//    clickButton(":List Unposted Invoices.New_QPushButton");
+//    waitForObject(":_groupButton.Expense Category:_QRadioButton");
+//    clickButton(":_groupButton.Expense Category:_QRadioButton");
+//    waitForObject(":_groupButton._expcat_ExpenseCluster");
+//    mouseClick(":_groupButton._expcat_ExpenseCluster", 5, 5, 1, Qt.LeftButton);
+//    waitForObject(":_groupButton...._QPushButton");
+//    clickButton(":_groupButton...._QPushButton");
+//    waitForObject(":_listTab_XTreeWidget_9");
+//    doubleClickItem(":_listTab_XTreeWidget_9", "OFFICE", 5, 5, 0, Qt.LeftButton);
+//    waitForObject(":Miscellaneous Voucher_XLineEdit");
+//    type(":Miscellaneous Voucher_XLineEdit", "34");
+//    waitForObject(":Miscellaneous Voucher.Save_QPushButton");
+//    clickButton(":Miscellaneous Voucher.Save_QPushButton");
+//    waitForObject(":_amountGroup_XLineEdit");
+//    type(":_amountGroup_XLineEdit", "34");
+//    waitForObject(":_dateGroup.XDateEdit_XDateEdit_2");
+//    type(":_dateGroup.XDateEdit_XDateEdit_2", "0");
+//    waitForObject(":_dateGroup.XDateEdit_XDateEdit_2");
+//    type(":_dateGroup.XDateEdit_XDateEdit_2", "<Tab>");
+//    waitForObject(":_referenceGroup._invoiceNum_XLineEdit");
+//    type(":_referenceGroup._invoiceNum_XLineEdit", "VO 30072");
+//    waitForObject(":_referenceGroup._reference_XLineEdit");
+//    type(":_referenceGroup._reference_XLineEdit", "ref - VO 30072");
+//    waitForObject(":Miscellaneous Voucher.Save_QPushButton_2");
+//    clickButton(":Miscellaneous Voucher.Save_QPushButton_2");
+//    snooze(1);
+//    if(object.exists(":Miscellaneous Voucher.Yes_QPushButton"))
+//        clickButton(":Miscellaneous Voucher.Yes_QPushButton");
+//    waitForObject(":Miscellaneous Voucher.Cancel_QPushButton");
+//    clickButton(":Miscellaneous Voucher.Cancel_QPushButton");
+//    test.log("Misc Voucher created: 30072");
+//    
+//    
+//    //----Accounting - Misc Voucher----
+//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    waitForObject(":xTuple ERP:*.Accounting_QMenu");
+//    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+//    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+//    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "New Miscellaneous...");
+//    activateItem(":xTuple ERP:*.Voucher_QMenu", "New Miscellaneous...");
+//    
+//    waitForObject(":xTuple ERP:*_QPushButton");
+//    clickButton(":xTuple ERP:*_QPushButton");
+//    waitForObject(":_listTab_XTreeWidget_8");
+//    doubleClickItem(":_listTab_XTreeWidget_8", "TPARTS", 5, 5, 0, Qt.LeftButton);
+//    waitForObject(":Miscellaneous Voucher._voucherGroup_QGroupBox");
+//    mouseClick(":Miscellaneous Voucher._voucherGroup_QGroupBox", 50, 80, 1, Qt.LeftButton);
+//    waitForObject(":List Unposted Invoices.New_QPushButton");
+//    clickButton(":List Unposted Invoices.New_QPushButton");
+//    waitForObject(":_groupButton.Expense Category:_QRadioButton");
+//    clickButton(":_groupButton.Expense Category:_QRadioButton");
+//    waitForObject(":_groupButton._expcat_ExpenseCluster");
+//    mouseClick(":_groupButton._expcat_ExpenseCluster", 5, 5, 1, Qt.LeftButton);
+//    waitForObject(":_groupButton...._QPushButton");
+//    clickButton(":_groupButton...._QPushButton");
+//    waitForObject(":_listTab_XTreeWidget_9");
+//    doubleClickItem(":_listTab_XTreeWidget_9", "OFFICE", 5, 5, 0, Qt.LeftButton);
+//    waitForObject(":Miscellaneous Voucher_XLineEdit");
+//    type(":Miscellaneous Voucher_XLineEdit", "34");
+//    waitForObject(":Miscellaneous Voucher.Save_QPushButton");
+//    clickButton(":Miscellaneous Voucher.Save_QPushButton");
+//    waitForObject(":_amountGroup_XLineEdit");
+//    type(":_amountGroup_XLineEdit", "34");
+//    waitForObject(":_dateGroup.XDateEdit_XDateEdit_2");
+//    type(":_dateGroup.XDateEdit_XDateEdit_2", "0");
+//    waitForObject(":_dateGroup.XDateEdit_XDateEdit_2");
+//    type(":_dateGroup.XDateEdit_XDateEdit_2", "<Tab>");
+//    waitForObject(":_referenceGroup._invoiceNum_XLineEdit");
+//    type(":_referenceGroup._invoiceNum_XLineEdit", "VO 30073");
+//    waitForObject(":_referenceGroup._reference_XLineEdit");
+//    type(":_referenceGroup._reference_XLineEdit", "ref - VO 30073");
+//    waitForObject(":Miscellaneous Voucher.Save_QPushButton_2");
+//    clickButton(":Miscellaneous Voucher.Save_QPushButton_2");
+//    snooze(1);
+//    if(object.exists(":Miscellaneous Voucher.Yes_QPushButton"))
+//        clickButton(":Miscellaneous Voucher.Yes_QPushButton");
+//    waitForObject(":Miscellaneous Voucher.Cancel_QPushButton");
+//    clickButton(":Miscellaneous Voucher.Cancel_QPushButton");
+//    test.log("Misc Voucher created: 30073");
+//   
+//    
+//    //-------Post Vouchers---------
+//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+//    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+//    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
+//    activateItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
+//    
+//    waitForObject(":List Open Vouchers._vohead_XTreeWidget");
+//    openItemContextMenu(":List Open Vouchers._vohead_XTreeWidget", "30071", 5, 5, 0);
+//    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
+//    activateItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
+//    waitForObject(":List Open Vouchers.Alternate Date:_QRadioButton");
+//    clickButton(":List Open Vouchers.Alternate Date:_QRadioButton");
+//    waitForObject(":List Open Vouchers.Continue_QPushButton");
+//    clickButton(":List Open Vouchers.Continue_QPushButton");
+//    test.log("Posted Voucher: 30071");
+//    
+//    
+//    waitForObject(":List Open Vouchers._vohead_XTreeWidget");
+//    openItemContextMenu(":List Open Vouchers._vohead_XTreeWidget", "30073", 5, 5, 0);
+//    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
+//    activateItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
+//    waitForObject(":List Open Vouchers.Alternate Date:_QRadioButton");
+//    clickButton(":List Open Vouchers.Alternate Date:_QRadioButton");
+//    waitForObject(":List Open Vouchers.Continue_QPushButton");
+//    clickButton(":List Open Vouchers.Continue_QPushButton");
+//    test.log("Posted Voucher: 30073");
+//    
+//    waitForObject(":List Open Vouchers.Close_QPushButton");
+//    clickButton(":List Open Vouchers.Close_QPushButton");
+//    
+//      
+//    //-----prepare check run, post check------
+//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+//    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+//    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Select...");
+//    activateItem(":xTuple ERP:*.Payments_QMenu", "Select...");
+//    
+//    waitForObject(":frame._apopen_XTreeWidget");
+//    clickItem(":frame._apopen_XTreeWidget", "30074", 5, 5, 1, Qt.LeftButton);
+//    waitForObject(":frame.Select..._QPushButton");
+//    clickButton(":frame.Select..._QPushButton");
+//    waitForObjectItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account");
+//    clickItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
+//    waitForObject(":Select Payments.Save_QPushButton");
+//    clickButton(":Select Payments.Save_QPushButton");
+//    waitForObject(":Select Payments.Close_QPushButton");
+//    clickButton(":Select Payments.Close_QPushButton");
+//    test.log("Selected for Payment: 30074");
+//    
+//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+//    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+//    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
+//    activateItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
+//    
+//    waitForObject(":Prepare Check Run._bankaccnt_XComboBox");
+//    clickItem(":Prepare Check Run._bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
+//    waitForObject(":Prepare Check Run.Prepare_QPushButton");
+//    clickButton(":Prepare Check Run.Prepare_QPushButton");
+//    test.log("Prepared Check Run");
+//    
+//    var linuxPath, winPath;
+//    
+//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
+//    activateItem(":xTuple ERP:*_QMenuBar_2", "System");
+//    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Master Information");
+//    activateItem(":xTuple ERP:*.System_QMenu", "Master Information");
+//    waitForObjectItem(":xTuple ERP:*.Master Information_QMenu", "Encryption...");
+//    activateItem(":xTuple ERP:*.Master Information_QMenu", "Encryption...");
+//    
+//    waitForObject(":Encryption Configuration_FileLineEdit");
+//    winPath = findObject(":Encryption Configuration_FileLineEdit").text;
+//    
+//    
+//    waitForObject(":Encryption Configuration_FileLineEdit_2");
+//    linuxPath = findObject(":Encryption Configuration_FileLineEdit_2").text;
+//    waitForObject(":Encryption Configuration.Cancel_QPushButton");
+//    clickButton(":Encryption Configuration.Cancel_QPushButton");
+//   
+//    
+//    //--------Post Check------------
+//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+//    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+//    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "View Check Run...");
+//    activateItem(":xTuple ERP:*.Payments_QMenu", "View Check Run...");
+//    
+//    waitForObjectItem(":_frame._check_XTreeWidget", "No");
+//    clickItem(":_frame._check_XTreeWidget", "No", 5, 5, 1, Qt.LeftButton);
+//    waitForObject(":_frame.Print_QPushButton");
+//    sendEvent("QMouseEvent", ":_frame.Print_QPushButton", QEvent.MouseButtonPress, 5, 5, Qt.LeftButton, 0); 	waitForObjectItem(":_QMenu", "Check Run...");
+//    activateItem(":_QMenu", "Check Run...");
+//    waitForObject(":View Check Run.Create ACH File_QPushButton");
+//    clickButton(":View Check Run.Create ACH File_QPushButton");
+//    if(object.exists(":View Check Run.Yes_QPushButton_2"))    
+//        clickButton(":View Check Run.Yes_QPushButton_2");
+//    waitForObject(":fileNameEdit_QLineEdit");
+//    
+//    if(OS.name=="Linux")
+//        findObject(":fileNameEdit_QLineEdit").text = linuxPath.toString()+"/achFile.ach";
+//    else if(OS.name=="Windows")
+//        findObject(":fileNameEdit_QLineEdit").text = winPath.toString()+"/achFile.ach";
+//        
+//    waitForObject(":xTuple ERP:*_QPushButton");
+//    sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonPress, 5, 5, Qt.LeftButton, 0);
+//    waitForObject(":xTuple ERP:*_QPushButton");
+//    sendEvent("QMouseEvent", ":xTuple ERP:*_QPushButton", QEvent.MouseButtonRelease, 5, 5, Qt.LeftButton, 1);    snooze(3);
+//     
+//    if(object.exists(":View Check Run.Yes_QPushButton_2"))    
+//        clickButton(":View Check Run.Yes_QPushButton_2");
+//    
+//    waitForObject(":View Check Run.Yes_QPushButton");
+//    clickButton(":View Check Run.Yes_QPushButton");
+//    
+//    waitForObject(":View Check Run.Cancel_QPushButton");
+//    clickButton(":View Check Run.Cancel_QPushButton");
+//    
+//    waitForObject(":View Check Run.Close_QPushButton");
+//    clickButton(":View Check Run.Close_QPushButton");
+//    test.log("Posted Check for Voucher: 30073");
+//    
+//    
+//    //-------Post Vouchers---------
+//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+//    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Voucher");
+//    waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
+//    activateItem(":xTuple ERP:*.Voucher_QMenu", "List Unposted...");
+//    
+//    waitForObject(":List Open Vouchers._vohead_XTreeWidget");
+//    openItemContextMenu(":List Open Vouchers._vohead_XTreeWidget", "30072", 5, 5, 0);
+//    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
+//    activateItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
+//    waitForObject(":List Open Vouchers.Alternate Date:_QRadioButton");
+//    clickButton(":List Open Vouchers.Alternate Date:_QRadioButton");
+//    waitForObject(":List Open Vouchers.Continue_QPushButton");
+//    clickButton(":List Open Vouchers.Continue_QPushButton");
+//    test.log("Posted Voucher: 30072");
+//  
+//    
+//    //--------Select--------
+//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+//    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+//    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Select...");
+//    activateItem(":xTuple ERP:*.Payments_QMenu", "Select...");
+//    
+//    waitForObject(":frame._apopen_XTreeWidget");
+//    clickItem(":frame._apopen_XTreeWidget", "30072", 5, 5, 1, Qt.LeftButton);
+//    waitForObject(":frame.Select..._QPushButton");
+//    clickButton(":frame.Select..._QPushButton");
+//    waitForObjectItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account");
+//    clickItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
+//    waitForObject(":Select Payments.Save_QPushButton");
+//    clickButton(":Select Payments.Save_QPushButton");
+//    waitForObject(":Select Payments.Close_QPushButton");
+//    clickButton(":Select Payments.Close_QPushButton");
+//    
+//    waitForObject(":List Open Vouchers.Close_QPushButton");
+//    clickButton(":List Open Vouchers.Close_QPushButton");
+//    test.log("Selected Payment for Voucher: 30072");  
+//    
+//    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
+//    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    activateItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
+//    waitForObjectItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+//    activateItem(":xTuple ERP:*.Accounts Payable_QMenu", "Payments");
+//    waitForObjectItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
+//    activateItem(":xTuple ERP:*.Payments_QMenu", "Prepare Check Run...");
+//    
+//    waitForObject(":Prepare Check Run._bankaccnt_XComboBox");
+//    clickItem(":Prepare Check Run._bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
+//    waitForObject(":Prepare Check Run.Prepare_QPushButton");
+//    clickButton(":Prepare Check Run.Prepare_QPushButton");
+//    test.log("Prepared Check Run");
+//    
     
     //----Manufacture- new Work Order----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
