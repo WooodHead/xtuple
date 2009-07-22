@@ -89,7 +89,7 @@ function main()
     waitForObject(":_itemGroup.Yes_QPushButton");
     clickButton(":_itemGroup.Yes_QPushButton");
     
-    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         waitForObject(":_warehouse_WComboBox_5");
         type(":_warehouse_WComboBox_5", "WH1");
@@ -105,7 +105,7 @@ function main()
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
 
     clickButton(":Item Site.Save_QPushButton");
-    if(appEdition=="Manufacturing"|| appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"|| appEdition=="Standard")
     {
         waitForObject(":Item Site.Cancel_QPushButton");
         clickButton(":Item Site.Cancel_QPushButton");
@@ -182,7 +182,7 @@ function main()
     waitForObject(":_itemGroup.Yes_QPushButton");
     clickButton(":_itemGroup.Yes_QPushButton");
     
-    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         waitForObject(":_warehouse_WComboBox_5");
         clickItem(":_warehouse_WComboBox_5", "WH1",0,0,1,Qt.LeftButton);
@@ -200,7 +200,7 @@ function main()
 
     waitForObject(":Item Site.Save_QPushButton");
     clickButton(":Item Site.Save_QPushButton");
-    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         waitForObject(":Item Site.Cancel_QPushButton");
         clickButton(":Item Site.Cancel_QPushButton");
@@ -276,7 +276,7 @@ function main()
     waitForObject(":_itemGroup.Yes_QPushButton");
     clickButton(":_itemGroup.Yes_QPushButton");
     
-    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         waitForObject(":_warehouse_WComboBox_5");
         clickItem(":_warehouse_WComboBox_5", "WH1",0,0,1,Qt.LeftButton);
@@ -295,7 +295,7 @@ function main()
 
     waitForObject(":Item Site.Save_QPushButton");
     clickButton(":Item Site.Save_QPushButton");
-    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         waitForObject(":Item Site.Cancel_QPushButton");
         clickButton(":Item Site.Cancel_QPushButton");
@@ -336,7 +336,7 @@ function main()
     waitForObject(":_itemGroup.Yes_QPushButton");
     clickButton(":_itemGroup.Yes_QPushButton");
    
-    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
          waitForObject(":_warehouse_WComboBox_5");
          clickItem(":_warehouse_WComboBox_5", "WH1",0,0,1,Qt.LeftButton);
@@ -357,7 +357,7 @@ function main()
     waitForObject(":Item Site.Save_QPushButton");
     clickButton(":Item Site.Save_QPushButton");
     
-    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         waitForObject(":Item Site.Cancel_QPushButton");
         clickButton(":Item Site.Cancel_QPushButton");
@@ -483,7 +483,7 @@ function main()
 
         
     }
-    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+    else if(appEdition=="PostBooks" || appEdition=="Standard")
     {
         menu = waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
         menuItem = "Sche&dule";

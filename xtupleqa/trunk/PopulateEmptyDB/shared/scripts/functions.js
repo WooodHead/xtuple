@@ -380,8 +380,8 @@ function createUserByRole(userrole)
         clickButton(":_relationshipsGroup._user_XCheckBox");
     waitForObject(":_relationshipsGroup.User..._QPushButton");
     clickButton(":_relationshipsGroup.User..._QPushButton");
-    waitForObject(":List Employees.Yes_QPushButton");
-    clickButton(":List Employees.Yes_QPushButton");
+//    waitForObject(":List Employees.Yes_QPushButton");
+//    clickButton(":List Employees.Yes_QPushButton");
     waitForObject(":List Employees.Active_QCheckBox");
     if(!findObject(":List Employees.Active_QCheckBox").checked)
         clickButton(":List Employees.Active_QCheckBox");

@@ -340,7 +340,7 @@ function main()
         clickButton(":Bills of Operations.Close_QPushButton");
 
 }
-else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+else if(appEdition=="PostBooks" || appEdition=="Standard")
 {
      
       waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -452,7 +452,7 @@ else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
       waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
       clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
   }
-  else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+  else if(appEdition=="PostBooks" || appEdition=="Standard")
   {
       test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Items not found");
       test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");
@@ -481,7 +481,7 @@ else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
-   else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+   else if(appEdition=="PostBooks" || appEdition=="Standard")
    {
        test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Item not found");
        test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");
@@ -510,7 +510,7 @@ else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
-   else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+   else if(appEdition=="PostBooks" || appEdition=="Standard")
    {
        test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Item not found");
        test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");
@@ -541,7 +541,7 @@ else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
-    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+    else if(appEdition=="PostBooks" || appEdition=="Standard")
    {
        test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Item not found");
        test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");
@@ -587,7 +587,7 @@ else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
-   else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+   else if(appEdition=="PostBooks" || appEdition=="Standard")
    {
        test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Item not found");
        test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");
@@ -615,7 +615,7 @@ else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
-   else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+   else if(appEdition=="PostBooks" || appEdition=="Standard")
    {
        test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Item not found");
        test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");

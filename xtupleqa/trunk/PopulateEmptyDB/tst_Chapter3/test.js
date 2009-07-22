@@ -315,7 +315,7 @@ function main()
     waitForObject(":_item_XTreeWidget_4");
     doubleClickItem(":_item_XTreeWidget_4","YTRUCK1",0,0,0,Qt.LeftButton);
     waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
-    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
         clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);  
     else if(appEdition=="PostBooks")
         test.xverify(object.exists(":_warehouse_WComboBox_5"), "Warehouse ComboBox not found");
@@ -362,7 +362,7 @@ function main()
         type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
         
     }
-    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+    else if(appEdition=="PostBooks" || appEdition=="Standard")
     {
         test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
         test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
@@ -372,7 +372,7 @@ function main()
     
     waitForObject(":Item Site.Save_QPushButton");
     clickButton(":Item Site.Save_QPushButton");
-    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         waitForObject(":Item Site.Cancel_QPushButton");
         clickButton(":Item Site.Cancel_QPushButton");
@@ -390,7 +390,7 @@ function main()
   waitForObject(":_item_XTreeWidget_4");
   doubleClickItem(":_item_XTreeWidget_4","TBODY1",0,0,0,Qt.LeftButton);
   waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
-  if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+  if(appEdition=="Manufacturing"||appEdition=="Standard")
       clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
   else if(appEdition=="PostBooks")
       test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
@@ -434,7 +434,7 @@ function main()
       type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
       
   }
-  else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+  else if(appEdition=="PostBooks" || appEdition=="Standard")
    {
       test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
       test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
@@ -444,7 +444,7 @@ function main()
 
   waitForObject(":Item Site.Save_QPushButton");
   clickButton(":Item Site.Save_QPushButton");
-  if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+  if(appEdition=="Manufacturing"||appEdition=="Standard")
   {
   
   waitForObject(":Item Site.Cancel_QPushButton");
@@ -466,7 +466,7 @@ function main()
   waitForObject(":_item_XTreeWidget_4");
   doubleClickItem(":_item_XTreeWidget_4","TINSERT1",0,0,0,Qt.LeftButton);
   waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
-  if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+  if(appEdition=="Manufacturing"||appEdition=="Standard")
       clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
    else if(appEdition=="PostBooks")
       test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
@@ -508,7 +508,7 @@ function main()
       type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
       
   }
-  else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+  else if(appEdition=="PostBooks" || appEdition=="Standard")
    {
       test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
       test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
@@ -518,7 +518,7 @@ function main()
   
   waitForObject(":Item Site.Save_QPushButton");
   clickButton(":Item Site.Save_QPushButton");
-  if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+  if(appEdition=="Manufacturing"||appEdition=="Standard")
   {
   
       waitForObject(":Item Site.Cancel_QPushButton");
@@ -538,7 +538,7 @@ clickButton(":Item Site...._QPushButton");
 waitForObject(":_item_XTreeWidget_4");
 doubleClickItem(":_item_XTreeWidget_4","TWHEEL1",0,0,0,Qt.LeftButton);
 waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
-if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+if(appEdition=="Manufacturing"||appEdition=="Standard")
     clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
 else if(appEdition=="PostBooks")
     test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
@@ -584,7 +584,7 @@ if(appEdition=="Manufacturing")
       type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
       
 }
-else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+else if(appEdition=="PostBooks" || appEdition=="Standard")
  {
     test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
     test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
@@ -593,7 +593,7 @@ else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
   type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
 waitForObject(":Item Site.Save_QPushButton");
 clickButton(":Item Site.Save_QPushButton");
-if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+if(appEdition=="Manufacturing"||appEdition=="Standard")
 {
 
     waitForObject(":Item Site.Cancel_QPushButton");
@@ -614,7 +614,7 @@ clickButton(":Item Site...._QPushButton");
 waitForObject(":_item_XTreeWidget_4");
 doubleClickItem(":_item_XTreeWidget_4","TKIT1",0,0,0,Qt.LeftButton);
 waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
-if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+if(appEdition=="Manufacturing"||appEdition=="Standard")
     clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
 else if(appEdition=="PostBooks")
     test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
@@ -655,7 +655,7 @@ clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
       type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
       
 }
-  else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+  else if(appEdition=="PostBooks" || appEdition=="Standard")
  {
     test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
     test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
@@ -665,7 +665,7 @@ clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
  
 waitForObject(":Item Site.Save_QPushButton");
 clickButton(":Item Site.Save_QPushButton");
-if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+if(appEdition=="Manufacturing"||appEdition=="Standard")
 {
 
 waitForObject(":Item Site.Cancel_QPushButton");
@@ -685,7 +685,7 @@ clickButton(":Item Site...._QPushButton");
 waitForObject(":_item_XTreeWidget_4");
 doubleClickItem(":_item_XTreeWidget_4","TBOX1",0,0,0,Qt.LeftButton);
 waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
-if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+if(appEdition=="Manufacturing"||appEdition=="Standard")
     clickItem(":_warehouse_WComboBox_5", "WH1", 5, 5, 1, Qt.LeftButton);
  else if(appEdition=="PostBooks")
     test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
@@ -729,7 +729,7 @@ clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
       type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
       
  }
- else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+ else if(appEdition=="PostBooks" || appEdition=="Standard")
  {
     test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
     test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
@@ -739,7 +739,7 @@ clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
  
 waitForObject(":Item Site.Save_QPushButton");
 clickButton(":Item Site.Save_QPushButton");
-if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+if(appEdition=="Manufacturing"||appEdition=="Standard")
 {
 
 waitForObject(":Item Site.Cancel_QPushButton");
@@ -759,7 +759,7 @@ clickButton(":Item Site...._QPushButton");
 waitForObject(":_item_XTreeWidget_4");
 doubleClickItem(":_item_XTreeWidget_4","YPAINT1",0,0,0,Qt.LeftButton);
 waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
-if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+if(appEdition=="Manufacturing"||appEdition=="Standard")
     clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
 else if(appEdition=="PostBooks")
     test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
@@ -767,7 +767,7 @@ else if(appEdition=="PostBooks")
       clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox");
  type(":Item Site.Sold from this Site_QGroupBox"," ");
 clickButton(":Costing Method.Standard_QRadioButton_3");
-if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+if(appEdition=="Manufacturing"||appEdition=="Standard")
     clickItem(":Control._controlMethod_XComboBox_3", "Lot #", 0, 0, 1, Qt.LeftButton);
 else if(appEdition=="PostBooks")
     clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);
@@ -804,14 +804,14 @@ clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
       type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
       
  }
- else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+ else if(appEdition=="PostBooks" || appEdition=="Standard")
  {
     test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
     test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
   }  
   findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
   type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
-if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+if(appEdition=="Manufacturing"||appEdition=="Standard")
 {
 
 clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Expiration");
@@ -824,7 +824,7 @@ else if(appEdition=="PostBooks")
     test.xverify(object.exists(":_expirationTab.Perishable_QCheckBox_2"), " Expiration tab not found");
 }   
 clickButton(":Item Site.Save_QPushButton");
-if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+if(appEdition=="Manufacturing"||appEdition=="Standard")
 {
     
 waitForObject(":Item Site.Cancel_QPushButton");
