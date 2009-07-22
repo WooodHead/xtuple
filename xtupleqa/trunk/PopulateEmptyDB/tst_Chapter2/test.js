@@ -132,7 +132,7 @@ function main()
     type(":Cost Category._description_XLineEdit", "Warehouse 1");
     type(":Cost Category._main_XLineEdit", "01-01-1250-01");
     type(":Cost Category._main_XLineEdit_2", "01-01-1210-01");
-    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
         type(":Cost Category._main_XLineEdit_3", "01-01-1620-01");
     else if (appEdition=="PostBooks")
         test.xverify(object.exists(":Cost Category._main_XLineEdit_3"),"Cost Category text field - not visible");
@@ -144,13 +144,13 @@ function main()
     type(":Cost Category._main_XLineEdit_9", "01-01-2320-01");
     type(":Cost Category._main_XLineEdit_10", "01-01-2490-01");
     type(":Cost Category._main_XLineEdit_11", "01-01-1260-01");
-    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
         type(":Cost Category._main_XLineEdit_12", "01-01-6550-01");
     else if (appEdition=="PostBooks")
         test.xverify(object.exists(":Cost Category._main_XLineEdit_12"),"Cost Category text field - not visible");
     if(appEdition=="Manufacturing")
         type(":Cost Category._main_XLineEdit_13", "01-01-2480-01");
-    else if(appEdition=="xTupleERP"||appEdition=="PostBooks")
+    else if(appEdition=="Standard"||appEdition=="PostBooks")
         test.xverify(object.exists(":Cost Category._main_XLineEdit_13"),"Cost Category text field - not visible");
     waitForObject(":Cost Category.Save_QPushButton");
     clickButton(":Cost Category.Save_QPushButton");
@@ -276,7 +276,7 @@ function main()
   
 
   
-    //------------------Inventor: create site Locations--------------------
+    //------------------Inventory: create site Locations--------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
@@ -284,7 +284,7 @@ function main()
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Locations...");
     activateItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Locations...");
     waitForObject(":List Site Locations.New_QPushButton_2");
-    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         if(findObject(":_warehouse._warehouses_WComboBox_3").currentText!= "WH1")
         {    
@@ -879,7 +879,7 @@ function main()
         clickButton(":List Site Calendar Exceptions.Close_QPushButton_2");
  
     }
-    else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
+    else if(appEdition=="PostBooks" || appEdition=="Standard")
   {
         menu = waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
          menuItem = "Sche&dule";
@@ -891,8 +891,8 @@ function main()
          else test.pass(menuItem+"not found in "+appEdition);
          
     }
-  
-    if(appEdition=="PostBooks"||appEdition=="xTupleERP")
+
+    if(appEdition=="PostBooks"||appEdition=="Standard")
     {
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
@@ -900,32 +900,34 @@ function main()
             activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
             waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6");
             activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Planner Codes...");
+            
             waitForObject(":List Planner Codes.New_QPushButton_2");
             clickButton(":List Planner Codes.New_QPushButton_2");
             waitForObject(":_code_XLineEdit_6");
             type(":_code_XLineEdit_6", "MRP-Items");
             type(":_description_XLineEdit_16", "MRP Items");
-            clickButton(":Planner Code.Automatically Explode Planned Orders_QCheckBox");
-            clickButton(":_explosionGroup.Multiple Level Explosion_QRadioButton_2");
             clickButton(":Planner Code.Save_QPushButton");
+            waitForObject(":List Planner Codes._plancode_XTreeWidget");
+            if(!clickItem(":List Planner Codes._plancode_XTreeWidget", "MRP-ITEMS", 5, 5, 1, Qt.LeftButton))
+                test.pass("Planner Code: MRP-ITEMS created");
+            
             waitForObject(":List Planner Codes.New_QPushButton_2");
             clickButton(":List Planner Codes.New_QPushButton_2");
             waitForObject(":_code_XLineEdit_6");
             type(":_code_XLineEdit_6", "MPS-Items");
             type(":_description_XLineEdit_16", "MPS Items");
-            clickButton(":Planner Code.Automatically Explode Planned Orders_QCheckBox");
-            clickButton(":_explosionGroup.Multiple Level Explosion_QRadioButton_2");
             clickButton(":Planner Code.Save_QPushButton");
             waitForObject(":List Planner Codes._plancode_XTreeWidget");
-            if(!clickItem(":List Planner Codes._plancode_XTreeWidget", "MRP-ITEMS", 5, 5, 1, Qt.LeftButton))
-                test.pass("Planner Code: MRP-ITEMS created");
+            if(!clickItem(":List Planner Codes._plancode_XTreeWidget", "MPS-ITEMS", 5, 5, 1, Qt.LeftButton))
+                test.pass("Planner Code: MPS-ITEMS created");
+            
             
             waitForObject(":List Planner Codes.Close_QPushButton_2");
             clickButton(":List Planner Codes.Close_QPushButton_2");
             test.log("Planner Codes created");
     
    
-}
+        }
 
     
 }

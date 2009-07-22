@@ -81,7 +81,7 @@ function main()
     waitForObject(":Chart of Accounts.Close_QPushButton_2");
     clickButton(":Chart of Accounts.Close_QPushButton_2");
  
-    if(appEdition=="Manufacturing"||appEdition=="xTupleERP")
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
      
         //---------------Configure ACH in Accounting-------------
