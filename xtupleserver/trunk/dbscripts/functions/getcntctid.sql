@@ -3,7 +3,7 @@ DECLARE
   pContactNumber ALIAS FOR $1;
   _returnVal INTEGER;
 BEGIN
-  SELECT getCntctId(pContactNumber,true);
+  SELECT getCntctId(pContactNumber,true) INTO _returnVal;
 
   RETURN _returnVal;
 END;
