@@ -14,17 +14,18 @@ BEGIN
 -- chain of associated documents are closed and complete
 
   FOR _r IN
-  SELECT invchead_id, cobmisc_id, shiphead_id, cohead_id
+  SELECT invchead_id, cobmisc_id, shiphead_id, ordershipped.cohead_id AS ordship_id, orderinvoiced.cohead_id AS ordinv_id
     FROM invchead LEFT OUTER JOIN invcitem ON (invcitem_invchead_id=invchead_id)
                   LEFT OUTER JOIN cobmisc ON (cobmisc_invcnumber::TEXT=invchead_invcnumber)
                   LEFT OUTER JOIN shipitem ON (shipitem_invcitem_id=invcitem_id)
                   LEFT OUTER JOIN shiphead ON (shiphead_id=shipitem_shiphead_id)
+                  LEFT OUTER JOIN cohead ordershipped ON (ordershipped.cohead_id=shiphead_order_id)
                   LEFT OUTER JOIN coitem ON (coitem_id=invcitem_coitem_id)
-                  LEFT OUTER JOIN cohead ON (cohead_id=coitem_cohead_id)
+                  LEFT OUTER JOIN cohead orderinvoiced ON (orderinvoiced.cohead_id=coitem_cohead_id)
    WHERE ( (invchead_id = pInvcheadId)
      AND   (invchead_posted)
      AND   (checkInvoiceSitePrivs(invchead_id)) )
-  GROUP BY invchead_id, cobmisc_id, shiphead_id, cohead_id LOOP
+  GROUP BY invchead_id, cobmisc_id, shiphead_id, ordship_id, ordinv_id LOOP
 
 -- Check Billing
 
@@ -89,9 +90,16 @@ BEGIN
     SELECT cohead_id INTO _result
       FROM cohead JOIN coitem ON ( (coitem_cohead_id=cohead_id) AND
                                    (coitem_status NOT IN ('C', 'X')) )
-     WHERE (cohead_id=_r.cohead_id);
+     WHERE (cohead_id=_r.ordship_id);
     IF (FOUND) THEN
-      RETURN 'Sales Order not closed';
+      RETURN 'Shipped Sales Order not closed';
+    END IF;
+    SELECT cohead_id INTO _result
+      FROM cohead JOIN coitem ON ( (coitem_cohead_id=cohead_id) AND
+                                   (coitem_status NOT IN ('C', 'X')) )
+     WHERE (cohead_id=_r.ordinv_id);
+    IF (FOUND) THEN
+      RETURN 'Invoiced Sales Order not closed';
     END IF;
 
 -- Check Original Return Authorization and cross check to New Sales Order
@@ -103,9 +111,21 @@ BEGIN
                   JOIN invcitem ON (invcitem_coitem_id=coitem_id)
                   JOIN invchead ON ( (invchead_id=invcitem_invchead_id) AND
                                      ((NOT invchead_posted) OR (invchead_invcdate > pCutoffDate)) )
-     WHERE (rahead_orig_cohead_id=_r.cohead_id);
+     WHERE (rahead_orig_cohead_id=_r.ordship_id);
     IF (FOUND) THEN
-      RETURN 'Original Return Authorization not closed';
+      RETURN 'Shipped Original Return Authorization not closed';
+    END IF;
+    SELECT rahead_id INTO _result
+      FROM rahead JOIN raitem ON ( (raitem_rahead_id=rahead_id) AND
+                                   (raitem_status NOT IN ('C', 'X')) )
+                  JOIN coitem ON ( (coitem_id=raitem_new_coitem_id) AND
+                                   (coitem_status NOT IN ('C', 'X')) )
+                  JOIN invcitem ON (invcitem_coitem_id=coitem_id)
+                  JOIN invchead ON ( (invchead_id=invcitem_invchead_id) AND
+                                     ((NOT invchead_posted) OR (invchead_invcdate > pCutoffDate)) )
+     WHERE (rahead_orig_cohead_id=_r.ordinv_id);
+    IF (FOUND) THEN
+      RETURN 'Invoiced Original Return Authorization not closed';
     END IF;
 
 -- Check New Return Authorization
@@ -117,9 +137,21 @@ BEGIN
                   JOIN invcitem ON (invcitem_coitem_id=coitem_id)
                   JOIN invchead ON ( (invchead_id=invcitem_invchead_id) AND
                                      ((NOT invchead_posted) OR (invchead_invcdate > pCutoffDate)) )
-     WHERE (rahead_new_cohead_id=_r.cohead_id);
+     WHERE (rahead_new_cohead_id=_r.ordship_id);
     IF (FOUND) THEN
-      RETURN 'New Return Authorization not closed';
+      RETURN 'Shipped New Return Authorization not closed';
+    END IF;
+    SELECT rahead_id INTO _result
+      FROM rahead JOIN raitem ON ( (raitem_rahead_id=rahead_id) AND
+                                   (NOT raitem_status IN ('C', 'X')) )
+                  JOIN coitem ON ( (coitem_id=raitem_orig_coitem_id) AND
+                                   (NOT coitem_status IN ('C', 'X')) )
+                  JOIN invcitem ON (invcitem_coitem_id=coitem_id)
+                  JOIN invchead ON ( (invchead_id=invcitem_invchead_id) AND
+                                     ((NOT invchead_posted) OR (invchead_invcdate > pCutoffDate)) )
+     WHERE (rahead_new_cohead_id=_r.ordinv_id);
+    IF (FOUND) THEN
+      RETURN 'Invoiced New Return Authorization not closed';
     END IF;
 
 -- Check Lot/Serial Registration
@@ -127,10 +159,17 @@ BEGIN
 -- Registration associated with Sales Order must be expired
     SELECT lsreg_id INTO _result
       FROM lsreg
-     WHERE ( (lsreg_cohead_id=_r.cohead_id)
+     WHERE ( (lsreg_cohead_id=_r.ordship_id)
        AND   (lsreg_expiredate > CURRENT_DATE) );
     IF (FOUND) THEN
-      RETURN 'Sales Order Lot/Serial Registration not closed';
+      RETURN 'Shipped Sales Order Lot/Serial Registration not closed';
+    END IF;
+    SELECT lsreg_id INTO _result
+      FROM lsreg
+     WHERE ( (lsreg_cohead_id=_r.ordinv_id)
+       AND   (lsreg_expiredate > CURRENT_DATE) );
+    IF (FOUND) THEN
+      RETURN 'Invoiced Sales Order Lot/Serial Registration not closed';
     END IF;
 
 -- Registration associated with Shipping must be expired
@@ -148,9 +187,18 @@ BEGIN
                   JOIN raitemls ON (raitemls_raitem_id=raitem_id)
                   JOIN lsreg ON ( (lsreg_ls_id=raitemls_ls_id) AND
                                   (lsreg_expiredate > CURRENT_DATE) )
-     WHERE (rahead_orig_cohead_id=_r.cohead_id);
+     WHERE (rahead_orig_cohead_id=_r.ordship_id);
     IF (FOUND) THEN
-      RETURN 'Original Return Authorization Lot/Serial Registration not closed';
+      RETURN 'Shipped Original Return Authorization Lot/Serial Registration not closed';
+    END IF;
+    SELECT rahead_id INTO _result
+      FROM rahead JOIN raitem ON (raitem_rahead_id=rahead_id)
+                  JOIN raitemls ON (raitemls_raitem_id=raitem_id)
+                  JOIN lsreg ON ( (lsreg_ls_id=raitemls_ls_id) AND
+                                  (lsreg_expiredate > CURRENT_DATE) )
+     WHERE (rahead_orig_cohead_id=_r.ordinv_id);
+    IF (FOUND) THEN
+      RETURN 'Invoiced Original Return Authorization Lot/Serial Registration not closed';
     END IF;
 
 -- Registration associated with New Return Authorization must be expired
@@ -159,45 +207,75 @@ BEGIN
                   JOIN raitemls ON (raitemls_raitem_id=raitem_id)
                   JOIN lsreg ON ( (lsreg_ls_id=raitemls_ls_id) AND
                                   (lsreg_expiredate > CURRENT_DATE) )
-     WHERE (rahead_new_cohead_id=_r.cohead_id);
+     WHERE (rahead_new_cohead_id=_r.ordship_id);
     IF (FOUND) THEN
-      RETURN 'New Return Authorization Lot/Serial Registration not closed';
+      RETURN 'Shipped New Return Authorization Lot/Serial Registration not closed';
+    END IF;
+    SELECT rahead_id INTO _result
+      FROM rahead JOIN raitem ON (raitem_rahead_id=rahead_id)
+                  JOIN raitemls ON (raitemls_raitem_id=raitem_id)
+                  JOIN lsreg ON ( (lsreg_ls_id=raitemls_ls_id) AND
+                                  (lsreg_expiredate > CURRENT_DATE) )
+     WHERE (rahead_new_cohead_id=_r.ordinv_id);
+    IF (FOUND) THEN
+      RETURN 'Invoiced New Return Authorization Lot/Serial Registration not closed';
     END IF;
 
 -- Cash Advances associated with Sales Order cannot exist
     SELECT aropenco_cohead_id INTO _result   
       FROM aropenco
-     WHERE (aropenco_cohead_id=_r.cohead_id);
+     WHERE (aropenco_cohead_id=_r.ordship_id);
     IF (FOUND) THEN
-      RETURN 'Cash Advance not closed';
+      RETURN 'Shipped Cash Advance not closed';
+    END IF;
+    SELECT aropenco_cohead_id INTO _result   
+      FROM aropenco
+     WHERE (aropenco_cohead_id=_r.ordinv_id);
+    IF (FOUND) THEN
+      RETURN 'Invoiced Cash Advance not closed';
     END IF;
 
   END LOOP;
 
 -- Everything is OK, delete the chain
   FOR _r IN
-  SELECT invchead_id, cobmisc_id, shiphead_id, cohead_id
+  SELECT invchead_id, cobmisc_id, shiphead_id, ordershipped.cohead_id AS ordship_id, orderinvoiced.cohead_id AS ordinv_id
     FROM invchead LEFT OUTER JOIN invcitem ON (invcitem_invchead_id=invchead_id)
                   LEFT OUTER JOIN cobmisc ON (cobmisc_invcnumber::TEXT=invchead_invcnumber)
                   LEFT OUTER JOIN shipitem ON (shipitem_invcitem_id=invcitem_id)
                   LEFT OUTER JOIN shiphead ON (shiphead_id=shipitem_shiphead_id)
+                  LEFT OUTER JOIN cohead ordershipped ON (ordershipped.cohead_id=shiphead_order_id)
                   LEFT OUTER JOIN coitem ON (coitem_id=invcitem_coitem_id)
-                  LEFT OUTER JOIN cohead ON (cohead_id=coitem_cohead_id)
+                  LEFT OUTER JOIN cohead orderinvoiced ON (orderinvoiced.cohead_id=coitem_cohead_id)
    WHERE ( (invchead_id = pInvcheadId)
      AND   (invchead_posted)
      AND   (checkInvoiceSitePrivs(invchead_id)) )
-  GROUP BY invchead_id, cobmisc_id, shiphead_id, cohead_id LOOP
+  GROUP BY invchead_id, cobmisc_id, shiphead_id, ordship_id, ordinv_id LOOP
 
     FOR _ra IN
       SELECT rahead_id
       FROM rahead
-      WHERE (rahead_orig_cohead_id=_r.cohead_id) LOOP
+      WHERE (rahead_orig_cohead_id=_r.ordship_id) LOOP
       IF (_debug) THEN
         RAISE NOTICE 'Deleting Original Return head id %', _ra.rahead_id;
       END IF;
-      DELETE FROM raitemls WHERE (raitemls_raitem_id=(SELECT raitem_id
-                                                        FROM raitem
-                                                       WHERE (raitem_rahead_id=_ra.rahead_id)));
+      DELETE FROM raitemls WHERE (raitemls_raitem_id IN (SELECT raitem_id
+                                                         FROM raitem
+                                                         WHERE (raitem_rahead_id=_ra.rahead_id)));
+      DELETE FROM rahist WHERE (rahist_rahead_id=_ra.rahead_id);
+      DELETE FROM raitem WHERE (raitem_rahead_id=_ra.rahead_id);
+      DELETE FROM rahead WHERE (rahead_id=_ra.rahead_id);
+    END LOOP;
+    FOR _ra IN
+      SELECT rahead_id
+      FROM rahead
+      WHERE (rahead_orig_cohead_id=_r.ordinv_id) LOOP
+      IF (_debug) THEN
+        RAISE NOTICE 'Deleting Original Return head id %', _ra.rahead_id;
+      END IF;
+      DELETE FROM raitemls WHERE (raitemls_raitem_id IN (SELECT raitem_id
+                                                         FROM raitem
+                                                         WHERE (raitem_rahead_id=_ra.rahead_id)));
       DELETE FROM rahist WHERE (rahist_rahead_id=_ra.rahead_id);
       DELETE FROM raitem WHERE (raitem_rahead_id=_ra.rahead_id);
       DELETE FROM rahead WHERE (rahead_id=_ra.rahead_id);
@@ -206,13 +284,27 @@ BEGIN
     FOR _ra IN
       SELECT rahead_id
         FROM rahead
-       WHERE (rahead_new_cohead_id=_r.cohead_id) LOOP
+       WHERE (rahead_new_cohead_id=_r.ordship_id) LOOP
       IF (_debug) THEN
         RAISE NOTICE 'Deleting New Return head id %', _ra.rahead_id;
       END IF;
-      DELETE FROM raitemls WHERE (raitemls_raitem_id=(SELECT raitem_id
-                                                        FROM raitem
-                                                       WHERE (raitem_rahead_id=_ra.rahead_id)));
+      DELETE FROM raitemls WHERE (raitemls_raitem_id IN (SELECT raitem_id
+                                                         FROM raitem
+                                                         WHERE (raitem_rahead_id=_ra.rahead_id)));
+      DELETE FROM rahist WHERE (rahist_rahead_id=_ra.rahead_id);
+      DELETE FROM raitem WHERE (raitem_rahead_id=_ra.rahead_id);
+      DELETE FROM rahead WHERE (rahead_id=_ra.rahead_id);
+    END LOOP;
+    FOR _ra IN
+      SELECT rahead_id
+        FROM rahead
+       WHERE (rahead_new_cohead_id=_r.ordinv_id) LOOP
+      IF (_debug) THEN
+        RAISE NOTICE 'Deleting New Return head id %', _ra.rahead_id;
+      END IF;
+      DELETE FROM raitemls WHERE (raitemls_raitem_id IN (SELECT raitem_id
+                                                         FROM raitem
+                                                         WHERE (raitem_rahead_id=_ra.rahead_id)));
       DELETE FROM rahist WHERE (rahist_rahead_id=_ra.rahead_id);
       DELETE FROM raitem WHERE (raitem_rahead_id=_ra.rahead_id);
       DELETE FROM rahead WHERE (rahead_id=_ra.rahead_id);
@@ -221,16 +313,25 @@ BEGIN
     IF (_debug) THEN
       RAISE NOTICE 'Deleting Lot/Serial Registrations';
     END IF;
-    DELETE FROM lsreg WHERE (lsreg_cohead_id=_r.cohead_id);
+    DELETE FROM lsreg WHERE (lsreg_cohead_id=_r.ordship_id);
+    DELETE FROM lsreg WHERE (lsreg_cohead_id=_r.ordinv_id);
     DELETE FROM lsreg WHERE (lsreg_shiphead_id=_r.shiphead_id);
 
     IF (_debug) THEN
-      RAISE NOTICE 'Deleting Sales Order head id %', _r.cohead_id;
+      RAISE NOTICE 'Deleting Shipped Sales Order head id %', _r.ordship_id;
     END IF;
-    DELETE FROM payco WHERE (payco_cohead_id=_r.cohead_id);
-    DELETE FROM backup_payco WHERE (payco_cohead_id=_r.cohead_id);
-    DELETE FROM coitem WHERE (coitem_cohead_id=_r.cohead_id);
-    DELETE FROM cohead WHERE (cohead_id=_r.cohead_id);
+    DELETE FROM payco WHERE (payco_cohead_id=_r.ordship_id);
+    DELETE FROM backup_payco WHERE (payco_cohead_id=_r.ordship_id);
+    DELETE FROM coitem WHERE (coitem_cohead_id=_r.ordship_id);
+    DELETE FROM cohead WHERE (cohead_id=_r.ordship_id);
+
+    IF (_debug) THEN
+      RAISE NOTICE 'Deleting Sales Order head id %', _r.ordinv_id;
+    END IF;
+    DELETE FROM payco WHERE (payco_cohead_id=_r.ordinv_id);
+    DELETE FROM backup_payco WHERE (payco_cohead_id=_r.ordinv_id);
+    DELETE FROM coitem WHERE (coitem_cohead_id=_r.ordinv_id);
+    DELETE FROM cohead WHERE (cohead_id=_r.ordinv_id);
 
     IF (_debug) THEN
       RAISE NOTICE 'Deleting Ship head id %', _r.shiphead_id;
