@@ -330,7 +330,7 @@ function createUserByRole(userrole)
     waitForObject(":_code_XLineEdit_16");
     type(":_code_XLineEdit_16", username);
     waitForObject(":List Employees._number_XLineEdit");
-    type(":List Employees._number_XLineEdit", "50082");
+    type(":List Employees._number_XLineEdit", "150082");
     waitForObject(":_contactTab._honorific_XComboBox");
     type(":_contactTab._honorific_XComboBox", "MR");
     waitForObject(":_contactTab._first_XLineEdit");
@@ -380,8 +380,8 @@ function createUserByRole(userrole)
         clickButton(":_relationshipsGroup._user_XCheckBox");
     waitForObject(":_relationshipsGroup.User..._QPushButton");
     clickButton(":_relationshipsGroup.User..._QPushButton");
-//    waitForObject(":List Employees.Yes_QPushButton");
-//    clickButton(":List Employees.Yes_QPushButton");
+    waitForObject(":List Employees.Yes_QPushButton");
+    clickButton(":List Employees.Yes_QPushButton");
     waitForObject(":List Employees.Active_QCheckBox");
     if(!findObject(":List Employees.Active_QCheckBox").checked)
         clickButton(":List Employees.Active_QCheckBox");

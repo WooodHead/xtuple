@@ -18,65 +18,65 @@
     clickButton(":Database Information.Save_QPushButton");      
 
 
-//    //----------Create Customer Type------------
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
-//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "Types...");
-//    activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "Types...");
-//    
-//    snooze(1);
-//    clickButton(":List Customer Types.New_QPushButton");
-//    waitForObject(":_code_XLineEdit_11");
-//    type(":_code_XLineEdit_11", "NORMAL");
-//    type(":_description_XLineEdit_21", "Normal Customer");
-//    if(!findObject(":Customer Type.Enable Characteristics Profile_QGroupBox").checked)
-//        type(":Customer Type.Enable Characteristics Profile_QGroupBox"," ");
-//   
-//    snooze(1);
-//    clickButton(":Enable Characteristics Profile.New_QPushButton");
-//    waitForObject(":_char_XComboBox_3");
-//    if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN - Customer Feedback")
-//        clickItem(":_char_XComboBox_3", "SUPPORT-PLAN - Customer Feedback",0,0,1,Qt.LeftButton);
-//    waitForObject(":_value_XLineEdit_4");
-//    type(":_value_XLineEdit_4", "Standard");
-//    if(!findObject(":Customer Characteristic.Default_QCheckBox").checked)
-//        clickButton(":Customer Characteristic.Default_QCheckBox");
-//    clickButton(":Customer Characteristic.Save_QPushButton");
-//    
-//    snooze(1);
-//    clickButton(":Enable Characteristics Profile.New_QPushButton");
-//    waitForObject(":_char_XComboBox_3");
-//    if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN - Customer Feedback")
-//        clickItem(":_char_XComboBox_3", "SUPPORT-PLAN - Customer Feedback",0,0,1,Qt.LeftButton);
-//    waitForObject(":_value_XLineEdit_4");    
-//    type(":_value_XLineEdit_4", "Complete");
-//    if(findObject(":Customer Characteristic.Default_QCheckBox").checked)
-//        clickButton(":Customer Characteristic.Default_QCheckBox");
-//    clickButton(":Customer Characteristic.Save_QPushButton");
-//    
-//    snooze(1);
-//    clickButton(":Enable Characteristics Profile.New_QPushButton");
-//    waitForObject(":_char_XComboBox_3");
-//    if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN - Customer Feedback ")
-//        clickItem(":_char_XComboBox_3", "SUPPORT-PLAN - Customer Feedback",0,0,1,Qt.LeftButton);
-//    waitForObject(":_value_XLineEdit_4");    
-//    type(":_value_XLineEdit_4", "None");
-//    if(findObject(":Customer Characteristic.Default_QCheckBox").checked)
-//        clickButton(":Customer Characteristic.Default_QCheckBox");
-//    clickButton(":Customer Characteristic.Save_QPushButton");
-//       
-//    snooze(1);
-//    clickButton(":Customer Type.Save_QPushButton");
-//    waitForObject(":List Customer Types._custtype_XTreeWidget");
-//    if(!clickItem(":List Customer Types._custtype_XTreeWidget", "NORMAL", 5, 5, 1, Qt.LeftButton))
-//        test.pass("Customer Type created: NORMAL");
-//     
-//    waitForObject(":List Customer Types.Close_QPushButton");
-//    clickButton(":List Customer Types.Close_QPushButton");
-//     
+    //----------Create Customer Type------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
+    activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "Types...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "Types...");
     
+    snooze(1);
+    clickButton(":List Customer Types.New_QPushButton");
+    waitForObject(":_code_XLineEdit_11");
+    type(":_code_XLineEdit_11", "NORMAL");
+    type(":_description_XLineEdit_21", "Normal Customer");
+    if(!findObject(":Customer Type.Enable Characteristics Profile_QGroupBox").checked)
+        type(":Customer Type.Enable Characteristics Profile_QGroupBox"," ");
+   
+    snooze(1);
+    clickButton(":Enable Characteristics Profile.New_QPushButton");
+    waitForObject(":_char_XComboBox_3");
+    if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN - Customer Feedback")
+        clickItem(":_char_XComboBox_3", "SUPPORT-PLAN - Customer Feedback",0,0,1,Qt.LeftButton);
+    waitForObject(":_value_XLineEdit_4");
+    type(":_value_XLineEdit_4", "Standard");
+    if(!findObject(":Customer Characteristic.Default_QCheckBox").checked)
+        clickButton(":Customer Characteristic.Default_QCheckBox");
+    clickButton(":Customer Characteristic.Save_QPushButton");
+    
+    snooze(1);
+    clickButton(":Enable Characteristics Profile.New_QPushButton");
+    waitForObject(":_char_XComboBox_3");
+    if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN - Customer Feedback")
+        clickItem(":_char_XComboBox_3", "SUPPORT-PLAN - Customer Feedback",0,0,1,Qt.LeftButton);
+    waitForObject(":_value_XLineEdit_4");    
+    type(":_value_XLineEdit_4", "Complete");
+    if(findObject(":Customer Characteristic.Default_QCheckBox").checked)
+        clickButton(":Customer Characteristic.Default_QCheckBox");
+    clickButton(":Customer Characteristic.Save_QPushButton");
+    
+    snooze(1);
+    clickButton(":Enable Characteristics Profile.New_QPushButton");
+    waitForObject(":_char_XComboBox_3");
+    if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN - Customer Feedback ")
+        clickItem(":_char_XComboBox_3", "SUPPORT-PLAN - Customer Feedback",0,0,1,Qt.LeftButton);
+    waitForObject(":_value_XLineEdit_4");    
+    type(":_value_XLineEdit_4", "None");
+    if(findObject(":Customer Characteristic.Default_QCheckBox").checked)
+        clickButton(":Customer Characteristic.Default_QCheckBox");
+    clickButton(":Customer Characteristic.Save_QPushButton");
+       
+    snooze(1);
+    clickButton(":Customer Type.Save_QPushButton");
+    waitForObject(":List Customer Types._custtype_XTreeWidget");
+    if(!clickItem(":List Customer Types._custtype_XTreeWidget", "NORMAL", 5, 5, 1, Qt.LeftButton))
+        test.pass("Customer Type created: NORMAL");
+     
+    waitForObject(":List Customer Types.Close_QPushButton");
+    clickButton(":List Customer Types.Close_QPushButton");
+     
+
     //----Read Username based on Role------
     var set = testData.dataset("login.tsv");
     var username="";
@@ -104,8 +104,8 @@
         clickButton(":_relationshipsGroup._salesrep_XCheckBox_2");
     waitForObject(":_relationshipsGroup.Sales Rep..._QPushButton_2");
     clickButton(":_relationshipsGroup.Sales Rep..._QPushButton_2");
-//    waitForObject(":Cancel.Yes_QPushButton");
-//    clickButton(":Cancel.Yes_QPushButton");
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
     waitForObject(":_name_XLineEdit_9");
     type(":_name_XLineEdit_9", username);
     waitForObject(":_commPrcnt_XLineEdit");

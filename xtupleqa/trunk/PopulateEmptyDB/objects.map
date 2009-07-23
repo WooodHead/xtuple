@@ -2032,6 +2032,7 @@
 :_QMessageBox_2	{type='QMessageBox' unnamed='1' visible='1' WindowTitle?='*'}
 :_accountGroup.Post Unassigned Transactions to:_QLabel	{container=':Site._accountGroup_QGroupBox' name='_accountLit' text='Post Unassigned Transactions to:' type='QLabel' visible='1'}
 :_accountGroup._main_XLineEdit	{container=':Bank Account._accountGroup_QGroupBox' name='_main' type='XLineEdit' visible='1'}
+:_accountGroup._main_XLineEdit_2	{container=':Site._accountGroup_QGroupBox' name='_main' type='XLineEdit' visible='1'}
 :_accountNumber_XLineEdit	{buddy=':Vendor.Number:_QLabel' name='_accountNumber' type='XLineEdit' visible='1'}
 :_accountNumber_XLineEdit_2	{buddy=':_bankGroup.Account Number:_QLabel' name='_accountNumber' type='XLineEdit' visible='1'}
 :_account_XTreeWidget	{buddy=':Chart of Accounts.G/L Account Numbers:_QLabel' name='_account' type='XTreeWidget' visible='1'}
@@ -2306,7 +2307,10 @@
 :_cycleCountFreq_QSpinBox_3	{buddy=':_inventory.Cycl. Cnt. Freq.:_QLabel_3' name='_cycleCountFreq' type='QSpinBox' visible='1'}
 :_database_QLineEdit	{buddy=':Login Options.Database:_QLabel' name='_database' type='QLineEdit' visible='1'}
 :_defaultFOB_XLineEdit	{buddy=':_whsTypeStack.Default F.O.B.:_QLabel' name='_defaultFOB' type='XLineEdit' visible='1'}
+:_defaultFOB_XLineEdit_2	{buddy=':_defaultGroup.Default F.O.B.:_QLabel' name='_defaultFOB' type='XLineEdit' visible='1'}
 :_defaultFromAddress_XLineEdit	{buddy=':Database Information.Default Batch Email Address:_QLabel' name='_defaultFromAddress' type='XLineEdit' visible='1'}
+:_defaultGroup.Default F.O.B.:_QLabel	{container=':_whsTypeStack._defaultGroup_QGroupBox' name='_defaultFOBLit' text='Default F.O.B.:' type='QLabel' visible='1'}
+:_defaultGroup._shipcomm_XLineEdit	{container=':_whsTypeStack._defaultGroup_QGroupBox' name='_shipcomm' type='XLineEdit' visible='1'}
 :_defaultGroup._taxauth_XComboBox	{container=':_whsTypeStack._defaultGroup_QGroupBox' name='_taxauth' type='XComboBox' visible='1'}
 :_defaultShipVia_XLineEdit	{buddy=':Vendor Defaults.Ship Via:_QLabel' name='_defaultShipVia' type='XLineEdit' visible='1'}
 :_defaultTransWhs_WComboBox	{buddy=':Multiple Sites.Default Transit Site:_QLabel' name='_defaultTransWhs' type='WComboBox' visible='1'}
@@ -2692,6 +2696,8 @@
 :_nextVcNumber_XLineEdit	{buddy=':Purchase Configuration.Next #:_QLabel_2' name='_nextVcNumber' type='XLineEdit' visible='1'}
 :_notesTab._comments_QTextEdit	{container=':qt_tabwidget_stackedwidget._notesTab_QWidget' name='_comments' type='QTextEdit' visible='1'}
 :_notesTab._comments_QTextEdit_2	{container=':qt_tabwidget_stackedwidget._notesTab_QWidget_2' name='_comments' type='QTextEdit' visible='1'}
+:_numberGroup._bolNumber_XLineEdit	{container=':_whsTypeStack._numberGroup_QGroupBox' name='_bolNumber' type='XLineEdit' visible='1'}
+:_numberGroup._countTagNumber_XLineEdit	{container=':_whsTypeStack._numberGroup_QGroupBox' name='_countTagNumber' type='XLineEdit' visible='1'}
 :_number_QLineEdit	{buddy=':Production Plan.Schedule #:_QLabel' name='_number' type='QLineEdit' visible='1'}
 :_number_XLineEdit	{buddy=':List Companies.Number:_QLabel' name='_number' type='XLineEdit' visible='1'}
 :_number_XLineEdit_2	{buddy=':Chart of Accounts.Number:_QLabel' name='_number' type='XLineEdit' visible='1'}
@@ -2708,7 +2714,10 @@
 :_options.Show Grand Total_QGroupBox	{container=':qt_tabwidget_stackedwidget._options_QWidget' name='_showTotal' title='Show Grand Total' type='QGroupBox' visible='1'}
 :_options._group_XComboBox	{container=':qt_tabwidget_stackedwidget._options_QWidget_2' name='_group' type='XComboBox' visible='1'}
 :_optionsGroup.Auto. Issue Components at this Operation_QCheckBox	{container=':general._optionsGroup_QGroupBox' name='_issueComp' text='Auto. Issue Components at this Operation' type='QCheckBox' visible='1'}
+:_optionsGroup.Enforce the use of Zones_QCheckBox	{container=':_whsTypeStack._optionsGroup_QGroupBox' name='_useZones' text='Enforce the use of Zones' type='QCheckBox' visible='1'}
+:_optionsGroup.Force the use of Count Slips_QCheckBox	{container=':_whsTypeStack._optionsGroup_QGroupBox' name='_useSlips' text='Force the use of Count Slips' type='QCheckBox' visible='1'}
 :_optionsGroup.Receive Inventory at this Operation_QCheckBox	{container=':general._optionsGroup_QGroupBox' name='_receiveStock' text='Receive Inventory at this Operation' type='QCheckBox' visible='1'}
+:_optionsGroup.Shipping Site_QCheckBox	{container=':_whsTypeStack._optionsGroup_QGroupBox' name='_shipping' text='Shipping Site' type='QCheckBox' visible='1'}
 :_orderMultiple_XLineEdit	{buddy=':Enforce Order Parameters.Order Multiple:_QLabel' name='_orderMultiple' type='XLineEdit' visible='1'}
 :_orderMultiple_XLineEdit_2	{buddy=':Enforce Order Parameters.Order Multiple:_QLabel_2' name='_orderMultiple' type='XLineEdit' visible='1'}
 :_orderMultiple_XLineEdit_3	{buddy=':Enforce Order Parameters.Order Multiple:_QLabel_3' name='_orderMultiple' type='XLineEdit' visible='1'}
@@ -2724,6 +2733,7 @@
 :_passwd_XLineEdit	{buddy=':List Users.Password:_QLabel' name='_passwd' type='XLineEdit' visible='1'}
 :_passwd_XLineEdit_2	{buddy=':List Employees.Password:_QLabel' name='_passwd' type='XLineEdit' visible='1'}
 :_password_QLineEdit	{buddy=':_frame.Password:_QLabel' name='_password' type='QLineEdit' visible='1'}
+:_planGroup.qt_spinbox_lineedit_QLineEdit	{container=':_whsTypeStack._planGroup_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
 :_plannerCode_XComboBox	{buddy=':Control.Planner Code:_QLabel' name='_plannerCode' type='XComboBox' visible='1'}
 :_plannerCode_XComboBox_2	{buddy=':Control.Planner Code:_QLabel_2' name='_plannerCode' type='XComboBox' visible='1'}
 :_planningTab.Enforce Order Parameters_QGroupBox	{container=':qt_tabwidget_stackedwidget._planningTab_QWidget' name='_useParameters' title='Enforce Order Parameters' type='QGroupBox' visible='1'}
@@ -2983,6 +2993,9 @@
 :_whsTypeStack._countTagNumber_XLineEdit	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_countTagNumber' type='XLineEdit' visible='1'}
 :_whsTypeStack._countTagNumber_XLineEdit_2	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_countTagNumber' type='XLineEdit' visible='1'}
 :_whsTypeStack._defaultGroup_QGroupBox	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_defaultGroup' type='QGroupBox' visible='1'}
+:_whsTypeStack._numberGroup_QGroupBox	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_numberGroup' type='QGroupBox' visible='1'}
+:_whsTypeStack._optionsGroup_QGroupBox	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_optionsGroup' type='QGroupBox' visible='1'}
+:_whsTypeStack._planGroup_QGroupBox	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_planGroup' type='QGroupBox' visible='1'}
 :_whsTypeStack._shipcomm_XLineEdit	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_shipcomm' type='XLineEdit' visible='1'}
 :_whsTypeStack._shipcomm_XLineEdit_2	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_shipcomm' type='XLineEdit' visible='1'}
 :_whsTypeStack._shipcomments_QTextEdit	{container=':_generalTab._whsTypeStack_QStackedWidget_2' name='_shipcomments' type='QTextEdit' visible='1'}
