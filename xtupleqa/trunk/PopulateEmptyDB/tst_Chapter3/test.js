@@ -299,14 +299,14 @@ function main()
   
 
 
-    //---------------Create Item sites------------------------------ 
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
-    
+  //---------------Create Item sites------------------------------ 
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+  activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+  
     //---------Item site: YTRUCK1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
     clickButton(":List Item Sites.New_QPushButton_3");
@@ -367,8 +367,11 @@ function main()
         test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
         test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
     }   
-    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
-    type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+    if(appEdition=="Manufacturing" || appEdition=="Standard")
+    {
+        findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
+        type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+    }
     
     waitForObject(":Item Site.Save_QPushButton");
     clickButton(":Item Site.Save_QPushButton");
@@ -389,7 +392,7 @@ function main()
   clickButton(":Item Site...._QPushButton");
   waitForObject(":_item_XTreeWidget_4");
   doubleClickItem(":_item_XTreeWidget_4","TBODY1",0,0,0,Qt.LeftButton);
-  waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
+  waitForObject(":Item Site.Sold from this Site_QGroupBox");
   if(appEdition=="Manufacturing"||appEdition=="Standard")
       clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
   else if(appEdition=="PostBooks")
@@ -438,9 +441,12 @@ function main()
    {
       test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
       test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
-  }     
-  findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
-  type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+  } 
+  if(appEdition=="Manufacturing" || appEdition=="Standard")
+  {
+      findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
+      type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+  }
 
   waitForObject(":Item Site.Save_QPushButton");
   clickButton(":Item Site.Save_QPushButton");
@@ -513,8 +519,11 @@ function main()
       test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
       test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
   }  
-  findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
-  type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+  if(appEdition=="Manufacturing" || appEdition=="Standard")
+  {
+      findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
+      type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+  }
   
   waitForObject(":Item Site.Save_QPushButton");
   clickButton(":Item Site.Save_QPushButton");
@@ -589,8 +598,11 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
     test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
     test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
 }  
-  findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
-  type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+if(appEdition=="Manufacturing" || appEdition=="Standard")
+  {
+    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
+    type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+}
 waitForObject(":Item Site.Save_QPushButton");
 clickButton(":Item Site.Save_QPushButton");
 if(appEdition=="Manufacturing"||appEdition=="Standard")
@@ -660,8 +672,11 @@ clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
     test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
     test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
 }  
+if(appEdition=="Manufacturing" || appEdition=="Standard")
+{  
   findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
   type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+}
  
 waitForObject(":Item Site.Save_QPushButton");
 clickButton(":Item Site.Save_QPushButton");
@@ -734,8 +749,11 @@ clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
     test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
     test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
   }  
-  findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
+ if(appEdition=="Manufacturing" || appEdition=="Standard")
+  {
+ findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
   type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+}
  
 waitForObject(":Item Site.Save_QPushButton");
 clickButton(":Item Site.Save_QPushButton");
@@ -809,8 +827,11 @@ clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
     test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
     test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
   }  
-  findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
+ if(appEdition=="Manufacturing" || appEdition=="Standard")
+  {
+ findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
   type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+}
 if(appEdition=="Manufacturing"||appEdition=="Standard")
 {
 

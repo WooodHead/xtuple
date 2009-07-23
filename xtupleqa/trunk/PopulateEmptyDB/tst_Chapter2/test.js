@@ -215,7 +215,7 @@ function main()
     
      
 
-    //----------------------Inventory: create Expense Categories---------------------
+    //------------Inventory: create Expense Categories---------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
@@ -650,8 +650,6 @@ function main()
         clickButton(":May be used on:.Item_QCheckBox_2");
     waitForObject(":_description_QTextEdit_6");
     type(":_description_QTextEdit_6", "Product Color");
-    waitForObject(":_mask_QLineEdit");
-    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
     waitForObject(":List Characteristics._char_XTreeWidget");
@@ -667,8 +665,6 @@ function main()
         clickButton(":May be used on:.Customer_QCheckBox_2");
     waitForObject(":_description_QTextEdit_6");
     type(":_description_QTextEdit_6", "Customer Feedback");
-    waitForObject(":_mask_QLineEdit");
-    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
     waitForObject(":List Characteristics._char_XTreeWidget");
@@ -684,8 +680,6 @@ function main()
         clickButton(":May be used on:.Customer_QCheckBox_2");
     waitForObject(":_description_QTextEdit_6");
     type(":_description_QTextEdit_6", "Customer Sales Volume");
-    waitForObject(":_mask_QLineEdit");
-    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
     waitForObject(":List Characteristics._char_XTreeWidget");
@@ -700,8 +694,6 @@ function main()
         clickButton(":May be used on:.CRM Account_QCheckBox_2");
     waitForObject(":_description_QTextEdit_6");
     type(":_description_QTextEdit_6", "Account Region");
-    waitForObject(":_mask_QLineEdit");
-    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
     waitForObject(":List Characteristics._char_XTreeWidget");
@@ -717,8 +709,6 @@ function main()
         clickButton(":May be used on:.Address_QCheckBox_2");
     waitForObject(":_description_QTextEdit_6");
     type(":_description_QTextEdit_6", "Delivery Route");
-    waitForObject(":_mask_QLineEdit");
-    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton");
     waitForObject(":List Characteristics._char_XTreeWidget");
@@ -734,8 +724,6 @@ function main()
         clickButton(":May be used on:.Contact_QCheckBox_2");
     waitForObject(":_description_QTextEdit_6");
     type(":_description_QTextEdit_6", "Birthday");
-    waitForObject(":_mask_QLineEdit");
-    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton"); 
     waitForObject(":List Characteristics._char_XTreeWidget");
@@ -751,8 +739,6 @@ function main()
         clickButton(":May be used on:.Lot/Serial_QCheckBox_2");
     waitForObject(":_description_QTextEdit_6");
     type(":_description_QTextEdit_6", "QA Results for Test Type 1");
-    waitForObject(":_mask_QLineEdit");
-    type(":_mask_QLineEdit", ".*");
     waitForObject(":Characteristic.Save_QPushButton");
     clickButton(":Characteristic.Save_QPushButton"); 
     waitForObject(":List Characteristics._char_XTreeWidget");
@@ -879,7 +865,7 @@ function main()
         clickButton(":List Site Calendar Exceptions.Close_QPushButton_2");
  
     }
-    else if(appEdition=="PostBooks" || appEdition=="Standard")
+  else if(appEdition=="PostBooks")
   {
         menu = waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
          menuItem = "Sche&dule";

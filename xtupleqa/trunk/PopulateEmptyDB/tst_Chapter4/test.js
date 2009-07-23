@@ -532,7 +532,7 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
   type(":_scrap_XLineEdit", "0");
   waitForObject(":_scrap_XLineEdit");
   
-   if(appEdition=="Manufacturing")
+  if(appEdition=="Manufacturing")
   {
  
        clickButton(":Bill of Materials Item...._QPushButton");
@@ -540,12 +540,12 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
        doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Shipping _1", 5, 5, 0, Qt.LeftButton);
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
-   }
-    else if(appEdition=="PostBooks" || appEdition=="Standard")
-   {
+  }
+  else if(appEdition=="PostBooks" || appEdition=="Standard")
+  {
        test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Item not found");
        test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");
-   } 
+  } 
    
   type(":_ecn_XLineEdit", "initial defintion");
   waitForObject(":Bill of Materials Item.Save_QPushButton");
