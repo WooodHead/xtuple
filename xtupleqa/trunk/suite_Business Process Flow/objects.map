@@ -235,6 +235,7 @@
 :List Unposted Purchase Orders.Post P/O_QPushButton	{container=':xTuple ERP:*.List Unposted Purchase Orders_QWorkspaceChild' name='_post' text='Post P/O' type='QPushButton' visible='1'}
 :List Unposted Purchase Orders.Yes_QPushButton	{container=':xTuple ERP:*.List Unposted Purchase Orders_QWorkspaceChild' text='Yes' type='QPushButton' unnamed='1' visible='1'}
 :List Unposted Purchase Orders._pohead_XTreeWidget	{container=':xTuple ERP:*.List Unposted Purchase Orders_QWorkspaceChild' name='_pohead' type='XTreeWidget' visible='1'}
+:Log In.Options..._QPushButton	{name='_options' text='Options...' type='QPushButton' visible='1' window=':Log In_login2'}
 :Log In.Options_QPushButton	{name='_options' text='Options' type='QPushButton' visible='1' window=':Log In_login2'}
 :Log In._frame_QFrame	{name='_frame' type='QFrame' visible='1' window=':Log In_login2'}
 :Log In_login2	{name='login2' type='login2' visible='1' windowTitle='Log In'}
@@ -790,6 +791,7 @@
 :_username_QLineEdit	{buddy=':_frame.Username:_QLabel' name='_username' type='QLineEdit' visible='1'}
 :_voucherGroup...._QPushButton	{container=':Voucher._voucherGroup_QGroupBox' name='_poList' text='...' type='QPushButton' visible='1'}
 :_voucherGroup...._QPushButton_2	{container=':Miscellaneous Voucher._voucherGroup_QGroupBox' text='...' type='QPushButton' unnamed='1' visible='1'}
+:_voucherGroup...._QPushButton_3	{container=':Voucher._voucherGroup_QGroupBox' name='_list' text='...' type='QPushButton' visible='1'}
 :_voucherGroup.Voucher #:_QLabel	{text='Voucher #:' type='QLabel' visible='1' windowTitle?='*'}
 :_voucherGroup._titleLit_QLabel	{container=':Miscellaneous Voucher._voucherGroup_QGroupBox' name='_titleLit' type='QLabel' visible='1'}
 :_voucherGroup._voucherNumber_XLineEdit	{container=':Miscellaneous Voucher._voucherGroup_QGroupBox' name='_voucherNumber' type='XLineEdit' visible='1'}
@@ -801,10 +803,12 @@
 :_warehouse.All Sites_QRadioButton_5	{container=':Planned Orders by Planner Code._warehouse_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
 :_warehouse.All Sites_QRadioButton_6	{container=':W/O Schedule by Planner Code._warehouse_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
 :_warehouse.All Sites_QRadioButton_7	{container=':Quantities on Hand by Item._warehouse_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
+:_warehouse.All Sites_QRadioButton_8	{container=':Release Work Orders by Planner Code._warehouse_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
 :_warehouse.Selected:_QRadioButton	{container=':Run MRP by Planner Code._warehouse_WarehouseGroup' name='_selected' text='Selected:' type='QRadioButton' visible='1'}
 :_warehouse.Selected:_QRadioButton_2	{container=':Planned Orders by Planner Code._warehouse_WarehouseGroup' name='_selected' text='Selected:' type='QRadioButton' visible='1'}
 :_warehouse.Selected:_QRadioButton_3	{container=':Release Planned Orders by Planner Code._warehouse_WarehouseGroup' name='_selected' text='Selected:' type='QRadioButton' visible='1'}
 :_warehouse.Selected:_QRadioButton_4	{container=':Purchase Requests by Planner Code._warehouse_WarehouseGroup' name='_selected' text='Selected:' type='QRadioButton' visible='1'}
+:_warehouse.Selected:_QRadioButton_5	{container=':Release Work Orders by Planner Code._warehouse_WarehouseGroup' name='_selected' text='Selected:' type='QRadioButton' visible='1'}
 :_warehouse._warehouses_WComboBox	{container=':Run MRP by Planner Code._warehouse_WarehouseGroup' name='_warehouses' type='WComboBox' visible='1'}
 :_warehouse._warehouses_WComboBox_2	{container=':Planned Orders by Planner Code._warehouse_WarehouseGroup' name='_warehouses' type='WComboBox' visible='1'}
 :_warehouse._warehouses_WComboBox_3	{container=':Purchase Requests by Planner Code._warehouse_WarehouseGroup' name='_warehouses' type='WComboBox' visible='1'}
