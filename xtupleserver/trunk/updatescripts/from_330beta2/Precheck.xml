@@ -1,0 +1,4 @@
+ <prerequisite type="Query" name="Check Credit Cards for valid Customer" >
+  <query>SELECT COUNT(*) = 0 FROM ccard WHERE ccard_cust_id NOT IN (SELECT cust_id FROM custinfo) OR  ccard_cust_id IS NULL;</query>
+  <message>One or more of the Credit Card records in the system do not belong to a valid Customer.</message>
+ </prerequisite>
