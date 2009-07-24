@@ -903,32 +903,35 @@ void LoaderWindow::sStart()
 
   _progress->setValue(_progress->value() + 1);
 
-  if (ignoredErrCnt > 0 && !_multitrans && !_premultitransfile)
+  if (_alwaysrollback->isChecked())
   {
-    if (QMessageBox::question(this, tr("Ignore Errors?"),
+    _text->append(tr("<p>The Update has been rolled back.</p>"));
+    qry.exec("rollback;");
+  }
+  else if (ignoredErrCnt > 0 && (_multitrans || _premultitransfile) &&
+           QMessageBox::question(this, tr("Ignore Errors?"),
                               tr("<p>One or more errors were ignored while "
                                  "processing this Package. Are you sure you "
                                  "want to commit these changes?</p><p>If you "
                                  "answer 'No' then this import will be rolled "
                                  "back.</p>"),
                               QMessageBox::Yes,
-                              QMessageBox::No | QMessageBox::Default) == QMessageBox::No)
-    {
-      qry.exec("rollback;");
-      _text->append(_rollbackMsg);
-      return;
-    }
-  }
-
-  if (_alwaysrollback->isChecked())
+                              QMessageBox::No | QMessageBox::Default) == QMessageBox::Yes)
   {
-    _text->append(tr("<p>The Update has been rolled back.</p>"));
-    qry.exec("rollback;");
-  }
-  else if(!_multitrans && !_premultitransfile)
     qry.exec("commit;");
+    _text->append(tr("<p>The Update is now complete but errors were ignored!</p>"));
+  }
+  else if (ignoredErrCnt > 0)
+  {
+    qry.exec("rollback;");
+    _text->append(_rollbackMsg);
+  }
+  else
+  {
+    qry.exec("commit;");
+    _text->append(tr("<p>The Update is now complete!</p>"));
+  }
 
-  _text->append(tr("<p>The Update is now complete!</p>"));
   if (DEBUG)
     qDebug("LoaderWindow::sStart() progress %d out of %d after commit",
            _progress->value(), _progress->maximum());
