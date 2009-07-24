@@ -22,7 +22,7 @@ FROM (SELECT
        END AS doctype,
        aropen_docnumber, aropen_ordernumber,
        aropen_docdate, aropen_duedate,
-       (aropen_amount - aropen_paid) AS balance,
+       (aropen_amount - aropen_paid - calcpendingarapplications(aropen_id)) AS balance,
        currConcat(aropen_curr_id) AS balance_curr,
 <? if exists("cashrcpt_id") ?>
        (SELECT COALESCE(SUM(p.cashrcptitem_amount), 0)
