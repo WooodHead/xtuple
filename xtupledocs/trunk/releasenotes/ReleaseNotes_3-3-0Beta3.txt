@@ -12,8 +12,14 @@ third and presumably final Beta in the 3.3.0 release cycle. Beta
 testers are encouraged to please continue testing. Let us know if
 you find anything!
 
-This is primarly a bug fix release, as we anticipate the 3.3.0 
-Release Candidate in August.
+This is primarly a bug fix release, as we anticipate the 3.3.0
+Release Candidate in August. However, users may be particularly
+interested in the performance improvements they will see in this 
+Beta 3 release. Improved performance has emerged as a major 
+theme in the 3.3.0 cycle. And in this final beta release, users
+can expect to find dramatic performance improvements related to
+list sorting and other list-related functions thanks to work done
+enhancing load performance in the XTreeWidget.
 
 ==================================
 
@@ -35,276 +41,276 @@ Bug Fixes:
 * [All] Button tool tips displaying & character
 * [All] Creditmemoeditlist view references Creditmemoitem view
 * [All] Migrating from 322 to 330beta displays error
-* [All] Slow rendering performance in newer versions with large data 
+* [All] Slow rendering performance in newer versions with large data
 sets
-* [Accounting] Printed FRE income statement formats percent columns 
-incorrectly 
-* [Accounting] User is unable to create a new Vouche
-* [Accounting] CRM Account screen deleting customer/prospect gives 
-error 
-* [Accounting] Budget Accounting Periods invert selections not 
-functiona
-* [Accounting] Customer Invoice EDI profile - problem in assigning a 
-new one 
+* [Accounting] Printed FRE income statement formats percent columns
+incorrectly
+* [Accounting] User is unable to create a new Voucher
+* [Accounting] CRM Account screen deleting customer/prospect gives
+error
+* [Accounting] Budget Accounting Periods invert selections not
+functional
+* [Accounting] Customer Invoice EDI profile - problem in assigning a
+new one
 * [Accounting] User is able to edit AR open items without privilege
-* [Accounting] Cash receipt that resulted in credit does not reverse 
-correctly 
+* [Accounting] Cash receipt that resulted in credit does not reverse
+correctly
 * [Accounting] Odd linkage between posting a CR and CRM Account/
-Contact/Incident usage 
-* [Accounting] Send electronic Purchase Order unavailable from 
+Contact/Incident usage
+* [Accounting] Send electronic Purchase Order unavailable from
 right-click
-* [Accounting] Posting multicurrency CM and DM results in uneeded 
-G/L posting 
-* [Accounting] Order cluster xtree sizing isn't right on search 
-* [Accounting] Orphaned credit card appears on Sales Order 
-* [Accounting] Can't void a check if it was transmitted 
+* [Accounting] Posting multicurrency CM and DM results in uneeded
+G/L posting
+* [Accounting] Order cluster xtree sizing isn't right on search
+* [Accounting] Orphaned credit card appears on Sales Order
+* [Accounting] Can't void a check if it was transmitted
 electronically
-* [Accounting] Invoice Register: Partial Entries and incorrect 
+* [Accounting] Invoice Register: Partial Entries and incorrect
 totals displayed in report
-* [Accounting] Customer lookup widget in A/R open item calls 
-wrong workbench 
-* [Accounting] Selecting to view source Check in A/P applications 
+* [Accounting] Customer lookup widget in A/R open item calls
+wrong workbench
+* [Accounting] Selecting to view source Check in A/P applications
 displays no details
-* [Accounting] Division by zero when posting Invoice 
+* [Accounting] Division by zero when posting Invoice
 * [Accounting] Exchange Rate error on Misc Voucher
-* [Accounting] Selecting to print A/P Accounts Assignments prints 
+* [Accounting] Selecting to print A/P Accounts Assignments prints
 partial report
 * [Accounting] Cost Category: 'Copy' allows to duplicate record
-* [Accounting] It is possible to create duplicate records for 
-reason codes 
-* [Accounting] Cancel SO Line does not delete PR 
-* [Accounting] User is allowed to duplicate records for Standard 
-journal and Standard journal group 
-* [Accounting] Selecting to duplicate tax codes creates an empty 
-record 
-* [Accounting] The Summarized G/L transaction display does not 
-show summary numbers. 
-* [Accounting] Summarized G/L Transactions prints unexpected 
+* [Accounting] It is possible to create duplicate records for
+reason codes
+* [Accounting] Cancel SO Line does not delete PR
+* [Accounting] User is allowed to duplicate records for Standard
+journal and Standard journal group
+* [Accounting] Selecting to duplicate tax codes creates an empty
+record
+* [Accounting] The Summarized G/L transaction display does not
+show summary numbers
+* [Accounting] Summarized G/L Transactions prints unexpected
 results
-* [Accounting] Sales Order Credit Memos do not backdate 
+* [Accounting] Sales Order Credit Memos do not backdate
 inventory returns
-* Accounting] Date fields not converting properly 
-* [Accounting] Should be warning when attempting to post 
+* Accounting] Date fields not converting properly
+* [Accounting] Should be warning when attempting to post
 invoices into closed periods
-* [Accounting] A/P Misc Voucher may be saved with zero 
-distribution amount or with incomplete distributions 
-* [Accounting] Selecting to post a cash receipt with funds type 
-using Credit Card displays error 
+* [Accounting] A/P Misc Voucher may be saved with zero
+distribution amount or with incomplete distributions
+* [Accounting] Selecting to post a cash receipt with funds type
+using Credit Card displays error
 * [Accounting] Converted SO/CM results in negative ta
-* [Accounting] A/R Workbench allows refunding credit memos not 
+* [Accounting] A/R Workbench allows refunding credit memos not
 associated with credit card cash receipts
-* [Accounting] Change label on customer history window to indicate 
-date selection is based on document date 
+* [Accounting] Change label on customer history window to indicate
+date selection is based on document date
 * [Accounting] Printed Invoice does not show tax
-* [Accounting] Tax calculation error 
+* [Accounting] Tax calculation error
 * [Accounting] Summarized backlog report not sorting properl
-* [Accounting] It is possible to create duplicate Tax Codes 
-* [Accounting] Cash receipt window's apply line balance button 
-applies base currency amount to non-base cash receipt 
-* [Accounting] Selecting to save misc tax distribution generates 
-DB log 
-* [Accounting] Posting a credit card refund gives an arapply 
-trigger error 
-* [Accounting] Print engine in list unposted invoices is not 
-functional 
-* [Accounting] Selecting to view Transfer Order Line in Maintain 
-Shipping displays blank template 
-* [Accounting] Cannot print check for ACH vendor 
-* [Accounting] Post C/M on hold should trap for descriptive 
-message 
-* [Accounting] Batch Manager not working on STD Edition 
-* [Accounting] Voucher head not found on new misc Voucher 
-* [Accounting] Function FormatPrice results in incorrect result 
+* [Accounting] It is possible to create duplicate Tax Codes
+* [Accounting] Cash receipt window's apply line balance button
+applies base currency amount to non-base cash receipt
+* [Accounting] Selecting to save misc tax distribution generates
+DB log
+* [Accounting] Posting a credit card refund gives an arapply
+trigger error
+* [Accounting] Print engine in list unposted invoices is not
+functional
+* [Accounting] Selecting to view Transfer Order Line in Maintain
+Shipping displays blank template
+* [Accounting] Cannot print check for ACH vendor
+* [Accounting] Post C/M on hold should trap for descriptive
+message
+* [Accounting] Batch Manager not working on STD Edition
+* [Accounting] Voucher head not found on new misc Voucher
+* [Accounting] Function FormatPrice results in incorrect result
 * [Accounting] Maintain Shipping erro
-* [Accounting] Database function formatACHChecks Patch 
-* [Accounting] Posting checks takes too long 
+* [Accounting] Database function formatACHChecks Patch
+* [Accounting] Posting checks takes too long
 * [Batch Manager] Cannot reload deleted package
 * [Community] Update Community menu link information
 * [Community] Discussion Forums page not found
-* [CRM] Selecting to create a new Address displays wrong screen 
-position 
-* [CRM] Inactive users still available in selected combo box on 
+* [CRM] Selecting to create a new Address displays wrong screen
+position
+* [CRM] Inactive users still available in selected combo box on
 To Do List
-* [CRM] CRM Account add - from Opportunity ? button - fails 
+* [CRM] CRM Account add - from Opportunity ? button - fails
 * [CRM] User is allowed to save an empty contact
-* [CRM] Contacts Screen: when expanding the notes section the 
+* [CRM] Contacts Screen: when expanding the notes section the
 header also expands
-* [CRM] Auto-populate CRM account when creating a to do from 
+* [CRM] Auto-populate CRM account when creating a to do from
 an Opportunity
-* [CRM] It is possible to edit/delete files documents in view 
+* [CRM] It is possible to edit/delete files documents in view
 mode
-* [CRM] Data can easily be overwritten when adding a vendor 
+* [CRM] Data can easily be overwritten when adding a vendor
 that is already a customer
-* [CRM] Users with access to CRM can see vendors screen 
+* [CRM] Users with access to CRM can see vendors screen
 partially
-* [CRM] Null state value causes crash 
+* [CRM] Null state value causes crash
 * [Inventory] Prevent adding Kit Items to Transfer Orders
-* [Inventory] It is possible to generate negative item site 
+* [Inventory] It is possible to generate negative item site
 values for average-costed item sites
-* [Inventory] Making an already negative item MLC creates 
+* [Inventory] Making an already negative item MLC creates
 problems with Location/Lot/Serial Detail
 * [Inventory] Shipment report is not available to print
-* [Inventory] Forward and backward trace allow no escape 
+* [Inventory] Forward and backward trace allow no escape
 mechanism for infinite loops
-* [Inventory] Default distribute > QOH if it is less than 
+* [Inventory] Default distribute > QOH if it is less than
 distribution requested
-* [Inventory] Site Transfer not calculating average cost 
+* [Inventory] Site Transfer not calculating average cost
 correctly, results in negative inventory value
-* [Inventory] View in external shipping list displays 
-mismatched dialog box 
-* [Inventory] Selecting to edit an external shipping record 
-doesn't save the updates 
-* [Inventory] Distribute quantity should not be populated 
+* [Inventory] View in external shipping list displays
+mismatched dialog box
+* [Inventory] Selecting to edit an external shipping record
+doesn't save the updates
+* [Inventory] Distribute quantity should not be populated
 with value > QOH in location
-* [Inventory] Lot tracked items lose link in invhist 
-* [Inventory] Selecting to print site types displays 'Report 
-not found' 
-* [Inventory] Cannot drive negative inventory where stock is 
-0 
-* [Inventory] Inventory history can have unposted counts from 
-previous bug 
-* [Inventory] Recall Orders does not delete all data, creates 
-problems later 
+* [Inventory] Lot tracked items lose link in invhist
+* [Inventory] Selecting to print site types displays 'Report
+not found'
+* [Inventory] Cannot drive negative inventory where stock is
+0
+* [Inventory] Inventory history can have unposted counts from
+previous bug
+* [Inventory] Recall Orders does not delete all data, creates
+problems later
 * [Inventory] Distribute to location dialog qty will not
  accept a negative when issuing stock
 * [Inventory] Issue to Shipping sort is incorrect
-* [Inventory] Ui form called form "Enter Order Receipts" does 
+* [Inventory] Ui form called form "Enter Order Receipts" does
 not remember size and columns
-* [Inventory] Transfer Orders do not close when have a 
+* [Inventory] Transfer Orders do not close when have a
 canceled line
-* [Inventory] Posting a receipt for Lot controlled Item 
+* [Inventory] Posting a receipt for Lot controlled Item
 displayed error
-* [Manufacture] Post operations screen is displayed on clicking 
+* [Manufacture] Post operations screen is displayed on clicking
 "OK" button in the warning
-* [Manufacture] Work order qty information doesn't make sense 
-on correct production posting window 
-* [Manufacture] W/O Traveler ignores check box memory 
-* [Manufacture] Change column names in reports to "Reference" 
-from "Ref. Designator(s)" 
+* [Manufacture] Work order qty information doesn't make sense
+on correct production posting window
+* [Manufacture] W/O Traveler ignores check box memory
+* [Manufacture] Change column names in reports to "Reference"
+from "Ref. Designator(s)"
 * [Manufacture] Manufacturing scrap by component use wrong cost
-* [Manufacture] The label 'Received' is misspelled in Post 
+* [Manufacture] The label 'Received' is misspelled in Post
 Production screen
-* [Manufacture] Create WO does not always default to correct 
+* [Manufacture] Create WO does not always default to correct
 WO cost recognition for average cost items
-* [Manufacture] Posting scrap of qty greater than issued does 
+* [Manufacture] Posting scrap of qty greater than issued does
 not record GL transactions
-* [Manufacture] Cannot return by batch when disassembly WO 
+* [Manufacture] Cannot return by batch when disassembly WO
 status=R
 * [Manufacture] Unable to post production
-* [Manufacture] Posting misc. production does not properly 
+* [Manufacture] Posting misc. production does not properly
 account for scrap
-* [Manufacture] Update top level WO qty and due date in the 
+* [Manufacture] Update top level WO qty and due date in the
 indented WO list should update widgets above
-* [Manufacture] Scrap WO material dialog not filled in when 
+* [Manufacture] Scrap WO material dialog not filled in when
 called from indented WO list
-* [Products] Cannot print Item image 
-* [Products] Revisions don't let you create a new one 
-* [Products] Selecting to save an empty image record in Item 
+* [Products] Cannot print Item image
+* [Products] Revisions don't let you create a new one
+* [Products] Selecting to save an empty image record in Item
 generates DB log error
-* [Products] Selecting to duplicate freight classes generates 
+* [Products] Selecting to duplicate freight classes generates
 DB log error
-* [Products] Show actual versus standard cost filter - does 
+* [Products] Show actual versus standard cost filter - does
 not address currency
-* [Products] Require 0 QOH at all sites before inventory UOM 
+* [Products] Require 0 QOH at all sites before inventory UOM
 can be changed
-* [Purchase] Returning inventory on PO generates negative 
+* [Purchase] Returning inventory on PO generates negative
 values
-* [Purchase] Able to enter leading zeros if PO order number 
+* [Purchase] Able to enter leading zeros if PO order number
 generation is manual
-* [Purchase] Review EDI before sending - output file blank - 
+* [Purchase] Review EDI before sending - output file blank -
 no preview
-* [Purchase] Changing any field in poitem reverts overridden 
+* [Purchase] Changing any field in poitem reverts overridden
 price to item source price
 * [Purchase] Purchase Order entry is effectively single user
 * [Purchase] Able to delete received PO via CLOSE PO lin
-* [Purchase] Able to delete received PO line via DELETE on 
-Quick Entry 
-* [Purchase] Delete quick entry in purchase order is not 
+* [Purchase] Able to delete received PO line via DELETE on
+Quick Entry
+* [Purchase] Delete quick entry in purchase order is not
 functional
-* [Purchase] Error on Post Purchase order with only Post 
-Purchase Order Privilege 
-* [Purchase] User is allowed to create duplicate records for 
+* [Purchase] Error on Post Purchase order with only Post
+Purchase Order Privilege
+* [Purchase] User is allowed to create duplicate records for
 purchase master information codes
 * [Reports] Form link to reports is fragile
-* [Sales] RA return product to inventory at 0 cost 
+* [Sales] RA return product to inventory at 0 cost
 * [Sales] CRM Account master window is scrunched
 * [Sales] Quote report displays incorrect characteristics
-* [Sales] Selecting to attach an EDI profile to a customer 
+* [Sales] Selecting to attach an EDI profile to a customer
 displays error
-* [Sales] Typing in a new contact name on the fly on a sales 
+* [Sales] Typing in a new contact name on the fly on a sales
 order doesn't create the contact record in CRM
-* [Sales] Post receipts from the Return Authorization window 
+* [Sales] Post receipts from the Return Authorization window
 does not appear to be working
 * [Sales] Invoice tab display does not display amount paid
-* [Sales] A/R account assignments list prints partially 
-* [Sales] Possible to delete SO with Inventory History 
-* [Sales] Summarized backlog does not display S/Os in the 
-list 
-* [Sales] Error when List Open Sales Order window opens 
-* [Sales] User friendly message should be displayed on 
+* [Sales] A/R account assignments list prints partially
+* [Sales] Possible to delete SO with Inventory History
+* [Sales] Summarized backlog does not display S/Os in the
+list
+* [Sales] Error when List Open Sales Order window opens
+* [Sales] User friendly message should be displayed on
 duplicating pricing schedule qty. to break by edit
-* [Sales] Sales Account Assignments: User is allowed to 
+* [Sales] Sales Account Assignments: User is allowed to
 duplicate records
 * [Sales] Cannot create new employee - api.employee problem
 * [Sales] Return authorization error screen
-* [Sales] Selecting to print sales category displays 'Report 
-not found' 
+* [Sales] Selecting to print sales category displays 'Report
+not found'
 * [Sales] Navigation between types not working as expected
 * [Sales] Currency error on Customer information workbench
 * [Sales] Sales Account Assignments list, prints partially
-* [Sales] Summarized Sales History by shipping zone by item: 
+* [Sales] Summarized Sales History by shipping zone by item:
 prints blank page
-* [Sales] Selecting to duplicate customer types displays 
+* [Sales] Selecting to duplicate customer types displays
 error message
 * [Sales] Duplicating shipping forms generates error message
-* [Sales] It is possible to create duplicate records for 
+* [Sales] It is possible to create duplicate records for
 shipping zones,via and charge types
 * [Sales] Sales Category: 'Copy' allows duplication of record
-* [Sales] Entering new customer data in logical order loses 
+* [Sales] Entering new customer data in logical order loses
 data entered on previous screen in the same add session
-* [Sales] Patch to dspPricesByCustomer.cpp to use a Customer's 
+* [Sales] Patch to dspPricesByCustomer.cpp to use a Customer's
 Default Discount in calculating the List Price column
-* [Sales] Inactive ship-to's can be selected in sales order 
+* [Sales] Inactive ship-to's can be selected in sales order
 entry
-* [Sales] Unable to set Uses Blanket P/Os on Customer - settings 
+* [Sales] Unable to set Uses Blanket P/Os on Customer - settings
 - terms screen
-* [Sales] Cannot comment a line item on Sales Order until after 
+* [Sales] Cannot comment a line item on Sales Order until after
 SAVE
 * [Sales] Cannot Override P/R price in quote and S/O line
-* [Sales] Post SO Credit Memo via Print Credit Memo does not 
+* [Sales] Post SO Credit Memo via Print Credit Memo does not
 prompt for lot/serial number
-* [Sales] Add ability to set resale price and calcualte 
+* [Sales] Add ability to set resale price and calcualte
 difference on Returns
-* [Schedule] Selecting to create a new Production Plan displays 
+* [Schedule] Selecting to create a new Production Plan displays
 irrelevant dialog
-* [Schedule] Db error saving production plan item 
+* [Schedule] Db error saving production plan item
 * [Schedule] Schedule menu on/off because of multi-Site
-* [Schedule] The report 'Planned Rough Cut' doesn't display 
+* [Schedule] The report 'Planned Rough Cut' doesn't display
 calendar years
-* [Schedule] Selecting to print 'Planned Revenue' generates 
+* [Schedule] Selecting to print 'Planned Revenue' generates
 DB log error
-* [System] Hot Key support for Location/Lot/Serial# detail 
+* [System] Hot Key support for Location/Lot/Serial# detail
 screen missing
-* [System] Designer screen remembers size when it shouldn't 
-* [System] Api.customer errors on billing_contact_change 
-values 
+* [System] Designer screen remembers size when it shouldn't
+* [System] Api.customer errors on billing_contact_change
+values
 * [System] Exchange rate precision problem
-* [System] Custom command will not open a document directly 
+* [System] Custom command will not open a document directly
 * [System] Packages report def missing
 * [System] Duplicating Employee group generates error message
-* [System] It is possible to create empty Employee groups 
-* [System] Creating new PO with manual number generation 
+* [System] It is possible to create empty Employee groups
+* [System] Creating new PO with manual number generation
 creates DB log error
-* [System] Double click on comment type doesn't open in edit 
+* [System] Double click on comment type doesn't open in edit
 mode
 * [System] Update TOC links to new Drupal site
-* [System] Configuration: Adding line Item in sales displayed 
+* [System] Configuration: Adding line Item in sales displayed
 error
-* [System] User friendly message should be displayed on 
+* [System] User friendly message should be displayed on
 duplicating Department records
-* [System] Selecting to associate sales rep with Employee 
+* [System] Selecting to associate sales rep with Employee
 generates error
-* [System] Crash on application exit, possibly related to 
+* [System] Crash on application exit, possibly related to
 embedded designer
 
 ==================================
