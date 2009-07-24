@@ -295,7 +295,7 @@ BEGIN
 
 --  Add the distribution amount to the total amount to distribute
     _totalAmount_base := (_totalAmount_base + _itemAmount_base + _g.voitem_freight_base);
-    _totalAmount := (_totalAmount + _itemAmount + _g.voitem_freight - currToCurr(baseCurrId(), _p.vohead_curr_id, _taxBaseValue, _glDate));
+    _totalAmount := (_totalAmount + _itemAmount + _g.voitem_freight);
     IF (_g.vodist_discountable) THEN
       _totalDiscountableAmount := (_totalDiscountableAmount + _itemAmount);
     END IF;
