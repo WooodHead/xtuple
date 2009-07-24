@@ -99,7 +99,7 @@ BEGIN
   WHERE (wo_id=_p.womatl_wo_id);
 
   UPDATE womatl
-  SET womatl_qtyiss = (womatl_qtyiss + pQty),
+  SET womatl_qtyiss = (womatl_qtyiss + _p.qty),
       womatl_lastissue = CURRENT_DATE
   WHERE (womatl_id=pWomatlid);
 
