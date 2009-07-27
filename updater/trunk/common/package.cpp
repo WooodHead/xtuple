@@ -88,10 +88,9 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
   _developer = elem.attribute("developer");
   _descrip = elem.attribute("descrip");
 
-  bool system = _name.isEmpty() && (_developer == "xTuple" || _developer.isEmpty());
   if (DEBUG)
     qDebug("Package::Package() - _name '%s', _developer '%s' => system %d",
-           qPrintable(_name), qPrintable(_developer), system);
+           qPrintable(_name), qPrintable(_developer), system());
 
   if (elem.hasAttribute("version"))
   {
@@ -104,7 +103,7 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
       return;
     }
   }
-  else if (! system)
+  else if (! system())
   {
     msgList << TR("Add-on packages must have version numbers but the package "
                   "element has no version attribute.");
@@ -140,37 +139,37 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
     }
     else if(elemThis.tagName() == "loadmetasql")
     {
-      LoadMetasql metasql(elemThis, system, msgList, fatalList);
+      LoadMetasql metasql(elemThis, system(), msgList, fatalList);
       _metasqls.append(metasql);
     }
     else if(elemThis.tagName() == "loadpriv")
     {
-      LoadPriv priv(elemThis, system, msgList, fatalList);
+      LoadPriv priv(elemThis, system(), msgList, fatalList);
       _privs.append(priv);
     }
     else if(elemThis.tagName() == "loadreport")
     {
-      LoadReport report(elemThis, system, msgList, fatalList);
+      LoadReport report(elemThis, system(), msgList, fatalList);
       _reports.append(report);
     }
     else if(elemThis.tagName() == "loadappui")
     {
-      LoadAppUI appui(elemThis, system, msgList, fatalList);
+      LoadAppUI appui(elemThis, system(), msgList, fatalList);
       _appuis.append(appui);
     }
     else if(elemThis.tagName() == "loadappscript")
     {
-      LoadAppScript appscript(elemThis, system, msgList, fatalList);
+      LoadAppScript appscript(elemThis, system(), msgList, fatalList);
       _appscripts.append(appscript);
     }
     else if(elemThis.tagName() == "loadcmd")
     {
-      LoadCmd cmd(elemThis, system, msgList, fatalList);
+      LoadCmd cmd(elemThis, system(), msgList, fatalList);
       _cmds.append(cmd);
     }
     else if(elemThis.tagName() == "loadimage")
     {
-      LoadImage image(elemThis, system, msgList, fatalList);
+      LoadImage image(elemThis, system(), msgList, fatalList);
       _images.append(image);
     }
     else if (elemThis.tagName() == "pkgnotes")
@@ -225,6 +224,11 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
 
 Package::~Package()
 {
+}
+
+bool Package::system() const
+{
+  return _name.isEmpty() && (_developer == "xTuple" || _developer.isEmpty());
 }
 
 QDomElement Package::createElement(QDomDocument & doc)
