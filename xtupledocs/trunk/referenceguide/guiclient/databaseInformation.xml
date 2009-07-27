@@ -87,31 +87,6 @@
         applied to the database.</para>
       </listitem>
     </varlistentry>
-    <varlistentry role="standard">
-      <term>Default Batch Email Address</term>
-      <listitem>
-        <para>Enter an email address to be used as the default "From" address
-        in situations when no other "From" address is specified. For example,
-        this feature would apply if when scheduling an Invoice for email
-        delivery no email address is entered in the "From" field.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Enable Batch Manager</term>
-      <listitem>
-        <para>Select to enable the Batch Manager for the current database. If
-        selected, any jobs submitted to the Batch Manager will be processed.
-        If not selected, jobs submitted to the Batch Manager will not be
-        processed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Purge Batch Jobs after</term>
-      <listitem>
-        <para>Specify how frequently (in days) you want to purge
-        already-completed Batch Manager jobs.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>Auto Update Signal Interval</term>
       <listitem>
@@ -125,6 +100,76 @@
       <listitem>
         <para>This flag prevents users from running client versions that are
         different than the version the database is running on.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Access Mode</term>
+      <listitem>
+        <para>Specify one of the following options to determine which users
+        should be able to access the database:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Active Users Only</term>
+            <listitem>
+              <para>Select to allow any active database users to access the
+              database.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Admin Users Only (Maintenance Mode)</term>
+            <listitem>
+              <para>Select to allow only system admin users to access the
+              database. This is a useful mode during periods when you are
+              performing database maintenance and don't want end users
+              accessing the system.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Any Users not Inactive</term>
+            <listitem>
+              <para>Select to allow any users who are either active or
+              undefined to access the database. This option differs from the
+              "Active Users Only" option because it also allows PostgreSQL
+              server users to access the database, even though they may not
+              have a user account on the database. In other words, the user is
+              defined on the server but not on the database. This option could
+              be useful when loading new databases which haven't had all their
+              users defined yet. Undefined users will be allowed to access the
+              database. However, they will need a system admin to grant them
+              privileges to fully use the system.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Batch Manager</term>
+      <listitem>
+        <para>If you have the Batch Manager installed on your system and you
+        want to enable/activate it, then select this option. Once selected,
+        any jobs submitted to the Batch Manager will be processed. If the
+        option is not selected, then jobs submitted to the Batch Manager will
+        not be processed. The following options should also be
+        specified:</para>
+        <variablelist>
+          <varlistentry role="standard">
+            <term>Default Batch Email Address</term>
+            <listitem>
+              <para>Enter an email address to be used as the default "From"
+              address in situations when no other "From" address is specified.
+              For example, this feature would apply if when scheduling an
+              Invoice for email delivery no email address is entered in the
+              "From" field.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Purge Batch Jobs after</term>
+            <listitem>
+              <para>Specify how frequently (in days) you want to purge
+              already-completed Batch Manager jobs.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
