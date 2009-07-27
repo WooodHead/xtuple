@@ -50,6 +50,7 @@ class Package
 
     QString developer() const { return _developer; }
     QString name()      const { return _name; }
+    bool     system()   const;
     XVersion version()  const { return _pkgversion; }
 
     QList<CreateFunction> _functions;
