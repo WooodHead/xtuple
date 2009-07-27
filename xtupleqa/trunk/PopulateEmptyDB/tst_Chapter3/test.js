@@ -13,7 +13,7 @@ function main()
      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
      waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
      activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+     waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu");
      activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
      waitForObject(":Database Information.*_QLabel");
      var appEdition = findObject(":Database Information.*_QLabel").text;
@@ -25,6 +25,7 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+    snooze(0.1);
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
     activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
 
@@ -299,14 +300,14 @@ function main()
   
 
 
-  //---------------Create Item sites------------------------------ 
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-  activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
-  activateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
-  
+---------------Create Item sites------------------------------ 
+itForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+tivateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+itForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+tivateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+itForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+tivateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+
     //---------Item site: YTRUCK1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
     clickButton(":List Item Sites.New_QPushButton_3");
@@ -796,11 +797,10 @@ if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
     clickButton(":_inventory.Stocked_QCheckBox_3");
 if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_3").checked)
     clickButton(":_inventory.Allow Automatic Updates_QCheckBox_3");
-type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
-type(":_cycleCountFreq_QSpinBox_3", "<Del>");
+waitForObject(":_cycleCountFreq_QSpinBox_3");
+findObject(":_cycleCountFreq_QSpinBox_3").clear();
 type(":_cycleCountFreq_QSpinBox_3", "30");
-type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
-type(":_eventFence_QSpinBox_4", "<Del>");
+findObject(":_eventFence_QSpinBox_4").clear();
 type(":_eventFence_QSpinBox_4", "10");
 type(":_locationGroup._locationComments_XLineEdit_3", "RM-01-01-01");
 clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");	
@@ -817,9 +817,10 @@ clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
  if(appEdition=="Manufacturing")
 {
  
-   clickItem(":Scheduling._planningType_XComboBox","MRP",1,0,0,Qt.LeftButton);
-      findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
-      type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
+     waitForObject(":Scheduling._planningType_XComboBox");
+     clickItem(":Scheduling._planningType_XComboBox","MRP",0,0,0,Qt.LeftButton);
+     findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
+     type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
       
  }
  else if(appEdition=="PostBooks" || appEdition=="Standard")

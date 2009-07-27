@@ -11,6 +11,7 @@
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    snooze(0.1);
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
     waitForObject(":Database Information.*_QLabel");
@@ -534,7 +535,7 @@
     clickButton(":List Customer Form Assignments.Close_QPushButton");
     
     
-    
+  
     //--------------Define Forms--------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -548,7 +549,8 @@
     type(":_name_XLineEdit_12", "SO-Acknowledge");
     type(":Form._descrip_XLineEdit", "Sales Order Acknowledgement Form");
     if(findObject(":_report_XComboBox_2").currentText!="PickingListSOClosedLines")
-        clickItem(":_report_XComboBox_2", "PickingListSOClosedLines",0,0,1,Qt.LeftButton);
+       type(":_report_XComboBox_2", "PickingListSOClosedLines");
+    waitForObject(":Form._key_XComboBox");
     if(findObject(":Form._key_XComboBox").currentText!="Sales Orders")
         clickItem(":Form._key_XComboBox", "Sales Orders",0,0,1,Qt.LeftButton);
     waitForObject(":Form.Save_QPushButton");
@@ -634,7 +636,7 @@
 
 
   
-    //------------Sales: Account Assignments-----------------
+  //------------Sales: Account Assignments-----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Master Information");
@@ -674,7 +676,7 @@
   
 
 
-    //----------------Create new Customer---------------
+  //----------------Create new Customer---------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
@@ -687,7 +689,9 @@
     type(":Customer._name_XLineEdit", "Tremendous Toys");
     
     clickTab(":Customer.qt_tabwidget_tabbar_QTabBar","Settings");
+    waitForObject(":_settingsTab.Terms_QRadioButton");
     clickButton(":_settingsTab.Terms_QRadioButton");
+    waitForObject(":_terms_XComboBox");
     if(findObject(":_terms_XComboBox").currentText!= "2-10N30-2% Discount in 10 Days - Net 30 Days")
         clickItem(":_terms_XComboBox","2-10N30-2% Discount in 10 Days - Net 30 Days",0,0,1,Qt.LeftButton);
     type(":groupBox_4._defaultDiscountPrcnt_XLineEdit", "10");
@@ -813,7 +817,7 @@
     type(":GroupBox1._name_XLineEdit", "US-VA");
     type(":GroupBox1._descrip_XLineEdit", "National Accounts");
     clickButton(":Customer Group.New_QPushButton");
-    waitForObjectItem(":_listTab_XTreeWidget", "TTOYS");
+    waitForObject(":_listTab_XTreeWidget");
     clickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 1, Qt.LeftButton);
     waitForObject(":Search For Customer.Select_QPushButton");
     clickButton(":Search For Customer.Select_QPushButton");

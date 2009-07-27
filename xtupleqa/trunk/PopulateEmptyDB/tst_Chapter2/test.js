@@ -404,7 +404,7 @@ function main()
 
   
   
-  
+
     //----------Define: Unit of Measure---------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -484,8 +484,7 @@ function main()
 
  
     doubleClickItem(":List Units of Measure._uoms_XTreeWidget_2","KG",0,0,1,Qt.LeftButton);
-      
-    snooze(1);
+    waitForObject(":Global Conversion Ratios:.New_QPushButton");
     clickButton(":Global Conversion Ratios:.New_QPushButton");
     waitForObject(":Conversion._uomFrom_XComboBox");
     clickItem(":Conversion._uomFrom_XComboBox", "KG", 0, 0, 1, Qt.LeftButton);
@@ -767,6 +766,7 @@ function main()
         type(":_description_XLineEdit_16", "MPS Items");
         if(!findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked)
             clickButton(":Planner Code.Automatically Explode Planned Orders_QCheckBox");
+        waitForObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2");
         if(!findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked)
             clickButton(":_explosionGroup.Multiple Level Explosion_QRadioButton_2");
         waitForObject(":Planner Code.Save_QPushButton");
@@ -783,6 +783,7 @@ function main()
         type(":_description_XLineEdit_16", "MRP Items");
         if(!findObject(":Planner Code.Automatically Explode Planned Orders_QCheckBox").checked)
             clickButton(":Planner Code.Automatically Explode Planned Orders_QCheckBox");
+        waitForObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2");
         if(!findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked)
             clickButton(":_explosionGroup.Multiple Level Explosion_QRadioButton_2");
         waitForObject(":Planner Code.Save_QPushButton");

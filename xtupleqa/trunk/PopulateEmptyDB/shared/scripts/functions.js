@@ -364,7 +364,7 @@ function createUserByRole(userrole)
     waitForObject(":Employee.qt_tabwidget_tabbar_QTabBar");
     
     clickTab(":Employee.qt_tabwidget_tabbar_QTabBar", "Detail");
-    waitForObjectItem(":_memberGroup._site_WComboBox", "WH1");
+    waitForObject(":_memberGroup._site_WComboBox");
     clickItem(":_memberGroup._site_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_timeclockGroup.VirtualClusterLineEdit_DeptClusterLineEdit");
     type(":_timeclockGroup.VirtualClusterLineEdit_DeptClusterLineEdit", "MFG");
@@ -660,7 +660,7 @@ function defineTaxation()
     clickButton(":_frame.New_QPushButton_4");
     waitForObject(":Tax Assignment._taxZone_XComboBox");
     clickItem(":Tax Assignment._taxZone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
-    waitForObjectItem(":Tax Assignment._taxType_XComboBox", "EDU");
+    waitForObject(":Tax Assignment._taxType_XComboBox");
     clickItem(":Tax Assignment._taxType_XComboBox", "EDU", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_frame._taxCodeOption_XTreeWidget_2");
     clickItem(":_frame._taxCodeOption_XTreeWidget_2", "TAXAUTH1-EDU", 0, 0, 1, Qt.LeftButton);
@@ -673,7 +673,7 @@ function defineTaxation()
     clickButton(":_frame.New_QPushButton_4");
     waitForObject(":Tax Assignment._taxZone_XComboBox");
     clickItem(":Tax Assignment._taxZone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
-    waitForObjectItem(":Tax Assignment._taxType_XComboBox", "GM");
+    waitForObject(":Tax Assignment._taxType_XComboBox");
     clickItem(":Tax Assignment._taxType_XComboBox", "GM", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_frame._taxCodeOption_XTreeWidget_2");
     clickItem(":_frame._taxCodeOption_XTreeWidget_2", "TAXAUTH1-GM", 0, 0, 1, Qt.LeftButton);
@@ -699,7 +699,7 @@ function defineTaxation()
     
     waitForObject(":Tax Registration Information._taxZone_XComboBox");
     clickItem(":Tax Registration Information._taxZone_XComboBox", "TZONE1-Tax Zone1", 5, 5, 1, Qt.LeftButton);
-    waitForObjectItem(":Tax Registration Information._taxauth_XComboBox", "TAX-AUTH1");
+    waitForObject(":Tax Registration Information._taxauth_XComboBox");
     clickItem(":Tax Registration Information._taxauth_XComboBox", "TAX-AUTH1", 5, 8, 1, Qt.LeftButton);
     waitForObject(":Tax Registration Information._number_QLineEdit");
     mouseClick(":Tax Registration Information._number_QLineEdit", 5, 5, 1, Qt.LeftButton);

@@ -131,10 +131,10 @@ function main()
         clickButton(":Accounting Configuration.Save_QPushButton");
         
     }
-    
+    snooze(0.5);//delay to allow save
   
     //---------------Define: Bank Accounts------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
@@ -236,14 +236,15 @@ function main()
     waitForObject(":List Fiscal Years.New_QPushButton");
     clickButton(":List Fiscal Years.New_QPushButton");
     waitForObject(":Fiscal Year.XDateEdit_XDateEdit");
-    var d = new Date();
-    var CurrentYearFull = d.getFullYear();
-    var CurrentYear = CurrentYearFull.toString().slice(2);
+  var d = new Date();
+  var CurrentYearFull = d.getFullYear();
+  var CurrentYear = CurrentYearFull.toString().slice(2);
     type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+CurrentYearFull);
     type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+CurrentYearFull);
     waitForObject(":Fiscal Year.Save_QPushButton");
     clickButton(":Fiscal Year.Save_QPushButton");
     var NxtYear = CurrentYearFull+1;
+    snooze(0.5);
     waitForObject(":List Fiscal Years.New_QPushButton");
     clickButton(":List Fiscal Years.New_QPushButton");
     waitForObject(":Fiscal Year.XDateEdit_XDateEdit");
@@ -261,7 +262,7 @@ function main()
     waitForObject(":List Fiscal Years.Close_QPushButton");
     clickButton(":List Fiscal Years.Close_QPushButton");
     
-    
+  
     //-------------Define: Fiscal Calendar--------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -286,13 +287,18 @@ function main()
         if(findObject(":_year_XComboBox").currentText!="01/01/"+CurrentYear+"-12/31/"+CurrentYear)
             type(":_year_XComboBox", "01admin	/01/"+CurrentYear+"-12/31/"+CurrentYear);
         waitForObject(":_name_QLineEdit");
-        waitForObject(":_name_QLineEdit").clear();
+        snooze(0.1);
+        findObject(":_name_QLineEdit").clear();
         type(":_name_QLineEdit", CurrentYearFull+"-");
         type(":_name_QLineEdit", (j<10?"0"+j:j));
+        waitForObject(":Accounting Period.XDateEdit_XDateEdit");
         findObject(":Accounting Period.XDateEdit_XDateEdit").clear();
         type(":Accounting Period.XDateEdit_XDateEdit", j+"/1/"+i);
+        waitForObject(":Accounting Period.XDateEdit_XDateEdit_2");
         findObject(":Accounting Period.XDateEdit_XDateEdit_2").clear();        
         type(":Accounting Period.XDateEdit_XDateEdit_2", j+"/"+YearSet[j-1]+"/"+i);
+        waitForObject(":_quarter_QSpinBox");
+        snooze(0.2);
         findObject(":_quarter_QSpinBox").clear();
         if(j>=1 && j<=3)
             type(":_quarter_QSpinBox", "1");
