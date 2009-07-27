@@ -54,7 +54,7 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
+    waitForObject(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu");
     activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
     waitForObject(":Inventory Configuration.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Inventory Configuration.qt_tabwidget_tabbar_QTabBar", "Shipping and Receiving");
@@ -163,7 +163,7 @@ function main()
     waitForObject(":List Terms.Close_QPushButton");
     clickButton(":List Terms.Close_QPushButton");
 
-    
+  
     //-------------Define: Reject Codes-----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");

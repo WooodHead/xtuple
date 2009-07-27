@@ -12,7 +12,7 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
     activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "User-Defined Costing Elements...");
+    waitForObject(":xTuple ERP: OpenMFG Edition.Costing_QMenu");
     activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "User-Defined Costing Elements...");
     
     snooze(1);

@@ -17,14 +17,14 @@ function main()
     waitForObject(":Database Information.*_QLabel");
     var appEdition = findObject(":Database Information.*_QLabel").text;
     clickButton(":Database Information.Save_QPushButton"); 
-    
+  
     
     //----------Create Items---------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
     activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
+    waitForObject(":xTuple ERP: OpenMFG Edition.Item_QMenu");
     activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
 
 
@@ -100,10 +100,12 @@ function main()
         test.xverify(object.exists(":_warehouse_WComboBox_5"), "Warehouse ComboBox is not found");
     }
     
+    waitForObject(":_plannerCode_XComboBox_2");
     clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
+    waitForObject(":_costcat_XComboBox_3");
     clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
-
+    waitForObject(":Item Site.Save_QPushButton");
     clickButton(":Item Site.Save_QPushButton");
     if(appEdition=="Manufacturing"|| appEdition=="Standard")
     {
@@ -433,7 +435,7 @@ function main()
     clickButton(":Bills of Materials.Close_QPushButton");
 
     
-    if(appEdition=="Manufacturing")
+  if(appEdition=="Manufacturing")
     {
         //-------------Schedule: Production Plan-----------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
@@ -448,13 +450,16 @@ function main()
         type(":_number_QLineEdit", "COLLECTORS-LINE-PLAN");
         type(":_descrip_QLineEdit", "Truck Production Plan");
         type(":Production Plan.XDateEdit_XDateEdit", "-30");
+        type(":Production Plan.XDateEdit_XDateEdit", "<Tab>");
         type(":Production Plan.XDateEdit_XDateEdit_2", "+365");
+        type(":Production Plan.XDateEdit_XDateEdit_2", "<Tab>");
         if(findObject(":_warehouse_WComboBox_6").currentText!="WH1")
             clickItem(":_warehouse_WComboBox_6", "WH1",0,0,1,Qt.LeftButton);
         if(findObject(":_schedtype_QComboBox").currentText!="Forecast Netted to MPS")
             clickItem(":_schedtype_QComboBox", "Forecast Netted to MPS",0,0,1,Qt.LeftButton);
         
         snooze(1);
+        waitForObject(":frame.New_QPushButton_3");
         clickButton(":frame.New_QPushButton_3");
         waitForObject(":Production Plan Item...._QPushButton");
         type(":Production Plan Item._itemNumber_ItemLineEdit", "COLLECTORS-LINE");
@@ -464,6 +469,7 @@ function main()
         clickButton(":Production Plan Item.Save_QPushButton");
         
         snooze(1);
+        waitForObject(":frame.New_QPushButton_3");
         clickButton(":frame.New_QPushButton_3");
         waitForObject(":Production Plan Item...._QPushButton");
         type(":Production Plan Item._itemNumber_ItemLineEdit", "COLLECTORS-LINE");

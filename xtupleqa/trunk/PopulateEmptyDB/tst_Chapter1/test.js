@@ -25,7 +25,7 @@ function main()
     clickButton(":Database Information.Save_QPushButton");
     
 
-  
+
     //-----create Entities-------
     createDept("MFG","Manufacturing");
     assignPrivileges();
@@ -405,15 +405,15 @@ function main()
   if(appEdition=="Manufacturing")
   {
       if(!findObject(":Products Configuration.Enable Work Center Routings_QGroupBox").checked)
-          findObject(":Products Configuration.Enable Work Center Routings_QGroupBox").checked=true;
+          type(":Products Configuration.Enable Work Center Routings_QGroupBox"," ");
       if(!findObject(":Track Machine Overhead.as Machine Overhead_QRadioButton").checked)
-          findObject(":Track Machine Overhead.as Machine Overhead_QRadioButton").checked=true;
+          clickButton(":Track Machine Overhead.as Machine Overhead_QRadioButton");
       if(!findObject(":Products Configuration.Enable Breeder Bills of Materials_QCheckBox").checked)
-          findObject(":Products Configuration.Enable Breeder Bills of Materials_QCheckBox").checked=true;
+          clickButton(":Products Configuration.Enable Breeder Bills of Materials_QCheckBox");
       if(!findObject(":Products Configuration.Enable Transforms_QCheckBox").checked)
-          findObject(":Products Configuration.Enable Transforms_QCheckBox").checked=true;
+          clickButton(":Products Configuration.Enable Transforms_QCheckBox");
       if(!findObject(":Products Configuration.Enable Revision Control_QCheckBox").checked)
-      findObject(":Products Configuration.Enable Revision Control_QCheckBox").checked=true;
+          clickButton(":Products Configuration.Enable Revision Control_QCheckBox");
   }
   else if(appEdition=="Standard"||appEdition=="PostBooks")
   {
@@ -443,7 +443,7 @@ function main()
 
     
   
-    //----------Define Encryption (metric)------
+  //----------Define Encryption (metric)------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
@@ -507,6 +507,7 @@ function main()
             type(":Database Information.Batch Manager_QGroupBox"," ");
         if(findObject(":_batchEmail_QLineEdit").text!="mike@xtuple.com")
         {
+            waitForObject(":_batchEmail_QLineEdit");
             findObject(":_batchEmail_QLineEdit").clear();
             type(":_batchEmail_QLineEdit", "mike@xtuple.com");
         }
@@ -556,7 +557,7 @@ function main()
         clickButton(":List EDI Profiles.New_QPushButton");
         waitForObject(":List EDI Profiles._name_QLineEdit");
         type(":List EDI Profiles._name_QLineEdit", "DUNNING");
-        waitForObjectItem(":_type_XComboBox_2", "EMail");
+        waitForObject(":_type_XComboBox_2");
         clickItem(":_type_XComboBox_2", "EMail", 0, 0, 1, Qt.LeftButton);
         waitForObject(":_emailFrom_QLineEdit");
         type(":_emailFrom_QLineEdit", "demo@openmfg.com");
@@ -582,7 +583,7 @@ function main()
         clickButton(":List EDI Profiles.New_QPushButton");
         waitForObject(":List EDI Profiles._name_QLineEdit");
         type(":List EDI Profiles._name_QLineEdit", "CRM");
-        waitForObjectItem(":_type_XComboBox_2", "EMail");
+        waitForObject(":_type_XComboBox_2");
         clickItem(":_type_XComboBox_2", "EMail", 0, 0, 1, Qt.LeftButton);
         waitForObject(":_emailFrom_QLineEdit");
         mouseClick(":_emailFrom_QLineEdit", 24, 8, 1, Qt.LeftButton);
@@ -609,7 +610,7 @@ function main()
         clickButton(":List EDI Profiles.New_QPushButton");
         waitForObject(":List EDI Profiles._name_QLineEdit");
         type(":List EDI Profiles._name_QLineEdit", "PO");
-        waitForObjectItem(":_type_XComboBox_2", "EMail");
+        waitForObject(":_type_XComboBox_2");
         clickItem(":_type_XComboBox_2", "EMail", 0, 0, 1, Qt.LeftButton);
         waitForObject(":_emailFrom_QLineEdit");
         type(":_emailFrom_QLineEdit", "demo@openmfg.com");
@@ -631,13 +632,13 @@ function main()
         clickButton(":forms.New_QPushButton_2");
         waitForObject(":List EDI Profiles.OK_QPushButton_2");
         clickButton(":List EDI Profiles.OK_QPushButton_2");
-        waitForObjectItem(":_type_XComboBox_3", "Purchase Order");
+        waitForObject(":_type_XComboBox_3");
         clickItem(":_type_XComboBox_3", "Purchase Order", 0, 0, 1, Qt.LeftButton);
         waitForObject(":List EDI Profiles._file_QLineEdit");
         type(":List EDI Profiles._file_QLineEdit", " PO</docnumber>_</poshipvia>");
         waitForObject(":List EDI Profiles._query_QTextEdit");
         type(":List EDI Profiles._query_QTextEdit", "SELECT pohead_orderdate AS podate, pohead_shipvia AS poshipvia, warehous_descrip AS powarehous, vend_name AS povendor FROM pohead, warehous, vendinfo WHERE pohead_id = <? value(“docid”) ?> AND pohead_warehous_id = warehous_id AND pohead_vend_id = vend_id; ");
-        waitForObjectItem(":_reportReport_XComboBox", "PurchaseOrder");
+        waitForObject(":_reportReport_XComboBox");
         clickItem(":_reportReport_XComboBox", "PurchaseOrder", 0, 0, 1, Qt.LeftButton);
         waitForObject(":List EDI Profiles.OK_QPushButton");
         clickButton(":List EDI Profiles.OK_QPushButton");
@@ -713,8 +714,8 @@ function main()
     type(":Remit-To Address._phone_XLineEdit", "757-461-3022");
     if(!findObject(":_ar.Credit Warn Customers when Late_QGroupBox").checked)
         type(":_ar.Credit Warn Customers when Late_QGroupBox"," ");
-    type(":Credit Warn Customers when Late._graceDays_QSpinBox", "<Ctrl+A>");
-    type(":Credit Warn Customers when Late._graceDays_QSpinBox", "<Del>");
+    waitForObject(":Credit Warn Customers when Late._graceDays_QSpinBox");
+    findObject(":Credit Warn Customers when Late._graceDays_QSpinBox").clear();
     type(":Credit Warn Customers when Late._graceDays_QSpinBox", "30");
     type(":Credit Warn Customers when Late._graceDays_QSpinBox", "<Tab>");
     waitForObject(":_ar._recurringBuffer_QSpinBox");
@@ -822,12 +823,10 @@ function main()
         clickButton(":List Calendars.New_QPushButton_2");
         waitForObject(":List Calendars._name_XLineEdit_2");
         type(":List Calendars._name_XLineEdit_2", "WEEK"+ (i+1));
-        type(":List Calendars._offsetCount_QSpinBox","<Ctrl+A>");
-        type(":List Calendars._offsetCount_QSpinBox","<Del>");
+        findObject(":List Calendars._offsetCount_QSpinBox").clear();
         type(":List Calendars._offsetCount_QSpinBox",i);
         type(":List Calendars._offsetType_QComboBox", "Weeks");
-        type(":List Calendars._periodCount_QSpinBox","<Ctrl+A>");
-        type(":List Calendars._periodCount_QSpinBox","Del");
+        findObject(":List Calendars._periodCount_QSpinBox").clear();
         type(":List Calendars._periodCount_QSpinBox",1);
         clickItem(":List Calendars._periodType_QComboBox", "Weeks", 0, 0, 1, Qt.LeftButton);
         clickButton(":List Calendars.Save_QPushButton");    
@@ -972,7 +971,8 @@ function main()
         type(":List Sites.Postal Code:_XLineEdit", "123-4324");
         type(":_country_QLineEdit_2", "United");
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar","Contact");
-        type(":_honorific_QLineEdit_2", "Mr");
+        waitForObject(":_honorific_QLineEdit");
+        type(":_honorific_QLineEdit", "Mr");
         type(":_contactGroup._first_XLineEdit", "John ");
         type(":_contactGroup._middle_XLineEdit", "K");
         type(":_contactGroup._last_XLineEdit", "Smith");
@@ -983,6 +983,7 @@ function main()
         type(":List Sites._main_XLineEdit", "01-01-1950-01");
   
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar","General");
+        waitForObject(":_whsTypeStack._bolNumber_XLineEdit");
         type(":_whsTypeStack._bolNumber_XLineEdit", "10000");
         type(":_whsTypeStack._countTagNumber_XLineEdit", "20000");
         clickButton(":_whsTypeStack.Shipping Site_QCheckBox");
@@ -1047,7 +1048,6 @@ function main()
         type(":Site.Street\nAddress:_XLineEdit", "street addr line1");
         type(":Site.Street\nAddress:_XLineEdit_2", "street addr line2");
         type(":Site.Street\nAddress:_XLineEdit_3", "street addr line3");
-
         type(":Site.City:_XLineEdit", "city1");
         type(":_state_QLineEdit_6", "State1");
         type(":_addressGroup.Postal Code:_XLineEdit", "23234324");
@@ -1055,6 +1055,7 @@ function main()
         type(":_accountGroup._main_XLineEdit_2", "01-01-1950-01");
       
         clickTab(":Site.qt_tabwidget_tabbar_QTabBar","Contact");
+        waitForObject(":_honorific_QLineEdit_3");
         type(":_honorific_QLineEdit_3", "Mr");
         type(":_contactGroup._first_XLineEdit_2", "John ");
         type(":_contactGroup._middle_XLineEdit_2", "K");
@@ -1066,6 +1067,7 @@ function main()
       
         
         clickTab(":Site.qt_tabwidget_tabbar_QTabBar","General");
+        waitForObject(":_numberGroup._bolNumber_XLineEdit");
         type(":_numberGroup._bolNumber_XLineEdit", "1000");
         type(":_countTagPrefix_XLineEdit_2", "shw1");
         type(":_numberGroup._countTagNumber_XLineEdit", "2000");
@@ -1125,6 +1127,7 @@ function main()
         type(":_country_QLineEdit_6", "United");
         
         clickTab(":Site.qt_tabwidget_tabbar_QTabBar","Contact");
+        waitForObject(":_honorific_QLineEdit_3");
         type(":_honorific_QLineEdit_3", "Mr");
         type(":_contactGroup._first_XLineEdit_2", "John ");
         type(":_contactGroup._middle_XLineEdit_2", "K");
@@ -1136,6 +1139,7 @@ function main()
         type(":List Sites._main_XLineEdit", "01-01-1950-01");
         
         clickTab(":Site.qt_tabwidget_tabbar_QTabBar","General");
+        waitForObject(":_numberGroup._bolNumber_XLineEdit");
         findObject(":_numberGroup._bolNumber_XLineEdit").clear();
         type(":_numberGroup._bolNumber_XLineEdit", "WH2");
         findObject(":_countTagPrefix_XLineEdit_2").clear();
@@ -1146,6 +1150,7 @@ function main()
         clickButton(":_whsTypeStack.Force the use of Count Slips_QCheckBox");
         clickButton(":_whsTypeStack.Enforce the use of Zones_QCheckBox");
         type(":_whsTypeStack._shipcomm_XLineEdit", "0.00");
+        
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar", "Site Locations");
         waitForObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox");
         findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox").checked=true;
