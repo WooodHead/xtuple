@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519130" role="manufacturing">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>configuration</primary>
       <secondary>of schedule module</secondary>
     </indexterm>Configure Schedule</title>
   <para>To configure the Schedule module, select the "Configure Schedule"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/configureMS.png"/>
+          <imagedata fileref="images/configureMS.png" />
         </imageobject>
         <caption>Configure Schedule Module</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When configuring the Schedule module, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>planned orders</primary>
           <secondary>numbering of</secondary>
         </indexterm>Next Planned Order #</term>
@@ -42,10 +39,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Enable Buffer Management</term>
+      <term>Enable Constraint Management</term>
       <listitem>
-        <para>Select to enable the Buffer Management system. If not selected,
-        the system will be hidden from view.</para>
+        <para>Select to enable the Constraint Management system. If not
+        selected, the system will be hidden from view.</para>
       </listitem>
     </varlistentry>
   </variablelist>
