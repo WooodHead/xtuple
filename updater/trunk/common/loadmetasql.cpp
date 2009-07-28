@@ -151,14 +151,15 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
 
   if (! pkgname.isEmpty())
   {
-    XSqlQuery select;
     int pkgitemid = -1;
     int pkgheadid = -1;
-    select.prepare(_pkgitemQueryStr);
-    select.bindValue(":name",    _group + "-" + _name);
-    select.bindValue(":pkgname", pkgname);
-    select.bindValue(":type",    _pkgitemtype);
-    select.exec();
+
+    ParameterList params;
+    params.append("name",    _group + "-" + _name);
+    params.append("pkgname", pkgname);
+    params.append("type",    _pkgitemtype);
+
+    XSqlQuery select = _pkgitemMql.toQuery(params);
     if(select.first())
     {
       pkgheadid = select.value(1).toInt();

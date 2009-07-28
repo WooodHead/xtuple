@@ -78,7 +78,7 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
     return -2;
   }
 
-  QString encodeddata;
+  QByteArray encodeddata;
   if (DEBUG)
     qDebug("LoadImage::writeToDB(): image starts with %s",
            pdata.left(10).data());
@@ -111,86 +111,30 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
     }
 
     imageBuffer.close();
-    encodeddata = QUUEncode(imageBuffer);
+    encodeddata = QUUEncode(imageBuffer).toAscii();
     if (DEBUG) qDebug("LoadImage::writeToDB() image was uuencoded: %s",
-                      qPrintable(encodeddata.left(160)));
+                      encodeddata.left(160).data());
   }
 
-  XSqlQuery select;
-  XSqlQuery upsert;
+  _selectMql = new MetaSQLQuery("SELECT image_id, -1, -1"
+                      "  FROM <? literal(\"tablename\") ?> "
+                      " WHERE (image_name=<? value(\"name\") ?>);");
 
-  int imageid  = -1;
-  int pkgheadid = -1;
-  int pkgitemid = -1;
-  if (pkgname.isEmpty())
-    select.prepare(QString("SELECT image_id, -1, -1"
-                           "  FROM %1image "
-                           " WHERE (image_name=:name);")
-                          .arg(_system ? "" : "pkg"));
-  else
-  {
-    select.prepare(_pkgitemQueryStr);
-    select.bindValue(":pkgname", pkgname);
-    // select.bindValue(":grade",   _grade);
-    select.bindValue(":type",    _pkgitemtype);
-  }
-  select.bindValue(":name",    _name);
-  select.exec();
-  if(select.first())
-  {
-    imageid  = select.value(0).toInt();
-    pkgheadid = select.value(1).toInt();
-    pkgitemid = select.value(2).toInt();
-  }
-  else if (select.lastError().type() != QSqlError::NoError)
-  {
-    QSqlError err = select.lastError();
-    errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-    return -5;
-  }
+  _updateMql = new MetaSQLQuery("UPDATE <? literal(\"tablename\") ?> "
+                      "   SET image_data=<? value(\"source\") ?>,"
+                      "       image_descrip=<? value(\"notes\") ?> "
+                      " WHERE (image_id=<? value(\"id\") ?>) "
+                      "RETURNING image_id AS id;");
 
-  if (imageid >= 0)
-    upsert.prepare(QString("UPDATE %1image "
-                           "   SET image_data=:source,"
-                           "       image_descrip=:notes "
-                           " WHERE (image_id=:id); ")
-                          .arg(_system ? "" : "pkg"));
-  else
-  {
-    upsert.exec("SELECT NEXTVAL('image_image_id_seq');");
-    if (upsert.first())
-      imageid = upsert.value(0).toInt();
-    else if (upsert.lastError().type() != QSqlError::NoError)
-    {
-      QSqlError err = upsert.lastError();
-      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-      return -6;
-    }
+  _insertMql = new MetaSQLQuery("INSERT INTO <? literal(\"tablename\") ?> ("
+                      "   image_id, image_name, image_data, image_descrip"
+                      ") VALUES ("
+                      "  DEFAULT, <? value(\"name\") ?>,"
+                      "  <? value(\"source\") ?>, <? value(\"notes\") ?>) "
+                      "RETURNING image_id AS id;");
 
-    upsert.prepare(QString("INSERT INTO %1image "
-                           "(image_id, image_name, image_data, image_descrip) "
-                           "VALUES (:id, :name, :source, :notes);")
-                          .arg(_system ? "" : "pkg"));
-  }
+  ParameterList params;
+  params.append("tablename", "image");
 
-  upsert.bindValue(":id",      imageid);
-  upsert.bindValue(":source",  encodeddata);
-  upsert.bindValue(":notes",   _comment);
-  upsert.bindValue(":name",    _name);
-
-  if (!upsert.exec())
-  {
-    QSqlError err = upsert.lastError();
-    errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-    return -7;
-  }
-
-  if (pkgheadid >= 0)
-  {
-    int tmp = upsertPkgItem(pkgitemid, pkgheadid, imageid, errMsg);
-    if (tmp < 0)
-      return tmp;
-  }
-
-  return imageid;
+  return Loadable::writeToDB(encodeddata, pkgname, errMsg, params);
 }

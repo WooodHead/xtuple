@@ -118,79 +118,35 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
   {
     QDomElement elemThis = nList.item(n).toElement();
     if (elemThis.tagName() == "createfunction")
-    {
-      CreateFunction function(elemThis, msgList, fatalList);
-      _functions.append(function);
-    }
+      _functions.append(new CreateFunction(elemThis, msgList, fatalList));
     else if (elemThis.tagName() == "createtable")
-    {
-      CreateTable table(elemThis, msgList, fatalList);
-      _tables.append(table);
-    }
+      _tables.append(new CreateTable(elemThis, msgList, fatalList));
     else if (elemThis.tagName() == "createtrigger")
-    {
-      CreateTrigger trigger(elemThis, msgList, fatalList);
-      _triggers.append(trigger);
-    }
+      _triggers.append(new CreateTrigger(elemThis, msgList, fatalList));
     else if (elemThis.tagName() == "createview")
-    {
-      CreateView view(elemThis, msgList, fatalList);
-      _views.append(view);
-    }
+      _views.append(new CreateView(elemThis, msgList, fatalList));
     else if(elemThis.tagName() == "loadmetasql")
-    {
-      LoadMetasql metasql(elemThis, system(), msgList, fatalList);
-      _metasqls.append(metasql);
-    }
+      _metasqls.append(new LoadMetasql(elemThis, system(), msgList, fatalList));
     else if(elemThis.tagName() == "loadpriv")
-    {
-      LoadPriv priv(elemThis, system(), msgList, fatalList);
-      _privs.append(priv);
-    }
+      _privs.append(new LoadPriv(elemThis, system(), msgList, fatalList));
     else if(elemThis.tagName() == "loadreport")
-    {
-      LoadReport report(elemThis, system(), msgList, fatalList);
-      _reports.append(report);
-    }
+      _reports.append(new LoadReport(elemThis, system(), msgList, fatalList));
     else if(elemThis.tagName() == "loadappui")
-    {
-      LoadAppUI appui(elemThis, system(), msgList, fatalList);
-      _appuis.append(appui);
-    }
+      _appuis.append(new LoadAppUI(elemThis, system(), msgList, fatalList));
     else if(elemThis.tagName() == "loadappscript")
-    {
-      LoadAppScript appscript(elemThis, system(), msgList, fatalList);
-      _appscripts.append(appscript);
-    }
+      _appscripts.append(new LoadAppScript(elemThis, system(), msgList, fatalList));
     else if(elemThis.tagName() == "loadcmd")
-    {
-      LoadCmd cmd(elemThis, system(), msgList, fatalList);
-      _cmds.append(cmd);
-    }
+      _cmds.append(new LoadCmd(elemThis, system(), msgList, fatalList));
     else if(elemThis.tagName() == "loadimage")
-    {
-      LoadImage image(elemThis, system(), msgList, fatalList);
-      _images.append(image);
-    }
+      _images.append(new LoadImage(elemThis, system(), msgList, fatalList));
     else if (elemThis.tagName() == "pkgnotes")
-    {
       _notes += elemThis.text();
-    }
     else if(elemThis.tagName() == "prerequisite")
-    {
-      Prerequisite prereq(elemThis);
-      _prerequisites.append(prereq);
-    }
+      _prerequisites.append(new Prerequisite(elemThis));
     else if(elemThis.tagName() == "script")
-    {
-      Script script(elemThis, msgList, fatalList);
-      _scripts.append(script);
-    }
+      _scripts.append(new Script(elemThis, msgList, fatalList));
     else if(elemThis.tagName() == "finalscript")
-    {
-      FinalScript finalscript(elemThis, msgList, fatalList);
-      _finalscripts.append(finalscript);
-    }
+      _finalscripts.append(new FinalScript(elemThis, msgList, fatalList));
     else if (! reportedErrorTags.contains(elemThis.tagName()))
     {
       QMessageBox::warning(0, TR("Unknown Package Element"),
@@ -237,48 +193,48 @@ QDomElement Package::createElement(QDomDocument & doc)
   elem.setAttribute("id", _id);
   elem.setAttribute("version", _pkgversion.toString());
 
-  for(QList<Prerequisite>::iterator i = _prerequisites.begin();
+  for(QList<Prerequisite*>::iterator i = _prerequisites.begin();
       i != _prerequisites.end(); ++i)
-    elem.appendChild((*i).createElement(doc));
+    elem.appendChild((*i)->createElement(doc));
 
-  for(QList<LoadPriv>::iterator i = _privs.begin(); i != _privs.end(); ++i)
-    elem.appendChild((*i).createElement(doc));
+  for(QList<LoadPriv*>::iterator i = _privs.begin(); i != _privs.end(); ++i)
+    elem.appendChild((*i)->createElement(doc));
 
-  for(QList<LoadMetasql>::iterator i = _metasqls.begin(); i != _metasqls.end(); ++i)
-    elem.appendChild((*i).createElement(doc));
+  for(QList<LoadMetasql*>::iterator i = _metasqls.begin(); i != _metasqls.end(); ++i)
+    elem.appendChild((*i)->createElement(doc));
 
-  for(QList<Script>::iterator i = _scripts.begin(); i != _scripts.end(); ++i)
-    elem.appendChild((*i).createElement(doc));
+  for(QList<Script*>::iterator i = _scripts.begin(); i != _scripts.end(); ++i)
+    elem.appendChild((*i)->createElement(doc));
 
-  for(QList<LoadReport>::iterator i = _reports.begin();
+  for(QList<LoadReport*>::iterator i = _reports.begin();
       i != _reports.end(); ++i)
-    elem.appendChild((*i).createElement(doc));
+    elem.appendChild((*i)->createElement(doc));
 
-  for(QList<LoadAppUI>::iterator i = _appuis.begin(); i != _appuis.end(); ++i)
-    elem.appendChild((*i).createElement(doc));
+  for(QList<LoadAppUI*>::iterator i = _appuis.begin(); i != _appuis.end(); ++i)
+    elem.appendChild((*i)->createElement(doc));
 
-  for(QList<LoadAppScript>::iterator i = _appscripts.begin();
+  for(QList<LoadAppScript*>::iterator i = _appscripts.begin();
       i != _appscripts.end(); ++i)
-    elem.appendChild((*i).createElement(doc));
+    elem.appendChild((*i)->createElement(doc));
 
-  for(QList<LoadCmd>::iterator i = _cmds.begin(); i != _cmds.end(); ++i)
-    elem.appendChild((*i).createElement(doc));
+  for(QList<LoadCmd*>::iterator i = _cmds.begin(); i != _cmds.end(); ++i)
+    elem.appendChild((*i)->createElement(doc));
 
-  for (QList<LoadImage>::iterator i = _images.begin(); i != _images.end(); ++i)
-    elem.appendChild((*i).createElement(doc));
+  for (QList<LoadImage*>::iterator i = _images.begin(); i != _images.end(); ++i)
+    elem.appendChild((*i)->createElement(doc));
 
-  for(QList<FinalScript>::iterator i = _finalscripts.begin(); i != _finalscripts.end(); ++i)
-    elem.appendChild((*i).createElement(doc));
+  for(QList<FinalScript*>::iterator i = _finalscripts.begin(); i != _finalscripts.end(); ++i)
+    elem.appendChild((*i)->createElement(doc));
 
   return elem;
 }
 
 bool Package::containsReport(const QString & reportname) const
 {
-  QList<LoadReport>::const_iterator it = _reports.begin();
+  QList<LoadReport*>::const_iterator it = _reports.begin();
   for(; it != _reports.end(); ++it)
   {
-    if((*it).name() == reportname)
+    if((*it)->name() == reportname)
       return true;
   }
   return false;
@@ -286,10 +242,10 @@ bool Package::containsReport(const QString & reportname) const
 
 bool Package::containsScript(const QString & scriptname) const
 {
-  QList<Script>::const_iterator it = _scripts.begin();
+  QList<Script*>::const_iterator it = _scripts.begin();
   for(; it != _scripts.end(); ++it)
   {
-    if((*it).name() == scriptname)
+    if((*it)->name() == scriptname)
       return true;
   }
   return false;
@@ -297,10 +253,10 @@ bool Package::containsScript(const QString & scriptname) const
 
 bool Package::containsFinalScript(const QString & scriptname) const
 {
-  QList<FinalScript>::const_iterator it = _finalscripts.begin();
+  QList<FinalScript*>::const_iterator it = _finalscripts.begin();
   for(; it != _finalscripts.end(); ++it)
   {
-    if((*it).name() == scriptname)
+    if((*it)->name() == scriptname)
       return true;
   }
   return false;
@@ -308,10 +264,10 @@ bool Package::containsFinalScript(const QString & scriptname) const
 
 bool Package::containsPrerequisite(const QString & prereqname) const
 {
-  QList<Prerequisite>::const_iterator it = _prerequisites.begin();
+  QList<Prerequisite*>::const_iterator it = _prerequisites.begin();
   for(; it != _prerequisites.end(); ++it)
   {
-    if((*it).name() == prereqname)
+    if((*it)->name() == prereqname)
       return true;
   }
   return false;
@@ -319,10 +275,10 @@ bool Package::containsPrerequisite(const QString & prereqname) const
 
 bool Package::containsAppScript(const QString &pname) const
 {
-  QList<LoadAppScript>::const_iterator it = _appscripts.begin();
+  QList<LoadAppScript*>::const_iterator it = _appscripts.begin();
   for(; it != _appscripts.end(); ++it)
   {
-    if((*it).name() == pname)
+    if((*it)->name() == pname)
       return true;
   }
   return false;
@@ -330,10 +286,10 @@ bool Package::containsAppScript(const QString &pname) const
 
 bool Package::containsAppUI(const QString &pname) const
 {
-  QList<LoadAppUI>::const_iterator it = _appuis.begin();
+  QList<LoadAppUI*>::const_iterator it = _appuis.begin();
   for(; it != _appuis.end(); ++it)
   {
-    if((*it).name() == pname)
+    if((*it)->name() == pname)
       return true;
   }
   return false;
@@ -341,10 +297,10 @@ bool Package::containsAppUI(const QString &pname) const
 
 bool Package::containsImage(const QString &pname) const
 {
-  QList<LoadImage>::const_iterator it = _images.begin();
+  QList<LoadImage*>::const_iterator it = _images.begin();
   for(; it != _images.end(); ++it)
   {
-    if((*it).name() == pname)
+    if((*it)->name() == pname)
       return true;
   }
   return false;
@@ -352,10 +308,10 @@ bool Package::containsImage(const QString &pname) const
 
 bool Package::containsCmd(const QString &pname) const
 {
-  QList<LoadCmd>::const_iterator it = _cmds.begin();
+  QList<LoadCmd*>::const_iterator it = _cmds.begin();
   for(; it != _cmds.end(); ++it)
   {
-    if((*it).name() == pname)
+    if((*it)->name() == pname)
       return true;
   }
   return false;
@@ -363,10 +319,10 @@ bool Package::containsCmd(const QString &pname) const
 
 bool Package::containsFunction(const QString &pname) const
 {
-  QList<CreateFunction>::const_iterator it = _functions.begin();
+  QList<CreateFunction*>::const_iterator it = _functions.begin();
   for(; it != _functions.end(); ++it)
   {
-    if((*it).name() == pname)
+    if((*it)->name() == pname)
       return true;
   }
   return false;
@@ -374,10 +330,10 @@ bool Package::containsFunction(const QString &pname) const
 
 bool Package::containsMetasql(const QString &pname) const
 {
-  QList<LoadMetasql>::const_iterator it = _metasqls.begin();
+  QList<LoadMetasql*>::const_iterator it = _metasqls.begin();
   for(; it != _metasqls.end(); ++it)
   {
-    if((*it).name() == pname)
+    if((*it)->name() == pname)
       return true;
   }
   return false;
@@ -385,10 +341,10 @@ bool Package::containsMetasql(const QString &pname) const
 
 bool Package::containsPriv(const QString &pname) const
 {
-  QList<LoadPriv>::const_iterator it = _privs.begin();
+  QList<LoadPriv*>::const_iterator it = _privs.begin();
   for(; it != _privs.end(); ++it)
   {
-    if((*it).name() == pname)
+    if((*it)->name() == pname)
       return true;
   }
   return false;
@@ -396,10 +352,10 @@ bool Package::containsPriv(const QString &pname) const
 
 bool Package::containsTable(const QString &pname) const
 {
-  QList<CreateTable>::const_iterator it = _tables.begin();
+  QList<CreateTable*>::const_iterator it = _tables.begin();
   for(; it != _tables.end(); ++it)
   {
-    if((*it).name() == pname)
+    if((*it)->name() == pname)
       return true;
   }
   return false;
@@ -407,10 +363,10 @@ bool Package::containsTable(const QString &pname) const
 
 bool Package::containsTrigger(const QString &pname) const
 {
-  QList<CreateTrigger>::const_iterator it = _triggers.begin();
+  QList<CreateTrigger*>::const_iterator it = _triggers.begin();
   for(; it != _triggers.end(); ++it)
   {
-    if((*it).name() == pname)
+    if((*it)->name() == pname)
       return true;
   }
   return false;
@@ -418,10 +374,10 @@ bool Package::containsTrigger(const QString &pname) const
 
 bool Package::containsView(const QString &pname) const
 {
-  QList<CreateView>::const_iterator it = _views.begin();
+  QList<CreateView*>::const_iterator it = _views.begin();
   for(; it != _views.end(); ++it)
   {
-    if((*it).name() == pname)
+    if((*it)->name() == pname)
       return true;
   }
   return false;

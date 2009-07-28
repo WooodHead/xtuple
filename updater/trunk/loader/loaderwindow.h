@@ -43,8 +43,8 @@ protected:
     Package * _package;
     TarFile * _files;
 
-    virtual int  applySql(Script &, const QByteArray);
-    virtual int  applyLoadable(Loadable &, const QByteArray);
+    virtual int  applySql(Script *, const QByteArray);
+    virtual int  applyLoadable(Loadable *, const QByteArray);
     virtual void launchBrowser(QWidget *w, const QString &url);
     virtual void timerEvent( QTimerEvent * e );
 
