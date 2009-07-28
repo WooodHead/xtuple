@@ -125,36 +125,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Line Item in the Purchase Order list enables you
-  to select from the following menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewPurchaseOrder)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickRunningAvailability)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewPOItem2)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickReschedulePO)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickChangeQty)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickCloseItem)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
-  <para>If the Line Item is closed, the following option will be
-  available:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickOpenItem)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
 </section>

@@ -80,28 +80,4 @@
     </varlistentry>
   </variablelist>
 
-  <para>Right-clicking on a Customer in the Customer master list enables you
-  to select from the following menu options:</para>
-
-  <variablelist>
-    <varlistentry>
-      <term>View Customer Master</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(customersVIEW)"/>
-    </varlistentry>
-
-    <varlistentry>
-      <term>Edit Customer Master</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(customersEDIT)"/>
-    </varlistentry>
-
-    <varlistentry>
-      <term>Delete Customer Master</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(customersDELETE)"/>
-    </varlistentry>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-  </variablelist>
 </section>

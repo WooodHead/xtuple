@@ -84,33 +84,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Work Center in the Work Center list enables you to
-  select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit Work Center</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(workCentersEDIT)" />
-    </varlistentry>
-    <varlistentry>
-      <term>View Work Center</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(workCentersVIEW)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Copy Work Center</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(workCentersCOPY)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete Work Center</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(workCentersDELETE)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <xi:include href="workCenter.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />
 </section>

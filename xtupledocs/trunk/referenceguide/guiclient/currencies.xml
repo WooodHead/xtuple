@@ -94,23 +94,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Currency in the Currencies list enables you to
-  select from the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(currenicesVIEW)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(currenicesDELETE)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <xi:include href="currency.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />
 </section>

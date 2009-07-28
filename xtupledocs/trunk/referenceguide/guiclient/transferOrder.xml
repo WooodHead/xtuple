@@ -487,37 +487,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Item in the Line Items list enables you to select
-  from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit Line</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(transferOrderEDIT)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Close Line</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(transferOrderCLOSE)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete Line</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(transferOrderDELETE)" />
-    </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReturnStock)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickIssueStock)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickIssueLineBalance)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <para>Order Notes added to a Transfer Order are used for internal purposes
   only. To add Notes to a Transfer Order, select the "Order Notes" tab at the
   top of the "Transfer Order" screen. The following screen will appear:</para>

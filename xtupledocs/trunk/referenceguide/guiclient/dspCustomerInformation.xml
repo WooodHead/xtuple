@@ -304,33 +304,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Quote in the Quotes list enables you to select
-  from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>New Quote</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationNEWQuote)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Edit Quote</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationEDITQuote)" />
-    </varlistentry>
-    <varlistentry>
-      <term>View Quote</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationVIEWQuote)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Convert Quote</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationCONVERTQuote)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <para>To view open Sales Orders associated with the Customer, select the
   "Sales Orders" tab. The following screen will appear:</para>
   <para><screenshot>
@@ -398,34 +371,6 @@
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para>Right-clicking on an Order in the Sales Orders list enables you to
-  select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>New Order</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationNEWSO)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Edit Order</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationEDITSO)" />
-    </varlistentry>
-    <varlistentry>
-      <term>View Order</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationVIEWSO)" />
-    </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickShipmentStatus)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickShipments)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>To view Invoices associated with the Customer, select the "Invoices"
   tab. The following screen will appear:</para>
@@ -504,28 +449,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Invoice in the Invoices list enables you to
-  select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>New Invoice</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationNEWINV)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Edit Invoice</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationEDITINV)" />
-    </varlistentry>
-    <varlistentry>
-      <term>View Invoice</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationVIEWINV)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <para>To view Credit Memos associated with the Customer, select the "Credit
   Memos" tab. The following screen will appear:</para>
   <para><screenshot>
@@ -592,28 +515,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Credit Memo in the Credit Memos list enables you
-  to select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>New Credit Memo</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationNEW)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Edit Credit Memo</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationEDITCM)" />
-    </varlistentry>
-    <varlistentry>
-      <term>View Credit Memo</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCustomerInformationVIEWCM)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <para>To view sales history for the Customer, select the "A/R History" tab.
   The following screen will appear:</para>
   <para><screenshot>
@@ -650,19 +551,6 @@
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para>Right-clicking on an Item in the A/R History list enables you to
-  select from the following menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditAROpenItem)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewAROpenItem)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>To view Credit Card activity associated with the Customer, select the
   "CC Payments" tab. The following screen will appear:</para>

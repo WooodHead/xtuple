@@ -96,40 +96,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an unposted Purchase Order in the unposted Purchase
-  Order master list enables you to select from the following menu
-  options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedPurchaseOrdersEDIT)" />
-    </varlistentry>
-    <varlistentry>
-      <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedPurchaseOrdersVIEW)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedPurchaseOrdersDELETE)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Print</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedPurchaseOrdersPRINT)" />
-    </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickDeliver)" />
-    <varlistentry>
-      <term>Post</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedPurchaseOrdersPOST)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
 </section>

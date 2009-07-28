@@ -169,40 +169,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a To-Do List item list enables you to select from
-  the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>New</term>
-      <xi:include href="" xpointer="element(todoListNEW2)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>Edit</term>
-      <xi:include href="" xpointer="element(todoListEDIT2)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>View</term>
-      <xi:include href="" xpointer="element(todoListVIEW2)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete</term>
-      <xi:include href="" xpointer="element(todoListDELETE2)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEditIncident)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewIncident)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickCustomerWorkbench)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
 </section>

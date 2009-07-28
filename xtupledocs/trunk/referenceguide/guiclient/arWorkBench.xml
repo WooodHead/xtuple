@@ -95,43 +95,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Invoice in the Open Items list enables you to
-  select from the following menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEditOpenItem)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewOpenItem)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewInvoice)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewInvoiceDetails)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickNewCashReceipt)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickNewIncident)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewApplytoInvoice)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
-  <para>The following additional options are available when right-clicking on
-  other document types:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewApplytoDbMemo)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
   <para>To add Credit Memos and Customer Deposits to Receivables Workbench
   select the "Credits" tab. The following screen will appear:</para>
   <screenshot>
@@ -194,34 +157,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Credit Memo in the A/R Open Credit Memos and
-  Deposits list enables you to select from the following menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEditOpenItem)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewOpenItem)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <varlistentry>
-      <term>Edit Credit Memo</term>
-      <xi:include href="" xpointer="element(arWorkBenchEDITCM1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>View Credit Memo</term>
-      <xi:include href="" xpointer="element(arWorkBenchVIEWCM1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>Apply Credit Memo</term>
-      <xi:include href="" xpointer="element(arWorkBenchAPPLYCM1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
   <para>To add Cash Receipts to Receivables Workbench select the "Cash
   Receipts" tab. The following screen will appear:</para>
   <screenshot>
@@ -274,33 +209,6 @@
         Cash Receipt.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para>Right-clicking on a Cash Receipt in the Cash Receipts list enables you
-  to select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit Cash Receipt</term>
-      <xi:include href="" xpointer="element(arWorkBenchEDITCR1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>View Cash Receipt</term>
-      <xi:include href="" xpointer="element(arWorkBenchVIEWCR1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete Cash Receipt</term>
-      <xi:include href="" xpointer="element(arWorkBenchDELETECR1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>Post Cash Receipt</term>
-      <xi:include href="" xpointer="element(arWorkBenchPOSTCR1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para>To add Credit Cards to Receivables Workbench select the "Credit Card"
   tab. The following screen will appear:</para>

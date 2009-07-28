@@ -893,65 +893,10 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Item in the Line Items list enables you to select
-  from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit Line</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(salesOrderEDIT1)" />
-    </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickFirmLine)" />
-    <varlistentry>
-      <term>Close Line</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(salesOrderCLOSE1)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete Line</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(salesOrderDELETE1)" />
-    </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickShowReservations)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickUnreserveStock)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReserveStock)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReserveLineBalance)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReturnStock)" />
-    <varlistentry>
-      <term id="salesOrderISSUESTOCK">Issue Stock</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(salesOrderISSUE1STOCK)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Issue Line Balance</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(salesOrderISSUELINEBAL1)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
+  <note>
   <para>The Shipping-related options will not be visible if the system is
-  configured to hide Shipping options at Sales Order entry. Also, if a
-  highlighted Line Item is Closed, the following additional option will be
-  available:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickOpenLine)" />
-  </variablelist>
+  configured to hide Shipping options at Sales Order entry.</para>
+  </note>  
   <para>Order Notes added to a Sales Order are used for internal purposes
   only. If an Invoice results from the Sales Order, these Notes will be
   transferred to the Invoice. To add Notes to a Sales Order, select the "Order

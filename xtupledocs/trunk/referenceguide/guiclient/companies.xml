@@ -63,28 +63,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Company in the Companies list enables you to
-  select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(companiesVIEW)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(companiesEDIT)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(accountingPeriodsDELETE)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <xi:include href="company.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />
 </section>

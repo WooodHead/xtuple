@@ -81,22 +81,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Incident Category in the Incident Categories list
-  enables you to select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(incidentCategoriesEDIT)"/>
-    </varlistentry>
-    <varlistentry>
-      <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(incidentCategoriesVIEW)"/>
-    </varlistentry>
-    <varlistentry>
-      <term>Delete</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(incidentCategoriesDELETE)"/>
-    </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-  </variablelist>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="incidentCategory.xml" xpointer="element(/1)"/>
 </section>

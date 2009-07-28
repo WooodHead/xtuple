@@ -77,28 +77,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Priority in the Priorities list enables you to
-  select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit</term>
-      <xi:include href="" xpointer="element(incidentPrioritiesEDIT)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>View</term>
-      <xi:include href="" xpointer="element(incidentPrioritiesVIEW)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete</term>
-      <xi:include href="" xpointer="element(incidentPrioritiesDELETE)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
   <xi:include href="incidentPriority.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

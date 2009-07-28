@@ -16,8 +16,7 @@
   <para id="Para595235"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspInventoryHistoryByClassCode.png"
-                     />
+          <imagedata fileref="images/dspInventoryHistoryByClassCode.png" />
         </imageobject>
         <caption>Inventory History by Class Code</caption>
       </mediaobject>
@@ -89,8 +88,8 @@
           <varlistentry role="standard">
             <term>Transfers</term>
             <listitem>
-              <para>Displays Inter-Site Transfers and Location and
-              Lot/Serial Number reassignments.</para>
+              <para>Displays Inter-Site Transfers and Location and Lot/Serial
+              Number reassignments.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -121,8 +120,8 @@
     <varlistentry role="standard">
       <term id="Para520464">Selected</term>
       <listitem>
-        <para>Specify Site whose Inventory history by Class Code you want
-        to display.</para>
+        <para>Specify Site whose Inventory history by Class Code you want to
+        display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -174,29 +173,9 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para546801">Right-clicking on a transaction in the Inventory
-  History list enables you to select from the following menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewTransactionInformation)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditTransactionInfo)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <para id="Para599466">When editing transaction information, you may choose
   to exclude a transaction from Inventory analysis. Not including a
   transaction in this manner means the following Inventory analyses will
   ignore the transaction: Item Usage Statistics displays, Update Reorder
   Levels, and Update Order Up To Levels.</para>
-  <para id="Para595223">If the Order Number is associated with a Work Order,
-  the following additional menu option will also be available:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewWorkOrderInfo)" />
-  </variablelist>
 </section>

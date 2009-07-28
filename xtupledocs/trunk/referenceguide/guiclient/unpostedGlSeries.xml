@@ -78,31 +78,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an unposted Voucher in the list of unposted Voucher
-  enables you to select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit G/L Series</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unposteGLSeriesEDIT)" />
-    </varlistentry>
-    <varlistentry>
-      <term>View G/L Series</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedGlSeriesVIEW)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete G/L Series</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedGlSeriesDELETE)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Post G/L Series</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedGLSeriesPOST)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
 </section>

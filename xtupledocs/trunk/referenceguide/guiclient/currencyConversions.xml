@@ -155,28 +155,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Exchange Rate in the Exchange Rates list enables
-  you to select from the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(currencyConversionsEDIT1)" />
-    </varlistentry>
-    <varlistentry>
-      <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(currencyConversionsVIEW1)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(currencyConversionsDELETE1)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <xi:include href="currencyConversion.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />

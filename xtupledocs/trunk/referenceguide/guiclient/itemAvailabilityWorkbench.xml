@@ -123,30 +123,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para678044">Right-clicking on a Work Order in the Running
-  Availability display enables you to select from the following
-  options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewWorkOrderDetails)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
-  <para>If you right-click on a Planned Order, the following additional option
-  will also be available:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickFirmOrder)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickReleaseOrder)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickDeleteOrder)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
   <para id="Para678051">To view Inventory Availability for the specified Item,
   select the "Inventory" tab. The following screen will appear:</para>
   <para id="Para678055"><screenshot>
@@ -295,49 +271,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para678078">Right-clicking on an Item in the Availability list
-  enables you to select from the following context-sensitive menu
-  options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewInventoryHistory)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewAllocations)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewOrders)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickRunningAvailability)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickIssueCountTag)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewSubstituteAvailability)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
-  <para id="Para678086">The following additional options are available for
-  purchased Items:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickCreatePR)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickCreatePO)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
-  <para id="Para678089">The following additional option is available for
-  manufactured Items:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickCreateWO)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
   <para id="Para678091">To view a Costed Indented Bill of Materials for the
   specified Item, select the "Costed Indented BOM" tab. The following screen
   will appear:</para>
@@ -448,19 +381,6 @@
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para id="Para678116">Right-clicking on a component in the Costed Bill of
-  Materials list enables you to select from the following menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickMaintainItemCosts)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewItemCosting)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
   <para id="Para678120">To view Inventory History for the specified Item,
   select the "History" tab. The following screen will appear:</para>
@@ -611,31 +531,11 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para678154">Right-clicking on a transaction in the Inventory
-  History list enables you to select from the following menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewTransactionInformation)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEditTransactionInfo)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
   <para id="Para678158">When editing transaction information, you may choose
   to exclude a transaction from Inventory analysis. Not including a
   transaction in this manner means the following Inventory analyses will
   ignore the transaction: Item Usage Statistics displays, Update Reorder
   Levels, and Update Order Up To Levels.</para>
-  <para id="Para678159">If the Order Number is associated with a Work Order,
-  the following additional menu option will also be available:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewWorkOrderInfo)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
   <para id="Para678164" role="standard">To view Lot/Serial and/or Location
   information for the specified Item, select the "Inventory Detail" tab. The
   following screen will appear:</para>
@@ -800,24 +700,5 @@
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para id="Para678201">Right-clicking on an Item in the Bill of Materials
-  Items list enables you to select from the following menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEditBOM)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEditBOO)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEditItemMaster)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewItemInvHistory)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
 </section>

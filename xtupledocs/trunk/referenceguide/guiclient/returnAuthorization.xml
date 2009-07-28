@@ -707,63 +707,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Item in the Line Items list enables you to select
-  from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit Line</term>
-      <listitem>
-        <xi:include href="" xpointer="element(returnAuthorizationEDIT)"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Close Line</term>
-      <listitem>
-        <xi:include href="" xpointer="element(returnAuthorizationCLOSE)"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Delete Line</term>
-      <listitem>
-        <xi:include href="" xpointer="element(returnAuthorizationDELETE)"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-      </listitem>
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
-  <para>If a new Sales Order has been created for the Return Authorization,
-  the following additional options will be available:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEditNewOrder)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewNewOrder)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEditNewOrderLine)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewNewOrderLine)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickNewOrderShipStatus)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickNewOrderShipments)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
-  <para>If the Line Items were imported from an original Sales Order, the
-  following additional option will be available:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewOriginalOrder)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
   <para>Order Notes added to a Return Authorization are used for internal
   purposes only. To add Notes to a Return Authorization, select the "Order
   Notes" tab at the top of the "Return Authorization" screen. The following

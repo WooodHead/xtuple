@@ -88,19 +88,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Accounting Period enables you to select from the
-  following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(accountingPeriodsVIEW)"/>
-    </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickOpen)"/>
-    <varlistentry>
-      <term>Freeze</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(accountingPeriodsFREEZEPERIOD)"/>
-    </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-  </variablelist>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="accountingPeriod.xml" xpointer="element(/1)"/>
 </section>

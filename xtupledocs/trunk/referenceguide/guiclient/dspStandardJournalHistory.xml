@@ -96,16 +96,9 @@
     </varlistentry>
   </variablelist>
 
-  <para>Right-clicking on a Standard Journal number in the transactions list
-  enables you to select from the following menu options:</para>
-
-  <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickReverseJournal)"/>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-  </variablelist>
-
+  <note>
   <para>You may only reverse transactions which result from the posting of the
   following: Simple Journal Entry, Series Journal Entry, Standard Journal, or
   Standard Journal Group.</para>
+  </note>
 </section>

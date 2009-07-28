@@ -115,36 +115,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Invoice in the Unposted Invoices list enables you
-  to select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedInvoicesEDIT)" />
-    </varlistentry>
-    <varlistentry>
-      <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedInvoicesVIEW)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedInvoicesDELETE)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Print</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedInvoicesPRINT)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Post</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedInvoicesPOST)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
 </section>

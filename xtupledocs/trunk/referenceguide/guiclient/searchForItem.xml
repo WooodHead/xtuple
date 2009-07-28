@@ -106,33 +106,8 @@
     </varlistentry>
   </variablelist>
 
-  <para>Right-clicking on a manufactured or purchased Item in the Items list
-  enables you to select from the following menu options:</para>
-
-  <variablelist>
-    <varlistentry>
-      <term>View</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(searchForItemVIEW1)"/>
-    </varlistentry>
-
-    <varlistentry>
-      <term>Edit</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(searchForItemEDIT1)"/>
-    </varlistentry>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewBOM)"/>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditBOM)"/>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewBOO)"/>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditBOO)"/>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-  </variablelist>
-
-  <para>Fewer options will be available for Items which are neither
+  <note>
+  <para>Fewer right-click options will be available for Items which are neither
   manufactured nor purchased.</para>
+  </note>
 </section>
