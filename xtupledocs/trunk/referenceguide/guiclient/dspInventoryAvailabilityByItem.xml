@@ -159,46 +159,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Item in the Availability list enables you to
-  select from the following context-sensitive menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewInventoryHistory)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewAllocations)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewOrders)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickRunningAvailability)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickIssueCountTag)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickInvoiceInformation)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
-  <para>The following additional options are available for purchased
-  Items:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickCreatePR)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickCreatePO)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
-  <para>The following additional option is available for manufactured
-  Items:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickCreateWO)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
 </section>

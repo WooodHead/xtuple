@@ -290,38 +290,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Item in the Bill of Operations Item list enables
-  you to select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>View</term>
-      <xi:include href="" xpointer="element(booVIEW)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>Edit</term>
-      <xi:include href="" xpointer="element(booEDIT)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>Expire</term>
-      <xi:include href="" xpointer="element(booEXPIRE)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>Move Up</term>
-      <xi:include href="" xpointer="element(booMOVEUP)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>Move Down</term>
-      <xi:include href="" xpointer="element(booMOVEDOWN)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
-  <xi:include href="booItem.xml" xpointer="element(/1)"
+    <xi:include href="booItem.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

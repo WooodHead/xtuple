@@ -68,28 +68,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Country in the Countries list enables you to
-  select from the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(countriesEDIT)" />
-    </varlistentry>
-    <varlistentry>
-      <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(countiresVIEW)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(countriesDELETE)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <xi:include href="country.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />
 </section>

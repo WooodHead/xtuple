@@ -225,16 +225,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Purchase Order in the Purchase Orders list enables
-  you to select from the following menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewPurchaseOrder)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <para>To view Receipts and Returns associated with the Vendor, select the
   "Receipts and Returns" tab. The following screen will appear:</para>
   <para><screenshot>
@@ -321,26 +311,6 @@
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para>Right-clicking on a Receipt in the Receipts and Returns list enables
-  you to select from the following menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickMarkasInvoiced)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCorrectReceiving)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
-  <para>If the Receipt is not yet vouchered, then the following additional
-  option will be available:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCreateVoucher)" />
   </variablelist>
   <para>To view open Payables associated with the Vendor, select the
   "Payables" tab. The following screen will appear:</para>
@@ -529,22 +499,6 @@
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para>Right-clicking on an Item in the A/R History list enables you to
-  select from the following menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEdit)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewAPOpen)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewGLSeries)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>To view Checks associated with the Vendor, select the "Checks" tab.
   The following screen will appear:</para>

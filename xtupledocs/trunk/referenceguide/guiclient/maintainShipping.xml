@@ -70,16 +70,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a parent Order in the "Stock at Shipping" list
-  enables you to select from the following menu options:</para>
-  <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickShippingInformation)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickReturnALLStockIssuedtoOrder)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewSalesOrder)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickPrintShippingForm)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickShipOrder)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-  </variablelist>
   <tip>
     <para>Before a Sales Order can be shipped successfully, Sales Account and
     A/R Account Assignments for the specified Customer must be in

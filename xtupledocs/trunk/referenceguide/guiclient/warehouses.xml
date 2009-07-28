@@ -63,26 +63,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Site in the Sites list enables you to
-  select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(warehousesEDIT)" />
-    </varlistentry>
-    <varlistentry>
-      <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(warehousesVIEW)" />
-    </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickListItemSites)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <xi:include href="warehouse.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />
 </section>

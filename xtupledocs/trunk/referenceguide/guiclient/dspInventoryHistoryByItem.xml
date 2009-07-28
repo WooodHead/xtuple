@@ -167,29 +167,11 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a transaction in the Inventory History list enables
-  you to select from the following menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewTransactionInformation)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickEditTransactionInfo)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
+  <note>
   <para>When editing transaction information, you may choose to exclude a
   transaction from Inventory analysis. Not including a transaction in this
   manner means the following Inventory analyses will ignore the transaction:
   Item Usage Statistics displays, Update Reorder Levels, and Update Order Up
   To Levels.</para>
-  <para>If the Order Number is associated with a Work Order, the following
-  additional menu option will also be available:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickViewWorkOrderInfo)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
+  </note>
 </section>

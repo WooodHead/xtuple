@@ -139,25 +139,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Contact in the Contact list enables you to select
-  from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>View</term>
-      <listitem>
-        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(searchForContactVIEW)" />
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Edit</term>
-      <listitem>
-        <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(searchForContactEDIT)" />
-      </listitem>
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
 </section>

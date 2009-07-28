@@ -133,16 +133,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a line item in the transactions list enables you to
-  select from the following menu options:</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickView)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <note>
     <para>If the transaction refers to an Invoice, Purchase Order, or Voucher,
     you may also drill down to view the original Document.</para>

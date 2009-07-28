@@ -77,23 +77,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Item in the list of undefined manufactured Items
-  enables you to select the following menu options. The "Create BOM" option
-  will appear only if the Item does not have a Bill of Materials. The "Create
-  BOO" option will appear only if the Item does not have a Bill of
-  Operations.</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCreateBOM)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCreateBOO)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/7/2/6)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
 </section>

@@ -131,26 +131,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Operation in the Operations list enables you to
-  select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>View Operation</term>
-      <xi:include href="" xpointer="element(workOrderOperationsVIEW)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>Edit Operation</term>
-      <xi:include href="" xpointer="element(workOrderOperationsEDIT)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete Operation</term>
-      <xi:include href="" xpointer="element(workOrderOperationsDELETE)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
 </section>

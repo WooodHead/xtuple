@@ -262,33 +262,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a To-Do item in the list enables you to select from
-  the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>New</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(incidentNEW)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(incidentEDIT)" />
-    </varlistentry>
-    <varlistentry>
-      <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(incidentVIEW)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(incidentDELETE)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
   <para>To view the history associated with an Incident, select the "History"
   tab. The following screen will appear:</para>
   <para><screenshot>

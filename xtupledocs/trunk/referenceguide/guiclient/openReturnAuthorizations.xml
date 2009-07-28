@@ -102,40 +102,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Return Authorization in the Return Authorizations
-  list enables you to select from the following menu options:</para>
-  <tip>
-    <para>You must have a Form "keyed on" Return Authorizations to
-    successfully print a Return Authorization. The keyed on process is
-    described here: <xref linkend="formCreateNew" />.</para>
-  </tip>
-  <variablelist>
-    <varlistentry>
-      <term>Edit</term>
-      <listitem>
-        <xi:include href="" xpointer="element(openReturnAuthorizationsEDIT)"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>View</term>
-      <listitem>
-        <xi:include href="" xpointer="element(openReturnAuthorizationsVIEW)"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Delete</term>
-      <listitem>
-        <xi:include href="" xpointer="element(openReturnAuthorizationsDELETE)"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-      </listitem>
-    </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xpointer="element(rightclickPrintReturnAuthForm)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xpointer="element(xtreewidget.menu.exportcontents)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </variablelist>
 </section>

@@ -61,16 +61,9 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Costing Element in the Costing Elements list
-  enables you to select from the following menu options. If the Costing
+  <note>
+  <para>If the Costing
   Element does not contain lower level Costs, you will not be given the option
   to view Costing detail.</para>
-  <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewCostingDetail)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
+  </note>
 </section>

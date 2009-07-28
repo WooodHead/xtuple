@@ -139,31 +139,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Transfer Order in the Transfer Orders list enables
-  you to select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(transferOrdersEDIT)"/>
-    </varlistentry>
-    <varlistentry>
-      <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(transferOrdersVIEW)"/>
-    </varlistentry>
-    <varlistentry>
-      <term>Delete</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(transferOrdersDELETE)"/>
-    </varlistentry>
-    <varlistentry>
-      <term>Issue to Shipping</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(transferOrdersISSUESTOCK)"/>
-    </varlistentry>
-    <varlistentry>
-      <term>Copy</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(transferOrdersCOPY)"/>
-    </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickPrintPackingList)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickAddtoPackingListBatch)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-  </variablelist>
 </section>

@@ -186,34 +186,9 @@
     </varlistentry>
   </variablelist>
 
-  <para>Right-clicking on an Event in the Event list enables you to select
-  from a variety of menu options. The following example illustrates the
-  options available when right-clicking on an Event generated as the result of
-  QOH for an Item Site having fallen below 0:</para>
-
-  <variablelist>
-    <varlistentry>
-      <term>Acknowledge</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(eventManagerACKNOWLEDGE1)"/>
-    </varlistentry>
-
-    <varlistentry>
-      <term>Delete</term>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(eventManagerDELETE1)"/>
-    </varlistentry>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickIssueCountTag)"/>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewInventoryHistory)"/>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewInventoryAvailability)"/>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-  </variablelist>
-
+  <note>
   <para>The right-click menu options will vary, depending on the module the
   Event originates from. User privileges will also affect available
   right-click menu options.</para>
+  </note>
 </section>

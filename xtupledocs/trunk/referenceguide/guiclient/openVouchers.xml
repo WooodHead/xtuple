@@ -118,31 +118,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an unposted Voucher in the list of unposted Vouchers
-  enables you to select from the following menu options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Edit Voucher</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(openVouchersEDIT)" />
-    </varlistentry>
-    <varlistentry>
-      <term>View Voucher</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(openVouchersVIEW)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Delete Voucher</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(openVouchersDELETE)" />
-    </varlistentry>
-    <varlistentry>
-      <term>Post Voucher</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(openVouchersPOST)" />
-    </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
-  </variablelist>
 </section>
