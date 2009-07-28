@@ -146,50 +146,48 @@
   select from the following context-sensitive menu options:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewAllocations)" />
+                xpointer="element(rightclickViewAllocations)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewOrders)" />
+                xpointer="element(rightclickViewOrders)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickRunningAvailability)" />
+                xpointer="element(rightclickRunningAvailability)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickSubstituteAvailability)" />
+                xpointer="element(rightclickSubstituteAvailability)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickIssueWorkOrder)" />
+                xpointer="element(rightclickIssueWorkOrder)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickShowReservations)" />
+                xpointer="element(rightclickShowReservations)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickUnreserveStock)" />
+                xpointer="element(rightclickUnreserveStock)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReserveStock)" />
+                xpointer="element(rightclickReserveStock)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReserveLineBalance)" />
+                xpointer="element(rightclickReserveLineBalance)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickIssueCountTag)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+                xpointer="element(rightclickIssueCountTag)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
+  <xi:include href="../widgets/xtreewidget.xml"
+              xpointer="xtreewidget.menu.exportcontents"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>The following additional option is available for purchased
   Items:</para>
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickIssuePurchaseOrder)" />
+                xpointer="element(rightclickIssuePurchaseOrder)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </variablelist>
-  <xi:include href="reserveSalesOrderItem.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
-  <xi:include href="dspReservations.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="reserveSalesOrderItem.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="dspReservations.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
