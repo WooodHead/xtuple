@@ -113,7 +113,7 @@ BEGIN
 			
 			IF(pUpdateCharPrices) THEN
 				UPDATE ipsitemchar
-				SET ipsitemchar_price = ROUND( (ipsitemchar_price * _percentMultiplier), _currencyDecimals );
+				SET ipsitemchar_price = noNeg(ROUND( (ipsitemchar_price * _percentMultiplier), _currencyDecimals ));
 				
 				GET DIAGNOSTICS _charRows = ROW_COUNT;
 			END IF;
