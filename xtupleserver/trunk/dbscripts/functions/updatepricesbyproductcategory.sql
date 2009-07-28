@@ -11,11 +11,6 @@ BEGIN
 
 	IF NOT (checkPrivilege('MaintainPricingSchedules')) THEN
 		RAISE EXCEPTION 'You do not have privileges to maintain Price Schedules.';
-	ELSIF has_schema_privilege(current_user, current_schema(), 'CREATE') THEN
-		-- This can only be done by a user with schema CREATE privileges (typically admin or a superuser)
-		-- Disable the triggers for performance
-		ALTER TABLE ipsitem DISABLE TRIGGER ipsitembeforetrigger;
-		ALTER TABLE ipsitemchar DISABLE TRIGGER ipsitemcharbeforetrigger;
 	END IF;
 
 	-- Get the current user's currency precision
@@ -30,7 +25,7 @@ BEGIN
 		IF (pProdCatId IS NOT NULL) THEN
 			-- Specified category id
 			UPDATE ipsitem 
-			SET ipsitem_price = ROUND( (ipsitem_price + pUpdateBy), _currencyDecimals )
+			SET ipsitem_price = noNeg(ROUND( (ipsitem_price + pUpdateBy), _currencyDecimals ))
 			FROM item
 			WHERE 
 				ipsitem_item_id = item_id
@@ -39,7 +34,7 @@ BEGIN
 		ELSIF (pProdCatPattern IS NOT NULL) THEN
 			-- Pattern match category
 			UPDATE ipsitem 
-			SET ipsitem_price = ROUND( (ipsitem_price + pUpdateBy), _currencyDecimals )
+			SET ipsitem_price = noNeg(ROUND( (ipsitem_price + pUpdateBy), _currencyDecimals ))
 			FROM item
 			WHERE 
 				ipsitem_item_id = item_id
@@ -50,7 +45,7 @@ BEGIN
 		ELSE
 			-- All categories
 			UPDATE ipsitem 
-			SET ipsitem_price = ROUND( (ipsitem_price + pUpdateBy), _currencyDecimals );
+			SET ipsitem_price = noNeg(ROUND( (ipsitem_price + pUpdateBy), _currencyDecimals ));
 		END IF;
 		
 		GET DIAGNOSTICS _itemRows = ROW_COUNT;
@@ -60,7 +55,7 @@ BEGIN
 		IF (pProdCatId IS NOT NULL) THEN
 			-- Specified category id
 			UPDATE ipsitem 
-			SET ipsitem_price = ROUND( (ipsitem_price * _percentMultiplier), _currencyDecimals )
+			SET ipsitem_price = noNeg(ROUND( (ipsitem_price * _percentMultiplier), _currencyDecimals ))
 			FROM item
 			WHERE 
 				ipsitem_item_id = item_id
@@ -70,7 +65,7 @@ BEGIN
 
 			IF(pUpdateCharPrices) THEN
 				UPDATE ipsitemchar
-				SET ipsitemchar_price = ROUND( (ipsitemchar_price * _percentMultiplier), _currencyDecimals )
+				SET ipsitemchar_price = noNeg(ROUND( (ipsitemchar_price * _percentMultiplier), _currencyDecimals ))
 				FROM ipsitem, item
 				WHERE
 					item_prodcat_id = pProdCatId
@@ -83,7 +78,7 @@ BEGIN
 		ELSIF (pProdCatPattern IS NOT NULL) THEN
 			-- Pattern match category
 			UPDATE ipsitem 
-			SET ipsitem_price = ROUND( (ipsitem_price * _percentMultiplier), _currencyDecimals )
+			SET ipsitem_price = noNeg(ROUND( (ipsitem_price * _percentMultiplier), _currencyDecimals ))
 			FROM item
 			WHERE 
 				item_prodcat_id IN (
@@ -96,7 +91,7 @@ BEGIN
 
 			IF(pUpdateCharPrices) THEN
 				UPDATE ipsitemchar
-				SET ipsitemchar_price = ROUND( (ipsitemchar_price * _percentMultiplier), _currencyDecimals )
+				SET ipsitemchar_price = noNeg(ROUND( (ipsitemchar_price * _percentMultiplier), _currencyDecimals ))
 				FROM ipsitem, item
 				WHERE
 					item_prodcat_id IN (
@@ -112,7 +107,7 @@ BEGIN
 		ELSE
 			-- All categories
 			UPDATE ipsitem 
-			SET ipsitem_price = ROUND( (ipsitem_price * _percentMultiplier), _currencyDecimals );
+			SET ipsitem_price = noNeg(ROUND( (ipsitem_price * _percentMultiplier), _currencyDecimals ));
 			
 			GET DIAGNOSTICS _itemRows = ROW_COUNT;
 			
@@ -125,13 +120,6 @@ BEGIN
 			
 		END IF;
 
-	END IF;
-
-	IF has_schema_privilege(current_user, current_schema(), 'CREATE') THEN
-		-- This can only be done by a user with schema CREATE privileges (typically admin or a superuser)
-		-- Enable the triggers disabled previously
-		ALTER TABLE ipsitem ENABLE TRIGGER ipsitembeforetrigger;
-		ALTER TABLE ipsitemchar ENABLE TRIGGER ipsitemcharbeforetrigger;
 	END IF;
 
 	RETURN _itemRows + _charRows;
