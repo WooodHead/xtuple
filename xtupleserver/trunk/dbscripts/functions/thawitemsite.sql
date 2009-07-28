@@ -1,7 +1,8 @@
-CREATE OR REPLACE FUNCTION thawItemSite(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION thawItemSite(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pItemsiteid ALIAS FOR $1;
   _qoh NUMERIC;
+  _value NUMERIC;
   _itemlocid INTEGER;
   _itemloc RECORD;
   _invhist RECORD;
@@ -27,7 +28,7 @@ BEGIN
 
 --  Run through any invdetail if this itemsite is still MLC and/or Lot/Serial
     IF ( SELECT ( (itemsite_loccntrl) OR
-                  (itemsite_controlmethod IN (''L'', ''S'')) )
+                  (itemsite_controlmethod IN ('L', 'S')) )
          FROM itemsite
          WHERE (itemsite_id=pItemsiteid) ) THEN
 
@@ -53,7 +54,7 @@ BEGIN
 
 --  If the itemloc in question cannot be found, create it
         IF (NOT FOUND) THEN
-          SELECT NEXTVAL(''itemloc_itemloc_id_seq'') INTO _itemlocid;
+          SELECT NEXTVAL('itemloc_itemloc_id_seq') INTO _itemlocid;
           INSERT INTO itemloc
           ( itemloc_id, itemloc_itemsite_id,
             itemloc_location_id, itemloc_ls_id,
@@ -109,43 +110,51 @@ BEGIN
     END IF; 
 
 --  Cache the inital qoh of the itemsite
-    SELECT itemsite_qtyonhand INTO _qoh
+    SELECT itemsite_qtyonhand, itemsite_value INTO _qoh, _value
     FROM itemsite
     WHERE (itemsite_id=pItemsiteid);
 
 --  We have to un-freeze the itemsite before update-ing its QOH
---  so that that itemsite trigger won''t block the QOH update.
---  Also so the invhist trigger won''t block the posted update.
+--  so that that itemsite trigger won't block the QOH update.
+--  Also so the invhist trigger won't block the posted update.
 
     UPDATE itemsite
     SET itemsite_freeze=FALSE
     WHERE (itemsite_id=pItemsiteid);
 
-    FOR _invhist IN SELECT invhist_id, invhist_qoh_before, invhist_qoh_after
-                    FROM invhist
-                    WHERE ((invhist_itemsite_id=pItemsiteid)
-                     AND (NOT invhist_posted))
-                    ORDER BY invhist_transdate LOOP
+    FOR _invhist IN SELECT invhist_id,
+                           invhist_qoh_before, invhist_qoh_after,
+                           invhist_value_before, invhist_value_after
+                      FROM invhist
+                     WHERE((invhist_itemsite_id=pItemsiteid)
+                       AND (NOT invhist_posted))
+                     ORDER BY invhist_transdate LOOP
 
       UPDATE invhist
       SET invhist_qoh_before = _qoh,
           invhist_qoh_after = ( _qoh +
                                 _invhist.invhist_qoh_after -
                                 _invhist.invhist_qoh_before ),
+          invhist_value_before = _value,
+          invhist_value_after = ( _value +
+                                  _invhist.invhist_value_after -
+                                  _invhist.invhist_value_before ),
           invhist_posted = TRUE
       WHERE (invhist_id=_invhist.invhist_id);
 
-      _qoh := (_qoh + _invhist.invhist_qoh_after - _invhist.invhist_qoh_before);
+      _qoh := (_qoh + (_invhist.invhist_qoh_after - _invhist.invhist_qoh_before));
+      _value := (_value + (_invhist.invhist_value_after - _invhist.invhist_value_before));
 
     END LOOP;
 
     UPDATE itemsite
-    SET itemsite_qtyonhand = _qoh
-    WHERE (itemsite_id=pItemsiteid);
+       SET itemsite_qtyonhand = _qoh,
+           itemsite_value = _value
+     WHERE(itemsite_id=pItemsiteid);
 
   END IF;
 
   RETURN pItemsiteid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
