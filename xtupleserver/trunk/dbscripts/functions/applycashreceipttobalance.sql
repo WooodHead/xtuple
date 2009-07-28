@@ -37,7 +37,7 @@ BEGIN
 --  Loop through the aropen item in order of due date, searching only for
 --  aropen items that are open, for the current customer and have an outstanding balance
   FOR _r IN SELECT aropen_id,
-               currToCurr(aropen_curr_id, 1,
+               currToCurr(aropen_curr_id, cashrcpt_curr_id,
                aropen_amount - aropen_paid, aropen_docdate) -
                COALESCE((SELECT SUM(cashrcptitem_amount)
                            FROM cashrcptitem, cashrcpt
