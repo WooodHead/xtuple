@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION checkPrivilege(text) RETURNS BOOLEAN AS '
+CREATE OR REPLACE FUNCTION checkPrivilege(text) RETURNS BOOLEAN STABLE AS $$
 DECLARE
   pPrivilege ALIAS FOR $1;
   _result TEXT;
@@ -25,4 +25,4 @@ BEGIN
     RETURN false;
   END IF;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
