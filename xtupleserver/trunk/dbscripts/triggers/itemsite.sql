@@ -43,6 +43,9 @@ BEGIN
          AND (evnttype_name='QOHBelowZero') );
       END IF;
     END IF;
+    IF ( (NEW.itemsite_value <> OLD.itemsite_value) AND (OLD.itemsite_freeze) ) THEN
+      NEW.itemsite_value := OLD.itemsite_value;
+    END IF;
   END IF;
 
   IF (NEW.itemsite_qtyonhand < 0 AND NEW.itemsite_costmethod = 'A') THEN
