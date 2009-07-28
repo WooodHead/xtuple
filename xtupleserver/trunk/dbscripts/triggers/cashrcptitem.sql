@@ -20,7 +20,7 @@ BEGIN
   END IF;
 
   -- Over Application
-  SELECT round(currToCurr(aropen_curr_id, 1,
+  SELECT round(currToCurr(aropen_curr_id, cashrcpt_curr_id,
                aropen_amount - aropen_paid, aropen_docdate) -
                COALESCE((SELECT SUM(cashrcptitem_amount)
                            FROM cashrcptitem, cashrcpt
