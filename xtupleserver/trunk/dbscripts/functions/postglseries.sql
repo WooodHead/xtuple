@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION postGLSeries(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postGLSeries(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pSequence ALIAS FOR $1;
   _journalNumber INTEGER;
@@ -7,13 +7,13 @@ DECLARE
 
 BEGIN
 
-  SELECT postGLSeries(pSequence, fetchJournalNumber(''G/L'')) INTO _returnValue;
+  SELECT postGLSeries(pSequence, fetchJournalNumber('G/L')) INTO _returnValue;
   RETURN _returnValue;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION postGLSeries(INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postGLSeries(INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pSequence ALIAS FOR $1;
   pJournalNumber ALIAS FOR $2;
@@ -25,9 +25,9 @@ BEGIN
   RETURN _returnValue;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION postGLSeries(INTEGER, INTEGER, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postGLSeries(INTEGER, INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pSequence 		ALIAS FOR $1;
   pJournalNumber 	ALIAS FOR $2;
@@ -35,17 +35,18 @@ DECLARE
   _glseries RECORD;
   _transCount INTEGER := 0;
   _delta NUMERIC;
+  _discrepDate DATE;
   _discrepAccntid INTEGER;
 BEGIN
 
 --  Make sure that we balance
-  SELECT SUM(glseries_amount) INTO _delta
+  SELECT SUM(glseries_amount), MAX(glseries_distdate) INTO _delta, _discrepDate
     FROM glseries
    WHERE (glseries_sequence=pSequence);
   IF ( _delta <> 0 ) THEN
     SELECT accnt_id INTO _discrepAccntid
       FROM accnt, metric
-     WHERE ((metric_name=''GLSeriesDiscrepancyAccount'')
+     WHERE ((metric_name='GLSeriesDiscrepancyAccount')
        AND  (accnt_id=CAST(metric_value AS INTEGER)));
     IF (NOT FOUND) THEN
       RETURN -5;
@@ -54,7 +55,7 @@ BEGIN
            ( glseries_sequence, glseries_source, glseries_doctype, glseries_docnumber,
              glseries_accnt_id, glseries_amount, glseries_distdate, glseries_notes )
     SELECT glseries_sequence, glseries_source, glseries_doctype, glseries_docnumber,
-             _discrepAccntid, (_delta * -1), CURRENT_DATE, ''G/L Series Discrepancy''
+             _discrepAccntid, (_delta * -1), _discrepDate, 'G/L Series Discrepancy'
       FROM glseries
      WHERE (glseries_sequence=pSequence)
      LIMIT 1;
@@ -76,7 +77,7 @@ BEGIN
         FROM accnt LEFT OUTER JOIN
              period ON (_glseries.glseries_distdate BETWEEN period_start AND period_end)
         WHERE (accnt_id = _glseries.glseries_accnt_id)) THEN
-      RAISE EXCEPTION ''Cannot post to closed period (%).'', _glseries.glseries_distdate;
+      RAISE EXCEPTION 'Cannot post to closed period (%).', _glseries.glseries_distdate;
       RETURN -4;        -- remove raise exception when all callers check return code
     END IF;
 
@@ -103,5 +104,5 @@ BEGIN
   RETURN _transCount;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
