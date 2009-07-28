@@ -16,6 +16,8 @@
 
 #include "script.h"
 
+#include <metasql.h>
+
 class QDomDocument;
 class QDomElement;
 
@@ -26,10 +28,10 @@ class Loadable
   public:
     Loadable(const QString &nodename, const QString &name,
              const int grade = 0, const bool system = false,
+             const QString &schema  = QString::null,
              const QString &comment = QString::null,
              const QString &filename = QString::null);
     Loadable(const QDomElement &, const bool system, QStringList &, QList<bool> &);
-
     virtual ~Loadable();
 
     virtual QDomElement createElement(QDomDocument &doc);
@@ -49,29 +51,37 @@ class Loadable
     virtual void    setOnError(Script::OnError onError) { _onError = onError; }
     virtual void    setSystem(const bool p)             { _system = p; }
     virtual bool    system()   const { return _system; }
-
-    virtual int     writeToDB(const QByteArray &data, const QString pkgname,
-                              QString &errMsg) = 0;
+    virtual int writeToDB(const QByteArray &pdata, const QString pkgname,
+                          QString &errMsg) = 0;
 
     static QRegExp trueRegExp;
     static QRegExp falseRegExp;
 
   protected:
-    QString _comment;
-    QString _filename;
-    int     _grade;
-    bool    _inpackage;
-    QString _name;
-    QString _nodename;
-    Script::OnError _onError;
-    QString _pkgitemtype;
-    bool    _system;
 
+    QString      _comment;
+    QString      _filename;
+    int          _grade;
+    bool         _inpackage;
+    MetaSQLQuery *_insertMql;
+    MetaSQLQuery *_selectMql;
+    MetaSQLQuery *_maxMql;
+    MetaSQLQuery *_minMql;
+    QString      _name;
+    QString      _nodename;
+    Script::OnError _onError;
+    QString      _pkgitemtype;
+    QString      _schema;
+    bool         _system;
+    MetaSQLQuery *_updateMql;
+
+    virtual int writeToDB(const QByteArray &pdata, const QString pkgname,
+                          QString &errMsg, ParameterList &params);
     virtual int upsertPkgItem(int &pkgitemid, const int pkghead,
                               const int itemid, QString &errMsg);
 
-    static QString _sqlerrtxt;
-    static QString _pkgitemQueryStr;
+    static MetaSQLQuery _pkgitemMql;
+    static QString      _sqlerrtxt;
 };
 
 #endif

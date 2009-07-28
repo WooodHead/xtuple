@@ -78,178 +78,84 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
     return -3;
   }
 
-  if (_grade == INT_MIN)
-  {
-    XSqlQuery minOrder;
-    minOrder.prepare("SELECT MIN(report_grade) AS min "
-                     "FROM report "
-                     "WHERE (report_name=:name);");
-    minOrder.bindValue(":name", _name);
-    minOrder.exec();
-    if (minOrder.first())
-      _grade = minOrder.value(0).toInt();
-    else if (minOrder.lastError().type() != QSqlError::NoError)
-    {
-      QSqlError err = minOrder.lastError();
-      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-      return -4;
-    }
-    else
-      _grade = 0;
-  }
-  else if (_grade == INT_MAX)
-  {
-    XSqlQuery maxOrder;
-    maxOrder.prepare("SELECT MAX(report_grade) AS max "
-                     "FROM report "
-                     "WHERE (report_name=:name);");
-    maxOrder.bindValue(":name", _name);
-    maxOrder.exec();
-    if (maxOrder.first())
-      _grade = maxOrder.value(0).toInt();
-    else if (maxOrder.lastError().type() != QSqlError::NoError)
-    {
-      QSqlError err = maxOrder.lastError();
-      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-      return -5;
-    }
-    else
-      _grade = 0;
-  }
-
-  XSqlQuery select;
-  XSqlQuery upsert;
-
-  int reportid  = -1;
-  int pkgheadid = -1;
-  int pkgitemid = -1;
-
-  /* The following ugliness exists to avoid
+  /* the following block avoids
       ERROR:  duplicate key violates unique constraint "report_name_grade_idx"
    */
-  QString rptselect("SELECT report_id, -1, -1"
-                    "  FROM report "
-                    " WHERE ((report_name=:name) "
-                    "    AND (report_grade=:grade) );");
-
-  if (pkgname.isEmpty())
+  if (! pkgname.isEmpty())
   {
-    select.prepare(rptselect);
+    // if there's a version of the report that's not part of this pkg
+    XSqlQuery select;
+    select.prepare("SELECT report_id "
+                   "FROM report r JOIN pg_class c ON (r.tableoid=c.oid)"
+                   "              JOIN pg_namespace n ON (relnamespace=n.oid) "
+                   "WHERE ((report_name=:name)"
+                   "  AND  (report_grade=:grade)"
+                   "  AND  (nspname<>:pkgname));");
     select.bindValue(":name",    _name);
     select.bindValue(":grade",   _grade);
-    select.exec();
-    if(select.first())
-      reportid = select.value(0).toInt();
-    else if (select.lastError().type() != QSqlError::NoError)
-    {
-      QSqlError err = select.lastError();
-      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-      return -6;
-    }
-  }
-  else 
-  {
-    select.prepare(_pkgitemQueryStr);
-    select.bindValue(":name",    _name);
     select.bindValue(":pkgname", pkgname);
-    //select.bindValue(":grade",   _grade); //TODO: add to _pkgitemquerystr?
-    select.bindValue(":type",    _pkgitemtype);
     select.exec();
     if(select.first())
     {
-      reportid  = select.value(0).toInt();
-      pkgheadid = select.value(1).toInt();
-      pkgitemid = select.value(2).toInt();
+      // then find the next open higher grade
+      XSqlQuery next;
+      next.prepare("SELECT MIN(sequence_value) AS next "
+                       "FROM sequence "
+                       "WHERE ((sequence_value NOT IN ("
+                       "      SELECT report_grade"
+                       "      FROM report"
+                       "      WHERE (report_name=:name)))"
+                       "  AND (sequence_value>=:grade));");
+      next.bindValue(":name", _name);
+      next.bindValue(":grade",   _grade);
+      next.exec();
+      if (next.first())
+        _grade = next.value(0).toInt();
+      else if (next.lastError().type() != QSqlError::NoError)
+      {
+        QSqlError err = next.lastError();
+        errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+        return -8;
+      }
     }
     else if (select.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = select.lastError();
       errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-      return -7;
-    }
-    if (reportid < 0)   // select told us there's no report *in* the package
-    {
-      // if there's a version of the report that's not part of the package
-      select.prepare(rptselect);
-      select.bindValue(":name",    _name);
-      select.bindValue(":grade",   _grade);
-      select.exec();
-      if(select.first())
-      {
-        // then insert a new one with a higher grade
-        XSqlQuery next;
-        next.prepare("SELECT MIN(sequence_value) AS next "
-                         "FROM sequence "
-                         "WHERE ((sequence_value NOT IN ("
-                         "      SELECT report_grade"
-                         "      FROM report"
-                         "      WHERE (report_name=:name)))"
-                         "  AND (sequence_value>=:grade));");
-        next.bindValue(":name", _name);
-        next.bindValue(":grade",   _grade);
-        next.exec();
-        if (next.first())
-          _grade = next.value(0).toInt();
-        else if (next.lastError().type() != QSqlError::NoError)
-        {
-          QSqlError err = next.lastError();
-          errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-          return -8;
-        }
-      }
-      else if (select.lastError().type() != QSqlError::NoError)
-      {
-        QSqlError err = select.lastError();
-        errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-        return -9;
-      }
+      return -9;
     }
   }
 
-  if (reportid >= 0)
-    upsert.prepare(QString("UPDATE %1report "
-                           "   SET report_descrip=:notes, "
-                           "       report_source=:source "
-                           " WHERE (report_id=:id);")
-                          .arg(_system ? "" : "pkg"));
-  else
-  {
-    upsert.exec("SELECT NEXTVAL('report_report_id_seq');");
-    if (upsert.first())
-      reportid = upsert.value(0).toInt();
-    else if (upsert.lastError().type() != QSqlError::NoError)
-    {
-      QSqlError err = upsert.lastError();
-      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-      return -10;
-    }
+  _minMql = new MetaSQLQuery("SELECT MIN(report_grade) AS min "
+                   "FROM report "
+                   "WHERE (report_name=<? value(\"name\") ?>);");
 
-    upsert.prepare(QString("INSERT INTO %1report "
-                           "       (report_id, report_name, report_grade, "
-                           "        report_source, report_descrip)"
-                           "VALUES (:id, :name, :grade, :source, :notes);")
-                          .arg(_system ? "" : "pkg"));
-    upsert.bindValue(":grade",   _grade);
-    upsert.bindValue(":name",    _name);
-  }
+  _maxMql = new MetaSQLQuery("SELECT MAX(report_grade) AS max "
+                   "FROM report "
+                   "WHERE (report_name=<? value(\"name\") ?>);");
 
-  upsert.bindValue(":id",      reportid);
-  upsert.bindValue(":source",  report_src);
-  upsert.bindValue(":notes",   _comment);
+  _selectMql = new MetaSQLQuery("SELECT report_id, -1, -1"
+                      "  FROM report "
+                      " WHERE ((report_name=<? value(\"name\") ?>) "
+                      "    AND (report_grade=<? value(\"grade\") ?>) );");
 
-  if (!upsert.exec())
-  {
-    QSqlError err = upsert.lastError();
-    errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-    return -11;
-  }
+  _updateMql = new MetaSQLQuery("UPDATE <? literal(\"tablename\") ?> "
+                      "   SET report_descrip=<? value(\"notes\") ?>, "
+                      "       report_source=<? value(\"source\") ?> "
+                      " WHERE (report_id=<? value(\"id\") ?>) "
+                      "RETURNING report_id AS id;");
 
-  if (pkgheadid >= 0)
-  {
-    int tmp = upsertPkgItem(pkgitemid, pkgheadid, reportid, errMsg);
-    if (tmp < 0)
-      return tmp;
-  }
+  _insertMql = new MetaSQLQuery("INSERT INTO <? literal(\"tablename\") ?> ("
+                      "    report_id, report_name,"
+                      "    report_grade, report_source, report_descrip"
+                      ") VALUES ("
+                      "    DEFAULT, <? value(\"name\") ?>,"
+                      "    <? value(\"grade\") ?>, <? value(\"source\") ?>,"
+                      "    <? value(\"notes\") ?>) "
+                      "RETURNING report_id AS id;");
 
-  return 0;
+  ParameterList params;
+  params.append("tablename", "report");
+
+  return Loadable::writeToDB(pdata, pkgname, errMsg, params);
 }

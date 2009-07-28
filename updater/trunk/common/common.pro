@@ -13,7 +13,8 @@ include( ../global.pri )
 TEMPLATE = lib
 CONFIG += qt warn_on thread staticlib
 
-INCLUDEPATH += $(QTDIR)/src/3rdparty/zlib ../$${OPENRPT_DIR}/common
+INCLUDEPATH += $(QTDIR)/src/3rdparty/zlib
+DEPENDPATH  += $(QTDIR)/src/3rdparty/zlib
 
 TARGET = updatercommon
 DESTDIR = ../lib

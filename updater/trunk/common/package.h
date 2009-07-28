@@ -53,20 +53,20 @@ class Package
     bool     system()   const;
     XVersion version()  const { return _pkgversion; }
 
-    QList<CreateFunction> _functions;
-    QList<CreateTable>    _tables;
-    QList<CreateTrigger>  _triggers;
-    QList<CreateView>     _views;
-    QList<LoadAppScript>  _appscripts;
-    QList<LoadAppUI>      _appuis;
-    QList<LoadCmd>        _cmds;
-    QList<LoadImage>      _images;
-    QList<LoadMetasql>    _metasqls;
-    QList<LoadPriv>       _privs;
-    QList<Prerequisite>   _prerequisites;
-    QList<Script>         _scripts;
-    QList<FinalScript>    _finalscripts;
-    QList<LoadReport>     _reports;
+    QList<CreateFunction*> _functions;
+    QList<CreateTable*>    _tables;
+    QList<CreateTrigger*>  _triggers;
+    QList<CreateView*>     _views;
+    QList<LoadAppScript*>  _appscripts;
+    QList<LoadAppUI*>      _appuis;
+    QList<LoadCmd*>        _cmds;
+    QList<LoadImage*>      _images;
+    QList<LoadMetasql*>    _metasqls;
+    QList<LoadPriv*>       _privs;
+    QList<Prerequisite*>   _prerequisites;
+    QList<Script*>         _scripts;
+    QList<FinalScript*>    _finalscripts;
+    QList<LoadReport*>     _reports;
 
     bool containsAppScript(const QString &name)    const;
     bool containsAppUI(const QString &name)        const;

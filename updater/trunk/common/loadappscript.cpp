@@ -54,16 +54,6 @@ LoadAppScript::LoadAppScript(const QDomElement &elem, const bool system,
     fatal.append(false);
   }
 
-  if (elem.hasAttribute("order"))
-  {
-    if (elem.attribute("order").contains("highest", Qt::CaseInsensitive))
-      _grade = INT_MAX;
-    else if (elem.attribute("order").contains("lowest", Qt::CaseInsensitive))
-      _grade = INT_MIN;
-    else
-      _grade = elem.attribute("order").toInt();
-  }
-
   _enabled = true;
   if (elem.hasAttribute("enabled"))
   {
@@ -86,137 +76,49 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
 {
   if (_name.isEmpty())
   {
-    errMsg = TR("<font color=orange>The script does not have"
-                         " a name.</font>");
+    errMsg = TR("The script does not have a name.");
     return -1;
   }
 
   if (pdata.isEmpty())
   {
-    errMsg = TR("<font color=orange>The script %1 is empty.</font>")
-                         .arg(_filename);
+    errMsg = TR("The script %1 is empty.").arg(_filename);
     return -2;
   }
 
-  if (_grade == INT_MIN)
-  {
-    XSqlQuery minOrder;
-    minOrder.prepare("SELECT MIN(script_order) AS min "
-                     "FROM script "
-                     "WHERE (script_name=:name);");
-    minOrder.bindValue(":name", _name);
-    minOrder.exec();
-    if (minOrder.first())
-      _grade = minOrder.value(0).toInt();
-    else if (minOrder.lastError().type() != QSqlError::NoError)
-    {
-      QSqlError err = minOrder.lastError();
-      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-      return -3;
-    }
-    else
-      _grade = 0;
-  }
-  else if (_grade == INT_MAX)
-  {
-    XSqlQuery maxOrder;
-    maxOrder.prepare("SELECT MAX(script_order) AS max "
-                     "FROM script "
-                     "WHERE (script_name=:name);");
-    maxOrder.bindValue(":name", _name);
-    maxOrder.exec();
-    if (maxOrder.first())
-      _grade = maxOrder.value(0).toInt();
-    else if (maxOrder.lastError().type() != QSqlError::NoError)
-    {
-      QSqlError err = maxOrder.lastError();
-      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-      return -4;
-    }
-    else
-      _grade = 0;
-  }
+  _minMql = new MetaSQLQuery("SELECT MIN(script_order) AS min "
+                   "FROM script "
+                   "WHERE (script_name=<? value(\"name\") ?>);");
 
-  XSqlQuery select;
-  XSqlQuery upsert;
+  _maxMql = new MetaSQLQuery("SELECT MAX(script_order) AS max "
+                   "FROM script "
+                   "WHERE (script_name=<? value(\"name\") ?>);");
 
-  int scriptid  = -1;
-  int pkgheadid = -1;
-  int pkgitemid = -1;
-  if (pkgname.isEmpty())
-    select.prepare(QString("SELECT script_id, -1, -1"
-                         "  FROM %1script "
-                         " WHERE ((script_name=:name)"
-                         "   AND  (script_order=:grade));")
-                       .arg(_system ? "" : "pkg"));
-  else
-    select.prepare(_pkgitemQueryStr);
-  select.bindValue(":name",    _name);
-  select.bindValue(":pkgname", pkgname);
-  // select.bindValue(":grade",   _grade); // TODO: add to _pkgitemQueryStr?
-  select.bindValue(":type",    _pkgitemtype);
-  select.exec();
-  if(select.first())
-  {
-    scriptid  = select.value(0).toInt();
-    pkgheadid = select.value(1).toInt();
-    pkgitemid = select.value(2).toInt();
-  }
-  else if (select.lastError().type() != QSqlError::NoError)
-  {
-    QSqlError err = select.lastError();
-    errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-    return -5;
-  }
+  _selectMql = new MetaSQLQuery("SELECT script_id, -1, -1"
+                      "  FROM <? literal(\"tablename\") ?> "
+                      " WHERE ((script_name=<? value(\"name\") ?>)"
+                      "    AND (script_order=<? value(\"grade\") ?>));");
 
-  if (scriptid >= 0)
-  upsert.prepare(QString("UPDATE %1script "
-                         "   SET script_order=:grade, "
-                         "       script_enabled=:enabled,"
-                         "       script_source=:source,"
-                         "       script_notes=:notes "
-                         " WHERE (script_id=:id); ")
-                       .arg(_system ? "" : "pkg"));
-  else
-  {
-    upsert.exec("SELECT NEXTVAL('script_script_id_seq');");
-    if (upsert.first())
-      scriptid = upsert.value(0).toInt();
-    else if (upsert.lastError().type() != QSqlError::NoError)
-    {
-      QSqlError err = upsert.lastError();
-      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-      return -6;
-    }
+  _updateMql = new MetaSQLQuery("UPDATE <? literal(\"tablename\") ?> "
+                      "   SET script_order=<? value(\"grade\") ?>, "
+                      "       script_enabled=<? value(\"enabled\") ?>,"
+                      "       script_source=<? value(\"source\") ?>,"
+                      "       script_notes=<? value(\"notes\") ?> "
+                      " WHERE (script_id=<? value(\"id\") ?>) "
+                      "RETURNING script_id AS id; ");
 
-    upsert.prepare(QString("INSERT INTO %1script "
-                           "       (script_id, script_name, script_order, "
-                           "        script_enabled, script_source, script_notes) "
-                           "VALUES (:id, :name, :grade, "
-                           "        :enabled, :source, :notes);")
-                        .arg(_system ? "" : "pkg"));
-  }
+  _insertMql = new MetaSQLQuery("INSERT INTO <? literal(\"tablename\") ?> ("
+                      "    script_id, script_name,"
+                      "    script_order, script_enabled,"
+                      "    script_source, script_notes"
+                      ") VALUES (DEFAULT, <? value(\"name\") ?>, "
+                      "    <? value(\"grade\") ?>,  <? value(\"enabled\") ?>,"
+                      "    <? value(\"source\") ?>, <? value(\"notes\") ?>) "
+                      "RETURNING script_id AS id;");
 
-  upsert.bindValue(":id",      scriptid);
-  upsert.bindValue(":grade",   _grade);
-  upsert.bindValue(":enabled", _enabled);
-  upsert.bindValue(":source",  QString(pdata));
-  upsert.bindValue(":notes",   _comment);
-  upsert.bindValue(":name",    _name);
+  ParameterList params;
+  params.append("enabled",   QVariant(_enabled));
+  params.append("tablename", "script");
 
-  if (!upsert.exec())
-  {
-    QSqlError err = upsert.lastError();
-    errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-    return -7;
-  }
-
-  if (pkgheadid >= 0)
-  {
-    int tmp = upsertPkgItem(pkgitemid, pkgheadid, scriptid, errMsg);
-    if (tmp < 0)
-      return tmp;
-  }
-
-  return scriptid;
+  return Loadable::writeToDB(pdata, pkgname, errMsg, params);
 }

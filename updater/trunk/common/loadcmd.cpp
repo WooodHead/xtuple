@@ -130,78 +130,41 @@ QDomElement LoadCmd::createElement(QDomDocument &doc)
 
 int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
 {
-  XSqlQuery select;
-  XSqlQuery upsert;
+  _selectMql = new MetaSQLQuery("SELECT cmd_id, -1, -1"
+                      "  FROM <? literal(\"tablename\") ?> "
+                      " WHERE (cmd_name=<? value(\"name\") ?>);");
 
-  int cmdid     = -1;
-  int pkgheadid = -1;
-  int pkgitemid = -1;
-  if (pkgname.isEmpty())
-    select.prepare(QString("SELECT cmd_id, -1, -1"
-                           "  FROM %1cmd "
-                           " WHERE (cmd_name=:name);")
-                          .arg(_system ? "" : "pkg"));
-  else
-    select.prepare(_pkgitemQueryStr);
-  select.bindValue(":name",    _name);
-  select.bindValue(":pkgname", pkgname);
-  select.bindValue(":type",    _pkgitemtype);
-  select.exec();
-  if(select.first())
-  {
-    cmdid    = select.value(0).toInt();
-    pkgheadid = select.value(1).toInt();
-    pkgitemid = select.value(2).toInt();
-  }
-  else if (select.lastError().type() != QSqlError::NoError)
-  {
-    QSqlError err = select.lastError();
-    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
-    return -5;
-  }
+  _updateMql = new MetaSQLQuery("UPDATE <? literal(\"tablename\") ?> "
+                      "   SET cmd_module=<? value(\"module\") ?>, "
+                      "       cmd_title=<? value(\"title\") ?>, "
+                      "       cmd_privname=<? value(\"privname\") ?>, "
+                      "       cmd_executable=<? value(\"executable\") ?>, "
+                      "       cmd_descrip=<? value(\"notes\") ?> "
+                      " WHERE (cmd_id=<? value(\"id\") ?>) "
+                      "RETURNING cmd_id AS id;");
 
-  if (cmdid >= 0)
-    upsert.prepare(QString("UPDATE %1cmd "
-                           "   SET cmd_module=:module, "
-                           "       cmd_title=:title, "
-                           "       cmd_privname=:privname, "
-                           "       cmd_executable=:executable, "
-                           "       cmd_descrip=:comment "
-                           " WHERE (cmd_id=:id); ")
-                          .arg(_system ? "" : "pkg"));
-  else
-  {
-    upsert.exec("SELECT NEXTVAL('cmd_cmd_id_seq');");
-    if (upsert.first())
-      cmdid = upsert.value(0).toInt();
-    else if (upsert.lastError().type() != QSqlError::NoError)
-    {
-      QSqlError err = upsert.lastError();
-      errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
-      return -6;
-    }
-    upsert.prepare(QString("INSERT INTO %1cmd ("
-                           "       cmd_id, cmd_module, cmd_title, cmd_descrip, "
-                           "       cmd_privname, cmd_executable, cmd_name "
-                           ") VALUES (:id, :module, :title, :comment,"
-                           "          :privname, :executable, :name);")
-                          .arg(_system ? "" : "pkg"));
-  }
+  _insertMql = new MetaSQLQuery("INSERT INTO <? literal(\"tablename\") ?> ("
+                      "  cmd_id, cmd_module,"
+                      "  cmd_title, cmd_descrip, "
+                      "  cmd_privname,"
+                      "  cmd_executable, cmd_name"
+                      ") VALUES ("
+                      "  DEFAULT, <? value(\"module\") ?>,"
+                      "  <? value(\"title\") ?>, <? value(\"notes\") ?>,"
+                      "  <? value(\"privname\") ?>,"
+                      "  <? value(\"executable\") ?>, <? value(\"name\") ?>)"
+                      " RETURNING cmd_id AS id;");
 
-  upsert.bindValue(":id",        cmdid);
-  upsert.bindValue(":module",    _module);
-  upsert.bindValue(":title",     _title);
-  upsert.bindValue(":comment",   _comment);
-  upsert.bindValue(":privname",  _privname);
-  upsert.bindValue(":executable",_executable);
-  upsert.bindValue(":name",      _name);
+  ParameterList params;
+  params.append("tablename", "cmd");
+  params.append("module",    _module);
+  params.append("title",     _title);
+  params.append("privname",  _privname);
+  params.append("executable",_executable);
 
-  if (!upsert.exec())
-  {
-    QSqlError err = upsert.lastError();
-    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
-    return -7;
-  }
+  int cmdid = Loadable::writeToDB(QByteArray(), pkgname, errMsg, params);
+  if (cmdid < 0)
+    return cmdid;
 
   XSqlQuery delargs;
   delargs.prepare(QString("DELETE FROM %1cmdarg WHERE (cmdarg_cmd_id=:cmd_id);")
@@ -232,13 +195,6 @@ int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
         return -9;
       }
     }
-  }
-
-  if (pkgheadid >= 0)
-  {
-    int tmp = upsertPkgItem(pkgitemid, pkgheadid, cmdid, errMsg);
-    if (tmp < 0)
-      return tmp;
   }
 
   return cmdid;

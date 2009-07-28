@@ -81,77 +81,26 @@ int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
                .arg(_name);
   }
 
-  XSqlQuery select;
-  XSqlQuery upsert;
+  _selectMql = new MetaSQLQuery("SELECT priv_id AS id, -1, -1"
+                      "  FROM <? literal(\"tablename\") ?> "
+                      " WHERE (priv_name=<? value(\"name\") ?>);");
 
-  int privid    = -1;
-  int pkgheadid = -1;
-  int pkgitemid = -1;
-  if (pkgname.isEmpty())
-    select.prepare(QString("SELECT priv_id, -1, -1"
-                           "  FROM %1priv "
-                           " WHERE (priv_name=:name);")
-                      .arg(_system ? "" : "pkg"));
-  else
-    select.prepare(_pkgitemQueryStr);
-  select.bindValue(":name",    _name);
-  select.bindValue(":pkgname", pkgname);
-  select.bindValue(":type",    _pkgitemtype);
-  select.exec();
-  if(select.first())
-  {
-    privid    = select.value(0).toInt();
-    pkgheadid = select.value(1).toInt();
-    pkgitemid = select.value(2).toInt();
-  }
-  else if (select.lastError().type() != QSqlError::NoError)
-  {
-    QSqlError err = select.lastError();
-    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
-    return -5;
-  }
+  _updateMql = new MetaSQLQuery("UPDATE <? literal(\"tablename\") ?> "
+                      "   SET priv_module=<? value(\"module\") ?>, "
+                      "       priv_descrip=<? value(\"comment\") ?> "
+                      " WHERE (priv_id=<? value(\"id\") ?>) "
+                      "RETURNING priv_id AS id;");
 
-  if (privid >= 0)
-    upsert.prepare(QString("UPDATE %1priv "
-                           "   SET priv_module=:module, "
-                           "       priv_descrip=:comment "
-                           " WHERE (priv_id=:id); ")
-              .arg(_system ? "" : "pkg"));
-  else
-  {
-    upsert.exec("SELECT NEXTVAL('priv_priv_id_seq');");
-    if (upsert.first())
-      privid = upsert.value(0).toInt();
-    else if (upsert.lastError().type() != QSqlError::NoError)
-    {
-      QSqlError err = upsert.lastError();
-      errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
-      return -6;
-    }
-    upsert.prepare(QString("INSERT INTO %1priv ("
-                           "       priv_id, priv_module, priv_name, priv_descrip "
-                           ") VALUES (:id, :module, :name, :comment);")
-              .arg(_system ? "" : "pkg"));
-  }
+  _insertMql = new MetaSQLQuery("INSERT INTO <? literal(\"tablename\") ?> ("
+                      "    priv_id, priv_module, priv_name, priv_descrip "
+                      ") VALUES ("
+                      "    DEFAULT, <? value(\"module\") ?>,"
+                      "    <? value(\"name\") ?>, <? value(\"notes\") ?>) "
+                      "RETURNING priv_id AS id;");
 
-  upsert.bindValue(":id",      privid);
-  upsert.bindValue(":module",  _module);
-  upsert.bindValue(":name",    _name);
-  upsert.bindValue(":comment", _comment);
+  ParameterList params;
+  params.append("tablename", "priv");
+  params.append("module",    _module);
 
-  if (!upsert.exec())
-  {
-    QSqlError err = upsert.lastError();
-    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
-    return -7;
-  }
-
-  if (pkgheadid >= 0)
-  {
-    int tmp = upsertPkgItem(pkgitemid, pkgheadid, privid, errMsg);
-    if (tmp < 0)
-      return tmp;
-  }
-
-  return privid;
+  return Loadable::writeToDB(QByteArray(), pkgname, errMsg, params);
 }

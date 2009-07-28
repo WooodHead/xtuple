@@ -116,17 +116,17 @@ void PackageWindow::fileOpen()
     _reports->clear();
     sReportSelectionChanged();
 
-    QList<Prerequisite>::iterator pit = _package->_prerequisites.begin();
+    QList<Prerequisite*>::iterator pit = _package->_prerequisites.begin();
     for(; pit != _package->_prerequisites.end(); ++pit)
-      _prereqs->insertItem((*pit).name());
+      _prereqs->insertItem((*pit)->name());
 
-    QList<Script>::iterator sit = _package->_scripts.begin();
+    QList<Script*>::iterator sit = _package->_scripts.begin();
     for(; sit != _package->_scripts.end(); ++sit)
-      _scripts->insertItem((*sit).name());
+      _scripts->insertItem((*sit)->name());
 
-    QList<LoadReport>::iterator rit = _package->_reports.begin();
+    QList<LoadReport*>::iterator rit = _package->_reports.begin();
     for(; rit != _package->_reports.end(); ++rit)
-      _reports->insertItem((*rit).name());
+      _reports->insertItem((*rit)->name());
     _reports->sort();
   }
   else
@@ -193,22 +193,22 @@ void PackageWindow::sPrereqSelectionChanged()
   {
     bool found = false;
     QString name = _prereqs->currentText();
-    QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
+    QList<Prerequisite*>::iterator it = _package->_prerequisites.begin();
     for(; it != _package->_prerequisites.end(); ++it)
     {
-      if((*it).name() == name)
+      if((*it)->name() == name)
       {
         _raisePrereq->setEnabled(true);
         _lowerPrereq->setEnabled(true);
         _removePrereq->setEnabled(true);
         _typeLabel->setEnabled(true);
-        _type->setText(Prerequisite::typeToName((*it).type()));
+        _type->setText(Prerequisite::typeToName((*it)->type()));
         _type->setEnabled(true);
         _editConditions->setEnabled(true);
-        _prereqMessage->setText((*it).message());
+        _prereqMessage->setText((*it)->message());
         _gbPrereqMessage->setEnabled(true);
         _providers->clear();
-        _providers->insertStringList((*it).providerList());
+        _providers->insertStringList((*it)->providerList());
         _providers->sort();
         _gbProviders->setEnabled(true);
         found = true;
@@ -249,12 +249,12 @@ void PackageWindow::sAddPrereq()
         continue;
       }
 
-      Prerequisite prereq;
-      prereq.setName(name);
-      prereq.setType(Prerequisite::nameToType(npd._type->currentText()));
+      Prerequisite *prereq = new Prerequisite();
+      prereq->setName(name);
+      prereq->setType(Prerequisite::nameToType(npd._type->currentText()));
       _package->_prerequisites.append(prereq);
-      _prereqs->insertItem(prereq.name());
-      Q3ListBoxItem * item = _prereqs->findItem(prereq.name());
+      _prereqs->insertItem(prereq->name());
+      Q3ListBoxItem * item = _prereqs->findItem(prereq->name());
       _prereqs->setCurrentItem(item);
       _prereqs->ensureCurrentVisible();
     }
@@ -268,10 +268,10 @@ void PackageWindow::sRaisePrereq()
   if(idx <= 0)
     return;
 
-  Prerequisite p0 = _package->_prerequisites[idx-1];
-  Prerequisite p1 = _package->_prerequisites[idx];
+  Prerequisite *p0 = _package->_prerequisites[idx-1];
+  Prerequisite *p1 = _package->_prerequisites[idx];
 
-  if(p1.name() != _prereqs->currentText())
+  if(p1->name() != _prereqs->currentText())
   {
     QMessageBox::warning(this, tr("Data Error"), tr("The data does not appear to be in a correct state."));
     return;
@@ -280,8 +280,8 @@ void PackageWindow::sRaisePrereq()
   _package->_prerequisites[idx-1] = p1;
   _package->_prerequisites[idx]   = p0;
 
-  _prereqs->changeItem(p1.name(), idx-1);
-  _prereqs->changeItem(p0.name(), idx);
+  _prereqs->changeItem(p1->name(), idx-1);
+  _prereqs->changeItem(p0->name(), idx);
 
   _prereqs->setCurrentItem(idx-1);
 }
@@ -293,10 +293,10 @@ void PackageWindow::sLowerPrereq()
   if(idx == (int)(_prereqs->count() - 1))
     return;
 
-  Prerequisite p0 = _package->_prerequisites[idx];
-  Prerequisite p1 = _package->_prerequisites[idx+1];
+  Prerequisite *p0 = _package->_prerequisites[idx];
+  Prerequisite *p1 = _package->_prerequisites[idx+1];
 
-  if(p0.name() != _prereqs->currentText())
+  if(p0->name() != _prereqs->currentText())
   {
     QMessageBox::warning(this, tr("Data Error"), tr("The data does not appear to be in a correct state."));
     return;
@@ -305,8 +305,8 @@ void PackageWindow::sLowerPrereq()
   _package->_prerequisites[idx] = p1;
   _package->_prerequisites[idx+1]   = p0;
 
-  _prereqs->changeItem(p1.name(), idx);
-  _prereqs->changeItem(p0.name(), idx+1);
+  _prereqs->changeItem(p1->name(), idx);
+  _prereqs->changeItem(p0->name(), idx+1);
 
   _prereqs->setCurrentItem(idx+1);
 }
@@ -314,9 +314,9 @@ void PackageWindow::sLowerPrereq()
 void PackageWindow::sRemovePrereq()
 {
   QString name = _prereqs->currentText();
-  QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
+  QList<Prerequisite*>::iterator it = _package->_prerequisites.begin();
   for(; it != _package->_prerequisites.end(); ++it)
-    if((*it).name() == name)
+    if((*it)->name() == name)
       it = _package->_prerequisites.remove(it);
   _prereqs->removeItem(_prereqs->currentItem());
 }
@@ -324,18 +324,18 @@ void PackageWindow::sRemovePrereq()
 void PackageWindow::sEditConditions()
 {
   QString name = _prereqs->currentText();
-  QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
+  QList<Prerequisite*>::iterator it = _package->_prerequisites.begin();
   for(; it != _package->_prerequisites.end(); ++it)
   {
-    if((*it).name() == name)
+    if((*it)->name() == name)
     {
-      if((*it).type() == Prerequisite::Query)
+      if((*it)->type() == Prerequisite::Query)
       {
         QueryEditor qe(this, "query editor");
-        qe._text->setText((*it).query());
+        qe._text->setText((*it)->query());
         if(qe.exec() == QueryEditor::Accepted)
         {
-          (*it).setQuery(qe._text->text());
+          (*it)->setQuery(qe._text->text());
         }
       }
       else
@@ -347,10 +347,10 @@ void PackageWindow::sEditConditions()
 void PackageWindow::sPrereqTextChanged()
 {
   QString name = _prereqs->currentText();
-  QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
+  QList<Prerequisite*>::iterator it = _package->_prerequisites.begin();
   for(; it != _package->_prerequisites.end(); ++it)
-    if((*it).name() == name)
-      (*it).setMessage(_prereqMessage->text());
+    if((*it)->name() == name)
+      (*it)->setMessage(_prereqMessage->text());
 }
 
 void PackageWindow::sEditPrereqMessage()
@@ -380,16 +380,16 @@ void PackageWindow::sAddProvider()
     {
       PrerequisiteProvider provider;
       QString name = _prereqs->currentText();
-      QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
+      QList<Prerequisite*>::iterator it = _package->_prerequisites.begin();
       for(; it != _package->_prerequisites.end(); ++it)
       {
-        if((*it).name() == name)
+        if((*it)->name() == name)
         {
-          provider = (*it).provider(pd._name->text());
+          provider = (*it)->provider(pd._name->text());
           if(!provider.isValid())
           {
             provider = PrerequisiteProvider(pd._name->text(), pd._text->text());
-            (*it).setProvider(provider);
+            (*it)->setProvider(provider);
             _providers->insertItem(provider.package());
             _providers->sort();
           }
@@ -404,12 +404,12 @@ void PackageWindow::sAddProvider()
 void PackageWindow::sEditProvider()
 {
   QString name = _prereqs->currentText();
-  QList<Prerequisite>::iterator it = it = _package->_prerequisites.begin();
+  QList<Prerequisite*>::iterator it = _package->_prerequisites.begin();
   for(; it != _package->_prerequisites.end(); ++it)
   {
-    if((*it).name() == name)
+    if((*it)->name() == name)
     {
-      PrerequisiteProvider provider = (*it).provider(_providers->currentText());
+      PrerequisiteProvider provider = (*it)->provider(_providers->currentText());
       if(provider.isValid())
       {
         ProviderDialog pd(this, "provider dialog");
@@ -422,18 +422,18 @@ void PackageWindow::sEditProvider()
           {
             if(pd._name->text() != provider.package())
             {
-              if((*it).provider(pd._name->text()).isValid())
+              if((*it)->provider(pd._name->text()).isValid())
               {
                 QMessageBox::warning(this, tr("Duplicate Package"), tr("The new package name you specified already exists in the list of providers.") );
                 continue;
               }
-              (*it).removeProvider(provider.package());
+              (*it)->removeProvider(provider.package());
               provider.setPackage(pd._name->text());
               _providers->changeItem(provider.package(), _providers->currentItem());
               _providers->sort();
             }
             provider.setInfo(pd._text->text());
-            (*it).setProvider(provider);
+            (*it)->setProvider(provider);
           }
           done = true;
         }
@@ -448,10 +448,10 @@ void PackageWindow::sRemoveProvider()
 {
   QString provider = _providers->currentText();
   QString name = _prereqs->currentText();
-  QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
+  QList<Prerequisite*>::iterator it = _package->_prerequisites.begin();
   for(; it != _package->_prerequisites.end(); ++it)
-    if((*it).name() == name)
-      (*it).removeProvider(provider);
+    if((*it)->name() == name)
+      (*it)->removeProvider(provider);
   _providers->removeItem(_providers->currentItem());
 }
 
@@ -462,18 +462,18 @@ void PackageWindow::sScriptSelectionChanged()
   {
     bool found = false;
     QString name = _scripts->currentText();
-    QList<Script>::iterator it = _package->_scripts.begin();
+    QList<Script*>::iterator it = _package->_scripts.begin();
     for(; it != _package->_scripts.end(); ++it)
     {
-      if((*it).name() == name)
+      if((*it)->name() == name)
       {
         _raiseScript->setEnabled(true);
         _lowerScript->setEnabled(true);
         _removeScript->setEnabled(true);
         _onErrorLabel->setEnabled(true);
-        _onError->setCurrentItem((int)(*it).onError());
+        _onError->setCurrentItem((int)(*it)->onError());
         _onError->setEnabled(true);
-        _scriptMessage->setText((*it).comment());
+        _scriptMessage->setText((*it)->comment());
         _gbScriptMessage->setEnabled(true);
         found = true;
       }
@@ -509,10 +509,10 @@ void PackageWindow::sAddScript()
     return;
   }
 
-  Script script(scriptfile);
+  Script *script = new Script(scriptfile);
   _package->_scripts.append(script);
-  _scripts->insertItem(script.name());
-  Q3ListBoxItem * item = _scripts->findItem(script.name());
+  _scripts->insertItem(script->name());
+  Q3ListBoxItem * item = _scripts->findItem(script->name());
   _scripts->setCurrentItem(item);
   _scripts->ensureCurrentVisible();
 }
@@ -523,10 +523,10 @@ void PackageWindow::sRaiseScript()
   if(idx <= 0)
     return;
 
-  Script s0 = _package->_scripts[idx-1];
-  Script s1 = _package->_scripts[idx];
+  Script *s0 = _package->_scripts[idx-1];
+  Script *s1 = _package->_scripts[idx];
 
-  if(s1.name() != _scripts->currentText())
+  if(s1->name() != _scripts->currentText())
   {
     QMessageBox::warning(this, tr("Data Error"), tr("The data does not appear to be in a correct state."));
     return;
@@ -535,8 +535,8 @@ void PackageWindow::sRaiseScript()
   _package->_scripts[idx-1] = s1;
   _package->_scripts[idx]   = s0;
 
-  _scripts->changeItem(s1.name(), idx-1);
-  _scripts->changeItem(s0.name(), idx);
+  _scripts->changeItem(s1->name(), idx-1);
+  _scripts->changeItem(s0->name(), idx);
 
   _scripts->setCurrentItem(idx-1);
 }
@@ -547,10 +547,10 @@ void PackageWindow::sLowerScript()
   if(idx == (int)(_scripts->count() - 1))
     return;
 
-  Script s0 = _package->_scripts[idx];
-  Script s1 = _package->_scripts[idx+1];
+  Script *s0 = _package->_scripts[idx];
+  Script *s1 = _package->_scripts[idx+1];
 
-  if(s0.name() != _scripts->currentText())
+  if(s0->name() != _scripts->currentText())
   {
     QMessageBox::warning(this, tr("Data Error"), tr("The data does not appear to be in a correct state."));
     return;
@@ -559,8 +559,8 @@ void PackageWindow::sLowerScript()
   _package->_scripts[idx] = s1;
   _package->_scripts[idx+1] = s0;
 
-  _scripts->changeItem(s1.name(), idx);
-  _scripts->changeItem(s0.name(), idx+1);
+  _scripts->changeItem(s1->name(), idx);
+  _scripts->changeItem(s0->name(), idx+1);
 
   _scripts->setCurrentItem(idx+1);
 }
@@ -568,9 +568,9 @@ void PackageWindow::sLowerScript()
 void PackageWindow::sRemoveScript()
 {
   QString name = _scripts->currentText();
-  QList<Script>::iterator it = _package->_scripts.begin();
+  QList<Script*>::iterator it = _package->_scripts.begin();
   for(; it != _package->_scripts.end(); ++it)
-    if((*it).name() == name)
+    if((*it)->name() == name)
       it = _package->_scripts.remove(it);
   _scripts->removeItem(_scripts->currentItem());
 }
@@ -578,19 +578,19 @@ void PackageWindow::sRemoveScript()
 void PackageWindow::sOnErrorActivated( const QString & string )
 {
   QString name = _scripts->currentText();
-  QList<Script>::iterator it = _package->_scripts.begin();
+  QList<Script*>::iterator it = _package->_scripts.begin();
   for(; it != _package->_scripts.end(); ++it)
-    if((*it).name() == name)
-      (*it).setOnError(Script::nameToOnError(string));
+    if((*it)->name() == name)
+      (*it)->setOnError(Script::nameToOnError(string));
 }
 
 void PackageWindow::sScriptTextChanged()
 {
   QString name = _scripts->currentText();
-  QList<Script>::iterator it = _package->_scripts.begin();
+  QList<Script*>::iterator it = _package->_scripts.begin();
   for(; it != _package->_scripts.end(); ++it)
-    if((*it).name() == name)
-      (*it).setComment(_scriptMessage->text());
+    if((*it)->name() == name)
+      (*it)->setComment(_scriptMessage->text());
 }
 
 void PackageWindow::sEditScriptMessage()
@@ -607,16 +607,16 @@ void PackageWindow::sReportSelectionChanged()
   {
     bool found = false;
     QString name = _reports->currentText();
-    QList<LoadReport>::iterator it = _package->_reports.begin();
+    QList<LoadReport*>::iterator it = _package->_reports.begin();
     for(; it != _package->_reports.end(); ++it)
     {
-      if((*it).name() == name)
+      if((*it)->name() == name)
       {
         _removeReport->setEnabled(true);
         _gradeLabel->setEnabled(true);
-        _grade->setValue((*it).grade());
+        _grade->setValue((*it)->grade());
         _grade->setEnabled(true);
-        _reportMessage->setText((*it).comment());
+        _reportMessage->setText((*it)->comment());
         _gbReportMessage->setEnabled(true);
         found = true;
       }
@@ -650,10 +650,10 @@ void PackageWindow::sAddReport()
     return;
   }
 
-  LoadReport report(reportfile);
+  LoadReport *report = new LoadReport(reportfile);
   _package->_reports.append(report);
-  _reports->insertItem(report.name());
-  Q3ListBoxItem * item = _reports->findItem(report.name());
+  _reports->insertItem(report->name());
+  Q3ListBoxItem * item = _reports->findItem(report->name());
   _reports->setCurrentItem(item);
   _reports->sort();
   _reports->ensureCurrentVisible();
@@ -662,9 +662,9 @@ void PackageWindow::sAddReport()
 void PackageWindow::sRemoveReport()
 {
   QString name = _reports->currentText();
-  QList<LoadReport>::iterator it = _package->_reports.begin();
+  QList<LoadReport*>::iterator it = _package->_reports.begin();
   for(; it != _package->_reports.end(); ++it)
-    if((*it).name() == name)
+    if((*it)->name() == name)
       it = _package->_reports.remove(it);
   _reports->removeItem(_reports->currentItem());
 }
@@ -672,19 +672,19 @@ void PackageWindow::sRemoveReport()
 void PackageWindow::sGradeChanged( int value)
 {
   QString name = _reports->currentText();
-  QList<LoadReport>::iterator it = _package->_reports.begin();
+  QList<LoadReport*>::iterator it = _package->_reports.begin();
   for(; it != _package->_reports.end(); ++it)
-    if((*it).name() == name)
-      (*it).setGrade(value);
+    if((*it)->name() == name)
+      (*it)->setGrade(value);
 }
 
 void PackageWindow::sReportTextChanged()
 {
   QString name = _reports->currentText();
-  QList<LoadReport>::iterator it = _package->_reports.begin();
+  QList<LoadReport*>::iterator it = _package->_reports.begin();
   for(; it != _package->_reports.end(); ++it)
-    if((*it).name() == name)
-      (*it).setComment(_reportMessage->text());
+    if((*it)->name() == name)
+      (*it)->setComment(_reportMessage->text());
 }
 
 void PackageWindow::sEditReportMessage()
@@ -694,4 +694,3 @@ void PackageWindow::sEditReportMessage()
   if(ted.exec() == TextEditDialog::Accepted)
     _reportMessage->setText(ted._text->text());
 }
-
