@@ -53,7 +53,7 @@ BEGIN
 
   DELETE FROM prj
   WHERE ((prj_id=_r.cohead_prj_id)
-  AND (prj_status IS NULL));
+  AND (prj_name=_r.cohead_number));
 
   DELETE FROM aropenco
   WHERE (aropenco_cohead_id=pSoheadid);
