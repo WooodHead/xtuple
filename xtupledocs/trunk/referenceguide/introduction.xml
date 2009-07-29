@@ -5,10 +5,9 @@
 <preface id="Chapter464102">
   <title><anchor id="Anchor23250" role="Cross-Ref"
   xreflabel="23250: ChapterTitleNoNumber: Introduction" />Introduction</title>
-  <para>Welcome to the Reference Guide (formerly User Guide) for xTuple
-  Enterprise Resource Planning! This Reference Guide is designed as a
-  screen-by-screen reference for anyone using any of the following xTuple ERP
-  applications:</para>
+  <para>Welcome to the Reference Guide for xTuple Enterprise Resource
+  Planning! This Reference Guide is designed as a screen-by-screen reference
+  for anyone using any of the following xTuple ERP applications:</para>
   <itemizedlist>
     <listitem>
       <para>xTuple ERP: PostBooks Edition</para>
@@ -563,13 +562,14 @@
         </indexterm>Right-Click Options</title>
       <para>Going back to our Bill of Materials example, let's look at another
       fundamental feature involving the right-click button on your computer
-      mouse.</para>
+      mouse. For a complete list of all the right-click menu options used in
+      xTuple ERP, please see <xref linkend="rightClickMenuOptions" />.</para>
       <note>
         <para>For Macintosh users who don"t have a dual button mouse, use the
         CTRL key on your keyboard when clicking on a record to reveal the
         right-click options.</para>
       </note>
-      <para>xTuple ERPs are full of displays similar to our sample Bill of
+      <para>xTuple ERP is full of displays similar to our sample Bill of
       Materials example. Display screens feature parameter settings at the top
       of the screen—and a main display area located toward the bottom of the
       screen. Whenever you encounter a display like this, you can right-click
@@ -587,37 +587,58 @@
       Materials screen gives you access to the following options:</para>
       <itemizedlist>
         <listitem>
-          <para>View: Gives you a read-only view of the Item</para>
+          <para><emphasis role="bold">View</emphasis>: Gives you a read-only
+          view of the Item.</para>
         </listitem>
         <listitem>
-          <para>Edit: Enables you to edit the Item</para>
+          <para><emphasis role="bold">Edit</emphasis>: Enables you to edit the
+          Item.</para>
         </listitem>
         <listitem>
-          <para>Delete: Delete the Item</para>
+          <para><emphasis role="bold">Delete</emphasis>: Deletes the
+          Item.</para>
         </listitem>
         <listitem>
-          <para>Replace: Replace one Item with another Item</para>
+          <para><emphasis role="bold">Replace</emphasis>: Replaces one Item
+          with another Item.</para>
         </listitem>
         <listitem>
-          <para>Move Up: Move the Item up the Bill of Materials
-          sequence</para>
+          <para><emphasis role="bold">Move Up</emphasis>: Moves the Item up
+          the Bill of Materials sequence.</para>
         </listitem>
         <listitem>
-          <para>Move Down: Move the Item down the Bill of Materials
-          sequence.</para>
+          <para><emphasis role="bold">Move Down</emphasis>: Moves the Item
+          down the Bill of Materials sequence.</para>
         </listitem>
         <listitem>
-          <para>Export Contents: Export the data displayed on the screen into
-          a plain-text, TAB-delimited file. This file may subsequently be
-          imported into a spreadsheet or other office tool.</para>
+          <para><emphasis role="bold">Copy All</emphasis>: Copies the header
+          and all visible columns and rows to the clipboard in plain-text,
+          TAB-separated format with a carriage return after each row.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Copy Row</emphasis>: Copies all visible
+          columns in the selected rows to the clipboard in plain-text,
+          TAB-separated format without the header information.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Copy Cell</emphasis>: Copies all visible
+          information in the selected cell to the clipboard in plain-text,
+          TAB-separated format without the header information.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Export Contents</emphasis>: Export the
+          data displayed on the screen into your choice of plain-text, CSV,
+          ODF (e.g., Open Office), or HTML file formats. The plain text and
+          CSV files may subsequently be opened in a spreadsheet or other
+          text-editing tool.</para>
         </listitem>
       </itemizedlist>
-      <para>Right-click options will vary from screen to screen. In our sample
-      Bill of Materials example, the right-click options basically mirror the
-      functionality of buttons already available within the screen. This will
-      not always be the case, though. Often, the right-click feature reveals
-      important and useful functionality not to be found on the main display
-      screen.</para>
+      <para>Right-click options will vary from screen to screen―and from
+      edition to edition. In our sample Bill of Materials example, the
+      right-click options basically mirror the functionality of buttons
+      already available within the screen. This will not always be the case,
+      though. Often, the right-click feature reveals important and useful
+      functionality not to be found on the main display screen.</para>
     </section>
     <section id="Section486620">
       <title><indexterm significance="normal">
