@@ -62,7 +62,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Doc. Number</term>
+      <term>Document #</term>
       <listitem>
         <para>Displays the next available miscellaneous Debit Memo Number. The
         value for the next available Debit Memo Number is configured at the
@@ -82,6 +82,14 @@
       <listitem>
         <para>Displays the Journal number if any amount has been
         applied.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reason Code</term>
+      <listitem>
+        <para>Specify the reason for the Debit Memo. Reason codes are used to
+        explain why an adjustment is being made to a Customer's
+        account.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -119,6 +127,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>Enter the Tax, if any, associated with the Debit Memo. To enter
+        Tax, simply select the blue Tax link next to this field. If Tax is
+        entered, the amount will be charged to the General Ledger account for
+        the relevant Tax Code.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Commission Due</term>
       <listitem>
         <para>Displays the amount of the commission due to the associated
@@ -133,18 +150,18 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Reason Code</term>
-      <listitem>
-        <para>Specify the reason for the Debit Memo.</para>
-        <para>Reason codes are used to explain why an adjustment is being made
-        to a Customer's account.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Notes</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the miscellaneous Debit Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print on post</term>
+      <listitem>
+        <para>Select if you want to print a copy of the Debit Memo after the
+        POST button is selected. Debit Memos may also be reprinted from, among
+        other places, the Customer screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -194,7 +211,7 @@
       <imageobject>
         <imagedata fileref="images/arOpenItemDebitApplications.png" />
       </imageobject>
-      <caption>Enter Miscellaneous Debit Memo Applications</caption>
+      <caption>View Miscellaneous Debit Memo Applications</caption>
     </mediaobject>
   </screenshot>
   <variablelist>
