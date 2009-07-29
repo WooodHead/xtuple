@@ -35,25 +35,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Opening Balance</term>
-      <listitem>
-        <para>Enter the previous ending balance, as shown on your Bank
-        statement.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Ending Balance</term>
-      <listitem>
-        <para>Enter the current ending balance, as shown on your Bank
-        statement.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Start Date</term>
       <listitem>
-        <para>Specify the beginning date of the current Bank Reconciliation
-        period. Bank Reconciliations are identified by their date ranges, for
-        reporting purposes.</para>
+        <para>By default the start date field will be pre-populated based on
+        the end date of your most recent Bank Reconciliation—if it exists. The
+        date used will be one day after the previous Bank Reconciliation end
+        date. If you want to use a different start date, simply edit the date
+        to your preferred date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -62,6 +50,22 @@
         <para>Specify the ending date of the current Bank Reconciliation
         period. Bank Reconciliations are identified by their date ranges, for
         reporting purposes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Opening Balance</term>
+      <listitem>
+        <para>By default the opening balance field will be pre-populated with
+        the ending balance of your most recent Bank Reconciliation—if it
+        exists. If you want to use a different opening balance, simply edit
+        the amount to your preferred amount.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ending Balance</term>
+      <listitem>
+        <para>Enter the current ending balance, as shown on your Bank
+        statement.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -133,23 +137,23 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Cleared Receipts and Deposits</term>
+      <term>Cleared Deposits</term>
       <listitem>
-        <para>Displays a running total amount of Receipts and Deposits which
-        have been marked as cleared. Double-click on a Document using your
-        mouse to mark the Document as cleared. To unmark the Document,
-        double-click on it again. The "Cleared" column value will alternate
-        between "Yes" and "No" as you double-click on a Document line.</para>
+        <para>Displays a running total amount of Deposits which have been
+        marked as cleared. Double-click on a Document using your mouse to mark
+        the Document as cleared. To unmark the Document, double-click on it
+        again. The "Cleared" column value will alternate between "Yes" and
+        "No" as you double-click on a Document line.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Cleared Checks and Payments</term>
+      <term>Cleared Payments</term>
       <listitem>
-        <para>Displays a running total amount of Checks and Payments which
-        have been marked as cleared. Double-click on a Document using your
-        mouse to mark the Document as cleared. To unmark the Document,
-        double-click on it again. The "Cleared" column value will alternate
-        between "Yes" and "No" as you double-click on a Document line.</para>
+        <para>Displays a running total amount of Payments which have been
+        marked as cleared. Double-click on a Document using your mouse to mark
+        the Document as cleared. To unmark the Document, double-click on it
+        again. The "Cleared" column value will alternate between "Yes" and
+        "No" as you double-click on a Document line.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
