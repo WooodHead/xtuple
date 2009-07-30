@@ -129,8 +129,9 @@ BEGIN
     --find all WO with the ordid of the next level up
     FOR _x IN
        SELECT *, getwoqtyscrap(wo_id) AS scrap, getwoqtyiss(wo_id) as iss FROM itemsite,  wo        
-       WHERE (wo_ordid = pwoid)
-         AND wo_itemsite_id = itemsite_id       
+       WHERE ((wo_ordid = pwoid)
+         AND (wo_ordtype = 'W')
+         AND (wo_itemsite_id = itemsite_id))       
        ORDER BY wo_number, wo_subnumber
     LOOP
         _row.wodata_id := _x.wo_id;
