@@ -33,8 +33,9 @@
     <varlistentry>
       <term>Selected</term>
       <listitem>
-        <para>Specify G/L Account whose transactions you want to
-        display.</para>
+        <para>Specify G/L Account whose transactions you want to display. By
+        default, this option will be selected to prevent unintentional queries
+        for all accounts.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -114,7 +115,7 @@
     </varlistentry>
   </variablelist>
   <note>
-  <para>If the transaction refers to an Invoice, Purchase Order, Voucher, or
-  Shipment, you may also drill down to view the original Document.</para>
+    <para>If the transaction refers to an Invoice, Purchase Order, Voucher, or
+    Shipment, you may also drill down to view the original Document.</para>
   </note>
 </section>
