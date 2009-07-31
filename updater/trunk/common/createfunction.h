@@ -25,7 +25,6 @@ class CreateFunction : public CreateDBObj
     virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);
 
   protected:
-    virtual int upsertPkgItem(const QString &destschema, const QMap<QString,int>, const QString, const int, QString&);
 };
 
 #endif

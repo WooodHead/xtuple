@@ -91,86 +91,6 @@ QDomElement CreateDBObj::createElement(QDomDocument & doc)
   return elem;
 }
 
-// this differs from the version it was copied from in loadable.cpp
-int CreateDBObj::upsertPkgItem(const QString &destschema, const int itemid,
-                               QString &errMsg)
-{
-  if (DEBUG)
-    qDebug("CreateDbObj::upsertPkgItem(%s, %d, &errMsg)",
-           qPrintable(destschema), itemid);
-
-  if ("public" == destschema)
-    return 0;
-
-  int pkgitemid = -1;
-  int pkgheadid = -1;
-
-  XSqlQuery select;
-  select.prepare("SELECT COALESCE(pkgitem_id, -1), pkghead_id "
-                 "FROM pkghead LEFT OUTER JOIN"
-                 "     pkgitem ON ((pkgitem_pkghead_id=pkghead_id)"
-                 "            AND  (pkgitem_type=:type)"
-                 "            AND  (pkgitem_name=:name))"
-                 "WHERE (pkghead_name=:pkgname);");
-  select.bindValue(":pkgname", destschema);
-  select.bindValue(":type",    _pkgitemtype);
-  select.bindValue(":name",    _name);
-  select.exec();
-  if (select.first())
-  {
-    pkgitemid = select.value(0).toInt();
-    pkgheadid = select.value(1).toInt();
-  }
-  if (select.lastError().type() != QSqlError::NoError)
-  {
-    errMsg = _sqlerrtxt.arg(_filename)
-                      .arg(select.lastError().databaseText())
-                      .arg(select.lastError().driverText());
-    return -20;
-  }
-
-  XSqlQuery upsert;
-
-  if (pkgitemid >= 0)
-    upsert.prepare("UPDATE pkgitem SET pkgitem_descrip=:descrip,"
-                   "       pkgitem_item_id=:itemid "
-                   "WHERE (pkgitem_id=:id);");
-  else
-  {
-    upsert.exec("SELECT NEXTVAL('pkgitem_pkgitem_id_seq');");
-    if (upsert.first())
-      pkgitemid = upsert.value(0).toInt();
-    else if (upsert.lastError().type() != QSqlError::NoError)
-    {
-      QSqlError err = upsert.lastError();
-      errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
-      return -21;
-    }
-    upsert.prepare("INSERT INTO pkgitem ("
-                   "    pkgitem_id, pkgitem_pkghead_id, pkgitem_type,"
-                   "    pkgitem_item_id, pkgitem_name, pkgitem_descrip"
-                   ") VALUES ("
-                   "    :id, :headid, :type,"
-                   "    :itemid, :name, :descrip);");
-  }
-
-  upsert.bindValue(":id",      pkgitemid);
-  upsert.bindValue(":headid",  pkgheadid);
-  upsert.bindValue(":type",    _pkgitemtype);
-  upsert.bindValue(":itemid",  itemid);
-  upsert.bindValue(":name",    _name);
-  upsert.bindValue(":descrip", _comment);
-
-  if (!upsert.exec())
-  {
-    QSqlError err = upsert.lastError();
-    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
-    return -22;
-  }
-
-  return pkgitemid;
-}
-
 int CreateDBObj::writeToDB(const QByteArray &pdata, const QString pkgname,
                            ParameterList &params, QString &errMsg)
 {
@@ -195,11 +115,7 @@ int CreateDBObj::writeToDB(const QByteArray &pdata, const QString pkgname,
 
   XSqlQuery oidq = _oidMql->toQuery(params);
   if (oidq.first())
-  {
-    int tmp = upsertPkgItem(destschema, oidq.value(0).toInt(), errMsg);
-    if (tmp < 0)
-      return tmp;
-  }
+    ; // passed error check
   else if (oidq.lastError().type() != QSqlError::NoError)
   {
     errMsg = _sqlerrtxt.arg(_filename)

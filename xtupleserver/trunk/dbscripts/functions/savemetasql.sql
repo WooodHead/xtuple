@@ -19,8 +19,9 @@ DECLARE
   pSystem       ALIAS FOR $5;
   pSchema       ALIAS FOR $6;
   _metasqlid	INTEGER;
-  _debug        BOOL    := false;
+  _debug        BOOL    := true;
   _insertstr    TEXT;
+  _table        TEXT;
   
 BEGIN
 
@@ -39,33 +40,21 @@ BEGIN
       metasql_query=pQuery
     WHERE (metasql_id=_metasqlid);
   ELSE
-    _metasqlid := NEXTVAL('metasql_metasql_id_seq');
+    IF (COALESCE(pSchema, 'public') = 'public' OR
+        TRIM(pSchema) = '') THEN
+      _table := 'metasql';
+    ELSE
+      _table := pSchema || '.pkgmetasql';
+    END IF;
 
-    BEGIN
-      IF (_debug) THEN
-        RAISE NOTICE 'attempting to insert into %.pkgmetasql', pSchema;
-      END IF;
+    _insertstr := 'INSERT INTO ' ||
+                  _table || ' VALUES (DEFAULT, ' ||
+                  quote_literal(pGroup) || ',' || quote_literal(pName) || ',' ||
+                  quote_literal(pNotes) || ',' || quote_literal(pQuery) ||
+                  ') RETURNING metasql_id;' ;
 
-      IF (COALESCE(pSchema, '') = '') THEN
-        INSERT INTO pkgmetasql
-        VALUES (_metasqlid,pGroup,pName,pNotes,pQuery);
-      ELSE
-        _insertstr := 'INSERT INTO ' ||
-                      quote_ident(pSchema) || '.pkgmetasql VALUES (' ||
-                      _metasqlid || ',' ||
-                      quote_literal(pGroup) || ',' || quote_literal(pName) || ',' ||
-                      quote_literal(pNotes) || ',' || quote_literal(pQuery) ||
-                      ');' ;
-        IF (_debug) THEN RAISE NOTICE '%', _insertstr; END IF;
-        EXECUTE _insertstr;
-      END IF;
-
-    EXCEPTION WHEN undefined_table THEN
-                    IF (_debug) THEN RAISE NOTICE 'insert metasql'; END IF;
-                    INSERT INTO metasql 
-                    VALUES (_metasqlid,pGroup,pName,pNotes,pQuery);
-              WHEN OTHERS THEN RAISE EXCEPTION '% %', SQLSTATE, SQLERRM;
-    END;
+    IF (_debug) THEN RAISE NOTICE '%', _insertstr; END IF;
+    EXECUTE _insertstr INTO _metasqlid;
   END IF;
  
   RETURN _metasqlid;
