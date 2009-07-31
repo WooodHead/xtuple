@@ -15,14 +15,15 @@
 #include <QSqlError>
 #include <QVariant>     // used by XSqlQuery::bindValue()
 
+#include "metasql.h"
 #include "xsqlquery.h"
 
 #define DEBUG false
 
-CreateTrigger::CreateTrigger(const QString &filename,
-                             const QString &name, const QString &comment,
+CreateTrigger::CreateTrigger(const QString &filename, const QString &name,
+                             const QString &comment,  const QString &schema,
                              const OnError onError)
-  : CreateDBObj("createtrigger", filename, name, comment, onError)
+  : CreateDBObj("createtrigger", filename, name, comment, schema, onError)
 {
   _pkgitemtype = "G";
 }
@@ -46,58 +47,17 @@ int CreateTrigger::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
     qDebug("CreateTrigger::writeToDb(%s, %s, &errMsg)",
            pdata.data(), qPrintable(pkgname));
 
-  int returnVal = Script::writeToDB(pdata, pkgname, errMsg);
-  if (returnVal < 0)
-    return returnVal;
+  _oidMql = new MetaSQLQuery("SELECT pg_trigger.oid AS oid "
+                             "FROM pg_trigger, pg_class, pg_namespace "
+                             "WHERE ((tgname=<? value(\"name\") ?>)"
+                             "  AND  (tgrelid=pg_class.oid)"
+                             "  AND  (relnamespace=pg_namespace.oid)"
+                             "  AND  (nspname=<? value(\"schema\") ?>));");
+  ParameterList params;
+  int returnVal = CreateDBObj::writeToDB(pdata, pkgname, params, errMsg);
 
-  if (! pkgname.isEmpty())
-  {
-    XSqlQuery select;
-    int pkgheadid = -1;
-    select.prepare("SELECT pkghead_id FROM pkghead WHERE (pkghead_name=:name);");
-    select.bindValue(":name", pkgname);
-    select.exec();
-    if (select.first())
-      pkgheadid = select.value(0).toInt();
-    else if (select.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_filename)
-                        .arg(select.lastError().databaseText())
-                        .arg(select.lastError().driverText());
-      return -6;
-    }
+  delete _oidMql;
+  _oidMql = 0;
 
-    select.prepare("SELECT pg_trigger.oid AS oid "
-                   "FROM pg_trigger, pg_class, pg_namespace "
-                   "WHERE ((tgname=:name)"
-                   "  AND  (tgrelid=pg_class.oid)"
-                   "  AND  (relnamespace=pg_namespace.oid)"
-                   "  AND  (nspname=:schema));");
-    select.bindValue(":name",   _name);
-    select.bindValue(":schema", pkgname);
-    select.exec();
-    if (select.first())
-    {
-      int tmp = upsertPkgItem(pkgheadid, select.value(0).toInt(), errMsg);
-      if (tmp < 0)
-        return tmp;
-    }
-    else if (select.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_filename)
-                        .arg(select.lastError().databaseText())
-                        .arg(select.lastError().driverText());
-      return -7;
-    }
-    else // not found
-    {
-      errMsg = TR("Could not find trigger %1 in the database. The "
-                           "script %2 does not match the contents.xml "
-                           "description.")
-                .arg(_name).arg(_filename);
-      return -8;
-    }
-  }
-
-  return 0;
+  return returnVal;
 }

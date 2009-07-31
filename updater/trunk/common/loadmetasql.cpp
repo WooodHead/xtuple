@@ -115,12 +115,18 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
   XSqlQuery upsert;
   int metasqlid = -1;
 
-  upsert.prepare("SELECT saveMetasql(:group, :name, :notes, :query, :system) AS result;");
+  upsert.prepare("SELECT saveMetasql(:group, :name, :notes, :query, "
+                 "                   :system, :schema) AS result;");
   upsert.bindValue(":group", _group);
   upsert.bindValue(":name",  _name);
   upsert.bindValue(":notes", _comment);
   upsert.bindValue(":query", metasqlStr);
   upsert.bindValue(":system",_system);
+  if (! _schema.isEmpty())
+    upsert.bindValue(":schema", _schema);
+  else if (! pkgname.isEmpty())
+    upsert.bindValue(":schema", pkgname);
+
   upsert.exec();
   if (upsert.first())
   {
@@ -149,22 +155,29 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
     qDebug("LoadMetasql::writeToDB() executed %s and got %d in return",
            qPrintable(upsert.executedQuery()), metasqlid);
 
-  if (! pkgname.isEmpty())
+  // alter the name of the loadable's table if necessary
+  QString destschema = "public";
+  if (_schema.isEmpty()        &&   pkgname.isEmpty())
+    ;   // leave it alone
+  else if (_schema.isEmpty()   && ! pkgname.isEmpty())
+    destschema = pkgname;
+  else if ("public" == _schema)
+    ;   // leave it alone
+  else if (! _schema.isEmpty())
+    destschema = _schema;
+
+  if ("public" != destschema)
   {
     int pkgitemid = -1;
-    int pkgheadid = -1;
 
     ParameterList params;
     params.append("name",    _group + "-" + _name);
-    params.append("pkgname", pkgname);
+    params.append("pkgname", destschema);
     params.append("type",    _pkgitemtype);
 
     XSqlQuery select = _pkgitemMql.toQuery(params);
     if(select.first())
-    {
-      pkgheadid = select.value(1).toInt();
       pkgitemid = select.value(2).toInt();
-    }
     else if (select.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = select.lastError();
@@ -174,7 +187,7 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
 
     QString simplename = _name;
     _name = _group + "-" + _name;
-    int tmp = upsertPkgItem(pkgitemid, pkgheadid, metasqlid, errMsg);
+    int tmp = upsertPkgItem(pkgitemid, destschema, metasqlid, errMsg);
     _name = simplename;
     if (tmp < 0)
       return tmp;

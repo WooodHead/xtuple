@@ -59,6 +59,10 @@ private:
     int _dbTimerId;
     bool _multitrans;
     bool _premultitransfile;
+    QStringList _triggers;      // to be disabled and enabled
+
+    int disableTriggers();
+    int enableTriggers();
 
 };
 

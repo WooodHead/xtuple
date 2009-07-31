@@ -21,8 +21,8 @@
 
 CreateFunction::CreateFunction(const QString &filename, 
                                const QString &name, const QString &comment,
-                               const OnError onError)
-  : CreateDBObj("createfunction", filename, name, comment, onError)
+                               const QString &schema, const OnError onError)
+  : CreateDBObj("createfunction", filename, name, comment, schema, onError)
 {
   _pkgitemtype = "F";
 }
@@ -40,46 +40,51 @@ CreateFunction::CreateFunction(const QDomElement &elem, QStringList &msg, QList<
   }
 }
 
-int CreateFunction::writeToDB(const QByteArray &pdata, const QString pkgname, QString &errMsg)
+int CreateFunction::writeToDB(const QByteArray &pdata, const QString pkgname,
+                              QString &errMsg)
 {
   if (DEBUG)
     qDebug("CreateFunction::writeToDb(%s, %s, &errMsg)",
            pdata.data(), qPrintable(pkgname));
 
+  QString destschema;
+  if (! _schema.isEmpty())
+    destschema = _schema;
+  else if (pkgname.isEmpty())
+    destschema = "public";
+  else if (! pkgname.isEmpty())
+    destschema = pkgname;
+
   XSqlQuery oidq;
   QMap<QString,int> oldoids;
 
-  if (! pkgname.isEmpty())
-  {
-    oidq.prepare("SELECT pg_proc.oid, oidvectortypes(proargtypes) "
-                 "FROM pg_proc, pg_namespace "
-                 "WHERE ((pg_namespace.oid=pronamespace)"
-                 "  AND  (proname=:name)"
-                 "  AND  (nspname=:schema));");
-    oidq.bindValue(":name",   _name);
-    oidq.bindValue(":schema", pkgname);
+  oidq.prepare("SELECT pg_proc.oid, oidvectortypes(proargtypes) "
+               "FROM pg_proc, pg_namespace "
+               "WHERE ((pg_namespace.oid=pronamespace)"
+               "  AND  (proname=:name)"
+               "  AND  (nspname=:schema));");
+  oidq.bindValue(":name",   _name);
+  oidq.bindValue(":schema", destschema);
 
-    oidq.exec();
-    while (oidq.next())
+  oidq.exec();
+  while (oidq.next())
+    oldoids.insert(oidq.value(1).toString(), oidq.value(0).toInt());
+
+  if (oidq.lastError().type() != QSqlError::NoError)
+  {
+    errMsg = _sqlerrtxt.arg(_filename)
+                      .arg(oidq.lastError().databaseText())
+                      .arg(oidq.lastError().driverText());
+    return -1;
+  }
+  if (DEBUG)
+  {
+    QMap<QString, int>::const_iterator i = oldoids.constBegin();
+    while (i != oldoids.constEnd())
     {
-      oldoids.insert(oidq.value(1).toString(), oidq.value(0).toInt());
-    }
-    if (oidq.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_filename)
-                        .arg(oidq.lastError().databaseText())
-                        .arg(oidq.lastError().driverText());
-      return -1;
-    }
-    if (DEBUG)
-    {
-      QMap<QString, int>::const_iterator i = oldoids.constBegin();
-      while (i != oldoids.constEnd())
-      {
-        qDebug("CreateFunction::writeToDB() %s(%s) -> %d",
-               qPrintable(_name), qPrintable(i.key()), i.value());
-        i++;
-      }
+      qDebug("CreateFunction::writeToDB() %s(%s) -> %d",
+             qPrintable(_name), qPrintable(i.key()), i.value());
+      i++;
     }
   }
 
@@ -87,84 +92,71 @@ int CreateFunction::writeToDB(const QByteArray &pdata, const QString pkgname, QS
   if (returnVal < 0)
     return returnVal;
 
-  if (! pkgname.isEmpty())
+  oidq.exec();        // reuse the query
+  int count = 0;
+  while (oidq.next())
   {
-    XSqlQuery select;
-    int pkgheadid = -1;
-    select.prepare("SELECT pkghead_id FROM pkghead WHERE (pkghead_name=:name);");
-    select.bindValue(":name", pkgname);
-    select.exec();
-    if (select.first())
-      pkgheadid = select.value(0).toInt();
-    else if (select.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_filename)
-                        .arg(select.lastError().databaseText())
-                        .arg(select.lastError().driverText());
-      return -4;
-    }
-
-    oidq.exec();        // reuse the query
-    int count = 0;
-    while (oidq.next())
-    {
-      if (DEBUG)
-        qDebug("CreateFunction::writeToDB() oid = %d, argtypes = %s",
-               oidq.value(0).toInt(), qPrintable(oidq.value(1).toString()));
-      int tmp = upsertPkgItem(pkgheadid, oldoids,
-                              oidq.value(1).toString(), oidq.value(0).toInt(),
-                              errMsg);
-      if (tmp < 0)
-        return tmp;
-      count++;
-    }
-    if (oidq.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_filename)
-                        .arg(oidq.lastError().databaseText())
-                        .arg(oidq.lastError().driverText());
-      return -5;
-    }
-    if (count == 0)
-    {
-      errMsg = TR("Could not find function %1 in the database for package %2. "
-                  "The script %3 does not match the contents.xml description.")
-                .arg(_name).arg(pkgname).arg(_filename);
-      return -6;
-    }
+    if (DEBUG)
+      qDebug("CreateFunction::writeToDB() oid = %d, argtypes = %s",
+             oidq.value(0).toInt(), qPrintable(oidq.value(1).toString()));
+    int tmp = upsertPkgItem(destschema, oldoids,
+                            oidq.value(1).toString(), oidq.value(0).toInt(),
+                            errMsg);
+    if (tmp < 0)
+      return tmp;
+    count++;
+  }
+  if (oidq.lastError().type() != QSqlError::NoError)
+  {
+    errMsg = _sqlerrtxt.arg(_filename)
+                      .arg(oidq.lastError().databaseText())
+                      .arg(oidq.lastError().driverText());
+    return -5;
+  }
+  if (count == 0)
+  {
+    errMsg = TR("Could not find function %1 in the database for package %2. "
+                "The script %3 does not match the package.xml description.")
+              .arg(_name).arg(pkgname).arg(_filename);
+    return -6;
   }
 
   return 0;
 }
 
-// the value of pkgitem_name differs from the version in createdbobj.cpp
-int CreateFunction::upsertPkgItem(const int pkgheadid,
-                                  const QMap<QString, int> oldoids,
+// differs from the version in createdbobj.cpp where marked ****
+int CreateFunction::upsertPkgItem(const QString &destschema,
+                                  const QMap<QString, int> /**** oldoids*/,
                                   const QString argtypes, const int itemid,
                                   QString &errMsg)
 {
   if (DEBUG)
-    qDebug("CreateFunction::upsertPkgItem(%d, QMap, %s, %d, &errMsg)",
-           pkgheadid, qPrintable(argtypes), itemid);
+    qDebug("CreateFunction::upsertPkgItem(%s, QMap, %s, %d, &errMsg)",
+           qPrintable(destschema), qPrintable(argtypes), itemid);
 
-  if (pkgheadid < 0)
+  if ("public" == destschema)
     return 0;
 
   int pkgitemid = -1;
+  int pkgheadid = -1;
 
   XSqlQuery select;
-  select.prepare("SELECT pkgitem_id "
-                 "FROM pkgitem "
-                 "WHERE ((pkgitem_pkghead_id=:headid)"
-                 "  AND  (pkgitem_type=:type)"
-                 "  AND  (pkgitem_item_id=:id));");
-  select.bindValue(":headid", pkgheadid);
-  select.bindValue(":type",  _pkgitemtype);
-  select.bindValue(":id",    oldoids.value(argtypes));
+  select.prepare("SELECT COALESCE(pkgitem_id, -1), pkghead_id "
+                 "FROM pkghead LEFT OUTER JOIN"
+                 "     pkgitem ON ((pkgitem_pkghead_id=pkghead_id)"
+                 "            AND  (pkgitem_type=:type)"
+                 "            AND  (pkgitem_name=:name))"
+                 "WHERE (pkghead_name=:pkgname);");
+  select.bindValue(":pkgname", destschema);
+  select.bindValue(":type",    _pkgitemtype);
+  select.bindValue(":id",      itemid); // ****
   select.exec();
   if (select.first())
+  {
     pkgitemid = select.value(0).toInt();
-  if (select.lastError().type() != QSqlError::NoError)
+    pkgheadid = select.value(1).toInt();
+  }
+  else if (select.lastError().type() != QSqlError::NoError)
   {
     errMsg = _sqlerrtxt.arg(_filename)
                       .arg(select.lastError().databaseText())
@@ -201,7 +193,7 @@ int CreateFunction::upsertPkgItem(const int pkgheadid,
   upsert.bindValue(":headid",  pkgheadid);
   upsert.bindValue(":type",    _pkgitemtype);
   upsert.bindValue(":itemid",  itemid);
-  upsert.bindValue(":name",    _name + "(" + argtypes + ")");
+  upsert.bindValue(":name",    _name + "(" + argtypes + ")"); // ****
   upsert.bindValue(":descrip", _comment);
 
   if (!upsert.exec())

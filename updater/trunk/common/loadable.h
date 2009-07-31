@@ -44,6 +44,7 @@ class Loadable
     virtual QString name()     const { return _name; }
     virtual QString nodename() const { return _nodename; }
     virtual Script::OnError onError() const { return _onError; }
+    virtual QString schema()   const;
     virtual void    setComment(const QString & comment) { _comment  = comment; }
     virtual void    setFilename(const QString &filename){ _filename = filename;}
     virtual void    setGrade(int grade)                 { _grade = grade; }
@@ -77,7 +78,7 @@ class Loadable
 
     virtual int writeToDB(const QByteArray &pdata, const QString pkgname,
                           QString &errMsg, ParameterList &params);
-    virtual int upsertPkgItem(int &pkgitemid, const int pkghead,
+    virtual int upsertPkgItem(int &pkgitemid, const QString &destschema,
                               const int itemid, QString &errMsg);
 
     static MetaSQLQuery _pkgitemMql;

@@ -23,7 +23,7 @@ QRegExp Loadable::falseRegExp("^f(alse)?$", Qt::CaseInsensitive);
 
 QString Loadable::_sqlerrtxt = TR("The following error was "
                                   "encountered while trying to import %1 into "
-                                  "the database:<br>%2<br>%3");
+                                  "the database:<br><pre>%2<br>%3</pre>");
 MetaSQLQuery Loadable::_pkgitemMql("SELECT COALESCE(pkgitem_item_id, -1),"
                                    "       pkghead_id,"
                                    "       COALESCE(pkgitem_id,      -1) "
@@ -31,7 +31,7 @@ MetaSQLQuery Loadable::_pkgitemMql("SELECT COALESCE(pkgitem_item_id, -1),"
                                    "       pkgitem ON ((pkgitem_pkghead_id=pkghead_id)"
                                    "               AND (pkgitem_type=<? value(\"type\") ?>)"
                                    "               AND (pkgitem_name=<? value(\"name\") ?>))"
-                                   " WHERE (pkghead_name=<? value(\"pkgname\") ?>)");
+                                   " WHERE (pkghead_name=<? value(\"pkgname\") ?>);");
 
 Loadable::Loadable(const QString &nodename, const QString &name,
                    const int grade, const bool system, const QString &schema,
@@ -113,6 +113,11 @@ Loadable::~Loadable()
   if (_updateMql) delete _updateMql;
 }
 
+QString Loadable::schema() const
+{
+  return _schema;
+}
+
 QDomElement Loadable::createElement(QDomDocument & doc)
 {
   QDomElement elem = doc.createElement(_nodename);
@@ -135,9 +140,30 @@ int Loadable::writeToDB(const QByteArray &pdata, const QString pkgname,
   params.append("type",   _pkgitemtype);
   params.append("source", QString(pdata));
   params.append("notes",  _comment);
-  if (! pkgname.isEmpty())
+
+  // alter the name of the loadable's table if necessary
+  QString destschema = "public";
+  QString prefix;
+  if (_schema.isEmpty()        &&   pkgname.isEmpty())
+    ;   // leave it alone
+  else if (_schema.isEmpty()   && ! pkgname.isEmpty())
   {
-    params.append("pkgname", pkgname);
+    prefix = "pkg";
+    destschema = pkgname;
+  }
+  else if ("public" == _schema &&   pkgname.isEmpty())
+    ;   // leave it alone
+  else if ("public" == _schema && ! pkgname.isEmpty())
+    prefix = "public.";
+  else if (! _schema.isEmpty())
+  {
+    prefix = _schema + ".pkg";
+    destschema = _schema;
+  }
+
+  if (! prefix.isEmpty())
+  {
+    params.append("pkgname", destschema);
 
     // yuck - no Parameter::operator==(Parameter&) and no replace()
     QString tablename = params.value("tablename").toString();
@@ -146,7 +172,7 @@ int Loadable::writeToDB(const QByteArray &pdata, const QString pkgname,
       if (params.at(i).name() == "tablename")
       {
         params.takeAt(i);
-        params.append("tablename", "pkg" + tablename);
+        params.append("tablename", prefix + tablename);
         break;
       }
     }
@@ -187,7 +213,7 @@ int Loadable::writeToDB(const QByteArray &pdata, const QString pkgname,
   int itemid    = -1;
   int pkgheadid = -1;
   int pkgitemid = -1;
-  if (pkgname.isEmpty())
+  if ("public" == destschema)
     select = _selectMql->toQuery(params);
   else
     select = _pkgitemMql.toQuery(params);
@@ -223,25 +249,38 @@ int Loadable::writeToDB(const QByteArray &pdata, const QString pkgname,
     return -7;
   }
 
-  if (pkgheadid >= 0)
-  {
-    int tmp = upsertPkgItem(pkgitemid, pkgheadid, itemid, errMsg);
-    if (tmp < 0)
-      return tmp;
-  }
+  int tmp = upsertPkgItem(pkgitemid, destschema, itemid, errMsg);
+  if (tmp < 0)
+    return tmp;
 
   return itemid;
 }
 
-int Loadable::upsertPkgItem(int &pkgitemid, const int pkgheadid,
+int Loadable::upsertPkgItem(int &pkgitemid, const QString &destschema,
                             const int itemid, QString &errMsg)
 {
-  if (pkgheadid < 0)
+  if ("public" == destschema)
     return 0;
 
-  XSqlQuery select;
-  XSqlQuery upsert;
+  int pkgheadid = -1;
 
+  XSqlQuery select;
+  select.prepare("SELECT pkghead_id "
+                 "FROM pkghead "
+                 "WHERE (pkghead_name=:pkgname);");
+  select.bindValue(":pkgname", destschema);
+  select.exec();
+  if (select.first())
+    pkgheadid = select.value(0).toInt();
+  if (select.lastError().type() != QSqlError::NoError)
+  {
+    errMsg = _sqlerrtxt.arg(_filename)
+                      .arg(select.lastError().databaseText())
+                      .arg(select.lastError().driverText());
+    return -20;
+  }
+
+  XSqlQuery upsert;
   if (pkgitemid >= 0)
   {
     upsert.prepare("UPDATE pkgitem SET pkgitem_descrip=:descrip "

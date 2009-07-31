@@ -16,20 +16,25 @@
 #include <QSqlError>
 #include <QVariant>
 
+#include "metasql.h"
 #include "xsqlquery.h"
+
+#define DEBUG false
 
 CreateDBObj::CreateDBObj()
 {
 }
 
 CreateDBObj::CreateDBObj(const QString &nodename, const QString &filename,
-                         const QString &name,
-                         const QString &comment,  OnError onError)
+                         const QString &name,     const QString &comment,
+                         const QString &schema,   OnError onError)
 {
   _comment  = comment;
   _filename = filename;
   _name     = name;
   _nodename = nodename;
+  _oidMql   = 0;
+  _schema   = schema;
   _onError  = onError;
 }
 
@@ -55,6 +60,9 @@ CreateDBObj::CreateDBObj(const QDomElement & elem, QStringList &msg, QList<bool>
     fatal.append(true);
   }
 
+  if (elem.hasAttribute("schema"))
+    _schema = elem.attribute("schema");
+
   if (elem.hasAttribute("onerror"))
     _onError = nameToOnError(elem.attribute("onerror"));
 
@@ -74,39 +82,48 @@ QDomElement CreateDBObj::createElement(QDomDocument & doc)
   if (! _name.isEmpty())
     elem.setAttribute("name", _name);
 
-  if(!_comment.isEmpty())
+  if (! _schema.isEmpty())
+    elem.setAttribute("schema", _schema);
+
+  if (!_comment.isEmpty())
     elem.appendChild(doc.createTextNode(_comment));
 
   return elem;
 }
 
 // this differs from the version it was copied from in loadable.cpp
-int CreateDBObj::upsertPkgItem(const int pkgheadid, const int itemid,
+int CreateDBObj::upsertPkgItem(const QString &destschema, const int itemid,
                                QString &errMsg)
 {
-  QString sqlerrtxt = TR("<font color=red>The following error was "
-                                  "encountered while trying to import %1 into "
-                                  "the database:<br>%2<br>%3</font>");
-  if (pkgheadid < 0)
+  if (DEBUG)
+    qDebug("CreateDbObj::upsertPkgItem(%s, %d, &errMsg)",
+           qPrintable(destschema), itemid);
+
+  if ("public" == destschema)
     return 0;
 
   int pkgitemid = -1;
+  int pkgheadid = -1;
 
   XSqlQuery select;
-  select.prepare("SELECT pkgitem_id "
-                 "FROM pkgitem "
-                 "WHERE ((pkgitem_pkghead_id=:headid)"
-                 "  AND  (pkgitem_type=:type)"
-                 "  AND  (pkgitem_name=:name));");
-  select.bindValue(":headid", pkgheadid);
-  select.bindValue(":type",  _pkgitemtype);
-  select.bindValue(":name",  _name);
+  select.prepare("SELECT COALESCE(pkgitem_id, -1), pkghead_id "
+                 "FROM pkghead LEFT OUTER JOIN"
+                 "     pkgitem ON ((pkgitem_pkghead_id=pkghead_id)"
+                 "            AND  (pkgitem_type=:type)"
+                 "            AND  (pkgitem_name=:name))"
+                 "WHERE (pkghead_name=:pkgname);");
+  select.bindValue(":pkgname", destschema);
+  select.bindValue(":type",    _pkgitemtype);
+  select.bindValue(":name",    _name);
   select.exec();
   if (select.first())
+  {
     pkgitemid = select.value(0).toInt();
+    pkgheadid = select.value(1).toInt();
+  }
   if (select.lastError().type() != QSqlError::NoError)
   {
-    errMsg = sqlerrtxt.arg(_filename)
+    errMsg = _sqlerrtxt.arg(_filename)
                       .arg(select.lastError().databaseText())
                       .arg(select.lastError().driverText());
     return -20;
@@ -126,7 +143,7 @@ int CreateDBObj::upsertPkgItem(const int pkgheadid, const int itemid,
     else if (upsert.lastError().type() != QSqlError::NoError)
     {
       QSqlError err = upsert.lastError();
-      errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+      errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
       return -21;
     }
     upsert.prepare("INSERT INTO pkgitem ("
@@ -147,9 +164,56 @@ int CreateDBObj::upsertPkgItem(const int pkgheadid, const int itemid,
   if (!upsert.exec())
   {
     QSqlError err = upsert.lastError();
-    errMsg = sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
+    errMsg = _sqlerrtxt.arg(_name).arg(err.driverText()).arg(err.databaseText());
     return -22;
   }
 
   return pkgitemid;
+}
+
+int CreateDBObj::writeToDB(const QByteArray &pdata, const QString pkgname,
+                           ParameterList &params, QString &errMsg)
+{
+  if (DEBUG)
+    qDebug("CreateDBObj::writeToDB(%s, %s, &errMsg)",
+           pdata.data(), qPrintable(pkgname));
+
+  QString destschema;
+  if (! _schema.isEmpty())
+    destschema = _schema;
+  else if (pkgname.isEmpty())
+    destschema = "public";
+  else if (! pkgname.isEmpty())
+    destschema = pkgname;
+
+  int returnVal = Script::writeToDB(pdata, pkgname, errMsg);
+  if (returnVal < 0)
+    return returnVal;
+
+  params.append("name", _name);
+  params.append("schema", destschema);
+
+  XSqlQuery oidq = _oidMql->toQuery(params);
+  if (oidq.first())
+  {
+    int tmp = upsertPkgItem(destschema, oidq.value(0).toInt(), errMsg);
+    if (tmp < 0)
+      return tmp;
+  }
+  else if (oidq.lastError().type() != QSqlError::NoError)
+  {
+    errMsg = _sqlerrtxt.arg(_filename)
+                       .arg(oidq.lastError().databaseText())
+                       .arg(oidq.lastError().driverText());
+    return -7;
+  }
+  else // not found
+  {
+    errMsg = TR("Could not find %1 in the database. The "
+                "script %2 does not match the package.xml description.")
+            .arg(_name).arg(_filename);
+    return -8;
+  }
+
+  return returnVal;
 }

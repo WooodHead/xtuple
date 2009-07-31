@@ -18,6 +18,7 @@ class CreateTrigger : public CreateDBObj
   public:
     CreateTrigger(const QString &filename, const QString &name,
                   const QString &comment = QString::null,
+                  const QString &schema  = QString::null,
                   const OnError onError = Default);
     CreateTrigger(const QDomElement &, QStringList &, QList<bool> &);
 

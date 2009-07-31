@@ -15,14 +15,15 @@
 #include <QSqlError>
 #include <QVariant>     // used by XSqlQuery::bindValue()
 
+#include "metasql.h"
 #include "xsqlquery.h"
 
 #define DEBUG false
 
-CreateView::CreateView(const QString &filename,
-                       const QString &name, const QString &comment,
+CreateView::CreateView(const QString &filename, const QString &name,
+                       const QString &comment,  const QString &schema,
                        const OnError onError)
-  : CreateDBObj("createview", filename, name, comment, onError)
+  : CreateDBObj("createview", filename, name, comment, schema, onError)
 {
   _pkgitemtype = "V";
   _relkind     = "v";
@@ -48,66 +49,19 @@ int CreateView::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
     qDebug("CreateView::writeToDb(%s, %s, &errMsg)",
            pdata.data(), qPrintable(pkgname));
 
-  if (pdata.isEmpty())
-  {
-    errMsg = TR("<font color=orange>The file %1 is empty.</font>")
-                         .arg(_filename);
-    return -1;
-  }
+  _oidMql = new MetaSQLQuery("SELECT pg_class.oid AS oid "
+                             "FROM pg_class, pg_namespace "
+                             "WHERE ((relname=<? value(\"name\") ?>)"
+                             "  AND  (relkind=<? value(\"relkind\") ?>)"
+                             "  AND  (relnamespace=pg_namespace.oid)"
+                             "  AND  (nspname=<? value(\"schema\") ?>));");
+  ParameterList params;
+  params.append("relkind", _relkind);
 
-  int returnVal = Script::writeToDB(pdata, pkgname, errMsg);
-  if (returnVal < 0)
-    return returnVal;
+  int returnVal = CreateDBObj::writeToDB(pdata, pkgname, params, errMsg);
 
-  if (! pkgname.isEmpty())
-  {
-    XSqlQuery select;
-    int pkgheadid = -1;
-    select.prepare("SELECT pkghead_id FROM pkghead WHERE (pkghead_name=:name);");
-    select.bindValue(":name", pkgname);
-    select.exec();
-    if (select.first())
-      pkgheadid = select.value(0).toInt();
-    else if (select.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_filename)
-                        .arg(select.lastError().databaseText())
-                        .arg(select.lastError().driverText());
-      return -6;
-    }
+  delete _oidMql;
+  _oidMql = 0;
 
-    select.prepare("SELECT pg_class.oid AS oid "
-                   "FROM pg_class, pg_namespace "
-                   "WHERE ((relname=:name)"
-                   "  AND  (relkind=:relkind)"
-                   "  AND  (relnamespace=pg_namespace.oid)"
-                   "  AND  (nspname=:schema));");
-    select.bindValue(":name",   _name);
-    select.bindValue(":schema", pkgname);
-    select.bindValue(":relkind",_relkind);
-    select.exec();
-    if (select.first())
-    {
-      int tmp = upsertPkgItem(pkgheadid, select.value(0).toInt(), errMsg);
-      if (tmp < 0)
-        return tmp;
-    }
-    else if (select.lastError().type() != QSqlError::NoError)
-    {
-      errMsg = _sqlerrtxt.arg(_filename)
-                        .arg(select.lastError().databaseText())
-                        .arg(select.lastError().driverText());
-      return -7;
-    }
-    else // not found
-    {
-      errMsg = TR("Could not find view %1 in the database. The "
-                           "script %2 does not match the contents.xml "
-                           "description.")
-                .arg(_name).arg(_filename);
-      return -8;
-    }
-  }
-
-  return 0;
+  return returnVal;
 }

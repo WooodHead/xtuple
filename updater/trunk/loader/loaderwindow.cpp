@@ -29,6 +29,7 @@
 #include <createtrigger.h>
 #include <createview.h>
 #include <finalscript.h>
+#include <initscript.h>
 #include <loadappscript.h>
 #include <loadappui.h>
 #include <loadcmd.h>
@@ -512,17 +513,39 @@ void LoaderWindow::sStart()
   int ignoredErrCnt = 0;
   int tmpReturn     = 0;
 
+  if (_package->_initscripts.size() > 0)
+  {
+    _status->setText(tr("<p><b>Running Initialization</b></p>"));
+    _text->append(tr("<p>Applying initialization scripts...</p>"));
+    for(QList<InitScript*>::iterator i = _package->_initscripts.begin();
+        i != _package->_initscripts.end(); ++i)
+    {
+      tmpReturn = applySql(*i, _files->_list[prefix + (*i)->filename()]);
+      if (tmpReturn < 0)
+      {
+        qry.exec("ROLLBACK;");
+        _text->append(_rollbackMsg);
+        return;
+      }
+      else
+        ignoredErrCnt += tmpReturn;
+    }
+  }
+  if (DEBUG)
+    qDebug("LoaderWindow::sStart() progress %d out of %d after initialization",
+           _progress->value(), _progress->maximum());
+
+  if (disableTriggers() < 0)
+  {
+    qry.exec("ROLLBACK;");
+    _text->append(_rollbackMsg);
+    return;
+  }
+
   if (_package->_privs.size() > 0)
   {
     _status->setText(tr("<p><b>Updating Privileges</b></p>"));
     _text->append(tr("<p>Loading new Privileges...</p>"));
-    if (! _package->system() &&
-        ! qry.exec("ALTER TABLE pkgpriv DISABLE TRIGGER pkgprivaltertrigger;"))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
-    }
     for(QList<LoadPriv*>::iterator i = _package->_privs.begin();
         i != _package->_privs.end(); ++i)
     {
@@ -532,13 +555,6 @@ void LoaderWindow::sStart()
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
-    }
-    if (! _package->system() &&
-        ! qry.exec("ALTER TABLE pkgpriv ENABLE TRIGGER pkgprivaltertrigger;"))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
     }
     _text->append(tr("<p>Completed importing new Privileges.</p>"));
   }
@@ -628,19 +644,6 @@ void LoaderWindow::sStart()
   if (_package->_metasqls.size() > 0)
   {
     _status->setText(tr("<p><b>Updating MetaSQL Statements</b></p>"));
-    if (! qry.exec("ALTER TABLE metasql DISABLE TRIGGER metasqlaltertrigger;"))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
-    }
-    if (! _package->system() &&
-        ! qry.exec("ALTER TABLE pkgmetasql DISABLE TRIGGER pkgmetasqlaltertrigger;"))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
-    }
     _text->append(tr("<p>Loading new MetaSQL Statements...</p>"));
     for(QList<LoadMetasql*>::iterator i = _package->_metasqls.begin();
         i != _package->_metasqls.end(); ++i)
@@ -652,19 +655,6 @@ void LoaderWindow::sStart()
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
     }
-    if (! _package->system() &&
-        ! qry.exec("ALTER TABLE pkgmetasql ENABLE TRIGGER pkgmetasqlaltertrigger;"))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
-    }
-    if (! qry.exec("ALTER TABLE metasql ENABLE TRIGGER metasqlaltertrigger;"))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
-    }
     _text->append(tr("<p>Completed importing new MetaSQL Statements.</p>"));
   }
   if (DEBUG)
@@ -675,13 +665,6 @@ void LoaderWindow::sStart()
   {
     _status->setText(tr("<p><b>Updating Report Definitions</b></p>"));
     _text->append(tr("<p>Loading new report definitions...</p>"));
-    if (! _package->system() &&
-        ! qry.exec("ALTER TABLE pkgreport DISABLE TRIGGER pkgreportaltertrigger;"))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
-    }
     for(QList<LoadReport*>::iterator i = _package->_reports.begin();
         i != _package->_reports.end(); ++i)
     {
@@ -691,13 +674,6 @@ void LoaderWindow::sStart()
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
-    }
-    if (! _package->system() &&
-       (! qry.exec("ALTER TABLE pkgreport ENABLE TRIGGER pkgreportaltertrigger;")))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
     }
     _text->append(tr("<p>Completed importing new report definitions.</p>"));
   }
@@ -709,13 +685,6 @@ void LoaderWindow::sStart()
   {
     _status->setText(tr("<p><b>Updating User Interface Definitions</b></p>"));
     _text->append(tr("<p>Loading User Interface definitions...</p>"));
-    if (! _package->system() &&
-        ! qry.exec("ALTER TABLE pkguiform DISABLE TRIGGER pkguiformaltertrigger;"))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
-    }
     for(QList<LoadAppUI*>::iterator i = _package->_appuis.begin();
         i != _package->_appuis.end(); ++i)
     {
@@ -729,13 +698,6 @@ void LoaderWindow::sStart()
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
     }
-    if (! _package->system() &&
-        ! qry.exec("ALTER TABLE pkguiform ENABLE TRIGGER pkguiformaltertrigger;"))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
-    }
     _text->append(tr("<p>Completed importing User Interface definitions.</p>"));
   }
   if (DEBUG)
@@ -746,13 +708,6 @@ void LoaderWindow::sStart()
   {
     _status->setText(tr("<p><b>Updating Application Script Definitions</b></p>"));
     _text->append(tr("<p>Loading Application Script definitions...</p>"));
-    if (! _package->system() &&
-        ! qry.exec("ALTER TABLE pkgscript DISABLE TRIGGER pkgscriptaltertrigger;"))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
-    }
     for(QList<LoadAppScript*>::iterator i = _package->_appscripts.begin();
         i != _package->_appscripts.end(); ++i)
     {
@@ -765,13 +720,6 @@ void LoaderWindow::sStart()
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
-    }
-    if (! _package->system() &&
-        ! qry.exec("ALTER TABLE pkgscript ENABLE TRIGGER pkgscriptaltertrigger;"))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
     }
     _text->append(tr("<p>Completed importing Application Script definitions.</p>"));
   }
@@ -803,14 +751,6 @@ void LoaderWindow::sStart()
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
     }
-    if (! _package->system() &&
-       (! qry.exec("ALTER TABLE pkgcmdarg ENABLE TRIGGER pkgcmdargaltertrigger;") ||
-        ! qry.exec("ALTER TABLE pkgcmd ENABLE TRIGGER pkgcmdaltertrigger;")))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
-    }
     _text->append(tr("<p>Completed importing new Custom Commands.</p>"));
   }
   if (DEBUG)
@@ -821,13 +761,6 @@ void LoaderWindow::sStart()
   {
     _status->setText(tr("<p><b>Updating Image Definitions</b></p>"));
     _text->append(tr("<p>Loading Image definitions...</p>"));
-    if (! _package->system() &&
-        ! qry.exec("ALTER TABLE pkgimage DISABLE TRIGGER pkgimagealtertrigger;"))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
-    }
     for(QList<LoadImage*>::iterator i = _package->_images.begin();
         i != _package->_images.end(); ++i)
     {
@@ -840,13 +773,6 @@ void LoaderWindow::sStart()
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
-    }
-    if (! _package->system() &&
-        ! qry.exec("ALTER TABLE pkgimage ENABLE TRIGGER pkgimagealtertrigger;"))
-    {
-      qry.exec("ROLLBACK;");
-      _text->append(_rollbackMsg);
-      return;
     }
     _text->append(tr("<p>Completed importing Image definitions.</p>"));
   }
@@ -887,6 +813,13 @@ void LoaderWindow::sStart()
   if (DEBUG)
     qDebug("LoaderWindow::sStart() progress %d out of %d after dependencies",
            _progress->value(), _progress->maximum());
+
+  if (enableTriggers() < 0)
+  {
+    qry.exec("ROLLBACK;");
+    _text->append(_rollbackMsg);
+    return;
+  }
 
   if (_package->_finalscripts.size() > 0)
   {
@@ -1170,4 +1103,148 @@ int LoaderWindow::applyLoadable(Loadable *pscript, const QByteArray psql)
   _progress->setValue(_progress->value() + 1);
 
   return returnVal;
+}
+
+int LoaderWindow::disableTriggers()
+{
+  QString schema;
+
+  for (QList<LoadPriv*>::iterator i = _package->_privs.begin();
+       i != _package->_privs.end(); ++i)
+  {
+    schema = (*i)->schema();
+    if (schema.isEmpty() && ! _package->system() &&
+        ! _triggers.contains("pkgpriv"))
+      _triggers.append("pkgpriv");
+    else if (! schema.isEmpty() && "public" != schema &&
+             ! _triggers.contains(schema + ".pkgpriv"))
+      _triggers.append(schema + ".pkgpriv");
+  }
+
+  if (_package->_metasqls.size() > 0)
+  {
+    _triggers.append("public.metasql");
+    for (QList<LoadMetasql*>::iterator i = _package->_metasqls.begin();
+         i != _package->_metasqls.end(); ++i)
+    {
+      schema = (*i)->schema();
+      if (schema.isEmpty() && ! _package->system() &&
+          ! _triggers.contains("pkgmetasql"))
+        _triggers.append("pkgmetasql");
+      else if (! schema.isEmpty() && "public" != schema &&
+               ! _triggers.contains(schema + ".pkgmetasql"))
+        _triggers.append(schema + ".pkgmetasql");
+    }
+  }
+
+  for (QList<LoadReport*>::iterator i = _package->_reports.begin();
+       i != _package->_reports.end(); ++i)
+  {
+    schema = (*i)->schema();
+    if (schema.isEmpty() && ! _package->system() &&
+        ! _triggers.contains("pkgreport"))
+      _triggers.append("pkgreport");
+    else if (! schema.isEmpty() && "public" != schema &&
+             ! _triggers.contains(schema + ".pkgreport"))
+      _triggers.append(schema + ".pkgreport");
+  }
+
+  for (QList<LoadAppUI*>::iterator i = _package->_appuis.begin();
+       i != _package->_appuis.end(); ++i)
+  {
+    schema = (*i)->schema();
+    if (schema.isEmpty() && ! _package->system() &&
+        ! _triggers.contains("pkguiform"))
+      _triggers.append("pkguiform");
+    else if (! schema.isEmpty() && "public" != schema &&
+             ! _triggers.contains(schema + ".pkguiform"))
+      _triggers.append(schema + ".pkguiform");
+  }
+
+  for (QList<LoadAppScript*>::iterator i = _package->_appscripts.begin();
+       i != _package->_appscripts.end(); ++i)
+  {
+    schema = (*i)->schema();
+    if (schema.isEmpty() && ! _package->system() &&
+        ! _triggers.contains("pkgscript"))
+      _triggers.append("pkgscript");
+    else if (! schema.isEmpty() && "public" != schema &&
+             ! _triggers.contains(schema + ".pkgscript"))
+      _triggers.append(schema + ".pkgscript");
+  }
+
+  for (QList<LoadCmd*>::iterator i = _package->_cmds.begin();
+       i != _package->_cmds.end(); ++i)
+  {
+    schema = (*i)->schema();
+    if (schema.isEmpty() && ! _package->system() &&
+        ! _triggers.contains("pkgcmd"))
+    {
+      _triggers.append("pkgcmd");
+      _triggers.append("pkgcmdarg");
+    }
+    else if (! schema.isEmpty() && "public" != schema &&
+             ! _triggers.contains(schema + ".pkgcmd"))
+    {
+      _triggers.append(schema + ".pkgcmd");
+      _triggers.append(schema + ".pkgcmdarg");
+    }
+  }
+
+  for (QList<LoadImage*>::iterator i = _package->_images.begin();
+       i != _package->_images.end(); ++i)
+  {
+    schema = (*i)->schema();
+    if (schema.isEmpty() && ! _package->system() &&
+        ! _triggers.contains("pkgimage"))
+      _triggers.append("pkgimage");
+    else if (! schema.isEmpty() && "public" != schema &&
+             ! _triggers.contains(schema + ".pkgimage"))
+      _triggers.append(schema + ".pkgimage");
+  }
+
+  QRegExp beforeDot(".*\\.");
+  QString empty;
+  for (int i = 0; i < _triggers.size(); i++)
+  {
+    QString triggername(_triggers.at(i));
+    triggername.replace(beforeDot, empty);
+    XSqlQuery disableq(QString("ALTER TABLE %1 DISABLE TRIGGER %2altertrigger;")
+                       .arg(_triggers.at(i)) .arg(triggername));
+    disableq.exec();
+    if (disableq.lastError().type() != QSqlError::NoError)
+    {
+      _text->append(tr("<br><font color=\"red\">Could not disable %1 trigger:"
+                       "<pre>%2</pre></font><br>")
+                    .arg(_triggers.at(i))
+                    .arg(disableq.lastError().text()));
+      return -1;
+    }
+  }
+
+  return _triggers.size();
+}
+
+int LoaderWindow::enableTriggers()
+{
+  QRegExp beforeDot(".*\\.");
+  QString empty;
+  for (int i = _triggers.size() - 1; i >= 0; i--)
+  {
+    QString triggername(_triggers.at(i));
+    triggername.replace(beforeDot, empty);
+    XSqlQuery enableq(QString("ALTER TABLE %1 ENABLE TRIGGER %2altertrigger;")
+                       .arg(_triggers.at(i)) .arg(triggername));
+    enableq.exec();
+    if (enableq.lastError().type() != QSqlError::NoError)
+    {
+      _text->append(tr("<br><font color=\"red\">Could not enable %1 trigger:"
+                       "<pre>%2</pre></font><br>")
+                    .arg(_triggers.at(i))
+                    .arg(enableq.lastError().text()));
+      return -1;
+    }
+  }
+
+  return _triggers.size();
 }

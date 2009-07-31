@@ -15,8 +15,11 @@
 
 #include "script.h"
 
+#include <parameter.h>
+
 class QDomDocument;
 class QDomElement;
+class MetaSQLQuery;
 
 #define TR(a) QObject::tr(a)
 
@@ -26,6 +29,7 @@ class CreateDBObj : public Script
     CreateDBObj(const QString &nodename, const QString &filename,
                 const QString &name = QString::null,
                 const QString &comment = QString::null,
+                const QString &schema = QString::null,
                 const OnError onError = Default);
     CreateDBObj(const QDomElement &, QStringList &, QList<bool> &);
 
@@ -39,13 +43,17 @@ class CreateDBObj : public Script
                                               !_filename.isEmpty(); }
 
   protected:
-    QString _filename;
-    QString _nodename;
-    QString _pkgitemtype;
+    QString       _filename;
+    QString       _nodename;
+    MetaSQLQuery *_oidMql;
+    QString       _pkgitemtype;
+    QString       _schema;
 
     CreateDBObj();
-    virtual int upsertPkgItem(const int pkghead, const int itemid,
+    virtual int upsertPkgItem(const QString &destschema, const int itemid,
                               QString &errMsg);
+    virtual int writeToDB(const QByteArray &pdata, const QString pkgname,
+                          ParameterList &params, QString &errMsg);
 };
 
 #endif
