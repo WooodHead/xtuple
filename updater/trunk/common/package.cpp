@@ -31,6 +31,7 @@
 #include "prerequisite.h"
 #include "script.h"
 #include "finalscript.h"
+#include "initscript.h"
 #include "xsqlquery.h"
 #include "xversion.h"
 
@@ -147,6 +148,8 @@ Package::Package(const QDomElement & elem, QStringList &msgList,
       _scripts.append(new Script(elemThis, msgList, fatalList));
     else if(elemThis.tagName() == "finalscript")
       _finalscripts.append(new FinalScript(elemThis, msgList, fatalList));
+    else if(elemThis.tagName() == "initscript")
+      _initscripts.append(new InitScript(elemThis, msgList, fatalList));
     else if (! reportedErrorTags.contains(elemThis.tagName()))
     {
       QMessageBox::warning(0, TR("Unknown Package Element"),
@@ -226,6 +229,9 @@ QDomElement Package::createElement(QDomDocument & doc)
   for(QList<FinalScript*>::iterator i = _finalscripts.begin(); i != _finalscripts.end(); ++i)
     elem.appendChild((*i)->createElement(doc));
 
+  for(QList<InitScript*>::iterator i = _initscripts.begin(); i != _initscripts.end(); ++i)
+    elem.appendChild((*i)->createElement(doc));
+
   return elem;
 }
 
@@ -255,6 +261,17 @@ bool Package::containsFinalScript(const QString & scriptname) const
 {
   QList<FinalScript*>::const_iterator it = _finalscripts.begin();
   for(; it != _finalscripts.end(); ++it)
+  {
+    if((*it)->name() == scriptname)
+      return true;
+  }
+  return false;
+}
+
+bool Package::containsInitScript(const QString & scriptname) const
+{
+  QList<InitScript*>::const_iterator it = _initscripts.begin();
+  for(; it != _initscripts.end(); ++it)
   {
     if((*it)->name() == scriptname)
       return true;

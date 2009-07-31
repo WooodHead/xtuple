@@ -19,7 +19,7 @@
 
 QString Script::_sqlerrtxt = TR("The following error was encountered "
                                          "while trying to import %1 into the "
-                                         "database:<br>%2<br>%3");
+                                         "database:<br><pre>%2<br>%3</pre>");
 
 Script::Script(const QString & name, OnError onError, const QString & comment)
   : _name(name), _comment(comment), _onError(onError)

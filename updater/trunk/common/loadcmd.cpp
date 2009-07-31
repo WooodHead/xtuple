@@ -166,9 +166,24 @@ int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
   if (cmdid < 0)
     return cmdid;
 
+  // alter the name of the loadable's table if necessary
+  QString prefix;
+  if (_schema.isEmpty()        &&   pkgname.isEmpty())
+    ;   // leave it alone
+  else if (_schema.isEmpty()   && ! pkgname.isEmpty())
+    prefix = "pkg";
+  else if ("public" == _schema &&   pkgname.isEmpty())
+    ;   // leave it alone
+  else if ("public" == _schema && ! pkgname.isEmpty())
+    prefix = "public.";
+  else if (! _schema.isEmpty() &&   pkgname.isEmpty())
+    prefix = _schema + ".pkg";
+  else if (! _schema.isEmpty() && ! pkgname.isEmpty())
+    prefix = _schema + ".pkg";
+
   XSqlQuery delargs;
   delargs.prepare(QString("DELETE FROM %1cmdarg WHERE (cmdarg_cmd_id=:cmd_id);")
-                          .arg(_system ? "" : "pkg"));
+                          .arg(prefix));
   delargs.bindValue(":cmd_id", cmdid);
   if (! delargs.exec())
   {
@@ -182,7 +197,7 @@ int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
     XSqlQuery insargs;
     insargs.prepare(QString("INSERT INTO %1cmdarg (cmdarg_cmd_id, cmdarg_order, "
                             "cmdarg_arg) VALUES (:cmd_id, :order, :arg);")
-                          .arg(_system ? "" : "pkg"));
+                          .arg(prefix));
     for (int i = 0; i < _args.size(); i++)
     {
       insargs.bindValue(":cmd_id", cmdid);

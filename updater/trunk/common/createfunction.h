@@ -18,13 +18,14 @@ class CreateFunction : public CreateDBObj
   public:
     CreateFunction(const QString &filename, const QString &name,
                    const QString &comment = QString::null,
+                   const QString &schema = QString::null,
                    const OnError onError = Default);
     CreateFunction(const QDomElement &, QStringList &, QList<bool> &);
 
     virtual int writeToDB(const QByteArray &, const QString pkgname, QString &);
 
   protected:
-    virtual int upsertPkgItem(const int, const QMap<QString,int>, const QString, const int, QString&);
+    virtual int upsertPkgItem(const QString &destschema, const QMap<QString,int>, const QString, const int, QString&);
 };
 
 #endif

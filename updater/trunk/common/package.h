@@ -33,6 +33,7 @@ class LoadReport;
 class Prerequisite;
 class Script;
 class FinalScript;
+class InitScript;
 
 class Package
 {
@@ -66,6 +67,7 @@ class Package
     QList<Prerequisite*>   _prerequisites;
     QList<Script*>         _scripts;
     QList<FinalScript*>    _finalscripts;
+    QList<InitScript*>     _initscripts;
     QList<LoadReport*>     _reports;
 
     bool containsAppScript(const QString &name)    const;
@@ -79,6 +81,7 @@ class Package
     bool containsReport(const QString &name)       const;
     bool containsScript(const QString &name)       const;
     bool containsFinalScript(const QString &name)  const;
+    bool containsInitScript(const QString &name)  const;
     bool containsTable(const QString &name)        const;
     bool containsTrigger(const QString &name)      const;
     bool containsView(const QString &name)         const;
