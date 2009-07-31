@@ -112,6 +112,16 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
            qPrintable(_name), qPrintable(_group), qPrintable(_comment),
            qPrintable(metasqlStr));
 
+  QString destschema = "public";
+  if (_schema.isEmpty()        &&   pkgname.isEmpty())
+    ;   // leave it alone
+  else if (_schema.isEmpty()   && ! pkgname.isEmpty())
+    destschema = pkgname;
+  else if ("public" == _schema)
+    ;   // leave it alone
+  else if (! _schema.isEmpty())
+    destschema = _schema;
+
   XSqlQuery upsert;
   int metasqlid = -1;
 
@@ -122,10 +132,7 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
   upsert.bindValue(":notes", _comment);
   upsert.bindValue(":query", metasqlStr);
   upsert.bindValue(":system",_system);
-  if (! _schema.isEmpty())
-    upsert.bindValue(":schema", _schema);
-  else if (! pkgname.isEmpty())
-    upsert.bindValue(":schema", pkgname);
+  upsert.bindValue(":schema",destschema);
 
   upsert.exec();
   if (upsert.first())
@@ -154,44 +161,6 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
   if (DEBUG)
     qDebug("LoadMetasql::writeToDB() executed %s and got %d in return",
            qPrintable(upsert.executedQuery()), metasqlid);
-
-  // alter the name of the loadable's table if necessary
-  QString destschema = "public";
-  if (_schema.isEmpty()        &&   pkgname.isEmpty())
-    ;   // leave it alone
-  else if (_schema.isEmpty()   && ! pkgname.isEmpty())
-    destschema = pkgname;
-  else if ("public" == _schema)
-    ;   // leave it alone
-  else if (! _schema.isEmpty())
-    destschema = _schema;
-
-  if ("public" != destschema)
-  {
-    int pkgitemid = -1;
-
-    ParameterList params;
-    params.append("name",    _group + "-" + _name);
-    params.append("pkgname", destschema);
-    params.append("type",    _pkgitemtype);
-
-    XSqlQuery select = _pkgitemMql.toQuery(params);
-    if(select.first())
-      pkgitemid = select.value(2).toInt();
-    else if (select.lastError().type() != QSqlError::NoError)
-    {
-      QSqlError err = select.lastError();
-      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-      return -7;
-    }
-
-    QString simplename = _name;
-    _name = _group + "-" + _name;
-    int tmp = upsertPkgItem(pkgitemid, destschema, metasqlid, errMsg);
-    _name = simplename;
-    if (tmp < 0)
-      return tmp;
-  }
 
   return metasqlid;
 }

@@ -26,14 +26,6 @@ BEGIN
     RETURN -3;
   END IF;
 
-  IF (NOT EXISTS(SELECT *
-                 FROM pkgitem
-                 WHERE ((pkgitem_pkghead_id=ppkgheadid)
-                    AND (pkgitem_type='S')
-                    AND (pkgitem_name=_pkgname)))) THEN
-    RETURN -4;
-  END IF;
-
   FOR _i IN ARRAY_LOWER(_tabs,1)..ARRAY_UPPER(_tabs,1) LOOP
     EXECUTE 'ALTER TABLE ' || _pkgname || '.pkg' || _tabs[_i] ||
             ' DISABLE TRIGGER pkg' || _tabs[_i] || 'altertrigger;';

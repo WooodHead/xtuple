@@ -2,6 +2,8 @@ CREATE OR REPLACE FUNCTION createPkgSchema(TEXT, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pname         ALIAS FOR $1;
   pcomment      ALIAS FOR $2;
+  _createtable  TEXT;
+  _debug        BOOL    := true;
   _namespaceoid INTEGER := -1;
   _tabs         TEXT[] := ARRAY['cmd',  'cmdarg', 'image',  'metasql',
                                 'priv', 'report', 'script', 'uiform'] ;
@@ -31,7 +33,9 @@ BEGIN
                   FROM pg_class
                   WHERE ((relname=_pkgtab)
                      AND (relnamespace=_namespaceoid))) THEN
-      EXECUTE 'CREATE TABLE ' || _pkgtab || ' () INHERITS (' || _tabs[i] || ');';
+      _createtable := 'CREATE TABLE ' || _pkgtab || ' () INHERITS (' || _tabs[i] || ');';
+      IF (_debug) THEN RAISE NOTICE '%', _createtable; END IF;
+      EXECUTE _createtable;
 
       EXECUTE 'ALTER TABLE ' || _pkgtab ||
               ' ALTER ' || _tabs[i] || '_id SET NOT NULL,' ||
@@ -72,18 +76,8 @@ BEGIN
     END IF;
   END LOOP;
 
-  UPDATE pkgitem SET pkgitem_descrip=pcomment
-  FROM pkghead
-  WHERE ((pkgitem_name=pname)
-    AND  (pkgitem_item_id=_namespaceoid));
-  IF NOT FOUND THEN
-    INSERT INTO pkgitem (pkgitem_pkghead_id, pkgitem_type,
-                         pkgitem_item_id, pkgitem_name, pkgitem_descrip
-                ) SELECT pkghead_id, 'S',
-                         _namespaceoid, pname, pcomment
-                  FROM pkghead
-                  WHERE (pkghead_name=pname);
-  END IF;
+  EXECUTE 'COMMENT ON SCHEMA ' || quote_ident(pname) || ' IS ' ||
+           quote_literal(pcomment) || ';';
 
   RETURN _namespaceoid;
 END;

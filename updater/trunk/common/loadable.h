@@ -78,10 +78,7 @@ class Loadable
 
     virtual int writeToDB(const QByteArray &pdata, const QString pkgname,
                           QString &errMsg, ParameterList &params);
-    virtual int upsertPkgItem(int &pkgitemid, const QString &destschema,
-                              const int itemid, QString &errMsg);
 
-    static MetaSQLQuery _pkgitemMql;
     static QString      _sqlerrtxt;
 };
 

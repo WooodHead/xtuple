@@ -71,12 +71,6 @@ $$ LANGUAGE 'plpgsql';
 CREATE OR REPLACE FUNCTION _pkgmetasqlaftertrigger() RETURNS TRIGGER AS $$
 BEGIN
   IF (TG_OP = 'DELETE') THEN
-    DELETE FROM pkgitem
-    WHERE ((pkgitem_type='M')
-       AND (pkgitem_item_id=OLD.metasql_id)
-       AND (pkgitem_pkghead_id IN (SELECT pkghead_id
-                                   FROM pkghead
-                                   WHERE pkghead_name = TG_TABLE_SCHEMA)));
     RETURN OLD;
   END IF;
 

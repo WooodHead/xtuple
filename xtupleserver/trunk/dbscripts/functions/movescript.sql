@@ -77,26 +77,6 @@ BEGIN
                     _rows, pscriptid;
   END IF;
 
-  IF (pnewpkgid != -1) THEN
-    INSERT INTO pkgitem (pkgitem_pkghead_id, pkgitem_type, pkgitem_item_id,
-                         pkgitem_name, pkgitem_descrip
-    ) SELECT pnewpkgid, 'C', pscriptid,
-             script_name, pkghead_name || ' package - moved from public'
-      FROM script, pkghead
-      WHERE ((script_id=pscriptid)
-          AND (pkghead_id=pnewpkgid));
-    GET DIAGNOSTICS _rows = ROW_COUNT;
-    RAISE NOTICE '% rows from INSERT INTO pkgitem', _rows;
-  END IF;
-  
-  IF (poldpkgid != -1) THEN
-    DELETE FROM pkgitem
-    WHERE ((pkgitem_type = 'C')
-       AND (pkgitem_item_id=pscriptid));
-    GET DIAGNOSTICS _rows = ROW_COUNT;
-    RAISE NOTICE '% rows from DELETE FROM pkgitem', _rows;
-  END IF;
-
   RETURN pscriptid;
 
 END;

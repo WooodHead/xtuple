@@ -77,26 +77,6 @@ BEGIN
                     _rows, puiformid;
   END IF;
 
-  IF (pnewpkgid != -1) THEN
-    INSERT INTO pkgitem (pkgitem_pkghead_id, pkgitem_type, pkgitem_item_id,
-                         pkgitem_name, pkgitem_descrip
-    ) SELECT pnewpkgid, 'U', puiformid,
-             uiform_name, pkghead_name || ' package - moved from public'
-      FROM uiform, pkghead
-      WHERE ((uiform_id=puiformid)
-          AND (pkghead_id=pnewpkgid));
-    GET DIAGNOSTICS _rows = ROW_COUNT;
-    RAISE NOTICE '% rows from INSERT INTO pkgitem', _rows;
-  END IF;
-  
-  IF (poldpkgid != -1) THEN
-    DELETE FROM pkgitem
-    WHERE ((pkgitem_type = 'U')
-       AND (pkgitem_item_id=puiformid));
-    GET DIAGNOSTICS _rows = ROW_COUNT;
-    RAISE NOTICE '% rows from DELETE FROM pkgitem', _rows;
-  END IF;
-
   RETURN puiformid;
 
 END;

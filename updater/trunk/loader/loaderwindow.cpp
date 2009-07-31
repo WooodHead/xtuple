@@ -858,6 +858,7 @@ void LoaderWindow::sStart()
   {
     qry.exec("commit;");
     _text->append(tr("<p>The Update is now complete but errors were ignored!</p>"));
+    _progress->setValue(_progress->maximum());
   }
   else if (ignoredErrCnt > 0)
   {
@@ -868,6 +869,7 @@ void LoaderWindow::sStart()
   {
     qry.exec("commit;");
     _text->append(tr("<p>The Update is now complete!</p>"));
+    _progress->setValue(_progress->maximum());
   }
 
   if (DEBUG)

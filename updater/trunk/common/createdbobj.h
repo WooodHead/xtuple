@@ -50,8 +50,6 @@ class CreateDBObj : public Script
     QString       _schema;
 
     CreateDBObj();
-    virtual int upsertPkgItem(const QString &destschema, const int itemid,
-                              QString &errMsg);
     virtual int writeToDB(const QByteArray &pdata, const QString pkgname,
                           ParameterList &params, QString &errMsg);
 };
