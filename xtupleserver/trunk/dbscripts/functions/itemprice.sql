@@ -252,7 +252,7 @@ BEGIN
 --  Check for a list price
   SELECT MIN(currToLocal(pCurrid,
                        item_listprice - (item_listprice * COALESCE(cust_discntprcnt, 0)),
-                       pEffective)) AS price,
+                       pEffective) * _iteminvpricerat) AS price,
          item_exclusive INTO _item
   FROM item LEFT OUTER JOIN custinfo ON (cust_id=pCustid)
   WHERE (item_id=pItemid)
