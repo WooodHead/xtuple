@@ -95,6 +95,16 @@ BEGIN
         END IF;
       END IF;   
 
+    --Make sure we aren't trying to receive a Kit
+    IF ((FOUND) AND (_o.itemsite_id IS NOT NULL)) THEN
+      IF (SELECT (item_type='K')
+          FROM itemsite, item
+          WHERE ((itemsite_id=_o.itemsite_id)
+            AND  (item_id=itemsite_item_id))) THEN
+        RETURN 0;
+      END IF;
+    END IF;   
+
     IF (NOT FOUND) THEN
       RETURN -1;
     END IF;
