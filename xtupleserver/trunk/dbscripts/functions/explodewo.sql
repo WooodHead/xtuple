@@ -1,23 +1,24 @@
-CREATE OR REPLACE FUNCTION explodeWo(INTEGER, BOOL) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION explodeWo(INTEGER, BOOL) RETURNS INTEGER AS $$
 DECLARE
   pWoid ALIAS FOR $1;
   pExplodeChildren ALIAS FOR $2;
   resultCode INTEGER;
   newWo RECORD;
+  _newwoid INTEGER;
   _p RECORD;
   _r RECORD;
   _bbom BOOLEAN;
 
 BEGIN
 -- Find out if Breeder BOMs are enabled
-  SELECT metric_value=''t'' INTO _bbom
+  SELECT metric_value='t' INTO _bbom
          FROM metric
-         WHERE (metric_name=''BBOM'');
+         WHERE (metric_name='BBOM');
 
 --  Make sure that this W/O is Open
   SELECT wo_id INTO resultCode
   FROM wo
-  WHERE ((wo_status=''O'')
+  WHERE ((wo_status='O')
    AND (wo_id=pWoid));
   IF (NOT FOUND) THEN
     RETURN -4;
@@ -49,7 +50,7 @@ BEGIN
 --  Co-Product/By-Product Item Sites exist
   IF (_bbom) THEN
 
-    IF ( ( SELECT (item_type=''B'')
+    IF ( ( SELECT (item_type='B')
            FROM wo, itemsite, item
            WHERE ( (wo_itemsite_id=itemsite_id)
             AND (itemsite_item_id=item_id)
@@ -95,7 +96,7 @@ BEGIN
          roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id), (bomitem_qtyper * wo_qtyord * (1 + bomitem_scrap))),
          0, 0,
          startOfTime(), startOfTime(), 0,
-         item_picklist, ( (item_type=''M'') AND (bomitem_createwo) ), bomitem_issuemethod, bomitem_notes, bomitem_ref 
+         item_picklist, ( (item_type='M') AND (bomitem_createwo) ), bomitem_issuemethod, bomitem_notes, bomitem_ref 
   FROM bomitem, wo, itemsite AS ps, itemsite AS cs, item
   WHERE ( (wo_itemsite_id=ps.itemsite_id)
    AND (bomitem_parent_item_id=ps.itemsite_item_id)
@@ -109,26 +110,26 @@ BEGIN
        OR  EXISTS (
          SELECT charass_id
          FROM coitem,charass
-         WHERE ((charass_target_type=''SI'')
+         WHERE ((charass_target_type='SI')
           AND  (charass_target_id=coitem_id)
           AND  (charass_char_id=bomitem_char_id)
           AND  (charass_value=bomitem_value)
-          AND  (wo_ordtype=''S'')
+          AND  (wo_ordtype='S')
           AND  (coitem_id=wo_ordid)))) );
 
---  Create any required P/R''s
-  PERFORM createPr(''W'', womatl_id)
+--  Create any required P/R's
+  PERFORM createPr('W', womatl_id)
   FROM womatl, itemsite
   WHERE ((womatl_itemsite_id=itemsite_id)
    AND (itemsite_createpr)
    AND (womatl_wo_id=pWoid));
 
---  Update any created P/R''s the have the project id as the parent WO.
+--  Update any created P/R's the have the project id as the parent WO.
   UPDATE pr SET pr_prj_id=wo_prj_id
     FROM womatl, wo
    WHERE ((wo_id=pWoid)
      AND  (womatl_wo_id=wo_id)
-     AND  (pr_order_type=''W'')
+     AND  (pr_order_type='W')
      AND  (pr_order_id=womatl_id));
 
 --  If the parent Item is a Breeder, create the brddist
@@ -145,7 +146,7 @@ BEGIN
     WHERE ( (bbomitem_parent_item_id=ps.itemsite_item_id)
      AND (wo_itemsite_id=ps.itemsite_id)
      AND (ps.itemsite_item_id=item_id)
-     AND (item_type=''B'')
+     AND (item_type='B')
      AND (bbomitem_item_id=cs.itemsite_item_id)
      AND (cs.itemsite_warehous_id=ps.itemsite_warehous_id)
      AND (wo_id=pWoid) );
@@ -153,9 +154,9 @@ BEGIN
   END IF;
 
 --  Insert the W/O Operations if routings enabled
-  IF ( ( SELECT (metric_value=''t'')
+  IF ( ( SELECT (metric_value='t')
          FROM metric
-         WHERE (metric_name=''Routings'') ) ) THEN
+         WHERE (metric_name='Routings') ) ) THEN
 
     INSERT INTO wooper
     ( wooper_wo_id, wooper_booitem_id, wooper_seqnumber,
@@ -219,13 +220,13 @@ BEGIN
             WHERE ( (womatl_itemsite_id=itemsite_id)
              AND (itemsite_item_id=item_id)
              AND (womatl_wo_id=pWoid)
-             AND (item_type=''F'') ) ) > 0 ) LOOP
+             AND (item_type='F') ) ) > 0 ) LOOP
 
     FOR _p IN SELECT wo_qtyord, wo_startdate, womatl_id, womatl_wooper_id
               FROM wo, womatl, itemsite, item
               WHERE ( (womatl_itemsite_id=itemsite_id)
                AND (itemsite_item_id=item_id)
-               AND (item_type=''F'')
+               AND (item_type='F')
                AND (womatl_wo_id=wo_id)
                AND (wo_id=pWoid) ) LOOP
 
@@ -244,7 +245,7 @@ BEGIN
              roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id), (_p.wo_qtyord * bomitem_qtyper * womatl_qtyper * (1 + bomitem_scrap))),
              0, 0,
              startOfTime(), startOfTime(),
-             0, ci.item_picklist, ( (ci.item_type=''M'') AND (bomitem_createwo) ),
+             0, ci.item_picklist, ( (ci.item_type='M') AND (bomitem_createwo) ),
              bomitem_issuemethod, bomitem_notes, bomitem_ref 
       FROM wo, womatl, bomitem, 
            itemsite AS cs, itemsite AS ps,
@@ -257,7 +258,8 @@ BEGIN
        AND (cs.itemsite_item_id=ci.item_id)
        AND (ps.itemsite_item_id=pi.item_id)
        AND (woEffectiveDate(_p.wo_startdate) BETWEEN bomitem_effective AND (bomitem_expires - 1))
-       AND (womatl_id=_p.womatl_id));
+       AND (womatl_id=_p.womatl_id))
+      ORDER BY bom_seqnumber;
 
       DELETE FROM womatl
       WHERE (womatl_id=_p.womatl_id);
@@ -269,33 +271,36 @@ BEGIN
   FOR newWo IN SELECT wo_number, nextWoSubnumber(wo_number) AS nextSubnumber,
                       itemsite_id, itemsite_leadtime, womatl_duedate,
                       womatl_wo_id, womatl_qtyreq, womatl_uom_id, wo_prj_id,
-                      item_id, item_inv_uom_id
+                      item_id, item_inv_uom_id, womatl_id
                FROM womatl, wo, itemsite, item
                WHERE ( (womatl_wo_id=wo_id)
                 AND (womatl_itemsite_id=itemsite_id)
                 AND (womatl_createwo)
                 AND (itemsite_wosupply)
                 AND (itemsite_item_id=item_id)
-                AND (wo_id=pWoid) ) LOOP
+                AND (wo_id=pWoid) )
+               ORDER BY womatl_id LOOP
 
-    PERFORM createWo( newWo.wo_number, newWo.itemsite_id, 1, 
+    SELECT createWo( newWo.wo_number, newWo.itemsite_id, 1, 
                      itemuomtouom(newWo.item_id,newWo.womatl_uom_id,newWo.item_inv_uom_id,newWo.womatl_qtyreq),
-                      newWo.itemsite_leadtime, newWo.womatl_duedate, '''',
-                      ''W'', newWo.womatl_wo_id, newWo.wo_prj_id );
+                      newWo.itemsite_leadtime, newWo.womatl_duedate, '',
+                      'W', newWo.womatl_wo_id, newWo.wo_prj_id ) INTO _newwoid;
+
+    UPDATE wo SET wo_womatl_id = newWo.womatl_id WHERE wo_id=_newwoid;
 
   END LOOP;
 
   UPDATE wo
-  SET wo_status=''E'', wo_adhoc=FALSE
+  SET wo_status='E', wo_adhoc=FALSE
   WHERE (wo_id=pWoid);
 
   IF (pExplodeChildren) THEN
     SELECT MAX(explodeWo(wo_id, TRUE)) INTO resultCode
     FROM wo
-    WHERE ( (wo_ordtype=''W'')
+    WHERE ( (wo_ordtype='W')
      AND (wo_ordid=pWoid) );
   END IF;
 
   RETURN pWoid;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
