@@ -1,15 +1,13 @@
-
-CREATE OR REPLACE FUNCTION indentedwo(integer, boolean, boolean) RETURNS SETOF wodata AS $$
+CREATE OR REPLACE FUNCTION indentedwo(integer, boolean, boolean, boolean) RETURNS SETOF wodata AS $$
 DECLARE
    pwoid ALIAS FOR $1;
-   pshowindent ALIAS FOR $2;   
+   pshowops ALIAS FOR $2;
    pshowmatl ALIAS FOR $3; 
+   pshowindent ALIAS FOR $4;   
   _row wodata%ROWTYPE;
-  _subrow wodata%ROWTYPE;
-  _subsubrow wodata%ROWTYPE;    
+  _subrow wodata%ROWTYPE;  
+  _opx wodata%ROWTYPE;
   _x RECORD;
-  _subx RECORD;
-  _subsubx RECORD; 
   _level INTEGER;
    
 BEGIN 
@@ -17,20 +15,28 @@ BEGIN
     --there are three different tables used wo, womatl and womatlvar
     --wodata_id_type = 1 = wo_id
     --wodata_id_type = 2 = womatl_id
-    --wodata_id_type = 3 = womatlvar_id
+    --wodata_id_type = 3 = wooper_id
     --initialise values
     _level := 0;   
     --get top level works orders
     FOR _x IN
-       SELECT * FROM wo, itemsite     
-       WHERE (wo_id = pwoid)
-         AND itemsite_id = wo_itemsite_id         
+       SELECT wo_id,wo_number,wo_subnumber,wo_status,wo_startdate,
+         wo_duedate,wo_adhoc,wo_itemsite_id,itemsite_qtyonhand,
+         wo_qtyord,wo_qtyrcv,wo_prodnotes, item_number,
+         item_descrip1, item_descrip2, uom_name
+       FROM wo, itemsite, item, uom     
+       WHERE ((wo_id = pwoid)
+         AND (itemsite_id = wo_itemsite_id)
+         AND (itemsite_item_id=item_id)
+         AND (item_inv_uom_id=uom_id))      
        ORDER BY wo_number, wo_subnumber
     LOOP
         _row.wodata_id := _x.wo_id;
         _row.wodata_id_type := 1;            
         _row.wodata_number := _x.wo_number;
         _row.wodata_subnumber := _x.wo_subnumber;
+        _row.wodata_itemnumber := _x.item_number;
+        _row.wodata_descrip := _x.item_descrip1 || '-' || _x.item_descrip2;
         _row.wodata_status := _x.wo_status;
         _row.wodata_startdate := _x.wo_startdate;
         _row.wodata_duedate := _x.wo_duedate;
@@ -38,106 +44,132 @@ BEGIN
         _row.wodata_itemsite_id := _x.wo_itemsite_id;         
         _row.wodata_qoh := _x.itemsite_qtyonhand;
         _row.wodata_short := noneg(_x.wo_qtyord - _x.wo_qtyrcv);
-        _row.wodata_qtyper := null;
-        _row.wodata_qtyiss := null;  
         _row.wodata_qtyrcv := _x.wo_qtyrcv;   
-        _row.wodata_qtyordreq := _x.wo_qtyord;        
+        _row.wodata_qtyordreq := _x.wo_qtyord;   
+        _row.wodata_qtyuom := _x.uom_name;    
         _row.wodata_scrap := 0;        
-        _row.wodata_notes := null;
-        _row.wodata_ref := null;       
+        _row.wodata_notes := _x.wo_prodnotes;     
         _row.wodata_level := _level;                
         RETURN NEXT _row;
-        IF (pshowmatl) THEN
+        IF (pshowmatl AND NOT pshowops) THEN
           --expand materials      
-          FOR _subx IN
+          FOR _subrow IN
              SELECT * FROM indentedwomatl(pwoid, _level)
-          LOOP 
-                _subrow.wodata_id  := _subx.wodata_id;                     
-                _subrow.wodata_id_type := _subx.wodata_id_type;                             
-                _subrow.wodata_number := _subx.wodata_number;
-                _subrow.wodata_subnumber := _subx.wodata_subnumber;
-                _subrow.wodata_status := _subx.wodata_status;
-                _subrow.wodata_startdate := _subx.wodata_startdate;
-                _subrow.wodata_duedate := _subx.wodata_duedate;
-                _subrow.wodata_adhoc := _subx.wodata_adhoc;              
-                _subrow.wodata_itemsite_id := _subx.wodata_itemsite_id;                
-                _subrow.wodata_qoh := _subx.wodata_qoh;
-                _subrow.wodata_short := _subx.wodata_short;                
-                _subrow.wodata_qtyper := _subx.wodata_qtyper;
-                _subrow.wodata_qtyrcv := _subx.wodata_qtyrcv; 
-                _subrow.wodata_qtyiss := _subx.wodata_qtyiss;                
-                _subrow.wodata_qtyordreq := _subx.wodata_qtyordreq;                
-                _subrow.wodata_scrap := _subx.wodata_scrap;                
-                _subrow.wodata_notes := _subx.wodata_notes;
-                _subrow.wodata_ref := _subx.wodata_ref;          
-                _subrow.wodata_level := _subx.wodata_level;                                           
-              RETURN NEXT _subrow;
-            END LOOP;
-         END IF;          
-         --expand next level down               
-         FOR _subsubx IN
-         SELECT * FROM indentedwo(_x.wo_id, _level + 1, pshowindent, pshowmatl) 
-         LOOP 
-              _subsubrow.wodata_id  := _subsubx.wodata_id;                     
-              _subsubrow.wodata_id_type := _subsubx.wodata_id_type;                        
-              _subsubrow.wodata_number := _subsubx.wodata_number;
-              _subsubrow.wodata_subnumber := _subsubx.wodata_subnumber;
-              _subsubrow.wodata_status := _subsubx.wodata_status;
-              _subsubrow.wodata_startdate := _subsubx.wodata_startdate;
-              _subsubrow.wodata_duedate := _subsubx.wodata_duedate;
-              _subsubrow.wodata_adhoc := _subsubx.wodata_adhoc; 
-              _subsubrow.wodata_itemsite_id := _subsubx.wodata_itemsite_id;             
-              _subsubrow.wodata_qoh := _subsubx.wodata_qoh;
-              _subsubrow.wodata_short := _subsubx.wodata_short;            
-              _subsubrow.wodata_qtyper := _subsubx.wodata_qtyper;
-              _subsubrow.wodata_qtyiss := _subsubx.wodata_qtyiss;
-              _subsubrow.wodata_qtyrcv := _subsubx.wodata_qtyrcv;
-              _subsubrow.wodata_qtyordreq := _subsubx.wodata_qtyordreq;            
-              _subsubrow.wodata_scrap := _subsubx.wodata_scrap;              
-              _subsubrow.wodata_notes :=  _subsubx.wodata_notes;
-              _subsubrow.wodata_ref := _subsubx.wodata_ref;              
-              _subsubrow.wodata_level := _subsubx.wodata_level;                                            
-             RETURN NEXT _subsubrow; 
-         END LOOP;                     
+          LOOP                                                  
+            RETURN NEXT _subrow;
+          END LOOP;
+        END IF;
+        
+        IF ((pshowmatl OR pshowindent) AND NOT pshowops) THEN
+          --expand next level down               
+          FOR _subrow IN
+           SELECT * FROM indentedwo(_x.wo_id, NULL, _level + 1, pshowmatl, pshowindent) 
+          LOOP                                           
+            RETURN NEXT _subrow; 
+          END LOOP;
+        END IF;
+          
+        IF (pshowops) THEN
+         --expand materials not on operations   
+         IF (pshowmatl) THEN   
+           FOR _subrow IN
+             SELECT * FROM indentedwomatl(pwoid, -1, _level)
+           LOOP                                                  
+             RETURN NEXT _subrow;
+           END LOOP;
+         END IF;
+
+         IF (pshowmatl OR pshowindent) THEN
+           --expand next level down             
+           FOR _subrow IN
+             SELECT * FROM indentedwo(_x.wo_id, -1, _level + 1,  pshowmatl, pshowindent) 
+           LOOP                                           
+             RETURN NEXT _subrow; 
+           END LOOP;
+         END IF;
+
+         --expand opeartions
+         FOR _opx IN
+           SELECT * FROM indentedwoops(pwoid,_level)
+         LOOP
+           RETURN NEXT _opx;
+
+           IF (pshowmatl) THEN  
+              --expand materials on operations      
+              FOR _subrow IN
+                 SELECT * FROM indentedwomatl(pwoid, _opx.wodata_id, _level + 1)
+              LOOP                                                  
+                RETURN NEXT _subrow;
+              END LOOP;
+           END IF;
+
+           IF (pshowmatl OR pshowindent) THEN
+              --expand next level down             
+              FOR _subrow IN
+                SELECT * FROM indentedwo(_x.wo_id, _opx.wodata_id, _level + 2,  pshowmatl, pshowindent) 
+              LOOP                                           
+                RETURN NEXT _subrow; 
+              END LOOP;
+           END IF; 
+         END LOOP; 
+       END IF;                           
   END LOOP;                     
   RETURN;
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION indentedwo(integer, integer, boolean, boolean) RETURNS SETOF wodata AS $$
+CREATE OR REPLACE FUNCTION indentedwo(integer, integer, integer, boolean, boolean) RETURNS SETOF wodata AS $$
 DECLARE
    pwoid ALIAS FOR $1;   
-   plevel ALIAS FOR $2;
-   pshowindent ALIAS FOR $3;  
-   pshowmatl ALIAS FOR $4;  
-  _row wodata%ROWTYPE;
-  _subrow wodata%ROWTYPE;
-  _subsubrow wodata%ROWTYPE;    
+   pwooperid ALIAS FOR $2;
+   plevel ALIAS FOR $3;
+   pshowmatl ALIAS FOR $4; 
+   pshowindent ALIAS FOR $5;  
+  _row wodata%ROWTYPE;   
+  _opx wodata%ROWTYPE; 
   _x RECORD;
   _subx RECORD;
-  _subsubx RECORD;
   _index INTEGER;
   _level INTEGER;
+  _qry TEXT;
    
 BEGIN 
     --The wodata id column is used to indicate the source of the id
     --there are three different tables used wo, womatl and womatlvar
     --wodata_id_type = 1 = wo_id
     --wodata_id_type = 2 = womatl_id
-    --wodata_id_type = 3 = womatlvar_id
+    --wodata_id_type = 3 = wooper_id
     _level := (plevel + 1);    
     --find all WO with the ordid of the next level up
+    _qry := 'SELECT wo_id,wo_number,wo_subnumber,wo_status,wo_startdate,wo_duedate,
+         wo_adhoc,wo_itemsite_id,itemsite_qtyonhand,wo_qtyord,wo_qtyrcv, wo_prodnotes,
+         item_number,item_descrip1, item_descrip2, uom_name,
+         womatl_qtyiss, womatl_scrap, womatl_wooper_id
+       FROM itemsite,  wo, item, uom, womatl 
+       WHERE ((wo_ordid = ' || pwoid || ')
+         AND (wo_ordtype = ''W'')
+         AND (itemsite_item_id=item_id)
+         AND (item_inv_uom_id=uom_id)   
+         AND (wo_womatl_id=womatl_id)   
+         AND (wo_itemsite_id = itemsite_id) ';
+
+    IF (pwooperid IS NOT NULL) THEN
+      _qry := _qry || ' AND (womatl_wooper_id=' || pwooperid || ') ';
+    END IF;               
+
+    _qry := _qry || ') ORDER BY wo_number, wo_subnumber';
+ /* if (pwooperid IS NOT NULL) THEN
+    raise exception 'stop %',_qry;
+  END IF;*/
     FOR _x IN
-       SELECT *, getwoqtyscrap(wo_id) AS scrap, getwoqtyiss(wo_id) as iss FROM itemsite,  wo        
-       WHERE ((wo_ordid = pwoid)
-         AND (wo_ordtype = 'W')
-         AND (wo_itemsite_id = itemsite_id))       
-       ORDER BY wo_number, wo_subnumber
-    LOOP
+      EXECUTE _qry
+    LOOP 
         _row.wodata_id := _x.wo_id;
         _row.wodata_id_type := 1;                     
         _row.wodata_number := _x.wo_number;
         _row.wodata_subnumber := _x.wo_subnumber;
+        _row.wodata_itemnumber := _x.item_number;
+        _row.wodata_descrip := _x.item_descrip1 || '-' || _x.item_descrip2;
         _row.wodata_status := _x.wo_status;
         _row.wodata_startdate := _x.wo_startdate;
         _row.wodata_duedate := _x.wo_duedate;
@@ -145,71 +177,76 @@ BEGIN
         _row.wodata_itemsite_id := _x.wo_itemsite_id;        
         _row.wodata_qoh := _x.itemsite_qtyonhand;
         _row.wodata_short := noneg(_x.wo_qtyord - _x.wo_qtyrcv);
-        _row.wodata_qtyper := null; 
-        _row.wodata_qtyiss := _x.iss;  
+        _row.wodata_qtyiss := _x.womatl_qtyiss;  
         _row.wodata_qtyrcv := _x.wo_qtyrcv;   
         _row.wodata_qtyordreq := _x.wo_qtyord; 
-	_row.wodata_scrap := _x.scrap;  
-        _row.wodata_notes := _x.wo_prodnotes;
-        _row.wodata_ref := null;        
+	_row.wodata_scrap := _x.womatl_scrap;  
+        _row.wodata_notes := _x.wo_prodnotes;       
         _row.wodata_level := plevel;                
         RETURN NEXT _row;  
-      --if indentation require expand next level
-      IF (pshowindent) THEN    
-		IF (pshowmatl) THEN
-		   --get materials for this level
-		  FOR _subx IN
-		     SELECT * FROM indentedwomatl(_x.wo_id, plevel) 
-		  LOOP 
-			_subrow.wodata_id  := _subx.wodata_id;                     
-			_subrow.wodata_id_type := _subx.wodata_id_type;			             
-			_subrow.wodata_number := _subx.wodata_number;
-			_subrow.wodata_subnumber := _subx.wodata_subnumber;
-			_subrow.wodata_status := _subx.wodata_status;
-			_subrow.wodata_startdate := _subx.wodata_startdate;
-			_subrow.wodata_duedate := _subx.wodata_duedate;
-			_subrow.wodata_adhoc := _subx.wodata_adhoc;              
-			_subrow.wodata_itemsite_id := _subx.wodata_itemsite_id;		
-			_subrow.wodata_qoh := _subx.wodata_qoh;
-			_subrow.wodata_short := _subx.wodata_short;                
-			_subrow.wodata_qtyper := _subx.wodata_qtyper;
-			_subrow.wodata_qtyiss := _subx.wodata_qtyiss; 
-			_subrow.wodata_qtyrcv := _subx.wodata_qtyrcv;                
-			_subrow.wodata_qtyordreq := _subx.wodata_qtyordreq;                
-			_subrow.wodata_scrap := _subx.wodata_scrap;
-			_subrow.wodata_notes := _subx.wodata_notes;
-			_subrow.wodata_ref := _subx.wodata_ref;          
-			_subrow.wodata_level := _subx.wodata_level;                                          
-			RETURN NEXT _subrow;
-		    END LOOP;
-		END IF;  
-		  --expand lower levels 
-		  FOR _subsubx IN
-		    SELECT * FROM indentedwo(_x.wo_id, _level, true, pshowmatl)
-		  LOOP 
-		    _subsubrow.wodata_id  := _subsubx.wodata_id;                     
-		    _subsubrow.wodata_id_type := _subsubx.wodata_id_type; 		      
-		    _subsubrow.wodata_number := _subsubx.wodata_number;
-		    _subsubrow.wodata_subnumber := _subsubx.wodata_subnumber;
-		    _subsubrow.wodata_status := _subsubx.wodata_status;
-		    _subsubrow.wodata_startdate := _subsubx.wodata_startdate;
-		    _subsubrow.wodata_duedate := _subsubx.wodata_duedate;
-		    _subsubrow.wodata_adhoc := _subsubx.wodata_adhoc; 
-		    _subsubrow.wodata_itemsite_id := _subsubx.wodata_itemsite_id;		    
-		    _subsubrow.wodata_qoh := _subsubx.wodata_qoh;
-		    _subsubrow.wodata_short := _subsubx.wodata_short;            
-		    _subsubrow.wodata_qtyper := _subsubx.wodata_qtyper;
-		    _subsubrow.wodata_qtyiss := _subsubx.wodata_qtyiss;
-		    _subsubrow.wodata_qtyrcv := _subsubx.wodata_qtyrcv;
-		    _subsubrow.wodata_qtyordreq := _subsubx.wodata_qtyordreq;            
-		    _subsubrow.wodata_scrap := _subsubx.wodata_scrap;		    
-		    _subsubrow.wodata_notes :=  _subsubx.wodata_notes;
-		    _subsubrow.wodata_ref := _subsubx.wodata_ref;              
-		    _subsubrow.wodata_level := _subsubx.wodata_level;                                          
-		    RETURN NEXT _subsubrow; 
-		  END LOOP;    
-      END IF;                   
-    END LOOP;                          
+        --if indentation require expand next level
+        IF (pshowindent AND pwooperid IS NULL) THEN
+          IF (pshowmatl AND pshowindent) THEN    
+      	    --get materials for this level
+            FOR _subx IN
+              SELECT * FROM indentedwomatl(_x.wo_id, plevel) 
+	    LOOP                                            
+	      RETURN NEXT _subx;
+  	    END LOOP;
+          END IF;
+
+          IF (pshowindent) THEN  
+            --expand lower levels 
+            FOR _subx IN
+              SELECT * FROM indentedwo(_x.wo_id, NULL, _level, pshowmatl, pshowindent )
+            LOOP                                           
+	      RETURN NEXT _subx; 
+            END LOOP; 
+          END IF;    
+            
+        ELSIF (pshowindent) THEN --Handle operations
+          --expand materials not on operations   
+          IF (pshowmatl) THEN   
+            FOR _subx IN
+              SELECT * FROM indentedwomatl(_x.wo_id, -1, plevel)
+            LOOP                                                  
+              RETURN NEXT _subx;
+            END LOOP;
+          END IF;
+
+          --expand next level down not on operations
+          FOR _subx IN
+            SELECT * FROM indentedwo(_x.wo_id, -1, _level,  pshowmatl, pshowindent) 
+          LOOP                                           
+            RETURN NEXT _subx; 
+          END LOOP;
+          
+          --expand operations
+          FOR _opx IN
+            SELECT * FROM indentedwoops(_x.wo_id,plevel)
+          LOOP
+            RETURN NEXT _opx;
+
+            IF (pshowmatl) THEN  
+              --expand materials on operations      
+              FOR _subx IN
+                 SELECT * FROM indentedwomatl(_x.wo_id, _opx.wodata_id, _level)
+              LOOP                                                  
+                RETURN NEXT _subx;
+                --	raise exception 'stop %',_opx.wodata_id;
+              END LOOP;
+            END IF;
+              
+            --expand next level down   
+            FOR _subx IN
+              SELECT * FROM indentedwo(_x.wo_id, _opx.wodata_id, _level + 2,  pshowmatl, pshowindent) 
+            LOOP                                        
+              RETURN NEXT _subx; 
+            END LOOP;
+              
+          END LOOP;
+        END IF;      	              
+      END LOOP;                         
   RETURN;
 END;
 $$ LANGUAGE 'plpgsql';
