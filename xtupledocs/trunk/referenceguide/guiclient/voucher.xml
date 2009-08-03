@@ -120,9 +120,18 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Tax Zone</term>
+      <listitem>
+        <para>Specify the Tax Zone which has jurisdiction over the
+        transaction. By default, the Tax Zone specified on the selected
+        Purchase Order will be used.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Flag for 1099</term>
       <listitem>
-        <para>Select to flag transaction for Form 1099 Tax reporting.</para>
+        <para>Select to flag transaction for Form 1099 Tax reporting. This is
+        informational only and does not impact Tax calculations.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -181,8 +190,8 @@
   </variablelist>
   <tip>
     <para>You may select multiple Purchase Order Line Items for distribution
-    or clearing by highlighting them using your mouse&mdash;or a combination
-    of your mouse and either the SHIFT or CTRL keys.</para>
+    or clearing by highlighting them using your mouse—or a combination of your
+    mouse and either the SHIFT or CTRL keys.</para>
   </tip>
   <para>To add miscellaneous Cost distributions to a Voucher, select the
   "Misc. Distributions" tab. The following screen will appear:</para>
@@ -218,7 +227,7 @@
       <listitem>
         <para>Enables you to edit highlighted miscellaneous distributions. The
         edit screen is the same as that for creating a new miscellaneous
-        distribution&mdash;except that when editing, the fields will contain
+        distribution—except that when editing, the fields will contain
         miscellaneous distribution information. Double-clicking on a
         miscellaneous distribution will also bring you to the editing
         screen.</para>
@@ -232,10 +241,30 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="voucherItem.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
-  <xi:include href="voucherMiscDistrib.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <para>To add Notes to a Voucher, select the "Notes" tab. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/voucher_notesTab.png" />
+        </imageobject>
+        <caption>Add Notes to Voucher</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Notes to a Voucher, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        general Notes related to the Sales Order. These Notes are for internal
+        use only.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="voucherItem.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="voucherMiscDistrib.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

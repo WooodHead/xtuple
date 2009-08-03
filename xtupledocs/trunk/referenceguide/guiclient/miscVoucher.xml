@@ -114,9 +114,18 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Tax Zone</term>
+      <listitem>
+        <para>Specify the Tax Zone which has jurisdiction over the
+        transaction. By default, the Tax Zone for the specified Vendor will be
+        used.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Flag for 1099</term>
       <listitem>
-        <para>Select to flag transaction for Form 1099 Tax reporting.</para>
+        <para>Select to flag transaction for Form 1099 Tax reporting. This is
+        informational only and does not impact Tax calculations.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -168,7 +177,28 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="voucherMiscDistrib.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <para>To add Notes to a Miscellaneous Voucher, select the "Notes" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/miscVoucher_notesTab.png" />
+        </imageobject>
+        <caption>Add Notes to Voucher</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding Notes to a Miscellaneous Voucher, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        general Notes related to the Sales Order. These Notes are for internal
+        use only.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="voucherMiscDistrib.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
