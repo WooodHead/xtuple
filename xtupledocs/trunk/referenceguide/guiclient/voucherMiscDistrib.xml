@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="voucherMiscDistrib">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>miscellaneous distributions for</secondary>
     </indexterm>Voucher Misc. Distribution</title>
@@ -11,17 +11,14 @@
   miscellaneous distributions to affect the Voucher as a whole. To enter a
   miscellaneous distribution, select the NEW button from the main Voucher
   screen. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/voucherMiscDistrib.png"/>
+          <imagedata fileref="images/voucherMiscDistrib.png" />
         </imageobject>
-        <caption>Miscellaneous Voucher
-        Distribution</caption>
+        <caption>Miscellaneous Voucher Distribution</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When entering a miscellaneous Voucher distribution, you are presented
   with the following options:</para>
   <variablelist>
@@ -33,7 +30,7 @@
           <varlistentry>
             <term>Account</term>
             <listitem>
-              <para> Select a General Ledger Account to use for the
+              <para>Select a General Ledger Account to use for the
               distribution.</para>
             </listitem>
           </varlistentry>
@@ -42,6 +39,12 @@
             <listitem>
               <para>Select an Expense Category to use for the
               distribution.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Tax</term>
+            <listitem>
+              <para>Select a Tax Code to use for the distribution.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -54,6 +57,16 @@
         is a balance still to be distributed once all Voucher Items have been
         distributed, then that remaining amount will be entered here by
         default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discountable</term>
+      <listitem>
+        <para>Select if the Voucher Item is entitled to a Terms discount. This
+        option may be used on a line-by-line basis—all within one Voucher. For
+        example, purchased Items may be discountable; however, freight charges
+        may not be. When selecting a Voucher for payment within the discount
+        period, only discountable Items will be discounted.</para>
       </listitem>
     </varlistentry>
   </variablelist>

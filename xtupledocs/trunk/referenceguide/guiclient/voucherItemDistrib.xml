@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="voucherItemDistrib">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>costing elements associated with</secondary>
     </indexterm> <indexterm significance="normal">
@@ -16,17 +16,14 @@
   <para>To distribute purchasing Costs to specific Costing Elements for the
   Item quantity being vouchered, select the NEW button. The following screen
   will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/voucherItemDistrib.png"/>
+          <imagedata fileref="images/voucherItemDistrib.png" />
         </imageobject>
-        <caption>Distributing Costs to Costing
-        Element</caption>
+        <caption>Distributing Costs to Costing Element</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>An Item's per unit Actual Cost will be automatically updated after a
     Voucher is posted if the vouchered Cost differs from the Item's current
@@ -66,6 +63,16 @@
         Actual Cost amount for the Costing Element will result in the posting
         of automatic updates to the current Actual Cost when the Voucher is
         posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discountable</term>
+      <listitem>
+        <para>Select if the Voucher Item is entitled to a Terms discount. This
+        option may be used on a line-by-line basis—all within one Voucher. For
+        example, purchased Items may be discountable; however, freight charges
+        may not be. When selecting a Voucher for payment within the discount
+        period, only discountable Items will be discounted.</para>
       </listitem>
     </varlistentry>
   </variablelist>
