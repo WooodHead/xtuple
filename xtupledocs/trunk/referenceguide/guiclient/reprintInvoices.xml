@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section657041">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>invoices</primary>
       <secondary>re-printing of</secondary>
     </indexterm>Re-Print Invoices</title>
   <para>To print an Invoice that was previously printed, select the "Re-Print
   Invoices" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/reprintInvoices.png"/>
+          <imagedata fileref="images/reprintInvoices.png" />
         </imageobject>
         <caption>Re-Print Invoices</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When re-printing an Invoice, you are presented with the following
   options:</para>
   <variablelist>
@@ -27,13 +25,21 @@
       <listitem>
         <para>Enter an Invoice Number or Regular Expression. This field may be
         used independently or in conjunction with the date fields.</para>
+        <tip>
+          <para>The "Invoice Number" field supports pattern matching with
+          Regular Expressions.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Only include Invoices with Balance</term>
+      <listitem>
+        <para>Select to include only those invoices having an open balance due
+        in the display. If not selected, all invoices in the specified date
+        range will be shown.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>The "Invoice Number" field supports pattern matching with Regular
-    Expressions.</para>
-  </tip>
   <variablelist>
     <varlistentry>
       <term>Start Date</term>
