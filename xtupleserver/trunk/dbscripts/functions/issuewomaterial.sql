@@ -53,7 +53,7 @@ BEGIN
          itemsite_id AS c_itemsite_id,
          wo_itemsite_id AS p_itemsite_id,
          itemsite_loccntrl, itemsite_controlmethod,
-         womatl_wo_id, womatl_qtyreq,
+         womatl_wo_id, womatl_qtyreq, itemsite_item_id, womatl_uom_id,
          roundQty(item_fractional, itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)) AS qty,
          formatWoNumber(wo_id) AS woNumber,
          CASE WHEN(itemsite_costmethod='A') THEN avgcost(itemsite_id) ELSE stdcost(itemsite_item_id) END AS cost,
@@ -99,7 +99,7 @@ BEGIN
   WHERE (wo_id=_p.womatl_wo_id);
 
   UPDATE womatl
-  SET womatl_qtyiss = (womatl_qtyiss + _p.qty),
+  SET womatl_qtyiss = (womatl_qtyiss + itemuomtouom(_p.itemsite_item_id, NULL, _p.womatl_uom_id, _p.qty)),
       womatl_lastissue = CURRENT_DATE
   WHERE (womatl_id=pWomatlid);
 
