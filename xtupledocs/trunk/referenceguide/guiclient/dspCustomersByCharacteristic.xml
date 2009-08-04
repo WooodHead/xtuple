@@ -42,20 +42,22 @@
         assigned to the specified Characteristic. If selected, the report will
         include only those Customers who are using the Characteristic with a
         defined value.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Value</term>
-      <listitem>
-        <para>Enter a Characteristic value to view Customers who have been
-        assigned the Characteristic and value combination.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Value is empty</term>
-      <listitem>
-        <para>Select this option to include Customers who are using the
-        specified Characteristic, but with an empty value.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Value</term>
+            <listitem>
+              <para>Enter a Characteristic value to view Customers who have
+              been assigned the Characteristic and value combination.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Value is empty</term>
+            <listitem>
+              <para>Select this option to include Customers who are using the
+              specified Characteristic, but with an empty value.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
