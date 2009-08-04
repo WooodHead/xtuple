@@ -70,14 +70,14 @@ BEGIN
              FROM cohead WHERE cohead_id = ' || pOrderId ;
    ELSEIF  pOrderType = 'Q' THEN 
     _qry := 'SELECT COALESCE(quhead_taxzone_id, -1) AS taxzone_id, quhead_quotedate AS order_date,
-               quhead_curr_id AS curr_id, quhead_freight AS freight
+               quhead_curr_id AS curr_id, COALESCE(quhead_freight,0) AS freight
              FROM quhead WHERE quhead_id = ' || pOrderId;
    ELSEIF pOrderType = 'RA' THEN
     _qry := 'SELECT COALESCE(rahead_taxzone_id, -1) AS taxzone_id, rahead_authdate AS order_date,
                rahead_curr_id AS curr_id, rahead_freight AS freight
              FROM rahead WHERE rahead_id = ' || pOrderId;
    END IF;
-   
+
   FOR _x IN EXECUTE _qry
   LOOP
      _qry1 := 'SELECT * from calculatetaxdetail(' || _x.taxzone_id || ', getfreighttaxtypeid(),''' || _x.order_date || ''',' || _x.curr_id  || ',' || _x.freight || ')';
@@ -95,7 +95,6 @@ BEGIN
    END LOOP;
   END IF;
   
-
  ELSEIF pOrderType IN ('I','B','CM', 'VO','TO') THEN
    IF (pOrderType='I') THEN
      _table := 'invcheadtax';
