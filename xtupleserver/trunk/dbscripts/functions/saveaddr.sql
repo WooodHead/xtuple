@@ -53,7 +53,7 @@ BEGIN
   IF (_addrId >= 0) THEN
     SELECT * FROM addr INTO _p
     WHERE ((pAddrId=addr_id)
-    AND (pNumber=addr_number)
+    AND (COALESCE(pNumber,addr_number)=addr_number)
     AND (COALESCE(pAddr1, '')=COALESCE(addr_line1, ''))
     AND (COALESCE(pAddr2, '')=COALESCE(addr_line2, ''))
     AND (COALESCE(pAddr3, '')=COALESCE(addr_line3, ''))
