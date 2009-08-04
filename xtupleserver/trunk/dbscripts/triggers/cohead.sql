@@ -375,7 +375,7 @@ BEGIN
             WHERE (shipto_id=NEW.cohead_shipto_id);
             IF (FOUND) THEN
               -- Free form not allowed so we're going to make sure address matches Shipto data
-              NEW.cohead_shipto_cntct_id=COALESCE(_a.cntct_id,'');
+              NEW.cohead_shipto_cntct_id=_a.cntct_id;
               NEW.cohead_shipto_cntct_honorific=COALESCE(_a.cntct_honorific,'');
               NEW.cohead_shipto_cntct_first_name=COALESCE(_a.cntct_first_name,'');
               NEW.cohead_shipto_cntct_middle=COALESCE(_a.cntct_middle,'');    
