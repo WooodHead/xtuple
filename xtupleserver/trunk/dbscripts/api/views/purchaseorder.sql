@@ -51,7 +51,7 @@ COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
     pohead_freight,
     pohead_comments)
   SELECT
-    CAST(NEW.order_number AS integer),
+    NEW.order_number,
     COALESCE(NEW.order_date,current_date),
     'U',
     COALESCE(getTermsId(NEW.terms),vend_terms_id),
