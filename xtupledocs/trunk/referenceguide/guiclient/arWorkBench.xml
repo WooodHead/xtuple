@@ -25,61 +25,147 @@
         <imageobject>
           <imagedata fileref="images/arWorkBench.png" />
         </imageobject>
-        <caption>Receivables Workbench</caption>
+        <caption>Receivablesl;'QAZ Workbench</caption>
       </mediaobject>
     </screenshot></para>
   <para>When viewing the Receivables Workbench, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Select</term>
+      <term>Customer</term>
       <listitem>
-        <para>Specify the Customer(s) whose A/R information you would like to
+        <para>Select all or specific Customers whose A/R information you want
+        to display.</para>
+        <tip>
+          <para>To generate results in the display you first have to select
+          the QUERY button. If you are not seeing any results, this is
+          probably the reason why.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Debits</term>
+      <listitem>
+        <para>Select to include only Invoices and Debit Memos in the
         display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Customer #</term>
+      <term>Credits</term>
       <listitem>
-        <para>Enter the Customer Number of the Customer whose A/R information
-        you want to display.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note>
-    <para>Once a Cash Receipt is posted, it will no longer appear in the Cash
-    Receipts list.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
-      <term>Total Open Items</term>
-      <listitem>
-        <para>Displays the total amount of A/R open items for the Customer.
-        This total is the same amount as displayed in the A/R Display "Open
-        Items by Customer."</para>
+        <para>Select to include only Credit Memos in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Cash Receipts</term>
+      <term>Both</term>
       <listitem>
-        <para>Displays the current list of unposted Cash Receipts for the
-        specified Customer.</para>
+        <para>Select to include both Debits and Credits in the display.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para>The Receivables tab provides the following options:</para>
-  <variablelist>
+    <varlistentry>
+      <term>Find Document #</term>
+      <listitem>
+        <para>Enter the number of the document you want to locate. The record
+        you are looking for will be highlighted in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Specify one of the following document due date options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>All</term>
+            <listitem>
+              <para>Select to include all due dates in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>On or before</term>
+            <listitem>
+              <para>Select to include only documents having due dates on or
+              before the date you specify.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Between</term>
+            <listitem>
+              <para>Select to include documents having due dates falling
+              between the dates you specify.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>Receivables</term>
       <listitem>
         <para>Displays the current list of receivable open items for the
-        specified Customer, including invoices and misc. Debit Memos.</para>
+        specified Customer, based on the parameters you specify. Documents in
+        the display may include Invoices, Debit Memos, and Credit
+        Memos.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Select to print the list of receivable documents currently
+        displayed on the screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT STATEMENT</term>
+      <listitem>
+        <para>Select to print a statement for the specified Customer. This
+        option is only available when displaying information for individual
+        Customers.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Highlight a document in the display and then select this button
+        to print a copy of the document.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Select from one of the following new document options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Invoice</term>
+            <listitem>
+              <para>Select to create a new Invoice.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Misc. Debit Memo</term>
+            <listitem>
+              <para>Select to create a new Miscellaneous Debit Memo.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit Memo</term>
+            <listitem>
+              <para>Select to create a new Sales Order Credit Memo.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Misc. Credit Memo</term>
+            <listitem>
+              <para>Select to create a new Miscellaneous Credit Memo.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>EDIT</term>
       <listitem>
@@ -90,74 +176,52 @@
     <varlistentry>
       <term>VIEW</term>
       <listitem>
-        <para>Highlight an item and then select this button to reach a
-        read-only view of the "Edit" screen.</para>
+        <para>Highlight an item and then select from the following
+        context-sensitive viewing options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Receivable Item</term>
+            <listitem>
+              <para>Select to view the specified A/R open item record.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Invoice</term>
+            <listitem>
+              <para>Select to view the specified Invoice.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Invoice Information</term>
+            <listitem>
+              <para>Select to view Invoice information for the specified
+              Invoice.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Credit Memos and Customer Deposits to Receivables Workbench
-  select the "Credits" tab. The following screen will appear:</para>
-  <screenshot>
-    <mediaobject>
-      <imageobject>
-        <imagedata fileref="images/arWorkBench_creditsTab.png" />
-      </imageobject>
-      <caption>Receivables Workbench Credits</caption>
-    </mediaobject>
-  </screenshot>
-  <variablelist>
-    <varlistentry>
-      <term>Credits</term>
-      <listitem>
-        <para>Displays the current list of open Credit Memos and Customer
-        Deposits for the specified Customer.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>Once the full amount of a Credit Memo has been applied, the Credit
-    Memo will be removed from the A/R Open Credit Memos list.</para>
-  </tip>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
   <variablelist>
     <varlistentry>
       <term>APPLY</term>
       <listitem id="arWorkBenchAPPLYCM1">
-        <para>Highlight an unapplied Credit Memo or Cash Deposit and then
-        select this button to apply an amount, as described in <xref
+        <para>Highlight a Credit Memo in the list and then select this button
+        to apply the Credit Memo to an A/R open amount, as described in <xref
         linkend="Anchor30541" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>EDIT</term>
-      <listitem id="arWorkBenchEDITCM1">
-        <para>Enables you to edit highlighted Credit Memos or Cash Deposit.
-        The edit screen is the same as that for creating a new Credit
-        Memo—except that when editing, the fields will contain pre-loaded
-        Credit Memo information. Double-clicking on a Credit Memo will also
-        bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>VIEW</term>
-      <listitem id="arWorkBenchVIEWCM1">
-        <para>Highlight an unapplied Credit Memo or Cash Deposit and then
-        select this button to reach a read-only view of the "Edit"
-        screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>CREDIT CARD REFUND</term>
+      <term>REFUND</term>
       <listitem>
-        <para>Highlight an unapplied Credit Memo or Cash Deposit and then
-        select this button to post a refund in the open amount to the
-        Customer's Credit Card. This option will be visible if Credit Cards
-        are enabled at your site.</para>
+        <para>Highlight a Credit Memo which was created from a Credit Card
+        transaction to refund the transaction amount. This option will only be
+        available if Credit Cards are enabled at your site—and then only for
+        Credit Memo created from a Credit Card transaction.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Cash Receipts to Receivables Workbench select the "Cash
+  <para>To manage Cash Receipts on the Receivables Workbench, select the "Cash
   Receipts" tab. The following screen will appear:</para>
   <screenshot>
     <mediaobject>
@@ -167,6 +231,21 @@
       <caption>Receivables Workbench Cash Receipts</caption>
     </mediaobject>
   </screenshot>
+  <para>When managing Cash Receipts on the Receivables Workbench, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Cash Receipts</term>
+      <listitem>
+        <para>Displays the current list of unposted Cash Receipts for the
+        specified Customer.</para>
+        <note>
+          <para>Once a Cash Receipt is posted, it will no longer appear in the
+          Cash Receipts list.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
@@ -210,8 +289,9 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Credit Cards to Receivables Workbench select the "Credit Card"
-  tab. The following screen will appear:</para>
+  <para>To process pre-authorized Credit Card payments on the Receivables
+  Workbench, select the "Credit Card" tab. The following screen will
+  appear:</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -222,24 +302,33 @@
   </screenshot>
   <variablelist>
     <varlistentry>
+      <term>Show</term>
+      <listitem>
+        <para>Select from the following options to include in the
+        display:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Expired</term>
+            <listitem>
+              <para>Lists all Credit Cards, including Expired cards.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Valid Days</term>
+            <listitem>
+              <para>Displays Credit cards which expire on after the number of
+              days selected.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Credit Card</term>
       <listitem>
         <para>Displays the current list of pre-authorized Credit Card charges
         for the specified Customer. Pre-authorizations are generated from the
         "Payments" tab of the Sales Order header.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Expired</term>
-      <listitem>
-        <para>Lists all credit cards, including Expired cards.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Valid Days</term>
-      <listitem>
-        <para>Displays credit cards which expire on after the number of days
-        selected.</para>
       </listitem>
     </varlistentry>
   </variablelist>
