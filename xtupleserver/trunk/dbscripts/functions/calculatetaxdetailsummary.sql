@@ -73,8 +73,8 @@ BEGIN
                quhead_curr_id AS curr_id, COALESCE(quhead_freight,0) AS freight
              FROM quhead WHERE quhead_id = ' || pOrderId;
    ELSEIF pOrderType = 'RA' THEN
-    _qry := 'SELECT COALESCE(rahead_taxzone_id, -1) AS taxzone_id, rahead_authdate AS order_date,
-               rahead_curr_id AS curr_id, rahead_freight AS freight
+    _qry := 'SELECT COALESCE(rahead_taxzone_id, -1) AS taxzone_id, COALESCE(rahead_authdate,CURRENT_DATE) AS order_date,
+               rahead_curr_id AS curr_id, COALESCE(rahead_freight,0) AS freight
              FROM rahead WHERE rahead_id = ' || pOrderId;
    END IF;
 
