@@ -65,19 +65,18 @@
     <varlistentry>
       <term>PRINT</term>
       <listitem>
-        <para>Select to print a copy of the list displayed on the
-        screen.</para>
+        <para>Select from one of the following print options:</para>
         <variablelist>
           <varlistentry>
             <term><indexterm significance="normal">
                 <primary>checks</primary>
                 <secondary>printing individual</secondary>
-              </indexterm>SELECTED CHECK</term>
+              </indexterm>Selected Check</term>
             <listitem>
               <para>Highlight a Check in the list of Checks and then select
               this button to print the Check.</para>
               <tip>
-                <para>f Checks being printed contain reference lines which
+                <para>If Checks being printed contain reference lines which
                 spill over and exceed one standard page, then consider using
                 the report definition CheckMultiPage.xml. This Check Form is
                 designed to support multiple pages for one Check
@@ -92,7 +91,7 @@
               </indexterm> <indexterm significance="normal">
                 <primary>checks</primary>
                 <secondary>printing multiple</secondary>
-              </indexterm>CHECK RUN</term>
+              </indexterm>Check Run</term>
             <listitem>
               <para>Select to print the Check Run, using the specified Bank
               Account. For more information on printing Check Runs, see <xref
@@ -100,9 +99,9 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>EDIT LIST</term>
+            <term>Edit List</term>
             <listitem>
-              <para>Provides the option to select printer.</para>
+              <para>Prints a copy of the pending Check Run for review.</para>
             </listitem>
           </varlistentry>
         </variablelist>
