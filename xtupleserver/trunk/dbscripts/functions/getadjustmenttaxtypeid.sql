@@ -12,4 +12,4 @@ BEGIN
   RETURN _taxtypeid;
 END;
 $BODY$
-  LANGUAGE 'plpgsql' VOLATILE;
+  LANGUAGE 'plpgsql' IMMUTABLE;
