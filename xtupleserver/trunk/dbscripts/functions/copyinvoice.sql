@@ -115,7 +115,7 @@ BEGIN
          invcitem_price_uom_id, invcitem_price_invuomratio,
          invcitem_coitem_id)
     VALUES
-        (_invcitemid, _l.invcitem_invchead_id,
+        (_invcitemid, _invcheadid,
          _l.invcitem_linenumber, _l.invcitem_item_id,
          _l.invcitem_warehous_id, _l.invcitem_custpn,
          _l.invcitem_number, _l.invcitem_descrip,
@@ -150,10 +150,8 @@ BEGIN
            taxhist_docdate,
            taxhist_distdate
     FROM invcitemtax
-    WHERE (taxhist_parent_id=_l.invcitemid);
+    WHERE (taxhist_parent_id=_l.invcitem_id);
   END LOOP;
-
-  PERFORM changeInvoiceTaxZone(_invcheadid, _i.invchead_taxzone_id);
 
   RETURN _invcheadid;
 END;
