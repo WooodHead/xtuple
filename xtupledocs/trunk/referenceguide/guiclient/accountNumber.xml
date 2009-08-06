@@ -117,21 +117,16 @@
           <secondary>performed automatically</secondary>
         </indexterm>Automatically Forward Update Trial Balances</term>
       <listitem>
-        <para>Select to automatically forward-update Trial Balances for the
-        Account whenever transaction activity is posted into an Accounting
-        Period. Forward-updating carries the ending balance for an Accounting
-        Period forward through to the current Accounting Period. Balances
-        cannot be forward-updated into future Periods. Selecting this option
-        causes forward-updating to occur automatically. If not selected, Trial
-        Balances for the Account will have to be forward-updated either
-        manually or when the Account Period is closed.</para>
+        <para>If your site is configured to control Trial Balance updates on a
+        manual basis, then this option will be visible—allowing you to set
+        forward-updating capability on an Account-by-Account basis.
+        Conversely, if your site in configured to automatically forward-update
+        Accounts in the Accounting Configuration, then this option will be
+        hidden from view. For more information see <xref
+        linkend="configureGLTitle" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>The Trial Balances for an Accounting Period will automatically
-    forward-update at the moment when the Accounting Period is closed.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term>Comments</term>

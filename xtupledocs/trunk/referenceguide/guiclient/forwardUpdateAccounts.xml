@@ -12,12 +12,11 @@
     </indexterm>Forward Update Accounts</title>
   <para>The Forward Update utility forward-updates Account balances from the
   first Accounting Period when an Account is used all the way forward to the
-  current Period. Balances cannot be forward-updated into future Accounting
-  Periods. This utility offers a convenient method for performing forward
-  updates in batch mode, if required. Account balances may also be
-  forward-updated using the right-click menu found on the Trial Balances
-  display. To forward-update multiple Accounts at one time, select the
-  "Forward Update Accounts" option. The following screen will appear:</para>
+  current Period. This utility is only available if your site is configured to
+  manually forward-update Trial Balances. If your site has automatic
+  forward-updating turned on, then this utility will be hidden from view. To
+  manually forward-update multiple Accounts at one time, select the "Forward
+  Update Accounts" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
