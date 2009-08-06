@@ -163,7 +163,7 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term>Allow manual entry of G/L Account Numbers</term>
+      <term>Allow manual entry of Account Numbers</term>
       <listitem>
         <para>Select to enable users to manually enter G/L Account Numbers
         wherever G/L Account Numbers may be entered. If not selected, users
@@ -179,6 +179,19 @@
   </note>
   <variablelist>
     <varlistentry>
+      <term>Manual Forward Update Trial Balances</term>
+      <listitem>
+        <para>Select if you want to manually configure Trial Balance
+        forward-updating on an Account-by-Account basis. If you prefer
+        automatic forward-updating, then do not select this option. Not
+        selecting this option means forward-updating will be automatic across
+        all Accounts and financial reports. In automatic mode, the
+        forward-update check box will be hidden on the Account master records.
+        The forward-update utility in the Accounting Module menu will also be
+        hidden from view in automatic mode.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Default Tax Authority</term>
       <listitem>
         <para>Specify the default Tax Authority to be used when setting up
@@ -189,13 +202,13 @@
       <term>Retained Earnings, Year End Account</term>
       <listitem>
         <para>Select a valid General Ledger Account. This is an Equity
-        Account. It will be credited if retained earnings are
-        positive&mdash;and debited if retained earnings are negative. The
-        retained earnings calculation occurs when a Fiscal Year is closed.
-        Total Expenses for the year are subtracted from total Revenues, and
-        the balance is transferred to the Year End Equity Account. The system
-        then automatically resets the beginning balances for Revenue and
-        Expense Accounts to $0 for the start of the new Fiscal Year.</para>
+        Account. It will be credited if retained earnings are positive—and
+        debited if retained earnings are negative. The retained earnings
+        calculation occurs when a Fiscal Year is closed. Total Expenses for
+        the year are subtracted from total Revenues, and the balance is
+        transferred to the Year End Equity Account. The system then
+        automatically resets the beginning balances for Revenue and Expense
+        Accounts to $0 for the start of the new Fiscal Year.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -287,9 +300,9 @@
       <term>Next A/P Memo #</term>
       <listitem>
         <para>The next sequentially available Accounts Payable Memo Number
-        will display here. You may change the number&mdash;creating a new
-        basis for the next A/P Memo Number&mdash;by typing the new number into
-        this field.</para>
+        will display here. You may change the number—creating a new basis for
+        the next A/P Memo Number—by typing the new number into this
+        field.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -369,9 +382,9 @@
       <term>Next A/R Memo #</term>
       <listitem>
         <para>The next sequentially available Accounts Receivable Memo Number
-        will display here. You may change the number&mdash;creating a new
-        basis for the next A/R Memo Number&mdash;by typing the new number into
-        this field.</para>
+        will display here. You may change the number—creating a new basis for
+        the next A/R Memo Number—by typing the new number into this
+        field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -495,6 +508,13 @@
       <listitem>
         <para>Specifies the default Incident category used for Incidents
         associated with Accounts Receivable.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Auto Close Incidents when Invoice Paid</term>
+      <listitem>
+        <para>Select to automatically close Incidents tied to open Invoices
+        when those Invoices are themselves paid in full and closed.</para>
       </listitem>
     </varlistentry>
   </variablelist>
