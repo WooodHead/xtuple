@@ -16,7 +16,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_CashR_enterCR.png" />
+          <imagedata fileref="images/cashReceipt.png" />
         </imageobject>
         <caption>Enter Cash Receipt</caption>
       </mediaobject>
@@ -264,7 +264,7 @@
   the following screen will appear:</para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="images/AR_CashR_enterMiscDist.png" />
+      <imagedata fileref="images/cashReceipt_tabMiscDist.png" />
     </imageobject>
     <caption>Enter Misc. Distributions for Cash Receipt</caption>
   </mediaobject>
@@ -300,7 +300,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_CashR_selectCC.png" />
+          <imagedata fileref="images/cashReceipt_cc.png" />
         </imageobject>
         <caption>Select Credit Card for Cash Receipt</caption>
       </mediaobject>
@@ -377,7 +377,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_CashR_enterNotes.png" />
+          <imagedata fileref="images/cashReceipt_notesTab.png" />
         </imageobject>
         <caption>Enter Cash Receipt Notes</caption>
       </mediaobject>
@@ -393,10 +393,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="cashReceiptItem.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
-  <xi:include href="cashReceiptMiscDistrib.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="cashReceiptItem.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="cashReceiptMiscDistrib.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
