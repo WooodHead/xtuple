@@ -9,4 +9,4 @@ BEGIN
 
   RETURN _taxtypeid;
 END;
-' LANGUAGE 'plpgsql' STABLE;
+' LANGUAGE 'plpgsql' IMMUTABLE;

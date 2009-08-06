@@ -84,7 +84,7 @@ BEGIN
    WHERE ( (vodist_vohead_id=pVoheadid)
      AND   (vodist_tax_id=-1) )
   UNION ALL
-  SELECT SUM(tax)
+  SELECT SUM(tax*-1)
   FROM 
     (SELECT round(sum(taxdetail_tax),2) AS tax,
               currToBase(_p.vohead_curr_id, round(sum(taxdetail_tax),2), _p.vohead_docdate) AS taxbasevalue
