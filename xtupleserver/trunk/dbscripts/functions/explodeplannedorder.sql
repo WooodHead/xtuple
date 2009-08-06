@@ -38,7 +38,7 @@ BEGIN
 
       IF (_b.bomitem_createwo AND _b.planningtype != ''N'') THEN
         PERFORM createPlannedOrder( pPlanordid, _b.planord_number, _b.componentsiteid,
-                                    _b.qtyreq, _b.startdate, _b.duedate, FALSE, FALSE, NULL );
+                                    _b.qtyreq, _b.startdate, _b.duedate, FALSE, FALSE, NULL, NULL );
       END IF;
     END IF;
 
