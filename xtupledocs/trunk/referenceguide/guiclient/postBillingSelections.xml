@@ -46,14 +46,15 @@
     <varlistentry>
       <term>Consolidate by Customer</term>
       <listitem>
-        <para>Select to cause all Sales Orders selected for billing for each
-        Customer to be consolidated on one Invoice. To be consolidated, the
-        Orders must have matching criteria (e.g., Terms, Tax Authority,
-        Billing information). If these criteria do not match, then
-        non-conforming Orders will not be consolidated. If only a single Order
-        exists, at all or in a group, then it will be posted as a single
-        Invoice. Consolidated Orders are given a combined header, and the Line
-        Items are attached to the Invoice in no particular order. Line Items
+        <para>Select to cause all Sales Orders selected for billing to be
+        consolidated on one Invoice by Customer. Keep in mind, though, that to
+        be consolidated the Orders must have matching criteria (e.g., Billing,
+        Tax, Sales Rep information). If the criteria do not match, then
+        non-conforming Orders will not be consolidated. (Separate Invoices
+        will be created for them instead.) If only a single Order exists, at
+        all or in a group, then it will be posted as a single Invoice.
+        Consolidated Orders are given a combined header, and the Line Items
+        are attached to the Invoice in no particular order. Line Items
         themselves are never consolidated (i.e., you can have two lines for
         the same Item). In addition, Invoice Line Items have a reference back
         to their original Sales Order Item.</para>
