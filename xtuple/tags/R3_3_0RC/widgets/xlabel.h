@@ -1,0 +1,50 @@
+/*
+ * This file is part of the xTuple ERP: PostBooks Edition, a free and
+ * open source Enterprise Resource Planning software suite,
+ * Copyright (c) 1999-2009 by OpenMFG LLC, d/b/a xTuple.
+ * It is licensed to you under the Common Public Attribution License
+ * version 1.0, the full text of which (including xTuple-specific Exhibits)
+ * is available at www.xtuple.com/CPAL.  By using this software, you agree
+ * to be bound by its terms.
+ */
+
+#ifndef xlabel_h
+#define xlabel_h
+
+#include <QLabel>
+
+#include "widgets.h"
+#include "xdatawidgetmapper.h"
+
+class QDoubleValidator;
+class QIntValidator;
+class QVariant;
+
+class XTUPLEWIDGETS_EXPORT XLabel : public QLabel
+{
+  Q_OBJECT
+  Q_PROPERTY(QString fieldName    READ fieldName   WRITE setFieldName)
+  
+  public:
+    XLabel(QWidget *, const char * = 0);
+
+    virtual QString fieldName()   const { return _fieldName; };
+    virtual void    setPrecision(const int);
+    virtual void    setPrecision(const QDoubleValidator *);
+    virtual void    setPrecision(const QIntValidator *);
+    double          toDouble(bool * = 0);
+
+  public slots:
+    virtual void setDataWidgetMap(XDataWidgetMapper* m);
+    virtual void setDouble(const double, const int = -1);
+    virtual void setFieldName(QString p)    { _fieldName = p; };
+    virtual void setText(const QString &);
+    virtual void setText(const char *);
+    virtual void setText(const QVariant &);
+
+  private:
+    QString _fieldName;
+    int     _precision;
+};
+
+#endif
