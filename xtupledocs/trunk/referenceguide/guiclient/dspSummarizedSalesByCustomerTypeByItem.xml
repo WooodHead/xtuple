@@ -48,20 +48,6 @@
         Types. Refine your search using Regular Expressions.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Start Date</term>
-      <listitem>
-        <para>Summarized Sales history by Customer Type by Item generated on
-        or after this date will be displayed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>End Date</term>
-      <listitem>
-        <para>Summarized Sales history by Customer Type by Item generated on
-        or before this date will be displayed.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry role="standard">
       <term>All Sites</term>
       <listitem>
@@ -77,12 +63,31 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Summarized Sales history by Customer Type by Item generated on
+        or after this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Summarized Sales history by Customer Type by Item generated on
+        or before this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Sales History</term>
       <listitem>
         <para>Display lists summarized Sales history by Customer Type by Item,
         using the specified parameters. Prices are normalized to the Base
         Currency using the Currency Exchange Rate effective on the Invoice
         Date.</para>
+        <note>
+          <para>One of the columns in the display shows the weighted average
+          price. This price is equal to the sum of the extended Price (in base
+          Currency) / the sum of the quantity shipped.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
