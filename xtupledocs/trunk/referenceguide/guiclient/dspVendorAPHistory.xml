@@ -10,7 +10,9 @@
       <primary>accounts payable</primary>
       <secondary>vendor history and</secondary>
     </indexterm>Vendor History</title>
-  <para>To view Vendor history, select the "Vendor History" option. The
+  <para>The Vendor history screen allows you to view transaction history with
+  individual Vendors. It also provides you the opportunity to void posted
+  Vouchers. To view Vendor history, select the "Vendor History" option. The
   following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -21,8 +23,10 @@
       </mediaobject>
     </screenshot></para>
   <tip>
-    <para>You can void posted Vouchers using the right-click menu on the
-    Vendor History screen.</para>
+    <para>If you need to void a posted Voucher, you can do this from the
+    right-click menu on the Vendor history screen. When a Voucher is voided,
+    it reverses all the G/L transactions created by the original
+    Voucher.</para>
   </tip>
   <para>When displaying Vendor history, you are presented with the following
   options:</para>
@@ -61,12 +65,11 @@
     <varlistentry>
       <term>Vendor History</term>
       <listitem>
-        <para>Display lists Vendor history, using the specified
-        parameters.</para>
-        <para>This display is a nested list, with a plus ("+") sign located to
-        the far left of the display next to each Document That may be expanded
-        to lower levels. By clicking your mouse on a plus sign, you reveal
-        lower levels of information related to the Document.</para>
+        <para>Display lists Vendor history, using the specified parameters.
+        This display is a nested list, with a plus ("+") sign located to the
+        far left of the display next to each Document That may be expanded to
+        lower levels. By clicking your mouse on a plus sign, you reveal lower
+        levels of information related to the Document.</para>
       </listitem>
     </varlistentry>
   </variablelist>
