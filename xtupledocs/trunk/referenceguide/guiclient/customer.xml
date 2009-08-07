@@ -494,7 +494,10 @@
               <para>Enter the Contact's website address. To access the
               website, simply double-click on the Contact's website address.
               This will launch your default web browser, with the Contact's
-              website address in the URL field.</para>
+              website address in the URL field. However, for this to work you
+              must drop the <literal>http://</literal> prefix from the web
+              address. Instead use the form
+              <literal>www.website.com.</literal></para>
             </listitem>
           </varlistentry>
           <varlistentry>
