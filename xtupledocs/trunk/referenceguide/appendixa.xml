@@ -317,148 +317,153 @@
           <row>
             <entry><para>QOHBelowZero</para></entry>
             <entry><para>QOH Dropped to a Negative Value</para></entry>
-            <entry><para>I/M</para></entry>
+            <entry><para>Inventory</para></entry>
           </row>
           <row>
             <entry>ToitemCancelled</entry>
             <entry>Transfer Order Item Cancelled</entry>
-            <entry>I/M</entry>
+            <entry>Inventory</entry>
           </row>
           <row>
             <entry>ToitemCreated</entry>
             <entry>Transfer Order Item Created</entry>
-            <entry>I/M</entry>
+            <entry>Inventory</entry>
           </row>
           <row>
             <entry>ToitemNoDestItemSite</entry>
             <entry>Transfer Order Item created without an Item Site at the
             Destination Site</entry>
-            <entry>I/M</entry>
+            <entry>Inventory</entry>
           </row>
           <row>
             <entry>ToitemNoTransitItemSite</entry>
             <entry>Transfer Order Item created without an Item Site at the
             Transit Site</entry>
-            <entry>I/M</entry>
+            <entry>Inventory</entry>
           </row>
           <row>
             <entry>ToitemQtyChanged</entry>
             <entry>Transfer Order Item Qty. Changed</entry>
-            <entry>I/M</entry>
+            <entry>Inventory</entry>
           </row>
           <row>
             <entry>ToitemSchedDateChanged</entry>
             <entry>Transfer Order Item Ship Date Changed</entry>
-            <entry>I/M</entry>
+            <entry>Inventory</entry>
           </row>
           <row>
             <entry>ToNotesChanged</entry>
             <entry>Transfer Order Comments Changed</entry>
-            <entry>I/M</entry>
-          </row>
-          <row>
-            <entry>POitemCreate</entry>
-            <entry>Purchase Order Purchased Item Line Added</entry>
-            <entry>P/O</entry>
-          </row>
-          <row>
-            <entry><para>CannotConvertQuote</para></entry>
-            <entry><para>Cannot Convert a Quote to a Sales
-            Order</para></entry>
-            <entry><para>S/O</para></entry>
-          </row>
-          <row>
-            <entry><para>DetachCCPayFromSO</para></entry>
-            <entry><para>Detach Credit Card payment from S/O</para></entry>
-            <entry><para>S/O</para></entry>
-          </row>
-          <row>
-            <entry><para>SoitemCancelled</para></entry>
-            <entry><para>Sales Order Item Canceled</para></entry>
-            <entry><para>S/O</para></entry>
-          </row>
-          <row>
-            <entry><para>SoitemCreated</para></entry>
-            <entry><para>Sales Order Item Added</para></entry>
-            <entry><para>S/O</para></entry>
-          </row>
-          <row>
-            <entry><para>SoitemQtyChanged</para></entry>
-            <entry><para>Sales Order Qty. Changed</para></entry>
-            <entry><para>S/O</para></entry>
-          </row>
-          <row>
-            <entry><para>SoitemSchedDateChanged</para></entry>
-            <entry><para>Sales Order Item Ship Date Changed</para></entry>
-            <entry><para>S/O</para></entry>
-          </row>
-          <row>
-            <entry>SoNotesChanged</entry>
-            <entry>Sales Order Notes Changed</entry>
-            <entry>S/O</entry>
-          </row>
-          <row>
-            <entry><para>SoReleased</para></entry>
-            <entry><para>Sales Order Released from Credit Hold</para></entry>
-            <entry><para>S/O</para></entry>
+            <entry>Inventory</entry>
           </row>
           <row>
             <entry><para>RWoDueDateRequestChange</para></entry>
             <entry><para>Request to Change Released Due Date</para></entry>
-            <entry><para>W/O</para></entry>
+            <entry><para>Manufacture</para></entry>
           </row>
           <row>
             <entry><para>RWoQtyRequestChange</para></entry>
             <entry><para>Request to Change Released W/O Qty.</para></entry>
-            <entry><para>W/O</para></entry>
+            <entry><para>Manufacture</para></entry>
           </row>
           <row>
             <entry><para>RWoRequestCancel</para></entry>
             <entry><para>Request to Cancel Released W/O</para></entry>
-            <entry><para>W/O</para></entry>
+            <entry><para>Manufacture</para></entry>
           </row>
           <row>
             <entry><para>WoCancelled</para></entry>
             <entry><para>Work Order Canceled</para></entry>
-            <entry><para>W/O</para></entry>
+            <entry><para>Manufacture</para></entry>
           </row>
           <row>
             <entry><para>WOClockInOnClosedJob</para></entry>
             <entry><para>User clocked in to a closed Work Order</para></entry>
-            <entry><para>W/O</para></entry>
+            <entry><para>Manufacture</para></entry>
           </row>
           <row>
             <entry><para>WOClockOutWNoClockIn</para></entry>
             <entry><para>User clocked out of a Work Order on which s/he was
             not clocked in</para></entry>
-            <entry><para>W/O</para></entry>
+            <entry><para>Manufacture</para></entry>
           </row>
           <row>
             <entry><para>WoCreated</para></entry>
             <entry><para>Work Order Created</para></entry>
-            <entry><para>W/O</para></entry>
+            <entry><para>Manufacture</para></entry>
           </row>
           <row>
             <entry><para>WODoubleClockIn</para></entry>
             <entry><para>User clocked in to a Work Order without having
             previously clocked out</para></entry>
-            <entry><para>W/O</para></entry>
+            <entry><para>Manufacture</para></entry>
           </row>
           <row>
             <entry><para>WODoubleClockOut</para></entry>
             <entry><para>User clocked out of a Work Order without having
             previously clocked in</para></entry>
-            <entry><para>W/O</para></entry>
+            <entry><para>Manufacture</para></entry>
           </row>
           <row>
             <entry><para>WoDueDateChanged</para></entry>
             <entry><para>Work Order Due Date Changed</para></entry>
-            <entry><para>W/O</para></entry>
+            <entry><para>Manufacture</para></entry>
           </row>
           <row>
             <entry><para>WoQtyChanged</para></entry>
             <entry><para>Work Order Qty. Changed</para></entry>
-            <entry><para>W/O</para></entry>
+            <entry><para>Manufacture</para></entry>
+          </row>
+          <row>
+            <entry>CostExceedsMaxDesired</entry>
+            <entry>Cost Exceeds Max Desired</entry>
+            <entry>Product</entry>
+          </row>
+          <row>
+            <entry>POitemCreate</entry>
+            <entry>Purchase Order Purchased Item Line Added</entry>
+            <entry>Purchase</entry>
+          </row>
+          <row>
+            <entry><para>CannotConvertQuote</para></entry>
+            <entry><para>Cannot Convert a Quote to a Sales
+            Order</para></entry>
+            <entry><para>Sales</para></entry>
+          </row>
+          <row>
+            <entry><para>DetachCCPayFromSO</para></entry>
+            <entry><para>Detach Credit Card payment from S/O</para></entry>
+            <entry><para>Sales</para></entry>
+          </row>
+          <row>
+            <entry><para>SoitemCancelled</para></entry>
+            <entry><para>Sales Order Item Canceled</para></entry>
+            <entry><para>Sales</para></entry>
+          </row>
+          <row>
+            <entry><para>SoitemCreated</para></entry>
+            <entry><para>Sales Order Item Added</para></entry>
+            <entry><para>Sales</para></entry>
+          </row>
+          <row>
+            <entry><para>SoitemQtyChanged</para></entry>
+            <entry><para>Sales Order Qty. Changed</para></entry>
+            <entry><para>Sales</para></entry>
+          </row>
+          <row>
+            <entry><para>SoitemSchedDateChanged</para></entry>
+            <entry><para>Sales Order Item Ship Date Changed</para></entry>
+            <entry><para>Sales</para></entry>
+          </row>
+          <row>
+            <entry>SoNotesChanged</entry>
+            <entry>Sales Order Notes Changed</entry>
+            <entry>Sales</entry>
+          </row>
+          <row>
+            <entry><para>SoReleased</para></entry>
+            <entry><para>Sales Order Released from Credit Hold</para></entry>
+            <entry><para>Sales</para></entry>
           </row>
         </tbody>
       </tgroup>
