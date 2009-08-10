@@ -364,6 +364,7 @@ BEGIN
                                       _variance, CURRENT_DATE )
              FROM costcat
             WHERE(costcat_id=NEW.itemsite_costcat_id);
+          UPDATE itemsite SET itemsite_value = _cost WHERE (itemsite_id = NEW.itemsite_id);
         END IF;
       END IF;
     END IF;
