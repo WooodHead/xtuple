@@ -25,134 +25,134 @@ Changelog option.
 
 New Features:
 
-* [Accounting] Add Ship-to column in list unposted invoices 
+* [Accounting] Add Ship-to column in list unposted invoices
 display
-* [Accounting] Have Series GL entry screen show difference 
+* [Accounting] Have Series GL entry screen show difference
 between Debit and Credit
 * [Architectural] Usability improvements to comment cluster
-* [Inventory] Add an ability to set Location Default whilst 
+* [Inventory] Add an ability to set Location Default whilst
 Posting to Inventory
-* [Manufacture] Add filter check box "Item Not In Stock" to 
+* [Manufacture] Add filter check box "Item Not In Stock" to
 Inventory Availability By Work Order
-* [Manufacture] Indented work order screen tab to edit and 
+* [Manufacture] Indented work order screen tab to edit and
 issue materials
-* [Purchase] Add a list filter and vend item# column to "PO 
+* [Purchase] Add a list filter and vend item# column to "PO
 Items By Vendor" Report
-* [Purchase] Add List Search to "Unposted Purchase Order" 
+* [Purchase] Add List Search to "Unposted Purchase Order"
 screen
 * [Sales] Add ship-to column to open sales orders display
-* [Sales] Explode Kits on Return Authorizations same as Sales 
+* [Sales] Explode Kits on Return Authorizations same as Sales
 Orders
 * [System] Add the ability to purge sales orders
 
 
 Bug Fixes:
 
-* [Accounting] All GL Account Types display as Asset 
-* [Accounting] Production Time Clock by Work Order doesn't 
+* [Accounting] All GL Account Types display as Asset
+* [Accounting] Production Time Clock by Work Order doesn't
 print the Setup and Run Time
-* [Accounting] Cost Category: 'Copy' allows to duplicate 
+* [Accounting] Cost Category: "Copy" allows to duplicate
 records
-* [Accounting] AR Workbench doesn't show posted invoices 
+* [Accounting] AR Workbench doesn't show posted invoices
 due in the future
-* [Accounting] Misc Voucher with Tax distributions not 
+* [Accounting] Misc Voucher with Tax distributions not
 allowed to post
-* [Accounting] Cannot create planned orders for items with 
+* [Accounting] Cannot create planned orders for items with
 child work orders
-* [Accounting] Creating recurring Invoices generates DB log 
+* [Accounting] Creating recurring Invoices generates DB log
 error
-* [Accounting] Beginning balance not reflected in GL Trans 
-display 
-* [Accounting] Apply cash receipt to balance references 
+* [Accounting] Beginning balance not reflected in GL Trans
+display
+* [Accounting] Apply cash receipt to balance references
 hard-coded currency id causing failure
-* [Accounting] Post M.C. Check in future splits GL trans 
+* [Accounting] Post M.C. Check in future splits GL trans
 across dates
-* [Accounting] Trial balances have discrepancies due to G/L 
-discrepancies account using wrong date to adjust 
-* [Accounting] When entering Series GL entry, doc number 
-doesn't clear 
+* [Accounting] Trial balances have discrepancies due to G/L
+discrepancies account using wrong date to adjust
+* [Accounting] When entering Series GL entry, doc number
+doesn't clear
 * [Accounting] Able to apply more than due
-* [Accounting] Voucher is unavailable in the list of 
+* [Accounting] Voucher is unavailable in the list of
 payments
-* [Batch Manager] EDI disappears when some orders selected 
+* [Batch Manager] EDI disappears when some orders selected
 for deliver
 * [Batch Manager] Non-relevant document types in EDI list
 * [Batch Manager] Preview on CRM config should be removed
-* [Batch Manager] EDI Form dialog draws with its horizontal 
-center on the left-hand edge of the display in OS X 10.5 
-* [Batch Manager] Enabled option on package screen not 
-working 
-* [Batch Manager] Incident emails fail in batch manager 
-* [Batch Manager] Incident profiles not upgraded properly 
-* [Batch Manager] Expand minimum requirement for sending EDI 
-* [Batch Manager] Empty email address string not filtered out 
-* [Batch Manager] Empty attachment sent to email client from 
+* [Batch Manager] EDI Form dialog draws with its horizontal
+center on the left-hand edge of the display in OS X 10.5
+* [Batch Manager] Enabled option on package screen not
+working
+* [Batch Manager] Incident emails fail in batch manager
+* [Batch Manager] Incident profiles not upgraded properly
+* [Batch Manager] Expand minimum requirement for sending EDI
+* [Batch Manager] Empty email address string not filtered out
+* [Batch Manager] Empty attachment sent to email client from
 batch manager
-* [Batch Manager] EDI: Migration script sets "Review Before 
+* [Batch Manager] EDI: Migration script sets "Review Before
 Sending" to false
-* [CRM] Can't manually enter info in assigned to field on 
+* [CRM] Can't manually enter info in assigned to field on
 incident
-* [CRM] Error on creation of address for new contact 
+* [CRM] Error on creation of address for new contact
 * [CRM] Assigning a Task in a new Project displays error
 * [Documentation] Inventory availability by customer type
-* [Inventory] Unnecessary cartesian join in 
-distributeToLocation::sDistribute SQL 
-* [Inventory] Cannot cancel TO line 
-* [Inventory] Lot-controlled check box visible in PostBooks 
+* [Inventory] Unnecessary cartesian join in
+distributeToLocation::sDistribute SQL
+* [Inventory] Cannot cancel TO line
+* [Inventory] Lot-controlled check box visible in PostBooks
 version
-* [Inventory] Transfer Order Receipts using incorrect 
+* [Inventory] Transfer Order Receipts using incorrect
 invhist_transtype
-* [Inventory] Enter receipt detail for TO misrepresents qty. 
-returned 
-* [Inventory] Orders ui called form "Enter Order Receipts" 
+* [Inventory] Enter receipt detail for TO misrepresents qty.
+returned
+* [Inventory] Orders ui called form "Enter Order Receipts"
 does not remember size and columns
-* [Manufacture] wo_postedvalue grows when correcting 
-production downward 
-* [Manufacture] Backflush materials does not correctly 
+* [Manufacture] wo_postedvalue grows when correcting
+production downward
+* [Manufacture] Backflush materials does not correctly
 calculate scrap for non-fractional items
 * [Manufacture] W/O traveler ignores check box memory
-* [Manufacture] Work order qty information doesn't make 
+* [Manufacture] Work order qty information doesn't make
 sense on correct production posting window
-* [Products] Selecting to update/post costs with privilege 
+* [Products] Selecting to update/post costs with privilege
 displays error
-* [Products] Shuffling between two UOMs in an S/O doesn't 
-refresh the net unit price 
-* [Products] It is possible to save an empty costing 
+* [Products] Shuffling between two UOMs in an S/O doesn't
+refresh the net unit price
+* [Products] It is possible to save an empty costing
 element after editing
-* [Purchase] User is allowed to create duplicate records 
+* [Purchase] User is allowed to create duplicate records
 for purchase master information codes
-* [Purchase] Credit memo for PO Return created with wrong 
+* [Purchase] Credit memo for PO Return created with wrong
 currency
 * [Reports] Purchase Order report print wrong date
-* [Sales] Error canceling Sales Order when projects are 
+* [Sales] Error canceling Sales Order when projects are
 auto-created
-* [Sales] Cannot add item to sales order 
-* [Sales] Print engine in sales order screen for 'Print on 
-Save' is not functional 
-* [Sales] Creating Quote with item types 'Job' and 'Kit' 
-displays tax related error 
-* [Sales] getinvcitemlotserial function is not returning 
-results for Invoice report 
-* [Sales] Can't enter Notes in new customer master remarks 
+* [Sales] Cannot add item to sales order
+* [Sales] Print engine in sales order screen for "Print on
+Save" is not functional
+* [Sales] Creating Quote with item types "Job" and "Kit"
+displays tax related error
+* [Sales] getinvcitemlotserial function is not returning
+results for Invoice report
+* [Sales] Can't enter Notes in new customer master remarks
 tab
-* [Sales] Opening new customer window (and saving) from 
+* [Sales] Opening new customer window (and saving) from
 Sales Order causes crash
-* [Sales] Update Prices does not update Characteristic 
+* [Sales] Update Prices does not update Characteristic
 Prices
-* [Sales] Change SO Line quantity does not change P/R 
+* [Sales] Change SO Line quantity does not change P/R
 quantity
-* [Sales] Creating a quote gives foreign key error on 
-quhead_shipto_cntct_id = -1 
-* [Sales] Credit Memo unit price not conforming to Locale 
+* [Sales] Creating a quote gives foreign key error on
+quhead_shipto_cntct_id = -1
+* [Sales] Credit Memo unit price not conforming to Locale
 sales price
-* [System] EDI Master list report is missing  
-* [Schedule] MRP does not recognize firm orders in the 
+* [System] EDI Master list report is missing
+* [Schedule] MRP does not recognize firm orders in the
 past
-* [Schedule] Missing priv in Standard Edition prevents 
+* [Schedule] Missing priv in Standard Edition prevents
 creating planned orders
-* [System] Selecting to associate sales rep with employee 
+* [System] Selecting to associate sales rep with employee
 generates error
-* [System] RA manual number generation displays error 
+* [System] RA manual number generation displays error
 message
 * [System] Package can be loaded in an un-enabled state
 * [System] Employee record not allowed to save
