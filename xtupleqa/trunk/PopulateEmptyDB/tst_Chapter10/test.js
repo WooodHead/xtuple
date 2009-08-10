@@ -132,9 +132,16 @@ function main()
         
     }
     snooze(0.5);//delay to allow save
-  
+    
+    //-------Deviate Menu selection temporarily--------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    
+      
     //---------------Define: Bank Accounts------------------
-    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
@@ -236,9 +243,9 @@ function main()
     waitForObject(":List Fiscal Years.New_QPushButton");
     clickButton(":List Fiscal Years.New_QPushButton");
     waitForObject(":Fiscal Year.XDateEdit_XDateEdit");
-  var d = new Date();
-  var CurrentYearFull = d.getFullYear();
-  var CurrentYear = CurrentYearFull.toString().slice(2);
+    var d = new Date();
+    var CurrentYearFull = d.getFullYear();
+    var CurrentYear = CurrentYearFull.toString().slice(2);
     type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+CurrentYearFull);
     type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+CurrentYearFull);
     waitForObject(":Fiscal Year.Save_QPushButton");

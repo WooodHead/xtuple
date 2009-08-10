@@ -278,6 +278,7 @@
 :Customer.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Customer_customer'}
 :Customer.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Customer_customer'}
 :Customer._country_XComboBox	{container=':xTuple ERP: OpenMFG Edition.Customer_QWorkspaceChild' name='_country' type='XComboBox' visible='1'}
+:Customer._customerNumberEdit_XLineEdit	{name='_customerNumberEdit' type='XLineEdit' visible='1' window=':Customer_customer'}
 :Customer._name_XLineEdit	{name='_name' type='XLineEdit' visible='1' window=':Customer_customer'}
 :Customer._number_XLineEdit	{name='_number' type='XLineEdit' visible='1' window=':Customer_customer'}
 :Customer._state_XComboBox	{container=':xTuple ERP: OpenMFG Edition.Customer_QWorkspaceChild' name='_state' type='XComboBox' visible='1'}
@@ -856,6 +857,7 @@
 :List EDI Profiles.OK_QPushButton_2	{container=':xTuple ERP: *.List EDI Profiles_QWorkspaceChild' text='OK' type='QPushButton' unnamed='1' visible='1'}
 :List EDI Profiles.OK_QPushButton_3	{container=':xTuple ERP: *.List EDI Profiles_QWorkspaceChild' name='_accept' occurrence='3' text='OK' type='QPushButton' visible='1'}
 :List EDI Profiles.OK_QPushButton_4	{container=':xTuple ERP: *.List EDI Profiles_QWorkspaceChild' name='_accept' occurrence='2' text='OK' type='QPushButton' visible='1'}
+:List EDI Profiles.Review Before Sending_QCheckBox	{container=':xTuple ERP: *.List EDI Profiles_QWorkspaceChild' name='_emailReview' text='Review Before Sending' type='QCheckBox' visible='1'}
 :List EDI Profiles.Save_QPushButton	{container=':xTuple ERP: *.List EDI Profiles_QWorkspaceChild' name='_accept' text='Save' type='QPushButton' visible='1'}
 :List EDI Profiles._file_QLineEdit	{container=':xTuple ERP: *.List EDI Profiles_QWorkspaceChild' name='_file' type='QLineEdit' visible='1'}
 :List EDI Profiles._name_QLineEdit	{container=':xTuple ERP: *.List EDI Profiles_QWorkspaceChild' name='_name' type='QLineEdit' visible='1'}

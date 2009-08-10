@@ -677,15 +677,15 @@
 
 
   //----------------Create new Customer---------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
-    activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "New...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "New...");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
+  activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "New...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "New...");
    
-    waitForObject(":Customer._number_XLineEdit");
-    type(":Customer._number_XLineEdit", "TTOYS");
+    waitForObject(":Customer._customerNumberEdit_XLineEdit");
+    type(":Customer._customerNumberEdit_XLineEdit", "TTOYS");
     type(":Customer._name_XLineEdit", "Tremendous Toys");
     
     clickTab(":Customer.qt_tabwidget_tabbar_QTabBar","Settings");
@@ -798,6 +798,8 @@
     snooze(2);
     waitForObject(":Customer.Save_QPushButton");
     clickButton(":Customer.Save_QPushButton");
+    waitForObject(":Customer.Cancel_QPushButton");
+    clickButton(":Customer.Cancel_QPushButton");
     test.log("Customer: TTOYS created");
     snooze(1);
   

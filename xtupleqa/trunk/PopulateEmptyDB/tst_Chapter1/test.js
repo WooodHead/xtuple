@@ -544,8 +544,8 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
-        
-        //----Configure EDI Profile-----------
+      
+      //----Configure EDI Profile-----------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
@@ -573,8 +573,8 @@ function main()
         type(":_emailSubject_QLineEdit", "ProDiem Toys Invoice");
         waitForObject(":_emailBody_QTextEdit");
         type(":_emailBody_QTextEdit", "There is an issue with your invoice.  Please contact us and reference </docnumber> and </description>.  Thank You,ProDiem Accounts Receivable ");
-        waitForObject(":_stack.Review Before Sending_QCheckBox");
-        clickButton(":_stack.Review Before Sending_QCheckBox");
+        waitForObject(":List EDI Profiles.Review Before Sending_QCheckBox");
+        clickButton(":List EDI Profiles.Review Before Sending_QCheckBox");
         waitForObject(":List EDI Profiles.Save_QPushButton");
         clickButton(":List EDI Profiles.Save_QPushButton");
         
@@ -624,8 +624,8 @@ function main()
         type(":_emailSubject_QLineEdit", "ProDiem Toys Invoice PO </docnumber>");
         waitForObject(":_emailBody_QTextEdit");
         type(":_emailBody_QTextEdit", " Dear </povendor>: Please see attached PO </docnumber> from ProDiem Toys for product to be shipped to our warehouse </powarehous> via </poshipvia>.  We entered this PO on </podate>. ");
-        waitForObject(":_stack.Review Before Sending_QCheckBox");
-        clickButton(":_stack.Review Before Sending_QCheckBox");
+        waitForObject(":List EDI Profiles.Review Before Sending_QCheckBox");
+        clickButton(":List EDI Profiles.Review Before Sending_QCheckBox");
         waitForObject(":List EDI Profiles.qt_tabwidget_tabbar_QTabBar");
         clickTab(":List EDI Profiles.qt_tabwidget_tabbar_QTabBar", "Forms");
         waitForObject(":forms.New_QPushButton_2");
@@ -1247,12 +1247,12 @@ function main()
     test.log("Inventory Module Configured");
 
 
-    //---Create User by Role--
-	createUserByRole("RUNREGISTER");
+//---Create User by Role--
+createUserByRole("RUNREGISTER");
 
 //----Read Username based on Role------
-  var set = testData.dataset("login.tsv");
-  var username;
+var set = testData.dataset("login.tsv");
+var username;
   for (var records in set)
   {
       username=testData.field(set[records],"USERNAME");
