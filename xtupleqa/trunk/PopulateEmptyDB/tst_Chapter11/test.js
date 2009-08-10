@@ -2112,7 +2112,7 @@ function main()
     if(!clickItem(":List Financial Reports._flhead_XTreeWidget", "INCOME\\_STATEMENT", 5, 5, 1, Qt.LeftButton))
         test.pass("Financial Report created:INCOME_STATEMENT");
 
-
+//
     //-------------Create Adhoc Balance Sheet--------------
     waitForObject(":List Financial Reports.New_QPushButton");
     clickButton(":List Financial Reports.New_QPushButton");

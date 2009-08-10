@@ -489,7 +489,7 @@ function main()
 
         
     }
-    else if(appEdition=="PostBooks" || appEdition=="Standard")
+    else if(appEdition=="PostBooks")
     {
         menu = waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
         menuItem = "Sche&dule";

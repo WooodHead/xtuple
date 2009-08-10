@@ -267,7 +267,7 @@ function main()
         waitForObject(":List Standard Operations.Close_QPushButton");
         clickButton(":List Standard Operations.Close_QPushButton");
 
-
+//
         //-----------Define BOO for Items---------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -418,7 +418,7 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
         
     }
 
-   //---------------Create BOM for Items---------------------
+  //---------------Create BOM for Items---------------------
   waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
   activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
   waitForObject(":xTuple ERP: OpenMFG Edition.Products_QMenu");
