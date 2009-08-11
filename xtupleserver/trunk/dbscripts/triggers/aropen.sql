@@ -76,20 +76,15 @@ BEGIN
 
 -- get the base exchange rate for the doc date
   IF (TG_OP = 'INSERT' AND NEW.aropen_curr_rate IS NULL) THEN
-     IF (NEW.aropen_curr_id = BaseCurrId()) THEN
-      NEW.aropen_curr_rate := 1;
-    ELSE
-    
-      SELECT curr_rate INTO _currrate
+    SELECT curr_rate INTO _currrate
       FROM curr_rate
-      WHERE ( (NEW.aropen_curr_id=curr_id)
-        AND ( NEW.aropen_docdate BETWEEN curr_effective 
+    WHERE ( (NEW.aropen_curr_id=curr_id)
+      AND ( NEW.aropen_docdate BETWEEN curr_effective 
                                    AND curr_expires) );
-      IF (FOUND) THEN
-        NEW.aropen_curr_rate := _currrate;
-      ELSE
-        RAISE EXCEPTION 'Currency exchange rate not found';
-      END IF;
+    IF (FOUND) THEN
+      NEW.aropen_curr_rate := _currrate;
+    ELSE
+      RAISE EXCEPTION 'Currency exchange rate not found';
     END IF;
   END IF;
 
