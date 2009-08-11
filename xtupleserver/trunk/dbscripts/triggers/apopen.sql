@@ -6,15 +6,20 @@ BEGIN
 
 -- get the base exchange rate for the doc date
   IF (TG_OP = 'INSERT' AND NEW.apopen_curr_rate IS NULL) THEN
-    SELECT curr_rate INTO _currrate
-    FROM curr_rate
-    WHERE ( (NEW.apopen_curr_id=curr_id)
+    IF (NEW.apopen_curr_id = BaseCurrId()) THEN
+      NEW.apopen_curr_rate := 1;
+    ELSE
+    
+      SELECT curr_rate INTO _currrate
+      FROM curr_rate
+      WHERE ( (NEW.apopen_curr_id=curr_id)
       AND ( NEW.apopen_docdate BETWEEN curr_effective 
                                    AND curr_expires) );
-    IF (FOUND) THEN
-      NEW.apopen_curr_rate := _currrate;
-    ELSE
-      RAISE EXCEPTION 'Currency exchange rate not found';
+      IF (FOUND) THEN
+        NEW.apopen_curr_rate := _currrate;
+      ELSE
+        RAISE EXCEPTION 'Currency exchange rate not found';
+      END IF;
     END IF;
   END IF;
 
