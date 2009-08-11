@@ -239,7 +239,7 @@ BEGIN
   -- Note, the taxBaseValue is negative so it is added
   SELECT insertIntoGLSeries ( _glSequence, 'A/P', 'DM',
                               pDocNumber, _prepaidAccntid,
-                              (_baseAmount + _taxBaseValue),
+                              (_baseAmount + _taxBaseValue) * -1,
                               pDocDate, (_vendName || ' ' || pNotes) ) INTO _test;
 
   --  Commit the GLSeries;
