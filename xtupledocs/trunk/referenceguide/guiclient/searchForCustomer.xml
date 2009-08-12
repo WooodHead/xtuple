@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section546133">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>customers</primary>
       <secondary>searching for</secondary>
     </indexterm>Search for Customer</title>
   <para>To search for a Customer, select the "Search for Customer" option. The
   following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/searchForCustomer.png"/>
+          <imagedata fileref="images/searchForCustomer.png" />
         </imageobject>
         <caption>Search for Customer</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When searching to retrieve Customer information from the database, you
   are presented with the following options:</para>
   <variablelist>
@@ -54,15 +52,21 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Primary Contact Name</term>
+            <term>Billing Contact Name</term>
             <listitem>
               <para>Select to search by Primary Contact Name.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Primary Contact Phone #</term>
+            <term>Billing Contact Phone #</term>
             <listitem>
               <para>Select to search by Primary Contact Phone Number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Billing Contact Email</term>
+            <listitem>
+              <para>Select to search by Primary Contact Email Address.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -127,8 +131,8 @@
       <term>EDIT</term>
       <listitem id="searchForCustomerEDIT">
         <para>Enables you to edit highlighted Customer. The edit screen is the
-        same as that for creating a new Customer&mdash;except that when editing,
-        the fields will contain Customer information. Double-clicking on a
+        same as that for creating a new Customer—except that when editing, the
+        fields will contain Customer information. Double-clicking on a
         Customer will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
