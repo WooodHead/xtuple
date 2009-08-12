@@ -159,8 +159,12 @@
       <listitem>
         <para>Select to reverse (i.e., void) the specified posted Cash
         Receipt. When a Cash Receipt is voided, any applications will also be
-        reversed. You may only reverse Cash Receipts entered in xTuple ERP
-        version 3.3.0 or later.</para>
+        reversed. Keep in mind that any Credit Memos or Customer Deposits
+        created from the unapplied balance when the original Cash Receipt was
+        posted will not be reversed when a Cash Receipt is voided. Instead, a
+        misc. A/R Debit Memo will be created in the amount of the original
+        unapplied balance. You may only reverse Cash Receipts entered in
+        xTuple ERP version 3.3.0 or later.</para>
       </listitem>
     </varlistentry>
   </variablelist>
