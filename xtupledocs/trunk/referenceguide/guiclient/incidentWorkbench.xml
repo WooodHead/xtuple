@@ -11,7 +11,7 @@
       <secondary>incident workbench and</secondary>
     </indexterm>Incident Workbench</title>
   <para>The Incident Workbench enables you to monitor and take action on the
-  full range of issues entered in your system.</para>
+  full range of Incidents entered in your system.</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -23,6 +23,20 @@
   <para>When using the Incident Workbench, you are presented with the
   following options:</para>
   <variablelist>
+    <varlistentry>
+      <term>Assigned to</term>
+      <listitem>
+        <para>Select to include Incidents assigned to the specified
+        user(s).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Owned by</term>
+      <listitem>
+        <para>Select to include Incidents owned by the specified
+        user(s).</para>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>All Users</term>
       <listitem>
@@ -102,21 +116,21 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>First Creation Date</term>
+      <term>Start Date</term>
       <listitem>
         <para>Incidents created on or after this date will be included in the
         display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Last Creation Date</term>
+      <term>End Date</term>
       <listitem>
         <para>Incidents created on or before this date will be included in the
         display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Summary/Description Matches</term>
+      <term>Search</term>
       <listitem>
         <para>Enter a text pattern to locate keywords found in Incident
         "Number," "Summary" and/or "Description" fields.</para>

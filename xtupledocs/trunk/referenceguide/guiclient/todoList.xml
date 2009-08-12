@@ -26,6 +26,20 @@
   </note>
   <variablelist>
     <varlistentry>
+      <term>Assigned to</term>
+      <listitem>
+        <para>Select to include To-Do List items assigned to the specified
+        user(s).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Owned by</term>
+      <listitem>
+        <para>Select to include To-Do List items owned by the specified
+        user(s).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>All Users</term>
       <listitem>
         <para>Select to display To-Do List items for all users.</para>
@@ -90,28 +104,36 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Incidents</term>
+      <term>Show</term>
       <listitem>
-        <para>Select to include Incidents in the display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Projects</term>
-      <listitem>
-        <para>Select to include Project tasks in the display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Completed</term>
-      <listitem>
-        <para>Select to include completed To-Do List items in the
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Total</term>
-      <listitem>
-        <para>Lists the total number of To-Do's listed in this search.</para>
+        <para>Select from the following display options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>To-Do List</term>
+            <listitem>
+              <para>Select to include To-Do List items in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Incidents</term>
+            <listitem>
+              <para>Select to include Incidents in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Projects</term>
+            <listitem>
+              <para>Select to include Project tasks in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Completed</term>
+            <listitem>
+              <para>Select to include completed To-Do List items in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -119,6 +141,12 @@
       <listitem>
         <para>Select to automatically update the display every five
         minutes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total</term>
+      <listitem>
+        <para>Lists the total number of To-Do's listed in the search.</para>
       </listitem>
     </varlistentry>
   </variablelist>
