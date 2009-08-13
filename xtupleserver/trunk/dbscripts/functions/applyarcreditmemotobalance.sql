@@ -35,7 +35,9 @@ BEGIN
 
 --  Loop through the aropen items in order of due date
   FOR _r IN SELECT target.aropen_id AS aropenid,
-                   currToCurr(target.aropen_curr_id,source.aropen_curr_id,target.aropen_amount - target.aropen_paid, current_date) AS balance,
+                   currToCurr(target.aropen_curr_id,source.aropen_curr_id,
+                              (target.aropen_amount - target.aropen_paid - calcpendingarapplications(target.aropen_id)),
+                              current_date) AS balance,
                    target.aropen_curr_id AS curr_id,
                    target.aropen_docdate AS docdate
             FROM aropen AS target, aropen AS source
