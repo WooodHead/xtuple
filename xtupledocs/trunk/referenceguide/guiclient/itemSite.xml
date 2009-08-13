@@ -36,6 +36,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Specify Site where the Item Site is located.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Active</term>
       <listitem>
         <para>Select to indicate the Item Site is active. Not selecting means
@@ -45,100 +51,113 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Site</term>
-      <listitem>
-        <para>Specify Site where Item Site is located. Use this selection in
-        conjunction with the additional Site settings found on the Item Site
-        screen.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <variablelist>
-    <varlistentry>
-      <term>Supplied at this Site</term>
-      <listitem>
-        <para>Select if Item is supplied at specified Site. If selected,
-        "Supplied at" means that Purchase Orders may be issued for this Item
-        in this Site if the Item is a purchased Item, and Work Orders may be
-        issued for this Item in this Site if the Item is a manufactured Item.
-        These rules apply also to Planned Orders generated when Material
-        Requirements Planning (MRP) is run. Planned Orders may only be
-        released to "Supplied at" Item Sites.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Create P/Rs to Meet Demands</term>
-      <listitem>
-        <para>Select to create Purchase Requests whenever Sales Orders or Work
-        Orders demand quantities from the Item Site. This option pertains to
-        purchased and outside-process Items. If you select this option, you
-        are indicating that you want Purchase Requests to be generated for the
-        Item in question whenever quantities are demanded by either Sales
-        Orders or Work Orders. For Sales Orders, the "Create Purchase Request"
-        flag on the Sales Order Item screen will automatically be selected.
-        For Work Orders using a purchased or outside process Item, Purchase
-        Requests will be generated automatically.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note>
-    <para>Purchase Requests created, as specified above, to meet Sales Order
-    and Work Order demands will be created regardless of an Item's
-    Availability—and also regardless of whether Material Requirements Planning
-    (MRP) is being run in parallel.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
-      <term>Create W/Os to Meet Demand</term>
-      <listitem>
-        <para>Select to create Work Orders whenever Sales Orders demand
-        quantities from the Item Site. This option pertains to manufactured
-        Items. If you select this option, you are indicating that you want
-        Work Orders to be generated for the Item in question whenever
-        quantities are demanded by a Sales Order. Selecting this option will
-        cause the "Create Work Order" flag to be checked whenever you enter
-        Sales Order Line Items for the Item Site.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note>
-    <para>Work Orders created, as specified above, to meet Sales Order demand
-    will be created regardless of an Item's Availability—and also regardless
-    of whether Material Requirements Planning (MRP) is being run in
-    parallel.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
       <term>Sold from this Site</term>
       <listitem>
         <para>Select if Item is sold from specified Site. If selected, "Sold
         from" means that Sales Orders Line Items may request to Ship from the
         Site. When adding Sales Order Line Items to a Sales Order, a "Sold
         from" Site appears as the "Supplying Site."</para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>ranking</primary>
+                <secondary>of item sites</secondary>
+              </indexterm> <indexterm significance="normal">
+                <primary>sold ranking</primary>
+                <secondary>for item sites</secondary>
+              </indexterm> <indexterm significance="normal">
+                <primary>item sites</primary>
+                <secondary>sold ranking of</secondary>
+              </indexterm>Ranking</term>
+            <listitem>
+              <para>Select a number using the arrow buttons, or manually enter
+              a value up to a maximum of 10. Value entered specifies the order
+              in which Item Sites will be chosen during Sales Order and Sales
+              Quote creation. If an Item is located in more than one "Sold
+              from" Site, the Item Site with the highest ranking will be
+              chosen first. If two Item Sites happen to share the same
+              ranking, selection will be based on alphabetical order. The
+              highest ranking an Item Site can have is one (1).</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>ranking</primary>
-          <secondary>of item sites</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>sold ranking</primary>
-          <secondary>for item sites</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>item sites</primary>
-          <secondary>sold ranking of</secondary>
-        </indexterm>Ranking</term>
+      <term>Supply Rules</term>
       <listitem>
-        <para>Select a number using the arrow buttons, or manually enter a
-        value up to a maximum of 10. Value entered specifies the order in
-        which Item Sites will be chosen during Sales Order and Sales Quote
-        creation. If an Item is located in more than one "Sold from" Site, the
-        Item Site with the highest ranking will be chosen first. If two Item
-        Sites happen to share the same ranking, selection will be based on
-        alphabetical order. The highest ranking an Item Site can have is one
-        (1).</para>
+        <para>Select from the following supply rules for the Item Site:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Site can purchase this Item</term>
+            <listitem>
+              <para>Select if the Item can be purchased and received into the
+              specified Site. Planned Purchase Orders from the Material
+              Requirements Planning (MRP) system can only be created Item
+              Sited having this option selected.</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Create Purchase Requests to meet demand</term>
+                  <listitem>
+                    <para>Select to create Purchase Requests whenever Sales
+                    Orders or Work Orders demand quantities from the Item
+                    Site. This option pertains to purchased and
+                    outside-process Items. If you select this option, you are
+                    indicating that you want Purchase Requests to be generated
+                    for the Item in question whenever quantities are demanded
+                    by either Sales Orders or Work Orders. For Sales Orders,
+                    the "Create Purchase Request" flag on the Sales Order Item
+                    screen will automatically be selected. For Work Orders
+                    using a purchased or outside process Item, Purchase
+                    Requests will be generated automatically.</para>
+                    <note>
+                      <para>Purchase Requests created, as specified above, to
+                      meet Sales Order and Work Order demands will be created
+                      regardless of an Item's Availability—and also regardless
+                      of whether Material Requirements Planning (MRP) is being
+                      run in parallel.</para>
+                    </note>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Site can manufacture this Item</term>
+            <listitem>
+              <para>Select if the Item can be manufactured at the specified
+              Site. Planned Work Orders from the Material Requirements
+              Planning (MRP) system can only be created for Item Sites having
+              this option selected.</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Create Work Orders linked to Sales Orders</term>
+                  <listitem>
+                    <para>Select to create Work Orders whenever Sales Orders
+                    demand quantities from the Item Site. This option pertains
+                    to manufactured Items. If you select this option, you are
+                    indicating that you want Work Orders to be generated for
+                    the Item in question whenever quantities are demanded by a
+                    Sales Order. Selecting this option will cause the "Create
+                    Work Order" flag to be checked whenever you enter Sales
+                    Order Line Items for the Item Site.</para>
+                    <note>
+                      <para>Work Orders created, as specified above, to meet
+                      Sales Order demand will be created regardless of an
+                      Item's Availability—and also regardless of whether
+                      Material Requirements Planning (MRP) is being run in
+                      parallel.</para>
+                    </note>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <variablelist>
     <varlistentry>
       <term>Costing Method</term>
       <listitem>
@@ -180,6 +199,8 @@
         </variablelist>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>control methods</primary>
@@ -187,7 +208,7 @@
         </indexterm> <indexterm significance="normal">
           <primary>item sites</primary>
           <secondary>control methods in</secondary>
-        </indexterm>Control Method</term>
+        </indexterm>Control</term>
       <listitem>
         <para>Specify the Item Site control method by selecting one of the
         available options:</para>
@@ -260,53 +281,56 @@
         Locations within a single Site. Items designated as Multiple Location
         Control (MLC) Items require special processing whenever Item
         quantities are distributed.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>Exercise caution when adjusting the Multiple Location Control (MLC)
-    setting for an Item Site. If you turn off MLC for an Item Site which was
-    previously MLC, you will lose detailed Inventory records for that Item
-    Site. All quantity will be merged into one Quantity on Hand value for the
-    Item Site.</para>
-  </tip>
-  <variablelist>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>default locations</primary>
-        </indexterm> <indexterm significance="normal">
-          <primary>locations</primary>
-          <secondary>default</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>item sites</primary>
-          <secondary>setting default locations in</secondary>
-        </indexterm>Use Default Location</term>
-      <listitem>
-        <para>Default Location: Select to designate one Location within a Site
-        as the default Location for the specified Item. This option may be
-        used for single Location and Multiple Location Control (MLC) Items
-        alike. You may find that Inventory distributions for MLC Items are
-        greatly simplified if you designate a default Location.</para>
+        <tip>
+          <para>Exercise caution when adjusting the Multiple Location Control
+          (MLC) setting for an Item Site. If you turn off MLC for an Item Site
+          which was previously MLC, you will lose detailed Inventory records
+          for that Item Site. All quantity will be merged into one Quantity on
+          Hand value for the Item Site.</para>
+        </tip>
         <variablelist>
           <varlistentry>
-            <term>Location</term>
+            <term><indexterm significance="normal">
+                <primary>default locations</primary>
+              </indexterm> <indexterm significance="normal">
+                <primary>locations</primary>
+                <secondary>default</secondary>
+              </indexterm> <indexterm significance="normal">
+                <primary>item sites</primary>
+                <secondary>setting default locations in</secondary>
+              </indexterm>Use Default Location</term>
             <listitem>
-              <para>Specify the Site Location to be used as the default
-              Location.</para>
+              <para>Default Location: Select to designate one Location within
+              a Site as the default Location for the specified Item. This
+              option may be used for single Location and Multiple Location
+              Control (MLC) Items alike. You may find that Inventory
+              distributions for MLC Items are greatly simplified if you
+              designate a default Location.</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Location</term>
+                  <listitem>
+                    <para>Specify the Site Location to be used as the default
+                    Location.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>User-Defined</term>
+                  <listitem>
+                    <para>This is a free-form field for describing storage
+                    areas with a Site not specifically designated as Site
+                    Locations. A user-defined location is non-transactional,
+                    but may be used for reporting purposes.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>User-Defined</term>
-      <listitem>
-        <para>This is a free-form field for describing storage areas with a
-        Site not specifically designated as Site Locations. A user-defined
-        location is non-transactional, but may be used for reporting
-        purposes.</para>
-      </listitem>
-    </varlistentry>
+  </variablelist>
+  <variablelist>
     <varlistentry>
       <term>Location Comment</term>
       <listitem>
