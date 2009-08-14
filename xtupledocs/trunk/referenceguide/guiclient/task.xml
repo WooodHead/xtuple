@@ -182,8 +182,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Alarm related to a Task, select the "Alarms tab. The following
-  screen will appear:</para>
+  <para>To add an Alarm related to a Task, select the "Alarms" tab. The
+  following screen will appear:</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -192,7 +192,7 @@
       <caption>Create New Alarm</caption>
     </mediaobject>
   </screenshot>
-  <para>Upon selecting Alarms you are presented with the following
+  <para>When adding an Alarm, you are presented with the following
   options:</para>
   <variablelist>
     <varlistentry>
@@ -209,7 +209,7 @@
     <varlistentry>
       <term>NEW</term>
       <listitem>
-        <para>Opens screen for entering new Alarm information..</para>
+        <para>Opens screen for entering new Alarm information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -233,6 +233,74 @@
       <listitem>
         <para>Highlight an Alarm Item and then select this button to remove
         the Alarm Item from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Comments to a Task, select the "Comments" tab. The following
+  screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/task_commentsTab.png" />
+    </imageobject>
+    <caption>Alarm Comments</caption>
+  </mediaobject>
+  <para>When adding Comments to a Task, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para>Display lists Comments for the specified Task.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a Task Comment, select the NEW button. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CommentNew.png" />
+        </imageobject>
+        <caption>Create New Comment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new Comment, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Comment and adds it to the list of Order
+        Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
