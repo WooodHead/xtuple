@@ -550,7 +550,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Misc. Charge Amount</term>
+      <term>Misc. Charge</term>
       <listitem>
         <para>Enter the amount of any miscellaneous charge. Before entering a
         miscellaneous charge amount, you must first assign the charge to a
@@ -587,9 +587,18 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Total</term>
+      <term>Total Credit</term>
       <listitem>
-        <para>Displays the total amount of the Return Authorization.</para>
+        <para>Displays the total amount of the Return Authorization
+        credit.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Net Due</term>
+      <listitem>
+        <para>Displays the total net due. The net is determined by adding the
+        total credits with the total sales. If the amount is a negative
+        number, this means the Customer owes you money.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -704,6 +713,14 @@
         Card. This option is only available for credits issued by Credit Card.
         Your system must also be configured to use Credit Cards for this
         option to work.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CVV Code</term>
+      <listitem>
+        <para>Enter the Card Verification Value (CVV) Code found on the back
+        of the specified Credit Card. This may be an optional feature at your
+        site. Contact your Systems Administrator for details.</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -221,48 +221,122 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Restock Charge Discount %</term>
+      <term>Credit</term>
       <listitem>
-        <para>Enter the amount of any restock charge discount, if any.</para>
+        <para>If the Return Authorizations involves giving a Customer credit
+        for the Line Item, then you may specify the following options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Restock Charge %</term>
+            <listitem>
+              <para>Enter the amount of any restock charge discount, if
+              any.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>sales orders</primary>
+                <secondary>line item pricing for</secondary>
+              </indexterm>Net Unit Price</term>
+            <listitem>
+              <para>Displays the Net Unit Price for the Sales Order Item. This
+              information will be imported automatically for Return
+              Authorizations linked to an original Sales Order if header
+              disposition was Credit or Return when the order was imported.
+              The browse button located to the right of the field leads to a
+              Price List screen.</para>
+              <note>
+                <para>The Price controls will be automatically disabled for
+                Line Items if a credit method has not been specified or for
+                line items having the following dispositions: Service and
+                Ship.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Price UOM</term>
+            <listitem>
+              <para>The Price Unit of Measure is the same as the Selling UOM.
+              If an Item has Selling UOMs defined, then you will be able to
+              select from between the Inventory UOM and any defined Selling
+              UOMs. If no Selling UOMs have been defined, then the Inventory
+              UOM will be used here by default.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Extended Price</term>
+            <listitem>
+              <para>Displays the Extended Price. The Extended Price for a Line
+              Item is based on the quantity ordered multiplied by the Net Unit
+              Price.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>sales orders</primary>
-          <secondary>line item pricing for</secondary>
-        </indexterm>Net Unit Price</term>
+      <term>Sale</term>
       <listitem>
-        <para>Displays the Net Unit Price for the Sales Order Item. This
-        information will be imported automatically for Return Authorizations
-        linked to an original Sales Order if header disposition was Credit or
-        Return when the order was imported. The browse button located to the
-        right of the field leads to a Price List screen.</para>
+        <para>If the Return Authorizations involves re-selling the Line Item
+        to the Customer, then you may specify the following options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Discount %</term>
+            <listitem>
+              <para>Enter the amount of any discount, if any.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>sales orders</primary>
+                <secondary>line item pricing for</secondary>
+              </indexterm>Net Unit Price</term>
+            <listitem>
+              <para>Displays the Net Unit Price for the Sales Order Item. This
+              information will be imported automatically for Return
+              Authorizations linked to an original Sales Order if header
+              disposition was Credit or Return when the order was imported.
+              The browse button located to the right of the field leads to a
+              Price List screen.</para>
+              <note>
+                <para>The Price controls will be automatically disabled for
+                Line Items if a credit method has not been specified or for
+                line items having the following dispositions: Service and
+                Ship.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Price UOM</term>
+            <listitem>
+              <para>The Price Unit of Measure is the same as the Selling UOM.
+              If an Item has Selling UOMs defined, then you will be able to
+              select from between the Inventory UOM and any defined Selling
+              UOMs. If no Selling UOMs have been defined, then the Inventory
+              UOM will be used here by default.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Extended Price</term>
+            <listitem>
+              <para>Displays the Extended Price. The Extended Price for a Line
+              Item is based on the quantity ordered multiplied by the Net Unit
+              Price.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>The Price controls will be automatically disabled for Line Items if
-    a credit method has not been specified or for line items having the
-    following dispositions: Service and Ship.</para>
-  </note>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/returnAuthorizationItem_saleTab.png" />
+      </imageobject>
+      <caption>Return Authorization Sales Tab</caption>
+    </mediaobject>
+  </screenshot>
   <variablelist>
-    <varlistentry>
-      <term>Price UOM</term>
-      <listitem>
-        <para>The Price Unit of Measure is the same as the Selling UOM. If an
-        Item has Selling UOMs defined, then the Item may be sold and priced in
-        these alternate UOMs. If no Selling UOMs are defined, then the
-        Inventory UOM will be used here by default.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Extended Price</term>
-      <listitem>
-        <para>Displays the Extended Price. The Extended Price for a Line Item
-        is based on the quantity ordered multiplied by the Net Unit
-        Price.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>Scheduled Date</term>
       <listitem>
@@ -291,13 +365,20 @@
   Orders if they are needed.</para>
   <variablelist>
     <varlistentry>
+      <term>Show Availability</term>
+      <listitem>
+        <para>Select if you want to display Item availability
+        information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term><indexterm significance="normal">
           <primary>return authorizations</primary>
           <secondary>availability of items for</secondary>
         </indexterm>Availability</term>
       <listitem>
-        <para>Select to display Availability information for the Line Item in
-        the following categories:</para>
+        <para>If showing Item availability, the following information will be
+        shown:</para>
         <variablelist>
           <varlistentry>
             <term>On Hand</term>
