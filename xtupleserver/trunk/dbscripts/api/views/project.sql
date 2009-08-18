@@ -104,7 +104,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.project DO INSTEAD
 
-  DELETE FROM prj WHERE (prj_number=OLD.number);
+  SELECT deleteproject (getPrjId(OLD.number));
 
 COMMIT;
 
