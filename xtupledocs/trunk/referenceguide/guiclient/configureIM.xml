@@ -3,7 +3,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Anchor19758">
-  <title><indexterm significance="normal">
+  <title id="configureIM"><indexterm significance="normal">
       <primary>configuration</primary>
       <secondary>of inventory module</secondary>
     </indexterm>Configure Inventory</title>
@@ -286,8 +286,8 @@
       <listitem>
         <para>Select if you want the components of Kit Items to inherit the
         same Cost of Sales (COS) Account used by the parent Kit Item. If not
-        selected, the COS Account used by components may differ from the
-        parent COS Account.</para>
+        selected, the Kit components will use the COS Accounts defined in
+        their respective Sales Account Assignments.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

@@ -282,10 +282,13 @@
               "Select for Billing" option takes effect for Kit Items when all
               Kit Items are shipped.</para>
               <note>
-                <para>The cost of goods sold for Kit Items is directed to the
-                Cost Category mappings of the Kit's child Items. The child
-                Items do not inherit the G/L Account mappings defined for the
-                parent Kit Item.</para>
+                <para>The Cost of Sales (COS) Account for Kit Items is
+                directed to the Sales Account Assignment mappings of the Kit's
+                child Items―unless your system is configured to have the Kit
+                components inherit the same COS Account used by the parent Kit
+                Item. You can read more about configuring your system for COS
+                inheritance for Kit Items here: <xref
+                linkend="configureIM" />.</para>
               </note>
             </listitem>
           </varlistentry>
