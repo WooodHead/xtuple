@@ -4,22 +4,44 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section556338">
   <title><indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>open items by</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>open items by customer</secondary>
+    </indexterm><indexterm significance="normal">
       <primary>open items</primary>
-      <secondary>complete range of</secondary>
-    </indexterm>Open Items</title>
-  <para>To view A/R open items, select the "Open Items" option. The following
-  screen will appear:</para>
+      <secondary>by customer</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>open items</primary>
+      <secondary>complete a/r list</secondary>
+    </indexterm>Open Receivables</title>
+  <para>To view the complete list of A/R open items, select the "Open
+  Receivables" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspAROpenItems.png" />
+          <imagedata fileref="images/dspAROpenItemsByCustomer.png" />
         </imageobject>
-        <caption>A/R Open Items</caption>
+        <caption>A/R Open Receivables</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying A/R open items, you are presented with the following
-  options:</para>
+  <note>
+    <para>If a Customer's open Accounts Receivable (A/R) balance exceeds their
+    Credit Limit, the Customer will automatically be placed on Credit Warning.
+    In addition, any new or open Sales Orders for the Customer will also be
+    placed on Credit Hold.</para>
+  </note>
+  <para>When displaying A/R open items by Customer, you are presented with the
+  following options:</para>
   <variablelist>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>Enter the Customer Number of the Customer whose A/R open items
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>Start Date</term>
       <listitem>
@@ -35,9 +57,22 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>As of Date</term>
+      <listitem>
+        <para>Specify the date you want the A/R open items to be relative to.
+        The report will include any A/R items which were open—that is, not yet
+        paid—as of the specified date. This feature provides "point-in-time"
+        open balance functionality.</para>
+        <note>
+          <para>The payment date used as a reference for the "As of Date"
+          field is the G/L distribution date, not the posting date.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>A/R Open Items</term>
       <listitem>
-        <para>Display lists A/R open items, using the specified
+        <para>Display lists A/R open items by Customer, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
