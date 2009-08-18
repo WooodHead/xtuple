@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518917">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>purchase orders</primary>
       <secondary>line items by vendor</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>P/O Items by Vendor</title>
   <para>To view Purchase Order Items by Vendor, select the "P/O Items by
   Vendor" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspPoItemsByVendor.png"/>
+          <imagedata fileref="images/dspPoItemsByVendor.png" />
         </imageobject>
         <caption>Purchase Order Items by Vendor</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>A Purchase Order will remain open if at least one of its Line Items
     is open. Once all Line Items are closed, the Purchase Order will also be
@@ -36,6 +34,49 @@
       <listitem>
         <para>Enter the Vendor Number of the Vendor whose Purchase Order Items
         you want to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display Purchase Order Items by Vendor for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Purchase Order Items by Vendor you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Purchasing Agents</term>
+      <listitem>
+        <para>Select to display Purchase Order Items by Vendor for all
+        Purchasing Agents.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Purchasing Agent whose Purchase Order Items by Vendor
+        you want to display. Users may be designated as Purchasing Agents at
+        the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Purchase Orders</term>
+      <listitem>
+        <para>Select to display Purchase Order Items by Vendor for all
+        Purchase Order Numbers.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Purchase Order Number whose Purchase Order Items by
+        Vendor you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -59,51 +100,15 @@
         display.</para>
       </listitem>
     </varlistentry>
-    <varlistentry role="standard">
-      <term>All Sites</term>
+    <varlistentry>
+      <term>Search for:</term>
       <listitem>
-        <para>Select to display Purchase Order Items by Vendor for all
-        Sites.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Selected</term>
-      <listitem>
-        <para>Specify Site whose Purchase Order Items by Vendor you want
-        to display.</para>
+        <para>Enter text to more quickly find the record you're looking for.
+        Use the NEXT button to move to the next match in your search.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>All Purchasing Agents</term>
-      <listitem>
-        <para>Select to display Purchase Order Items by Vendor for all
-        Purchasing Agents.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected</term>
-      <listitem>
-        <para>Specify Purchasing Agent whose Purchase Order Items by Vendor
-        you want to display. Users may be designated as Purchasing Agents at
-        the system level.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>All PO #s</term>
-      <listitem>
-        <para>Select to display Purchase Order Items by Vendor for all
-        Purchase Order Numbers.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected PO #</term>
-      <listitem>
-        <para>Specify Purchase Order Number whose Purchase Order Items by
-        Vendor you want to display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>P/O Items</term>
+      <term>Purchase Order Items</term>
       <listitem>
         <para>Display lists Purchase Order Items by Vendor, using the
         specified parameters.</para>
