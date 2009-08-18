@@ -15,7 +15,7 @@ AS
    FROM prj, prjtask, cmnttype, comment
    WHERE ((comment_source='TA')
    AND (prj_id=prjtask_prj_id)
-   AND (comment_source_id=prj_id)
+   AND (comment_source_id=prjtask_id)
    AND (comment_cmnttype_id=cmnttype_id));
 
 GRANT ALL ON TABLE api.taskcomment TO xtrole;
@@ -37,7 +37,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   VALUES (
     COALESCE(NEW.date,now()),
     'TA',
-    getPrjId(NEW.project_number),
+    getPrjTaskId(NEW.project_number,NEW.task_number),
     COALESCE(NEW.username,current_user),
     getCmntTypeId(NEW.type),
     NEW.text);

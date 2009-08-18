@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION deleteProject(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION deleteProject(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pPrjid ALIAS FOR $1;
   _result INTEGER;
@@ -53,6 +53,16 @@ BEGIN
     RETURN -6;
   END IF;
 
+  DELETE FROM comment
+  WHERE ((comment_source='J')
+  AND (comment_source_id=pPrjid));
+
+  DELETE FROM comment
+  WHERE ((comment_source='TA')
+  AND (comment_source_id IN (
+    SELECT prjtask_id
+    FROM prjtask
+    WHERE (prjtask_prj_id=pPrjId))));
 
   DELETE FROM prjtask
    WHERE (prjtask_prj_id=pPrjid);
@@ -61,5 +71,5 @@ BEGIN
    WHERE (prj_id=pPrjid);
   RETURN pPrjid;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

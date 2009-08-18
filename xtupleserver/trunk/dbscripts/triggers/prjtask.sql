@@ -6,6 +6,10 @@ BEGIN
   --  Checks
   IF NOT (checkPrivilege('MaintainProjects')) THEN
     RAISE EXCEPTION 'You do not have privileges to maintain Projects.';
+  ELSIF (LENGTH(COALESCE(NEW.prjtask_number,'')) = 0) THEN
+    RAISE EXCEPTION 'You must ender a valid number.';
+  ELSIF (LENGTH(COALESCE(NEW.prjtask_name,'')) = 0) THEN
+    RAISE EXCEPTION 'You must ender a valid name.';	
   END IF;
 
   SELECT usrpref_username INTO _test
