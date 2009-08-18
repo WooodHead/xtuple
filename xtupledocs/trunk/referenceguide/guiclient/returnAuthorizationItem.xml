@@ -242,9 +242,27 @@
               <para>Displays the Net Unit Price for the Sales Order Item. This
               information will be imported automatically for Return
               Authorizations linked to an original Sales Order if header
-              disposition was Credit or Return when the order was imported.
-              The browse button located to the right of the field leads to a
-              Price List screen.</para>
+              disposition was Credit or Return when the order was imported. If
+              there is no linked Sales Order, then the system will choose the
+              lower of the following two Prices: A) The most-specific Pricing
+              Schedule Assignment or B) any Sale in effect at the time of
+              Order entry. The specificity of Pricing Schedule Assignments is
+              determined in the following descending order: By Customer
+              Ship-To Address (most specific), by Customer, by Customer Type,
+              by Customer Type pattern, by all Customers. The browse button
+              located to the right of the field leads to a Price List
+              screen.</para>
+              <para>If your Pricing Schedule has multiple Units of Measure
+              (UOM) on it―or if several Pricing Schedules share the same level
+              of Price specificity, but they have different UOMs―then the UOM
+              which matches the selected UOM will be chosen―that is, as long
+              as the quantity break does not exceed the quantity being priced.
+              If no entry matches the UOM with a quantity break less than the
+              quantity being priced, then the lowest value Price for any UOM
+              will be chosen. To make sure a specific UOM is always chosen at
+              the desired level of Price specificity, then your Pricing
+              Schedules should include at least one UOM with a quantity break
+              of 0.</para>
               <note>
                 <para>The Price controls will be automatically disabled for
                 Line Items if a credit method has not been specified or for
@@ -295,9 +313,27 @@
               <para>Displays the Net Unit Price for the Sales Order Item. This
               information will be imported automatically for Return
               Authorizations linked to an original Sales Order if header
-              disposition was Credit or Return when the order was imported.
-              The browse button located to the right of the field leads to a
-              Price List screen.</para>
+              disposition was Credit or Return when the order was imported. If
+              there is no linked Sales Order, then the system will choose the
+              lower of the following two Prices: A) The most-specific Pricing
+              Schedule Assignment or B) any Sale in effect at the time of
+              Order entry. The specificity of Pricing Schedule Assignments is
+              determined in the following descending order: By Customer
+              Ship-To Address (most specific), by Customer, by Customer Type,
+              by Customer Type pattern, by all Customers. The browse button
+              located to the right of the field leads to a Price List
+              screen.</para>
+              <para>If your Pricing Schedule has multiple Units of Measure
+              (UOM) on it―or if several Pricing Schedules share the same level
+              of Price specificity, but they have different UOMs―then the UOM
+              which matches the selected UOM will be chosen―that is, as long
+              as the quantity break does not exceed the quantity being priced.
+              If no entry matches the UOM with a quantity break less than the
+              quantity being priced, then the lowest value Price for any UOM
+              will be chosen. To make sure a specific UOM is always chosen at
+              the desired level of Price specificity, then your Pricing
+              Schedules should include at least one UOM with a quantity break
+              of 0.</para>
               <note>
                 <para>The Price controls will be automatically disabled for
                 Line Items if a credit method has not been specified or for

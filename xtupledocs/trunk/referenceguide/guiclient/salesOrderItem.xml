@@ -126,9 +126,8 @@
   <tip>
     <para>If a preferred Selling Site is specified for the Customer, then that
     Site will be selected here by default. If the preferred Selling Site is
-    not selected&mdash;and you think it should be&mdash;verify that the Item
-    Site master for the Line Item in question is marked as a "Sold from"
-    Site.</para>
+    not selected—and you think it should be—verify that the Item Site master
+    for the Line Item in question is marked as a "Sold from" Site.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -191,6 +190,16 @@
         Customer Ship-To Address (most specific), by Customer, by Customer
         Type, by Customer Type pattern, by all Customers. The browse button
         located to the right of the field leads to a Price List screen.</para>
+        <para>If your Pricing Schedule has multiple Units of Measure (UOM) on
+        it―or if several Pricing Schedules share the same level of Price
+        specificity, but they have different UOMs―then the UOM which matches
+        the selected UOM will be chosen―that is, as long as the quantity break
+        does not exceed the quantity being priced. If no entry matches the UOM
+        with a quantity break less than the quantity being priced, then the
+        lowest value Price for any UOM will be chosen. To make sure a specific
+        UOM is always chosen at the desired level of Price specificity, then
+        your Pricing Schedules should include at least one UOM with a quantity
+        break of 0. </para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -283,12 +292,12 @@
               <para>Displays the quantity allocated to current Sales Orders
               and/or Work Orders in the system. An Item is considered
               allocated to a Sales Order if a Sales Order Line Item exists for
-              the Item&mdash;and that Line Item has not yet been issued to
-              Shipping. An Item is considered allocated to a Work Order if the
-              Item is a material requirement&mdash;and the material has not
-              yet been issued to the Work Order. Once the current Sales Order
-              Line Item is saved, the "Allocated" value will increase by the
-              quantity ordered.</para>
+              the Item—and that Line Item has not yet been issued to Shipping.
+              An Item is considered allocated to a Work Order if the Item is a
+              material requirement—and the material has not yet been issued to
+              the Work Order. Once the current Sales Order Line Item is saved,
+              the "Allocated" value will increase by the quantity
+              ordered.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -375,8 +384,8 @@
         as make-to-order if the "Stocked at" flag on the Item Site master is
         not selected. A Work Order created automatically from a Sales Order
         Line Item will assume the same Order Number as the Sales Order the
-        Line Item is associated with&mdash;even if that Order Number has
-        already been used by a previous Work Order.</para>
+        Line Item is associated with—even if that Order Number has already
+        been used by a previous Work Order.</para>
         <note>
           <para>For purchased Items, the option "Create Purchase Request" will
           appear instead. The displayed fields will resemble the fields shown
@@ -602,7 +611,7 @@
               matrix must have an entry which matches both the Item's Tax Type
               definition and the Tax Authority specified on the Sales Order
               header. If no Tax Selection match exists, then no Tax Code will
-              be used&mdash;meaning no Tax will be charged.</para>
+              be used—meaning no Tax will be charged.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -758,6 +767,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="priceList.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="priceList.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
