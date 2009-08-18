@@ -11,8 +11,8 @@ $BODY$
     _taxtypeid	INTEGER := NULL;
 
   BEGIN
-    SELECT cobmisc_taxzone_id,  item_id
-    INTO _taxzoneid,  _itemid
+    SELECT cobmisc_taxzone_id,  item_id, coitem_taxtype_id
+    INTO _taxzoneid,  _itemid, _taxtypeid
     FROM cobmisc, coitem, itemsite, item
     WHERE ((cobmisc_cohead_id = coitem_cohead_id)
     AND   (NOT cobmisc_posted)
@@ -20,8 +20,6 @@ $BODY$
     AND   (itemsite_item_id = item_id)
     AND   (coitem_id = pSoitemid) )
     LIMIT 1;
-
-    _taxtypeid := getitemtaxtype(_itemid, _taxzoneid);
 
      RETURN selectforbilling(pSoitemid, pQty, pClose, _taxtypeid);
   END;
