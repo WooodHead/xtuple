@@ -14,7 +14,7 @@ BEGIN
   FOR _r IN SELECT cohead_id, coitem_id, SUM(coship_qty) AS qty,
                    coitem_price, coitem_price_invuomratio AS invpricerat, coitem_qty_invuomratio, item_id,
                    ( ((coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) <= 0)
-                    OR (NOT cust_partialship) ) AS toclose, coitem_tax_id
+                    OR (NOT cust_partialship) ) AS toclose, coitem_taxtype_id
             FROM cosmisc, coship, coitem, cohead, custinfo, itemsite, item
             WHERE ( (coship_cosmisc_id=cosmisc_id)
              AND (coship_coitem_id=coitem_id)
@@ -26,13 +26,13 @@ BEGIN
              AND (cohead_cust_id=cust_id)
              AND (item_type != 'K')
              AND (cosmisc_id=pCosmiscid) )
-            GROUP BY cohead_id, coitem_id, cust_partialship, coitem_tax_id,
+            GROUP BY cohead_id, coitem_id, cust_partialship, coitem_taxtype_id,
                      coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
                      coitem_price, invpricerat, coitem_qty_invuomratio, item_id
             UNION
             SELECT cohead_id, coitem_id, coitem_qtyord AS qty,
                    coitem_price, coitem_price_invuomratio AS invpricerat, coitem_qty_invuomratio, item_id,
-                   true AS toclose, coitem_tax_id
+                   true AS toclose, coitem_taxtype_id
               FROM cosmisc, cohead, custinfo, itemsite, item, coitem AS kit
              WHERE((cosmisc_cohead_id=cohead_id)
                AND (coitem_cohead_id=cohead_id)
@@ -51,7 +51,7 @@ BEGIN
                         AND ((sub.coitem_qtyord - sub.coitem_qtyshipped + sub.coitem_qtyreturned) > 0)
                         LIMIT 1)
                ))
-             GROUP BY cohead_id, coitem_id, cust_partialship, coitem_tax_id,
+             GROUP BY cohead_id, coitem_id, cust_partialship, coitem_taxtype_id,
                       coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
                       coitem_price, invpricerat, coitem_qty_invuomratio, item_id, coitem_linenumber LOOP
 
@@ -73,14 +73,11 @@ BEGIN
          SET cobill_selectdate = CURRENT_DATE,
              cobill_select_username = CURRENT_USER,
              cobill_qty = cobill_qty + _r.qty,
-             cobill_toclose = _r.toclose
+             cobill_toclose = _r.toclose,
+             cobill_taxtype_id = _r.coitem_taxtype_id
       WHERE (cobill_id=_cobillid);
     ELSE
 --  Now insert the cobill line
-      SELECT getItemTaxType(_r.item_id, cobmisc_taxzone_id) INTO _taxtypeid
-        FROM cobmisc
-       WHERE (cobmisc_id=_cobmiscid);
-
       INSERT INTO cobill
       ( cobill_cobmisc_id, cobill_coitem_id,
         cobill_selectdate, cobill_select_username,
@@ -90,7 +87,7 @@ BEGIN
       ( _cobmiscid, _r.coitem_id,
         CURRENT_DATE, CURRENT_USER,
         _r.qty, _r.toclose,
-         _taxtypeid );
+         _r.coitem_taxtype_id );
      END IF;      
 
   END LOOP;
