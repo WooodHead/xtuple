@@ -239,7 +239,7 @@ BEGIN
   -- Note, _taxBaseValue is negative so it is added to pAmount
   SELECT insertIntoGLSeries ( _glSequence, ''A/R'', ''CM'',
                               pDocNumber, _prepaidAccntid,
-                              round(currToBase(pCurrId, (pAmount + _taxBaseValue) * -1, pDocDate), 2),
+                              round(currToBase(pCurrId, pAmount * -1, pDocDate) + _taxBaseValue * -1, 2),
                               pDocDate, (_custName || '' '' || pNotes)) INTO _test;
 
   --  Commit the GLSeries;
