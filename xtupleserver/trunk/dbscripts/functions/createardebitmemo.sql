@@ -127,7 +127,7 @@ BEGIN
   -- Credit the Prepaid account for the basis amount
   SELECT insertIntoGLSeries ( _glSequence, 'A/R', 'DM',
                               pDocNumber, _prepaidAccntid,
-                              round(currToBase(pCurrId, (pAmount - _taxBaseValue), pDocDate), 2),
+                              round(currToBase(pCurrId, (pAmount), pDocDate), 2) - _taxBaseValue,
                               pDocDate, (_custName || ' ' || pNotes)) INTO _test;
 
   --  Commit the GLSeries;
