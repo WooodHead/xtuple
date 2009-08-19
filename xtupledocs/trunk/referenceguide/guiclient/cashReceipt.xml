@@ -80,6 +80,15 @@
         <para>If your system is configured to enable Customer Deposits, you
         may select one of the following options for applying any unapplied
         Cash Receipt balance:</para>
+        <note>
+          <para>If the distribution date for the Cash Receipt precedes the
+          application date, the label "Apply Balance As" will change to
+          "Record Receipt as" to clarify that the cash will be recorded as a
+          Credit Memo or Customer Deposit until the application date arrives.
+          On the application date, the Credit Memo or Customer Deposit will
+          automatically be applied to its specified receivable
+          document(s).</para>
+        </note>
         <variablelist>
           <varlistentry>
             <term>Credit Memo</term>
@@ -155,8 +164,25 @@
     <varlistentry>
       <term>Distribution Date</term>
       <listitem>
-        <para>Specify the date of the Cash distribution. By default, the
-        current day's date will appear.</para>
+        <para>Specify the date of the cash distribution. This is the date the
+        Cash Receipt will hit the General Ledger (G/L). By default, the
+        current day's date will appear. If the distribution date precedes the
+        application date, the label "Apply Balance As" will change to "Record
+        Receipt as" to clarify that the cash will be recorded as a Credit Memo
+        or Customer Deposit until the application date arrives. On the
+        application date, the Credit Memo or Customer Deposit will
+        automatically be applied to its specified receivable
+        document(s).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Application Date</term>
+      <listitem>
+        <para>Specify the date you want the cash to be applied to the selected
+        receivables. By default, the current day's date will appear. To
+        prevent A/R aging and G/L balance mismatches, you may not enter an
+        application date prior to the earliest document date of receivables
+        the cash is being applied to.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
