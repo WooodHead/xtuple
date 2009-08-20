@@ -16,7 +16,7 @@
       <primary>open items</primary>
       <secondary>complete a/r list</secondary>
     </indexterm>Open Receivables</title>
-  <para>To view the complete list of A/R open items, select the "Open
+  <para>To view the complete list of open receivables, select the "Open
   Receivables" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -32,37 +32,64 @@
     In addition, any new or open Sales Orders for the Customer will also be
     placed on Credit Hold.</para>
   </note>
-  <para>When displaying A/R open items by Customer, you are presented with the
-  following options:</para>
+  <para>When displaying open receivables, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
-      <term>Customer #</term>
+      <term>Customer</term>
       <listitem>
-        <para>Enter the Customer Number of the Customer whose A/R open items
-        you want to display.</para>
+        <para>Select all or specific Customers whose Open Receivables you want
+        to display.</para>
+        <tip>
+          <para>To generate results in the display you first have to select
+          the QUERY button. If you are not seeing any results, this is
+          probably the reason why.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Start Date</term>
+      <term>Date Rate</term>
       <listitem>
-        <para>A/R open items having due dates on and after this date will be
-        displayed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>End Date</term>
-      <listitem>
-        <para>A/R open items having due dates on and before this date will be
-        displayed.</para>
+        <para>Specify the following date range options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Document</term>
+            <listitem>
+              <para>Select if you want to show open receivables whose document
+              date falls within the specified date range.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Due</term>
+            <listitem>
+              <para>Select if you want to show open receivables whose due date
+              falls within the specified date range.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Open receivables having document or due dates (depending
+              on selection) on and after this date will be displayed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Open receivables having document or due dates (depending
+              on selection) on and before this date will be displayed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>As of Date</term>
       <listitem>
-        <para>Specify the date you want the A/R open items to be relative to.
-        The report will include any A/R items which were open—that is, not yet
-        paid—as of the specified date. This feature provides "point-in-time"
-        open balance functionality.</para>
+        <para>Specify the date you want the open receivables to be relative
+        to. The report will include any open receivables which were open—that
+        is, not yet paid—as of the specified date. This feature provides
+        "point-in-time" open balance functionality.</para>
         <note>
           <para>The payment date used as a reference for the "As of Date"
           field is the G/L distribution date, not the posting date.</para>
@@ -70,9 +97,53 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>A/R Open Items</term>
+      <term>Show</term>
       <listitem>
-        <para>Display lists A/R open items by Customer, using the specified
+        <para>Specify which of the following options you want to
+        display:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Debits</term>
+            <listitem>
+              <para>Select to include only debit balance documents in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credits</term>
+            <listitem>
+              <para>Select to include only credit balance documents in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Both</term>
+            <listitem>
+              <para>Select to include both debit and credit balance documents
+              in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Only Items with Incidents</term>
+            <listitem>
+              <para>Select to include only documents having linked CRM
+              Incidents in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Unposted</term>
+            <listitem>
+              <para>Select to include unposted documents in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Receivables</term>
+      <listitem>
+        <para>Display lists open receivables by Customer, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
