@@ -81,8 +81,8 @@
       <listitem>
         <para>Specify the name of the agent assigned to the Order. By default,
         the name of the logged-in user will be entered as Purchasing
-        Agent&mdash;assuming that user is designated as a Purchasing Agent. If
-        the user is not a Purchasing Agent, the first alphabetical name in the
+        Agent—assuming that user is designated as a Purchasing Agent. If the
+        user is not a Purchasing Agent, the first alphabetical name in the
         list of Purchasing Agents will be entered.</para>
       </listitem>
     </varlistentry>
@@ -103,9 +103,9 @@
     <varlistentry>
       <term>Alt. Address</term>
       <listitem>
-        <para>Enter the number of an Alternate Address, if you prefer not to
-        use the Main Address. Vendors may maintain multiple Alternate
-        Addresses.</para>
+        <para>Enter the number of an alternate Address. By default, the
+        alternate Address will be used as the Ship-To Address when the
+        Purchase Order is printed. </para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -236,9 +236,9 @@
       <listitem>
         <para>Enables you to edit highlighted Purchase Order Line Items. The
         edit screen is the same as that for creating a new Purchase Order Line
-        Item&mdash;except that when editing, the fields will contain Purchase
-        Order Line Item information. Double-clicking on a Purchase Order Line
-        Item will also bring you to the editing screen.</para>
+        Item—except that when editing, the fields will contain Purchase Order
+        Line Item information. Double-clicking on a Purchase Order Line Item
+        will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -270,8 +270,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Comments to a Purchase Order&mdash;or to view system-generated
-  Comments&mdash;select the "Comments" tab at the top of the "Purchase Order"
+  <para>To add Comments to a Purchase Order—or to view system-generated
+  Comments—select the "Comments" tab at the top of the "Purchase Order"
   screen. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -454,7 +454,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="purchaseOrderItem.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="purchaseOrderItem.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
