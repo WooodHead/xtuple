@@ -32,7 +32,7 @@ SELECT tohead_id AS orderid, toitem_id AS altorderid, 'T/O' AS ordertype,
        noNeg(toitem_qty_ordered - toitem_qty_received) AS balance
 FROM tohead, toitem
 WHERE ((toitem_tohead_id=tohead_id)
-  AND  (toitem_status <> 'C')
+  AND  (toitem_status NOT IN ('C', 'X'))
   AND  (toitem_item_id=<? value("item_id") ?>)
   AND  (tohead_dest_warehous_id=<? value("warehous_id") ?>)
   AND  (toitem_qty_ordered > toitem_qty_received) )
@@ -51,7 +51,7 @@ SELECT tohead_id AS orderid, toitem_id AS altorderid, 'T/O' AS ordertype,
        -- -1 * noNeg(toitem_qty_ordered - toitem_qty_received) AS balance
 FROM tohead, toitem
 WHERE ((toitem_tohead_id=tohead_id)
-  AND  (toitem_status <> 'C')
+  AND  (toitem_status NOT IN ('C', 'X'))
   AND  (toitem_item_id=<? value("item_id") ?>)
   AND  (tohead_src_warehous_id=<? value("warehous_id") ?>)
   AND  (toitem_qty_ordered - toitem_qty_shipped - qtyAtShipping('TO', toitem_id)) > 0 )
