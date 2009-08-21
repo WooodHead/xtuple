@@ -51,9 +51,7 @@ BEGIN
   DELETE FROM cohead
   WHERE (cohead_id=pSoheadid);
 
-  DELETE FROM prj
-  WHERE ((prj_id=_r.cohead_prj_id)
-  AND (prj_name=_r.cohead_number));
+  PERFORM deleteProject(_r.cohead_prj_id);
 
   DELETE FROM aropenco
   WHERE (aropenco_cohead_id=pSoheadid);
