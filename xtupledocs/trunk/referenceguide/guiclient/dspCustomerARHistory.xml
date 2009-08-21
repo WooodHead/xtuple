@@ -24,24 +24,41 @@
   options:</para>
   <variablelist>
     <varlistentry>
-      <term>Customer #</term>
+      <term>Selection</term>
       <listitem>
-        <para>Enter the Customer Number of the Customer whose history you want
-        to display.</para>
+        <para>Specify your Customer selection:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Customer #</term>
+            <listitem>
+              <para>Enter the Customer Number of the Customer whose history
+              you want to display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Start Date</term>
+      <term>Document Date Range</term>
       <listitem>
-        <para>Documents whose document date falls on and following this date
-        will be displayed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>End Date</term>
-      <listitem>
-        <para>Documents whose document date falls on and before this date will
-        be displayed.</para>
+        <para>Specify the date range for documents you want to include in the
+        display:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Documents whose document date falls on and following this
+              date will be displayed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Documents whose document date falls on and before this
+              date will be displayed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
