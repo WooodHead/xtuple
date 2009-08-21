@@ -142,6 +142,15 @@
         For example, only Job Items may be selected for Line Items having the
         Service disposition. Once an Item Number is entered, the Inventory
         Unit of Measure and Item description will automatically appear.</para>
+        <para>If a returned Item is an Average-Cost Item, is linked to a Sales
+        Order, and will result in an Inventory receipt, the Average Cost for
+        the Item on the Sales Order will be pulled into the return Line Item
+        as the default value. If there is no Sales Order to reference, the
+        cost on the receipt will default to the Standard Cost for the Item. If
+        the Item Site is Average Cost, the Unit Cost will actually be editable
+        on the return Line Item, so you can manually or programmatically
+        change the value to whatever makes sense for your business
+        practice.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
