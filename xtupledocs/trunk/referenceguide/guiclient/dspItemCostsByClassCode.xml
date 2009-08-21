@@ -62,7 +62,13 @@
       <term>Only Show Items where Actual and Standard are different</term>
       <listitem>
         <para>Select to include in the report only those Items whose Actual
-        and Standard Costs are not the same.</para>
+        and Standard Costs are not the same. In some cases, Items whose Actual
+        and Standard Costs appear to be the same may be included when this
+        option is selected. This is caused by rounding discrepancies in the
+        case where the Locale being used allows for greater cost precision
+        than this screen supports. If this occurs, the Item record will appear
+        in a different color to indicate the difference occurs at a greater
+        level of precision than can be viewed on the screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
