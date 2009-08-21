@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
   <title>Reschedule Purchase Order Item</title>
   <section id="Section940909">
     <title>Reschedule Purchase Order Item</title>
     <para>To reschedule a Purchase Order Item, select the "Reschedule Purchase
     Order Item" option. The following screen will appear:</para>
-    <para>
-<screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/reschedulePoitem.png"/>
+            <imagedata fileref="images/reschedulePoitem.png" />
           </imageobject>
           <caption>Reschedule Purchase Order Item</caption>
         </mediaobject>
-      </screenshot>
-</para>
+      </screenshot></para>
     <note>
       <para>You may reschedule a Purchase Order Line Item after a Purchase
-      Order has been posted&mdash;as long as the Line Item has not been
+      Order has been posted—as long as the Line Item has not been
       closed.</para>
     </note>
     <para>When rescheduling a Purchase Order Line Item, you are presented with
@@ -40,11 +39,16 @@
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term>Due Date</term>
+        <term>Due Date (Current)</term>
         <listitem>
-          <para>Enter the date you want to reschedule the Purchase Order Line
-          Item to. The original and current scheduled dates will be
-          displayed.</para>
+          <para>Displays the current due date for the Purchase Order Line
+          Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Due Date (Rescheduled)</term>
+        <listitem>
+          <para>Enter the new rescheduled due date.</para>
         </listitem>
       </varlistentry>
     </variablelist>
