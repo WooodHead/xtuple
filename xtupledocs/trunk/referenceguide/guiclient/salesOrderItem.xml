@@ -199,7 +199,7 @@
         lowest value Price for any UOM will be chosen. To make sure a specific
         UOM is always chosen at the desired level of Price specificity, then
         your Pricing Schedules should include at least one UOM with a quantity
-        break of 0. </para>
+        break of 0.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -402,7 +402,9 @@
       <listitem>
         <para>The quantity ordered by the Sales Order Line Item will display
         here. If the Line Item is a purchased Item, the option "P/R Qty" will
-        appear instead.</para>
+        appear instead. Whenever Sales Order Line Item quantity is changed,
+        the change will also be reflected in any linked Work Orders or
+        Purchase Requests.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
