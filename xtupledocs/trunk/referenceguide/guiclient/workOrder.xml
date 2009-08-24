@@ -293,16 +293,8 @@
     creation. Instead, use the Production Notes tab for entering Notes related
     to a Work Order.</para>
   </note>
-  <para>When creating or viewing Comments related to a Work Order, you are
-  presented with the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Comments</term>
-      <listitem>
-        <para>Display lists Comments for the specified Order.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>Once a Work Order is in process—that is, either materials have been
   issued or Production or Operations have been posted—you can begin to view
   Costing information for the Work Order. To view Costing information for the

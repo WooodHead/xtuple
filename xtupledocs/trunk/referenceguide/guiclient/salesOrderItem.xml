@@ -677,75 +677,8 @@
     changed, the system will automatically generate a Comment, which will
     appear in the list of Line Item Comments.</para>
   </note>
-  <para>When adding Comments related to a Sales Order Line Item, you are
-  presented with the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Comments</term>
-      <listitem>
-        <para>Display lists Comments for the specified Line Item.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens screen for creating a new Comment. Sales Order Line Item
-        Comments may only be added after the Line Item has been saved to the
-        Sales Order.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>VIEW</term>
-      <listitem>
-        <para>Highlight a Comment and then select this button to reach a
-        read-only view of the Comment.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To create a Sales Order Line Item Comment, select the NEW button. The
-  following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/CommentNew.png" />
-        </imageobject>
-        <caption>Create New Comment</caption>
-      </mediaobject>
-    </screenshot></para>
-  <variablelist>
-    <varlistentry>
-      <term>Comment Type</term>
-      <listitem>
-        <para>Specify one of the following Comment Types from the drop-down
-        list: ChangeLog or General. Comment Types are used to categorize
-        Comments. Once you have specified a Comment Type, you may type your
-        Comment in the main text area. The text area features word-wrapping
-        and scroll-bar support for longer Comments.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating a new Comment, returning you
-        to the previous screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Comment and adds it to the list of Order
-        Comments.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>To define an alternate Cost of Sales Account for a Sales Order Line
   Item, select the "Accounting" tab at the bottom of the screen, as shown
   below:</para>

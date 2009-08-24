@@ -93,26 +93,25 @@
         posting is being prevented for this reason, either open the Accounting
         Period in question or change the distribution date of the
         transaction.</para>
+        <note>
+          <para>The "Allow Posting into Closed Periods" option applies only to
+          Trial Balances. Account activity is always posted to the General
+          Ledger (G/L) regardless of whether Accounting Periods are open or
+          closed.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>The "Allow Posting into Closed Periods" option applies only to Trial
-    Balances. Account activity is always posted to the General Ledger (G/L)
-    regardless of whether Accounting Periods are open or closed.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>general ledger</primary>
           <secondary>trial balances and</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>trial balances</primary>
           <secondary>forward-updating of</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>account numbers</primary>
           <secondary>forward-updating and</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>forward-updating</primary>
           <secondary>performed automatically</secondary>
         </indexterm>Automatically Forward Update Trial Balances</term>
@@ -126,8 +125,6 @@
         linkend="configureGLTitle" />.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term>Comments</term>
       <listitem>
