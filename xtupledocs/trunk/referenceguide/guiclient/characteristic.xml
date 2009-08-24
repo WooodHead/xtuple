@@ -27,57 +27,50 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>May be used for</term>
+      <term>May be used on</term>
       <listitem>
         <para>Select one of the following Characteristic assignment
         options:</para>
         <variablelist>
           <varlistentry>
-            <term>Item Characteristics</term>
-            <listitem>
-              <para>Select to make Characteristic available for Item
-              Characteristics.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Customer Characteristics</term>
-            <listitem>
-              <para>Select to make Characteristic available for Customer
-              Characteristics.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Lot/Serial Characteristics</term>
-            <listitem>
-              <para>Select to make Characteristic available for Lot/Serial
-              Characteristics.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Address Characteristics</term>
+            <term>Address</term>
             <listitem>
               <para>Select to make Characteristic available for Address
               Characteristics.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>CRM Account Characteristics</term>
-            <listitem>
-              <para>Select to make Characteristic available for CRM Account
-              Characteristics.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Contact Characteristics</term>
+            <term>Contact</term>
             <listitem>
               <para>Select to make Characteristic available for Contact
               Characteristics.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Opportunity Characteristics</term>
+            <term>CRM Account</term>
+            <listitem>
+              <para>Select to make Characteristic available for CRM Account
+              Characteristics.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Opportunity</term>
             <listitem>
               <para>Select to make Characteristic available for Opportunity
+              Characteristics.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Item</term>
+            <listitem>
+              <para>Select to make Characteristic available for Item
+              Characteristics.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Customer</term>
+            <listitem>
+              <para>Select to make Characteristic available for Customer
               Characteristics.</para>
             </listitem>
           </varlistentry>
@@ -86,6 +79,93 @@
             <listitem>
               <para>Select to make Characteristic available for Employee
               Characteristics.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Lot/Serial</term>
+            <listitem>
+              <para>Select to make Characteristic available for Lot/Serial
+              Characteristics.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Advanced</term>
+      <listitem>
+        <para>Select from the following advanced features, if needed:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Input Mask</term>
+            <listitem>
+              <para></para>
+              <para>Select from the following input mask options:</para>
+              <variablelist>
+                <varlistentry>
+                  <term>00/00/000</term>
+                  <listitem>
+                    <para></para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>### - ### - ####</term>
+                  <listitem>
+                    <para></para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>### - ## - ####</term>
+                  <listitem>
+                    <para></para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>00,000.00</term>
+                  <listitem>
+                    <para></para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Validator</term>
+            <listitem>
+              <para></para>
+              <para>Select from the following validator options:</para>
+              <variablelist>
+                <varlistentry>
+                  <term>[Y/N]</term>
+                  <listitem>
+                    <para></para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>\S+</term>
+                  <listitem>
+                    <para></para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>[1-9]\d{0,3}</term>
+                  <listitem>
+                    <para></para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>[A-Z]\d{5}[1-9]</term>
+                  <listitem>
+                    <para></para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>www\S?(\.com|net|org)</term>
+                  <listitem>
+                    <para></para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
             </listitem>
           </varlistentry>
         </variablelist>
