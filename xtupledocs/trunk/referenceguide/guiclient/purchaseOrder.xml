@@ -105,7 +105,7 @@
       <listitem>
         <para>Enter the number of an alternate Address. By default, the
         alternate Address will be used as the Ship-To Address when the
-        Purchase Order is printed. </para>
+        Purchase Order is printed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -281,73 +281,8 @@
         <caption>Add Comments to Purchase Order</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When adding Comments to a Purchase Order, you are presented with the
-  following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Comments</term>
-      <listitem>
-        <para>Display lists Comments for the specified Order.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens screen for creating a new Comment.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>VIEW</term>
-      <listitem>
-        <para>Highlight a Comment and then select this button to reach a
-        read-only view of the Comment.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To create a Purchase Order Comment, select the NEW button. The
-  following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/CommentNew.png" />
-        </imageobject>
-        <caption>Create New Comment</caption>
-      </mediaobject>
-    </screenshot></para>
-  <variablelist>
-    <varlistentry>
-      <term>Comment Type</term>
-      <listitem>
-        <para>Specify one of the following Comment Types from the drop-down
-        list: ChangeLog or General. Comment Types are used to categorize
-        Comments. Once you have specified a Comment Type, you may type your
-        Comment in the main text area. The text area features word-wrapping
-        and scroll-bar support for longer Comments.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating a new Comment, returning you
-        to the previous screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Comment and adds it to the list of Order
-        Comments.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>If you want to speed up your data entry of Purchase Order Line Items,
   you can use the Quick Entry interface. This screen allows you to enter
   multiple Line Items in one session. It also simplifies the process by
