@@ -13,7 +13,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/customer.png" />
+          <imagedata fileref="images/customer_tabAddresses.png" />
         </imageobject>
         <caption>Create New Customer</caption>
       </mediaobject>
@@ -29,7 +29,12 @@
     <varlistentry>
       <term>Customer #</term>
       <listitem>
-        <para>The Customer Number uniquely identifies the Customer.</para>
+        <para>The Customer Number uniquely identifies the Customer. To search
+        for an existing Customer, use the browse button located next to the
+        Customer field. Use the "+" button to add a new Customer. And use the
+        "!" button if you want to edit the Customer Number. If the "!" button
+        is not selected, you will be prevented from editing the Customer
+        Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -53,6 +58,278 @@
         Not selecting makes the Customer inactive.</para>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>addresses for</secondary>
+    </indexterm>To enter Contact information for the Customer, select the
+  "Addresses" tab and choose from the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Billing Contact</term>
+      <listitem>
+        <para>Select to manually enter billing Contact information in the
+        fields below—or use the browse button to select pre-existing Contact
+        information. If a new Contact is manually entered here, that Contact
+        will be added automatically to the master list of Contacts. For
+        additional documentation related to creating Contacts, see <xref
+        linkend="contact" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Correspondence Contact</term>
+      <listitem>
+        <para>Select to manually enter non-billing-related Contact information
+        in the fields below—or use the browse button to select pre-existing
+        Contact information. Examples of non-billing-related correspondence
+        might include Price updates, holiday cards, etc. You may also enter
+        additional contact information. If a new Contact is manually entered
+        here, that Contact will be added automatically to the master list of
+        Contacts. For additional documentation related to creating Contacts,
+        see <xref linkend="contact" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship-To</term>
+      <listitem>
+        <para>Select to display Ship-To Addresses for the specified Customer.
+        Every Customer can have multiple Ship-To Addresses, one for each of
+        the destinations you ship goods to. Ship-To Addresses are specified at
+        the point of Sales Order entry.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>ship-to addresses</primary>
+      <secondary>creating new</secondary>
+    </indexterm>To create a new Ship-To Address for a Customer, select the NEW
+  button. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/shipTo.png" />
+        </imageobject>
+        <caption>Ship-To Address</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>The Ship-To Address screen shares many common fields with the
+    Customer master—for example, shipping defaults, Sales Representative, etc.
+    By default, the Customer master values will be pre-filled on the Ship-To
+    Address screen. However, you can easily change these Customer defaults for
+    each Ship-To Address. The specific Ship-To Address information will be
+    used when the Ship-To Address is selected at the point of Sales Order
+    entry.</para>
+  </tip>
+  <para>When creating a new Ship-To Address, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>Displays the Customer Number and Customer name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship-To #</term>
+      <listitem>
+        <para>Specify a number or code to identify the Ship-To Address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Active</term>
+      <listitem>
+        <para>Select to activate the Ship-To Address. If this option is not
+        selected, then the Ship-To Address will be inactive.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default</term>
+      <listitem>
+        <para>Select if this is the default Ship-To Address for the
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter the name of the company that will receive shipments at
+        this Ship-To Address. Customers may maintain multiple Ship-To
+        Addresses with diverse destinations.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Address</term>
+      <listitem>
+        <para>Manually enter delivery Address information in the fields
+        below—or use the browse button to select pre-existing Address
+        information. If a new Address is manually entered here, that Address
+        will be added automatically to the master list of Addresses.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>ship-to addresses</primary>
+          <secondary>contact information for</secondary>
+        </indexterm>Contact</term>
+      <listitem>
+        <para>Manually enter delivery Contact information in the fields
+        below—or use the browse button to select pre-existing Contact
+        information. This field should not to be confused with the "Name"
+        field that appears on the Ship-To Address label. If a new Contact is
+        manually entered here, that Contact will be added automatically to the
+        master list of Contacts.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Rep</term>
+      <listitem>
+        <para>Specify the Sales Representative for the Ship-To Address. When
+        entering Orders for a Customer, the name of the Sales Representative
+        specified on the Ship-To Address will be used if it is different from
+        the Customer default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commission</term>
+      <listitem>
+        <para>Field accepts up to 4 whole numbers and 2 decimals. Enter the
+        Commission rate to be used when Sales Orders for this Customer are
+        shipped to the specified Ship-To Address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Zone</term>
+      <listitem>
+        <para>Specify the Shipping Zone for the Ship-To Address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax Zone</term>
+      <listitem>
+        <para>Specify Tax Zone to be used for Ship-To Address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Defaults</term>
+      <listitem>
+        <para>Specify the following Shipping-related defaults:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Ship Via</term>
+            <listitem>
+              <para>Specify the default Ship Via to be used for the Ship-To
+              Address. You may enter a free-form Ship Via simply by typing the
+              name of the Ship Via into the field.</para>
+              <tip>
+                <para>The system supports up-to-date shipment tracking with
+                links to the websites of many leading shipping companies
+                (i.e., "Ship Vias").</para>
+              </tip>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipping Form</term>
+            <listitem>
+              <para>Specify the default Shipping Form to be used for the
+              Ship-To Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipping Charges</term>
+            <listitem>
+              <para>Specify the default Shipping Charges to be used for the
+              Ship-To Address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>General Notes</term>
+      <listitem>
+        <para>Select the "General Notes" tab to access this scrolling text
+        field with word-wrapping for entering general Notes related to the
+        Customer Ship-To Address. These Notes are for internal use
+        only.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipping Notes</term>
+      <listitem>
+        <para>Select the "Shipping Notes" tab to access this scrolling text
+        field with word-wrapping for entering Shipping Notes related to the
+        Customer Ship-To Address. Shipping Notes are transferred to the
+        "Shipping Notes" tab on the Sales Order header whenever a Sales Order
+        for the specified Ship-To Address is entered. Ultimately, Shipping
+        Notes may be printed on shipping paperwork.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Transmission</term>
+      <listitem>
+        <para>Select the "Transmission" tab to associate EDI Profiles with the
+        Ship-To Address. EDI Profiles are used for transmitting Orders and
+        Invoices to Customers electronically—via email or FTP.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><remark>findme re: EDI docs Paste By Reference</remark></para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without adding Customer Address information,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves any new Customer Address information.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To define some of the basic Customer settings, select the "Settings"
+  tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customer_settingsTab.png" />
+        </imageobject>
+        <caption>Customer Settings Tab</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When defining basic Customer settings, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>General</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Terms</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para></para>
+  <variablelist>
     <varlistentry>
       <term>Sales Rep</term>
       <listitem>
@@ -90,24 +367,23 @@
       <listitem>
         <para>Specify the default Shipping Charges to be used for the
         Customer.</para>
+        <note>
+          <para>Shipping defaults specified on the Customer master will
+          transfer to the Sales Order header when a new Sales Order is entered
+          for a Customer.</para>
+        </note>
+        <tip>
+          <para>The system supports up-to-date shipment tracking with links to
+          the websites of many leading shipping companies (i.e., "Ship
+          Vias").</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>Shipping defaults specified on the Customer master will transfer to
-    the Sales Order header when a new Sales Order is entered for a
-    Customer.</para>
-  </note>
-  <tip>
-    <para>The system supports up-to-date shipment tracking with links to the
-    websites of many leading shipping companies (i.e., "Ship Vias").</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>backorders</primary>
           <secondary>accepted by customer</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>customers</primary>
           <secondary>backorders accepted by</secondary>
         </indexterm>Accepts Backorders</term>
@@ -118,26 +394,24 @@
         one of the Line Items is shipped, the remaining two Line Items would
         be on backorder. Not selecting this option indicates the Customer does
         not accept backorders or partial shipments.</para>
+        <tip>
+          <para>Sales Orders having unshipped Line Items on backorder will be
+          closed at billing (i.e., when an Invoice is created) if the Customer
+          in question is flagged to not accept backorders.</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>Sales Orders having unshipped Line Items on backorder will be closed
-    at billing (i.e., when an Invoice is created) if the Customer in question
-    is flagged to not accept backorders.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>customers</primary>
           <secondary>order preferences for</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>shipments</primary>
           <secondary>partial</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>customers</primary>
           <secondary>partial shipments accepted by</secondary>
-        </indexterm> Accepts Partial Shipments</term>
+        </indexterm>Accepts Partial Shipments</term>
       <listitem>
         <para>Accepts Partial Shipments: Select to indicate whether the
         Customer accepts partial shipments. A partial shipment is defined as a
@@ -147,17 +421,15 @@
         ("10") would constitute a partial shipment of the ordered Item. Not
         selecting this option indicates the Customer does not accept partial
         shipments.</para>
+        <tip>
+          <para>Partially-shipped Line Items will be closed at billing (i.e.,
+          when an Invoice is created) if the Customer in question is flagged
+          to not accept partial shipments.</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>Partially-shipped Line Items will be closed at billing (i.e., when
-    an Invoice is created) if the Customer in question is flagged to not
-    accept partial shipments.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
-      <term>Allow Free-Form Ship-To"s</term>
+      <term>Allow Free-Form Ship-To's</term>
       <listitem>
         <para>Select to indicate that free-form Ship-To Addresses may be
         entered when Sales Orders are created for the Customer. If not
@@ -185,43 +457,23 @@
         preferred Site will be the default Shipping Site for the Sales
         Order—as well as the default selling Site for Sales Order
         Items.</para>
+        <note>
+          <para>If there are no Item Sites matching the preferred Site at the
+          point of Sales Order Line Item entry, the highest-ranked selling
+          Site will be used instead.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>If there are no Item Sites matching the preferred Site at the point
-    of Sales Order Line Item entry, the highest-ranked selling Site will be
-    used instead.</para>
-  </note>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating the Customer, returning you
-        to the application desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Customer and enters the Customer into the master
-        list of Customers.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To view or edit Customer credit terms, select the "Credit" tab. The
-  following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/customer_credit.png" />
+          <imagedata fileref="images/customer_settingsTab_termsButton.png" />
         </imageobject>
-        <caption>Customer Credit Terms</caption>
+        <caption>Customer Terms Options</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When adding a Customer credit terms, you are presented with the
+  <para>When adding Customer credit terms, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
@@ -259,8 +511,6 @@
         </variablelist>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term>Credit Status</term>
       <listitem>
@@ -378,8 +628,6 @@
         does not use the credit rating in any calculations.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term>Place on Credit Warning when Credit Limit is Exceeded</term>
       <listitem>
@@ -412,557 +660,47 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To view or edit Customer contact Addresses, select the "Addresses"
-  tab. The following screen will appear:</para>
+  <para></para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/customer_tabAddresses.png" />
+          <imagedata fileref="images/customer_settingsTab_taxButton.png" />
         </imageobject>
-        <caption>Customer Addresses</caption>
+        <caption>Customer Tax Options</caption>
       </mediaobject>
     </screenshot></para>
-  <para><indexterm significance="normal">
-      <primary>customers</primary>
-      <secondary>addresses for</secondary>
-    </indexterm>When adding contact addresses to a Customer master, you are
-  presented with the following options:</para>
-  <note>
-    <para>If a new Contact is manually entered here, that Contact will be
-    added automatically to the master list of Contacts.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
-      <term>Billing Contact</term>
-      <listitem>
-        <para>Select to manually enter billing Contact information in the
-        fields below—or use the browse button to select pre-existing Contact
-        information.</para>
-        <note>
-          <para>If a new Contact is manually entered here, that Contact will
-          be added automatically to the master list of Contacts.</para>
-        </note>
-        <variablelist>
-          <varlistentry>
-            <term>Title</term>
-            <listitem>
-              <para>Select a Title from the list of available Titles.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>First</term>
-            <listitem>
-              <para>Enter the Contact's first name.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Last</term>
-            <listitem>
-              <para>Enter the Contact's last name.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Job Title</term>
-            <listitem>
-              <para>Enter the Contact's job title.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Voice</term>
-            <listitem>
-              <para>Enter the Contact's phone number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Fax</term>
-            <listitem>
-              <para>Enter the Contact's fax number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>E-Mail</term>
-            <listitem>
-              <para>Enter the Contact's e-mail address. To send email to the
-              Contact, simply double-click on the Contact's email address.
-              This will launch your default mail application with the
-              Contact's email address in the To: field.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Web</term>
-            <listitem>
-              <para>Enter the Contact's website address. To access the
-              website, simply double-click on the Contact's website address.
-              This will launch your default web browser, with the Contact's
-              website address in the URL field. However, for this to work you
-              must drop the <literal>http://</literal> prefix from the web
-              address. Instead use the form
-              <literal>www.website.com.</literal></para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Street Address</term>
-            <listitem>
-              <para>Enter the street Address for the Contact.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>City</term>
-            <listitem>
-              <para>Enter the city where the Contact is located.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>State</term>
-            <listitem>
-              <para>Enter the state where the Contact is located.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Postal Code</term>
-            <listitem>
-              <para>Enter the Postal Code for the Contact.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Country</term>
-            <listitem>
-              <para>Enter the country where the Contact is located.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <variablelist>
-    <varlistentry>
-      <term>Correspondence Contact</term>
-      <listitem>
-        <para>Select to manually enter non-billing-related Contact information
-        in the fields below—or use the browse button to select pre-existing
-        Contact information. Examples of non-billing-related correspondence
-        might include Price updates, holiday cards, etc. You may also enter
-        additional contact information.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Title</term>
-            <listitem>
-              <para>Select a Title from the list of available Titles.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>First</term>
-            <listitem>
-              <para>Enter the Contact's first name.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Last</term>
-            <listitem>
-              <para>Enter the Contact's last name.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Job Title</term>
-            <listitem>
-              <para>Enter the Contact's job title.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Voice</term>
-            <listitem>
-              <para>Enter the Contact's phone number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Fax</term>
-            <listitem>
-              <para>Enter the Contact's fax number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>E-Mail</term>
-            <listitem>
-              <para>Enter the Contact's e-mail address. To send email to the
-              Contact, simply double-click on the Contact's email address.
-              This will launch your default mail application with the
-              Contact's email address in the To: field.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Web</term>
-            <listitem>
-              <para>Enter the Contact's website address. To access the
-              website, simply double-click on the Contact's website address.
-              This will launch your default web browser, with the Contact's
-              website address in the URL field.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Street Address</term>
-            <listitem>
-              <para>Enter the street Address for the Contact.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>City</term>
-            <listitem>
-              <para>Enter the city where the Contact is located.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>State</term>
-            <listitem>
-              <para>Enter the state where the Contact is located.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Postal Code</term>
-            <listitem>
-              <para>Enter the Postal Code for the Contact.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Country</term>
-            <listitem>
-              <para>Enter the country where the Contact is located.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <variablelist>
-    <varlistentry>
-      <term>Ship-To</term>
-      <listitem>
-        <para>Select to display Ship-To Addresses for the specified
-        Customer.</para>
-        <note>
-          <para>You can maintain multiple Ship-To Addresses for your
-          Customers. Ship-To Addresses are selected at the point of Sales
-          Order entry.</para>
-        </note>
-        <para>To the far right of the screen, the following buttons are
-        available:</para>
-        <variablelist>
-          <varlistentry>
-            <term>PRINT</term>
-            <listitem>
-              <para>Runs the report associated with this screen.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>NEW</term>
-            <listitem>
-              <para>Opens screen for creating a new Ship-To Address.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>EDIT</term>
-            <listitem id="customerShipToEDIT">
-              <para>Enables you to edit highlighted Ship-To Address. The edit
-              screen is the same as that for creating a new Ship-To
-              Address—except that when editing, the fields will contain
-              Ship-To Address information. Double-clicking on a Ship-To
-              Address will also bring you to the editing screen.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>VIEW</term>
-            <listitem id="customerShipToVIEW">
-              <para>Highlight a Ship-To Address and then select this button to
-              reach a read-only view of the "Edit" screen.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>DELETE</term>
-            <listitem id="customerShipToDELETE">
-              <para>Highlight a Ship-To Address and then select this button to
-              remove the address from the master list of Ship-To
-              Addresses.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para><indexterm significance="normal">
-      <primary>ship-to addresses</primary>
-      <secondary>creating new</secondary>
-    </indexterm>To create a new Ship-To Address for a Customer, select the NEW
-  button. The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/shipTo.png" />
-        </imageobject>
-        <caption>Ship-To Address</caption>
-      </mediaobject>
-    </screenshot></para>
-  <tip>
-    <para>The Ship-To master shares many common fields with the Customer
-    master—shipping defaults, Sales Representative, etc. By default, the
-    Customer master values will pre-populate the Ship-To master. However, when
-    specifying a specific Ship-To Address on a Sales Order, the specific
-    Ship-To details will populate the Sales Order header.</para>
-  </tip>
-  <para>When creating a new Ship-To Address, you are presented with the
-  following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Customer #</term>
-      <listitem>
-        <para>The Customer Number and Customer name specified in the Customer
-        master will display here.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Ship-To #</term>
-      <listitem>
-        <para>Specify a number or code to identify the Ship-To Address
-        by.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Active</term>
-      <listitem>
-        <para>Select to activate the Ship-To Address. If option is not
-        selected, then the Ship-To Address is inactive.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Default</term>
-      <listitem>
-        <para>Select if this is the default Ship-To Address for the
-        Customer.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Name</term>
-      <listitem>
-        <para>Enter the name of the company that will receive shipments at
-        this Ship-To Address. Customers may maintain multiple Ship-To
-        Addresses with diverse destinations.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note>
-    <para>If a new Address is manually entered here, that Address will be
-    added automatically to the master list of Addresses.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
-      <term>Address</term>
-      <listitem>
-        <para>Manually enter billing Address information in the fields
-        below—or use the browse button to select pre-existing Address
-        information.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Street Address</term>
-            <listitem>
-              <para>Enter the street Address for the Contact.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>City</term>
-            <listitem>
-              <para>Enter the city where the Contact is located.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>State</term>
-            <listitem>
-              <para>Enter the state where the Contact is located.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Postal Code</term>
-            <listitem>
-              <para>Enter the Postal Code for the Contact.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Country</term>
-            <listitem>
-              <para>Enter the country where the Contact is located.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note>
-    <para>If a new Contact is manually entered here, that Contact will be
-    added automatically to the master list of Contacts.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>ship-to addresses</primary>
-          <secondary>contact information for</secondary>
-        </indexterm>Contact</term>
-      <listitem>
-        <para>Manually enter Contact information in the fields below—or use
-        the browse button to select pre-existing Contact information. This
-        field should not to be confused with the "Name" field that appears on
-        the Ship-To Address label.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Title</term>
-            <listitem>
-              <para>Select a Title from the list of available Titles.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>First</term>
-            <listitem>
-              <para>Enter the Contact's first name.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Last</term>
-            <listitem>
-              <para>Enter the Contact's last name.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Job Title</term>
-            <listitem>
-              <para>Enter the Contact's job title.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Voice</term>
-            <listitem>
-              <para>Enter the Contact's phone number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Fax</term>
-            <listitem>
-              <para>Enter the Contact's fax number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>E-Mail</term>
-            <listitem>
-              <para>Enter the Contact's e-mail address.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Sales Rep</term>
-      <listitem>
-        <para>Specify the Sales Representative for the Ship-To Address. When
-        entering Orders for a Customer, the name of the Sales Representative
-        specified on the Ship-To Address will be used.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Commission</term>
-      <listitem>
-        <para>Field accepts up to 4 whole numbers and 2 decimals. Enter the
-        Commission rate to be used when Sales Orders for this Customer are
-        shipped to the specified Ship-To Address.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Zone</term>
-      <listitem>
-        <para>Specify the Zone for the Ship-To Address.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Tax Code</term>
-      <listitem>
-        <para>Specify Tax Code to be used for Ship-To Address.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Defaults</term>
-      <listitem>
-        <para>Select one of the available Shipping-related defaults:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Ship Via</term>
-            <listitem>
-              <para>Specify the default Ship Via to be used for the Ship-To
-              Address. You may enter a free-form Ship Via simply by typing the
-              name of the Ship Via into the field.</para>
-              <tip>
-                <para>The system supports up-to-date shipment tracking with
-                links to the websites of many leading shipping companies
-                (i.e., "Ship Vias").</para>
-              </tip>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Shipping Form</term>
-            <listitem>
-              <para>Specify the default Shipping Form to be used for the
-              Ship-To Address.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Shipping Charges</term>
-            <listitem>
-              <para>Specify the default Shipping Charges to be used for the
-              Ship-To Address.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry role="standard">
-            <term>EDI Profile</term>
-            <listitem>
-              <para>Select one of the available EDI options. Different EDI
-              Profiles may be specified for different Ship-To Addresses.
-              However, if you want the default Profile to mirror the Customer
-              master settings, select the "Use Customer Master" option.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>General Notes</term>
-      <listitem>
-        <para>Select the "General Notes" tab to access this scrolling text
-        field with word-wrapping for entering general Notes related to the
-        Customer Ship-To Address. These Notes are for internal use
-        only.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Shipping Notes</term>
-      <listitem>
-        <para>Select the "Shipping Notes" tab to access this scrolling text
-        field with word-wrapping for entering Shipping Notes related to the
-        Customer Ship-To Address. Shipping Notes are transferred to the
-        "Shipping Notes" tab on the Sales Order header whenever a Sales Order
-        for the specified Ship-To Address is entered.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para></para>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
       <listitem>
-        <para>Closes the screen without adding Customer Address information,
-        returning you to the application desktop.</para>
+        <para>Closes the screen without creating the Customer, returning you
+        to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
       <listitem>
-        <para>Saves any new Customer Address information.</para>
+        <para>Creates the Customer and enters the Customer into the master
+        list of Customers.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To view or edit Customer credit terms, select the "Credit" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customer_credit.png" />
+        </imageobject>
+        <caption>Customer Credit Terms</caption>
+      </mediaobject>
+    </screenshot></para>
   <para><indexterm significance="normal">
       <primary>characteristics</primary>
       <secondary>creating new for customer</secondary>
