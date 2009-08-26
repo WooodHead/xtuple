@@ -20,7 +20,7 @@
     </screenshot></para>
   <tip>
     <para>Customers can also be created from the CRM Account screen. Simply
-    enter a new CRM Account, selecting the "Customer" Relationship
+    enter a new CRM Account, selecting the "Customer" relationship
     option.</para>
   </tip>
   <para>When creating a new Customer, you are presented with the following
@@ -59,6 +59,24 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Customer, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Customer and enters the Customer into the master
+        list of Customers.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para><indexterm significance="normal">
       <primary>customers</primary>
       <secondary>addresses for</secondary>
@@ -73,7 +91,7 @@
         information. If a new Contact is manually entered here, that Contact
         will be added automatically to the master list of Contacts. For
         additional documentation related to creating Contacts, see <xref
-        linkend="contact" />.</para>
+        linkend="contactTitle" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -86,7 +104,7 @@
         additional contact information. If a new Contact is manually entered
         here, that Contact will be added automatically to the master list of
         Contacts. For additional documentation related to creating Contacts,
-        see <xref linkend="contact" />.</para>
+        see <xref linkend="contactTitle" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -312,23 +330,35 @@
     <varlistentry>
       <term>General</term>
       <listitem>
-        <para></para>
+        <para>Select to specify the default preferences for the Customer.
+        These settings may be </para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Terms</term>
       <listitem>
-        <para></para>
+        <para>Select to specify credit-related information for the
+        Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Tax</term>
       <listitem>
-        <para></para>
+        <para>Select to specify the default Tax information for the
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Cards</term>
+      <listitem>
+        <para>Select to enter Credit Card information for the Customer. This
+        option will only be enabled if your site is configured to use and
+        process Customer Credit Cards.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
+  <para>The following options are available when you select the "General"
+  option:</para>
   <variablelist>
     <varlistentry>
       <term>Sales Rep</term>
@@ -399,33 +429,36 @@
           closed at billing (i.e., when an Invoice is created) if the Customer
           in question is flagged to not accept backorders.</para>
         </tip>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>customers</primary>
-          <secondary>order preferences for</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>shipments</primary>
-          <secondary>partial</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>customers</primary>
-          <secondary>partial shipments accepted by</secondary>
-        </indexterm>Accepts Partial Shipments</term>
-      <listitem>
-        <para>Accepts Partial Shipments: Select to indicate whether the
-        Customer accepts partial shipments. A partial shipment is defined as a
-        shipped Order having a Line Item whose full quantity is not included
-        in the shipment. For example, if Customer ABC orders 20 units of Item
-        XYZ, but only 10 units are shipped, that partial Line Item quantity
-        ("10") would constitute a partial shipment of the ordered Item. Not
-        selecting this option indicates the Customer does not accept partial
-        shipments.</para>
-        <tip>
-          <para>Partially-shipped Line Items will be closed at billing (i.e.,
-          when an Invoice is created) if the Customer in question is flagged
-          to not accept partial shipments.</para>
-        </tip>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>customers</primary>
+                <secondary>order preferences for</secondary>
+              </indexterm><indexterm significance="normal">
+                <primary>shipments</primary>
+                <secondary>partial</secondary>
+              </indexterm><indexterm significance="normal">
+                <primary>customers</primary>
+                <secondary>partial shipments accepted by</secondary>
+              </indexterm>Accepts Partial Shipments</term>
+            <listitem>
+              <para>Accepts Partial Shipments: Select to indicate whether the
+              Customer accepts partial shipments. A partial shipment is
+              defined as a shipped Order having a Line Item whose full
+              quantity is not included in the shipment. For example, if
+              Customer ABC orders 20 units of Item XYZ, but only 10 units are
+              shipped, that partial Line Item quantity ("10") would constitute
+              a partial shipment of the ordered Item. Not selecting this
+              option indicates the Customer does not accept partial
+              shipments.</para>
+              <tip>
+                <para>Partially-shipped Line Items will be closed at billing
+                (i.e., when an Invoice is created) if the Customer in question
+                is flagged to not accept partial shipments.</para>
+              </tip>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -465,6 +498,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To specify credit-related information for the Customer, select the
+  "Terms" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -473,117 +508,93 @@
         <caption>Customer Terms Options</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When adding Customer credit terms, you are presented with the
-  following options:</para>
+  <para>When specifying credit-related information for the Customer, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Defaults</term>
+      <term>Terms</term>
       <listitem>
-        <para>Specify the default credit information for the Customer.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Terms</term>
-            <listitem>
-              <para>Specify the default billing Terms for the Customer.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Discount</term>
-            <listitem>
-              <para>Enter the default discount—if any—which the Customer
-              should receive. Customer discounts are applied to either a) the
-              List Price for an Item if the List Price is being used or b) a
-              specific Sale if a Sale is in place which the Customer is
-              assigned to. The discount does not get applied to Pricing
-              Schedules.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Currency</term>
-            <listitem>
-              <para>Specify the Currency to be used when transacting business
-              with the Customer. With the system's multi-currency support, you
-              can do business with Customer's in their Currency, using
-              Exchange Rates to normalize transactions in your base
-              Currency.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        <para>Specify the default billing Terms for the Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Credit Status</term>
+      <term>Discount</term>
       <listitem>
-        <para>Select one from the list below by clicking on the radio button
-        to the left of the option. In Good Standing: Select to mark the
-        Customer as having credit in good standing. Customers with credit "In
-        Good Standing" may have Sales Orders issued for them. A black-colored
-        typeface will be associated with their account.</para>
+        <para>Enter the default discount—if any—which the Customer should
+        receive. Customer discounts are applied to either a) the List Price
+        for an Item if the List Price is being used or b) a specific Sale if a
+        Sale is in place which the Customer is assigned to. The discount does
+        not get applied to Pricing Schedules.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Currency</term>
+      <listitem>
+        <para>Specify the Currency to be used when transacting business with
+        the Customer. With the system's multi-currency support, you can do
+        business with Customer's in their Currency, using Exchange Rates to
+        normalize transactions in your base Currency.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>In Good Standing</term>
+      <listitem>
+        <para>Select to mark the Customer as having credit in good standing.
+        Customers with credit "In Good Standing" may have Sales Orders issued
+        for them. A black-colored typeface will be associated with their
+        account.</para>
         <note>
           <para>Sales Orders may not be entered for Customers whose credit
           status is either "On Credit Warning" or "On Credit Hold." Credit
           Holds may be overridden, but only by users having the appropriate
           privileges.</para>
         </note>
-        <variablelist>
-          <varlistentry>
-            <term>On Credit Warning</term>
-            <listitem>
-              <para>Select to alert sales staff to possible credit problems
-              with the Customer. Non-privileged users will be prevented from
-              issuing Stock to Shipping for any Customers on credit warning.
-              An orange-colored typeface will be associated with their
-              account.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>On Credit Hold</term>
-            <listitem>
-              <para>Select to inform sales staff that Customer's credit has
-              been suspended. Non-privileged users will be prevented from
-              issuing Stock to Shipping for any Customers on credit hold. A
-              red-colored typeface will be associated with their
-              account.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Requirements</term>
+      <term>On Credit Warning</term>
       <listitem>
-        <para>Specify additional purchasing requirements, if any.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Uses Purchase Orders</term>
-            <listitem>
-              <para>Select to indicate that the Customer uses Purchase Orders.
-              If selected, users will be required to enter a Customer Purchase
-              Order Number when entering a Sales Order. In addition, selecting
-              the option will prevent users from entering duplicate Customer
-              Purchase Order Numbers—unless the Customer is marked as using
-              Blanket POs.</para>
-              <note>
-                <para>If the option "Uses Purchase Orders" is not selected,
-                the system will place no restrictions on Customer Purchase
-                Order Numbers.</para>
-              </note>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><indexterm significance="normal">
-                <primary>purchase orders</primary>
-                <secondary>customers using blanket</secondary>
-              </indexterm>Uses Blanket P/O"s</term>
-            <listitem>
-              <para>Blanket P/O"s: Select to indicate that the Customer uses
-              blanket Purchase Orders. A blanket P/O is a Customer Purchase
-              Order which may be used for more than one Sales Order. Selecting
-              this option means users will be allowed to enter duplicate
-              Purchase Order Numbers for this Customer.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        <para>Select to alert sales staff to possible credit problems with the
+        Customer. Non-privileged users will be prevented from issuing Stock to
+        Shipping for any Customers on credit warning. An orange-colored
+        typeface will be associated with their account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>On Credit Hold</term>
+      <listitem>
+        <para>Select to inform sales staff that Customer's credit has been
+        suspended. Non-privileged users will be prevented from issuing Stock
+        to Shipping for any Customers on credit hold. A red-colored typeface
+        will be associated with their account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Uses Purchase Orders</term>
+      <listitem>
+        <para>Select to indicate that the Customer uses Purchase Orders. If
+        selected, users will be required to enter a Customer Purchase Order
+        Number when entering a Sales Order. In addition, selecting the option
+        will prevent users from entering duplicate Customer Purchase Order
+        Numbers—unless the Customer is marked as using Blanket POs.</para>
+        <note>
+          <para>If the option "Uses Purchase Orders" is not selected, the
+          system will place no restrictions on Customer Purchase Order
+          Numbers.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>purchase orders</primary>
+          <secondary>customers using blanket</secondary>
+        </indexterm>Uses Blanket P/O's</term>
+      <listitem>
+        <para>Blanket P/O"s: Select to indicate that the Customer uses blanket
+        Purchase Orders. A blanket P/O is a Customer Purchase Order which may
+        be used for more than one Sales Order. Selecting this option means
+        users will be allowed to enter duplicate Purchase Order Numbers for
+        this Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -659,180 +670,35 @@
         to Shipping.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Alternate Late Grace Days</term>
+      <listitem>
+        <para>Select to specify an alternate number of grace days for the
+        Customer, to override the global grace period defined at the system
+        level in the Accounting configuration. To learn more about configuring
+        grace days, see <xref linkend="configureGLTitle" />.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Grace Days</term>
+            <listitem>
+              <para>Specify the number of days beyond the A/R open due date
+              which will serve as a grace period for the Customer. The number
+              of days entered here will override the global number of grace
+              days. </para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
   </variablelist>
-  <para></para>
+  <para>To specify Tax-related information for the Customer, select the "Tax"
+  option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/customer_settingsTab_taxButton.png" />
         </imageobject>
         <caption>Customer Tax Options</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating the Customer, returning you
-        to the application desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Customer and enters the Customer into the master
-        list of Customers.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To view or edit Customer credit terms, select the "Credit" tab. The
-  following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/customer_credit.png" />
-        </imageobject>
-        <caption>Customer Credit Terms</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para><indexterm significance="normal">
-      <primary>characteristics</primary>
-      <secondary>creating new for customer</secondary>
-    </indexterm><indexterm significance="normal">
-      <primary>characteristics</primary>
-      <secondary>customers having</secondary>
-    </indexterm><indexterm significance="normal">
-      <primary>customers</primary>
-      <secondary>characteristics for</secondary>
-    </indexterm>Customer Characteristics are user-defined definitions which
-  may be used to provide additional layers of description about Customers. For
-  example, Customer Characteristics might be used to specify "Order
-  Preferences" or "Buying Season". These constitute static descriptions which
-  are not processed by the system, but are useful for informational purposes.
-  To enter Characteristics associated with a Customer, select the
-  "Characteristics" tab from the "Item" screen. The following screen will
-  appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/customer_tabCharacteristics.png" />
-        </imageobject>
-        <caption>Customer Characteristics</caption>
-      </mediaobject>
-    </screenshot><tip>
-      <para>If the Customer Type a Customer belongs to has a Characteristic
-      Profile (i.e., template) defined, then every Customer in that Customer
-      Type will be presented with a range of pre-defined Characteristics. You
-      can select or add values for each Characteristic by right-clicking on a
-      Characteristic in the list.</para>
-    </tip></para>
-  <variablelist>
-    <varlistentry>
-      <term>Characteristics</term>
-      <listitem>
-        <para>Display lists the Characteristics related to the
-        Customer.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note>
-    <para>If Characteristic Profiles are enabled for the Customer Type, you
-    will not see buttons on the right-side of the screen. Values may be
-    selected or added by right-clicking on a Characteristic in the
-    list.</para>
-  </note>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <tip>
-    <para>If you see buttons to the right of the Customer Characteristics
-    screen, then Characteristic Profiles are not enabled for the Customer Type
-    the Customer belongs to.</para>
-  </tip>
-  <variablelist>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens screen for creating a new Customer Characteristic.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem>
-        <para>Enables you to edit highlighted Customer Characteristics. The
-        edit screen is the same as that for creating a new Customer
-        Characteristic—except that when editing, the fields will contain
-        Customer Characteristic information. Double-clicking on a Customer
-        Characteristic will also bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>DELETE</term>
-      <listitem>
-        <para>Highlight a Customer Characteristic and then select this button
-        to remove the Customer Characteristic from the list.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To create a new Customer Characteristic, select the NEW button. The
-  following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/characteristicAssignmentCustomer.png" />
-        </imageobject>
-        <caption>Create New Customer Characteristic</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>When creating a new Customer Characteristic, you are presented with
-  the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Characteristic</term>
-      <listitem>
-        <para>Select a Characteristic from the list of Characteristics
-        designated as being available for use as Customer
-        Characteristics.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Value</term>
-      <listitem>
-        <para>Enter a description of the Customer Characteristic.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating the Customer Characteristic,
-        returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Customer Characteristic and adds it to the list of
-        Customer Characteristics.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To view or enter Customer Tax information, select the "Tax" tab. The
-  following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/customer_tax.png" />
-        </imageobject>
-        <caption>Customer Tax Information</caption>
       </mediaobject>
     </screenshot></para>
   <para><indexterm significance="normal">
@@ -846,13 +712,13 @@
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>tax authorities</primary>
+          <primary>tax zones</primary>
           <secondary>default for customers</secondary>
-        </indexterm>Default Tax Authority</term>
+        </indexterm>Default Tax Zone</term>
       <listitem>
-        <para>Specify the primary Tax Authority you want to associate with the
-        Customer. By default, the specified Tax Authority will be used on the
-        Sales Order header whenever entering Sales Orders or Quotes for the
+        <para>Specify the default Tax Zone you want to associate with the
+        Customer. By default, the specified Tax Zone will be used on the Sales
+        Order header whenever entering Sales Orders or Quotes for the
         Customer.</para>
       </listitem>
     </varlistentry>
@@ -967,6 +833,474 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para><note>
+      <para>Credit Cards.</para>
+    </note></para>
+  <para><indexterm significance="normal">
+      <primary>credit cards</primary>
+      <secondary>adding to customer master</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>credit cards for</secondary>
+    </indexterm>To specify Credit Card information for the Customer, select
+  the "Credit Cards" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customer_settingsTab_creditcardsButton.png" />
+        </imageobject>
+        <caption>Customer Credit Cards</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>Customer Credit Cards may be used when entering Sales Orders or Cash
+    Receipt transactions for the Customer. When entering a Sales Order, you
+    have the option to either pre-authorize or charge a Credit Card. Any
+    pre-authorizations may later be post-authorized using the A/R
+    Workbench.</para>
+  </note>
+  <para>When specifying Credit Card information for the Customer, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Credit Cards</term>
+      <listitem>
+        <para>Display lists Credit Card records for the Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for entering new Credit Card information for the
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Credit Cards. The edit screen is
+        the same as that for entering new Credit Card information—except that
+        when editing, the fields will contain Credit Card information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Credit Card and then select this button to reach a
+        read-only view of the "Edit" screen. Double-clicking on a Credit Card
+        will also bring you to the view screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>MOVE UP</term>
+      <listitem>
+        <para>Highlight a Credit Card and then select this button to move the
+        Credit Card up in the sequence of Credit Cards. Sequence numbers are
+        automatically adjusted to reflect the change in position.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>MOVE DOWN</term>
+      <listitem>
+        <para>Highlight a Credit Card and then select this button to move the
+        Credit Card down the sequence of Credit Cards. Sequence numbers are
+        automatically adjusted to reflect the change in position.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Credit Card record for a Customer, select the NEW
+  button. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/creditCard.png" />
+        </imageobject>
+        <caption>Create New Credit Card Record</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Credit Card record for a Customer, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>Displays the name of the Customer associated with the Credit
+        Card record. The name of the Customer will also be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Card Type</term>
+      <listitem>
+        <para>Specify the type of Credit Card. The following Credit Card types
+        are currently supported: Master Card, Visa, American Express, and
+        Discover.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Card Number</term>
+      <listitem>
+        <para>Enter the Credit Card Number. After the Credit Card record has
+        been saved, all but the last four digits of the Credit Card Number
+        will be encrypted for security purposes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Active</term>
+      <listitem>
+        <para>Select if the Credit Card record is active. Do not select this
+        option if the specified Credit Card is inactive or invalid for any
+        reason.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a name to describe the Credit Card record.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Address</term>
+      <listitem>
+        <para>By default, the Customer's Billing Address will be entered here.
+        However, you may specify an alternate billing address for the Credit
+        Card record using the Address browse button located in the lower
+        right-hand corner of the screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expiration Month</term>
+      <listitem>
+        <para>Enter the month when the specified Credit Card expires. The
+        month must be saved in the format "MM". For example, the month of
+        January would be represented as "01".</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expiration Year</term>
+      <listitem>
+        <para>Enter the year when the specified Credit Card expires. The year
+        must be saved in the format "YYYY". For example, the year 2006 would
+        be represented as "2006".</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Credit Card record,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Credit Card record and adds it to the list of Credit
+        Card records.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>creating new for customer</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>customers having</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>characteristics for</secondary>
+    </indexterm>Customer Characteristics are user-defined definitions which
+  may be used to provide additional layers of description about Customers. For
+  example, Customer Characteristics might be used to specify "Order
+  Preferences" or "Buying Season". These constitute static descriptions which
+  are not processed by the system, but are useful for informational purposes.
+  To enter Characteristics associated with a Customer, select the
+  "Characteristics" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customer_tabCharacteristics.png" />
+        </imageobject>
+        <caption>Customer Characteristics</caption>
+      </mediaobject>
+    </screenshot><tip>
+      <para>If the Customer Type a Customer belongs to has a Characteristic
+      Profile (i.e., template) defined, then every Customer in that Customer
+      Type will be presented with a range of pre-defined Characteristics. You
+      can select or add values for each Characteristic by right-clicking on a
+      Characteristic in the list.</para>
+    </tip></para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristics</term>
+      <listitem>
+        <para>Display lists the Characteristics related to the
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If Characteristic Profiles are enabled for the Customer Type, you
+    will not see buttons on the right-side of the screen. Values may be
+    selected or added by right-clicking on a Characteristic in the
+    list.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <tip>
+    <para>If you do not see buttons on the right side of the Customer
+    Characteristics screen, this means Characteristic Profiles are being used
+    for the Customer Type the Customer belongs to. These buttons will only
+    appear if Customer Type Characteristic Profiles are not being used.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Customer Characteristic.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Customer Characteristics. The
+        edit screen is the same as that for creating a new Customer
+        Characteristic—except that when editing, the fields will contain
+        Customer Characteristic information. Double-clicking on a Customer
+        Characteristic will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Customer Characteristic and then select this button
+        to remove the Customer Characteristic from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Customer Characteristic, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/characteristicAssignmentCustomer.png" />
+        </imageobject>
+        <caption>Create New Customer Characteristic</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Customer Characteristic, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristic</term>
+      <listitem>
+        <para>Select a Characteristic from the list of Characteristics
+        designated as being available for use as Customer
+        Characteristics.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Enter a description of the Customer Characteristic.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Customer Characteristic,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Customer Characteristic and adds it to the list of
+        Customer Characteristics.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para></para>
+  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customer_crmTab.png" />
+        </imageobject>
+        <caption>CRM Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>Enter text</para>
+  <variablelist>
+    <varlistentry>
+      <term>Contacts</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>To-Do List</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Opportunities</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para></para>
+  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customer_salesTab.png" />
+        </imageobject>
+        <caption>Customer Sales Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>Enter text.</para>
+  <variablelist>
+    <varlistentry>
+      <term>Summary</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Quotes</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Orders</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Returns</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customer_accountingTab.png" />
+        </imageobject>
+        <caption>Customer Accounting Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para>Enter text</para>
+  <variablelist>
+    <varlistentry>
+      <term>Receivables</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cash Receipts</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Cards</term>
+      <listitem>
+        <para>Only if site configured to use and process Customer Credit
+        Cards.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customer_documentsTab.png" />
+        </imageobject>
+        <caption>Customer Images</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>Enter text</para>
+  <variablelist>
+    <varlistentry>
+      <term>Images</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Files</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Enter text</para>
+  <para>Enter Text</para>
+  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customer_documentsTab_files.png" />
+        </imageobject>
+        <caption>Customer Files</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para></para>
+  <para></para>
+  <para>Enter text</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customer_tabRemarks.png" />
+        </imageobject>
+        <caption>Customer Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>Enter text</para>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para></para>
   <para>Any Notes added to the Customer master are for internal purposes only.
   To add Notes to a Customer master, select the "Notes" tab at the bottom of
   the "Customer" screen. The following screen will appear:</para>
@@ -1228,183 +1562,7 @@
   <para><note>
       <para>If your system is configured to use Credit Cards, the "Credit
       Cards" tab will be visible. This tab will not be visible if your system
-      is not configured to use Credit Cards.</para>
+      is not configured to use </para>
     </note></para>
-  <para><indexterm significance="normal">
-      <primary>credit cards</primary>
-      <secondary>adding to customer master</secondary>
-    </indexterm> <indexterm significance="normal">
-      <primary>customers</primary>
-      <secondary>credit cards for</secondary>
-    </indexterm>To add Credit Card information to a Customer master, select
-  the "Credit Cards" tab at the bottom of the "Customer" screen. The following
-  screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/customer_tabCreditCard.png" />
-        </imageobject>
-        <caption>Customer Credit Cards</caption>
-      </mediaobject>
-    </screenshot></para>
-  <note>
-    <para>Customer Credit Cards may be used when entering Sales Orders or Cash
-    Receipt transactions for the Customer. When entering a Sales Order, you
-    have the option to either pre-authorize or charge a Credit Card. Any
-    pre-authorizations may later be post-authorized using the A/R
-    Workbench.</para>
-  </note>
-  <para>When adding Credit Card information to a Customer master, you are
-  presented with the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Credit Cards</term>
-      <listitem>
-        <para>Display lists Credit Card records for the Customer.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens screen for entering new Credit Card information for the
-        Customer.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem>
-        <para>Enables you to edit highlighted Credit Cards. The edit screen is
-        the same as that for entering new Credit Card information—except that
-        when editing, the fields will contain Credit Card information.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>VIEW</term>
-      <listitem>
-        <para>Highlight a Credit Card and then select this button to reach a
-        read-only view of the "Edit" screen. Double-clicking on a Credit Card
-        will also bring you to the view screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>MOVE UP</term>
-      <listitem>
-        <para>Highlight a Credit Card and then select this button to move the
-        Credit Card up in the sequence of Credit Cards. Sequence numbers are
-        automatically adjusted to reflect the change in position.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>MOVE DOWN</term>
-      <listitem>
-        <para>Highlight a Credit Card and then select this button to move the
-        Credit Card down the sequence of Credit Cards. Sequence numbers are
-        automatically adjusted to reflect the change in position.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To create a new Credit Card record for a Customer, select the NEW
-  button. The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/creditCard.png" />
-        </imageobject>
-        <caption>Create New Credit Card Record</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>When creating a new Credit Card record for a Customer, you are
-  presented with the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Customer #</term>
-      <listitem>
-        <para>Displays the name of the Customer associated with the Credit
-        Card record. The name of the Customer will also be displayed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Credit Card Type</term>
-      <listitem>
-        <para>Specify the type of Credit Card. The following Credit Card types
-        are currently supported: Master Card, Visa, American Express, and
-        Discover.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Credit Card Number</term>
-      <listitem>
-        <para>Enter the Credit Card Number. After the Credit Card record has
-        been saved, all but the last four digits of the Credit Card Number
-        will be encrypted for security purposes.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Active</term>
-      <listitem>
-        <para>Select if the Credit Card record is active. Do not select this
-        option if the specified Credit Card is inactive or invalid for any
-        reason.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Name</term>
-      <listitem>
-        <para>Enter a name to describe the Credit Card record.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Address</term>
-      <listitem>
-        <para>By default, the Customer's Billing Address will be entered here.
-        However, using the browse button associated with the Address fields,
-        you have the ability to specify an alternate billing address for the
-        Credit Card record.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Country</term>
-      <listitem>
-        <para>Specify the country associated with the billing address.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Expiration Month</term>
-      <listitem>
-        <para>Enter the month when the specified Credit Card expires. The
-        month must be saved in the format "MM". For example, the month of
-        January would be represented as "01".</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Expiration Year</term>
-      <listitem>
-        <para>Enter the year when the specified Credit Card expires. The year
-        must be saved in the format "YYYY". For example, the year 2006 would
-        be represented as "2006".</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating the Credit Card record,
-        returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Credit Card record and adds it to the list of Credit
-        Card records.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para></para>
 </section>
