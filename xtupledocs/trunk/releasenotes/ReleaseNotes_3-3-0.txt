@@ -84,6 +84,38 @@ Bug Fixes:
 Release Notes
 xTuple ERP
 PostBooks, Standard, and Manufacturing Editions
+Version 3.3.0RC2
+August 17, 2009
+==================================
+
+Shortly after the release of 3.3.0RC we discovered an issue
+with OpenRPT, the embedded report writer for xTuple ERP.
+Because the issue was causing print failures throughout the
+applications, we decided to release an RC2 to fix that specific
+problem. The RC2 release is a client-side only release. This
+means there are no database changes required for 3.3.0RC2.
+Instead, users should connect the 3.3.0RC2 client to their
+3.3.0RC databases. This will fix the printing problem found in
+3.3.0RC.
+==================================
+
+The following features and bug fixes have been added to the
+applications since the release of 3.3.0RC:
+
+New Features:
+
+* N/A
+
+
+Bug Fixes:
+
+* [Batch Manager] Built-in formatted (sub)totals cause crash when
+render reports
+
+==================================
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
 Version 3.3.0RC
 August 12, 2009
 ==================================
