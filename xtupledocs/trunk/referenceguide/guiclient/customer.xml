@@ -330,8 +330,8 @@
     <varlistentry>
       <term>General</term>
       <listitem>
-        <para>Select to specify the default preferences for the Customer.
-        These settings may be </para>
+        <para>Select to specify the default preferences for the
+        Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -363,11 +363,9 @@
     <varlistentry>
       <term>Sales Rep</term>
       <listitem>
-        <para>Specify a default Sales Representative for the Customer.</para>
-        <note>
-          <para>When entering Orders for a Customer, the Sales Representative
-          defined on the specified Ship-To Address will be used.</para>
-        </note>
+        <para>Specify a default Sales Representative for the Customer. When
+        entering Orders for a Customer, the Sales Representative defined on
+        the specified Ship-To Address will be used.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -396,12 +394,9 @@
       <term>Shipping Charges</term>
       <listitem>
         <para>Specify the default Shipping Charges to be used for the
-        Customer.</para>
-        <note>
-          <para>Shipping defaults specified on the Customer master will
-          transfer to the Sales Order header when a new Sales Order is entered
-          for a Customer.</para>
-        </note>
+        Customer. Shipping defaults specified on the Customer master will
+        transfer to the Sales Order header when a new Sales Order is entered
+        for a Customer.</para>
         <tip>
           <para>The system supports up-to-date shipment tracking with links to
           the websites of many leading shipping companies (i.e., "Ship
@@ -717,9 +712,9 @@
         </indexterm>Default Tax Zone</term>
       <listitem>
         <para>Specify the default Tax Zone you want to associate with the
-        Customer. By default, the specified Tax Zone will be used on the Sales
-        Order header whenever entering Sales Orders or Quotes for the
-        Customer.</para>
+        Customer. By default, the specified Tax Zone will be used on Sales
+        Orders and Quotes for the Customer―unless a Ship-To Address in use
+        specifies a different Tax Zone.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -793,6 +788,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Tax Zone</term>
+      <listitem>
+        <para>Specify the Tax Zone the Tax Registration Number is valid
+        for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Tax Authority</term>
       <listitem>
         <para>Specify the Tax Authority associated with the Tax Registration
@@ -806,36 +808,63 @@
         Tax Authority. The registration number is used by Tax Authorities to
         identify businesses and/or individuals. An Employer Identification
         Numbers (EIN) is an example of a Tax Registration Number.</para>
+        <tip>
+          <para>The Customer's Tax Registration Number is used for identifying
+          the Customer to relevant Tax Authorities. This information should
+          not be confused with the Tax Registration Numbers, which are used to
+          identify your company to relevant Tax Authorities.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Effectivity</term>
+      <listitem>
+        <para>Specify the date range the Tax Registration Number is valid
+        for:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>The Tax Registration Number is valid on and after this
+              date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>The Tax Registration Number is valid on and before this
+              date.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Tax Registration Number.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>The Customer's Tax Registration Number is used for identifying the
-    Customer to relevant Tax Authorities. This information should not be
-    confused with the Tax Registration Numbers, which are used to identify
-    your company to relevant Tax Authorities.</para>
-  </tip>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
       <listitem>
-        <para>Closes the screen without creating a new Customer Tax
-        Registration Number, returning you to the previous screen.</para>
+        <para>Closes the screen without creating a new Tax Registration
+        Number, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
       <listitem>
-        <para>Creates the Customer Tax Registration Number and adds it to the
-        master list of Customer Tax Registration Numbers.</para>
+        <para>Creates the Tax Registration Number and adds it to the master
+        list of Customer Tax Registration Numbers.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para><note>
-      <para>Credit Cards.</para>
-    </note></para>
   <para><indexterm significance="normal">
       <primary>credit cards</primary>
       <secondary>adding to customer master</secondary>
@@ -1130,8 +1159,9 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
-  <para></para>
+  <para>Every Customer record is linked to a CRM Account. To view information
+  related to the Customer's CRM Account, select the "CRM" tab. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -1140,29 +1170,44 @@
         <caption>CRM Information</caption>
       </mediaobject>
     </screenshot></para>
-  <para>Enter text</para>
+  <para>When viewing information related to the Customer's CRM Account, you
+  are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Contacts</term>
       <listitem>
-        <para></para>
+        <para>Select to view a list of all Contacts associated with the
+        Account. On this screen you can manage an Account's Contacts―either by
+        adding new Contacts or attaching/detaching Contacts from the Account.
+        Any changes made here also update the CRM Account record. For
+        additional documentation related to managing a Contacts associated
+        with a CRM Account, see <xref linkend="crmAccountTitle" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>To-Do List</term>
       <listitem>
-        <para></para>
+        <para>Select to view the To-Do List associated with the Account. On
+        this screen you can manage all of the To-Do items and Incidents
+        related to the Account. Any changes made here also update the main
+        To-Do List. For additional documentation related to managing the To-Do
+        List, see <xref linkend="todoListTitle" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Opportunities</term>
       <listitem>
-        <para></para>
+        <para>Select to view any Opportunities associated with the Account. On
+        this screen you can manage your Customer Opportunities―either by
+        adding new Opportunities or editing already-existing ones. Any changes
+        made here also update the main list of Opportunities. For additional
+        documentation related to managing Opportunities, see <xref
+        linkend="opportunitiesTitle" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
-  <para></para>
+  <para>To manage or review a Customer's sales activity, select the "Sales"
+  tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -1171,34 +1216,50 @@
         <caption>Customer Sales Information</caption>
       </mediaobject>
     </screenshot></para>
-  <para>Enter text.</para>
+  <para>When reviewing a Customer's sales activity, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Summary</term>
       <listitem>
-        <para></para>
+        <para>Select to view high-level sales history information for the
+        Customer, including year-to-date sales, last year sales, total backlog
+        value, and more. For more detailed Customer sales history, see the
+        wide range of sales analysis options available in the Sales Module
+        menu here: <guimenuitem>Sales &gt; Analysis</guimenuitem>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Quotes</term>
       <listitem>
-        <para></para>
+        <para>Select to view the list of Quotes associated with the Customer.
+        On this screen you can create new Quotes or edit existing ones. For
+        additional documentation related to entering Quotes for Customers, see
+        <xref linkend="quoteTitle" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Orders</term>
       <listitem>
-        <para></para>
+        <para>Select to view the list of Sales Orders associated with the
+        Customer. On this screen you can create new Sales Orders or edit
+        existing ones. For additional documentation related to entering Sales
+        Orders for Customers, see <xref linkend="salesOrderTitle" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Returns</term>
       <listitem>
-        <para></para>
+        <para>Select to manage Returns associated with the Customer. On this
+        screen you can manage most aspects of the Returns process―from
+        creating new Return Authorizations to processing Credit Memos. For
+        additional documentation related to managing Return Authorizations,
+        see <xref linkend="returnAuthWorkbenchTitle" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
+  <para>To manage or review accounting information for the Customer, select
+  the "Accounting" tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -1207,35 +1268,46 @@
         <caption>Customer Accounting Information</caption>
       </mediaobject>
     </screenshot></para>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para>Enter text</para>
+  <para>When reviewing a Customer's accounting information, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Receivables</term>
       <listitem>
-        <para></para>
+        <para>Select to view information related to the Customer's open
+        Receivables. On this screen you can manage most aspects of the
+        Receivables process―from creating new Receivable documents (e.g.,
+        Invoices, Credit Memos, etc.) to printing out Customer statements. For
+        additional documentation related to managing Customer Receivables, see
+        <xref linkend="openReceivablesTitle" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Cash Receipts</term>
       <listitem>
-        <para></para>
+        <para>Select to view information related to Cash Receipts from the
+        Customer. On this screen you can view Cash Receipt and cash
+        application history, as well as enter new Cash Receipts for the
+        Customer. For additional documentation related to Cash Receipt
+        history, see <xref linkend="dspCashReceiptsTitle" />. And for detailed
+        information about entering Cash Receipts, see <xref
+        linkend="cashReceiptTitle" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Credit Cards</term>
       <listitem>
-        <para>Only if site configured to use and process Customer Credit
-        Cards.</para>
+        <para>Select to view information related to transactions involving the
+        Customer's Credit Card(s). On this screen you can view Credit Card
+        transaction history. You can also authorize Credit Card
+        pre-authorizations. For additional documentation related to Credit
+        Card history and the method for processing pre-authorizations, see
+        <xref linkend="arWorkBenchTitle" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para><screenshot>
+  <para>To associate documents with a Customer, select the "Documents" tab.
+  The following screen will appear:<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/customer_documentsTab.png" />
@@ -1243,7 +1315,8 @@
         <caption>Customer Images</caption>
       </mediaobject>
     </screenshot></para>
-  <para>Enter text</para>
+  <para>When associating documents with a Customer, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Images</term>
@@ -1304,14 +1377,6 @@
   <para>Any Notes added to the Customer master are for internal purposes only.
   To add Notes to a Customer master, select the "Notes" tab at the bottom of
   the "Customer" screen. The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/customer_tabNotes.png" />
-        </imageobject>
-        <caption>Add Customer Notes</caption>
-      </mediaobject>
-    </screenshot></para>
   <para>When adding Notes to a Customer master, you are presented with the
   following options:</para>
   <variablelist>
@@ -1326,14 +1391,6 @@
   </variablelist>
   <para>To add Comments to a Customer master, select the "Comments" tab at the
   bottom of the "Customer" screen. The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/customer_tabComments.png" />
-        </imageobject>
-        <caption>Customer Comments</caption>
-      </mediaobject>
-    </screenshot></para>
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para role="standard">The Electronic Data Interchange (EDI) system enables
@@ -1345,224 +1402,12 @@
         <imageobject>
           <imagedata fileref="images/customer_transmitTab.png" />
         </imageobject>
-        <caption>Transmission EDI Information</caption>
+        <caption>Transmission Information for EDI</caption>
       </mediaobject>
     </screenshot></para>
-  <para role="standard">When setting up the Sales Order EDI preferences for a
-  Customer, you are presented with the following options:</para>
-  <para role="standard"><variablelist>
-      <varlistentry>
-        <term>Sales Order</term>
-        <listitem>
-          <para>To establish a Customer's EDI preferences for Sales Orders
-          select the "Invoice" radio button.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>EDI Profile</term>
-        <listitem>
-          <para>Select from the following EDI Profile options:</para>
-          <variablelist>
-            <varlistentry>
-              <term>No EDI</term>
-              <listitem>
-                <para>Select this option if you do not wish to use the EDI
-                system.</para>
-              </listitem>
-            </varlistentry>
-            <varlistentry>
-              <term>Custom Email</term>
-              <listitem>
-                <para>Select this option if you want to bypass standard EDI
-                Profiles and instead create custom email preferences for the
-                Customer. These preferences will be stored solely with the
-                Customer master—and will be used to send email versions of
-                Sales Orders to the Customer. When this option is selected,
-                the email-related fields on the Customer master will be
-                enabled. Otherwise, the email-related fields will be
-                disabled.</para>
-              </listitem>
-            </varlistentry>
-            <varlistentry>
-              <term>EDI Profile</term>
-              <listitem>
-                <para>Select a standard EDI Profile from the list of EDI
-                Profiles. The selected Profile will be used when Sales Orders
-                for the Customer are scheduled for email delivery.</para>
-              </listitem>
-            </varlistentry>
-          </variablelist>
-          <tip>
-            <para>Send Sales Orders to multiple recipients by separating email
-            addresses with a comma. Be sure to omit any spaces between
-            addresses when using commas to send copies to multiple
-            recipients.</para>
-          </tip>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>EDI Email</term>
-        <listitem>
-          <para>Enter the Customer email address to be used as the default
-          recipient address whenever Sales Orders are emailed to the Customer.
-          Only applies when the "Custom Email" EDI Profile option is
-          selected.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Cc</term>
-        <listitem>
-          <para>Enter the email address to be used as the default carbon copy
-          address whenever Sales Orders are emailed to the Customer. Only
-          applies when the "Custom Email" EDI Profile option is
-          selected.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Subject</term>
-        <listitem>
-          <para>Enter a default email subject line to be used whenever Sales
-          Orders are emailed to the Customer. Only applies when the "Custom
-          Email" EDI Profile option is selected.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Filename</term>
-        <listitem>
-          <para>XML tags may be used in this field to dynamically generate
-          filename text. In the example shown in the screenshot above, the
-          filename will include the Document Type (i.e., Sales Order) and the
-          Document Number (i.e., Sales Order Number). This field only applies
-          when the "Custom Email" EDI Profile option is selected.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>EDI Email Body</term>
-        <listitem>
-          <para>Use this text field to enter the default message that will
-          accompany any Sales Orders sent to the Customer. Only applies when
-          the "Custom Email" EDI Profile option is selected.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Send Email as HTML</term>
-        <listitem>
-          <para>Select if you want the body of the Email to be sent as HTML.
-          If not selected, the Email will be sent as plain text.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Invoice</term>
-        <listitem>
-          <para>To establish a Customer's EDI preferences for Invoices, select
-          the "Invoice" radio button.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist></para>
-  <para role="standard"><note>
-      <para>EDI preferences for a Customer are implemented at the point when
-      Invoices for the Customer are printed.</para>
-    </note></para>
-  <para role="standard">When setting up the Invoice EDI preferences for a
-  Customer, you are presented with the following options:</para>
-  <para role="standard"><variablelist>
-      <varlistentry>
-        <term>EDI Profile</term>
-        <listitem>
-          <para>Select from the following EDI Profile options:</para>
-          <variablelist>
-            <varlistentry>
-              <term>No EDI</term>
-              <listitem>
-                <para>Select this option if you do not wish to use the EDI
-                system.</para>
-              </listitem>
-            </varlistentry>
-            <varlistentry>
-              <term>Custom Email</term>
-              <listitem>
-                <para>Select this option if you want to bypass standard EDI
-                Profiles and instead create custom email preferences for the
-                Customer. These preferences will be stored solely with the
-                Customer master—and will be used to send email versions of
-                Invoices to the Customer when Invoices for the Customer are
-                printed. When this option is selected, the email-related
-                fields on the Customer master will be enabled. Otherwise, the
-                email-related fields will be disabled.</para>
-              </listitem>
-            </varlistentry>
-            <varlistentry>
-              <term>EDI Profile</term>
-              <listitem>
-                <para>Select a standard EDI Profile from the list of EDI
-                Profiles. The selected Profile will be used when Invoices for
-                the Customer are printed.</para>
-              </listitem>
-            </varlistentry>
-          </variablelist>
-          <tip>
-            <para>Send Invoices to multiple recipients by separating email
-            addresses with a comma. Be sure to omit any spaces between
-            addresses when using commas to send copies to multiple
-            recipients.</para>
-          </tip>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>EDI Email</term>
-        <listitem>
-          <para>Enter the Customer email address to be used as the default
-          recipient address whenever Invoices are emailed to the Customer.
-          Only applies when the "Custom Email" EDI Profile option is
-          selected.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Cc</term>
-        <listitem>
-          <para>Enter the email address to be used as the default carbon copy
-          address whenever Invoices are emailed to the Customer. Only applies
-          when the "Custom Email" EDI Profile option is selected.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Subject</term>
-        <listitem>
-          <para>Enter a default email subject line to be used whenever
-          Invoices are emailed to the Customer. Only applies when the "Custom
-          Email" EDI Profile option is selected.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Filename</term>
-        <listitem>
-          <para>XML tags may be used in this field to dynamically generate
-          filename text. In the example shown in the screenshot above, the
-          filename will include the Document Type (i.e., Invoice) and the
-          Document Number (i.e., Invoice Number). This field only applies when
-          the "Custom Email" EDI Profile option is selected.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>EDI Email Body</term>
-        <listitem>
-          <para>Use this text field to enter the default message that will
-          accompany any Invoices sent to the Customer. Only applies when the
-          "Custom Email" EDI Profile option is selected.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Send Email as HTML</term>
-        <listitem>
-          <para>Select if you want the body of the Email to be sent as HTML.
-          If not selected, the Email will be sent as plain text.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist></para>
-  <para><note>
-      <para>If your system is configured to use Credit Cards, the "Credit
-      Cards" tab will be visible. This tab will not be visible if your system
-      is not configured to use </para>
-    </note></para>
-  <para></para>
+  <note>
+    <para>EDI preferences for a Customer are implemented at the point when
+    Invoices for the Customer are printed.</para>
+  </note>
+  <para><remark>findme re: EDI docs Paste By Reference</remark></para>
 </section>
