@@ -131,15 +131,14 @@ function main()
         clickButton(":Accounting Configuration.Save_QPushButton");
         
     }
-    snooze(0.5);//delay to allow save
+    snooze(3);//delay to allow save
     
-    //-------Deviate Menu selection temporarily--------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
+    if(object.exists(":No_QPushButton"))
+        clickButton(":No_QPushButton");
+
     
-      
+    
+    
     //---------------Define: Bank Accounts------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");

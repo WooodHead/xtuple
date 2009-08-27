@@ -627,6 +627,7 @@ function main()
     waitForObject(":_freightClass_XLineEdit_2");
     type(":_freightClass_XLineEdit_2", "BULK");
     type(":_description_XLineEdit_34", "Bulk Freight");
+    waitForObject(":Freight Class.Save_QPushButton");
     clickButton(":Freight Class.Save_QPushButton");
     waitForObject(":List Freight Classes.Close_QPushButton_2");
     clickButton(":List Freight Classes.Close_QPushButton_2");

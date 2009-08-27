@@ -267,7 +267,7 @@ function main()
         waitForObject(":List Standard Operations.Close_QPushButton");
         clickButton(":List Standard Operations.Close_QPushButton");
 
-//
+
         //-----------Define BOO for Items---------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -280,10 +280,11 @@ function main()
         //-----------Define BOO for YTRUCK1---------------
         waitForObject(":Bills of Operations.New_QPushButton");
         clickButton(":Bills of Operations.New_QPushButton");
-        waitForObject(":itemGroup._itemNumber_ItemLineEdit");
-        type(":itemGroup._itemNumber_ItemLineEdit", "YTRUCK1");
-        type(":itemGroup._itemNumber_ItemLineEdit", "<Tab>");
-        
+        waitForObject(":itemGroup...._QPushButton");
+        clickButton(":itemGroup...._QPushButton");
+        waitForObject(":_item_XTreeWidget_4");
+        doubleClickItem(":_item_XTreeWidget_4", "YTRUCK1",0,0,0,Qt.LeftButton);
+                
         waitForObject(":frame.New_QPushButton_2");
         clickButton(":frame.New_QPushButton_2");
         waitForObject(":_stdopn_XComboBox");
@@ -317,12 +318,13 @@ function main()
             test.pass("BOO created for: YTRUCK1");
         
         
-        //-----------Define BOO for TKIT1---------------
+        //-----------Define BOO for TSUB1---------------
         waitForObject(":Bills of Operations.New_QPushButton");
         clickButton(":Bills of Operations.New_QPushButton");
-        waitForObject(":itemGroup._itemNumber_ItemLineEdit");
-        type(":itemGroup._itemNumber_ItemLineEdit", "TKIT1");
-        type(":itemGroup._itemNumber_ItemLineEdit", "<Tab>");
+        waitForObject(":itemGroup...._QPushButton");
+        clickButton(":itemGroup...._QPushButton");
+        waitForObject(":_item_XTreeWidget_4");
+        doubleClickItem(":_item_XTreeWidget_4", "TSUB1",0,0,0,Qt.LeftButton);        
         waitForObject(":frame.New_QPushButton_2");
         clickButton(":frame.New_QPushButton_2");
         waitForObject(":_stdopn_XComboBox");
@@ -335,8 +337,8 @@ function main()
         waitForObject(":Bill of Operations.Save_QPushButton");
         clickButton(":Bill of Operations.Save_QPushButton");
         waitForObject(":_boo_XTreeWidget");
-        if(!clickItem(":_boo_XTreeWidget", "TKIT1", 5, 5, 1, Qt.LeftButton))
-            test.pass("BOO created for: TKIT1");
+        if(!clickItem(":_boo_XTreeWidget", "TSUB1", 5, 5, 1, Qt.LeftButton))
+            test.pass("BOO created for: TSUB1");
         waitForObject(":Bills of Operations.Close_QPushButton");
         clickButton(":Bills of Operations.Close_QPushButton");
 
@@ -527,7 +529,7 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
   waitForObject(":Bill of Materials Item...._QPushButton_2");
   clickButton(":Bill of Materials Item...._QPushButton_2");
   waitForObject(":_item_XTreeWidget_3");
-  doubleClickItem(":_item_XTreeWidget_3", "TKIT1", 5, 5, 0, Qt.LeftButton);
+  doubleClickItem(":_item_XTreeWidget_3", "TSUB1", 5, 5, 0, Qt.LeftButton);
   waitForObject(":_qtyPer_XLineEdit"); 
   type(":_qtyPer_XLineEdit", "1");
   type(":_scrap_XLineEdit", "0");
@@ -561,13 +563,13 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
 
   
   
-  //---------------Create BOM for TKIT1---------------
+  //---------------Create BOM for TSUB1---------------
   waitForObject(":Bills of Materials.New_QPushButton");
   clickButton(":Bills of Materials.New_QPushButton");
   waitForObject(":_itemGroup...._QPushButton");
   clickButton(":_itemGroup...._QPushButton");
   waitForObject(":_item_XTreeWidget_2");
-  doubleClickItem(":_item_XTreeWidget_2","TKIT1",5,5,0,Qt.LeftButton);
+  doubleClickItem(":_item_XTreeWidget_2","TSUB1",5,5,0,Qt.LeftButton);
 
   waitForObject(":frame_2.New_QPushButton");
   clickButton(":frame_2.New_QPushButton");
@@ -629,8 +631,8 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
   waitForObject(":Bill of Materials.Save_QPushButton");
   clickButton(":Bill of Materials.Save_QPushButton");
   waitForObject(":Bills of Materials._bom_XTreeWidget");  
-  if(!clickItem(":Bills of Materials._bom_XTreeWidget", "TKIT1", 5, 5, 1, Qt.LeftButton))
-      test.pass("BOM created for: TKIT1");
+  if(!clickItem(":Bills of Materials._bom_XTreeWidget", "TSUB1", 5, 5, 1, Qt.LeftButton))
+      test.pass("BOM created for: TSUB1");
 
   
   waitForObject(":Bills of Materials.Close_QPushButton");

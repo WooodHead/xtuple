@@ -1694,8 +1694,10 @@
 :Select Multiple Accounts by Segment._type_XComboBox	{container=':_selection.Select Multiple Accounts by Segment_QGroupBox' name='_type' type='XComboBox' visible='1'}
 :Select one Account._main_XLineEdit	{container=':_selection.Select one Account_QGroupBox' name='_main' type='XLineEdit' visible='1'}
 :Set Encryption?.No_QPushButton	{text='No' type='QPushButton' unnamed='1' visible='1' window=':Set Encryption?_QMessageBox'}
+:Set Encryption?.No_QPushButton_2	{text='No' type='QPushButton' unnamed='1' visible='1' window=':Set Encryption?_QMessageBox_2'}
 :Set Encryption?.Your encryption key is not set. You will not be able to configure electronic checking information for Vendors until you configure encryption. Would you like to do this now?_QLabel	{name='qt_msgbox_label' text='Your encryption key is not set. You will not be able to configure electronic checking information for Vendors until you configure encryption. Would you like to do this now?' type='QLabel' visible='1' window=':Set Encryption?_QMessageBox'}
 :Set Encryption?_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='*'}
+:Set Encryption?_QMessageBox_2	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Set Encryption?'}
 :Settings.Allow Free-Form Bill-To_QCheckBox	{container=':general.Settings_QGroupBox' name='_allowFFBillto' text='Allow Free-Form Bill-To' type='QCheckBox' visible='1'}
 :Settings._sellingWarehouse_WComboBox	{container=':general.Settings_QGroupBox' name='_sellingWarehouse' type='WComboBox' visible='1'}
 :Setup Labor Rate.Select Standard Rate:_QRadioButton	{container=':_costsTab.Setup Labor Rate_QGroupBox' name='_setupUseSelectedRate' text='Select Standard Rate:' type='QRadioButton' visible='1'}
@@ -3084,6 +3086,7 @@
 :groupBox_4._defaultDiscountPrcnt_XLineEdit	{container=':_settingsStack.groupBox_4_QGroupBox' name='_defaultDiscountPrcnt' type='XLineEdit' visible='1'}
 :groupBox_6._creditLimit_XLineEdit	{container=':customerDefaults.groupBox_6_QGroupBox' name='_creditLimit' type='XLineEdit' visible='1'}
 :invoice.Invoice Date Source_QGroupBox	{container=':qt_tabwidget_stackedwidget.invoice_QWidget' name='_invcDateGroup' title='Invoice Date Source' type='QGroupBox' visible='1'}
+:itemGroup...._QPushButton	{container=':Bill of Operations.itemGroup_QGroupBox' name='_itemList' text='...' type='QPushButton' visible='1'}
 :itemGroup._itemNumber_ItemLineEdit	{container=':Bill of Operations.itemGroup_QGroupBox' name='_itemNumber' type='ItemLineEdit' visible='1'}
 :ponotesTab._poComments_QTextEdit	{container=':qt_tabwidget_stackedwidget.ponotesTab_QWidget' name='_poComments' type='QTextEdit' visible='1'}
 :qt_calendar_calendarview_QCalendarView	{name='qt_calendar_calendarview' type='QCalendarView' visible='1' window=':_DCalendarPopup'}

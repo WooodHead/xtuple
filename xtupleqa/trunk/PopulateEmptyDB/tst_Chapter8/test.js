@@ -105,8 +105,11 @@
         clickButton(":_relationshipsGroup._salesrep_XCheckBox_2");
     waitForObject(":_relationshipsGroup.Sales Rep..._QPushButton_2");
     clickButton(":_relationshipsGroup.Sales Rep..._QPushButton_2");
-    waitForObject(":Cancel.Yes_QPushButton");
-    clickButton(":Cancel.Yes_QPushButton");
+    if(object.exists(":Cancel.Yes_QPushButton"))
+    {
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+    }
     waitForObject(":_name_XLineEdit_9");
     type(":_name_XLineEdit_9", username);
     waitForObject(":_commPrcnt_XLineEdit");
@@ -685,6 +688,7 @@
   activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "New...");
    
     waitForObject(":Customer._customerNumberEdit_XLineEdit");
+    findObject(":Customer._customerNumberEdit_XLineEdit").clear();
     type(":Customer._customerNumberEdit_XLineEdit", "TTOYS");
     type(":Customer._name_XLineEdit", "Tremendous Toys");
     

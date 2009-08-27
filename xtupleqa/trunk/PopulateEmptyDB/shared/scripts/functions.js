@@ -387,13 +387,18 @@ function createUserByRole(userrole)
     if(!findObject(":List Employees.Active_QCheckBox").checked)
         clickButton(":List Employees.Active_QCheckBox");
     waitForObject(":_properName_XLineEdit_2");
+    findObject(":_properName_XLineEdit_2").clear();
     type(":_properName_XLineEdit_2",realname);
     type(":_initials_XLineEdit_2", "JS");
     type(":_email_XLineEdit_2", "demo@openmfg.com");
+    findObject(":_passwd_XLineEdit_2").clear();
     type(":_passwd_XLineEdit_2", pwd);
+    findObject(":_verify_XLineEdit_2");
     type(":_verify_XLineEdit_2", pwd);
-    clickButton(":List Employees.Purchasing Agent_QCheckBox");
-    clickButton(":List Employees.Can Create System Users_QCheckBox");  
+    if(!findObject(":List Employees.Purchasing Agent_QCheckBox").checked)
+        clickButton(":List Employees.Purchasing Agent_QCheckBox");
+    if(!findObject(":List Employees.Can Create System Users_QCheckBox").checked)
+        clickButton(":List Employees.Can Create System Users_QCheckBox");  
     clickItem(":_locale_XComboBox_2","MYLOCALE",0,0,1,Qt.LeftButton);
     waitForObject(":List Employees.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Employees.qt_tabwidget_tabbar_QTabBar", "Groups");
