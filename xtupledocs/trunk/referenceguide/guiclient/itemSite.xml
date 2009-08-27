@@ -5,44 +5,57 @@
 <section id="Section518694">
   <title id="Anchor41372"><indexterm significance="normal">
       <primary>item sites</primary>
+
       <secondary>creating new</secondary>
     </indexterm>Enter Item Site</title>
+
   <para>An Item Site identifies and defines the methods and controls used when
   maintaining a given Item within a given Site. To enter a new Item Site into
   your system, select the "Enter Item Site" option. The following screen will
   appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/itemSite.png" />
         </imageobject>
+
         <caption>Create New Item Site</caption>
       </mediaobject>
     </screenshot></para>
+
   <para>When creating a new Item Site, you are presented with the following
   options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Item Number</term>
+
       <listitem>
         <para>Enter the Item Number of the Item you want to create an Item
         Site for.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>UOM</term>
+
       <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Site</term>
+
       <listitem>
         <para>Specify Site where the Item Site is located.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Active</term>
+
       <listitem>
         <para>Select to indicate the Item Site is active. Not selecting means
         the Item Site will be considered inactive. If inactive, the Item Site
@@ -50,25 +63,32 @@
         Site, simply select this option.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Sold from this Site</term>
+
       <listitem>
         <para>Select if Item is sold from specified Site. If selected, "Sold
         from" means that Sales Orders Line Items may request to Ship from the
         Site. When adding Sales Order Line Items to a Sales Order, a "Sold
         from" Site appears as the "Supplying Site."</para>
+
         <variablelist>
           <varlistentry>
             <term><indexterm significance="normal">
                 <primary>ranking</primary>
+
                 <secondary>of item sites</secondary>
               </indexterm> <indexterm significance="normal">
                 <primary>sold ranking</primary>
+
                 <secondary>for item sites</secondary>
               </indexterm> <indexterm significance="normal">
                 <primary>item sites</primary>
+
                 <secondary>sold ranking of</secondary>
               </indexterm>Ranking</term>
+
             <listitem>
               <para>Select a number using the arrow buttons, or manually enter
               a value up to a maximum of 10. Value entered specifies the order
@@ -83,21 +103,27 @@
         </variablelist>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Supply Rules</term>
+
       <listitem>
         <para>Select from the following supply rules for the Item Site:</para>
+
         <variablelist>
           <varlistentry>
             <term>Site can purchase this Item</term>
+
             <listitem>
               <para>Select if the Item can be purchased and received into the
               specified Site. Planned Purchase Orders from the Material
-              Requirements Planning (MRP) system can only be created Item
-              Sited having this option selected.</para>
+              Requirements Planning (MRP) system can only be created for Item
+              Sites having this option selected.</para>
+
               <variablelist>
                 <varlistentry>
                   <term>Create Purchase Requests to meet demand</term>
+
                   <listitem>
                     <para>Select to create Purchase Requests whenever Sales
                     Orders or Work Orders demand quantities from the Item
@@ -110,6 +136,7 @@
                     screen will automatically be selected. For Work Orders
                     using a purchased or outside process Item, Purchase
                     Requests will be generated automatically.</para>
+
                     <note>
                       <para>Purchase Requests created, as specified above, to
                       meet Sales Order and Work Order demands will be created
@@ -122,16 +149,20 @@
               </variablelist>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term>Site can manufacture this Item</term>
+
             <listitem>
               <para>Select if the Item can be manufactured at the specified
               Site. Planned Work Orders from the Material Requirements
               Planning (MRP) system can only be created for Item Sites having
               this option selected.</para>
+
               <variablelist>
                 <varlistentry>
                   <term>Create Work Orders linked to Sales Orders</term>
+
                   <listitem>
                     <para>Select to create Work Orders whenever Sales Orders
                     demand quantities from the Item Site. This option pertains
@@ -141,6 +172,7 @@
                     Sales Order. Selecting this option will cause the "Create
                     Work Order" flag to be checked whenever you enter Sales
                     Order Line Items for the Item Site.</para>
+
                     <note>
                       <para>Work Orders created, as specified above, to meet
                       Sales Order demand will be created regardless of an
@@ -157,23 +189,29 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
   <variablelist>
     <varlistentry>
       <term>Costing Method</term>
+
       <listitem>
         <para>Specify the Item Site Costing Method by selecting one of the
         available options:</para>
+
         <variablelist>
           <varlistentry>
             <term>None</term>
+
             <listitem>
               <para>This Cost Method is automatically selected for the Item
               Site if the Control Method is "None" or the Item Type is
               "Reference".</para>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term>Average</term>
+
             <listitem>
               <para>Cost distributions are based on an average of all costs
               accumulated for the Item Site. The Quantity on Hand of Item
@@ -181,15 +219,19 @@
               negative.</para>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term>Standard</term>
+
             <listitem>
               <para>Cost distributions are based on the Standard Cost posted
               for the Item.</para>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term>Job</term>
+
             <listitem>
               <para>Cost distributions are based on actual accumulation of
               costs on a Work Order. This Cost Method is used exclusively by
@@ -199,41 +241,53 @@
         </variablelist>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Control</term>
+
       <listitem>
         <para>The following control options are required for every Item
         Site:</para>
+
         <variablelist>
           <varlistentry>
             <term><indexterm significance="normal">
                 <primary>control methods</primary>
+
                 <secondary>at item site level</secondary>
               </indexterm><indexterm significance="normal">
                 <primary>item sites</primary>
+
                 <secondary>control methods in</secondary>
               </indexterm>Control Method</term>
+
             <listitem>
               <para>Select a control method for the Item Site from the
               available options:</para>
+
               <variablelist>
                 <varlistentry>
                   <term>None</term>
+
                   <listitem>
                     <para>Select if you don"t care to see Inventory history
                     transactions for the Item Site.</para>
                   </listitem>
                 </varlistentry>
+
                 <varlistentry>
                   <term>Regular</term>
+
                   <listitem>
                     <para>Select to monitor Inventory history transactions for
                     the Item Site using a Regular method. Regular means
                     without Lot Number or Serial Number control.</para>
                   </listitem>
                 </varlistentry>
+
                 <varlistentry role="standard">
                   <term>Lot #</term>
+
                   <listitem>
                     <para>Select to impose Lot Number control methods on the
                     Item Site. Item Sites using Lot Number control are subject
@@ -241,8 +295,10 @@
                     received or distributed.</para>
                   </listitem>
                 </varlistentry>
+
                 <varlistentry role="standard">
                   <term>Serial #</term>
+
                   <listitem>
                     <para>Select to impose Serial Number control methods on
                     the Item Site. Item Sites using Serial Number control are
@@ -253,8 +309,10 @@
               </variablelist>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term>Planner Code</term>
+
             <listitem>
               <para>Specify the Planner Code you want to assign the Item Site
               to. Assigning a Planner Code to an Item Site makes it possible
@@ -262,11 +320,14 @@
               Planning.</para>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term><indexterm significance="normal">
                 <primary>item sites</primary>
+
                 <secondary>cost categories in</secondary>
               </indexterm>Cost Category</term>
+
             <listitem>
               <para>Specify the Cost Category you want to associate with the
               Item Site. This requirement helps ensure that all Inventory
@@ -278,17 +339,21 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>multiple location control</primary>
+
           <secondary>establishing in item sites</secondary>
         </indexterm>Multiple Location Control</term>
+
       <listitem>
         <para>Select if the specified Item is to be stored in multiple
         Locations within a single Site. Items designated as Multiple Location
         Control (MLC) Items require special processing whenever Item
         quantities are distributed.</para>
+
         <tip>
           <para>Exercise caution when adjusting the Multiple Location Control
           (MLC) setting for an Item Site. If you turn off MLC for an Item Site
@@ -298,32 +363,40 @@
         </tip>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>default locations</primary>
         </indexterm><indexterm significance="normal">
           <primary>locations</primary>
+
           <secondary>default</secondary>
         </indexterm><indexterm significance="normal">
           <primary>item sites</primary>
+
           <secondary>setting default locations in</secondary>
         </indexterm>Use Default Location</term>
+
       <listitem>
         <para>Default Location: Select to designate one Location within a Site
         as the default Location for the specified Item. This option may be
         used for single Location and Multiple Location Control (MLC) Items
         alike. You may find that Inventory distributions for MLC Items are
         greatly simplified if you designate a default Location.</para>
+
         <variablelist>
           <varlistentry>
             <term>Location</term>
+
             <listitem>
               <para>Specify the Site Location to be used as the default
               Location.</para>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term>User-Defined</term>
+
             <listitem>
               <para>This is a free-form field for describing storage areas
               with a Site not specifically designated as Site Locations. A
@@ -335,17 +408,21 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
   <variablelist>
     <varlistentry>
       <term>Location Comment</term>
+
       <listitem>
         <para>Enter any free-form Comment related to the Site Location. This
         is additional information which may be placed on a Pick List or a Pack
         List.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry role="manufacturing">
       <term>Disallow Blank WIP Locations</term>
+
       <listitem>
         <para>Select to require the use of work-in-process (WIP) Locations
         when posting Work Order Operations for Multiple Location Control (MLC)
@@ -357,8 +434,10 @@
         should be left unchecked.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Stocked</term>
+
       <listitem>
         <para>Select if the Item is stocked at the specified Site. This
         setting is used to drive the constraint management system. As a
@@ -366,13 +445,17 @@
         Site must also have a Reorder Level defined to use this option.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>ABC Class</term>
+
       <listitem>
         <para>Specify the ABC classification for the specified Item.</para>
+
         <variablelist>
           <varlistentry>
             <term>Allow Automatic Updates</term>
+
             <listitem>
               <para>Select to allow the ABC Class setting for the Item Site to
               be updated whenever the ABC Class update utility is run. Not
@@ -383,14 +466,17 @@
         </variablelist>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Cycl. Cnt. Freq.</term>
+
       <listitem>
         <para>Cnt. Freq.: Select a number using the arrow buttons, or manually
         enter a value up to a maximum of 999. A Cycle Count is a periodic
         issue of a Count Tag to count Inventory quantity within an Item Site.
         The Cycle Count frequency defines the length of that period, measured
         in days.</para>
+
         <tip>
           <para>To monitor the frequency of Item Site Cycle Counts, view the
           "Last Counted" column in any of the Item Site Reports: by Item, by
@@ -399,14 +485,18 @@
         </tip>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>event fences</primary>
+
           <secondary>in item sites</secondary>
         </indexterm><indexterm significance="normal">
           <primary>item sites</primary>
+
           <secondary>event fences in</secondary>
         </indexterm>Event Fence</term>
+
       <listitem>
         <para>Select a number using the arrow buttons, or manually enter a
         value up to a maximum of 99. Specify the period of time, measured in
@@ -423,44 +513,56 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>To the far right of the screen, the following buttons are
   available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
+
       <listitem>
         <para>Closes the screen without creating an Item Site, returning you
         to the application desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>SAVE</term>
+
       <listitem>
         <para>Creates the Item Site and adds it to the master list of Item
         Sites.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>To set the Item Site planning parameters, select the "Planning" tab.
   The following screen will appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/itemSite_planningTab.png" />
         </imageobject>
+
         <caption>Item Site Planning</caption>
       </mediaobject>
     </screenshot>When setting the Item Site planning parameters, you are
   presented with the following options:</para>
+
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>order parameters</primary>
+
           <secondary>enforcement of</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>item sites</primary>
+
           <secondary>enforcing order parameters in</secondary>
         </indexterm>Enforce Order Parameters</term>
+
       <listitem>
         <para>Select to enforce Order Parameters. If this option is selected,
         then Material Requirements Planning (MRP) will follow the Order
@@ -468,15 +570,18 @@
         Parameters you define will be saved if this option is turned ON/OFF.
         If you want to enforce Order Parameters on manual Orders as well,
         select the "on Manual Orders" option.</para>
+
         <note>
           <para>Running Material Requirements Planning (MRP) on your system
           consists entirely of running the Create Planned Replenishment Orders
           screens—either by Item or by Planner Code. As MRP runs, the Planned
           Replenishment Orders are generated automatically.</para>
         </note>
+
         <variablelist>
           <varlistentry>
             <term>Reorder Level</term>
+
             <listitem>
               <para>The Reorder Level specifies when a Planned Replenishment
               Order should be created for an Item Site. If Planned
@@ -486,6 +591,7 @@
               quantity will be equal to the quantity required to return
               Planned Availability to either the Reorder Level or the Order Up
               To quantity—whichever is greater.</para>
+
               <note>
                 <para>Planned Availability differs from Quantity on Hand
                 (QOH). The difference is that Planned Availability considers
@@ -496,14 +602,17 @@
               </note>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term>Order Up To</term>
+
             <listitem>
               <para>The Order Up To (OUT) Level indicates the level of Planned
               Availability an Item Site should be replenished up to when
               Material Requirements Planning (MRP) is run. In cases where the
               Reorder Level for an Item Site exceeds the Order Up To Level,
               MRP will replenish the Item Site up to the Reorder Level.</para>
+
               <tip>
                 <para>Setting the Order Up To Level to "0" removes any
                 restrictions on maximum Order quantities. Removing quantity
@@ -514,8 +623,10 @@
               </tip>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term>Minimum Order</term>
+
             <listitem>
               <para>Value entered indicates the minimum quantity that may be
               entered for a Planned Replenishment Order when MRP is run. If
@@ -524,8 +635,10 @@
               value.</para>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term>Maximum Order</term>
+
             <listitem>
               <para>This is a special setting which regulates the maximum
               quantity for Planned Replenishment Orders when MRP is run. The
@@ -536,6 +649,7 @@
               maximum Order quantity is set to 10 and there is demand for 17,
               then Planned Orders of 10 and 7 would be generated when MRP is
               run.</para>
+
               <tip>
                 <para>Setting the maximum order quantity too low has been
                 shown to slow performance when MRP is run. Unless you have
@@ -545,8 +659,10 @@
               </tip>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term>Order Multiple</term>
+
             <listitem>
               <para>Value entered indicates the quantity multiple that should
               be used for Planned Replenishment Orders when MRP is run. If the
@@ -554,8 +670,10 @@
               Work Orders will recognize the Order Multiple value.</para>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term>Enforce on Manual Orders</term>
+
             <listitem>
               <para>Select to enforce Order Parameters on manually-created
               Work Orders. If this option is selected, Order Parameters will
@@ -571,14 +689,18 @@
         </variablelist>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Scheduling</term>
+
       <listitem>
         <para>Select from the available scheduling options and
         parameters:</para>
+
         <variablelist>
-          <varlistentry role="manufacturing">
+          <varlistentry role="standard">
             <term>Planning System</term>
+
             <listitem>
               <para>Specify which of the following planning systems you want
               the Item Site to be considered by. Keep in mind that the choice
@@ -586,25 +708,31 @@
               Planned Orders for MRP Items when it is run. Likewise, the MRP
               system will not create Planned Orders for MPS Items when it is
               run.</para>
+
               <variablelist>
                 <varlistentry role="standard">
                   <term>MRP</term>
+
                   <listitem>
                     <para>Select if you want the Material Requirements
                     Planning (MRP) system to create Planned Orders for the
                     Item when MRP is run.</para>
                   </listitem>
                 </varlistentry>
+
                 <varlistentry role="manufacturing">
                   <term>MPS</term>
+
                   <listitem>
                     <para>Select if you want the Master Production Scheduling
                     (MPS) system to create Planned Orders for the Item when
                     MPS is run.</para>
                   </listitem>
                 </varlistentry>
+
                 <varlistentry role="standard">
                   <term>None</term>
+
                   <listitem>
                     <para>Select if you want MRP and MPS to ignore the
                     Item.</para>
@@ -613,8 +741,10 @@
               </variablelist>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term>Safety Stock</term>
+
             <listitem>
               <para>Specify the quantity of Stock for the Item you want to
               keep in Inventory to protect against unplanned, unforeseeable
@@ -630,8 +760,10 @@
               Stock value to "0".</para>
             </listitem>
           </varlistentry>
+
           <varlistentry role="standard">
             <term>Group MPS/MRP Orders Every</term>
+
             <listitem>
               <para>Specify the length of a period—measured in days—within
               which MPS or MRP Planned Orders will be grouped together (i.e,
@@ -645,27 +777,36 @@
               grouping of Planned Orders moves forward in time, meaning the
               system will create as many buckets as will fit within the cutoff
               date specified when MRP is run.</para>
+
               <para>The initial grouping of Planned Orders is handled
               differently than subsequent buckets. The following formula
               specifies how the date range for the initial period is
               determined:</para>
+
               <informalexample>
                 <para>Start Date = Today's Date</para>
+
                 <para>End Date = Today's Date + Lead Time</para>
+
                 <para>All subsequent periods are determined using the
                 following calculations:</para>
+
                 <informalexample>
                   <para>Start Date = End Date of Previous Period + 1</para>
+
                   <para>End Date = Start Date of Current Period + Group
                   Value<tip>
                       <para>To enforce <indexterm significance="normal">
                           <primary>just-in-time</primary>
+
                           <secondary>delivery of planned orders</secondary>
                         </indexterm> <indexterm significance="normal">
                           <primary>planned orders</primary>
+
                           <secondary>just-in-time delivery and</secondary>
                         </indexterm> <indexterm significance="normal">
                           <primary>material requirements planning</primary>
+
                           <secondary>just-in-time delivery and</secondary>
                         </indexterm>Just-In-Time (JIT) delivery methods, set
                       the MRP group value to "0." This will ensure that
@@ -674,21 +815,28 @@
                       grouping value is set to "0", the initial period will be
                       determined in the same way as for all Planned Order
                       groups:</para>
+
                       <informalexample>
                         <para>Start Date = Today's Date</para>
+
                         <para>End Date = Today's Date + Lead Time</para>
                       </informalexample>
+
                       <para>However, the date range for all subsequent JIT
                       Planned Orders will be based on the following
                       calculations:</para>
+
                       <informalexample>
                         <para>Start Date = Demand Due Date - Lead Time</para>
+
                         <para>End Date = Demand Due Date</para>
                       </informalexample>
                     </tip></para>
+
                   <variablelist>
                     <varlistentry>
                       <term>First Group</term>
+
                       <listitem>
                         <para>Select to enable MRP to process those orders
                         with lead times on the first grouping.</para>
@@ -699,8 +847,10 @@
               </informalexample>
             </listitem>
           </varlistentry>
+
           <varlistentry>
             <term>Lead Time</term>
+
             <listitem>
               <para>Select a number using the arrow buttons, or manually enter
               a value up to a maximum of 999. Specifies the Lead Time for the
@@ -714,8 +864,10 @@
               when MRP is run.</para>
             </listitem>
           </varlistentry>
+
           <varlistentry role="manufacturing">
             <term>MPS Time Fence</term>
+
             <listitem>
               <para>Specify the length of the Demand Time Fence by using the
               arrow buttons or manually entering a value up to a maximum of
@@ -735,17 +887,21 @@
               Planned Orders for the required quantities.</para>
             </listitem>
           </varlistentry>
+
           <varlistentry role="standard">
             <term>Create Planned Transfer Orders</term>
+
             <listitem>
               <para>Select if you want the Item Site to have Planned Transfer
               Orders created for it when the Material Requirements Planning
               (MRP) system is run. If selected, MRP will only create Planned
               Transfer Orders for the Item Site. Planned Purchase Orders or
               Planned Work Orders will not be created.</para>
+
               <variablelist>
                 <varlistentry>
                   <term>Supplied from Site</term>
+
                   <listitem>
                     <para>Specify which Site you want Planned Transfer Orders
                     to be supplied from when MRP is run. The Site you select
@@ -760,19 +916,24 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>To add miscellaneous Notes to an Item Site, select the "Notes" tab.
   The following screen will appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/itemSite_notesTab.png" />
         </imageobject>
+
         <caption>Add Item Site Notes</caption>
       </mediaobject>
     </screenshot></para>
+
   <variablelist>
     <varlistentry>
       <term>Notes</term>
+
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         free-form Notes related to the Item Site. Notes differ from Comments
@@ -780,50 +941,64 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>To associate Comments with an Item Site, select the "Comments" tab.
   The following screen will appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/itemSite_commentsTab.png" />
         </imageobject>
+
         <caption>Add Item Site Comments</caption>
       </mediaobject>
     </screenshot></para>
+
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
+
   <para><indexterm significance="normal">
       <primary>site locations</primary>
+
       <secondary>restricted</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>item sites</primary>
+
       <secondary>restricted locations and</secondary>
     </indexterm>Site Locations may be restricted to allow for storage of
   certain Items. To view restricted Locations within an Item Site's Site,
   select the "Restricted Locations" tab. The following screen will
   appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/itemSite_RestrictedLocations.png" />
         </imageobject>
+
         <caption>Restricted Locations for Item Site</caption>
       </mediaobject>
     </screenshot></para>
+
   <variablelist>
     <varlistentry>
       <term>Restricted Locations</term>
+
       <listitem>
         <para>Displays restricted Locations associated with the Site the Item
         Site is located in.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>To the far right of the screen, the following buttons are
   available:</para>
+
   <variablelist>
     <varlistentry>
       <term>TOGGLE</term>
+
       <listitem>
         <para>Highlight a Site Location and then select this button to change
         the allowed status for the Item. Any changes made on the Item Site
@@ -832,44 +1007,55 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>If the Item Site is Lot or Serial controlled, you will have access to
   several product expiration options. The "Expiration" tab will be disabled
   for non-Lot/Serial Item Sites. To view or modify expiration settings for the
   Item Site, select the "Expiration" tab. The following screen will
   appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/itemSite_expirationTab.png" />
         </imageobject>
+
         <caption>Expiration Settings for Item Site</caption>
       </mediaobject>
     </screenshot></para>
+
   <para>When viewing or modifying expiration settings for the Item Site, you
   are presented with the following options:</para>
+
   <variablelist>
     <varlistentry role="standard">
       <term>Perishable</term>
+
       <listitem>
         <para>Select if the Item is Perishable. Materials received into a
         Perishable Item Site are required to have an expiration date, thereby
         increasing your ability to monitor the status of the goods.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Requires Warranty when Purchased</term>
+
       <listitem>
         <para>Select to require users to enter a warranty expiration date when
         they are receiving Items into the Item site. Effectively, this flag
         indicates the Item Site requires a purchased warranty.</para>
+
         <tip>
           <para>The purchased warranty should not be confused with the sold
           warranty, which is defined on the Item master.</para>
         </tip>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Auto Register Lot/Serial at Shipping</term>
+
       <listitem>
         <para>Select to automatically create a registration for Lot/Serial
         Items when they are issued to Shipping. You can learn more about
