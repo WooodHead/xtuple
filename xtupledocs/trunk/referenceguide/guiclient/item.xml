@@ -1493,8 +1493,8 @@
     </indexterm> <indexterm significance="normal">
       <primary>items</primary>
       <secondary>documents associated with</secondary>
-    </indexterm>associate Images and Files with an Item, select the
-  "Documents" tab. The following screen will appear:</para>
+    </indexterm>associate documents with an Item, select the "Documents" tab.
+  The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -1503,23 +1503,31 @@
         <caption>Item Documents</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When associating Images with an Item, you are presented with the
+  <para>When associating documents with an Item, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
       <term>Images</term>
       <listitem>
-        <para>Display lists information about stored Item Images.</para>
+        <para>Select to display the list of Images associated with the
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Files</term>
+      <listitem>
+        <para>Select to display the list of Files associated with the
+        Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
+  <para>The following options are available when you select the "Images"
+  option:</para>
   <variablelist>
     <varlistentry>
       <term>VIEW IMAGE</term>
       <listitem>
-        <para>Allows you the ability to preview Image.</para>
+        <para>Allows you the ability to preview the Image.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1531,7 +1539,8 @@
     <varlistentry>
       <term>NEW</term>
       <listitem>
-        <para>Opens master list of stored Item Images.</para>
+        <para>Opens master list of stored Item Images, allowing you to
+        associate an Image with the Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1634,7 +1643,8 @@
       <term>NEW</term>
       <listitem>
         <para>Opens screen for adding a new Image to the master list of stored
-        Images.</para>
+        Images. For additional documentation related to adding new Images to
+        the database, see <xref linkend="imageTitle" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1644,63 +1654,16 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para><indexterm significance="normal">
-      <primary>images</primary>
-      <secondary>adding new</secondary>
-    </indexterm>To add a new Image to the master list of stored Images, select
-  the NEW button on the Image Assignment screen. The following screen will
-  appear:</para>
+  <para>To associate Files with an Item, select the "Files" option. The
+  following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/image.png" />
+          <imagedata fileref="images/item_documentsTab_files.png" />
         </imageobject>
-        <caption>Create New Image</caption>
+        <caption>Item Files</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When adding a new Image to the master list of stored Images, you are
-  presented with the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>File Name</term>
-      <listitem>
-        <para>Enter the physical directory location of the Image. The browse
-        button enables you to search your system for the physical directory
-        location of the Image file. Once you locate the file, simply select it
-        to have it entered into the "File Name" field.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Name</term>
-      <listitem>
-        <para>Enter a unique name for the Image.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Description</term>
-      <listitem>
-        <para>Enter a description to further identify the Image.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without adding a new Image to the master list
-        of stored Images.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Image and adds it to the master list of stored
-        Images.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <para>When associating Files with an Item, you are presented with the
   following options:</para>
   <variablelist>
@@ -1711,10 +1674,6 @@
         Item.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
     <varlistentry>
       <term>OPEN FILE</term>
       <listitem>

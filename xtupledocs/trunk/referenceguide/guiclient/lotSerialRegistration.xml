@@ -170,8 +170,6 @@
         <para>Enter new Contact information</para>
       </listitem>
     </orderedlist>
-    <para>If a new Contact is entered, that Contact will be added
-    automatically to the master list of Contacts.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -181,7 +179,11 @@
         manually enter Contact information in the fields shown—or use the
         browse button to select pre-existing Contact information. If the
         registration is created automatically from the shipment of a Sales
-        Order, the name of the Customer billing Contact will be used.</para>
+        Order, the name of the Customer billing Contact will be used. If a new
+        Contact is manually entered here, that Contact will be added
+        automatically to the master list of Contacts. For additional
+        documentation related to creating Contacts, see <xref
+        linkend="contactTitle" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>

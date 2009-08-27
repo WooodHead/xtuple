@@ -153,8 +153,6 @@
         <para>Enter new Contact information</para>
       </listitem>
     </orderedlist>
-    <para>If a new Contact is entered, that Contact will be added
-    automatically to the master list of Contacts.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -162,7 +160,11 @@
       <listitem>
         <para>Select to enter or view information for the primary Contact. You
         can manually enter Contact information in the fields shown—or use the
-        browse button to select pre-existing Contact information.</para>
+        browse button to select pre-existing Contact information. If a new
+        Contact is manually entered here, that Contact will be added
+        automatically to the master list of Contacts. For additional
+        documentation related to creating Contacts, see <xref
+        linkend="contactTitle" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -170,7 +172,11 @@
       <listitem>
         <para>Select to enter or view information for the secondary Contact.
         You can manually enter Contact information in the fields shown—or use
-        the browse button to select pre-existing Contact information.</para>
+        the browse button to select pre-existing Contact information. If a new
+        Contact is manually entered here, that Contact will be added
+        automatically to the master list of Contacts. For additional
+        documentation related to creating Contacts, see <xref
+        linkend="contactTitle" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -183,12 +189,11 @@
           <varlistentry>
             <term>NEW</term>
             <listitem id="crmaccountNEW">
-              <para>Opens screen for creating a new Contact.</para>
-              <note>
-                <para>If a new Contact is manually entered here, that Contact
-                will be added automatically to the master list of
-                Contacts.</para>
-              </note>
+              <para>Opens screen for creating a new Contact. If a new Contact
+              is manually entered here, that Contact will be added
+              automatically to the master list of Contacts. For additional
+              documentation related to creating Contacts, see <xref
+              linkend="contactTitle" />.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
