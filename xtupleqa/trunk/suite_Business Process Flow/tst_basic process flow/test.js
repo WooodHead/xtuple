@@ -32,8 +32,10 @@ function main()
     waitForObjectItem(":xTuple ERP:*.Master Information_QMenu", "Encryption...");
     activateItem(":xTuple ERP:*.Master Information_QMenu", "Encryption...");
     
+    snooze(1);
     if(object.exists(":OK_QPushButton"))
         clickButton(":OK_QPushButton");
+    snooze(0.5);
     waitForObject(":_ccEncKeyName_QLineEdit");
     
     if(findObject(":_ccEncKeyName_QLineEdit").text!="xTuple.key")
@@ -125,9 +127,9 @@ function main()
     else test.fail("TWHEEL1 - Item not available");
     
     waitForObject(":Indented Bill of Materials._bomitem_XTreeWidget");
-    if(!clickItem(":Indented Bill of Materials._bomitem_XTreeWidget", "TKIT1", 5, 5, 1, Qt.LeftButton))
-        test.pass("TKIT1 - Item available");
-    else test.fail("TKIT1 - Item not available");
+    if(!clickItem(":Indented Bill of Materials._bomitem_XTreeWidget", "TSUB1", 5, 5, 1, Qt.LeftButton))
+        test.pass("TSUB1 - Item available");
+    else test.fail("TSUB1 - Item not available");
     
     waitForObject(":*.Close_QPushButton");
     clickButton(":*.Close_QPushButton");
@@ -164,7 +166,7 @@ function main()
     if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
         clickButton(":_headerPage.Print on Save_QCheckBox");   
     waitForObject(":_headerPage._custPONumber_XLineEdit");
-    type(":_headerPage._custPONumber_XLineEdit", "901");
+    type(":_headerPage._custPONumber_XLineEdit", "001");
     waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar_3");
     clickTab(":Quote.qt_tabwidget_tabbar_QTabBar_3", "Line Items");
     waitForObject(":_lineItemsPage.New_QPushButton");
@@ -263,9 +265,9 @@ function main()
         sendEvent("QContextMenuEvent", ":frame._planord_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
         
         waitForObject(":frame._planord_XTreeWidget");
-        if(!clickItem(":frame._planord_XTreeWidget", "TKIT1", 5, 5, 1, Qt.LeftButton))
-            test.pass("Planned Order for TKIT1 created ");
-        else test.fail("Planned Order for TKIT1 not created");
+        if(!clickItem(":frame._planord_XTreeWidget", "TSUB1", 5, 5, 1, Qt.LeftButton))
+            test.pass("Planned Order for TSUB1 created ");
+        else test.fail("Planned Order for TSUB1 not created");
         
         waitForObject(":frame._planord_XTreeWidget");
         var sWidgetTreeControl = ":frame._planord_XTreeWidget";
@@ -274,7 +276,7 @@ function main()
         var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
         var iNumberOfRootItems = obj_TreeRootItem.childCount();
         var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-        var qtkit1 = obj_TreeTopLevelItem.text(8);
+        var qsub1 = obj_TreeTopLevelItem.text(8);
         
         waitForObject(":_plannerCode.Selected:_QRadioButton");
         type(":_plannerCode.Selected:_QRadioButton", "<Down>");
@@ -336,6 +338,7 @@ function main()
         
         while(findObject(":Purchase Requests by Planner Code._pr_XTreeWidget").topLevelItemCount >= 1)
         {
+            
             waitForObject(":Purchase Requests by Planner Code._pr_XTreeWidget");
             openItemContextMenu(":Purchase Requests by Planner Code._pr_XTreeWidget", "O", 5, 5, 0);
             waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release P/R...");
@@ -394,8 +397,8 @@ function main()
         clickButton(":Purchase Order.Save_QPushButton");
         
         clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", ponumber, 5, 5, 0, Qt.LeftButton);
-        waitForObject(":List Unposted Purchase Orders.Post P/O_QPushButton");
-        clickButton(":List Unposted Purchase Orders.Post P/O_QPushButton");
+        waitForObject(":List Unposted Purchase Orders.Post_QPushButton");
+        clickButton(":List Unposted Purchase Orders.Post_QPushButton");
         waitForObject(":List Unposted Purchase Orders.Yes_QPushButton");
         clickButton(":List Unposted Purchase Orders.Yes_QPushButton");
         
@@ -668,8 +671,8 @@ function main()
         
         waitForObject(":List Unposted Purchase Orders._pohead_XTreeWidget"); 
         clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", purchaseorder, 5, 5, 0, Qt.LeftButton);
-        waitForObject(":List Unposted Purchase Orders.Post P/O_QPushButton");
-        clickButton(":List Unposted Purchase Orders.Post P/O_QPushButton");
+        waitForObject(":List Unposted Purchase Orders.Post_QPushButton");
+        clickButton(":List Unposted Purchase Orders.Post_QPushButton");
         waitForObject(":List Unposted Purchase Orders.Yes_QPushButton");
         clickButton(":List Unposted Purchase Orders.Yes_QPushButton");
         
@@ -1189,7 +1192,7 @@ function main()
     clickButton(":_plannerCode.All Planner Codes_QRadioButton_5");
     if(appEdition=="Manufacturing")
     {
-        waitForObjectItem(":_warehouse._warehouses_WComboBox_5", "WH1");
+        waitForObject(":_warehouse._warehouses_WComboBox_5");
         clickItem(":_warehouse._warehouses_WComboBox_5", "WH1", 5, 5, 1, Qt.LeftButton); 
         
     }
@@ -1216,7 +1219,7 @@ function main()
     if(appEdition=="Manufacturing")
     {
         waitForObject(":Work Orders._wo_XTreeWidget");
-        doubleClickItem(":Work Orders._wo_XTreeWidget", "TKIT1", 5, 5, 0, Qt.LeftButton);
+        doubleClickItem(":Work Orders._wo_XTreeWidget", "TSUB1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":Issue Work Order Material Batch.Post_QPushButton");
         clickButton(":Issue Work Order Material Batch.Post_QPushButton");
     }
@@ -1301,8 +1304,8 @@ function main()
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
     if(sNameOfRootItem == "WO")
-        test.pass("Material Issue for TKIT1 has a GL entry");
-    else test.fail("Material Issue for TKIT1 has no GL entry");
+        test.pass("Material Issue for TSUB1 has a GL entry");
+    else test.fail("Material Issue for TSUB1 has no GL entry");
     
     waitForObject(":_gltrans_XTreeWidget");
     type(":_gltrans_XTreeWidget", "<Down>");
@@ -1380,7 +1383,7 @@ function main()
     if(appEdition=="Manufacturing")
     {            
         waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", "TKIT1", 5, 5, 0, Qt.LeftButton);
+        doubleClickItem(":_item_XTreeWidget_6", "TSUB1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_warehouse.All Sites_QRadioButton_7");
         clickButton(":_warehouse.All Sites_QRadioButton_7");
     }
@@ -1432,14 +1435,14 @@ function main()
     { 
         
         waitForObject(":Work Orders._wo_XTreeWidget");
-        doubleClickItem(":Work Orders._wo_XTreeWidget", "TKIT1", 5, 5, 0, Qt.LeftButton);
+        doubleClickItem(":Work Orders._wo_XTreeWidget", "TSUB1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_qty_XLineEdit");
         
         woquantity = findObject(":_qtyGroup.100.00_XLabel").text;
         
         type(":_qty_XLineEdit",woquantity);
-        waitForObject(":_optionsGroup.Close W/O after Posting_XCheckBox");
-        clickButton(":_optionsGroup.Close W/O after Posting_XCheckBox");
+        if( (":_optionsGroup.Close W/O after Posting_XCheckBox").checked)
+            clickButton(":_optionsGroup.Close W/O after Posting_XCheckBox");
         waitForObject(":Post Production.Post_QPushButton");
         clickButton(":Post Production.Post_QPushButton");
         
@@ -1510,7 +1513,7 @@ function main()
     if(appEdition=="Manufacturing")
     {            
         waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", "TKIT1", 5, 5, 0, Qt.LeftButton);
+        doubleClickItem(":_item_XTreeWidget_6", "TSUB1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_warehouse.All Sites_QRadioButton_7");
         clickButton(":_warehouse.All Sites_QRadioButton_7");
     }
@@ -2167,7 +2170,7 @@ function main()
     
     waitForObject(":*.Close_QPushButton");
     clickButton(":*.Close_QPushButton");
-        
+    
     //-----Customer History-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -2198,5 +2201,5 @@ function main()
     waitForObject(":*.Close_QPushButton");
     clickButton(":*.Close_QPushButton");
     
-         
+  
 }
