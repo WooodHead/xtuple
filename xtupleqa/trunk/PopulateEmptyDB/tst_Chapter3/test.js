@@ -209,11 +209,11 @@ function main()
     
     
     
-    //----------Create Item TKIT1------------
+    //----------Create Item TSUB1------------
     waitForObject(":List Items.New_QPushButton_2");
     clickButton(":List Items.New_QPushButton_2");
     waitForObject(":_itemNumber_XLineEdit_3");
-    type(":_itemNumber_XLineEdit_3","TKIT1");
+    type(":_itemNumber_XLineEdit_3","TSUB1");
     type(":_description1_XLineEdit_3", "Truck Kit Type 1");
     type(":Item._description2_XLineEdit_2", "Truck Kit");
     clickItem(":_itemtype_QComboBox_2", "Manufactured", 0, 0, 1, Qt.LeftButton);
@@ -234,8 +234,8 @@ function main()
     waitForObject(":_itemGroup.No_QPushButton");
     clickButton(":_itemGroup.No_QPushButton");
     waitForObject(":List Items._item_XTreeWidget_3");
-    if(!clickItem(":List Items._item_XTreeWidget_3", "TKIT1", 5, 5, 1, Qt.LeftButton))
-        test.pass("Item Created: TKIT1");
+    if(!clickItem(":List Items._item_XTreeWidget_3", "TSUB1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Created: TSUB1");
     
     
     
@@ -619,13 +619,13 @@ function main()
     
     
     
-    //---------Item site: TKIT1----------------------
+    //---------Item site: TSUB1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
     clickButton(":List Item Sites.New_QPushButton_3");
     waitForObject(":Item Site...._QPushButton");
     clickButton(":Item Site...._QPushButton");
     waitForObject(":_item_XTreeWidget_4");
-    doubleClickItem(":_item_XTreeWidget_4","TKIT1",0,0,0,Qt.LeftButton);
+    doubleClickItem(":_item_XTreeWidget_4","TSUB1",0,0,0,Qt.LeftButton);
     waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
     if(appEdition=="Manufacturing"||appEdition=="Standard")
         clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
@@ -689,8 +689,8 @@ function main()
     }
     
     waitForObject(":_itemSite_XTreeWidget_2");
-    if(!clickItem(":_itemSite_XTreeWidget_2", "TKIT1", 5, 5, 1, Qt.LeftButton))
-        test.pass("Item Site Created: TKIT1");
+    if(!clickItem(":_itemSite_XTreeWidget_2", "TSUB1", 5, 5, 1, Qt.LeftButton))
+        test.pass("Item Site Created: TSUB1");
     
     
     //---------Item site: TBOX1----------------------

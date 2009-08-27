@@ -824,11 +824,16 @@ function main()
         waitForObject(":List Calendars._name_XLineEdit_2");
         type(":List Calendars._name_XLineEdit_2", "WEEK"+ (i+1));
         findObject(":List Calendars._offsetCount_QSpinBox").clear();
+        waitForObject(":List Calendars._offsetCount_QSpinBox");
         type(":List Calendars._offsetCount_QSpinBox",i);
+        waitForObject(":List Calendars._offsetType_QComboBox");
         type(":List Calendars._offsetType_QComboBox", "Weeks");
+        waitForObject(":List Calendars._periodCount_QSpinBox");
         findObject(":List Calendars._periodCount_QSpinBox").clear();
         type(":List Calendars._periodCount_QSpinBox",1);
+        waitForObject(":List Calendars._periodType_QComboBox");
         clickItem(":List Calendars._periodType_QComboBox", "Weeks", 0, 0, 1, Qt.LeftButton);
+        waitForObject(":List Calendars.Save_QPushButton");
         clickButton(":List Calendars.Save_QPushButton");    
     }
     waitForObject(":List Calendars.Save_QPushButton_2");
@@ -945,7 +950,7 @@ function main()
  
 
  
-    //-----------Create Inventory Site: WH1-----------------
+  //-----------Create Inventory Site: WH1-----------------
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
     
