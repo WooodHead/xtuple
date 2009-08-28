@@ -21,6 +21,7 @@ BEGIN
   SELECT checkhead.*,
          checkhead_amount / checkhead_curr_rate AS checkhead_amount_base,
          bankaccnt_accnt_id AS bankaccntid,
+         findPrepaidAccount(checkhead_recip_id) AS prepaidaccntid,
 	 checkrecip.* INTO _p
   FROM bankaccnt, checkhead LEFT OUTER JOIN
        checkrecip ON ((checkrecip_type=checkhead_recip_type)
@@ -50,13 +51,13 @@ BEGIN
 	_credit_glaccnt := findAPPrepaidAccount(_p.checkhead_recip_id);
 
       ELSIF (_p.checkhead_recip_type = 'C') THEN
-	PERFORM createARDebitMemo(NULL, _p.checkhead_recip_id, pJournalNumber,
+	PERFORM createARCreditMemo(NULL, _p.checkhead_recip_id,
 				  fetchARMemoNumber(), '', 
 				  pVoidDate, _p.checkhead_amount,
 				  _gltransNote || ' '|| _p.checkhead_notes,
 				  -1, -1, -1, pVoidDate, -1, -1, 0.0,
-				  _p.checkhead_curr_id );
-	_credit_glaccnt := _p.checkrecip_accnt_id;
+				  pJournalNumber, _p.checkhead_curr_id );
+	_credit_glaccnt := _p.prepaidaccntid;
 
       ELSIF (_p.checkhead_recip_type = 'T') THEN
 	-- TODO: should we create a debit memo for the tax authority? how?
