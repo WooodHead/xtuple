@@ -107,7 +107,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/reprintInvoices.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/deliverInvoice.xml" xpointer="element(/1)"
+      <xi:include href="accounting.xml" xpointer="submitEDI_Invoice"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/printCreditMemos.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -168,12 +168,140 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/printRaForm.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/deliverSalesOrder.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/packingListBatch.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/printPackingList.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section role="standard">
+      <title><indexterm>
+          <primary>sales orders</primary>
+          <secondary>electronic delivery of</secondary>
+        </indexterm><indexterm>
+          <primary>electronic data interchange</primary>
+          <secondary>sales order delivery using</secondary>
+        </indexterm>Send Electronic Sales Order Form</title>
+      <para>To send a Sales Order form to a Customer by email or FTP, select
+      the "Send Electronic Sales Order Form" option. The following screen will
+      appear:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/deliverSalesOrder.png" />
+            </imageobject>
+            <caption><para><remark>findme: get a screenshot of the submitEDI
+            window with the open list or search of sales
+            orders</remark></para><para>Selecting a Sales Order to Review EDI
+            Before Sending</para></caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>This window shows either a list or search window for Sales Orders
+      for Customers configured to receive EDI. You are presented with the
+      following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Search for</term>
+          <listitem>
+            <para>Optionally enter a Sales Order number here to find it in the
+            list.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Orders</term>
+          <listitem>
+            <para>List of Sales Orders that can be sent by EDI.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <note>
+        <para>Customers are set up to receive electronic deliveries of
+        information using the "Transmission" tab on the Customer
+        master.</para>
+      </note>
+      <para>To the far right of the screen, the following buttons are
+      available:</para>
+      <variablelist>
+        <varlistentry>
+          <term>CANCEL</term>
+          <listitem>
+            <para>Closes the screen without scheduling a Sales Order for
+            delivery, returning you to the application desktop.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>SELECT</term>
+          <listitem>
+            <para>Select the Sales Order for delivery. This closes the window
+            and proceeds to sending the EDI.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <xi:include href="guiclient/submitEDI.xml" xpointer="submitEDI"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section role="standard">
+      <title><indexterm>
+          <primary>quotes</primary>
+          <secondary>electronic delivery of</secondary>
+        </indexterm><indexterm>
+          <primary>electronic data interchange</primary>
+          <secondary>quote delivery using</secondary>
+        </indexterm>Send Electronic Quote</title>
+      <para>To send a Quote to a Customer or Prospect by email or FTP, select
+      the "Send Electronic Quote" option. The following screen will
+      appear:</para>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/deliverSalesOrder.png" />
+        </imageobject>
+        <caption><para><remark>findme: get a screenshot of the submitEDI
+        window with the open list or search of
+        quotes</remark></para><para>Selecting a Quote to Review EDI Before
+        Sending</para></caption>
+      </mediaobject>
+      <para>This window shows either a list or search window for Quotes for
+      Customers and Prospects configured to receive EDI. You are presented
+      with the following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Search for</term>
+          <listitem>
+            <para>Optionally enter a Quote number here to find it in the
+            list.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Quotes</term>
+          <listitem>
+            <para>List of Quotes that can be sent by EDI.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <note>
+        <para>Customers and Prospects are set up to receive electronic
+        deliveries of information using the "Transmission" tab on the Customer
+        or Prospects master.</para>
+      </note>
+      <para>To the far right of the screen, the following buttons are
+      available:</para>
+      <variablelist>
+        <varlistentry>
+          <term>CANCEL</term>
+          <listitem>
+            <para>Closes the screen without scheduling a Quote for delivery,
+            returning you to the application desktop.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>SELECT</term>
+          <listitem>
+            <para>Select the Quote for delivery. This closes the window and
+            proceeds to sending the EDI.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <xi:include href="guiclient/submitEDI.xml" xpointer="submitEDI"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
   </section>
   <section id="Section519901">
     <title>Reports</title>
@@ -383,9 +511,6 @@
     <xi:include href="guiclient/customers.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/searchForCustomer.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/dspCustomerInformation.xml"
-                xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/customerTypes.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
