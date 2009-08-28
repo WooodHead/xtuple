@@ -5,15 +5,10 @@ Version 3.3.0RC2
 August 17, 2009
 ==================================
 
-Shortly after the release of 3.3.0RC we discovered an issue
-with OpenRPT, the embedded report writer for xTuple ERP. 
-Because the issue was causing print failures throughout the
-applications, we decided to release an RC2 to fix that specific
-problem. The RC2 release is a client-side only release. This 
-means there are no database changes required for 3.3.0RC2. 
-Instead, users should connect the 3.3.0RC2 client to their 
-3.3.0RC databases. This will fix the printing problem found in 
-3.3.0RC.
+The RC2 release is a client-side only release, which fixes
+a printing problem with the embedded OpenRPT report writer.
+This means there are no database changes required for 3.3.0RC2.
+
 ==================================
 
 The following features and bug fixes have been added to the
