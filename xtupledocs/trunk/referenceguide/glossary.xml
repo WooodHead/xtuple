@@ -225,7 +225,7 @@
       </indexterm>average cost</glossterm>
     <glossdef>
       <para>A costing approach where cost distribution is based on an average
-      of all costs accumulated </para>
+      of all costs accumulated</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -1010,6 +1010,16 @@
       status can be imploded. Released ("R") or in-process ("I") Work Orders
       cannot be imploded. When a Work Order is imploded, its status changes to
       open ("O").</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
+    <glossterm><indexterm significance="normal">
+        <primary>input mask</primary>
+        <secondary>defined</secondary>
+      </indexterm>input mask</glossterm>
+    <glossdef>
+      <para>A template typically featuring separator characters used to guide
+      users doing data entry. A form of light data validation</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -2218,6 +2228,36 @@
     </glossdef>
   </glossentry>
   <glossentry>
+    <glossterm><indexterm significance="normal">
+        <primary>sites</primary>
+        <secondary>defined</secondary>
+      </indexterm>Site</glossterm>
+    <glossdef>
+      <para>A physical production or storage facility.</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
+    <glossterm><indexterm significance="normal">
+        <primary>site locations</primary>
+        <secondary>defined</secondary>
+      </indexterm>Site Location</glossterm>
+    <glossdef>
+      <para>A physical location within a Site for example, a bin, shelf,
+      aisle, etc. Also known as a "Location."</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
+    <glossterm><indexterm significance="normal">
+        <primary>site zones</primary>
+        <secondary>defined</secondary>
+      </indexterm>Site Zone</glossterm>
+    <glossdef>
+      <para>A defined section or area within a Site. For example, separate
+      Site Zones might be designated to define areas where Orders are
+      selected, Picked, and Packed.</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
     <glossterm>sold Item</glossterm>
     <glossdef>
       <para>An Item that can be sold to Customers.</para>
@@ -2547,8 +2587,7 @@
     <glossterm><indexterm significance="normal">
         <primary>unallocated</primary>
         <secondary>defined</secondary>
-      </indexterm> <ulink id="Hypertext469270"
-    url="allocation">allocation</ulink>unallocated</glossterm>
+      </indexterm>unallocated</glossterm>
     <glossdef>
       <para>Describes the Quantity on Hand remaining after allocations have
       been accounted for, as in: QOH - Allocated Qty. = Unallocated Qty. See
@@ -2599,6 +2638,18 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
+        <primary>validator</primary>
+        <secondary>defined</secondary>
+      </indexterm>validator</glossterm>
+    <glossdef>
+      <para>A formatting requirement used to strictly enforce data entry
+      rules. If you specify a validator for a field, then users will have to
+      conform to the format when entering data. Any data which does not
+      conform will not be accepted.</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
+    <glossterm><indexterm significance="normal">
         <primary>variances</primary>
         <secondary>defined</secondary>
       </indexterm>variance</glossterm>
@@ -2635,36 +2686,6 @@
       <para>A document authorizing payment to Vendors who have either
       performed services or supplied goods. A voucher "vouches for" the fact
       that these goods or services have been provided.</para>
-    </glossdef>
-  </glossentry>
-  <glossentry>
-    <glossterm><indexterm significance="normal">
-        <primary>sites</primary>
-        <secondary>defined</secondary>
-      </indexterm>Site</glossterm>
-    <glossdef>
-      <para>A physical production or storage facility.</para>
-    </glossdef>
-  </glossentry>
-  <glossentry>
-    <glossterm><indexterm significance="normal">
-        <primary>site locations</primary>
-        <secondary>defined</secondary>
-      </indexterm>Site Location</glossterm>
-    <glossdef>
-      <para>A physical location within a Site for example, a bin, shelf,
-      aisle, etc. Also known as a "Location."</para>
-    </glossdef>
-  </glossentry>
-  <glossentry>
-    <glossterm><indexterm significance="normal">
-        <primary>site zones</primary>
-        <secondary>defined</secondary>
-      </indexterm>Site Zone</glossterm>
-    <glossdef>
-      <para>A defined section or area within a Site. For example, separate
-      Site Zones might be designated to define areas where Orders are
-      selected, Picked, and Packed.</para>
     </glossdef>
   </glossentry>
   <glossentry>
