@@ -27,11 +27,11 @@
     <title>Purchase Request</title>
     <para>Purchase Request section.</para>
     <xi:include href="guiclient/dspPurchaseReqsByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/dspPurchaseReqsByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section971640">
     <title><indexterm significance="normal">
@@ -76,29 +76,28 @@
       its closed Line Items.</para>
     </tip>
     <xi:include href="guiclient/purchaseOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section972320)" />
+                xpointer="element(Section972320)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/unpostedPurchaseOrders.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section972514)" />
+                xpointer="element(Section972514)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/postPurchaseOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section972566)" />
+                xpointer="element(Section972566)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/postPurchaseOrdersByAgent.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section518750)" />
+                xpointer="element(Section518750)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/closePurchaseOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section518763)" />
+                xpointer="element(Section518763)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/reschedulePoitem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section940909)" />
+                xpointer="element(Section940909)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/changePoitemQty.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section942284)" />
-    <xi:include href="guiclient/addPoComment.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(Section942284)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/addPoComment.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section972014">
     <title><indexterm significance="normal">
@@ -108,160 +107,215 @@
     <para>Vouchers are documents authorizing payment to Vendors who have
     either performed services or supplied goods. A voucher "vouches for" the
     fact that these goods or services have been provided.</para>
-    <xi:include href="guiclient/voucher.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section972085)" />
+    <xi:include href="guiclient/voucher.xml" xpointer="element(Section972085)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/miscVoucher.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section972204)" />
+                xpointer="element(Section972204)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/openVouchers.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section972251)" />
+                xpointer="element(Section972251)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/voucheringEditList.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section972283)" />
+                xpointer="element(Section972283)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/postVouchers.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section972299)" />
+                xpointer="element(Section972299)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
     <title>Forms</title>
     <para>Purchase Forms section.</para>
     <xi:include href="guiclient/printPurchaseOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section972547)" />
+                xpointer="element(Section972547)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/printPurchaseOrdersByAgent.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section969550)" />
-    <xi:include href="guiclient/deliverPurchaseOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section932714)" />
+                xpointer="element(Section969550)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/printPoForm.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section965215)" />
+                xpointer="element(Section965215)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/printVendorForm.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section965234)" />
+                xpointer="element(Section965234)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section role="standard">
+      <title><indexterm>
+          <primary>Purchase Orders</primary>
+          <secondary>electronic delivery of</secondary>
+        </indexterm><indexterm>
+          <primary>electronic data interchange</primary>
+          <secondary>Purchase Order delivery using</secondary>
+        </indexterm>Send Electronic Purchase Order</title>
+      <para>To send a copy of a Purchase Order electronically, select the
+      "Send Electronic Purchase Order" option. The following screen will
+      appear:</para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="???" />
+          </imageobject>
+          <caption><para>E-mail Purchase Order
+          Form</para><para><remark>findme: get a screenshot of the submitEDI
+          window with the open list or search of purchase
+          orders</remark></para></caption>
+        </mediaobject>
+      </screenshot>
+      <para>This window shows either a list or search window for Purchase
+      Orders for those Vendors configured to receive EDI. You are presented
+      with the following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Search for</term>
+          <listitem>
+            <para>Optionally enter an Purchase Order number here to find it in
+            the list.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Orders</term>
+          <listitem>
+            <para>List of Purchase Orders that can be sent by EDI.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <note>
+        <para>Vendors are set up to receive electronic deliveries of
+        information using the "Transmission" tab on the Vendor master.</para>
+      </note>
+      <para>To the far right of the screen, the following buttons are
+      available:</para>
+      <variablelist>
+        <varlistentry>
+          <term>CANCEL</term>
+          <listitem>
+            <para>Closes the screen without scheduling a Purchase Order for
+            delivery, returning you to the application desktop.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>SELECT</term>
+          <listitem>
+            <para>Select the Purchase Order for delivery. This closes the
+            window and proceeds to sending the EDI.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <xi:include href="guiclient/submitEDI.xml" xpointer="submitEDI"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
   </section>
   <section id="Section518907">
     <title>Reports</title>
     <para>Purchase Reports section.</para>
     <xi:include href="guiclient/dspItemSitesByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
       <title>Item Sources</title>
       <para>Item Sources Reports section.</para>
       <xi:include href="guiclient/dspItemSourcesByVendor.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section954960)" />
+                  xpointer="element(Section954960)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspItemSourcesByItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section518921)" />
+                  xpointer="element(Section518921)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <xi:include href="guiclient/buyCard.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section921353)" />
+    <xi:include href="guiclient/buyCard.xml" xpointer="element(Section921353)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
       <title>Purchase Requests</title>
       <para>Purchase Request Reports section.</para>
       <xi:include href="guiclient/dspPurchaseReqsByPlannerCode.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspPurchaseReqsByItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <section>
       <title>Purchase Orders</title>
       <para>Purchase Orders Reports section.</para>
       <xi:include href="guiclient/dspPOsByVendor.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section958417)" />
+                  xpointer="element(Section958417)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspPOsByDate.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section955950)" />
+                  xpointer="element(Section955950)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <section>
       <title>Purchase Order Items</title>
       <para>Purchase Order Items Reports section.</para>
       <xi:include href="guiclient/dspPoItemsByVendor.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section518917)" />
+                  xpointer="element(Section518917)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspPoItemsByDate.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section920970)" />
+                  xpointer="element(Section920970)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspPoItemsByItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section518919)" />
+                  xpointer="element(Section518919)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <xi:include href="guiclient/dspPoItemsByBufferStatus.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/dspPoHistory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section971614)" />
+                xpointer="element(Section971614)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
       <title>Receipts and Returns</title>
       <para>Receipts and Returns Reports section.</para>
       <xi:include href="guiclient/dspPoItemReceivingsByVendor.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section535325)" />
+                  xpointer="element(Section535325)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspPoItemReceivingsByDate.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section535280)" />
+                  xpointer="element(Section535280)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspPoItemReceivingsByItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section518924)" />
+                  xpointer="element(Section518924)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <xi:include href="guiclient/dspUninvoicedReceivings.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section972017)" />
+                xpointer="element(Section972017)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
       <title>Price Variances</title>
       <para>Price Variances Reports section.</para>
       <xi:include href="guiclient/dspPoPriceVariancesByVendor.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section518926)" />
+                  xpointer="element(Section518926)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspPoPriceVariancesByItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section518928)" />
+                  xpointer="element(Section518928)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <section>
       <title>Delivery Date Variances</title>
       <para>Deliver Date Variances section.</para>
       <xi:include href="guiclient/dspPoDeliveryDateVariancesByVendor.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section970069)" />
+                  xpointer="element(Section970069)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspPoDeliveryDateVariancesByItem.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section914385)" />
+                  xpointer="element(Section914385)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <xi:include href="guiclient/dspPoReturnsByVendor.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section518930)" />
+                xpointer="element(Section518930)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/openVouchers.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section972251)" />
+                xpointer="element(Section972251)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
     <title>Vendor</title>
     <para>Vendor section.</para>
-    <xi:include href="guiclient/vendor.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/vendors.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/searchForVendor.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/vendorWorkBench.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/vendorTypes.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/vendor.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/vendors.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/searchForVendor.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/vendorWorkBench.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/vendorTypes.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section959109">
     <title>Item Source</title>
@@ -269,11 +323,10 @@
     who supply them. In this section we describe the features of Item
     Sources.</para>
     <xi:include href="guiclient/itemSource.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section520355)" />
-    <xi:include href="guiclient/itemSources.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(Section520355)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/itemSources.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section518524">
     <title><indexterm significance="normal">
@@ -281,21 +334,17 @@
         <secondary>for p/o module</secondary>
       </indexterm>Master Information</title>
     <para>Purchase Master Information section.</para>
-    <xi:include href="guiclient/plannerCodes.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/rejectCodes.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/termses.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/expenseCategories.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/plannerCodes.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/rejectCodes.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/termses.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/expenseCategories.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/apAccountAssignments.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section951811">
     <title><indexterm significance="normal">
@@ -304,13 +353,13 @@
       </indexterm>Utilities</title>
     <para>Purchase Utilities section.</para>
     <xi:include href="guiclient/dspItemsWithoutItemSources.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section940988)" />
+                xpointer="element(Section940988)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/assignItemToPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section518989)" />
+                xpointer="element(Section518989)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/assignClassCodeToPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section518990)" />
+                xpointer="element(Section518990)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
 </chapter>
