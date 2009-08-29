@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="taxClasses">
+  <title><indexterm significance="normal">
+      <primary>tax classes</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm>Tax Classes</title>
+
+  <para>Tax Classes are used as a grouping mechanism for structuring of
+  cumulative taxes. Can also be used for reporting purposes such as summarized
+  historical reporting and subtotaling on forms. To access the master list of
+  Tax Classes, select the "Tax Classes" option. The following screen will
+  appear:</para>
+
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/taxClasses.png" />
+        </imageobject>
+
+        <caption>Tax Classes Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para>The "Tax Classes" screen displays information on all existing Tax
+  Classes.</para>
+
+  <para>To the far right of the list, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>NEW</term>
+
+      <listitem>
+        <para>Opens screen for creating a new Tax Class.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>EDIT</term>
+
+      <listitem>
+        <para>Enables you to edit highlighted Tax Classes. The edit screen is
+        the same as that for creating a new Tax Class—except that when
+        editing, the fields will contain Tax Class information.
+        Double-clicking on a Tax Class will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>VIEW</term>
+
+      <listitem>
+        <para>Highlight a Tax Class and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>DELETE</term>
+
+      <listitem>
+        <para>Highlight a Tax Class and then select this button to remove the
+        Tax Class from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <xi:include href="taxClass.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
