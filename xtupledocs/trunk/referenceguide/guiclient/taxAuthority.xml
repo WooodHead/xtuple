@@ -5,56 +5,59 @@
 <section id="taxAuthority">
   <title><indexterm significance="normal">
       <primary>tax authorities</primary>
+
       <secondary>creating new</secondary>
     </indexterm>Tax Authority</title>
+
   <para>To create a new Tax Authority, select the NEW button. The following
   screen will appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/taxAuthority.png" />
         </imageobject>
+
         <caption>Create New Tax Authority</caption>
       </mediaobject>
     </screenshot></para>
+
   <para>When creating a new Tax Authority, you are presented with the
   following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Code</term>
+
       <listitem>
         <para>Enter a code to identify the Tax Authority.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Name</term>
+
       <listitem>
         <para>Enter a name to describe the Tax Authority.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>CRM Account</term>
-      <listitem>
-        <para>Displays the CRM Account Number associated with the Tax
-        Authority.</para>
-        <para>Tax Authorities are a form of CRM Account. If a Tax Authority is
-        created from the Accounting module, a linked CRM Account will
-        automatically be created. To view the CRM Account information for the
-        Tax Authority, select the "?" symbol next to the field.</para>
-      </listitem>
-    </varlistentry>
+
     <varlistentry>
       <term>Ext. Ref</term>
+
       <listitem>
         <para>Use this field to record any external accounting references for
         the Tax Authority—if applicable.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Currency</term>
+
       <listitem>
         <para>Specify the Currency to be used for Tax calculations when
         transactions are governed by the Tax Authority.</para>
+
         <para>The Currency selection affects only Tax calculations for
         transactions governed by the Tax Authority. It has no impact on the
         Currency used for Line Items, etc. on an Order. If the Tax Authority
@@ -64,20 +67,48 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
   <tip>
     <para>If a Tax Authority collects Tax in your base Currency, then leave
     the Currency selection blank.</para>
   </tip>
+
   <variablelist>
     <varlistentry>
       <term>County</term>
+
       <listitem>
         <para>Enter the County which the Tax Authority has jurisdiction
         over—if applicable.</para>
       </listitem>
     </varlistentry>
+
+    <varlistentry>
+      <term>CRM Account</term>
+
+      <listitem>
+        <para>Displays the CRM Account Number associated with the Tax
+        Authority.</para>
+
+        <para>Tax Authorities are a form of CRM Account. If a Tax Authority is
+        created from the Accounting module, a linked CRM Account will
+        automatically be created. To view the CRM Account information for the
+        Tax Authority, select the "?" symbol next to the field.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Default G/L Account</term>
+
+      <listitem>
+        <para>Specify the G/L Account to credit when payment (check) to Tax
+        Authority is posted.</para>
+      </listitem>
+    </varlistentry>
+
     <varlistentry>
       <term>Address</term>
+
       <listitem>
         <para>Manually enter Tax Authority's Address information in the fields
         below—or use the browse button to select pre-existing Address
@@ -88,18 +119,23 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>To the far right of the screen, the following buttons are
   available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
+
       <listitem>
         <para>Closes the screen without creating a Tax Authority, returning
         you to the previous screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>SAVE</term>
+
       <listitem>
         <para>Creates the Tax Authority and adds it to the master list of Tax
         Authorities.</para>
