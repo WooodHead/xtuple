@@ -11,7 +11,10 @@
         <imageobject>
           <imagedata fileref="images/ediFormDetail.png" />
         </imageobject>
-        <caption>Create New EDI Form Detail Query</caption>
+        <caption><para>Create New EDI Form Detail
+        Query</para><para><remark>findme: get a new screenshot. change the
+        query to <code>SELECT * FROM invchead WHERE (invchead_id=&lt;?
+        value("docid") ?&gt;);</code></remark></para></caption>
       </mediaobject>
     </screenshot></para>
   <para>When creating a new Form Detail query, you are presented with the
@@ -40,8 +43,12 @@
         populate your CSV file with. As you can see in the example, the query
         selects invoice header information from the "invchead" table. You will
         note in the WHERE clause that MetaSQL is used to dynamically capture
-        the specific Invoice number. For more information on writing queries
-        using MetaSQL, please see the Report Writer User Guide.</para>
+        the specific Invoice number using the system-defined
+        <literal>docid</literal> token (the <code>"&lt;/&gt;"</code> wrapper
+        is replaced by the MetaSQL <code>&lt;? value("") ?&gt;</code>). You
+        may also use any tokens defined in the EDI Form query to build the EDI
+        Form Detail query. For more information on writing queries using
+        MetaSQL, please see the Report Writer User Guide.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

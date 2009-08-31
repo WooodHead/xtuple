@@ -19,22 +19,29 @@
         <imageobject>
           <imagedata fileref="images/Sys_ediFormReport.png" />
         </imageobject>
-        <caption>Create New EDI Form Using Report Format</caption>
+        <caption><para>Create New EDI Form Using Report
+        Format</para><para><remark>findme: screenshot of an ediform using
+        report format. set file_name to
+        <code>&lt;/doctype&gt;&lt;/docnumber&gt;_&lt;/cust_number&gt;_&lt;/now&gt;.pdf</code>
+        and set query to <code>SELECT cust_number, to_char(CURRENT_DATE,
+        'yy_mm_dd') AS now, salesrep_name, usr_email FROM custinfo JOIN
+        invchead ON cust_id=invchead_cust_id JOIN salesrep ON
+        invchead_salesrep_id=salesrep_id LEFT OUTER JOIN usr ON
+        (salesrep_number=usr_username) WHERE (invchead_id=&lt;? value("docid")
+        ?&gt;);</code></remark></para></caption>
       </mediaobject>
     </screenshot></para>
   <para>When creating a new EDI Form using the Report format, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Type</term>
+      <term>Document Type</term>
       <listitem>
-        <para>Select the type of document the Form will be used for. Invoices
-        are currently the only supported document type. The Invoice type will
-        be selected by default.</para>
+        <para>Select the type of document the Form will be used for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Output</term>
+      <term>Output Format</term>
       <listitem>
         <para>For this example, we have selected the "Report" output format.
         Selecting the "Report" option indicates that document information will
@@ -49,19 +56,36 @@
         forwarded to EDI recipients using this EDI Form. You may enter tags to
         generate dynamic file names using information stored in your database.
         In the example shown, the file name will include the specific Invoice
-        Number of each Invoice being forwarded to EDI recipients.</para>
+        Number of each Invoice being forwarded to EDI recipients, the Customer
+        Number, and the date the EDI is generated.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Query</term>
+      <term><indexterm>
+          <primary>electronic data interchange</primary>
+          <secondary>tokens</secondary>
+        </indexterm><indexterm>
+          <primary>tokens</primary>
+          <secondary>electronic data interchange</secondary>
+        </indexterm>Query</term>
       <listitem>
-        <para>This is an optional field to be used if you want to generate
-        dynamic file names using information stored in your database. The
-        example uses a basic SQL statement to select an Invoice number from
-        the "invchead" table. You will note in the WHERE clause that MetaSQL
-        is used to dynamically capture the specific Invoice number. For more
-        information on writing queries using MetaSQL, please see the Report
-        Writer User Guide.</para>
+        <para>This is an optional field to be used if you want to define your
+        own replacement tokens. The example uses a SQL statement to select the
+        Customer Number for this Invoice and the current date as year, month,
+        and date separated by underscores ("_"). You will note in the WHERE
+        clause that MetaSQL is used to dynamically capture the specific
+        Customer Number using the system-defined <literal>docid</literal>
+        token (the <code>"&lt;/&gt;"</code> wrapper is replaced by the MetaSQL
+        <code>&lt;? value("") ?&gt;</code>). For more information on writing
+        queries using MetaSQL, please see the Report Writer User Guide.</para>
+        <para>Tokens defined in this Query can also be used on the EDI Profile
+        screen. For example, the query in the example above also retrieves the
+        Sales Rep's name and email address. The Message Body on the EDI
+        Profile window could be changed to end with the token
+        "&lt;/salesrep_name&gt;" and the From address could be set to
+        "&lt;/usr_email&gt;". If you do this, Invoice emails will always be
+        signed with the name of the Sales Rep and sent from the Sales Rep's
+        email address if s/he is also defined as a User and Employee.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -94,51 +118,22 @@
         <imageobject>
           <imagedata fileref="images/Sys_ediFormCSV.png" />
         </imageobject>
-        <caption>Create New EDI Form Using CSV Format</caption>
+        <caption><para>Create New EDI Form Using CSV
+        Format</para><para><remark>findme: screenshot of an ediform using CSV
+        format. set file_name to
+        <code>&lt;/doctype&gt;&lt;/docnumber&gt;_&lt;/cust_number&gt;_&lt;/now&gt;.csv</code>
+        and set query to <code>SELECT cust_number, to_char(CURRENT_DATE,
+        'yy_mm_dd') AS now, salesrep_name, usr_email FROM custinfo JOIN
+        invchead ON cust_id=invchead_cust_id JOIN salesrep ON
+        invchead_salesrep_id=salesrep_id LEFT OUTER JOIN usr ON
+        (salesrep_number=usr_username) WHERE (invchead_id=&lt;? value("docid")
+        ?&gt;);</code></remark></para></caption>
       </mediaobject>
     </screenshot></para>
-  <para>When creating a new EDI Form using the Report format, you are
-  presented with the following options:</para>
+  <para>When creating a new EDI Form using the CSV format, you are presented
+  with the many of the same options as for reports. However, the Report option
+  is replaced with the following:</para>
   <variablelist>
-    <varlistentry>
-      <term>Type</term>
-      <listitem>
-        <para>Select the type of document the Form will be used for. Invoices
-        are currently the only supported document type. The Invoice type will
-        be selected by default.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Output</term>
-      <listitem>
-        <para>For this example, we have selected the "CSV" output format.
-        Selecting the "CSV" option indicates that document information will be
-        written using the Form details specified below. Documents will be
-        forwarded to EDI recipients in .TXT format.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>File Name</term>
-      <listitem>
-        <para>Enter a standard file name to be used when documents are
-        forwarded to EDI recipients using this EDI Form. You may enter tags to
-        generate dynamic file names using information stored in your database.
-        In the example shown, the file name will include the specific Invoice
-        Number of each Invoice being forwarded to EDI recipients.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Query</term>
-      <listitem>
-        <para>This is an optional field to be used if you want to generate
-        dynamic file names using information stored in your database. The
-        example uses a basic SQL statement to select an Invoice number from
-        the "invchead" table. You will note in the WHERE clause that MetaSQL
-        is used to dynamically capture the specific Invoice number. For more
-        information on writing queries using MetaSQL, please see the Report
-        Writer User Guide.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>comma separated value</primary>
@@ -163,6 +158,8 @@
             </listitem>
           </varlistentry>
         </variablelist>
+        <para>You may also define your own delimiter. It must be a single,
+        non-space, printing character (e.g. "*" or ":").</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -187,9 +184,9 @@
       <listitem>
         <para>Enables you to edit highlighted Form Detail definitions. The
         edit screen is the same as that for creating a new Form Detail
-        definition—except that when editing, the fields will contain Form
-        Detail information. Double-clicking on a Form Detail definition will
-        also bring you to the editing screen.</para>
+        definition&mdash;except that when editing, the fields will contain
+        Form Detail information. Double-clicking on a Form Detail definition
+        will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

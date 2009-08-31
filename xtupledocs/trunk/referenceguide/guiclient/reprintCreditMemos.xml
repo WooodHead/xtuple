@@ -12,8 +12,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/reprintCreditMemos.png"
-                     />
+          <imagedata fileref="images/reprintCreditMemos.png" />
         </imageobject>
         <caption>Re-Print Credit Memos</caption>
       </mediaobject>
@@ -70,6 +69,9 @@
       <listitem>
         <para>Prints the highlighted Credit Memos, using the specified
         parameters.</para>
+        <para role="standard">If the Customer specified on a Credit Memo has
+        an EDI Profile attached, you may encounter an EDI processing interface
+        when printing it.</para>
       </listitem>
     </varlistentry>
   </variablelist>

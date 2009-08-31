@@ -5,8 +5,8 @@
 <section role="standard">
   <title id="returnAuthWorkbenchTitle">Return Authorization Workbench</title>
   <para>The Return Authorization Workbench is designed to help manage and
-  process open Return Authorizations—and to process credits and refunds. The
-  Return Authorization Workbench appears as follows:</para>
+  process open Return Authorizations&mdash;and to process credits and refunds.
+  The Return Authorization Workbench appears as follows:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -184,9 +184,9 @@
       <listitem>
         <para>Enables you to edit highlighted Return Authorization. The edit
         screen is the same as that for creating a new Return
-        Authorization—except that when editing, the fields will contain Return
-        Authorization information. Double-clicking on a Return Authorization
-        will also bring you to the editing screen.</para>
+        Authorization&mdash;except that when editing, the fields will contain
+        Return Authorization information. Double-clicking on a Return
+        Authorization will also bring you to the editing screen.</para>
         <tip>
           <para>Some of the processing required for a Return Authorization
           (e.g., posting Receipts) may be handled on the Return Authorization
@@ -296,9 +296,9 @@
       <listitem>
         <para>Enables you to edit highlighted Return Authorization. The edit
         screen is the same as that for creating a new Return
-        Authorization—except that when editing, the fields will contain Return
-        Authorization information. Double-clicking on a Return Authorization
-        will also bring you to the editing screen.</para>
+        Authorization&mdash;except that when editing, the fields will contain
+        Return Authorization information. Double-clicking on a Return
+        Authorization will also bring you to the editing screen.</para>
         <tip>
           <para>Some of the processing required for a Return Authorization
           (e.g., posting Receipts) may be handled on the Return Authorization
@@ -323,6 +323,9 @@
         it by selecting the "Print Credit Memo" option. If you select the
         "Post Credit Memos Immediately" option, then the Credit Memo will be
         posted as soon as it is created.</para>
+        <para role="standard">If the Customer specified on the Credit Memo has
+        an EDI Profile attached, you may encounter an EDI processing interface
+        when printing it.</para>
       </listitem>
     </varlistentry>
   </variablelist>

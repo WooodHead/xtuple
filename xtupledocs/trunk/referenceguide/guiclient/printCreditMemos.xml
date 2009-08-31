@@ -13,8 +13,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_printCredMems.png"
-                     />
+          <imagedata fileref="images/SO_Bill_printCredMems.png" />
         </imageobject>
         <caption>Print Credit Memos</caption>
       </mediaobject>
@@ -69,6 +68,9 @@
       <listitem>
         <para>Prints all Credit Memos available for printing, using the
         specified parameters.</para>
+        <para role="standard">If the Customer specified on a Credit Memo has
+        an EDI Profile attached, you may encounter an EDI processing interface
+        when printing it.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -78,8 +80,7 @@
   xreflabel="57653: Figure: Figure 7.69:  Add Watermark" /> <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_addWatermark.png"
-                     />
+          <imagedata fileref="images/SO_Bill_addWatermark.png" />
         </imageobject>
         <caption>Add Watermark</caption>
       </mediaobject>

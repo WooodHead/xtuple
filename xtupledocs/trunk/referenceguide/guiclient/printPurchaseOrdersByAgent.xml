@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section969550">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>purchase orders</primary>
       <secondary>printing by agent</secondary>
     </indexterm>Print Purchase Orders by Agent</title>
   <para>To print Purchase Orders by Agent, select the "Print Purchase Orders
   by Agent" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/printPurchaseOrdersByAgent.png"/>
+          <imagedata fileref="images/printPurchaseOrdersByAgent.png" />
         </imageobject>
         <caption>Print Purchase Orders by Agent</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When printing Purchase Orders by Agent, you are presented with the
   following options:</para>
   <variablelist>
@@ -76,6 +74,9 @@
       <listitem>
         <para>Prints the specified number of copies of Purchase Orders by
         Purchasing Agent.</para>
+        <para role="standard">If the Vendor specified on the Purchase Order
+        has an EDI Profile attached, you may encounter an EDI processing
+        interface when printing the Purchase Order.</para>
       </listitem>
     </varlistentry>
   </variablelist>

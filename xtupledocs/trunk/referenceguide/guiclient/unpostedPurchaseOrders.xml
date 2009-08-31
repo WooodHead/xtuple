@@ -33,8 +33,8 @@
   selecting the "Show All Unvouchered P/Os" option.</para>
   <tip>
     <para>You may select multiple Purchase Orders for printing or posting by
-    highlighting them using your mouse—or a combination of your mouse and
-    either the SHIFT or CTRL keys.</para>
+    highlighting them using your mouse&mdash;or a combination of your mouse
+    and either the SHIFT or CTRL keys.</para>
   </tip>
   <para>To the far right of the screen, the following buttons are
   available:</para>
@@ -56,8 +56,8 @@
       <term>EDIT</term>
       <listitem id="unpostedPurchaseOrdersEDIT">
         <para>Enables you to edit highlighted Purchase Order. The edit screen
-        is the same as that for creating a new Purchase Order—except that when
-        editing, the fields will contain Purchase Order information.
+        is the same as that for creating a new Purchase Order&mdash;except
+        that when editing, the fields will contain Purchase Order information.
         Double-clicking on a Purchase Order will also bring you to the editing
         screen.</para>
       </listitem>
@@ -88,6 +88,9 @@
       <listitem id="unpostedPurchaseOrdersPRINT">
         <para>Highlight a Purchase Order and then select this button to print
         a copy of the selected Purchase Order.</para>
+        <para role="standard">If the Vendor specified on the Purchase Order
+        has an EDI Profile attached, you may encounter an EDI processing
+        interface when printing the Purchase Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
