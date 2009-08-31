@@ -46,8 +46,7 @@
     <varlistentry role="standard">
       <term>From</term>
       <listitem>
-        <para>Displays the Source Site if a Transfer Order is
-        selected.</para>
+        <para>Displays the Source Site if a Transfer Order is selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -62,10 +61,10 @@
       <listitem>
         <para>Specify this option to select the Sales Order for Billing as
         soon as it is shipped. If selected, the Order will appear on the
-        Billing Selections list&mdash;making it available to be converted into an
-        Invoice. This option will be selected by default if specified in your
-        system-level configuration. This option will be disabled if a Transfer
-        Order is specified.</para>
+        Billing Selections list&mdash;making it available to be converted into
+        an Invoice. This option will be selected by default if specified in
+        your system-level configuration. This option will be disabled if a
+        Transfer Order is specified.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -79,6 +78,9 @@
         posting. By default, the "Select for Billing" option will also be
         selected. This option will be disabled if a Transfer Order is
         specified.</para>
+        <para role="standard">If the Customer specified on the Sales Order has
+        an EDI Profile attached, you may encounter an EDI processing interface
+        when printing the Invoice.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -92,10 +94,10 @@
       <term>Receive Immediately</term>
       <listitem>
         <para>Select if you want the Transfer Order to be received
-        automatically at the Destination Site as soon as the Order is
-        shipped. If this option is not used, Transfer Order Items must be
-        received manually at the Destination Site. This option will be
-        disabled if a Sales Order is specified.</para>
+        automatically at the Destination Site as soon as the Order is shipped.
+        If this option is not used, Transfer Order Items must be received
+        manually at the Destination Site. This option will be disabled if a
+        Sales Order is specified.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -122,8 +124,8 @@
   </variablelist>
   <tip>
     <para>If your site integrates UPS WorldShip with the system, you should
-    process Orders in WorldShip after they have been issued to Shipping&mdash;but
-    before they have been shipped.</para>
+    process Orders in WorldShip after they have been issued to
+    Shipping&mdash;but before they have been shipped.</para>
   </tip>
   <variablelist>
     <varlistentry>

@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="ediProfile">
+<section id="ediProfile" role="standard">
   <title><indexterm significance="normal">
       <primary>electronic data interchange</primary>
       <secondary>creating new profile</secondary>
@@ -21,12 +21,14 @@
         <imageobject>
           <imagedata fileref="images/Sys_ediProfEmail.png" />
         </imageobject>
-        <caption>Create New EDI Profile for Email Delivery</caption>
+        <caption><para>Create New EDI Profile for Email
+        Delivery</para><para><remark>findme: get new screenshot of edi profile
+        window showing bcc, from, reply-to fields</remark></para></caption>
       </mediaobject>
     </screenshot></para>
   <note>
     <para>The screen options will vary depending on which EDI delivery method
-    you select—Email or FTP.</para>
+    you select&mdash;Email or FTP.</para>
   </note>
   <para>When creating an EDI Profile using the Email delivery type, you are
   presented with the following options:</para>
@@ -36,15 +38,39 @@
       <listitem>
         <para>Enter a brief name to identify the EDI Profile. This is the name
         which will appear when the Profile is cross-referenced throughout the
-        application—in the Customer master, for example.</para>
+        application&mdash;in the Customer master, for example.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Type</term>
+      <term>EDI Type</term>
       <listitem>
         <para>For this example, we have selected the "Email" delivery method.
         Selecting the "Email" option indicates that recipients will receive
-        EDI documents as Email attachments.</para>
+        EDI documents via electronic mail. Most documents will be attached to
+        the email after the Message Body.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>From</term>
+      <listitem>
+        <para>This is the email address of the person sending the email. It
+        can be set to a particular person's email address or to a generic
+        address (e.g. "sales@xtuple.com"). If it is left blank on this screen,
+        the Batch Manager will fill in the email address of the user running
+        the application when an EDI message gets prepared.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reply To</term>
+      <listitem>
+        <para>This is the reply-to address that will be set on the outgoing
+        email message. This controls the email address used when someone
+        replies to an email sent by xTuple ERP. If the "From" address is left
+        blank or is set to the application user's email address, it's a good
+        idea to set the "Reply To" address to a generic address. This is
+        especially useful if there is an email address shared by an entire
+        department. If this is left blank, replies will normally be sent to
+        the "From" address.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -69,6 +95,17 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Bcc</term>
+      <listitem>
+        <para>Enter the email address to which copies of the email will be
+        sent using this Profile. Bcc differs from Cc in that none of the
+        recipients will see the bcc addresses. It is a good idea to set this
+        to an address that will have its Inbox archived or to an email address
+        shared by a department. This way there is a history of the
+        transmission or the entire department knows what has happened.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Subject</term>
       <listitem>
         <para>Enter a default email subject line to be used whenever documents
@@ -83,9 +120,21 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Send Email as HTML</term>
+      <listitem>
+        <para>Select if you want the body of the Email to be sent as HTML. If
+        not selected, the Email will be sent as plain text.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Forms</term>
       <listitem>
-        <para>Displays the EDI Form(s) associated with the Profile.</para>
+        <para>Displays the EDI Form(s) associated with the Profile. Forms
+        control which types of document can be sent using this EDI
+        Profile&mdash;if the EDI Profile does not have a form for a document
+        type, that document type cannot be sent using this EDI Profile. Forms
+        also control the names and values of replacement tokens (see <xref
+        linkend="ediForm" />).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -96,40 +145,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>The following tokens are supported in EDI profile for CRM
-    Incidents:</para>
-    <itemizedlist>
-      <listitem>
-        <para>&lt;/email1&gt; = Incident owner email address</para>
-      </listitem>
-      <listitem>
-        <para>&lt;/email2&gt; = Incident assignee email address</para>
-      </listitem>
-      <listitem>
-        <para>&lt;/email3&gt; = Incident contact email address</para>
-      </listitem>
-      <listitem>
-        <para>&lt;/description&gt; = Incident description</para>
-      </listitem>
-      <listitem>
-        <para>&lt;/docnumber&gt; = Incident number</para>
-      </listitem>
-      <listitem>
-        <para>&lt;/doctype&gt; = "INCDT"</para>
-      </listitem>
-      <listitem>
-        <para>&lt;/docid&gt; = Incident primary key id</para>
-      </listitem>
-      <listitem>
-        <para>&lt;/docbody&gt; = Builds text of fields, notes and history of
-        incident record</para>
-      </listitem>
-      <listitem>
-        <para>&lt;/comments&gt; = Incident comments</para>
-      </listitem>
-    </itemizedlist>
-  </note>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
@@ -158,9 +173,9 @@
       <listitem>
         <para>Enables you to edit highlighted EDI Form definitions. The edit
         screen is the same as that for creating a new EDI Form
-        definition—except that when editing, the fields will contain EDI Form
-        information. Double-clicking on an EDI Form definition will also bring
-        you to the editing screen.</para>
+        definition&mdash;except that when editing, the fields will contain EDI
+        Form information. Double-clicking on an EDI Form definition will also
+        bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -171,6 +186,102 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para><indexterm>
+      <primary>electronic data interchange</primary>
+      <secondary>tokens</secondary>
+    </indexterm><indexterm>
+      <primary>tokens</primary>
+      <secondary>electronic data interchange</secondary>
+    </indexterm>Certain special character sequences exist that you can use to
+  build your EDI Profile. You can enter these EDI tokens in any of the text
+  input fields on the EDI Profile window (except the Name, of course). You can
+  also define your own tokens by writing database queries (see <xref
+  linkend="ediForm" />). The system defines the following tokens:</para>
+  <variablelist>
+    <varlistentry>
+      <term>&lt;/docid&gt;</term>
+      <listitem>
+        <para>This is the internal document ID of the document being
+        sent.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>&lt;/docnumber&gt;</term>
+      <listitem>
+        <para>This is the document number of the document being sent.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>&lt;/doctype&gt;</term>
+      <listitem>
+        <para>This is the internal version of the type of document being
+        sent.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>&lt;/doctypefull&gt;</term>
+      <listitem>
+        <para>This is a human readable version of the &lt;/doctype&gt;.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>a document-type-specific token</term>
+      <listitem>
+        <para>The primary key id for the document, named for the primary key
+        field of that document (e.g., &lt;/invchead_id&gt;).</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <table>
+    <title>Values of EDI replacement tokens for different document
+    types</title>
+    <tgroup cols="3">
+      <thead>
+        <row>
+          <entry align="center">&lt;/doctype&gt;</entry>
+          <entry align="center">&lt;/doctypefull&gt;</entry>
+          <entry align="center">document-type-specific token</entry>
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry>AR</entry>
+          <entry>A/R Statement</entry>
+          <entry>cust_id</entry>
+        </row>
+        <row>
+          <entry>CM</entry>
+          <entry>Credit Memo</entry>
+          <entry>cmhead_id or aropen_id, depending on context</entry>
+        </row>
+        <row>
+          <entry>IC</entry>
+          <entry>Incident</entry>
+          <entry>incdt_id</entry>
+        </row>
+        <row>
+          <entry>IN</entry>
+          <entry>Invoice</entry>
+          <entry>invchead_id</entry>
+        </row>
+        <row>
+          <entry>PO</entry>
+          <entry>Purchase Order</entry>
+          <entry>pohead_id</entry>
+        </row>
+        <row>
+          <entry>QT</entry>
+          <entry>Quote</entry>
+          <entry>quhead_id</entry>
+        </row>
+        <row>
+          <entry>SO</entry>
+          <entry>Sales Order</entry>
+          <entry>cohead_id and sohead_id</entry>
+        </row>
+      </tbody>
+    </tgroup>
+  </table>
   <para><indexterm significance="normal">
       <primary>electronic data interchange</primary>
       <secondary>creating new profile</secondary>
@@ -204,7 +315,7 @@
       <listitem>
         <para>Enter a brief name to identify the EDI Profile. This is the name
         which will appear when the Profile is cross-referenced throughout the
-        application—in the Customer master, for example.</para>
+        application&mdash;in the Customer master, for example.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -222,8 +333,8 @@
           <secondary>ftp for edi profile</secondary>
         </indexterm>Server</term>
       <listitem>
-        <para>Enter the IP Address of the FTP server where EDI documents
-        should be transferred.</para>
+        <para>Enter the host name or IP Address of the FTP server where EDI
+        documents should be transferred.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -236,8 +347,8 @@
     <varlistentry>
       <term>Password</term>
       <listitem>
-        <para>Enter the password required to access the specified
-        server.</para>
+        <para>Enter the password required to access the specified server (this
+        value is <emphasis>not</emphasis> encrypted in the database).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -290,9 +401,9 @@
       <listitem>
         <para>Enables you to edit highlighted EDI Form definitions. The edit
         screen is the same as that for creating a new EDI Form
-        definition—except that when editing, the fields will contain EDI Form
-        information. Double-clicking on an EDI Form definition will also bring
-        you to the editing screen.</para>
+        definition&mdash;except that when editing, the fields will contain EDI
+        Form information. Double-clicking on an EDI Form definition will also
+        bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519482">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>credit memos</primary>
       <secondary>list of unposted</secondary>
     </indexterm>List Unposted Credit Memos</title>
   <para>To view a list of unposted Credit Memos, select the "List Unposted
   Credit Memos" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/unpostedCreditMemos.png"/>
+          <imagedata fileref="images/unpostedCreditMemos.png" />
         </imageobject>
-        <caption>Unposted Credit Memos Master
-        List</caption>
+        <caption>Unposted Credit Memos Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>You may select multiple Credit Memos for posting by highlighting
-    them using your mouse&mdash;or a combination of your mouse and either the SHIFT
-    or CTRL keys.</para>
+    them using your mouse&mdash;or a combination of your mouse and either the
+    SHIFT or CTRL keys.</para>
   </tip>
   <para>The unposted Credit Memos master list displays all existing Credit
   Memo numbers, associated Customer names, accounting date of Credit Memo, and
@@ -65,21 +62,24 @@
     <varlistentry>
       <term>PRINT</term>
       <listitem>
-        <para>Highlight one&mdash;or multiple&mdash;Credit Memos, then select this
-        button to print the selected Credit Memo(s).</para>
+        <para>Highlight one&mdash;or multiple&mdash;Credit Memos, then select
+        this button to print the selected Credit Memo(s).</para>
+        <para role="standard">If the Customer specified on the Credit Memo has
+        an EDI Profile attached, you may encounter an EDI processing interface
+        when printing it.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>POST</term>
       <listitem>
-        <para>Highlight one&mdash;or multiple&mdash;Credit Memos, then select this
-        button to post the selected Credit Memo(s). By default, Credit Memos
-        post to the General Ledger (G/L) on their memo date. However, users
-        with the appropriate privilege may change the G/L distribution date to
-        an alternate date during the Credit Memo posting process. If used,
-        Credit Memos will post on the alternate date. The ability privileged
-        users have to change the distribution date applies to the posting of
-        both individual and also batches of Credit Memos from this
+        <para>Highlight one&mdash;or multiple&mdash;Credit Memos, then select
+        this button to post the selected Credit Memo(s). By default, Credit
+        Memos post to the General Ledger (G/L) on their memo date. However,
+        users with the appropriate privilege may change the G/L distribution
+        date to an alternate date during the Credit Memo posting process. If
+        used, Credit Memos will post on the alternate date. The ability
+        privileged users have to change the distribution date applies to the
+        posting of both individual and also batches of Credit Memos from this
         screen.</para>
       </listitem>
     </varlistentry>

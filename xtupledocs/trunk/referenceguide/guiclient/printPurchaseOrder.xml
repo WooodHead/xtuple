@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972547">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>purchase orders</primary>
       <secondary>printing of</secondary>
     </indexterm>Print Purchase Order</title>
   <para>To print a Purchase Order, select the "Print Purchase Order" option.
   The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/printPurchaseOrder.png"/>
+          <imagedata fileref="images/printPurchaseOrder.png" />
         </imageobject>
         <caption>Print Purchase Order</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When printing a Purchase Order, you are presented with the following
   options:</para>
   <variablelist>
@@ -32,7 +30,7 @@
     <varlistentry>
       <term>Copies</term>
       <listitem>
-        <para>Indicate the copies you want to print: </para>
+        <para>Indicate the copies you want to print:</para>
         <variablelist>
           <varlistentry>
             <term>Vendor</term>
@@ -74,6 +72,9 @@
       <term>PRINT</term>
       <listitem>
         <para>Runs the report associated with this screen.</para>
+        <para role="standard">If the Vendor specified on the Purchase Order
+        has an EDI Profile attached, you may encounter an EDI processing
+        interface when printing the Purchase Order.</para>
       </listitem>
     </varlistentry>
   </variablelist>
