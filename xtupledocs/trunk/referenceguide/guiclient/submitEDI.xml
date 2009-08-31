@@ -191,7 +191,9 @@
           <term>ACCEPT</term>
           <listitem>
             <para>Select to submit the requested action to the Batch Manager
-            for processing.</para>
+            for processing. If the EDI will be sent by email, there must be at
+            least one email address in either the To, Cc, or Bcc
+            fields.</para>
           </listitem>
         </varlistentry>
       </variablelist>
