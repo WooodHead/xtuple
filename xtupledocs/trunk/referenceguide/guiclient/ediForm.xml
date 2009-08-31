@@ -17,7 +17,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/ediForm.png" />
+          <imagedata fileref="images/ediForm_report.png" />
         </imageobject>
         <caption><para>Create New EDI Form Using Report
         Format</para></caption>
@@ -110,16 +110,7 @@
         <imageobject>
           <imagedata fileref="images/ediForm_csv.png" />
         </imageobject>
-        <caption><para>Create New EDI Form Using CSV
-        Format</para><para><remark>findme: screenshot of an ediform using CSV
-        format. set file_name to
-        <code>&lt;/doctype&gt;&lt;/docnumber&gt;_&lt;/cust_number&gt;_&lt;/now&gt;.csv</code>
-        and set query to <code>SELECT cust_number, to_char(CURRENT_DATE,
-        'yy_mm_dd') AS now, salesrep_name, usr_email FROM custinfo JOIN
-        invchead ON cust_id=invchead_cust_id JOIN salesrep ON
-        invchead_salesrep_id=salesrep_id LEFT OUTER JOIN usr ON
-        (salesrep_number=usr_username) WHERE (invchead_id=&lt;? value("docid")
-        ?&gt;);</code></remark></para></caption>
+        <caption><para>Create New EDI Form Using CSV Format</para></caption>
       </mediaobject>
     </screenshot></para>
   <para>When creating a new EDI Form using the CSV format, you are presented
