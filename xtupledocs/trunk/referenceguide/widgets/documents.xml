@@ -4,8 +4,8 @@
 <section>
   <title>Documents Widget</title>
   <para id="documentsWidget"><informalexample>
-      <para>When associating documents, you are presented with the following
-      options:</para>
+      <para>When associating documents with a record, you are presented with
+      the following options:</para>
       <variablelist>
         <varlistentry>
           <term>Images</term>
@@ -74,10 +74,9 @@
       <para><screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/customer_documentsTab_files.png" />
+              <imagedata fileref="images/document_files.png" />
             </imageobject>
-            <caption><para><remark>findme: get a generic screenshot of a
-            documents tab</remark></para>File Associations</caption>
+            <caption>File Associations</caption>
           </mediaobject>
         </screenshot></para>
       <para>When associating Files, you are presented with the following
@@ -166,11 +165,9 @@
         <varlistentry>
           <term>URL</term>
           <listitem>
-            <para>Enter the URL indicating where the File is located. Users
-            will be able to access the file within a web browser
-            <remark>findme: i'm not sure that web browser is correct. it
-            should depend on the document type </remark>when they select the
-            OPEN button.</para>
+            <para>Enter the URL indicating where the File is located. This is
+            the location where the File will be opened from when the user
+            selects the OPEN button.</para>
           </listitem>
         </varlistentry>
       </variablelist>
