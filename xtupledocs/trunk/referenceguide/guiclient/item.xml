@@ -137,8 +137,11 @@
               complex Bills of Materials.</para>
             </listitem>
           </varlistentry>
-          <varlistentry>
-            <term>Breeder</term>
+          <varlistentry role="manufacturing">
+            <term><indexterm significance="normal">
+                <primary>breeder items</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Breeder</term>
             <listitem>
               <para>A logical Item from which Co-Products and By-Products are
               produced. An example use for a Breeder Item is the screening of
@@ -153,16 +156,22 @@
               recorded.</para>
             </listitem>
           </varlistentry>
-          <varlistentry>
-            <term>Co-Product</term>
+          <varlistentry role="manufacturing">
+            <term><indexterm significance="normal">
+                <primary>co-products</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Co-Product</term>
             <listitem>
               <para>Co-Products are Items that you keep and which absorb
               Costs. They are produced during a manufacturing process. See
               "Breeder" Item Type above.</para>
             </listitem>
           </varlistentry>
-          <varlistentry>
-            <term>By-Product</term>
+          <varlistentry role="manufacturing">
+            <term><indexterm significance="normal">
+                <primary>by-products</primary>
+                <secondary>as item type</secondary>
+              </indexterm>By-Product</term>
             <listitem>
               <para>By-Products are things that you throw away and incur Costs
               doing so during a manufacturing process. See "Breeder" Item Type
@@ -223,7 +232,7 @@
               Requirements Planning (MRP) is run.</para>
             </listitem>
           </varlistentry>
-          <varlistentry>
+          <varlistentry role="manufacturing">
             <term><indexterm significance="normal">
                 <primary>planning</primary>
                 <secondary>as item type</secondary>
