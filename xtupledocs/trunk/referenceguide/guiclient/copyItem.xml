@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519044">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>items</primary>
       <secondary>copying of</secondary>
     </indexterm>Copy Item</title>
   <para>To make a copy of an Item, select the "Copy Item" option. The
   following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/copyItem.png"/>
+          <imagedata fileref="images/copyItem.png" />
         </imageobject>
         <caption>Copy Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When copying an Item, you are presented with the following
   options:</para>
   <variablelist>
@@ -55,14 +53,14 @@
         Materials.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="manufacturing">
       <term>Copy Bill of Operations</term>
       <listitem>
         <para>Select if you want to copy the source Item's Bill of
         Operations.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="manufacturing">
       <term>Copy Used At Operation</term>
       <listitem>
         <para>Select if you want to include the "Used At" Operation
