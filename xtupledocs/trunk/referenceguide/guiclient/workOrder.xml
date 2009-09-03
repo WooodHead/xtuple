@@ -10,8 +10,8 @@
   <para>Work Orders define requirements for the production of manufactured
   Items. You may also create Work Orders for purchased items that you normally
   purchase, but you occasionally manufacture. These Items may have a Bill of
-  Materials (BOM)—or not. The system supports both BOM-based and non-BOM-based
-  Work Orders.</para>
+  Materials (BOM)&mdash;or not. The system supports both BOM-based and
+  non-BOM-based Work Orders.</para>
   <variablelist>
     <varlistentry>
       <term>BOM-based</term>
@@ -25,9 +25,9 @@
       <term>Non-BOM-based</term>
       <listitem>
         <para>Ideal for labor-only Work Orders having a Bill of Operations
-        (BOO) but no BOM—for example, service Work Orders which require labor
-        Operations only. Also good for Items or Jobs where the Material
-        Requirements are not-known—but must be added on an ad-hoc
+        (BOO) but no BOM&mdash;for example, service Work Orders which require
+        labor Operations only. Also good for Items or Jobs where the Material
+        Requirements are not-known&mdash;but must be added on an ad-hoc
         basis.</para>
       </listitem>
     </varlistentry>
@@ -37,7 +37,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/workOrder.png" />
+          <imagedata fileref="images/workOrder_detailTab.png" />
         </imageobject>
         <caption>Create New Work Order</caption>
       </mediaobject>
@@ -95,17 +95,16 @@
         <para>Specify supplying Site for selected Item. Only Sites that
         contain supplying Item Sites for the selected Item may be
         chosen.</para>
+        <note>
+          <para>Order Parameters may have an impact on Work Order quantity if
+          the "on Manual Orders" option is selected in the Item Site master
+          for a manufactured Item. If Order Parameters are in effect, the Work
+          Order must conform to those restrictions. Both Minimum Order size
+          and Order Multiple may be governed by Order Parameter
+          settings.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>Order Parameters may have an impact on Work Order quantity if the
-    "on Manual Orders" option is selected in the Item Site master for a
-    manufactured Item. If Order Parameters are in effect, the Work Order must
-    conform to those restrictions. Both Minimum Order size and Order Multiple
-    may be governed by Order Parameter settings.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Assembly</term>
       <listitem>
@@ -176,17 +175,15 @@
         other Work Orders.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term>Project #</term>
       <listitem>
         <para>Select a Project Number to associate with the Work Order. If the
-        Work Order was created from Sales Order demand—and the parent Sales
-        Order had a Project Number associated with it—then the Project Number
-        from the parent Sales Order will automatically be entered here. In
-        this way, Sales Orders and Work Orders may be linked to the same
-        Project.</para>
+        Work Order was created from Sales Order demand&mdash;and the parent
+        Sales Order had a Project Number associated with it&mdash;then the
+        Project Number from the parent Sales Order will automatically be
+        entered here. In this way, Sales Orders and Work Orders may be linked
+        to the same Project.</para>
         <note>
           <para>The option to associate a Project with a Work Order will only
           be visible if your site is configured to use Projects.</para>
@@ -194,27 +191,59 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Production Notes</term>
+      <term>Detail</term>
       <listitem>
-        <para>This is a scrolling text field with word-wrapping for entering
-        production Notes related to the Work Order. Production Notes are
-        printed on Pick Lists and Packing Lists for reference by production
-        personnel.</para>
+        <para>The "Detail" tab provides a kind of workbench for managing
+        Materials, child Work Orders, and Operations associated with a Work
+        Order. Use the context-sensitive right-click menu to perform actions
+        related to Work Order management. The display is a nested list, with a
+        plus ("+") sign located to the far left of the display next to each
+        row that may be expanded to lower levels. By clicking your mouse on a
+        plus sign, you reveal lower levels of information related to the
+        group. The following color-coding has been implemented to simplify
+        navigation: green (Work Orders), blue (Operations), black
+        (Materials).</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show</term>
+            <listitem>
+              <para>Specify the type of Work Order information you would like
+              to include in the display:</para>
+              <variablelist>
+                <varlistentry role="manufacturing">
+                  <term>Operations</term>
+                  <listitem>
+                    <para>Select to include information about Work Order
+                    Operations in the display.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Materials</term>
+                  <listitem>
+                    <para>Select to include information about Material
+                    Requirements in the display.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Indented</term>
+                  <listitem>
+                    <para>Select to include child Work Orders in the display.
+                    If selected, child Work Orders will be shown indented in
+                    the Materials and Operations list. </para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>If a Work Order was created from a Sales Order, the Production Notes
-    field will contain the Sales Order Number, the Customer Name, and any
-    additional Sales Order Line Item Notes.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term>Print Traveler</term>
       <listitem>
-        <para>Select to print a Work Order Traveler when the Work Order is
-        created. This option will no longer be available once the Work Order
-        is created.</para>
+        <para>Select to print a Work Order Traveler at the point when the Work
+        Order is initially created. This option will be hidden once the Work
+        Order has been created.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -232,6 +261,33 @@
       <listitem>
         <para>Closes the screen without creating the Work Order, returning you
         to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Notes to a Work Order, select the "Notes" tab. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/workOrder_notesTab.png" />
+        </imageobject>
+        <caption>Work Order Notes</caption>
+      </mediaobject>
+    </screenshot>When adding Notes to a Work Order, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        production Notes related to the Work Order. Production Notes are
+        printed on Pick Lists and Packing Lists for reference by production
+        personnel.</para>
+        <tip>
+          <para>If a Work Order was created from a Sales Order, the Production
+          Notes field will contain the Sales Order Number, the Customer Name,
+          and any additional Sales Order Line Item Notes.</para>
+        </tip>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -295,10 +351,10 @@
   </note>
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <para>Once a Work Order is in process—that is, either materials have been
-  issued or Production or Operations have been posted—you can begin to view
-  Costing information for the Work Order. To view Costing information for the
-  Work Order, select the "Costing" tab. The following screen will
+  <para>Once a Work Order is in process&mdash;that is, either Materials have
+  been issued or Production or Operations have been posted&mdash;you can begin
+  to view Costing information for the Work Order. To view Costing information
+  for the Work Order, select the "Costing" tab. The following screen will
   appear:</para>
   <para><tip>
       <para>The Costing tab will not be visible until after a Work Order has
@@ -325,7 +381,7 @@
             <listitem>
               <para>Displays the current posted value of the Work Order. The
               posted value is equal to the total cost accumulated on the Work
-              Order, including both labor and materials. The posted value will
+              Order, including both labor and Materials. The posted value will
               be the same as the WIP value until the point when finished goods
               are received. Ultimately, once Production (or Operations)
               posting is completed, the posted value will be equal to the
