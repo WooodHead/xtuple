@@ -74,14 +74,16 @@
           <varlistentry>
             <term>Preview Results</term>
             <listitem>
-              <para>Review Results of Analysis prior to updating reorder
+              <para>Review results of analysis prior to updating reorder
               levels.</para>
+              <para role="standard">The SUBMIT button will be disabled in this
+              mode.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Update Immediately</term>
             <listitem>
-              <para>Update reorder levels without previewing Analysis
+              <para>Update reorder levels without previewing analysis
               first.</para>
             </listitem>
           </varlistentry>
@@ -173,7 +175,8 @@
       <term>SUBMIT</term>
       <listitem>
         <para>Select to submit requested action to the Batch Manager for
-        processing.</para>
+        processing. This button will be disabled if you are previewing
+        results. </para>
       </listitem>
     </varlistentry>
   </variablelist>
