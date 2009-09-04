@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section521475">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>cycle counts</primary>
       <secondary>updating frequency of</secondary>
     </indexterm>Update Cycle Count Frequency</title>
   <para>To update the frequency of scheduled Cycle Counts, select the "Cycle
   Count Frequency" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/updateCycleCountFrequency.png"/>
+          <imagedata fileref="images/updateCycleCountFrequency.png" />
         </imageobject>
         <caption>Update Cycle Count Frequency</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When updating Cycle Count frequency, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry role="standard">
       <term>All Sites</term>
       <listitem>
-        <para>Select to update Cycle Count frequency for all
-        Sites.</para>
+        <para>Select to update Cycle Count frequency for all Sites.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -34,27 +31,6 @@
       <listitem>
         <para>Specify Site where Cycle Count frequency is to be
         updated.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>All Class Codes</term>
-      <listitem>
-        <para>Select to update Cycle Count frequency for all Class
-        Codes.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected</term>
-      <listitem>
-        <para>Specify Class Code whose Cycle Count frequency you want to
-        update.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Pattern</term>
-      <listitem>
-        <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -82,6 +58,27 @@
         value up to a maximum of 999. Value entered specifies how frequently
         you want to perform Cycle Counts for the specified Class
         designation.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Class Codes</term>
+      <listitem>
+        <para>Select to update Cycle Count frequency for all Class
+        Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Class Code whose Cycle Count frequency you want to
+        update.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Class Code pattern to select a range of Class Codes.
+        Refine your search using Regular Expressions.</para>
       </listitem>
     </varlistentry>
   </variablelist>
