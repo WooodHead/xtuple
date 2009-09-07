@@ -1153,44 +1153,30 @@
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>tax authorities</primary>
+          <primary>tax zones</primary>
           <secondary>for sales orders</secondary>
-        </indexterm>Tax Authority</term>
+        </indexterm>Tax Zone</term>
       <listitem>
-        <para>Specify the Tax Authority you want to associate with the
-        specified Tax Type. Tax Authorities are any entity legally-authorized
-        to collect Taxes&mdash;for example, city, county, state, or federal
-        government agencies. Creating a relationship between a Tax Authority
-        and a Tax Type enables you to determine how Tax will be applied when
-        processing transactions using the Item. The next step is to ensure
-        this relationship is configured on the Tax Selection matrix, where Tax
-        Authorities and Tax Types are linked to specific Tax Codes. This
-        combination of three elements (Tax Authority + Tax Type + Tax Code)
-        determines the Tax rate to be charged when processing transactions for
-        an Item.</para>
+        <para>Specify the Tax Zone you want to associate with the specified
+        Tax Type. Creating a relationship between a Tax Zone and a Tax Type
+        enables you to determine how Tax will be applied when processing
+        transactions using the Item. </para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
     <para>Consider creating separate Tax Types for any groups or classes of
-    Items which are taxed at different rates. This will enable you to link
-    distinct Tax Codes to each Tax Type definition on the Tax Selection
-    matrix.</para>
+    Items which are taxed at different rates.</para>
   </tip>
   <variablelist>
     <varlistentry>
       <term>Tax Types</term>
       <listitem>
         <para>Specify the Tax Type you want to associate with the specified
-        Tax Authority. Tax Types provide a system for classifying goods and
+        Tax Zone. Tax Types provide a system for classifying goods and
         services into taxable categories. Creating a relationship between a
-        Tax Authority and a Tax Type enables you to determine how Tax will be
-        applied when processing transactions using the Item. The next step is
-        to ensure this relationship is configured on the Tax Selection matrix,
-        where Tax Authorities and Tax Types are linked to specific Tax Codes.
-        This combination of three elements (Tax Authority + Tax Type + Tax
-        Code) determines the Tax rate to be charged when processing
-        transactions for an Item.</para>
+        Tax Zone and a Tax Type enables you to determine how Tax will be
+        applied when processing transactions using the Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
