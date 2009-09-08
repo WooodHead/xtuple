@@ -218,37 +218,17 @@
           <varlistentry>
             <term>Type</term>
             <listitem>
-              <para>Specify the Tax Type for the Invoice Item. By default, the
-              Item's Tax Type corresponding to the Invoice's Tax Authority
-              will be presented here. The link between Tax Types and Tax
-              Authorities is made on the Item master. If the Item master does
-              not have a Tax Type for the Invoice's Tax Authority, then no Tax
-              will be charged.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Code</term>
-            <listitem>
-              <para>Specify the Tax Code to be applied to the Invoice Item. By
-              default, the Tax Code specified in the Tax Selection matrix will
-              be displayed here. For a Tax Code to be used, the matrix must
-              have an entry which matches both the Item's Tax Type definition
-              and the Tax Authority specified on the Invoice header. If no Tax
-              Selection match exists, then no Tax Code will be used—meaning no
-              Tax will be charged.</para>
-              <tip>
-                <para>The relationship between Tax Authorities, Tax Types, and
-                Tax Codes is established in the Tax Selection matrix.</para>
-              </tip>
+              <para>Specify the Tax Type for the Invoice Item. If the Item
+              master does not have a Tax Type for the Invoice's Tax Authority,
+              then no Tax will be charged.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Tax</term>
             <listitem>
               <para>Displays the amount of Tax to be charged for the Invoice
-              Line Item quantity. Sales Tax is calculated at the Invoice Line
-              Item level. To get a detailed view of the Tax calculation, click
-              on the Tax link using your mouse.</para>
+              Line Item quantity. To get a detailed view of the Tax
+              calculation, click on the Tax link using your mouse.</para>
             </listitem>
           </varlistentry>
         </variablelist>

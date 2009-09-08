@@ -2,14 +2,14 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section519130" role="manufacturing">
+<section id="Section519130">
   <title><indexterm significance="normal">
       <primary>configuration</primary>
       <secondary>of schedule module</secondary>
     </indexterm>Configure Schedule</title>
-  <para>To configure the Schedule module, select the "Configure Schedule"
-  option. The following screen will appear:</para>
-  <para><screenshot>
+  <para role="standard">To configure the Schedule module, select the
+  "Configure Schedule" option. The following screen will appear:</para>
+  <para role="standard"><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/configureMS.png" />
@@ -17,10 +17,10 @@
         <caption>Configure Schedule Module</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When configuring the Schedule module, you are presented with the
-  following options:</para>
+  <para role="standard">When configuring the Schedule module, you are
+  presented with the following options:</para>
   <variablelist>
-    <varlistentry>
+    <varlistentry role="standard">
       <term><indexterm significance="normal">
           <primary>planned orders</primary>
           <secondary>numbering of</secondary>
@@ -31,14 +31,14 @@
         Planned Order is created.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Default Calendar</term>
       <listitem>
         <para>Specify a default Calendar to be used when running the "MPS
         Detail" report.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="manufacturing">
       <term>Enable Constraint Management</term>
       <listitem>
         <para>Select to enable the Constraint Management system. If not
@@ -46,22 +46,22 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Cancels any configuration settings, returning you to the
-        application desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Saves the configuration settings, returning you to the
-        application desktop.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para role="standard">To the far right of the screen, the following buttons
+  are available:</para>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term>CANCEL</term>
+        <listitem>
+          <para>Cancels any configuration settings, returning you to the
+          application desktop.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>SAVE</term>
+        <listitem>
+          <para>Saves the configuration settings, returning you to the
+          application desktop.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
 </section>
