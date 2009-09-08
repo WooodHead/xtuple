@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>taxes</primary>
+      <secondary>history report</secondary>
+    </indexterm>Tax History</title>
+  <para>The Tax history report offers you the ability to view summarized or
+  detailed information about both sales and purchase Tax history. This report
+  will be especially useful for those who both collect and pay VAT taxes―and
+  must report on and pay net VAT taxes collected. The netting column will only
+  be visible when both the "Sales" and "Purchases" options are selected. To
+  view Tax history, select the "Tax History" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspTaxHistory.png" />
+        </imageobject>
+        <caption>Tax History</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Tax history, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Specify one of the following options for viewing your Tax
+        history:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Summary</term>
+            <listitem>
+              <para>Select to display a summarized view of your Tax
+              history.</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Summarize by</term>
+                  <listitem>
+                    <para>In summary mode, you may select from the following
+                    filter options:</para>
+                    <variablelist>
+                      <varlistentry>
+                        <term>Type</term>
+                        <listitem>
+                          <para>Select to show summarized Tax information
+                          based on one of the following types of information:
+                          Tax Code, Tax Type, Tax Class, Tax Authority, or Tax
+                          Zone.</para>
+                        </listitem>
+                      </varlistentry>
+                      <varlistentry>
+                        <term>Selection</term>
+                        <listitem>
+                          <para>Specify a selection option to further refine
+                          your results. The selection options will vary
+                          depending on the type chosen. For example, if you
+                          choose "Zone," then you will be able to choose from
+                          a list of all your defined Tax Zones.</para>
+                        </listitem>
+                      </varlistentry>
+                    </variablelist>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Detail</term>
+            <listitem>
+              <para>Select to display a detailed view of your Tax history.
+              </para>
+              <variablelist>
+                <varlistentry>
+                  <term>Show only tax</term>
+                  <listitem>
+                    <para>In detail mode, you may select from the following
+                    filter options:</para>
+                    <variablelist>
+                      <varlistentry>
+                        <term>Type</term>
+                        <listitem>
+                          <para>Select to show detailed Tax information based
+                          on one of the following types of information: Tax
+                          Code, Tax Type, Tax Class, Tax Authority, or Tax
+                          Zone.</para>
+                        </listitem>
+                      </varlistentry>
+                      <varlistentry>
+                        <term>Selection</term>
+                        <listitem>
+                          <para>Specify a selection option to further refine
+                          your results. The selection options will vary
+                          depending on the type chosen. For example, if you
+                          choose "Zone," then you will be able to choose from
+                          a list of all your defined Tax Zones.</para>
+                        </listitem>
+                      </varlistentry>
+                    </variablelist>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show</term>
+      <listitem>
+        <para>Specify the kind(s) of Tax you want to display. If both options
+        are selected, the report will automatically include the net balance
+        between sales Tax paid and purchase Tax collected.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Sales</term>
+            <listitem>
+              <para>Select to include sales Tax in the report. When this
+              option is selected, the columns in the report will include sales
+              information. If not selected, those column headers will be
+              hidden.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Purchases</term>
+            <listitem>
+              <para>Select to include Tax on purchases in the report. When
+              this option is selected, the columns in the report will include
+              purchase information. If not selected, those column headers will
+              be hidden.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Basis</term>
+      <listitem>
+        <para>Specify a date basis to use for the report:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Document date</term>
+            <listitem>
+              <para>Select to use the document date as the basis for the
+              report.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Distribution date</term>
+            <listitem>
+              <para>Select to use the G/L distribution date as the basis for
+              the report.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Date Range</term>
+      <listitem>
+        <para>Specify the date range, based on the chosen date basis:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Taxes posted on and after this date will be included in
+              the report.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Taxes posted on and before this date will be included in
+              the report.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax History</term>
+      <listitem>
+        <para>Display lists Tax history, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

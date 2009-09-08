@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520506">
+  <title><indexterm significance="normal">
+      <primary>returns</primary>
+      <secondary>entering at shipping</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>shipping</primary>
+      <secondary>entering of returns</secondary>
+    </indexterm>Purchase Order Return</title>
+  <para>Purchase Order Returns are used in the event that Purchase Order Items
+  need to be returned to a Vendor, as shown in the following
+  screen:<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/enterPoReturn.png" />
+        </imageobject>
+        <caption>Enter Purchase Order Return</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>Privileged users will be given the option to generate an A/P Credit
+    Memo in the amount of the Return when the Return is posted. This option is
+    available when returning against closed Purchase Order Line Items. Closed
+    Purchase Orders will be reopened automatically in this scenario to allow
+    for future Receipts. If the option is not used&mdash;or if a Line Item is not
+    closed at the time of a Return&mdash;then the Return may be processed normally
+    from the "Uninvoiced Receipts and Returns" screen.</para>
+  </tip>
+  <para>When entering a Purchase Order Return, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>P/O #</term>
+      <listitem>
+        <para>Enter the Purchase Order Number of the Purchase Order whose Line
+        Item(s) you want to return.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Closed P/Os</term>
+      <listitem>
+        <para>Select to include closed Purchase Orders in the list accessible
+        from the "P/O#" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print Return Report</term>
+      <listitem>
+        <para>Select if you want to print a Return report when the Return is
+        posted. The report will be printed when you select the POST
+        button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Return Address</term>
+      <listitem>
+        <para>Enter the Address where the Return should be sent. By default,
+        the Address used will be the same as the main Vendor Address found on
+        the Vendor master. You may edit the Address information before posting
+        the Return.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Purchase Order Items</term>
+      <listitem>
+        <para>Display lists Purchase Order Line Items available for
+        return.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without entering a Return, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Highlight a Line Item, then select this button to remove the
+        returned Line Item quantity from Inventory. For privileged users, an
+        A/P Credit Memo may be generated in the amount of the Return when the
+        Return is posted. This option is available when returning against
+        closed Line Items. If used, the Line Item will be automatically
+        reopened to allow for future Receipts. Also, a Return report will be
+        printed if the "Print Return Report" option is selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ENTER RETURN</term>
+      <listitem>
+        <para>Highlight a Line Item, then select this button to initiate a
+        Return. Double-clicking on a Purchase Order Line Item will also bring
+        you to the Return Item screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If an Item you are returning is a <indexterm significance="normal">
+        <primary>multiple location control</primary>
+        <secondary>impact on receiving</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>receiving</primary>
+        <secondary>MLC impact on</secondary>
+      </indexterm>Multiple Location Control (MLC) Item, you will be prompted
+    to specify the Location you want to issue the stock from.</para>
+  </note>
+  <xi:include href="enterPoitemReturn.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

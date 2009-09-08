@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518990">
+  <title>
+<indexterm significance="normal">
+      <primary>planner codes</primary>
+      <secondary>assigning class codes to</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>class codes</primary>
+      <secondary>assigning to planner codes</secondary>
+    </indexterm>Assign Items to Planner Code by Class Code</title>
+  <para>To assign Items to a Planner Code by Class Code, select the "Assign
+  Items to Planner Code by Class Code" option. The following screen will
+  appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/assignClassCodeToPlannerCode.png"/>
+        </imageobject>
+        <caption>Assign Items to Planner Code by Class
+        Code</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When assigning Items to a Planner Code by Class Code, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Class Codes</term>
+      <listitem>
+        <para>Select to assign all Class Codes to a Planner Code.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Class Code you want to assign to a Planner Code.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Class Code pattern to select a range of Class Codes.
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to assign Items to a Planner Code by Class Code for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Items by Class Code you want to assign
+        to a Planner Code.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Planner Code</term>
+      <listitem>
+        <para>Specify the Planner Code you want to assign the Class Code(s)
+        to.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without assigning a Items to a Planner Code by
+        Class Code, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ASSIGN</term>
+      <listitem>
+        <para>Assigns the specified Items to a Planner Code by Class
+        Code.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

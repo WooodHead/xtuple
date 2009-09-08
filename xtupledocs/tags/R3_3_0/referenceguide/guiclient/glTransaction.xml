@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section526408">
+  <title>
+<indexterm significance="normal">
+      <primary>simple entries</primary>
+      <secondary>creating new</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>general ledger</primary>
+      <secondary>creating new simple entry</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>transactions</primary>
+      <secondary>creating simple g/l entry</secondary>
+    </indexterm>Simple G/L Journal Entry</title>
+  <para>To manually create a simple G/L journal entry, select the "Simple
+  Journal Entry" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/glTransaction.png"/>
+        </imageobject>
+        <caption>Create Simple G/L Journal Entry</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When creating a simple G/L journal entry, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Amount</term>
+      <listitem>
+        <para>Specify the monetary value of the transaction.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Dist. Date</term>
+      <listitem>
+        <para>Specify the date when you want the simple journal entry to be
+        posted to the General Ledger.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Type</term>
+      <listitem>
+        <para>Displays the system-defined document type (i.e., "JE") used to
+        identify simple journal entries in the General Ledger.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Number</term>
+      <listitem>
+        <para>Specify a Document Number to be associated with the
+        transaction.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Debit</term>
+      <listitem>
+        <para>Specify the Debit Account to be used for the transaction
+        record.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit</term>
+      <listitem>
+        <para>Specify the Credit Account to be used for the transaction
+        record.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the transaction. This may be a required field,
+        depending on your system configuration.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Your system may be configured to require Notes whenever manual
+    journal entries are posted.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating an individual transaction,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>
+<indexterm significance="normal">
+          <primary>simple entries</primary>
+          <secondary>posting of</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>general ledger</primary>
+          <secondary>posting simple entry</secondary>
+        </indexterm>POST</term>
+      <listitem>
+        <para>Posts the transaction to the General Ledger.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

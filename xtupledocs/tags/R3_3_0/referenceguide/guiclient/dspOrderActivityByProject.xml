@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="dspOrderActivityByProject">
+  <title><indexterm significance="normal">
+      <primary>projects</primary>
+      <secondary>order activity for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>sales orders</primary>
+      <secondary>projects and</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>work orders</primary>
+      <secondary>projects and</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>purchase orders</primary>
+      <secondary>projects and</secondary>
+    </indexterm>Order Activity by Project</title>
+  <para>To view Order activity by Project, select the "Order Activity by
+  Project" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspOrderActivityByProject.png"
+                     id="dspOrderActivityByProject.imagedata" />
+        </imageobject>
+        <caption>Order Activity by Project</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Order activity by Project, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Project #</term>
+      <listitem>
+        <para>Select a Project Number whose Order activity you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Types</term>
+      <listitem>
+        <para>Specify which Order type information you want to include in the
+        display:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Sales Orders</term>
+            <listitem>
+              <para>Select to include details for any Sales Orders linked to
+              the Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Work Orders</term>
+            <listitem>
+              <para>Select to include details for any Work Orders linked to
+              the Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Purchase Orders</term>
+            <listitem>
+              <para>Select to include details for any Purchase Orders linked
+              to the Project.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Some Projects may not allow all Order types to be assigned to them.
+    If that is the case, you will not see information displayed for all Order
+    types.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Orders</term>
+      <listitem>
+        <para>Display lists Orders associated with the selected Project, using
+        the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

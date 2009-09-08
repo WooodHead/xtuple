@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section556338">
+  <title id="openReceivablesTitle"><indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>open items by</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>open items by customer</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>open items</primary>
+      <secondary>by customer</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>open items</primary>
+      <secondary>complete a/r list</secondary>
+    </indexterm>Open Receivables</title>
+  <para>To view the complete list of open receivables, select the "Open
+  Receivables" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspAROpenItems.png" />
+        </imageobject>
+        <caption>A/R Open Receivables</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>If a Customer's open Accounts Receivable (A/R) balance exceeds their
+    Credit Limit, the Customer will automatically be placed on Credit Warning.
+    In addition, any new or open Sales Orders for the Customer will also be
+    placed on Credit Hold.</para>
+  </note>
+  <para>When displaying open receivables, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer</term>
+      <listitem>
+        <para>Select all or specific Customers whose Open Receivables you want
+        to display.</para>
+        <tip>
+          <para>To generate results in the display you first have to select
+          the QUERY button. If you are not seeing any results, this is
+          probably the reason why.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Date Rate</term>
+      <listitem>
+        <para>Specify the following date range options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Document</term>
+            <listitem>
+              <para>Select if you want to show open receivables whose document
+              date falls within the specified date range.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Due</term>
+            <listitem>
+              <para>Select if you want to show open receivables whose due date
+              falls within the specified date range.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Open receivables having document or due dates (depending
+              on selection) on and after this date will be displayed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Open receivables having document or due dates (depending
+              on selection) on and before this date will be displayed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>As of Date</term>
+      <listitem>
+        <para>Specify the date you want the open receivables to be relative
+        to. The report will include any open receivables which were
+        open&mdash;that is, not yet paid&mdash;as of the specified date. This
+        feature provides "point-in-time" open balance functionality.</para>
+        <note>
+          <para>The payment date used as a reference for the "As of Date"
+          field is the G/L distribution date, not the posting date.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show</term>
+      <listitem>
+        <para>Specify which of the following options you want to
+        display:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Debits</term>
+            <listitem>
+              <para>Select to include only debit balance documents in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credits</term>
+            <listitem>
+              <para>Select to include only credit balance documents in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Both</term>
+            <listitem>
+              <para>Select to include both debit and credit balance documents
+              in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Only Items with Incidents</term>
+            <listitem>
+              <para>Select to include only documents having linked CRM
+              Incidents in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Unposted</term>
+            <listitem>
+              <para>Select to include unposted documents in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Receivables</term>
+      <listitem>
+        <para>Display lists open receivables by Customer, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>If the Customer selection is for a group of Customers, this
+        button will print the report associated with this screen. If a single
+        Customer is displayed then the PRINT button gives a menu of choices.
+        Select from one of the following print options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>List</term>
+            <listitem>
+              <para>Print the report associated with this screen.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Statement</term>
+            <listitem>
+              <para>Print an A/R Statement report for the selected
+              Customer.</para>
+              <para role="standard">If the selected Customer has an EDI
+              Profile attached, you may encounter an EDI processing interface
+              when printing the A/R Statement.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>The PRINT button next to the Receivables list prints the
+        document selected in the list.</para>
+        <para role="standard">If the Customer specified on the document has an
+        EDI Profile attached, you may encounter an EDI processing interface
+        when printing it.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Select from one of the following options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>INVOICE</term>
+            <listitem>
+              <para>Create a new Invoice. If a single Customer is selected,
+              the Invoice is pre-populated with the information about this
+              Customer.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>MISC. DEBIT MEMO</term>
+            <listitem>
+              <para>Create a new Miscellaneous Debit Memo. If a single
+              Customer is selected, the Miscellaneous Debit Memo is
+              pre-populated with this Customer.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>CREDIT MEMO</term>
+            <listitem>
+              <para>Create a new Credit Memo. If a single Customer is
+              selected, the Credit Memo is pre-populated with the information
+              about this Customer.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>MISC. CREDIT MEMO</term>
+            <listitem>
+              <para>Create a new Miscellaneous Credit Memo. If a single
+              Customer is selected, the Miscellaneous Credit Memo is
+              pre-populated with this Customer.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Edit the selected document.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Select from one of the following options (not all options are
+        available for all document types):</para>
+        <variablelist>
+          <varlistentry>
+            <term>RECEIVABLE ITEM</term>
+            <listitem>
+              <para>Opens the A/R Open Item window for this Receivable</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>INVOICE</term>
+            <listitem>
+              <para>Opens the Invoice window for the selected Invoice without
+              the ability to make changes.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>INVOICE INFORMATION</term>
+            <listitem>
+              <para>Opens the Invoice Information window for the selected
+              Invoice</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>APPLY</term>
+      <listitem>
+        <para>Apply the selected document to other open receivables if the
+        selected document is a Credit Memo or a Customer Deposit.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Post the selected document if it is a Debit Memo or
+        Invoice.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>REFUND</term>
+      <listitem>
+        <para>Refund the balance on the selected document if it was paid with
+        a credit card.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
