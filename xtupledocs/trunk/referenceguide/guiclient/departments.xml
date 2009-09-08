@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section965130" role="manufacturing">
-  <title>
-<indexterm significance="normal">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section965130">
+  <title><indexterm significance="normal">
       <primary>departments</primary>
       <secondary>master list of</secondary>
     </indexterm>Departments</title>
   <para>To access the master list of Departments, select the "Departments"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/departments.png"/>
+          <imagedata fileref="images/departments.png" />
         </imageobject>
         <caption>Departments Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>The Departments master list displays information on all Departments,
   including Department number and Department name.</para>
   <para>To the far right of the list, the following buttons are
@@ -70,5 +68,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="department.xml" xpointer="element(/1)"/>
+  <xi:include href="department.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

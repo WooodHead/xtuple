@@ -133,12 +133,11 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Tax Authority</term>
+      <term>Tax Zone</term>
       <listitem>
-        <para>Specify the Tax Authority for the Invoice. By default, the main
-        Tax Authority for the Customer will appear in the field. The Ship-To
-        Address Tax Authority will be shown if a Ship-To Address is being
-        used.</para>
+        <para>Specify the Tax Zone for the Invoice. By default, the main Tax
+        Zone for the Customer will appear in the field. The Ship-To Address
+        Tax Zone will be shown if a Ship-To Address is being used.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -189,18 +188,12 @@
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>sales orders</primary>
+          <primary>invoices</primary>
           <secondary>shipping charges on</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>shipping</primary>
-          <secondary>charges on sales orders</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>sales orders</primary>
-          <secondary>shipping forms on</secondary>
-        </indexterm> <indexterm significance="normal">
-          <primary>shipping forms</primary>
-          <secondary>selecting on sales orders</secondary>
-        </indexterm>Shipping Chgs.</term>
+          <secondary>charges on invoices</secondary>
+        </indexterm> Shipping Chgs.</term>
       <listitem>
         <para>Specify the Shipping charges associated with the Invoice. The
         preferred Shipping Charges Type for the associated Sales Order will
@@ -506,7 +499,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="invoiceItem.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="invoiceItem.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
