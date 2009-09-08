@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="financialLayoutSpecial">
+  <title>Financial Report Special</title>
+  <para>The Financial Reporting Engine (FRE) supports the
+  addition of a limited number of Special items, which may be used to extend
+  your reporting capabilities. A Special item can function as the child of a
+  Top-Level or other Group. <anchor id="Anchor576196" role="Index" xreflabel="financial reports:adding special items to"/> <indexterm significance="normal">
+      <primary>financial reports</primary>
+      <secondary>adding special items to</secondary>
+    </indexterm>To add a new Special item to a Financial Report, select the
+  ADD SPECIAL button. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/financialLayoutSpecial.png"/>
+        </imageobject>
+        <caption>Add Financial Report Special
+        Item</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When adding a Special item to a Financial Report, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a name to identify the Special item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Select one of the Special item types from the following
+        options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>A/R open items</term>
+            <listitem>
+              <para>Select to include the A/R open items balance for the
+              specified Accounting Period(s) in the Financial Report.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>A/P open items</term>
+            <listitem>
+              <para>Select to include the A/P open items balance for the
+              specified Accounting Period(s) in the Financial Report.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Beginning Balance</term>
+      <listitem>
+        <para>Select to include the Special item's beginning balance when the
+        Financial Report is generated. If selected, you also have the option
+        to show the beginning balance as a percentage of the group total. Not
+        selecting means the Special item's beginning balance will not be
+        shown.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Ending Balance</term>
+      <listitem>
+        <para>Select to include the Special item's ending balance when the
+        Financial Report is generated. If selected, you also have the option
+        to show the ending balance as a percentage of the group total. Not
+        selecting means the Special item's ending balance will not be
+        shown.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Debit/Credit</term>
+      <listitem>
+        <para>Select to include the Special item's Debit/Credit balance when
+        the Financial Report is generated. If selected, you also have the
+        option to show Debits and Credits as a percentage of the group total.
+        Not selecting means the Special item's Debit/Credit balance will not
+        be shown.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Budget</term>
+      <listitem>
+        <para>Select to include the Special item's Budget balance when the
+        Financial Report is generated. If selected, you also have the option
+        to show Budgets as a percentage of the group total. Not selecting
+        means the Special item's Budget balance will not be shown.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Difference</term>
+      <listitem>
+        <para>Select to include the difference between Debits and Credits for
+        the Special item when the Financial Report is generated. If selected,
+        you also have the option to show the difference as a percentage of the
+        group total. Not selecting means the Account's difference balance will
+        not be shown.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Group for % Total calculation</term>
+      <listitem>
+        <para>Indicate which group to use if percentage of group total
+        calculations are specified. By default, the system will use the parent
+        group for these calculations. The parent group is understood to be the
+        group within which the Special item is immediately located. If you
+        prefer to determine percentage of total calculations using a different
+        group than the parent group. All groups defined for the Financial
+        Report will be available for selection.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Operation</term>
+      <listitem>
+        <para>Specify how the Special item should operate in relation to the
+        group specified under the "Use Group" option:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Add to Group Total</term>
+            <listitem>
+              <para>Select if you want the Special item to be added to the
+              specified group's total. If selected, a "+" will appear next to
+              the group as it appears in the Financial Report.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Subtract from Group Total</term>
+            <listitem>
+              <para>Select if you want the Special item to be subtracted from
+              the specified group's total. If selected, a "-" will appear next
+              to the group as it appears in the Financial Report.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Custom Column</term>
+      <listitem>
+        <para>Select to enable Special item information to be included in a
+        Custom column when the Financial Report is generated.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show % of Group Total</term>
+            <listitem>
+              <para>Select to show the Custom column information as a
+              percentage of the group total.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Beginning Balance</term>
+            <listitem>
+              <para>Select to include the beginning balance for the Special
+              item in the Custom column.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Ending Balance</term>
+            <listitem>
+              <para>Select to include the ending balance for the Special item
+              in the Custom column.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Debits</term>
+            <listitem>
+              <para>Select to include the Debit balance for the Special item
+              in the Custom column.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Credits</term>
+            <listitem>
+              <para>Select to include the Credit balance for the Special item
+              in the Custom column.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Budget</term>
+            <listitem>
+              <para>Select to include the Budget balance for the Special item
+              in the Custom column.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Difference</term>
+            <listitem>
+              <para>Select to include the difference between Debits and
+              Credits for the Special item in the Custom column.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without adding a Special item to the Financial
+        Report Group, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Adds the Special item to the Financial Report Group.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>Because Ad Hoc reports are not required to conform
+    to the three standard statement formats, the "Column Layouts" tab is not
+    available for Ad Hoc reports. Column layouts may only be used by Financial
+    Reports which conform to these standard formats.</para>
+  </note>
+</section>

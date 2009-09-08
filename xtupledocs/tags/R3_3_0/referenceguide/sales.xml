@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter id="Chapter645668">
+  <title>Sales Module</title>
+  <para>In this chapter, we describe the Sales module. This module is
+  responsible for defining and maintaining the following key sales and
+  customer relationship components:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Sales Orders</para>
+    </listitem>
+    <listitem>
+      <para>Item Pricing</para>
+    </listitem>
+    <listitem>
+      <para>Billing</para>
+    </listitem>
+    <listitem>
+      <para>Billing Terms</para>
+    </listitem>
+    <listitem>
+      <para>Customer Information</para>
+    </listitem>
+    <listitem>
+      <para>Sales Commissions</para>
+    </listitem>
+  </itemizedlist>
+  <section>
+    <title>Quote</title>
+    <para>Quote section.</para>
+    <xi:include href="guiclient/quote.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/quotes.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section id="Section604404">
+    <title><indexterm significance="normal">
+        <primary>sales orders</primary>
+        <secondary>customer relations and</secondary>
+      </indexterm>Sales Order</title>
+    <para>Sales Order section.</para>
+    <xi:include href="guiclient/salesOrder.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/openSalesOrders.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/rescheduleSoLineItems.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section id="Section528858">
+    <title>Billing</title>
+    <para>Billing section.</para>
+    <section id="Section568790">
+      <title><indexterm significance="normal">
+          <primary>invoices</primary>
+          <secondary>as billing tool</secondary>
+        </indexterm>Invoice</title>
+      <para>Invoice section.</para>
+      <xi:include href="guiclient/uninvoicedShipments.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/selectShippedOrders.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/selectOrderForBilling.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/billingEditList.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspBillingSelections.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/postBillingSelections.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/unpostedInvoices.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/postInvoices.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section id="Section655862">
+      <title>Credit Memo</title>
+      <para>Sales Order Credit Memos are used to issue credit for sold
+      Inventory. They differ from Accounts Receivable (A/R) Credit Memos,
+      which are issued for non-Inventory purposes. In this section we describe
+      the features of sales Credit Memos.</para>
+      <xi:include href="guiclient/creditMemo.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/unpostedCreditMemos.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/creditMemoEditList.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/postCreditMemos.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section>
+      <title>Forms</title>
+      <para>Billing Forms section.</para>
+      <xi:include href="guiclient/printInvoices.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/printInvoicesByShipvia.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/reprintInvoices.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="accounting.xml" xpointer="submitEDI_Invoice"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/printCreditMemos.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/reprintCreditMemos.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+  </section>
+  <section>
+    <title>Return</title>
+    <para>Return Authorization section.</para>
+    <xi:include href="guiclient/returnAuthorization.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/openReturnAuthorizations.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/returnAuthorizationWorkbench.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section>
+    <title>Lookup</title>
+    <para>Sales lookup section.</para>
+    <section>
+      <title>Quote</title>
+      <para>Quote lookup section.</para>
+      <xi:include href="guiclient/dspQuotesByCustomer.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspQuotesByItem.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section>
+      <title>Sales Order</title>
+      <para>Sales Order lookup section</para>
+      <xi:include href="guiclient/dspSalesOrdersByCustomerType.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSalesOrdersByCustomer.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSalesOrdersByCustomerPO.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSalesOrdersByItem.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <xi:include href="guiclient/dspSalesOrderStatus.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section>
+    <title>Forms</title>
+    <para>Sales Forms section.</para>
+    <xi:include href="guiclient/printSoForm.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/printRaForm.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/packingListBatch.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/printPackingList.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section role="standard">
+      <title><indexterm>
+          <primary>sales orders</primary>
+          <secondary>electronic delivery of</secondary>
+        </indexterm><indexterm>
+          <primary>electronic data interchange</primary>
+          <secondary>sales order delivery using</secondary>
+        </indexterm>Send Electronic Sales Order Form</title>
+      <para>To send a Sales Order form to a Customer by email or FTP, select
+      the "Send Electronic Sales Order Form" option. The following screen will
+      appear:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="guiclient/images/submitEDI_salesOrder.png" />
+            </imageobject>
+            <caption><para>Selecting a Sales Order to Review EDI Before
+            Sending</para></caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>This window shows either a list or search window for Sales Orders
+      for Customers configured to receive EDI. You are presented with the
+      following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Search for</term>
+          <listitem>
+            <para>Optionally enter a Sales Order number here to find it in the
+            list.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Orders</term>
+          <listitem>
+            <para>List of Sales Orders that can be sent by EDI.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <note>
+        <para>Customers are set up to receive electronic deliveries of
+        information using the "Transmission" tab on the Customer
+        master.</para>
+      </note>
+      <para>To the far right of the screen, the following buttons are
+      available:</para>
+      <variablelist>
+        <varlistentry>
+          <term>CANCEL</term>
+          <listitem>
+            <para>Closes the screen without scheduling a Sales Order for
+            delivery, returning you to the application desktop.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>SELECT</term>
+          <listitem>
+            <para>Select the Sales Order for delivery. This closes the window
+            and proceeds to sending the EDI.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <xi:include href="guiclient/submitEDI.xml" xpointer="submitEDI"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section role="standard">
+      <title><indexterm>
+          <primary>quotes</primary>
+          <secondary>electronic delivery of</secondary>
+        </indexterm><indexterm>
+          <primary>electronic data interchange</primary>
+          <secondary>quote delivery using</secondary>
+        </indexterm>Send Electronic Quote</title>
+      <para>To send a Quote to a Customer or Prospect by email or FTP, select
+      the "Send Electronic Quote" option. The following screen will
+      appear:</para>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="guiclient/images/submitEDI_quote.png" />
+        </imageobject>
+        <caption><para>Selecting a Quote to Review EDI Before
+        Sending</para></caption>
+      </mediaobject>
+      <para>This window shows either a list or search window for Quotes for
+      Customers and Prospects configured to receive EDI. You are presented
+      with the following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Search for</term>
+          <listitem>
+            <para>Optionally enter a Quote number here to find it in the
+            list.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Quotes</term>
+          <listitem>
+            <para>List of Quotes that can be sent by EDI.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <note>
+        <para>Customers and Prospects are set up to receive electronic
+        deliveries of information using the "Transmission" tab on the Customer
+        or Prospects master.</para>
+      </note>
+      <para>To the far right of the screen, the following buttons are
+      available:</para>
+      <variablelist>
+        <varlistentry>
+          <term>CANCEL</term>
+          <listitem>
+            <para>Closes the screen without scheduling a Quote for delivery,
+            returning you to the application desktop.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>SELECT</term>
+          <listitem>
+            <para>Select the Quote for delivery. This closes the window and
+            proceeds to sending the EDI.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <xi:include href="guiclient/submitEDI.xml" xpointer="submitEDI"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+  </section>
+  <section id="Section519901">
+    <title>Reports</title>
+    <para>Sales Reports section.</para>
+    <xi:include href="guiclient/dspSummarizedBacklogByWarehouse.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section>
+      <title>Backlog</title>
+      <para>Backlog Reports section.</para>
+      <xi:include href="guiclient/dspBacklogByCustomerType.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspBacklogByCustomerGroup.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspBacklogByCustomer.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspBacklogBySalesOrder.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspBacklogByProductCategory.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspBacklogByItem.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <xi:include href="guiclient/dspPartiallyShippedOrders.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section>
+      <title>Inventory Availability</title>
+      <para>Inventory Availability Reports section.</para>
+      <xi:include href="guiclient/dspInventoryAvailabilityBySalesOrder.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspInventoryAvailabilityByItem.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspInventoryAvailabilityByCustomerType.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <xi:include href="guiclient/dspEarnedCommissions.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/dspBriefEarnedCommissions.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/dspTaxHistory.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section>
+      <title>Customers</title>
+      <para>Customer Reports section.</para>
+      <xi:include href="guiclient/dspCustomersByCustomerType.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspCustomersByCharacteristic.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+  </section>
+  <section id="Section518499">
+    <title>Analysis</title>
+    <para>Sales Analysis section.</para>
+    <section>
+      <title>Bookings</title>
+      <para>Bookings section.</para>
+      <xi:include href="guiclient/dspBookingsBySalesRep.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspBookingsByCustomerGroup.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspBookingsByCustomer.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspBookingsByShipTo.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspBookingsByProductCategory.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspBookingsByItem.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section>
+      <title>Time-Phased Bookings</title>
+      <para>Time-Phased Bookings section.</para>
+      <xi:include href="guiclient/dspTimePhasedBookingsByCustomer.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspTimePhasedBookingsByProductCategory.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspTimePhasedBookingsByItem.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section>
+      <title>Sales History</title>
+      <para>Sales history section.</para>
+      <xi:include href="guiclient/dspSalesHistoryBySalesrep.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSalesHistoryByCustomerType.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSalesHistoryByCustomerGroup.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSalesHistoryByCustomer.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSalesHistoryByBilltoName.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSalesHistoryByShipTo.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSalesHistoryByProductCategory.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSalesHistoryByItem.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section>
+      <title>Brief Sales History</title>
+      <para>Brief sales history section.</para>
+      <xi:include href="guiclient/dspBriefSalesHistoryBySalesRep.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspBriefSalesHistoryByCustomerType.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspBriefSalesHistoryByCustomer.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section>
+      <title>Summarized Sales History</title>
+      <para>Summarized sales history section.</para>
+      <xi:include href="guiclient/dspSummarizedSalesBySalesRep.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSummarizedSalesHistoryByShippingZone.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSummarizedSalesByCustomerType.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSummarizedSalesByCustomer.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSummarizedSalesByCustomerTypeByItem.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSummarizedSalesByCustomerByItem.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspSummarizedSalesByItem.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section>
+      <title>Time-Phased Summarized Sales History</title>
+      <para>Time-phased summarized sales history section.</para>
+      <xi:include href="guiclient/dspTimePhasedSalesByCustomerGroup.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspTimePhasedSalesByCustomer.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspTimePhasedSalesByCustomerByItem.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspTimePhasedSalesByProductCategory.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspTimePhasedSalesByItem.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <xi:include href="guiclient/printSASpecialCalendarForm.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section>
+    <title>Prospect</title>
+    <para>Prospect section.</para>
+    <xi:include href="guiclient/prospect.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/prospects.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/searchForProspect.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section>
+    <title>Customer</title>
+    <para>Customer section.</para>
+    <xi:include href="guiclient/customer.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/customers.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/searchForCustomer.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/customerTypes.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/customerGroups.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section id="Section519563">
+    <title><indexterm significance="normal">
+        <primary>items</primary>
+        <secondary>pricing for</secondary>
+      </indexterm>Item Pricing</title>
+    <para>Item Pricing section.</para>
+    <xi:include href="guiclient/itemListPrice.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/updateListPricesByProductCategory.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/itemPricingSchedules.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/pricingScheduleAssignments.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/sales.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section>
+      <title>Update Prices</title>
+      <para>Update Prices section.</para>
+      <xi:include href="guiclient/updatePricesByProductCategory.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/updatePricesByPricingSchedule.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section id="Section519777">
+      <title>Reports</title>
+      <para>Item Pricing Reports section.</para>
+      <xi:include href="guiclient/dspPricesByCustomerType.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspPricesByCustomer.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspPricesByItem.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspFreightPricesByCustomerType.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspFreightPricesByCustomer.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+  </section>
+  <section id="Section518497">
+    <title><indexterm significance="normal">
+        <primary>master information</primary>
+        <secondary>for s/o module</secondary>
+      </indexterm>Master Information</title>
+    <para>Sales Master Information section.</para>
+    <xi:include href="guiclient/characteristics.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/salesReps.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/shippingZones.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/shipVias.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/shippingChargeTypes.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/taxCodes.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/shippingForms.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/salesCategories.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/termses.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/salesAccounts.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/arAccountAssignments.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/customerFormAssignments.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section id="Section520435">
+    <title><indexterm significance="normal">
+        <primary>utilities</primary>
+        <secondary>in s/o module</secondary>
+      </indexterm>Utilities</title>
+    <para>Sales Utilities section.</para>
+    <xi:include href="guiclient/dspCustomerInformationExport.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/reassignCustomerTypeByCustomerType.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/updateCreditStatusByCustomer.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/purgeInvoices.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/purgeCreditMemos.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/allocateReservations.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/archiveSalesHistory.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/restoreSalesHistory.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+</chapter>

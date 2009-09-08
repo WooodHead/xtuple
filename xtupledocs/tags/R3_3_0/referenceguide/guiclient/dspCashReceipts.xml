@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section553315">
+  <title id="dspCashReceiptsTitle"><indexterm significance="normal">
+      <primary>cash receipts</primary>
+      <secondary>history of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>cash received from</secondary>
+    </indexterm>Cash Receipts</title>
+  <para>To view the history of Cash Receipts and their applications by
+  Customer, select the "Cash Receipts" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspCashReceipts.png" />
+        </imageobject>
+        <caption>Cash Receipts by Customer</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>Prior to xTuple ERP version 3.3.0, Cash Receipt history was not
+    retained for use by this screen. As a result, you will not see Cash
+    Receipt history for any Cash Receipts entered prior to version 3.3.0.
+    Since old Cash Receipt information is not available prior to version
+    3.3.0, the A/R Applications screen should be used until sufficient Cash
+    Receipt history is accumulated.</para>
+  </note>
+  <para>When viewing Cash Receipts and their applications, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer</term>
+      <listitem>
+        <para>Select all or specific Customers whose Cash Receipt details you
+        want to display.</para>
+        <tip>
+          <para>To generate results in the display you first have to select
+          the QUERY button. If you are not seeing any results, this is
+          probably the reason why.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Distribution</term>
+      <listitem>
+        <para>Specify a date range for Cash Receipt history you want to
+        display:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Cash Receipts entered on and after this date will be
+              displayed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Cash Receipts entered on and before this date will be
+              displayed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Display By</term>
+      <listitem>
+        <para>Choose one of the following display options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Applications</term>
+            <listitem>
+              <para>Select to order the results by the Cash Receipt
+              applications. This functionality was not changed in xTuple ERP
+              version 3.3.0—and so it operates in the same manner it did prior
+              to that version.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Cash Receipts</term>
+            <listitem>
+              <para>Select to order the results by Cash Receipt. Only Cash
+              Receipts entered in or after xTuple ERP version 3.3.0 will be
+              shown. For older Cash Receipt history, see the A/R Applications
+              screen.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cash Receipts</term>
+      <listitem>
+        <para>Display lists Cash Receipt details, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The display will include unposted as well as posted Cash
+    Receipts.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Select to create a new Cash Receipt.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Select to edit the specified unposted Cash Receipt or receivable
+        item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Select to view the specified Cash Receipt or receivable
+        item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Select to post the specified Cash Receipt.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>REVERSE</term>
+      <listitem>
+        <para>Select to reverse (i.e., void) the specified posted Cash
+        Receipt. When a Cash Receipt is voided, any applications will also be
+        reversed. Keep in mind that any Credit Memos or Customer Deposits
+        created from the unapplied balance when the original Cash Receipt was
+        posted will not be reversed when a Cash Receipt is voided. Instead, a
+        misc. A/R Debit Memo will be created in the amount of the original
+        unapplied balance. You may only reverse Cash Receipts entered in
+        xTuple ERP version 3.3.0 or later.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
