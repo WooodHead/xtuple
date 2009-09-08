@@ -93,8 +93,9 @@
   <tip>
     <para>If a preferred Selling Site is specified for the Customer, then that
     Site will be selected here by default. If the preferred Selling Site is
-    not selected—and you think it should be—verify that the Item Site master
-    for the Line Item in question is marked as a "Sold from" Site.</para>
+    not selected&mdash;and you think it should be&mdash;verify that the Item
+    Site master for the Line Item in question is marked as a "Sold from"
+    Site.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -147,14 +148,24 @@
         Customer Ship-To Address (most specific), by Customer, by Customer
         Type, by Customer Type pattern, by all Customers. The browse button
         located to the right of the field leads to a Price List screen.</para>
+        <para>If your Pricing Schedule has multiple Units of Measure (UOM) on
+        it―or if several Pricing Schedules share the same level of Price
+        specificity, but they have different UOMs―then the UOM which matches
+        the selected UOM will be chosen―that is, as long as the quantity break
+        does not exceed the quantity being priced. If no entry matches the UOM
+        with a quantity break less than the quantity being priced, then the
+        lowest value Price for any UOM will be chosen. To make sure a specific
+        UOM is always chosen at the desired level of Price specificity, then
+        your Pricing Schedules should include at least one UOM with a quantity
+        break of 0.</para>
+        <tip>
+          <para>The system can be configured to prevent users from editing the
+          Net Unit Price. If your system is configured that way, the Net Unit
+          Price field will not be editable.</para>
+        </tip>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>The system can be configured to prevent users from editing the Net
-    Unit Price. If your system is configured that way, the Net Unit Price
-    field will not be editable.</para>
-  </tip>
   <variablelist>
     <varlistentry>
       <term>Price UOM</term>
@@ -204,12 +215,18 @@
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>sales orders</primary>
+          <primary>quotes</primary>
           <secondary>availability of items for</secondary>
-        </indexterm>Availability</term>
+        </indexterm>Show Availability</term>
       <listitem>
         <para>Select to display Availability information for the Quote Item in
         the following categories:</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Inventory</term>
+      <listitem>
+        <para>Select radio button to view Inventory availability.</para>
         <variablelist>
           <varlistentry>
             <term>On Hand</term>
@@ -223,12 +240,12 @@
               <para>Displays the quantity allocated to current Sales Orders
               and/or Work Orders in the system. An Item is considered
               allocated to a Sales Order if a Sales Order Line Item exists for
-              the Item—and that Line Item has not yet been issued to Shipping.
-              An Item is considered allocated to a Work Order if the Item is a
-              material requirement—and the material has not yet been issued to
-              the Work Order. Once the current Sales Order Line Item is saved,
-              the "Allocated" value will increase by the quantity
-              ordered.</para>
+              the Item&mdash;and that Line Item has not yet been issued to
+              Shipping. An Item is considered allocated to a Work Order if the
+              Item is a material requirement&mdash;and the material has not
+              yet been issued to the Work Order. Once the current Sales Order
+              Line Item is saved, the "Allocated" value will increase by the
+              quantity ordered.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -242,10 +259,10 @@
           <varlistentry>
             <term>On Order</term>
             <listitem>
-              <para>If the Sales Order Item is a manufactured Item, the
-              quantity ordered by current Work Orders will be displayed. If
-              the Sales Order Item is a purchased Item, the quantity ordered
-              by current Purchase Orders will be displayed.</para>
+              <para>If the Quote Item is a manufactured Item, the quantity
+              ordered by current Work Orders will be displayed. If the Sales
+              Order Item is a purchased Item, the quantity ordered by current
+              Purchase Orders will be displayed.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -295,8 +312,8 @@
         as make-to-order if the "Stocked at" flag on the Item Site master is
         not selected. A Work Order created automatically from a Sales Order
         Line Item will assume the same Order Number as the Sales Order the
-        Line Item is associated with—even if that Order Number has already
-        been used by a previous Work Order.</para>
+        Line Item is associated with&mdash;even if that Order Number has
+        already been used by a previous Work Order.</para>
         <note>
           <para>For purchased Items, the option "Create Purchase Request" will
           appear instead. The displayed fields will resemble the fields shown
@@ -323,6 +340,26 @@
         Site master for an Item are considered supplying Sites. If no
         supplying Site exists for an Item, a Work Order may not be created for
         the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Dependencies</term>
+      <listitem>
+        <para>Select radio button to review any components dependent on
+        manufactured line Item.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show Dependencies as Indented BOM</term>
+            <listitem>
+              <para>Displays components Items associated with sold
+              manufactured Item in a nested list with a plus ("+") sign
+              located to the far left of the screen next to each line that may
+              be expanded to lower levels. By clicking your mouse on a plus
+              sign, you reveal lower levels of information related to the Line
+              Item.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -460,38 +497,16 @@
           <varlistentry>
             <term>Tax Type</term>
             <listitem>
-              <para>Specify the Tax Type for the Sales Order Item. By default,
-              the Item's Tax Type corresponding to the Sales Order's Tax
-              Authority will be presented here. The link between Tax Types and
-              Tax Authorities is made on the Item master. If the Item master
-              does not have a Tax Type for the Sales Order's Tax Authority,
-              then no Tax will be charged.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Tax Code</term>
-            <listitem>
-              <para>Specify the Tax Code to be applied to the Sales Order
-              Item. By default, the Tax Code specified in the Tax Selection
-              matrix will be displayed here. For a Tax Code to be used, the
-              matrix must have an entry which matches both the Item's Tax Type
-              definition and the Tax Authority specified on the Sales Order
-              header. If no Tax Selection match exists, then no Tax Code will
-              be used—meaning no Tax will be charged.</para>
+              <para>Specify the Tax Type for the Sales Order Item.</para>
             </listitem>
           </varlistentry>
         </variablelist>
-        <tip>
-          <para>The relationship between Tax Authorities, Tax Types, and Tax
-          Codes is established in the Tax Selection matrix.</para>
-        </tip>
         <variablelist>
           <varlistentry>
             <term>Tax</term>
             <listitem>
               <para>Displays the amount of Tax to be charged for the Sales
-              Order Line Item quantity. Sales Tax is calculated at the Sales
-              Order Line Item level. To get a detailed view of the Tax
+              Order Line Item quantity. To get a detailed view of the Tax
               calculation, click on the Tax link using your mouse.</para>
             </listitem>
           </varlistentry>
@@ -542,53 +557,29 @@
   </note>
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <para>If the Quote Line Item is a manufactured Item, you have the ability to
-  view Pending Availability for any of its component Items. To view the
-  Pending Availability for Quote Line Item component Items, select the
-  "Pending Availability" tab, as shown below:</para>
+  <para>To define an alternate Cost of Sales Account for a Sales Order Line
+  Item, select the "Accounting" tab at the bottom of the screen, as shown
+  below:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/quoteItem_availability.png" />
+          <imagedata fileref="images/quoteItem_costofsalesTab.png" />
         </imageobject>
-        <caption>Pending Availability for Component Items</caption>
+        <caption>Quote Line Item Accounting</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying Pending Availability for component Items, you are
-  presented with the following options:</para>
-  <note>
-    <para>The "Pending Availability" tab features details related to component
-    Items and so only applies if a Quote Line Item is a manufactured Item. If
-    a Line Item is not manufactured, Pending Availability does not
-    apply.</para>
-  </note>
+  <para>When defining an alternate Cost of Sales Account for a Sales Order
+  Line Item, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Show Pending Availability as Indented BOM</term>
+      <term>Alternate Cost of Sales Account</term>
       <listitem>
-        <para>Select to display Pending Availability as an indented Bill of
-        Materials.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Pending Availability</term>
-      <listitem>
-        <para>Displays Pending Availability for component Items associated
-        with sold manufactured Items. If you choose the "Show Pending
-        Availability as Indented BOM" option, the information will be
-        displayed in a nested list—with a plus ("+") sign located to the far
-        left of the screen next to each line that may be expanded to lower
-        levels. By clicking your mouse on a plus sign, you reveal lower levels
-        of information related to the Line Item.</para>
+        <para>Specify an alternate Account to be used for the Cost of Sales.
+        The Account you specify will be used instead of the typical Account
+        pre-defined in the Sales Account Assignments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>Keep in mind that Pending Availability in this case is not the same
-    as Available to Promise. This view to Pending Availability reflects
-    current Inventory Levels—it is not a time-phased view of
-    Availability.</para>
-  </tip>
   <xi:include href="priceListQuote.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
