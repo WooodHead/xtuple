@@ -1160,7 +1160,7 @@
         <para>Specify the Tax Zone you want to associate with the specified
         Tax Type. Creating a relationship between a Tax Zone and a Tax Type
         enables you to determine how Tax will be applied when processing
-        transactions using the Item. </para>
+        transactions using the Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -1448,39 +1448,40 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To associate Transformation options for an Item, select the
-  "Transformations" button. The following options will appear:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Transformations</term>
-      <listitem>
-        <para>Display lists Items which may be chosen as target Items during
-        Transformation transactions.</para>
-        <note>
-          <para>You may only transform an Item if the source Item is located
-          in the same Site as the target Item.</para>
-        </note>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens a searchable Item list showing Items which may be chosen
-        as target Items during Transformation transactions.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>DELETE</term>
-      <listitem>
-        <para>Highlight a target Item and then select this button to remove
-        the target Item from the list.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para role="standard">To associate Transformation options for an Item,
+  select the "Transformations" button. The following options will
+  appear:</para>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term>Transformations</term>
+        <listitem>
+          <para>Display lists Items which may be chosen as target Items during
+          Transformation transactions.</para>
+          <note>
+            <para>You may only transform an Item if the source Item is located
+            in the same Site as the target Item.</para>
+          </note>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
+  <para role="standard">To the far right of the screen, the following buttons
+  are available:</para>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term>NEW</term>
+        <listitem>
+          <para>Opens a searchable Item list showing Items which may be chosen
+          as target Items during Transformation transactions.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>DELETE</term>
+        <listitem>
+          <para>Highlight a target Item and then select this button to remove
+          the target Item from the list.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>To <indexterm significance="normal">
       <primary>item documents</primary>
       <secondary>associate with items</secondary>

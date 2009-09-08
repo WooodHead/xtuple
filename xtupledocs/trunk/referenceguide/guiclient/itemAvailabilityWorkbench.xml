@@ -50,8 +50,8 @@
     <para id="Para678031">When quantity appears in the "Ordered" column, this
     refers to quantity that is on order through either a Work Order or
     Purchase Order. In the case of Purchase Orders, the quantity will always
-    be represented in the Inventory Unit of Measure (UOM)—regardless of the
-    Vendor UOM used on the Purchase Order.</para>
+    be represented in the Inventory Unit of Measure (UOM)&mdash;regardless of
+    the Vendor UOM used on the Purchase Order.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -61,7 +61,7 @@
         display.</para>
       </listitem>
     </varlistentry>
-    <varlistentry role="manufacturing">
+    <varlistentry role="standard">
       <term id="Para678033">Show Planned Orders</term>
       <listitem>
         <para>Select to show Planned Orders in the display. Planned Orders
@@ -216,13 +216,13 @@
         </informalexample>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term id="Para678068">All Sites</term>
       <listitem>
         <para>Select to display Inventory Availability for all Sites.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term id="Para678069">Selected</term>
       <listitem>
         <para>Specify Site whose Inventory Availability you want to
@@ -244,8 +244,8 @@
     <para id="Para678073">When quantity appears in the "On Order" column, this
     refers to quantity that is on order through either a Work Order or
     Purchase Order. In the case of Purchase Orders, the quantity will always
-    be represented in the Inventory Unit of Measure (UOM)—regardless of the
-    Vendor UOM used on the Purchase Order.</para>
+    be represented in the Inventory Unit of Measure (UOM)&mdash;regardless of
+    the Vendor UOM used on the Purchase Order.</para>
   </note>
   <para id="Para678074">To the far right of the screen, the following buttons
   are available:</para>
@@ -309,7 +309,7 @@
         <para>Select to display Standard Costs for component Items in the
         specified Item's Bill of Materials. Both the Unit Cost and Extended
         Cost for each component Item, expressed in terms of Standard Cost,
-        will display—assuming Standard Costs have been defined for each
+        will display&mdash;assuming Standard Costs have been defined for each
         component Item.</para>
       </listitem>
     </varlistentry>
@@ -319,8 +319,8 @@
         <para>Select to display Actual Costs for component Items in the
         specified Item's Bill of Materials. Both the Unit Cost and Extended
         Cost for each component Item, expressed in terms of Actual Cost, will
-        display—assuming Actual Costs have been defined for each component
-        Item.</para>
+        display&mdash;assuming Actual Costs have been defined for each
+        component Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>

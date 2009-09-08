@@ -59,7 +59,7 @@
         default, the Tax Zone associated with the Vendor will be used.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Receiving Site</term>
       <listitem>
         <para>Specify the Site where materials from the Purchase Order will be
@@ -67,16 +67,14 @@
         Receiving Sites. No special designation needs to be made in the Site
         master or elsewhere to indicate that a Site may be used for receiving
         purposes.</para>
+        <tip>
+          <para>The receiving Site may differ from the supplying Site(s) for
+          some Purchase Order Line Items. To update your Inventory records to
+          indicate that Items have been moved from the receiving to the
+          supplied from Site, perform an Inter-Site Transfer.</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>The receiving Site may differ from the supplying Site(s) for some
-    Purchase Order Line Items. To update your Inventory records to indicate
-    that Items have been moved from the receiving to the supplied from Site,
-    perform an Inter-Site Transfer.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term>Purchasing Agent</term>
       <listitem>
@@ -102,16 +100,14 @@
       <listitem>
         <para>Enter the Vendor number of the Vendor you are issuing the
         Purchase Order to.</para>
+        <note>
+          <para>A valid Vendor number must be entered in the "Vendor #" field
+          before Line Items can be added to the Purchase Order. If no valid
+          Vendor number is entered, you will not be able to add Line Items to
+          the Purchase Order.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>A valid Vendor number must be entered in the "Vendor #" field before
-    Line Items can be added to the Purchase Order. If no valid Vendor number
-    is entered, you will not be able to add Line Items to the Purchase
-    Order.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Main Address</term>
       <listitem>
@@ -333,7 +329,7 @@
         non-Inventory Items.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Supplying Site</term>
       <listitem>
         <para>Select a Supplying Site from the list of available options. By
