@@ -89,7 +89,7 @@
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Site</term>
       <listitem>
         <para>Specify supplying Site for selected Item. Only Sites that
@@ -229,7 +229,7 @@
                   <listitem>
                     <para>Select to include child Work Orders in the display.
                     If selected, child Work Orders will be shown indented in
-                    the Materials and Operations list. </para>
+                    the Materials and Operations list.</para>
                   </listitem>
                 </varlistentry>
               </variablelist>
@@ -443,7 +443,7 @@
   Once the Work Order has been created, these options will become read-only.
   To specify Revision information for a Work Order Item, select the "Revision"
   tab. The following screen will appear:</para>
-  <para role=""><screenshot role="standard">
+  <para role="standard"><screenshot role="standard">
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/workOrder_revision.png" />

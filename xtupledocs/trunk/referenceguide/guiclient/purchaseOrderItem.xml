@@ -49,7 +49,7 @@
               normally make, but you occasionally buy.</para>
             </listitem>
           </varlistentry>
-          <varlistentry>
+          <varlistentry role="standard">
             <term>Supplying Site</term>
             <listitem>
               <para>Specify the Site the Item will be supplied from. The
@@ -57,18 +57,19 @@
               the shipping Site for shipment to Customers. Sites may be
               designated as supplying Sites in the Item Site
               definition.</para>
+              <tip>
+                <para>The supplying Site may differ from the receiving Site(s)
+                for some Purchase Order Line Items. To update your Inventory
+                records to indicate that Items have been moved from the
+                receiving to the supplied from Site, perform an Inter-Site
+                Transfer.</para>
+              </tip>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>The supplying Site may differ from the receiving Site(s) for some
-    Purchase Order Line Items. To update your Inventory records to indicate
-    that Items have been moved from the receiving to the supplied from Site,
-    perform an Inter-Site Transfer.</para>
-  </tip>
   <variablelist>
     <varlistentry>
       <term>Non-Inventory Item</term>

@@ -5,44 +5,34 @@
 <section id="warehouse">
   <title><indexterm significance="normal">
       <primary>sites</primary>
-
       <secondary>creating new</secondary>
     </indexterm>Site</title>
-
   <para>To create a new Site, select the NEW button. The following screen will
   appear:</para>
-
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/warehouse.png" />
         </imageobject>
-
         <caption>Create New Inventory Site</caption>
       </mediaobject>
     </screenshot></para>
-
   <tip>
     <para>Site Codes are abbreviations used to quickly and easily identify
     Sites. Keep these Codes short and meaningful so Employees will have an
     easy time identifying them.</para>
   </tip>
-
   <para>When creating a new Site, you are presented with the following
   options:</para>
-
   <variablelist>
     <varlistentry>
       <term>Code</term>
-
       <listitem>
         <para>The Site code is used to identify a given Site.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Type</term>
-
       <listitem>
         <para>Specify the Site Type from the list of user-defined values.
         Sites may be defined in any number of ways―as warehouses, stores, etc.
@@ -50,63 +40,53 @@
         linkend="siteTypesTitle" />.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Active</term>
-
       <listitem>
         <para>Select to specify the Site is active. Not selecting means the
         Site will be considered inactive. To re-activate a Site, simply select
         this option.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Description</term>
-
       <listitem>
         <para>Enter a brief description of the Site.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <note>
     <para>If a new Address is manually entered here, that Address will be
     added automatically to the master list of Addresses.</para>
   </note>
-
   <variablelist>
     <varlistentry>
       <term>Address</term>
-
       <listitem>
-        <para>Manually enter Address information in the fields below—or use
-        the browse button to select pre-existing Address information. The Site
-        Address is used on shipping and receiving paperwork. If a new Address
-        is manually entered here, that Address will be added automatically to
-        the master list of Addresses. For additional documentation related to
-        creating Addresses, see <xref linkend="addressTitle" />.</para>
+        <para>Manually enter Address information in the fields below&mdash;or
+        use the browse button to select pre-existing Address information. The
+        Site Address is used on shipping and receiving paperwork. If a new
+        Address is manually entered here, that Address will be added
+        automatically to the master list of Addresses. For additional
+        documentation related to creating Addresses, see <xref
+        linkend="addressTitle" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <variablelist>
     <varlistentry>
       <term>Contact</term>
-
       <listitem>
-        <para>Manually enter Contact information in the fields below—or use
-        the browse button to select pre-existing Contact information. If a new
-        Contact is manually entered here, that Contact will be added
+        <para>Manually enter Contact information in the fields below&mdash;or
+        use the browse button to select pre-existing Contact information. If a
+        new Contact is manually entered here, that Contact will be added
         automatically to the master list of Contacts. For additional
         documentation related to creating Contacts, see <xref
         linkend="contactTitle" />.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Post Unassigned Transactions to</term>
-
       <listitem>
         <para>Specify a General Ledger Account to post unassigned transactions
         to. This account is used as a general bucket for General Ledger
@@ -117,27 +97,22 @@
         unassigned transactions to, you can remove most of the ambiguous error
         messages that may result from inadequately assigned Item Site Cost
         Categories. For example, if an Inventory Asset Account is not defined,
-        Inventory transactions may proceed—but the Asset portion of the
+        Inventory transactions may proceed&mdash;but the Asset portion of the
         transactions will be posted to the unassigned transaction
         Account.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Inventory Site</term>
-
       <listitem>
         <para>Select if the Site is to be used for Inventory storage. The
         following options are available for Inventory Sites:</para>
-
         <variablelist>
           <varlistentry>
             <term>Next <indexterm significance="normal">
                 <primary>bills of lading</primary>
-
                 <secondary>numbering of</secondary>
               </indexterm>Bill of Lading #</term>
-
             <listitem>
               <para>There are two parts to this field. These two parts include
               a "prefix" that will appear at the beginning of all
@@ -151,14 +126,11 @@
               number of whole numbers.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term>Next <indexterm significance="normal">
                 <primary>count tags</primary>
-
                 <secondary>numbering of</secondary>
               </indexterm>Count Tag#</term>
-
             <listitem>
               <para>There are two parts to this field. These two parts include
               a "prefix" that will appear at the beginning of all
@@ -170,41 +142,32 @@
               numbers.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term><indexterm significance="normal">
                 <primary>shipping sites</primary>
-
                 <secondary>designation of</secondary>
               </indexterm>Shipping Site</term>
-
             <listitem>
               <para>Select if the Site is used for Shipping. Not selecting
               means materials are not shipped from the Site.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term>Force the use of Count Slips</term>
-
             <listitem>
               <para>Select to enforce the use of Count Slips. Not selecting
               means Count Slips will not be required when counting Inventory
               in this Site.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term><indexterm significance="normal">
                 <primary>zones</primary>
-
                 <secondary>enforcing in sites</secondary>
               </indexterm> <indexterm significance="normal">
                 <primary>sites</primary>
-
                 <secondary>enforcing zones in</secondary>
               </indexterm>Enforce the use of Zones</term>
-
             <listitem>
               <para>Select to enforce the use of Zones within the Site. A Site
               Zone is a defined section or area within a Site. For example,
@@ -214,10 +177,8 @@
               Locations may not include Zones.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term>Shipping Commission</term>
-
             <listitem>
               <para>Enter a commission percentage to be charged whenever
               Inventory is shipped from the Site. This is an optional feature
@@ -227,26 +188,20 @@
               default value of "0.00".</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term><indexterm significance="normal">
                 <primary>tax authorities</primary>
-
                 <secondary>for sites</secondary>
               </indexterm>Tax Authority</term>
-
             <listitem>
               <para>Specify the Tax Authority associated with the Site.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term><indexterm significance="normal">
                 <primary>default FOB</primary>
-
                 <secondary>in site master</secondary>
               </indexterm>Default F.O.B</term>
-
             <listitem>
               <para>Enter default free on board (FOB) Terms for the Site. The
               default F.O.B. Terms will be entered on the Sales Order header
@@ -254,10 +209,8 @@
               Site.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry role="standard">
             <term>Scheduling Sequence</term>
-
             <listitem>
               <para>Select or enter the Scheduling Sequence. This sequence
               number determines the order in which Sites are processed when
@@ -268,151 +221,119 @@
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para role="standard">Transit Sites are special Sites used by Transfer
   Orders. When Transfer Order Inventory is shipped from the Source Site, it is
   moved to a Transit Site. Inventory stays in the Transit Site until it is
   received at the Destination Site. If the Site is to be used as a Transit
   Site, select the "Transit Site" option. The following changes to the main
   screen will appear:</para>
-
-  <para><screenshot>
+  <para role="standard"><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/warehouse_transit.png" />
         </imageobject>
-
         <caption>Create New Transit Site</caption>
       </mediaobject>
     </screenshot></para>
-
-  <tip>
+  <tip role="standard">
     <para>Be sure to define a default Transit Site on your Inventory
     Configuration screen. This will make it easier to generate Transfer
     Orders, as Transit Sites are required for Transfer Orders.</para>
   </tip>
-
-  <para>When defining a Site as a Transit Site, you are presented with the
-  following options:</para>
-
-  <variablelist>
-    <varlistentry>
-      <term>Default Ship Via</term>
-
-      <listitem>
-        <para>Specify a default Ship Via to be used by the Transit Site. The
-        selected Ship Via will be used by default on the Transfer Order header
-        whenever the specified Transit Site is used.</para>
-      </listitem>
-    </varlistentry>
-
-    <varlistentry>
-      <term>Default Shipping Form</term>
-
-      <listitem>
-        <para>Specify a default Shipping Form to be used by the Transit Site.
-        The selected Shipping Form will be used by default on the Transfer
-        Order header whenever the specified Transit Site is used.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-
-  <note>
-    <para>The Shipping Form will be used when printing Packing Lists for the
-    Transfer Order.</para>
-  </note>
-
-  <variablelist>
-    <varlistentry>
-      <term>Default Cost Category</term>
-
-      <listitem>
-        <para>Specify a default Cost Category to be used by the Transit Site.
-        Associating a Cost Category with a Transit Site makes it possible for
-        the system to create Item Sites for Transit Sites automatically when
-        Transfer Order Inventory is shipped. This greatly simplifies the use
-        of Transit Sites, as Item Sites do not need to be created manually
-        beforehand. The accounting for in-transit goods is handled by the
-        default Cost Category associated with the Transit Site.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-
-  <tip>
-    <para>Consider creating a separate Cost Category for Transit Sites. In
-    this way you can use unique Accounts to reflect the movement of Inventory
-    which is in-transit.</para>
-  </tip>
-
-  <variablelist>
-    <varlistentry>
-      <term>Shipping Comments</term>
-
-      <listitem>
-        <para>Enter shipping Comments you want to associate with the Transit
-        Site. Shipping Comments entered here will be used on any Transfer
-        Order which uses specified Transit Site. This is a scrolling text
-        field with word-wrapping for entering shipping Comments.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-
+  <para role="standard">When defining a Site as a Transit Site, you are
+  presented with the following options:</para>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term>Default Ship Via</term>
+        <listitem>
+          <para>Specify a default Ship Via to be used by the Transit Site. The
+          selected Ship Via will be used by default on the Transfer Order
+          header whenever the specified Transit Site is used.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Default Shipping Form</term>
+        <listitem>
+          <para>Specify a default Shipping Form to be used by the Transit
+          Site. The selected Shipping Form will be used by default on the
+          Transfer Order header whenever the specified Transit Site is
+          used.</para>
+          <note>
+            <para>The Shipping Form will be used when printing Packing Lists
+            for the Transfer Order.</para>
+          </note>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Default Cost Category</term>
+        <listitem>
+          <para>Specify a default Cost Category to be used by the Transit
+          Site. Associating a Cost Category with a Transit Site makes it
+          possible for the system to create Item Sites for Transit Sites
+          automatically when Transfer Order Inventory is shipped. This greatly
+          simplifies the use of Transit Sites, as Item Sites do not need to be
+          created manually beforehand. The accounting for in-transit goods is
+          handled by the default Cost Category associated with the Transit
+          Site.<tip>
+              <para>Consider creating a separate Cost Category for Transit
+              Sites. In this way you can use unique Accounts to reflect the
+              movement of Inventory which is in-transit.</para>
+            </tip></para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Shipping Comments</term>
+        <listitem>
+          <para>Enter shipping Comments you want to associate with the Transit
+          Site. Shipping Comments entered here will be used on any Transfer
+          Order which uses specified Transit Site. This is a scrolling text
+          field with word-wrapping for entering shipping Comments.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>To the far right of the screen, the following buttons are
   available:</para>
-
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-
       <listitem>
         <para>Closes the screen without creating a Site, returning you to the
         previous screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>SAVE</term>
-
       <listitem>
         <para>Creates the Site and adds it to the master list of Sites.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>To define ARBL (Aisle, Rack, Bin, Location) naming conventions for
   your Site Locations, select the "Site Locations" tab. The following screen
   will appear:</para>
-
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/warehouse_locationsTab.png" />
         </imageobject>
-
         <caption>Site Locations Master List</caption>
       </mediaobject>
     </screenshot></para>
-
   <para>When defining ARBL naming conventions for your Site Locations, you are
   presented with the following options:</para>
-
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>ARBL</primary>
-
           <secondary>enforcing in sites</secondary>
         </indexterm>Enforce ARBL Naming Convention</term>
-
       <listitem>
         <para>Select to enforce the aisle, rack, bin, Location (ARBL) naming
         convention when defining Site Locations. Specify values for the
         following ARBL parameters:</para>
-
         <variablelist>
           <varlistentry>
             <term>Aisle Size</term>
-
             <listitem>
               <para>Specify the maximum number of characters allowed in an
               aisle name by using the arrow buttons or manually entering a
@@ -420,10 +341,8 @@
               characters are allowed in aisle names.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term>Rack Size</term>
-
             <listitem>
               <para>Specify the maximum number of characters allowed in a rack
               name by using the arrow buttons or manually entering a value up
@@ -431,10 +350,8 @@
               allowed in rack names.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term>Bin Size</term>
-
             <listitem>
               <para>Specify the maximum number of characters allowed in a bin
               name by using the arrow buttons or manually entering a value up
@@ -442,10 +359,8 @@
               allowed in bin names.</para>
             </listitem>
           </varlistentry>
-
           <varlistentry>
             <term>Location Size</term>
-
             <listitem>
               <para>Specify the maximum number of characters allowed in a
               Location name by using the arrow buttons or manually entering a
@@ -457,159 +372,124 @@
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>Site Zones are defined sections or areas within a Site. For example,
   separate Site Zones might be designated to define areas where Orders are
   selected, Picked, and Packed. To define or maintain Site Zones, select the
   "Site Zones" tab. The following screen will appear:</para>
-
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/warehouse_zonesTab.png" />
         </imageobject>
-
         <caption>Site Zones Master List</caption>
       </mediaobject>
     </screenshot></para>
-
   <para>When defining or maintaining Site Zones, you are presented with the
   following options:</para>
-
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>zones</primary>
-
           <secondary>for sites</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>sites</primary>
-
           <secondary>zones for</secondary>
         </indexterm>Site Zones</term>
-
       <listitem>
         <para>Display includes Site Zones for the specified Site.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>To the far right of the screen, the following buttons are
   available:</para>
-
   <variablelist>
     <varlistentry>
       <term>NEW</term>
-
       <listitem>
         <para>Opens screen for creating a new Site Zone.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>EDIT</term>
-
       <listitem>
         <para>Enables you to edit highlighted Site Zones. The edit screen is
-        the same as that for creating a new Site Zone—except that when
+        the same as that for creating a new Site Zone&mdash;except that when
         editing, the fields will contain Site Zone information.
         Double-clicking on a Site Zone also bring you to the editing
         screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>DELETE</term>
-
       <listitem>
         <para>Highlight a Site Zone and then select this button to remove the
         Zone from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>To <indexterm significance="normal">
       <primary>sites</primary>
-
       <secondary>creating zones in</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>zones</primary>
-
       <secondary>creating new in site</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>site zones</primary>
-
       <secondary>creating new</secondary>
     </indexterm>create a new Site Zone, select the NEW button. The following
   screen will appear:</para>
-
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/warehouseZone.png" />
         </imageobject>
-
         <caption>Create New Site Zone</caption>
       </mediaobject>
     </screenshot></para>
-
   <para>When creating a new Site Zone, you are presented with the following
   options:</para>
-
   <variablelist>
     <varlistentry>
       <term>Name</term>
-
       <listitem>
         <para>Enter a unique name for the Site Zone.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Description</term>
-
       <listitem>
         <para>Enter a brief description of the Site Zone.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>To the far right of the screen, the following buttons are
   available:</para>
-
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-
       <listitem>
         <para>Closes the screen without adding a new Site Zone to the list of
         Site Zones.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>SAVE</term>
-
       <listitem>
         <para>Creates the Site Zone and adds it to the list of Site
         Zones.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>To associate Comments with a Site, select the "Comments" tab. The
   following screen will appear:</para>
-
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/warehouse_commentsTab.png" />
         </imageobject>
-
         <caption>Add Site Comments</caption>
       </mediaobject>
     </screenshot></para>
-
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

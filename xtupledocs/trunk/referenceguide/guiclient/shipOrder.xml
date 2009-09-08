@@ -18,7 +18,7 @@
       </mediaobject>
     </screenshot></para>
   <tip>
-    <para>Before a Sales Order can be shipped successfully, Sales Account and
+    <para>Before an Order can be shipped successfully, Sales Account and
     Accounts Receivable (A/R) Account Assignments for the specified Customer
     must be in place.</para>
   </tip>
@@ -26,34 +26,11 @@
   options:</para>
   <variablelist>
     <varlistentry>
-      <term>Sales Order #</term>
+      <term>Order #</term>
       <listitem>
-        <para>Enter the Order Number of the Sales Order you want to ship. The
-        browse button located to the right of the field leads to a searchable
-        list of Sales Orders available for Shipping. This option will be
-        disabled if a Transfer Order is specified.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Transfer Order #</term>
-      <listitem>
-        <para>Enter the Order Number of the Transfer Order you want to ship.
-        The browse button located to the right of the field leads to a
-        searchable list of Transfer Orders available for Shipping. This option
-        will be disabled if a Sales Order is specified.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>From</term>
-      <listitem>
-        <para>Displays the Source Site if a Transfer Order is selected.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>To</term>
-      <listitem>
-        <para>Displays the Destination Site if a Transfer Order is
-        selected.</para>
+        <para>Enter the Order Number of the Order you want to ship. The browse
+        button located to the right of the field leads to a searchable list of
+        Orders available for Shipping.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

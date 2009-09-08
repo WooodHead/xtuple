@@ -42,9 +42,9 @@
         <secondary>relation to production</secondary>
       </indexterm>Work Order</title>
     <para>A Work Order is a document which authorizes the production of
-    manufactured Items. Work Orders can exist in five different states—from
-    creation to completion. The five different states of Work Orders are
-    listed below:</para>
+    manufactured Items. Work Orders can exist in five different
+    states&mdash;from creation to completion. The five different states of
+    Work Orders are listed below:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem>
         <para>Open ("O"): This is the initial state a Work Order receives when
@@ -248,7 +248,7 @@
     <xi:include href="guiclient/dspWoOperationBufrStsByWorkCenter.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section role="standard">
+    <section role="manufacturing">
       <title>Production Time Clock</title>
       <para>Production Time Clock Reports section.</para>
       <xi:include href="guiclient/dspWoEffortByUser.xml"

@@ -50,7 +50,7 @@
         Expressions.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Site</term>
       <listitem>
         <para>Specify Site where the Item Site is located.</para>
@@ -245,7 +245,7 @@
                     without Lot Number or Serial Number control.</para>
                   </listitem>
                 </varlistentry>
-                <varlistentry>
+                <varlistentry role="standard">
                   <term>Lot #</term>
                   <listitem>
                     <para>Select to impose Lot Number control methods on the
@@ -254,7 +254,7 @@
                     received or distributed.</para>
                   </listitem>
                 </varlistentry>
-                <varlistentry>
+                <varlistentry role="standard">
                   <term>Serial #</term>
                   <listitem>
                     <para>Select to impose Serial Number control methods on
@@ -575,7 +575,7 @@
         <para>Select from the available scheduling options and
         parameters:</para>
         <variablelist>
-          <varlistentry role="manufacturing">
+          <varlistentry role="standard">
             <term>Planning System</term>
             <listitem>
               <para>Specify which of the following planning systems you want
@@ -593,7 +593,7 @@
                     Item when MRP is run.</para>
                   </listitem>
                 </varlistentry>
-                <varlistentry>
+                <varlistentry role="">
                   <term>MPS</term>
                   <listitem>
                     <para>Select if you want the Master Production Scheduling
@@ -628,7 +628,7 @@
               Stock value to "0".</para>
             </listitem>
           </varlistentry>
-          <varlistentry role="manufacturing">
+          <varlistentry role="standard">
             <term>Group MPS/MRP Orders Every</term>
             <listitem>
               <para>Specify the length of a period&mdash;measured in
@@ -732,7 +732,7 @@
               Planned Orders for the required quantities.</para>
             </listitem>
           </varlistentry>
-          <varlistentry>
+          <varlistentry role="standard">
             <term>Create Planned Transfer Orders</term>
             <listitem>
               <para>Select if you want the Item Site to have Planned Transfer
@@ -757,12 +757,12 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>If the Item Site is Lot or Serial controlled, you will have access to
-  several product expiration options. The "Expiration" tab will be disabled
-  for non-Lot/Serial Item Sites. To view or modify expiration settings for the
-  Item Site, select the "Expiration" tab. The following screen will
-  appear:</para>
-  <para><screenshot>
+  <para role="standard">If the Item Site is Lot or Serial controlled, you will
+  have access to several product expiration options. The "Expiration" tab will
+  be disabled for non-Lot/Serial Item Sites. To view or modify expiration
+  settings for the Item Site, select the "Expiration" tab. The following
+  screen will appear:</para>
+  <para role="standard"><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/createItemSitesByClassCode_expireTab.png" />
@@ -770,16 +770,17 @@
         <caption>Expiration Settings for Item Site</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When viewing or modifying expiration settings for the Item Site, you
-  are presented with the following options:</para>
-  <variablelist>
-    <varlistentry role="standard">
-      <term>Perishable</term>
-      <listitem>
-        <para>Select if the Item is Perishable. Materials received into a
-        Perishable Item Site are required to have an expiration date, thereby
-        increasing your ability to monitor the status of the goods.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para role="standard">When viewing or modifying expiration settings for the
+  Item Site, you are presented with the following options:</para>
+  <para role="standard"><variablelist>
+      <varlistentry role="standard">
+        <term>Perishable</term>
+        <listitem>
+          <para>Select if the Item is Perishable. Materials received into a
+          Perishable Item Site are required to have an expiration date,
+          thereby increasing your ability to monitor the status of the
+          goods.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
 </section>
