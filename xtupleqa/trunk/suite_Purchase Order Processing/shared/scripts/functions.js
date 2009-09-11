@@ -62,6 +62,21 @@ function loginAppl(userrole)
 }
 
 
+//--------To Calculate Absolute Value of QOH ----------
+function absValue(string)
+{
+    
+    var number = string.split(',');
+    var value1 = parseInt(number[0]);
+    test.log(""+ value1);
+    var value2 = parseInt(number[1]);
+    test.log("" + value2);
+    var result = value1 + value2;
+    test.log(" " + result);
+    return(result);
+    
+}    
+    
 
 
 

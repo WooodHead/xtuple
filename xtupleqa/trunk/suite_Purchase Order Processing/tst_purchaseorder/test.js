@@ -219,7 +219,7 @@ function main()
     clickButton(":_itemGroup...._QPushButton");
     
     waitForObject(":_item_XTreeWidget_2");
-    doubleClickItem(":_item_XTreeWidget_2", polineitem, 5, 5, 0, Qt.LeftButton);
+    doubleClickItem(":_item_XTreeWidget_2", "TBOX1", 5, 5, 0, Qt.LeftButton);
     
     waitForObject(":_warehouse.All Sites_QRadioButton");
     clickButton(":_warehouse.All Sites_QRadioButton");
@@ -233,10 +233,11 @@ function main()
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3);
-    var sum;
+    var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3); 
+    test.log(" " + sNameOfRootItem2); 
     
-    sum = (parseInt(sNameOfRootItem.toString()) + parseInt(poquantity.toString()));
+    var sum = absValue(sNameOfRootItem2);
+    
     if(parseInt(sNameOfRootItem2.toString()) == parseInt(sum.toString())) 
         test.pass("QOH updated correctly for Receiving Purchase goods");
     else test.fail("QOH updated incorrectly for Receiving Purchase goods");
@@ -455,12 +456,13 @@ function main()
     clickButton(":View Check Run.Create ACH File_QPushButton");
     if(object.exists(":View Check Run.Yes_QPushButton_2"))    
         clickButton(":View Check Run.Yes_QPushButton_2");
-    waitForObject(":fileNameEdit_QLineEdit");
+    waitForObject(":fileNameEdit_QLineEdit_2");
+    
     
     if(OS.name=="Linux")
-        findObject(":fileNameEdit_QLineEdit").text = linuxPath.toString()+"/achFile.ach";
+        findObject(":fileNameEdit_QLineEdit_2").text = linuxPath.toString()+"/achFile.ach";
     else if(OS.name == "Windows" )
-        findObject(":fileNameEdit_QLineEdit").text = winPath.toString()+"/achFile.ach";
+        findObject(":fileNameEdit_QLineEdit_2").text = winPath.toString()+"/achFile.ach";
     
     waitForObject(":View Check Run.Save_QPushButton");
     clickButton(":View Check Run.Save_QPushButton");
