@@ -258,8 +258,7 @@ BEGIN
        AND (cs.itemsite_item_id=ci.item_id)
        AND (ps.itemsite_item_id=pi.item_id)
        AND (woEffectiveDate(_p.wo_startdate) BETWEEN bomitem_effective AND (bomitem_expires - 1))
-       AND (womatl_id=_p.womatl_id))
-      ORDER BY bom_seqnumber;
+       AND (womatl_id=_p.womatl_id));
 
       DELETE FROM womatl
       WHERE (womatl_id=_p.womatl_id);
