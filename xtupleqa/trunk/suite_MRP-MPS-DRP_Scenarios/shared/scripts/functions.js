@@ -354,3 +354,159 @@ function NewWO(item,quant,leadd, ddate)
     clickButton(":Work Order.Save_QPushButton");
 
 }
+
+function DelAllWO()
+{
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Manufacture");
+    activateItem(":xTuple ERP:*_QMenuBar", "Manufacture");
+    waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
+    activateItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
+    waitForObjectItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
+    activateItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
+    waitForObjectItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
+    activateItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
+    
+    waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
+    clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
+    waitForObject(":frame._wo_XTreeWidget");
+    while(findObject(":frame._wo_XTreeWidget").topLevelItemCount > 0)
+    {
+        openContextMenu(":frame._wo_XTreeWidget", 0, 0, 0);
+        waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Delete W/O...");
+        activateItem(":xTuple ERP:*._menu_QMenu", "Delete W/O...");
+        waitForObject(":W/O Schedule by Planner Code.Yes_QPushButton");
+        clickButton(":W/O Schedule by Planner Code.Yes_QPushButton");
+        waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
+        clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
+     
+    }
+    waitForObject(":W/O Schedule by Planner Code.Close_QPushButton");
+    clickButton(":W/O Schedule by Planner Code.Close_QPushButton");
+
+}
+
+
+function ImplodeTopWO()
+{
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Manufacture");
+    activateItem(":xTuple ERP:*_QMenuBar", "Manufacture");
+    waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Work Order");
+    activateItem(":xTuple ERP:*.Manufacture_QMenu", "Work Order");
+    waitForObjectItem(":xTuple ERP:*.Work Order_QMenu", "Implode...");
+    activateItem(":xTuple ERP:*.Work Order_QMenu", "Implode...");
+    
+    waitForObject(":Implode Work Order...._QPushButton");
+    clickButton(":Implode Work Order...._QPushButton");
+    waitForObject(":Work Orders._wo_XTreeWidget");
+    doubleClickItem(":Work Orders._wo_XTreeWidget", "E", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Implode Work Order.Implode_QPushButton");
+    clickButton(":Implode Work Order.Implode_QPushButton");
+}
+ 
+function ExplodeTopWO()
+{
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Manufacture");
+    activateItem(":xTuple ERP:*_QMenuBar", "Manufacture");
+    waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Work Order");
+    activateItem(":xTuple ERP:*.Manufacture_QMenu", "Work Order");
+    waitForObjectItem(":xTuple ERP:*.Work Order_QMenu", "Explode...");
+    activateItem(":xTuple ERP:*.Work Order_QMenu", "Explode...");
+    waitForObject(":Explode Work Order...._QPushButton");
+    clickButton(":Explode Work Order...._QPushButton");
+    waitForObject(":Work Orders._wo_XTreeWidget");
+    doubleClickItem(":Work Orders._wo_XTreeWidget", "I", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Level.Multiple Level Explosion_QRadioButton");
+    clickButton(":Level.Multiple Level Explosion_QRadioButton");
+    waitForObject(":Explode Work Order.Explode_QPushButton");
+    clickButton(":Explode Work Order.Explode_QPushButton");
+    waitForObject(":Explode Work Order.Close_QPushButton");
+    clickButton(":Explode Work Order.Close_QPushButton");
+
+}
+
+function RescheduleWO(startd, dued)    
+{
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Manufacture");
+    activateItem(":xTuple ERP:*_QMenuBar", "Manufacture");
+    waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Work Order");
+    activateItem(":xTuple ERP:*.Manufacture_QMenu", "Work Order");
+    waitForObjectItem(":xTuple ERP:*.Work Order_QMenu", "Reschedule...");
+    activateItem(":xTuple ERP:*.Work Order_QMenu", "Reschedule...");
+    waitForObject(":Reschedule Work Order...._QPushButton");
+    clickButton(":Reschedule Work Order...._QPushButton");
+    waitForObject(":Work Orders._wo_XTreeWidget");
+    doubleClickItem(":Work Orders._wo_XTreeWidget", "E", 19, 4, 0, Qt.LeftButton);
+    waitForObject(":Reschedule Work Order.XDateEdit_XDateEdit");
+    type(":Reschedule Work Order.XDateEdit_XDateEdit", startd);
+    waitForObject(":Reschedule Work Order.XDateEdit_XDateEdit");
+    type(":Reschedule Work Order.XDateEdit_XDateEdit", "<Tab>");
+    waitForObject(":Reschedule Work Order.XDateEdit_XDateEdit_2");
+    type(":Reschedule Work Order.XDateEdit_XDateEdit_2", dued);
+    waitForObject(":Reschedule Work Order.XDateEdit_XDateEdit_2");
+    type(":Reschedule Work Order.XDateEdit_XDateEdit_2", "<Tab>");
+    waitForObject(":Reschedule Work Order.Reschedule_QPushButton");
+    clickButton(":Reschedule Work Order.Reschedule_QPushButton");
+    waitForObject(":Reschedule Work Order.Close_QPushButton");
+    clickButton(":Reschedule Work Order.Close_QPushButton");
+}
+
+function NewScheduledWO(item, quant, dued, lead)    
+{
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
+    activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
+    waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
+    activateItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
+    
+    waitForObject(":_itemGroup...._QPushButton_4");
+    clickButton(":_itemGroup...._QPushButton_4");
+    waitForObject(":_item_XTreeWidget_4");
+    doubleClickItem(":_item_XTreeWidget_4", item, 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_typeGroup.Work Order_QRadioButton");
+    clickButton(":_typeGroup.Work Order_QRadioButton");
+    waitForObject(":_qtyGroup._qty_XLineEdit_2");
+    type(":_qtyGroup._qty_XLineEdit_2", quant);
+    waitForObject(":_qtyGroup.XDateEdit_XDateEdit");
+    type(":_qtyGroup.XDateEdit_XDateEdit", dued);
+    waitForObject(":_qtyGroup.XDateEdit_XDateEdit");
+    type(":_qtyGroup.XDateEdit_XDateEdit", "<Tab>");
+    waitForObject(":_qtyGroup._leadTime_QSpinBox");
+    findObject(":_qtyGroup._leadTime_QSpinBox").clear();
+    type(":_qtyGroup._leadTime_QSpinBox", "0");
+    waitForObject(":Planned Order.Save_QPushButton");
+    clickButton(":Planned Order.Save_QPushButton");
+    waitForObject(":Planned Order.Close_QPushButton");
+    clickButton(":Planned Order.Close_QPushButton");
+    
+}
+
+function FirmPlndOrder()
+{
+
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
+    activateItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
+    waitForObject(":xTuple ERP:*.Reports_QMenu");
+    activateItem(":xTuple ERP:*.Reports_QMenu", "");
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
+    activateItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
+    waitForObjectItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders");
+    activateItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders");
+    waitForObjectItem(":xTuple ERP:*.Planned Orders_QMenu", "by Planner Code...");
+    activateItem(":xTuple ERP:*.Planned Orders_QMenu", "by Planner Code...");
+    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
+    waitForObject(":frame._planord_XTreeWidget");
+    openContextMenu(":frame._planord_XTreeWidget", 0, 0, 0);
+    waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Firm Order...");
+    activateItem(":xTuple ERP:*._menu_QMenu", "Firm Order...");
+    waitForObject(":Planned Orders by Planner Code.Firm_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Firm_QPushButton");
+    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
+
+}
