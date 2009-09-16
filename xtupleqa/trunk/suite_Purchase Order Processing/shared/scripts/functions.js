@@ -67,6 +67,7 @@ function replaceSubstring(inputString, fromString, toString)
 {
    // Goes through the inputString and replaces every occurrence of fromString with toString
    var temp = inputString;
+   test.log("" + temp);
    test.log(""+ inputString);
    test.log("" + fromString);
    test.log("" + toString);
