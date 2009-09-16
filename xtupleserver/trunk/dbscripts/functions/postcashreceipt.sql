@@ -115,8 +115,7 @@ BEGIN
     FOR _r IN SELECT aropen_id, aropen_doctype, aropen_docnumber, aropen_docdate,
                      aropen_duedate, aropen_curr_id, aropen_curr_rate,
                      round(aropen_amount - aropen_paid, 2) <=
-                        round(aropen_paid + 
-                        currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,cashrcptitem_amount,_p.cashrcpt_distdate),2)
+                        round(currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,cashrcptitem_amount,_p.cashrcpt_distdate),2)
                                  AS closed,
                      cashrcptitem_id, cashrcptitem_amount,
                        currToBase(_p.cashrcpt_curr_id, cashrcptitem_amount,
