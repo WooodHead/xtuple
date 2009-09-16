@@ -53,6 +53,7 @@
 :List Item Sites.List Item Sites_QWorkspaceTitleBar	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='List Item Sites'}
 :List Item Sites.Save_QPushButton	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
 :List Item Sites.Sold from this Site_QGroupBox	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='_sold' title='Sold from this Site' type='QGroupBox' visible='1'}
+:List Item Sites.Supply Rules_QGroupBox	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='_supply' title='Supply Rules' type='QGroupBox' visible='1'}
 :List Item Sites._frame_QFrame	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='_frame' type='QFrame' visible='1'}
 :List Item Sites.qt_tabwidget_stackedwidget_QStackedWidget	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
 :List Item Sites.qt_tabwidget_tabbar_QTabBar	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='qt_tabwidget_tabbar' type='QTabBar' visible='1'}
@@ -134,6 +135,7 @@
 :Scheduling._safetyStock_XLineEdit	{container=':_planningTab.Scheduling_QGroupBox' name='_safetyStock' type='XLineEdit' visible='1'}
 :Scheduling.qt_spinbox_lineedit_QLineEdit	{container=':_planningTab.Scheduling_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
 :Scheduling.qt_spinbox_lineedit_QLineEdit_2	{container=':_planningTab.Scheduling_QGroupBox' name='qt_spinbox_lineedit' occurrence='2' type='QLineEdit' visible='1'}
+:Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox	{container=':List Item Sites.Supply Rules_QGroupBox' name='_createWo' text='Create Work Orders linked to Sales Orders' type='QCheckBox' visible='1'}
 :System Message (openSalesOrders.cpp at 284)_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='System Message (openSalesOrders.cpp at 284)'}
 :W/O Schedule by Planner Code.Close_QPushButton	{container=':xTuple ERP:*.W/O Schedule by Planner Code_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :W/O Schedule by Planner Code.Query_QPushButton	{container=':xTuple ERP:*.W/O Schedule by Planner Code_QWorkspaceChild' name='_query' text='Query' type='QPushButton' visible='1'}
