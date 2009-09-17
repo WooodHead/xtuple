@@ -210,8 +210,8 @@ function NewSO(item, quant)
     
     waitForObject(":frame.New_QPushButton");
     clickButton(":frame.New_QPushButton");
-    waitForObject(":_headerPage...._QPushButton");
-    clickButton(":_headerPage...._QPushButton");
+    waitForObject(":_headerPage...._QPushButton_2");
+    clickButton(":_headerPage...._QPushButton_2");
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 0, 0, 0, Qt.LeftButton);
     waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
