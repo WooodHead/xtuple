@@ -65,7 +65,8 @@ BEGIN
   END LOOP;
 
   IF (_scale > 0) THEN
-    _abs := TRUNC(_abs * (10 ^ _scale));
+    _abs := (_abs * (10 ^ _scale));
+    _abs := TRUNC(_abs);
     _wholefmt := _wholefmt || '"' || _decimal || '"' || REPEAT('0', _scale);
   END IF;
 
