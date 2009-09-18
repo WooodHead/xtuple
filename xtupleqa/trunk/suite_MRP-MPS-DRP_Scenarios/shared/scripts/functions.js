@@ -51,6 +51,8 @@ function MRP(period)
     type(":_optionsGroup.XDateEdit_XDateEdit", "<Tab>");
     waitForObject(":Run MRP by Planner Code.Create_QPushButton");
     clickButton(":Run MRP by Planner Code.Create_QPushButton");
+    
+
 }
 
 
@@ -243,15 +245,6 @@ function NewSO(item, quant)
 
 function DelAllSO()
 {
-    waitForObject(":_username_QLineEdit");
-    type(":_username_QLineEdit", "admin");
-    waitForObject(":_username_QLineEdit");
-    type(":_username_QLineEdit", "<Tab>");
-    waitForObject(":_password_QLineEdit");
-    type(":_password_QLineEdit", "zenx2plE");
-    waitForObject(":_password_QLineEdit");
-    type(":_password_QLineEdit", "<Return>");
-    
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Sales");
     activateItem(":xTuple ERP:*_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
