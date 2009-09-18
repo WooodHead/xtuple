@@ -25,6 +25,7 @@ DECLARE
   _g RECORD;
   _p RECORD;
   _n RECORD;
+  _r RECORD;
   _costx RECORD;
   _pExplain BOOLEAN;
   _pLowLevel BOOLEAN;
@@ -68,6 +69,24 @@ BEGIN
   SELECT recv_date::DATE INTO _firstExchDateFreight
   FROM recv
   WHERE (recv_vohead_id = _p.vohead_id);
+
+--  Start by handling taxes
+  FOR _r IN SELECT tax_sales_accnt_id, 
+              round(sum(taxdetail_tax),2) AS tax,
+              currToBase(_p.vohead_curr_id, round(sum(taxdetail_tax),2), _p.vohead_docdate) AS taxbasevalue
+            FROM tax 
+             JOIN calculateTaxDetailSummary('VO', _p.vohead_id, 'T') ON (taxdetail_tax_id=tax_id)
+	    GROUP BY tax_id, tax_sales_accnt_id LOOP
+
+    PERFORM insertIntoGLSeries( _sequence, 'A/P', 'VO', _p.vohead_number,
+                                _r.tax_sales_accnt_id, 
+                                (_r.taxbasevalue * -1),
+                                _glDate, _p.glnotes );
+
+    _totalAmount_base := (_totalAmount_base - _r.taxbasevalue);
+    _totalAmount := (_totalAmount - _r.tax);
+     
+  END LOOP;
 
 --  Loop through the vodist records for the passed vohead that
 --  are posted against a P/O Item
@@ -221,6 +240,7 @@ BEGIN
 
 --  Loop through the vodist records for the passed vohead that
 --  are not posted against a P/O Item
+--  Skip the tax distributions
   FOR _d IN SELECT vodist_id,
 		   currToBase(_p.vohead_curr_id, vodist_amount,
 			      _p.vohead_distdate) AS vodist_amount_base,
@@ -228,7 +248,8 @@ BEGIN
 		   vodist_accnt_id, vodist_expcat_id
             FROM vodist
             WHERE ( (vodist_vohead_id=_p.vohead_id)
-              AND   (vodist_poitem_id=-1) ) LOOP
+              AND   (vodist_poitem_id=-1)
+              AND   (vodist_tax_id=-1) ) LOOP
 
 --  Distribute from the misc. account
     IF (_d.vodist_accnt_id = -1) THEN
