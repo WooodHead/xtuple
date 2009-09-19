@@ -238,7 +238,7 @@ BEGIN
 --  Distribute to G/L
     PERFORM insertGLTransaction( 'I/M', 'CT', _p.invcnt_tagnumber, ('Post Count Tag #' || _p.invcnt_tagnumber || ' for Item ' || _p.item_number),
                                  costcat_adjustment_accnt_id, costcat_asset_accnt_id, _invhistid,
-                                 ( (_p.invcnt_qoh_after - _p.itemsite_qtyonhand) * _p.cost), CURRENT_DATE )
+                                 ( (_p.invcnt_qoh_after - _p.itemsite_qtyonhand) * _p.cost), _postDate::DATE )
     FROM invcnt, itemsite, costcat
     WHERE ( (invcnt_itemsite_id=itemsite_id)
      AND (itemsite_costcat_id=costcat_id)
