@@ -127,6 +127,53 @@ function SetPlng(item, plng)
 }
 
 
+function newPO(item, quant, ddate)    
+{
+    
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Purchase");
+    activateItem(":xTuple ERP:*_QMenuBar", "Purchase");
+    waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
+    activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
+    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+    waitForObject(":List Unposted Purchase Orders.New_QPushButton");
+    clickButton(":List Unposted Purchase Orders.New_QPushButton");
+    waitForObject(":_headerPage...._QPushButton_3");
+    clickButton(":_headerPage...._QPushButton_3");
+    waitForObject(":_listTab_XTreeWidget_2");
+    doubleClickItem(":_listTab_XTreeWidget_2", "TPARTS", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Purchase Order.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton_2");
+    clickButton(":_lineItemsPage.New_QPushButton_2");
+    waitForObject(":groupBox_2...._QPushButton");
+    clickButton(":groupBox_2...._QPushButton");
+    waitForObject(":_item_XTreeWidget_7");
+    doubleClickItem(":_item_XTreeWidget_7", item, 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_ordered_XLineEdit");
+    type(":_ordered_XLineEdit", quant);
+    waitForObject(":_ordered_XLineEdit");
+    type(":_ordered_XLineEdit", "<Tab>");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_3");
+    findObject(":_schedGroup.XDateEdit_XDateEdit_3").clear();
+    type(":_schedGroup.XDateEdit_XDateEdit_3", "0");
+    type(":_schedGroup.XDateEdit_XDateEdit_3", "<Tab>");
+    waitForObject(":Purchase Order.Save_QPushButton");
+    clickButton(":Purchase Order.Save_QPushButton");
+    waitForObject(":Purchase Order.Continue_QPushButton");
+    clickButton(":Purchase Order.Continue_QPushButton");
+    waitForObject(":Purchase Order.Save_QPushButton_2");
+    clickButton(":Purchase Order.Save_QPushButton_2");
+    waitForObject(":Purchase Order.Close_QPushButton");
+    clickButton(":Purchase Order.Close_QPushButton");
+    waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
+    clickButton(":List Unposted Purchase Orders.Close_QPushButton");
+
+}
+
+
+
+
 function DelAllPO()
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Purchase");
@@ -212,8 +259,8 @@ function NewSO(item, quant)
     
     waitForObject(":frame.New_QPushButton");
     clickButton(":frame.New_QPushButton");
-    waitForObject(":_headerPage...._QPushButton_2");
-    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton");
+    clickButton(":_headerPage...._QPushButton");
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 0, 0, 0, Qt.LeftButton);
     waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
@@ -391,7 +438,7 @@ function ImplodeTopWO()
     waitForObject(":Implode Work Order...._QPushButton");
     clickButton(":Implode Work Order...._QPushButton");
     waitForObject(":Work Orders._wo_XTreeWidget");
-    doubleClickItem(":Work Orders._wo_XTreeWidget", "E", 0, 0, 0, Qt.LeftButton);
+    doubleClickItem(":Work Orders._wo_XTreeWidget", "WH1", 0, 0, 0, Qt.LeftButton);
     waitForObject(":Implode Work Order.Implode_QPushButton");
     clickButton(":Implode Work Order.Implode_QPushButton");
 }
@@ -407,7 +454,7 @@ function ExplodeTopWO()
     waitForObject(":Explode Work Order...._QPushButton");
     clickButton(":Explode Work Order...._QPushButton");
     waitForObject(":Work Orders._wo_XTreeWidget");
-    doubleClickItem(":Work Orders._wo_XTreeWidget", "I", 0, 0, 0, Qt.LeftButton);
+    doubleClickItem(":Work Orders._wo_XTreeWidget", "WH1", 0, 0, 0, Qt.LeftButton);
     waitForObject(":Level.Multiple Level Explosion_QRadioButton");
     clickButton(":Level.Multiple Level Explosion_QRadioButton");
     waitForObject(":Explode Work Order.Explode_QPushButton");
