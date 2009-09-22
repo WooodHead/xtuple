@@ -58,480 +58,486 @@ function main()
     test.log("Logged in Application");
     
     
+  
+    //-------Assign all Privileges-------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
+    activateItem(":xTuple ERP:*_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Maintain Users...");
+    activateItem(":xTuple ERP:*.System_QMenu", "Maintain Users...");
+    waitForObject(":List Users._usr_XTreeWidget");
+    doubleClickItem(":List Users._usr_XTreeWidget", "Administrator", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_module_XComboBox");
+    for(i = findObject(":_module_XComboBox").count;i>0;i--)
+    {
+        waitForObject(":_privTab.Add All->>_QPushButton");     
+        clickButton(":_privTab.Add All->>_QPushButton");
+        waitForObject(":_module_XComboBox");
+        type(":_module_XComboBox", "<Down>");
+    }
+    waitForObject(":List Users.Save_QPushButton");
+    clickButton(":List Users.Save_QPushButton");
+    waitForObject(":List Users.Close_QPushButton");
+    clickButton(":List Users.Close_QPushButton");
     
-//    //-------Assign all Privileges-------
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
-//    activateItem(":xTuple ERP:*_QMenuBar", "System");
-//    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Maintain Users...");
-//    activateItem(":xTuple ERP:*.System_QMenu", "Maintain Users...");
-//    waitForObject(":List Users._usr_XTreeWidget");
-//    doubleClickItem(":List Users._usr_XTreeWidget", "Administrator", 5, 5, 0, Qt.LeftButton);
-//    waitForObject(":_module_XComboBox");
-//    for(i = findObject(":_module_XComboBox").count;i>0;i--)
-//    {
-//        waitForObject(":_privTab.Add All->>_QPushButton");     
-//        clickButton(":_privTab.Add All->>_QPushButton");
-//        waitForObject(":_module_XComboBox");
-//        type(":_module_XComboBox", "<Down>");
-//    }
-//    waitForObject(":List Users.Save_QPushButton");
-//    clickButton(":List Users.Save_QPushButton");
-//    waitForObject(":List Users.Close_QPushButton");
-//    clickButton(":List Users.Close_QPushButton");
-//    
-//    
-//    //------Remove Application Time out-----
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
-//    activateItem(":xTuple ERP:*_QMenuBar", "System");
-//    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Preferences...");
-//    activateItem(":xTuple ERP:*.System_QMenu", "Preferences...");
-//    waitForObject(":_idleTimeout_QSpinBox");
-//    findObject(":_idleTimeout_QSpinBox").clear();
-//    type(":_idleTimeout_QSpinBox", "0");
-//    waitForObject(":User Preferences.Save_QPushButton");
-//    clickButton(":User Preferences.Save_QPushButton");
-//    
-//    //-----System Rescan Privileges--
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
-//    activateItem(":xTuple ERP:*_QMenuBar", "System");
-//    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Rescan Privileges");
-//    activateItem(":xTuple ERP:*.System_QMenu", "Rescan Privileges");
-//
-//    
-//    
-//        
-//    MRP("+999");
-//    MPS("+999");
-//    
-//    //--------View Planned Orders-----
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
-//    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
-//    type(":xTuple ERP:*.Reports_QMenu", "<Right>");
-//    type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
-//
-//    waitForObject(":_warehouse.All Sites_QRadioButton_2");
-//    clickButton(":_warehouse.All Sites_QRadioButton_2");
-//    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
-//    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
-//    waitForObject(":frame._planord_XTreeWidget");
-//    if((findObject(":frame._planord_XTreeWidget").topLevelItemCount)==0)
-//        test.pass("No Planned Order generated");
-//    else test.fail("Planned Order generated");
-//    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
-//    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-//    
-//    
-//    
-//    //MRP NO DEMAND / REORDER POINT / SAFETY STOCK TEST
-//    
-//    QOHZero("TBOX1");    
-//    
-//    //----Setup Item site------
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
-//    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
-//    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-//    activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-//    waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
-//    waitForObject(":_itemSite_XTreeWidget");
-//    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
-//    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
-//    findObject(":_reorderLevel_XLineEdit").clear();
-//    type(":_reorderLevel_XLineEdit", "0");
-//    findObject(":_orderUpToQty_XLineEdit").clear();
-//    type(":_orderUpToQty_XLineEdit", "0");
-//    findObject(":_minimumOrder_XLineEdit").clear();
-//    type(":_minimumOrder_XLineEdit", "0");
-//    findObject(":_maximumOrder_XLineEdit").clear();
-//    type(":_maximumOrder_XLineEdit", "0");
-//    findObject(":_orderMultiple_XLineEdit").clear();
-//    type(":_orderMultiple_XLineEdit", "0");
-//    findObject(":Scheduling._safetyStock_XLineEdit").clear();
-//    type(":Scheduling._safetyStock_XLineEdit", "0");
-//    findObject(":Scheduling._orderGroup_QSpinBox").clear();
-//    type(":Scheduling._orderGroup_QSpinBox", "7");
-//    findObject(":_leadTime_QSpinBox").clear();
-//    type(":_leadTime_QSpinBox", "3");
-//    waitForObject(":Scheduling.First Group_QCheckBox");
-//    if(!findObject(":Scheduling.First Group_QCheckBox").checked)
-//        clickButton(":Scheduling.First Group_QCheckBox");
-//    waitForObject(":List Item Sites.Save_QPushButton");
-//    clickButton(":List Item Sites.Save_QPushButton");
-//    waitForObject(":List Item Sites.Close_QPushButton");
-//    clickButton(":List Item Sites.Close_QPushButton");
-//    test.log("Item Site setup for: TBOX1");
-//
-//    MRP("+99");
-//  
-//    
-//    //--------View Planned Orders-----
-//        waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
-//    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
-//    type(":xTuple ERP:*.Reports_QMenu", "<Right>");
-//    type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
-//
-//    waitForObject(":_warehouse.All Sites_QRadioButton_2");
-//    clickButton(":_warehouse.All Sites_QRadioButton_2");
-//    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
-//    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
-//    waitForObject(":frame._planord_XTreeWidget");
-//    if((findObject(":frame._planord_XTreeWidget").topLevelItemCount)==0)
-//        test.pass("No Planned Order generated");
-//    else test.fail("Planned Order generated");
-//    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
-//    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-//
-//    
-//    //MRP REORDER POINT TEST
-//    
-//    DelPlanOrdrs();
-//    
-//    QOHZero("TBOX1");    
-//    
-//    //----Setup Item site------
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
-//    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
-//    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-//    activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-//    waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
-//    waitForObject(":_itemSite_XTreeWidget");
-//    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
-//    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
-//    findObject(":_reorderLevel_XLineEdit").clear();
-//    type(":_reorderLevel_XLineEdit", "0");
-//    findObject(":_orderUpToQty_XLineEdit").clear();
-//    type(":_orderUpToQty_XLineEdit", "0");
-//    findObject(":_minimumOrder_XLineEdit").clear();
-//    type(":_minimumOrder_XLineEdit", "0");
-//    findObject(":_maximumOrder_XLineEdit").clear();
-//    type(":_maximumOrder_XLineEdit", "0");
-//    findObject(":_orderMultiple_XLineEdit").clear();
-//    type(":_orderMultiple_XLineEdit", "0");
-//    findObject(":Scheduling._safetyStock_XLineEdit").clear();
-//    type(":Scheduling._safetyStock_XLineEdit", "0");
-//    findObject(":Scheduling._orderGroup_QSpinBox").clear();
-//    type(":Scheduling._orderGroup_QSpinBox", "7");
-//    findObject(":_leadTime_QSpinBox").clear();
-//    type(":_leadTime_QSpinBox", "3");
-//    waitForObject(":Scheduling.First Group_QCheckBox");
-//    if(!findObject(":Scheduling.First Group_QCheckBox").checked)
-//        clickButton(":Scheduling.First Group_QCheckBox");
-//    waitForObject(":List Item Sites.Save_QPushButton");
-//    clickButton(":List Item Sites.Save_QPushButton");
-//    waitForObject(":List Item Sites.Close_QPushButton");
-//    clickButton(":List Item Sites.Close_QPushButton");
-//    test.log("Item Site setup for: TBOX1");
-//
-//    MRP("+99");
-//    
-//    //--------Verify generated Planned Orders-----
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
-//    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
-//    type(":xTuple ERP:*.Reports_QMenu", "<Right>");
-//    type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
-//
-//    waitForObject(":_warehouse.All Sites_QRadioButton_2");
-//    clickButton(":_warehouse.All Sites_QRadioButton_2");
-//    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
-//    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
-//    
-//    waitForObject(":frame._planord_XTreeWidget");
-//    var sWidgetTreeControl = ":frame._planord_XTreeWidget";
-//    var obj_TreeWidget = findObject(sWidgetTreeControl);
-//    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-//    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-//    if(iNumberOfRootItems>0)
-//    {
-//        if(iNumberOfRootItems==1)
-//        {
-//            var Qnty, DispDate, item;
-//            obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-//            DispDate = obj_TreeTopLevelItem.text(8);
-//            Qnty = obj_TreeTopLevelItem.text(9);
-//            item = obj_TreeTopLevelItem.text(4);
-//            
-//            var d = new Date();
-//            var CurrentYearFull = d.getFullYear();
-//            var CurrentMonth = 1+d.getMonth();
-//            CurrentMonth = CurrentMonth>9?CurrentMonth:("0"+CurrentMonth);
-//            var CurrentDate = d.getDate();
-//            var ExptdDate = CurrentDate+3;
-//            ExptdDate = ExptdDate>9?ExptdDate:("0"+ExptdDate);
-//            var fDate = CurrentYearFull+"-"+CurrentMonth+"-"+ExptdDate;
-//            if(item=="TBOX1" && Qnty=="100.00" && DispDate==fDate && findObject(":frame._planord_XTreeWidget").topLevelItemCount==1)
-//                test.pass("Expected Planned Order generated");
-//            else 
-//                test.fail("Incorrect Planned Order generated");
-//        }
-//        
-//        else test.fail("Incorrect Planned Order generated");
-//   }    
-//    else test.fail("No Planned Order generated");
-//   waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
-//   clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-//
-//
-//    
-//    
-//    //MRP ORDER UP TO TEST
-//    
-//    DelPlanOrdrs();
-//    
-//    QOHZero("TBOX1");
-//    
-//    //----Setup Item site------
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
-//    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
-//    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-//    activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-//    waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
-//    waitForObject(":_itemSite_XTreeWidget");
-//    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
-//    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
-//    findObject(":_reorderLevel_XLineEdit").clear();
-//    type(":_reorderLevel_XLineEdit", "100");
-//    findObject(":_orderUpToQty_XLineEdit").clear();
-//    type(":_orderUpToQty_XLineEdit", "1000");
-//    findObject(":_minimumOrder_XLineEdit").clear();
-//    type(":_minimumOrder_XLineEdit", "0");
-//    findObject(":_maximumOrder_XLineEdit").clear();
-//    type(":_maximumOrder_XLineEdit", "0");
-//    findObject(":_orderMultiple_XLineEdit").clear();
-//    type(":_orderMultiple_XLineEdit", "0");
-//    findObject(":Scheduling._safetyStock_XLineEdit").clear();
-//    type(":Scheduling._safetyStock_XLineEdit", "0");
-//    findObject(":Scheduling._orderGroup_QSpinBox").clear();
-//    type(":Scheduling._orderGroup_QSpinBox", "7");
-//    findObject(":_leadTime_QSpinBox").clear();
-//    type(":_leadTime_QSpinBox", "3");
-//    waitForObject(":Scheduling.First Group_QCheckBox");
-//    if(!findObject(":Scheduling.First Group_QCheckBox").checked)
-//        clickButton(":Scheduling.First Group_QCheckBox");
-//    waitForObject(":List Item Sites.Save_QPushButton");
-//    clickButton(":List Item Sites.Save_QPushButton");
-//    waitForObject(":List Item Sites.Close_QPushButton");
-//    clickButton(":List Item Sites.Close_QPushButton");
-//    test.log("Item Site setup for: TBOX1");
-//
-//        MRP("+99");
-//    
-//    //--------Verify generated Planned Orders-----
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
-//    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
-//    type(":xTuple ERP:*.Reports_QMenu", "<Right>");
-//    type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
-//    waitForObject(":_warehouse.All Sites_QRadioButton_2");
-//    clickButton(":_warehouse.All Sites_QRadioButton_2");
-//    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
-//    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
-//    
-//    waitForObject(":frame._planord_XTreeWidget");
-//    var sWidgetTreeControl = ":frame._planord_XTreeWidget";
-//    var obj_TreeWidget = findObject(sWidgetTreeControl);
-//    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-//    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-//    if(iNumberOfRootItems>0)
-//    {
-//        if(iNumberOfRootItems==1)
-//        {
-//            var Qnty, DispDate, item;
-//            obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-//            DispDate = obj_TreeTopLevelItem.text(8);
-//            Qnty = obj_TreeTopLevelItem.text(9);
-//            item = obj_TreeTopLevelItem.text(4);
-//            
-//            var d = new Date();
-//            var CurrentYearFull = d.getFullYear();
-//            var CurrentMonth = 1+d.getMonth();
-//            CurrentMonth = CurrentMonth>9?CurrentMonth:("0"+CurrentMonth);
-//            var CurrentDate = d.getDate();
-//            var ExptdDate = CurrentDate+3;
-//            ExptdDate = ExptdDate>9?ExptdDate:("0"+ExptdDate);
-//            var fDate = CurrentYearFull+"-"+CurrentMonth+"-"+ExptdDate;
-//            if(item=="TBOX1" && Qnty=="1000.00" && DispDate==fDate && findObject(":frame._planord_XTreeWidget").topLevelItemCount==1)
-//                test.pass("Expected Planned Order generated");
-//            else 
-//                test.fail("Incorrect Planned Order generated");
-//        }
-//        
-//        else test.fail("Incorrect Planned Order generated");
-//   }    
-//    else test.fail("No Planned Order generated");
-//   waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
-//   clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-//
-//
-//    
-//    //MRP MINIMUM ORDER QUANTITY TEST
-//    
-//    DelPlanOrdrs();
-//    
-//    QOHZero("TBOX1");
-//    
-//    //----Setup Item site------
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
-//    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
-//    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-//    activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-//    waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
-//    waitForObject(":_itemSite_XTreeWidget");
-//    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
-//    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
-//    findObject(":_reorderLevel_XLineEdit").clear();
-//    type(":_reorderLevel_XLineEdit", "100");
-//    findObject(":_orderUpToQty_XLineEdit").clear();
-//    type(":_orderUpToQty_XLineEdit", "1000");
-//    findObject(":_minimumOrder_XLineEdit").clear();
-//    type(":_minimumOrder_XLineEdit", "5000");
-//    findObject(":_maximumOrder_XLineEdit").clear();
-//    type(":_maximumOrder_XLineEdit", "0");
-//    findObject(":_orderMultiple_XLineEdit").clear();
-//    type(":_orderMultiple_XLineEdit", "0");
-//    findObject(":Scheduling._safetyStock_XLineEdit").clear();
-//    type(":Scheduling._safetyStock_XLineEdit", "0");
-//    findObject(":Scheduling._orderGroup_QSpinBox").clear();
-//    type(":Scheduling._orderGroup_QSpinBox", "7");
-//    findObject(":_leadTime_QSpinBox").clear();
-//    type(":_leadTime_QSpinBox", "3");
-//    waitForObject(":Scheduling.First Group_QCheckBox");
-//    if(!findObject(":Scheduling.First Group_QCheckBox").checked)
-//        clickButton(":Scheduling.First Group_QCheckBox");
-//    waitForObject(":List Item Sites.Save_QPushButton");
-//    clickButton(":List Item Sites.Save_QPushButton");
-//    waitForObject(":List Item Sites.Close_QPushButton");
-//    clickButton(":List Item Sites.Close_QPushButton");
-//    test.log("Item Site setup for: TBOX1");
-//
-//    MRP("+99");
-//    
-//    //--------Verify generated Planned Orders-----
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
-//    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-//    type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
-//    type(":xTuple ERP:*.Reports_QMenu", "<Right>");
-//    type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
-//    waitForObject(":_warehouse.All Sites_QRadioButton_2");
-//    clickButton(":_warehouse.All Sites_QRadioButton_2");
-//    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
-//    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
-//    
-//    waitForObject(":frame._planord_XTreeWidget");
-//    var sWidgetTreeControl = ":frame._planord_XTreeWidget";
-//    var obj_TreeWidget = findObject(sWidgetTreeControl);
-//    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-//    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-//    if(iNumberOfRootItems>0)
-//    {
-//        if(iNumberOfRootItems==1)
-//        {
-//            var Qnty, DispDate, item;
-//            obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-//            DispDate = obj_TreeTopLevelItem.text(8);
-//            Qnty = obj_TreeTopLevelItem.text(9);
-//            item = obj_TreeTopLevelItem.text(4);
-//            
-//            var d = new Date();
-//            var CurrentYearFull = d.getFullYear();
-//            var CurrentMonth = 1+d.getMonth();
-//            CurrentMonth = CurrentMonth>9?CurrentMonth:("0"+CurrentMonth);
-//            var CurrentDate = d.getDate();
-//            var ExptdDate = CurrentDate+3;
-//            ExptdDate = ExptdDate>9?ExptdDate:("0"+ExptdDate);
-//            var fDate = CurrentYearFull+"-"+CurrentMonth+"-"+ExptdDate;
-//            if(item=="TBOX1" && Qnty=="5000.00" && DispDate==fDate && findObject(":frame._planord_XTreeWidget").topLevelItemCount==1)
-//                test.pass("Expected Planned Order generated");
-//            else 
-//                test.fail("Incorrect Planned Order generated");
-//        }
-//        
-//        else test.fail("Incorrect Planned Order generated");
-//   }    
-//    else test.fail("No Planned Order generated");
-//   waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
-//   clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-//
-//    
-//    
-//    //MRP MAXIMUM ORDER QUANTITY TEST
-//    test.log("MRP MAXIMUM ORDER QUANTITY TEST");
-//    DelPlanOrdrs();
-//    
-//    QOHZero("TBOX1");
-//    
-//    //----Setup Item site------
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
-//    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
-//    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-//    activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-//    waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
-//    waitForObject(":_itemSite_XTreeWidget");
-//    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
-//    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
-//    findObject(":_reorderLevel_XLineEdit").clear();
-//    type(":_reorderLevel_XLineEdit", "100");
-//    findObject(":_orderUpToQty_XLineEdit").clear();
-//    type(":_orderUpToQty_XLineEdit", "1000");
-//    findObject(":_minimumOrder_XLineEdit").clear();
-//    type(":_minimumOrder_XLineEdit", "0");
-//    findObject(":_maximumOrder_XLineEdit").clear();
-//    type(":_maximumOrder_XLineEdit", "200");
-//    findObject(":_orderMultiple_XLineEdit").clear();
-//    type(":_orderMultiple_XLineEdit", "0");
-//    findObject(":Scheduling._safetyStock_XLineEdit").clear();
-//    type(":Scheduling._safetyStock_XLineEdit", "0");
-//    findObject(":Scheduling._orderGroup_QSpinBox").clear();
-//    type(":Scheduling._orderGroup_QSpinBox", "7");
-//    findObject(":_leadTime_QSpinBox").clear();
-//    type(":_leadTime_QSpinBox", "3");
-//    waitForObject(":Scheduling.First Group_QCheckBox");
-//    if(!findObject(":Scheduling.First Group_QCheckBox").checked)
-//        clickButton(":Scheduling.First Group_QCheckBox");
-//    waitForObject(":List Item Sites.Save_QPushButton");
-//    clickButton(":List Item Sites.Save_QPushButton");
-//    waitForObject(":List Item Sites.Close_QPushButton");
-//    clickButton(":List Item Sites.Close_QPushButton");
-//    test.log("Item Site setup for: TBOX1");
-//
-//    MRP("+99");
-//    
+    
+    //------Remove Application Time out-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
+    activateItem(":xTuple ERP:*_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Preferences...");
+    activateItem(":xTuple ERP:*.System_QMenu", "Preferences...");
+    waitForObject(":_idleTimeout_QSpinBox");
+    findObject(":_idleTimeout_QSpinBox").clear();
+    type(":_idleTimeout_QSpinBox", "0");
+    waitForObject(":User Preferences.Save_QPushButton");
+    clickButton(":User Preferences.Save_QPushButton");
+    
+    //-----System Rescan Privileges--
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
+    activateItem(":xTuple ERP:*_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Rescan Privileges");
+    activateItem(":xTuple ERP:*.System_QMenu", "Rescan Privileges");
+
+    
+    
+        
+    MRP("+999");
+    MPS("+999");
+    
+    //--------View Planned Orders-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
+    type(":xTuple ERP:*.Reports_QMenu", "<Right>");
+    type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
+
+    waitForObject(":_warehouse.All Sites_QRadioButton_2");
+    clickButton(":_warehouse.All Sites_QRadioButton_2");
+    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
+    waitForObject(":frame._planord_XTreeWidget");
+    if((findObject(":frame._planord_XTreeWidget").topLevelItemCount)==0)
+        test.pass("No Planned Order generated");
+    else test.fail("Planned Order generated");
+    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
+    
+    
+    
+    //MRP NO DEMAND / REORDER POINT / SAFETY STOCK TEST
+    test.log("MRP NO DEMAND / REORDER POINT / SAFETY STOCK TEST");
+    
+    QOHZero("TBOX1");    
+    
+    //----Setup Item site------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+    waitForObject(":_itemSite_XTreeWidget");
+    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
+    findObject(":_reorderLevel_XLineEdit").clear();
+    type(":_reorderLevel_XLineEdit", "0");
+    findObject(":_orderUpToQty_XLineEdit").clear();
+    type(":_orderUpToQty_XLineEdit", "0");
+    findObject(":_minimumOrder_XLineEdit").clear();
+    type(":_minimumOrder_XLineEdit", "0");
+    findObject(":_maximumOrder_XLineEdit").clear();
+    type(":_maximumOrder_XLineEdit", "0");
+    findObject(":_orderMultiple_XLineEdit").clear();
+    type(":_orderMultiple_XLineEdit", "0");
+    findObject(":Scheduling._safetyStock_XLineEdit").clear();
+    type(":Scheduling._safetyStock_XLineEdit", "0");
+    findObject(":Scheduling._orderGroup_QSpinBox").clear();
+    type(":Scheduling._orderGroup_QSpinBox", "7");
+    findObject(":_leadTime_QSpinBox").clear();
+    type(":_leadTime_QSpinBox", "3");
+    waitForObject(":Scheduling.First Group_QCheckBox");
+    if(!findObject(":Scheduling.First Group_QCheckBox").checked)
+        clickButton(":Scheduling.First Group_QCheckBox");
+    waitForObject(":List Item Sites.Save_QPushButton");
+    clickButton(":List Item Sites.Save_QPushButton");
+    waitForObject(":List Item Sites.Close_QPushButton");
+    clickButton(":List Item Sites.Close_QPushButton");
+    test.log("Item Site setup for: TBOX1");
+
+    MRP("+99");
+  
+    
+    //--------View Planned Orders-----
+        waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
+    type(":xTuple ERP:*.Reports_QMenu", "<Right>");
+    type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
+
+    waitForObject(":_warehouse.All Sites_QRadioButton_2");
+    clickButton(":_warehouse.All Sites_QRadioButton_2");
+    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
+    waitForObject(":frame._planord_XTreeWidget");
+    if((findObject(":frame._planord_XTreeWidget").topLevelItemCount)==0)
+        test.pass("No Planned Order generated");
+    else test.fail("Planned Order generated");
+    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
+
+    
+    //MRP REORDER POINT TEST
+    
+    test.log("MRP REORDER POINT TEST");
+    
+    DelPlanOrdrs();
+    
+    QOHZero("TBOX1");    
+    
+    //----Setup Item site------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+    waitForObject(":_itemSite_XTreeWidget");
+    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
+    findObject(":_reorderLevel_XLineEdit").clear();
+    type(":_reorderLevel_XLineEdit", "100");
+    findObject(":_orderUpToQty_XLineEdit").clear();
+    type(":_orderUpToQty_XLineEdit", "0");
+    findObject(":_minimumOrder_XLineEdit").clear();
+    type(":_minimumOrder_XLineEdit", "0");
+    findObject(":_maximumOrder_XLineEdit").clear();
+    type(":_maximumOrder_XLineEdit", "0");
+    findObject(":_orderMultiple_XLineEdit").clear();
+    type(":_orderMultiple_XLineEdit", "0");
+    findObject(":Scheduling._safetyStock_XLineEdit").clear();
+    type(":Scheduling._safetyStock_XLineEdit", "0");
+    findObject(":Scheduling._orderGroup_QSpinBox").clear();
+    type(":Scheduling._orderGroup_QSpinBox", "7");
+    findObject(":_leadTime_QSpinBox").clear();
+    type(":_leadTime_QSpinBox", "3");
+    waitForObject(":Scheduling.First Group_QCheckBox");
+    if(!findObject(":Scheduling.First Group_QCheckBox").checked)
+        clickButton(":Scheduling.First Group_QCheckBox");
+    waitForObject(":List Item Sites.Save_QPushButton");
+    clickButton(":List Item Sites.Save_QPushButton");
+    waitForObject(":List Item Sites.Close_QPushButton");
+    clickButton(":List Item Sites.Close_QPushButton");
+    test.log("Item Site setup for: TBOX1");
+
+    MRP("+99");
+    
+    //--------Verify generated Planned Orders-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
+    type(":xTuple ERP:*.Reports_QMenu", "<Right>");
+    type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
+
+    waitForObject(":_warehouse.All Sites_QRadioButton_2");
+    clickButton(":_warehouse.All Sites_QRadioButton_2");
+    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
+    
+    waitForObject(":frame._planord_XTreeWidget");
+    var sWidgetTreeControl = ":frame._planord_XTreeWidget";
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    if(iNumberOfRootItems>0)
+    {
+        if(iNumberOfRootItems==1)
+        {
+            var Qnty, DispDate, item;
+            obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+            DispDate = obj_TreeTopLevelItem.text(8);
+            Qnty = obj_TreeTopLevelItem.text(9);
+            item = obj_TreeTopLevelItem.text(4);
+            
+            var d = new Date();
+            var CurrentYearFull = d.getFullYear();
+            var CurrentMonth = 1+d.getMonth();
+            CurrentMonth = CurrentMonth>9?CurrentMonth:("0"+CurrentMonth);
+            var CurrentDate = d.getDate();
+            var ExptdDate = CurrentDate+3;
+            ExptdDate = ExptdDate>9?ExptdDate:("0"+ExptdDate);
+            var fDate = CurrentYearFull+"-"+CurrentMonth+"-"+ExptdDate;
+            if(item=="TBOX1" && Qnty=="100.00" && DispDate==fDate && findObject(":frame._planord_XTreeWidget").topLevelItemCount==1)
+                test.pass("Expected Planned Order generated");
+            else 
+                test.fail("Incorrect Planned Order generated");
+        }
+        
+        else test.fail("Incorrect Planned Order generated");
+   }    
+    else test.fail("No Planned Order generated");
+   waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
+   clickButton(":Planned Orders by Planner Code.Close_QPushButton");
+
+
+    
+    
+    //MRP ORDER UP TO TEST
+   test.log("MRP ORDER UP TO TEST");
+    
+    DelPlanOrdrs();
+    
+    QOHZero("TBOX1");
+    
+    //----Setup Item site------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+    waitForObject(":_itemSite_XTreeWidget");
+    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
+    findObject(":_reorderLevel_XLineEdit").clear();
+    type(":_reorderLevel_XLineEdit", "100");
+    findObject(":_orderUpToQty_XLineEdit").clear();
+    type(":_orderUpToQty_XLineEdit", "1000");
+    findObject(":_minimumOrder_XLineEdit").clear();
+    type(":_minimumOrder_XLineEdit", "0");
+    findObject(":_maximumOrder_XLineEdit").clear();
+    type(":_maximumOrder_XLineEdit", "0");
+    findObject(":_orderMultiple_XLineEdit").clear();
+    type(":_orderMultiple_XLineEdit", "0");
+    findObject(":Scheduling._safetyStock_XLineEdit").clear();
+    type(":Scheduling._safetyStock_XLineEdit", "0");
+    findObject(":Scheduling._orderGroup_QSpinBox").clear();
+    type(":Scheduling._orderGroup_QSpinBox", "7");
+    findObject(":_leadTime_QSpinBox").clear();
+    type(":_leadTime_QSpinBox", "3");
+    waitForObject(":Scheduling.First Group_QCheckBox");
+    if(!findObject(":Scheduling.First Group_QCheckBox").checked)
+        clickButton(":Scheduling.First Group_QCheckBox");
+    waitForObject(":List Item Sites.Save_QPushButton");
+    clickButton(":List Item Sites.Save_QPushButton");
+    waitForObject(":List Item Sites.Close_QPushButton");
+    clickButton(":List Item Sites.Close_QPushButton");
+    test.log("Item Site setup for: TBOX1");
+
+        MRP("+99");
+    
+    //--------Verify generated Planned Orders-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
+    type(":xTuple ERP:*.Reports_QMenu", "<Right>");
+    type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
+    waitForObject(":_warehouse.All Sites_QRadioButton_2");
+    clickButton(":_warehouse.All Sites_QRadioButton_2");
+    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
+    
+    waitForObject(":frame._planord_XTreeWidget");
+    var sWidgetTreeControl = ":frame._planord_XTreeWidget";
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    if(iNumberOfRootItems>0)
+    {
+        if(iNumberOfRootItems==1)
+        {
+            var Qnty, DispDate, item;
+            obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+            DispDate = obj_TreeTopLevelItem.text(8);
+            Qnty = obj_TreeTopLevelItem.text(9);
+            item = obj_TreeTopLevelItem.text(4);
+            
+            var d = new Date();
+            var CurrentYearFull = d.getFullYear();
+            var CurrentMonth = 1+d.getMonth();
+            CurrentMonth = CurrentMonth>9?CurrentMonth:("0"+CurrentMonth);
+            var CurrentDate = d.getDate();
+            var ExptdDate = CurrentDate+3;
+            ExptdDate = ExptdDate>9?ExptdDate:("0"+ExptdDate);
+            var fDate = CurrentYearFull+"-"+CurrentMonth+"-"+ExptdDate;
+            if(item=="TBOX1" && Qnty=="1,000.00" && DispDate==fDate && findObject(":frame._planord_XTreeWidget").topLevelItemCount==1)
+                test.pass("Expected Planned Order generated");
+            else 
+                test.fail("Incorrect Planned Order generated");
+        }
+        
+        else test.fail("Incorrect Planned Order generated");
+   }    
+    else test.fail("No Planned Order generated");
+   waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
+   clickButton(":Planned Orders by Planner Code.Close_QPushButton");
+
+
+    
+    //MRP MINIMUM ORDER QUANTITY TEST
+   test.log("MRP MINIMUM ORDER QUANTITY TEST");
+    
+    DelPlanOrdrs();
+    
+    QOHZero("TBOX1");
+    
+    //----Setup Item site------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+    waitForObject(":_itemSite_XTreeWidget");
+    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
+    findObject(":_reorderLevel_XLineEdit").clear();
+    type(":_reorderLevel_XLineEdit", "100");
+    findObject(":_orderUpToQty_XLineEdit").clear();
+    type(":_orderUpToQty_XLineEdit", "1000");
+    findObject(":_minimumOrder_XLineEdit").clear();
+    type(":_minimumOrder_XLineEdit", "5000");
+    findObject(":_maximumOrder_XLineEdit").clear();
+    type(":_maximumOrder_XLineEdit", "0");
+    findObject(":_orderMultiple_XLineEdit").clear();
+    type(":_orderMultiple_XLineEdit", "0");
+    findObject(":Scheduling._safetyStock_XLineEdit").clear();
+    type(":Scheduling._safetyStock_XLineEdit", "0");
+    findObject(":Scheduling._orderGroup_QSpinBox").clear();
+    type(":Scheduling._orderGroup_QSpinBox", "7");
+    findObject(":_leadTime_QSpinBox").clear();
+    type(":_leadTime_QSpinBox", "3");
+    waitForObject(":Scheduling.First Group_QCheckBox");
+    if(!findObject(":Scheduling.First Group_QCheckBox").checked)
+        clickButton(":Scheduling.First Group_QCheckBox");
+    waitForObject(":List Item Sites.Save_QPushButton");
+    clickButton(":List Item Sites.Save_QPushButton");
+    waitForObject(":List Item Sites.Close_QPushButton");
+    clickButton(":List Item Sites.Close_QPushButton");
+    test.log("Item Site setup for: TBOX1");
+
+    MRP("+99");
+    
+    //--------Verify generated Planned Orders-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
+    type(":xTuple ERP:*.Reports_QMenu", "<Right>");
+    type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
+    waitForObject(":_warehouse.All Sites_QRadioButton_2");
+    clickButton(":_warehouse.All Sites_QRadioButton_2");
+    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
+    
+    waitForObject(":frame._planord_XTreeWidget");
+    var sWidgetTreeControl = ":frame._planord_XTreeWidget";
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    if(iNumberOfRootItems>0)
+    {
+        if(iNumberOfRootItems==1)
+        {
+            var Qnty, DispDate, item;
+            obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+            DispDate = obj_TreeTopLevelItem.text(8);
+            Qnty = obj_TreeTopLevelItem.text(9);
+            item = obj_TreeTopLevelItem.text(4);
+            
+            var d = new Date();
+            var CurrentYearFull = d.getFullYear();
+            var CurrentMonth = 1+d.getMonth();
+            CurrentMonth = CurrentMonth>9?CurrentMonth:("0"+CurrentMonth);
+            var CurrentDate = d.getDate();
+            var ExptdDate = CurrentDate+3;
+            ExptdDate = ExptdDate>9?ExptdDate:("0"+ExptdDate);
+            var fDate = CurrentYearFull+"-"+CurrentMonth+"-"+ExptdDate;
+            if(item=="TBOX1" && Qnty=="5,000.00" && DispDate==fDate && findObject(":frame._planord_XTreeWidget").topLevelItemCount==1)
+                test.pass("Expected Planned Order generated");
+            else 
+                test.fail("Incorrect Planned Order generated");
+        }
+        
+        else test.fail("Incorrect Planned Order generated");
+   }    
+    else test.fail("No Planned Order generated");
+   waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
+   clickButton(":Planned Orders by Planner Code.Close_QPushButton");
+
+    
+    
+    //MRP MAXIMUM ORDER QUANTITY TEST
+    test.log("MRP MAXIMUM ORDER QUANTITY TEST");
+    DelPlanOrdrs();
+    
+    QOHZero("TBOX1");
+    
+    //----Setup Item site------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+    waitForObject(":_itemSite_XTreeWidget");
+    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
+    waitForObject(":_reorderLevel_XLineEdit");
+    findObject(":_reorderLevel_XLineEdit").clear();
+    type(":_reorderLevel_XLineEdit", "100");
+    findObject(":_orderUpToQty_XLineEdit").clear();
+    type(":_orderUpToQty_XLineEdit", "1000");
+    findObject(":_minimumOrder_XLineEdit").clear();
+    type(":_minimumOrder_XLineEdit", "0");
+    findObject(":_maximumOrder_XLineEdit").clear();
+    type(":_maximumOrder_XLineEdit", "200");
+    findObject(":_orderMultiple_XLineEdit").clear();
+    type(":_orderMultiple_XLineEdit", "0");
+    findObject(":Scheduling._safetyStock_XLineEdit").clear();
+    type(":Scheduling._safetyStock_XLineEdit", "0");
+    findObject(":Scheduling._orderGroup_QSpinBox").clear();
+    type(":Scheduling._orderGroup_QSpinBox", "7");
+    findObject(":_leadTime_QSpinBox").clear();
+    type(":_leadTime_QSpinBox", "3");
+    waitForObject(":Scheduling.First Group_QCheckBox");
+    if(!findObject(":Scheduling.First Group_QCheckBox").checked)
+        clickButton(":Scheduling.First Group_QCheckBox");
+    waitForObject(":List Item Sites.Save_QPushButton");
+    clickButton(":List Item Sites.Save_QPushButton");
+    waitForObject(":List Item Sites.Close_QPushButton");
+    clickButton(":List Item Sites.Close_QPushButton");
+    test.log("Item Site setup for: TBOX1");
+
+    MRP("+99");
+    
     
     //--------Verify generated Planned Orders-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
@@ -572,13 +578,12 @@ function main()
             var ExptdDate = CurrentDate+3;
             ExptdDate = ExptdDate>9?ExptdDate:("0"+ExptdDate);
             var fDate = CurrentYearFull+"-"+CurrentMonth+"-"+ExptdDate;
-            var  i;
-            
-            for(i=0;i<5;j++)
+            for(var i=0;i<5;i++)
             {
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
                 if(obj_TreeTopLevelItem.text(4)=="TBOX1" && Qnty=="200.00" && DispDate==fDate)
                     test.pass("Expected Planned Order generated");
+                
                 else 
                     test.fail("Incorrect Planned Order generated");
             }
@@ -676,7 +681,7 @@ function main()
            var fDate = CurrentYearFull+"-"+CurrentMonth+"-"+ExptdDate;
            
            obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-           if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(9)=="1023.00" && obj_TreeTopLevelItem.text(8)==fDate)
+           if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(9)=="1,023.00" && obj_TreeTopLevelItem.text(8)==fDate)
                test.pass("Expected Planned Order generated");
            else 
                test.fail("Incorrect Planned Order generated");
@@ -921,13 +926,8 @@ function main()
    type(":_orderMultiple_XLineEdit", "0");
    findObject(":Scheduling._safetyStock_XLineEdit").clear();
    type(":Scheduling._safetyStock_XLineEdit", "0");
-   findObject(":Scheduling._orderGroup_QSpinBox").clear();
-   type(":Scheduling._orderGroup_QSpinBox", "7");
    findObject(":_leadTime_QSpinBox").clear();
    type(":_leadTime_QSpinBox", "3");
-   waitForObject(":Scheduling.First Group_QCheckBox");
-   if(!findObject(":Scheduling.First Group_QCheckBox").checked)
-       clickButton(":Scheduling.First Group_QCheckBox");
    waitForObject(":List Item Sites.Save_QPushButton");
    clickButton(":List Item Sites.Save_QPushButton");
    waitForObject(":List Item Sites.Close_QPushButton");
@@ -961,8 +961,8 @@ function main()
    if(iNumberOfRootItems>0)
        test.fail("Incorrect Planned Orders generated");
    else test.pass("No Planned Order generated");
-
-   
+   waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
+   clickButton(":Planned Orders by Planner Code.Close_QPushButton");
    
    
    //MRP ENFORCE ORDER PARAMETERS OFF TEST
@@ -986,7 +986,8 @@ function main()
    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
-   mouseClick(":_planningTab.Enforce Order Parameters_QGroupBox", 0, 0, 1, Qt.LeftButton);
+   if(findObject(":_planningTab.Enforce Order Parameters_QGroupBox").checked)
+       type(":_planningTab.Enforce Order Parameters_QGroupBox"," ");
    findObject(":Scheduling._safetyStock_XLineEdit").clear();
    type(":Scheduling._safetyStock_XLineEdit", "0");
    findObject(":Scheduling._orderGroup_QSpinBox").clear();
@@ -1053,9 +1054,9 @@ function main()
    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
    if(findObject(":_planningTab.Enforce Order Parameters_QGroupBox").checked)
-       mouseClick(":_planningTab.Enforce Order Parameters_QGroupBox", 0, 0, 1, Qt.LeftButton);
+       type(":_planningTab.Enforce Order Parameters_QGroupBox"," ");
    findObject(":Scheduling._safetyStock_XLineEdit").clear();
-   type(":Scheduling._safetyStock_XLineEdit", "0");
+   type(":Scheduling._safetyStock_XLineEdit", "100");
    findObject(":Scheduling._orderGroup_QSpinBox").clear();
    type(":Scheduling._orderGroup_QSpinBox", "7");
    findObject(":_leadTime_QSpinBox").clear();
@@ -1132,6 +1133,10 @@ function main()
    
    QOHZero("TBOX1");
    
+   DelAllPO();
+   
+   newPO("TBOX1",50,0)
+   
    //----Setup Item site------
    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
@@ -1145,7 +1150,7 @@ function main()
    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox").checked)
-       mouseClick(":_planningTab.Enforce Order Parameters_QGroupBox", 0, 0, 1, Qt.LeftButton);
+       type(":_planningTab.Enforce Order Parameters_QGroupBox"," ");
    findObject(":_reorderLevel_XLineEdit").clear();
    type(":_reorderLevel_XLineEdit", "100");
    findObject(":_orderUpToQty_XLineEdit").clear();
@@ -1478,6 +1483,7 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    QOHZero("TBOX1");
    DelAllPO();
    DelAllSO();
+   DelAllWO();
    SetQtyScrp("TBOX1","1.00", "20.00");
    
    //----Setup Item site------   
@@ -1661,6 +1667,31 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    clickButton(":List Items.Close_QPushButton");
    
    SetQtyScrp("TBOX1","0.20", "0.00");
+   
+   //---change UOM in BOM--
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products");
+    activateItem(":xTuple ERP:*_QMenuBar", "Products");
+    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
+    activateItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
+    waitForObjectItem(":xTuple ERP:*.Bill Of Materials_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Bill Of Materials_QMenu", "List...");
+    
+    waitForObject(":Bills of Materials._bom_XTreeWidget");
+    doubleClickItem(":Bills of Materials._bom_XTreeWidget", "TSUB1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":frame_2._bomitem_XTreeWidget");
+    doubleClickItem(":frame_2._bomitem_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Bill of Materials._uom_XComboBox");
+    if(findObject(":Bill of Materials._uom_XComboBox").currentText!="CS")
+        type(":Bill of Materials._uom_XComboBox","CS");    
+    waitForObject(":Bill of Materials.Save_QPushButton");
+    clickButton(":Bill of Materials.Save_QPushButton");
+    waitForObject(":Bill of Materials.Save_QPushButton_2");
+    clickButton(":Bill of Materials.Save_QPushButton_2");
+    waitForObject(":Bills of Materials.Close_QPushButton");
+    clickButton(":Bills of Materials.Close_QPushButton");
+
+   
+   
    NewWO("TSUB1",300,0,0)
 
    
@@ -1734,6 +1765,9 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
    
+   
+   MRP("+99");
+   
    //------Verify generated Planned Orders-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
@@ -1795,6 +1829,30 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    DelAllPO();
    DelAllSO();   
    SetQtyScrp("TBOX1","1.00", "0.00");
+   
+   //---change UOM in BOM--
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products");
+    activateItem(":xTuple ERP:*_QMenuBar", "Products");
+    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
+    activateItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
+    waitForObjectItem(":xTuple ERP:*.Bill Of Materials_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Bill Of Materials_QMenu", "List...");
+    
+    waitForObject(":Bills of Materials._bom_XTreeWidget");
+    doubleClickItem(":Bills of Materials._bom_XTreeWidget", "TSUB1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":frame_2._bomitem_XTreeWidget");
+    doubleClickItem(":frame_2._bomitem_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Bill of Materials._uom_XComboBox");
+    if(findObject(":Bill of Materials._uom_XComboBox").currentText!="EA")
+        type(":Bill of Materials._uom_XComboBox","EA");    
+    waitForObject(":Bill of Materials.Save_QPushButton");
+    clickButton(":Bill of Materials.Save_QPushButton");
+    waitForObject(":Bill of Materials.Save_QPushButton_2");
+    clickButton(":Bill of Materials.Save_QPushButton_2");
+    waitForObject(":Bills of Materials.Close_QPushButton");
+    clickButton(":Bills of Materials.Close_QPushButton");
+
+   ExplodeTopWO();
    ImplodeTopWO();
    ExplodeTopWO();
    RescheduleWO("+10","+10");
@@ -1859,7 +1917,7 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
    
-   
+ 
    
    //MRP DEMAND SIDE NETTING – FIRM PLANNED WORK ORDER
    test.log("MRP DEMAND SIDE NETTING – FIRM PLANNED WORK ORDER");
@@ -1894,7 +1952,7 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    var iNumberOfRootItems = obj_TreeRootItem.childCount();
    if(iNumberOfRootItems>0)
    {
-       if(iNumberOfRootItems==2)
+       if(iNumberOfRootItems==3)
        {
            var Qnty, DispDate, item;
            obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
@@ -2018,8 +2076,7 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    waitForObject(":_itemSite_XTreeWidget");
    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
-   waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+   if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").enabled && findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
         clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -2053,7 +2110,7 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    NewSO("YTRUCK1",200);
    
    MRP("+99");
-   
+ 
    //------Verify generated Planned Orders-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
@@ -2093,21 +2150,23 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
            var StartDate = CurrentYearFull+"-"+CurrentMonth+"-"+CurrentDate;
                       
            obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-           if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(2)=="P/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==DueDate && obj_TreeTopLevelItem.text(7)==StartDate)
+          
+           
+           if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(1)=="P/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==DueDate && obj_TreeTopLevelItem.text(7)==StartDate)
                test.pass("Expected Planned Order generated");
            else 
                test.fail("Incorrect Planned Order generated");
            
 
            obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-           if(obj_TreeTopLevelItem.text(4)=="TSUB1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==DueDate && obj_TreeTopLevelItem.text(7)==StartDate)
+           if(obj_TreeTopLevelItem.text(4)=="TSUB1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==DueDate && obj_TreeTopLevelItem.text(7)==StartDate)
                test.pass("Expected Planned Order generated");
            else 
                test.fail("Incorrect Planned Order generated");
 
            
            obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-           if(obj_TreeTopLevelItem.text(4)=="YTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==DueDate && obj_TreeTopLevelItem.text(7)==StartDate)
+           if(obj_TreeTopLevelItem.text(4)=="YTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==DueDate && obj_TreeTopLevelItem.text(7)==StartDate)
                test.pass("Expected Planned Order generated");
            else 
                test.fail("Incorrect Planned Order generated");
@@ -2130,7 +2189,7 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    QOHZero("TBOX1");
    DelAllWO();
    DelAllSO();
-   
+  
    
     //-----Copy TSUB1 into 3 items-------
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products");
@@ -2161,30 +2220,35 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_costcat_XComboBox");
     clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 0, 0, 1, Qt.LeftButton);
-   clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
-   waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
-   if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox").checked)
-       mouseClick(":_planningTab.Enforce Order Parameters_QGroupBox", 0, 0, 1, Qt.LeftButton);
-   findObject(":_reorderLevel_XLineEdit").clear();
-   type(":_reorderLevel_XLineEdit", "0");
-   findObject(":_orderUpToQty_XLineEdit").clear();
-   type(":_orderUpToQty_XLineEdit", "0");
-   findObject(":_minimumOrder_XLineEdit").clear();
-   type(":_minimumOrder_XLineEdit", "0");
-   findObject(":_maximumOrder_XLineEdit").clear();
-   type(":_maximumOrder_XLineEdit", "0");
-   findObject(":_orderMultiple_XLineEdit").clear();
-   type(":_orderMultiple_XLineEdit", "0");
-   findObject(":Scheduling._safetyStock_XLineEdit").clear();
-   type(":Scheduling._safetyStock_XLineEdit", "0");
-   findObject(":Scheduling._orderGroup_QSpinBox").clear();
-   type(":Scheduling._orderGroup_QSpinBox", "7");
-   findObject(":_leadTime_QSpinBox").clear();
-   type(":_leadTime_QSpinBox", "3");
-   waitForObject(":Scheduling.First Group_QCheckBox");
-   if(!findObject(":Scheduling.First Group_QCheckBox").checked)
-       clickButton(":Scheduling.First Group_QCheckBox");
-
+    clickTab(":List Items.qt_tabwidget_tabbar_QTabBar", "Planning");
+   
+    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_2");
+    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_2").checked)
+        type(":_planningTab.Enforce Order Parameters_QGroupBox_2"," ");
+    waitForObject(":_reorderLevel_XLineEdit_2");
+    findObject(":_reorderLevel_XLineEdit_2").clear();
+    type(":_reorderLevel_XLineEdit_2", "0");
+    findObject(":_orderUpToQty_XLineEdit_2").clear();
+    type(":_orderUpToQty_XLineEdit_2", "0");
+    findObject(":_minimumOrder_XLineEdit_2").clear();
+    type(":_minimumOrder_XLineEdit_2", "0");
+    findObject(":_maximumOrder_XLineEdit_2").clear();
+    type(":_maximumOrder_XLineEdit_2", "0");
+    findObject(":_orderMultiple_XLineEdit_2").clear();
+    type(":_orderMultiple_XLineEdit_2", "0");
+    waitForObject(":Scheduling._planningType_XComboBox_2");
+    if(findObject(":Scheduling._planningType_XComboBox_2").currentText!="MRP")
+        type(":Scheduling._planningType_XComboBox_2", "MRP");
+    findObject(":Scheduling._safetyStock_XLineEdit_2").clear();
+    type(":Scheduling._safetyStock_XLineEdit_2", "0");
+    findObject(":Scheduling._safetyStock_XLineEdit_2").clear();
+    type(":Scheduling._safetyStock_XLineEdit_2","0");
+    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_3").clear();
+    type(":Scheduling.qt_spinbox_lineedit_QLineEdit_3","7");
+    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_4").clear();
+    type(":Scheduling.qt_spinbox_lineedit_QLineEdit_4","3");
+    if(!findObject(":Scheduling.First Group_QCheckBox_2").checked)
+        clickButton(":Scheduling.First Group_QCheckBox_2");
     waitForObject(":List Items.Save_QPushButton");
     clickButton(":List Items.Save_QPushButton");
     waitForObject(":List Items.Cancel_QPushButton");
@@ -2212,29 +2276,35 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_costcat_XComboBox");
     clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 0, 0, 1, Qt.LeftButton);
-   clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
-   waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
-   if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox").checked)
-       mouseClick(":_planningTab.Enforce Order Parameters_QGroupBox", 0, 0, 1, Qt.LeftButton);
-   findObject(":_reorderLevel_XLineEdit").clear();
-   type(":_reorderLevel_XLineEdit", "0");
-   findObject(":_orderUpToQty_XLineEdit").clear();
-   type(":_orderUpToQty_XLineEdit", "0");
-   findObject(":_minimumOrder_XLineEdit").clear();
-   type(":_minimumOrder_XLineEdit", "0");
-   findObject(":_maximumOrder_XLineEdit").clear();
-   type(":_maximumOrder_XLineEdit", "0");
-   findObject(":_orderMultiple_XLineEdit").clear();
-   type(":_orderMultiple_XLineEdit", "0");
-   findObject(":Scheduling._safetyStock_XLineEdit").clear();
-   type(":Scheduling._safetyStock_XLineEdit", "0");
-   findObject(":Scheduling._orderGroup_QSpinBox").clear();
-   type(":Scheduling._orderGroup_QSpinBox", "7");
-   findObject(":_leadTime_QSpinBox").clear();
-   type(":_leadTime_QSpinBox", "3");
-   waitForObject(":Scheduling.First Group_QCheckBox");
-   if(!findObject(":Scheduling.First Group_QCheckBox").checked)
-       clickButton(":Scheduling.First Group_QCheckBox");
+    clickTab(":List Items.qt_tabwidget_tabbar_QTabBar", "Planning");
+    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_2");
+    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_2").checked)
+        type(":_planningTab.Enforce Order Parameters_QGroupBox_2"," ");
+    waitForObject(":_reorderLevel_XLineEdit_2");
+    findObject(":_reorderLevel_XLineEdit_2").clear();
+    type(":_reorderLevel_XLineEdit_2", "0");
+    findObject(":_orderUpToQty_XLineEdit_2").clear();
+    type(":_orderUpToQty_XLineEdit_2", "0");
+    findObject(":_minimumOrder_XLineEdit_2").clear();
+    type(":_minimumOrder_XLineEdit_2", "0");
+    findObject(":_maximumOrder_XLineEdit_2").clear();
+    type(":_maximumOrder_XLineEdit_2", "0");
+    findObject(":_orderMultiple_XLineEdit_2").clear();
+    type(":_orderMultiple_XLineEdit_2", "0");
+
+    waitForObject(":Scheduling._planningType_XComboBox_2");
+    if(findObject(":Scheduling._planningType_XComboBox_2").currentText!="MRP")
+        type(":Scheduling._planningType_XComboBox_2", "MRP");
+    findObject(":Scheduling._safetyStock_XLineEdit_2").clear();
+    type(":Scheduling._safetyStock_XLineEdit_2", "0");
+    findObject(":Scheduling._safetyStock_XLineEdit_2").clear();
+    type(":Scheduling._safetyStock_XLineEdit_2","0");
+    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_3").clear();
+    type(":Scheduling.qt_spinbox_lineedit_QLineEdit_3","7");
+    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_4").clear();
+    type(":Scheduling.qt_spinbox_lineedit_QLineEdit_4","3");
+    if(!findObject(":Scheduling.First Group_QCheckBox_2").checked)
+        clickButton(":Scheduling.First Group_QCheckBox_2");
 
     waitForObject(":List Items.Save_QPushButton");
     clickButton(":List Items.Save_QPushButton");
@@ -2262,29 +2332,35 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     clickItem(":_plannerCode_XComboBox", "MRP-MRP Items", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_costcat_XComboBox");
     clickItem(":_costcat_XComboBox", "FINISHED-Finished Product - WH1", 0, 0, 1, Qt.LeftButton);
-   clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
-   waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
-   if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox").checked)
-       mouseClick(":_planningTab.Enforce Order Parameters_QGroupBox", 0, 0, 1, Qt.LeftButton);
-   findObject(":_reorderLevel_XLineEdit").clear();
-   type(":_reorderLevel_XLineEdit", "0");
-   findObject(":_orderUpToQty_XLineEdit").clear();
-   type(":_orderUpToQty_XLineEdit", "0");
-   findObject(":_minimumOrder_XLineEdit").clear();
-   type(":_minimumOrder_XLineEdit", "0");
-   findObject(":_maximumOrder_XLineEdit").clear();
-   type(":_maximumOrder_XLineEdit", "0");
-   findObject(":_orderMultiple_XLineEdit").clear();
-   type(":_orderMultiple_XLineEdit", "0");
-   findObject(":Scheduling._safetyStock_XLineEdit").clear();
-   type(":Scheduling._safetyStock_XLineEdit", "0");
-   findObject(":Scheduling._orderGroup_QSpinBox").clear();
-   type(":Scheduling._orderGroup_QSpinBox", "7");
-   findObject(":_leadTime_QSpinBox").clear();
-   type(":_leadTime_QSpinBox", "3");
-   waitForObject(":Scheduling.First Group_QCheckBox");
-   if(!findObject(":Scheduling.First Group_QCheckBox").checked)
-       clickButton(":Scheduling.First Group_QCheckBox");
+    clickTab(":List Items.qt_tabwidget_tabbar_QTabBar", "Planning");
+    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_2");
+    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_2").checked)
+        type(":_planningTab.Enforce Order Parameters_QGroupBox_2"," ");
+    waitForObject(":_reorderLevel_XLineEdit_2");
+    findObject(":_reorderLevel_XLineEdit_2").clear();
+    type(":_reorderLevel_XLineEdit_2", "0");
+    findObject(":_orderUpToQty_XLineEdit_2").clear();
+    type(":_orderUpToQty_XLineEdit_2", "0");
+    findObject(":_minimumOrder_XLineEdit_2").clear();
+    type(":_minimumOrder_XLineEdit_2", "0");
+    findObject(":_maximumOrder_XLineEdit_2").clear();
+    type(":_maximumOrder_XLineEdit_2", "0");
+    findObject(":_orderMultiple_XLineEdit_2").clear();
+    type(":_orderMultiple_XLineEdit_2", "0");
+    
+    waitForObject(":Scheduling._planningType_XComboBox_2");
+    if(findObject(":Scheduling._planningType_XComboBox_2").currentText!="MRP")
+        type(":Scheduling._planningType_XComboBox_2", "MRP");
+    findObject(":Scheduling._safetyStock_XLineEdit_2").clear();
+    type(":Scheduling._safetyStock_XLineEdit_2", "0");
+    findObject(":Scheduling._safetyStock_XLineEdit_2").clear();
+    type(":Scheduling._safetyStock_XLineEdit_2","0");
+    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_3").clear();
+    type(":Scheduling.qt_spinbox_lineedit_QLineEdit_3","7");
+    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_4").clear();
+    type(":Scheduling.qt_spinbox_lineedit_QLineEdit_4","3");
+    if(!findObject(":Scheduling.First Group_QCheckBox_2").checked)
+        clickButton(":Scheduling.First Group_QCheckBox_2");
     waitForObject(":List Items.Save_QPushButton");
     clickButton(":List Items.Save_QPushButton");
     waitForObject(":List Items.Cancel_QPushButton");
