@@ -33,50 +33,15 @@ function main()
     
     snooze(1);
     if(object.exists(":OK_QPushButton"))
-        clickButton(":OK_QPushButton");
-    snooze(0.5);
-    waitForObject(":_ccEncKeyName_QLineEdit");
+       test.fatal("Please Define the Encryption path"); 
     
-    if(findObject(":_ccEncKeyName_QLineEdit").text!="xTuple.key")
-    {
-        type(":_ccEncKeyName_QLineEdit", "<Right>");
-        findObject(":_ccEncKeyName_QLineEdit").clear;
-        type(":_ccEncKeyName_QLineEdit", "OpenMFG.key");
-        test.log("Encryption: key name changed");
-    }
-    
-    if(findObject(":Encryption Configuration_FileLineEdit").text!="c:/crypto")
-    {
-        type(":Encryption Configuration_FileLineEdit", "<Right>");
-        findObject(":Encryption Configuration_FileLineEdit").clear;
-        type(":Encryption Configuration_FileLineEdit", "c:/crypto");
-        test.log("Encryption: Windows location changed");
-    }
-    
-    if(findObject(":Encryption Configuration_FileLineEdit_2").text!="/home/xtuple/Desktop/crypto")
-    {
-        type(":Encryption Configuration_FileLineEdit_2", "<Right>");
-        findObject(":Encryption Configuration_FileLineEdit_2").clear;
-        type(":Encryption Configuration_FileLineEdit_2", "/home/xtuple/Desktop/crypto");
-        test.log("Encryption: Linux location changed");
-    }
-    
-    if(findObject(":Encryption Configuration_FileLineEdit_3").text!="/Users/zenemp/Desktop/crypto")
-    {
-        type(":Encryption Configuration_FileLineEdit_3", "<Right>");
-        findObject(":Encryption Configuration_FileLineEdit_3").clear;
-        type(":Encryption Configuration_FileLineEdit_3", "/Users/zenemp/Desktop/crypto");
-        test.log("Encryption: Mac location changed");
-    }
-    
+    waitForObject(":Encryption Configuration.Save_QPushButton");
     clickButton(":Encryption Configuration.Save_QPushButton");
-    test.log("Encryption defined");
     
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "System");
     activateItem(":xTuple ERP: *_QMenuBar_3", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu_2", "Exit xTuple ERP...");
     activateItem(":xTuple ERP: *.System_QMenu_2", "Exit xTuple ERP...");
-    
     
     snooze(5);
     
@@ -181,7 +146,7 @@ function main()
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(3);
+    var sNameOfRootItem1 = obj_TreeTopLevelItem.text(3);
     
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
@@ -234,13 +199,14 @@ function main()
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3); 
-    test.log(" " + sNameOfRootItem2);
+       
+    var result = replaceSubstring(sNameOfRootItem1.latin1(), ",","");
     
-    var result = replaceSubstring(sNameOfRootItem2, ",","");
+    var qoh = replaceSubstring(sNameOfRootItem2.latin1(),",","");
     
     var sum = (parseInt(poquantity.toString()) + parseInt(result.toString()));
     
-    if(parseInt(sNameOfRootItem2.toString()) == parseInt(sum.toString())) 
+    if(parseInt(qoh.toString()) == parseInt(sum.toString())) 
         test.pass("QOH updated correctly for Receiving Purchase goods");
     else test.fail("QOH updated incorrectly for Receiving Purchase goods");
     
@@ -282,26 +248,7 @@ function main()
     if(sNameOfRootItem == "PO")
         test.pass("Receiving PO has a GL entry");
     else test.fail(" Receiving PO has no GL entry");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", "<Down>");
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", " ");
-    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-    if(sNameOfRootItem == "PO")
-        test.pass("Receiving PO has a GL entry");
-    else test.fail(" Receiving PO has no GL entry");
-    
+       
     waitForObject(":General Ledger Transactions.Close_QPushButton");
     clickButton(":General Ledger Transactions.Close_QPushButton");
     
@@ -460,7 +407,6 @@ function main()
         clickButton(":View Check Run.Yes_QPushButton_2");
     waitForObject(":fileNameEdit_QLineEdit_2");
     
-    
     if(OS.name=="Linux")
         findObject(":fileNameEdit_QLineEdit_2").text = linuxPath.toString()+"/achFile.ach";
     else if(OS.name == "Windows" )
@@ -469,7 +415,7 @@ function main()
     waitForObject(":View Check Run.Save_QPushButton");
     clickButton(":View Check Run.Save_QPushButton");
     
-    snooze(3);
+    snooze(2);
     
     if(object.exists(":View Check Run.Yes_QPushButton_2"))    
         clickButton(":View Check Run.Yes_QPushButton_2");
@@ -477,14 +423,19 @@ function main()
     waitForObject(":View Check Run.Yes_QPushButton");
     clickButton(":View Check Run.Yes_QPushButton");
     
+    waitForObject(":View Check Run.Yes_QPushButton_2");
+    clickButton(":View Check Run.Yes_QPushButton_2");
+    
+    snooze(0.5);
     waitForObject(":View Check Run.Cancel_QPushButton");
     clickButton(":View Check Run.Cancel_QPushButton");
     
-    snooze(2);
+    snooze(0.5);
     
     //-----Post Check run-----
     waitForObject(":_frame._check_XTreeWidget");
     clickItem(":_frame._check_XTreeWidget", "No", 5, 5, 1, Qt.LeftButton);
+  
     waitForObject(":_frame.Post_QPushButton");
     clickButton(":_frame.Post_QPushButton");
     waitForObject(":View Check Run.Post_QPushButton");
@@ -512,29 +463,10 @@ function main()
     type(":_dateGroup.XDateEdit_XDateEdit_2", "0");
     waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
     clickButton(":_sourceGroup.Selected Source:_QRadioButton");
-    waitForObjectItem(":_sourceGroup._source_XComboBox", "S/R");
-    clickItem(":_sourceGroup._source_XComboBox", "S/R", 5, 5, 1, Qt.LeftButton);
+    waitForObjectItem(":_sourceGroup._source_XComboBox", "A/P");
+    clickItem(":_sourceGroup._source_XComboBox", "A/P", 5, 5, 1, Qt.LeftButton);
     waitForObject(":General Ledger Transactions.Query_QPushButton");
     clickButton(":General Ledger Transactions.Query_QPushButton");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-    if(sNameOfRootItem == "CK")
-        test.pass("Posting of Checks has a GL entry");
-    else test.fail("Posting of Checks has no GL entry");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", "<Down>");
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", " ");
-    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
     
     waitForObject(":_gltrans_XTreeWidget");
     var sWidgetTreeControl = ":_gltrans_XTreeWidget";
