@@ -18,7 +18,7 @@ function main()
     activateItem(":xTuple ERP: *._System_QMenu", "Master Information");
     waitForObjectItem(":xTuple ERP: *_.Master Information_QMenu", "Database Information...");
     activateItem(":xTuple ERP: *_.Master Information_QMenu", "Database Information...");
-    
+   
     waitForObject(":Database Information.*_QLabel");
     var appEdition = findObject(":Database Information.*_QLabel").text;
     waitForObject(":Database Information.Save_QPushButton");
@@ -34,10 +34,12 @@ function main()
     
     waitForObject(":frame.New_QPushButton");
     clickButton(":frame.New_QPushButton");
-    waitForObject(":_headerPage...._QPushButton_3");
-    clickButton(":_headerPage...._QPushButton_3");
+    waitForObject(":_headerPage...._QPushButton");
+    clickButton(":_headerPage...._QPushButton");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_headerPage._custPONumber_XLineEdit");
+    type(":_headerPage._custPONumber_XLineEdit", "100");
     
     quote = findObject(":_headerPage._orderNumber_XLineEdit").text;
     
@@ -48,7 +50,7 @@ function main()
     waitForObject(":_itemGroup...._QPushButton");
     clickButton(":_itemGroup...._QPushButton");
     waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
+    doubleClickItem(":_item_XTreeWidget", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit");
     type(":_qtyOrdered_XLineEdit", "100");
     waitForObject(":_schedGroup.XDateEdit_XDateEdit");
@@ -74,7 +76,11 @@ function main()
     
     waitForObject(":List Quotes.Yes_QPushButton");
     clickButton(":List Quotes.Yes_QPushButton");
-    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
+    
+    if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
+       clickButton(":_headerPage.Print on Save_QCheckBox");
+   
+    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");    
     clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage._soitem_XTreeWidget");
     doubleClickItem(":_lineItemsPage._soitem_XTreeWidget", "1", 5, 5, 0, Qt.LeftButton);
@@ -90,6 +96,7 @@ function main()
     clickButton(":Sales Order.Close_QPushButton");
     waitForObject(":Sales Order.Save_QPushButton_2");
     clickButton(":Sales Order.Save_QPushButton_2");
+    
     
     waitForObject(":List Quotes.Close_QPushButton");
     clickButton(":List Quotes.Close_QPushButton");
@@ -124,14 +131,30 @@ function main()
     type(":_number_XLineEdit", "zenprospect");
     waitForObject(":_name_QLineEdit");
     type(":_name_QLineEdit", "Zen Prospect");
-    waitForObject(":_salesrep_XComboBox");
-    clickItem(":_salesrep_XComboBox", "1000-Sam Masters", 5, 5, 5, Qt.LeftButton);
+    if(appEdition=="Manufacturing")
+    {
+        waitForObject(":_salesrep_XComboBox");
+        clickItem(":_salesrep_XComboBox", "1000-Sam Masters", 5, 5, 1, Qt.LeftButton);
+    }
+   
+    else
+    { 
+        waitForObject(":_salesrep_XComboBox");
+        clickItem(":_salesrep_XComboBox", "xtpos-xtpos", 5, 5, 1, Qt.LeftButton);
+    }  
+    
     waitForObject(":Prospect...._QPushButton");
     clickButton(":Prospect...._QPushButton");
-    waitForObject(":_listTab_XTreeWidget_2");
-    doubleClickItem(":_listTab_XTreeWidget_2", "Susie", 5, 5, 0, Qt.LeftButton);
-    waitForObjectItem(":_taxzone_XComboBox", "VA TAX-Virginia Sales Tax");
-    clickItem(":_taxzone_XComboBox", "VA TAX-Virginia Sales Tax", 5, 5, 0, Qt.LeftButton);
+    if(appEdition=="Manufacturing")
+    {
+        waitForObject(":_listTab_XTreeWidget_2");
+        doubleClickItem(":_listTab_XTreeWidget_2", "Susie", 5, 5, 0, Qt.LeftButton);
+    }
+    else
+    {
+        waitForObject(":_listTab_XTreeWidget_2");
+        doubleClickItem(":_listTab_XTreeWidget_2", "Sunita", 5, 5, 0, Qt.LeftButton);
+    }
     
     waitForObject(":Prospect.Save_QPushButton");
     clickButton(":Prospect.Save_QPushButton");
@@ -154,10 +177,12 @@ function main()
     
     waitForObject(":frame.New_QPushButton");
     clickButton(":frame.New_QPushButton");
-    waitForObject(":_headerPage...._QPushButton_3");
-    clickButton(":_headerPage...._QPushButton_3");
+    waitForObject(":_headerPage...._QPushButton");
+    clickButton(":_headerPage...._QPushButton");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "ZENPROSPECT", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_headerPage._custPONumber_XLineEdit");
+    type(":_headerPage._custPONumber_XLineEdit", "101");
     
     var pquote = findObject(":_headerPage._orderNumber_XLineEdit").text;
     
@@ -168,7 +193,7 @@ function main()
     waitForObject(":_itemGroup...._QPushButton");
     clickButton(":_itemGroup...._QPushButton");
     waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "STRUCK1", 5, 5, 0, Qt.LeftButton);
+    doubleClickItem(":_item_XTreeWidget", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit");
     type(":_qtyOrdered_XLineEdit", "10");
     waitForObject(":_schedGroup.XDateEdit_XDateEdit");
@@ -204,8 +229,12 @@ function main()
     waitForObject(":List Quotes.Yes_QPushButton");
     clickButton(":List Quotes.Yes_QPushButton");
     
+    if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
+        clickButton(":_headerPage.Print on Save_QCheckBox");
+ 
     waitForObject(":Sales Order.Save_QPushButton_2");
     clickButton(":Sales Order.Save_QPushButton_2");
+    
     waitForObject(":List Quotes.Close_QPushButton");
     clickButton(":List Quotes.Close_QPushButton");
     
@@ -250,10 +279,12 @@ function main()
     
     waitForObject(":frame.New_QPushButton");
     clickButton(":frame.New_QPushButton");
-    waitForObject(":_headerPage...._QPushButton_3");
-    clickButton(":_headerPage...._QPushButton_3");
+    waitForObject(":_headerPage...._QPushButton");
+    clickButton(":_headerPage...._QPushButton");
     waitForObject(":_listTab_XTreeWidget")
-            doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_headerPage._custPONumber_XLineEdit");
+    type(":_headerPage._custPONumber_XLineEdit", "102");
     
     var quotenumber = findObject(":_headerPage._orderNumber_XLineEdit").text;
     
@@ -264,7 +295,7 @@ function main()
     waitForObject(":_itemGroup...._QPushButton");
     clickButton(":_itemGroup...._QPushButton");
     waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "CTRUCK1", 5, 5, 0, Qt.LeftButton);
+    doubleClickItem(":_item_XTreeWidget", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit");
     type(":_qtyOrdered_XLineEdit", "100");
     waitForObject(":_schedGroup.XDateEdit_XDateEdit");
@@ -284,7 +315,7 @@ function main()
     waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Quote.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage._soitem_XTreeWidget_2");
-    doubleClickItem(":_lineItemsPage._soitem_XTreeWidget_2", "CTRUCK1", 5, 5, 0, Qt.LeftButton);
+    doubleClickItem(":_lineItemsPage._soitem_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit");
     type(":_qtyOrdered_XLineEdit", "50");
     
@@ -306,7 +337,7 @@ function main()
     waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Quote.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage._soitem_XTreeWidget_2");
-    doubleClickItem(":_lineItemsPage._soitem_XTreeWidget_2", "CTRUCK1", 5, 5, 0, Qt.LeftButton);
+    doubleClickItem(":_lineItemsPage._soitem_XTreeWidget_2", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit");
     
     var quotechange = findObject(":_qtyOrdered_XLineEdit").text;  
@@ -355,11 +386,16 @@ function main()
     
     waitForObject(":frame.New_QPushButton_2");
     clickButton(":frame.New_QPushButton_2");
-    waitForObject(":_headerPage...._QPushButton_4");
-    clickButton(":_headerPage...._QPushButton_4");
+    waitForObject(":_headerPage...._QPushButton_2");
+    clickButton(":_headerPage...._QPushButton_2");
     waitForObject(":_listTab_XTreeWidget_3");
     doubleClickItem(":_listTab_XTreeWidget_3", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_headerPage._custPONumber_XLineEdit_2");
+    type(":_headerPage._custPONumber_XLineEdit_2", "103");
     
+    if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
+         clickButton(":_headerPage.Print on Save_QCheckBox");
+
     sonumber = findObject(":_headerPage._orderNumber_XLineEdit_2").text;
     
     waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
@@ -416,6 +452,15 @@ function main()
     
     waitForObject(":frame._so_XTreeWidget");
     doubleClickItem(":frame._so_XTreeWidget", parseInt(sonumber.toString()) + 1, 5, 5, 0, Qt.LeftButton);
+    
+    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
+    
+    if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
+       clickButton(":_headerPage.Print on Save_QCheckBox");
+   
+    waitForObject(":_headerPage._custPONumber_XLineEdit_2");
+    type(":_headerPage._custPONumber_XLineEdit_2", "104");
+    
     waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage._soitem_XTreeWidget");
@@ -435,6 +480,7 @@ function main()
         test.pass("Sales Order Copy successful");
     else test.fail("Sales order copy not successful");
     
+    snooze(0.5);
     waitForObject(":List Open Sales Orders.Close_QPushButton");
     clickButton(":List Open Sales Orders.Close_QPushButton");
     
@@ -447,7 +493,12 @@ function main()
     activateItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
     
     waitForObject(":frame._so_XTreeWidget");
-    doubleClickItem(":frame._so_XTreeWidget", parseInt(sonumber.toString()) + 1, 5, 5, 0, Qt.LeftButton); 
+    doubleClickItem(":frame._so_XTreeWidget", parseInt(sonumber.toString()) + 1, 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
+    
+    if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
+        clickButton(":_headerPage.Print on Save_QCheckBox");
+     
     waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage._soitem_XTreeWidget");
@@ -475,6 +526,11 @@ function main()
     waitForObject(":frame._so_XTreeWidget");
     doubleClickItem(":frame._so_XTreeWidget", parseInt(sonumber.toString()) + 1, 5, 5, 0, Qt.LeftButton); 
     waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
+    
+    if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
+        clickButton(":_headerPage.Print on Save_QCheckBox");
+    
+    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage._soitem_XTreeWidget");
     doubleClickItem(":_lineItemsPage._soitem_XTreeWidget", "1", 5, 5, 0, Qt.LeftButton);
@@ -484,6 +540,7 @@ function main()
     
     waitForObject(":Sales Order.Close_QPushButton");
     clickButton(":Sales Order.Close_QPushButton");
+   
     waitForObject(":Sales Order.Save_QPushButton_2");
     clickButton(":Sales Order.Save_QPushButton_2");
     
@@ -531,7 +588,7 @@ function main()
     waitForObject(":_itemGroup...._QPushButton_3");
     clickButton(":_itemGroup...._QPushButton_3");
     waitForObject(":_item_XTreeWidget_3");
-    doubleClickItem(":_item_XTreeWidget_3", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
+    doubleClickItem(":_item_XTreeWidget_3", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     
     if(appEdition=="Manufacturing" || appEdition=="Standard")
     {            
@@ -551,7 +608,7 @@ function main()
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(3);
+    var sNameOfRootItem1 = obj_TreeTopLevelItem.text(3);
     
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
@@ -575,8 +632,15 @@ function main()
     //-----Ship the Sales Order (with'Select for Billing' option checked)-----
     waitForObject(":Issue to Shipping.Ship Order_QPushButton");
     clickButton(":Issue to Shipping.Ship Order_QPushButton");
+    
     if(findObject(":groupBox.Select for Billing_QCheckBox").unchecked)
         clickButton(":groupBox.Select for Billing_QCheckBox");
+    
+    if(findObject(":groupBox.Create and Print Invoice_XCheckBox_3").checked)
+        clickButton(":groupBox.Create and Print Invoice_XCheckBox_3");
+    
+    if(findObject(":groupBox.Print Packing List_XCheckBox_3").checked)
+        clickButton(":groupBox.Print Packing List_XCheckBox_3");
     
     waitForObject(":Issue to Shipping.Ship_QPushButton");
     clickButton(":Issue to Shipping.Ship_QPushButton");
@@ -598,7 +662,7 @@ function main()
     waitForObject(":_itemGroup...._QPushButton_3");
     clickButton(":_itemGroup...._QPushButton_3");
     waitForObject(":_item_XTreeWidget_3");
-    doubleClickItem(":_item_XTreeWidget_3", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
+    doubleClickItem(":_item_XTreeWidget_3", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     
     if(appEdition=="Manufacturing" || appEdition=="Standard")
     {            
@@ -620,7 +684,15 @@ function main()
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3);
     
-    if(parseInt(sNameOfRootItem2.toString()) == parseInt(sNameOfRootItem.toString()) - parseInt(soqty.toString()))
+    var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3); 
+       
+    var number = replaceSubstring(sNameOfRootItem1.latin1(), ",","");
+    
+    var qoh = replaceSubstring(sNameOfRootItem2.latin1(),",","");
+    
+    var  result = (parseInt(number.toString()) - parseInt(soqty.toString()));
+    
+    if(parseInt(qoh.toString()) == parseInt(result.toString()))
         test.pass(" QOH updated correctly for Issue Stock to Shipping"); 
     else test.fail("QOH updated incorrectly for Issue Stock to Shipping");
     
@@ -663,7 +735,7 @@ function main()
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(3);
+    var sNameOfRootItem1 = obj_TreeTopLevelItem.text(3);
     
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
@@ -687,8 +759,15 @@ function main()
     //-----Ship the Sales Order (with'Select for Billing' option unchecked)-----
     waitForObject(":Issue to Shipping.Ship Order_QPushButton");
     clickButton(":Issue to Shipping.Ship Order_QPushButton");
+   
     if(findObject(":groupBox.Select for Billing_QCheckBox").checked)
         clickButton(":groupBox.Select for Billing_QCheckBox");
+    
+    if(findObject(":groupBox.Create and Print Invoice_XCheckBox_3").checked)
+        clickButton(":groupBox.Create and Print Invoice_XCheckBox");
+    
+    if(findObject(":groupBox.Print Packing List_XCheckBox_3").checked)
+        clickButton(":groupBox.Print Packing List_XCheckBox");
     
     waitForObject(":Issue to Shipping.Ship_QPushButton");
     clickButton(":Issue to Shipping.Ship_QPushButton");
@@ -731,7 +810,15 @@ function main()
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3);
     
-    if(parseInt(sNameOfRootItem2.toString()) == parseInt(sNameOfRootItem.toString()) - parseInt(soqty.toString()))
+    var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3); 
+       
+    var number = replaceSubstring(sNameOfRootItem1.latin1(), ",","");
+    
+    var qoh = replaceSubstring(sNameOfRootItem2.latin1(),",","");
+    
+    var  result = (parseInt(number.toString()) - parseInt(soqty.toString()));
+    
+    if(parseInt(qoh.toString()) == parseInt(result.toString()))
         test.pass(" QOH updated correctly for Issue Stock to Shipping"); 
     else test.fail("QOH updated incorrectly for Issue Stock to Shipping");
     
