@@ -23,7 +23,7 @@ BEGIN
     FROM metric
    WHERE (metric_name='LotSerialControl');
 
-  SELECT metric_value='Manufacturing' INTO _mfg
+  SELECT metric_value NOT IN ('PostBooks', 'Standard') INTO _mfg
     FROM metric
    WHERE (metric_name='Application');
 
@@ -170,7 +170,7 @@ BEGIN
 
   IF (_mfg) THEN
     SELECT pschitem_id INTO _result
-    FROM pschitem
+    FROM xtmfg.pschitem
     WHERE (pschitem_itemsite_id=pItemsiteid)
     LIMIT 1;
     IF (FOUND) THEN
