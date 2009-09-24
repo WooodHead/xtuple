@@ -5,10 +5,12 @@
 SELECT orderid, altorderid, ordertype, ordernumber, sequence, item_number,
        duedate, qtyordered,  qtyreceived, balance,
        balance AS runningavail,
+<? if exists("includeFormatted") ?>
        formatDate(duedate) AS f_duedate,
        formatQty(qtyordered) AS f_qtyordered,
        formatQty(qtyreceived) AS f_qtyreceived,
        formatQty(balance) AS f_balance,
+<? endif ?>
        1 AS runningavail_xtrunningrole,
        <? value("qoh") ?> AS runningavail_xtrunninginit,
        CASE WHEN late THEN 'error' END AS duedate_qtforegroundrole,
