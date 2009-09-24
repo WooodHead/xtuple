@@ -89,18 +89,11 @@ BEGIN
 -- Update row
   IF (TG_OP = 'UPDATE') THEN
 
-  -- Calculate Freight Tax
-    IF (COALESCE(NEW.cmhead_taxzone_id,-1) <> COALESCE(OLD.cmhead_taxzone_id,-1)) THEN
-      UPDATE cmitem SET cmitem_taxtype_id=getItemTaxType(itemsite_item_id,NEW.cmhead_taxzone_id)
-      FROM itemsite 
-      WHERE ((itemsite_id=cmitem_itemsite_id)
-       AND (cmitem_cmhead_id=NEW.cmhead_id));
-    END IF;
-  
     IF ( (NEW.cmhead_freight <> OLD.cmhead_freight) OR
          (COALESCE(NEW.cmhead_taxzone_id,-1) <> COALESCE(OLD.cmhead_taxzone_id,-1)) OR
          (NEW.cmhead_docdate <> OLD.cmhead_docdate) OR
          (NEW.cmhead_curr_id <> OLD.cmhead_curr_id) ) THEN
+  -- Calculate cmhead Tax
       PERFORM calculateTaxHist( 'cmheadtax',
                                 NEW.cmhead_id,
                                 NEW.cmhead_taxzone_id,
@@ -108,17 +101,32 @@ BEGIN
                                 NEW.cmhead_docdate,
                                 NEW.cmhead_curr_id,
                                 NEW.cmhead_freight * -1 );
-      PERFORM calculateTaxHist( 'cmitemtax',
-                                cmitem_id,
-                                NEW.cmhead_taxzone_id,
-                                cmitem_taxtype_id,
-                                NEW.cmhead_docdate,
-                                NEW.cmhead_curr_id,
-                                (cmitem_qtycredit * cmitem_qty_invuomratio) *
-                                (cmitem_unitprice / cmitem_price_invuomratio) * -1)
-      FROM cmitem
-      WHERE (cmitem_cmhead_id = NEW.cmhead_id);
     END IF;
+
+    IF ( (COALESCE(NEW.cmhead_taxzone_id,-1) <> COALESCE(OLD.cmhead_taxzone_id,-1)) OR
+         (NEW.cmhead_docdate <> OLD.cmhead_docdate) OR
+         (NEW.cmhead_curr_id <> OLD.cmhead_curr_id) ) THEN
+  -- Calculate cmitem Tax
+      IF (COALESCE(NEW.cmhead_taxzone_id,-1) <> COALESCE(OLD.cmhead_taxzone_id,-1)) THEN
+    -- Cmitem trigger will calculate tax
+        UPDATE cmitem SET cmitem_taxtype_id=getItemTaxType(itemsite_item_id,NEW.cmhead_taxzone_id)
+        FROM itemsite 
+        WHERE ((itemsite_id=cmitem_itemsite_id)
+          AND (cmitem_cmhead_id=NEW.cmhead_id));
+      ELSE
+        PERFORM calculateTaxHist( 'cmitemtax',
+                                  cmitem_id,
+                                  NEW.cmhead_taxzone_id,
+                                  cmitem_taxtype_id,
+                                  NEW.cmhead_docdate,
+                                  NEW.cmhead_curr_id,
+                                  (cmitem_qtycredit * cmitem_qty_invuomratio) *
+                                  (cmitem_unitprice / cmitem_price_invuomratio) * -1)
+        FROM cmitem
+        WHERE (cmitem_cmhead_id = NEW.cmhead_id);
+      END IF;
+    END IF;
+
   END IF;
 
 
