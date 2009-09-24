@@ -597,3 +597,42 @@ function replaceSubstring(inputString, fromString, toString) {
    return temp; // Send the updated string back to the user
 } // Ends the "replaceSubstring" function
 
+
+
+function getForwardDate(Days)
+{
+    //Currently works for forward date less than 30
+    var DaysFromToday = parseInt(Days) + 1;        
+    var d = new Date();
+        var LeapYearMonths = new Array(31,29,31,30,31,30,31,31,30,31,30,31);
+        var NormalYearMonths = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+        var CurrentYearFull = d.getFullYear();
+        var CurrentMonth = 1+d.getMonth();
+        var CurrentDate = d.getDate();
+        if(CurrentMonth == 12 && (CurrentDate + DaysFromToday > LeapYearMonths[CurrentMonth]))
+        {
+               CurrentDate = CurrentDate + DaysFromToday - LeapYearMonths[CurrentMonth];
+               CurrentMonth = 1;
+        }
+        
+        
+        if(IsLeapYear(CurrentYearFull) && (CurrentDate + DaysFromToday > LeapYearMonths[CurrentMonth]))
+        {
+               CurrentDate = CurrentDate + DaysFromToday - LeapYearMonths[CurrentMonth];
+               CurrentMonth = CurrentMonth + 1;
+        }
+           
+        else if((!IsLeapYear(CurrentYearFull)) && (CurrentDate + DaysFromToday > NormalYearMonths[CurrentMonth]))
+        {
+               CurrentDate = CurrentDate + DaysFromToday - NormalYearMonths[CurrentMonth];
+               CurrentMonth = CurrentMonth + 1;
+                 
+        }
+        else
+            CurrentDate = CurrentDate+DaysFromToday;
+        CurrentDate = CurrentDate>9?CurrentDate:("0"+CurrentDate);
+        CurrentMonth = CurrentMonth>9?CurrentMonth:("0"+CurrentMonth);
+        return(CurrentYearFull+"-"+CurrentMonth+"-"+CurrentDate);
+
+    
+}
