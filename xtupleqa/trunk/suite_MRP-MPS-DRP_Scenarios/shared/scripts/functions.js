@@ -360,7 +360,7 @@ function SetQtyScrp(item, qty, scrap)
 }
 
 
-function NewWO(item,quant,leadd, ddate)
+function NewWO(item, quant,leadd, ddate)
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Manufacture");
     activateItem(":xTuple ERP:*_QMenuBar", "Manufacture");
