@@ -8,7 +8,7 @@ function main()
     loginAppl("CONFIGURE"); 
     
     //-----Variable Declaration-----
-    var  ponumber, vounumber, polineitem, poquantity;
+    var ponumber, vounumber, polineitem, poquantity;
     
     //---find Application Edition------ 
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "System");
@@ -46,12 +46,9 @@ function main()
     snooze(5);
     
     if(OS.name=="Linux")
-    {
         startApplication("xtuple.bin");
-    }
     
     else
-        
         startApplication("xtuple");
     
     snooze(5);
@@ -107,9 +104,59 @@ function main()
         test.pass("Purhcase order created successfully");
     else test.fail("Purchase order couldn't be created");
     
+    if(appEdition =="Manufacturing")
+    {
+        waitForObject(":List Unposted Purchase Orders.New_QPushButton");
+        clickButton(":List Unposted Purchase Orders.New_QPushButton");
+        waitForObject(":_headerPage...._QPushButton");
+        clickButton(":_headerPage...._QPushButton");
+        waitForObject(":_listTab_XTreeWidget");
+        doubleClickItem(":_listTab_XTreeWidget", "TPARTS", 5, 5, 0, Qt.LeftButton);
+        
+        var lotpo = findObject(":_headerPage._orderNumber_XLineEdit").text;
+        
+        waitForObject(":Purchase Order.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
+        waitForObject(":_lineItemsPage.New_QPushButton");
+        clickButton(":_lineItemsPage.New_QPushButton");
+        waitForObject(":groupBox_2...._QPushButton");
+        clickButton(":groupBox_2...._QPushButton");
+        waitForObject(":_item_XTreeWidget");
+        doubleClickItem(":_item_XTreeWidget", "YPAINT1", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":_ordered_XLineEdit");
+        type(":_ordered_XLineEdit", "10");
+        waitForObject(":_ordered_XLineEdit");
+        type(":_ordered_XLineEdit", "<Tab>");
+        waitForObject(":_priceGroup_XLineEdit");
+        type(":_priceGroup_XLineEdit", "<Tab>");
+        waitForObject(":_schedGroup.XDateEdit_XDateEdit");
+        type(":_schedGroup.XDateEdit_XDateEdit", "+7");
+        
+        var lotlineitem = findObject(":groupBox_2._itemNumber_ItemLineEdit").text;         
+        var lotquantity = findObject(":_ordered_XLineEdit").text;       
+        
+        waitForObject(":Purchase Order.Save_QPushButton");
+        clickButton(":Purchase Order.Save_QPushButton");
+        waitForObject(":Purchase Order.Save_QPushButton_2");
+        clickButton(":Purchase Order.Save_QPushButton_2");
+        waitForObject(":Purchase Order.Close_QPushButton");
+        clickButton(":Purchase Order.Close_QPushButton");
+        
+        if(!clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", lotpo, 5, 5, 0, Qt.LeftButton))
+            test.pass("Purhcase order created successfully for a lot controlled item");
+        else test.fail("Purchase order couldn't be created for a lot controlled item");
+    }
+         
     //-----Posting Purchase Orders-----
     waitForObject(":List Unposted Purchase Orders._pohead_XTreeWidget"); 
     clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", ponumber, 5, 5, 0, Qt.LeftButton);
+    waitForObject(":List Unposted Purchase Orders.Post_QPushButton");
+    clickButton(":List Unposted Purchase Orders.Post_QPushButton");
+    waitForObject(":List Unposted Purchase Orders.Yes_QPushButton");
+    clickButton(":List Unposted Purchase Orders.Yes_QPushButton");
+    
+    waitForObject(":List Unposted Purchase Orders._pohead_XTreeWidget"); 
+    clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", lotpo, 5, 5, 0, Qt.LeftButton);
     waitForObject(":List Unposted Purchase Orders.Post_QPushButton");
     clickButton(":List Unposted Purchase Orders.Post_QPushButton");
     waitForObject(":List Unposted Purchase Orders.Yes_QPushButton");
@@ -148,6 +195,23 @@ function main()
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem1 = obj_TreeTopLevelItem.text(3);
     
+    waitForObject(":_item_XTreeWidget_2");
+    doubleClickItem(":_item_XTreeWidget_2", lotlineitem, 5, 5, 0, Qt.LeftButton);
+    
+    waitForObject(":_warehouse.All Sites_QRadioButton");
+    clickButton(":_warehouse.All Sites_QRadioButton");
+    waitForObject(":Quantities on Hand by Item.Query_QPushButton");
+    clickButton(":Quantities on Hand by Item.Query_QPushButton");
+    
+    waitForObject(":_qoh_XTreeWidget");
+    var sWidgetTreeControl = ":_qoh_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem3 = obj_TreeTopLevelItem.text(3);
+    
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
     
@@ -165,9 +229,28 @@ function main()
     doubleClickItem(":_listTab_XTreeWidget_2", ponumber, 5, 5, 0, Qt.LeftButton);
     waitForObject(":_frame.Receive All_QPushButton");
     clickButton(":_frame.Receive All_QPushButton");
-    
     waitForObject(":Enter Order Receipts.Post_QPushButton");
     clickButton(":Enter Order Receipts.Post_QPushButton");
+    
+    waitForObject(":Enter Order Receipts...._QPushButton");
+    clickButton(":Enter Order Receipts...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_2");
+    doubleClickItem(":_listTab_XTreeWidget_2", polot, 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_frame.Receive All_QPushButton");
+    clickButton(":_frame.Receive All_QPushButton"); 
+    waitForObject(":Enter Order Receipts.Post_QPushButton");
+    clickButton(":Enter Order Receipts.Post_QPushButton");
+    waitForObject(":Enter Order Receipts._lot_XLineEdit");
+    type(":Enter Order Receipts._lot_XLineEdit", "1");
+    waitForObject(":Enter Order Receipts._lot_XLineEdit");
+    type(":Enter Order Receipts._lot_XLineEdit", "<Tab>");
+    waitForObject(":Enter Order Receipts.XDateEdit_XDateEdit");
+    type(":Enter Order Receipts.XDateEdit_XDateEdit", "+7");
+    waitForObject(":Enter Order Receipts.Assign_QPushButton");
+    clickButton(":Enter Order Receipts.Assign_QPushButton");
+    waitForObject(":Enter Order Receipts.Close_QPushButton");
+    clickButton(":Enter Order Receipts.Close_QPushButton");
+    
     waitForObject(":Enter Order Receipts.Close_QPushButton");
     clickButton(":Enter Order Receipts.Close_QPushButton");
     
@@ -207,8 +290,27 @@ function main()
     var sum = (parseInt(poquantity.toString()) + parseInt(result.toString()));
     
     if(parseInt(qoh.toString()) == parseInt(sum.toString())) 
-        test.pass("QOH updated correctly for Receiving Purchase goods");
-    else test.fail("QOH updated incorrectly for Receiving Purchase goods");
+        test.pass("QOH updated correctly for Receiving Purchase goods for Regular item types");
+    else test.fail("QOH updated incorrectly for Receiving Purchase goods for Regular item types");
+    
+    waitForObject(":_qoh_XTreeWidget");
+    var sWidgetTreeControl = ":_qoh_XTreeWidget";
+    waitForObject(sWidgetTreeControl);
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+    var sNameOfRootItem4 = obj_TreeTopLevelItem.text(3); 
+       
+    var result = replaceSubstring(sNameOfRootItem3.latin1(), ",","");
+    
+    var qoh = replaceSubstring(sNameOfRootItem4.latin1(),",","");
+    
+    var sum = (parseInt(poquantity.toString()) + parseInt(result.toString()));
+    
+    if(parseInt(qoh.toString()) == parseInt(sum.toString())) 
+        test.pass("QOH updated correctly for Receiving Purchase goods for Lot controlled item types");
+    else test.fail("QOH updated incorrectly for Receiving Purchase goods for Lot controlled item types");
     
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
