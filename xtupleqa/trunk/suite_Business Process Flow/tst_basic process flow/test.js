@@ -34,62 +34,27 @@ function main()
     
     snooze(1);
     if(object.exists(":OK_QPushButton"))
-        clickButton(":OK_QPushButton");
-    snooze(0.5);
-    waitForObject(":_ccEncKeyName_QLineEdit");
+       test.fatal("Please Define the Encryption path"); 
     
-    if(findObject(":_ccEncKeyName_QLineEdit").text!="xTuple.key")
-    {
-        type(":_ccEncKeyName_QLineEdit", "<Right>");
-        findObject(":_ccEncKeyName_QLineEdit").clear;
-        type(":_ccEncKeyName_QLineEdit", "OpenMFG.key");
-        test.log("Encryption: key name changed");
-    }
-    
-    if(findObject(":Encryption Configuration_FileLineEdit").text!="c:/crypto")
-    {
-        type(":Encryption Configuration_FileLineEdit", "<Right>");
-        findObject(":Encryption Configuration_FileLineEdit").clear;
-        type(":Encryption Configuration_FileLineEdit", "c:/crypto");
-        test.log("Encryption: Windows location changed");
-    }
-    
-    if(findObject(":Encryption Configuration_FileLineEdit_2").text!="/home/xtuple/Desktop/crypto")
-    {
-        type(":Encryption Configuration_FileLineEdit_2", "<Right>");
-        findObject(":Encryption Configuration_FileLineEdit_2").clear;
-        type(":Encryption Configuration_FileLineEdit_2", "/home/xtuple/Desktop/crypto");
-        test.log("Encryption: Linux location changed");
-    }
-    
-    if(findObject(":Encryption Configuration_FileLineEdit_3").text!="/Users/zenemp/Desktop/crypto")
-    {
-        type(":Encryption Configuration_FileLineEdit_3", "<Right>");
-        findObject(":Encryption Configuration_FileLineEdit_3").clear;
-        type(":Encryption Configuration_FileLineEdit_3", "/Users/zenemp/Desktop/crypto");
-        test.log("Encryption: Mac location changed");
-    }
-    
+    waitForObject(":Encryption Configuration.Save_QPushButton");
     clickButton(":Encryption Configuration.Save_QPushButton");
-    test.log("Encryption defined");
     
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
     activateItem(":xTuple ERP:*_QMenuBar_2", "System");
     waitForObjectItem(":xTuple ERP:*.System_QMenu", "Exit xTuple ERP...");
     activateItem(":xTuple ERP:*.System_QMenu", "Exit xTuple ERP...");
     
+       
     snooze(5);
     
     if(OS.name=="Linux")
-    {
         startApplication("xtuple.bin");
-    }
     
     else
-        
         startApplication("xtuple");
     
     snooze(5);
+    
     
     //-----login Application-----
     loginAppl("CONFIGURE"); 
@@ -158,11 +123,11 @@ function main()
     
     waitForObject(":frame.New_QPushButton_2");
     clickButton(":frame.New_QPushButton_2");
-    waitForObject(":_headerPage...._QPushButton_2"); 
-    clickButton(":_headerPage...._QPushButton_2"); 
+   waitForObject(":_headerPage...._QPushButton_2");
+    clickButton(":_headerPage...._QPushButton_2");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 0, Qt.LeftButton);
-    
+      
     if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
         clickButton(":_headerPage.Print on Save_QCheckBox");   
     waitForObject(":_headerPage._custPONumber_XLineEdit");
@@ -368,8 +333,7 @@ function main()
         waitForObject(":Purchase Requests by Planner Code.Close_QPushButton");
         clickButton(":Purchase Requests by Planner Code.Close_QPushButton");   
         test.log("Converted P/Rs to P/Os");
-        
-        
+                
         //-----Posting Purchase Orders-----
         waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
         activateItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
@@ -432,7 +396,7 @@ function main()
         var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
         var iNumberOfRootItems = obj_TreeRootItem.childCount();
         var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-        var sNameOfRootItem = obj_TreeTopLevelItem.text(3);
+        var sNameOfRootItem1 = obj_TreeTopLevelItem.text(3);
         
         waitForObject(":Quantities on Hand by Item.Close_QPushButton");
         clickButton(":Quantities on Hand by Item.Close_QPushButton");
@@ -483,9 +447,15 @@ function main()
         var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
         var iNumberOfRootItems = obj_TreeRootItem.childCount();
         var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-        var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3);
+        var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3); 
         
-        if(parseInt(sNameOfRootItem2.toString()) == parseInt(sNameOfRootItem.toString()) + parseInt(poquantity.toString()))
+        var result = replaceSubstring(sNameOfRootItem1.latin1(), ",","");
+        
+        var qoh = replaceSubstring(sNameOfRootItem2.latin1(),",","");
+        
+        var sum = (parseInt(poquantity.toString()) + parseInt(result.toString()));
+        
+        if(parseInt(qoh.toString()) == parseInt(sum.toString())) 
             test.pass("QOH updated correctly for Receiving Purchase goods");
         else test.fail("QOH updated incorrectly for Receiving Purchase goods");
         
@@ -527,26 +497,6 @@ function main()
         if(sNameOfRootItem == "PO")
             test.pass("Receiving PO has a GL entry");
         else test.fail(" Receiving PO has no GL entry");
-        
-        waitForObject(":_gltrans_XTreeWidget");
-        type(":_gltrans_XTreeWidget", "<Down>");
-        waitForObject(":_gltrans_XTreeWidget");
-        type(":_gltrans_XTreeWidget", " ");
-        sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
-        
-        waitForObject(":_gltrans_XTreeWidget");
-        var sWidgetTreeControl = ":_gltrans_XTreeWidget";
-        waitForObject(sWidgetTreeControl);
-        var obj_TreeWidget = findObject(sWidgetTreeControl);
-        var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-        var iNumberOfRootItems = obj_TreeRootItem.childCount();
-        type(sWidgetTreeControl,"<Space>");
-        var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-        var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-        if(sNameOfRootItem == "PO")
-            test.pass("Receiving PO has a GL entry");
-        else test.fail(" Receiving PO has no GL entry");
-        
         
         waitForObject(":*.Close_QPushButton");
         clickButton(":*.Close_QPushButton");     
@@ -591,25 +541,11 @@ function main()
         
         waitForObject(":Voucher.Cancel_QPushButton");
         clickButton(":Voucher.Cancel_QPushButton");
-        test.log("Voucher created successfully");
         
         snooze(2);
         
     }
-    
-    //---find Application Edition------
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "System");
-    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Master Information");
-    activateItem(":xTuple ERP:*.System_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP:*.Master Information_QMenu", "Database Information...");
-    activateItem(":xTuple ERP:*.Master Information_QMenu", "Database Information...");
-    
-    waitForObject(":Database Information.*_QLabel");
-    var appEdition = findObject(":Database Information.*_QLabel").text;
-    waitForObject(":Database Information.Save_QPushButton");
-    clickButton(":Database Information.Save_QPushButton");
-    
+     
     if(appEdition=="PostBooks" || appEdition=="Standard")
     {
         
@@ -908,8 +844,7 @@ function main()
     waitForObject(":List Open Vouchers.Close_QPushButton");
     clickButton(":List Open Vouchers.Close_QPushButton");
     test.log("Posted Voucher successfully");
-    
-    
+       
     //-----Verification of G/L transaction (Posting Vouchers)-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -932,44 +867,6 @@ function main()
     clickItem(":_sourceGroup._source_XComboBox", "A/P", 5, 5, 1, Qt.LeftButton);
     waitForObject(":General Ledger Transactions.Query_QPushButton");
     clickButton(":General Ledger Transactions.Query_QPushButton");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-    if(sNameOfRootItem == "VO")
-        test.pass("Posting of voucher has a GL entry");
-    else test.fail("Posting of voucher has no GL entry");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", "<Down>");
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", " ");
-    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-    if(sNameOfRootItem == "VO")
-        test.pass("Posting of voucher has a GL entry");
-    else test.fail("Posting of voucher has no GL entry");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", "<Down>");
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", " ");
-    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
     
     waitForObject(":_gltrans_XTreeWidget");
     var sWidgetTreeControl = ":_gltrans_XTreeWidget";
@@ -1144,42 +1041,9 @@ function main()
         test.pass("Posting of Checks has a GL entry");
     else test.fail("Posting of Checks has no GL entry");
     
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", "<Down>");
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", " ");
-    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-    if(sNameOfRootItem == "CK")
-        test.pass("Posting of Checks has a GL entry");
-    else test.fail("Posting of Checks has no GL entry");
-    
     waitForObject(":*.Close_QPushButton");
     clickButton(":*.Close_QPushButton");                  
-    
-    //---find Application Edition------ 
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "System");
-    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Master Information");
-    activateItem(":xTuple ERP:*.System_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP:*.Master Information_QMenu", "Database Information...");
-    activateItem(":xTuple ERP:*.Master Information_QMenu", "Database Information...");
-    
-    waitForObject(":Database Information.*_QLabel");
-    var appEdition = findObject(":Database Information.*_QLabel").text;
-    waitForObject(":Database Information.Save_QPushButton");
-    clickButton(":Database Information.Save_QPushButton");
-    
-    
+     
     //-----Releasing WorkOrders-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
@@ -1203,6 +1067,19 @@ function main()
     waitForObject(":Release Work Orders by Planner Code.Release_QPushButton");
     clickButton(":Release Work Orders by Planner Code.Release_QPushButton");
     test.log("Work Orders released successfully");
+    
+    //---find Application Edition------ 
+    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
+    activateItem(":xTuple ERP:*_QMenuBar_2", "System");
+    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Master Information");
+    activateItem(":xTuple ERP:*.System_QMenu", "Master Information");
+    waitForObjectItem(":xTuple ERP:*.Master Information_QMenu", "Database Information...");
+    activateItem(":xTuple ERP:*.Master Information_QMenu", "Database Information...");
+    
+    waitForObject(":Database Information.*_QLabel");
+    var appEdition = findObject(":Database Information.*_QLabel").text;
+    waitForObject(":Database Information.Save_QPushButton");
+    clickButton(":Database Information.Save_QPushButton");
     
     //-----Issuing Work Order Materials-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
@@ -1251,6 +1128,7 @@ function main()
     }
     
     test.log("Work order materials issued successfully");
+    snooze(0.2);
     
     //-----Verification of G/L transaction (Issue WO materials)-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -1414,7 +1292,7 @@ function main()
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(3);
+    var sNameOfRootItem1 = obj_TreeTopLevelItem.text(3);
     
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
@@ -1545,9 +1423,15 @@ function main()
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3);
+    var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3); 
     
-    if(parseInt(sNameOfRootItem2.toString()) == parseInt(sNameOfRootItem.toString()) + parseInt(woquantity.toString()))
+    var result = replaceSubstring(sNameOfRootItem1.latin1(), ",","");
+    
+    var qoh = replaceSubstring(sNameOfRootItem2.latin1(),",","");
+    
+    var sum = (parseInt(woquantity.toString()) + parseInt(result.toString()));
+    
+    if(parseInt(qoh.toString()) == parseInt(sum.toString())) 
         test.pass(" QOH updated correctly for Post Production of a WorkOrder");
     else test.fail(" QOH updated incorrectly for Post Production of a WorkOrder");
     
@@ -1576,25 +1460,6 @@ function main()
     clickItem(":_sourceGroup._source_XComboBox", "W/O", 5, 5, 1, Qt.LeftButton);
     waitForObject(":General Ledger Transactions.Query_QPushButton");
     clickButton(":General Ledger Transactions.Query_QPushButton");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-    if(sNameOfRootItem == "WO")
-        test.pass("Post Production has a GL entry");
-    else test.fail("Post Production has no GL entry");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", "<Down>");
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", " ");
-    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
     
     waitForObject(":_gltrans_XTreeWidget");
     var sWidgetTreeControl = ":_gltrans_XTreeWidget";
@@ -1642,7 +1507,7 @@ function main()
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(3);
+    var sNameOfRootItem1 = obj_TreeTopLevelItem.text(3);
     
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
@@ -1663,7 +1528,7 @@ function main()
     
     var qbackflush = findObject(":_qtyGroup.100.00_XLabel").text
                      
-                     type(":_qty_XLineEdit", qbackflush);
+    type(":_qty_XLineEdit", qbackflush);
     waitForObject(":_optionsGroup.Close W/O after Posting_XCheckBox");
     clickButton(":_optionsGroup.Close W/O after Posting_XCheckBox");
     waitForObject(":Post Production.Post_QPushButton");
@@ -1718,9 +1583,15 @@ function main()
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3);
+    var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3); 
+       
+    var result = replaceSubstring(sNameOfRootItem1.latin1(), ",","");
     
-    if(parseInt(sNameOfRootItem2.toString()) == parseInt(sNameOfRootItem.toString())+parseInt(qbackflush.toString()))
+    var qoh = replaceSubstring(sNameOfRootItem2.latin1(),",","");
+    
+    var sum = (parseInt(qbackflush.toString()) + parseInt(result.toString()));
+    
+    if(parseInt(qoh.toString()) == parseInt(sum.toString())) 
         test.pass(" QOH updated correctly for Backflush items");
     else test.fail("QOH updated incorrectly for Backflush items");
     
@@ -1757,7 +1628,7 @@ function main()
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(3);
+    var sNameOfRootItem1 = obj_TreeTopLevelItem.text(3);
     
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
@@ -1821,72 +1692,20 @@ function main()
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3);
+    var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3); 
+       
+    var result = replaceSubstring(sNameOfRootItem1.latin1(), ",","");
     
-    if(parseInt(sNameOfRootItem2.toString()) == parseInt(sNameOfRootItem.toString()) - parseInt(soquantity.toString()))
+    var qoh = replaceSubstring(sNameOfRootItem2.latin1(),",","");
+    
+    var sum = (parseInt(result.toString()) -  parseInt(soquantity.toString()));
+    
+    if(parseInt(qoh.toString()) == parseInt(sum.toString()))   
         test.pass(" QOH updated correctly for Issue Stock to Shipping"); 
     else test.fail("QOH updated incorrectly for Issue Stock to Shipping");
-    
+       
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
-    
-    //-----Verification of G/L transaction (Ship Order)-----
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
-    waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
-    activateItem(":xTuple ERP:*.Accounting_QMenu", "General Ledger");
-    waitForObjectItem(":*.General Ledger_QMenu", "Reports");
-    activateItem(":*.General Ledger_QMenu", "Reports");
-    waitForObjectItem(":*.Reports_QMenu_2", "Transactions...");
-    activateItem(":*.Reports_QMenu_2", "Transactions...");
-    
-    waitForObject(":_accountGroup.All Accounts_QRadioButton");
-    clickButton(":_accountGroup.All Accounts_QRadioButton");
-    waitForObject(":_dateGroup.XDateEdit_XDateEdit_12");
-    type(":_dateGroup.XDateEdit_XDateEdit_12", "0");
-    waitForObject(":_dateGroup.XDateEdit_XDateEdit_13");
-    type(":_dateGroup.XDateEdit_XDateEdit_13", "0");
-    waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
-    clickButton(":_sourceGroup.Selected Source:_QRadioButton");
-    waitForObject(":_sourceGroup._source_XComboBox");
-    clickItem(":_sourceGroup._source_XComboBox", "S/R", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":General Ledger Transactions.Query_QPushButton");
-    clickButton(":General Ledger Transactions.Query_QPushButton");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-    if(sNameOfRootItem == "SH")
-        test.pass("SO Shipping has a GL entry");
-    else test.fail("SO Shipping has no GL entry");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", "<Down>");
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", " ");
-    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-    if(sNameOfRootItem == "SH")
-        test.pass("SO Shipping has a GL entry");
-    else test.fail("SO Shipping has no GL entry");
-    
-    waitForObject(":*.Close_QPushButton");
-    clickButton(":*.Close_QPushButton");
     
     //-----Select Order for Billing-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Sales");
@@ -2002,63 +1821,6 @@ function main()
         test.pass("Posting Invoice has a GL entry");
     else test.fail("Posting Invoice has no GL entry");
     
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", "<Down>");
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", " ");
-    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-    if(sNameOfRootItem == "IN")
-        test.pass("Posting Invoice has a GL entry");
-    else test.fail("Posting Invoice has no GL entry");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", "<Down>");
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", " ");
-    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-    if(sNameOfRootItem == "IN")
-        test.pass("Posting Invoice has a GL entry");
-    else test.fail("Posting Invoice has no GL entry");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", "<Down>");
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", " ");
-    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-    if(sNameOfRootItem == "IN")
-        test.pass("Posting Invoice has a GL entry");
-    else test.fail("Posting Invoice has no GL entry");
-    
     waitForObject(":*.Close_QPushButton");
     clickButton(":*.Close_QPushButton");
     
@@ -2135,25 +1897,6 @@ function main()
     clickItem(":_sourceGroup._source_XComboBox", "A/R", 5, 5, 1, Qt.LeftButton);
     waitForObject(":General Ledger Transactions.Query_QPushButton");
     clickButton(":General Ledger Transactions.Query_QPushButton");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    var sWidgetTreeControl = ":_gltrans_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-    if(sNameOfRootItem == "CR")
-        test.pass("Posting Cash Receipts has a GL entry");
-    else test.fail("Posting Cash Receipts has no GL entry");
-    
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", "<Down>");
-    waitForObject(":_gltrans_XTreeWidget");
-    type(":_gltrans_XTreeWidget", " ");
-    sendEvent("QContextMenuEvent", ":_gltrans_XTreeWidget", QContextMenuEvent.Keyboard, 5, 5, 0);
     
     waitForObject(":_gltrans_XTreeWidget");
     var sWidgetTreeControl = ":_gltrans_XTreeWidget";
