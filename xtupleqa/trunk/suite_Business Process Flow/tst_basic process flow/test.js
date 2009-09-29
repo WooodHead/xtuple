@@ -34,7 +34,7 @@ function main()
     
     snooze(1);
     if(object.exists(":OK_QPushButton"))
-       test.fatal("Please Define the Encryption path"); 
+        test.fatal("Please Define the Encryption path"); 
     
     waitForObject(":Encryption Configuration.Save_QPushButton");
     clickButton(":Encryption Configuration.Save_QPushButton");
@@ -44,7 +44,7 @@ function main()
     waitForObjectItem(":xTuple ERP:*.System_QMenu", "Exit xTuple ERP...");
     activateItem(":xTuple ERP:*.System_QMenu", "Exit xTuple ERP...");
     
-       
+    
     snooze(5);
     
     if(OS.name=="Linux")
@@ -123,11 +123,11 @@ function main()
     
     waitForObject(":frame.New_QPushButton_2");
     clickButton(":frame.New_QPushButton_2");
-   waitForObject(":_headerPage...._QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton_2");
     clickButton(":_headerPage...._QPushButton_2");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 0, Qt.LeftButton);
-      
+    
     if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
         clickButton(":_headerPage.Print on Save_QCheckBox");   
     waitForObject(":_headerPage._custPONumber_XLineEdit");
@@ -333,7 +333,7 @@ function main()
         waitForObject(":Purchase Requests by Planner Code.Close_QPushButton");
         clickButton(":Purchase Requests by Planner Code.Close_QPushButton");   
         test.log("Converted P/Rs to P/Os");
-                
+        
         //-----Posting Purchase Orders-----
         waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
         activateItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
@@ -545,7 +545,7 @@ function main()
         snooze(2);
         
     }
-     
+    
     if(appEdition=="PostBooks" || appEdition=="Standard")
     {
         
@@ -844,7 +844,7 @@ function main()
     waitForObject(":List Open Vouchers.Close_QPushButton");
     clickButton(":List Open Vouchers.Close_QPushButton");
     test.log("Posted Voucher successfully");
-       
+    
     //-----Verification of G/L transaction (Posting Vouchers)-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
@@ -1043,7 +1043,7 @@ function main()
     
     waitForObject(":*.Close_QPushButton");
     clickButton(":*.Close_QPushButton");                  
-     
+    
     //-----Releasing WorkOrders-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
@@ -1128,6 +1128,10 @@ function main()
     }
     
     test.log("Work order materials issued successfully");
+    
+    waitForObject(":Issue Work Order Material Batch.Cancel_QPushButton");
+    clickButton(":Issue Work Order Material Batch.Cancel_QPushButton");
+    
     snooze(0.2);
     
     //-----Verification of G/L transaction (Issue WO materials)-----
@@ -1528,7 +1532,7 @@ function main()
     
     var qbackflush = findObject(":_qtyGroup.100.00_XLabel").text
                      
-    type(":_qty_XLineEdit", qbackflush);
+                     type(":_qty_XLineEdit", qbackflush);
     waitForObject(":_optionsGroup.Close W/O after Posting_XCheckBox");
     clickButton(":_optionsGroup.Close W/O after Posting_XCheckBox");
     waitForObject(":Post Production.Post_QPushButton");
@@ -1584,7 +1588,7 @@ function main()
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3); 
-       
+    
     var result = replaceSubstring(sNameOfRootItem1.latin1(), ",","");
     
     var qoh = replaceSubstring(sNameOfRootItem2.latin1(),",","");
@@ -1693,7 +1697,7 @@ function main()
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem2 = obj_TreeTopLevelItem.text(3); 
-       
+    
     var result = replaceSubstring(sNameOfRootItem1.latin1(), ",","");
     
     var qoh = replaceSubstring(sNameOfRootItem2.latin1(),",","");
@@ -1703,7 +1707,7 @@ function main()
     if(parseInt(qoh.toString()) == parseInt(sum.toString()))   
         test.pass(" QOH updated correctly for Issue Stock to Shipping"); 
     else test.fail("QOH updated incorrectly for Issue Stock to Shipping");
-       
+    
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
     
