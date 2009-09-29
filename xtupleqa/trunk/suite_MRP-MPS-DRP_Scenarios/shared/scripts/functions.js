@@ -636,3 +636,32 @@ function getForwardDate(Days)
 
     
 }
+
+function DelAllTO()
+{
+    //------Del All Transfer Order--------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Transfer Order");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Transfer Order");
+    waitForObjectItem(":xTuple ERP:*.Transfer Order_QMenu", "List Open...");
+    activateItem(":xTuple ERP:*.Transfer Order_QMenu", "List Open...");
+    
+    waitForObject(":_frame._to_XTreeWidget");
+    waitForObject(":_frame._to_XTreeWidget");
+    type(":_frame._to_XTreeWidget","<Space>");
+    while(findObject(":_frame._to_XTreeWidget").topLevelItemCount>0)
+    {
+        waitForObject(":_frame.Delete_QPushButton");
+        clickButton(":_frame.Delete_QPushButton");
+        waitForObject(":List Open Transfer Orders.Yes_QPushButton");
+        clickButton(":List Open Transfer Orders.Yes_QPushButton");
+        waitForObject(":_frame._to_XTreeWidget");
+        type(":_frame._to_XTreeWidget","<Down>");
+    }
+    waitForObject(":List Open Transfer Orders.Close_QPushButton");
+    clickButton(":List Open Transfer Orders.Close_QPushButton");
+
+}
+
+
