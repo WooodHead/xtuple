@@ -31,6 +31,33 @@ function QOHZero(item)
 
 }
 
+function UpdateQOH(item, quant)
+{
+    //--------Reset the QOH of an Item to Zero--------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
+    waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
+    activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
+    waitForObject(":_itemGroup...._QPushButton");
+    clickButton(":_itemGroup...._QPushButton");
+    waitForObject(":_item_XTreeWidget");
+    doubleClickItem(":_item_XTreeWidget", item , 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_adjustmentTypeGroup.Absolute_QRadioButton");
+    clickButton(":_adjustmentTypeGroup.Absolute_QRadioButton");
+    waitForObject(":_qtyGroup.*_XLabel");
+    type(":_qty_XLineEdit", quant);
+    waitForObject(":Enter Miscellaneous Adjustment.Post_QPushButton");
+    clickButton(":Enter Miscellaneous Adjustment.Post_QPushButton");
+    waitForObject(":Enter Miscellaneous Adjustment.Close_QPushButton");
+    clickButton(":Enter Miscellaneous Adjustment.Close_QPushButton");
+    test.log("QOH of "+item+" adjusted to "+quant);
+}
+
+
+
+
 function MRP(period)
 {
     //--------Run MRP---------
