@@ -38,27 +38,7 @@ function main()
     
     waitForObject(":Encryption Configuration.Save_QPushButton");
     clickButton(":Encryption Configuration.Save_QPushButton");
-    
-    waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
-    activateItem(":xTuple ERP:*_QMenuBar_2", "System");
-    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Exit xTuple ERP...");
-    activateItem(":xTuple ERP:*.System_QMenu", "Exit xTuple ERP...");
-    
-    
-    snooze(5);
-    
-    if(OS.name=="Linux")
-        startApplication("xtuple.bin");
-    
-    else
-        startApplication("xtuple");
-    
-    snooze(5);
-    
-    
-    //-----login Application-----
-    loginAppl("CONFIGURE"); 
-    
+   
     //-----Indented Bill of Materials-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Products");
     activateItem(":xTuple ERP:*_QMenuBar_2", "Products");
@@ -1129,10 +1109,11 @@ function main()
     
     test.log("Work order materials issued successfully");
     
-    waitForObject(":Issue Work Order Material Batch.Cancel_QPushButton");
-    clickButton(":Issue Work Order Material Batch.Cancel_QPushButton");
-    
     snooze(0.2);
+    
+    if(object.exists(":Issue Work Order Material Batch.Cancel_QPushButton"))
+        clickButton(":Issue Work Order Material Batch.Cancel_QPushButton");
+    
     
     //-----Verification of G/L transaction (Issue WO materials)-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
