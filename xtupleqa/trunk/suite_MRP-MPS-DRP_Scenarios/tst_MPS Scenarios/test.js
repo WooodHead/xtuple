@@ -202,7 +202,7 @@ function main()
     else test.fail("Planned Order generated");
     waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
     clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-    
+  
     
     //MPS – PLAN STATUS “U” - REORDER POINT TEST
     test.log("MPS – PLAN STATUS “U” - REORDER POINT TEST");
@@ -299,7 +299,12 @@ function main()
             var StartDate = CurrentYearFull+"-"+CurrentMonth+"-"+CurrentDate;
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="150.00" && obj_TreeTopLevelItem.text(8)==DueDate && obj_TreeTopLevelItem.text(7)==StartDate)
+            var assign1 = obj_TreeTopLevelItem.text(4);
+            var assign2 = obj_TreeTopLevelItem.text(1);
+            var assign3 = obj_TreeTopLevelItem.text(9);
+            var assign4 = obj_TreeTopLevelItem.text(8)
+            var assign5 = obj_TreeTopLevelItem.text(7)
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="150.00" && obj_TreeTopLevelItem.text(8)==DueDate && obj_TreeTopLevelItem.text(7)==StartDate)
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -367,7 +372,7 @@ function main()
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -569,13 +574,13 @@ function main()
         {
             var Qnty, DispDate, item;
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -667,14 +672,14 @@ function main()
         {
             var Qnty, DispDate, item;
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -768,7 +773,7 @@ function main()
             var Qnty, DispDate, item;
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="150.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="150.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -862,13 +867,13 @@ function main()
             var Qnty, DispDate, item;
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
 
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -961,7 +966,7 @@ function main()
             var Qnty, DispDate, item;
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="132.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="132.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1055,20 +1060,20 @@ function main()
             var Qnty, DispDate, item;
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
 
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
 
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(22) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(22) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1161,13 +1166,13 @@ function main()
             var Qnty, DispDate, item;
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(1) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(1) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
 
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1218,15 +1223,8 @@ function main()
     type(":_orderMultiple_XLineEdit", "0");
     findObject(":Scheduling._safetyStock_XLineEdit").clear();
     type(":Scheduling._safetyStock_XLineEdit", "0");
-    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_5").clear();
-    type(":Scheduling.qt_spinbox_lineedit_QLineEdit_5","1");
-    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
-    type(":Scheduling.qt_spinbox_lineedit_QLineEdit","1");
     findObject(":_leadTime_QSpinBox").clear();
     type(":_leadTime_QSpinBox", "3");
-    waitForObject(":Scheduling.First Group_QCheckBox");
-    if(findObject(":Scheduling.First Group_QCheckBox").checked)
-        clickButton(":Scheduling.First Group_QCheckBox");
     waitForObject(":List Item Sites.Save_QPushButton");
     clickButton(":List Item Sites.Save_QPushButton");
     waitForObject(":List Item Sites.Close_QPushButton");
@@ -1333,8 +1331,8 @@ function main()
         if(iNumberOfRootItems==1)
         {
 
-            obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1418,14 +1416,14 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
 
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1442,26 +1440,8 @@ function main()
     
     DelPlanOrdrs();
     
-    //--------update the QOH--------
-    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
-    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
-    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
-    activateItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
-    waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
-    activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
-    waitForObject(":_itemGroup...._QPushButton");
-    clickButton(":_itemGroup...._QPushButton");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "BTRUCK1" , 5, 5, 0, Qt.LeftButton);
-    waitForObject(":_adjustmentTypeGroup.Absolute_QRadioButton");
-    clickButton(":_adjustmentTypeGroup.Absolute_QRadioButton");
-    waitForObject(":_qtyGroup.*_XLabel");
-    type(":_qty_XLineEdit", "50");
-    waitForObject(":Enter Miscellaneous Adjustment.Post_QPushButton");
-    clickButton(":Enter Miscellaneous Adjustment.Post_QPushButton");
-    waitForObject(":Enter Miscellaneous Adjustment.Close_QPushButton");
-    clickButton(":Enter Miscellaneous Adjustment.Close_QPushButton");
-    test.log("QOH of BTRUCK1 adjusted");
+    UpdateQOH("BTRUCK1",50);
+    
 
     //----Setup Item site------
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
@@ -1540,7 +1520,7 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1603,7 +1583,7 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1668,7 +1648,7 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="25.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="25.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1732,7 +1712,7 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1798,7 +1778,7 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="15.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="15.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1862,7 +1842,7 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1941,7 +1921,7 @@ function main()
     activateItem(":xTuple ERP:*.Transfer Order_QMenu", "List Open...");
     waitForObject(":Source Site:.All Sites_QRadioButton");
     clickButton(":Source Site:.All Sites_QRadioButton");
-    waitForObjectItem(":_frame._to_XTreeWidget", "WH2_2");
+    waitForObjectItem(":_frame._to_XTreeWidget", "WH2");
     clickItem(":_frame._to_XTreeWidget", TO, 0, 0, 1, Qt.LeftButton);
     waitForObject(":_frame.Release_QPushButton");
     clickButton(":_frame.Release_QPushButton");
@@ -1995,7 +1975,7 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="10.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="10.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -2058,8 +2038,7 @@ function main()
     clickButton(":List Item Sites.Save_QPushButton");
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
-    
-    
+ 
     //-----Create Sales Order-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Sales");
     activateItem(":xTuple ERP:*_QMenuBar", "Sales");
@@ -2068,8 +2047,8 @@ function main()
     waitForObjectItem(":xTuple ERP:*.Sales Order_QMenu", "New...");
     activateItem(":xTuple ERP:*.Sales Order_QMenu", "New...");
     
-    waitForObject(":_headerPage...._QPushButton_2");
-    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton");
+    clickButton(":_headerPage...._QPushButton");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 0, 0, 0, Qt.LeftButton);
     waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
@@ -2127,7 +2106,7 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="75.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="75.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -2197,7 +2176,7 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -2215,7 +2194,7 @@ function main()
     DelPlanOrdrs();
     DelAllSO();
     
-        //-----Create Sales Order-----
+     //-----Create Sales Order-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Sales");
     activateItem(":xTuple ERP:*_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
@@ -2223,8 +2202,8 @@ function main()
     waitForObjectItem(":xTuple ERP:*.Sales Order_QMenu", "New...");
     activateItem(":xTuple ERP:*.Sales Order_QMenu", "New...");
     
-    waitForObject(":_headerPage...._QPushButton_2");
-    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton");
+    clickButton(":_headerPage...._QPushButton");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 0, 0, 0, Qt.LeftButton);
     waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
@@ -2283,7 +2262,7 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="125.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="125.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -2399,21 +2378,21 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="300.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="300.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -2464,14 +2443,14 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -2509,9 +2488,6 @@ function main()
     
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":Scheduling._planningType_XComboBox");
@@ -2532,8 +2508,6 @@ function main()
     type(":_orderMultiple_XLineEdit", "0");
     findObject(":Scheduling._safetyStock_XLineEdit").clear();
     type(":Scheduling._safetyStock_XLineEdit", "0");
-    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_5").clear();
-    type(":Scheduling.qt_spinbox_lineedit_QLineEdit_5","1");
     findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
     type(":Scheduling.qt_spinbox_lineedit_QLineEdit","1");
     findObject(":_leadTime_QSpinBox").clear();
@@ -2569,8 +2543,6 @@ function main()
     type(":_orderMultiple_XLineEdit", "0");
     findObject(":Scheduling._safetyStock_XLineEdit").clear();
     type(":Scheduling._safetyStock_XLineEdit", "0");
-    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_5").clear();
-    type(":Scheduling.qt_spinbox_lineedit_QLineEdit_5","1");
     findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
     type(":Scheduling.qt_spinbox_lineedit_QLineEdit","1");
     findObject(":_leadTime_QSpinBox").clear();
@@ -2615,14 +2587,14 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
+            if(obj_TreeTopLevelItem.text(4)=="BTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(21) && obj_TreeTopLevelItem.text(7)==getForwardDate(18))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -2665,39 +2637,39 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="TSUB1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(1))
+            if(obj_TreeTopLevelItem.text(4)=="TSUB1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(1))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="TSUB1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(8))
+            if(obj_TreeTopLevelItem.text(4)=="TSUB1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(8))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-            if(obj_TreeTopLevelItem.text(4)=="TSUB1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(18) && obj_TreeTopLevelItem.text(7)==getForwardDate(8))
+            if(obj_TreeTopLevelItem.text(4)=="TSUB1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(18) && obj_TreeTopLevelItem.text(7)==getForwardDate(8))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
 
             obj_TreeTopLevelItem = obj_TreeRootItem.child(3);
-            if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
 
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(4);
-            if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(1))
+            if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(1))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(5);
-            if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(2)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(14))
+            if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(14))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
