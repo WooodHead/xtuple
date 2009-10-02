@@ -3,7 +3,9 @@
 -- Notes: used by opportunityList
 
 SELECT ophead_id,
+       CASE WHEN (ophead_active) THEN 0 ELSE 1 END,
        ophead_name,
+       ophead_active,
        crmacct_number,
        ophead_owner_username,
        opstage_name,
@@ -47,6 +49,12 @@ SELECT ophead_id,
 <? endif ?>
 <? if exists("crmAccountId") ?>
    AND (ophead_crmacct_id = <? value("crmAccountId") ?>)
+<? endif ?>
+<? if exists("searchpattern") ?> 
+   AND (ophead_name ~* <? value("searchpattern") ?>)
+<? endif ?>
+<? if exists("activeOnly") ?> 
+   AND (ophead_active)
 <? endif ?>
  )
  ORDER BY ophead_target_date;
