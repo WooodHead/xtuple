@@ -13,6 +13,22 @@ BEGIN
     RETURN -1;
   END IF;
 
+  SELECT quhead_id INTO _test
+    FROM quhead
+   WHERE(quhead_ophead_id=pOpheadid)
+   LIMIT 1;
+  IF(FOUND) THEN
+    RETURN -2;
+  END IF;
+
+  SELECT cohead_id INTO _test
+    FROM cohead
+   WHERE(cohead_ophead_id=pOpheadid)
+   LIMIT 1;
+  IF(FOUND) THEN
+    RETURN -3;
+  END IF;
+
   DELETE
     FROM charass
    WHERE((charass_target_type=''OPP'')

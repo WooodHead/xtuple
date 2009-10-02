@@ -19,7 +19,7 @@ BEGIN
     cohead_billtocity, cohead_billtostate, cohead_billtozipcode,
     cohead_misc_accnt_id, cohead_misc_descrip, cohead_misc, cohead_freight, cohead_commission,
     cohead_ordercomments, cohead_shipcomments,
-    cohead_imported, cohead_curr_id, cohead_taxzone_id, cohead_taxtype_id )
+    cohead_imported, cohead_curr_id, cohead_taxzone_id, cohead_taxtype_id, cohead_ophead_id )
   SELECT _soheadid, fetchSoNumber(), cohead_cust_id, cohead_prj_id,
          CURRENT_DATE, cohead_packdate, cohead_origin, cohead_fob,
          cohead_warehous_id, cohead_terms_id, cohead_salesrep_id,
@@ -30,7 +30,7 @@ BEGIN
          cohead_billtocity, cohead_billtostate, cohead_billtozipcode,
          cohead_misc_accnt_id, cohead_misc_descrip, cohead_misc, cohead_freight, cohead_commission,
          cohead_ordercomments, cohead_shipcomments,
-         FALSE, cohead_curr_id, cohead_taxzone_id, cohead_taxtype_id
+         FALSE, cohead_curr_id, cohead_taxzone_id, cohead_taxtype_id, cohead_ophead_id
   FROM cohead
   WHERE (cohead_id=pSoheadid);
 
