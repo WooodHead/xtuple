@@ -25,6 +25,21 @@ SELECT ophead_id,
        OR (((<? value("startDate") ?> <= startOfTime()) OR (<? value("endDate") ?> >= endOfTime()))
         AND (ophead_target_date IS NULL))
     )
+<? if exists("opsource_id") ?>
+   AND (ophead_opsource_id=<? value("opsource_id") ?>)
+<? elseif exists("opsource_pattern") ?>
+   AND (opsource_name ~ <? value("opsource_pattern") ?>)
+<? endif ?>
+<? if exists("opstage_id") ?>
+   AND (ophead_opstage_id=<? value("opstage_id") ?>)
+<? elseif exists("opstage_pattern") ?>
+   AND (opstage_name ~ <? value("opstage_pattern") ?>)
+<? endif ?>
+<? if exists("optype_id") ?>
+   AND (ophead_optype_id=<? value("optype_id") ?>)
+<? elseif exists("optype_pattern") ?>
+   AND (optype_name ~ <? value("optype_pattern") ?>)
+<? endif ?>
 <? if exists("username") ?>
    AND (ophead_owner_username=<? value("username") ?>)
 <? elseif exists("usr_pattern") ?>
