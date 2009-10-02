@@ -121,8 +121,6 @@ function MPS(period)
     activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
     waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "Run MPS...");
     activateItem(":xTuple ERP:*.Scheduling_QMenu", "Run MPS...");
-    waitForObject(":_warehouse.All Sites_QRadioButton_3");
-    clickButton(":_warehouse.All Sites_QRadioButton_3");
     waitForObject(":_plannerCode.All Planner Codes_QRadioButton_2");
     clickButton(":_plannerCode.All Planner Codes_QRadioButton_2");
     waitForObject(":Run MPS by Planner Code.XDateEdit_XDateEdit");
@@ -678,12 +676,30 @@ function replaceSubstring(inputString, fromString, toString)
    return temp; // Send the updated string back to the user
 } // Ends the "replaceSubstring" function
 
+//--------check if the year is a leap year--------
+function IsLeapYear(datea)
+{
+	datea = parseInt(datea);
+	if(datea%4 == 0)
+	{
+		if(datea%100 != 0)
+			return true;
+		else
+		{
+			if(datea%400 == 0)
+				return true;
+			else
+				return false;
+		}
+	}
+return false;
+}
 
 
 function getForwardDate(Days)
 {
     //Currently works for forward date less than 30
-    var DaysFromToday = parseInt(Days) + 1;        
+    var DaysFromToday = parseInt(Days);        
     var d = new Date();
         var LeapYearMonths = new Array(31,29,31,30,31,30,31,31,30,31,30,31);
         var NormalYearMonths = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
