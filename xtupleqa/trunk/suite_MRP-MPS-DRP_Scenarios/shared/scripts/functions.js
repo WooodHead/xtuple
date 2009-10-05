@@ -69,7 +69,11 @@ function UpdateQOH(item, quant)
             type(":Enter Miscellaneous Adjustment.XDateEdit_XDateEdit", "+30");
             waitForObject(":Enter Miscellaneous Adjustment.Assign_QPushButton");
             clickButton(":Enter Miscellaneous Adjustment.Assign_QPushButton");
+            waitForObject(":Enter Miscellaneous Adjustment.Assign_QPushButton");
+            clickButton(":Enter Miscellaneous Adjustment.Assign_QPushButton");
+            
         }
+       
         waitForObject(":Enter Miscellaneous Adjustment.Close_QPushButton");
         clickButton(":Enter Miscellaneous Adjustment.Close_QPushButton");
         test.log("Update the Quantity of "+item+"to "+quant);
@@ -223,8 +227,6 @@ function newPO(item, quant, ddate)
     type(":_schedGroup.XDateEdit_XDateEdit_3", "<Tab>");
     waitForObject(":Purchase Order.Save_QPushButton");
     clickButton(":Purchase Order.Save_QPushButton");
-//    waitForObject(":Purchase Order.Continue_QPushButton");
-//    clickButton(":Purchase Order.Continue_QPushButton");
     waitForObject(":Purchase Order.Save_QPushButton_2");
     clickButton(":Purchase Order.Save_QPushButton_2");
     waitForObject(":Purchase Order.Close_QPushButton");
