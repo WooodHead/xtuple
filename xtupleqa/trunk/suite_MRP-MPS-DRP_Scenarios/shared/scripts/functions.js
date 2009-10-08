@@ -128,6 +128,64 @@ function UpdateQOH(item, quant)
     test.log("QOH of "+item+" adjusted to "+quant);
 }
 
+function UpdateQOHWh(item, quant,wh)
+{
+    //--------Reset the QOH of an Item to Zero--------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
+    waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
+    activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
+    waitForObject(":_itemGroup...._QPushButton");
+    clickButton(":_itemGroup...._QPushButton");
+    waitForObjectItem(":_warehouse_WComboBox_4", wh);
+    clickItem(":_warehouse_WComboBox_4", wh, 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_item_XTreeWidget");
+    doubleClickItem(":_item_XTreeWidget", item , 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_adjustmentTypeGroup.Absolute_QRadioButton");
+    clickButton(":_adjustmentTypeGroup.Absolute_QRadioButton");
+    waitForObject(":_qtyGroup.*_XLabel");
+    var qnt = quant +".00";
+    var existing_quant = findObject(":_qtyGroup.*_XLabel").text;
+    existing_quant = replaceSubstring(existing_quant.latin1(),",","");
+    if(existing_quant!=qnt)
+    {
+        type(":_qty_XLineEdit", qnt);
+        waitForObject(":Enter Miscellaneous Adjustment.Post_QPushButton");
+        clickButton(":Enter Miscellaneous Adjustment.Post_QPushButton");
+        snooze(2); //wait to check for lot allocation
+        if(object.exists(":_itemGroup.*_QLabel"))
+        {
+            waitForObject(":_lotSerial_QLineEdit");
+            type(":_lotSerial_QLineEdit", "1");
+            waitForObject(":Enter Miscellaneous Adjustment._qtyToAssign_XLineEdit");
+            var lot_quant = findObject(":_itemGroup.*_QLabel").text;
+            lot_quant = replaceSubstring(lot_quant.latin1(),",","");
+            type(":Enter Miscellaneous Adjustment._qtyToAssign_XLineEdit", lot_quant);
+            waitForObject(":Enter Miscellaneous Adjustment.XDateEdit_XDateEdit");
+            type(":Enter Miscellaneous Adjustment.XDateEdit_XDateEdit", "+30");
+            waitForObject(":Enter Miscellaneous Adjustment.Assign_QPushButton");
+            clickButton(":Enter Miscellaneous Adjustment.Assign_QPushButton");
+            waitForObject(":Enter Miscellaneous Adjustment.Assign_QPushButton");
+            clickButton(":Enter Miscellaneous Adjustment.Assign_QPushButton");
+            
+        }
+       
+        waitForObject(":Enter Miscellaneous Adjustment.Close_QPushButton");
+        clickButton(":Enter Miscellaneous Adjustment.Close_QPushButton");
+        test.log("Update the Quantity of "+item+"to "+quant);
+    }
+    else
+    {
+        waitForObject(":Enter Miscellaneous Adjustment.Cancel_QPushButton");
+        clickButton(":Enter Miscellaneous Adjustment.Cancel_QPushButton");
+        test.log("QOH of "+item+" is already "+quant);
+    }
+
+    test.log("QOH of "+item+" adjusted to "+quant);
+}
+
 
 
 
