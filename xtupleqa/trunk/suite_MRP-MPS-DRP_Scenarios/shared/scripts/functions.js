@@ -457,6 +457,53 @@ function NewSO(item, quant)
 
 }
 
+function NewSOWh(item, quant, Wh)
+{
+
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Sales");
+    activateItem(":xTuple ERP:*_QMenuBar", "Sales");
+    waitForObjectItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
+    activateItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
+    waitForObjectItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
+    activateItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
+    
+    waitForObject(":frame.New_QPushButton");
+    clickButton(":frame.New_QPushButton");
+    waitForObject(":_headerPage...._QPushButton");
+    clickButton(":_headerPage...._QPushButton");
+    doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton");
+    clickButton(":_lineItemsPage.New_QPushButton");
+    
+    waitForObject(":_itemGroup...._QPushButton_2");
+    clickButton(":_itemGroup...._QPushButton_2");
+    waitForObject(":_item_XTreeWidget_2");
+    doubleClickItem(":_item_XTreeWidget_2", item, 0, 0, 0, Qt.LeftButton);
+    waitForObjectItem(":_warehouse_WComboBox_5", Wh);
+    clickItem(":_warehouse_WComboBox_5", Wh, 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_qtyOrdered_XLineEdit");
+    type(":_qtyOrdered_XLineEdit", quant);
+    type(":_qtyOrdered_XLineEdit", "<Tab>");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit");
+    type(":_schedGroup.XDateEdit_XDateEdit", "0");
+    type(":_schedGroup.XDateEdit_XDateEdit", "<Tab>");
+    waitForObject(":Sales Order.Save_QPushButton");
+    clickButton(":Sales Order.Save_QPushButton");
+    waitForObject(":Sales Order.Close_QPushButton");
+    clickButton(":Sales Order.Close_QPushButton");
+    waitForObject(":Sales Order.Save_QPushButton_2");
+    clickButton(":Sales Order.Save_QPushButton_2");
+    waitForObject(":Sales Order.Cancel_QPushButton");
+    clickButton(":Sales Order.Cancel_QPushButton");
+    waitForObject(":List Open Sales Orders.Close_QPushButton");
+    clickButton(":List Open Sales Orders.Close_QPushButton");
+    test.log("new Sales Order created");
+
+}
+
+
 function DelAllSO()
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Sales");

@@ -382,7 +382,9 @@
 :_itemGroup.Items:_QLabel_5	{container=':Bill of Materials._itemGroup_QGroupBox' name='_itemsLit' text='Items:' type='QLabel' visible='1'}
 :_itemGroup.Items:_QLabel_6	{container=':Transfer Order._itemGroup_QGroupBox' name='_itemsLit' text='Items:' type='QLabel' visible='1'}
 :_itemGroup.Make Items Only_QCheckBox	{container=':Work Order._itemGroup_QGroupBox' name='_showMake' text='Make Items Only' type='QCheckBox' visible='1'}
+:_itemGroup.OK_QPushButton	{container=':Sales Order._itemGroup_QGroupBox' text='OK' type='QPushButton' unnamed='1' visible='1'}
 :_itemGroup.Show Expired Components_QCheckBox	{container=':Bill of Materials._itemGroup_QGroupBox' name='_showExpired' text='Show Expired Components' type='QCheckBox' visible='1'}
+:_itemGroup.Site:_QLabel	{container=':Sales Order._itemGroup_QGroupBox' name='_warehouseLit' text='Site:' type='QLabel' visible='1'}
 :_itemGroup._itemNumber_ItemLineEdit	{container=':Sales Order._itemGroup_QGroupBox' name='_itemNumber' type='ItemLineEdit' visible='1'}
 :_itemGroup._itemNumber_ItemLineEdit_2	{container=':Planned Order._itemGroup_QGroupBox' name='_itemNumber' type='ItemLineEdit' visible='1'}
 :_itemGroup._item_ItemCluster	{container=':Planned Order._itemGroup_QGroupBox' name='_item' type='ItemCluster' visible='1'}
@@ -500,6 +502,7 @@
 :_warehouse_WComboBox_2	{buddy=':List Production Plans.Site:_QLabel' name='_warehouse' type='WComboBox' visible='1'}
 :_warehouse_WComboBox_3	{buddy=':List Item Sites.Site:  _QLabel' name='_warehouse' type='WComboBox' visible='1'}
 :_warehouse_WComboBox_4	{buddy=':_itemGroup.  Site:_QLabel' name='_warehouse' type='WComboBox' visible='1'}
+:_warehouse_WComboBox_5	{buddy=':_itemGroup.Site:_QLabel' name='_warehouse' type='WComboBox' visible='1'}
 :_whsTypeStack._numberGroup_QGroupBox	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_numberGroup' type='QGroupBox' visible='1'}
 :_whsTypeStack._optionsGroup_QGroupBox	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_optionsGroup' type='QGroupBox' visible='1'}
 :_whsTypeStack._planGroup_QGroupBox	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_planGroup' type='QGroupBox' visible='1'}
