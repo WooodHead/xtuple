@@ -991,7 +991,7 @@ function main()
     test.log("Item Site setup for: DTRUCK1");
 
 
-   //----Setup Item site------
+    //----Setup Item site------
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
     waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -1044,7 +1044,84 @@ function main()
     clickButton(":List Item Sites.Close_QPushButton");
     test.log("Item Site setup for: DTRUCK1");
 
+    newSOWh("DTRUCK1",150,"WH2");
+    newSOWh("DTRUCK1",100,"WH3");
+        
     MRP("+99");
+    
+    //------Verify generated Planned Orders-----
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+    type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
+    type(":xTuple ERP:*.Reports_QMenu", "<Right>");
+    type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
+    waitForObject(":_warehouse.All Sites_QRadioButton_2");
+    clickButton(":_warehouse.All Sites_QRadioButton_2");
+    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Query_QPushButton");
+    
+    waitForObject(":frame._planord_XTreeWidget");
+    var sWidgetTreeControl = ":frame._planord_XTreeWidget";
+    var obj_TreeWidget = findObject(sWidgetTreeControl);
+    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+    var iNumberOfRootItems = obj_TreeRootItem.childCount();
+    if(iNumberOfRootItems>0)
+    {
+        if(iNumberOfRootItems==5)
+        {
+            
+            obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="150.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+                test.pass("Expected Planned Order generated");
+            else 
+                test.fail("Incorrect Planned Order generated");
+            
+            
+            obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+                test.pass("Expected Planned Order generated");
+            else 
+                test.fail("Incorrect Planned Order generated");
+            
+            
+            obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+                test.pass("Expected Planned Order generated");
+            else 
+                test.fail("Incorrect Planned Order generated");
+
+            
+            
+            obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
+            if(obj_TreeTopLevelItem.text(4)=="TSUB1" && obj_TreeTopLevelItem.text(1)=="P/O")
+                test.pass("Expected Planned Order generated");
+            else 
+                test.fail("Incorrect Planned Order generated");
+
+            obj_TreeTopLevelItem = obj_TreeRootItem.child(3);
+            if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(1)=="W/O")
+                test.pass("Expected Planned Order generated");
+            else 
+                test.fail("Incorrect Planned Order generated");
+
+            
+        }        
+        else test.fail("Incorrect Planned Order generated");
+        
+    }        
+    else test.fail("No Planned Order generated");   
+    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
+    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
+
+    
+    //DRP S/O DEMAND P/O SUPPLY NETTING TEST
+    test.log("DRP S/O DEMAND P/O SUPPLY NETTING TEST");
+    
     
     
     
