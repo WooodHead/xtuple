@@ -19,7 +19,7 @@ SELECT womatl_id AS source_id, TEXT('W/O') AS type,
        itemuomtouom(component.itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq)  AS totalqty,
        itemuomtouom(component.itemsite_item_id, womatl_uom_id, NULL, womatl_qtyiss) AS relievedqty,
        itemuomtouom(component.itemsite_item_id, womatl_uom_id, NULL, noNeg(womatl_qtyreq - womatl_qtyiss)) AS balanceqty,
-       wo_duedate AS duedate
+       womatl_duedate AS duedate
 
 FROM womatl, wo, itemsite AS parent, itemsite AS component, item
 WHERE ((womatl_wo_id=wo_id)
@@ -30,13 +30,13 @@ WHERE ((womatl_wo_id=wo_id)
   AND (component.itemsite_warehous_id=<? value("warehous_id") ?>)
   AND (component.itemsite_item_id=<? value("item_id") ?>)
 <? if exists("leadTime") ?>
-  AND (wo_duedate <= (CURRENT_DATE + component.itemsite_leadtime))
+  AND (womatl_duedate <= (CURRENT_DATE + component.itemsite_leadtime))
 <? elseif exists("days") ?>
-  AND (wo_duedate <= (CURRENT_DATE + <? value("days") ?>))
+  AND (womatl_duedate <= (CURRENT_DATE + <? value("days") ?>))
 <? elseif exists("date") ?>
-  AND (wo_duedate <= <? value("date") ?>)
+  AND (womatl_duedate <= <? value("date") ?>)
 <? elseif exists("startDate") ?>
-  AND (wo_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+  AND (womatl_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? endif ?>
 )
 
