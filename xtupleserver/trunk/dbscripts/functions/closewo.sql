@@ -1,8 +1,7 @@
-CREATE OR REPLACE FUNCTION closeWo(INTEGER, BOOLEAN, BOOLEAN) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION closeWo(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pWoid ALIAS FOR $1;
   pPostMaterialVariances ALIAS FOR $2;
-  pPostLaborVariances ALIAS FOR $3;
   _woNumber TEXT;
   _check CHAR;
 
@@ -73,65 +72,12 @@ BEGIN
        AND (womatl_itemsite_id=itemsite_id)      
        AND (wo_id=pWoid));
     END IF;
-
-    IF (pPostLaborVariances) THEN
---  Post wooper variances
-      INSERT INTO woopervar
-      ( woopervar_number, woopervar_subnumber, woopervar_seqnumber, woopervar_posted,
-        woopervar_parent_itemsite_id, woopervar_booitem_id, woopervar_wrkcnt_id,
-        woopervar_qtyord, woopervar_qtyrcv,
-        woopervar_stdsutime, woopervar_sutime,
-        woopervar_stdrntime, woopervar_rntime )
-      SELECT wo_number, wo_subnumber, wooper_seqnumber, CURRENT_DATE,
-             wo_itemsite_id, wooper_booitem_id, wooper_wrkcnt_id,
-             wo_qtyord, wo_qtyrcv,
-             wooper_sutime, wooper_suconsumed,
-             wooper_rntime, wooper_rnconsumed
-      FROM wo, wooper
-      WHERE ((wooper_wo_id=wo_id)
-       AND (wo_id=pWoid));
-    END IF;
-
-  END IF;
-
---  Post Breeder distribution variances for Breeder parent item if we received on the WO
-  IF ( ( SELECT (item_type='B')
-         FROM wo, itemsite, item
-         WHERE ( (wo_itemsite_id=itemsite_id)
-          AND (itemsite_item_id=item_id)
-	  AND (wo_qtyrcv > 0)
-          AND (wo_id=pWoid) ) ) ) THEN
-    INSERT INTO brdvar
-    ( brdvar_postdate, brdvar_wonumber, brdvar_parent_itemsite_id, brdvar_itemsite_id,
-      brdvar_wo_qty, brdvar_stdqtyper, brdvar_actqtyper )
-    SELECT CURRENT_DATE, _woNumber, wo_itemsite_id, brddist_itemsite_id,
-           SUM(brddist_wo_qty), brddist_stdqtyper,
-	   CASE WHEN (SUM(brddist_wo_qty)=0) THEN 'NaN' -- any qty is unexpected
-	        ELSE (SUM(brddist_qty) / SUM(brddist_wo_qty))
-	   END
-    FROM brddist, wo
-    WHERE ( (brddist_wo_id=wo_id)
-     AND (brddist_wo_id=pWoid) )
-    GROUP BY wo_itemsite_id, brddist_itemsite_id, brddist_stdqtyper;
-
-    DELETE FROM brddist
-    WHERE (brddist_wo_id=pWoid);
   END IF;
 
 --  Delete any P/R's created for this W/O
   PERFORM deletePr('W', womatl_id)
   FROM womatl
   WHERE (womatl_wo_id=pWoid);
-
--- The following lines commented out for version 2.1 
--- and moved to purgeClosedWorkOrders.cpp where
--- wo rows are removed
-
---  DELETE FROM womatl
---  WHERE (womatl_wo_id=pWoid);
-
---  DELETE FROM wooper
---  WHERE (wooper_wo_id=pWoid);
 
   UPDATE wo
   SET wo_wipvalue = 0, wo_brdvalue=0,
