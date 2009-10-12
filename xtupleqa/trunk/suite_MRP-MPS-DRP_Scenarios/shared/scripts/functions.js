@@ -336,6 +336,58 @@ function newPO(item, quant, ddate)
 }
 
 
+function newPOWh(item, quant, ddate,Wh)    
+{
+    
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Purchase");
+    activateItem(":xTuple ERP:*_QMenuBar", "Purchase");
+    waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
+    activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
+    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+    waitForObject(":List Unposted Purchase Orders.New_QPushButton");
+    clickButton(":List Unposted Purchase Orders.New_QPushButton");
+    waitForObject(":_headerPage...._QPushButton_3");
+    clickButton(":_headerPage...._QPushButton_3");
+    waitForObject(":_listTab_XTreeWidget_2");
+    doubleClickItem(":_listTab_XTreeWidget_2", "TPARTS", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Purchase Order.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
+    waitForObject(":_lineItemsPage.New_QPushButton_2");
+    clickButton(":_lineItemsPage.New_QPushButton_2");
+    waitForObject(":groupBox_2...._QPushButton");
+    clickButton(":groupBox_2...._QPushButton");
+    waitForObject(":groupBox_2._warehouse_WComboBox");
+    if(findObject(":groupBox_2._warehouse_WComboBox").currentText!=Wh)
+        clickItem(":groupBox_2._warehouse_WComboBox", Wh, 0, 0, 1, Qt.LeftButton);
+    waitForObject(":groupBox_2.Buy Items Only_QCheckBox");
+    if(findObject(":groupBox_2.Buy Items Only_QCheckBox").checked)
+        clickButton(":groupBox_2.Buy Items Only_QCheckBox");
+    waitForObject(":groupBox_2.Make Items Only_QCheckBox");
+    if(findObject(":groupBox_2.Make Items Only_QCheckBox").checked)
+        clickButton(":groupBox_2.Make Items Only_QCheckBox");
+    waitForObject(":_item_XTreeWidget_7");
+    doubleClickItem(":_item_XTreeWidget_7", item, 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_ordered_XLineEdit");
+    type(":_ordered_XLineEdit", quant);
+    waitForObject(":_ordered_XLineEdit");
+    type(":_ordered_XLineEdit", "<Tab>");
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_3");
+    findObject(":_schedGroup.XDateEdit_XDateEdit_3").clear();
+    type(":_schedGroup.XDateEdit_XDateEdit_3", "0");
+    type(":_schedGroup.XDateEdit_XDateEdit_3", "<Tab>");
+    waitForObject(":Purchase Order.Save_QPushButton");
+    clickButton(":Purchase Order.Save_QPushButton");
+    waitForObject(":Purchase Order.Save_QPushButton_2");
+    clickButton(":Purchase Order.Save_QPushButton_2");
+    waitForObject(":Purchase Order.Close_QPushButton");
+    clickButton(":Purchase Order.Close_QPushButton");
+    waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
+    clickButton(":List Unposted Purchase Orders.Close_QPushButton");
+    test.log("new Purchase Order created");
+
+}
+
 
 
 function DelAllPO()
