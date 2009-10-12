@@ -40,3 +40,25 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION getPeriodId(date)
+  RETURNS integer AS '
+DECLARE
+  pPeriodDate ALIAS FOR $1;
+  _returnVal INTEGER;
+BEGIN
+  IF (pPeriodDate IS NULL) THEN
+	RETURN NULL;
+  END IF;
+
+  SELECT period_id INTO _returnVal
+  FROM period
+  WHERE ((pPeriodDate) between period_start AND period_end);
+
+  IF (_returnVal IS NULL) THEN
+    RAISE EXCEPTION 'Period for % not found.', pPeriodDate;
+  END IF;
+
+  RETURN _returnVal;
+END;
+' LANGUAGE 'plpgsql';
+
